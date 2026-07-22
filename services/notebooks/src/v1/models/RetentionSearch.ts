@@ -61,7 +61,7 @@ export class RetentionSearch {
     returnCriteria: {
       baseName: "return_criteria",
       type: "RetentionReturnCriteria",
-    },
+    }
   };
 
   /**

@@ -19,7 +19,7 @@ export class IncidentCreateAttributes {
   /**
    * A condensed view of the user-defined fields for which to create initial selections.
    */
-  "fields"?: { [key: string]: IncidentFieldAttributes };
+  "fields"?: { [key: string]: IncidentFieldAttributes; };
   /**
    * A unique identifier that represents an incident type. The default incident type will be used if this property is not provided.
    */
@@ -45,7 +45,7 @@ export class IncidentCreateAttributes {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
   /**
    * @ignore
    */

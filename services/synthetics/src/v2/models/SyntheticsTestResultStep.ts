@@ -30,7 +30,7 @@ export class SyntheticsTestResultStep {
   /**
    * Inner API test definition for browser `runApiTest` steps.
    */
-  "apiTest"?: { [key: string]: any };
+  "apiTest"?: { [key: string]: any; };
   /**
    * Assertion result for a browser or mobile step.
    */
@@ -70,7 +70,7 @@ export class SyntheticsTestResultStep {
   /**
    * Request configuration executed by this step (API test steps).
    */
-  "config"?: { [key: string]: any };
+  "config"?: { [key: string]: any; };
   /**
    * Human-readable description of the step.
    */
@@ -166,7 +166,7 @@ export class SyntheticsTestResultStep {
   /**
    * Timing breakdown of the step execution.
    */
-  "timings"?: { [key: string]: any };
+  "timings"?: { [key: string]: any; };
   /**
    * Whether the step was executed through a Synthetics tunnel.
    */
@@ -200,7 +200,7 @@ export class SyntheticsTestResultStep {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
   /**
    * @ignore
    */

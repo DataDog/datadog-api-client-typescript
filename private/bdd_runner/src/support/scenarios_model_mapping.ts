@@ -1,14 +1,14 @@
 interface ParameterType {
-  type: string;
-  format: string;
+    type: string;
+    format: string;
 }
 
 interface OperationMapping {
-  [key: string]: ParameterType | string;
-  operationResponseType: string;
+    [key: string]: ParameterType | string;
+    operationResponseType: string;
 }
 
-export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
+export const ScenariosModelMappings: {[key: string]: OperationMapping} = {
   "IPRangesApi.V1.GetIPRanges": {
     operationResponseType: "IPRanges",
   },
@@ -5601,16 +5601,14 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
       type: "TestOptimizationFlakyTestsManagementPoliciesGetRequest",
       format: "",
     },
-    operationResponseType:
-      "TestOptimizationFlakyTestsManagementPoliciesResponse",
+    operationResponseType: "TestOptimizationFlakyTestsManagementPoliciesResponse",
   },
   "TestOptimizationApi.V2.UpdateFlakyTestsManagementPolicies": {
     body: {
       type: "TestOptimizationFlakyTestsManagementPoliciesUpdateRequest",
       format: "",
     },
-    operationResponseType:
-      "TestOptimizationFlakyTestsManagementPoliciesResponse",
+    operationResponseType: "TestOptimizationFlakyTestsManagementPoliciesResponse",
   },
   "TestOptimizationApi.V2.GetTestOptimizationServiceSettings": {
     body: {
@@ -5978,34 +5976,31 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
     },
     operationResponseType: "{}",
   },
-  "SecurityMonitoringApi.V2.ListSecurityFindingsAutomationTicketCreationRules":
-    {
-      pageSize: {
-        type: "number",
-        format: "int64",
-      },
-      pageNumber: {
-        type: "number",
-        format: "int64",
-      },
-      operationResponseType: "TicketCreationRulesResponse",
+  "SecurityMonitoringApi.V2.ListSecurityFindingsAutomationTicketCreationRules": {
+    pageSize: {
+      type: "number",
+      format: "int64",
     },
-  "SecurityMonitoringApi.V2.CreateSecurityFindingsAutomationTicketCreationRule":
-    {
-      body: {
-        type: "TicketCreationRuleCreateRequest",
-        format: "",
-      },
-      operationResponseType: "TicketCreationRuleResponse",
+    pageNumber: {
+      type: "number",
+      format: "int64",
     },
-  "SecurityMonitoringApi.V2.ReorderSecurityFindingsAutomationTicketCreationRules":
-    {
-      body: {
-        type: "TicketCreationRuleReorderRequest",
-        format: "",
-      },
-      operationResponseType: "TicketCreationRuleReorderRequest",
+    operationResponseType: "TicketCreationRulesResponse",
+  },
+  "SecurityMonitoringApi.V2.CreateSecurityFindingsAutomationTicketCreationRule": {
+    body: {
+      type: "TicketCreationRuleCreateRequest",
+      format: "",
     },
+    operationResponseType: "TicketCreationRuleResponse",
+  },
+  "SecurityMonitoringApi.V2.ReorderSecurityFindingsAutomationTicketCreationRules": {
+    body: {
+      type: "TicketCreationRuleReorderRequest",
+      format: "",
+    },
+    operationResponseType: "TicketCreationRuleReorderRequest",
+  },
   "SecurityMonitoringApi.V2.GetSecurityFindingsAutomationTicketCreationRule": {
     ruleId: {
       type: "string",
@@ -6013,26 +6008,24 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
     },
     operationResponseType: "TicketCreationRuleResponse",
   },
-  "SecurityMonitoringApi.V2.UpdateSecurityFindingsAutomationTicketCreationRule":
-    {
-      ruleId: {
-        type: "string",
-        format: "uuid",
-      },
-      body: {
-        type: "TicketCreationRuleUpdateRequest",
-        format: "",
-      },
-      operationResponseType: "TicketCreationRuleResponse",
+  "SecurityMonitoringApi.V2.UpdateSecurityFindingsAutomationTicketCreationRule": {
+    ruleId: {
+      type: "string",
+      format: "uuid",
     },
-  "SecurityMonitoringApi.V2.DeleteSecurityFindingsAutomationTicketCreationRule":
-    {
-      ruleId: {
-        type: "string",
-        format: "uuid",
-      },
-      operationResponseType: "{}",
+    body: {
+      type: "TicketCreationRuleUpdateRequest",
+      format: "",
     },
+    operationResponseType: "TicketCreationRuleResponse",
+  },
+  "SecurityMonitoringApi.V2.DeleteSecurityFindingsAutomationTicketCreationRule": {
+    ruleId: {
+      type: "string",
+      format: "uuid",
+    },
+    operationResponseType: "{}",
+  },
   "SecurityMonitoringApi.V2.CreateCases": {
     body: {
       type: "CreateCaseRequestArray",
@@ -6640,8 +6633,7 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
     operationResponseType: "SecurityMonitoringIntegrationConfigResponse",
   },
   "SecurityMonitoringApi.V2.GetEntraIdAzureAppRegistrations": {
-    operationResponseType:
-      "SecurityMonitoringEntraIdAzureAppRegistrationsResponse",
+    operationResponseType: "SecurityMonitoringEntraIdAzureAppRegistrationsResponse",
   },
   "SecurityMonitoringApi.V2.ValidateSecurityMonitoringIntegrationCredentials": {
     body: {
@@ -17717,4 +17709,4 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
     },
     operationResponseType: "WorklflowCancelInstanceResponse",
   },
-};
+}

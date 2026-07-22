@@ -19,6 +19,7 @@ import {
   ServerConfiguration,
   stringify,
   applySecurityAuthentication,
+  
 } from "@datadog/datadog-api-client";
 
 import { TypingInfo } from "./models/TypingInfo";
@@ -77,9 +78,7 @@ export class TeamsApiRequestFactory extends BaseAPIRequestFactory {
     const _config = _options || this.configuration;
 
     if (!_config.unstableOperations["TeamsApi.v2.addMemberTeam"]) {
-      throw new Error(
-        "Unstable operation 'addMemberTeam' is disabled. Enable it by setting `configuration.unstableOperations['TeamsApi.v2.addMemberTeam'] = true`",
-      );
+      throw new Error("Unstable operation 'addMemberTeam' is disabled. Enable it by setting `configuration.unstableOperations['TeamsApi.v2.addMemberTeam'] = true`");
     }
 
     // verify required parameter 'superTeamId' is not null or undefined
@@ -99,15 +98,8 @@ export class TeamsApiRequestFactory extends BaseAPIRequestFactory {
     );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "TeamsApi.v2.addMemberTeam",
-      TeamsApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.POST,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("TeamsApi.v2.addMemberTeam", TeamsApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.POST, overrides);
     requestContext.setHeaderParam("Accept", "*/*");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -117,7 +109,9 @@ export class TeamsApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Body Params
-    const contentType = getPreferredMediaType(["application/json"]);
+    const contentType = getPreferredMediaType([
+      "application/json",
+    ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = stringify(
       serialize(body, TypingInfo, "AddMemberTeamRequest", ""),
@@ -150,15 +144,8 @@ export class TeamsApiRequestFactory extends BaseAPIRequestFactory {
     const localVarPath = "/api/v2/team-hierarchy-links";
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "TeamsApi.v2.addTeamHierarchyLink",
-      TeamsApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.POST,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("TeamsApi.v2.addTeamHierarchyLink", TeamsApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.POST, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -168,7 +155,9 @@ export class TeamsApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Body Params
-    const contentType = getPreferredMediaType(["application/json"]);
+    const contentType = getPreferredMediaType([
+      "application/json",
+    ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = stringify(
       serialize(body, TypingInfo, "TeamHierarchyLinkCreateRequest", ""),
@@ -201,15 +190,8 @@ export class TeamsApiRequestFactory extends BaseAPIRequestFactory {
     const localVarPath = "/api/v2/team";
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "TeamsApi.v2.createTeam",
-      TeamsApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.POST,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("TeamsApi.v2.createTeam", TeamsApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.POST, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -219,7 +201,9 @@ export class TeamsApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Body Params
-    const contentType = getPreferredMediaType(["application/json"]);
+    const contentType = getPreferredMediaType([
+      "application/json",
+    ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = stringify(
       serialize(body, TypingInfo, "TeamCreateRequest", ""),
@@ -252,15 +236,8 @@ export class TeamsApiRequestFactory extends BaseAPIRequestFactory {
     const localVarPath = "/api/v2/team/connections";
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "TeamsApi.v2.createTeamConnections",
-      TeamsApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.POST,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("TeamsApi.v2.createTeamConnections", TeamsApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.POST, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -270,7 +247,9 @@ export class TeamsApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Body Params
-    const contentType = getPreferredMediaType(["application/json"]);
+    const contentType = getPreferredMediaType([
+      "application/json",
+    ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = stringify(
       serialize(body, TypingInfo, "TeamConnectionCreateRequest", ""),
@@ -312,15 +291,8 @@ export class TeamsApiRequestFactory extends BaseAPIRequestFactory {
     );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "TeamsApi.v2.createTeamLink",
-      TeamsApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.POST,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("TeamsApi.v2.createTeamLink", TeamsApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.POST, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -330,7 +302,9 @@ export class TeamsApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Body Params
-    const contentType = getPreferredMediaType(["application/json"]);
+    const contentType = getPreferredMediaType([
+      "application/json",
+    ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = stringify(
       serialize(body, TypingInfo, "TeamLinkCreateRequest", ""),
@@ -372,15 +346,8 @@ export class TeamsApiRequestFactory extends BaseAPIRequestFactory {
     );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "TeamsApi.v2.createTeamMembership",
-      TeamsApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.POST,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("TeamsApi.v2.createTeamMembership", TeamsApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.POST, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -390,7 +357,9 @@ export class TeamsApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Body Params
-    const contentType = getPreferredMediaType(["application/json"]);
+    const contentType = getPreferredMediaType([
+      "application/json",
+    ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = stringify(
       serialize(body, TypingInfo, "UserTeamRequest", ""),
@@ -432,15 +401,8 @@ export class TeamsApiRequestFactory extends BaseAPIRequestFactory {
     );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "TeamsApi.v2.createTeamNotificationRule",
-      TeamsApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.POST,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("TeamsApi.v2.createTeamNotificationRule", TeamsApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.POST, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -450,7 +412,9 @@ export class TeamsApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Body Params
-    const contentType = getPreferredMediaType(["application/json"]);
+    const contentType = getPreferredMediaType([
+      "application/json",
+    ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = stringify(
       serialize(body, TypingInfo, "TeamNotificationRuleRequest", ""),
@@ -486,15 +450,8 @@ export class TeamsApiRequestFactory extends BaseAPIRequestFactory {
     );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "TeamsApi.v2.deleteTeam",
-      TeamsApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.DELETE,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("TeamsApi.v2.deleteTeam", TeamsApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.DELETE, overrides);
     requestContext.setHeaderParam("Accept", "*/*");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -528,15 +485,8 @@ export class TeamsApiRequestFactory extends BaseAPIRequestFactory {
     const localVarPath = "/api/v2/team/connections";
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "TeamsApi.v2.deleteTeamConnections",
-      TeamsApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.DELETE,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("TeamsApi.v2.deleteTeamConnections", TeamsApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.DELETE, overrides);
     requestContext.setHeaderParam("Accept", "*/*");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -546,7 +496,9 @@ export class TeamsApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Body Params
-    const contentType = getPreferredMediaType(["application/json"]);
+    const contentType = getPreferredMediaType([
+      "application/json",
+    ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = stringify(
       serialize(body, TypingInfo, "TeamConnectionDeleteRequest", ""),
@@ -582,20 +534,17 @@ export class TeamsApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Path Params
-    const localVarPath = "/api/v2/team/{team_id}/links/{link_id}"
-      .replace("{team_id}", encodeURIComponent(String(teamId)))
-      .replace("{link_id}", encodeURIComponent(String(linkId)));
+    const localVarPath = "/api/v2/team/{team_id}/links/{link_id}".replace(
+      "{team_id}",
+      encodeURIComponent(String(teamId)),
+    ).replace(
+      "{link_id}",
+      encodeURIComponent(String(linkId)),
+    );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "TeamsApi.v2.deleteTeamLink",
-      TeamsApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.DELETE,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("TeamsApi.v2.deleteTeamLink", TeamsApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.DELETE, overrides);
     requestContext.setHeaderParam("Accept", "*/*");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -632,20 +581,17 @@ export class TeamsApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Path Params
-    const localVarPath = "/api/v2/team/{team_id}/memberships/{user_id}"
-      .replace("{team_id}", encodeURIComponent(String(teamId)))
-      .replace("{user_id}", encodeURIComponent(String(userId)));
+    const localVarPath = "/api/v2/team/{team_id}/memberships/{user_id}".replace(
+      "{team_id}",
+      encodeURIComponent(String(teamId)),
+    ).replace(
+      "{user_id}",
+      encodeURIComponent(String(userId)),
+    );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "TeamsApi.v2.deleteTeamMembership",
-      TeamsApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.DELETE,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("TeamsApi.v2.deleteTeamMembership", TeamsApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.DELETE, overrides);
     requestContext.setHeaderParam("Accept", "*/*");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -682,20 +628,17 @@ export class TeamsApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Path Params
-    const localVarPath = "/api/v2/team/{team_id}/notification-rules/{rule_id}"
-      .replace("{team_id}", encodeURIComponent(String(teamId)))
-      .replace("{rule_id}", encodeURIComponent(String(ruleId)));
+    const localVarPath = "/api/v2/team/{team_id}/notification-rules/{rule_id}".replace(
+      "{team_id}",
+      encodeURIComponent(String(teamId)),
+    ).replace(
+      "{rule_id}",
+      encodeURIComponent(String(ruleId)),
+    );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "TeamsApi.v2.deleteTeamNotificationRule",
-      TeamsApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.DELETE,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("TeamsApi.v2.deleteTeamNotificationRule", TeamsApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.DELETE, overrides);
     requestContext.setHeaderParam("Accept", "*/*");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -732,15 +675,8 @@ export class TeamsApiRequestFactory extends BaseAPIRequestFactory {
     );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "TeamsApi.v2.getTeam",
-      TeamsApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.GET,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("TeamsApi.v2.getTeam", TeamsApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.GET, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -777,15 +713,8 @@ export class TeamsApiRequestFactory extends BaseAPIRequestFactory {
     );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "TeamsApi.v2.getTeamHierarchyLink",
-      TeamsApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.GET,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("TeamsApi.v2.getTeamHierarchyLink", TeamsApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.GET, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -822,20 +751,17 @@ export class TeamsApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Path Params
-    const localVarPath = "/api/v2/team/{team_id}/links/{link_id}"
-      .replace("{team_id}", encodeURIComponent(String(teamId)))
-      .replace("{link_id}", encodeURIComponent(String(linkId)));
+    const localVarPath = "/api/v2/team/{team_id}/links/{link_id}".replace(
+      "{team_id}",
+      encodeURIComponent(String(teamId)),
+    ).replace(
+      "{link_id}",
+      encodeURIComponent(String(linkId)),
+    );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "TeamsApi.v2.getTeamLink",
-      TeamsApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.GET,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("TeamsApi.v2.getTeamLink", TeamsApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.GET, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -872,15 +798,8 @@ export class TeamsApiRequestFactory extends BaseAPIRequestFactory {
     );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "TeamsApi.v2.getTeamLinks",
-      TeamsApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.GET,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("TeamsApi.v2.getTeamLinks", TeamsApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.GET, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -921,15 +840,8 @@ export class TeamsApiRequestFactory extends BaseAPIRequestFactory {
     );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "TeamsApi.v2.getTeamMemberships",
-      TeamsApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.GET,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("TeamsApi.v2.getTeamMemberships", TeamsApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.GET, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -996,20 +908,17 @@ export class TeamsApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Path Params
-    const localVarPath = "/api/v2/team/{team_id}/notification-rules/{rule_id}"
-      .replace("{team_id}", encodeURIComponent(String(teamId)))
-      .replace("{rule_id}", encodeURIComponent(String(ruleId)));
+    const localVarPath = "/api/v2/team/{team_id}/notification-rules/{rule_id}".replace(
+      "{team_id}",
+      encodeURIComponent(String(teamId)),
+    ).replace(
+      "{rule_id}",
+      encodeURIComponent(String(ruleId)),
+    );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "TeamsApi.v2.getTeamNotificationRule",
-      TeamsApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.GET,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("TeamsApi.v2.getTeamNotificationRule", TeamsApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.GET, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -1046,15 +955,8 @@ export class TeamsApiRequestFactory extends BaseAPIRequestFactory {
     );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "TeamsApi.v2.getTeamNotificationRules",
-      TeamsApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.GET,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("TeamsApi.v2.getTeamNotificationRules", TeamsApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.GET, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -1091,15 +993,8 @@ export class TeamsApiRequestFactory extends BaseAPIRequestFactory {
     );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "TeamsApi.v2.getTeamPermissionSettings",
-      TeamsApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.GET,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("TeamsApi.v2.getTeamPermissionSettings", TeamsApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.GET, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -1133,15 +1028,8 @@ export class TeamsApiRequestFactory extends BaseAPIRequestFactory {
     const localVarPath = "/api/v2/team/sync";
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "TeamsApi.v2.getTeamSync",
-      TeamsApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.GET,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("TeamsApi.v2.getTeamSync", TeamsApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.GET, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -1187,15 +1075,8 @@ export class TeamsApiRequestFactory extends BaseAPIRequestFactory {
     );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "TeamsApi.v2.getUserMemberships",
-      TeamsApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.GET,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("TeamsApi.v2.getUserMemberships", TeamsApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.GET, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -1224,9 +1105,7 @@ export class TeamsApiRequestFactory extends BaseAPIRequestFactory {
     const _config = _options || this.configuration;
 
     if (!_config.unstableOperations["TeamsApi.v2.listMemberTeams"]) {
-      throw new Error(
-        "Unstable operation 'listMemberTeams' is disabled. Enable it by setting `configuration.unstableOperations['TeamsApi.v2.listMemberTeams'] = true`",
-      );
+      throw new Error("Unstable operation 'listMemberTeams' is disabled. Enable it by setting `configuration.unstableOperations['TeamsApi.v2.listMemberTeams'] = true`");
     }
 
     // verify required parameter 'superTeamId' is not null or undefined
@@ -1241,15 +1120,8 @@ export class TeamsApiRequestFactory extends BaseAPIRequestFactory {
     );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "TeamsApi.v2.listMemberTeams",
-      TeamsApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.GET,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("TeamsApi.v2.listMemberTeams", TeamsApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.GET, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -1306,15 +1178,8 @@ export class TeamsApiRequestFactory extends BaseAPIRequestFactory {
     const localVarPath = "/api/v2/team/connections";
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "TeamsApi.v2.listTeamConnections",
-      TeamsApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.GET,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("TeamsApi.v2.listTeamConnections", TeamsApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.GET, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -1390,15 +1255,8 @@ export class TeamsApiRequestFactory extends BaseAPIRequestFactory {
     const localVarPath = "/api/v2/team-hierarchy-links";
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "TeamsApi.v2.listTeamHierarchyLinks",
-      TeamsApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.GET,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("TeamsApi.v2.listTeamHierarchyLinks", TeamsApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.GET, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -1463,15 +1321,8 @@ export class TeamsApiRequestFactory extends BaseAPIRequestFactory {
     const localVarPath = "/api/v2/team";
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "TeamsApi.v2.listTeams",
-      TeamsApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.GET,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("TeamsApi.v2.listTeams", TeamsApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.GET, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -1549,9 +1400,7 @@ export class TeamsApiRequestFactory extends BaseAPIRequestFactory {
     const _config = _options || this.configuration;
 
     if (!_config.unstableOperations["TeamsApi.v2.removeMemberTeam"]) {
-      throw new Error(
-        "Unstable operation 'removeMemberTeam' is disabled. Enable it by setting `configuration.unstableOperations['TeamsApi.v2.removeMemberTeam'] = true`",
-      );
+      throw new Error("Unstable operation 'removeMemberTeam' is disabled. Enable it by setting `configuration.unstableOperations['TeamsApi.v2.removeMemberTeam'] = true`");
     }
 
     // verify required parameter 'superTeamId' is not null or undefined
@@ -1565,21 +1414,17 @@ export class TeamsApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Path Params
-    const localVarPath =
-      "/api/v2/team/{super_team_id}/member_teams/{member_team_id}"
-        .replace("{super_team_id}", encodeURIComponent(String(superTeamId)))
-        .replace("{member_team_id}", encodeURIComponent(String(memberTeamId)));
+    const localVarPath = "/api/v2/team/{super_team_id}/member_teams/{member_team_id}".replace(
+      "{super_team_id}",
+      encodeURIComponent(String(superTeamId)),
+    ).replace(
+      "{member_team_id}",
+      encodeURIComponent(String(memberTeamId)),
+    );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "TeamsApi.v2.removeMemberTeam",
-      TeamsApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.DELETE,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("TeamsApi.v2.removeMemberTeam", TeamsApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.DELETE, overrides);
     requestContext.setHeaderParam("Accept", "*/*");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -1616,15 +1461,8 @@ export class TeamsApiRequestFactory extends BaseAPIRequestFactory {
     );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "TeamsApi.v2.removeTeamHierarchyLink",
-      TeamsApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.DELETE,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("TeamsApi.v2.removeTeamHierarchyLink", TeamsApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.DELETE, overrides);
     requestContext.setHeaderParam("Accept", "*/*");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -1658,15 +1496,8 @@ export class TeamsApiRequestFactory extends BaseAPIRequestFactory {
     const localVarPath = "/api/v2/team/sync";
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "TeamsApi.v2.syncTeams",
-      TeamsApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.POST,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("TeamsApi.v2.syncTeams", TeamsApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.POST, overrides);
     requestContext.setHeaderParam("Accept", "*/*");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -1676,7 +1507,9 @@ export class TeamsApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Body Params
-    const contentType = getPreferredMediaType(["application/json"]);
+    const contentType = getPreferredMediaType([
+      "application/json",
+    ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = stringify(
       serialize(body, TypingInfo, "TeamSyncRequest", ""),
@@ -1718,15 +1551,8 @@ export class TeamsApiRequestFactory extends BaseAPIRequestFactory {
     );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "TeamsApi.v2.updateTeam",
-      TeamsApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.PATCH,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("TeamsApi.v2.updateTeam", TeamsApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.PATCH, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -1736,7 +1562,9 @@ export class TeamsApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Body Params
-    const contentType = getPreferredMediaType(["application/json"]);
+    const contentType = getPreferredMediaType([
+      "application/json",
+    ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = stringify(
       serialize(body, TypingInfo, "TeamUpdateRequest", ""),
@@ -1778,20 +1606,17 @@ export class TeamsApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Path Params
-    const localVarPath = "/api/v2/team/{team_id}/links/{link_id}"
-      .replace("{team_id}", encodeURIComponent(String(teamId)))
-      .replace("{link_id}", encodeURIComponent(String(linkId)));
+    const localVarPath = "/api/v2/team/{team_id}/links/{link_id}".replace(
+      "{team_id}",
+      encodeURIComponent(String(teamId)),
+    ).replace(
+      "{link_id}",
+      encodeURIComponent(String(linkId)),
+    );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "TeamsApi.v2.updateTeamLink",
-      TeamsApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.PATCH,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("TeamsApi.v2.updateTeamLink", TeamsApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.PATCH, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -1801,7 +1626,9 @@ export class TeamsApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Body Params
-    const contentType = getPreferredMediaType(["application/json"]);
+    const contentType = getPreferredMediaType([
+      "application/json",
+    ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = stringify(
       serialize(body, TypingInfo, "TeamLinkCreateRequest", ""),
@@ -1843,20 +1670,17 @@ export class TeamsApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Path Params
-    const localVarPath = "/api/v2/team/{team_id}/memberships/{user_id}"
-      .replace("{team_id}", encodeURIComponent(String(teamId)))
-      .replace("{user_id}", encodeURIComponent(String(userId)));
+    const localVarPath = "/api/v2/team/{team_id}/memberships/{user_id}".replace(
+      "{team_id}",
+      encodeURIComponent(String(teamId)),
+    ).replace(
+      "{user_id}",
+      encodeURIComponent(String(userId)),
+    );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "TeamsApi.v2.updateTeamMembership",
-      TeamsApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.PATCH,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("TeamsApi.v2.updateTeamMembership", TeamsApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.PATCH, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -1866,7 +1690,9 @@ export class TeamsApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Body Params
-    const contentType = getPreferredMediaType(["application/json"]);
+    const contentType = getPreferredMediaType([
+      "application/json",
+    ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = stringify(
       serialize(body, TypingInfo, "UserTeamUpdateRequest", ""),
@@ -1908,20 +1734,17 @@ export class TeamsApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Path Params
-    const localVarPath = "/api/v2/team/{team_id}/notification-rules/{rule_id}"
-      .replace("{team_id}", encodeURIComponent(String(teamId)))
-      .replace("{rule_id}", encodeURIComponent(String(ruleId)));
+    const localVarPath = "/api/v2/team/{team_id}/notification-rules/{rule_id}".replace(
+      "{team_id}",
+      encodeURIComponent(String(teamId)),
+    ).replace(
+      "{rule_id}",
+      encodeURIComponent(String(ruleId)),
+    );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "TeamsApi.v2.updateTeamNotificationRule",
-      TeamsApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.PUT,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("TeamsApi.v2.updateTeamNotificationRule", TeamsApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.PUT, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -1931,7 +1754,9 @@ export class TeamsApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Body Params
-    const contentType = getPreferredMediaType(["application/json"]);
+    const contentType = getPreferredMediaType([
+      "application/json",
+    ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = stringify(
       serialize(body, TypingInfo, "TeamNotificationRuleRequest", ""),
@@ -1973,20 +1798,17 @@ export class TeamsApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Path Params
-    const localVarPath = "/api/v2/team/{team_id}/permission-settings/{action}"
-      .replace("{team_id}", encodeURIComponent(String(teamId)))
-      .replace("{action}", encodeURIComponent(String(action)));
+    const localVarPath = "/api/v2/team/{team_id}/permission-settings/{action}".replace(
+      "{team_id}",
+      encodeURIComponent(String(teamId)),
+    ).replace(
+      "{action}",
+      encodeURIComponent(String(action)),
+    );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "TeamsApi.v2.updateTeamPermissionSetting",
-      TeamsApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.PUT,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("TeamsApi.v2.updateTeamPermissionSetting", TeamsApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.PUT, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -1996,7 +1818,9 @@ export class TeamsApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Body Params
-    const contentType = getPreferredMediaType(["application/json"]);
+    const contentType = getPreferredMediaType([
+      "application/json",
+    ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = stringify(
       serialize(body, TypingInfo, "TeamPermissionSettingUpdateRequest", ""),
@@ -2023,8 +1847,12 @@ export class TeamsApiResponseProcessor {
    * @params response Response returned by the server for a request to addMemberTeam
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async addMemberTeam(response: ResponseContext): Promise<void> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+  public async addMemberTeam(
+    response: ResponseContext,
+  ): Promise<void> {
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 204) {
       return;
     }
@@ -2033,7 +1861,10 @@ export class TeamsApiResponseProcessor {
       response.httpStatusCode === 409 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -2048,7 +1879,10 @@ export class TeamsApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -2073,7 +1907,9 @@ export class TeamsApiResponseProcessor {
   public async addTeamHierarchyLink(
     response: ResponseContext,
   ): Promise<TeamHierarchyLinkResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: TeamHierarchyLinkResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -2087,7 +1923,10 @@ export class TeamsApiResponseProcessor {
       response.httpStatusCode === 409 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -2102,7 +1941,10 @@ export class TeamsApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -2130,8 +1972,12 @@ export class TeamsApiResponseProcessor {
    * @params response Response returned by the server for a request to createTeam
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async createTeam(response: ResponseContext): Promise<TeamResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+  public async createTeam(
+    response: ResponseContext,
+  ): Promise<TeamResponse> {
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 201) {
       const body: TeamResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -2145,7 +1991,10 @@ export class TeamsApiResponseProcessor {
       response.httpStatusCode === 409 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -2160,7 +2009,10 @@ export class TeamsApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -2191,7 +2043,9 @@ export class TeamsApiResponseProcessor {
   public async createTeamConnections(
     response: ResponseContext,
   ): Promise<TeamConnectionsResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 201) {
       const body: TeamConnectionsResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -2206,7 +2060,10 @@ export class TeamsApiResponseProcessor {
       response.httpStatusCode === 409 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -2221,7 +2078,10 @@ export class TeamsApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -2252,7 +2112,9 @@ export class TeamsApiResponseProcessor {
   public async createTeamLink(
     response: ResponseContext,
   ): Promise<TeamLinkResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: TeamLinkResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -2267,7 +2129,10 @@ export class TeamsApiResponseProcessor {
       response.httpStatusCode === 422 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -2282,7 +2147,10 @@ export class TeamsApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -2313,7 +2181,9 @@ export class TeamsApiResponseProcessor {
   public async createTeamMembership(
     response: ResponseContext,
   ): Promise<UserTeamResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: UserTeamResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -2328,7 +2198,10 @@ export class TeamsApiResponseProcessor {
       response.httpStatusCode === 409 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -2343,7 +2216,10 @@ export class TeamsApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -2374,7 +2250,9 @@ export class TeamsApiResponseProcessor {
   public async createTeamNotificationRule(
     response: ResponseContext,
   ): Promise<TeamNotificationRuleResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 201) {
       const body: TeamNotificationRuleResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -2389,7 +2267,10 @@ export class TeamsApiResponseProcessor {
       response.httpStatusCode === 409 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -2404,7 +2285,10 @@ export class TeamsApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -2432,8 +2316,12 @@ export class TeamsApiResponseProcessor {
    * @params response Response returned by the server for a request to deleteTeam
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async deleteTeam(response: ResponseContext): Promise<void> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+  public async deleteTeam(
+    response: ResponseContext,
+  ): Promise<void> {
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 204) {
       return;
     }
@@ -2442,7 +2330,10 @@ export class TeamsApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -2457,7 +2348,10 @@ export class TeamsApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -2479,8 +2373,12 @@ export class TeamsApiResponseProcessor {
    * @params response Response returned by the server for a request to deleteTeamConnections
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async deleteTeamConnections(response: ResponseContext): Promise<void> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+  public async deleteTeamConnections(
+    response: ResponseContext,
+  ): Promise<void> {
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 204) {
       return;
     }
@@ -2490,7 +2388,10 @@ export class TeamsApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -2505,7 +2406,10 @@ export class TeamsApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -2527,8 +2431,12 @@ export class TeamsApiResponseProcessor {
    * @params response Response returned by the server for a request to deleteTeamLink
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async deleteTeamLink(response: ResponseContext): Promise<void> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+  public async deleteTeamLink(
+    response: ResponseContext,
+  ): Promise<void> {
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 204) {
       return;
     }
@@ -2537,7 +2445,10 @@ export class TeamsApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -2552,7 +2463,10 @@ export class TeamsApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -2574,8 +2488,12 @@ export class TeamsApiResponseProcessor {
    * @params response Response returned by the server for a request to deleteTeamMembership
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async deleteTeamMembership(response: ResponseContext): Promise<void> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+  public async deleteTeamMembership(
+    response: ResponseContext,
+  ): Promise<void> {
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 204) {
       return;
     }
@@ -2584,7 +2502,10 @@ export class TeamsApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -2599,7 +2520,10 @@ export class TeamsApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -2624,7 +2548,9 @@ export class TeamsApiResponseProcessor {
   public async deleteTeamNotificationRule(
     response: ResponseContext,
   ): Promise<void> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 204) {
       return;
     }
@@ -2633,7 +2559,10 @@ export class TeamsApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -2648,7 +2577,10 @@ export class TeamsApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -2670,8 +2602,12 @@ export class TeamsApiResponseProcessor {
    * @params response Response returned by the server for a request to getTeam
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async getTeam(response: ResponseContext): Promise<TeamResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+  public async getTeam(
+    response: ResponseContext,
+  ): Promise<TeamResponse> {
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: TeamResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -2685,7 +2621,10 @@ export class TeamsApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -2700,7 +2639,10 @@ export class TeamsApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -2731,7 +2673,9 @@ export class TeamsApiResponseProcessor {
   public async getTeamHierarchyLink(
     response: ResponseContext,
   ): Promise<TeamHierarchyLinkResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: TeamHierarchyLinkResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -2745,7 +2689,10 @@ export class TeamsApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -2760,7 +2707,10 @@ export class TeamsApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -2791,7 +2741,9 @@ export class TeamsApiResponseProcessor {
   public async getTeamLink(
     response: ResponseContext,
   ): Promise<TeamLinkResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: TeamLinkResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -2805,7 +2757,10 @@ export class TeamsApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -2820,7 +2775,10 @@ export class TeamsApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -2851,7 +2809,9 @@ export class TeamsApiResponseProcessor {
   public async getTeamLinks(
     response: ResponseContext,
   ): Promise<TeamLinksResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: TeamLinksResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -2865,7 +2825,10 @@ export class TeamsApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -2880,7 +2843,10 @@ export class TeamsApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -2911,7 +2877,9 @@ export class TeamsApiResponseProcessor {
   public async getTeamMemberships(
     response: ResponseContext,
   ): Promise<UserTeamsResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: UserTeamsResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -2925,7 +2893,10 @@ export class TeamsApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -2940,7 +2911,10 @@ export class TeamsApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -2971,7 +2945,9 @@ export class TeamsApiResponseProcessor {
   public async getTeamNotificationRule(
     response: ResponseContext,
   ): Promise<TeamNotificationRuleResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: TeamNotificationRuleResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -2985,7 +2961,10 @@ export class TeamsApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -3000,7 +2979,10 @@ export class TeamsApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -3031,7 +3013,9 @@ export class TeamsApiResponseProcessor {
   public async getTeamNotificationRules(
     response: ResponseContext,
   ): Promise<TeamNotificationRulesResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: TeamNotificationRulesResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -3045,7 +3029,10 @@ export class TeamsApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -3060,7 +3047,10 @@ export class TeamsApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -3091,7 +3081,9 @@ export class TeamsApiResponseProcessor {
   public async getTeamPermissionSettings(
     response: ResponseContext,
   ): Promise<TeamPermissionSettingsResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: TeamPermissionSettingsResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -3105,7 +3097,10 @@ export class TeamsApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -3120,7 +3115,10 @@ export class TeamsApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -3151,7 +3149,9 @@ export class TeamsApiResponseProcessor {
   public async getTeamSync(
     response: ResponseContext,
   ): Promise<TeamSyncResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: TeamSyncResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -3160,8 +3160,14 @@ export class TeamsApiResponseProcessor {
       ) as TeamSyncResponse;
       return body;
     }
-    if (response.httpStatusCode === 403 || response.httpStatusCode === 429) {
-      const bodyText = parse(await response.body.text(), contentType);
+    if (
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 429
+    ) {
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -3176,7 +3182,10 @@ export class TeamsApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -3207,7 +3216,9 @@ export class TeamsApiResponseProcessor {
   public async getUserMemberships(
     response: ResponseContext,
   ): Promise<UserTeamsResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: UserTeamsResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -3216,8 +3227,14 @@ export class TeamsApiResponseProcessor {
       ) as UserTeamsResponse;
       return body;
     }
-    if (response.httpStatusCode === 404 || response.httpStatusCode === 429) {
-      const bodyText = parse(await response.body.text(), contentType);
+    if (
+      response.httpStatusCode === 404 ||
+      response.httpStatusCode === 429
+    ) {
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -3232,7 +3249,10 @@ export class TeamsApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -3263,7 +3283,9 @@ export class TeamsApiResponseProcessor {
   public async listMemberTeams(
     response: ResponseContext,
   ): Promise<TeamsResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: TeamsResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -3277,7 +3299,10 @@ export class TeamsApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -3292,7 +3317,10 @@ export class TeamsApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -3323,7 +3351,9 @@ export class TeamsApiResponseProcessor {
   public async listTeamConnections(
     response: ResponseContext,
   ): Promise<TeamConnectionsResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: TeamConnectionsResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -3337,7 +3367,10 @@ export class TeamsApiResponseProcessor {
       response.httpStatusCode === 403 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -3352,7 +3385,10 @@ export class TeamsApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -3383,7 +3419,9 @@ export class TeamsApiResponseProcessor {
   public async listTeamHierarchyLinks(
     response: ResponseContext,
   ): Promise<TeamHierarchyLinksResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: TeamHierarchyLinksResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -3392,8 +3430,14 @@ export class TeamsApiResponseProcessor {
       ) as TeamHierarchyLinksResponse;
       return body;
     }
-    if (response.httpStatusCode === 403 || response.httpStatusCode === 429) {
-      const bodyText = parse(await response.body.text(), contentType);
+    if (
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 429
+    ) {
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -3408,7 +3452,10 @@ export class TeamsApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -3436,8 +3483,12 @@ export class TeamsApiResponseProcessor {
    * @params response Response returned by the server for a request to listTeams
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async listTeams(response: ResponseContext): Promise<TeamsResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+  public async listTeams(
+    response: ResponseContext,
+  ): Promise<TeamsResponse> {
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: TeamsResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -3446,8 +3497,14 @@ export class TeamsApiResponseProcessor {
       ) as TeamsResponse;
       return body;
     }
-    if (response.httpStatusCode === 403 || response.httpStatusCode === 429) {
-      const bodyText = parse(await response.body.text(), contentType);
+    if (
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 429
+    ) {
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -3462,7 +3519,10 @@ export class TeamsApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -3490,8 +3550,12 @@ export class TeamsApiResponseProcessor {
    * @params response Response returned by the server for a request to removeMemberTeam
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async removeMemberTeam(response: ResponseContext): Promise<void> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+  public async removeMemberTeam(
+    response: ResponseContext,
+  ): Promise<void> {
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 204) {
       return;
     }
@@ -3500,7 +3564,10 @@ export class TeamsApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -3515,7 +3582,10 @@ export class TeamsApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -3540,7 +3610,9 @@ export class TeamsApiResponseProcessor {
   public async removeTeamHierarchyLink(
     response: ResponseContext,
   ): Promise<void> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 204) {
       return;
     }
@@ -3549,7 +3621,10 @@ export class TeamsApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -3564,7 +3639,10 @@ export class TeamsApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -3586,9 +3664,16 @@ export class TeamsApiResponseProcessor {
    * @params response Response returned by the server for a request to syncTeams
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async syncTeams(response: ResponseContext): Promise<void> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
-    if (response.httpStatusCode === 200 || response.httpStatusCode === 204) {
+  public async syncTeams(
+    response: ResponseContext,
+  ): Promise<void> {
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
+    if (
+      response.httpStatusCode === 200 ||
+      response.httpStatusCode === 204
+    ) {
       return;
     }
     if (
@@ -3596,7 +3681,10 @@ export class TeamsApiResponseProcessor {
       response.httpStatusCode === 429 ||
       response.httpStatusCode === 500
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -3611,7 +3699,10 @@ export class TeamsApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -3633,8 +3724,12 @@ export class TeamsApiResponseProcessor {
    * @params response Response returned by the server for a request to updateTeam
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async updateTeam(response: ResponseContext): Promise<TeamResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+  public async updateTeam(
+    response: ResponseContext,
+  ): Promise<TeamResponse> {
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: TeamResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -3650,7 +3745,10 @@ export class TeamsApiResponseProcessor {
       response.httpStatusCode === 409 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -3665,7 +3763,10 @@ export class TeamsApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -3696,7 +3797,9 @@ export class TeamsApiResponseProcessor {
   public async updateTeamLink(
     response: ResponseContext,
   ): Promise<TeamLinkResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: TeamLinkResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -3710,7 +3813,10 @@ export class TeamsApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -3725,7 +3831,10 @@ export class TeamsApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -3756,7 +3865,9 @@ export class TeamsApiResponseProcessor {
   public async updateTeamMembership(
     response: ResponseContext,
   ): Promise<UserTeamResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: UserTeamResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -3771,7 +3882,10 @@ export class TeamsApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -3786,7 +3900,10 @@ export class TeamsApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -3817,7 +3934,9 @@ export class TeamsApiResponseProcessor {
   public async updateTeamNotificationRule(
     response: ResponseContext,
   ): Promise<TeamNotificationRuleResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: TeamNotificationRuleResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -3831,7 +3950,10 @@ export class TeamsApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -3846,7 +3968,10 @@ export class TeamsApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -3877,7 +4002,9 @@ export class TeamsApiResponseProcessor {
   public async updateTeamPermissionSetting(
     response: ResponseContext,
   ): Promise<TeamPermissionSettingResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: TeamPermissionSettingResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -3891,7 +4018,10 @@ export class TeamsApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -3906,7 +4036,10 @@ export class TeamsApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -4391,7 +4524,8 @@ export class TeamsApi {
   private responseProcessor: TeamsApiResponseProcessor;
   private configuration: Configuration;
 
-  static operationServers: { [key: string]: BaseServerConfiguration[] } = {};
+  static operationServers: { [key: string]: BaseServerConfiguration[] } = {
+  };
 
   public constructor(
     configuration?: Configuration,
@@ -4400,7 +4534,8 @@ export class TeamsApi {
   ) {
     this.configuration = configuration || createConfiguration();
     this.requestFactory =
-      requestFactory || new TeamsApiRequestFactory(this.configuration);
+      requestFactory ||
+      new TeamsApiRequestFactory(this.configuration);
     this.responseProcessor =
       responseProcessor || new TeamsApiResponseProcessor();
   }
@@ -4408,7 +4543,7 @@ export class TeamsApi {
   /**
    * Add a member team.
    * Adds the team given by the `id` in the body as a member team of the super team.
-   *
+   * 
    * **Note**: This API is deprecated. For creating team hierarchy links, use the team hierarchy links API: `POST /api/v2/team-hierarchy-links`.
    * @param param The request object
    */
@@ -4518,7 +4653,7 @@ export class TeamsApi {
 
   /**
    * Add a user to a team.
-   *
+   * 
    * **Note**: Each team has a setting that determines who is allowed to modify membership of the team. The `user_access_manage` permission generally grants access to modify membership of any team. To get the full picture, see [Team Membership documentation](https://docs.datadoghq.com/account_management/teams/manage/#team-membership).
    * @param param The request object
    */
@@ -4547,19 +4682,16 @@ export class TeamsApi {
     param: TeamsApiCreateTeamNotificationRuleRequest,
     options?: Configuration,
   ): Promise<TeamNotificationRuleResponse> {
-    const requestContextPromise =
-      this.requestFactory.createTeamNotificationRule(
-        param.teamId,
-        param.body,
-        options,
-      );
+    const requestContextPromise = this.requestFactory.createTeamNotificationRule(
+      param.teamId,
+      param.body,
+      options,
+    );
     return requestContextPromise.then((requestContext) => {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.createTeamNotificationRule(
-            responseContext,
-          );
+          return this.responseProcessor.createTeamNotificationRule(responseContext);
         });
     });
   }
@@ -4630,7 +4762,7 @@ export class TeamsApi {
 
   /**
    * Remove a user from a team.
-   *
+   * 
    * **Note**: Each team has a setting that determines who is allowed to modify membership of the team. The `user_access_manage` permission generally grants access to modify membership of any team. To get the full picture, see [Team Membership documentation](https://docs.datadoghq.com/account_management/teams/manage/#team-membership).
    * @param param The request object
    */
@@ -4659,19 +4791,16 @@ export class TeamsApi {
     param: TeamsApiDeleteTeamNotificationRuleRequest,
     options?: Configuration,
   ): Promise<void> {
-    const requestContextPromise =
-      this.requestFactory.deleteTeamNotificationRule(
-        param.teamId,
-        param.ruleId,
-        options,
-      );
+    const requestContextPromise = this.requestFactory.deleteTeamNotificationRule(
+      param.teamId,
+      param.ruleId,
+      options,
+    );
     return requestContextPromise.then((requestContext) => {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.deleteTeamNotificationRule(
-            responseContext,
-          );
+          return this.responseProcessor.deleteTeamNotificationRule(responseContext);
         });
     });
   }
@@ -4790,9 +4919,9 @@ export class TeamsApi {
    * Provide a paginated version of getTeamMemberships returning a generator with all the items.
    */
   public async *getTeamMembershipsWithPagination(
-    param: TeamsApiGetTeamMembershipsRequest,
-    options?: Configuration,
+    param: TeamsApiGetTeamMembershipsRequest, options?: Configuration,
   ): AsyncGenerator<UserTeam> {
+
     let pageSize = 10;
     if (param.pageSize !== undefined) {
       pageSize = param.pageSize;
@@ -4800,19 +4929,10 @@ export class TeamsApi {
     param.pageSize = pageSize;
     param.pageNumber = 0;
     while (true) {
-      const requestContext = await this.requestFactory.getTeamMemberships(
-        param.teamId,
-        param.pageSize,
-        param.pageNumber,
-        param.sort,
-        param.filterKeyword,
-        options,
-      );
-      const responseContext =
-        await this.configuration.httpApi.send(requestContext);
+      const requestContext = await this.requestFactory.getTeamMemberships(param.teamId,param.pageSize,param.pageNumber,param.sort,param.filterKeyword,options);
+      const responseContext = await this.configuration.httpApi.send(requestContext);
 
-      const response =
-        await this.responseProcessor.getTeamMemberships(responseContext);
+      const response = await this.responseProcessor.getTeamMemberships(responseContext);
       const responseData = response.data;
       if (responseData === undefined) {
         break;
@@ -4844,9 +4964,7 @@ export class TeamsApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.getTeamNotificationRule(
-            responseContext,
-          );
+          return this.responseProcessor.getTeamNotificationRule(responseContext);
         });
     });
   }
@@ -4866,9 +4984,7 @@ export class TeamsApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.getTeamNotificationRules(
-            responseContext,
-          );
+          return this.responseProcessor.getTeamNotificationRules(responseContext);
         });
     });
   }
@@ -4889,9 +5005,7 @@ export class TeamsApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.getTeamPermissionSettings(
-            responseContext,
-          );
+          return this.responseProcessor.getTeamPermissionSettings(responseContext);
         });
     });
   }
@@ -4941,7 +5055,7 @@ export class TeamsApi {
 
   /**
    * Get all member teams.
-   *
+   * 
    * **Note**: This API is deprecated. For team hierarchy relationships (parent-child
    * teams), use the team hierarchy links API: `GET /api/v2/team-hierarchy-links`.
    * @param param The request object
@@ -4970,9 +5084,9 @@ export class TeamsApi {
    * Provide a paginated version of listMemberTeams returning a generator with all the items.
    */
   public async *listMemberTeamsWithPagination(
-    param: TeamsApiListMemberTeamsRequest,
-    options?: Configuration,
+    param: TeamsApiListMemberTeamsRequest, options?: Configuration,
   ): AsyncGenerator<Team> {
+
     let pageSize = 10;
     if (param.pageSize !== undefined) {
       pageSize = param.pageSize;
@@ -4980,18 +5094,10 @@ export class TeamsApi {
     param.pageSize = pageSize;
     param.pageNumber = 0;
     while (true) {
-      const requestContext = await this.requestFactory.listMemberTeams(
-        param.superTeamId,
-        param.pageSize,
-        param.pageNumber,
-        param.fieldsTeam,
-        options,
-      );
-      const responseContext =
-        await this.configuration.httpApi.send(requestContext);
+      const requestContext = await this.requestFactory.listMemberTeams(param.superTeamId,param.pageSize,param.pageNumber,param.fieldsTeam,options);
+      const responseContext = await this.configuration.httpApi.send(requestContext);
 
-      const response =
-        await this.responseProcessor.listMemberTeams(responseContext);
+      const response = await this.responseProcessor.listMemberTeams(responseContext);
       const responseData = response.data;
       if (responseData === undefined) {
         break;
@@ -5037,9 +5143,9 @@ export class TeamsApi {
    * Provide a paginated version of listTeamConnections returning a generator with all the items.
    */
   public async *listTeamConnectionsWithPagination(
-    param: TeamsApiListTeamConnectionsRequest = {},
-    options?: Configuration,
+    param: TeamsApiListTeamConnectionsRequest = {}, options?: Configuration,
   ): AsyncGenerator<TeamConnection> {
+
     let pageSize = 10;
     if (param.pageSize !== undefined) {
       pageSize = param.pageSize;
@@ -5047,20 +5153,10 @@ export class TeamsApi {
     param.pageSize = pageSize;
     param.pageNumber = 0;
     while (true) {
-      const requestContext = await this.requestFactory.listTeamConnections(
-        param.pageSize,
-        param.pageNumber,
-        param.filterSources,
-        param.filterTeamIds,
-        param.filterConnectedTeamIds,
-        param.filterConnectionIds,
-        options,
-      );
-      const responseContext =
-        await this.configuration.httpApi.send(requestContext);
+      const requestContext = await this.requestFactory.listTeamConnections(param.pageSize,param.pageNumber,param.filterSources,param.filterTeamIds,param.filterConnectedTeamIds,param.filterConnectionIds,options);
+      const responseContext = await this.configuration.httpApi.send(requestContext);
 
-      const response =
-        await this.responseProcessor.listTeamConnections(responseContext);
+      const response = await this.responseProcessor.listTeamConnections(responseContext);
       const responseData = response.data;
       if (responseData === undefined) {
         break;
@@ -5104,9 +5200,9 @@ export class TeamsApi {
    * Provide a paginated version of listTeamHierarchyLinks returning a generator with all the items.
    */
   public async *listTeamHierarchyLinksWithPagination(
-    param: TeamsApiListTeamHierarchyLinksRequest = {},
-    options?: Configuration,
+    param: TeamsApiListTeamHierarchyLinksRequest = {}, options?: Configuration,
   ): AsyncGenerator<TeamHierarchyLink> {
+
     let pageSize = 10;
     if (param.pageSize !== undefined) {
       pageSize = param.pageSize;
@@ -5114,18 +5210,10 @@ export class TeamsApi {
     param.pageSize = pageSize;
     param.pageNumber = 0;
     while (true) {
-      const requestContext = await this.requestFactory.listTeamHierarchyLinks(
-        param.pageNumber,
-        param.pageSize,
-        param.filterParentTeam,
-        param.filterSubTeam,
-        options,
-      );
-      const responseContext =
-        await this.configuration.httpApi.send(requestContext);
+      const requestContext = await this.requestFactory.listTeamHierarchyLinks(param.pageNumber,param.pageSize,param.filterParentTeam,param.filterSubTeam,options);
+      const responseContext = await this.configuration.httpApi.send(requestContext);
 
-      const response =
-        await this.responseProcessor.listTeamHierarchyLinks(responseContext);
+      const response = await this.responseProcessor.listTeamHierarchyLinks(responseContext);
       const responseData = response.data;
       if (responseData === undefined) {
         break;
@@ -5173,9 +5261,9 @@ export class TeamsApi {
    * Provide a paginated version of listTeams returning a generator with all the items.
    */
   public async *listTeamsWithPagination(
-    param: TeamsApiListTeamsRequest = {},
-    options?: Configuration,
+    param: TeamsApiListTeamsRequest = {}, options?: Configuration,
   ): AsyncGenerator<Team> {
+
     let pageSize = 10;
     if (param.pageSize !== undefined) {
       pageSize = param.pageSize;
@@ -5183,18 +5271,8 @@ export class TeamsApi {
     param.pageSize = pageSize;
     param.pageNumber = 0;
     while (true) {
-      const requestContext = await this.requestFactory.listTeams(
-        param.pageNumber,
-        param.pageSize,
-        param.sort,
-        param.include,
-        param.filterKeyword,
-        param.filterMe,
-        param.fieldsTeam,
-        options,
-      );
-      const responseContext =
-        await this.configuration.httpApi.send(requestContext);
+      const requestContext = await this.requestFactory.listTeams(param.pageNumber,param.pageSize,param.sort,param.include,param.filterKeyword,param.filterMe,param.fieldsTeam,options);
+      const responseContext = await this.configuration.httpApi.send(requestContext);
 
       const response = await this.responseProcessor.listTeams(responseContext);
       const responseData = response.data;
@@ -5214,7 +5292,7 @@ export class TeamsApi {
 
   /**
    * Remove a super team's member team identified by `member_team_id`.
-   *
+   * 
    * **Note**: This API is deprecated. For deleting team hierarchy links, use the team hierarchy links API: `DELETE /api/v2/team-hierarchy-links/{link_id}`.
    * @param param The request object
    */
@@ -5252,9 +5330,7 @@ export class TeamsApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.removeTeamHierarchyLink(
-            responseContext,
-          );
+          return this.responseProcessor.removeTeamHierarchyLink(responseContext);
         });
     });
   }
@@ -5264,13 +5340,13 @@ export class TeamsApi {
    * It evaluates all current Datadog teams and compares them against teams in the GitHub organization
    * connected to your Datadog account, based on Datadog Team handle and GitHub Team slug
    * (lowercased and kebab-cased).
-   *
+   * 
    * This operation is read-only on the GitHub side, no teams will be modified or created.
-   *
+   * 
    * Optionally, provide `selection_state` to limit synchronization
    * to specific teams or organizations and their subtrees, instead
    * of syncing all teams.
-   *
+   * 
    * [A GitHub organization must be connected to your Datadog account](https://docs.datadoghq.com/integrations/github/),
    * and the GitHub App integrated with Datadog must have the `Members Read` permission. Matching is performed by comparing the Datadog team handle to the GitHub team slug
    * using a normalized exact match; case is ignored and spaces are removed. No modifications are made
@@ -5342,7 +5418,7 @@ export class TeamsApi {
 
   /**
    * Update a user's membership attributes on a team.
-   *
+   * 
    * **Note**: Each team has a setting that determines who is allowed to modify membership of the team. The `user_access_manage` permission generally grants access to modify membership of any team. To get the full picture, see [Team Membership documentation](https://docs.datadoghq.com/account_management/teams/manage/#team-membership).
    * @param param The request object
    */
@@ -5372,20 +5448,17 @@ export class TeamsApi {
     param: TeamsApiUpdateTeamNotificationRuleRequest,
     options?: Configuration,
   ): Promise<TeamNotificationRuleResponse> {
-    const requestContextPromise =
-      this.requestFactory.updateTeamNotificationRule(
-        param.teamId,
-        param.ruleId,
-        param.body,
-        options,
-      );
+    const requestContextPromise = this.requestFactory.updateTeamNotificationRule(
+      param.teamId,
+      param.ruleId,
+      param.body,
+      options,
+    );
     return requestContextPromise.then((requestContext) => {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.updateTeamNotificationRule(
-            responseContext,
-          );
+          return this.responseProcessor.updateTeamNotificationRule(responseContext);
         });
     });
   }
@@ -5398,20 +5471,17 @@ export class TeamsApi {
     param: TeamsApiUpdateTeamPermissionSettingRequest,
     options?: Configuration,
   ): Promise<TeamPermissionSettingResponse> {
-    const requestContextPromise =
-      this.requestFactory.updateTeamPermissionSetting(
-        param.teamId,
-        param.action,
-        param.body,
-        options,
-      );
+    const requestContextPromise = this.requestFactory.updateTeamPermissionSetting(
+      param.teamId,
+      param.action,
+      param.body,
+      options,
+    );
     return requestContextPromise.then((requestContext) => {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.updateTeamPermissionSetting(
-            responseContext,
-          );
+          return this.responseProcessor.updateTeamPermissionSetting(responseContext);
         });
     });
   }

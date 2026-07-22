@@ -22,7 +22,7 @@ export const TypingInfo: ModelTypingInfo = {
   },
   oneOfMap: {
     DistributionPointItem: ["number", "Array<number>"],
-  },
+    },
   typeMap: {
     APIErrorResponse: APIErrorResponse,
     DistributionPointsPayload: DistributionPointsPayload,

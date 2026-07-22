@@ -16,10 +16,8 @@ export const TypingInfo: ModelTypingInfo = {
     APIErrorResponse: APIErrorResponse,
     WebhooksIntegration: WebhooksIntegration,
     WebhooksIntegrationCustomVariable: WebhooksIntegrationCustomVariable,
-    WebhooksIntegrationCustomVariableResponse:
-      WebhooksIntegrationCustomVariableResponse,
-    WebhooksIntegrationCustomVariableUpdateRequest:
-      WebhooksIntegrationCustomVariableUpdateRequest,
+    WebhooksIntegrationCustomVariableResponse: WebhooksIntegrationCustomVariableResponse,
+    WebhooksIntegrationCustomVariableUpdateRequest: WebhooksIntegrationCustomVariableUpdateRequest,
     WebhooksIntegrationUpdateRequest: WebhooksIntegrationUpdateRequest,
   },
 };

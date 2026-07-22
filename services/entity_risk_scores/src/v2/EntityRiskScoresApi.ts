@@ -19,6 +19,7 @@ import {
   ServerConfiguration,
   stringify,
   applySecurityAuthentication,
+  
 } from "@datadog/datadog-api-client";
 
 import { TypingInfo } from "./models/TypingInfo";
@@ -43,12 +44,8 @@ export class EntityRiskScoresApiRequestFactory extends BaseAPIRequestFactory {
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
-    if (
-      !_config.unstableOperations["EntityRiskScoresApi.v2.getEntityRiskScore"]
-    ) {
-      throw new Error(
-        "Unstable operation 'getEntityRiskScore' is disabled. Enable it by setting `configuration.unstableOperations['EntityRiskScoresApi.v2.getEntityRiskScore'] = true`",
-      );
+    if (!_config.unstableOperations["EntityRiskScoresApi.v2.getEntityRiskScore"]) {
+      throw new Error("Unstable operation 'getEntityRiskScore' is disabled. Enable it by setting `configuration.unstableOperations['EntityRiskScoresApi.v2.getEntityRiskScore'] = true`");
     }
 
     // verify required parameter 'entityId' is not null or undefined
@@ -57,22 +54,14 @@ export class EntityRiskScoresApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Path Params
-    const localVarPath =
-      "/api/v2/security-entities/risk-scores/{entity_id}".replace(
-        "{entity_id}",
-        encodeURIComponent(String(entityId)),
-      );
+    const localVarPath = "/api/v2/security-entities/risk-scores/{entity_id}".replace(
+      "{entity_id}",
+      encodeURIComponent(String(entityId)),
+    );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "EntityRiskScoresApi.v2.getEntityRiskScore",
-      EntityRiskScoresApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.GET,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("EntityRiskScoresApi.v2.getEntityRiskScore", EntityRiskScoresApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.GET, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -103,27 +92,16 @@ export class EntityRiskScoresApiRequestFactory extends BaseAPIRequestFactory {
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
-    if (
-      !_config.unstableOperations["EntityRiskScoresApi.v2.listEntityRiskScores"]
-    ) {
-      throw new Error(
-        "Unstable operation 'listEntityRiskScores' is disabled. Enable it by setting `configuration.unstableOperations['EntityRiskScoresApi.v2.listEntityRiskScores'] = true`",
-      );
+    if (!_config.unstableOperations["EntityRiskScoresApi.v2.listEntityRiskScores"]) {
+      throw new Error("Unstable operation 'listEntityRiskScores' is disabled. Enable it by setting `configuration.unstableOperations['EntityRiskScoresApi.v2.listEntityRiskScores'] = true`");
     }
 
     // Path Params
     const localVarPath = "/api/v2/security-entities/risk-scores";
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "EntityRiskScoresApi.v2.listEntityRiskScores",
-      EntityRiskScoresApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.GET,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("EntityRiskScoresApi.v2.listEntityRiskScores", EntityRiskScoresApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.GET, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -211,7 +189,9 @@ export class EntityRiskScoresApiResponseProcessor {
   public async getEntityRiskScore(
     response: ResponseContext,
   ): Promise<SecurityEntityRiskScoreResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: SecurityEntityRiskScoreResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -226,7 +206,10 @@ export class EntityRiskScoresApiResponseProcessor {
       response.httpStatusCode === 403 ||
       response.httpStatusCode === 404
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: JSONAPIErrorResponse;
       try {
         body = deserialize(
@@ -247,7 +230,10 @@ export class EntityRiskScoresApiResponseProcessor {
       );
     }
     if (response.httpStatusCode === 429) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -262,7 +248,10 @@ export class EntityRiskScoresApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -293,7 +282,9 @@ export class EntityRiskScoresApiResponseProcessor {
   public async listEntityRiskScores(
     response: ResponseContext,
   ): Promise<SecurityEntityRiskScoresResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: SecurityEntityRiskScoresResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -307,7 +298,10 @@ export class EntityRiskScoresApiResponseProcessor {
       response.httpStatusCode === 401 ||
       response.httpStatusCode === 403
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: JSONAPIErrorResponse;
       try {
         body = deserialize(
@@ -328,7 +322,10 @@ export class EntityRiskScoresApiResponseProcessor {
       );
     }
     if (response.httpStatusCode === 429) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -343,7 +340,10 @@ export class EntityRiskScoresApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -423,7 +423,8 @@ export class EntityRiskScoresApi {
   private responseProcessor: EntityRiskScoresApiResponseProcessor;
   private configuration: Configuration;
 
-  static operationServers: { [key: string]: BaseServerConfiguration[] } = {};
+  static operationServers: { [key: string]: BaseServerConfiguration[] } = {
+  };
 
   public constructor(
     configuration?: Configuration,

@@ -1,5 +1,6 @@
 import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
+
 /**
  * Aggregated slow interaction with long task detection grouped by action and selector.
  */
@@ -31,11 +32,11 @@ export class AggregatedSlowInteractionLongTask {
   /**
    * CSS selector of the element that was interacted with.
    */
-  "selector": string | null;
+  "selector": string|null;
   /**
    * Normalized CSS selector with dynamic parts replaced.
    */
-  "selectorNormalized": string | null;
+  "selectorNormalized": string|null;
   /**
    * Number of sampled views where this detection occurred.
    */
@@ -45,7 +46,7 @@ export class AggregatedSlowInteractionLongTask {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
   /**
    * @ignore
    */

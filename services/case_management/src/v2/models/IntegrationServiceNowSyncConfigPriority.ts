@@ -1,5 +1,6 @@
 import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
+
 /**
  * Priority synchronization configuration for ServiceNow integration.
  */
@@ -7,7 +8,7 @@ export class IntegrationServiceNowSyncConfigPriority {
   /**
    * Mapping of case priority values to ServiceNow impact values.
    */
-  "impactMapping"?: { [key: string]: string };
+  "impactMapping"?: { [key: string]: string; };
   /**
    * The type of synchronization to apply for priority.
    */
@@ -15,13 +16,13 @@ export class IntegrationServiceNowSyncConfigPriority {
   /**
    * Mapping of case priority values to ServiceNow urgency values.
    */
-  "urgencyMapping"?: { [key: string]: string };
+  "urgencyMapping"?: { [key: string]: string; };
   /**
    * A container for additional, undeclared properties.
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
   /**
    * @ignore
    */

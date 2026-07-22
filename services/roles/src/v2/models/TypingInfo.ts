@@ -51,20 +51,13 @@ export const TypingInfo: ModelTypingInfo = {
     OrganizationsType: ["orgs"],
     PermissionsType: ["permissions"],
     RoleTemplateDataType: ["roles"],
-    RolesSort: [
-      "name",
-      "-name",
-      "modified_at",
-      "-modified_at",
-      "user_count",
-      "-user_count",
-    ],
+    RolesSort: ["name", "-name", "modified_at", "-modified_at", "user_count", "-user_count"],
     RolesType: ["roles"],
     UsersType: ["users"],
   },
   oneOfMap: {
     UserResponseIncludedItem: ["Organization", "Permission", "Role"],
-  },
+    },
   typeMap: {
     APIErrorResponse: APIErrorResponse,
     Organization: Organization,

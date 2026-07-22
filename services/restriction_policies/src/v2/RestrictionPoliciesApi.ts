@@ -19,6 +19,7 @@ import {
   ServerConfiguration,
   stringify,
   applySecurityAuthentication,
+  
 } from "@datadog/datadog-api-client";
 
 import { TypingInfo } from "./models/TypingInfo";
@@ -54,15 +55,8 @@ export class RestrictionPoliciesApiRequestFactory extends BaseAPIRequestFactory 
     );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "RestrictionPoliciesApi.v2.deleteRestrictionPolicy",
-      RestrictionPoliciesApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.DELETE,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("RestrictionPoliciesApi.v2.deleteRestrictionPolicy", RestrictionPoliciesApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.DELETE, overrides);
     requestContext.setHeaderParam("Accept", "*/*");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -99,15 +93,8 @@ export class RestrictionPoliciesApiRequestFactory extends BaseAPIRequestFactory 
     );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "RestrictionPoliciesApi.v2.getRestrictionPolicy",
-      RestrictionPoliciesApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.GET,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("RestrictionPoliciesApi.v2.getRestrictionPolicy", RestrictionPoliciesApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.GET, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -151,15 +138,8 @@ export class RestrictionPoliciesApiRequestFactory extends BaseAPIRequestFactory 
     );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "RestrictionPoliciesApi.v2.updateRestrictionPolicy",
-      RestrictionPoliciesApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.POST,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("RestrictionPoliciesApi.v2.updateRestrictionPolicy", RestrictionPoliciesApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.POST, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -178,7 +158,9 @@ export class RestrictionPoliciesApiRequestFactory extends BaseAPIRequestFactory 
     }
 
     // Body Params
-    const contentType = getPreferredMediaType(["application/json"]);
+    const contentType = getPreferredMediaType([
+      "application/json",
+    ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = stringify(
       serialize(body, TypingInfo, "RestrictionPolicyUpdateRequest", ""),
@@ -208,7 +190,9 @@ export class RestrictionPoliciesApiResponseProcessor {
   public async deleteRestrictionPolicy(
     response: ResponseContext,
   ): Promise<void> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 204) {
       return;
     }
@@ -217,7 +201,10 @@ export class RestrictionPoliciesApiResponseProcessor {
       response.httpStatusCode === 403 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -232,7 +219,10 @@ export class RestrictionPoliciesApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -257,7 +247,9 @@ export class RestrictionPoliciesApiResponseProcessor {
   public async getRestrictionPolicy(
     response: ResponseContext,
   ): Promise<RestrictionPolicyResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: RestrictionPolicyResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -271,7 +263,10 @@ export class RestrictionPoliciesApiResponseProcessor {
       response.httpStatusCode === 403 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -286,7 +281,10 @@ export class RestrictionPoliciesApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -317,7 +315,9 @@ export class RestrictionPoliciesApiResponseProcessor {
   public async updateRestrictionPolicy(
     response: ResponseContext,
   ): Promise<RestrictionPolicyResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: RestrictionPolicyResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -331,7 +331,10 @@ export class RestrictionPoliciesApiResponseProcessor {
       response.httpStatusCode === 403 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -346,7 +349,10 @@ export class RestrictionPoliciesApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -407,7 +413,8 @@ export class RestrictionPoliciesApi {
   private responseProcessor: RestrictionPoliciesApiResponseProcessor;
   private configuration: Configuration;
 
-  static operationServers: { [key: string]: BaseServerConfiguration[] } = {};
+  static operationServers: { [key: string]: BaseServerConfiguration[] } = {
+  };
 
   public constructor(
     configuration?: Configuration,
@@ -438,9 +445,7 @@ export class RestrictionPoliciesApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.deleteRestrictionPolicy(
-            responseContext,
-          );
+          return this.responseProcessor.deleteRestrictionPolicy(responseContext);
         });
     });
   }
@@ -468,7 +473,7 @@ export class RestrictionPoliciesApi {
 
   /**
    * Updates the restriction policy associated with a resource.
-   *
+   * 
    * #### Supported resources
    * Restriction policies can be applied to the following resources:
    * - Dashboards: `dashboard`
@@ -497,7 +502,7 @@ export class RestrictionPoliciesApi {
    * - Case Management Projects: `case-management-project`
    * - Monitor Notification Rules: `monitor-notification-rule`
    * - Status Pages: `status-page`
-   *
+   * 
    * #### Supported relations for resources
    * Resource Type               | Supported Relations
    * ----------------------------|--------------------------
@@ -543,9 +548,7 @@ export class RestrictionPoliciesApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.updateRestrictionPolicy(
-            responseContext,
-          );
+          return this.responseProcessor.updateRestrictionPolicy(responseContext);
         });
     });
   }

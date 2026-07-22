@@ -1,5 +1,6 @@
 import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
+
 /**
  * Local file metadata for create requests using the upload ID.
  */
@@ -21,7 +22,7 @@ export class CreateTableRequestDataAttributesFileMetadataLocalFile {
       baseName: "upload_id",
       type: "string",
       required: true,
-    },
+    }
   };
 
   /**

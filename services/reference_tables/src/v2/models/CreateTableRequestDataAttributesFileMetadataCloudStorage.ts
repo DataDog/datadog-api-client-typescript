@@ -32,7 +32,7 @@ export class CreateTableRequestDataAttributesFileMetadataCloudStorage {
       baseName: "sync_enabled",
       type: "boolean",
       required: true,
-    },
+    }
   };
 
   /**

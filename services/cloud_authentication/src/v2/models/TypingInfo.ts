@@ -19,15 +19,11 @@ export const TypingInfo: ModelTypingInfo = {
   oneOfMap: {},
   typeMap: {
     APIErrorResponse: APIErrorResponse,
-    AWSCloudAuthPersonaMappingAttributesResponse:
-      AWSCloudAuthPersonaMappingAttributesResponse,
-    AWSCloudAuthPersonaMappingCreateAttributes:
-      AWSCloudAuthPersonaMappingCreateAttributes,
+    AWSCloudAuthPersonaMappingAttributesResponse: AWSCloudAuthPersonaMappingAttributesResponse,
+    AWSCloudAuthPersonaMappingCreateAttributes: AWSCloudAuthPersonaMappingCreateAttributes,
     AWSCloudAuthPersonaMappingCreateData: AWSCloudAuthPersonaMappingCreateData,
-    AWSCloudAuthPersonaMappingCreateRequest:
-      AWSCloudAuthPersonaMappingCreateRequest,
-    AWSCloudAuthPersonaMappingDataResponse:
-      AWSCloudAuthPersonaMappingDataResponse,
+    AWSCloudAuthPersonaMappingCreateRequest: AWSCloudAuthPersonaMappingCreateRequest,
+    AWSCloudAuthPersonaMappingDataResponse: AWSCloudAuthPersonaMappingDataResponse,
     AWSCloudAuthPersonaMappingResponse: AWSCloudAuthPersonaMappingResponse,
     AWSCloudAuthPersonaMappingsResponse: AWSCloudAuthPersonaMappingsResponse,
     JSONAPIErrorItem: JSONAPIErrorItem,

@@ -19,6 +19,7 @@ import {
   ServerConfiguration,
   stringify,
   applySecurityAuthentication,
+  
 } from "@datadog/datadog-api-client";
 
 import { TypingInfo } from "./models/TypingInfo";
@@ -50,15 +51,8 @@ export class IdentityProvidersApiRequestFactory extends BaseAPIRequestFactory {
     const localVarPath = "/api/v2/identity_providers";
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "IdentityProvidersApi.v2.listIdentityProviders",
-      IdentityProvidersApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.GET,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("IdentityProvidersApi.v2.listIdentityProviders", IdentityProvidersApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.GET, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -101,15 +95,8 @@ export class IdentityProvidersApiRequestFactory extends BaseAPIRequestFactory {
     );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "IdentityProvidersApi.v2.listIdentityProviderUsers",
-      IdentityProvidersApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.GET,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("IdentityProvidersApi.v2.listIdentityProviderUsers", IdentityProvidersApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.GET, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -196,15 +183,8 @@ export class IdentityProvidersApiRequestFactory extends BaseAPIRequestFactory {
     );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "IdentityProvidersApi.v2.updateIdentityProvider",
-      IdentityProvidersApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.PATCH,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("IdentityProvidersApi.v2.updateIdentityProvider", IdentityProvidersApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.PATCH, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -214,7 +194,9 @@ export class IdentityProvidersApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Body Params
-    const contentType = getPreferredMediaType(["application/json"]);
+    const contentType = getPreferredMediaType([
+      "application/json",
+    ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = stringify(
       serialize(body, TypingInfo, "IdentityProviderUpdateRequest", ""),
@@ -244,7 +226,9 @@ export class IdentityProvidersApiResponseProcessor {
   public async listIdentityProviders(
     response: ResponseContext,
   ): Promise<IdentityProvidersResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: IdentityProvidersResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -254,7 +238,10 @@ export class IdentityProvidersApiResponseProcessor {
       return body;
     }
     if (response.httpStatusCode === 403) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: JSONAPIErrorResponse;
       try {
         body = deserialize(
@@ -275,7 +262,10 @@ export class IdentityProvidersApiResponseProcessor {
       );
     }
     if (response.httpStatusCode === 429) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -290,7 +280,10 @@ export class IdentityProvidersApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -321,7 +314,9 @@ export class IdentityProvidersApiResponseProcessor {
   public async listIdentityProviderUsers(
     response: ResponseContext,
   ): Promise<UsersResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: UsersResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -335,7 +330,10 @@ export class IdentityProvidersApiResponseProcessor {
       response.httpStatusCode === 403 ||
       response.httpStatusCode === 404
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: JSONAPIErrorResponse;
       try {
         body = deserialize(
@@ -356,7 +354,10 @@ export class IdentityProvidersApiResponseProcessor {
       );
     }
     if (response.httpStatusCode === 429) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -371,7 +372,10 @@ export class IdentityProvidersApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -402,7 +406,9 @@ export class IdentityProvidersApiResponseProcessor {
   public async updateIdentityProvider(
     response: ResponseContext,
   ): Promise<IdentityProviderResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: IdentityProviderResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -416,7 +422,10 @@ export class IdentityProvidersApiResponseProcessor {
       response.httpStatusCode === 403 ||
       response.httpStatusCode === 404
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: JSONAPIErrorResponse;
       try {
         body = deserialize(
@@ -437,7 +446,10 @@ export class IdentityProvidersApiResponseProcessor {
       );
     }
     if (response.httpStatusCode === 429) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -452,7 +464,10 @@ export class IdentityProvidersApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -531,7 +546,8 @@ export class IdentityProvidersApi {
   private responseProcessor: IdentityProvidersApiResponseProcessor;
   private configuration: Configuration;
 
-  static operationServers: { [key: string]: BaseServerConfiguration[] } = {};
+  static operationServers: { [key: string]: BaseServerConfiguration[] } = {
+  };
 
   public constructor(
     configuration?: Configuration,
@@ -550,11 +566,11 @@ export class IdentityProvidersApi {
    * Get all identity providers available for the current organization.
    * @param param The request object
    */
-  public listIdentityProviders(
-    options?: Configuration,
+  public listIdentityProviders(options?: Configuration,
   ): Promise<IdentityProvidersResponse> {
-    const requestContextPromise =
-      this.requestFactory.listIdentityProviders(options);
+    const requestContextPromise = this.requestFactory.listIdentityProviders(
+      options,
+    );
     return requestContextPromise.then((requestContext) => {
       return this.configuration.httpApi
         .send(requestContext)
@@ -587,9 +603,7 @@ export class IdentityProvidersApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.listIdentityProviderUsers(
-            responseContext,
-          );
+          return this.responseProcessor.listIdentityProviderUsers(responseContext);
         });
     });
   }
@@ -598,9 +612,9 @@ export class IdentityProvidersApi {
    * Provide a paginated version of listIdentityProviderUsers returning a generator with all the items.
    */
   public async *listIdentityProviderUsersWithPagination(
-    param: IdentityProvidersApiListIdentityProviderUsersRequest,
-    options?: Configuration,
+    param: IdentityProvidersApiListIdentityProviderUsersRequest, options?: Configuration,
   ): AsyncGenerator<User> {
+
     let pageSize = 10;
     if (param.pageSize !== undefined) {
       pageSize = param.pageSize;
@@ -608,22 +622,10 @@ export class IdentityProvidersApi {
     param.pageSize = pageSize;
     param.pageNumber = 0;
     while (true) {
-      const requestContext =
-        await this.requestFactory.listIdentityProviderUsers(
-          param.idpId,
-          param.pageSize,
-          param.pageNumber,
-          param.sort,
-          param.sortDir,
-          param.filter,
-          param.filterStatus,
-          options,
-        );
-      const responseContext =
-        await this.configuration.httpApi.send(requestContext);
+      const requestContext = await this.requestFactory.listIdentityProviderUsers(param.idpId,param.pageSize,param.pageNumber,param.sort,param.sortDir,param.filter,param.filterStatus,options);
+      const responseContext = await this.configuration.httpApi.send(requestContext);
 
-      const response =
-        await this.responseProcessor.listIdentityProviderUsers(responseContext);
+      const response = await this.responseProcessor.listIdentityProviderUsers(responseContext);
       const responseData = response.data;
       if (responseData === undefined) {
         break;

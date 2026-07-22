@@ -13,7 +13,7 @@ export class MonitorUserTemplateRequestAttributes {
   /**
    * A valid monitor definition in the same format as the [V1 Monitor API](https://docs.datadoghq.com/api/latest/monitors/#create-a-monitor).
    */
-  "monitorDefinition": { [key: string]: any };
+  "monitorDefinition": { [key: string]: any; };
   /**
    * The definition of `MonitorUserTemplateTags` object.
    */
@@ -57,7 +57,7 @@ export class MonitorUserTemplateRequestAttributes {
       baseName: "title",
       type: "string",
       required: true,
-    },
+    }
   };
 
   /**

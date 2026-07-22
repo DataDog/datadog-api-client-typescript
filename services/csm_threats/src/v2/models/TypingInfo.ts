@@ -37,67 +37,38 @@ export const TypingInfo: ModelTypingInfo = {
     CloudWorkloadSecurityAgentRuleType: ["agent_rule"],
   },
   oneOfMap: {
-    CloudWorkloadSecurityAgentRuleActionSetValue: [
-      "string",
-      "number",
-      "boolean",
-    ],
-  },
+    CloudWorkloadSecurityAgentRuleActionSetValue: ["string", "number", "boolean"],
+    },
   typeMap: {
     APIErrorResponse: APIErrorResponse,
-    CloudWorkloadSecurityAgentPoliciesListResponse:
-      CloudWorkloadSecurityAgentPoliciesListResponse,
-    CloudWorkloadSecurityAgentPolicyAttributes:
-      CloudWorkloadSecurityAgentPolicyAttributes,
-    CloudWorkloadSecurityAgentPolicyCreateAttributes:
-      CloudWorkloadSecurityAgentPolicyCreateAttributes,
-    CloudWorkloadSecurityAgentPolicyCreateData:
-      CloudWorkloadSecurityAgentPolicyCreateData,
-    CloudWorkloadSecurityAgentPolicyCreateRequest:
-      CloudWorkloadSecurityAgentPolicyCreateRequest,
+    CloudWorkloadSecurityAgentPoliciesListResponse: CloudWorkloadSecurityAgentPoliciesListResponse,
+    CloudWorkloadSecurityAgentPolicyAttributes: CloudWorkloadSecurityAgentPolicyAttributes,
+    CloudWorkloadSecurityAgentPolicyCreateAttributes: CloudWorkloadSecurityAgentPolicyCreateAttributes,
+    CloudWorkloadSecurityAgentPolicyCreateData: CloudWorkloadSecurityAgentPolicyCreateData,
+    CloudWorkloadSecurityAgentPolicyCreateRequest: CloudWorkloadSecurityAgentPolicyCreateRequest,
     CloudWorkloadSecurityAgentPolicyData: CloudWorkloadSecurityAgentPolicyData,
-    CloudWorkloadSecurityAgentPolicyResponse:
-      CloudWorkloadSecurityAgentPolicyResponse,
-    CloudWorkloadSecurityAgentPolicyUpdateAttributes:
-      CloudWorkloadSecurityAgentPolicyUpdateAttributes,
-    CloudWorkloadSecurityAgentPolicyUpdateData:
-      CloudWorkloadSecurityAgentPolicyUpdateData,
-    CloudWorkloadSecurityAgentPolicyUpdateRequest:
-      CloudWorkloadSecurityAgentPolicyUpdateRequest,
-    CloudWorkloadSecurityAgentPolicyUpdaterAttributes:
-      CloudWorkloadSecurityAgentPolicyUpdaterAttributes,
-    CloudWorkloadSecurityAgentPolicyVersion:
-      CloudWorkloadSecurityAgentPolicyVersion,
+    CloudWorkloadSecurityAgentPolicyResponse: CloudWorkloadSecurityAgentPolicyResponse,
+    CloudWorkloadSecurityAgentPolicyUpdateAttributes: CloudWorkloadSecurityAgentPolicyUpdateAttributes,
+    CloudWorkloadSecurityAgentPolicyUpdateData: CloudWorkloadSecurityAgentPolicyUpdateData,
+    CloudWorkloadSecurityAgentPolicyUpdateRequest: CloudWorkloadSecurityAgentPolicyUpdateRequest,
+    CloudWorkloadSecurityAgentPolicyUpdaterAttributes: CloudWorkloadSecurityAgentPolicyUpdaterAttributes,
+    CloudWorkloadSecurityAgentPolicyVersion: CloudWorkloadSecurityAgentPolicyVersion,
     CloudWorkloadSecurityAgentRuleAction: CloudWorkloadSecurityAgentRuleAction,
-    CloudWorkloadSecurityAgentRuleActionHash:
-      CloudWorkloadSecurityAgentRuleActionHash,
-    CloudWorkloadSecurityAgentRuleActionMetadata:
-      CloudWorkloadSecurityAgentRuleActionMetadata,
-    CloudWorkloadSecurityAgentRuleActionSet:
-      CloudWorkloadSecurityAgentRuleActionSet,
-    CloudWorkloadSecurityAgentRuleAttributes:
-      CloudWorkloadSecurityAgentRuleAttributes,
-    CloudWorkloadSecurityAgentRuleCreateAttributes:
-      CloudWorkloadSecurityAgentRuleCreateAttributes,
-    CloudWorkloadSecurityAgentRuleCreateData:
-      CloudWorkloadSecurityAgentRuleCreateData,
-    CloudWorkloadSecurityAgentRuleCreateRequest:
-      CloudWorkloadSecurityAgentRuleCreateRequest,
-    CloudWorkloadSecurityAgentRuleCreatorAttributes:
-      CloudWorkloadSecurityAgentRuleCreatorAttributes,
+    CloudWorkloadSecurityAgentRuleActionHash: CloudWorkloadSecurityAgentRuleActionHash,
+    CloudWorkloadSecurityAgentRuleActionMetadata: CloudWorkloadSecurityAgentRuleActionMetadata,
+    CloudWorkloadSecurityAgentRuleActionSet: CloudWorkloadSecurityAgentRuleActionSet,
+    CloudWorkloadSecurityAgentRuleAttributes: CloudWorkloadSecurityAgentRuleAttributes,
+    CloudWorkloadSecurityAgentRuleCreateAttributes: CloudWorkloadSecurityAgentRuleCreateAttributes,
+    CloudWorkloadSecurityAgentRuleCreateData: CloudWorkloadSecurityAgentRuleCreateData,
+    CloudWorkloadSecurityAgentRuleCreateRequest: CloudWorkloadSecurityAgentRuleCreateRequest,
+    CloudWorkloadSecurityAgentRuleCreatorAttributes: CloudWorkloadSecurityAgentRuleCreatorAttributes,
     CloudWorkloadSecurityAgentRuleData: CloudWorkloadSecurityAgentRuleData,
     CloudWorkloadSecurityAgentRuleKill: CloudWorkloadSecurityAgentRuleKill,
-    CloudWorkloadSecurityAgentRuleResponse:
-      CloudWorkloadSecurityAgentRuleResponse,
-    CloudWorkloadSecurityAgentRuleUpdateAttributes:
-      CloudWorkloadSecurityAgentRuleUpdateAttributes,
-    CloudWorkloadSecurityAgentRuleUpdateData:
-      CloudWorkloadSecurityAgentRuleUpdateData,
-    CloudWorkloadSecurityAgentRuleUpdateRequest:
-      CloudWorkloadSecurityAgentRuleUpdateRequest,
-    CloudWorkloadSecurityAgentRuleUpdaterAttributes:
-      CloudWorkloadSecurityAgentRuleUpdaterAttributes,
-    CloudWorkloadSecurityAgentRulesListResponse:
-      CloudWorkloadSecurityAgentRulesListResponse,
+    CloudWorkloadSecurityAgentRuleResponse: CloudWorkloadSecurityAgentRuleResponse,
+    CloudWorkloadSecurityAgentRuleUpdateAttributes: CloudWorkloadSecurityAgentRuleUpdateAttributes,
+    CloudWorkloadSecurityAgentRuleUpdateData: CloudWorkloadSecurityAgentRuleUpdateData,
+    CloudWorkloadSecurityAgentRuleUpdateRequest: CloudWorkloadSecurityAgentRuleUpdateRequest,
+    CloudWorkloadSecurityAgentRuleUpdaterAttributes: CloudWorkloadSecurityAgentRuleUpdaterAttributes,
+    CloudWorkloadSecurityAgentRulesListResponse: CloudWorkloadSecurityAgentRulesListResponse,
   },
 };

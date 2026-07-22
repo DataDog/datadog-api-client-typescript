@@ -4,7 +4,8 @@ import { APIErrorResponse } from "./APIErrorResponse";
 import { GraphSnapshot } from "./GraphSnapshot";
 
 export const TypingInfo: ModelTypingInfo = {
-  enumsMap: {},
+  enumsMap: {
+  },
   oneOfMap: {},
   typeMap: {
     APIErrorResponse: APIErrorResponse,

@@ -59,7 +59,7 @@ export class ProductAnalyticsFunnelQuery {
     subqueryId: {
       baseName: "subquery_id",
       type: "string",
-    },
+    }
   };
 
   /**

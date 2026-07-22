@@ -72,20 +72,7 @@ import { SourcemapsResponse } from "./SourcemapsResponse";
 export const TypingInfo: ModelTypingInfo = {
   enumsMap: {
     RUMAggregateSortType: ["alphabetical", "measure"],
-    RUMAggregationFunction: [
-      "count",
-      "cardinality",
-      "pc75",
-      "pc90",
-      "pc95",
-      "pc98",
-      "pc99",
-      "sum",
-      "min",
-      "max",
-      "avg",
-      "median",
-    ],
+    RUMAggregationFunction: ["count", "cardinality", "pc75", "pc90", "pc95", "pc98", "pc99", "sum", "min", "max", "avg", "median"],
     RUMApplicationCreateType: ["rum_application_create"],
     RUMApplicationListType: ["rum_application"],
     RUMApplicationType: ["rum_application"],
@@ -98,25 +85,10 @@ export const TypingInfo: ModelTypingInfo = {
     RUMSort: ["timestamp", "-timestamp"],
     RUMSortOrder: ["asc", "desc"],
     ServiceRepositoryInfoDataType: ["service_repository_info"],
-    ServiceRepositoryInfoStatus: [
-      "success",
-      "not_found",
-      "no_repository",
-      "internal_error",
-      "unknown",
-    ],
+    ServiceRepositoryInfoStatus: ["success", "not_found", "no_repository", "internal_error", "unknown"],
     SourcemapDataType: ["sourcemaps"],
     SourcemapFileDataType: ["sourcemap_files"],
-    SourcemapMapKind: [
-      "js",
-      "jvm",
-      "ios",
-      "react",
-      "flutter",
-      "elf",
-      "ndk",
-      "il2cpp",
-    ],
+    SourcemapMapKind: ["js", "jvm", "ios", "react", "flutter", "elf", "ndk", "il2cpp"],
   },
   oneOfMap: {
     RUMAggregateBucketValue: [
@@ -136,7 +108,7 @@ export const TypingInfo: ModelTypingInfo = {
       "NDKSourcemapData",
       "IL2CPPSourcemapData",
     ],
-  },
+    },
   typeMap: {
     APIErrorResponse: APIErrorResponse,
     ELFSourcemapAttributes: ELFSourcemapAttributes,
@@ -157,8 +129,7 @@ export const TypingInfo: ModelTypingInfo = {
     ListSourcemapsResponse: ListSourcemapsResponse,
     NDKSourcemapAttributes: NDKSourcemapAttributes,
     NDKSourcemapData: NDKSourcemapData,
-    RUMAggregateBucketValueTimeseriesPoint:
-      RUMAggregateBucketValueTimeseriesPoint,
+    RUMAggregateBucketValueTimeseriesPoint: RUMAggregateBucketValueTimeseriesPoint,
     RUMAggregateRequest: RUMAggregateRequest,
     RUMAggregateSort: RUMAggregateSort,
     RUMAggregationBucketsResponse: RUMAggregationBucketsResponse,
@@ -196,12 +167,10 @@ export const TypingInfo: ModelTypingInfo = {
     ReactNativeSourcemapAttributes: ReactNativeSourcemapAttributes,
     ReactNativeSourcemapData: ReactNativeSourcemapData,
     ServiceRepositoryInfoRequest: ServiceRepositoryInfoRequest,
-    ServiceRepositoryInfoRequestAttributes:
-      ServiceRepositoryInfoRequestAttributes,
+    ServiceRepositoryInfoRequestAttributes: ServiceRepositoryInfoRequestAttributes,
     ServiceRepositoryInfoRequestData: ServiceRepositoryInfoRequestData,
     ServiceRepositoryInfoResponse: ServiceRepositoryInfoResponse,
-    ServiceRepositoryInfoResponseAttributes:
-      ServiceRepositoryInfoResponseAttributes,
+    ServiceRepositoryInfoResponseAttributes: ServiceRepositoryInfoResponseAttributes,
     ServiceRepositoryInfoResponseData: ServiceRepositoryInfoResponseData,
     SourcemapFileAttributes: SourcemapFileAttributes,
     SourcemapFileData: SourcemapFileData,

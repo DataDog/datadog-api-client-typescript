@@ -5,7 +5,8 @@ import { HostTags } from "./HostTags";
 import { TagToHosts } from "./TagToHosts";
 
 export const TypingInfo: ModelTypingInfo = {
-  enumsMap: {},
+  enumsMap: {
+  },
   oneOfMap: {},
   typeMap: {
     APIErrorResponse: APIErrorResponse,

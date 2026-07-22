@@ -1,5 +1,6 @@
 import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
+
 /**
  * The definition of Entity V3 System Spec object.
  */
@@ -36,7 +37,7 @@ export class EntityV3SystemSpec {
     tier: {
       baseName: "tier",
       type: "string",
-    },
+    }
   };
 
   /**

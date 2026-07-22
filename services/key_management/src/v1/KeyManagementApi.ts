@@ -19,6 +19,7 @@ import {
   ServerConfiguration,
   stringify,
   applySecurityAuthentication,
+  
 } from "@datadog/datadog-api-client";
 
 import { TypingInfo } from "./models/TypingInfo";
@@ -55,15 +56,8 @@ export class KeyManagementApiRequestFactory extends BaseAPIRequestFactory {
     const localVarPath = "/api/v1/api_key";
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "KeyManagementApi.v1.createAPIKey",
-      KeyManagementApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.POST,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("KeyManagementApi.v1.createAPIKey", KeyManagementApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.POST, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -73,7 +67,9 @@ export class KeyManagementApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Body Params
-    const contentType = getPreferredMediaType(["application/json"]);
+    const contentType = getPreferredMediaType([
+      "application/json",
+    ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = stringify(
       serialize(body, TypingInfo, "ApiKey", ""),
@@ -105,15 +101,8 @@ export class KeyManagementApiRequestFactory extends BaseAPIRequestFactory {
     const localVarPath = "/api/v1/application_key";
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "KeyManagementApi.v1.createApplicationKey",
-      KeyManagementApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.POST,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("KeyManagementApi.v1.createApplicationKey", KeyManagementApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.POST, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -123,7 +112,9 @@ export class KeyManagementApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Body Params
-    const contentType = getPreferredMediaType(["application/json"]);
+    const contentType = getPreferredMediaType([
+      "application/json",
+    ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = stringify(
       serialize(body, TypingInfo, "ApplicationKey", ""),
@@ -158,15 +149,8 @@ export class KeyManagementApiRequestFactory extends BaseAPIRequestFactory {
     );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "KeyManagementApi.v1.deleteAPIKey",
-      KeyManagementApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.DELETE,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("KeyManagementApi.v1.deleteAPIKey", KeyManagementApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.DELETE, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -202,15 +186,8 @@ export class KeyManagementApiRequestFactory extends BaseAPIRequestFactory {
     );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "KeyManagementApi.v1.deleteApplicationKey",
-      KeyManagementApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.DELETE,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("KeyManagementApi.v1.deleteApplicationKey", KeyManagementApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.DELETE, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -246,15 +223,8 @@ export class KeyManagementApiRequestFactory extends BaseAPIRequestFactory {
     );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "KeyManagementApi.v1.getAPIKey",
-      KeyManagementApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.GET,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("KeyManagementApi.v1.getAPIKey", KeyManagementApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.GET, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -290,15 +260,8 @@ export class KeyManagementApiRequestFactory extends BaseAPIRequestFactory {
     );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "KeyManagementApi.v1.getApplicationKey",
-      KeyManagementApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.GET,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("KeyManagementApi.v1.getApplicationKey", KeyManagementApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.GET, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -316,22 +279,17 @@ export class KeyManagementApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
-  public async listAPIKeys(_options?: Configuration): Promise<RequestContext> {
+  public async listAPIKeys(
+    _options?: Configuration,
+  ): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
     // Path Params
     const localVarPath = "/api/v1/api_key";
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "KeyManagementApi.v1.listAPIKeys",
-      KeyManagementApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.GET,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("KeyManagementApi.v1.listAPIKeys", KeyManagementApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.GET, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -358,15 +316,8 @@ export class KeyManagementApiRequestFactory extends BaseAPIRequestFactory {
     const localVarPath = "/api/v1/application_key";
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "KeyManagementApi.v1.listApplicationKeys",
-      KeyManagementApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.GET,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("KeyManagementApi.v1.listApplicationKeys", KeyManagementApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.GET, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -408,15 +359,8 @@ export class KeyManagementApiRequestFactory extends BaseAPIRequestFactory {
     );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "KeyManagementApi.v1.updateAPIKey",
-      KeyManagementApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.PUT,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("KeyManagementApi.v1.updateAPIKey", KeyManagementApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.PUT, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -426,7 +370,9 @@ export class KeyManagementApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Body Params
-    const contentType = getPreferredMediaType(["application/json"]);
+    const contentType = getPreferredMediaType([
+      "application/json",
+    ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = stringify(
       serialize(body, TypingInfo, "ApiKey", ""),
@@ -467,15 +413,8 @@ export class KeyManagementApiRequestFactory extends BaseAPIRequestFactory {
     );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "KeyManagementApi.v1.updateApplicationKey",
-      KeyManagementApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.PUT,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("KeyManagementApi.v1.updateApplicationKey", KeyManagementApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.PUT, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -485,7 +424,9 @@ export class KeyManagementApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Body Params
-    const contentType = getPreferredMediaType(["application/json"]);
+    const contentType = getPreferredMediaType([
+      "application/json",
+    ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = stringify(
       serialize(body, TypingInfo, "ApplicationKey", ""),
@@ -514,7 +455,9 @@ export class KeyManagementApiResponseProcessor {
   public async createAPIKey(
     response: ResponseContext,
   ): Promise<ApiKeyResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: ApiKeyResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -528,7 +471,10 @@ export class KeyManagementApiResponseProcessor {
       response.httpStatusCode === 403 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -543,7 +489,10 @@ export class KeyManagementApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -574,7 +523,9 @@ export class KeyManagementApiResponseProcessor {
   public async createApplicationKey(
     response: ResponseContext,
   ): Promise<ApplicationKeyResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: ApplicationKeyResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -589,7 +540,10 @@ export class KeyManagementApiResponseProcessor {
       response.httpStatusCode === 409 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -604,7 +558,10 @@ export class KeyManagementApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -635,7 +592,9 @@ export class KeyManagementApiResponseProcessor {
   public async deleteAPIKey(
     response: ResponseContext,
   ): Promise<ApiKeyResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: ApiKeyResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -650,7 +609,10 @@ export class KeyManagementApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -665,7 +627,10 @@ export class KeyManagementApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -696,7 +661,9 @@ export class KeyManagementApiResponseProcessor {
   public async deleteApplicationKey(
     response: ResponseContext,
   ): Promise<ApplicationKeyResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: ApplicationKeyResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -710,7 +677,10 @@ export class KeyManagementApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -725,7 +695,10 @@ export class KeyManagementApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -753,8 +726,12 @@ export class KeyManagementApiResponseProcessor {
    * @params response Response returned by the server for a request to getAPIKey
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async getAPIKey(response: ResponseContext): Promise<ApiKeyResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+  public async getAPIKey(
+    response: ResponseContext,
+  ): Promise<ApiKeyResponse> {
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: ApiKeyResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -768,7 +745,10 @@ export class KeyManagementApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -783,7 +763,10 @@ export class KeyManagementApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -814,7 +797,9 @@ export class KeyManagementApiResponseProcessor {
   public async getApplicationKey(
     response: ResponseContext,
   ): Promise<ApplicationKeyResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: ApplicationKeyResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -828,7 +813,10 @@ export class KeyManagementApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -843,7 +831,10 @@ export class KeyManagementApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -874,7 +865,9 @@ export class KeyManagementApiResponseProcessor {
   public async listAPIKeys(
     response: ResponseContext,
   ): Promise<ApiKeyListResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: ApiKeyListResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -883,8 +876,14 @@ export class KeyManagementApiResponseProcessor {
       ) as ApiKeyListResponse;
       return body;
     }
-    if (response.httpStatusCode === 403 || response.httpStatusCode === 429) {
-      const bodyText = parse(await response.body.text(), contentType);
+    if (
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 429
+    ) {
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -899,7 +898,10 @@ export class KeyManagementApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -930,7 +932,9 @@ export class KeyManagementApiResponseProcessor {
   public async listApplicationKeys(
     response: ResponseContext,
   ): Promise<ApplicationKeyListResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: ApplicationKeyListResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -939,8 +943,14 @@ export class KeyManagementApiResponseProcessor {
       ) as ApplicationKeyListResponse;
       return body;
     }
-    if (response.httpStatusCode === 403 || response.httpStatusCode === 429) {
-      const bodyText = parse(await response.body.text(), contentType);
+    if (
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 429
+    ) {
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -955,7 +965,10 @@ export class KeyManagementApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -986,7 +999,9 @@ export class KeyManagementApiResponseProcessor {
   public async updateAPIKey(
     response: ResponseContext,
   ): Promise<ApiKeyResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: ApiKeyResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -1001,7 +1016,10 @@ export class KeyManagementApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -1016,7 +1034,10 @@ export class KeyManagementApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -1047,7 +1068,9 @@ export class KeyManagementApiResponseProcessor {
   public async updateApplicationKey(
     response: ResponseContext,
   ): Promise<ApplicationKeyResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: ApplicationKeyResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -1063,7 +1086,10 @@ export class KeyManagementApiResponseProcessor {
       response.httpStatusCode === 409 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -1078,7 +1104,10 @@ export class KeyManagementApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -1175,7 +1204,8 @@ export class KeyManagementApi {
   private responseProcessor: KeyManagementApiResponseProcessor;
   private configuration: Configuration;
 
-  static operationServers: { [key: string]: BaseServerConfiguration[] } = {};
+  static operationServers: { [key: string]: BaseServerConfiguration[] } = {
+  };
 
   public constructor(
     configuration?: Configuration,
@@ -1184,14 +1214,15 @@ export class KeyManagementApi {
   ) {
     this.configuration = configuration || createConfiguration();
     this.requestFactory =
-      requestFactory || new KeyManagementApiRequestFactory(this.configuration);
+      requestFactory ||
+      new KeyManagementApiRequestFactory(this.configuration);
     this.responseProcessor =
       responseProcessor || new KeyManagementApiResponseProcessor();
   }
 
   /**
    * Creates an API key with a given name.
-   *
+   * 
    * **Note**: This endpoint is disabled for the Government sites (US1-FED and US2-FED). Use the [V2 Key Management](https://docs.datadoghq.com/api/latest/key-management/) endpoints instead.
    * @param param The request object
    */
@@ -1215,7 +1246,7 @@ export class KeyManagementApi {
   /**
    * Create an application key with a given name.
    * This endpoint is disabled for organizations in [One-Time Read mode](https://docs.datadoghq.com/account_management/api-app-keys/#one-time-read-mode).
-   *
+   * 
    * **Note**: This endpoint is disabled for the Government sites (US1-FED and US2-FED). Use the [V2 Key Management](https://docs.datadoghq.com/api/latest/key-management/) endpoints instead.
    * @param param The request object
    */
@@ -1238,7 +1269,7 @@ export class KeyManagementApi {
 
   /**
    * Delete a given API key.
-   *
+   * 
    * **Note**: This endpoint is disabled for the Government sites (US1-FED and US2-FED). Use the [V2 Key Management](https://docs.datadoghq.com/api/latest/key-management/) endpoints instead.
    * @param param The request object
    */
@@ -1262,7 +1293,7 @@ export class KeyManagementApi {
   /**
    * Delete a given application key.
    * This endpoint is disabled for organizations in [One-Time Read mode](https://docs.datadoghq.com/account_management/api-app-keys/#one-time-read-mode).
-   *
+   * 
    * **Note**: This endpoint is disabled for the Government sites (US1-FED and US2-FED). Use the [V2 Key Management](https://docs.datadoghq.com/api/latest/key-management/) endpoints instead.
    * @param param The request object
    */
@@ -1285,7 +1316,7 @@ export class KeyManagementApi {
 
   /**
    * Get a given API key.
-   *
+   * 
    * **Note**: This endpoint is disabled for the Government sites (US1-FED and US2-FED). Use the [V2 Key Management](https://docs.datadoghq.com/api/latest/key-management/) endpoints instead.
    * @param param The request object
    */
@@ -1309,7 +1340,7 @@ export class KeyManagementApi {
   /**
    * Get a given application key.
    * This endpoint is disabled for organizations in [One-Time Read mode](https://docs.datadoghq.com/account_management/api-app-keys/#one-time-read-mode).
-   *
+   * 
    * **Note**: This endpoint is disabled for the Government sites (US1-FED and US2-FED). Use the [V2 Key Management](https://docs.datadoghq.com/api/latest/key-management/) endpoints instead.
    * @param param The request object
    */
@@ -1332,12 +1363,15 @@ export class KeyManagementApi {
 
   /**
    * Get all API keys available for your account.
-   *
+   * 
    * **Note**: This endpoint is disabled for the Government sites (US1-FED and US2-FED). Use the [V2 Key Management](https://docs.datadoghq.com/api/latest/key-management/) endpoints instead.
    * @param param The request object
    */
-  public listAPIKeys(options?: Configuration): Promise<ApiKeyListResponse> {
-    const requestContextPromise = this.requestFactory.listAPIKeys(options);
+  public listAPIKeys(options?: Configuration,
+  ): Promise<ApiKeyListResponse> {
+    const requestContextPromise = this.requestFactory.listAPIKeys(
+      options,
+    );
     return requestContextPromise.then((requestContext) => {
       return this.configuration.httpApi
         .send(requestContext)
@@ -1350,15 +1384,15 @@ export class KeyManagementApi {
   /**
    * Get all application keys available for your Datadog account.
    * This endpoint is disabled for organizations in [One-Time Read mode](https://docs.datadoghq.com/account_management/api-app-keys/#one-time-read-mode).
-   *
+   * 
    * **Note**: This endpoint is disabled for the Government sites (US1-FED and US2-FED). Use the [V2 Key Management](https://docs.datadoghq.com/api/latest/key-management/) endpoints instead.
    * @param param The request object
    */
-  public listApplicationKeys(
-    options?: Configuration,
+  public listApplicationKeys(options?: Configuration,
   ): Promise<ApplicationKeyListResponse> {
-    const requestContextPromise =
-      this.requestFactory.listApplicationKeys(options);
+    const requestContextPromise = this.requestFactory.listApplicationKeys(
+      options,
+    );
     return requestContextPromise.then((requestContext) => {
       return this.configuration.httpApi
         .send(requestContext)
@@ -1370,7 +1404,7 @@ export class KeyManagementApi {
 
   /**
    * Edit an API key name.
-   *
+   * 
    * **Note**: This endpoint is disabled for the Government sites (US1-FED and US2-FED). Use the [V2 Key Management](https://docs.datadoghq.com/api/latest/key-management/) endpoints instead.
    * @param param The request object
    */
@@ -1395,7 +1429,7 @@ export class KeyManagementApi {
   /**
    * Edit an application key name.
    * This endpoint is disabled for organizations in [One-Time Read mode](https://docs.datadoghq.com/account_management/api-app-keys/#one-time-read-mode).
-   *
+   * 
    * **Note**: This endpoint is disabled for the Government sites (US1-FED and US2-FED). Use the [V2 Key Management](https://docs.datadoghq.com/api/latest/key-management/) endpoints instead.
    * @param param The request object
    */

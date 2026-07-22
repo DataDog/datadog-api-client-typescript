@@ -23,7 +23,7 @@ export class FormVersionAttributes {
   /**
    * The ETag for optimistic concurrency control.
    */
-  "etag": string | null;
+  "etag": string|null;
   /**
    * The ID of the form version.
    */
@@ -57,7 +57,7 @@ export class FormVersionAttributes {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
   /**
    * @ignore
    */

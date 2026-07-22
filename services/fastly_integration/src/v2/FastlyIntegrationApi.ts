@@ -19,6 +19,7 @@ import {
   ServerConfiguration,
   stringify,
   applySecurityAuthentication,
+  
 } from "@datadog/datadog-api-client";
 
 import { TypingInfo } from "./models/TypingInfo";
@@ -56,15 +57,8 @@ export class FastlyIntegrationApiRequestFactory extends BaseAPIRequestFactory {
     const localVarPath = "/api/v2/integrations/fastly/accounts";
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "FastlyIntegrationApi.v2.createFastlyAccount",
-      FastlyIntegrationApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.POST,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("FastlyIntegrationApi.v2.createFastlyAccount", FastlyIntegrationApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.POST, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -74,7 +68,9 @@ export class FastlyIntegrationApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Body Params
-    const contentType = getPreferredMediaType(["application/json"]);
+    const contentType = getPreferredMediaType([
+      "application/json",
+    ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = stringify(
       serialize(body, TypingInfo, "FastlyAccountCreateRequest", ""),
@@ -109,22 +105,14 @@ export class FastlyIntegrationApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Path Params
-    const localVarPath =
-      "/api/v2/integrations/fastly/accounts/{account_id}/services".replace(
-        "{account_id}",
-        encodeURIComponent(String(accountId)),
-      );
+    const localVarPath = "/api/v2/integrations/fastly/accounts/{account_id}/services".replace(
+      "{account_id}",
+      encodeURIComponent(String(accountId)),
+    );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "FastlyIntegrationApi.v2.createFastlyService",
-      FastlyIntegrationApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.POST,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("FastlyIntegrationApi.v2.createFastlyService", FastlyIntegrationApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.POST, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -134,7 +122,9 @@ export class FastlyIntegrationApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Body Params
-    const contentType = getPreferredMediaType(["application/json"]);
+    const contentType = getPreferredMediaType([
+      "application/json",
+    ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = stringify(
       serialize(body, TypingInfo, "FastlyServiceRequest", ""),
@@ -163,22 +153,14 @@ export class FastlyIntegrationApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Path Params
-    const localVarPath =
-      "/api/v2/integrations/fastly/accounts/{account_id}".replace(
-        "{account_id}",
-        encodeURIComponent(String(accountId)),
-      );
+    const localVarPath = "/api/v2/integrations/fastly/accounts/{account_id}".replace(
+      "{account_id}",
+      encodeURIComponent(String(accountId)),
+    );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "FastlyIntegrationApi.v2.deleteFastlyAccount",
-      FastlyIntegrationApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.DELETE,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("FastlyIntegrationApi.v2.deleteFastlyAccount", FastlyIntegrationApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.DELETE, overrides);
     requestContext.setHeaderParam("Accept", "*/*");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -214,21 +196,17 @@ export class FastlyIntegrationApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Path Params
-    const localVarPath =
-      "/api/v2/integrations/fastly/accounts/{account_id}/services/{service_id}"
-        .replace("{account_id}", encodeURIComponent(String(accountId)))
-        .replace("{service_id}", encodeURIComponent(String(serviceId)));
+    const localVarPath = "/api/v2/integrations/fastly/accounts/{account_id}/services/{service_id}".replace(
+      "{account_id}",
+      encodeURIComponent(String(accountId)),
+    ).replace(
+      "{service_id}",
+      encodeURIComponent(String(serviceId)),
+    );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "FastlyIntegrationApi.v2.deleteFastlyService",
-      FastlyIntegrationApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.DELETE,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("FastlyIntegrationApi.v2.deleteFastlyService", FastlyIntegrationApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.DELETE, overrides);
     requestContext.setHeaderParam("Accept", "*/*");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -258,22 +236,14 @@ export class FastlyIntegrationApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Path Params
-    const localVarPath =
-      "/api/v2/integrations/fastly/accounts/{account_id}".replace(
-        "{account_id}",
-        encodeURIComponent(String(accountId)),
-      );
+    const localVarPath = "/api/v2/integrations/fastly/accounts/{account_id}".replace(
+      "{account_id}",
+      encodeURIComponent(String(accountId)),
+    );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "FastlyIntegrationApi.v2.getFastlyAccount",
-      FastlyIntegrationApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.GET,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("FastlyIntegrationApi.v2.getFastlyAccount", FastlyIntegrationApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.GET, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -309,21 +279,17 @@ export class FastlyIntegrationApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Path Params
-    const localVarPath =
-      "/api/v2/integrations/fastly/accounts/{account_id}/services/{service_id}"
-        .replace("{account_id}", encodeURIComponent(String(accountId)))
-        .replace("{service_id}", encodeURIComponent(String(serviceId)));
+    const localVarPath = "/api/v2/integrations/fastly/accounts/{account_id}/services/{service_id}".replace(
+      "{account_id}",
+      encodeURIComponent(String(accountId)),
+    ).replace(
+      "{service_id}",
+      encodeURIComponent(String(serviceId)),
+    );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "FastlyIntegrationApi.v2.getFastlyService",
-      FastlyIntegrationApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.GET,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("FastlyIntegrationApi.v2.getFastlyService", FastlyIntegrationApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.GET, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -350,15 +316,8 @@ export class FastlyIntegrationApiRequestFactory extends BaseAPIRequestFactory {
     const localVarPath = "/api/v2/integrations/fastly/accounts";
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "FastlyIntegrationApi.v2.listFastlyAccounts",
-      FastlyIntegrationApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.GET,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("FastlyIntegrationApi.v2.listFastlyAccounts", FastlyIntegrationApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.GET, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -388,22 +347,14 @@ export class FastlyIntegrationApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Path Params
-    const localVarPath =
-      "/api/v2/integrations/fastly/accounts/{account_id}/services".replace(
-        "{account_id}",
-        encodeURIComponent(String(accountId)),
-      );
+    const localVarPath = "/api/v2/integrations/fastly/accounts/{account_id}/services".replace(
+      "{account_id}",
+      encodeURIComponent(String(accountId)),
+    );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "FastlyIntegrationApi.v2.listFastlyServices",
-      FastlyIntegrationApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.GET,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("FastlyIntegrationApi.v2.listFastlyServices", FastlyIntegrationApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.GET, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -439,22 +390,14 @@ export class FastlyIntegrationApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Path Params
-    const localVarPath =
-      "/api/v2/integrations/fastly/accounts/{account_id}".replace(
-        "{account_id}",
-        encodeURIComponent(String(accountId)),
-      );
+    const localVarPath = "/api/v2/integrations/fastly/accounts/{account_id}".replace(
+      "{account_id}",
+      encodeURIComponent(String(accountId)),
+    );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "FastlyIntegrationApi.v2.updateFastlyAccount",
-      FastlyIntegrationApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.PATCH,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("FastlyIntegrationApi.v2.updateFastlyAccount", FastlyIntegrationApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.PATCH, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -464,7 +407,9 @@ export class FastlyIntegrationApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Body Params
-    const contentType = getPreferredMediaType(["application/json"]);
+    const contentType = getPreferredMediaType([
+      "application/json",
+    ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = stringify(
       serialize(body, TypingInfo, "FastlyAccountUpdateRequest", ""),
@@ -505,21 +450,17 @@ export class FastlyIntegrationApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Path Params
-    const localVarPath =
-      "/api/v2/integrations/fastly/accounts/{account_id}/services/{service_id}"
-        .replace("{account_id}", encodeURIComponent(String(accountId)))
-        .replace("{service_id}", encodeURIComponent(String(serviceId)));
+    const localVarPath = "/api/v2/integrations/fastly/accounts/{account_id}/services/{service_id}".replace(
+      "{account_id}",
+      encodeURIComponent(String(accountId)),
+    ).replace(
+      "{service_id}",
+      encodeURIComponent(String(serviceId)),
+    );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "FastlyIntegrationApi.v2.updateFastlyService",
-      FastlyIntegrationApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.PATCH,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("FastlyIntegrationApi.v2.updateFastlyService", FastlyIntegrationApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.PATCH, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -529,7 +470,9 @@ export class FastlyIntegrationApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Body Params
-    const contentType = getPreferredMediaType(["application/json"]);
+    const contentType = getPreferredMediaType([
+      "application/json",
+    ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = stringify(
       serialize(body, TypingInfo, "FastlyServiceRequest", ""),
@@ -558,7 +501,9 @@ export class FastlyIntegrationApiResponseProcessor {
   public async createFastlyAccount(
     response: ResponseContext,
   ): Promise<FastlyAccountResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 201) {
       const body: FastlyAccountResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -573,7 +518,10 @@ export class FastlyIntegrationApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -588,7 +536,10 @@ export class FastlyIntegrationApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -619,7 +570,9 @@ export class FastlyIntegrationApiResponseProcessor {
   public async createFastlyService(
     response: ResponseContext,
   ): Promise<FastlyServiceResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 201) {
       const body: FastlyServiceResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -634,7 +587,10 @@ export class FastlyIntegrationApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -649,7 +605,10 @@ export class FastlyIntegrationApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -677,8 +636,12 @@ export class FastlyIntegrationApiResponseProcessor {
    * @params response Response returned by the server for a request to deleteFastlyAccount
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async deleteFastlyAccount(response: ResponseContext): Promise<void> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+  public async deleteFastlyAccount(
+    response: ResponseContext,
+  ): Promise<void> {
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 204) {
       return;
     }
@@ -688,7 +651,10 @@ export class FastlyIntegrationApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -703,7 +669,10 @@ export class FastlyIntegrationApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -725,8 +694,12 @@ export class FastlyIntegrationApiResponseProcessor {
    * @params response Response returned by the server for a request to deleteFastlyService
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async deleteFastlyService(response: ResponseContext): Promise<void> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+  public async deleteFastlyService(
+    response: ResponseContext,
+  ): Promise<void> {
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 204) {
       return;
     }
@@ -736,7 +709,10 @@ export class FastlyIntegrationApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -751,7 +727,10 @@ export class FastlyIntegrationApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -776,7 +755,9 @@ export class FastlyIntegrationApiResponseProcessor {
   public async getFastlyAccount(
     response: ResponseContext,
   ): Promise<FastlyAccountResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: FastlyAccountResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -791,7 +772,10 @@ export class FastlyIntegrationApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -806,7 +790,10 @@ export class FastlyIntegrationApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -837,7 +824,9 @@ export class FastlyIntegrationApiResponseProcessor {
   public async getFastlyService(
     response: ResponseContext,
   ): Promise<FastlyServiceResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: FastlyServiceResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -852,7 +841,10 @@ export class FastlyIntegrationApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -867,7 +859,10 @@ export class FastlyIntegrationApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -898,7 +893,9 @@ export class FastlyIntegrationApiResponseProcessor {
   public async listFastlyAccounts(
     response: ResponseContext,
   ): Promise<FastlyAccountsResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: FastlyAccountsResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -913,7 +910,10 @@ export class FastlyIntegrationApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -928,7 +928,10 @@ export class FastlyIntegrationApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -959,7 +962,9 @@ export class FastlyIntegrationApiResponseProcessor {
   public async listFastlyServices(
     response: ResponseContext,
   ): Promise<FastlyServicesResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: FastlyServicesResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -974,7 +979,10 @@ export class FastlyIntegrationApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -989,7 +997,10 @@ export class FastlyIntegrationApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -1020,7 +1031,9 @@ export class FastlyIntegrationApiResponseProcessor {
   public async updateFastlyAccount(
     response: ResponseContext,
   ): Promise<FastlyAccountResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: FastlyAccountResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -1035,7 +1048,10 @@ export class FastlyIntegrationApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -1050,7 +1066,10 @@ export class FastlyIntegrationApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -1081,7 +1100,9 @@ export class FastlyIntegrationApiResponseProcessor {
   public async updateFastlyService(
     response: ResponseContext,
   ): Promise<FastlyServiceResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: FastlyServiceResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -1096,7 +1117,10 @@ export class FastlyIntegrationApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -1111,7 +1135,10 @@ export class FastlyIntegrationApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -1236,7 +1263,8 @@ export class FastlyIntegrationApi {
   private responseProcessor: FastlyIntegrationApiResponseProcessor;
   private configuration: Configuration;
 
-  static operationServers: { [key: string]: BaseServerConfiguration[] } = {};
+  static operationServers: { [key: string]: BaseServerConfiguration[] } = {
+  };
 
   public constructor(
     configuration?: Configuration,
@@ -1384,11 +1412,11 @@ export class FastlyIntegrationApi {
    * List Fastly accounts.
    * @param param The request object
    */
-  public listFastlyAccounts(
-    options?: Configuration,
+  public listFastlyAccounts(options?: Configuration,
   ): Promise<FastlyAccountsResponse> {
-    const requestContextPromise =
-      this.requestFactory.listFastlyAccounts(options);
+    const requestContextPromise = this.requestFactory.listFastlyAccounts(
+      options,
+    );
     return requestContextPromise.then((requestContext) => {
       return this.configuration.httpApi
         .send(requestContext)

@@ -22,7 +22,7 @@ export class MonitorUserTemplate {
   /**
    * A valid monitor definition in the same format as the [V1 Monitor API](https://docs.datadoghq.com/api/latest/monitors/#create-a-monitor).
    */
-  "monitorDefinition"?: { [key: string]: any };
+  "monitorDefinition"?: { [key: string]: any; };
   /**
    * The definition of `MonitorUserTemplateTags` object.
    */
@@ -48,7 +48,7 @@ export class MonitorUserTemplate {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
   /**
    * @ignore
    */

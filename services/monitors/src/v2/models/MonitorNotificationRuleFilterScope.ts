@@ -1,5 +1,6 @@
 import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
+
 /**
  * Filters monitor notifications using a scope expression over key:value pairs with boolean logic (AND, OR, NOT).
  */
@@ -21,7 +22,7 @@ export class MonitorNotificationRuleFilterScope {
       baseName: "scope",
       type: "string",
       required: true,
-    },
+    }
   };
 
   /**

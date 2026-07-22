@@ -19,6 +19,7 @@ import {
   ServerConfiguration,
   stringify,
   applySecurityAuthentication,
+  
 } from "@datadog/datadog-api-client";
 
 import { TypingInfo } from "./models/TypingInfo";
@@ -63,15 +64,8 @@ export class WidgetsApiRequestFactory extends BaseAPIRequestFactory {
     );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "WidgetsApi.v2.createWidget",
-      WidgetsApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.POST,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("WidgetsApi.v2.createWidget", WidgetsApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.POST, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -81,7 +75,9 @@ export class WidgetsApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Body Params
-    const contentType = getPreferredMediaType(["application/json"]);
+    const contentType = getPreferredMediaType([
+      "application/json",
+    ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = stringify(
       serialize(body, TypingInfo, "CreateOrUpdateWidgetRequest", ""),
@@ -116,20 +112,17 @@ export class WidgetsApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Path Params
-    const localVarPath = "/api/v2/widgets/{experience_type}/{uuid}"
-      .replace("{experience_type}", encodeURIComponent(String(experienceType)))
-      .replace("{uuid}", encodeURIComponent(String(uuid)));
+    const localVarPath = "/api/v2/widgets/{experience_type}/{uuid}".replace(
+      "{experience_type}",
+      encodeURIComponent(String(experienceType)),
+    ).replace(
+      "{uuid}",
+      encodeURIComponent(String(uuid)),
+    );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "WidgetsApi.v2.deleteWidget",
-      WidgetsApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.DELETE,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("WidgetsApi.v2.deleteWidget", WidgetsApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.DELETE, overrides);
     requestContext.setHeaderParam("Accept", "*/*");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -165,20 +158,17 @@ export class WidgetsApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Path Params
-    const localVarPath = "/api/v2/widgets/{experience_type}/{uuid}"
-      .replace("{experience_type}", encodeURIComponent(String(experienceType)))
-      .replace("{uuid}", encodeURIComponent(String(uuid)));
+    const localVarPath = "/api/v2/widgets/{experience_type}/{uuid}".replace(
+      "{experience_type}",
+      encodeURIComponent(String(experienceType)),
+    ).replace(
+      "{uuid}",
+      encodeURIComponent(String(uuid)),
+    );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "WidgetsApi.v2.getWidget",
-      WidgetsApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.GET,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("WidgetsApi.v2.getWidget", WidgetsApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.GET, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -222,15 +212,8 @@ export class WidgetsApiRequestFactory extends BaseAPIRequestFactory {
     );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "WidgetsApi.v2.searchWidgets",
-      WidgetsApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.GET,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("WidgetsApi.v2.searchWidgets", WidgetsApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.GET, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -330,20 +313,17 @@ export class WidgetsApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Path Params
-    const localVarPath = "/api/v2/widgets/{experience_type}/{uuid}"
-      .replace("{experience_type}", encodeURIComponent(String(experienceType)))
-      .replace("{uuid}", encodeURIComponent(String(uuid)));
+    const localVarPath = "/api/v2/widgets/{experience_type}/{uuid}".replace(
+      "{experience_type}",
+      encodeURIComponent(String(experienceType)),
+    ).replace(
+      "{uuid}",
+      encodeURIComponent(String(uuid)),
+    );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "WidgetsApi.v2.updateWidget",
-      WidgetsApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.PUT,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("WidgetsApi.v2.updateWidget", WidgetsApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.PUT, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -353,7 +333,9 @@ export class WidgetsApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Body Params
-    const contentType = getPreferredMediaType(["application/json"]);
+    const contentType = getPreferredMediaType([
+      "application/json",
+    ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = stringify(
       serialize(body, TypingInfo, "CreateOrUpdateWidgetRequest", ""),
@@ -382,7 +364,9 @@ export class WidgetsApiResponseProcessor {
   public async createWidget(
     response: ResponseContext,
   ): Promise<WidgetResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: WidgetResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -396,7 +380,10 @@ export class WidgetsApiResponseProcessor {
       response.httpStatusCode === 403 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -411,7 +398,10 @@ export class WidgetsApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -439,8 +429,12 @@ export class WidgetsApiResponseProcessor {
    * @params response Response returned by the server for a request to deleteWidget
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async deleteWidget(response: ResponseContext): Promise<void> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+  public async deleteWidget(
+    response: ResponseContext,
+  ): Promise<void> {
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 204) {
       return;
     }
@@ -450,7 +444,10 @@ export class WidgetsApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -465,7 +462,10 @@ export class WidgetsApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -487,8 +487,12 @@ export class WidgetsApiResponseProcessor {
    * @params response Response returned by the server for a request to getWidget
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async getWidget(response: ResponseContext): Promise<WidgetResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+  public async getWidget(
+    response: ResponseContext,
+  ): Promise<WidgetResponse> {
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: WidgetResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -503,7 +507,10 @@ export class WidgetsApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -518,7 +525,10 @@ export class WidgetsApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -549,7 +559,9 @@ export class WidgetsApiResponseProcessor {
   public async searchWidgets(
     response: ResponseContext,
   ): Promise<WidgetListResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: WidgetListResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -563,7 +575,10 @@ export class WidgetsApiResponseProcessor {
       response.httpStatusCode === 403 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -578,7 +593,10 @@ export class WidgetsApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -609,7 +627,9 @@ export class WidgetsApiResponseProcessor {
   public async updateWidget(
     response: ResponseContext,
   ): Promise<WidgetResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: WidgetResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -624,7 +644,10 @@ export class WidgetsApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -639,7 +662,10 @@ export class WidgetsApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -738,11 +764,11 @@ export interface WidgetsApiSearchWidgetsRequest {
   filterTags?: string;
   /**
    * Sort field for the results.
-   *
+   * 
    * **`title`, `created_at`, `modified_at`** — both ascending and descending are
    * supported. Use the bare field name for ascending (e.g. `sort=title`) or prefix
    * with `-` for descending (e.g. `sort=-modified_at`).
-   *
+   * 
    * **`is_favorited`** — returns favorites-first ordering (favorited widgets first,
    * then the rest). Direction is fixed; the `-` prefix is ignored for this field.
    * @type string
@@ -785,7 +811,8 @@ export class WidgetsApi {
   private responseProcessor: WidgetsApiResponseProcessor;
   private configuration: Configuration;
 
-  static operationServers: { [key: string]: BaseServerConfiguration[] } = {};
+  static operationServers: { [key: string]: BaseServerConfiguration[] } = {
+  };
 
   public constructor(
     configuration?: Configuration,
@@ -794,7 +821,8 @@ export class WidgetsApi {
   ) {
     this.configuration = configuration || createConfiguration();
     this.requestFactory =
-      requestFactory || new WidgetsApiRequestFactory(this.configuration);
+      requestFactory ||
+      new WidgetsApiRequestFactory(this.configuration);
     this.responseProcessor =
       responseProcessor || new WidgetsApiResponseProcessor();
   }
@@ -867,13 +895,13 @@ export class WidgetsApi {
 
   /**
    * Search and list widgets for a given experience type, with filtering, sorting, and pagination.
-   *
+   * 
    * **Response meta** carries totals scoped to the current filter:
    * - `filtered_total` — widgets matching the filter.
    * - `created_by_you_total` — among the matches, how many the current user created.
    * - `favorited_by_you_total` — among the matches, how many the current user has favorited.
    * - `created_by_anyone_total` — total widgets in the experience type, ignoring filters.
-   *
+   * 
    * Each returned widget includes `is_favorited` reflecting the current user's favorite status.
    * Favoriting itself is performed through the shared favorites API, not this endpoint.
    * @param param The request object

@@ -9,7 +9,8 @@ import { ApplicationKeyListResponse } from "./ApplicationKeyListResponse";
 import { ApplicationKeyResponse } from "./ApplicationKeyResponse";
 
 export const TypingInfo: ModelTypingInfo = {
-  enumsMap: {},
+  enumsMap: {
+  },
   oneOfMap: {},
   typeMap: {
     APIErrorResponse: APIErrorResponse,

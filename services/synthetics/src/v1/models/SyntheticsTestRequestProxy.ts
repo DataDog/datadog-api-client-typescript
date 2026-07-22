@@ -1,5 +1,6 @@
 import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
+
 /**
  * The proxy to perform the test.
  */
@@ -7,7 +8,7 @@ export class SyntheticsTestRequestProxy {
   /**
    * Headers to include when performing the test.
    */
-  "headers"?: { [key: string]: string };
+  "headers"?: { [key: string]: string; };
   /**
    * URL of the proxy to perform the test.
    */
@@ -17,7 +18,7 @@ export class SyntheticsTestRequestProxy {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
   /**
    * @ignore
    */

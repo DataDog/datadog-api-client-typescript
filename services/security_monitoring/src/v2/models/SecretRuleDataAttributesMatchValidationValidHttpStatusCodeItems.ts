@@ -1,5 +1,6 @@
 import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
+
 /**
  * An HTTP status code range that indicates a valid (successful) secret match during validation.
  */
@@ -17,7 +18,7 @@ export class SecretRuleDataAttributesMatchValidationValidHttpStatusCodeItems {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
   /**
    * @ignore
    */

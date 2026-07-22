@@ -22,7 +22,7 @@ export class OwnershipInferenceAttributes {
   /**
    * The list of evidence versions associated with an inference.
    */
-  "evidenceVersions": Array<{ [key: string]: any }> | null;
+  "evidenceVersions": Array<{ [key: string]: any; }>|null;
   /**
    * A human-readable explanation of how the inference was produced.
    */
@@ -38,7 +38,7 @@ export class OwnershipInferenceAttributes {
   /**
    * The list of sources backing an ownership inference. Empty when the inference status is not whitelisted to expose sources.
    */
-  "sources": Array<{ [key: string]: any }>;
+  "sources": Array<{ [key: string]: any; }>;
   /**
    * The lifecycle status of an ownership inference.
    */
@@ -52,7 +52,7 @@ export class OwnershipInferenceAttributes {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
   /**
    * @ignore
    */

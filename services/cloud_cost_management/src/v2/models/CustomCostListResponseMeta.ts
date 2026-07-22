@@ -1,5 +1,6 @@
 import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
+
 /**
  * Meta for the response from the List Custom Costs endpoints.
  */
@@ -7,7 +8,7 @@ export class CustomCostListResponseMeta {
   /**
    * Number of Custom Costs files per status.
    */
-  "countByStatus"?: { [key: string]: number };
+  "countByStatus"?: { [key: string]: number; };
   /**
    * List of available providers.
    */
@@ -25,7 +26,7 @@ export class CustomCostListResponseMeta {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
   /**
    * @ignore
    */

@@ -21,7 +21,7 @@ export class SyntheticsTestResultExecutionInfo {
   /**
    * Timing breakdown of the test execution in milliseconds.
    */
-  "timings"?: { [key: string]: any };
+  "timings"?: { [key: string]: any; };
   /**
    * Whether the test was executed through a tunnel.
    */
@@ -35,7 +35,7 @@ export class SyntheticsTestResultExecutionInfo {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
   /**
    * @ignore
    */

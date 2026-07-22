@@ -17,7 +17,7 @@ export class CustomDestinationForwardDestinationSplunk {
   "endpoint": string;
   /**
    * The Splunk sourcetype for the events sent to this Splunk destination.
-   *
+   * 
    * If the field is absent from the request and no sourcetype has been previously set on this destination, the default sourcetype `_json` is used.
    * On update, if the field is absent from the request but a sourcetype was previously set, the previous value is kept.
    * If set to `null`, the sourcetype field is omitted from the forwarded event entirely.
@@ -33,7 +33,7 @@ export class CustomDestinationForwardDestinationSplunk {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
   /**
    * @ignore
    */

@@ -1,5 +1,6 @@
 import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
+
 /**
  * Overrides applied when activating the integration. All fields are optional.
  */
@@ -15,13 +16,13 @@ export class SecurityMonitoringIntegrationActivateAttributes {
   /**
    * Free-form, non-sensitive settings for the entity context sync. The accepted keys depend on the source type.
    */
-  "settings"?: { [key: string]: any };
+  "settings"?: { [key: string]: any; };
   /**
    * A container for additional, undeclared properties.
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
   /**
    * @ignore
    */

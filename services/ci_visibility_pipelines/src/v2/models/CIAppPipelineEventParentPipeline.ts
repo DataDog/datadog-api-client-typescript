@@ -1,5 +1,6 @@
 import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
+
 /**
  * If the pipeline is triggered as child of another pipeline, this should contain the details of the parent pipeline.
  */
@@ -17,7 +18,7 @@ export class CIAppPipelineEventParentPipeline {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
   /**
    * @ignore
    */

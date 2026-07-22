@@ -13,7 +13,7 @@ export class FormDataDefinition {
   /**
    * A map of field names to their JSON Schema definitions.
    */
-  "properties"?: { [key: string]: any };
+  "properties"?: { [key: string]: any; };
   /**
    * List of field names that must be answered.
    */
@@ -31,7 +31,7 @@ export class FormDataDefinition {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
   /**
    * @ignore
    */

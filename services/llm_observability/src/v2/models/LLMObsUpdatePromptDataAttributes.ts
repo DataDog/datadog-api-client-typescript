@@ -1,5 +1,6 @@
 import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
+
 /**
  * Attributes for updating an LLM Observability prompt. At least one of `title` or `description` must be provided; both attributes are optional individually.
  */
@@ -28,7 +29,7 @@ export class LLMObsUpdatePromptDataAttributes {
     title: {
       baseName: "title",
       type: "string",
-    },
+    }
   };
 
   /**

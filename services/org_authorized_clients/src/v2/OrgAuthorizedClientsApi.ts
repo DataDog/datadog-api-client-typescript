@@ -19,6 +19,7 @@ import {
   ServerConfiguration,
   stringify,
   applySecurityAuthentication,
+  
 } from "@datadog/datadog-api-client";
 
 import { TypingInfo } from "./models/TypingInfo";
@@ -50,29 +51,18 @@ export class OrgAuthorizedClientsApiRequestFactory extends BaseAPIRequestFactory
 
     // verify required parameter 'orgAuthorizedClientId' is not null or undefined
     if (orgAuthorizedClientId === null || orgAuthorizedClientId === undefined) {
-      throw new RequiredError(
-        "orgAuthorizedClientId",
-        "deleteOrgAuthorizedClient",
-      );
+      throw new RequiredError("orgAuthorizedClientId", "deleteOrgAuthorizedClient");
     }
 
     // Path Params
-    const localVarPath =
-      "/api/v2/org_authorized_clients/{org_authorized_client_id}".replace(
-        "{org_authorized_client_id}",
-        encodeURIComponent(String(orgAuthorizedClientId)),
-      );
+    const localVarPath = "/api/v2/org_authorized_clients/{org_authorized_client_id}".replace(
+      "{org_authorized_client_id}",
+      encodeURIComponent(String(orgAuthorizedClientId)),
+    );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "OrgAuthorizedClientsApi.v2.deleteOrgAuthorizedClient",
-      OrgAuthorizedClientsApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.DELETE,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("OrgAuthorizedClientsApi.v2.deleteOrgAuthorizedClient", OrgAuthorizedClientsApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.DELETE, overrides);
     requestContext.setHeaderParam("Accept", "*/*");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -100,39 +90,26 @@ export class OrgAuthorizedClientsApiRequestFactory extends BaseAPIRequestFactory
 
     // verify required parameter 'orgAuthorizedClientId' is not null or undefined
     if (orgAuthorizedClientId === null || orgAuthorizedClientId === undefined) {
-      throw new RequiredError(
-        "orgAuthorizedClientId",
-        "deleteOrgAuthorizedClientAllUserAuthorizations",
-      );
+      throw new RequiredError("orgAuthorizedClientId", "deleteOrgAuthorizedClientAllUserAuthorizations");
     }
 
     // verify required parameter 'userId' is not null or undefined
     if (userId === null || userId === undefined) {
-      throw new RequiredError(
-        "userId",
-        "deleteOrgAuthorizedClientAllUserAuthorizations",
-      );
+      throw new RequiredError("userId", "deleteOrgAuthorizedClientAllUserAuthorizations");
     }
 
     // Path Params
-    const localVarPath =
-      "/api/v2/org_authorized_clients/{org_authorized_client_id}/user/{user_id}"
-        .replace(
-          "{org_authorized_client_id}",
-          encodeURIComponent(String(orgAuthorizedClientId)),
-        )
-        .replace("{user_id}", encodeURIComponent(String(userId)));
+    const localVarPath = "/api/v2/org_authorized_clients/{org_authorized_client_id}/user/{user_id}".replace(
+      "{org_authorized_client_id}",
+      encodeURIComponent(String(orgAuthorizedClientId)),
+    ).replace(
+      "{user_id}",
+      encodeURIComponent(String(userId)),
+    );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "OrgAuthorizedClientsApi.v2.deleteOrgAuthorizedClientAllUserAuthorizations",
-      OrgAuthorizedClientsApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.DELETE,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("OrgAuthorizedClientsApi.v2.deleteOrgAuthorizedClientAllUserAuthorizations", OrgAuthorizedClientsApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.DELETE, overrides);
     requestContext.setHeaderParam("Accept", "*/*");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -160,45 +137,26 @@ export class OrgAuthorizedClientsApiRequestFactory extends BaseAPIRequestFactory
 
     // verify required parameter 'orgAuthorizedClientId' is not null or undefined
     if (orgAuthorizedClientId === null || orgAuthorizedClientId === undefined) {
-      throw new RequiredError(
-        "orgAuthorizedClientId",
-        "deleteOrgAuthorizedClientUserAuthorization",
-      );
+      throw new RequiredError("orgAuthorizedClientId", "deleteOrgAuthorizedClientUserAuthorization");
     }
 
     // verify required parameter 'userAuthorizedClientId' is not null or undefined
-    if (
-      userAuthorizedClientId === null ||
-      userAuthorizedClientId === undefined
-    ) {
-      throw new RequiredError(
-        "userAuthorizedClientId",
-        "deleteOrgAuthorizedClientUserAuthorization",
-      );
+    if (userAuthorizedClientId === null || userAuthorizedClientId === undefined) {
+      throw new RequiredError("userAuthorizedClientId", "deleteOrgAuthorizedClientUserAuthorization");
     }
 
     // Path Params
-    const localVarPath =
-      "/api/v2/org_authorized_clients/{org_authorized_client_id}/user_authorized_clients/{user_authorized_client_id}"
-        .replace(
-          "{org_authorized_client_id}",
-          encodeURIComponent(String(orgAuthorizedClientId)),
-        )
-        .replace(
-          "{user_authorized_client_id}",
-          encodeURIComponent(String(userAuthorizedClientId)),
-        );
+    const localVarPath = "/api/v2/org_authorized_clients/{org_authorized_client_id}/user_authorized_clients/{user_authorized_client_id}".replace(
+      "{org_authorized_client_id}",
+      encodeURIComponent(String(orgAuthorizedClientId)),
+    ).replace(
+      "{user_authorized_client_id}",
+      encodeURIComponent(String(userAuthorizedClientId)),
+    );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "OrgAuthorizedClientsApi.v2.deleteOrgAuthorizedClientUserAuthorization",
-      OrgAuthorizedClientsApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.DELETE,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("OrgAuthorizedClientsApi.v2.deleteOrgAuthorizedClientUserAuthorization", OrgAuthorizedClientsApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.DELETE, overrides);
     requestContext.setHeaderParam("Accept", "*/*");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -228,29 +186,18 @@ export class OrgAuthorizedClientsApiRequestFactory extends BaseAPIRequestFactory
 
     // verify required parameter 'orgAuthorizedClientId' is not null or undefined
     if (orgAuthorizedClientId === null || orgAuthorizedClientId === undefined) {
-      throw new RequiredError(
-        "orgAuthorizedClientId",
-        "getOrgAuthorizedClient",
-      );
+      throw new RequiredError("orgAuthorizedClientId", "getOrgAuthorizedClient");
     }
 
     // Path Params
-    const localVarPath =
-      "/api/v2/org_authorized_clients/{org_authorized_client_id}".replace(
-        "{org_authorized_client_id}",
-        encodeURIComponent(String(orgAuthorizedClientId)),
-      );
+    const localVarPath = "/api/v2/org_authorized_clients/{org_authorized_client_id}".replace(
+      "{org_authorized_client_id}",
+      encodeURIComponent(String(orgAuthorizedClientId)),
+    );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "OrgAuthorizedClientsApi.v2.getOrgAuthorizedClient",
-      OrgAuthorizedClientsApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.GET,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("OrgAuthorizedClientsApi.v2.getOrgAuthorizedClient", OrgAuthorizedClientsApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.GET, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -270,24 +217,14 @@ export class OrgAuthorizedClientsApiRequestFactory extends BaseAPIRequestFactory
     if (filterUserAuthorizedClientsDisabled !== undefined) {
       requestContext.setQueryParam(
         "filter[user_authorized_clients][disabled]",
-        serialize(
-          filterUserAuthorizedClientsDisabled,
-          TypingInfo,
-          "string",
-          "",
-        ),
+        serialize(filterUserAuthorizedClientsDisabled, TypingInfo, "string", ""),
         "",
       );
     }
     if (filterUserAuthorizedClientsUserDisabled !== undefined) {
       requestContext.setQueryParam(
         "filter[user_authorized_clients][user][disabled]",
-        serialize(
-          filterUserAuthorizedClientsUserDisabled,
-          TypingInfo,
-          "string",
-          "",
-        ),
+        serialize(filterUserAuthorizedClientsUserDisabled, TypingInfo, "string", ""),
         "",
       );
     }
@@ -318,15 +255,8 @@ export class OrgAuthorizedClientsApiRequestFactory extends BaseAPIRequestFactory
     const localVarPath = "/api/v2/org_authorized_clients";
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "OrgAuthorizedClientsApi.v2.listOrgAuthorizedClients",
-      OrgAuthorizedClientsApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.GET,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("OrgAuthorizedClientsApi.v2.listOrgAuthorizedClients", OrgAuthorizedClientsApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.GET, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -411,29 +341,18 @@ export class OrgAuthorizedClientsApiRequestFactory extends BaseAPIRequestFactory
 
     // verify required parameter 'orgAuthorizedClientId' is not null or undefined
     if (orgAuthorizedClientId === null || orgAuthorizedClientId === undefined) {
-      throw new RequiredError(
-        "orgAuthorizedClientId",
-        "listOrgAuthorizedClientUserAuthorizations",
-      );
+      throw new RequiredError("orgAuthorizedClientId", "listOrgAuthorizedClientUserAuthorizations");
     }
 
     // Path Params
-    const localVarPath =
-      "/api/v2/org_authorized_clients/{org_authorized_client_id}/user_authorized_clients".replace(
-        "{org_authorized_client_id}",
-        encodeURIComponent(String(orgAuthorizedClientId)),
-      );
+    const localVarPath = "/api/v2/org_authorized_clients/{org_authorized_client_id}/user_authorized_clients".replace(
+      "{org_authorized_client_id}",
+      encodeURIComponent(String(orgAuthorizedClientId)),
+    );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "OrgAuthorizedClientsApi.v2.listOrgAuthorizedClientUserAuthorizations",
-      OrgAuthorizedClientsApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.GET,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("OrgAuthorizedClientsApi.v2.listOrgAuthorizedClientUserAuthorizations", OrgAuthorizedClientsApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.GET, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -460,12 +379,7 @@ export class OrgAuthorizedClientsApiRequestFactory extends BaseAPIRequestFactory
     if (sort !== undefined) {
       requestContext.setQueryParam(
         "sort",
-        serialize(
-          sort,
-          TypingInfo,
-          "OrgAuthorizedClientUserAuthorizationsSort",
-          "",
-        ),
+        serialize(sort, TypingInfo, "OrgAuthorizedClientUserAuthorizationsSort", ""),
         "",
       );
     }
@@ -517,10 +431,7 @@ export class OrgAuthorizedClientsApiRequestFactory extends BaseAPIRequestFactory
 
     // verify required parameter 'orgAuthorizedClientId' is not null or undefined
     if (orgAuthorizedClientId === null || orgAuthorizedClientId === undefined) {
-      throw new RequiredError(
-        "orgAuthorizedClientId",
-        "updateOrgAuthorizedClient",
-      );
+      throw new RequiredError("orgAuthorizedClientId", "updateOrgAuthorizedClient");
     }
 
     // verify required parameter 'body' is not null or undefined
@@ -529,22 +440,14 @@ export class OrgAuthorizedClientsApiRequestFactory extends BaseAPIRequestFactory
     }
 
     // Path Params
-    const localVarPath =
-      "/api/v2/org_authorized_clients/{org_authorized_client_id}".replace(
-        "{org_authorized_client_id}",
-        encodeURIComponent(String(orgAuthorizedClientId)),
-      );
+    const localVarPath = "/api/v2/org_authorized_clients/{org_authorized_client_id}".replace(
+      "{org_authorized_client_id}",
+      encodeURIComponent(String(orgAuthorizedClientId)),
+    );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "OrgAuthorizedClientsApi.v2.updateOrgAuthorizedClient",
-      OrgAuthorizedClientsApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.PATCH,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("OrgAuthorizedClientsApi.v2.updateOrgAuthorizedClient", OrgAuthorizedClientsApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.PATCH, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -554,7 +457,9 @@ export class OrgAuthorizedClientsApiRequestFactory extends BaseAPIRequestFactory
     }
 
     // Body Params
-    const contentType = getPreferredMediaType(["application/json"]);
+    const contentType = getPreferredMediaType([
+      "application/json",
+    ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = stringify(
       serialize(body, TypingInfo, "OrgAuthorizedClientUpdateRequest", ""),
@@ -584,12 +489,20 @@ export class OrgAuthorizedClientsApiResponseProcessor {
   public async deleteOrgAuthorizedClient(
     response: ResponseContext,
   ): Promise<void> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 204) {
       return;
     }
-    if (response.httpStatusCode === 403 || response.httpStatusCode === 404) {
-      const bodyText = parse(await response.body.text(), contentType);
+    if (
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 404
+    ) {
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: JSONAPIErrorResponse;
       try {
         body = deserialize(
@@ -610,7 +523,10 @@ export class OrgAuthorizedClientsApiResponseProcessor {
       );
     }
     if (response.httpStatusCode === 429) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -625,7 +541,10 @@ export class OrgAuthorizedClientsApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -650,12 +569,20 @@ export class OrgAuthorizedClientsApiResponseProcessor {
   public async deleteOrgAuthorizedClientAllUserAuthorizations(
     response: ResponseContext,
   ): Promise<void> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 204) {
       return;
     }
-    if (response.httpStatusCode === 403 || response.httpStatusCode === 404) {
-      const bodyText = parse(await response.body.text(), contentType);
+    if (
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 404
+    ) {
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: JSONAPIErrorResponse;
       try {
         body = deserialize(
@@ -676,7 +603,10 @@ export class OrgAuthorizedClientsApiResponseProcessor {
       );
     }
     if (response.httpStatusCode === 429) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -691,7 +621,10 @@ export class OrgAuthorizedClientsApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -716,12 +649,20 @@ export class OrgAuthorizedClientsApiResponseProcessor {
   public async deleteOrgAuthorizedClientUserAuthorization(
     response: ResponseContext,
   ): Promise<void> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 204) {
       return;
     }
-    if (response.httpStatusCode === 403 || response.httpStatusCode === 404) {
-      const bodyText = parse(await response.body.text(), contentType);
+    if (
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 404
+    ) {
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: JSONAPIErrorResponse;
       try {
         body = deserialize(
@@ -742,7 +683,10 @@ export class OrgAuthorizedClientsApiResponseProcessor {
       );
     }
     if (response.httpStatusCode === 429) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -757,7 +701,10 @@ export class OrgAuthorizedClientsApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -782,7 +729,9 @@ export class OrgAuthorizedClientsApiResponseProcessor {
   public async getOrgAuthorizedClient(
     response: ResponseContext,
   ): Promise<OrgAuthorizedClientResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: OrgAuthorizedClientResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -791,8 +740,14 @@ export class OrgAuthorizedClientsApiResponseProcessor {
       ) as OrgAuthorizedClientResponse;
       return body;
     }
-    if (response.httpStatusCode === 403 || response.httpStatusCode === 404) {
-      const bodyText = parse(await response.body.text(), contentType);
+    if (
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 404
+    ) {
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: JSONAPIErrorResponse;
       try {
         body = deserialize(
@@ -813,7 +768,10 @@ export class OrgAuthorizedClientsApiResponseProcessor {
       );
     }
     if (response.httpStatusCode === 429) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -828,7 +786,10 @@ export class OrgAuthorizedClientsApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -859,7 +820,9 @@ export class OrgAuthorizedClientsApiResponseProcessor {
   public async listOrgAuthorizedClients(
     response: ResponseContext,
   ): Promise<OrgAuthorizedClientsResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: OrgAuthorizedClientsResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -869,7 +832,10 @@ export class OrgAuthorizedClientsApiResponseProcessor {
       return body;
     }
     if (response.httpStatusCode === 403) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: JSONAPIErrorResponse;
       try {
         body = deserialize(
@@ -890,7 +856,10 @@ export class OrgAuthorizedClientsApiResponseProcessor {
       );
     }
     if (response.httpStatusCode === 429) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -905,7 +874,10 @@ export class OrgAuthorizedClientsApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -936,7 +908,9 @@ export class OrgAuthorizedClientsApiResponseProcessor {
   public async listOrgAuthorizedClientUserAuthorizations(
     response: ResponseContext,
   ): Promise<UserAuthorizedClientsResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: UserAuthorizedClientsResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -945,8 +919,14 @@ export class OrgAuthorizedClientsApiResponseProcessor {
       ) as UserAuthorizedClientsResponse;
       return body;
     }
-    if (response.httpStatusCode === 403 || response.httpStatusCode === 404) {
-      const bodyText = parse(await response.body.text(), contentType);
+    if (
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 404
+    ) {
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: JSONAPIErrorResponse;
       try {
         body = deserialize(
@@ -967,7 +947,10 @@ export class OrgAuthorizedClientsApiResponseProcessor {
       );
     }
     if (response.httpStatusCode === 429) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -982,7 +965,10 @@ export class OrgAuthorizedClientsApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -1013,7 +999,9 @@ export class OrgAuthorizedClientsApiResponseProcessor {
   public async updateOrgAuthorizedClient(
     response: ResponseContext,
   ): Promise<OrgAuthorizedClientResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: OrgAuthorizedClientResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -1028,7 +1016,10 @@ export class OrgAuthorizedClientsApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 422
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: JSONAPIErrorResponse;
       try {
         body = deserialize(
@@ -1049,7 +1040,10 @@ export class OrgAuthorizedClientsApiResponseProcessor {
       );
     }
     if (response.httpStatusCode === 429) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -1064,7 +1058,10 @@ export class OrgAuthorizedClientsApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -1243,7 +1240,8 @@ export class OrgAuthorizedClientsApi {
   private responseProcessor: OrgAuthorizedClientsApiResponseProcessor;
   private configuration: Configuration;
 
-  static operationServers: { [key: string]: BaseServerConfiguration[] } = {};
+  static operationServers: { [key: string]: BaseServerConfiguration[] } = {
+  };
 
   public constructor(
     configuration?: Configuration,
@@ -1274,9 +1272,7 @@ export class OrgAuthorizedClientsApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.deleteOrgAuthorizedClient(
-            responseContext,
-          );
+          return this.responseProcessor.deleteOrgAuthorizedClient(responseContext);
         });
     });
   }
@@ -1289,19 +1285,16 @@ export class OrgAuthorizedClientsApi {
     param: OrgAuthorizedClientsApiDeleteOrgAuthorizedClientAllUserAuthorizationsRequest,
     options?: Configuration,
   ): Promise<void> {
-    const requestContextPromise =
-      this.requestFactory.deleteOrgAuthorizedClientAllUserAuthorizations(
-        param.orgAuthorizedClientId,
-        param.userId,
-        options,
-      );
+    const requestContextPromise = this.requestFactory.deleteOrgAuthorizedClientAllUserAuthorizations(
+      param.orgAuthorizedClientId,
+      param.userId,
+      options,
+    );
     return requestContextPromise.then((requestContext) => {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.deleteOrgAuthorizedClientAllUserAuthorizations(
-            responseContext,
-          );
+          return this.responseProcessor.deleteOrgAuthorizedClientAllUserAuthorizations(responseContext);
         });
     });
   }
@@ -1314,19 +1307,16 @@ export class OrgAuthorizedClientsApi {
     param: OrgAuthorizedClientsApiDeleteOrgAuthorizedClientUserAuthorizationRequest,
     options?: Configuration,
   ): Promise<void> {
-    const requestContextPromise =
-      this.requestFactory.deleteOrgAuthorizedClientUserAuthorization(
-        param.orgAuthorizedClientId,
-        param.userAuthorizedClientId,
-        options,
-      );
+    const requestContextPromise = this.requestFactory.deleteOrgAuthorizedClientUserAuthorization(
+      param.orgAuthorizedClientId,
+      param.userAuthorizedClientId,
+      options,
+    );
     return requestContextPromise.then((requestContext) => {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.deleteOrgAuthorizedClientUserAuthorization(
-            responseContext,
-          );
+          return this.responseProcessor.deleteOrgAuthorizedClientUserAuthorization(responseContext);
         });
     });
   }
@@ -1377,9 +1367,7 @@ export class OrgAuthorizedClientsApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.listOrgAuthorizedClients(
-            responseContext,
-          );
+          return this.responseProcessor.listOrgAuthorizedClients(responseContext);
         });
     });
   }
@@ -1388,9 +1376,9 @@ export class OrgAuthorizedClientsApi {
    * Provide a paginated version of listOrgAuthorizedClients returning a generator with all the items.
    */
   public async *listOrgAuthorizedClientsWithPagination(
-    param: OrgAuthorizedClientsApiListOrgAuthorizedClientsRequest = {},
-    options?: Configuration,
+    param: OrgAuthorizedClientsApiListOrgAuthorizedClientsRequest = {}, options?: Configuration,
   ): AsyncGenerator<OrgAuthorizedClientData> {
+
     let pageSize = 10;
     if (param.pageSize !== undefined) {
       pageSize = param.pageSize;
@@ -1398,21 +1386,10 @@ export class OrgAuthorizedClientsApi {
     param.pageSize = pageSize;
     param.pageNumber = 0;
     while (true) {
-      const requestContext = await this.requestFactory.listOrgAuthorizedClients(
-        param.pageSize,
-        param.pageNumber,
-        param.sort,
-        param.filter,
-        param.filterOauth2ClientName,
-        param.filterDisabled,
-        param.include,
-        options,
-      );
-      const responseContext =
-        await this.configuration.httpApi.send(requestContext);
+      const requestContext = await this.requestFactory.listOrgAuthorizedClients(param.pageSize,param.pageNumber,param.sort,param.filter,param.filterOauth2ClientName,param.filterDisabled,param.include,options);
+      const responseContext = await this.configuration.httpApi.send(requestContext);
 
-      const response =
-        await this.responseProcessor.listOrgAuthorizedClients(responseContext);
+      const response = await this.responseProcessor.listOrgAuthorizedClients(responseContext);
       const responseData = response.data;
       if (responseData === undefined) {
         break;
@@ -1436,25 +1413,22 @@ export class OrgAuthorizedClientsApi {
     param: OrgAuthorizedClientsApiListOrgAuthorizedClientUserAuthorizationsRequest,
     options?: Configuration,
   ): Promise<UserAuthorizedClientsResponse> {
-    const requestContextPromise =
-      this.requestFactory.listOrgAuthorizedClientUserAuthorizations(
-        param.orgAuthorizedClientId,
-        param.pageSize,
-        param.pageNumber,
-        param.sort,
-        param.filterDisabled,
-        param.filterUserName,
-        param.filterUserEmail,
-        param.filterUserDisabled,
-        options,
-      );
+    const requestContextPromise = this.requestFactory.listOrgAuthorizedClientUserAuthorizations(
+      param.orgAuthorizedClientId,
+      param.pageSize,
+      param.pageNumber,
+      param.sort,
+      param.filterDisabled,
+      param.filterUserName,
+      param.filterUserEmail,
+      param.filterUserDisabled,
+      options,
+    );
     return requestContextPromise.then((requestContext) => {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.listOrgAuthorizedClientUserAuthorizations(
-            responseContext,
-          );
+          return this.responseProcessor.listOrgAuthorizedClientUserAuthorizations(responseContext);
         });
     });
   }
@@ -1463,9 +1437,9 @@ export class OrgAuthorizedClientsApi {
    * Provide a paginated version of listOrgAuthorizedClientUserAuthorizations returning a generator with all the items.
    */
   public async *listOrgAuthorizedClientUserAuthorizationsWithPagination(
-    param: OrgAuthorizedClientsApiListOrgAuthorizedClientUserAuthorizationsRequest,
-    options?: Configuration,
+    param: OrgAuthorizedClientsApiListOrgAuthorizedClientUserAuthorizationsRequest, options?: Configuration,
   ): AsyncGenerator<UserAuthorizedClientData> {
+
     let pageSize = 10;
     if (param.pageSize !== undefined) {
       pageSize = param.pageSize;
@@ -1473,25 +1447,10 @@ export class OrgAuthorizedClientsApi {
     param.pageSize = pageSize;
     param.pageNumber = 0;
     while (true) {
-      const requestContext =
-        await this.requestFactory.listOrgAuthorizedClientUserAuthorizations(
-          param.orgAuthorizedClientId,
-          param.pageSize,
-          param.pageNumber,
-          param.sort,
-          param.filterDisabled,
-          param.filterUserName,
-          param.filterUserEmail,
-          param.filterUserDisabled,
-          options,
-        );
-      const responseContext =
-        await this.configuration.httpApi.send(requestContext);
+      const requestContext = await this.requestFactory.listOrgAuthorizedClientUserAuthorizations(param.orgAuthorizedClientId,param.pageSize,param.pageNumber,param.sort,param.filterDisabled,param.filterUserName,param.filterUserEmail,param.filterUserDisabled,options);
+      const responseContext = await this.configuration.httpApi.send(requestContext);
 
-      const response =
-        await this.responseProcessor.listOrgAuthorizedClientUserAuthorizations(
-          responseContext,
-        );
+      const response = await this.responseProcessor.listOrgAuthorizedClientUserAuthorizations(responseContext);
       const responseData = response.data;
       if (responseData === undefined) {
         break;
@@ -1524,9 +1483,7 @@ export class OrgAuthorizedClientsApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.updateOrgAuthorizedClient(
-            responseContext,
-          );
+          return this.responseProcessor.updateOrgAuthorizedClient(responseContext);
         });
     });
   }

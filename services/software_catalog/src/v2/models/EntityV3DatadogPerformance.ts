@@ -1,5 +1,6 @@
 import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
+
 /**
  * Performance stats association.
  */
@@ -20,7 +21,7 @@ export class EntityV3DatadogPerformance {
     tags: {
       baseName: "tags",
       type: "Array<string>",
-    },
+    }
   };
 
   /**

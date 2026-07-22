@@ -50,7 +50,7 @@ export class ProductAnalyticsFunnelRequest {
       baseName: "request_type",
       type: "ProductAnalyticsFunnelRequestType",
       required: true,
-    },
+    }
   };
 
   /**

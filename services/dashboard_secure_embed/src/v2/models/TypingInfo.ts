@@ -27,16 +27,7 @@ export const TypingInfo: ModelTypingInfo = {
   enumsMap: {
     SecureEmbedCreateResponseType: ["secure_embed_create_response"],
     SecureEmbedGetResponseType: ["secure_embed_get_response"],
-    SecureEmbedGlobalTimeLiveSpan: [
-      "15m",
-      "1h",
-      "4h",
-      "1d",
-      "2d",
-      "1w",
-      "1mo",
-      "3mo",
-    ],
+    SecureEmbedGlobalTimeLiveSpan: ["15m", "1h", "4h", "1d", "2d", "1w", "1mo", "3mo"],
     SecureEmbedRequestType: ["secure_embed_request"],
     SecureEmbedShareType: ["secure_embed"],
     SecureEmbedStatus: ["active", "paused"],
@@ -60,8 +51,7 @@ export const TypingInfo: ModelTypingInfo = {
     SecureEmbedGetResponseAttributes: SecureEmbedGetResponseAttributes,
     SecureEmbedGetResponseData: SecureEmbedGetResponseData,
     SecureEmbedGlobalTime: SecureEmbedGlobalTime,
-    SecureEmbedSelectableTemplateVariable:
-      SecureEmbedSelectableTemplateVariable,
+    SecureEmbedSelectableTemplateVariable: SecureEmbedSelectableTemplateVariable,
     SecureEmbedUpdateRequest: SecureEmbedUpdateRequest,
     SecureEmbedUpdateRequestAttributes: SecureEmbedUpdateRequestAttributes,
     SecureEmbedUpdateRequestData: SecureEmbedUpdateRequestData,

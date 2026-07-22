@@ -19,6 +19,7 @@ import {
   ServerConfiguration,
   stringify,
   applySecurityAuthentication,
+  
 } from "@datadog/datadog-api-client";
 
 import { TypingInfo } from "./models/TypingInfo";
@@ -51,15 +52,8 @@ export class ProcessesApiRequestFactory extends BaseAPIRequestFactory {
     const localVarPath = "/api/v2/processes";
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "ProcessesApi.v2.listProcesses",
-      ProcessesApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.GET,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("ProcessesApi.v2.listProcesses", ProcessesApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.GET, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -134,7 +128,9 @@ export class ProcessesApiResponseProcessor {
   public async listProcesses(
     response: ResponseContext,
   ): Promise<ProcessSummariesResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: ProcessSummariesResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -148,7 +144,10 @@ export class ProcessesApiResponseProcessor {
       response.httpStatusCode === 403 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -163,7 +162,10 @@ export class ProcessesApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -228,7 +230,8 @@ export class ProcessesApi {
   private responseProcessor: ProcessesApiResponseProcessor;
   private configuration: Configuration;
 
-  static operationServers: { [key: string]: BaseServerConfiguration[] } = {};
+  static operationServers: { [key: string]: BaseServerConfiguration[] } = {
+  };
 
   public constructor(
     configuration?: Configuration,
@@ -237,7 +240,8 @@ export class ProcessesApi {
   ) {
     this.configuration = configuration || createConfiguration();
     this.requestFactory =
-      requestFactory || new ProcessesApiRequestFactory(this.configuration);
+      requestFactory ||
+      new ProcessesApiRequestFactory(this.configuration);
     this.responseProcessor =
       responseProcessor || new ProcessesApiResponseProcessor();
   }
@@ -272,29 +276,19 @@ export class ProcessesApi {
    * Provide a paginated version of listProcesses returning a generator with all the items.
    */
   public async *listProcessesWithPagination(
-    param: ProcessesApiListProcessesRequest = {},
-    options?: Configuration,
+    param: ProcessesApiListProcessesRequest = {}, options?: Configuration,
   ): AsyncGenerator<ProcessSummary> {
+
     let pageSize = 1000;
     if (param.pageLimit !== undefined) {
       pageSize = param.pageLimit;
     }
     param.pageLimit = pageSize;
     while (true) {
-      const requestContext = await this.requestFactory.listProcesses(
-        param.search,
-        param.tags,
-        param.from,
-        param.to,
-        param.pageLimit,
-        param.pageCursor,
-        options,
-      );
-      const responseContext =
-        await this.configuration.httpApi.send(requestContext);
+      const requestContext = await this.requestFactory.listProcesses(param.search,param.tags,param.from,param.to,param.pageLimit,param.pageCursor,options);
+      const responseContext = await this.configuration.httpApi.send(requestContext);
 
-      const response =
-        await this.responseProcessor.listProcesses(responseContext);
+      const response = await this.responseProcessor.listProcesses(responseContext);
       const responseData = response.data;
       if (responseData === undefined) {
         break;

@@ -19,6 +19,7 @@ import {
   ServerConfiguration,
   stringify,
   applySecurityAuthentication,
+  
 } from "@datadog/datadog-api-client";
 
 import { TypingInfo } from "./models/TypingInfo";
@@ -64,21 +65,17 @@ export class RumReplayPlaylistsApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Path Params
-    const localVarPath =
-      "/api/v2/rum/replay/playlists/{playlist_id}/sessions/{session_id}"
-        .replace("{playlist_id}", encodeURIComponent(String(playlistId)))
-        .replace("{session_id}", encodeURIComponent(String(sessionId)));
+    const localVarPath = "/api/v2/rum/replay/playlists/{playlist_id}/sessions/{session_id}".replace(
+      "{playlist_id}",
+      encodeURIComponent(String(playlistId)),
+    ).replace(
+      "{session_id}",
+      encodeURIComponent(String(sessionId)),
+    );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "RumReplayPlaylistsApi.v2.addRumReplaySessionToPlaylist",
-      RumReplayPlaylistsApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.PUT,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("RumReplayPlaylistsApi.v2.addRumReplaySessionToPlaylist", RumReplayPlaylistsApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.PUT, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -122,10 +119,7 @@ export class RumReplayPlaylistsApiRequestFactory extends BaseAPIRequestFactory {
 
     // verify required parameter 'playlistId' is not null or undefined
     if (playlistId === null || playlistId === undefined) {
-      throw new RequiredError(
-        "playlistId",
-        "bulkRemoveRumReplayPlaylistSessions",
-      );
+      throw new RequiredError("playlistId", "bulkRemoveRumReplayPlaylistSessions");
     }
 
     // verify required parameter 'body' is not null or undefined
@@ -134,22 +128,14 @@ export class RumReplayPlaylistsApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Path Params
-    const localVarPath =
-      "/api/v2/rum/replay/playlists/{playlist_id}/sessions".replace(
-        "{playlist_id}",
-        encodeURIComponent(String(playlistId)),
-      );
+    const localVarPath = "/api/v2/rum/replay/playlists/{playlist_id}/sessions".replace(
+      "{playlist_id}",
+      encodeURIComponent(String(playlistId)),
+    );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "RumReplayPlaylistsApi.v2.bulkRemoveRumReplayPlaylistSessions",
-      RumReplayPlaylistsApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.DELETE,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("RumReplayPlaylistsApi.v2.bulkRemoveRumReplayPlaylistSessions", RumReplayPlaylistsApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.DELETE, overrides);
     requestContext.setHeaderParam("Accept", "*/*");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -159,7 +145,9 @@ export class RumReplayPlaylistsApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Body Params
-    const contentType = getPreferredMediaType(["application/json"]);
+    const contentType = getPreferredMediaType([
+      "application/json",
+    ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = stringify(
       serialize(body, TypingInfo, "SessionIdArray", ""),
@@ -192,15 +180,8 @@ export class RumReplayPlaylistsApiRequestFactory extends BaseAPIRequestFactory {
     const localVarPath = "/api/v2/rum/replay/playlists";
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "RumReplayPlaylistsApi.v2.createRumReplayPlaylist",
-      RumReplayPlaylistsApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.POST,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("RumReplayPlaylistsApi.v2.createRumReplayPlaylist", RumReplayPlaylistsApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.POST, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -210,7 +191,9 @@ export class RumReplayPlaylistsApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Body Params
-    const contentType = getPreferredMediaType(["application/json"]);
+    const contentType = getPreferredMediaType([
+      "application/json",
+    ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = stringify(
       serialize(body, TypingInfo, "Playlist", ""),
@@ -246,15 +229,8 @@ export class RumReplayPlaylistsApiRequestFactory extends BaseAPIRequestFactory {
     );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "RumReplayPlaylistsApi.v2.deleteRumReplayPlaylist",
-      RumReplayPlaylistsApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.DELETE,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("RumReplayPlaylistsApi.v2.deleteRumReplayPlaylist", RumReplayPlaylistsApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.DELETE, overrides);
     requestContext.setHeaderParam("Accept", "*/*");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -291,15 +267,8 @@ export class RumReplayPlaylistsApiRequestFactory extends BaseAPIRequestFactory {
     );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "RumReplayPlaylistsApi.v2.getRumReplayPlaylist",
-      RumReplayPlaylistsApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.GET,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("RumReplayPlaylistsApi.v2.getRumReplayPlaylist", RumReplayPlaylistsApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.GET, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -331,15 +300,8 @@ export class RumReplayPlaylistsApiRequestFactory extends BaseAPIRequestFactory {
     const localVarPath = "/api/v2/rum/replay/playlists";
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "RumReplayPlaylistsApi.v2.listRumReplayPlaylists",
-      RumReplayPlaylistsApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.GET,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("RumReplayPlaylistsApi.v2.listRumReplayPlaylists", RumReplayPlaylistsApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.GET, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -402,22 +364,14 @@ export class RumReplayPlaylistsApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Path Params
-    const localVarPath =
-      "/api/v2/rum/replay/playlists/{playlist_id}/sessions".replace(
-        "{playlist_id}",
-        encodeURIComponent(String(playlistId)),
-      );
+    const localVarPath = "/api/v2/rum/replay/playlists/{playlist_id}/sessions".replace(
+      "{playlist_id}",
+      encodeURIComponent(String(playlistId)),
+    );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "RumReplayPlaylistsApi.v2.listRumReplayPlaylistSessions",
-      RumReplayPlaylistsApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.GET,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("RumReplayPlaylistsApi.v2.listRumReplayPlaylistSessions", RumReplayPlaylistsApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.GET, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -461,36 +415,26 @@ export class RumReplayPlaylistsApiRequestFactory extends BaseAPIRequestFactory {
 
     // verify required parameter 'playlistId' is not null or undefined
     if (playlistId === null || playlistId === undefined) {
-      throw new RequiredError(
-        "playlistId",
-        "removeRumReplaySessionFromPlaylist",
-      );
+      throw new RequiredError("playlistId", "removeRumReplaySessionFromPlaylist");
     }
 
     // verify required parameter 'sessionId' is not null or undefined
     if (sessionId === null || sessionId === undefined) {
-      throw new RequiredError(
-        "sessionId",
-        "removeRumReplaySessionFromPlaylist",
-      );
+      throw new RequiredError("sessionId", "removeRumReplaySessionFromPlaylist");
     }
 
     // Path Params
-    const localVarPath =
-      "/api/v2/rum/replay/playlists/{playlist_id}/sessions/{session_id}"
-        .replace("{playlist_id}", encodeURIComponent(String(playlistId)))
-        .replace("{session_id}", encodeURIComponent(String(sessionId)));
+    const localVarPath = "/api/v2/rum/replay/playlists/{playlist_id}/sessions/{session_id}".replace(
+      "{playlist_id}",
+      encodeURIComponent(String(playlistId)),
+    ).replace(
+      "{session_id}",
+      encodeURIComponent(String(sessionId)),
+    );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "RumReplayPlaylistsApi.v2.removeRumReplaySessionFromPlaylist",
-      RumReplayPlaylistsApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.DELETE,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("RumReplayPlaylistsApi.v2.removeRumReplaySessionFromPlaylist", RumReplayPlaylistsApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.DELETE, overrides);
     requestContext.setHeaderParam("Accept", "*/*");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -533,15 +477,8 @@ export class RumReplayPlaylistsApiRequestFactory extends BaseAPIRequestFactory {
     );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "RumReplayPlaylistsApi.v2.updateRumReplayPlaylist",
-      RumReplayPlaylistsApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.PUT,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("RumReplayPlaylistsApi.v2.updateRumReplayPlaylist", RumReplayPlaylistsApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.PUT, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -551,7 +488,9 @@ export class RumReplayPlaylistsApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Body Params
-    const contentType = getPreferredMediaType(["application/json"]);
+    const contentType = getPreferredMediaType([
+      "application/json",
+    ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = stringify(
       serialize(body, TypingInfo, "Playlist", ""),
@@ -581,8 +520,13 @@ export class RumReplayPlaylistsApiResponseProcessor {
   public async addRumReplaySessionToPlaylist(
     response: ResponseContext,
   ): Promise<PlaylistsSession> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
-    if (response.httpStatusCode === 200 || response.httpStatusCode === 201) {
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
+    if (
+      response.httpStatusCode === 200 ||
+      response.httpStatusCode === 201
+    ) {
       const body: PlaylistsSession = deserialize(
         parse(await response.body.text(), contentType),
         TypingInfo,
@@ -591,7 +535,10 @@ export class RumReplayPlaylistsApiResponseProcessor {
       return body;
     }
     if (response.httpStatusCode === 429) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -606,7 +553,10 @@ export class RumReplayPlaylistsApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -637,12 +587,17 @@ export class RumReplayPlaylistsApiResponseProcessor {
   public async bulkRemoveRumReplayPlaylistSessions(
     response: ResponseContext,
   ): Promise<void> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 204) {
       return;
     }
     if (response.httpStatusCode === 429) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -657,7 +612,10 @@ export class RumReplayPlaylistsApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -682,7 +640,9 @@ export class RumReplayPlaylistsApiResponseProcessor {
   public async createRumReplayPlaylist(
     response: ResponseContext,
   ): Promise<Playlist> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 201) {
       const body: Playlist = deserialize(
         parse(await response.body.text(), contentType),
@@ -692,7 +652,10 @@ export class RumReplayPlaylistsApiResponseProcessor {
       return body;
     }
     if (response.httpStatusCode === 429) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -707,7 +670,10 @@ export class RumReplayPlaylistsApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -738,12 +704,17 @@ export class RumReplayPlaylistsApiResponseProcessor {
   public async deleteRumReplayPlaylist(
     response: ResponseContext,
   ): Promise<void> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 204) {
       return;
     }
     if (response.httpStatusCode === 429) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -758,7 +729,10 @@ export class RumReplayPlaylistsApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -783,7 +757,9 @@ export class RumReplayPlaylistsApiResponseProcessor {
   public async getRumReplayPlaylist(
     response: ResponseContext,
   ): Promise<Playlist> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: Playlist = deserialize(
         parse(await response.body.text(), contentType),
@@ -793,7 +769,10 @@ export class RumReplayPlaylistsApiResponseProcessor {
       return body;
     }
     if (response.httpStatusCode === 429) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -808,7 +787,10 @@ export class RumReplayPlaylistsApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -839,7 +821,9 @@ export class RumReplayPlaylistsApiResponseProcessor {
   public async listRumReplayPlaylists(
     response: ResponseContext,
   ): Promise<PlaylistArray> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: PlaylistArray = deserialize(
         parse(await response.body.text(), contentType),
@@ -849,7 +833,10 @@ export class RumReplayPlaylistsApiResponseProcessor {
       return body;
     }
     if (response.httpStatusCode === 429) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -864,7 +851,10 @@ export class RumReplayPlaylistsApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -895,7 +885,9 @@ export class RumReplayPlaylistsApiResponseProcessor {
   public async listRumReplayPlaylistSessions(
     response: ResponseContext,
   ): Promise<PlaylistsSessionArray> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: PlaylistsSessionArray = deserialize(
         parse(await response.body.text(), contentType),
@@ -905,7 +897,10 @@ export class RumReplayPlaylistsApiResponseProcessor {
       return body;
     }
     if (response.httpStatusCode === 429) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -920,7 +915,10 @@ export class RumReplayPlaylistsApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -951,12 +949,17 @@ export class RumReplayPlaylistsApiResponseProcessor {
   public async removeRumReplaySessionFromPlaylist(
     response: ResponseContext,
   ): Promise<void> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 204) {
       return;
     }
     if (response.httpStatusCode === 429) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -971,7 +974,10 @@ export class RumReplayPlaylistsApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -996,7 +1002,9 @@ export class RumReplayPlaylistsApiResponseProcessor {
   public async updateRumReplayPlaylist(
     response: ResponseContext,
   ): Promise<Playlist> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: Playlist = deserialize(
         parse(await response.body.text(), contentType),
@@ -1006,7 +1014,10 @@ export class RumReplayPlaylistsApiResponseProcessor {
       return body;
     }
     if (response.httpStatusCode === 429) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -1021,7 +1032,10 @@ export class RumReplayPlaylistsApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -1172,7 +1186,8 @@ export class RumReplayPlaylistsApi {
   private responseProcessor: RumReplayPlaylistsApiResponseProcessor;
   private configuration: Configuration;
 
-  static operationServers: { [key: string]: BaseServerConfiguration[] } = {};
+  static operationServers: { [key: string]: BaseServerConfiguration[] } = {
+  };
 
   public constructor(
     configuration?: Configuration,
@@ -1195,21 +1210,18 @@ export class RumReplayPlaylistsApi {
     param: RumReplayPlaylistsApiAddRumReplaySessionToPlaylistRequest,
     options?: Configuration,
   ): Promise<PlaylistsSession> {
-    const requestContextPromise =
-      this.requestFactory.addRumReplaySessionToPlaylist(
-        param.ts,
-        param.playlistId,
-        param.sessionId,
-        param.dataSource,
-        options,
-      );
+    const requestContextPromise = this.requestFactory.addRumReplaySessionToPlaylist(
+      param.ts,
+      param.playlistId,
+      param.sessionId,
+      param.dataSource,
+      options,
+    );
     return requestContextPromise.then((requestContext) => {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.addRumReplaySessionToPlaylist(
-            responseContext,
-          );
+          return this.responseProcessor.addRumReplaySessionToPlaylist(responseContext);
         });
     });
   }
@@ -1222,19 +1234,16 @@ export class RumReplayPlaylistsApi {
     param: RumReplayPlaylistsApiBulkRemoveRumReplayPlaylistSessionsRequest,
     options?: Configuration,
   ): Promise<void> {
-    const requestContextPromise =
-      this.requestFactory.bulkRemoveRumReplayPlaylistSessions(
-        param.playlistId,
-        param.body,
-        options,
-      );
+    const requestContextPromise = this.requestFactory.bulkRemoveRumReplayPlaylistSessions(
+      param.playlistId,
+      param.body,
+      options,
+    );
     return requestContextPromise.then((requestContext) => {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.bulkRemoveRumReplayPlaylistSessions(
-            responseContext,
-          );
+          return this.responseProcessor.bulkRemoveRumReplayPlaylistSessions(responseContext);
         });
     });
   }
@@ -1255,9 +1264,7 @@ export class RumReplayPlaylistsApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.createRumReplayPlaylist(
-            responseContext,
-          );
+          return this.responseProcessor.createRumReplayPlaylist(responseContext);
         });
     });
   }
@@ -1278,9 +1285,7 @@ export class RumReplayPlaylistsApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.deleteRumReplayPlaylist(
-            responseContext,
-          );
+          return this.responseProcessor.deleteRumReplayPlaylist(responseContext);
         });
     });
   }
@@ -1338,20 +1343,17 @@ export class RumReplayPlaylistsApi {
     param: RumReplayPlaylistsApiListRumReplayPlaylistSessionsRequest,
     options?: Configuration,
   ): Promise<PlaylistsSessionArray> {
-    const requestContextPromise =
-      this.requestFactory.listRumReplayPlaylistSessions(
-        param.playlistId,
-        param.pageNumber,
-        param.pageSize,
-        options,
-      );
+    const requestContextPromise = this.requestFactory.listRumReplayPlaylistSessions(
+      param.playlistId,
+      param.pageNumber,
+      param.pageSize,
+      options,
+    );
     return requestContextPromise.then((requestContext) => {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.listRumReplayPlaylistSessions(
-            responseContext,
-          );
+          return this.responseProcessor.listRumReplayPlaylistSessions(responseContext);
         });
     });
   }
@@ -1364,19 +1366,16 @@ export class RumReplayPlaylistsApi {
     param: RumReplayPlaylistsApiRemoveRumReplaySessionFromPlaylistRequest,
     options?: Configuration,
   ): Promise<void> {
-    const requestContextPromise =
-      this.requestFactory.removeRumReplaySessionFromPlaylist(
-        param.playlistId,
-        param.sessionId,
-        options,
-      );
+    const requestContextPromise = this.requestFactory.removeRumReplaySessionFromPlaylist(
+      param.playlistId,
+      param.sessionId,
+      options,
+    );
     return requestContextPromise.then((requestContext) => {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.removeRumReplaySessionFromPlaylist(
-            responseContext,
-          );
+          return this.responseProcessor.removeRumReplaySessionFromPlaylist(responseContext);
         });
     });
   }
@@ -1398,9 +1397,7 @@ export class RumReplayPlaylistsApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.updateRumReplayPlaylist(
-            responseContext,
-          );
+          return this.responseProcessor.updateRumReplayPlaylist(responseContext);
         });
     });
   }

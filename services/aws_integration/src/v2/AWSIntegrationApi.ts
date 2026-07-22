@@ -19,6 +19,7 @@ import {
   ServerConfiguration,
   stringify,
   applySecurityAuthentication,
+  
 } from "@datadog/datadog-api-client";
 
 import { TypingInfo } from "./models/TypingInfo";
@@ -68,15 +69,8 @@ export class AWSIntegrationApiRequestFactory extends BaseAPIRequestFactory {
     const localVarPath = "/api/v2/integration/aws/accounts";
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "AWSIntegrationApi.v2.createAWSAccount",
-      AWSIntegrationApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.POST,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("AWSIntegrationApi.v2.createAWSAccount", AWSIntegrationApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.POST, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -86,7 +80,9 @@ export class AWSIntegrationApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Body Params
-    const contentType = getPreferredMediaType(["application/json"]);
+    const contentType = getPreferredMediaType([
+      "application/json",
+    ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = stringify(
       serialize(body, TypingInfo, "AWSAccountCreateRequest", ""),
@@ -110,22 +106,13 @@ export class AWSIntegrationApiRequestFactory extends BaseAPIRequestFactory {
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
-    if (
-      !_config.unstableOperations[
-        "AWSIntegrationApi.v2.createAWSAccountCCMConfig"
-      ]
-    ) {
-      throw new Error(
-        "Unstable operation 'createAWSAccountCCMConfig' is disabled. Enable it by setting `configuration.unstableOperations['AWSIntegrationApi.v2.createAWSAccountCCMConfig'] = true`",
-      );
+    if (!_config.unstableOperations["AWSIntegrationApi.v2.createAWSAccountCCMConfig"]) {
+      throw new Error("Unstable operation 'createAWSAccountCCMConfig' is disabled. Enable it by setting `configuration.unstableOperations['AWSIntegrationApi.v2.createAWSAccountCCMConfig'] = true`");
     }
 
     // verify required parameter 'awsAccountConfigId' is not null or undefined
     if (awsAccountConfigId === null || awsAccountConfigId === undefined) {
-      throw new RequiredError(
-        "awsAccountConfigId",
-        "createAWSAccountCCMConfig",
-      );
+      throw new RequiredError("awsAccountConfigId", "createAWSAccountCCMConfig");
     }
 
     // verify required parameter 'body' is not null or undefined
@@ -134,22 +121,14 @@ export class AWSIntegrationApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Path Params
-    const localVarPath =
-      "/api/v2/integration/aws/accounts/{aws_account_config_id}/ccm_config".replace(
-        "{aws_account_config_id}",
-        encodeURIComponent(String(awsAccountConfigId)),
-      );
+    const localVarPath = "/api/v2/integration/aws/accounts/{aws_account_config_id}/ccm_config".replace(
+      "{aws_account_config_id}",
+      encodeURIComponent(String(awsAccountConfigId)),
+    );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "AWSIntegrationApi.v2.createAWSAccountCCMConfig",
-      AWSIntegrationApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.POST,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("AWSIntegrationApi.v2.createAWSAccountCCMConfig", AWSIntegrationApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.POST, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -159,7 +138,9 @@ export class AWSIntegrationApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Body Params
-    const contentType = getPreferredMediaType(["application/json"]);
+    const contentType = getPreferredMediaType([
+      "application/json",
+    ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = stringify(
       serialize(body, TypingInfo, "AWSCcmConfigRequest", ""),
@@ -191,15 +172,8 @@ export class AWSIntegrationApiRequestFactory extends BaseAPIRequestFactory {
     const localVarPath = "/api/v2/integration/aws/event_bridge";
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "AWSIntegrationApi.v2.createAWSEventBridgeSource",
-      AWSIntegrationApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.POST,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("AWSIntegrationApi.v2.createAWSEventBridgeSource", AWSIntegrationApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.POST, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -209,7 +183,9 @@ export class AWSIntegrationApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Body Params
-    const contentType = getPreferredMediaType(["application/json"]);
+    const contentType = getPreferredMediaType([
+      "application/json",
+    ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = stringify(
       serialize(body, TypingInfo, "AWSEventBridgeCreateRequest", ""),
@@ -235,15 +211,8 @@ export class AWSIntegrationApiRequestFactory extends BaseAPIRequestFactory {
     const localVarPath = "/api/v2/integration/aws/generate_new_external_id";
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "AWSIntegrationApi.v2.createNewAWSExternalID",
-      AWSIntegrationApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.POST,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("AWSIntegrationApi.v2.createNewAWSExternalID", AWSIntegrationApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.POST, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -273,22 +242,14 @@ export class AWSIntegrationApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Path Params
-    const localVarPath =
-      "/api/v2/integration/aws/accounts/{aws_account_config_id}".replace(
-        "{aws_account_config_id}",
-        encodeURIComponent(String(awsAccountConfigId)),
-      );
+    const localVarPath = "/api/v2/integration/aws/accounts/{aws_account_config_id}".replace(
+      "{aws_account_config_id}",
+      encodeURIComponent(String(awsAccountConfigId)),
+    );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "AWSIntegrationApi.v2.deleteAWSAccount",
-      AWSIntegrationApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.DELETE,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("AWSIntegrationApi.v2.deleteAWSAccount", AWSIntegrationApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.DELETE, overrides);
     requestContext.setHeaderParam("Accept", "*/*");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -312,41 +273,24 @@ export class AWSIntegrationApiRequestFactory extends BaseAPIRequestFactory {
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
-    if (
-      !_config.unstableOperations[
-        "AWSIntegrationApi.v2.deleteAWSAccountCCMConfig"
-      ]
-    ) {
-      throw new Error(
-        "Unstable operation 'deleteAWSAccountCCMConfig' is disabled. Enable it by setting `configuration.unstableOperations['AWSIntegrationApi.v2.deleteAWSAccountCCMConfig'] = true`",
-      );
+    if (!_config.unstableOperations["AWSIntegrationApi.v2.deleteAWSAccountCCMConfig"]) {
+      throw new Error("Unstable operation 'deleteAWSAccountCCMConfig' is disabled. Enable it by setting `configuration.unstableOperations['AWSIntegrationApi.v2.deleteAWSAccountCCMConfig'] = true`");
     }
 
     // verify required parameter 'awsAccountConfigId' is not null or undefined
     if (awsAccountConfigId === null || awsAccountConfigId === undefined) {
-      throw new RequiredError(
-        "awsAccountConfigId",
-        "deleteAWSAccountCCMConfig",
-      );
+      throw new RequiredError("awsAccountConfigId", "deleteAWSAccountCCMConfig");
     }
 
     // Path Params
-    const localVarPath =
-      "/api/v2/integration/aws/accounts/{aws_account_config_id}/ccm_config".replace(
-        "{aws_account_config_id}",
-        encodeURIComponent(String(awsAccountConfigId)),
-      );
+    const localVarPath = "/api/v2/integration/aws/accounts/{aws_account_config_id}/ccm_config".replace(
+      "{aws_account_config_id}",
+      encodeURIComponent(String(awsAccountConfigId)),
+    );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "AWSIntegrationApi.v2.deleteAWSAccountCCMConfig",
-      AWSIntegrationApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.DELETE,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("AWSIntegrationApi.v2.deleteAWSAccountCCMConfig", AWSIntegrationApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.DELETE, overrides);
     requestContext.setHeaderParam("Accept", "*/*");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -379,15 +323,8 @@ export class AWSIntegrationApiRequestFactory extends BaseAPIRequestFactory {
     const localVarPath = "/api/v2/integration/aws/event_bridge";
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "AWSIntegrationApi.v2.deleteAWSEventBridgeSource",
-      AWSIntegrationApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.DELETE,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("AWSIntegrationApi.v2.deleteAWSEventBridgeSource", AWSIntegrationApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.DELETE, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -397,7 +334,9 @@ export class AWSIntegrationApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Body Params
-    const contentType = getPreferredMediaType(["application/json"]);
+    const contentType = getPreferredMediaType([
+      "application/json",
+    ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = stringify(
       serialize(body, TypingInfo, "AWSEventBridgeDeleteRequest", ""),
@@ -426,22 +365,14 @@ export class AWSIntegrationApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Path Params
-    const localVarPath =
-      "/api/v2/integration/aws/accounts/{aws_account_config_id}".replace(
-        "{aws_account_config_id}",
-        encodeURIComponent(String(awsAccountConfigId)),
-      );
+    const localVarPath = "/api/v2/integration/aws/accounts/{aws_account_config_id}".replace(
+      "{aws_account_config_id}",
+      encodeURIComponent(String(awsAccountConfigId)),
+    );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "AWSIntegrationApi.v2.getAWSAccount",
-      AWSIntegrationApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.GET,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("AWSIntegrationApi.v2.getAWSAccount", AWSIntegrationApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.GET, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -465,12 +396,8 @@ export class AWSIntegrationApiRequestFactory extends BaseAPIRequestFactory {
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
-    if (
-      !_config.unstableOperations["AWSIntegrationApi.v2.getAWSAccountCCMConfig"]
-    ) {
-      throw new Error(
-        "Unstable operation 'getAWSAccountCCMConfig' is disabled. Enable it by setting `configuration.unstableOperations['AWSIntegrationApi.v2.getAWSAccountCCMConfig'] = true`",
-      );
+    if (!_config.unstableOperations["AWSIntegrationApi.v2.getAWSAccountCCMConfig"]) {
+      throw new Error("Unstable operation 'getAWSAccountCCMConfig' is disabled. Enable it by setting `configuration.unstableOperations['AWSIntegrationApi.v2.getAWSAccountCCMConfig'] = true`");
     }
 
     // verify required parameter 'awsAccountConfigId' is not null or undefined
@@ -479,22 +406,14 @@ export class AWSIntegrationApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Path Params
-    const localVarPath =
-      "/api/v2/integration/aws/accounts/{aws_account_config_id}/ccm_config".replace(
-        "{aws_account_config_id}",
-        encodeURIComponent(String(awsAccountConfigId)),
-      );
+    const localVarPath = "/api/v2/integration/aws/accounts/{aws_account_config_id}/ccm_config".replace(
+      "{aws_account_config_id}",
+      encodeURIComponent(String(awsAccountConfigId)),
+    );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "AWSIntegrationApi.v2.getAWSAccountCCMConfig",
-      AWSIntegrationApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.GET,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("AWSIntegrationApi.v2.getAWSAccountCCMConfig", AWSIntegrationApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.GET, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -521,15 +440,8 @@ export class AWSIntegrationApiRequestFactory extends BaseAPIRequestFactory {
     const localVarPath = "/api/v2/integration/aws/iam_permissions";
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "AWSIntegrationApi.v2.getAWSIntegrationIAMPermissions",
-      AWSIntegrationApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.GET,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("AWSIntegrationApi.v2.getAWSIntegrationIAMPermissions", AWSIntegrationApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.GET, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -553,19 +465,11 @@ export class AWSIntegrationApiRequestFactory extends BaseAPIRequestFactory {
     const _config = _options || this.configuration;
 
     // Path Params
-    const localVarPath =
-      "/api/v2/integration/aws/iam_permissions/resource_collection";
+    const localVarPath = "/api/v2/integration/aws/iam_permissions/resource_collection";
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "AWSIntegrationApi.v2.getAWSIntegrationIAMPermissionsResourceCollection",
-      AWSIntegrationApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.GET,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("AWSIntegrationApi.v2.getAWSIntegrationIAMPermissionsResourceCollection", AWSIntegrationApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.GET, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -592,15 +496,8 @@ export class AWSIntegrationApiRequestFactory extends BaseAPIRequestFactory {
     const localVarPath = "/api/v2/integration/aws/iam_permissions/standard";
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "AWSIntegrationApi.v2.getAWSIntegrationIAMPermissionsStandard",
-      AWSIntegrationApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.GET,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("AWSIntegrationApi.v2.getAWSIntegrationIAMPermissionsStandard", AWSIntegrationApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.GET, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -624,41 +521,24 @@ export class AWSIntegrationApiRequestFactory extends BaseAPIRequestFactory {
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
-    if (
-      !_config.unstableOperations[
-        "AWSIntegrationApi.v2.getAWSMetricNameFilterPreview"
-      ]
-    ) {
-      throw new Error(
-        "Unstable operation 'getAWSMetricNameFilterPreview' is disabled. Enable it by setting `configuration.unstableOperations['AWSIntegrationApi.v2.getAWSMetricNameFilterPreview'] = true`",
-      );
+    if (!_config.unstableOperations["AWSIntegrationApi.v2.getAWSMetricNameFilterPreview"]) {
+      throw new Error("Unstable operation 'getAWSMetricNameFilterPreview' is disabled. Enable it by setting `configuration.unstableOperations['AWSIntegrationApi.v2.getAWSMetricNameFilterPreview'] = true`");
     }
 
     // verify required parameter 'awsAccountConfigId' is not null or undefined
     if (awsAccountConfigId === null || awsAccountConfigId === undefined) {
-      throw new RequiredError(
-        "awsAccountConfigId",
-        "getAWSMetricNameFilterPreview",
-      );
+      throw new RequiredError("awsAccountConfigId", "getAWSMetricNameFilterPreview");
     }
 
     // Path Params
-    const localVarPath =
-      "/api/v2/integration/aws/accounts/{aws_account_config_id}/metric_name_filter_preview".replace(
-        "{aws_account_config_id}",
-        encodeURIComponent(String(awsAccountConfigId)),
-      );
+    const localVarPath = "/api/v2/integration/aws/accounts/{aws_account_config_id}/metric_name_filter_preview".replace(
+      "{aws_account_config_id}",
+      encodeURIComponent(String(awsAccountConfigId)),
+    );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "AWSIntegrationApi.v2.getAWSMetricNameFilterPreview",
-      AWSIntegrationApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.GET,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("AWSIntegrationApi.v2.getAWSMetricNameFilterPreview", AWSIntegrationApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.GET, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -686,15 +566,8 @@ export class AWSIntegrationApiRequestFactory extends BaseAPIRequestFactory {
     const localVarPath = "/api/v2/integration/aws/accounts";
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "AWSIntegrationApi.v2.listAWSAccounts",
-      AWSIntegrationApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.GET,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("AWSIntegrationApi.v2.listAWSAccounts", AWSIntegrationApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.GET, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -730,15 +603,8 @@ export class AWSIntegrationApiRequestFactory extends BaseAPIRequestFactory {
     const localVarPath = "/api/v2/integration/aws/event_bridge";
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "AWSIntegrationApi.v2.listAWSEventBridgeSources",
-      AWSIntegrationApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.GET,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("AWSIntegrationApi.v2.listAWSEventBridgeSources", AWSIntegrationApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.GET, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -765,15 +631,8 @@ export class AWSIntegrationApiRequestFactory extends BaseAPIRequestFactory {
     const localVarPath = "/api/v2/integration/aws/available_namespaces";
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "AWSIntegrationApi.v2.listAWSNamespaces",
-      AWSIntegrationApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.GET,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("AWSIntegrationApi.v2.listAWSNamespaces", AWSIntegrationApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.GET, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -798,22 +657,13 @@ export class AWSIntegrationApiRequestFactory extends BaseAPIRequestFactory {
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
-    if (
-      !_config.unstableOperations[
-        "AWSIntegrationApi.v2.previewAWSMetricNameFilter"
-      ]
-    ) {
-      throw new Error(
-        "Unstable operation 'previewAWSMetricNameFilter' is disabled. Enable it by setting `configuration.unstableOperations['AWSIntegrationApi.v2.previewAWSMetricNameFilter'] = true`",
-      );
+    if (!_config.unstableOperations["AWSIntegrationApi.v2.previewAWSMetricNameFilter"]) {
+      throw new Error("Unstable operation 'previewAWSMetricNameFilter' is disabled. Enable it by setting `configuration.unstableOperations['AWSIntegrationApi.v2.previewAWSMetricNameFilter'] = true`");
     }
 
     // verify required parameter 'awsAccountConfigId' is not null or undefined
     if (awsAccountConfigId === null || awsAccountConfigId === undefined) {
-      throw new RequiredError(
-        "awsAccountConfigId",
-        "previewAWSMetricNameFilter",
-      );
+      throw new RequiredError("awsAccountConfigId", "previewAWSMetricNameFilter");
     }
 
     // verify required parameter 'body' is not null or undefined
@@ -822,22 +672,14 @@ export class AWSIntegrationApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Path Params
-    const localVarPath =
-      "/api/v2/integration/aws/accounts/{aws_account_config_id}/metric_name_filter_preview".replace(
-        "{aws_account_config_id}",
-        encodeURIComponent(String(awsAccountConfigId)),
-      );
+    const localVarPath = "/api/v2/integration/aws/accounts/{aws_account_config_id}/metric_name_filter_preview".replace(
+      "{aws_account_config_id}",
+      encodeURIComponent(String(awsAccountConfigId)),
+    );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "AWSIntegrationApi.v2.previewAWSMetricNameFilter",
-      AWSIntegrationApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.POST,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("AWSIntegrationApi.v2.previewAWSMetricNameFilter", AWSIntegrationApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.POST, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -847,7 +689,9 @@ export class AWSIntegrationApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Body Params
-    const contentType = getPreferredMediaType(["application/json"]);
+    const contentType = getPreferredMediaType([
+      "application/json",
+    ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = stringify(
       serialize(body, TypingInfo, "AWSMetricNameFilterPreviewRequest", ""),
@@ -882,22 +726,14 @@ export class AWSIntegrationApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Path Params
-    const localVarPath =
-      "/api/v2/integration/aws/accounts/{aws_account_config_id}".replace(
-        "{aws_account_config_id}",
-        encodeURIComponent(String(awsAccountConfigId)),
-      );
+    const localVarPath = "/api/v2/integration/aws/accounts/{aws_account_config_id}".replace(
+      "{aws_account_config_id}",
+      encodeURIComponent(String(awsAccountConfigId)),
+    );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "AWSIntegrationApi.v2.updateAWSAccount",
-      AWSIntegrationApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.PATCH,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("AWSIntegrationApi.v2.updateAWSAccount", AWSIntegrationApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.PATCH, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -907,7 +743,9 @@ export class AWSIntegrationApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Body Params
-    const contentType = getPreferredMediaType(["application/json"]);
+    const contentType = getPreferredMediaType([
+      "application/json",
+    ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = stringify(
       serialize(body, TypingInfo, "AWSAccountUpdateRequest", ""),
@@ -931,22 +769,13 @@ export class AWSIntegrationApiRequestFactory extends BaseAPIRequestFactory {
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
-    if (
-      !_config.unstableOperations[
-        "AWSIntegrationApi.v2.updateAWSAccountCCMConfig"
-      ]
-    ) {
-      throw new Error(
-        "Unstable operation 'updateAWSAccountCCMConfig' is disabled. Enable it by setting `configuration.unstableOperations['AWSIntegrationApi.v2.updateAWSAccountCCMConfig'] = true`",
-      );
+    if (!_config.unstableOperations["AWSIntegrationApi.v2.updateAWSAccountCCMConfig"]) {
+      throw new Error("Unstable operation 'updateAWSAccountCCMConfig' is disabled. Enable it by setting `configuration.unstableOperations['AWSIntegrationApi.v2.updateAWSAccountCCMConfig'] = true`");
     }
 
     // verify required parameter 'awsAccountConfigId' is not null or undefined
     if (awsAccountConfigId === null || awsAccountConfigId === undefined) {
-      throw new RequiredError(
-        "awsAccountConfigId",
-        "updateAWSAccountCCMConfig",
-      );
+      throw new RequiredError("awsAccountConfigId", "updateAWSAccountCCMConfig");
     }
 
     // verify required parameter 'body' is not null or undefined
@@ -955,22 +784,14 @@ export class AWSIntegrationApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Path Params
-    const localVarPath =
-      "/api/v2/integration/aws/accounts/{aws_account_config_id}/ccm_config".replace(
-        "{aws_account_config_id}",
-        encodeURIComponent(String(awsAccountConfigId)),
-      );
+    const localVarPath = "/api/v2/integration/aws/accounts/{aws_account_config_id}/ccm_config".replace(
+      "{aws_account_config_id}",
+      encodeURIComponent(String(awsAccountConfigId)),
+    );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "AWSIntegrationApi.v2.updateAWSAccountCCMConfig",
-      AWSIntegrationApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.PATCH,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("AWSIntegrationApi.v2.updateAWSAccountCCMConfig", AWSIntegrationApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.PATCH, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -980,7 +801,9 @@ export class AWSIntegrationApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Body Params
-    const contentType = getPreferredMediaType(["application/json"]);
+    const contentType = getPreferredMediaType([
+      "application/json",
+    ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = stringify(
       serialize(body, TypingInfo, "AWSCcmConfigRequest", ""),
@@ -1003,12 +826,8 @@ export class AWSIntegrationApiRequestFactory extends BaseAPIRequestFactory {
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
-    if (
-      !_config.unstableOperations["AWSIntegrationApi.v2.validateAWSCCMConfig"]
-    ) {
-      throw new Error(
-        "Unstable operation 'validateAWSCCMConfig' is disabled. Enable it by setting `configuration.unstableOperations['AWSIntegrationApi.v2.validateAWSCCMConfig'] = true`",
-      );
+    if (!_config.unstableOperations["AWSIntegrationApi.v2.validateAWSCCMConfig"]) {
+      throw new Error("Unstable operation 'validateAWSCCMConfig' is disabled. Enable it by setting `configuration.unstableOperations['AWSIntegrationApi.v2.validateAWSCCMConfig'] = true`");
     }
 
     // verify required parameter 'body' is not null or undefined
@@ -1020,15 +839,8 @@ export class AWSIntegrationApiRequestFactory extends BaseAPIRequestFactory {
     const localVarPath = "/api/v2/integration/aws/validate_ccm_config";
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "AWSIntegrationApi.v2.validateAWSCCMConfig",
-      AWSIntegrationApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.POST,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("AWSIntegrationApi.v2.validateAWSCCMConfig", AWSIntegrationApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.POST, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -1038,7 +850,9 @@ export class AWSIntegrationApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Body Params
-    const contentType = getPreferredMediaType(["application/json"]);
+    const contentType = getPreferredMediaType([
+      "application/json",
+    ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = stringify(
       serialize(body, TypingInfo, "AWSCcmConfigValidationRequest", ""),
@@ -1067,7 +881,9 @@ export class AWSIntegrationApiResponseProcessor {
   public async createAWSAccount(
     response: ResponseContext,
   ): Promise<AWSAccountResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: AWSAccountResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -1082,7 +898,10 @@ export class AWSIntegrationApiResponseProcessor {
       response.httpStatusCode === 409 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -1097,7 +916,10 @@ export class AWSIntegrationApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -1128,7 +950,9 @@ export class AWSIntegrationApiResponseProcessor {
   public async createAWSAccountCCMConfig(
     response: ResponseContext,
   ): Promise<AWSCcmConfigResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: AWSCcmConfigResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -1143,7 +967,10 @@ export class AWSIntegrationApiResponseProcessor {
       response.httpStatusCode === 409 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -1158,7 +985,10 @@ export class AWSIntegrationApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -1189,7 +1019,9 @@ export class AWSIntegrationApiResponseProcessor {
   public async createAWSEventBridgeSource(
     response: ResponseContext,
   ): Promise<AWSEventBridgeCreateResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: AWSEventBridgeCreateResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -1204,7 +1036,10 @@ export class AWSIntegrationApiResponseProcessor {
       response.httpStatusCode === 409 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -1219,7 +1054,10 @@ export class AWSIntegrationApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -1250,7 +1088,9 @@ export class AWSIntegrationApiResponseProcessor {
   public async createNewAWSExternalID(
     response: ResponseContext,
   ): Promise<AWSNewExternalIDResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: AWSNewExternalIDResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -1259,8 +1099,14 @@ export class AWSIntegrationApiResponseProcessor {
       ) as AWSNewExternalIDResponse;
       return body;
     }
-    if (response.httpStatusCode === 403 || response.httpStatusCode === 429) {
-      const bodyText = parse(await response.body.text(), contentType);
+    if (
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 429
+    ) {
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -1275,7 +1121,10 @@ export class AWSIntegrationApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -1303,8 +1152,12 @@ export class AWSIntegrationApiResponseProcessor {
    * @params response Response returned by the server for a request to deleteAWSAccount
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async deleteAWSAccount(response: ResponseContext): Promise<void> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+  public async deleteAWSAccount(
+    response: ResponseContext,
+  ): Promise<void> {
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 204) {
       return;
     }
@@ -1314,7 +1167,10 @@ export class AWSIntegrationApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -1329,7 +1185,10 @@ export class AWSIntegrationApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -1354,7 +1213,9 @@ export class AWSIntegrationApiResponseProcessor {
   public async deleteAWSAccountCCMConfig(
     response: ResponseContext,
   ): Promise<void> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 204) {
       return;
     }
@@ -1363,7 +1224,10 @@ export class AWSIntegrationApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -1378,7 +1242,10 @@ export class AWSIntegrationApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -1403,7 +1270,9 @@ export class AWSIntegrationApiResponseProcessor {
   public async deleteAWSEventBridgeSource(
     response: ResponseContext,
   ): Promise<AWSEventBridgeDeleteResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: AWSEventBridgeDeleteResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -1417,7 +1286,10 @@ export class AWSIntegrationApiResponseProcessor {
       response.httpStatusCode === 403 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -1432,7 +1304,10 @@ export class AWSIntegrationApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -1463,7 +1338,9 @@ export class AWSIntegrationApiResponseProcessor {
   public async getAWSAccount(
     response: ResponseContext,
   ): Promise<AWSAccountResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: AWSAccountResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -1478,7 +1355,10 @@ export class AWSIntegrationApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -1493,7 +1373,10 @@ export class AWSIntegrationApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -1524,7 +1407,9 @@ export class AWSIntegrationApiResponseProcessor {
   public async getAWSAccountCCMConfig(
     response: ResponseContext,
   ): Promise<AWSCcmConfigResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: AWSCcmConfigResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -1538,7 +1423,10 @@ export class AWSIntegrationApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -1553,7 +1441,10 @@ export class AWSIntegrationApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -1584,7 +1475,9 @@ export class AWSIntegrationApiResponseProcessor {
   public async getAWSIntegrationIAMPermissions(
     response: ResponseContext,
   ): Promise<AWSIntegrationIamPermissionsResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: AWSIntegrationIamPermissionsResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -1594,7 +1487,10 @@ export class AWSIntegrationApiResponseProcessor {
       return body;
     }
     if (response.httpStatusCode === 429) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -1609,7 +1505,10 @@ export class AWSIntegrationApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -1640,7 +1539,9 @@ export class AWSIntegrationApiResponseProcessor {
   public async getAWSIntegrationIAMPermissionsResourceCollection(
     response: ResponseContext,
   ): Promise<AWSIntegrationIamPermissionsResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: AWSIntegrationIamPermissionsResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -1650,7 +1551,10 @@ export class AWSIntegrationApiResponseProcessor {
       return body;
     }
     if (response.httpStatusCode === 429) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -1665,7 +1569,10 @@ export class AWSIntegrationApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -1696,7 +1603,9 @@ export class AWSIntegrationApiResponseProcessor {
   public async getAWSIntegrationIAMPermissionsStandard(
     response: ResponseContext,
   ): Promise<AWSIntegrationIamPermissionsResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: AWSIntegrationIamPermissionsResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -1706,7 +1615,10 @@ export class AWSIntegrationApiResponseProcessor {
       return body;
     }
     if (response.httpStatusCode === 429) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -1721,7 +1633,10 @@ export class AWSIntegrationApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -1752,7 +1667,9 @@ export class AWSIntegrationApiResponseProcessor {
   public async getAWSMetricNameFilterPreview(
     response: ResponseContext,
   ): Promise<AWSMetricNameFilterPreviewResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: AWSMetricNameFilterPreviewResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -1766,7 +1683,10 @@ export class AWSIntegrationApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -1781,7 +1701,10 @@ export class AWSIntegrationApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -1812,7 +1735,9 @@ export class AWSIntegrationApiResponseProcessor {
   public async listAWSAccounts(
     response: ResponseContext,
   ): Promise<AWSAccountsResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: AWSAccountsResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -1821,8 +1746,14 @@ export class AWSIntegrationApiResponseProcessor {
       ) as AWSAccountsResponse;
       return body;
     }
-    if (response.httpStatusCode === 403 || response.httpStatusCode === 429) {
-      const bodyText = parse(await response.body.text(), contentType);
+    if (
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 429
+    ) {
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -1837,7 +1768,10 @@ export class AWSIntegrationApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -1868,7 +1802,9 @@ export class AWSIntegrationApiResponseProcessor {
   public async listAWSEventBridgeSources(
     response: ResponseContext,
   ): Promise<AWSEventBridgeListResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: AWSEventBridgeListResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -1882,7 +1818,10 @@ export class AWSIntegrationApiResponseProcessor {
       response.httpStatusCode === 403 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -1897,7 +1836,10 @@ export class AWSIntegrationApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -1928,7 +1870,9 @@ export class AWSIntegrationApiResponseProcessor {
   public async listAWSNamespaces(
     response: ResponseContext,
   ): Promise<AWSNamespacesResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: AWSNamespacesResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -1937,8 +1881,14 @@ export class AWSIntegrationApiResponseProcessor {
       ) as AWSNamespacesResponse;
       return body;
     }
-    if (response.httpStatusCode === 403 || response.httpStatusCode === 429) {
-      const bodyText = parse(await response.body.text(), contentType);
+    if (
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 429
+    ) {
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -1953,7 +1903,10 @@ export class AWSIntegrationApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -1984,7 +1937,9 @@ export class AWSIntegrationApiResponseProcessor {
   public async previewAWSMetricNameFilter(
     response: ResponseContext,
   ): Promise<AWSMetricNameFilterPreviewResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: AWSMetricNameFilterPreviewResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -1994,7 +1949,10 @@ export class AWSIntegrationApiResponseProcessor {
       return body;
     }
     if (response.httpStatusCode === 400) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: JSONAPIErrorResponse;
       try {
         body = deserialize(
@@ -2019,7 +1977,10 @@ export class AWSIntegrationApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -2034,7 +1995,10 @@ export class AWSIntegrationApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -2065,7 +2029,9 @@ export class AWSIntegrationApiResponseProcessor {
   public async updateAWSAccount(
     response: ResponseContext,
   ): Promise<AWSAccountResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: AWSAccountResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -2080,7 +2046,10 @@ export class AWSIntegrationApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -2095,7 +2064,10 @@ export class AWSIntegrationApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -2126,7 +2098,9 @@ export class AWSIntegrationApiResponseProcessor {
   public async updateAWSAccountCCMConfig(
     response: ResponseContext,
   ): Promise<AWSCcmConfigResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: AWSCcmConfigResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -2140,7 +2114,10 @@ export class AWSIntegrationApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -2155,7 +2132,10 @@ export class AWSIntegrationApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -2186,7 +2166,9 @@ export class AWSIntegrationApiResponseProcessor {
   public async validateAWSCCMConfig(
     response: ResponseContext,
   ): Promise<AWSCcmConfigValidationResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: AWSCcmConfigValidationResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -2195,8 +2177,14 @@ export class AWSIntegrationApiResponseProcessor {
       ) as AWSCcmConfigValidationResponse;
       return body;
     }
-    if (response.httpStatusCode === 400 || response.httpStatusCode === 503) {
-      const bodyText = parse(await response.body.text(), contentType);
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 503
+    ) {
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: JSONAPIErrorResponse;
       try {
         body = deserialize(
@@ -2216,8 +2204,14 @@ export class AWSIntegrationApiResponseProcessor {
         body,
       );
     }
-    if (response.httpStatusCode === 403 || response.httpStatusCode === 429) {
-      const bodyText = parse(await response.body.text(), contentType);
+    if (
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 429
+    ) {
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -2232,7 +2226,10 @@ export class AWSIntegrationApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -2408,7 +2405,8 @@ export class AWSIntegrationApi {
   private responseProcessor: AWSIntegrationApiResponseProcessor;
   private configuration: Configuration;
 
-  static operationServers: { [key: string]: BaseServerConfiguration[] } = {};
+  static operationServers: { [key: string]: BaseServerConfiguration[] } = {
+  };
 
   public constructor(
     configuration?: Configuration,
@@ -2417,7 +2415,8 @@ export class AWSIntegrationApi {
   ) {
     this.configuration = configuration || createConfiguration();
     this.requestFactory =
-      requestFactory || new AWSIntegrationApiRequestFactory(this.configuration);
+      requestFactory ||
+      new AWSIntegrationApiRequestFactory(this.configuration);
     this.responseProcessor =
       responseProcessor || new AWSIntegrationApiResponseProcessor();
   }
@@ -2461,9 +2460,7 @@ export class AWSIntegrationApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.createAWSAccountCCMConfig(
-            responseContext,
-          );
+          return this.responseProcessor.createAWSAccountCCMConfig(responseContext);
         });
     });
   }
@@ -2476,15 +2473,15 @@ export class AWSIntegrationApi {
     param: AWSIntegrationApiCreateAWSEventBridgeSourceRequest,
     options?: Configuration,
   ): Promise<AWSEventBridgeCreateResponse> {
-    const requestContextPromise =
-      this.requestFactory.createAWSEventBridgeSource(param.body, options);
+    const requestContextPromise = this.requestFactory.createAWSEventBridgeSource(
+      param.body,
+      options,
+    );
     return requestContextPromise.then((requestContext) => {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.createAWSEventBridgeSource(
-            responseContext,
-          );
+          return this.responseProcessor.createAWSEventBridgeSource(responseContext);
         });
     });
   }
@@ -2493,11 +2490,11 @@ export class AWSIntegrationApi {
    * Generate a new external ID for AWS role-based authentication.
    * @param param The request object
    */
-  public createNewAWSExternalID(
-    options?: Configuration,
+  public createNewAWSExternalID(options?: Configuration,
   ): Promise<AWSNewExternalIDResponse> {
-    const requestContextPromise =
-      this.requestFactory.createNewAWSExternalID(options);
+    const requestContextPromise = this.requestFactory.createNewAWSExternalID(
+      options,
+    );
     return requestContextPromise.then((requestContext) => {
       return this.configuration.httpApi
         .send(requestContext)
@@ -2545,9 +2542,7 @@ export class AWSIntegrationApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.deleteAWSAccountCCMConfig(
-            responseContext,
-          );
+          return this.responseProcessor.deleteAWSAccountCCMConfig(responseContext);
         });
     });
   }
@@ -2560,15 +2555,15 @@ export class AWSIntegrationApi {
     param: AWSIntegrationApiDeleteAWSEventBridgeSourceRequest,
     options?: Configuration,
   ): Promise<AWSEventBridgeDeleteResponse> {
-    const requestContextPromise =
-      this.requestFactory.deleteAWSEventBridgeSource(param.body, options);
+    const requestContextPromise = this.requestFactory.deleteAWSEventBridgeSource(
+      param.body,
+      options,
+    );
     return requestContextPromise.then((requestContext) => {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.deleteAWSEventBridgeSource(
-            responseContext,
-          );
+          return this.responseProcessor.deleteAWSEventBridgeSource(responseContext);
         });
     });
   }
@@ -2620,18 +2615,16 @@ export class AWSIntegrationApi {
    * Get all AWS IAM permissions required for the AWS integration.
    * @param param The request object
    */
-  public getAWSIntegrationIAMPermissions(
-    options?: Configuration,
+  public getAWSIntegrationIAMPermissions(options?: Configuration,
   ): Promise<AWSIntegrationIamPermissionsResponse> {
-    const requestContextPromise =
-      this.requestFactory.getAWSIntegrationIAMPermissions(options);
+    const requestContextPromise = this.requestFactory.getAWSIntegrationIAMPermissions(
+      options,
+    );
     return requestContextPromise.then((requestContext) => {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.getAWSIntegrationIAMPermissions(
-            responseContext,
-          );
+          return this.responseProcessor.getAWSIntegrationIAMPermissions(responseContext);
         });
     });
   }
@@ -2640,20 +2633,16 @@ export class AWSIntegrationApi {
    * Get all resource collection AWS IAM permissions required for the AWS integration.
    * @param param The request object
    */
-  public getAWSIntegrationIAMPermissionsResourceCollection(
-    options?: Configuration,
+  public getAWSIntegrationIAMPermissionsResourceCollection(options?: Configuration,
   ): Promise<AWSIntegrationIamPermissionsResponse> {
-    const requestContextPromise =
-      this.requestFactory.getAWSIntegrationIAMPermissionsResourceCollection(
-        options,
-      );
+    const requestContextPromise = this.requestFactory.getAWSIntegrationIAMPermissionsResourceCollection(
+      options,
+    );
     return requestContextPromise.then((requestContext) => {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.getAWSIntegrationIAMPermissionsResourceCollection(
-            responseContext,
-          );
+          return this.responseProcessor.getAWSIntegrationIAMPermissionsResourceCollection(responseContext);
         });
     });
   }
@@ -2662,18 +2651,16 @@ export class AWSIntegrationApi {
    * Get all standard AWS IAM permissions required for the AWS integration.
    * @param param The request object
    */
-  public getAWSIntegrationIAMPermissionsStandard(
-    options?: Configuration,
+  public getAWSIntegrationIAMPermissionsStandard(options?: Configuration,
   ): Promise<AWSIntegrationIamPermissionsResponse> {
-    const requestContextPromise =
-      this.requestFactory.getAWSIntegrationIAMPermissionsStandard(options);
+    const requestContextPromise = this.requestFactory.getAWSIntegrationIAMPermissionsStandard(
+      options,
+    );
     return requestContextPromise.then((requestContext) => {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.getAWSIntegrationIAMPermissionsStandard(
-            responseContext,
-          );
+          return this.responseProcessor.getAWSIntegrationIAMPermissionsStandard(responseContext);
         });
     });
   }
@@ -2686,18 +2673,15 @@ export class AWSIntegrationApi {
     param: AWSIntegrationApiGetAWSMetricNameFilterPreviewRequest,
     options?: Configuration,
   ): Promise<AWSMetricNameFilterPreviewResponse> {
-    const requestContextPromise =
-      this.requestFactory.getAWSMetricNameFilterPreview(
-        param.awsAccountConfigId,
-        options,
-      );
+    const requestContextPromise = this.requestFactory.getAWSMetricNameFilterPreview(
+      param.awsAccountConfigId,
+      options,
+    );
     return requestContextPromise.then((requestContext) => {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.getAWSMetricNameFilterPreview(
-            responseContext,
-          );
+          return this.responseProcessor.getAWSMetricNameFilterPreview(responseContext);
         });
     });
   }
@@ -2727,18 +2711,16 @@ export class AWSIntegrationApi {
    * Get all Amazon EventBridge sources.
    * @param param The request object
    */
-  public listAWSEventBridgeSources(
-    options?: Configuration,
+  public listAWSEventBridgeSources(options?: Configuration,
   ): Promise<AWSEventBridgeListResponse> {
-    const requestContextPromise =
-      this.requestFactory.listAWSEventBridgeSources(options);
+    const requestContextPromise = this.requestFactory.listAWSEventBridgeSources(
+      options,
+    );
     return requestContextPromise.then((requestContext) => {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.listAWSEventBridgeSources(
-            responseContext,
-          );
+          return this.responseProcessor.listAWSEventBridgeSources(responseContext);
         });
     });
   }
@@ -2747,11 +2729,11 @@ export class AWSIntegrationApi {
    * Get a list of available AWS CloudWatch namespaces that can send metrics to Datadog.
    * @param param The request object
    */
-  public listAWSNamespaces(
-    options?: Configuration,
+  public listAWSNamespaces(options?: Configuration,
   ): Promise<AWSNamespacesResponse> {
-    const requestContextPromise =
-      this.requestFactory.listAWSNamespaces(options);
+    const requestContextPromise = this.requestFactory.listAWSNamespaces(
+      options,
+    );
     return requestContextPromise.then((requestContext) => {
       return this.configuration.httpApi
         .send(requestContext)
@@ -2770,19 +2752,16 @@ export class AWSIntegrationApi {
     param: AWSIntegrationApiPreviewAWSMetricNameFilterRequest,
     options?: Configuration,
   ): Promise<AWSMetricNameFilterPreviewResponse> {
-    const requestContextPromise =
-      this.requestFactory.previewAWSMetricNameFilter(
-        param.awsAccountConfigId,
-        param.body,
-        options,
-      );
+    const requestContextPromise = this.requestFactory.previewAWSMetricNameFilter(
+      param.awsAccountConfigId,
+      param.body,
+      options,
+    );
     return requestContextPromise.then((requestContext) => {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.previewAWSMetricNameFilter(
-            responseContext,
-          );
+          return this.responseProcessor.previewAWSMetricNameFilter(responseContext);
         });
     });
   }
@@ -2827,9 +2806,7 @@ export class AWSIntegrationApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.updateAWSAccountCCMConfig(
-            responseContext,
-          );
+          return this.responseProcessor.updateAWSAccountCCMConfig(responseContext);
         });
     });
   }

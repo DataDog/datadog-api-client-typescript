@@ -9,7 +9,7 @@ export class CustomDestinationResponseForwardDestinationElasticsearch {
   /**
    * Basic access authentication.
    */
-  "auth": { [key: string]: any };
+  "auth": { [key: string]: any; };
   /**
    * The destination for which logs will be forwarded to.
    * Must have HTTPS scheme and forwarding back to Datadog is not allowed.
@@ -27,7 +27,7 @@ export class CustomDestinationResponseForwardDestinationElasticsearch {
    * - Daily: `yyyy-MM-dd` (as an example, it would render: `2022-10-19`)
    * - Weekly: `yyyy-'W'ww` (as an example, it would render: `2022-W42`)
    * - Monthly: `yyyy-MM` (as an example, it would render: `2022-10`)
-   *
+   * 
    * If this field is missing or is blank, it means that the index name will always be the same
    * (that is, no rotation).
    */
@@ -41,7 +41,7 @@ export class CustomDestinationResponseForwardDestinationElasticsearch {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
   /**
    * @ignore
    */

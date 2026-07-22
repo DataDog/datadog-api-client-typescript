@@ -1,5 +1,6 @@
 import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
+
 /**
  * Attributes of a viewership history session entry, capturing when it was last watched and the associated event data.
  */
@@ -15,7 +16,7 @@ export class ViewershipHistorySessionDataAttributes {
   /**
    * Raw event data associated with the replay session.
    */
-  "sessionEvent"?: { [key: string]: any };
+  "sessionEvent"?: { [key: string]: any; };
   /**
    * Replay track identifier indicating which recording track the session belongs to.
    */
@@ -25,7 +26,7 @@ export class ViewershipHistorySessionDataAttributes {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
   /**
    * @ignore
    */

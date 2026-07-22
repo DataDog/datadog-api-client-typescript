@@ -19,6 +19,7 @@ import {
   ServerConfiguration,
   stringify,
   applySecurityAuthentication,
+  
 } from "@datadog/datadog-api-client";
 
 import { TypingInfo } from "./models/TypingInfo";
@@ -46,12 +47,8 @@ export class ChangeManagementApiRequestFactory extends BaseAPIRequestFactory {
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
-    if (
-      !_config.unstableOperations["ChangeManagementApi.v2.createChangeRequest"]
-    ) {
-      throw new Error(
-        "Unstable operation 'createChangeRequest' is disabled. Enable it by setting `configuration.unstableOperations['ChangeManagementApi.v2.createChangeRequest'] = true`",
-      );
+    if (!_config.unstableOperations["ChangeManagementApi.v2.createChangeRequest"]) {
+      throw new Error("Unstable operation 'createChangeRequest' is disabled. Enable it by setting `configuration.unstableOperations['ChangeManagementApi.v2.createChangeRequest'] = true`");
     }
 
     // verify required parameter 'body' is not null or undefined
@@ -63,15 +60,8 @@ export class ChangeManagementApiRequestFactory extends BaseAPIRequestFactory {
     const localVarPath = "/api/v2/change-management/change-request";
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "ChangeManagementApi.v2.createChangeRequest",
-      ChangeManagementApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.POST,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("ChangeManagementApi.v2.createChangeRequest", ChangeManagementApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.POST, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -81,7 +71,9 @@ export class ChangeManagementApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Body Params
-    const contentType = getPreferredMediaType(["application/json"]);
+    const contentType = getPreferredMediaType([
+      "application/json",
+    ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = stringify(
       serialize(body, TypingInfo, "ChangeRequestCreateRequest", ""),
@@ -106,14 +98,8 @@ export class ChangeManagementApiRequestFactory extends BaseAPIRequestFactory {
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
-    if (
-      !_config.unstableOperations[
-        "ChangeManagementApi.v2.createChangeRequestBranch"
-      ]
-    ) {
-      throw new Error(
-        "Unstable operation 'createChangeRequestBranch' is disabled. Enable it by setting `configuration.unstableOperations['ChangeManagementApi.v2.createChangeRequestBranch'] = true`",
-      );
+    if (!_config.unstableOperations["ChangeManagementApi.v2.createChangeRequestBranch"]) {
+      throw new Error("Unstable operation 'createChangeRequestBranch' is disabled. Enable it by setting `configuration.unstableOperations['ChangeManagementApi.v2.createChangeRequestBranch'] = true`");
     }
 
     // verify required parameter 'changeRequestId' is not null or undefined
@@ -127,22 +113,14 @@ export class ChangeManagementApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Path Params
-    const localVarPath =
-      "/api/v2/change-management/change-request/{change_request_id}/branch".replace(
-        "{change_request_id}",
-        encodeURIComponent(String(changeRequestId)),
-      );
+    const localVarPath = "/api/v2/change-management/change-request/{change_request_id}/branch".replace(
+      "{change_request_id}",
+      encodeURIComponent(String(changeRequestId)),
+    );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "ChangeManagementApi.v2.createChangeRequestBranch",
-      ChangeManagementApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.POST,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("ChangeManagementApi.v2.createChangeRequestBranch", ChangeManagementApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.POST, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -152,7 +130,9 @@ export class ChangeManagementApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Body Params
-    const contentType = getPreferredMediaType(["application/json"]);
+    const contentType = getPreferredMediaType([
+      "application/json",
+    ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = stringify(
       serialize(body, TypingInfo, "ChangeRequestBranchCreateRequest", ""),
@@ -177,14 +157,8 @@ export class ChangeManagementApiRequestFactory extends BaseAPIRequestFactory {
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
-    if (
-      !_config.unstableOperations[
-        "ChangeManagementApi.v2.deleteChangeRequestDecision"
-      ]
-    ) {
-      throw new Error(
-        "Unstable operation 'deleteChangeRequestDecision' is disabled. Enable it by setting `configuration.unstableOperations['ChangeManagementApi.v2.deleteChangeRequestDecision'] = true`",
-      );
+    if (!_config.unstableOperations["ChangeManagementApi.v2.deleteChangeRequestDecision"]) {
+      throw new Error("Unstable operation 'deleteChangeRequestDecision' is disabled. Enable it by setting `configuration.unstableOperations['ChangeManagementApi.v2.deleteChangeRequestDecision'] = true`");
     }
 
     // verify required parameter 'changeRequestId' is not null or undefined
@@ -198,24 +172,17 @@ export class ChangeManagementApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Path Params
-    const localVarPath =
-      "/api/v2/change-management/change-request/{change_request_id}/decisions/{decision_id}"
-        .replace(
-          "{change_request_id}",
-          encodeURIComponent(String(changeRequestId)),
-        )
-        .replace("{decision_id}", encodeURIComponent(String(decisionId)));
+    const localVarPath = "/api/v2/change-management/change-request/{change_request_id}/decisions/{decision_id}".replace(
+      "{change_request_id}",
+      encodeURIComponent(String(changeRequestId)),
+    ).replace(
+      "{decision_id}",
+      encodeURIComponent(String(decisionId)),
+    );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "ChangeManagementApi.v2.deleteChangeRequestDecision",
-      ChangeManagementApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.DELETE,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("ChangeManagementApi.v2.deleteChangeRequestDecision", ChangeManagementApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.DELETE, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -240,12 +207,8 @@ export class ChangeManagementApiRequestFactory extends BaseAPIRequestFactory {
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
-    if (
-      !_config.unstableOperations["ChangeManagementApi.v2.getChangeRequest"]
-    ) {
-      throw new Error(
-        "Unstable operation 'getChangeRequest' is disabled. Enable it by setting `configuration.unstableOperations['ChangeManagementApi.v2.getChangeRequest'] = true`",
-      );
+    if (!_config.unstableOperations["ChangeManagementApi.v2.getChangeRequest"]) {
+      throw new Error("Unstable operation 'getChangeRequest' is disabled. Enable it by setting `configuration.unstableOperations['ChangeManagementApi.v2.getChangeRequest'] = true`");
     }
 
     // verify required parameter 'changeRequestId' is not null or undefined
@@ -254,22 +217,14 @@ export class ChangeManagementApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Path Params
-    const localVarPath =
-      "/api/v2/change-management/change-request/{change_request_id}".replace(
-        "{change_request_id}",
-        encodeURIComponent(String(changeRequestId)),
-      );
+    const localVarPath = "/api/v2/change-management/change-request/{change_request_id}".replace(
+      "{change_request_id}",
+      encodeURIComponent(String(changeRequestId)),
+    );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "ChangeManagementApi.v2.getChangeRequest",
-      ChangeManagementApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.GET,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("ChangeManagementApi.v2.getChangeRequest", ChangeManagementApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.GET, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -295,12 +250,8 @@ export class ChangeManagementApiRequestFactory extends BaseAPIRequestFactory {
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
-    if (
-      !_config.unstableOperations["ChangeManagementApi.v2.updateChangeRequest"]
-    ) {
-      throw new Error(
-        "Unstable operation 'updateChangeRequest' is disabled. Enable it by setting `configuration.unstableOperations['ChangeManagementApi.v2.updateChangeRequest'] = true`",
-      );
+    if (!_config.unstableOperations["ChangeManagementApi.v2.updateChangeRequest"]) {
+      throw new Error("Unstable operation 'updateChangeRequest' is disabled. Enable it by setting `configuration.unstableOperations['ChangeManagementApi.v2.updateChangeRequest'] = true`");
     }
 
     // verify required parameter 'changeRequestId' is not null or undefined
@@ -314,22 +265,14 @@ export class ChangeManagementApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Path Params
-    const localVarPath =
-      "/api/v2/change-management/change-request/{change_request_id}".replace(
-        "{change_request_id}",
-        encodeURIComponent(String(changeRequestId)),
-      );
+    const localVarPath = "/api/v2/change-management/change-request/{change_request_id}".replace(
+      "{change_request_id}",
+      encodeURIComponent(String(changeRequestId)),
+    );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "ChangeManagementApi.v2.updateChangeRequest",
-      ChangeManagementApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.PATCH,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("ChangeManagementApi.v2.updateChangeRequest", ChangeManagementApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.PATCH, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -339,7 +282,9 @@ export class ChangeManagementApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Body Params
-    const contentType = getPreferredMediaType(["application/json"]);
+    const contentType = getPreferredMediaType([
+      "application/json",
+    ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = stringify(
       serialize(body, TypingInfo, "ChangeRequestUpdateRequest", ""),
@@ -365,14 +310,8 @@ export class ChangeManagementApiRequestFactory extends BaseAPIRequestFactory {
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
-    if (
-      !_config.unstableOperations[
-        "ChangeManagementApi.v2.updateChangeRequestDecision"
-      ]
-    ) {
-      throw new Error(
-        "Unstable operation 'updateChangeRequestDecision' is disabled. Enable it by setting `configuration.unstableOperations['ChangeManagementApi.v2.updateChangeRequestDecision'] = true`",
-      );
+    if (!_config.unstableOperations["ChangeManagementApi.v2.updateChangeRequestDecision"]) {
+      throw new Error("Unstable operation 'updateChangeRequestDecision' is disabled. Enable it by setting `configuration.unstableOperations['ChangeManagementApi.v2.updateChangeRequestDecision'] = true`");
     }
 
     // verify required parameter 'changeRequestId' is not null or undefined
@@ -391,24 +330,17 @@ export class ChangeManagementApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Path Params
-    const localVarPath =
-      "/api/v2/change-management/change-request/{change_request_id}/decisions/{decision_id}"
-        .replace(
-          "{change_request_id}",
-          encodeURIComponent(String(changeRequestId)),
-        )
-        .replace("{decision_id}", encodeURIComponent(String(decisionId)));
+    const localVarPath = "/api/v2/change-management/change-request/{change_request_id}/decisions/{decision_id}".replace(
+      "{change_request_id}",
+      encodeURIComponent(String(changeRequestId)),
+    ).replace(
+      "{decision_id}",
+      encodeURIComponent(String(decisionId)),
+    );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "ChangeManagementApi.v2.updateChangeRequestDecision",
-      ChangeManagementApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.PATCH,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("ChangeManagementApi.v2.updateChangeRequestDecision", ChangeManagementApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.PATCH, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -418,7 +350,9 @@ export class ChangeManagementApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Body Params
-    const contentType = getPreferredMediaType(["application/json"]);
+    const contentType = getPreferredMediaType([
+      "application/json",
+    ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = stringify(
       serialize(body, TypingInfo, "ChangeRequestDecisionUpdateRequest", ""),
@@ -448,7 +382,9 @@ export class ChangeManagementApiResponseProcessor {
   public async createChangeRequest(
     response: ResponseContext,
   ): Promise<ChangeRequestResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 201) {
       const body: ChangeRequestResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -457,8 +393,14 @@ export class ChangeManagementApiResponseProcessor {
       ) as ChangeRequestResponse;
       return body;
     }
-    if (response.httpStatusCode === 400 || response.httpStatusCode === 403) {
-      const bodyText = parse(await response.body.text(), contentType);
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 403
+    ) {
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: JSONAPIErrorResponse;
       try {
         body = deserialize(
@@ -479,7 +421,10 @@ export class ChangeManagementApiResponseProcessor {
       );
     }
     if (response.httpStatusCode === 429) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -494,7 +439,10 @@ export class ChangeManagementApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -525,7 +473,9 @@ export class ChangeManagementApiResponseProcessor {
   public async createChangeRequestBranch(
     response: ResponseContext,
   ): Promise<ChangeRequestResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: ChangeRequestResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -534,8 +484,14 @@ export class ChangeManagementApiResponseProcessor {
       ) as ChangeRequestResponse;
       return body;
     }
-    if (response.httpStatusCode === 400 || response.httpStatusCode === 404) {
-      const bodyText = parse(await response.body.text(), contentType);
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 404
+    ) {
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: JSONAPIErrorResponse;
       try {
         body = deserialize(
@@ -556,7 +512,10 @@ export class ChangeManagementApiResponseProcessor {
       );
     }
     if (response.httpStatusCode === 429) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -571,7 +530,10 @@ export class ChangeManagementApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -602,7 +564,9 @@ export class ChangeManagementApiResponseProcessor {
   public async deleteChangeRequestDecision(
     response: ResponseContext,
   ): Promise<ChangeRequestResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: ChangeRequestResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -611,8 +575,14 @@ export class ChangeManagementApiResponseProcessor {
       ) as ChangeRequestResponse;
       return body;
     }
-    if (response.httpStatusCode === 400 || response.httpStatusCode === 404) {
-      const bodyText = parse(await response.body.text(), contentType);
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 404
+    ) {
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: JSONAPIErrorResponse;
       try {
         body = deserialize(
@@ -633,7 +603,10 @@ export class ChangeManagementApiResponseProcessor {
       );
     }
     if (response.httpStatusCode === 429) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -648,7 +621,10 @@ export class ChangeManagementApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -679,7 +655,9 @@ export class ChangeManagementApiResponseProcessor {
   public async getChangeRequest(
     response: ResponseContext,
   ): Promise<ChangeRequestResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: ChangeRequestResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -688,8 +666,14 @@ export class ChangeManagementApiResponseProcessor {
       ) as ChangeRequestResponse;
       return body;
     }
-    if (response.httpStatusCode === 400 || response.httpStatusCode === 404) {
-      const bodyText = parse(await response.body.text(), contentType);
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 404
+    ) {
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: JSONAPIErrorResponse;
       try {
         body = deserialize(
@@ -710,7 +694,10 @@ export class ChangeManagementApiResponseProcessor {
       );
     }
     if (response.httpStatusCode === 429) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -725,7 +712,10 @@ export class ChangeManagementApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -756,7 +746,9 @@ export class ChangeManagementApiResponseProcessor {
   public async updateChangeRequest(
     response: ResponseContext,
   ): Promise<ChangeRequestResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: ChangeRequestResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -770,7 +762,10 @@ export class ChangeManagementApiResponseProcessor {
       response.httpStatusCode === 403 ||
       response.httpStatusCode === 404
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: JSONAPIErrorResponse;
       try {
         body = deserialize(
@@ -791,7 +786,10 @@ export class ChangeManagementApiResponseProcessor {
       );
     }
     if (response.httpStatusCode === 429) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -806,7 +804,10 @@ export class ChangeManagementApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -837,7 +838,9 @@ export class ChangeManagementApiResponseProcessor {
   public async updateChangeRequestDecision(
     response: ResponseContext,
   ): Promise<ChangeRequestResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: ChangeRequestResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -846,8 +849,14 @@ export class ChangeManagementApiResponseProcessor {
       ) as ChangeRequestResponse;
       return body;
     }
-    if (response.httpStatusCode === 400 || response.httpStatusCode === 404) {
-      const bodyText = parse(await response.body.text(), contentType);
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 404
+    ) {
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: JSONAPIErrorResponse;
       try {
         body = deserialize(
@@ -868,7 +877,10 @@ export class ChangeManagementApiResponseProcessor {
       );
     }
     if (response.httpStatusCode === 429) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -883,7 +895,10 @@ export class ChangeManagementApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -983,7 +998,8 @@ export class ChangeManagementApi {
   private responseProcessor: ChangeManagementApiResponseProcessor;
   private configuration: Configuration;
 
-  static operationServers: { [key: string]: BaseServerConfiguration[] } = {};
+  static operationServers: { [key: string]: BaseServerConfiguration[] } = {
+  };
 
   public constructor(
     configuration?: Configuration,
@@ -1036,9 +1052,7 @@ export class ChangeManagementApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.createChangeRequestBranch(
-            responseContext,
-          );
+          return this.responseProcessor.createChangeRequestBranch(responseContext);
         });
     });
   }
@@ -1051,19 +1065,16 @@ export class ChangeManagementApi {
     param: ChangeManagementApiDeleteChangeRequestDecisionRequest,
     options?: Configuration,
   ): Promise<ChangeRequestResponse> {
-    const requestContextPromise =
-      this.requestFactory.deleteChangeRequestDecision(
-        param.changeRequestId,
-        param.decisionId,
-        options,
-      );
+    const requestContextPromise = this.requestFactory.deleteChangeRequestDecision(
+      param.changeRequestId,
+      param.decisionId,
+      options,
+    );
     return requestContextPromise.then((requestContext) => {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.deleteChangeRequestDecision(
-            responseContext,
-          );
+          return this.responseProcessor.deleteChangeRequestDecision(responseContext);
         });
     });
   }
@@ -1119,20 +1130,17 @@ export class ChangeManagementApi {
     param: ChangeManagementApiUpdateChangeRequestDecisionRequest,
     options?: Configuration,
   ): Promise<ChangeRequestResponse> {
-    const requestContextPromise =
-      this.requestFactory.updateChangeRequestDecision(
-        param.changeRequestId,
-        param.decisionId,
-        param.body,
-        options,
-      );
+    const requestContextPromise = this.requestFactory.updateChangeRequestDecision(
+      param.changeRequestId,
+      param.decisionId,
+      param.body,
+      options,
+    );
     return requestContextPromise.then((requestContext) => {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.updateChangeRequestDecision(
-            responseContext,
-          );
+          return this.responseProcessor.updateChangeRequestDecision(responseContext);
         });
     });
   }

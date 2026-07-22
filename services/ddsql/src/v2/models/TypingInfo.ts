@@ -29,8 +29,7 @@ export const TypingInfo: ModelTypingInfo = {
     APIErrorResponse: APIErrorResponse,
     DdsqlTabularQueryColumn: DdsqlTabularQueryColumn,
     DdsqlTabularQueryFetchRequest: DdsqlTabularQueryFetchRequest,
-    DdsqlTabularQueryFetchRequestAttributes:
-      DdsqlTabularQueryFetchRequestAttributes,
+    DdsqlTabularQueryFetchRequestAttributes: DdsqlTabularQueryFetchRequestAttributes,
     DdsqlTabularQueryFetchRequestData: DdsqlTabularQueryFetchRequestData,
     DdsqlTabularQueryRequest: DdsqlTabularQueryRequest,
     DdsqlTabularQueryRequestAttributes: DdsqlTabularQueryRequestAttributes,

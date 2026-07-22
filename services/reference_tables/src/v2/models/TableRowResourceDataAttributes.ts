@@ -1,5 +1,6 @@
 import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
+
 /**
  * Column values for this row in the reference table.
  */
@@ -20,7 +21,7 @@ export class TableRowResourceDataAttributes {
     values: {
       baseName: "values",
       type: "any",
-    },
+    }
   };
 
   /**

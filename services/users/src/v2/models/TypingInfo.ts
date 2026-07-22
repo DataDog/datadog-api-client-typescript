@@ -68,7 +68,7 @@ export const TypingInfo: ModelTypingInfo = {
   },
   oneOfMap: {
     UserResponseIncludedItem: ["Organization", "Permission", "Role"],
-  },
+    },
   typeMap: {
     APIErrorResponse: APIErrorResponse,
     AnonymizeUserError: AnonymizeUserError,
@@ -111,11 +111,9 @@ export const TypingInfo: ModelTypingInfo = {
     UserInvitationResponseData: UserInvitationResponseData,
     UserInvitationsRequest: UserInvitationsRequest,
     UserInvitationsResponse: UserInvitationsResponse,
-    UserOverrideIdentityProviderAttributes:
-      UserOverrideIdentityProviderAttributes,
+    UserOverrideIdentityProviderAttributes: UserOverrideIdentityProviderAttributes,
     UserOverrideIdentityProviderData: UserOverrideIdentityProviderData,
-    UserOverrideIdentityProvidersResponse:
-      UserOverrideIdentityProvidersResponse,
+    UserOverrideIdentityProvidersResponse: UserOverrideIdentityProvidersResponse,
     UserRelationshipIdentityProviderData: UserRelationshipIdentityProviderData,
     UserRelationships: UserRelationships,
     UserResponse: UserResponse,

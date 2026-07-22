@@ -1,5 +1,6 @@
 import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
+
 /**
  * Represents a key-value pair used to configure low-level `librdkafka` client options for Kafka source and destination, such as timeouts, buffer sizes, and security settings.
  */
@@ -17,7 +18,7 @@ export class ObservabilityPipelineKafkaLibrdkafkaOption {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
   /**
    * @ignore
    */

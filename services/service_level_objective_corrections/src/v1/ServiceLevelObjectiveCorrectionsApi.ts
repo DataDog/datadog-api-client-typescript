@@ -19,6 +19,7 @@ import {
   ServerConfiguration,
   stringify,
   applySecurityAuthentication,
+  
 } from "@datadog/datadog-api-client";
 
 import { TypingInfo } from "./models/TypingInfo";
@@ -36,10 +37,7 @@ export class ServiceLevelObjectiveCorrectionsApiRequestFactory extends BaseAPIRe
   public constructor(configuration: Configuration) {
     super(configuration);
     if (!isBrowser) {
-      this.userAgent = buildUserAgent(
-        "service-level-objective-corrections",
-        version,
-      );
+      this.userAgent = buildUserAgent("service-level-objective-corrections", version);
     }
   }
   public async createSLOCorrection(
@@ -57,15 +55,8 @@ export class ServiceLevelObjectiveCorrectionsApiRequestFactory extends BaseAPIRe
     const localVarPath = "/api/v1/slo/correction";
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "ServiceLevelObjectiveCorrectionsApi.v1.createSLOCorrection",
-      ServiceLevelObjectiveCorrectionsApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.POST,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("ServiceLevelObjectiveCorrectionsApi.v1.createSLOCorrection", ServiceLevelObjectiveCorrectionsApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.POST, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -75,7 +66,9 @@ export class ServiceLevelObjectiveCorrectionsApiRequestFactory extends BaseAPIRe
     }
 
     // Body Params
-    const contentType = getPreferredMediaType(["application/json"]);
+    const contentType = getPreferredMediaType([
+      "application/json",
+    ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = stringify(
       serialize(body, TypingInfo, "SLOCorrectionCreateRequest", ""),
@@ -111,15 +104,8 @@ export class ServiceLevelObjectiveCorrectionsApiRequestFactory extends BaseAPIRe
     );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "ServiceLevelObjectiveCorrectionsApi.v1.deleteSLOCorrection",
-      ServiceLevelObjectiveCorrectionsApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.DELETE,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("ServiceLevelObjectiveCorrectionsApi.v1.deleteSLOCorrection", ServiceLevelObjectiveCorrectionsApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.DELETE, overrides);
     requestContext.setHeaderParam("Accept", "*/*");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -155,15 +141,8 @@ export class ServiceLevelObjectiveCorrectionsApiRequestFactory extends BaseAPIRe
     );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "ServiceLevelObjectiveCorrectionsApi.v1.getSLOCorrection",
-      ServiceLevelObjectiveCorrectionsApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.GET,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("ServiceLevelObjectiveCorrectionsApi.v1.getSLOCorrection", ServiceLevelObjectiveCorrectionsApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.GET, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -192,15 +171,8 @@ export class ServiceLevelObjectiveCorrectionsApiRequestFactory extends BaseAPIRe
     const localVarPath = "/api/v1/slo/correction";
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "ServiceLevelObjectiveCorrectionsApi.v1.listSLOCorrection",
-      ServiceLevelObjectiveCorrectionsApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.GET,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("ServiceLevelObjectiveCorrectionsApi.v1.listSLOCorrection", ServiceLevelObjectiveCorrectionsApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.GET, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -259,15 +231,8 @@ export class ServiceLevelObjectiveCorrectionsApiRequestFactory extends BaseAPIRe
     );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "ServiceLevelObjectiveCorrectionsApi.v1.updateSLOCorrection",
-      ServiceLevelObjectiveCorrectionsApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.PATCH,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("ServiceLevelObjectiveCorrectionsApi.v1.updateSLOCorrection", ServiceLevelObjectiveCorrectionsApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.PATCH, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -277,7 +242,9 @@ export class ServiceLevelObjectiveCorrectionsApiRequestFactory extends BaseAPIRe
     }
 
     // Body Params
-    const contentType = getPreferredMediaType(["application/json"]);
+    const contentType = getPreferredMediaType([
+      "application/json",
+    ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = stringify(
       serialize(body, TypingInfo, "SLOCorrectionUpdateRequest", ""),
@@ -306,7 +273,9 @@ export class ServiceLevelObjectiveCorrectionsApiResponseProcessor {
   public async createSLOCorrection(
     response: ResponseContext,
   ): Promise<SLOCorrectionResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: SLOCorrectionResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -321,7 +290,10 @@ export class ServiceLevelObjectiveCorrectionsApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -336,7 +308,10 @@ export class ServiceLevelObjectiveCorrectionsApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -364,8 +339,12 @@ export class ServiceLevelObjectiveCorrectionsApiResponseProcessor {
    * @params response Response returned by the server for a request to deleteSLOCorrection
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async deleteSLOCorrection(response: ResponseContext): Promise<void> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+  public async deleteSLOCorrection(
+    response: ResponseContext,
+  ): Promise<void> {
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 204) {
       return;
     }
@@ -374,7 +353,10 @@ export class ServiceLevelObjectiveCorrectionsApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -389,7 +371,10 @@ export class ServiceLevelObjectiveCorrectionsApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -414,7 +399,9 @@ export class ServiceLevelObjectiveCorrectionsApiResponseProcessor {
   public async getSLOCorrection(
     response: ResponseContext,
   ): Promise<SLOCorrectionResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: SLOCorrectionResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -428,7 +415,10 @@ export class ServiceLevelObjectiveCorrectionsApiResponseProcessor {
       response.httpStatusCode === 403 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -443,7 +433,10 @@ export class ServiceLevelObjectiveCorrectionsApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -474,7 +467,9 @@ export class ServiceLevelObjectiveCorrectionsApiResponseProcessor {
   public async listSLOCorrection(
     response: ResponseContext,
   ): Promise<SLOCorrectionListResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: SLOCorrectionListResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -483,8 +478,14 @@ export class ServiceLevelObjectiveCorrectionsApiResponseProcessor {
       ) as SLOCorrectionListResponse;
       return body;
     }
-    if (response.httpStatusCode === 403 || response.httpStatusCode === 429) {
-      const bodyText = parse(await response.body.text(), contentType);
+    if (
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 429
+    ) {
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -499,7 +500,10 @@ export class ServiceLevelObjectiveCorrectionsApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -530,7 +534,9 @@ export class ServiceLevelObjectiveCorrectionsApiResponseProcessor {
   public async updateSLOCorrection(
     response: ResponseContext,
   ): Promise<SLOCorrectionResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: SLOCorrectionResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -545,7 +551,10 @@ export class ServiceLevelObjectiveCorrectionsApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -560,7 +569,10 @@ export class ServiceLevelObjectiveCorrectionsApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -637,7 +649,8 @@ export class ServiceLevelObjectiveCorrectionsApi {
   private responseProcessor: ServiceLevelObjectiveCorrectionsApiResponseProcessor;
   private configuration: Configuration;
 
-  static operationServers: { [key: string]: BaseServerConfiguration[] } = {};
+  static operationServers: { [key: string]: BaseServerConfiguration[] } = {
+  };
 
   public constructor(
     configuration?: Configuration,
@@ -649,8 +662,7 @@ export class ServiceLevelObjectiveCorrectionsApi {
       requestFactory ||
       new ServiceLevelObjectiveCorrectionsApiRequestFactory(this.configuration);
     this.responseProcessor =
-      responseProcessor ||
-      new ServiceLevelObjectiveCorrectionsApiResponseProcessor();
+      responseProcessor || new ServiceLevelObjectiveCorrectionsApiResponseProcessor();
   }
 
   /**
@@ -743,25 +755,19 @@ export class ServiceLevelObjectiveCorrectionsApi {
    * Provide a paginated version of listSLOCorrection returning a generator with all the items.
    */
   public async *listSLOCorrectionWithPagination(
-    param: ServiceLevelObjectiveCorrectionsApiListSLOCorrectionRequest = {},
-    options?: Configuration,
+    param: ServiceLevelObjectiveCorrectionsApiListSLOCorrectionRequest = {}, options?: Configuration,
   ): AsyncGenerator<SLOCorrection> {
+
     let pageSize = 25;
     if (param.limit !== undefined) {
       pageSize = param.limit;
     }
     param.limit = pageSize;
     while (true) {
-      const requestContext = await this.requestFactory.listSLOCorrection(
-        param.offset,
-        param.limit,
-        options,
-      );
-      const responseContext =
-        await this.configuration.httpApi.send(requestContext);
+      const requestContext = await this.requestFactory.listSLOCorrection(param.offset,param.limit,options);
+      const responseContext = await this.configuration.httpApi.send(requestContext);
 
-      const response =
-        await this.responseProcessor.listSLOCorrection(responseContext);
+      const response = await this.responseProcessor.listSLOCorrection(responseContext);
       const responseData = response.data;
       if (responseData === undefined) {
         break;

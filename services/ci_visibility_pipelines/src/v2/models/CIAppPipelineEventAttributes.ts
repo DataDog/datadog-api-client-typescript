@@ -9,7 +9,7 @@ export class CIAppPipelineEventAttributes {
   /**
    * JSON object of attributes from CI Visibility pipeline events.
    */
-  "attributes"?: { [key: string]: any };
+  "attributes"?: { [key: string]: any; };
   /**
    * Pipeline execution level.
    */
@@ -23,7 +23,7 @@ export class CIAppPipelineEventAttributes {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
   /**
    * @ignore
    */

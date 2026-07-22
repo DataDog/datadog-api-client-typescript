@@ -19,6 +19,7 @@ import {
   ServerConfiguration,
   stringify,
   applySecurityAuthentication,
+  
 } from "@datadog/datadog-api-client";
 
 import { TypingInfo } from "./models/TypingInfo";
@@ -45,14 +46,8 @@ export class ServiceLevelObjectivesApiRequestFactory extends BaseAPIRequestFacto
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
-    if (
-      !_config.unstableOperations[
-        "ServiceLevelObjectivesApi.v2.createSLOReportJob"
-      ]
-    ) {
-      throw new Error(
-        "Unstable operation 'createSLOReportJob' is disabled. Enable it by setting `configuration.unstableOperations['ServiceLevelObjectivesApi.v2.createSLOReportJob'] = true`",
-      );
+    if (!_config.unstableOperations["ServiceLevelObjectivesApi.v2.createSLOReportJob"]) {
+      throw new Error("Unstable operation 'createSLOReportJob' is disabled. Enable it by setting `configuration.unstableOperations['ServiceLevelObjectivesApi.v2.createSLOReportJob'] = true`");
     }
 
     // verify required parameter 'body' is not null or undefined
@@ -64,15 +59,8 @@ export class ServiceLevelObjectivesApiRequestFactory extends BaseAPIRequestFacto
     const localVarPath = "/api/v2/slo/report";
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "ServiceLevelObjectivesApi.v2.createSLOReportJob",
-      ServiceLevelObjectivesApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.POST,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("ServiceLevelObjectivesApi.v2.createSLOReportJob", ServiceLevelObjectivesApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.POST, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -82,7 +70,9 @@ export class ServiceLevelObjectivesApiRequestFactory extends BaseAPIRequestFacto
     }
 
     // Body Params
-    const contentType = getPreferredMediaType(["application/json"]);
+    const contentType = getPreferredMediaType([
+      "application/json",
+    ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = stringify(
       serialize(body, TypingInfo, "SloReportCreateRequest", ""),
@@ -106,12 +96,8 @@ export class ServiceLevelObjectivesApiRequestFactory extends BaseAPIRequestFacto
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
-    if (
-      !_config.unstableOperations["ServiceLevelObjectivesApi.v2.getSLOReport"]
-    ) {
-      throw new Error(
-        "Unstable operation 'getSLOReport' is disabled. Enable it by setting `configuration.unstableOperations['ServiceLevelObjectivesApi.v2.getSLOReport'] = true`",
-      );
+    if (!_config.unstableOperations["ServiceLevelObjectivesApi.v2.getSLOReport"]) {
+      throw new Error("Unstable operation 'getSLOReport' is disabled. Enable it by setting `configuration.unstableOperations['ServiceLevelObjectivesApi.v2.getSLOReport'] = true`");
     }
 
     // verify required parameter 'reportId' is not null or undefined
@@ -126,15 +112,8 @@ export class ServiceLevelObjectivesApiRequestFactory extends BaseAPIRequestFacto
     );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "ServiceLevelObjectivesApi.v2.getSLOReport",
-      ServiceLevelObjectivesApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.GET,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("ServiceLevelObjectivesApi.v2.getSLOReport", ServiceLevelObjectivesApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.GET, overrides);
     requestContext.setHeaderParam("Accept", "text/csv, application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -159,14 +138,8 @@ export class ServiceLevelObjectivesApiRequestFactory extends BaseAPIRequestFacto
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
-    if (
-      !_config.unstableOperations[
-        "ServiceLevelObjectivesApi.v2.getSLOReportJobStatus"
-      ]
-    ) {
-      throw new Error(
-        "Unstable operation 'getSLOReportJobStatus' is disabled. Enable it by setting `configuration.unstableOperations['ServiceLevelObjectivesApi.v2.getSLOReportJobStatus'] = true`",
-      );
+    if (!_config.unstableOperations["ServiceLevelObjectivesApi.v2.getSLOReportJobStatus"]) {
+      throw new Error("Unstable operation 'getSLOReportJobStatus' is disabled. Enable it by setting `configuration.unstableOperations['ServiceLevelObjectivesApi.v2.getSLOReportJobStatus'] = true`");
     }
 
     // verify required parameter 'reportId' is not null or undefined
@@ -181,15 +154,8 @@ export class ServiceLevelObjectivesApiRequestFactory extends BaseAPIRequestFacto
     );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "ServiceLevelObjectivesApi.v2.getSLOReportJobStatus",
-      ServiceLevelObjectivesApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.GET,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("ServiceLevelObjectivesApi.v2.getSLOReportJobStatus", ServiceLevelObjectivesApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.GET, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -217,12 +183,8 @@ export class ServiceLevelObjectivesApiRequestFactory extends BaseAPIRequestFacto
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
-    if (
-      !_config.unstableOperations["ServiceLevelObjectivesApi.v2.getSloStatus"]
-    ) {
-      throw new Error(
-        "Unstable operation 'getSloStatus' is disabled. Enable it by setting `configuration.unstableOperations['ServiceLevelObjectivesApi.v2.getSloStatus'] = true`",
-      );
+    if (!_config.unstableOperations["ServiceLevelObjectivesApi.v2.getSloStatus"]) {
+      throw new Error("Unstable operation 'getSloStatus' is disabled. Enable it by setting `configuration.unstableOperations['ServiceLevelObjectivesApi.v2.getSloStatus'] = true`");
     }
 
     // verify required parameter 'sloId' is not null or undefined
@@ -247,15 +209,8 @@ export class ServiceLevelObjectivesApiRequestFactory extends BaseAPIRequestFacto
     );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "ServiceLevelObjectivesApi.v2.getSloStatus",
-      ServiceLevelObjectivesApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.GET,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("ServiceLevelObjectivesApi.v2.getSloStatus", ServiceLevelObjectivesApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.GET, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -309,7 +264,9 @@ export class ServiceLevelObjectivesApiResponseProcessor {
   public async createSLOReportJob(
     response: ResponseContext,
   ): Promise<SLOReportPostResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: SLOReportPostResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -323,7 +280,10 @@ export class ServiceLevelObjectivesApiResponseProcessor {
       response.httpStatusCode === 403 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -338,7 +298,10 @@ export class ServiceLevelObjectivesApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -366,8 +329,12 @@ export class ServiceLevelObjectivesApiResponseProcessor {
    * @params response Response returned by the server for a request to getSLOReport
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async getSLOReport(response: ResponseContext): Promise<string> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+  public async getSLOReport(
+    response: ResponseContext,
+  ): Promise<string> {
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: string = deserialize(
         parse(await response.body.text(), contentType),
@@ -382,7 +349,10 @@ export class ServiceLevelObjectivesApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -397,7 +367,10 @@ export class ServiceLevelObjectivesApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -428,7 +401,9 @@ export class ServiceLevelObjectivesApiResponseProcessor {
   public async getSLOReportJobStatus(
     response: ResponseContext,
   ): Promise<SLOReportStatusGetResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: SLOReportStatusGetResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -443,7 +418,10 @@ export class ServiceLevelObjectivesApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -458,7 +436,10 @@ export class ServiceLevelObjectivesApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -489,7 +470,9 @@ export class ServiceLevelObjectivesApiResponseProcessor {
   public async getSloStatus(
     response: ResponseContext,
   ): Promise<SloStatusResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: SloStatusResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -503,7 +486,10 @@ export class ServiceLevelObjectivesApiResponseProcessor {
       response.httpStatusCode === 403 ||
       response.httpStatusCode === 404
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: JSONAPIErrorResponse;
       try {
         body = deserialize(
@@ -524,7 +510,10 @@ export class ServiceLevelObjectivesApiResponseProcessor {
       );
     }
     if (response.httpStatusCode === 429) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -539,7 +528,10 @@ export class ServiceLevelObjectivesApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -613,7 +605,8 @@ export class ServiceLevelObjectivesApi {
   private responseProcessor: ServiceLevelObjectivesApiResponseProcessor;
   private configuration: Configuration;
 
-  static operationServers: { [key: string]: BaseServerConfiguration[] } = {};
+  static operationServers: { [key: string]: BaseServerConfiguration[] } = {
+  };
 
   public constructor(
     configuration?: Configuration,
@@ -630,7 +623,7 @@ export class ServiceLevelObjectivesApi {
 
   /**
    * Create a job to generate an SLO report. The report job is processed asynchronously and eventually results in a CSV report being available for download.
-   *
+   * 
    * Check the status of the job and download the CSV report using the returned `report_id`.
    * @param param The request object
    */
@@ -653,7 +646,7 @@ export class ServiceLevelObjectivesApi {
 
   /**
    * Download an SLO report. This can only be performed after the report job has completed.
-   *
+   * 
    * Reports are not guaranteed to exist indefinitely. Datadog recommends that you download the report as soon as it is available.
    * @param param The request object
    */
@@ -697,7 +690,7 @@ export class ServiceLevelObjectivesApi {
 
   /**
    * Get the status of a Service Level Objective (SLO) for a given time period.
-   *
+   * 
    * This endpoint returns the current SLI value, error budget remaining, and other status information for the specified SLO.
    * @param param The request object
    */

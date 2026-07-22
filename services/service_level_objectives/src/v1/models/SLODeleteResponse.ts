@@ -1,5 +1,6 @@
 import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
+
 /**
  * A response list of all service level objective deleted.
  */
@@ -11,13 +12,13 @@ export class SLODeleteResponse {
   /**
    * An dictionary containing the ID of the SLO as key and a deletion error as value.
    */
-  "errors"?: { [key: string]: string };
+  "errors"?: { [key: string]: string; };
   /**
    * A container for additional, undeclared properties.
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
   /**
    * @ignore
    */

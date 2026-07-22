@@ -4,7 +4,7 @@ import { ObservabilityPipelineDatadogMetricsDestinationType } from "./Observabil
 
 /**
  * The `datadog_metrics` destination forwards metrics to Datadog.
- *
+ * 
  * **Supported pipeline types:** metrics
  */
 export class ObservabilityPipelineDatadogMetricsDestination {
@@ -25,7 +25,7 @@ export class ObservabilityPipelineDatadogMetricsDestination {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
   /**
    * @ignore
    */

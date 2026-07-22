@@ -19,6 +19,7 @@ import {
   ServerConfiguration,
   stringify,
   applySecurityAuthentication,
+  
 } from "@datadog/datadog-api-client";
 
 import { TypingInfo } from "./models/TypingInfo";
@@ -50,15 +51,8 @@ export class GCPIntegrationApiRequestFactory extends BaseAPIRequestFactory {
     const localVarPath = "/api/v1/integration/gcp";
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "GCPIntegrationApi.v1.createGCPIntegration",
-      GCPIntegrationApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.POST,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("GCPIntegrationApi.v1.createGCPIntegration", GCPIntegrationApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.POST, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -68,7 +62,9 @@ export class GCPIntegrationApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Body Params
-    const contentType = getPreferredMediaType(["application/json"]);
+    const contentType = getPreferredMediaType([
+      "application/json",
+    ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = stringify(
       serialize(body, TypingInfo, "GCPAccount", ""),
@@ -100,15 +96,8 @@ export class GCPIntegrationApiRequestFactory extends BaseAPIRequestFactory {
     const localVarPath = "/api/v1/integration/gcp";
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "GCPIntegrationApi.v1.deleteGCPIntegration",
-      GCPIntegrationApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.DELETE,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("GCPIntegrationApi.v1.deleteGCPIntegration", GCPIntegrationApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.DELETE, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -118,7 +107,9 @@ export class GCPIntegrationApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Body Params
-    const contentType = getPreferredMediaType(["application/json"]);
+    const contentType = getPreferredMediaType([
+      "application/json",
+    ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = stringify(
       serialize(body, TypingInfo, "GCPAccount", ""),
@@ -144,15 +135,8 @@ export class GCPIntegrationApiRequestFactory extends BaseAPIRequestFactory {
     const localVarPath = "/api/v1/integration/gcp";
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "GCPIntegrationApi.v1.listGCPIntegration",
-      GCPIntegrationApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.GET,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("GCPIntegrationApi.v1.listGCPIntegration", GCPIntegrationApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.GET, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -185,15 +169,8 @@ export class GCPIntegrationApiRequestFactory extends BaseAPIRequestFactory {
     const localVarPath = "/api/v1/integration/gcp";
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "GCPIntegrationApi.v1.updateGCPIntegration",
-      GCPIntegrationApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.PUT,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("GCPIntegrationApi.v1.updateGCPIntegration", GCPIntegrationApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.PUT, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -203,7 +180,9 @@ export class GCPIntegrationApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Body Params
-    const contentType = getPreferredMediaType(["application/json"]);
+    const contentType = getPreferredMediaType([
+      "application/json",
+    ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = stringify(
       serialize(body, TypingInfo, "GCPAccount", ""),
@@ -229,8 +208,12 @@ export class GCPIntegrationApiResponseProcessor {
    * @params response Response returned by the server for a request to createGCPIntegration
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async createGCPIntegration(response: ResponseContext): Promise<any> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+  public async createGCPIntegration(
+    response: ResponseContext,
+  ): Promise<any> {
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: any = deserialize(
         parse(await response.body.text(), contentType),
@@ -244,7 +227,10 @@ export class GCPIntegrationApiResponseProcessor {
       response.httpStatusCode === 403 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -259,7 +245,10 @@ export class GCPIntegrationApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -287,8 +276,12 @@ export class GCPIntegrationApiResponseProcessor {
    * @params response Response returned by the server for a request to deleteGCPIntegration
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async deleteGCPIntegration(response: ResponseContext): Promise<any> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+  public async deleteGCPIntegration(
+    response: ResponseContext,
+  ): Promise<any> {
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: any = deserialize(
         parse(await response.body.text(), contentType),
@@ -302,7 +295,10 @@ export class GCPIntegrationApiResponseProcessor {
       response.httpStatusCode === 403 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -317,7 +313,10 @@ export class GCPIntegrationApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -348,7 +347,9 @@ export class GCPIntegrationApiResponseProcessor {
   public async listGCPIntegration(
     response: ResponseContext,
   ): Promise<Array<GCPAccount>> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: Array<GCPAccount> = deserialize(
         parse(await response.body.text(), contentType),
@@ -362,7 +363,10 @@ export class GCPIntegrationApiResponseProcessor {
       response.httpStatusCode === 403 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -377,7 +381,10 @@ export class GCPIntegrationApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -405,8 +412,12 @@ export class GCPIntegrationApiResponseProcessor {
    * @params response Response returned by the server for a request to updateGCPIntegration
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async updateGCPIntegration(response: ResponseContext): Promise<any> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+  public async updateGCPIntegration(
+    response: ResponseContext,
+  ): Promise<any> {
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: any = deserialize(
         parse(await response.body.text(), contentType),
@@ -420,7 +431,10 @@ export class GCPIntegrationApiResponseProcessor {
       response.httpStatusCode === 403 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -435,7 +449,10 @@ export class GCPIntegrationApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -486,7 +503,8 @@ export class GCPIntegrationApi {
   private responseProcessor: GCPIntegrationApiResponseProcessor;
   private configuration: Configuration;
 
-  static operationServers: { [key: string]: BaseServerConfiguration[] } = {};
+  static operationServers: { [key: string]: BaseServerConfiguration[] } = {
+  };
 
   public constructor(
     configuration?: Configuration,
@@ -495,7 +513,8 @@ export class GCPIntegrationApi {
   ) {
     this.configuration = configuration || createConfiguration();
     this.requestFactory =
-      requestFactory || new GCPIntegrationApiRequestFactory(this.configuration);
+      requestFactory ||
+      new GCPIntegrationApiRequestFactory(this.configuration);
     this.responseProcessor =
       responseProcessor || new GCPIntegrationApiResponseProcessor();
   }
@@ -546,11 +565,11 @@ export class GCPIntegrationApi {
    * This endpoint is deprecated – use the V2 endpoints instead. List all Datadog-GCP integrations configured in your Datadog account.
    * @param param The request object
    */
-  public listGCPIntegration(
-    options?: Configuration,
+  public listGCPIntegration(options?: Configuration,
   ): Promise<Array<GCPAccount>> {
-    const requestContextPromise =
-      this.requestFactory.listGCPIntegration(options);
+    const requestContextPromise = this.requestFactory.listGCPIntegration(
+      options,
+    );
     return requestContextPromise.then((requestContext) => {
       return this.configuration.httpApi
         .send(requestContext)

@@ -8,14 +8,14 @@ import { LLMObsContentBlockType } from "./LLMObsContentBlockType";
 /**
  * A single content block rendered inside a `display_block` interaction.
  * `type` discriminates which other fields are meaningful:
- *
+ * 
  * - `markdown` / `text`: `content` must be a string.
  * - `header`: `content` must be a string; `level`, when set, must be one of `sm`, `md`, `lg`, `xl`.
  * - `json`: `content` must be a well-formed JSON value (object, array, or scalar).
  * - `image`: `url` is required.
  * - `widget`: `tileDef` is required (any well-formed JSON; the frontend owns the renderable schema).
  * - `llmobs_trace`: `traceId` is required; `interactionType`, when set, must be `trace` or `experiment_trace`.
- *
+ * 
  * `height`, when set, must be positive.
  */
 export class LLMObsContentBlock {
@@ -73,7 +73,7 @@ export class LLMObsContentBlock {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
   /**
    * @ignore
    */

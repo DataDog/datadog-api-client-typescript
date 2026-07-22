@@ -19,6 +19,7 @@ import {
   ServerConfiguration,
   stringify,
   applySecurityAuthentication,
+  
 } from "@datadog/datadog-api-client";
 
 import { TypingInfo } from "./models/TypingInfo";
@@ -43,14 +44,8 @@ export class EntityIntegrationConfigsApiRequestFactory extends BaseAPIRequestFac
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
-    if (
-      !_config.unstableOperations[
-        "EntityIntegrationConfigsApi.v2.deleteEntityIntegrationConfig"
-      ]
-    ) {
-      throw new Error(
-        "Unstable operation 'deleteEntityIntegrationConfig' is disabled. Enable it by setting `configuration.unstableOperations['EntityIntegrationConfigsApi.v2.deleteEntityIntegrationConfig'] = true`",
-      );
+    if (!_config.unstableOperations["EntityIntegrationConfigsApi.v2.deleteEntityIntegrationConfig"]) {
+      throw new Error("Unstable operation 'deleteEntityIntegrationConfig' is disabled. Enable it by setting `configuration.unstableOperations['EntityIntegrationConfigsApi.v2.deleteEntityIntegrationConfig'] = true`");
     }
 
     // verify required parameter 'integrationId' is not null or undefined
@@ -59,22 +54,14 @@ export class EntityIntegrationConfigsApiRequestFactory extends BaseAPIRequestFac
     }
 
     // Path Params
-    const localVarPath =
-      "/api/v2/idp/entity_integrations/{integration_id}".replace(
-        "{integration_id}",
-        encodeURIComponent(String(integrationId)),
-      );
+    const localVarPath = "/api/v2/idp/entity_integrations/{integration_id}".replace(
+      "{integration_id}",
+      encodeURIComponent(String(integrationId)),
+    );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "EntityIntegrationConfigsApi.v2.deleteEntityIntegrationConfig",
-      EntityIntegrationConfigsApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.DELETE,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("EntityIntegrationConfigsApi.v2.deleteEntityIntegrationConfig", EntityIntegrationConfigsApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.DELETE, overrides);
     requestContext.setHeaderParam("Accept", "*/*");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -98,14 +85,8 @@ export class EntityIntegrationConfigsApiRequestFactory extends BaseAPIRequestFac
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
-    if (
-      !_config.unstableOperations[
-        "EntityIntegrationConfigsApi.v2.getEntityIntegrationConfig"
-      ]
-    ) {
-      throw new Error(
-        "Unstable operation 'getEntityIntegrationConfig' is disabled. Enable it by setting `configuration.unstableOperations['EntityIntegrationConfigsApi.v2.getEntityIntegrationConfig'] = true`",
-      );
+    if (!_config.unstableOperations["EntityIntegrationConfigsApi.v2.getEntityIntegrationConfig"]) {
+      throw new Error("Unstable operation 'getEntityIntegrationConfig' is disabled. Enable it by setting `configuration.unstableOperations['EntityIntegrationConfigsApi.v2.getEntityIntegrationConfig'] = true`");
     }
 
     // verify required parameter 'integrationId' is not null or undefined
@@ -114,22 +95,14 @@ export class EntityIntegrationConfigsApiRequestFactory extends BaseAPIRequestFac
     }
 
     // Path Params
-    const localVarPath =
-      "/api/v2/idp/entity_integrations/{integration_id}".replace(
-        "{integration_id}",
-        encodeURIComponent(String(integrationId)),
-      );
+    const localVarPath = "/api/v2/idp/entity_integrations/{integration_id}".replace(
+      "{integration_id}",
+      encodeURIComponent(String(integrationId)),
+    );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "EntityIntegrationConfigsApi.v2.getEntityIntegrationConfig",
-      EntityIntegrationConfigsApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.GET,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("EntityIntegrationConfigsApi.v2.getEntityIntegrationConfig", EntityIntegrationConfigsApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.GET, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -154,14 +127,8 @@ export class EntityIntegrationConfigsApiRequestFactory extends BaseAPIRequestFac
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
-    if (
-      !_config.unstableOperations[
-        "EntityIntegrationConfigsApi.v2.updateEntityIntegrationConfig"
-      ]
-    ) {
-      throw new Error(
-        "Unstable operation 'updateEntityIntegrationConfig' is disabled. Enable it by setting `configuration.unstableOperations['EntityIntegrationConfigsApi.v2.updateEntityIntegrationConfig'] = true`",
-      );
+    if (!_config.unstableOperations["EntityIntegrationConfigsApi.v2.updateEntityIntegrationConfig"]) {
+      throw new Error("Unstable operation 'updateEntityIntegrationConfig' is disabled. Enable it by setting `configuration.unstableOperations['EntityIntegrationConfigsApi.v2.updateEntityIntegrationConfig'] = true`");
     }
 
     // verify required parameter 'integrationId' is not null or undefined
@@ -175,22 +142,14 @@ export class EntityIntegrationConfigsApiRequestFactory extends BaseAPIRequestFac
     }
 
     // Path Params
-    const localVarPath =
-      "/api/v2/idp/entity_integrations/{integration_id}".replace(
-        "{integration_id}",
-        encodeURIComponent(String(integrationId)),
-      );
+    const localVarPath = "/api/v2/idp/entity_integrations/{integration_id}".replace(
+      "{integration_id}",
+      encodeURIComponent(String(integrationId)),
+    );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "EntityIntegrationConfigsApi.v2.updateEntityIntegrationConfig",
-      EntityIntegrationConfigsApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.PUT,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("EntityIntegrationConfigsApi.v2.updateEntityIntegrationConfig", EntityIntegrationConfigsApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.PUT, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -200,7 +159,9 @@ export class EntityIntegrationConfigsApiRequestFactory extends BaseAPIRequestFac
     }
 
     // Body Params
-    const contentType = getPreferredMediaType(["application/json"]);
+    const contentType = getPreferredMediaType([
+      "application/json",
+    ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = stringify(
       serialize(body, TypingInfo, "EntityIntegrationConfigRequest", ""),
@@ -229,12 +190,20 @@ export class EntityIntegrationConfigsApiResponseProcessor {
   public async deleteEntityIntegrationConfig(
     response: ResponseContext,
   ): Promise<void> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 204) {
       return;
     }
-    if (response.httpStatusCode === 400 || response.httpStatusCode === 404) {
-      const bodyText = parse(await response.body.text(), contentType);
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 404
+    ) {
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: JSONAPIErrorResponse;
       try {
         body = deserialize(
@@ -254,8 +223,14 @@ export class EntityIntegrationConfigsApiResponseProcessor {
         body,
       );
     }
-    if (response.httpStatusCode === 403 || response.httpStatusCode === 429) {
-      const bodyText = parse(await response.body.text(), contentType);
+    if (
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 429
+    ) {
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -270,7 +245,10 @@ export class EntityIntegrationConfigsApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -295,7 +273,9 @@ export class EntityIntegrationConfigsApiResponseProcessor {
   public async getEntityIntegrationConfig(
     response: ResponseContext,
   ): Promise<EntityIntegrationConfigResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: EntityIntegrationConfigResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -304,8 +284,14 @@ export class EntityIntegrationConfigsApiResponseProcessor {
       ) as EntityIntegrationConfigResponse;
       return body;
     }
-    if (response.httpStatusCode === 400 || response.httpStatusCode === 404) {
-      const bodyText = parse(await response.body.text(), contentType);
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 404
+    ) {
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: JSONAPIErrorResponse;
       try {
         body = deserialize(
@@ -325,8 +311,14 @@ export class EntityIntegrationConfigsApiResponseProcessor {
         body,
       );
     }
-    if (response.httpStatusCode === 403 || response.httpStatusCode === 429) {
-      const bodyText = parse(await response.body.text(), contentType);
+    if (
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 429
+    ) {
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -341,7 +333,10 @@ export class EntityIntegrationConfigsApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -372,7 +367,9 @@ export class EntityIntegrationConfigsApiResponseProcessor {
   public async updateEntityIntegrationConfig(
     response: ResponseContext,
   ): Promise<EntityIntegrationConfigResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: EntityIntegrationConfigResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -382,7 +379,10 @@ export class EntityIntegrationConfigsApiResponseProcessor {
       return body;
     }
     if (response.httpStatusCode === 400) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: JSONAPIErrorResponse;
       try {
         body = deserialize(
@@ -402,8 +402,14 @@ export class EntityIntegrationConfigsApiResponseProcessor {
         body,
       );
     }
-    if (response.httpStatusCode === 403 || response.httpStatusCode === 429) {
-      const bodyText = parse(await response.body.text(), contentType);
+    if (
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 429
+    ) {
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -418,7 +424,10 @@ export class EntityIntegrationConfigsApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -473,7 +482,8 @@ export class EntityIntegrationConfigsApi {
   private responseProcessor: EntityIntegrationConfigsApiResponseProcessor;
   private configuration: Configuration;
 
-  static operationServers: { [key: string]: BaseServerConfiguration[] } = {};
+  static operationServers: { [key: string]: BaseServerConfiguration[] } = {
+  };
 
   public constructor(
     configuration?: Configuration,
@@ -496,18 +506,15 @@ export class EntityIntegrationConfigsApi {
     param: EntityIntegrationConfigsApiDeleteEntityIntegrationConfigRequest,
     options?: Configuration,
   ): Promise<void> {
-    const requestContextPromise =
-      this.requestFactory.deleteEntityIntegrationConfig(
-        param.integrationId,
-        options,
-      );
+    const requestContextPromise = this.requestFactory.deleteEntityIntegrationConfig(
+      param.integrationId,
+      options,
+    );
     return requestContextPromise.then((requestContext) => {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.deleteEntityIntegrationConfig(
-            responseContext,
-          );
+          return this.responseProcessor.deleteEntityIntegrationConfig(responseContext);
         });
     });
   }
@@ -520,25 +527,22 @@ export class EntityIntegrationConfigsApi {
     param: EntityIntegrationConfigsApiGetEntityIntegrationConfigRequest,
     options?: Configuration,
   ): Promise<EntityIntegrationConfigResponse> {
-    const requestContextPromise =
-      this.requestFactory.getEntityIntegrationConfig(
-        param.integrationId,
-        options,
-      );
+    const requestContextPromise = this.requestFactory.getEntityIntegrationConfig(
+      param.integrationId,
+      options,
+    );
     return requestContextPromise.then((requestContext) => {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.getEntityIntegrationConfig(
-            responseContext,
-          );
+          return this.responseProcessor.getEntityIntegrationConfig(responseContext);
         });
     });
   }
 
   /**
    * Create or replace the configuration for a given integration in the caller's organization. The shape of `data.attributes.config` depends on the integration:
-   *
+   * 
    * - For `github`: `config` must contain an `enabled_repos` array of objects with `hostname`, `github_org_name`, and `repo_name`.
    * - For `jira`: `config` must contain an `enabled_projects` array of objects with `hostname`, `account_id`, and `project_key`.
    * - For `pagerduty`: `config` must contain an `accounts` array of objects with a required `enabled` boolean and an optional `subdomain` string.
@@ -548,19 +552,16 @@ export class EntityIntegrationConfigsApi {
     param: EntityIntegrationConfigsApiUpdateEntityIntegrationConfigRequest,
     options?: Configuration,
   ): Promise<EntityIntegrationConfigResponse> {
-    const requestContextPromise =
-      this.requestFactory.updateEntityIntegrationConfig(
-        param.integrationId,
-        param.body,
-        options,
-      );
+    const requestContextPromise = this.requestFactory.updateEntityIntegrationConfig(
+      param.integrationId,
+      param.body,
+      options,
+    );
     return requestContextPromise.then((requestContext) => {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.updateEntityIntegrationConfig(
-            responseContext,
-          );
+          return this.responseProcessor.updateEntityIntegrationConfig(responseContext);
         });
     });
   }

@@ -19,6 +19,7 @@ import {
   ServerConfiguration,
   stringify,
   applySecurityAuthentication,
+  
 } from "@datadog/datadog-api-client";
 
 import { TypingInfo } from "./models/TypingInfo";
@@ -53,15 +54,8 @@ export class LogsMetricsApiRequestFactory extends BaseAPIRequestFactory {
     const localVarPath = "/api/v2/logs/config/metrics";
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "LogsMetricsApi.v2.createLogsMetric",
-      LogsMetricsApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.POST,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("LogsMetricsApi.v2.createLogsMetric", LogsMetricsApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.POST, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -71,7 +65,9 @@ export class LogsMetricsApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Body Params
-    const contentType = getPreferredMediaType(["application/json"]);
+    const contentType = getPreferredMediaType([
+      "application/json",
+    ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = stringify(
       serialize(body, TypingInfo, "LogsMetricCreateRequest", ""),
@@ -106,15 +102,8 @@ export class LogsMetricsApiRequestFactory extends BaseAPIRequestFactory {
     );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "LogsMetricsApi.v2.deleteLogsMetric",
-      LogsMetricsApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.DELETE,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("LogsMetricsApi.v2.deleteLogsMetric", LogsMetricsApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.DELETE, overrides);
     requestContext.setHeaderParam("Accept", "*/*");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -150,15 +139,8 @@ export class LogsMetricsApiRequestFactory extends BaseAPIRequestFactory {
     );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "LogsMetricsApi.v2.getLogsMetric",
-      LogsMetricsApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.GET,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("LogsMetricsApi.v2.getLogsMetric", LogsMetricsApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.GET, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -185,15 +167,8 @@ export class LogsMetricsApiRequestFactory extends BaseAPIRequestFactory {
     const localVarPath = "/api/v2/logs/config/metrics";
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "LogsMetricsApi.v2.listLogsMetrics",
-      LogsMetricsApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.GET,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("LogsMetricsApi.v2.listLogsMetrics", LogsMetricsApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.GET, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -235,15 +210,8 @@ export class LogsMetricsApiRequestFactory extends BaseAPIRequestFactory {
     );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "LogsMetricsApi.v2.updateLogsMetric",
-      LogsMetricsApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.PATCH,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("LogsMetricsApi.v2.updateLogsMetric", LogsMetricsApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.PATCH, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -253,7 +221,9 @@ export class LogsMetricsApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Body Params
-    const contentType = getPreferredMediaType(["application/json"]);
+    const contentType = getPreferredMediaType([
+      "application/json",
+    ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = stringify(
       serialize(body, TypingInfo, "LogsMetricUpdateRequest", ""),
@@ -282,7 +252,9 @@ export class LogsMetricsApiResponseProcessor {
   public async createLogsMetric(
     response: ResponseContext,
   ): Promise<LogsMetricResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: LogsMetricResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -297,7 +269,10 @@ export class LogsMetricsApiResponseProcessor {
       response.httpStatusCode === 409 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -312,7 +287,10 @@ export class LogsMetricsApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -340,8 +318,12 @@ export class LogsMetricsApiResponseProcessor {
    * @params response Response returned by the server for a request to deleteLogsMetric
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async deleteLogsMetric(response: ResponseContext): Promise<void> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+  public async deleteLogsMetric(
+    response: ResponseContext,
+  ): Promise<void> {
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 204) {
       return;
     }
@@ -350,7 +332,10 @@ export class LogsMetricsApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -365,7 +350,10 @@ export class LogsMetricsApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -390,7 +378,9 @@ export class LogsMetricsApiResponseProcessor {
   public async getLogsMetric(
     response: ResponseContext,
   ): Promise<LogsMetricResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: LogsMetricResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -404,7 +394,10 @@ export class LogsMetricsApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -419,7 +412,10 @@ export class LogsMetricsApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -450,7 +446,9 @@ export class LogsMetricsApiResponseProcessor {
   public async listLogsMetrics(
     response: ResponseContext,
   ): Promise<LogsMetricsResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: LogsMetricsResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -459,8 +457,14 @@ export class LogsMetricsApiResponseProcessor {
       ) as LogsMetricsResponse;
       return body;
     }
-    if (response.httpStatusCode === 403 || response.httpStatusCode === 429) {
-      const bodyText = parse(await response.body.text(), contentType);
+    if (
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 429
+    ) {
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -475,7 +479,10 @@ export class LogsMetricsApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -506,7 +513,9 @@ export class LogsMetricsApiResponseProcessor {
   public async updateLogsMetric(
     response: ResponseContext,
   ): Promise<LogsMetricResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: LogsMetricResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -521,7 +530,10 @@ export class LogsMetricsApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -536,7 +548,10 @@ export class LogsMetricsApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -600,7 +615,8 @@ export class LogsMetricsApi {
   private responseProcessor: LogsMetricsApiResponseProcessor;
   private configuration: Configuration;
 
-  static operationServers: { [key: string]: BaseServerConfiguration[] } = {};
+  static operationServers: { [key: string]: BaseServerConfiguration[] } = {
+  };
 
   public constructor(
     configuration?: Configuration,
@@ -609,7 +625,8 @@ export class LogsMetricsApi {
   ) {
     this.configuration = configuration || createConfiguration();
     this.requestFactory =
-      requestFactory || new LogsMetricsApiRequestFactory(this.configuration);
+      requestFactory ||
+      new LogsMetricsApiRequestFactory(this.configuration);
     this.responseProcessor =
       responseProcessor || new LogsMetricsApiResponseProcessor();
   }
@@ -682,10 +699,11 @@ export class LogsMetricsApi {
    * Get the list of configured log-based metrics with their definitions.
    * @param param The request object
    */
-  public listLogsMetrics(
-    options?: Configuration,
+  public listLogsMetrics(options?: Configuration,
   ): Promise<LogsMetricsResponse> {
-    const requestContextPromise = this.requestFactory.listLogsMetrics(options);
+    const requestContextPromise = this.requestFactory.listLogsMetrics(
+      options,
+    );
     return requestContextPromise.then((requestContext) => {
       return this.configuration.httpApi
         .send(requestContext)

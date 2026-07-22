@@ -19,6 +19,7 @@ import {
   ServerConfiguration,
   stringify,
   applySecurityAuthentication,
+  
 } from "@datadog/datadog-api-client";
 
 import { TypingInfo } from "./models/TypingInfo";
@@ -43,14 +44,8 @@ export class DataObservabilityApiRequestFactory extends BaseAPIRequestFactory {
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
-    if (
-      !_config.unstableOperations[
-        "DataObservabilityApi.v2.getDataObservabilityMonitorRunStatus"
-      ]
-    ) {
-      throw new Error(
-        "Unstable operation 'getDataObservabilityMonitorRunStatus' is disabled. Enable it by setting `configuration.unstableOperations['DataObservabilityApi.v2.getDataObservabilityMonitorRunStatus'] = true`",
-      );
+    if (!_config.unstableOperations["DataObservabilityApi.v2.getDataObservabilityMonitorRunStatus"]) {
+      throw new Error("Unstable operation 'getDataObservabilityMonitorRunStatus' is disabled. Enable it by setting `configuration.unstableOperations['DataObservabilityApi.v2.getDataObservabilityMonitorRunStatus'] = true`");
     }
 
     // verify required parameter 'runId' is not null or undefined
@@ -59,22 +54,14 @@ export class DataObservabilityApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Path Params
-    const localVarPath =
-      "/api/v2/data-observability/monitors/runs/{run_id}/status".replace(
-        "{run_id}",
-        encodeURIComponent(String(runId)),
-      );
+    const localVarPath = "/api/v2/data-observability/monitors/runs/{run_id}/status".replace(
+      "{run_id}",
+      encodeURIComponent(String(runId)),
+    );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "DataObservabilityApi.v2.getDataObservabilityMonitorRunStatus",
-      DataObservabilityApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.GET,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("DataObservabilityApi.v2.getDataObservabilityMonitorRunStatus", DataObservabilityApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.GET, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -99,14 +86,8 @@ export class DataObservabilityApiRequestFactory extends BaseAPIRequestFactory {
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
-    if (
-      !_config.unstableOperations[
-        "DataObservabilityApi.v2.runDataObservabilityMonitor"
-      ]
-    ) {
-      throw new Error(
-        "Unstable operation 'runDataObservabilityMonitor' is disabled. Enable it by setting `configuration.unstableOperations['DataObservabilityApi.v2.runDataObservabilityMonitor'] = true`",
-      );
+    if (!_config.unstableOperations["DataObservabilityApi.v2.runDataObservabilityMonitor"]) {
+      throw new Error("Unstable operation 'runDataObservabilityMonitor' is disabled. Enable it by setting `configuration.unstableOperations['DataObservabilityApi.v2.runDataObservabilityMonitor'] = true`");
     }
 
     // verify required parameter 'monitorId' is not null or undefined
@@ -115,22 +96,14 @@ export class DataObservabilityApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Path Params
-    const localVarPath =
-      "/api/v2/data-observability/monitors/{monitor_id}/run".replace(
-        "{monitor_id}",
-        encodeURIComponent(String(monitorId)),
-      );
+    const localVarPath = "/api/v2/data-observability/monitors/{monitor_id}/run".replace(
+      "{monitor_id}",
+      encodeURIComponent(String(monitorId)),
+    );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "DataObservabilityApi.v2.runDataObservabilityMonitor",
-      DataObservabilityApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.POST,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("DataObservabilityApi.v2.runDataObservabilityMonitor", DataObservabilityApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.POST, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -161,7 +134,9 @@ export class DataObservabilityApiResponseProcessor {
   public async getDataObservabilityMonitorRunStatus(
     response: ResponseContext,
   ): Promise<GetDataObservabilityMonitorRunStatusResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: GetDataObservabilityMonitorRunStatusResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -171,7 +146,10 @@ export class DataObservabilityApiResponseProcessor {
       return body;
     }
     if (response.httpStatusCode === 404) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: JSONAPIErrorResponse;
       try {
         body = deserialize(
@@ -192,7 +170,10 @@ export class DataObservabilityApiResponseProcessor {
       );
     }
     if (response.httpStatusCode === 429) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -207,7 +188,10 @@ export class DataObservabilityApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -238,7 +222,9 @@ export class DataObservabilityApiResponseProcessor {
   public async runDataObservabilityMonitor(
     response: ResponseContext,
   ): Promise<RunDataObservabilityMonitorResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: RunDataObservabilityMonitorResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -247,8 +233,14 @@ export class DataObservabilityApiResponseProcessor {
       ) as RunDataObservabilityMonitorResponse;
       return body;
     }
-    if (response.httpStatusCode === 400 || response.httpStatusCode === 404) {
-      const bodyText = parse(await response.body.text(), contentType);
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 404
+    ) {
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: JSONAPIErrorResponse;
       try {
         body = deserialize(
@@ -269,7 +261,10 @@ export class DataObservabilityApiResponseProcessor {
       );
     }
     if (response.httpStatusCode === 429) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -284,7 +279,10 @@ export class DataObservabilityApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -327,7 +325,8 @@ export class DataObservabilityApi {
   private responseProcessor: DataObservabilityApiResponseProcessor;
   private configuration: Configuration;
 
-  static operationServers: { [key: string]: BaseServerConfiguration[] } = {};
+  static operationServers: { [key: string]: BaseServerConfiguration[] } = {
+  };
 
   public constructor(
     configuration?: Configuration,
@@ -350,18 +349,15 @@ export class DataObservabilityApi {
     param: DataObservabilityApiGetDataObservabilityMonitorRunStatusRequest,
     options?: Configuration,
   ): Promise<GetDataObservabilityMonitorRunStatusResponse> {
-    const requestContextPromise =
-      this.requestFactory.getDataObservabilityMonitorRunStatus(
-        param.runId,
-        options,
-      );
+    const requestContextPromise = this.requestFactory.getDataObservabilityMonitorRunStatus(
+      param.runId,
+      options,
+    );
     return requestContextPromise.then((requestContext) => {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.getDataObservabilityMonitorRunStatus(
-            responseContext,
-          );
+          return this.responseProcessor.getDataObservabilityMonitorRunStatus(responseContext);
         });
     });
   }
@@ -374,15 +370,15 @@ export class DataObservabilityApi {
     param: DataObservabilityApiRunDataObservabilityMonitorRequest,
     options?: Configuration,
   ): Promise<RunDataObservabilityMonitorResponse> {
-    const requestContextPromise =
-      this.requestFactory.runDataObservabilityMonitor(param.monitorId, options);
+    const requestContextPromise = this.requestFactory.runDataObservabilityMonitor(
+      param.monitorId,
+      options,
+    );
     return requestContextPromise.then((requestContext) => {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.runDataObservabilityMonitor(
-            responseContext,
-          );
+          return this.responseProcessor.runDataObservabilityMonitor(responseContext);
         });
     });
   }

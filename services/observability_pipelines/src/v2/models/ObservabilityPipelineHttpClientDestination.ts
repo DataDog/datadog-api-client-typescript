@@ -9,7 +9,7 @@ import { ObservabilityPipelineTls } from "./ObservabilityPipelineTls";
 
 /**
  * The `http_client` destination sends data to an HTTP endpoint.
- *
+ * 
  * **Supported pipeline types:** logs, metrics
  */
 export class ObservabilityPipelineHttpClientDestination {
@@ -70,7 +70,7 @@ export class ObservabilityPipelineHttpClientDestination {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
   /**
    * @ignore
    */

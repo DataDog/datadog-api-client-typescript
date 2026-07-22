@@ -1,5 +1,6 @@
 import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
+
 /**
  * Filter criteria for an LLM Observability span search.
  */
@@ -31,7 +32,7 @@ export class LLMObsSpanFilter {
   /**
    * Filter by tag key-value pairs.
    */
-  "tags"?: { [key: string]: string };
+  "tags"?: { [key: string]: string; };
   /**
    * End of the time range. Accepts ISO 8601 or relative format (e.g., `now`). Defaults to `now`.
    */
@@ -45,7 +46,7 @@ export class LLMObsSpanFilter {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
   /**
    * @ignore
    */

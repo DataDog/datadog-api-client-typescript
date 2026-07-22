@@ -9,17 +9,17 @@ export class LogsAggregateBucket {
   /**
    * The key, value pairs for each group by
    */
-  "by"?: { [key: string]: any };
+  "by"?: { [key: string]: any; };
   /**
    * A map of the metric name -> value for regular compute or list of values for a timeseries
    */
-  "computes"?: { [key: string]: LogsAggregateBucketValue };
+  "computes"?: { [key: string]: LogsAggregateBucketValue; };
   /**
    * A container for additional, undeclared properties.
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
   /**
    * @ignore
    */

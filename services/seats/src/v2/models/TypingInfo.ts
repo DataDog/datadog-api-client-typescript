@@ -28,15 +28,13 @@ export const TypingInfo: ModelTypingInfo = {
     AssignSeatsUserRequestDataAttributes: AssignSeatsUserRequestDataAttributes,
     AssignSeatsUserResponse: AssignSeatsUserResponse,
     AssignSeatsUserResponseData: AssignSeatsUserResponseData,
-    AssignSeatsUserResponseDataAttributes:
-      AssignSeatsUserResponseDataAttributes,
+    AssignSeatsUserResponseDataAttributes: AssignSeatsUserResponseDataAttributes,
     SeatUserData: SeatUserData,
     SeatUserDataArray: SeatUserDataArray,
     SeatUserDataAttributes: SeatUserDataAttributes,
     SeatUserMeta: SeatUserMeta,
     UnassignSeatsUserRequest: UnassignSeatsUserRequest,
     UnassignSeatsUserRequestData: UnassignSeatsUserRequestData,
-    UnassignSeatsUserRequestDataAttributes:
-      UnassignSeatsUserRequestDataAttributes,
+    UnassignSeatsUserRequestDataAttributes: UnassignSeatsUserRequestDataAttributes,
   },
 };

@@ -11,7 +11,7 @@ import { ObservabilityPipelineBufferOptions } from "./ObservabilityPipelineBuffe
 
 /**
  * The `amazon_s3_generic` destination sends your logs to an Amazon S3 bucket.
- *
+ * 
  * **Supported pipeline types:** logs
  */
 export class ObservabilityPipelineAmazonS3GenericDestination {
@@ -78,7 +78,7 @@ export class ObservabilityPipelineAmazonS3GenericDestination {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
   /**
    * @ignore
    */

@@ -57,7 +57,7 @@ export class ProductAnalyticsExtendedCompute {
     rollup: {
       baseName: "rollup",
       type: "CalendarInterval",
-    },
+    }
   };
 
   /**

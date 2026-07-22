@@ -50,7 +50,7 @@ export class UserJourneyFormulaCompute {
     target: {
       baseName: "target",
       type: "UserJourneySearchTarget",
-    },
+    }
   };
 
   /**

@@ -1,5 +1,6 @@
 import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
+
 /**
  * Log association item.
  */
@@ -28,7 +29,7 @@ export class EntityV3DatadogLogItem {
     query: {
       baseName: "query",
       type: "string",
-    },
+    }
   };
 
   /**

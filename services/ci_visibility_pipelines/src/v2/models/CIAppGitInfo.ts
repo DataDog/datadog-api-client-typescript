@@ -1,5 +1,6 @@
 import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
+
 /**
  * If pipelines are triggered due to actions to a Git repository, then all payloads must contain this.
  * Note that either `tag` or `branch` has to be provided, but not both.
@@ -58,7 +59,7 @@ export class CIAppGitInfo {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
   /**
    * @ignore
    */

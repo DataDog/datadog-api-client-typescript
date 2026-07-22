@@ -40,7 +40,7 @@ export class TableRowResourceData {
       baseName: "type",
       type: "TableRowResourceDataType",
       required: true,
-    },
+    }
   };
 
   /**

@@ -19,6 +19,7 @@ import {
   ServerConfiguration,
   stringify,
   applySecurityAuthentication,
+  
 } from "@datadog/datadog-api-client";
 
 import { TypingInfo } from "./models/TypingInfo";
@@ -56,19 +57,9 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
     const localVarPath = "/api/v2/cost_by_tag/active_billing_dimensions";
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "UsageMeteringApi.v2.getActiveBillingDimensions",
-      UsageMeteringApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.GET,
-      overrides,
-    );
-    requestContext.setHeaderParam(
-      "Accept",
-      "application/json;datetime-format=rfc3339",
-    );
+    const { server, overrides } = _config.getServerAndOverrides("UsageMeteringApi.v2.getActiveBillingDimensions", UsageMeteringApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.GET, overrides);
+    requestContext.setHeaderParam("Accept", "application/json;datetime-format=rfc3339");
     requestContext.setHttpConfig(_config.httpConfig);
 
     // Set User-Agent
@@ -97,19 +88,9 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
     const localVarPath = "/api/v2/usage/billing_dimension_mapping";
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "UsageMeteringApi.v2.getBillingDimensionMapping",
-      UsageMeteringApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.GET,
-      overrides,
-    );
-    requestContext.setHeaderParam(
-      "Accept",
-      "application/json;datetime-format=rfc3339",
-    );
+    const { server, overrides } = _config.getServerAndOverrides("UsageMeteringApi.v2.getBillingDimensionMapping", UsageMeteringApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.GET, overrides);
+    requestContext.setHeaderParam("Accept", "application/json;datetime-format=rfc3339");
     requestContext.setHttpConfig(_config.httpConfig);
 
     // Set User-Agent
@@ -159,19 +140,9 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
     const localVarPath = "/api/v2/usage/cost_by_org";
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "UsageMeteringApi.v2.getCostByOrg",
-      UsageMeteringApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.GET,
-      overrides,
-    );
-    requestContext.setHeaderParam(
-      "Accept",
-      "application/json;datetime-format=rfc3339",
-    );
+    const { server, overrides } = _config.getServerAndOverrides("UsageMeteringApi.v2.getCostByOrg", UsageMeteringApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.GET, overrides);
+    requestContext.setHeaderParam("Accept", "application/json;datetime-format=rfc3339");
     requestContext.setHttpConfig(_config.httpConfig);
 
     // Set User-Agent
@@ -221,19 +192,9 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
     const localVarPath = "/api/v2/usage/estimated_cost";
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "UsageMeteringApi.v2.getEstimatedCostByOrg",
-      UsageMeteringApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.GET,
-      overrides,
-    );
-    requestContext.setHeaderParam(
-      "Accept",
-      "application/json;datetime-format=rfc3339",
-    );
+    const { server, overrides } = _config.getServerAndOverrides("UsageMeteringApi.v2.getEstimatedCostByOrg", UsageMeteringApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.GET, overrides);
+    requestContext.setHeaderParam("Accept", "application/json;datetime-format=rfc3339");
     requestContext.setHttpConfig(_config.httpConfig);
 
     // Set User-Agent
@@ -320,19 +281,9 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
     const localVarPath = "/api/v2/usage/historical_cost";
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "UsageMeteringApi.v2.getHistoricalCostByOrg",
-      UsageMeteringApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.GET,
-      overrides,
-    );
-    requestContext.setHeaderParam(
-      "Accept",
-      "application/json;datetime-format=rfc3339",
-    );
+    const { server, overrides } = _config.getServerAndOverrides("UsageMeteringApi.v2.getHistoricalCostByOrg", UsageMeteringApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.GET, overrides);
+    requestContext.setHeaderParam("Accept", "application/json;datetime-format=rfc3339");
     requestContext.setHttpConfig(_config.httpConfig);
 
     // Set User-Agent
@@ -408,19 +359,9 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
     const localVarPath = "/api/v2/usage/hourly_usage";
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "UsageMeteringApi.v2.getHourlyUsage",
-      UsageMeteringApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.GET,
-      overrides,
-    );
-    requestContext.setHeaderParam(
-      "Accept",
-      "application/json;datetime-format=rfc3339",
-    );
+    const { server, overrides } = _config.getServerAndOverrides("UsageMeteringApi.v2.getHourlyUsage", UsageMeteringApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.GET, overrides);
+    requestContext.setHeaderParam("Accept", "application/json;datetime-format=rfc3339");
     requestContext.setHttpConfig(_config.httpConfig);
 
     // Set User-Agent
@@ -530,19 +471,9 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
     const localVarPath = "/api/v2/cost_by_tag/monthly_cost_attribution";
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "UsageMeteringApi.v2.getMonthlyCostAttribution",
-      UsageMeteringApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.GET,
-      overrides,
-    );
-    requestContext.setHeaderParam(
-      "Accept",
-      "application/json;datetime-format=rfc3339",
-    );
+    const { server, overrides } = _config.getServerAndOverrides("UsageMeteringApi.v2.getMonthlyCostAttribution", UsageMeteringApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.GET, overrides);
+    requestContext.setHeaderParam("Accept", "application/json;datetime-format=rfc3339");
     requestContext.setHttpConfig(_config.httpConfig);
 
     // Set User-Agent
@@ -629,19 +560,9 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
     const localVarPath = "/api/v2/usage/projected_cost";
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "UsageMeteringApi.v2.getProjectedCost",
-      UsageMeteringApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.GET,
-      overrides,
-    );
-    requestContext.setHeaderParam(
-      "Accept",
-      "application/json;datetime-format=rfc3339",
-    );
+    const { server, overrides } = _config.getServerAndOverrides("UsageMeteringApi.v2.getProjectedCost", UsageMeteringApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.GET, overrides);
+    requestContext.setHeaderParam("Accept", "application/json;datetime-format=rfc3339");
     requestContext.setHttpConfig(_config.httpConfig);
 
     // Set User-Agent
@@ -684,29 +605,16 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
 
     // verify required parameter 'startHr' is not null or undefined
     if (startHr === null || startHr === undefined) {
-      throw new RequiredError(
-        "startHr",
-        "getUsageApplicationSecurityMonitoring",
-      );
+      throw new RequiredError("startHr", "getUsageApplicationSecurityMonitoring");
     }
 
     // Path Params
     const localVarPath = "/api/v2/usage/application_security";
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "UsageMeteringApi.v2.getUsageApplicationSecurityMonitoring",
-      UsageMeteringApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.GET,
-      overrides,
-    );
-    requestContext.setHeaderParam(
-      "Accept",
-      "application/json;datetime-format=rfc3339",
-    );
+    const { server, overrides } = _config.getServerAndOverrides("UsageMeteringApi.v2.getUsageApplicationSecurityMonitoring", UsageMeteringApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.GET, overrides);
+    requestContext.setHeaderParam("Accept", "application/json;datetime-format=rfc3339");
     requestContext.setHttpConfig(_config.httpConfig);
 
     // Set User-Agent
@@ -749,19 +657,9 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
     const localVarPath = "/api/v2/usage/usage-attribution-types";
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "UsageMeteringApi.v2.getUsageAttributionTypes",
-      UsageMeteringApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.GET,
-      overrides,
-    );
-    requestContext.setHeaderParam(
-      "Accept",
-      "application/json;datetime-format=rfc3339",
-    );
+    const { server, overrides } = _config.getServerAndOverrides("UsageMeteringApi.v2.getUsageAttributionTypes", UsageMeteringApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.GET, overrides);
+    requestContext.setHeaderParam("Accept", "application/json;datetime-format=rfc3339");
     requestContext.setHttpConfig(_config.httpConfig);
 
     // Set User-Agent
@@ -795,19 +693,9 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
     const localVarPath = "/api/v2/usage/lambda_traced_invocations";
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "UsageMeteringApi.v2.getUsageLambdaTracedInvocations",
-      UsageMeteringApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.GET,
-      overrides,
-    );
-    requestContext.setHeaderParam(
-      "Accept",
-      "application/json;datetime-format=rfc3339",
-    );
+    const { server, overrides } = _config.getServerAndOverrides("UsageMeteringApi.v2.getUsageLambdaTracedInvocations", UsageMeteringApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.GET, overrides);
+    requestContext.setHeaderParam("Accept", "application/json;datetime-format=rfc3339");
     requestContext.setHttpConfig(_config.httpConfig);
 
     // Set User-Agent
@@ -857,19 +745,9 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
     const localVarPath = "/api/v2/usage/observability_pipelines";
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "UsageMeteringApi.v2.getUsageObservabilityPipelines",
-      UsageMeteringApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.GET,
-      overrides,
-    );
-    requestContext.setHeaderParam(
-      "Accept",
-      "application/json;datetime-format=rfc3339",
-    );
+    const { server, overrides } = _config.getServerAndOverrides("UsageMeteringApi.v2.getUsageObservabilityPipelines", UsageMeteringApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.GET, overrides);
+    requestContext.setHeaderParam("Accept", "application/json;datetime-format=rfc3339");
     requestContext.setHttpConfig(_config.httpConfig);
 
     // Set User-Agent
@@ -912,19 +790,9 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
     const localVarPath = "/api/v2/usage/summary/available_fields";
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "UsageMeteringApi.v2.getUsageSummaryAvailableFields",
-      UsageMeteringApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.GET,
-      overrides,
-    );
-    requestContext.setHeaderParam(
-      "Accept",
-      "application/json;datetime-format=rfc3339",
-    );
+    const { server, overrides } = _config.getServerAndOverrides("UsageMeteringApi.v2.getUsageSummaryAvailableFields", UsageMeteringApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.GET, overrides);
+    requestContext.setHeaderParam("Accept", "application/json;datetime-format=rfc3339");
     requestContext.setHttpConfig(_config.httpConfig);
 
     // Set User-Agent
@@ -954,7 +822,9 @@ export class UsageMeteringApiResponseProcessor {
   public async getActiveBillingDimensions(
     response: ResponseContext,
   ): Promise<ActiveBillingDimensionsResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: ActiveBillingDimensionsResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -968,7 +838,10 @@ export class UsageMeteringApiResponseProcessor {
       response.httpStatusCode === 403 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -983,7 +856,10 @@ export class UsageMeteringApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -1014,7 +890,9 @@ export class UsageMeteringApiResponseProcessor {
   public async getBillingDimensionMapping(
     response: ResponseContext,
   ): Promise<BillingDimensionsMappingResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: BillingDimensionsMappingResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -1028,7 +906,10 @@ export class UsageMeteringApiResponseProcessor {
       response.httpStatusCode === 403 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -1043,7 +924,10 @@ export class UsageMeteringApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -1074,7 +958,9 @@ export class UsageMeteringApiResponseProcessor {
   public async getCostByOrg(
     response: ResponseContext,
   ): Promise<CostByOrgResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: CostByOrgResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -1088,7 +974,10 @@ export class UsageMeteringApiResponseProcessor {
       response.httpStatusCode === 403 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -1103,7 +992,10 @@ export class UsageMeteringApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -1134,7 +1026,9 @@ export class UsageMeteringApiResponseProcessor {
   public async getEstimatedCostByOrg(
     response: ResponseContext,
   ): Promise<CostByOrgResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: CostByOrgResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -1148,7 +1042,10 @@ export class UsageMeteringApiResponseProcessor {
       response.httpStatusCode === 403 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -1163,7 +1060,10 @@ export class UsageMeteringApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -1194,7 +1094,9 @@ export class UsageMeteringApiResponseProcessor {
   public async getHistoricalCostByOrg(
     response: ResponseContext,
   ): Promise<CostByOrgResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: CostByOrgResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -1208,7 +1110,10 @@ export class UsageMeteringApiResponseProcessor {
       response.httpStatusCode === 403 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -1223,7 +1128,10 @@ export class UsageMeteringApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -1254,7 +1162,9 @@ export class UsageMeteringApiResponseProcessor {
   public async getHourlyUsage(
     response: ResponseContext,
   ): Promise<HourlyUsageResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: HourlyUsageResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -1268,7 +1178,10 @@ export class UsageMeteringApiResponseProcessor {
       response.httpStatusCode === 403 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -1283,7 +1196,10 @@ export class UsageMeteringApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -1314,7 +1230,9 @@ export class UsageMeteringApiResponseProcessor {
   public async getMonthlyCostAttribution(
     response: ResponseContext,
   ): Promise<MonthlyCostAttributionResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: MonthlyCostAttributionResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -1328,7 +1246,10 @@ export class UsageMeteringApiResponseProcessor {
       response.httpStatusCode === 403 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -1343,7 +1264,10 @@ export class UsageMeteringApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -1374,7 +1298,9 @@ export class UsageMeteringApiResponseProcessor {
   public async getProjectedCost(
     response: ResponseContext,
   ): Promise<ProjectedCostResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: ProjectedCostResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -1388,7 +1314,10 @@ export class UsageMeteringApiResponseProcessor {
       response.httpStatusCode === 403 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -1403,7 +1332,10 @@ export class UsageMeteringApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -1434,7 +1366,9 @@ export class UsageMeteringApiResponseProcessor {
   public async getUsageApplicationSecurityMonitoring(
     response: ResponseContext,
   ): Promise<UsageApplicationSecurityMonitoringResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: UsageApplicationSecurityMonitoringResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -1448,7 +1382,10 @@ export class UsageMeteringApiResponseProcessor {
       response.httpStatusCode === 403 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -1463,7 +1400,10 @@ export class UsageMeteringApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -1494,7 +1434,9 @@ export class UsageMeteringApiResponseProcessor {
   public async getUsageAttributionTypes(
     response: ResponseContext,
   ): Promise<UsageAttributionTypesResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: UsageAttributionTypesResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -1503,8 +1445,14 @@ export class UsageMeteringApiResponseProcessor {
       ) as UsageAttributionTypesResponse;
       return body;
     }
-    if (response.httpStatusCode === 403 || response.httpStatusCode === 429) {
-      const bodyText = parse(await response.body.text(), contentType);
+    if (
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 429
+    ) {
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -1519,7 +1467,10 @@ export class UsageMeteringApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -1550,7 +1501,9 @@ export class UsageMeteringApiResponseProcessor {
   public async getUsageLambdaTracedInvocations(
     response: ResponseContext,
   ): Promise<UsageLambdaTracedInvocationsResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: UsageLambdaTracedInvocationsResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -1564,7 +1517,10 @@ export class UsageMeteringApiResponseProcessor {
       response.httpStatusCode === 403 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -1579,7 +1535,10 @@ export class UsageMeteringApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -1610,7 +1569,9 @@ export class UsageMeteringApiResponseProcessor {
   public async getUsageObservabilityPipelines(
     response: ResponseContext,
   ): Promise<UsageObservabilityPipelinesResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: UsageObservabilityPipelinesResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -1624,7 +1585,10 @@ export class UsageMeteringApiResponseProcessor {
       response.httpStatusCode === 403 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -1639,7 +1603,10 @@ export class UsageMeteringApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -1670,7 +1637,9 @@ export class UsageMeteringApiResponseProcessor {
   public async getUsageSummaryAvailableFields(
     response: ResponseContext,
   ): Promise<UsageSummaryAvailableFieldsResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: UsageSummaryAvailableFieldsResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -1679,8 +1648,14 @@ export class UsageMeteringApiResponseProcessor {
       ) as UsageSummaryAvailableFieldsResponse;
       return body;
     }
-    if (response.httpStatusCode === 403 || response.httpStatusCode === 429) {
-      const bodyText = parse(await response.body.text(), contentType);
+    if (
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 429
+    ) {
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -1695,7 +1670,10 @@ export class UsageMeteringApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -1972,7 +1950,8 @@ export class UsageMeteringApi {
   private responseProcessor: UsageMeteringApiResponseProcessor;
   private configuration: Configuration;
 
-  static operationServers: { [key: string]: BaseServerConfiguration[] } = {};
+  static operationServers: { [key: string]: BaseServerConfiguration[] } = {
+  };
 
   public constructor(
     configuration?: Configuration,
@@ -1981,7 +1960,8 @@ export class UsageMeteringApi {
   ) {
     this.configuration = configuration || createConfiguration();
     this.requestFactory =
-      requestFactory || new UsageMeteringApiRequestFactory(this.configuration);
+      requestFactory ||
+      new UsageMeteringApiRequestFactory(this.configuration);
     this.responseProcessor =
       responseProcessor || new UsageMeteringApiResponseProcessor();
   }
@@ -1990,18 +1970,16 @@ export class UsageMeteringApi {
    * Get active billing dimensions for cost attribution. Cost data for a given month becomes available no later than the 19th of the following month.
    * @param param The request object
    */
-  public getActiveBillingDimensions(
-    options?: Configuration,
+  public getActiveBillingDimensions(options?: Configuration,
   ): Promise<ActiveBillingDimensionsResponse> {
-    const requestContextPromise =
-      this.requestFactory.getActiveBillingDimensions(options);
+    const requestContextPromise = this.requestFactory.getActiveBillingDimensions(
+      options,
+    );
     return requestContextPromise.then((requestContext) => {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.getActiveBillingDimensions(
-            responseContext,
-          );
+          return this.responseProcessor.getActiveBillingDimensions(responseContext);
         });
     });
   }
@@ -2009,7 +1987,7 @@ export class UsageMeteringApi {
   /**
    * Get a mapping of billing dimensions to the corresponding keys for the supported usage metering public API endpoints.
    * Mapping data is updated on a monthly cadence.
-   *
+   * 
    * This endpoint is only accessible to [parent-level organizations](https://docs.datadoghq.com/account_management/multi_organization/).
    * @param param The request object
    */
@@ -2017,19 +1995,16 @@ export class UsageMeteringApi {
     param: UsageMeteringApiGetBillingDimensionMappingRequest = {},
     options?: Configuration,
   ): Promise<BillingDimensionsMappingResponse> {
-    const requestContextPromise =
-      this.requestFactory.getBillingDimensionMapping(
-        param.filterMonth,
-        param.filterView,
-        options,
-      );
+    const requestContextPromise = this.requestFactory.getBillingDimensionMapping(
+      param.filterMonth,
+      param.filterView,
+      options,
+    );
     return requestContextPromise.then((requestContext) => {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.getBillingDimensionMapping(
-            responseContext,
-          );
+          return this.responseProcessor.getBillingDimensionMapping(responseContext);
         });
     });
   }
@@ -2040,7 +2015,7 @@ export class UsageMeteringApi {
    * **Note:** This endpoint has been deprecated. Please use the new endpoint
    * [`/historical_cost`](https://docs.datadoghq.com/api/latest/usage-metering/#get-historical-cost-across-your-account)
    * instead.
-   *
+   * 
    * This endpoint is only accessible for [parent-level organizations](https://docs.datadoghq.com/account_management/multi_organization/).
    * @param param The request object
    */
@@ -2067,7 +2042,7 @@ export class UsageMeteringApi {
    * Estimated cost data is only available for the current month and previous month
    * and is delayed by up to 72 hours from when it was incurred.
    * To access historical costs prior to this, use the `/historical_cost` endpoint.
-   *
+   * 
    * This endpoint is only accessible for [parent-level organizations](https://docs.datadoghq.com/account_management/multi_organization/).
    * @param param The request object
    */
@@ -2097,7 +2072,7 @@ export class UsageMeteringApi {
   /**
    * Get historical cost across multi-org and single root-org accounts.
    * Cost data for a given month becomes available no later than the 16th of the following month.
-   *
+   * 
    * This endpoint is only accessible for [parent-level organizations](https://docs.datadoghq.com/account_management/multi_organization/).
    * @param param The request object
    */
@@ -2165,7 +2140,7 @@ export class UsageMeteringApi {
    *   cursor := response.metadata.pagination.next_record_id
    * END
    * ```
-   *
+   * 
    * This endpoint is only accessible for [parent-level organizations](https://docs.datadoghq.com/account_management/multi_organization/). This endpoint is not available in the Government (US1-FED) site.
    * @param param The request object
    */
@@ -2188,9 +2163,7 @@ export class UsageMeteringApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.getMonthlyCostAttribution(
-            responseContext,
-          );
+          return this.responseProcessor.getMonthlyCostAttribution(responseContext);
         });
     });
   }
@@ -2198,7 +2171,7 @@ export class UsageMeteringApi {
   /**
    * Get projected cost across multi-org and single root-org accounts.
    * Projected cost data is only available for the current month and becomes available around the 12th of the month.
-   *
+   * 
    * This endpoint is only accessible for [parent-level organizations](https://docs.datadoghq.com/account_management/multi_organization/).
    * @param param The request object
    */
@@ -2229,19 +2202,16 @@ export class UsageMeteringApi {
     param: UsageMeteringApiGetUsageApplicationSecurityMonitoringRequest,
     options?: Configuration,
   ): Promise<UsageApplicationSecurityMonitoringResponse> {
-    const requestContextPromise =
-      this.requestFactory.getUsageApplicationSecurityMonitoring(
-        param.startHr,
-        param.endHr,
-        options,
-      );
+    const requestContextPromise = this.requestFactory.getUsageApplicationSecurityMonitoring(
+      param.startHr,
+      param.endHr,
+      options,
+    );
     return requestContextPromise.then((requestContext) => {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.getUsageApplicationSecurityMonitoring(
-            responseContext,
-          );
+          return this.responseProcessor.getUsageApplicationSecurityMonitoring(responseContext);
         });
     });
   }
@@ -2250,18 +2220,16 @@ export class UsageMeteringApi {
    * Get usage attribution types.
    * @param param The request object
    */
-  public getUsageAttributionTypes(
-    options?: Configuration,
+  public getUsageAttributionTypes(options?: Configuration,
   ): Promise<UsageAttributionTypesResponse> {
-    const requestContextPromise =
-      this.requestFactory.getUsageAttributionTypes(options);
+    const requestContextPromise = this.requestFactory.getUsageAttributionTypes(
+      options,
+    );
     return requestContextPromise.then((requestContext) => {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.getUsageAttributionTypes(
-            responseContext,
-          );
+          return this.responseProcessor.getUsageAttributionTypes(responseContext);
         });
     });
   }
@@ -2275,19 +2243,16 @@ export class UsageMeteringApi {
     param: UsageMeteringApiGetUsageLambdaTracedInvocationsRequest,
     options?: Configuration,
   ): Promise<UsageLambdaTracedInvocationsResponse> {
-    const requestContextPromise =
-      this.requestFactory.getUsageLambdaTracedInvocations(
-        param.startHr,
-        param.endHr,
-        options,
-      );
+    const requestContextPromise = this.requestFactory.getUsageLambdaTracedInvocations(
+      param.startHr,
+      param.endHr,
+      options,
+    );
     return requestContextPromise.then((requestContext) => {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.getUsageLambdaTracedInvocations(
-            responseContext,
-          );
+          return this.responseProcessor.getUsageLambdaTracedInvocations(responseContext);
         });
     });
   }
@@ -2301,19 +2266,16 @@ export class UsageMeteringApi {
     param: UsageMeteringApiGetUsageObservabilityPipelinesRequest,
     options?: Configuration,
   ): Promise<UsageObservabilityPipelinesResponse> {
-    const requestContextPromise =
-      this.requestFactory.getUsageObservabilityPipelines(
-        param.startHr,
-        param.endHr,
-        options,
-      );
+    const requestContextPromise = this.requestFactory.getUsageObservabilityPipelines(
+      param.startHr,
+      param.endHr,
+      options,
+    );
     return requestContextPromise.then((requestContext) => {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.getUsageObservabilityPipelines(
-            responseContext,
-          );
+          return this.responseProcessor.getUsageObservabilityPipelines(responseContext);
         });
     });
   }
@@ -2324,15 +2286,15 @@ export class UsageMeteringApi {
    * emits—both typed fields declared in the OpenAPI spec and untyped keys
    * exposed through `additionalProperties` (the latter used for billing
    * dimensions and usage types added after the v1 schema freeze).
-   *
+   * 
    * This endpoint is only accessible for [parent-level organizations](https://docs.datadoghq.com/account_management/multi_organization/).
-   *
+   * 
    * Go example:
-   *
+   * 
    * ```go
    * fields, _, err := api.GetUsageSummaryAvailableFields(ctx)
    * attr := fields.Data.GetAttributes()
-   *
+   * 
    * // resp is the *UsageSummaryResponse returned by api.GetUsageSummary(ctx, ...)
    * // Layer 1: UsageSummaryResponse
    * for _, key := range attr.GetResponseFields() {
@@ -2359,18 +2321,16 @@ export class UsageMeteringApi {
    * ```
    * @param param The request object
    */
-  public getUsageSummaryAvailableFields(
-    options?: Configuration,
+  public getUsageSummaryAvailableFields(options?: Configuration,
   ): Promise<UsageSummaryAvailableFieldsResponse> {
-    const requestContextPromise =
-      this.requestFactory.getUsageSummaryAvailableFields(options);
+    const requestContextPromise = this.requestFactory.getUsageSummaryAvailableFields(
+      options,
+    );
     return requestContextPromise.then((requestContext) => {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.getUsageSummaryAvailableFields(
-            responseContext,
-          );
+          return this.responseProcessor.getUsageSummaryAvailableFields(responseContext);
         });
     });
   }

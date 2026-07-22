@@ -19,6 +19,7 @@ import {
   ServerConfiguration,
   stringify,
   applySecurityAuthentication,
+  
 } from "@datadog/datadog-api-client";
 
 import { TypingInfo } from "./models/TypingInfo";
@@ -55,22 +56,14 @@ export class RumReplayViewershipApiRequestFactory extends BaseAPIRequestFactory 
     }
 
     // Path Params
-    const localVarPath =
-      "/api/v2/rum/replay/sessions/{session_id}/watches".replace(
-        "{session_id}",
-        encodeURIComponent(String(sessionId)),
-      );
+    const localVarPath = "/api/v2/rum/replay/sessions/{session_id}/watches".replace(
+      "{session_id}",
+      encodeURIComponent(String(sessionId)),
+    );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "RumReplayViewershipApi.v2.createRumReplaySessionWatch",
-      RumReplayViewershipApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.POST,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("RumReplayViewershipApi.v2.createRumReplaySessionWatch", RumReplayViewershipApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.POST, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -80,7 +73,9 @@ export class RumReplayViewershipApiRequestFactory extends BaseAPIRequestFactory 
     }
 
     // Body Params
-    const contentType = getPreferredMediaType(["application/json"]);
+    const contentType = getPreferredMediaType([
+      "application/json",
+    ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = stringify(
       serialize(body, TypingInfo, "Watch", ""),
@@ -110,22 +105,14 @@ export class RumReplayViewershipApiRequestFactory extends BaseAPIRequestFactory 
     }
 
     // Path Params
-    const localVarPath =
-      "/api/v2/rum/replay/sessions/{session_id}/watches".replace(
-        "{session_id}",
-        encodeURIComponent(String(sessionId)),
-      );
+    const localVarPath = "/api/v2/rum/replay/sessions/{session_id}/watches".replace(
+      "{session_id}",
+      encodeURIComponent(String(sessionId)),
+    );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "RumReplayViewershipApi.v2.deleteRumReplaySessionWatch",
-      RumReplayViewershipApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.DELETE,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("RumReplayViewershipApi.v2.deleteRumReplaySessionWatch", RumReplayViewershipApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.DELETE, overrides);
     requestContext.setHeaderParam("Accept", "*/*");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -158,22 +145,14 @@ export class RumReplayViewershipApiRequestFactory extends BaseAPIRequestFactory 
     }
 
     // Path Params
-    const localVarPath =
-      "/api/v2/rum/replay/sessions/{session_id}/watchers".replace(
-        "{session_id}",
-        encodeURIComponent(String(sessionId)),
-      );
+    const localVarPath = "/api/v2/rum/replay/sessions/{session_id}/watchers".replace(
+      "{session_id}",
+      encodeURIComponent(String(sessionId)),
+    );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "RumReplayViewershipApi.v2.listRumReplaySessionWatchers",
-      RumReplayViewershipApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.GET,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("RumReplayViewershipApi.v2.listRumReplaySessionWatchers", RumReplayViewershipApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.GET, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -224,15 +203,8 @@ export class RumReplayViewershipApiRequestFactory extends BaseAPIRequestFactory 
     const localVarPath = "/api/v2/rum/replay/viewership-history/sessions";
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "RumReplayViewershipApi.v2.listRumReplayViewershipHistorySessions",
-      RumReplayViewershipApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.GET,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("RumReplayViewershipApi.v2.listRumReplayViewershipHistorySessions", RumReplayViewershipApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.GET, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -314,7 +286,9 @@ export class RumReplayViewershipApiResponseProcessor {
   public async createRumReplaySessionWatch(
     response: ResponseContext,
   ): Promise<Watch> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 201) {
       const body: Watch = deserialize(
         parse(await response.body.text(), contentType),
@@ -324,7 +298,10 @@ export class RumReplayViewershipApiResponseProcessor {
       return body;
     }
     if (response.httpStatusCode === 429) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -339,7 +316,10 @@ export class RumReplayViewershipApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -370,12 +350,17 @@ export class RumReplayViewershipApiResponseProcessor {
   public async deleteRumReplaySessionWatch(
     response: ResponseContext,
   ): Promise<void> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 204) {
       return;
     }
     if (response.httpStatusCode === 429) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -390,7 +375,10 @@ export class RumReplayViewershipApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -415,7 +403,9 @@ export class RumReplayViewershipApiResponseProcessor {
   public async listRumReplaySessionWatchers(
     response: ResponseContext,
   ): Promise<WatcherArray> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: WatcherArray = deserialize(
         parse(await response.body.text(), contentType),
@@ -425,7 +415,10 @@ export class RumReplayViewershipApiResponseProcessor {
       return body;
     }
     if (response.httpStatusCode === 429) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -440,7 +433,10 @@ export class RumReplayViewershipApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -471,7 +467,9 @@ export class RumReplayViewershipApiResponseProcessor {
   public async listRumReplayViewershipHistorySessions(
     response: ResponseContext,
   ): Promise<ViewershipHistorySessionArray> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: ViewershipHistorySessionArray = deserialize(
         parse(await response.body.text(), contentType),
@@ -481,7 +479,10 @@ export class RumReplayViewershipApiResponseProcessor {
       return body;
     }
     if (response.httpStatusCode === 429) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -496,7 +497,10 @@ export class RumReplayViewershipApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -599,7 +603,8 @@ export class RumReplayViewershipApi {
   private responseProcessor: RumReplayViewershipApiResponseProcessor;
   private configuration: Configuration;
 
-  static operationServers: { [key: string]: BaseServerConfiguration[] } = {};
+  static operationServers: { [key: string]: BaseServerConfiguration[] } = {
+  };
 
   public constructor(
     configuration?: Configuration,
@@ -622,19 +627,16 @@ export class RumReplayViewershipApi {
     param: RumReplayViewershipApiCreateRumReplaySessionWatchRequest,
     options?: Configuration,
   ): Promise<Watch> {
-    const requestContextPromise =
-      this.requestFactory.createRumReplaySessionWatch(
-        param.sessionId,
-        param.body,
-        options,
-      );
+    const requestContextPromise = this.requestFactory.createRumReplaySessionWatch(
+      param.sessionId,
+      param.body,
+      options,
+    );
     return requestContextPromise.then((requestContext) => {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.createRumReplaySessionWatch(
-            responseContext,
-          );
+          return this.responseProcessor.createRumReplaySessionWatch(responseContext);
         });
     });
   }
@@ -647,15 +649,15 @@ export class RumReplayViewershipApi {
     param: RumReplayViewershipApiDeleteRumReplaySessionWatchRequest,
     options?: Configuration,
   ): Promise<void> {
-    const requestContextPromise =
-      this.requestFactory.deleteRumReplaySessionWatch(param.sessionId, options);
+    const requestContextPromise = this.requestFactory.deleteRumReplaySessionWatch(
+      param.sessionId,
+      options,
+    );
     return requestContextPromise.then((requestContext) => {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.deleteRumReplaySessionWatch(
-            responseContext,
-          );
+          return this.responseProcessor.deleteRumReplaySessionWatch(responseContext);
         });
     });
   }
@@ -668,20 +670,17 @@ export class RumReplayViewershipApi {
     param: RumReplayViewershipApiListRumReplaySessionWatchersRequest,
     options?: Configuration,
   ): Promise<WatcherArray> {
-    const requestContextPromise =
-      this.requestFactory.listRumReplaySessionWatchers(
-        param.sessionId,
-        param.pageSize,
-        param.pageNumber,
-        options,
-      );
+    const requestContextPromise = this.requestFactory.listRumReplaySessionWatchers(
+      param.sessionId,
+      param.pageSize,
+      param.pageNumber,
+      options,
+    );
     return requestContextPromise.then((requestContext) => {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.listRumReplaySessionWatchers(
-            responseContext,
-          );
+          return this.responseProcessor.listRumReplaySessionWatchers(responseContext);
         });
     });
   }
@@ -694,24 +693,21 @@ export class RumReplayViewershipApi {
     param: RumReplayViewershipApiListRumReplayViewershipHistorySessionsRequest = {},
     options?: Configuration,
   ): Promise<ViewershipHistorySessionArray> {
-    const requestContextPromise =
-      this.requestFactory.listRumReplayViewershipHistorySessions(
-        param.filterWatchedAtStart,
-        param.pageNumber,
-        param.filterCreatedBy,
-        param.filterWatchedAtEnd,
-        param.filterSessionIds,
-        param.pageSize,
-        param.filterApplicationId,
-        options,
-      );
+    const requestContextPromise = this.requestFactory.listRumReplayViewershipHistorySessions(
+      param.filterWatchedAtStart,
+      param.pageNumber,
+      param.filterCreatedBy,
+      param.filterWatchedAtEnd,
+      param.filterSessionIds,
+      param.pageSize,
+      param.filterApplicationId,
+      options,
+    );
     return requestContextPromise.then((requestContext) => {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.listRumReplayViewershipHistorySessions(
-            responseContext,
-          );
+          return this.responseProcessor.listRumReplayViewershipHistorySessions(responseContext);
         });
     });
   }

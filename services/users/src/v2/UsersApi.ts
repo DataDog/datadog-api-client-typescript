@@ -19,6 +19,7 @@ import {
   ServerConfiguration,
   stringify,
   applySecurityAuthentication,
+  
 } from "@datadog/datadog-api-client";
 
 import { TypingInfo } from "./models/TypingInfo";
@@ -55,9 +56,7 @@ export class UsersApiRequestFactory extends BaseAPIRequestFactory {
     const _config = _options || this.configuration;
 
     if (!_config.unstableOperations["UsersApi.v2.anonymizeUsers"]) {
-      throw new Error(
-        "Unstable operation 'anonymizeUsers' is disabled. Enable it by setting `configuration.unstableOperations['UsersApi.v2.anonymizeUsers'] = true`",
-      );
+      throw new Error("Unstable operation 'anonymizeUsers' is disabled. Enable it by setting `configuration.unstableOperations['UsersApi.v2.anonymizeUsers'] = true`");
     }
 
     // verify required parameter 'body' is not null or undefined
@@ -69,15 +68,8 @@ export class UsersApiRequestFactory extends BaseAPIRequestFactory {
     const localVarPath = "/api/v2/anonymize_users";
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "UsersApi.v2.anonymizeUsers",
-      UsersApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.PUT,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("UsersApi.v2.anonymizeUsers", UsersApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.PUT, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -87,7 +79,9 @@ export class UsersApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Body Params
-    const contentType = getPreferredMediaType(["application/json"]);
+    const contentType = getPreferredMediaType([
+      "application/json",
+    ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = stringify(
       serialize(body, TypingInfo, "AnonymizeUsersRequest", ""),
@@ -120,15 +114,8 @@ export class UsersApiRequestFactory extends BaseAPIRequestFactory {
     const localVarPath = "/api/v2/users";
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "UsersApi.v2.createUser",
-      UsersApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.POST,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("UsersApi.v2.createUser", UsersApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.POST, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -138,7 +125,9 @@ export class UsersApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Body Params
-    const contentType = getPreferredMediaType(["application/json"]);
+    const contentType = getPreferredMediaType([
+      "application/json",
+    ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = stringify(
       serialize(body, TypingInfo, "UserCreateRequest", ""),
@@ -174,15 +163,8 @@ export class UsersApiRequestFactory extends BaseAPIRequestFactory {
     );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "UsersApi.v2.deleteUserInvitations",
-      UsersApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.DELETE,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("UsersApi.v2.deleteUserInvitations", UsersApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.DELETE, overrides);
     requestContext.setHeaderParam("Accept", "*/*");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -219,15 +201,8 @@ export class UsersApiRequestFactory extends BaseAPIRequestFactory {
     );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "UsersApi.v2.disableUser",
-      UsersApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.DELETE,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("UsersApi.v2.disableUser", UsersApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.DELETE, overrides);
     requestContext.setHeaderParam("Accept", "*/*");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -255,15 +230,8 @@ export class UsersApiRequestFactory extends BaseAPIRequestFactory {
     const localVarPath = "/api/v2/current_user";
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "UsersApi.v2.getCurrentUser",
-      UsersApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.GET,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("UsersApi.v2.getCurrentUser", UsersApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.GET, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -293,22 +261,14 @@ export class UsersApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Path Params
-    const localVarPath =
-      "/api/v2/user_invitations/{user_invitation_uuid}".replace(
-        "{user_invitation_uuid}",
-        encodeURIComponent(String(userInvitationUuid)),
-      );
+    const localVarPath = "/api/v2/user_invitations/{user_invitation_uuid}".replace(
+      "{user_invitation_uuid}",
+      encodeURIComponent(String(userInvitationUuid)),
+    );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "UsersApi.v2.getInvitation",
-      UsersApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.GET,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("UsersApi.v2.getInvitation", UsersApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.GET, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -345,15 +305,8 @@ export class UsersApiRequestFactory extends BaseAPIRequestFactory {
     );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "UsersApi.v2.getUser",
-      UsersApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.GET,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("UsersApi.v2.getUser", UsersApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.GET, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -390,15 +343,8 @@ export class UsersApiRequestFactory extends BaseAPIRequestFactory {
     );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "UsersApi.v2.getUserIdentityProviders",
-      UsersApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.GET,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("UsersApi.v2.getUserIdentityProviders", UsersApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.GET, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -435,15 +381,8 @@ export class UsersApiRequestFactory extends BaseAPIRequestFactory {
     );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "UsersApi.v2.listUserOrganizations",
-      UsersApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.GET,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("UsersApi.v2.listUserOrganizations", UsersApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.GET, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -480,15 +419,8 @@ export class UsersApiRequestFactory extends BaseAPIRequestFactory {
     );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "UsersApi.v2.listUserPermissions",
-      UsersApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.GET,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("UsersApi.v2.listUserPermissions", UsersApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.GET, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -522,15 +454,8 @@ export class UsersApiRequestFactory extends BaseAPIRequestFactory {
     const localVarPath = "/api/v2/users";
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "UsersApi.v2.listUsers",
-      UsersApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.GET,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("UsersApi.v2.listUsers", UsersApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.GET, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -608,15 +533,8 @@ export class UsersApiRequestFactory extends BaseAPIRequestFactory {
     const localVarPath = "/api/v2/user_invitations";
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "UsersApi.v2.sendInvitations",
-      UsersApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.POST,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("UsersApi.v2.sendInvitations", UsersApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.POST, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -626,7 +544,9 @@ export class UsersApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Body Params
-    const contentType = getPreferredMediaType(["application/json"]);
+    const contentType = getPreferredMediaType([
+      "application/json",
+    ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = stringify(
       serialize(body, TypingInfo, "UserInvitationsRequest", ""),
@@ -659,15 +579,8 @@ export class UsersApiRequestFactory extends BaseAPIRequestFactory {
     const localVarPath = "/api/v2/current_user";
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "UsersApi.v2.updateCurrentUser",
-      UsersApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.PATCH,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("UsersApi.v2.updateCurrentUser", UsersApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.PATCH, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -677,7 +590,9 @@ export class UsersApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Body Params
-    const contentType = getPreferredMediaType(["application/json"]);
+    const contentType = getPreferredMediaType([
+      "application/json",
+    ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = stringify(
       serialize(body, TypingInfo, "UserUpdateRequest", ""),
@@ -718,15 +633,8 @@ export class UsersApiRequestFactory extends BaseAPIRequestFactory {
     );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "UsersApi.v2.updateUser",
-      UsersApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.PATCH,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("UsersApi.v2.updateUser", UsersApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.PATCH, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -736,7 +644,9 @@ export class UsersApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Body Params
-    const contentType = getPreferredMediaType(["application/json"]);
+    const contentType = getPreferredMediaType([
+      "application/json",
+    ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = stringify(
       serialize(body, TypingInfo, "UserUpdateRequest", ""),
@@ -772,22 +682,14 @@ export class UsersApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Path Params
-    const localVarPath =
-      "/api/v2/users/{user_id}/relationships/identity_providers".replace(
-        "{user_id}",
-        encodeURIComponent(String(userId)),
-      );
+    const localVarPath = "/api/v2/users/{user_id}/relationships/identity_providers".replace(
+      "{user_id}",
+      encodeURIComponent(String(userId)),
+    );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "UsersApi.v2.updateUserIdentityProviders",
-      UsersApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.PATCH,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("UsersApi.v2.updateUserIdentityProviders", UsersApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.PATCH, overrides);
     requestContext.setHeaderParam("Accept", "*/*");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -797,7 +699,9 @@ export class UsersApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Body Params
-    const contentType = getPreferredMediaType(["application/json"]);
+    const contentType = getPreferredMediaType([
+      "application/json",
+    ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = stringify(
       serialize(body, TypingInfo, "UpdateUserIdentityProvidersRequest", ""),
@@ -827,7 +731,9 @@ export class UsersApiResponseProcessor {
   public async anonymizeUsers(
     response: ResponseContext,
   ): Promise<AnonymizeUsersResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: AnonymizeUsersResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -841,7 +747,10 @@ export class UsersApiResponseProcessor {
       response.httpStatusCode === 403 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -856,7 +765,10 @@ export class UsersApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -884,8 +796,12 @@ export class UsersApiResponseProcessor {
    * @params response Response returned by the server for a request to createUser
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async createUser(response: ResponseContext): Promise<UserResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+  public async createUser(
+    response: ResponseContext,
+  ): Promise<UserResponse> {
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 201) {
       const body: UserResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -899,7 +815,10 @@ export class UsersApiResponseProcessor {
       response.httpStatusCode === 403 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -914,7 +833,10 @@ export class UsersApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -942,8 +864,12 @@ export class UsersApiResponseProcessor {
    * @params response Response returned by the server for a request to deleteUserInvitations
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async deleteUserInvitations(response: ResponseContext): Promise<void> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+  public async deleteUserInvitations(
+    response: ResponseContext,
+  ): Promise<void> {
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       return;
     }
@@ -952,7 +878,10 @@ export class UsersApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -967,7 +896,10 @@ export class UsersApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -989,8 +921,12 @@ export class UsersApiResponseProcessor {
    * @params response Response returned by the server for a request to disableUser
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async disableUser(response: ResponseContext): Promise<void> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+  public async disableUser(
+    response: ResponseContext,
+  ): Promise<void> {
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 204) {
       return;
     }
@@ -999,7 +935,10 @@ export class UsersApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -1014,7 +953,10 @@ export class UsersApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -1039,7 +981,9 @@ export class UsersApiResponseProcessor {
   public async getCurrentUser(
     response: ResponseContext,
   ): Promise<UserResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: UserResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -1048,8 +992,14 @@ export class UsersApiResponseProcessor {
       ) as UserResponse;
       return body;
     }
-    if (response.httpStatusCode === 403 || response.httpStatusCode === 429) {
-      const bodyText = parse(await response.body.text(), contentType);
+    if (
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 429
+    ) {
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -1064,7 +1014,10 @@ export class UsersApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -1095,7 +1048,9 @@ export class UsersApiResponseProcessor {
   public async getInvitation(
     response: ResponseContext,
   ): Promise<UserInvitationResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: UserInvitationResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -1109,7 +1064,10 @@ export class UsersApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -1124,7 +1082,10 @@ export class UsersApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -1152,8 +1113,12 @@ export class UsersApiResponseProcessor {
    * @params response Response returned by the server for a request to getUser
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async getUser(response: ResponseContext): Promise<UserResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+  public async getUser(
+    response: ResponseContext,
+  ): Promise<UserResponse> {
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: UserResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -1167,7 +1132,10 @@ export class UsersApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -1182,7 +1150,10 @@ export class UsersApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -1213,7 +1184,9 @@ export class UsersApiResponseProcessor {
   public async getUserIdentityProviders(
     response: ResponseContext,
   ): Promise<UserOverrideIdentityProvidersResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: UserOverrideIdentityProvidersResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -1227,7 +1200,10 @@ export class UsersApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -1242,7 +1218,10 @@ export class UsersApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -1273,7 +1252,9 @@ export class UsersApiResponseProcessor {
   public async listUserOrganizations(
     response: ResponseContext,
   ): Promise<UserResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: UserResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -1287,7 +1268,10 @@ export class UsersApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -1302,7 +1286,10 @@ export class UsersApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -1333,7 +1320,9 @@ export class UsersApiResponseProcessor {
   public async listUserPermissions(
     response: ResponseContext,
   ): Promise<PermissionsResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: PermissionsResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -1347,7 +1336,10 @@ export class UsersApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -1362,7 +1354,10 @@ export class UsersApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -1390,8 +1385,12 @@ export class UsersApiResponseProcessor {
    * @params response Response returned by the server for a request to listUsers
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async listUsers(response: ResponseContext): Promise<UsersResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+  public async listUsers(
+    response: ResponseContext,
+  ): Promise<UsersResponse> {
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: UsersResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -1405,7 +1404,10 @@ export class UsersApiResponseProcessor {
       response.httpStatusCode === 403 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -1420,7 +1422,10 @@ export class UsersApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -1451,7 +1456,9 @@ export class UsersApiResponseProcessor {
   public async sendInvitations(
     response: ResponseContext,
   ): Promise<UserInvitationsResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 201) {
       const body: UserInvitationsResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -1465,7 +1472,10 @@ export class UsersApiResponseProcessor {
       response.httpStatusCode === 403 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -1480,7 +1490,10 @@ export class UsersApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -1511,7 +1524,9 @@ export class UsersApiResponseProcessor {
   public async updateCurrentUser(
     response: ResponseContext,
   ): Promise<UserResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: UserResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -1527,7 +1542,10 @@ export class UsersApiResponseProcessor {
       response.httpStatusCode === 422 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -1542,7 +1560,10 @@ export class UsersApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -1570,8 +1591,12 @@ export class UsersApiResponseProcessor {
    * @params response Response returned by the server for a request to updateUser
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async updateUser(response: ResponseContext): Promise<UserResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+  public async updateUser(
+    response: ResponseContext,
+  ): Promise<UserResponse> {
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: UserResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -1587,7 +1612,10 @@ export class UsersApiResponseProcessor {
       response.httpStatusCode === 422 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -1602,7 +1630,10 @@ export class UsersApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -1633,7 +1664,9 @@ export class UsersApiResponseProcessor {
   public async updateUserIdentityProviders(
     response: ResponseContext,
   ): Promise<void> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 204) {
       return;
     }
@@ -1643,7 +1676,10 @@ export class UsersApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -1658,7 +1694,10 @@ export class UsersApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -1825,7 +1864,8 @@ export class UsersApi {
   private responseProcessor: UsersApiResponseProcessor;
   private configuration: Configuration;
 
-  static operationServers: { [key: string]: BaseServerConfiguration[] } = {};
+  static operationServers: { [key: string]: BaseServerConfiguration[] } = {
+  };
 
   public constructor(
     configuration?: Configuration,
@@ -1834,7 +1874,8 @@ export class UsersApi {
   ) {
     this.configuration = configuration || createConfiguration();
     this.requestFactory =
-      requestFactory || new UsersApiRequestFactory(this.configuration);
+      requestFactory ||
+      new UsersApiRequestFactory(this.configuration);
     this.responseProcessor =
       responseProcessor || new UsersApiResponseProcessor();
   }
@@ -1934,8 +1975,11 @@ export class UsersApi {
    * No additional permissions are required beyond valid authentication.
    * @param param The request object
    */
-  public getCurrentUser(options?: Configuration): Promise<UserResponse> {
-    const requestContextPromise = this.requestFactory.getCurrentUser(options);
+  public getCurrentUser(options?: Configuration,
+  ): Promise<UserResponse> {
+    const requestContextPromise = this.requestFactory.getCurrentUser(
+      options,
+    );
     return requestContextPromise.then((requestContext) => {
       return this.configuration.httpApi
         .send(requestContext)
@@ -2004,9 +2048,7 @@ export class UsersApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.getUserIdentityProviders(
-            responseContext,
-          );
+          return this.responseProcessor.getUserIdentityProviders(responseContext);
         });
     });
   }
@@ -2086,9 +2128,9 @@ export class UsersApi {
    * Provide a paginated version of listUsers returning a generator with all the items.
    */
   public async *listUsersWithPagination(
-    param: UsersApiListUsersRequest = {},
-    options?: Configuration,
+    param: UsersApiListUsersRequest = {}, options?: Configuration,
   ): AsyncGenerator<User> {
+
     let pageSize = 10;
     if (param.pageSize !== undefined) {
       pageSize = param.pageSize;
@@ -2096,17 +2138,8 @@ export class UsersApi {
     param.pageSize = pageSize;
     param.pageNumber = 0;
     while (true) {
-      const requestContext = await this.requestFactory.listUsers(
-        param.pageSize,
-        param.pageNumber,
-        param.sort,
-        param.sortDir,
-        param.filter,
-        param.filterStatus,
-        options,
-      );
-      const responseContext =
-        await this.configuration.httpApi.send(requestContext);
+      const requestContext = await this.requestFactory.listUsers(param.pageSize,param.pageNumber,param.sort,param.sortDir,param.filter,param.filterStatus,options);
+      const responseContext = await this.configuration.httpApi.send(requestContext);
 
       const response = await this.responseProcessor.listUsers(responseContext);
       const responseData = response.data;
@@ -2203,19 +2236,16 @@ export class UsersApi {
     param: UsersApiUpdateUserIdentityProvidersRequest,
     options?: Configuration,
   ): Promise<void> {
-    const requestContextPromise =
-      this.requestFactory.updateUserIdentityProviders(
-        param.userId,
-        param.body,
-        options,
-      );
+    const requestContextPromise = this.requestFactory.updateUserIdentityProviders(
+      param.userId,
+      param.body,
+      options,
+    );
     return requestContextPromise.then((requestContext) => {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.updateUserIdentityProviders(
-            responseContext,
-          );
+          return this.responseProcessor.updateUserIdentityProviders(responseContext);
         });
     });
   }

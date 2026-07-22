@@ -10,7 +10,7 @@ export class SensitiveDataScannerGetConfigResponseData {
   /**
    * Attributes of the Sensitive Data configuration.
    */
-  "attributes"?: { [key: string]: any };
+  "attributes"?: { [key: string]: any; };
   /**
    * ID of the configuration.
    */
@@ -28,7 +28,7 @@ export class SensitiveDataScannerGetConfigResponseData {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
   /**
    * @ignore
    */

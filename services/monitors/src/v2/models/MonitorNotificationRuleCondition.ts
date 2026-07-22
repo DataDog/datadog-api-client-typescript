@@ -1,5 +1,6 @@
 import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
+
 /**
  * A conditional recipient rule composed of a `scope` (the matching condition) and
  * `recipients` (who to notify when it matches).
@@ -20,7 +21,7 @@ export class MonitorNotificationRuleCondition {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
   /**
    * @ignore
    */

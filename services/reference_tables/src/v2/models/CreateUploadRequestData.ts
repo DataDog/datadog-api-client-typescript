@@ -32,7 +32,7 @@ export class CreateUploadRequestData {
       baseName: "type",
       type: "CreateUploadRequestDataType",
       required: true,
-    },
+    }
   };
 
   /**

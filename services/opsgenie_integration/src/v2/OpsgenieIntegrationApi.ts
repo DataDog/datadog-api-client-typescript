@@ -19,6 +19,7 @@ import {
   ServerConfiguration,
   stringify,
   applySecurityAuthentication,
+  
 } from "@datadog/datadog-api-client";
 
 import { TypingInfo } from "./models/TypingInfo";
@@ -58,15 +59,8 @@ export class OpsgenieIntegrationApiRequestFactory extends BaseAPIRequestFactory 
     const localVarPath = "/api/v2/integration/opsgenie/accounts";
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "OpsgenieIntegrationApi.v2.createOpsgenieAccount",
-      OpsgenieIntegrationApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.POST,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("OpsgenieIntegrationApi.v2.createOpsgenieAccount", OpsgenieIntegrationApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.POST, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -76,7 +70,9 @@ export class OpsgenieIntegrationApiRequestFactory extends BaseAPIRequestFactory 
     }
 
     // Body Params
-    const contentType = getPreferredMediaType(["application/json"]);
+    const contentType = getPreferredMediaType([
+      "application/json",
+    ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = stringify(
       serialize(body, TypingInfo, "OpsgenieAccountCreateRequest", ""),
@@ -108,15 +104,8 @@ export class OpsgenieIntegrationApiRequestFactory extends BaseAPIRequestFactory 
     const localVarPath = "/api/v2/integration/opsgenie/services";
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "OpsgenieIntegrationApi.v2.createOpsgenieService",
-      OpsgenieIntegrationApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.POST,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("OpsgenieIntegrationApi.v2.createOpsgenieService", OpsgenieIntegrationApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.POST, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -126,7 +115,9 @@ export class OpsgenieIntegrationApiRequestFactory extends BaseAPIRequestFactory 
     }
 
     // Body Params
-    const contentType = getPreferredMediaType(["application/json"]);
+    const contentType = getPreferredMediaType([
+      "application/json",
+    ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = stringify(
       serialize(body, TypingInfo, "OpsgenieServiceCreateRequest", ""),
@@ -155,22 +146,14 @@ export class OpsgenieIntegrationApiRequestFactory extends BaseAPIRequestFactory 
     }
 
     // Path Params
-    const localVarPath =
-      "/api/v2/integration/opsgenie/accounts/{account_id}".replace(
-        "{account_id}",
-        encodeURIComponent(String(accountId)),
-      );
+    const localVarPath = "/api/v2/integration/opsgenie/accounts/{account_id}".replace(
+      "{account_id}",
+      encodeURIComponent(String(accountId)),
+    );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "OpsgenieIntegrationApi.v2.deleteOpsgenieAccount",
-      OpsgenieIntegrationApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.DELETE,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("OpsgenieIntegrationApi.v2.deleteOpsgenieAccount", OpsgenieIntegrationApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.DELETE, overrides);
     requestContext.setHeaderParam("Accept", "*/*");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -200,22 +183,14 @@ export class OpsgenieIntegrationApiRequestFactory extends BaseAPIRequestFactory 
     }
 
     // Path Params
-    const localVarPath =
-      "/api/v2/integration/opsgenie/services/{integration_service_id}".replace(
-        "{integration_service_id}",
-        encodeURIComponent(String(integrationServiceId)),
-      );
+    const localVarPath = "/api/v2/integration/opsgenie/services/{integration_service_id}".replace(
+      "{integration_service_id}",
+      encodeURIComponent(String(integrationServiceId)),
+    );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "OpsgenieIntegrationApi.v2.deleteOpsgenieService",
-      OpsgenieIntegrationApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.DELETE,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("OpsgenieIntegrationApi.v2.deleteOpsgenieService", OpsgenieIntegrationApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.DELETE, overrides);
     requestContext.setHeaderParam("Accept", "*/*");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -245,22 +220,14 @@ export class OpsgenieIntegrationApiRequestFactory extends BaseAPIRequestFactory 
     }
 
     // Path Params
-    const localVarPath =
-      "/api/v2/integration/opsgenie/services/{integration_service_id}".replace(
-        "{integration_service_id}",
-        encodeURIComponent(String(integrationServiceId)),
-      );
+    const localVarPath = "/api/v2/integration/opsgenie/services/{integration_service_id}".replace(
+      "{integration_service_id}",
+      encodeURIComponent(String(integrationServiceId)),
+    );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "OpsgenieIntegrationApi.v2.getOpsgenieService",
-      OpsgenieIntegrationApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.GET,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("OpsgenieIntegrationApi.v2.getOpsgenieService", OpsgenieIntegrationApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.GET, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -287,15 +254,8 @@ export class OpsgenieIntegrationApiRequestFactory extends BaseAPIRequestFactory 
     const localVarPath = "/api/v2/integration/opsgenie/accounts";
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "OpsgenieIntegrationApi.v2.listOpsgenieAccounts",
-      OpsgenieIntegrationApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.GET,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("OpsgenieIntegrationApi.v2.listOpsgenieAccounts", OpsgenieIntegrationApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.GET, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -322,15 +282,8 @@ export class OpsgenieIntegrationApiRequestFactory extends BaseAPIRequestFactory 
     const localVarPath = "/api/v2/integration/opsgenie/services";
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "OpsgenieIntegrationApi.v2.listOpsgenieServices",
-      OpsgenieIntegrationApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.GET,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("OpsgenieIntegrationApi.v2.listOpsgenieServices", OpsgenieIntegrationApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.GET, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -366,22 +319,14 @@ export class OpsgenieIntegrationApiRequestFactory extends BaseAPIRequestFactory 
     }
 
     // Path Params
-    const localVarPath =
-      "/api/v2/integration/opsgenie/accounts/{account_id}".replace(
-        "{account_id}",
-        encodeURIComponent(String(accountId)),
-      );
+    const localVarPath = "/api/v2/integration/opsgenie/accounts/{account_id}".replace(
+      "{account_id}",
+      encodeURIComponent(String(accountId)),
+    );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "OpsgenieIntegrationApi.v2.updateOpsgenieAccount",
-      OpsgenieIntegrationApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.PATCH,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("OpsgenieIntegrationApi.v2.updateOpsgenieAccount", OpsgenieIntegrationApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.PATCH, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -391,7 +336,9 @@ export class OpsgenieIntegrationApiRequestFactory extends BaseAPIRequestFactory 
     }
 
     // Body Params
-    const contentType = getPreferredMediaType(["application/json"]);
+    const contentType = getPreferredMediaType([
+      "application/json",
+    ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = stringify(
       serialize(body, TypingInfo, "OpsgenieAccountUpdateRequest", ""),
@@ -426,22 +373,14 @@ export class OpsgenieIntegrationApiRequestFactory extends BaseAPIRequestFactory 
     }
 
     // Path Params
-    const localVarPath =
-      "/api/v2/integration/opsgenie/services/{integration_service_id}".replace(
-        "{integration_service_id}",
-        encodeURIComponent(String(integrationServiceId)),
-      );
+    const localVarPath = "/api/v2/integration/opsgenie/services/{integration_service_id}".replace(
+      "{integration_service_id}",
+      encodeURIComponent(String(integrationServiceId)),
+    );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "OpsgenieIntegrationApi.v2.updateOpsgenieService",
-      OpsgenieIntegrationApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.PATCH,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("OpsgenieIntegrationApi.v2.updateOpsgenieService", OpsgenieIntegrationApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.PATCH, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -451,7 +390,9 @@ export class OpsgenieIntegrationApiRequestFactory extends BaseAPIRequestFactory 
     }
 
     // Body Params
-    const contentType = getPreferredMediaType(["application/json"]);
+    const contentType = getPreferredMediaType([
+      "application/json",
+    ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = stringify(
       serialize(body, TypingInfo, "OpsgenieServiceUpdateRequest", ""),
@@ -480,7 +421,9 @@ export class OpsgenieIntegrationApiResponseProcessor {
   public async createOpsgenieAccount(
     response: ResponseContext,
   ): Promise<OpsgenieAccountResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 201) {
       const body: OpsgenieAccountResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -494,7 +437,10 @@ export class OpsgenieIntegrationApiResponseProcessor {
       response.httpStatusCode === 403 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -509,7 +455,10 @@ export class OpsgenieIntegrationApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -540,7 +489,9 @@ export class OpsgenieIntegrationApiResponseProcessor {
   public async createOpsgenieService(
     response: ResponseContext,
   ): Promise<OpsgenieServiceResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 201) {
       const body: OpsgenieServiceResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -555,7 +506,10 @@ export class OpsgenieIntegrationApiResponseProcessor {
       response.httpStatusCode === 409 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -570,7 +524,10 @@ export class OpsgenieIntegrationApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -598,8 +555,12 @@ export class OpsgenieIntegrationApiResponseProcessor {
    * @params response Response returned by the server for a request to deleteOpsgenieAccount
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async deleteOpsgenieAccount(response: ResponseContext): Promise<void> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+  public async deleteOpsgenieAccount(
+    response: ResponseContext,
+  ): Promise<void> {
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 204) {
       return;
     }
@@ -609,7 +570,10 @@ export class OpsgenieIntegrationApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -624,7 +588,10 @@ export class OpsgenieIntegrationApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -646,8 +613,12 @@ export class OpsgenieIntegrationApiResponseProcessor {
    * @params response Response returned by the server for a request to deleteOpsgenieService
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async deleteOpsgenieService(response: ResponseContext): Promise<void> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+  public async deleteOpsgenieService(
+    response: ResponseContext,
+  ): Promise<void> {
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 204) {
       return;
     }
@@ -657,7 +628,10 @@ export class OpsgenieIntegrationApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -672,7 +646,10 @@ export class OpsgenieIntegrationApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -697,7 +674,9 @@ export class OpsgenieIntegrationApiResponseProcessor {
   public async getOpsgenieService(
     response: ResponseContext,
   ): Promise<OpsgenieServiceResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: OpsgenieServiceResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -713,7 +692,10 @@ export class OpsgenieIntegrationApiResponseProcessor {
       response.httpStatusCode === 409 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -728,7 +710,10 @@ export class OpsgenieIntegrationApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -759,7 +744,9 @@ export class OpsgenieIntegrationApiResponseProcessor {
   public async listOpsgenieAccounts(
     response: ResponseContext,
   ): Promise<OpsgenieAccountsResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: OpsgenieAccountsResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -768,8 +755,14 @@ export class OpsgenieIntegrationApiResponseProcessor {
       ) as OpsgenieAccountsResponse;
       return body;
     }
-    if (response.httpStatusCode === 403 || response.httpStatusCode === 429) {
-      const bodyText = parse(await response.body.text(), contentType);
+    if (
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 429
+    ) {
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -784,7 +777,10 @@ export class OpsgenieIntegrationApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -815,7 +811,9 @@ export class OpsgenieIntegrationApiResponseProcessor {
   public async listOpsgenieServices(
     response: ResponseContext,
   ): Promise<OpsgenieServicesResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: OpsgenieServicesResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -824,8 +822,14 @@ export class OpsgenieIntegrationApiResponseProcessor {
       ) as OpsgenieServicesResponse;
       return body;
     }
-    if (response.httpStatusCode === 403 || response.httpStatusCode === 429) {
-      const bodyText = parse(await response.body.text(), contentType);
+    if (
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 429
+    ) {
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -840,7 +844,10 @@ export class OpsgenieIntegrationApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -871,7 +878,9 @@ export class OpsgenieIntegrationApiResponseProcessor {
   public async updateOpsgenieAccount(
     response: ResponseContext,
   ): Promise<OpsgenieAccountResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: OpsgenieAccountResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -886,7 +895,10 @@ export class OpsgenieIntegrationApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -901,10 +913,16 @@ export class OpsgenieIntegrationApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
     if (response.httpStatusCode === 422) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: JSONAPIErrorResponse;
       try {
         body = deserialize(
@@ -953,7 +971,9 @@ export class OpsgenieIntegrationApiResponseProcessor {
   public async updateOpsgenieService(
     response: ResponseContext,
   ): Promise<OpsgenieServiceResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: OpsgenieServiceResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -969,7 +989,10 @@ export class OpsgenieIntegrationApiResponseProcessor {
       response.httpStatusCode === 409 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -984,7 +1007,10 @@ export class OpsgenieIntegrationApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -1077,7 +1103,8 @@ export class OpsgenieIntegrationApi {
   private responseProcessor: OpsgenieIntegrationApiResponseProcessor;
   private configuration: Configuration;
 
-  static operationServers: { [key: string]: BaseServerConfiguration[] } = {};
+  static operationServers: { [key: string]: BaseServerConfiguration[] } = {
+  };
 
   public constructor(
     configuration?: Configuration,
@@ -1201,11 +1228,11 @@ export class OpsgenieIntegrationApi {
    * Get a list of all Opsgenie accounts from the Datadog Opsgenie integration.
    * @param param The request object
    */
-  public listOpsgenieAccounts(
-    options?: Configuration,
+  public listOpsgenieAccounts(options?: Configuration,
   ): Promise<OpsgenieAccountsResponse> {
-    const requestContextPromise =
-      this.requestFactory.listOpsgenieAccounts(options);
+    const requestContextPromise = this.requestFactory.listOpsgenieAccounts(
+      options,
+    );
     return requestContextPromise.then((requestContext) => {
       return this.configuration.httpApi
         .send(requestContext)
@@ -1219,11 +1246,11 @@ export class OpsgenieIntegrationApi {
    * Get a list of all services from the Datadog Opsgenie integration.
    * @param param The request object
    */
-  public listOpsgenieServices(
-    options?: Configuration,
+  public listOpsgenieServices(options?: Configuration,
   ): Promise<OpsgenieServicesResponse> {
-    const requestContextPromise =
-      this.requestFactory.listOpsgenieServices(options);
+    const requestContextPromise = this.requestFactory.listOpsgenieServices(
+      options,
+    );
     return requestContextPromise.then((requestContext) => {
       return this.configuration.httpApi
         .send(requestContext)

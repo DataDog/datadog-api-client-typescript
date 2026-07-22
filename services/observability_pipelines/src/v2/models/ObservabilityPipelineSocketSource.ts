@@ -7,7 +7,7 @@ import { ObservabilityPipelineSocketSourceType } from "./ObservabilityPipelineSo
 
 /**
  * The `socket` source ingests logs over TCP or UDP.
- *
+ * 
  * **Supported pipeline types:** logs
  */
 export class ObservabilityPipelineSocketSource {
@@ -40,7 +40,7 @@ export class ObservabilityPipelineSocketSource {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
   /**
    * @ignore
    */

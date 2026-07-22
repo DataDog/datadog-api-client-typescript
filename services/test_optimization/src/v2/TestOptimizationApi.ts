@@ -19,6 +19,7 @@ import {
   ServerConfiguration,
   stringify,
   applySecurityAuthentication,
+  
 } from "@datadog/datadog-api-client";
 
 import { TypingInfo } from "./models/TypingInfo";
@@ -64,15 +65,8 @@ export class TestOptimizationApiRequestFactory extends BaseAPIRequestFactory {
     const localVarPath = "/api/v2/ci/test-optimization/settings/service";
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "TestOptimizationApi.v2.deleteTestOptimizationServiceSettings",
-      TestOptimizationApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.DELETE,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("TestOptimizationApi.v2.deleteTestOptimizationServiceSettings", TestOptimizationApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.DELETE, overrides);
     requestContext.setHeaderParam("Accept", "*/*");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -82,15 +76,12 @@ export class TestOptimizationApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Body Params
-    const contentType = getPreferredMediaType(["application/json"]);
+    const contentType = getPreferredMediaType([
+      "application/json",
+    ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = stringify(
-      serialize(
-        body,
-        TypingInfo,
-        "TestOptimizationDeleteServiceSettingsRequest",
-        "",
-      ),
+      serialize(body, TypingInfo, "TestOptimizationDeleteServiceSettingsRequest", ""),
       contentType,
     );
     requestContext.setBody(serializedBody);
@@ -120,15 +111,8 @@ export class TestOptimizationApiRequestFactory extends BaseAPIRequestFactory {
     const localVarPath = "/api/v2/ci/test-optimization/settings/policies";
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "TestOptimizationApi.v2.getFlakyTestsManagementPolicies",
-      TestOptimizationApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.POST,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("TestOptimizationApi.v2.getFlakyTestsManagementPolicies", TestOptimizationApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.POST, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -138,15 +122,12 @@ export class TestOptimizationApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Body Params
-    const contentType = getPreferredMediaType(["application/json"]);
+    const contentType = getPreferredMediaType([
+      "application/json",
+    ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = stringify(
-      serialize(
-        body,
-        TypingInfo,
-        "TestOptimizationFlakyTestsManagementPoliciesGetRequest",
-        "",
-      ),
+      serialize(body, TypingInfo, "TestOptimizationFlakyTestsManagementPoliciesGetRequest", ""),
       contentType,
     );
     requestContext.setBody(serializedBody);
@@ -176,15 +157,8 @@ export class TestOptimizationApiRequestFactory extends BaseAPIRequestFactory {
     const localVarPath = "/api/v2/ci/test-optimization/settings/service";
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "TestOptimizationApi.v2.getTestOptimizationServiceSettings",
-      TestOptimizationApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.POST,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("TestOptimizationApi.v2.getTestOptimizationServiceSettings", TestOptimizationApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.POST, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -194,15 +168,12 @@ export class TestOptimizationApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Body Params
-    const contentType = getPreferredMediaType(["application/json"]);
+    const contentType = getPreferredMediaType([
+      "application/json",
+    ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = stringify(
-      serialize(
-        body,
-        TypingInfo,
-        "TestOptimizationGetServiceSettingsRequest",
-        "",
-      ),
+      serialize(body, TypingInfo, "TestOptimizationGetServiceSettingsRequest", ""),
       contentType,
     );
     requestContext.setBody(serializedBody);
@@ -227,15 +198,8 @@ export class TestOptimizationApiRequestFactory extends BaseAPIRequestFactory {
     const localVarPath = "/api/v2/test/flaky-test-management/tests";
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "TestOptimizationApi.v2.searchFlakyTests",
-      TestOptimizationApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.POST,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("TestOptimizationApi.v2.searchFlakyTests", TestOptimizationApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.POST, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -245,7 +209,9 @@ export class TestOptimizationApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Body Params
-    const contentType = getPreferredMediaType(["application/json"]);
+    const contentType = getPreferredMediaType([
+      "application/json",
+    ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = stringify(
       serialize(body, TypingInfo, "FlakyTestsSearchRequest", ""),
@@ -278,15 +244,8 @@ export class TestOptimizationApiRequestFactory extends BaseAPIRequestFactory {
     const localVarPath = "/api/v2/test/flaky-test-management/tests";
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "TestOptimizationApi.v2.updateFlakyTests",
-      TestOptimizationApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.PATCH,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("TestOptimizationApi.v2.updateFlakyTests", TestOptimizationApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.PATCH, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -296,7 +255,9 @@ export class TestOptimizationApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Body Params
-    const contentType = getPreferredMediaType(["application/json"]);
+    const contentType = getPreferredMediaType([
+      "application/json",
+    ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = stringify(
       serialize(body, TypingInfo, "UpdateFlakyTestsRequest", ""),
@@ -329,15 +290,8 @@ export class TestOptimizationApiRequestFactory extends BaseAPIRequestFactory {
     const localVarPath = "/api/v2/ci/test-optimization/settings/policies";
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "TestOptimizationApi.v2.updateFlakyTestsManagementPolicies",
-      TestOptimizationApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.PATCH,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("TestOptimizationApi.v2.updateFlakyTestsManagementPolicies", TestOptimizationApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.PATCH, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -347,15 +301,12 @@ export class TestOptimizationApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Body Params
-    const contentType = getPreferredMediaType(["application/json"]);
+    const contentType = getPreferredMediaType([
+      "application/json",
+    ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = stringify(
-      serialize(
-        body,
-        TypingInfo,
-        "TestOptimizationFlakyTestsManagementPoliciesUpdateRequest",
-        "",
-      ),
+      serialize(body, TypingInfo, "TestOptimizationFlakyTestsManagementPoliciesUpdateRequest", ""),
       contentType,
     );
     requestContext.setBody(serializedBody);
@@ -385,15 +336,8 @@ export class TestOptimizationApiRequestFactory extends BaseAPIRequestFactory {
     const localVarPath = "/api/v2/ci/test-optimization/settings/service";
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "TestOptimizationApi.v2.updateTestOptimizationServiceSettings",
-      TestOptimizationApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.PATCH,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("TestOptimizationApi.v2.updateTestOptimizationServiceSettings", TestOptimizationApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.PATCH, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -403,15 +347,12 @@ export class TestOptimizationApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Body Params
-    const contentType = getPreferredMediaType(["application/json"]);
+    const contentType = getPreferredMediaType([
+      "application/json",
+    ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = stringify(
-      serialize(
-        body,
-        TypingInfo,
-        "TestOptimizationUpdateServiceSettingsRequest",
-        "",
-      ),
+      serialize(body, TypingInfo, "TestOptimizationUpdateServiceSettingsRequest", ""),
       contentType,
     );
     requestContext.setBody(serializedBody);
@@ -438,7 +379,9 @@ export class TestOptimizationApiResponseProcessor {
   public async deleteTestOptimizationServiceSettings(
     response: ResponseContext,
   ): Promise<void> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 204) {
       return;
     }
@@ -448,7 +391,10 @@ export class TestOptimizationApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -463,7 +409,10 @@ export class TestOptimizationApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -488,14 +437,15 @@ export class TestOptimizationApiResponseProcessor {
   public async getFlakyTestsManagementPolicies(
     response: ResponseContext,
   ): Promise<TestOptimizationFlakyTestsManagementPoliciesResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
-      const body: TestOptimizationFlakyTestsManagementPoliciesResponse =
-        deserialize(
-          parse(await response.body.text(), contentType),
-          TypingInfo,
-          "TestOptimizationFlakyTestsManagementPoliciesResponse",
-        ) as TestOptimizationFlakyTestsManagementPoliciesResponse;
+      const body: TestOptimizationFlakyTestsManagementPoliciesResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "TestOptimizationFlakyTestsManagementPoliciesResponse",
+      ) as TestOptimizationFlakyTestsManagementPoliciesResponse;
       return body;
     }
     if (
@@ -504,7 +454,10 @@ export class TestOptimizationApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -519,18 +472,20 @@ export class TestOptimizationApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-      const body: TestOptimizationFlakyTestsManagementPoliciesResponse =
-        deserialize(
-          parse(await response.body.text(), contentType),
-          TypingInfo,
-          "TestOptimizationFlakyTestsManagementPoliciesResponse",
-          "",
-        ) as TestOptimizationFlakyTestsManagementPoliciesResponse;
+      const body: TestOptimizationFlakyTestsManagementPoliciesResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "TestOptimizationFlakyTestsManagementPoliciesResponse",
+        "",
+      ) as TestOptimizationFlakyTestsManagementPoliciesResponse;
       return body;
     }
 
@@ -551,7 +506,9 @@ export class TestOptimizationApiResponseProcessor {
   public async getTestOptimizationServiceSettings(
     response: ResponseContext,
   ): Promise<TestOptimizationServiceSettingsResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: TestOptimizationServiceSettingsResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -566,7 +523,10 @@ export class TestOptimizationApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -581,7 +541,10 @@ export class TestOptimizationApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -612,7 +575,9 @@ export class TestOptimizationApiResponseProcessor {
   public async searchFlakyTests(
     response: ResponseContext,
   ): Promise<FlakyTestsSearchResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: FlakyTestsSearchResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -626,7 +591,10 @@ export class TestOptimizationApiResponseProcessor {
       response.httpStatusCode === 403 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -641,7 +609,10 @@ export class TestOptimizationApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -672,7 +643,9 @@ export class TestOptimizationApiResponseProcessor {
   public async updateFlakyTests(
     response: ResponseContext,
   ): Promise<UpdateFlakyTestsResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: UpdateFlakyTestsResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -686,7 +659,10 @@ export class TestOptimizationApiResponseProcessor {
       response.httpStatusCode === 403 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -701,7 +677,10 @@ export class TestOptimizationApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -732,14 +711,15 @@ export class TestOptimizationApiResponseProcessor {
   public async updateFlakyTestsManagementPolicies(
     response: ResponseContext,
   ): Promise<TestOptimizationFlakyTestsManagementPoliciesResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
-      const body: TestOptimizationFlakyTestsManagementPoliciesResponse =
-        deserialize(
-          parse(await response.body.text(), contentType),
-          TypingInfo,
-          "TestOptimizationFlakyTestsManagementPoliciesResponse",
-        ) as TestOptimizationFlakyTestsManagementPoliciesResponse;
+      const body: TestOptimizationFlakyTestsManagementPoliciesResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "TestOptimizationFlakyTestsManagementPoliciesResponse",
+      ) as TestOptimizationFlakyTestsManagementPoliciesResponse;
       return body;
     }
     if (
@@ -748,7 +728,10 @@ export class TestOptimizationApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -763,18 +746,20 @@ export class TestOptimizationApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-      const body: TestOptimizationFlakyTestsManagementPoliciesResponse =
-        deserialize(
-          parse(await response.body.text(), contentType),
-          TypingInfo,
-          "TestOptimizationFlakyTestsManagementPoliciesResponse",
-          "",
-        ) as TestOptimizationFlakyTestsManagementPoliciesResponse;
+      const body: TestOptimizationFlakyTestsManagementPoliciesResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "TestOptimizationFlakyTestsManagementPoliciesResponse",
+        "",
+      ) as TestOptimizationFlakyTestsManagementPoliciesResponse;
       return body;
     }
 
@@ -795,7 +780,9 @@ export class TestOptimizationApiResponseProcessor {
   public async updateTestOptimizationServiceSettings(
     response: ResponseContext,
   ): Promise<TestOptimizationServiceSettingsResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: TestOptimizationServiceSettingsResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -810,7 +797,10 @@ export class TestOptimizationApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -825,7 +815,10 @@ export class TestOptimizationApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -901,7 +894,8 @@ export class TestOptimizationApi {
   private responseProcessor: TestOptimizationApiResponseProcessor;
   private configuration: Configuration;
 
-  static operationServers: { [key: string]: BaseServerConfiguration[] } = {};
+  static operationServers: { [key: string]: BaseServerConfiguration[] } = {
+  };
 
   public constructor(
     configuration?: Configuration,
@@ -924,18 +918,15 @@ export class TestOptimizationApi {
     param: TestOptimizationApiDeleteTestOptimizationServiceSettingsRequest,
     options?: Configuration,
   ): Promise<void> {
-    const requestContextPromise =
-      this.requestFactory.deleteTestOptimizationServiceSettings(
-        param.body,
-        options,
-      );
+    const requestContextPromise = this.requestFactory.deleteTestOptimizationServiceSettings(
+      param.body,
+      options,
+    );
     return requestContextPromise.then((requestContext) => {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.deleteTestOptimizationServiceSettings(
-            responseContext,
-          );
+          return this.responseProcessor.deleteTestOptimizationServiceSettings(responseContext);
         });
     });
   }
@@ -948,15 +939,15 @@ export class TestOptimizationApi {
     param: TestOptimizationApiGetFlakyTestsManagementPoliciesRequest,
     options?: Configuration,
   ): Promise<TestOptimizationFlakyTestsManagementPoliciesResponse> {
-    const requestContextPromise =
-      this.requestFactory.getFlakyTestsManagementPolicies(param.body, options);
+    const requestContextPromise = this.requestFactory.getFlakyTestsManagementPolicies(
+      param.body,
+      options,
+    );
     return requestContextPromise.then((requestContext) => {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.getFlakyTestsManagementPolicies(
-            responseContext,
-          );
+          return this.responseProcessor.getFlakyTestsManagementPolicies(responseContext);
         });
     });
   }
@@ -969,25 +960,22 @@ export class TestOptimizationApi {
     param: TestOptimizationApiGetTestOptimizationServiceSettingsRequest,
     options?: Configuration,
   ): Promise<TestOptimizationServiceSettingsResponse> {
-    const requestContextPromise =
-      this.requestFactory.getTestOptimizationServiceSettings(
-        param.body,
-        options,
-      );
+    const requestContextPromise = this.requestFactory.getTestOptimizationServiceSettings(
+      param.body,
+      options,
+    );
     return requestContextPromise.then((requestContext) => {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.getTestOptimizationServiceSettings(
-            responseContext,
-          );
+          return this.responseProcessor.getTestOptimizationServiceSettings(responseContext);
         });
     });
   }
 
   /**
    * List endpoint returning flaky tests from Flaky Test Management. Results are paginated.
-   *
+   * 
    * The response includes comprehensive test information including:
    * - Test identification and metadata (module, suite, name)
    * - Flaky state and categorization
@@ -995,10 +983,10 @@ export class TestOptimizationApi {
    * - Test execution statistics from the last 7 days (failure rate)
    * - Pipeline impact metrics (failed pipelines count, total lost time)
    * - Complete status change history (optional, ordered from most recent to oldest)
-   *
+   * 
    * Set `include_history` to `true` in the request to receive the status change history for each test.
    * History is disabled by default for better performance.
-   *
+   * 
    * Results support filtering by various facets including service, environment, repository, branch, and test state.
    * @param param The request object
    */
@@ -1023,9 +1011,9 @@ export class TestOptimizationApi {
    * Provide a paginated version of searchFlakyTests returning a generator with all the items.
    */
   public async *searchFlakyTestsWithPagination(
-    param: TestOptimizationApiSearchFlakyTestsRequest = {},
-    options?: Configuration,
+    param: TestOptimizationApiSearchFlakyTestsRequest = {}, options?: Configuration,
   ): AsyncGenerator<FlakyTest> {
+
     let pageSize = 10;
     if (param.body === undefined) {
       param.body = new FlakyTestsSearchRequest();
@@ -1044,15 +1032,10 @@ export class TestOptimizationApi {
     }
     param.body.data.attributes.page.limit = pageSize;
     while (true) {
-      const requestContext = await this.requestFactory.searchFlakyTests(
-        param.body,
-        options,
-      );
-      const responseContext =
-        await this.configuration.httpApi.send(requestContext);
+      const requestContext = await this.requestFactory.searchFlakyTests(param.body,options);
+      const responseContext = await this.configuration.httpApi.send(requestContext);
 
-      const response =
-        await this.responseProcessor.searchFlakyTests(responseContext);
+      const response = await this.responseProcessor.searchFlakyTests(responseContext);
       const responseData = response.data;
       if (responseData === undefined) {
         break;
@@ -1111,18 +1094,15 @@ export class TestOptimizationApi {
     param: TestOptimizationApiUpdateFlakyTestsManagementPoliciesRequest,
     options?: Configuration,
   ): Promise<TestOptimizationFlakyTestsManagementPoliciesResponse> {
-    const requestContextPromise =
-      this.requestFactory.updateFlakyTestsManagementPolicies(
-        param.body,
-        options,
-      );
+    const requestContextPromise = this.requestFactory.updateFlakyTestsManagementPolicies(
+      param.body,
+      options,
+    );
     return requestContextPromise.then((requestContext) => {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.updateFlakyTestsManagementPolicies(
-            responseContext,
-          );
+          return this.responseProcessor.updateFlakyTestsManagementPolicies(responseContext);
         });
     });
   }
@@ -1138,18 +1118,15 @@ export class TestOptimizationApi {
     param: TestOptimizationApiUpdateTestOptimizationServiceSettingsRequest,
     options?: Configuration,
   ): Promise<TestOptimizationServiceSettingsResponse> {
-    const requestContextPromise =
-      this.requestFactory.updateTestOptimizationServiceSettings(
-        param.body,
-        options,
-      );
+    const requestContextPromise = this.requestFactory.updateTestOptimizationServiceSettings(
+      param.body,
+      options,
+    );
     return requestContextPromise.then((requestContext) => {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.updateTestOptimizationServiceSettings(
-            responseContext,
-          );
+          return this.responseProcessor.updateTestOptimizationServiceSettings(responseContext);
         });
     });
   }

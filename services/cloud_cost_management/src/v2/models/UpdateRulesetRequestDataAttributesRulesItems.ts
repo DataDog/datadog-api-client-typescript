@@ -19,7 +19,7 @@ export class UpdateRulesetRequestDataAttributesRulesItems {
   /**
    * The `items` `metadata`.
    */
-  "metadata"?: { [key: string]: string };
+  "metadata"?: { [key: string]: string; };
   /**
    * The `items` `name`.
    */
@@ -37,7 +37,7 @@ export class UpdateRulesetRequestDataAttributesRulesItems {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
   /**
    * @ignore
    */

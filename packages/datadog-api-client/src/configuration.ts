@@ -1,16 +1,7 @@
-import {
-  HttpLibrary,
-  HttpConfiguration,
-  RequestContext,
-  ZstdCompressorCallback,
-} from "./http/http";
+import { HttpLibrary, HttpConfiguration, RequestContext, ZstdCompressorCallback } from "./http/http";
 import { IsomorphicFetchHttpLibrary as DefaultHttpLibrary } from "./http/isomorphic-fetch";
 import { BaseServerConfiguration, server1, servers } from "./servers";
-import {
-  configureAuthMethods,
-  AuthMethods,
-  AuthMethodsConfiguration,
-} from "./auth";
+import { configureAuthMethods, AuthMethods, AuthMethodsConfiguration } from "./auth";
 import { logger } from "./logger";
 
 export class Configuration {
@@ -18,9 +9,7 @@ export class Configuration {
   readonly serverIndex: number;
   readonly serverVariables: { [key: string]: string };
   readonly operationServerIndices: { [name: string]: number };
-  readonly operationServerVariables: {
-    [name: string]: { [key: string]: string };
-  };
+  readonly operationServerVariables: { [name: string]: { [key: string]: string } };
   readonly httpApi: HttpLibrary;
   readonly authMethods: AuthMethods;
   readonly httpConfig: HttpConfiguration;
@@ -75,8 +64,8 @@ export class Configuration {
     key: string,
     operationServers?: { [key: string]: BaseServerConfiguration[] },
   ): {
-    server: BaseServerConfiguration;
-    overrides?: { [key: string]: string };
+    server: BaseServerConfiguration,
+    overrides?: { [key: string]: string },
   } {
     if (this.baseServer !== undefined) {
       return { server: this.baseServer, overrides: this.serverVariables };
@@ -151,15 +140,15 @@ export interface ConfigurationParameters {
   /**
    * Configuration for HTTP transport
    */
-  httpConfig?: HttpConfiguration;
+  httpConfig?: HttpConfiguration
   /**
    * Flag to enable requests tracing
    */
-  debug?: boolean;
+  debug?: boolean
   /**
    * Callback method to compress string body with zstd
    */
-  zstdCompressorCallback?: ZstdCompressorCallback;
+  zstdCompressorCallback?: ZstdCompressorCallback
   /**
    * Maximum of retry attempts allowed
    */
@@ -194,28 +183,16 @@ export interface ConfigurationParameters {
  *
  * @param conf partial configuration
  */
-export function createConfiguration(
-  conf: ConfigurationParameters = {},
-): Configuration {
+export function createConfiguration(conf: ConfigurationParameters = {}): Configuration {
   if (typeof process !== "undefined" && process.env && process.env.DD_SITE) {
     const serverConf = server1.getConfiguration();
-    server1.setVariables({ site: process.env.DD_SITE } as typeof serverConf);
+    server1.setVariables({ "site": process.env.DD_SITE } as (typeof serverConf));
   }
   const authMethods = conf.authMethods || {};
-  if (
-    !("apiKeyAuth" in authMethods) &&
-    typeof process !== "undefined" &&
-    process.env &&
-    process.env.DD_API_KEY
-  ) {
+  if (!("apiKeyAuth" in authMethods) && typeof process !== "undefined" && process.env && process.env.DD_API_KEY) {
     authMethods["apiKeyAuth"] = process.env.DD_API_KEY;
   }
-  if (
-    !("appKeyAuth" in authMethods) &&
-    typeof process !== "undefined" &&
-    process.env &&
-    process.env.DD_APP_KEY
-  ) {
+  if (!("appKeyAuth" in authMethods) && typeof process !== "undefined" && process.env && process.env.DD_APP_KEY) {
     authMethods["appKeyAuth"] = process.env.DD_APP_KEY;
   }
 
@@ -235,7 +212,7 @@ export function createConfiguration(
     conf.backoffMultiplier || 2,
     {},
   );
-  configuration.httpApi.zstdCompressorCallback = conf.zstdCompressorCallback;
+  configuration.httpApi.zstdCompressorCallback = conf.zstdCompressorCallback
   configuration.httpApi.debug = configuration.debug;
   configuration.httpApi.enableRetry = configuration.enableRetry;
   configuration.httpApi.maxRetries = configuration.maxRetries;

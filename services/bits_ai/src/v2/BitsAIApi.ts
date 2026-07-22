@@ -19,6 +19,7 @@ import {
   ServerConfiguration,
   stringify,
   applySecurityAuthentication,
+  
 } from "@datadog/datadog-api-client";
 
 import { TypingInfo } from "./models/TypingInfo";
@@ -47,9 +48,7 @@ export class BitsAIApiRequestFactory extends BaseAPIRequestFactory {
     const _config = _options || this.configuration;
 
     if (!_config.unstableOperations["BitsAIApi.v2.getInvestigation"]) {
-      throw new Error(
-        "Unstable operation 'getInvestigation' is disabled. Enable it by setting `configuration.unstableOperations['BitsAIApi.v2.getInvestigation'] = true`",
-      );
+      throw new Error("Unstable operation 'getInvestigation' is disabled. Enable it by setting `configuration.unstableOperations['BitsAIApi.v2.getInvestigation'] = true`");
     }
 
     // verify required parameter 'id' is not null or undefined
@@ -64,15 +63,8 @@ export class BitsAIApiRequestFactory extends BaseAPIRequestFactory {
     );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "BitsAIApi.v2.getInvestigation",
-      BitsAIApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.GET,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("BitsAIApi.v2.getInvestigation", BitsAIApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.GET, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -100,24 +92,15 @@ export class BitsAIApiRequestFactory extends BaseAPIRequestFactory {
     const _config = _options || this.configuration;
 
     if (!_config.unstableOperations["BitsAIApi.v2.listInvestigations"]) {
-      throw new Error(
-        "Unstable operation 'listInvestigations' is disabled. Enable it by setting `configuration.unstableOperations['BitsAIApi.v2.listInvestigations'] = true`",
-      );
+      throw new Error("Unstable operation 'listInvestigations' is disabled. Enable it by setting `configuration.unstableOperations['BitsAIApi.v2.listInvestigations'] = true`");
     }
 
     // Path Params
     const localVarPath = "/api/v2/bits-ai/investigations";
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "BitsAIApi.v2.listInvestigations",
-      BitsAIApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.GET,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("BitsAIApi.v2.listInvestigations", BitsAIApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.GET, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -166,9 +149,7 @@ export class BitsAIApiRequestFactory extends BaseAPIRequestFactory {
     const _config = _options || this.configuration;
 
     if (!_config.unstableOperations["BitsAIApi.v2.triggerInvestigation"]) {
-      throw new Error(
-        "Unstable operation 'triggerInvestigation' is disabled. Enable it by setting `configuration.unstableOperations['BitsAIApi.v2.triggerInvestigation'] = true`",
-      );
+      throw new Error("Unstable operation 'triggerInvestigation' is disabled. Enable it by setting `configuration.unstableOperations['BitsAIApi.v2.triggerInvestigation'] = true`");
     }
 
     // verify required parameter 'body' is not null or undefined
@@ -180,15 +161,8 @@ export class BitsAIApiRequestFactory extends BaseAPIRequestFactory {
     const localVarPath = "/api/v2/bits-ai/investigations";
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "BitsAIApi.v2.triggerInvestigation",
-      BitsAIApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.POST,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("BitsAIApi.v2.triggerInvestigation", BitsAIApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.POST, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -198,7 +172,9 @@ export class BitsAIApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Body Params
-    const contentType = getPreferredMediaType(["application/json"]);
+    const contentType = getPreferredMediaType([
+      "application/json",
+    ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = stringify(
       serialize(body, TypingInfo, "TriggerInvestigationRequest", ""),
@@ -228,7 +204,9 @@ export class BitsAIApiResponseProcessor {
   public async getInvestigation(
     response: ResponseContext,
   ): Promise<GetInvestigationResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: GetInvestigationResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -237,8 +215,14 @@ export class BitsAIApiResponseProcessor {
       ) as GetInvestigationResponse;
       return body;
     }
-    if (response.httpStatusCode === 400 || response.httpStatusCode === 404) {
-      const bodyText = parse(await response.body.text(), contentType);
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 404
+    ) {
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: JSONAPIErrorResponse;
       try {
         body = deserialize(
@@ -259,7 +243,10 @@ export class BitsAIApiResponseProcessor {
       );
     }
     if (response.httpStatusCode === 429) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -274,7 +261,10 @@ export class BitsAIApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -305,7 +295,9 @@ export class BitsAIApiResponseProcessor {
   public async listInvestigations(
     response: ResponseContext,
   ): Promise<ListInvestigationsResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: ListInvestigationsResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -315,7 +307,10 @@ export class BitsAIApiResponseProcessor {
       return body;
     }
     if (response.httpStatusCode === 400) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: JSONAPIErrorResponse;
       try {
         body = deserialize(
@@ -336,7 +331,10 @@ export class BitsAIApiResponseProcessor {
       );
     }
     if (response.httpStatusCode === 429) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -351,7 +349,10 @@ export class BitsAIApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -382,7 +383,9 @@ export class BitsAIApiResponseProcessor {
   public async triggerInvestigation(
     response: ResponseContext,
   ): Promise<TriggerInvestigationResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: TriggerInvestigationResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -392,7 +395,10 @@ export class BitsAIApiResponseProcessor {
       return body;
     }
     if (response.httpStatusCode === 400) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: JSONAPIErrorResponse;
       try {
         body = deserialize(
@@ -413,7 +419,10 @@ export class BitsAIApiResponseProcessor {
       );
     }
     if (response.httpStatusCode === 429) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -428,7 +437,10 @@ export class BitsAIApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -489,7 +501,8 @@ export class BitsAIApi {
   private responseProcessor: BitsAIApiResponseProcessor;
   private configuration: Configuration;
 
-  static operationServers: { [key: string]: BaseServerConfiguration[] } = {};
+  static operationServers: { [key: string]: BaseServerConfiguration[] } = {
+  };
 
   public constructor(
     configuration?: Configuration,
@@ -498,7 +511,8 @@ export class BitsAIApi {
   ) {
     this.configuration = configuration || createConfiguration();
     this.requestFactory =
-      requestFactory || new BitsAIApiRequestFactory(this.configuration);
+      requestFactory ||
+      new BitsAIApiRequestFactory(this.configuration);
     this.responseProcessor =
       responseProcessor || new BitsAIApiResponseProcessor();
   }
@@ -551,26 +565,19 @@ export class BitsAIApi {
    * Provide a paginated version of listInvestigations returning a generator with all the items.
    */
   public async *listInvestigationsWithPagination(
-    param: BitsAIApiListInvestigationsRequest = {},
-    options?: Configuration,
+    param: BitsAIApiListInvestigationsRequest = {}, options?: Configuration,
   ): AsyncGenerator<ListInvestigationsResponseData> {
+
     let pageSize = 25;
     if (param.pageLimit !== undefined) {
       pageSize = param.pageLimit;
     }
     param.pageLimit = pageSize;
     while (true) {
-      const requestContext = await this.requestFactory.listInvestigations(
-        param.pageOffset,
-        param.pageLimit,
-        param.filterMonitorId,
-        options,
-      );
-      const responseContext =
-        await this.configuration.httpApi.send(requestContext);
+      const requestContext = await this.requestFactory.listInvestigations(param.pageOffset,param.pageLimit,param.filterMonitorId,options);
+      const responseContext = await this.configuration.httpApi.send(requestContext);
 
-      const response =
-        await this.responseProcessor.listInvestigations(responseContext);
+      const response = await this.responseProcessor.listInvestigations(responseContext);
       const responseData = response.data;
       if (responseData === undefined) {
         break;

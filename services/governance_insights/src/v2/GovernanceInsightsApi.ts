@@ -19,6 +19,7 @@ import {
   ServerConfiguration,
   stringify,
   applySecurityAuthentication,
+  
 } from "@datadog/datadog-api-client";
 
 import { TypingInfo } from "./models/TypingInfo";
@@ -44,29 +45,16 @@ export class GovernanceInsightsApiRequestFactory extends BaseAPIRequestFactory {
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
-    if (
-      !_config.unstableOperations[
-        "GovernanceInsightsApi.v2.listGovernanceInsights"
-      ]
-    ) {
-      throw new Error(
-        "Unstable operation 'listGovernanceInsights' is disabled. Enable it by setting `configuration.unstableOperations['GovernanceInsightsApi.v2.listGovernanceInsights'] = true`",
-      );
+    if (!_config.unstableOperations["GovernanceInsightsApi.v2.listGovernanceInsights"]) {
+      throw new Error("Unstable operation 'listGovernanceInsights' is disabled. Enable it by setting `configuration.unstableOperations['GovernanceInsightsApi.v2.listGovernanceInsights'] = true`");
     }
 
     // Path Params
     const localVarPath = "/api/v2/governance/insights";
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "GovernanceInsightsApi.v2.listGovernanceInsights",
-      GovernanceInsightsApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.GET,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("GovernanceInsightsApi.v2.listGovernanceInsights", GovernanceInsightsApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.GET, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -119,7 +107,9 @@ export class GovernanceInsightsApiResponseProcessor {
   public async listGovernanceInsights(
     response: ResponseContext,
   ): Promise<GovernanceInsightsResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: GovernanceInsightsResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -133,7 +123,10 @@ export class GovernanceInsightsApiResponseProcessor {
       response.httpStatusCode === 401 ||
       response.httpStatusCode === 403
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: JSONAPIErrorResponse;
       try {
         body = deserialize(
@@ -154,7 +147,10 @@ export class GovernanceInsightsApiResponseProcessor {
       );
     }
     if (response.httpStatusCode === 429) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -169,7 +165,10 @@ export class GovernanceInsightsApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -218,7 +217,8 @@ export class GovernanceInsightsApi {
   private responseProcessor: GovernanceInsightsApiResponseProcessor;
   private configuration: Configuration;
 
-  static operationServers: { [key: string]: BaseServerConfiguration[] } = {};
+  static operationServers: { [key: string]: BaseServerConfiguration[] } = {
+  };
 
   public constructor(
     configuration?: Configuration,

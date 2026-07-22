@@ -1,5 +1,6 @@
 import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
+
 /**
  * A field with a single value selected.
  */
@@ -20,7 +21,7 @@ export class IncidentImportFieldAttributesSingleValue {
     value: {
       baseName: "value",
       type: "string",
-    },
+    }
   };
 
   /**

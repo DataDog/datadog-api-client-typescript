@@ -19,6 +19,7 @@ import {
   ServerConfiguration,
   stringify,
   applySecurityAuthentication,
+  
 } from "@datadog/datadog-api-client";
 
 import { TypingInfo } from "./models/TypingInfo";
@@ -44,15 +45,8 @@ export class IntegrationsApiRequestFactory extends BaseAPIRequestFactory {
     const localVarPath = "/api/v2/integrations";
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "IntegrationsApi.v2.listIntegrations",
-      IntegrationsApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.GET,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("IntegrationsApi.v2.listIntegrations", IntegrationsApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.GET, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -82,7 +76,9 @@ export class IntegrationsApiResponseProcessor {
   public async listIntegrations(
     response: ResponseContext,
   ): Promise<ListIntegrationsResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: ListIntegrationsResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -92,7 +88,10 @@ export class IntegrationsApiResponseProcessor {
       return body;
     }
     if (response.httpStatusCode === 429) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -107,7 +106,10 @@ export class IntegrationsApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -134,7 +136,8 @@ export class IntegrationsApi {
   private responseProcessor: IntegrationsApiResponseProcessor;
   private configuration: Configuration;
 
-  static operationServers: { [key: string]: BaseServerConfiguration[] } = {};
+  static operationServers: { [key: string]: BaseServerConfiguration[] } = {
+  };
 
   public constructor(
     configuration?: Configuration,
@@ -143,7 +146,8 @@ export class IntegrationsApi {
   ) {
     this.configuration = configuration || createConfiguration();
     this.requestFactory =
-      requestFactory || new IntegrationsApiRequestFactory(this.configuration);
+      requestFactory ||
+      new IntegrationsApiRequestFactory(this.configuration);
     this.responseProcessor =
       responseProcessor || new IntegrationsApiResponseProcessor();
   }
@@ -151,10 +155,11 @@ export class IntegrationsApi {
   /**
    * @param param The request object
    */
-  public listIntegrations(
-    options?: Configuration,
+  public listIntegrations(options?: Configuration,
   ): Promise<ListIntegrationsResponse> {
-    const requestContextPromise = this.requestFactory.listIntegrations(options);
+    const requestContextPromise = this.requestFactory.listIntegrations(
+      options,
+    );
     return requestContextPromise.then((requestContext) => {
       return this.configuration.httpApi
         .send(requestContext)

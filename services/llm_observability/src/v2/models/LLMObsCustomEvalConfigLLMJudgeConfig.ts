@@ -28,7 +28,7 @@ export class LLMObsCustomEvalConfigLLMJudgeConfig {
   /**
    * JSON schema describing the expected output format of the LLM judge.
    */
-  "outputSchema"?: { [key: string]: any };
+  "outputSchema"?: { [key: string]: any; };
   /**
    * Output parsing type for a custom LLM judge evaluator.
    */
@@ -42,7 +42,7 @@ export class LLMObsCustomEvalConfigLLMJudgeConfig {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
   /**
    * @ignore
    */

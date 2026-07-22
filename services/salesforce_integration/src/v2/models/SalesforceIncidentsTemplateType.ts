@@ -6,5 +6,4 @@ import { UnparsedObject } from "@datadog/datadog-api-client";
 export type SalesforceIncidentsTemplateType =
   | typeof SALESFORCE_INCIDENTS_INCIDENT_TEMPLATE
   | UnparsedObject;
-export const SALESFORCE_INCIDENTS_INCIDENT_TEMPLATE =
-  "salesforce-incidents-incident-template";
+export const SALESFORCE_INCIDENTS_INCIDENT_TEMPLATE = "salesforce-incidents-incident-template";

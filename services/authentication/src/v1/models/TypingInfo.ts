@@ -4,7 +4,8 @@ import { APIErrorResponse } from "./APIErrorResponse";
 import { AuthenticationValidationResponse } from "./AuthenticationValidationResponse";
 
 export const TypingInfo: ModelTypingInfo = {
-  enumsMap: {},
+  enumsMap: {
+  },
   oneOfMap: {},
   typeMap: {
     APIErrorResponse: APIErrorResponse,

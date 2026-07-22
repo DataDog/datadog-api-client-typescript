@@ -101,18 +101,13 @@ export const APM_HOST_USAGE = "apm_host_usage";
 export const APM_USM_USAGE = "apm_usm_usage";
 export const APPSEC_FARGATE_USAGE = "appsec_fargate_usage";
 export const APPSEC_USAGE = "appsec_usage";
-export const ASM_SERVERLESS_TRACED_INVOCATIONS_USAGE =
-  "asm_serverless_traced_invocations_usage";
-export const ASM_SERVERLESS_TRACED_INVOCATIONS_PERCENTAGE =
-  "asm_serverless_traced_invocations_percentage";
+export const ASM_SERVERLESS_TRACED_INVOCATIONS_USAGE = "asm_serverless_traced_invocations_usage";
+export const ASM_SERVERLESS_TRACED_INVOCATIONS_PERCENTAGE = "asm_serverless_traced_invocations_percentage";
 export const BITS_AI_INVESTIGATIONS_USAGE = "bits_ai_investigations_usage";
 export const BROWSER_USAGE = "browser_usage";
-export const CI_CODE_COVERAGE_COMMITTERS_PERCENTAGE =
-  "ci_code_coverage_committers_percentage";
-export const CI_CODE_COVERAGE_COMMITTERS_USAGE =
-  "ci_code_coverage_committers_usage";
-export const CI_PIPELINE_INDEXED_SPANS_USAGE =
-  "ci_pipeline_indexed_spans_usage";
+export const CI_CODE_COVERAGE_COMMITTERS_PERCENTAGE = "ci_code_coverage_committers_percentage";
+export const CI_CODE_COVERAGE_COMMITTERS_USAGE = "ci_code_coverage_committers_usage";
+export const CI_PIPELINE_INDEXED_SPANS_USAGE = "ci_pipeline_indexed_spans_usage";
 export const CI_TEST_INDEXED_SPANS_USAGE = "ci_test_indexed_spans_usage";
 export const CI_VISIBILITY_ITR_USAGE = "ci_visibility_itr_usage";
 export const CLOUD_SIEM_USAGE = "cloud_siem_usage";
@@ -122,8 +117,7 @@ export const CONTAINER_USAGE = "container_usage";
 export const CSPM_CONTAINERS_USAGE = "cspm_containers_usage";
 export const CSPM_HOSTS_USAGE = "cspm_hosts_usage";
 export const CUSTOM_EVENT_USAGE = "custom_event_usage";
-export const CUSTOM_INGESTED_TIMESERIES_USAGE =
-  "custom_ingested_timeseries_usage";
+export const CUSTOM_INGESTED_TIMESERIES_USAGE = "custom_ingested_timeseries_usage";
 export const CUSTOM_TIMESERIES_USAGE = "custom_timeseries_usage";
 export const CWS_CONTAINERS_USAGE = "cws_containers_usage";
 export const CWS_FARGATE_TASK_USAGE = "cws_fargate_task_usage";
@@ -140,16 +134,14 @@ export const FARGATE_USAGE = "fargate_usage";
 export const FLEX_LOGS_STARTER = "flex_logs_starter";
 export const FLEX_STORED_LOGS = "flex_stored_logs";
 export const FUNCTIONS_USAGE = "functions_usage";
-export const INCIDENT_MANAGEMENT_MONTHLY_ACTIVE_USERS_USAGE =
-  "incident_management_monthly_active_users_usage";
+export const INCIDENT_MANAGEMENT_MONTHLY_ACTIVE_USERS_USAGE = "incident_management_monthly_active_users_usage";
 export const INDEXED_SPANS_USAGE = "indexed_spans_usage";
 export const INFRA_HOST_USAGE = "infra_host_usage";
 export const INFRA_HOST_BASIC_USAGE = "infra_host_basic_usage";
 export const INGESTED_LOGS_BYTES_USAGE = "ingested_logs_bytes_usage";
 export const INGESTED_SPANS_BYTES_USAGE = "ingested_spans_bytes_usage";
 export const INVOCATIONS_USAGE = "invocations_usage";
-export const LAMBDA_TRACED_INVOCATIONS_USAGE =
-  "lambda_traced_invocations_usage";
+export const LAMBDA_TRACED_INVOCATIONS_USAGE = "lambda_traced_invocations_usage";
 export const LLM_OBSERVABILITY_USAGE = "llm_observability_usage";
 export const LLM_SPANS_USAGE = "llm_spans_usage";
 export const LOGS_INDEXED_15DAY_USAGE = "logs_indexed_15day_usage";
@@ -162,8 +154,7 @@ export const LOGS_INDEXED_45DAY_USAGE = "logs_indexed_45day_usage";
 export const LOGS_INDEXED_60DAY_USAGE = "logs_indexed_60day_usage";
 export const LOGS_INDEXED_7DAY_USAGE = "logs_indexed_7day_usage";
 export const LOGS_INDEXED_90DAY_USAGE = "logs_indexed_90day_usage";
-export const LOGS_INDEXED_CUSTOM_RETENTION_USAGE =
-  "logs_indexed_custom_retention_usage";
+export const LOGS_INDEXED_CUSTOM_RETENTION_USAGE = "logs_indexed_custom_retention_usage";
 export const MOBILE_APP_TESTING_USAGE = "mobile_app_testing_usage";
 export const NDM_NETFLOW_USAGE = "ndm_netflow_usage";
 export const NETWORK_DEVICE_WIRELESS_USAGE = "npm_host_usage";
@@ -171,30 +162,25 @@ export const NPM_HOST_USAGE = "network_device_wireless_usage";
 export const OBS_PIPELINE_BYTES_USAGE = "obs_pipeline_bytes_usage";
 export const OBS_PIPELINE_VCPU_USAGE = "obs_pipelines_vcpu_usage";
 export const ONLINE_ARCHIVE_USAGE = "online_archive_usage";
-export const PRODUCT_ANALYTICS_SESSION_USAGE =
-  "product_analytics_session_usage";
+export const PRODUCT_ANALYTICS_SESSION_USAGE = "product_analytics_session_usage";
 export const PROFILED_CONTAINER_USAGE = "profiled_container_usage";
 export const PROFILED_FARGATE_USAGE = "profiled_fargate_usage";
 export const PROFILED_HOST_USAGE = "profiled_host_usage";
 export const PUBLISHED_APP_USAGE = "published_app";
-export const RUM_BROWSER_MOBILE_SESSIONS_USAGE =
-  "rum_browser_mobile_sessions_usage";
+export const RUM_BROWSER_MOBILE_SESSIONS_USAGE = "rum_browser_mobile_sessions_usage";
 export const RUM_INGESTED_USAGE = "rum_ingested_usage";
 export const RUM_INVESTIGATE_USAGE = "rum_investigate_usage";
 export const RUM_REPLAY_SESSIONS_USAGE = "rum_replay_sessions_usage";
-export const RUM_SESSION_REPLAY_ADD_ON_USAGE =
-  "rum_session_replay_add_on_usage";
+export const RUM_SESSION_REPLAY_ADD_ON_USAGE = "rum_session_replay_add_on_usage";
 export const SCA_FARGATE_USAGE = "sca_fargate_usage";
 export const SDS_SCANNED_BYTES_USAGE = "sds_scanned_bytes_usage";
 export const SERVERLESS_APPS_USAGE = "serverless_apps_usage";
 export const SERVERLESS_APPS_APM_USAGE = "serverless_apps_apm_usage";
 export const SIEM_12MO_RETENTION_USAGE = "siem_12mo_retention_usage";
 export const SIEM_6MO_RETENTION_USAGE = "siem_6mo_retention_usage";
-export const SIEM_ANALYZED_LOGS_ADD_ON_USAGE =
-  "siem_analyzed_logs_add_on_usage";
+export const SIEM_ANALYZED_LOGS_ADD_ON_USAGE = "siem_analyzed_logs_add_on_usage";
 export const SIEM_INGESTED_BYTES_USAGE = "siem_ingested_bytes_usage";
 export const SNMP_USAGE = "snmp_usage";
-export const UNIVERSAL_SERVICE_MONITORING_USAGE =
-  "universal_service_monitoring_usage";
+export const UNIVERSAL_SERVICE_MONITORING_USAGE = "universal_service_monitoring_usage";
 export const VULN_MANAGEMENT_HOSTS_USAGE = "vuln_management_hosts_usage";
 export const WORKFLOW_EXECUTIONS_USAGE = "workflow_executions_usage";

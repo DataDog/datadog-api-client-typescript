@@ -14,7 +14,6 @@ export type AutomationRuleTriggerType =
 export const CASE_CREATED = "case_created";
 export const STATUS_TRANSITIONED = "status_transitioned";
 export const ATTRIBUTE_VALUE_CHANGED = "attribute_value_changed";
-export const EVENT_CORRELATION_SIGNAL_CORRELATED =
-  "event_correlation_signal_correlated";
+export const EVENT_CORRELATION_SIGNAL_CORRELATED = "event_correlation_signal_correlated";
 export const CASE_REVIEW_APPROVED = "case_review_approved";
 export const COMMENT_ADDED = "comment_added";

@@ -1,5 +1,6 @@
 import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
+
 /**
  * Search filter settings.
  */
@@ -23,7 +24,7 @@ export class FlakyTestsSearchFilter {
    * - `@test.codeowners`
    * - `env`
    * - `fingerprint_fqn`
-   *
+   * 
    * Use `fingerprint_fqn` to filter by a test's stable Fingerprint FQN (the same value as the test's `id`).
    */
   "query"?: string;
@@ -32,7 +33,7 @@ export class FlakyTestsSearchFilter {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
   /**
    * @ignore
    */

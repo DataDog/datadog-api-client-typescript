@@ -25,7 +25,7 @@ export class SLOCountSpec {
       baseName: "count",
       type: "SLOCountDefinition",
       required: true,
-    },
+    }
   };
 
   /**

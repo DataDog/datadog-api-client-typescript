@@ -69,35 +69,9 @@ export const TypingInfo: ModelTypingInfo = {
     PatchTableRequestDataType: ["reference_table"],
     ReferenceTableCreateSourceType: ["LOCAL_FILE", "S3", "GCS", "AZURE"],
     ReferenceTableSchemaFieldType: ["STRING", "INT32"],
-    ReferenceTableSortType: [
-      "updated_at",
-      "table_name",
-      "status",
-      "-updated_at",
-      "-table_name",
-      "-status",
-    ],
-    ReferenceTableSourceType: [
-      "LOCAL_FILE",
-      "S3",
-      "GCS",
-      "AZURE",
-      "SERVICENOW",
-      "SALESFORCE",
-      "DATABRICKS",
-      "SNOWFLAKE",
-    ],
-    TableResultV2DataAttributesFileMetadataCloudStorageErrorType: [
-      "TABLE_SCHEMA_ERROR",
-      "FILE_FORMAT_ERROR",
-      "CONFIGURATION_ERROR",
-      "QUOTA_EXCEEDED",
-      "CONFLICT_ERROR",
-      "VALIDATION_ERROR",
-      "STATE_ERROR",
-      "OPERATION_ERROR",
-      "SYSTEM_ERROR",
-    ],
+    ReferenceTableSortType: ["updated_at", "table_name", "status", "-updated_at", "-table_name", "-status"],
+    ReferenceTableSourceType: ["LOCAL_FILE", "S3", "GCS", "AZURE", "SERVICENOW", "SALESFORCE", "DATABRICKS", "SNOWFLAKE"],
+    TableResultV2DataAttributesFileMetadataCloudStorageErrorType: ["TABLE_SCHEMA_ERROR", "FILE_FORMAT_ERROR", "CONFIGURATION_ERROR", "QUOTA_EXCEEDED", "CONFLICT_ERROR", "VALIDATION_ERROR", "STATE_ERROR", "OPERATION_ERROR", "SYSTEM_ERROR"],
     TableResultV2DataType: ["reference_table"],
     TableRowResourceDataType: ["row"],
   },
@@ -111,7 +85,7 @@ export const TypingInfo: ModelTypingInfo = {
       "PatchTableRequestDataAttributesFileMetadataCloudStorage",
       "PatchTableRequestDataAttributesFileMetadataLocalFile",
     ],
-  },
+    },
   typeMap: {
     APIErrorResponse: APIErrorResponse,
     BatchDeleteRowsRequestArray: BatchDeleteRowsRequestArray,
@@ -120,32 +94,22 @@ export const TypingInfo: ModelTypingInfo = {
     BatchRowsQueryRequestDataAttributes: BatchRowsQueryRequestDataAttributes,
     BatchRowsQueryResponse: BatchRowsQueryResponse,
     BatchRowsQueryResponseData: BatchRowsQueryResponseData,
-    BatchRowsQueryResponseDataRelationships:
-      BatchRowsQueryResponseDataRelationships,
-    BatchRowsQueryResponseDataRelationshipsRows:
-      BatchRowsQueryResponseDataRelationshipsRows,
+    BatchRowsQueryResponseDataRelationships: BatchRowsQueryResponseDataRelationships,
+    BatchRowsQueryResponseDataRelationshipsRows: BatchRowsQueryResponseDataRelationshipsRows,
     BatchUpsertRowsRequestArray: BatchUpsertRowsRequestArray,
     BatchUpsertRowsRequestData: BatchUpsertRowsRequestData,
     BatchUpsertRowsRequestDataAttributes: BatchUpsertRowsRequestDataAttributes,
     CreateTableRequest: CreateTableRequest,
     CreateTableRequestData: CreateTableRequestData,
     CreateTableRequestDataAttributes: CreateTableRequestDataAttributes,
-    CreateTableRequestDataAttributesFileMetadataCloudStorage:
-      CreateTableRequestDataAttributesFileMetadataCloudStorage,
-    CreateTableRequestDataAttributesFileMetadataLocalFile:
-      CreateTableRequestDataAttributesFileMetadataLocalFile,
-    CreateTableRequestDataAttributesFileMetadataOneOfAccessDetails:
-      CreateTableRequestDataAttributesFileMetadataOneOfAccessDetails,
-    CreateTableRequestDataAttributesFileMetadataOneOfAccessDetailsAwsDetail:
-      CreateTableRequestDataAttributesFileMetadataOneOfAccessDetailsAwsDetail,
-    CreateTableRequestDataAttributesFileMetadataOneOfAccessDetailsAzureDetail:
-      CreateTableRequestDataAttributesFileMetadataOneOfAccessDetailsAzureDetail,
-    CreateTableRequestDataAttributesFileMetadataOneOfAccessDetailsGcpDetail:
-      CreateTableRequestDataAttributesFileMetadataOneOfAccessDetailsGcpDetail,
-    CreateTableRequestDataAttributesSchema:
-      CreateTableRequestDataAttributesSchema,
-    CreateTableRequestDataAttributesSchemaFieldsItems:
-      CreateTableRequestDataAttributesSchemaFieldsItems,
+    CreateTableRequestDataAttributesFileMetadataCloudStorage: CreateTableRequestDataAttributesFileMetadataCloudStorage,
+    CreateTableRequestDataAttributesFileMetadataLocalFile: CreateTableRequestDataAttributesFileMetadataLocalFile,
+    CreateTableRequestDataAttributesFileMetadataOneOfAccessDetails: CreateTableRequestDataAttributesFileMetadataOneOfAccessDetails,
+    CreateTableRequestDataAttributesFileMetadataOneOfAccessDetailsAwsDetail: CreateTableRequestDataAttributesFileMetadataOneOfAccessDetailsAwsDetail,
+    CreateTableRequestDataAttributesFileMetadataOneOfAccessDetailsAzureDetail: CreateTableRequestDataAttributesFileMetadataOneOfAccessDetailsAzureDetail,
+    CreateTableRequestDataAttributesFileMetadataOneOfAccessDetailsGcpDetail: CreateTableRequestDataAttributesFileMetadataOneOfAccessDetailsGcpDetail,
+    CreateTableRequestDataAttributesSchema: CreateTableRequestDataAttributesSchema,
+    CreateTableRequestDataAttributesSchemaFieldsItems: CreateTableRequestDataAttributesSchemaFieldsItems,
     CreateUploadRequest: CreateUploadRequest,
     CreateUploadRequestData: CreateUploadRequestData,
     CreateUploadRequestDataAttributes: CreateUploadRequestDataAttributes,
@@ -159,39 +123,25 @@ export const TypingInfo: ModelTypingInfo = {
     PatchTableRequest: PatchTableRequest,
     PatchTableRequestData: PatchTableRequestData,
     PatchTableRequestDataAttributes: PatchTableRequestDataAttributes,
-    PatchTableRequestDataAttributesFileMetadataCloudStorage:
-      PatchTableRequestDataAttributesFileMetadataCloudStorage,
-    PatchTableRequestDataAttributesFileMetadataLocalFile:
-      PatchTableRequestDataAttributesFileMetadataLocalFile,
-    PatchTableRequestDataAttributesFileMetadataOneOfAccessDetails:
-      PatchTableRequestDataAttributesFileMetadataOneOfAccessDetails,
-    PatchTableRequestDataAttributesFileMetadataOneOfAccessDetailsAwsDetail:
-      PatchTableRequestDataAttributesFileMetadataOneOfAccessDetailsAwsDetail,
-    PatchTableRequestDataAttributesFileMetadataOneOfAccessDetailsAzureDetail:
-      PatchTableRequestDataAttributesFileMetadataOneOfAccessDetailsAzureDetail,
-    PatchTableRequestDataAttributesFileMetadataOneOfAccessDetailsGcpDetail:
-      PatchTableRequestDataAttributesFileMetadataOneOfAccessDetailsGcpDetail,
-    PatchTableRequestDataAttributesSchema:
-      PatchTableRequestDataAttributesSchema,
-    PatchTableRequestDataAttributesSchemaFieldsItems:
-      PatchTableRequestDataAttributesSchemaFieldsItems,
+    PatchTableRequestDataAttributesFileMetadataCloudStorage: PatchTableRequestDataAttributesFileMetadataCloudStorage,
+    PatchTableRequestDataAttributesFileMetadataLocalFile: PatchTableRequestDataAttributesFileMetadataLocalFile,
+    PatchTableRequestDataAttributesFileMetadataOneOfAccessDetails: PatchTableRequestDataAttributesFileMetadataOneOfAccessDetails,
+    PatchTableRequestDataAttributesFileMetadataOneOfAccessDetailsAwsDetail: PatchTableRequestDataAttributesFileMetadataOneOfAccessDetailsAwsDetail,
+    PatchTableRequestDataAttributesFileMetadataOneOfAccessDetailsAzureDetail: PatchTableRequestDataAttributesFileMetadataOneOfAccessDetailsAzureDetail,
+    PatchTableRequestDataAttributesFileMetadataOneOfAccessDetailsGcpDetail: PatchTableRequestDataAttributesFileMetadataOneOfAccessDetailsGcpDetail,
+    PatchTableRequestDataAttributesSchema: PatchTableRequestDataAttributesSchema,
+    PatchTableRequestDataAttributesSchemaFieldsItems: PatchTableRequestDataAttributesSchemaFieldsItems,
     TableResultV2: TableResultV2,
     TableResultV2Array: TableResultV2Array,
     TableResultV2Data: TableResultV2Data,
     TableResultV2DataAttributes: TableResultV2DataAttributes,
-    TableResultV2DataAttributesFileMetadata:
-      TableResultV2DataAttributesFileMetadata,
-    TableResultV2DataAttributesFileMetadataOneOfAccessDetails:
-      TableResultV2DataAttributesFileMetadataOneOfAccessDetails,
-    TableResultV2DataAttributesFileMetadataOneOfAccessDetailsAwsDetail:
-      TableResultV2DataAttributesFileMetadataOneOfAccessDetailsAwsDetail,
-    TableResultV2DataAttributesFileMetadataOneOfAccessDetailsAzureDetail:
-      TableResultV2DataAttributesFileMetadataOneOfAccessDetailsAzureDetail,
-    TableResultV2DataAttributesFileMetadataOneOfAccessDetailsGcpDetail:
-      TableResultV2DataAttributesFileMetadataOneOfAccessDetailsGcpDetail,
+    TableResultV2DataAttributesFileMetadata: TableResultV2DataAttributesFileMetadata,
+    TableResultV2DataAttributesFileMetadataOneOfAccessDetails: TableResultV2DataAttributesFileMetadataOneOfAccessDetails,
+    TableResultV2DataAttributesFileMetadataOneOfAccessDetailsAwsDetail: TableResultV2DataAttributesFileMetadataOneOfAccessDetailsAwsDetail,
+    TableResultV2DataAttributesFileMetadataOneOfAccessDetailsAzureDetail: TableResultV2DataAttributesFileMetadataOneOfAccessDetailsAzureDetail,
+    TableResultV2DataAttributesFileMetadataOneOfAccessDetailsGcpDetail: TableResultV2DataAttributesFileMetadataOneOfAccessDetailsGcpDetail,
     TableResultV2DataAttributesSchema: TableResultV2DataAttributesSchema,
-    TableResultV2DataAttributesSchemaFieldsItems:
-      TableResultV2DataAttributesSchemaFieldsItems,
+    TableResultV2DataAttributesSchemaFieldsItems: TableResultV2DataAttributesSchemaFieldsItems,
     TableRowResourceArray: TableRowResourceArray,
     TableRowResourceData: TableRowResourceData,
     TableRowResourceDataAttributes: TableRowResourceDataAttributes,

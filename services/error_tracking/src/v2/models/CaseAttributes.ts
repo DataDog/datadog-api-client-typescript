@@ -19,7 +19,7 @@ export class CaseAttributes {
   /**
    * Key-value pairs of case attributes. Each key maps to an array of string values, used for flexible metadata such as labels or tags.
    */
-  "attributes"?: { [key: string]: Array<string> };
+  "attributes"?: { [key: string]: Array<string>; };
   /**
    * Timestamp of when the case was closed
    */
@@ -31,7 +31,7 @@ export class CaseAttributes {
   /**
    * Case custom attributes
    */
-  "customAttributes"?: { [key: string]: CustomAttributeValue };
+  "customAttributes"?: { [key: string]: CustomAttributeValue; };
   /**
    * Description
    */
@@ -85,7 +85,7 @@ export class CaseAttributes {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
   /**
    * @ignore
    */

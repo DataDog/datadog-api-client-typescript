@@ -1,5 +1,6 @@
 import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
+
 /**
  * Available values query for the metrics data source.
  */
@@ -30,7 +31,7 @@ export class NotebookTemplateVariableAvailableValuesQueryMetrics {
       baseName: "query",
       type: "string",
       required: true,
-    },
+    }
   };
 
   /**

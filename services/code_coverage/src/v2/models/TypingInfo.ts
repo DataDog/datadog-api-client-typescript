@@ -15,24 +15,18 @@ import { CoverageSummaryServiceStats } from "./CoverageSummaryServiceStats";
 
 export const TypingInfo: ModelTypingInfo = {
   enumsMap: {
-    BranchCoverageSummaryRequestType: [
-      "ci_app_coverage_branch_summary_request",
-    ],
-    CommitCoverageSummaryRequestType: [
-      "ci_app_coverage_commit_summary_request",
-    ],
+    BranchCoverageSummaryRequestType: ["ci_app_coverage_branch_summary_request"],
+    CommitCoverageSummaryRequestType: ["ci_app_coverage_commit_summary_request"],
     CoverageSummaryType: ["ci_app_coverage_summary"],
   },
   oneOfMap: {},
   typeMap: {
     APIErrorResponse: APIErrorResponse,
     BranchCoverageSummaryRequest: BranchCoverageSummaryRequest,
-    BranchCoverageSummaryRequestAttributes:
-      BranchCoverageSummaryRequestAttributes,
+    BranchCoverageSummaryRequestAttributes: BranchCoverageSummaryRequestAttributes,
     BranchCoverageSummaryRequestData: BranchCoverageSummaryRequestData,
     CommitCoverageSummaryRequest: CommitCoverageSummaryRequest,
-    CommitCoverageSummaryRequestAttributes:
-      CommitCoverageSummaryRequestAttributes,
+    CommitCoverageSummaryRequestAttributes: CommitCoverageSummaryRequestAttributes,
     CommitCoverageSummaryRequestData: CommitCoverageSummaryRequestData,
     CoverageSummaryAttributes: CoverageSummaryAttributes,
     CoverageSummaryCodeownerStats: CoverageSummaryCodeownerStats,

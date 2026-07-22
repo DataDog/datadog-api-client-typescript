@@ -32,7 +32,7 @@ export class RetentionCohortCriteria {
       baseName: "time_interval",
       type: "RetentionCohortCriteriaTimeInterval",
       required: true,
-    },
+    }
   };
 
   /**

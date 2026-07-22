@@ -40,16 +40,9 @@ import { ProductAnalyticsUnit } from "./ProductAnalyticsUnit";
 
 export const TypingInfo: ModelTypingInfo = {
   enumsMap: {
-    ProductAnalyticsAnalyticsRequestType: [
-      "formula_analytics_extended_request",
-    ],
+    ProductAnalyticsAnalyticsRequestType: ["formula_analytics_extended_request"],
     ProductAnalyticsEventQueryDataSource: ["product_analytics"],
-    ProductAnalyticsExecutionType: [
-      "simple",
-      "background",
-      "trino-multistep",
-      "materialized-view",
-    ],
+    ProductAnalyticsExecutionType: ["simple", "background", "trino-multistep", "materialized-view"],
     ProductAnalyticsOccurrenceQueryDataSource: ["product_analytics_occurrence"],
     ProductAnalyticsResponseMetaStatus: ["done", "running", "timeout"],
     ProductAnalyticsScalarColumnType: ["number", "group"],
@@ -63,19 +56,16 @@ export const TypingInfo: ModelTypingInfo = {
       "ProductAnalyticsEventQuery",
       "ProductAnalyticsOccurrenceQuery",
     ],
-  },
+    },
   typeMap: {
     APIErrorResponse: APIErrorResponse,
     ProductAnalyticsAnalyticsQuery: ProductAnalyticsAnalyticsQuery,
     ProductAnalyticsAnalyticsRequest: ProductAnalyticsAnalyticsRequest,
-    ProductAnalyticsAnalyticsRequestAttributes:
-      ProductAnalyticsAnalyticsRequestAttributes,
+    ProductAnalyticsAnalyticsRequestAttributes: ProductAnalyticsAnalyticsRequestAttributes,
     ProductAnalyticsAnalyticsRequestData: ProductAnalyticsAnalyticsRequestData,
-    ProductAnalyticsAudienceAccountSubquery:
-      ProductAnalyticsAudienceAccountSubquery,
+    ProductAnalyticsAudienceAccountSubquery: ProductAnalyticsAudienceAccountSubquery,
     ProductAnalyticsAudienceFilters: ProductAnalyticsAudienceFilters,
-    ProductAnalyticsAudienceSegmentSubquery:
-      ProductAnalyticsAudienceSegmentSubquery,
+    ProductAnalyticsAudienceSegmentSubquery: ProductAnalyticsAudienceSegmentSubquery,
     ProductAnalyticsAudienceUserSubquery: ProductAnalyticsAudienceUserSubquery,
     ProductAnalyticsCompute: ProductAnalyticsCompute,
     ProductAnalyticsEventQuery: ProductAnalyticsEventQuery,
@@ -90,29 +80,20 @@ export const TypingInfo: ModelTypingInfo = {
     ProductAnalyticsScalarColumn: ProductAnalyticsScalarColumn,
     ProductAnalyticsScalarColumnMeta: ProductAnalyticsScalarColumnMeta,
     ProductAnalyticsScalarResponse: ProductAnalyticsScalarResponse,
-    ProductAnalyticsScalarResponseAttributes:
-      ProductAnalyticsScalarResponseAttributes,
+    ProductAnalyticsScalarResponseAttributes: ProductAnalyticsScalarResponseAttributes,
     ProductAnalyticsScalarResponseData: ProductAnalyticsScalarResponseData,
     ProductAnalyticsSerie: ProductAnalyticsSerie,
     ProductAnalyticsServerSideEventError: ProductAnalyticsServerSideEventError,
-    ProductAnalyticsServerSideEventErrors:
-      ProductAnalyticsServerSideEventErrors,
+    ProductAnalyticsServerSideEventErrors: ProductAnalyticsServerSideEventErrors,
     ProductAnalyticsServerSideEventItem: ProductAnalyticsServerSideEventItem,
-    ProductAnalyticsServerSideEventItemAccount:
-      ProductAnalyticsServerSideEventItemAccount,
-    ProductAnalyticsServerSideEventItemApplication:
-      ProductAnalyticsServerSideEventItemApplication,
-    ProductAnalyticsServerSideEventItemEvent:
-      ProductAnalyticsServerSideEventItemEvent,
-    ProductAnalyticsServerSideEventItemSession:
-      ProductAnalyticsServerSideEventItemSession,
-    ProductAnalyticsServerSideEventItemUsr:
-      ProductAnalyticsServerSideEventItemUsr,
+    ProductAnalyticsServerSideEventItemAccount: ProductAnalyticsServerSideEventItemAccount,
+    ProductAnalyticsServerSideEventItemApplication: ProductAnalyticsServerSideEventItemApplication,
+    ProductAnalyticsServerSideEventItemEvent: ProductAnalyticsServerSideEventItemEvent,
+    ProductAnalyticsServerSideEventItemSession: ProductAnalyticsServerSideEventItemSession,
+    ProductAnalyticsServerSideEventItemUsr: ProductAnalyticsServerSideEventItemUsr,
     ProductAnalyticsTimeseriesResponse: ProductAnalyticsTimeseriesResponse,
-    ProductAnalyticsTimeseriesResponseAttributes:
-      ProductAnalyticsTimeseriesResponseAttributes,
-    ProductAnalyticsTimeseriesResponseData:
-      ProductAnalyticsTimeseriesResponseData,
+    ProductAnalyticsTimeseriesResponseAttributes: ProductAnalyticsTimeseriesResponseAttributes,
+    ProductAnalyticsTimeseriesResponseData: ProductAnalyticsTimeseriesResponseData,
     ProductAnalyticsUnit: ProductAnalyticsUnit,
   },
 };

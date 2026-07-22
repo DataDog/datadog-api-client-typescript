@@ -19,6 +19,7 @@ import {
   ServerConfiguration,
   stringify,
   applySecurityAuthentication,
+  
 } from "@datadog/datadog-api-client";
 
 import { TypingInfo } from "./models/TypingInfo";
@@ -53,15 +54,8 @@ export class ObservabilityPipelinesApiRequestFactory extends BaseAPIRequestFacto
     const localVarPath = "/api/v2/obs-pipelines/pipelines";
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "ObservabilityPipelinesApi.v2.createPipeline",
-      ObservabilityPipelinesApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.POST,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("ObservabilityPipelinesApi.v2.createPipeline", ObservabilityPipelinesApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.POST, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -71,7 +65,9 @@ export class ObservabilityPipelinesApiRequestFactory extends BaseAPIRequestFacto
     }
 
     // Body Params
-    const contentType = getPreferredMediaType(["application/json"]);
+    const contentType = getPreferredMediaType([
+      "application/json",
+    ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = stringify(
       serialize(body, TypingInfo, "ObservabilityPipelineSpec", ""),
@@ -100,22 +96,14 @@ export class ObservabilityPipelinesApiRequestFactory extends BaseAPIRequestFacto
     }
 
     // Path Params
-    const localVarPath =
-      "/api/v2/obs-pipelines/pipelines/{pipeline_id}".replace(
-        "{pipeline_id}",
-        encodeURIComponent(String(pipelineId)),
-      );
+    const localVarPath = "/api/v2/obs-pipelines/pipelines/{pipeline_id}".replace(
+      "{pipeline_id}",
+      encodeURIComponent(String(pipelineId)),
+    );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "ObservabilityPipelinesApi.v2.deletePipeline",
-      ObservabilityPipelinesApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.DELETE,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("ObservabilityPipelinesApi.v2.deletePipeline", ObservabilityPipelinesApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.DELETE, overrides);
     requestContext.setHeaderParam("Accept", "*/*");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -145,22 +133,14 @@ export class ObservabilityPipelinesApiRequestFactory extends BaseAPIRequestFacto
     }
 
     // Path Params
-    const localVarPath =
-      "/api/v2/obs-pipelines/pipelines/{pipeline_id}".replace(
-        "{pipeline_id}",
-        encodeURIComponent(String(pipelineId)),
-      );
+    const localVarPath = "/api/v2/obs-pipelines/pipelines/{pipeline_id}".replace(
+      "{pipeline_id}",
+      encodeURIComponent(String(pipelineId)),
+    );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "ObservabilityPipelinesApi.v2.getPipeline",
-      ObservabilityPipelinesApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.GET,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("ObservabilityPipelinesApi.v2.getPipeline", ObservabilityPipelinesApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.GET, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -189,15 +169,8 @@ export class ObservabilityPipelinesApiRequestFactory extends BaseAPIRequestFacto
     const localVarPath = "/api/v2/obs-pipelines/pipelines";
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "ObservabilityPipelinesApi.v2.listPipelines",
-      ObservabilityPipelinesApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.GET,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("ObservabilityPipelinesApi.v2.listPipelines", ObservabilityPipelinesApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.GET, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -249,22 +222,14 @@ export class ObservabilityPipelinesApiRequestFactory extends BaseAPIRequestFacto
     }
 
     // Path Params
-    const localVarPath =
-      "/api/v2/obs-pipelines/pipelines/{pipeline_id}".replace(
-        "{pipeline_id}",
-        encodeURIComponent(String(pipelineId)),
-      );
+    const localVarPath = "/api/v2/obs-pipelines/pipelines/{pipeline_id}".replace(
+      "{pipeline_id}",
+      encodeURIComponent(String(pipelineId)),
+    );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "ObservabilityPipelinesApi.v2.updatePipeline",
-      ObservabilityPipelinesApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.PUT,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("ObservabilityPipelinesApi.v2.updatePipeline", ObservabilityPipelinesApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.PUT, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -274,7 +239,9 @@ export class ObservabilityPipelinesApiRequestFactory extends BaseAPIRequestFacto
     }
 
     // Body Params
-    const contentType = getPreferredMediaType(["application/json"]);
+    const contentType = getPreferredMediaType([
+      "application/json",
+    ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = stringify(
       serialize(body, TypingInfo, "ObservabilityPipeline", ""),
@@ -306,15 +273,8 @@ export class ObservabilityPipelinesApiRequestFactory extends BaseAPIRequestFacto
     const localVarPath = "/api/v2/obs-pipelines/pipelines/validate";
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "ObservabilityPipelinesApi.v2.validatePipeline",
-      ObservabilityPipelinesApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.POST,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("ObservabilityPipelinesApi.v2.validatePipeline", ObservabilityPipelinesApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.POST, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -324,7 +284,9 @@ export class ObservabilityPipelinesApiRequestFactory extends BaseAPIRequestFacto
     }
 
     // Body Params
-    const contentType = getPreferredMediaType(["application/json"]);
+    const contentType = getPreferredMediaType([
+      "application/json",
+    ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = stringify(
       serialize(body, TypingInfo, "ObservabilityPipelineSpec", ""),
@@ -353,7 +315,9 @@ export class ObservabilityPipelinesApiResponseProcessor {
   public async createPipeline(
     response: ResponseContext,
   ): Promise<ObservabilityPipeline> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 201) {
       const body: ObservabilityPipeline = deserialize(
         parse(await response.body.text(), contentType),
@@ -368,7 +332,10 @@ export class ObservabilityPipelinesApiResponseProcessor {
       response.httpStatusCode === 409 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -383,7 +350,10 @@ export class ObservabilityPipelinesApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -411,8 +381,12 @@ export class ObservabilityPipelinesApiResponseProcessor {
    * @params response Response returned by the server for a request to deletePipeline
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async deletePipeline(response: ResponseContext): Promise<void> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+  public async deletePipeline(
+    response: ResponseContext,
+  ): Promise<void> {
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 204) {
       return;
     }
@@ -422,7 +396,10 @@ export class ObservabilityPipelinesApiResponseProcessor {
       response.httpStatusCode === 409 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -437,7 +414,10 @@ export class ObservabilityPipelinesApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -462,7 +442,9 @@ export class ObservabilityPipelinesApiResponseProcessor {
   public async getPipeline(
     response: ResponseContext,
   ): Promise<ObservabilityPipeline> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: ObservabilityPipeline = deserialize(
         parse(await response.body.text(), contentType),
@@ -471,8 +453,14 @@ export class ObservabilityPipelinesApiResponseProcessor {
       ) as ObservabilityPipeline;
       return body;
     }
-    if (response.httpStatusCode === 403 || response.httpStatusCode === 429) {
-      const bodyText = parse(await response.body.text(), contentType);
+    if (
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 429
+    ) {
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -487,7 +475,10 @@ export class ObservabilityPipelinesApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -518,7 +509,9 @@ export class ObservabilityPipelinesApiResponseProcessor {
   public async listPipelines(
     response: ResponseContext,
   ): Promise<ListPipelinesResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: ListPipelinesResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -532,7 +525,10 @@ export class ObservabilityPipelinesApiResponseProcessor {
       response.httpStatusCode === 403 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -547,7 +543,10 @@ export class ObservabilityPipelinesApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -578,7 +577,9 @@ export class ObservabilityPipelinesApiResponseProcessor {
   public async updatePipeline(
     response: ResponseContext,
   ): Promise<ObservabilityPipeline> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: ObservabilityPipeline = deserialize(
         parse(await response.body.text(), contentType),
@@ -594,7 +595,10 @@ export class ObservabilityPipelinesApiResponseProcessor {
       response.httpStatusCode === 409 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -609,7 +613,10 @@ export class ObservabilityPipelinesApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -640,7 +647,9 @@ export class ObservabilityPipelinesApiResponseProcessor {
   public async validatePipeline(
     response: ResponseContext,
   ): Promise<ValidationResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: ValidationResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -654,7 +663,10 @@ export class ObservabilityPipelinesApiResponseProcessor {
       response.httpStatusCode === 403 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -669,7 +681,10 @@ export class ObservabilityPipelinesApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -751,7 +766,8 @@ export class ObservabilityPipelinesApi {
   private responseProcessor: ObservabilityPipelinesApiResponseProcessor;
   private configuration: Configuration;
 
-  static operationServers: { [key: string]: BaseServerConfiguration[] } = {};
+  static operationServers: { [key: string]: BaseServerConfiguration[] } = {
+  };
 
   public constructor(
     configuration?: Configuration,

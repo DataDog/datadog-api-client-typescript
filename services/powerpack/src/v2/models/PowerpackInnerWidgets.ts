@@ -9,7 +9,7 @@ export class PowerpackInnerWidgets {
   /**
    * Information about widget.
    */
-  "definition": { [key: string]: any };
+  "definition": { [key: string]: any; };
   /**
    * Powerpack inner widget layout.
    */
@@ -19,7 +19,7 @@ export class PowerpackInnerWidgets {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
   /**
    * @ignore
    */

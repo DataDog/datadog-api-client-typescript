@@ -19,6 +19,7 @@ import {
   ServerConfiguration,
   stringify,
   applySecurityAuthentication,
+  
 } from "@datadog/datadog-api-client";
 
 import { TypingInfo } from "./models/TypingInfo";
@@ -67,15 +68,8 @@ export class RUMApiRequestFactory extends BaseAPIRequestFactory {
     const localVarPath = "/api/v2/rum/analytics/aggregate";
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "RUMApi.v2.aggregateRUMEvents",
-      RUMApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.POST,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("RUMApi.v2.aggregateRUMEvents", RUMApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.POST, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -85,7 +79,9 @@ export class RUMApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Body Params
-    const contentType = getPreferredMediaType(["application/json"]);
+    const contentType = getPreferredMediaType([
+      "application/json",
+    ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = stringify(
       serialize(body, TypingInfo, "RUMAggregateRequest", ""),
@@ -117,15 +113,8 @@ export class RUMApiRequestFactory extends BaseAPIRequestFactory {
     const localVarPath = "/api/v2/rum/applications";
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "RUMApi.v2.createRUMApplication",
-      RUMApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.POST,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("RUMApi.v2.createRUMApplication", RUMApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.POST, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -135,7 +124,9 @@ export class RUMApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Body Params
-    const contentType = getPreferredMediaType(["application/json"]);
+    const contentType = getPreferredMediaType([
+      "application/json",
+    ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = stringify(
       serialize(body, TypingInfo, "RUMApplicationCreateRequest", ""),
@@ -170,15 +161,8 @@ export class RUMApiRequestFactory extends BaseAPIRequestFactory {
     );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "RUMApi.v2.deleteRUMApplication",
-      RUMApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.DELETE,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("RUMApi.v2.deleteRUMApplication", RUMApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.DELETE, overrides);
     requestContext.setHeaderParam("Accept", "*/*");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -222,9 +206,7 @@ export class RUMApiRequestFactory extends BaseAPIRequestFactory {
     const _config = _options || this.configuration;
 
     if (!_config.unstableOperations["RUMApi.v2.deleteSourcemaps"]) {
-      throw new Error(
-        "Unstable operation 'deleteSourcemaps' is disabled. Enable it by setting `configuration.unstableOperations['RUMApi.v2.deleteSourcemaps'] = true`",
-      );
+      throw new Error("Unstable operation 'deleteSourcemaps' is disabled. Enable it by setting `configuration.unstableOperations['RUMApi.v2.deleteSourcemaps'] = true`");
     }
 
     // verify required parameter 'mapkind' is not null or undefined
@@ -241,15 +223,8 @@ export class RUMApiRequestFactory extends BaseAPIRequestFactory {
     const localVarPath = "/api/v2/sourcemaps";
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "RUMApi.v2.deleteSourcemaps",
-      RUMApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.DELETE,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("RUMApi.v2.deleteSourcemaps", RUMApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.DELETE, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -427,15 +402,8 @@ export class RUMApiRequestFactory extends BaseAPIRequestFactory {
     );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "RUMApi.v2.getRUMApplication",
-      RUMApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.GET,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("RUMApi.v2.getRUMApplication", RUMApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.GET, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -462,15 +430,8 @@ export class RUMApiRequestFactory extends BaseAPIRequestFactory {
     const localVarPath = "/api/v2/rum/applications";
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "RUMApi.v2.getRUMApplications",
-      RUMApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.GET,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("RUMApi.v2.getRUMApplications", RUMApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.GET, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -495,9 +456,7 @@ export class RUMApiRequestFactory extends BaseAPIRequestFactory {
     const _config = _options || this.configuration;
 
     if (!_config.unstableOperations["RUMApi.v2.getServiceRepositoryInfo"]) {
-      throw new Error(
-        "Unstable operation 'getServiceRepositoryInfo' is disabled. Enable it by setting `configuration.unstableOperations['RUMApi.v2.getServiceRepositoryInfo'] = true`",
-      );
+      throw new Error("Unstable operation 'getServiceRepositoryInfo' is disabled. Enable it by setting `configuration.unstableOperations['RUMApi.v2.getServiceRepositoryInfo'] = true`");
     }
 
     // verify required parameter 'body' is not null or undefined
@@ -509,15 +468,8 @@ export class RUMApiRequestFactory extends BaseAPIRequestFactory {
     const localVarPath = "/api/v2/sourcemaps/service_repository_info";
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "RUMApi.v2.getServiceRepositoryInfo",
-      RUMApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.POST,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("RUMApi.v2.getServiceRepositoryInfo", RUMApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.POST, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -527,7 +479,9 @@ export class RUMApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Body Params
-    const contentType = getPreferredMediaType(["application/json"]);
+    const contentType = getPreferredMediaType([
+      "application/json",
+    ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = stringify(
       serialize(body, TypingInfo, "ServiceRepositoryInfoRequest", ""),
@@ -553,9 +507,7 @@ export class RUMApiRequestFactory extends BaseAPIRequestFactory {
     const _config = _options || this.configuration;
 
     if (!_config.unstableOperations["RUMApi.v2.getSourcemaps"]) {
-      throw new Error(
-        "Unstable operation 'getSourcemaps' is disabled. Enable it by setting `configuration.unstableOperations['RUMApi.v2.getSourcemaps'] = true`",
-      );
+      throw new Error("Unstable operation 'getSourcemaps' is disabled. Enable it by setting `configuration.unstableOperations['RUMApi.v2.getSourcemaps'] = true`");
     }
 
     // verify required parameter 'filename' is not null or undefined
@@ -577,15 +529,8 @@ export class RUMApiRequestFactory extends BaseAPIRequestFactory {
     const localVarPath = "/api/v2/sourcemaps";
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "RUMApi.v2.getSourcemaps",
-      RUMApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.GET,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("RUMApi.v2.getSourcemaps", RUMApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.GET, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -641,15 +586,8 @@ export class RUMApiRequestFactory extends BaseAPIRequestFactory {
     const localVarPath = "/api/v2/rum/events";
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "RUMApi.v2.listRUMEvents",
-      RUMApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.GET,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("RUMApi.v2.listRUMEvents", RUMApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.GET, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -738,24 +676,15 @@ export class RUMApiRequestFactory extends BaseAPIRequestFactory {
     const _config = _options || this.configuration;
 
     if (!_config.unstableOperations["RUMApi.v2.listSourcemaps"]) {
-      throw new Error(
-        "Unstable operation 'listSourcemaps' is disabled. Enable it by setting `configuration.unstableOperations['RUMApi.v2.listSourcemaps'] = true`",
-      );
+      throw new Error("Unstable operation 'listSourcemaps' is disabled. Enable it by setting `configuration.unstableOperations['RUMApi.v2.listSourcemaps'] = true`");
     }
 
     // Path Params
     const localVarPath = "/api/v2/sourcemaps/list";
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "RUMApi.v2.listSourcemaps",
-      RUMApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.GET,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("RUMApi.v2.listSourcemaps", RUMApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.GET, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -948,9 +877,7 @@ export class RUMApiRequestFactory extends BaseAPIRequestFactory {
     const _config = _options || this.configuration;
 
     if (!_config.unstableOperations["RUMApi.v2.restoreSourcemaps"]) {
-      throw new Error(
-        "Unstable operation 'restoreSourcemaps' is disabled. Enable it by setting `configuration.unstableOperations['RUMApi.v2.restoreSourcemaps'] = true`",
-      );
+      throw new Error("Unstable operation 'restoreSourcemaps' is disabled. Enable it by setting `configuration.unstableOperations['RUMApi.v2.restoreSourcemaps'] = true`");
     }
 
     // verify required parameter 'mapkind' is not null or undefined
@@ -967,15 +894,8 @@ export class RUMApiRequestFactory extends BaseAPIRequestFactory {
     const localVarPath = "/api/v2/sourcemaps/restore";
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "RUMApi.v2.restoreSourcemaps",
-      RUMApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.PATCH,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("RUMApi.v2.restoreSourcemaps", RUMApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.PATCH, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -1150,15 +1070,8 @@ export class RUMApiRequestFactory extends BaseAPIRequestFactory {
     const localVarPath = "/api/v2/rum/events/search";
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "RUMApi.v2.searchRUMEvents",
-      RUMApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.POST,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("RUMApi.v2.searchRUMEvents", RUMApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.POST, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -1168,7 +1081,9 @@ export class RUMApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Body Params
-    const contentType = getPreferredMediaType(["application/json"]);
+    const contentType = getPreferredMediaType([
+      "application/json",
+    ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = stringify(
       serialize(body, TypingInfo, "RUMSearchEventsRequest", ""),
@@ -1209,15 +1124,8 @@ export class RUMApiRequestFactory extends BaseAPIRequestFactory {
     );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "RUMApi.v2.updateRUMApplication",
-      RUMApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.PATCH,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("RUMApi.v2.updateRUMApplication", RUMApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.PATCH, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -1227,7 +1135,9 @@ export class RUMApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Body Params
-    const contentType = getPreferredMediaType(["application/json"]);
+    const contentType = getPreferredMediaType([
+      "application/json",
+    ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = stringify(
       serialize(body, TypingInfo, "RUMApplicationUpdateRequest", ""),
@@ -1256,7 +1166,9 @@ export class RUMApiResponseProcessor {
   public async aggregateRUMEvents(
     response: ResponseContext,
   ): Promise<RUMAnalyticsAggregateResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: RUMAnalyticsAggregateResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -1270,7 +1182,10 @@ export class RUMApiResponseProcessor {
       response.httpStatusCode === 403 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -1285,7 +1200,10 @@ export class RUMApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -1316,7 +1234,9 @@ export class RUMApiResponseProcessor {
   public async createRUMApplication(
     response: ResponseContext,
   ): Promise<RUMApplicationResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: RUMApplicationResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -1325,8 +1245,14 @@ export class RUMApiResponseProcessor {
       ) as RUMApplicationResponse;
       return body;
     }
-    if (response.httpStatusCode === 400 || response.httpStatusCode === 429) {
-      const bodyText = parse(await response.body.text(), contentType);
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 429
+    ) {
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -1341,7 +1267,10 @@ export class RUMApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -1369,13 +1298,23 @@ export class RUMApiResponseProcessor {
    * @params response Response returned by the server for a request to deleteRUMApplication
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async deleteRUMApplication(response: ResponseContext): Promise<void> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+  public async deleteRUMApplication(
+    response: ResponseContext,
+  ): Promise<void> {
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 204) {
       return;
     }
-    if (response.httpStatusCode === 404 || response.httpStatusCode === 429) {
-      const bodyText = parse(await response.body.text(), contentType);
+    if (
+      response.httpStatusCode === 404 ||
+      response.httpStatusCode === 429
+    ) {
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -1390,7 +1329,10 @@ export class RUMApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -1415,7 +1357,9 @@ export class RUMApiResponseProcessor {
   public async deleteSourcemaps(
     response: ResponseContext,
   ): Promise<SourcemapsResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: SourcemapsResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -1429,7 +1373,10 @@ export class RUMApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 500
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: JSONAPIErrorResponse;
       try {
         body = deserialize(
@@ -1450,7 +1397,10 @@ export class RUMApiResponseProcessor {
       );
     }
     if (response.httpStatusCode === 429) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -1465,7 +1415,10 @@ export class RUMApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -1496,7 +1449,9 @@ export class RUMApiResponseProcessor {
   public async getRUMApplication(
     response: ResponseContext,
   ): Promise<RUMApplicationResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: RUMApplicationResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -1505,8 +1460,14 @@ export class RUMApiResponseProcessor {
       ) as RUMApplicationResponse;
       return body;
     }
-    if (response.httpStatusCode === 404 || response.httpStatusCode === 429) {
-      const bodyText = parse(await response.body.text(), contentType);
+    if (
+      response.httpStatusCode === 404 ||
+      response.httpStatusCode === 429
+    ) {
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -1521,7 +1482,10 @@ export class RUMApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -1552,7 +1516,9 @@ export class RUMApiResponseProcessor {
   public async getRUMApplications(
     response: ResponseContext,
   ): Promise<RUMApplicationsResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: RUMApplicationsResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -1561,8 +1527,14 @@ export class RUMApiResponseProcessor {
       ) as RUMApplicationsResponse;
       return body;
     }
-    if (response.httpStatusCode === 404 || response.httpStatusCode === 429) {
-      const bodyText = parse(await response.body.text(), contentType);
+    if (
+      response.httpStatusCode === 404 ||
+      response.httpStatusCode === 429
+    ) {
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -1577,7 +1549,10 @@ export class RUMApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -1608,7 +1583,9 @@ export class RUMApiResponseProcessor {
   public async getServiceRepositoryInfo(
     response: ResponseContext,
   ): Promise<ServiceRepositoryInfoResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: ServiceRepositoryInfoResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -1617,8 +1594,14 @@ export class RUMApiResponseProcessor {
       ) as ServiceRepositoryInfoResponse;
       return body;
     }
-    if (response.httpStatusCode === 401 || response.httpStatusCode === 500) {
-      const bodyText = parse(await response.body.text(), contentType);
+    if (
+      response.httpStatusCode === 401 ||
+      response.httpStatusCode === 500
+    ) {
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: JSONAPIErrorResponse;
       try {
         body = deserialize(
@@ -1639,7 +1622,10 @@ export class RUMApiResponseProcessor {
       );
     }
     if (response.httpStatusCode === 429) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -1654,7 +1640,10 @@ export class RUMApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -1685,7 +1674,9 @@ export class RUMApiResponseProcessor {
   public async getSourcemaps(
     response: ResponseContext,
   ): Promise<SourcemapFileResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: SourcemapFileResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -1699,7 +1690,10 @@ export class RUMApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 500
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: JSONAPIErrorResponse;
       try {
         body = deserialize(
@@ -1720,7 +1714,10 @@ export class RUMApiResponseProcessor {
       );
     }
     if (response.httpStatusCode === 429) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -1735,7 +1732,10 @@ export class RUMApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -1766,7 +1766,9 @@ export class RUMApiResponseProcessor {
   public async listRUMEvents(
     response: ResponseContext,
   ): Promise<RUMEventsResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: RUMEventsResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -1780,7 +1782,10 @@ export class RUMApiResponseProcessor {
       response.httpStatusCode === 403 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -1795,7 +1800,10 @@ export class RUMApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -1826,7 +1834,9 @@ export class RUMApiResponseProcessor {
   public async listSourcemaps(
     response: ResponseContext,
   ): Promise<ListSourcemapsResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: ListSourcemapsResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -1840,7 +1850,10 @@ export class RUMApiResponseProcessor {
       response.httpStatusCode === 413 ||
       response.httpStatusCode === 500
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: JSONAPIErrorResponse;
       try {
         body = deserialize(
@@ -1861,7 +1874,10 @@ export class RUMApiResponseProcessor {
       );
     }
     if (response.httpStatusCode === 429) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -1876,7 +1892,10 @@ export class RUMApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -1907,7 +1926,9 @@ export class RUMApiResponseProcessor {
   public async restoreSourcemaps(
     response: ResponseContext,
   ): Promise<SourcemapsResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: SourcemapsResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -1921,7 +1942,10 @@ export class RUMApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 500
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: JSONAPIErrorResponse;
       try {
         body = deserialize(
@@ -1942,7 +1966,10 @@ export class RUMApiResponseProcessor {
       );
     }
     if (response.httpStatusCode === 429) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -1957,7 +1984,10 @@ export class RUMApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -1988,7 +2018,9 @@ export class RUMApiResponseProcessor {
   public async searchRUMEvents(
     response: ResponseContext,
   ): Promise<RUMEventsResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: RUMEventsResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -2002,7 +2034,10 @@ export class RUMApiResponseProcessor {
       response.httpStatusCode === 403 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -2017,7 +2052,10 @@ export class RUMApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -2048,7 +2086,9 @@ export class RUMApiResponseProcessor {
   public async updateRUMApplication(
     response: ResponseContext,
   ): Promise<RUMApplicationResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: RUMApplicationResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -2063,7 +2103,10 @@ export class RUMApiResponseProcessor {
       response.httpStatusCode === 422 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -2078,7 +2121,10 @@ export class RUMApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -2541,7 +2587,8 @@ export class RUMApi {
   private responseProcessor: RUMApiResponseProcessor;
   private configuration: Configuration;
 
-  static operationServers: { [key: string]: BaseServerConfiguration[] } = {};
+  static operationServers: { [key: string]: BaseServerConfiguration[] } = {
+  };
 
   public constructor(
     configuration?: Configuration,
@@ -2550,8 +2597,10 @@ export class RUMApi {
   ) {
     this.configuration = configuration || createConfiguration();
     this.requestFactory =
-      requestFactory || new RUMApiRequestFactory(this.configuration);
-    this.responseProcessor = responseProcessor || new RUMApiResponseProcessor();
+      requestFactory ||
+      new RUMApiRequestFactory(this.configuration);
+    this.responseProcessor =
+      responseProcessor || new RUMApiResponseProcessor();
   }
 
   /**
@@ -2684,11 +2733,11 @@ export class RUMApi {
    * List all the RUM applications in your organization.
    * @param param The request object
    */
-  public getRUMApplications(
-    options?: Configuration,
+  public getRUMApplications(options?: Configuration,
   ): Promise<RUMApplicationsResponse> {
-    const requestContextPromise =
-      this.requestFactory.getRUMApplications(options);
+    const requestContextPromise = this.requestFactory.getRUMApplications(
+      options,
+    );
     return requestContextPromise.then((requestContext) => {
       return this.configuration.httpApi
         .send(requestContext)
@@ -2714,9 +2763,7 @@ export class RUMApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.getServiceRepositoryInfo(
-            responseContext,
-          );
+          return this.responseProcessor.getServiceRepositoryInfo(responseContext);
         });
     });
   }
@@ -2748,9 +2795,9 @@ export class RUMApi {
   /**
    * List endpoint returns events that match a RUM search query.
    * [Results are paginated][1].
-   *
+   * 
    * Use this endpoint to see your latest RUM events.
-   *
+   * 
    * [1]: https://docs.datadoghq.com/logs/guide/collect-multiple-logs-with-pagination
    * @param param The request object
    */
@@ -2780,29 +2827,19 @@ export class RUMApi {
    * Provide a paginated version of listRUMEvents returning a generator with all the items.
    */
   public async *listRUMEventsWithPagination(
-    param: RUMApiListRUMEventsRequest = {},
-    options?: Configuration,
+    param: RUMApiListRUMEventsRequest = {}, options?: Configuration,
   ): AsyncGenerator<RUMEvent> {
+
     let pageSize = 10;
     if (param.pageLimit !== undefined) {
       pageSize = param.pageLimit;
     }
     param.pageLimit = pageSize;
     while (true) {
-      const requestContext = await this.requestFactory.listRUMEvents(
-        param.filterQuery,
-        param.filterFrom,
-        param.filterTo,
-        param.sort,
-        param.pageCursor,
-        param.pageLimit,
-        options,
-      );
-      const responseContext =
-        await this.configuration.httpApi.send(requestContext);
+      const requestContext = await this.requestFactory.listRUMEvents(param.filterQuery,param.filterFrom,param.filterTo,param.sort,param.pageCursor,param.pageLimit,options);
+      const responseContext = await this.configuration.httpApi.send(requestContext);
 
-      const response =
-        await this.responseProcessor.listRUMEvents(responseContext);
+      const response = await this.responseProcessor.listRUMEvents(responseContext);
       const responseData = response.data;
       if (responseData === undefined) {
         break;
@@ -2917,9 +2954,9 @@ export class RUMApi {
   /**
    * List endpoint returns RUM events that match a RUM search query.
    * [Results are paginated][1].
-   *
+   * 
    * Use this endpoint to build complex RUM events filtering and search.
-   *
+   * 
    * [1]: https://docs.datadoghq.com/logs/guide/collect-multiple-logs-with-pagination
    * @param param The request object
    */
@@ -2944,11 +2981,11 @@ export class RUMApi {
    * Provide a paginated version of searchRUMEvents returning a generator with all the items.
    */
   public async *searchRUMEventsWithPagination(
-    param: RUMApiSearchRUMEventsRequest,
-    options?: Configuration,
+    param: RUMApiSearchRUMEventsRequest, options?: Configuration,
   ): AsyncGenerator<RUMEvent> {
+
     let pageSize = 10;
-    if (param.body.page === undefined) {
+    if (param.body.page === undefined ) {
       param.body.page = new RUMQueryPageOptions();
     }
     if (param.body.page.limit === undefined) {
@@ -2957,15 +2994,10 @@ export class RUMApi {
       pageSize = param.body.page.limit;
     }
     while (true) {
-      const requestContext = await this.requestFactory.searchRUMEvents(
-        param.body,
-        options,
-      );
-      const responseContext =
-        await this.configuration.httpApi.send(requestContext);
+      const requestContext = await this.requestFactory.searchRUMEvents(param.body,options);
+      const responseContext = await this.configuration.httpApi.send(requestContext);
 
-      const response =
-        await this.responseProcessor.searchRUMEvents(responseContext);
+      const response = await this.responseProcessor.searchRUMEvents(responseContext);
       const responseData = response.data;
       if (responseData === undefined) {
         break;

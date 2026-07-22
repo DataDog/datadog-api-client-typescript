@@ -40,7 +40,7 @@ export class TableResultV2Data {
       baseName: "type",
       type: "TableResultV2DataType",
       required: true,
-    },
+    }
   };
 
   /**

@@ -23,23 +23,17 @@ export const TypingInfo: ModelTypingInfo = {
   oneOfMap: {},
   typeMap: {
     APIErrorResponse: APIErrorResponse,
-    CloudInventorySyncConfigAWSRequestAttributes:
-      CloudInventorySyncConfigAWSRequestAttributes,
+    CloudInventorySyncConfigAWSRequestAttributes: CloudInventorySyncConfigAWSRequestAttributes,
     CloudInventorySyncConfigAttributes: CloudInventorySyncConfigAttributes,
-    CloudInventorySyncConfigAzureRequestAttributes:
-      CloudInventorySyncConfigAzureRequestAttributes,
-    CloudInventorySyncConfigGCPRequestAttributes:
-      CloudInventorySyncConfigGCPRequestAttributes,
+    CloudInventorySyncConfigAzureRequestAttributes: CloudInventorySyncConfigAzureRequestAttributes,
+    CloudInventorySyncConfigGCPRequestAttributes: CloudInventorySyncConfigGCPRequestAttributes,
     CloudInventorySyncConfigResponse: CloudInventorySyncConfigResponse,
     CloudInventorySyncConfigResponseData: CloudInventorySyncConfigResponseData,
     JSONAPIErrorItem: JSONAPIErrorItem,
     JSONAPIErrorItemSource: JSONAPIErrorItemSource,
     JSONAPIErrorResponse: JSONAPIErrorResponse,
-    UpsertCloudInventorySyncConfigRequest:
-      UpsertCloudInventorySyncConfigRequest,
-    UpsertCloudInventorySyncConfigRequestAttributes:
-      UpsertCloudInventorySyncConfigRequestAttributes,
-    UpsertCloudInventorySyncConfigRequestData:
-      UpsertCloudInventorySyncConfigRequestData,
+    UpsertCloudInventorySyncConfigRequest: UpsertCloudInventorySyncConfigRequest,
+    UpsertCloudInventorySyncConfigRequestAttributes: UpsertCloudInventorySyncConfigRequestAttributes,
+    UpsertCloudInventorySyncConfigRequestData: UpsertCloudInventorySyncConfigRequestData,
   },
 };

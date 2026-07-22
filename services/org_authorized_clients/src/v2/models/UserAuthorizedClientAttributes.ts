@@ -1,5 +1,6 @@
 import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
+
 /**
  * Attributes of a user authorized client.
  */
@@ -15,7 +16,7 @@ export class UserAuthorizedClientAttributes {
   /**
    * The date and time this authorization was last exercised.
    */
-  "lastExercised": Date | null;
+  "lastExercised": Date|null;
   /**
    * The date and time this authorization was last modified.
    */
@@ -29,7 +30,7 @@ export class UserAuthorizedClientAttributes {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
   /**
    * @ignore
    */

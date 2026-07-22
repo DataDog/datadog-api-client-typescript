@@ -19,6 +19,7 @@ import {
   ServerConfiguration,
   stringify,
   applySecurityAuthentication,
+  
 } from "@datadog/datadog-api-client";
 
 import { TypingInfo } from "./models/TypingInfo";
@@ -53,15 +54,8 @@ export class CloudflareIntegrationApiRequestFactory extends BaseAPIRequestFactor
     const localVarPath = "/api/v2/integrations/cloudflare/accounts";
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "CloudflareIntegrationApi.v2.createCloudflareAccount",
-      CloudflareIntegrationApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.POST,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("CloudflareIntegrationApi.v2.createCloudflareAccount", CloudflareIntegrationApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.POST, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -71,7 +65,9 @@ export class CloudflareIntegrationApiRequestFactory extends BaseAPIRequestFactor
     }
 
     // Body Params
-    const contentType = getPreferredMediaType(["application/json"]);
+    const contentType = getPreferredMediaType([
+      "application/json",
+    ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = stringify(
       serialize(body, TypingInfo, "CloudflareAccountCreateRequest", ""),
@@ -100,22 +96,14 @@ export class CloudflareIntegrationApiRequestFactory extends BaseAPIRequestFactor
     }
 
     // Path Params
-    const localVarPath =
-      "/api/v2/integrations/cloudflare/accounts/{account_id}".replace(
-        "{account_id}",
-        encodeURIComponent(String(accountId)),
-      );
+    const localVarPath = "/api/v2/integrations/cloudflare/accounts/{account_id}".replace(
+      "{account_id}",
+      encodeURIComponent(String(accountId)),
+    );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "CloudflareIntegrationApi.v2.deleteCloudflareAccount",
-      CloudflareIntegrationApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.DELETE,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("CloudflareIntegrationApi.v2.deleteCloudflareAccount", CloudflareIntegrationApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.DELETE, overrides);
     requestContext.setHeaderParam("Accept", "*/*");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -145,22 +133,14 @@ export class CloudflareIntegrationApiRequestFactory extends BaseAPIRequestFactor
     }
 
     // Path Params
-    const localVarPath =
-      "/api/v2/integrations/cloudflare/accounts/{account_id}".replace(
-        "{account_id}",
-        encodeURIComponent(String(accountId)),
-      );
+    const localVarPath = "/api/v2/integrations/cloudflare/accounts/{account_id}".replace(
+      "{account_id}",
+      encodeURIComponent(String(accountId)),
+    );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "CloudflareIntegrationApi.v2.getCloudflareAccount",
-      CloudflareIntegrationApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.GET,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("CloudflareIntegrationApi.v2.getCloudflareAccount", CloudflareIntegrationApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.GET, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -187,15 +167,8 @@ export class CloudflareIntegrationApiRequestFactory extends BaseAPIRequestFactor
     const localVarPath = "/api/v2/integrations/cloudflare/accounts";
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "CloudflareIntegrationApi.v2.listCloudflareAccounts",
-      CloudflareIntegrationApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.GET,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("CloudflareIntegrationApi.v2.listCloudflareAccounts", CloudflareIntegrationApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.GET, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -231,22 +204,14 @@ export class CloudflareIntegrationApiRequestFactory extends BaseAPIRequestFactor
     }
 
     // Path Params
-    const localVarPath =
-      "/api/v2/integrations/cloudflare/accounts/{account_id}".replace(
-        "{account_id}",
-        encodeURIComponent(String(accountId)),
-      );
+    const localVarPath = "/api/v2/integrations/cloudflare/accounts/{account_id}".replace(
+      "{account_id}",
+      encodeURIComponent(String(accountId)),
+    );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "CloudflareIntegrationApi.v2.updateCloudflareAccount",
-      CloudflareIntegrationApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.PATCH,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("CloudflareIntegrationApi.v2.updateCloudflareAccount", CloudflareIntegrationApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.PATCH, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -256,7 +221,9 @@ export class CloudflareIntegrationApiRequestFactory extends BaseAPIRequestFactor
     }
 
     // Body Params
-    const contentType = getPreferredMediaType(["application/json"]);
+    const contentType = getPreferredMediaType([
+      "application/json",
+    ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = stringify(
       serialize(body, TypingInfo, "CloudflareAccountUpdateRequest", ""),
@@ -285,7 +252,9 @@ export class CloudflareIntegrationApiResponseProcessor {
   public async createCloudflareAccount(
     response: ResponseContext,
   ): Promise<CloudflareAccountResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 201) {
       const body: CloudflareAccountResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -300,7 +269,10 @@ export class CloudflareIntegrationApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -315,7 +287,10 @@ export class CloudflareIntegrationApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -346,7 +321,9 @@ export class CloudflareIntegrationApiResponseProcessor {
   public async deleteCloudflareAccount(
     response: ResponseContext,
   ): Promise<void> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 204) {
       return;
     }
@@ -356,7 +333,10 @@ export class CloudflareIntegrationApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -371,7 +351,10 @@ export class CloudflareIntegrationApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -396,7 +379,9 @@ export class CloudflareIntegrationApiResponseProcessor {
   public async getCloudflareAccount(
     response: ResponseContext,
   ): Promise<CloudflareAccountResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: CloudflareAccountResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -411,7 +396,10 @@ export class CloudflareIntegrationApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -426,7 +414,10 @@ export class CloudflareIntegrationApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -457,7 +448,9 @@ export class CloudflareIntegrationApiResponseProcessor {
   public async listCloudflareAccounts(
     response: ResponseContext,
   ): Promise<CloudflareAccountsResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: CloudflareAccountsResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -472,7 +465,10 @@ export class CloudflareIntegrationApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -487,7 +483,10 @@ export class CloudflareIntegrationApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -518,7 +517,9 @@ export class CloudflareIntegrationApiResponseProcessor {
   public async updateCloudflareAccount(
     response: ResponseContext,
   ): Promise<CloudflareAccountResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: CloudflareAccountResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -533,7 +534,10 @@ export class CloudflareIntegrationApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -548,7 +552,10 @@ export class CloudflareIntegrationApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -610,7 +617,8 @@ export class CloudflareIntegrationApi {
   private responseProcessor: CloudflareIntegrationApiResponseProcessor;
   private configuration: Configuration;
 
-  static operationServers: { [key: string]: BaseServerConfiguration[] } = {};
+  static operationServers: { [key: string]: BaseServerConfiguration[] } = {
+  };
 
   public constructor(
     configuration?: Configuration,
@@ -641,9 +649,7 @@ export class CloudflareIntegrationApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.createCloudflareAccount(
-            responseContext,
-          );
+          return this.responseProcessor.createCloudflareAccount(responseContext);
         });
     });
   }
@@ -664,9 +670,7 @@ export class CloudflareIntegrationApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.deleteCloudflareAccount(
-            responseContext,
-          );
+          return this.responseProcessor.deleteCloudflareAccount(responseContext);
         });
     });
   }
@@ -696,11 +700,11 @@ export class CloudflareIntegrationApi {
    * List Cloudflare accounts.
    * @param param The request object
    */
-  public listCloudflareAccounts(
-    options?: Configuration,
+  public listCloudflareAccounts(options?: Configuration,
   ): Promise<CloudflareAccountsResponse> {
-    const requestContextPromise =
-      this.requestFactory.listCloudflareAccounts(options);
+    const requestContextPromise = this.requestFactory.listCloudflareAccounts(
+      options,
+    );
     return requestContextPromise.then((requestContext) => {
       return this.configuration.httpApi
         .send(requestContext)
@@ -727,9 +731,7 @@ export class CloudflareIntegrationApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.updateCloudflareAccount(
-            responseContext,
-          );
+          return this.responseProcessor.updateCloudflareAccount(responseContext);
         });
     });
   }

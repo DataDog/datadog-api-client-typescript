@@ -1,5 +1,6 @@
 import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
+
 /**
  * Data object for an LLM Observability experiment run.
  */
@@ -7,7 +8,7 @@ export class LLMObsExperimentRunDataResponse {
   /**
    * Aggregated metric data for this run.
    */
-  "aggregateData"?: { [key: string]: any };
+  "aggregateData"?: { [key: string]: any; };
   /**
    * Timestamp when the run was created.
    */
@@ -29,7 +30,7 @@ export class LLMObsExperimentRunDataResponse {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
   /**
    * @ignore
    */

@@ -19,6 +19,7 @@ import {
   ServerConfiguration,
   stringify,
   applySecurityAuthentication,
+  
 } from "@datadog/datadog-api-client";
 
 import { TypingInfo } from "./models/TypingInfo";
@@ -68,15 +69,8 @@ export class KeyManagementApiRequestFactory extends BaseAPIRequestFactory {
     const localVarPath = "/api/v2/api_keys";
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "KeyManagementApi.v2.createAPIKey",
-      KeyManagementApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.POST,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("KeyManagementApi.v2.createAPIKey", KeyManagementApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.POST, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -86,7 +80,9 @@ export class KeyManagementApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Body Params
-    const contentType = getPreferredMediaType(["application/json"]);
+    const contentType = getPreferredMediaType([
+      "application/json",
+    ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = stringify(
       serialize(body, TypingInfo, "APIKeyCreateRequest", ""),
@@ -118,15 +114,8 @@ export class KeyManagementApiRequestFactory extends BaseAPIRequestFactory {
     const localVarPath = "/api/v2/current_user/application_keys";
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "KeyManagementApi.v2.createCurrentUserApplicationKey",
-      KeyManagementApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.POST,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("KeyManagementApi.v2.createCurrentUserApplicationKey", KeyManagementApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.POST, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -136,7 +125,9 @@ export class KeyManagementApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Body Params
-    const contentType = getPreferredMediaType(["application/json"]);
+    const contentType = getPreferredMediaType([
+      "application/json",
+    ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = stringify(
       serialize(body, TypingInfo, "ApplicationKeyCreateRequest", ""),
@@ -168,15 +159,8 @@ export class KeyManagementApiRequestFactory extends BaseAPIRequestFactory {
     const localVarPath = "/api/v2/personal_access_tokens";
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "KeyManagementApi.v2.createPersonalAccessToken",
-      KeyManagementApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.POST,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("KeyManagementApi.v2.createPersonalAccessToken", KeyManagementApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.POST, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -186,7 +170,9 @@ export class KeyManagementApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Body Params
-    const contentType = getPreferredMediaType(["application/json"]);
+    const contentType = getPreferredMediaType([
+      "application/json",
+    ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = stringify(
       serialize(body, TypingInfo, "PersonalAccessTokenCreateRequest", ""),
@@ -221,15 +207,8 @@ export class KeyManagementApiRequestFactory extends BaseAPIRequestFactory {
     );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "KeyManagementApi.v2.deleteAPIKey",
-      KeyManagementApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.DELETE,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("KeyManagementApi.v2.deleteAPIKey", KeyManagementApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.DELETE, overrides);
     requestContext.setHeaderParam("Accept", "*/*");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -265,15 +244,8 @@ export class KeyManagementApiRequestFactory extends BaseAPIRequestFactory {
     );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "KeyManagementApi.v2.deleteApplicationKey",
-      KeyManagementApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.DELETE,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("KeyManagementApi.v2.deleteApplicationKey", KeyManagementApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.DELETE, overrides);
     requestContext.setHeaderParam("Accept", "*/*");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -303,22 +275,14 @@ export class KeyManagementApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Path Params
-    const localVarPath =
-      "/api/v2/current_user/application_keys/{app_key_id}".replace(
-        "{app_key_id}",
-        encodeURIComponent(String(appKeyId)),
-      );
+    const localVarPath = "/api/v2/current_user/application_keys/{app_key_id}".replace(
+      "{app_key_id}",
+      encodeURIComponent(String(appKeyId)),
+    );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "KeyManagementApi.v2.deleteCurrentUserApplicationKey",
-      KeyManagementApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.DELETE,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("KeyManagementApi.v2.deleteCurrentUserApplicationKey", KeyManagementApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.DELETE, overrides);
     requestContext.setHeaderParam("Accept", "*/*");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -355,15 +319,8 @@ export class KeyManagementApiRequestFactory extends BaseAPIRequestFactory {
     );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "KeyManagementApi.v2.getAPIKey",
-      KeyManagementApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.GET,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("KeyManagementApi.v2.getAPIKey", KeyManagementApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.GET, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -409,15 +366,8 @@ export class KeyManagementApiRequestFactory extends BaseAPIRequestFactory {
     );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "KeyManagementApi.v2.getApplicationKey",
-      KeyManagementApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.GET,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("KeyManagementApi.v2.getApplicationKey", KeyManagementApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.GET, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -456,22 +406,14 @@ export class KeyManagementApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Path Params
-    const localVarPath =
-      "/api/v2/current_user/application_keys/{app_key_id}".replace(
-        "{app_key_id}",
-        encodeURIComponent(String(appKeyId)),
-      );
+    const localVarPath = "/api/v2/current_user/application_keys/{app_key_id}".replace(
+      "{app_key_id}",
+      encodeURIComponent(String(appKeyId)),
+    );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "KeyManagementApi.v2.getCurrentUserApplicationKey",
-      KeyManagementApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.GET,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("KeyManagementApi.v2.getCurrentUserApplicationKey", KeyManagementApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.GET, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -507,15 +449,8 @@ export class KeyManagementApiRequestFactory extends BaseAPIRequestFactory {
     );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "KeyManagementApi.v2.getPersonalAccessToken",
-      KeyManagementApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.GET,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("KeyManagementApi.v2.getPersonalAccessToken", KeyManagementApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.GET, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -553,15 +488,8 @@ export class KeyManagementApiRequestFactory extends BaseAPIRequestFactory {
     const localVarPath = "/api/v2/api_keys";
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "KeyManagementApi.v2.listAPIKeys",
-      KeyManagementApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.GET,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("KeyManagementApi.v2.listAPIKeys", KeyManagementApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.GET, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -675,15 +603,8 @@ export class KeyManagementApiRequestFactory extends BaseAPIRequestFactory {
     const localVarPath = "/api/v2/application_keys";
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "KeyManagementApi.v2.listApplicationKeys",
-      KeyManagementApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.GET,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("KeyManagementApi.v2.listApplicationKeys", KeyManagementApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.GET, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -775,15 +696,8 @@ export class KeyManagementApiRequestFactory extends BaseAPIRequestFactory {
     const localVarPath = "/api/v2/current_user/application_keys";
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "KeyManagementApi.v2.listCurrentUserApplicationKeys",
-      KeyManagementApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.GET,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("KeyManagementApi.v2.listCurrentUserApplicationKeys", KeyManagementApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.GET, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -866,15 +780,8 @@ export class KeyManagementApiRequestFactory extends BaseAPIRequestFactory {
     const localVarPath = "/api/v2/personal_access_tokens";
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "KeyManagementApi.v2.listPersonalAccessTokens",
-      KeyManagementApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.GET,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("KeyManagementApi.v2.listPersonalAccessTokens", KeyManagementApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.GET, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -947,15 +854,8 @@ export class KeyManagementApiRequestFactory extends BaseAPIRequestFactory {
     );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "KeyManagementApi.v2.revokePersonalAccessToken",
-      KeyManagementApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.DELETE,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("KeyManagementApi.v2.revokePersonalAccessToken", KeyManagementApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.DELETE, overrides);
     requestContext.setHeaderParam("Accept", "*/*");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -997,15 +897,8 @@ export class KeyManagementApiRequestFactory extends BaseAPIRequestFactory {
     );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "KeyManagementApi.v2.updateAPIKey",
-      KeyManagementApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.PATCH,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("KeyManagementApi.v2.updateAPIKey", KeyManagementApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.PATCH, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -1015,7 +908,9 @@ export class KeyManagementApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Body Params
-    const contentType = getPreferredMediaType(["application/json"]);
+    const contentType = getPreferredMediaType([
+      "application/json",
+    ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = stringify(
       serialize(body, TypingInfo, "APIKeyUpdateRequest", ""),
@@ -1056,15 +951,8 @@ export class KeyManagementApiRequestFactory extends BaseAPIRequestFactory {
     );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "KeyManagementApi.v2.updateApplicationKey",
-      KeyManagementApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.PATCH,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("KeyManagementApi.v2.updateApplicationKey", KeyManagementApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.PATCH, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -1074,7 +962,9 @@ export class KeyManagementApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Body Params
-    const contentType = getPreferredMediaType(["application/json"]);
+    const contentType = getPreferredMediaType([
+      "application/json",
+    ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = stringify(
       serialize(body, TypingInfo, "ApplicationKeyUpdateRequest", ""),
@@ -1109,22 +999,14 @@ export class KeyManagementApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Path Params
-    const localVarPath =
-      "/api/v2/current_user/application_keys/{app_key_id}".replace(
-        "{app_key_id}",
-        encodeURIComponent(String(appKeyId)),
-      );
+    const localVarPath = "/api/v2/current_user/application_keys/{app_key_id}".replace(
+      "{app_key_id}",
+      encodeURIComponent(String(appKeyId)),
+    );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "KeyManagementApi.v2.updateCurrentUserApplicationKey",
-      KeyManagementApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.PATCH,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("KeyManagementApi.v2.updateCurrentUserApplicationKey", KeyManagementApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.PATCH, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -1134,7 +1016,9 @@ export class KeyManagementApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Body Params
-    const contentType = getPreferredMediaType(["application/json"]);
+    const contentType = getPreferredMediaType([
+      "application/json",
+    ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = stringify(
       serialize(body, TypingInfo, "ApplicationKeyUpdateRequest", ""),
@@ -1175,15 +1059,8 @@ export class KeyManagementApiRequestFactory extends BaseAPIRequestFactory {
     );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "KeyManagementApi.v2.updatePersonalAccessToken",
-      KeyManagementApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.PATCH,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("KeyManagementApi.v2.updatePersonalAccessToken", KeyManagementApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.PATCH, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -1193,7 +1070,9 @@ export class KeyManagementApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Body Params
-    const contentType = getPreferredMediaType(["application/json"]);
+    const contentType = getPreferredMediaType([
+      "application/json",
+    ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = stringify(
       serialize(body, TypingInfo, "PersonalAccessTokenUpdateRequest", ""),
@@ -1210,28 +1089,21 @@ export class KeyManagementApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
-  public async validate(_options?: Configuration): Promise<RequestContext> {
+  public async validate(
+    _options?: Configuration,
+  ): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
     if (!_config.unstableOperations["KeyManagementApi.v2.validate"]) {
-      throw new Error(
-        "Unstable operation 'validate' is disabled. Enable it by setting `configuration.unstableOperations['KeyManagementApi.v2.validate'] = true`",
-      );
+      throw new Error("Unstable operation 'validate' is disabled. Enable it by setting `configuration.unstableOperations['KeyManagementApi.v2.validate'] = true`");
     }
 
     // Path Params
     const localVarPath = "/api/v2/validate";
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "KeyManagementApi.v2.validate",
-      KeyManagementApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.GET,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("KeyManagementApi.v2.validate", KeyManagementApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.GET, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -1241,7 +1113,9 @@ export class KeyManagementApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Apply auth methods
-    applySecurityAuthentication(_config, requestContext, ["apiKeyAuth"]);
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+    ]);
 
     return requestContext;
   }
@@ -1255,15 +1129,8 @@ export class KeyManagementApiRequestFactory extends BaseAPIRequestFactory {
     const localVarPath = "/api/v2/validate_keys";
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "KeyManagementApi.v2.validateAPIKey",
-      KeyManagementApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.GET,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("KeyManagementApi.v2.validateAPIKey", KeyManagementApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.GET, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -1293,7 +1160,9 @@ export class KeyManagementApiResponseProcessor {
   public async createAPIKey(
     response: ResponseContext,
   ): Promise<APIKeyResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 201) {
       const body: APIKeyResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -1307,7 +1176,10 @@ export class KeyManagementApiResponseProcessor {
       response.httpStatusCode === 403 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -1322,7 +1194,10 @@ export class KeyManagementApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -1353,7 +1228,9 @@ export class KeyManagementApiResponseProcessor {
   public async createCurrentUserApplicationKey(
     response: ResponseContext,
   ): Promise<ApplicationKeyResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 201) {
       const body: ApplicationKeyResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -1367,7 +1244,10 @@ export class KeyManagementApiResponseProcessor {
       response.httpStatusCode === 403 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -1382,7 +1262,10 @@ export class KeyManagementApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -1413,7 +1296,9 @@ export class KeyManagementApiResponseProcessor {
   public async createPersonalAccessToken(
     response: ResponseContext,
   ): Promise<PersonalAccessTokenCreateResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 201) {
       const body: PersonalAccessTokenCreateResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -1427,7 +1312,10 @@ export class KeyManagementApiResponseProcessor {
       response.httpStatusCode === 403 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -1442,7 +1330,10 @@ export class KeyManagementApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -1470,8 +1361,12 @@ export class KeyManagementApiResponseProcessor {
    * @params response Response returned by the server for a request to deleteAPIKey
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async deleteAPIKey(response: ResponseContext): Promise<void> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+  public async deleteAPIKey(
+    response: ResponseContext,
+  ): Promise<void> {
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 204) {
       return;
     }
@@ -1480,7 +1375,10 @@ export class KeyManagementApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -1495,7 +1393,10 @@ export class KeyManagementApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -1517,8 +1418,12 @@ export class KeyManagementApiResponseProcessor {
    * @params response Response returned by the server for a request to deleteApplicationKey
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async deleteApplicationKey(response: ResponseContext): Promise<void> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+  public async deleteApplicationKey(
+    response: ResponseContext,
+  ): Promise<void> {
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 204) {
       return;
     }
@@ -1527,7 +1432,10 @@ export class KeyManagementApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -1542,7 +1450,10 @@ export class KeyManagementApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -1567,7 +1478,9 @@ export class KeyManagementApiResponseProcessor {
   public async deleteCurrentUserApplicationKey(
     response: ResponseContext,
   ): Promise<void> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 204) {
       return;
     }
@@ -1576,7 +1489,10 @@ export class KeyManagementApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -1591,7 +1507,10 @@ export class KeyManagementApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -1613,8 +1532,12 @@ export class KeyManagementApiResponseProcessor {
    * @params response Response returned by the server for a request to getAPIKey
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async getAPIKey(response: ResponseContext): Promise<APIKeyResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+  public async getAPIKey(
+    response: ResponseContext,
+  ): Promise<APIKeyResponse> {
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: APIKeyResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -1628,7 +1551,10 @@ export class KeyManagementApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -1643,7 +1569,10 @@ export class KeyManagementApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -1674,7 +1603,9 @@ export class KeyManagementApiResponseProcessor {
   public async getApplicationKey(
     response: ResponseContext,
   ): Promise<ApplicationKeyResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: ApplicationKeyResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -1689,7 +1620,10 @@ export class KeyManagementApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -1704,7 +1638,10 @@ export class KeyManagementApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -1735,7 +1672,9 @@ export class KeyManagementApiResponseProcessor {
   public async getCurrentUserApplicationKey(
     response: ResponseContext,
   ): Promise<ApplicationKeyResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: ApplicationKeyResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -1749,7 +1688,10 @@ export class KeyManagementApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -1764,7 +1706,10 @@ export class KeyManagementApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -1795,7 +1740,9 @@ export class KeyManagementApiResponseProcessor {
   public async getPersonalAccessToken(
     response: ResponseContext,
   ): Promise<PersonalAccessTokenResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: PersonalAccessTokenResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -1809,7 +1756,10 @@ export class KeyManagementApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -1824,7 +1774,10 @@ export class KeyManagementApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -1855,7 +1808,9 @@ export class KeyManagementApiResponseProcessor {
   public async listAPIKeys(
     response: ResponseContext,
   ): Promise<APIKeysResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: APIKeysResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -1869,7 +1824,10 @@ export class KeyManagementApiResponseProcessor {
       response.httpStatusCode === 403 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -1884,7 +1842,10 @@ export class KeyManagementApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -1915,7 +1876,9 @@ export class KeyManagementApiResponseProcessor {
   public async listApplicationKeys(
     response: ResponseContext,
   ): Promise<ListApplicationKeysResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: ListApplicationKeysResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -1930,7 +1893,10 @@ export class KeyManagementApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -1945,7 +1911,10 @@ export class KeyManagementApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -1976,7 +1945,9 @@ export class KeyManagementApiResponseProcessor {
   public async listCurrentUserApplicationKeys(
     response: ResponseContext,
   ): Promise<ListApplicationKeysResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: ListApplicationKeysResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -1991,7 +1962,10 @@ export class KeyManagementApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -2006,7 +1980,10 @@ export class KeyManagementApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -2037,7 +2014,9 @@ export class KeyManagementApiResponseProcessor {
   public async listPersonalAccessTokens(
     response: ResponseContext,
   ): Promise<ListPersonalAccessTokensResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: ListPersonalAccessTokensResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -2051,7 +2030,10 @@ export class KeyManagementApiResponseProcessor {
       response.httpStatusCode === 403 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -2066,7 +2048,10 @@ export class KeyManagementApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -2097,7 +2082,9 @@ export class KeyManagementApiResponseProcessor {
   public async revokePersonalAccessToken(
     response: ResponseContext,
   ): Promise<void> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 204) {
       return;
     }
@@ -2106,7 +2093,10 @@ export class KeyManagementApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -2121,7 +2111,10 @@ export class KeyManagementApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -2146,7 +2139,9 @@ export class KeyManagementApiResponseProcessor {
   public async updateAPIKey(
     response: ResponseContext,
   ): Promise<APIKeyResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: APIKeyResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -2161,7 +2156,10 @@ export class KeyManagementApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -2176,7 +2174,10 @@ export class KeyManagementApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -2207,7 +2208,9 @@ export class KeyManagementApiResponseProcessor {
   public async updateApplicationKey(
     response: ResponseContext,
   ): Promise<ApplicationKeyResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: ApplicationKeyResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -2222,7 +2225,10 @@ export class KeyManagementApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -2237,7 +2243,10 @@ export class KeyManagementApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -2268,7 +2277,9 @@ export class KeyManagementApiResponseProcessor {
   public async updateCurrentUserApplicationKey(
     response: ResponseContext,
   ): Promise<ApplicationKeyResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: ApplicationKeyResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -2283,7 +2294,10 @@ export class KeyManagementApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -2298,7 +2312,10 @@ export class KeyManagementApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -2329,7 +2346,9 @@ export class KeyManagementApiResponseProcessor {
   public async updatePersonalAccessToken(
     response: ResponseContext,
   ): Promise<PersonalAccessTokenResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: PersonalAccessTokenResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -2344,7 +2363,10 @@ export class KeyManagementApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -2359,7 +2381,10 @@ export class KeyManagementApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -2390,7 +2415,9 @@ export class KeyManagementApiResponseProcessor {
   public async validate(
     response: ResponseContext,
   ): Promise<ValidateV2Response> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: ValidateV2Response = deserialize(
         parse(await response.body.text(), contentType),
@@ -2400,7 +2427,10 @@ export class KeyManagementApiResponseProcessor {
       return body;
     }
     if (response.httpStatusCode === 403) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: JSONAPIErrorResponse;
       try {
         body = deserialize(
@@ -2421,7 +2451,10 @@ export class KeyManagementApiResponseProcessor {
       );
     }
     if (response.httpStatusCode === 429) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -2436,7 +2469,10 @@ export class KeyManagementApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -2467,7 +2503,9 @@ export class KeyManagementApiResponseProcessor {
   public async validateAPIKey(
     response: ResponseContext,
   ): Promise<ValidateAPIKeyResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: ValidateAPIKeyResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -2481,7 +2519,10 @@ export class KeyManagementApiResponseProcessor {
       response.httpStatusCode === 403 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -2496,7 +2537,10 @@ export class KeyManagementApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -2841,7 +2885,8 @@ export class KeyManagementApi {
   private responseProcessor: KeyManagementApiResponseProcessor;
   private configuration: Configuration;
 
-  static operationServers: { [key: string]: BaseServerConfiguration[] } = {};
+  static operationServers: { [key: string]: BaseServerConfiguration[] } = {
+  };
 
   public constructor(
     configuration?: Configuration,
@@ -2850,7 +2895,8 @@ export class KeyManagementApi {
   ) {
     this.configuration = configuration || createConfiguration();
     this.requestFactory =
-      requestFactory || new KeyManagementApiRequestFactory(this.configuration);
+      requestFactory ||
+      new KeyManagementApiRequestFactory(this.configuration);
     this.responseProcessor =
       responseProcessor || new KeyManagementApiResponseProcessor();
   }
@@ -2884,15 +2930,15 @@ export class KeyManagementApi {
     param: KeyManagementApiCreateCurrentUserApplicationKeyRequest,
     options?: Configuration,
   ): Promise<ApplicationKeyResponse> {
-    const requestContextPromise =
-      this.requestFactory.createCurrentUserApplicationKey(param.body, options);
+    const requestContextPromise = this.requestFactory.createCurrentUserApplicationKey(
+      param.body,
+      options,
+    );
     return requestContextPromise.then((requestContext) => {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.createCurrentUserApplicationKey(
-            responseContext,
-          );
+          return this.responseProcessor.createCurrentUserApplicationKey(responseContext);
         });
     });
   }
@@ -2913,9 +2959,7 @@ export class KeyManagementApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.createPersonalAccessToken(
-            responseContext,
-          );
+          return this.responseProcessor.createPersonalAccessToken(responseContext);
         });
     });
   }
@@ -2970,18 +3014,15 @@ export class KeyManagementApi {
     param: KeyManagementApiDeleteCurrentUserApplicationKeyRequest,
     options?: Configuration,
   ): Promise<void> {
-    const requestContextPromise =
-      this.requestFactory.deleteCurrentUserApplicationKey(
-        param.appKeyId,
-        options,
-      );
+    const requestContextPromise = this.requestFactory.deleteCurrentUserApplicationKey(
+      param.appKeyId,
+      options,
+    );
     return requestContextPromise.then((requestContext) => {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.deleteCurrentUserApplicationKey(
-            responseContext,
-          );
+          return this.responseProcessor.deleteCurrentUserApplicationKey(responseContext);
         });
     });
   }
@@ -3039,15 +3080,15 @@ export class KeyManagementApi {
     param: KeyManagementApiGetCurrentUserApplicationKeyRequest,
     options?: Configuration,
   ): Promise<ApplicationKeyResponse> {
-    const requestContextPromise =
-      this.requestFactory.getCurrentUserApplicationKey(param.appKeyId, options);
+    const requestContextPromise = this.requestFactory.getCurrentUserApplicationKey(
+      param.appKeyId,
+      options,
+    );
     return requestContextPromise.then((requestContext) => {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.getCurrentUserApplicationKey(
-            responseContext,
-          );
+          return this.responseProcessor.getCurrentUserApplicationKey(responseContext);
         });
     });
   }
@@ -3140,24 +3181,21 @@ export class KeyManagementApi {
     param: KeyManagementApiListCurrentUserApplicationKeysRequest = {},
     options?: Configuration,
   ): Promise<ListApplicationKeysResponse> {
-    const requestContextPromise =
-      this.requestFactory.listCurrentUserApplicationKeys(
-        param.pageSize,
-        param.pageNumber,
-        param.sort,
-        param.filter,
-        param.filterCreatedAtStart,
-        param.filterCreatedAtEnd,
-        param.include,
-        options,
-      );
+    const requestContextPromise = this.requestFactory.listCurrentUserApplicationKeys(
+      param.pageSize,
+      param.pageNumber,
+      param.sort,
+      param.filter,
+      param.filterCreatedAtStart,
+      param.filterCreatedAtEnd,
+      param.include,
+      options,
+    );
     return requestContextPromise.then((requestContext) => {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.listCurrentUserApplicationKeys(
-            responseContext,
-          );
+          return this.responseProcessor.listCurrentUserApplicationKeys(responseContext);
         });
     });
   }
@@ -3182,9 +3220,7 @@ export class KeyManagementApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.listPersonalAccessTokens(
-            responseContext,
-          );
+          return this.responseProcessor.listPersonalAccessTokens(responseContext);
         });
     });
   }
@@ -3205,9 +3241,7 @@ export class KeyManagementApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.revokePersonalAccessToken(
-            responseContext,
-          );
+          return this.responseProcessor.revokePersonalAccessToken(responseContext);
         });
     });
   }
@@ -3265,19 +3299,16 @@ export class KeyManagementApi {
     param: KeyManagementApiUpdateCurrentUserApplicationKeyRequest,
     options?: Configuration,
   ): Promise<ApplicationKeyResponse> {
-    const requestContextPromise =
-      this.requestFactory.updateCurrentUserApplicationKey(
-        param.appKeyId,
-        param.body,
-        options,
-      );
+    const requestContextPromise = this.requestFactory.updateCurrentUserApplicationKey(
+      param.appKeyId,
+      param.body,
+      options,
+    );
     return requestContextPromise.then((requestContext) => {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.updateCurrentUserApplicationKey(
-            responseContext,
-          );
+          return this.responseProcessor.updateCurrentUserApplicationKey(responseContext);
         });
     });
   }
@@ -3299,9 +3330,7 @@ export class KeyManagementApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.updatePersonalAccessToken(
-            responseContext,
-          );
+          return this.responseProcessor.updatePersonalAccessToken(responseContext);
         });
     });
   }
@@ -3310,8 +3339,11 @@ export class KeyManagementApi {
    * Check if the API key is valid. Returns the organization UUID, API key ID, and associated scopes.
    * @param param The request object
    */
-  public validate(options?: Configuration): Promise<ValidateV2Response> {
-    const requestContextPromise = this.requestFactory.validate(options);
+  public validate(options?: Configuration,
+  ): Promise<ValidateV2Response> {
+    const requestContextPromise = this.requestFactory.validate(
+      options,
+    );
     return requestContextPromise.then((requestContext) => {
       return this.configuration.httpApi
         .send(requestContext)
@@ -3328,10 +3360,11 @@ export class KeyManagementApi {
    * full credentials.
    * @param param The request object
    */
-  public validateAPIKey(
-    options?: Configuration,
+  public validateAPIKey(options?: Configuration,
   ): Promise<ValidateAPIKeyResponse> {
-    const requestContextPromise = this.requestFactory.validateAPIKey(options);
+    const requestContextPromise = this.requestFactory.validateAPIKey(
+      options,
+    );
     return requestContextPromise.then((requestContext) => {
       return this.configuration.httpApi
         .send(requestContext)

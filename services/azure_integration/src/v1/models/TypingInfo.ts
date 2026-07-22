@@ -5,7 +5,8 @@ import { AzureAccount } from "./AzureAccount";
 import { ResourceProviderConfig } from "./ResourceProviderConfig";
 
 export const TypingInfo: ModelTypingInfo = {
-  enumsMap: {},
+  enumsMap: {
+  },
   oneOfMap: {},
   typeMap: {
     APIErrorResponse: APIErrorResponse,

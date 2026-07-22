@@ -6,5 +6,4 @@ import { UnparsedObject } from "@datadog/datadog-api-client";
 export type ProductAnalyticsAnalyticsRequestType =
   | typeof FORMULA_ANALYTICS_EXTENDED_REQUEST
   | UnparsedObject;
-export const FORMULA_ANALYTICS_EXTENDED_REQUEST =
-  "formula_analytics_extended_request";
+export const FORMULA_ANALYTICS_EXTENDED_REQUEST = "formula_analytics_extended_request";

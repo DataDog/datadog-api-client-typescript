@@ -33,15 +33,9 @@ import { UserAuthorizedClientsResponse } from "./UserAuthorizedClientsResponse";
 export const TypingInfo: ModelTypingInfo = {
   enumsMap: {
     OrgAuthorizedClientRelationshipOAuth2ClientDataType: ["oauth2_clients"],
-    OrgAuthorizedClientRelationshipUserAuthorizedClientsDataType: [
-      "user_authorized_clients",
-    ],
+    OrgAuthorizedClientRelationshipUserAuthorizedClientsDataType: ["user_authorized_clients"],
     OrgAuthorizedClientType: ["org_authorized_clients"],
-    OrgAuthorizedClientUserAuthorizationsSort: [
-      "user.name",
-      "user.email",
-      "oauth2_client.name",
-    ],
+    OrgAuthorizedClientUserAuthorizationsSort: ["user.name", "user.email", "oauth2_client.name"],
     UserAuthorizedClientRelationshipOAuth2ClientDataType: ["oauth2_clients"],
     UserAuthorizedClientRelationshipScopeDataType: ["scopes"],
     UserAuthorizedClientRelationshipUserDataType: ["users"],
@@ -55,16 +49,11 @@ export const TypingInfo: ModelTypingInfo = {
     JSONAPIErrorResponse: JSONAPIErrorResponse,
     OrgAuthorizedClientAttributes: OrgAuthorizedClientAttributes,
     OrgAuthorizedClientData: OrgAuthorizedClientData,
-    OrgAuthorizedClientRelationshipOAuth2Client:
-      OrgAuthorizedClientRelationshipOAuth2Client,
-    OrgAuthorizedClientRelationshipOAuth2ClientData:
-      OrgAuthorizedClientRelationshipOAuth2ClientData,
-    OrgAuthorizedClientRelationshipUserAuthorizedClients:
-      OrgAuthorizedClientRelationshipUserAuthorizedClients,
-    OrgAuthorizedClientRelationshipUserAuthorizedClientsData:
-      OrgAuthorizedClientRelationshipUserAuthorizedClientsData,
-    OrgAuthorizedClientRelationshipUserAuthorizedClientsLinks:
-      OrgAuthorizedClientRelationshipUserAuthorizedClientsLinks,
+    OrgAuthorizedClientRelationshipOAuth2Client: OrgAuthorizedClientRelationshipOAuth2Client,
+    OrgAuthorizedClientRelationshipOAuth2ClientData: OrgAuthorizedClientRelationshipOAuth2ClientData,
+    OrgAuthorizedClientRelationshipUserAuthorizedClients: OrgAuthorizedClientRelationshipUserAuthorizedClients,
+    OrgAuthorizedClientRelationshipUserAuthorizedClientsData: OrgAuthorizedClientRelationshipUserAuthorizedClientsData,
+    OrgAuthorizedClientRelationshipUserAuthorizedClientsLinks: OrgAuthorizedClientRelationshipUserAuthorizedClientsLinks,
     OrgAuthorizedClientRelationships: OrgAuthorizedClientRelationships,
     OrgAuthorizedClientResponse: OrgAuthorizedClientResponse,
     OrgAuthorizedClientUpdateAttributes: OrgAuthorizedClientUpdateAttributes,
@@ -75,17 +64,12 @@ export const TypingInfo: ModelTypingInfo = {
     ResponseMetaAttributes: ResponseMetaAttributes,
     UserAuthorizedClientAttributes: UserAuthorizedClientAttributes,
     UserAuthorizedClientData: UserAuthorizedClientData,
-    UserAuthorizedClientRelationshipOAuth2Client:
-      UserAuthorizedClientRelationshipOAuth2Client,
-    UserAuthorizedClientRelationshipOAuth2ClientData:
-      UserAuthorizedClientRelationshipOAuth2ClientData,
-    UserAuthorizedClientRelationshipScopeData:
-      UserAuthorizedClientRelationshipScopeData,
-    UserAuthorizedClientRelationshipScopes:
-      UserAuthorizedClientRelationshipScopes,
+    UserAuthorizedClientRelationshipOAuth2Client: UserAuthorizedClientRelationshipOAuth2Client,
+    UserAuthorizedClientRelationshipOAuth2ClientData: UserAuthorizedClientRelationshipOAuth2ClientData,
+    UserAuthorizedClientRelationshipScopeData: UserAuthorizedClientRelationshipScopeData,
+    UserAuthorizedClientRelationshipScopes: UserAuthorizedClientRelationshipScopes,
     UserAuthorizedClientRelationshipUser: UserAuthorizedClientRelationshipUser,
-    UserAuthorizedClientRelationshipUserData:
-      UserAuthorizedClientRelationshipUserData,
+    UserAuthorizedClientRelationshipUserData: UserAuthorizedClientRelationshipUserData,
     UserAuthorizedClientRelationships: UserAuthorizedClientRelationships,
     UserAuthorizedClientsResponse: UserAuthorizedClientsResponse,
   },

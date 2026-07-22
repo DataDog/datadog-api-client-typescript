@@ -6,5 +6,4 @@ import { UnparsedObject } from "@datadog/datadog-api-client";
 export type LLMObsPatternsTopicsWithClusteredPointsType =
   | typeof GET_TOPICS_WITH_CLUSTER_POINTS_RESPONSE
   | UnparsedObject;
-export const GET_TOPICS_WITH_CLUSTER_POINTS_RESPONSE =
-  "get_topics_with_cluster_points_response";
+export const GET_TOPICS_WITH_CLUSTER_POINTS_RESPONSE = "get_topics_with_cluster_points_response";

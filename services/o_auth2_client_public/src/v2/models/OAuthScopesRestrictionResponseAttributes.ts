@@ -10,17 +10,17 @@ export class OAuthScopesRestrictionResponseAttributes {
    * Permission scopes automatically required for this client (for example, mobile-app permission scopes).
    * Returns `null` when no scopes are required.
    */
-  "requiredPermissionScopes": Array<string> | null;
+  "requiredPermissionScopes": Array<string>|null;
   /**
    * Allowlist of OIDC and permission scopes enforced for the OAuth2 client.
    */
-  "scopesRestriction": OAuthScopesRestriction | null;
+  "scopesRestriction": OAuthScopesRestriction|null;
   /**
    * A container for additional, undeclared properties.
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
   /**
    * @ignore
    */

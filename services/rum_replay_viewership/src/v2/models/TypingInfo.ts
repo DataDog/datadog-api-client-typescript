@@ -22,8 +22,7 @@ export const TypingInfo: ModelTypingInfo = {
     APIErrorResponse: APIErrorResponse,
     ViewershipHistorySessionArray: ViewershipHistorySessionArray,
     ViewershipHistorySessionData: ViewershipHistorySessionData,
-    ViewershipHistorySessionDataAttributes:
-      ViewershipHistorySessionDataAttributes,
+    ViewershipHistorySessionDataAttributes: ViewershipHistorySessionDataAttributes,
     Watch: Watch,
     WatchData: WatchData,
     WatchDataAttributes: WatchDataAttributes,

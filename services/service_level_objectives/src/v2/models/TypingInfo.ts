@@ -20,12 +20,7 @@ import { SloStatusResponse } from "./SloStatusResponse";
 export const TypingInfo: ModelTypingInfo = {
   enumsMap: {
     SLOReportInterval: ["daily", "weekly", "monthly"],
-    SLOReportStatus: [
-      "in_progress",
-      "completed",
-      "completed_with_errors",
-      "failed",
-    ],
+    SLOReportStatus: ["in_progress", "completed", "completed_with_errors", "failed"],
     SloStatusType: ["slo_status"],
   },
   oneOfMap: {},

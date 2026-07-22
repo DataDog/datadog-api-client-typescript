@@ -39,7 +39,7 @@ export class ProductAnalyticsFunnelGroupBySort {
     order: {
       baseName: "order",
       type: "WidgetSort",
-    },
+    }
   };
 
   /**

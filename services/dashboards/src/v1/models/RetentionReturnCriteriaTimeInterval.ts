@@ -43,7 +43,7 @@ export class RetentionReturnCriteriaTimeInterval {
       type: "number",
       required: true,
       format: "double",
-    },
+    }
   };
 
   /**

@@ -1,5 +1,6 @@
 import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
+
 /**
  * Information about the Private Action Runner used by the custom connection, if the custom connection is associated with a Private Action Runner.
  */
@@ -17,7 +18,7 @@ export class CustomConnectionAttributesOnPremRunner {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
   /**
    * @ignore
    */

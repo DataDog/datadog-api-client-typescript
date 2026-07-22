@@ -7,7 +7,7 @@ import { ObservabilityPipelineSplunkHecDestinationType } from "./ObservabilityPi
 
 /**
  * The `splunk_hec` destination forwards logs to Splunk using the HTTP Event Collector (HEC).
- *
+ * 
  * **Supported pipeline types:** logs
  */
 export class ObservabilityPipelineSplunkHecDestination {
@@ -65,7 +65,7 @@ export class ObservabilityPipelineSplunkHecDestination {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
   /**
    * @ignore
    */

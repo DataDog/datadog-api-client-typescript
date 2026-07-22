@@ -19,6 +19,7 @@ import {
   ServerConfiguration,
   stringify,
   applySecurityAuthentication,
+  
 } from "@datadog/datadog-api-client";
 
 import { TypingInfo } from "./models/TypingInfo";
@@ -45,9 +46,7 @@ export class DDSQLApiRequestFactory extends BaseAPIRequestFactory {
     const _config = _options || this.configuration;
 
     if (!_config.unstableOperations["DDSQLApi.v2.executeDdsqlTabularQuery"]) {
-      throw new Error(
-        "Unstable operation 'executeDdsqlTabularQuery' is disabled. Enable it by setting `configuration.unstableOperations['DDSQLApi.v2.executeDdsqlTabularQuery'] = true`",
-      );
+      throw new Error("Unstable operation 'executeDdsqlTabularQuery' is disabled. Enable it by setting `configuration.unstableOperations['DDSQLApi.v2.executeDdsqlTabularQuery'] = true`");
     }
 
     // verify required parameter 'body' is not null or undefined
@@ -59,15 +58,8 @@ export class DDSQLApiRequestFactory extends BaseAPIRequestFactory {
     const localVarPath = "/api/v2/ddsql/query/tabular";
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "DDSQLApi.v2.executeDdsqlTabularQuery",
-      DDSQLApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.POST,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("DDSQLApi.v2.executeDdsqlTabularQuery", DDSQLApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.POST, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -77,7 +69,9 @@ export class DDSQLApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Body Params
-    const contentType = getPreferredMediaType(["application/json"]);
+    const contentType = getPreferredMediaType([
+      "application/json",
+    ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = stringify(
       serialize(body, TypingInfo, "DdsqlTabularQueryRequest", ""),
@@ -101,9 +95,7 @@ export class DDSQLApiRequestFactory extends BaseAPIRequestFactory {
     const _config = _options || this.configuration;
 
     if (!_config.unstableOperations["DDSQLApi.v2.fetchDdsqlTabularQuery"]) {
-      throw new Error(
-        "Unstable operation 'fetchDdsqlTabularQuery' is disabled. Enable it by setting `configuration.unstableOperations['DDSQLApi.v2.fetchDdsqlTabularQuery'] = true`",
-      );
+      throw new Error("Unstable operation 'fetchDdsqlTabularQuery' is disabled. Enable it by setting `configuration.unstableOperations['DDSQLApi.v2.fetchDdsqlTabularQuery'] = true`");
     }
 
     // verify required parameter 'body' is not null or undefined
@@ -115,15 +107,8 @@ export class DDSQLApiRequestFactory extends BaseAPIRequestFactory {
     const localVarPath = "/api/v2/ddsql/query/tabular/fetch";
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "DDSQLApi.v2.fetchDdsqlTabularQuery",
-      DDSQLApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.POST,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("DDSQLApi.v2.fetchDdsqlTabularQuery", DDSQLApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.POST, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -133,7 +118,9 @@ export class DDSQLApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Body Params
-    const contentType = getPreferredMediaType(["application/json"]);
+    const contentType = getPreferredMediaType([
+      "application/json",
+    ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = stringify(
       serialize(body, TypingInfo, "DdsqlTabularQueryFetchRequest", ""),
@@ -162,7 +149,9 @@ export class DDSQLApiResponseProcessor {
   public async executeDdsqlTabularQuery(
     response: ResponseContext,
   ): Promise<DdsqlTabularQueryResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: DdsqlTabularQueryResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -176,7 +165,10 @@ export class DDSQLApiResponseProcessor {
       response.httpStatusCode === 403 ||
       response.httpStatusCode === 500
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: JSONAPIErrorResponse;
       try {
         body = deserialize(
@@ -197,7 +189,10 @@ export class DDSQLApiResponseProcessor {
       );
     }
     if (response.httpStatusCode === 429) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -212,7 +207,10 @@ export class DDSQLApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -243,7 +241,9 @@ export class DDSQLApiResponseProcessor {
   public async fetchDdsqlTabularQuery(
     response: ResponseContext,
   ): Promise<DdsqlTabularQueryResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: DdsqlTabularQueryResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -257,7 +257,10 @@ export class DDSQLApiResponseProcessor {
       response.httpStatusCode === 403 ||
       response.httpStatusCode === 500
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: JSONAPIErrorResponse;
       try {
         body = deserialize(
@@ -278,7 +281,10 @@ export class DDSQLApiResponseProcessor {
       );
     }
     if (response.httpStatusCode === 429) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -293,7 +299,10 @@ export class DDSQLApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -334,7 +343,8 @@ export class DDSQLApi {
   private responseProcessor: DDSQLApiResponseProcessor;
   private configuration: Configuration;
 
-  static operationServers: { [key: string]: BaseServerConfiguration[] } = {};
+  static operationServers: { [key: string]: BaseServerConfiguration[] } = {
+  };
 
   public constructor(
     configuration?: Configuration,
@@ -343,7 +353,8 @@ export class DDSQLApi {
   ) {
     this.configuration = configuration || createConfiguration();
     this.requestFactory =
-      requestFactory || new DDSQLApiRequestFactory(this.configuration);
+      requestFactory ||
+      new DDSQLApiRequestFactory(this.configuration);
     this.responseProcessor =
       responseProcessor || new DDSQLApiResponseProcessor();
   }
@@ -366,9 +377,7 @@ export class DDSQLApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.executeDdsqlTabularQuery(
-            responseContext,
-          );
+          return this.responseProcessor.executeDdsqlTabularQuery(responseContext);
         });
     });
   }

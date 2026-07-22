@@ -19,6 +19,7 @@ import {
   ServerConfiguration,
   stringify,
   applySecurityAuthentication,
+  
 } from "@datadog/datadog-api-client";
 
 import { TypingInfo } from "./models/TypingInfo";
@@ -45,12 +46,8 @@ export class OCIIntegrationApiRequestFactory extends BaseAPIRequestFactory {
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
-    if (
-      !_config.unstableOperations["OCIIntegrationApi.v2.createTenancyConfig"]
-    ) {
-      throw new Error(
-        "Unstable operation 'createTenancyConfig' is disabled. Enable it by setting `configuration.unstableOperations['OCIIntegrationApi.v2.createTenancyConfig'] = true`",
-      );
+    if (!_config.unstableOperations["OCIIntegrationApi.v2.createTenancyConfig"]) {
+      throw new Error("Unstable operation 'createTenancyConfig' is disabled. Enable it by setting `configuration.unstableOperations['OCIIntegrationApi.v2.createTenancyConfig'] = true`");
     }
 
     // verify required parameter 'body' is not null or undefined
@@ -62,15 +59,8 @@ export class OCIIntegrationApiRequestFactory extends BaseAPIRequestFactory {
     const localVarPath = "/api/v2/integration/oci/tenancies";
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "OCIIntegrationApi.v2.createTenancyConfig",
-      OCIIntegrationApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.POST,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("OCIIntegrationApi.v2.createTenancyConfig", OCIIntegrationApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.POST, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -80,7 +70,9 @@ export class OCIIntegrationApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Body Params
-    const contentType = getPreferredMediaType(["application/json"]);
+    const contentType = getPreferredMediaType([
+      "application/json",
+    ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = stringify(
       serialize(body, TypingInfo, "CreateTenancyConfigRequest", ""),
@@ -109,22 +101,14 @@ export class OCIIntegrationApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Path Params
-    const localVarPath =
-      "/api/v2/integration/oci/tenancies/{tenancy_ocid}".replace(
-        "{tenancy_ocid}",
-        encodeURIComponent(String(tenancyOcid)),
-      );
+    const localVarPath = "/api/v2/integration/oci/tenancies/{tenancy_ocid}".replace(
+      "{tenancy_ocid}",
+      encodeURIComponent(String(tenancyOcid)),
+    );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "OCIIntegrationApi.v2.deleteTenancyConfig",
-      OCIIntegrationApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.DELETE,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("OCIIntegrationApi.v2.deleteTenancyConfig", OCIIntegrationApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.DELETE, overrides);
     requestContext.setHeaderParam("Accept", "*/*");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -154,22 +138,14 @@ export class OCIIntegrationApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Path Params
-    const localVarPath =
-      "/api/v2/integration/oci/tenancies/{tenancy_ocid}".replace(
-        "{tenancy_ocid}",
-        encodeURIComponent(String(tenancyOcid)),
-      );
+    const localVarPath = "/api/v2/integration/oci/tenancies/{tenancy_ocid}".replace(
+      "{tenancy_ocid}",
+      encodeURIComponent(String(tenancyOcid)),
+    );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "OCIIntegrationApi.v2.getTenancyConfig",
-      OCIIntegrationApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.GET,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("OCIIntegrationApi.v2.getTenancyConfig", OCIIntegrationApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.GET, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -193,24 +169,15 @@ export class OCIIntegrationApiRequestFactory extends BaseAPIRequestFactory {
     const _config = _options || this.configuration;
 
     if (!_config.unstableOperations["OCIIntegrationApi.v2.getTenancyConfigs"]) {
-      throw new Error(
-        "Unstable operation 'getTenancyConfigs' is disabled. Enable it by setting `configuration.unstableOperations['OCIIntegrationApi.v2.getTenancyConfigs'] = true`",
-      );
+      throw new Error("Unstable operation 'getTenancyConfigs' is disabled. Enable it by setting `configuration.unstableOperations['OCIIntegrationApi.v2.getTenancyConfigs'] = true`");
     }
 
     // Path Params
     const localVarPath = "/api/v2/integration/oci/tenancies";
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "OCIIntegrationApi.v2.getTenancyConfigs",
-      OCIIntegrationApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.GET,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("OCIIntegrationApi.v2.getTenancyConfigs", OCIIntegrationApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.GET, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -243,15 +210,8 @@ export class OCIIntegrationApiRequestFactory extends BaseAPIRequestFactory {
     const localVarPath = "/api/v2/integration/oci/products";
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "OCIIntegrationApi.v2.listTenancyProducts",
-      OCIIntegrationApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.GET,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("OCIIntegrationApi.v2.listTenancyProducts", OCIIntegrationApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.GET, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -296,22 +256,14 @@ export class OCIIntegrationApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Path Params
-    const localVarPath =
-      "/api/v2/integration/oci/tenancies/{tenancy_ocid}".replace(
-        "{tenancy_ocid}",
-        encodeURIComponent(String(tenancyOcid)),
-      );
+    const localVarPath = "/api/v2/integration/oci/tenancies/{tenancy_ocid}".replace(
+      "{tenancy_ocid}",
+      encodeURIComponent(String(tenancyOcid)),
+    );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "OCIIntegrationApi.v2.updateTenancyConfig",
-      OCIIntegrationApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.PATCH,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("OCIIntegrationApi.v2.updateTenancyConfig", OCIIntegrationApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.PATCH, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -321,7 +273,9 @@ export class OCIIntegrationApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Body Params
-    const contentType = getPreferredMediaType(["application/json"]);
+    const contentType = getPreferredMediaType([
+      "application/json",
+    ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = stringify(
       serialize(body, TypingInfo, "UpdateTenancyConfigRequest", ""),
@@ -350,7 +304,9 @@ export class OCIIntegrationApiResponseProcessor {
   public async createTenancyConfig(
     response: ResponseContext,
   ): Promise<TenancyConfig> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 201) {
       const body: TenancyConfig = deserialize(
         parse(await response.body.text(), contentType),
@@ -360,7 +316,10 @@ export class OCIIntegrationApiResponseProcessor {
       return body;
     }
     if (response.httpStatusCode === 429) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -375,7 +334,10 @@ export class OCIIntegrationApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -403,13 +365,20 @@ export class OCIIntegrationApiResponseProcessor {
    * @params response Response returned by the server for a request to deleteTenancyConfig
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async deleteTenancyConfig(response: ResponseContext): Promise<void> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+  public async deleteTenancyConfig(
+    response: ResponseContext,
+  ): Promise<void> {
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 204) {
       return;
     }
     if (response.httpStatusCode === 429) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -424,7 +393,10 @@ export class OCIIntegrationApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -449,7 +421,9 @@ export class OCIIntegrationApiResponseProcessor {
   public async getTenancyConfig(
     response: ResponseContext,
   ): Promise<TenancyConfig> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: TenancyConfig = deserialize(
         parse(await response.body.text(), contentType),
@@ -459,7 +433,10 @@ export class OCIIntegrationApiResponseProcessor {
       return body;
     }
     if (response.httpStatusCode === 429) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -474,7 +451,10 @@ export class OCIIntegrationApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -505,7 +485,9 @@ export class OCIIntegrationApiResponseProcessor {
   public async getTenancyConfigs(
     response: ResponseContext,
   ): Promise<TenancyConfigList> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: TenancyConfigList = deserialize(
         parse(await response.body.text(), contentType),
@@ -515,7 +497,10 @@ export class OCIIntegrationApiResponseProcessor {
       return body;
     }
     if (response.httpStatusCode === 429) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -530,7 +515,10 @@ export class OCIIntegrationApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -561,7 +549,9 @@ export class OCIIntegrationApiResponseProcessor {
   public async listTenancyProducts(
     response: ResponseContext,
   ): Promise<TenancyProductsList> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: TenancyProductsList = deserialize(
         parse(await response.body.text(), contentType),
@@ -571,7 +561,10 @@ export class OCIIntegrationApiResponseProcessor {
       return body;
     }
     if (response.httpStatusCode === 429) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -586,7 +579,10 @@ export class OCIIntegrationApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -617,7 +613,9 @@ export class OCIIntegrationApiResponseProcessor {
   public async updateTenancyConfig(
     response: ResponseContext,
   ): Promise<TenancyConfig> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: TenancyConfig = deserialize(
         parse(await response.body.text(), contentType),
@@ -627,7 +625,10 @@ export class OCIIntegrationApiResponseProcessor {
       return body;
     }
     if (response.httpStatusCode === 429) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -642,7 +643,10 @@ export class OCIIntegrationApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -712,7 +716,8 @@ export class OCIIntegrationApi {
   private responseProcessor: OCIIntegrationApiResponseProcessor;
   private configuration: Configuration;
 
-  static operationServers: { [key: string]: BaseServerConfiguration[] } = {};
+  static operationServers: { [key: string]: BaseServerConfiguration[] } = {
+  };
 
   public constructor(
     configuration?: Configuration,
@@ -721,7 +726,8 @@ export class OCIIntegrationApi {
   ) {
     this.configuration = configuration || createConfiguration();
     this.requestFactory =
-      requestFactory || new OCIIntegrationApiRequestFactory(this.configuration);
+      requestFactory ||
+      new OCIIntegrationApiRequestFactory(this.configuration);
     this.responseProcessor =
       responseProcessor || new OCIIntegrationApiResponseProcessor();
   }
@@ -793,11 +799,11 @@ export class OCIIntegrationApi {
    * Get a list of all configured OCI tenancy integrations. Returns basic information about each tenancy including authentication credentials, region settings, and collection preferences for metrics, logs, and resources.
    * @param param The request object
    */
-  public getTenancyConfigs(
-    options?: Configuration,
+  public getTenancyConfigs(options?: Configuration,
   ): Promise<TenancyConfigList> {
-    const requestContextPromise =
-      this.requestFactory.getTenancyConfigs(options);
+    const requestContextPromise = this.requestFactory.getTenancyConfigs(
+      options,
+    );
     return requestContextPromise.then((requestContext) => {
       return this.configuration.httpApi
         .send(requestContext)

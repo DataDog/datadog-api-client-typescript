@@ -32,7 +32,7 @@ export class SankeyNetworkQueryCompute {
       baseName: "metric",
       type: "string",
       required: true,
-    },
+    }
   };
 
   /**

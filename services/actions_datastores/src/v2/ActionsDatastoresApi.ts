@@ -19,6 +19,7 @@ import {
   ServerConfiguration,
   stringify,
   applySecurityAuthentication,
+  
 } from "@datadog/datadog-api-client";
 
 import { TypingInfo } from "./models/TypingInfo";
@@ -67,22 +68,14 @@ export class ActionsDatastoresApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Path Params
-    const localVarPath =
-      "/api/v2/actions-datastores/{datastore_id}/items/bulk".replace(
-        "{datastore_id}",
-        encodeURIComponent(String(datastoreId)),
-      );
+    const localVarPath = "/api/v2/actions-datastores/{datastore_id}/items/bulk".replace(
+      "{datastore_id}",
+      encodeURIComponent(String(datastoreId)),
+    );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "ActionsDatastoresApi.v2.bulkDeleteDatastoreItems",
-      ActionsDatastoresApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.DELETE,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("ActionsDatastoresApi.v2.bulkDeleteDatastoreItems", ActionsDatastoresApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.DELETE, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -92,7 +85,9 @@ export class ActionsDatastoresApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Body Params
-    const contentType = getPreferredMediaType(["application/json"]);
+    const contentType = getPreferredMediaType([
+      "application/json",
+    ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = stringify(
       serialize(body, TypingInfo, "BulkDeleteAppsDatastoreItemsRequest", ""),
@@ -127,22 +122,14 @@ export class ActionsDatastoresApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Path Params
-    const localVarPath =
-      "/api/v2/actions-datastores/{datastore_id}/items/bulk".replace(
-        "{datastore_id}",
-        encodeURIComponent(String(datastoreId)),
-      );
+    const localVarPath = "/api/v2/actions-datastores/{datastore_id}/items/bulk".replace(
+      "{datastore_id}",
+      encodeURIComponent(String(datastoreId)),
+    );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "ActionsDatastoresApi.v2.bulkWriteDatastoreItems",
-      ActionsDatastoresApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.POST,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("ActionsDatastoresApi.v2.bulkWriteDatastoreItems", ActionsDatastoresApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.POST, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -152,7 +139,9 @@ export class ActionsDatastoresApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Body Params
-    const contentType = getPreferredMediaType(["application/json"]);
+    const contentType = getPreferredMediaType([
+      "application/json",
+    ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = stringify(
       serialize(body, TypingInfo, "BulkPutAppsDatastoreItemsRequest", ""),
@@ -184,15 +173,8 @@ export class ActionsDatastoresApiRequestFactory extends BaseAPIRequestFactory {
     const localVarPath = "/api/v2/actions-datastores";
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "ActionsDatastoresApi.v2.createDatastore",
-      ActionsDatastoresApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.POST,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("ActionsDatastoresApi.v2.createDatastore", ActionsDatastoresApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.POST, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -202,7 +184,9 @@ export class ActionsDatastoresApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Body Params
-    const contentType = getPreferredMediaType(["application/json"]);
+    const contentType = getPreferredMediaType([
+      "application/json",
+    ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = stringify(
       serialize(body, TypingInfo, "CreateAppsDatastoreRequest", ""),
@@ -237,15 +221,8 @@ export class ActionsDatastoresApiRequestFactory extends BaseAPIRequestFactory {
     );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "ActionsDatastoresApi.v2.deleteDatastore",
-      ActionsDatastoresApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.DELETE,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("ActionsDatastoresApi.v2.deleteDatastore", ActionsDatastoresApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.DELETE, overrides);
     requestContext.setHeaderParam("Accept", "*/*");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -281,22 +258,14 @@ export class ActionsDatastoresApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Path Params
-    const localVarPath =
-      "/api/v2/actions-datastores/{datastore_id}/items".replace(
-        "{datastore_id}",
-        encodeURIComponent(String(datastoreId)),
-      );
+    const localVarPath = "/api/v2/actions-datastores/{datastore_id}/items".replace(
+      "{datastore_id}",
+      encodeURIComponent(String(datastoreId)),
+    );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "ActionsDatastoresApi.v2.deleteDatastoreItem",
-      ActionsDatastoresApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.DELETE,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("ActionsDatastoresApi.v2.deleteDatastoreItem", ActionsDatastoresApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.DELETE, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -306,7 +275,9 @@ export class ActionsDatastoresApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Body Params
-    const contentType = getPreferredMediaType(["application/json"]);
+    const contentType = getPreferredMediaType([
+      "application/json",
+    ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = stringify(
       serialize(body, TypingInfo, "DeleteAppsDatastoreItemRequest", ""),
@@ -341,15 +312,8 @@ export class ActionsDatastoresApiRequestFactory extends BaseAPIRequestFactory {
     );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "ActionsDatastoresApi.v2.getDatastore",
-      ActionsDatastoresApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.GET,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("ActionsDatastoresApi.v2.getDatastore", ActionsDatastoresApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.GET, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -384,22 +348,14 @@ export class ActionsDatastoresApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Path Params
-    const localVarPath =
-      "/api/v2/actions-datastores/{datastore_id}/items".replace(
-        "{datastore_id}",
-        encodeURIComponent(String(datastoreId)),
-      );
+    const localVarPath = "/api/v2/actions-datastores/{datastore_id}/items".replace(
+      "{datastore_id}",
+      encodeURIComponent(String(datastoreId)),
+    );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "ActionsDatastoresApi.v2.listDatastoreItems",
-      ActionsDatastoresApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.GET,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("ActionsDatastoresApi.v2.listDatastoreItems", ActionsDatastoresApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.GET, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -463,15 +419,8 @@ export class ActionsDatastoresApiRequestFactory extends BaseAPIRequestFactory {
     const localVarPath = "/api/v2/actions-datastores";
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "ActionsDatastoresApi.v2.listDatastores",
-      ActionsDatastoresApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.GET,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("ActionsDatastoresApi.v2.listDatastores", ActionsDatastoresApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.GET, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -513,15 +462,8 @@ export class ActionsDatastoresApiRequestFactory extends BaseAPIRequestFactory {
     );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "ActionsDatastoresApi.v2.updateDatastore",
-      ActionsDatastoresApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.PATCH,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("ActionsDatastoresApi.v2.updateDatastore", ActionsDatastoresApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.PATCH, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -531,7 +473,9 @@ export class ActionsDatastoresApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Body Params
-    const contentType = getPreferredMediaType(["application/json"]);
+    const contentType = getPreferredMediaType([
+      "application/json",
+    ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = stringify(
       serialize(body, TypingInfo, "UpdateAppsDatastoreRequest", ""),
@@ -566,22 +510,14 @@ export class ActionsDatastoresApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Path Params
-    const localVarPath =
-      "/api/v2/actions-datastores/{datastore_id}/items".replace(
-        "{datastore_id}",
-        encodeURIComponent(String(datastoreId)),
-      );
+    const localVarPath = "/api/v2/actions-datastores/{datastore_id}/items".replace(
+      "{datastore_id}",
+      encodeURIComponent(String(datastoreId)),
+    );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "ActionsDatastoresApi.v2.updateDatastoreItem",
-      ActionsDatastoresApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.PATCH,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("ActionsDatastoresApi.v2.updateDatastoreItem", ActionsDatastoresApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.PATCH, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -591,7 +527,9 @@ export class ActionsDatastoresApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Body Params
-    const contentType = getPreferredMediaType(["application/json"]);
+    const contentType = getPreferredMediaType([
+      "application/json",
+    ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = stringify(
       serialize(body, TypingInfo, "UpdateAppsDatastoreItemRequest", ""),
@@ -620,7 +558,9 @@ export class ActionsDatastoresApiResponseProcessor {
   public async bulkDeleteDatastoreItems(
     response: ResponseContext,
   ): Promise<DeleteAppsDatastoreItemResponseArray> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: DeleteAppsDatastoreItemResponseArray = deserialize(
         parse(await response.body.text(), contentType),
@@ -634,7 +574,10 @@ export class ActionsDatastoresApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 500
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: JSONAPIErrorResponse;
       try {
         body = deserialize(
@@ -655,7 +598,10 @@ export class ActionsDatastoresApiResponseProcessor {
       );
     }
     if (response.httpStatusCode === 429) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -670,7 +616,10 @@ export class ActionsDatastoresApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -701,7 +650,9 @@ export class ActionsDatastoresApiResponseProcessor {
   public async bulkWriteDatastoreItems(
     response: ResponseContext,
   ): Promise<PutAppsDatastoreItemResponseArray> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: PutAppsDatastoreItemResponseArray = deserialize(
         parse(await response.body.text(), contentType),
@@ -710,8 +661,14 @@ export class ActionsDatastoresApiResponseProcessor {
       ) as PutAppsDatastoreItemResponseArray;
       return body;
     }
-    if (response.httpStatusCode === 400 || response.httpStatusCode === 404) {
-      const bodyText = parse(await response.body.text(), contentType);
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 404
+    ) {
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: JSONAPIErrorResponse;
       try {
         body = deserialize(
@@ -732,7 +689,10 @@ export class ActionsDatastoresApiResponseProcessor {
       );
     }
     if (response.httpStatusCode === 429) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -747,7 +707,10 @@ export class ActionsDatastoresApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -778,7 +741,9 @@ export class ActionsDatastoresApiResponseProcessor {
   public async createDatastore(
     response: ResponseContext,
   ): Promise<CreateAppsDatastoreResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: CreateAppsDatastoreResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -788,7 +753,10 @@ export class ActionsDatastoresApiResponseProcessor {
       return body;
     }
     if (response.httpStatusCode === 400) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: JSONAPIErrorResponse;
       try {
         body = deserialize(
@@ -809,7 +777,10 @@ export class ActionsDatastoresApiResponseProcessor {
       );
     }
     if (response.httpStatusCode === 429) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -824,7 +795,10 @@ export class ActionsDatastoresApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -852,13 +826,20 @@ export class ActionsDatastoresApiResponseProcessor {
    * @params response Response returned by the server for a request to deleteDatastore
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async deleteDatastore(response: ResponseContext): Promise<void> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+  public async deleteDatastore(
+    response: ResponseContext,
+  ): Promise<void> {
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       return;
     }
     if (response.httpStatusCode === 400) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: JSONAPIErrorResponse;
       try {
         body = deserialize(
@@ -879,7 +860,10 @@ export class ActionsDatastoresApiResponseProcessor {
       );
     }
     if (response.httpStatusCode === 429) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -894,7 +878,10 @@ export class ActionsDatastoresApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -919,7 +906,9 @@ export class ActionsDatastoresApiResponseProcessor {
   public async deleteDatastoreItem(
     response: ResponseContext,
   ): Promise<DeleteAppsDatastoreItemResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: DeleteAppsDatastoreItemResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -928,8 +917,14 @@ export class ActionsDatastoresApiResponseProcessor {
       ) as DeleteAppsDatastoreItemResponse;
       return body;
     }
-    if (response.httpStatusCode === 400 || response.httpStatusCode === 404) {
-      const bodyText = parse(await response.body.text(), contentType);
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 404
+    ) {
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: JSONAPIErrorResponse;
       try {
         body = deserialize(
@@ -950,7 +945,10 @@ export class ActionsDatastoresApiResponseProcessor {
       );
     }
     if (response.httpStatusCode === 429) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -965,7 +963,10 @@ export class ActionsDatastoresApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -993,8 +994,12 @@ export class ActionsDatastoresApiResponseProcessor {
    * @params response Response returned by the server for a request to getDatastore
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async getDatastore(response: ResponseContext): Promise<Datastore> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+  public async getDatastore(
+    response: ResponseContext,
+  ): Promise<Datastore> {
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: Datastore = deserialize(
         parse(await response.body.text(), contentType),
@@ -1003,8 +1008,14 @@ export class ActionsDatastoresApiResponseProcessor {
       ) as Datastore;
       return body;
     }
-    if (response.httpStatusCode === 400 || response.httpStatusCode === 404) {
-      const bodyText = parse(await response.body.text(), contentType);
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 404
+    ) {
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: JSONAPIErrorResponse;
       try {
         body = deserialize(
@@ -1025,7 +1036,10 @@ export class ActionsDatastoresApiResponseProcessor {
       );
     }
     if (response.httpStatusCode === 429) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -1040,7 +1054,10 @@ export class ActionsDatastoresApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -1071,7 +1088,9 @@ export class ActionsDatastoresApiResponseProcessor {
   public async listDatastoreItems(
     response: ResponseContext,
   ): Promise<ItemApiPayloadArray> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: ItemApiPayloadArray = deserialize(
         parse(await response.body.text(), contentType),
@@ -1080,8 +1099,14 @@ export class ActionsDatastoresApiResponseProcessor {
       ) as ItemApiPayloadArray;
       return body;
     }
-    if (response.httpStatusCode === 400 || response.httpStatusCode === 404) {
-      const bodyText = parse(await response.body.text(), contentType);
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 404
+    ) {
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: JSONAPIErrorResponse;
       try {
         body = deserialize(
@@ -1102,7 +1127,10 @@ export class ActionsDatastoresApiResponseProcessor {
       );
     }
     if (response.httpStatusCode === 429) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -1117,7 +1145,10 @@ export class ActionsDatastoresApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -1148,7 +1179,9 @@ export class ActionsDatastoresApiResponseProcessor {
   public async listDatastores(
     response: ResponseContext,
   ): Promise<DatastoreArray> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: DatastoreArray = deserialize(
         parse(await response.body.text(), contentType),
@@ -1158,7 +1191,10 @@ export class ActionsDatastoresApiResponseProcessor {
       return body;
     }
     if (response.httpStatusCode === 429) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -1173,7 +1209,10 @@ export class ActionsDatastoresApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -1201,8 +1240,12 @@ export class ActionsDatastoresApiResponseProcessor {
    * @params response Response returned by the server for a request to updateDatastore
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async updateDatastore(response: ResponseContext): Promise<Datastore> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+  public async updateDatastore(
+    response: ResponseContext,
+  ): Promise<Datastore> {
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: Datastore = deserialize(
         parse(await response.body.text(), contentType),
@@ -1211,8 +1254,14 @@ export class ActionsDatastoresApiResponseProcessor {
       ) as Datastore;
       return body;
     }
-    if (response.httpStatusCode === 400 || response.httpStatusCode === 404) {
-      const bodyText = parse(await response.body.text(), contentType);
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 404
+    ) {
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: JSONAPIErrorResponse;
       try {
         body = deserialize(
@@ -1233,7 +1282,10 @@ export class ActionsDatastoresApiResponseProcessor {
       );
     }
     if (response.httpStatusCode === 429) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -1248,7 +1300,10 @@ export class ActionsDatastoresApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -1279,7 +1334,9 @@ export class ActionsDatastoresApiResponseProcessor {
   public async updateDatastoreItem(
     response: ResponseContext,
   ): Promise<ItemApiPayload> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: ItemApiPayload = deserialize(
         parse(await response.body.text(), contentType),
@@ -1288,8 +1345,14 @@ export class ActionsDatastoresApiResponseProcessor {
       ) as ItemApiPayload;
       return body;
     }
-    if (response.httpStatusCode === 400 || response.httpStatusCode === 404) {
-      const bodyText = parse(await response.body.text(), contentType);
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 404
+    ) {
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: JSONAPIErrorResponse;
       try {
         body = deserialize(
@@ -1310,7 +1373,10 @@ export class ActionsDatastoresApiResponseProcessor {
       );
     }
     if (response.httpStatusCode === 429) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -1325,7 +1391,10 @@ export class ActionsDatastoresApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -1468,7 +1537,8 @@ export class ActionsDatastoresApi {
   private responseProcessor: ActionsDatastoresApiResponseProcessor;
   private configuration: Configuration;
 
-  static operationServers: { [key: string]: BaseServerConfiguration[] } = {};
+  static operationServers: { [key: string]: BaseServerConfiguration[] } = {
+  };
 
   public constructor(
     configuration?: Configuration,
@@ -1500,9 +1570,7 @@ export class ActionsDatastoresApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.bulkDeleteDatastoreItems(
-            responseContext,
-          );
+          return this.responseProcessor.bulkDeleteDatastoreItems(responseContext);
         });
     });
   }
@@ -1524,9 +1592,7 @@ export class ActionsDatastoresApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.bulkWriteDatastoreItems(
-            responseContext,
-          );
+          return this.responseProcessor.bulkWriteDatastoreItems(responseContext);
         });
     });
   }
@@ -1646,8 +1712,11 @@ export class ActionsDatastoresApi {
    * Lists all datastores for the organization.
    * @param param The request object
    */
-  public listDatastores(options?: Configuration): Promise<DatastoreArray> {
-    const requestContextPromise = this.requestFactory.listDatastores(options);
+  public listDatastores(options?: Configuration,
+  ): Promise<DatastoreArray> {
+    const requestContextPromise = this.requestFactory.listDatastores(
+      options,
+    );
     return requestContextPromise.then((requestContext) => {
       return this.configuration.httpApi
         .send(requestContext)

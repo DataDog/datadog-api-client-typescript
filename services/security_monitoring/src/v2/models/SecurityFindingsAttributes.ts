@@ -1,5 +1,6 @@
 import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
+
 /**
  * The JSON object containing all attributes of the security finding.
  */
@@ -7,7 +8,7 @@ export class SecurityFindingsAttributes {
   /**
    * The custom attributes of the security finding.
    */
-  "attributes"?: { [key: string]: any };
+  "attributes"?: { [key: string]: any; };
   /**
    * List of tags associated with the security finding.
    */
@@ -21,7 +22,7 @@ export class SecurityFindingsAttributes {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
   /**
    * @ignore
    */

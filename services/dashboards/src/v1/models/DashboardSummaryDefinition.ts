@@ -24,7 +24,7 @@ export class DashboardSummaryDefinition {
   "id"?: string;
   /**
    * Whether this dashboard is read-only. If True, only the author and admins can make changes to it.
-   *
+   * 
    * This property is deprecated; please use the [Restriction Policies API](https://docs.datadoghq.com/api/latest/restriction-policies/) instead to manage write authorization for individual dashboards.
    */
   "isReadOnly"?: boolean;
@@ -49,7 +49,7 @@ export class DashboardSummaryDefinition {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
   /**
    * @ignore
    */

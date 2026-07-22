@@ -1,5 +1,6 @@
 import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
+
 /**
  * Faulty deployment detection options for deployment rules.
  */
@@ -29,7 +30,7 @@ export class DeploymentRuleOptionsFaultyDeploymentDetection {
     excludedResources: {
       baseName: "excluded_resources",
       type: "Array<string>",
-    },
+    }
   };
 
   /**

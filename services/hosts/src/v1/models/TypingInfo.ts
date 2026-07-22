@@ -11,7 +11,8 @@ import { HostMuteSettings } from "./HostMuteSettings";
 import { HostTotals } from "./HostTotals";
 
 export const TypingInfo: ModelTypingInfo = {
-  enumsMap: {},
+  enumsMap: {
+  },
   oneOfMap: {},
   typeMap: {
     APIErrorResponse: APIErrorResponse,

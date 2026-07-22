@@ -57,74 +57,11 @@ export const TypingInfo: ModelTypingInfo = {
   enumsMap: {
     ApplicationSecurityPolicyType: ["policy"],
     ApplicationSecurityServiceType: ["service_env"],
-    ApplicationSecurityWafCustomRuleActionAction: [
-      "redirect_request",
-      "block_request",
-    ],
-    ApplicationSecurityWafCustomRuleConditionInputAddress: [
-      "server.db.statement",
-      "server.io.fs.file",
-      "server.io.fs.file_write",
-      "server.io.net.url",
-      "server.sys.shell.cmd",
-      "server.request.method",
-      "server.request.uri.raw",
-      "server.request.path_params",
-      "server.request.query",
-      "server.request.headers",
-      "server.request.headers.no_cookies",
-      "server.request.custom-auth",
-      "server.request.cookies",
-      "server.request.trailers",
-      "server.request.body",
-      "server.request.body.filenames",
-      "server.request.body.files_content",
-      "server.response.status",
-      "server.response.headers.no_cookies",
-      "server.response.trailers",
-      "server.response.body",
-      "grpc.server.request.metadata",
-      "grpc.server.request.message",
-      "grpc.server.method",
-      "graphql.server.all_resolvers",
-      "usr.id",
-      "http.client_ip",
-      "server.llm.event",
-      "server.llm.guard.verdict",
-      "_dd.appsec.fp.http.header",
-      "_dd.appsec.fp.http.network",
-      "_dd.appsec.fp.session",
-      "_dd.appsec.fp.http.endpoint",
-    ],
-    ApplicationSecurityWafCustomRuleConditionOperator: [
-      "match_regex",
-      "!match_regex",
-      "phrase_match",
-      "!phrase_match",
-      "is_xss",
-      "is_sqli",
-      "exact_match",
-      "!exact_match",
-      "ip_match",
-      "!ip_match",
-      "capture_data",
-      "exists",
-      "!exists",
-      "equals",
-      "!equals",
-    ],
-    ApplicationSecurityWafCustomRuleConditionParametersType: [
-      "boolean",
-      "signed",
-      "unsigned",
-      "float",
-      "string",
-    ],
-    ApplicationSecurityWafCustomRuleTagsCategory: [
-      "attack_attempt",
-      "business_logic",
-      "security_response",
-    ],
+    ApplicationSecurityWafCustomRuleActionAction: ["redirect_request", "block_request"],
+    ApplicationSecurityWafCustomRuleConditionInputAddress: ["server.db.statement", "server.io.fs.file", "server.io.fs.file_write", "server.io.net.url", "server.sys.shell.cmd", "server.request.method", "server.request.uri.raw", "server.request.path_params", "server.request.query", "server.request.headers", "server.request.headers.no_cookies", "server.request.custom-auth", "server.request.cookies", "server.request.trailers", "server.request.body", "server.request.body.filenames", "server.request.body.files_content", "server.response.status", "server.response.headers.no_cookies", "server.response.trailers", "server.response.body", "grpc.server.request.metadata", "grpc.server.request.message", "grpc.server.method", "graphql.server.all_resolvers", "usr.id", "http.client_ip", "server.llm.event", "server.llm.guard.verdict", "_dd.appsec.fp.http.header", "_dd.appsec.fp.http.network", "_dd.appsec.fp.session", "_dd.appsec.fp.http.endpoint"],
+    ApplicationSecurityWafCustomRuleConditionOperator: ["match_regex", "!match_regex", "phrase_match", "!phrase_match", "is_xss", "is_sqli", "exact_match", "!exact_match", "ip_match", "!ip_match", "capture_data", "exists", "!exists", "equals", "!equals"],
+    ApplicationSecurityWafCustomRuleConditionParametersType: ["boolean", "signed", "unsigned", "float", "string"],
+    ApplicationSecurityWafCustomRuleTagsCategory: ["attack_attempt", "business_logic", "security_response"],
     ApplicationSecurityWafCustomRuleType: ["custom_rule"],
     ApplicationSecurityWafExclusionFilterOnMatch: ["monitor"],
     ApplicationSecurityWafExclusionFilterType: ["exclusion_filter"],
@@ -133,93 +70,55 @@ export const TypingInfo: ModelTypingInfo = {
   typeMap: {
     APIErrorResponse: APIErrorResponse,
     ApplicationSecurityPolicyAttributes: ApplicationSecurityPolicyAttributes,
-    ApplicationSecurityPolicyCreateAttributes:
-      ApplicationSecurityPolicyCreateAttributes,
+    ApplicationSecurityPolicyCreateAttributes: ApplicationSecurityPolicyCreateAttributes,
     ApplicationSecurityPolicyCreateData: ApplicationSecurityPolicyCreateData,
-    ApplicationSecurityPolicyCreateRequest:
-      ApplicationSecurityPolicyCreateRequest,
+    ApplicationSecurityPolicyCreateRequest: ApplicationSecurityPolicyCreateRequest,
     ApplicationSecurityPolicyData: ApplicationSecurityPolicyData,
-    ApplicationSecurityPolicyListResponse:
-      ApplicationSecurityPolicyListResponse,
+    ApplicationSecurityPolicyListResponse: ApplicationSecurityPolicyListResponse,
     ApplicationSecurityPolicyMetadata: ApplicationSecurityPolicyMetadata,
     ApplicationSecurityPolicyResponse: ApplicationSecurityPolicyResponse,
-    ApplicationSecurityPolicyRuleOverride:
-      ApplicationSecurityPolicyRuleOverride,
-    ApplicationSecurityPolicyRulesetOverride:
-      ApplicationSecurityPolicyRulesetOverride,
+    ApplicationSecurityPolicyRuleOverride: ApplicationSecurityPolicyRuleOverride,
+    ApplicationSecurityPolicyRulesetOverride: ApplicationSecurityPolicyRulesetOverride,
     ApplicationSecurityPolicyScope: ApplicationSecurityPolicyScope,
-    ApplicationSecurityPolicyUpdateAttributes:
-      ApplicationSecurityPolicyUpdateAttributes,
+    ApplicationSecurityPolicyUpdateAttributes: ApplicationSecurityPolicyUpdateAttributes,
     ApplicationSecurityPolicyUpdateData: ApplicationSecurityPolicyUpdateData,
-    ApplicationSecurityPolicyUpdateRequest:
-      ApplicationSecurityPolicyUpdateRequest,
+    ApplicationSecurityPolicyUpdateRequest: ApplicationSecurityPolicyUpdateRequest,
     ApplicationSecurityServiceAttributes: ApplicationSecurityServiceAttributes,
     ApplicationSecurityServiceResource: ApplicationSecurityServiceResource,
     ApplicationSecurityServicesMetadata: ApplicationSecurityServicesMetadata,
     ApplicationSecurityServicesResponse: ApplicationSecurityServicesResponse,
-    ApplicationSecurityWafCustomRuleAction:
-      ApplicationSecurityWafCustomRuleAction,
-    ApplicationSecurityWafCustomRuleActionParameters:
-      ApplicationSecurityWafCustomRuleActionParameters,
-    ApplicationSecurityWafCustomRuleAttributes:
-      ApplicationSecurityWafCustomRuleAttributes,
-    ApplicationSecurityWafCustomRuleCondition:
-      ApplicationSecurityWafCustomRuleCondition,
-    ApplicationSecurityWafCustomRuleConditionInput:
-      ApplicationSecurityWafCustomRuleConditionInput,
-    ApplicationSecurityWafCustomRuleConditionOptions:
-      ApplicationSecurityWafCustomRuleConditionOptions,
-    ApplicationSecurityWafCustomRuleConditionParameters:
-      ApplicationSecurityWafCustomRuleConditionParameters,
-    ApplicationSecurityWafCustomRuleCreateAttributes:
-      ApplicationSecurityWafCustomRuleCreateAttributes,
-    ApplicationSecurityWafCustomRuleCreateData:
-      ApplicationSecurityWafCustomRuleCreateData,
-    ApplicationSecurityWafCustomRuleCreateRequest:
-      ApplicationSecurityWafCustomRuleCreateRequest,
+    ApplicationSecurityWafCustomRuleAction: ApplicationSecurityWafCustomRuleAction,
+    ApplicationSecurityWafCustomRuleActionParameters: ApplicationSecurityWafCustomRuleActionParameters,
+    ApplicationSecurityWafCustomRuleAttributes: ApplicationSecurityWafCustomRuleAttributes,
+    ApplicationSecurityWafCustomRuleCondition: ApplicationSecurityWafCustomRuleCondition,
+    ApplicationSecurityWafCustomRuleConditionInput: ApplicationSecurityWafCustomRuleConditionInput,
+    ApplicationSecurityWafCustomRuleConditionOptions: ApplicationSecurityWafCustomRuleConditionOptions,
+    ApplicationSecurityWafCustomRuleConditionParameters: ApplicationSecurityWafCustomRuleConditionParameters,
+    ApplicationSecurityWafCustomRuleCreateAttributes: ApplicationSecurityWafCustomRuleCreateAttributes,
+    ApplicationSecurityWafCustomRuleCreateData: ApplicationSecurityWafCustomRuleCreateData,
+    ApplicationSecurityWafCustomRuleCreateRequest: ApplicationSecurityWafCustomRuleCreateRequest,
     ApplicationSecurityWafCustomRuleData: ApplicationSecurityWafCustomRuleData,
-    ApplicationSecurityWafCustomRuleListResponse:
-      ApplicationSecurityWafCustomRuleListResponse,
-    ApplicationSecurityWafCustomRuleMetadata:
-      ApplicationSecurityWafCustomRuleMetadata,
-    ApplicationSecurityWafCustomRuleResponse:
-      ApplicationSecurityWafCustomRuleResponse,
-    ApplicationSecurityWafCustomRuleScope:
-      ApplicationSecurityWafCustomRuleScope,
+    ApplicationSecurityWafCustomRuleListResponse: ApplicationSecurityWafCustomRuleListResponse,
+    ApplicationSecurityWafCustomRuleMetadata: ApplicationSecurityWafCustomRuleMetadata,
+    ApplicationSecurityWafCustomRuleResponse: ApplicationSecurityWafCustomRuleResponse,
+    ApplicationSecurityWafCustomRuleScope: ApplicationSecurityWafCustomRuleScope,
     ApplicationSecurityWafCustomRuleTags: ApplicationSecurityWafCustomRuleTags,
-    ApplicationSecurityWafCustomRuleUpdateAttributes:
-      ApplicationSecurityWafCustomRuleUpdateAttributes,
-    ApplicationSecurityWafCustomRuleUpdateData:
-      ApplicationSecurityWafCustomRuleUpdateData,
-    ApplicationSecurityWafCustomRuleUpdateRequest:
-      ApplicationSecurityWafCustomRuleUpdateRequest,
-    ApplicationSecurityWafExclusionFilterAttributes:
-      ApplicationSecurityWafExclusionFilterAttributes,
-    ApplicationSecurityWafExclusionFilterCreateAttributes:
-      ApplicationSecurityWafExclusionFilterCreateAttributes,
-    ApplicationSecurityWafExclusionFilterCreateData:
-      ApplicationSecurityWafExclusionFilterCreateData,
-    ApplicationSecurityWafExclusionFilterCreateRequest:
-      ApplicationSecurityWafExclusionFilterCreateRequest,
-    ApplicationSecurityWafExclusionFilterMetadata:
-      ApplicationSecurityWafExclusionFilterMetadata,
-    ApplicationSecurityWafExclusionFilterResource:
-      ApplicationSecurityWafExclusionFilterResource,
-    ApplicationSecurityWafExclusionFilterResponse:
-      ApplicationSecurityWafExclusionFilterResponse,
-    ApplicationSecurityWafExclusionFilterRulesTarget:
-      ApplicationSecurityWafExclusionFilterRulesTarget,
-    ApplicationSecurityWafExclusionFilterRulesTargetTags:
-      ApplicationSecurityWafExclusionFilterRulesTargetTags,
-    ApplicationSecurityWafExclusionFilterScope:
-      ApplicationSecurityWafExclusionFilterScope,
-    ApplicationSecurityWafExclusionFilterUpdateAttributes:
-      ApplicationSecurityWafExclusionFilterUpdateAttributes,
-    ApplicationSecurityWafExclusionFilterUpdateData:
-      ApplicationSecurityWafExclusionFilterUpdateData,
-    ApplicationSecurityWafExclusionFilterUpdateRequest:
-      ApplicationSecurityWafExclusionFilterUpdateRequest,
-    ApplicationSecurityWafExclusionFiltersResponse:
-      ApplicationSecurityWafExclusionFiltersResponse,
+    ApplicationSecurityWafCustomRuleUpdateAttributes: ApplicationSecurityWafCustomRuleUpdateAttributes,
+    ApplicationSecurityWafCustomRuleUpdateData: ApplicationSecurityWafCustomRuleUpdateData,
+    ApplicationSecurityWafCustomRuleUpdateRequest: ApplicationSecurityWafCustomRuleUpdateRequest,
+    ApplicationSecurityWafExclusionFilterAttributes: ApplicationSecurityWafExclusionFilterAttributes,
+    ApplicationSecurityWafExclusionFilterCreateAttributes: ApplicationSecurityWafExclusionFilterCreateAttributes,
+    ApplicationSecurityWafExclusionFilterCreateData: ApplicationSecurityWafExclusionFilterCreateData,
+    ApplicationSecurityWafExclusionFilterCreateRequest: ApplicationSecurityWafExclusionFilterCreateRequest,
+    ApplicationSecurityWafExclusionFilterMetadata: ApplicationSecurityWafExclusionFilterMetadata,
+    ApplicationSecurityWafExclusionFilterResource: ApplicationSecurityWafExclusionFilterResource,
+    ApplicationSecurityWafExclusionFilterResponse: ApplicationSecurityWafExclusionFilterResponse,
+    ApplicationSecurityWafExclusionFilterRulesTarget: ApplicationSecurityWafExclusionFilterRulesTarget,
+    ApplicationSecurityWafExclusionFilterRulesTargetTags: ApplicationSecurityWafExclusionFilterRulesTargetTags,
+    ApplicationSecurityWafExclusionFilterScope: ApplicationSecurityWafExclusionFilterScope,
+    ApplicationSecurityWafExclusionFilterUpdateAttributes: ApplicationSecurityWafExclusionFilterUpdateAttributes,
+    ApplicationSecurityWafExclusionFilterUpdateData: ApplicationSecurityWafExclusionFilterUpdateData,
+    ApplicationSecurityWafExclusionFilterUpdateRequest: ApplicationSecurityWafExclusionFilterUpdateRequest,
+    ApplicationSecurityWafExclusionFiltersResponse: ApplicationSecurityWafExclusionFiltersResponse,
   },
 };

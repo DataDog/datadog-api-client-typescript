@@ -6,5 +6,4 @@ import { UnparsedObject } from "@datadog/datadog-api-client";
 export type SecurityMonitoringEntraIdAzureAppRegistrationsResourceType =
   | typeof ENTRA_ID_AZURE_APP_REGISTRATIONS
   | UnparsedObject;
-export const ENTRA_ID_AZURE_APP_REGISTRATIONS =
-  "entra_id_azure_app_registrations";
+export const ENTRA_ID_AZURE_APP_REGISTRATIONS = "entra_id_azure_app_registrations";

@@ -19,6 +19,7 @@ import {
   ServerConfiguration,
   stringify,
   applySecurityAuthentication,
+  
 } from "@datadog/datadog-api-client";
 
 import { TypingInfo } from "./models/TypingInfo";
@@ -62,15 +63,8 @@ export class ApplicationSecurityApiRequestFactory extends BaseAPIRequestFactory 
     const localVarPath = "/api/v2/remote_config/products/asm/waf/custom_rules";
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "ApplicationSecurityApi.v2.createApplicationSecurityWafCustomRule",
-      ApplicationSecurityApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.POST,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("ApplicationSecurityApi.v2.createApplicationSecurityWafCustomRule", ApplicationSecurityApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.POST, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -80,15 +74,12 @@ export class ApplicationSecurityApiRequestFactory extends BaseAPIRequestFactory 
     }
 
     // Body Params
-    const contentType = getPreferredMediaType(["application/json"]);
+    const contentType = getPreferredMediaType([
+      "application/json",
+    ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = stringify(
-      serialize(
-        body,
-        TypingInfo,
-        "ApplicationSecurityWafCustomRuleCreateRequest",
-        "",
-      ),
+      serialize(body, TypingInfo, "ApplicationSecurityWafCustomRuleCreateRequest", ""),
       contentType,
     );
     requestContext.setBody(serializedBody);
@@ -110,26 +101,15 @@ export class ApplicationSecurityApiRequestFactory extends BaseAPIRequestFactory 
 
     // verify required parameter 'body' is not null or undefined
     if (body === null || body === undefined) {
-      throw new RequiredError(
-        "body",
-        "createApplicationSecurityWafExclusionFilter",
-      );
+      throw new RequiredError("body", "createApplicationSecurityWafExclusionFilter");
     }
 
     // Path Params
-    const localVarPath =
-      "/api/v2/remote_config/products/asm/waf/exclusion_filters";
+    const localVarPath = "/api/v2/remote_config/products/asm/waf/exclusion_filters";
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "ApplicationSecurityApi.v2.createApplicationSecurityWafExclusionFilter",
-      ApplicationSecurityApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.POST,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("ApplicationSecurityApi.v2.createApplicationSecurityWafExclusionFilter", ApplicationSecurityApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.POST, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -139,15 +119,12 @@ export class ApplicationSecurityApiRequestFactory extends BaseAPIRequestFactory 
     }
 
     // Body Params
-    const contentType = getPreferredMediaType(["application/json"]);
+    const contentType = getPreferredMediaType([
+      "application/json",
+    ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = stringify(
-      serialize(
-        body,
-        TypingInfo,
-        "ApplicationSecurityWafExclusionFilterCreateRequest",
-        "",
-      ),
+      serialize(body, TypingInfo, "ApplicationSecurityWafExclusionFilterCreateRequest", ""),
       contentType,
     );
     requestContext.setBody(serializedBody);
@@ -176,15 +153,8 @@ export class ApplicationSecurityApiRequestFactory extends BaseAPIRequestFactory 
     const localVarPath = "/api/v2/remote_config/products/asm/waf/policies";
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "ApplicationSecurityApi.v2.createApplicationSecurityWafPolicy",
-      ApplicationSecurityApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.POST,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("ApplicationSecurityApi.v2.createApplicationSecurityWafPolicy", ApplicationSecurityApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.POST, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -194,7 +164,9 @@ export class ApplicationSecurityApiRequestFactory extends BaseAPIRequestFactory 
     }
 
     // Body Params
-    const contentType = getPreferredMediaType(["application/json"]);
+    const contentType = getPreferredMediaType([
+      "application/json",
+    ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = stringify(
       serialize(body, TypingInfo, "ApplicationSecurityPolicyCreateRequest", ""),
@@ -219,29 +191,18 @@ export class ApplicationSecurityApiRequestFactory extends BaseAPIRequestFactory 
 
     // verify required parameter 'customRuleId' is not null or undefined
     if (customRuleId === null || customRuleId === undefined) {
-      throw new RequiredError(
-        "customRuleId",
-        "deleteApplicationSecurityWafCustomRule",
-      );
+      throw new RequiredError("customRuleId", "deleteApplicationSecurityWafCustomRule");
     }
 
     // Path Params
-    const localVarPath =
-      "/api/v2/remote_config/products/asm/waf/custom_rules/{custom_rule_id}".replace(
-        "{custom_rule_id}",
-        encodeURIComponent(String(customRuleId)),
-      );
+    const localVarPath = "/api/v2/remote_config/products/asm/waf/custom_rules/{custom_rule_id}".replace(
+      "{custom_rule_id}",
+      encodeURIComponent(String(customRuleId)),
+    );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "ApplicationSecurityApi.v2.deleteApplicationSecurityWafCustomRule",
-      ApplicationSecurityApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.DELETE,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("ApplicationSecurityApi.v2.deleteApplicationSecurityWafCustomRule", ApplicationSecurityApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.DELETE, overrides);
     requestContext.setHeaderParam("Accept", "*/*");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -267,29 +228,18 @@ export class ApplicationSecurityApiRequestFactory extends BaseAPIRequestFactory 
 
     // verify required parameter 'exclusionFilterId' is not null or undefined
     if (exclusionFilterId === null || exclusionFilterId === undefined) {
-      throw new RequiredError(
-        "exclusionFilterId",
-        "deleteApplicationSecurityWafExclusionFilter",
-      );
+      throw new RequiredError("exclusionFilterId", "deleteApplicationSecurityWafExclusionFilter");
     }
 
     // Path Params
-    const localVarPath =
-      "/api/v2/remote_config/products/asm/waf/exclusion_filters/{exclusion_filter_id}".replace(
-        "{exclusion_filter_id}",
-        encodeURIComponent(String(exclusionFilterId)),
-      );
+    const localVarPath = "/api/v2/remote_config/products/asm/waf/exclusion_filters/{exclusion_filter_id}".replace(
+      "{exclusion_filter_id}",
+      encodeURIComponent(String(exclusionFilterId)),
+    );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "ApplicationSecurityApi.v2.deleteApplicationSecurityWafExclusionFilter",
-      ApplicationSecurityApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.DELETE,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("ApplicationSecurityApi.v2.deleteApplicationSecurityWafExclusionFilter", ApplicationSecurityApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.DELETE, overrides);
     requestContext.setHeaderParam("Accept", "*/*");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -319,22 +269,14 @@ export class ApplicationSecurityApiRequestFactory extends BaseAPIRequestFactory 
     }
 
     // Path Params
-    const localVarPath =
-      "/api/v2/remote_config/products/asm/waf/policies/{policy_id}".replace(
-        "{policy_id}",
-        encodeURIComponent(String(policyId)),
-      );
+    const localVarPath = "/api/v2/remote_config/products/asm/waf/policies/{policy_id}".replace(
+      "{policy_id}",
+      encodeURIComponent(String(policyId)),
+    );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "ApplicationSecurityApi.v2.deleteApplicationSecurityWafPolicy",
-      ApplicationSecurityApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.DELETE,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("ApplicationSecurityApi.v2.deleteApplicationSecurityWafPolicy", ApplicationSecurityApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.DELETE, overrides);
     requestContext.setHeaderParam("Accept", "*/*");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -360,29 +302,18 @@ export class ApplicationSecurityApiRequestFactory extends BaseAPIRequestFactory 
 
     // verify required parameter 'customRuleId' is not null or undefined
     if (customRuleId === null || customRuleId === undefined) {
-      throw new RequiredError(
-        "customRuleId",
-        "getApplicationSecurityWafCustomRule",
-      );
+      throw new RequiredError("customRuleId", "getApplicationSecurityWafCustomRule");
     }
 
     // Path Params
-    const localVarPath =
-      "/api/v2/remote_config/products/asm/waf/custom_rules/{custom_rule_id}".replace(
-        "{custom_rule_id}",
-        encodeURIComponent(String(customRuleId)),
-      );
+    const localVarPath = "/api/v2/remote_config/products/asm/waf/custom_rules/{custom_rule_id}".replace(
+      "{custom_rule_id}",
+      encodeURIComponent(String(customRuleId)),
+    );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "ApplicationSecurityApi.v2.getApplicationSecurityWafCustomRule",
-      ApplicationSecurityApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.GET,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("ApplicationSecurityApi.v2.getApplicationSecurityWafCustomRule", ApplicationSecurityApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.GET, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -408,29 +339,18 @@ export class ApplicationSecurityApiRequestFactory extends BaseAPIRequestFactory 
 
     // verify required parameter 'exclusionFilterId' is not null or undefined
     if (exclusionFilterId === null || exclusionFilterId === undefined) {
-      throw new RequiredError(
-        "exclusionFilterId",
-        "getApplicationSecurityWafExclusionFilter",
-      );
+      throw new RequiredError("exclusionFilterId", "getApplicationSecurityWafExclusionFilter");
     }
 
     // Path Params
-    const localVarPath =
-      "/api/v2/remote_config/products/asm/waf/exclusion_filters/{exclusion_filter_id}".replace(
-        "{exclusion_filter_id}",
-        encodeURIComponent(String(exclusionFilterId)),
-      );
+    const localVarPath = "/api/v2/remote_config/products/asm/waf/exclusion_filters/{exclusion_filter_id}".replace(
+      "{exclusion_filter_id}",
+      encodeURIComponent(String(exclusionFilterId)),
+    );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "ApplicationSecurityApi.v2.getApplicationSecurityWafExclusionFilter",
-      ApplicationSecurityApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.GET,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("ApplicationSecurityApi.v2.getApplicationSecurityWafExclusionFilter", ApplicationSecurityApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.GET, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -460,22 +380,14 @@ export class ApplicationSecurityApiRequestFactory extends BaseAPIRequestFactory 
     }
 
     // Path Params
-    const localVarPath =
-      "/api/v2/remote_config/products/asm/waf/policies/{policy_id}".replace(
-        "{policy_id}",
-        encodeURIComponent(String(policyId)),
-      );
+    const localVarPath = "/api/v2/remote_config/products/asm/waf/policies/{policy_id}".replace(
+      "{policy_id}",
+      encodeURIComponent(String(policyId)),
+    );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "ApplicationSecurityApi.v2.getApplicationSecurityWafPolicy",
-      ApplicationSecurityApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.GET,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("ApplicationSecurityApi.v2.getApplicationSecurityWafPolicy", ApplicationSecurityApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.GET, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -499,14 +411,8 @@ export class ApplicationSecurityApiRequestFactory extends BaseAPIRequestFactory 
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
-    if (
-      !_config.unstableOperations[
-        "ApplicationSecurityApi.v2.getAsmServiceByName"
-      ]
-    ) {
-      throw new Error(
-        "Unstable operation 'getAsmServiceByName' is disabled. Enable it by setting `configuration.unstableOperations['ApplicationSecurityApi.v2.getAsmServiceByName'] = true`",
-      );
+    if (!_config.unstableOperations["ApplicationSecurityApi.v2.getAsmServiceByName"]) {
+      throw new Error("Unstable operation 'getAsmServiceByName' is disabled. Enable it by setting `configuration.unstableOperations['ApplicationSecurityApi.v2.getAsmServiceByName'] = true`");
     }
 
     // verify required parameter 'serviceFilter' is not null or undefined
@@ -515,22 +421,14 @@ export class ApplicationSecurityApiRequestFactory extends BaseAPIRequestFactory 
     }
 
     // Path Params
-    const localVarPath =
-      "/api/v2/security/asm/services/{service_filter}".replace(
-        "{service_filter}",
-        encodeURIComponent(String(serviceFilter)),
-      );
+    const localVarPath = "/api/v2/security/asm/services/{service_filter}".replace(
+      "{service_filter}",
+      encodeURIComponent(String(serviceFilter)),
+    );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "ApplicationSecurityApi.v2.getAsmServiceByName",
-      ApplicationSecurityApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.GET,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("ApplicationSecurityApi.v2.getAsmServiceByName", ApplicationSecurityApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.GET, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -557,15 +455,8 @@ export class ApplicationSecurityApiRequestFactory extends BaseAPIRequestFactory 
     const localVarPath = "/api/v2/remote_config/products/asm/waf/custom_rules";
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "ApplicationSecurityApi.v2.listApplicationSecurityWAFCustomRules",
-      ApplicationSecurityApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.GET,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("ApplicationSecurityApi.v2.listApplicationSecurityWAFCustomRules", ApplicationSecurityApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.GET, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -589,19 +480,11 @@ export class ApplicationSecurityApiRequestFactory extends BaseAPIRequestFactory 
     const _config = _options || this.configuration;
 
     // Path Params
-    const localVarPath =
-      "/api/v2/remote_config/products/asm/waf/exclusion_filters";
+    const localVarPath = "/api/v2/remote_config/products/asm/waf/exclusion_filters";
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "ApplicationSecurityApi.v2.listApplicationSecurityWafExclusionFilters",
-      ApplicationSecurityApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.GET,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("ApplicationSecurityApi.v2.listApplicationSecurityWafExclusionFilters", ApplicationSecurityApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.GET, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -628,15 +511,8 @@ export class ApplicationSecurityApiRequestFactory extends BaseAPIRequestFactory 
     const localVarPath = "/api/v2/remote_config/products/asm/waf/policies";
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "ApplicationSecurityApi.v2.listApplicationSecurityWAFPolicies",
-      ApplicationSecurityApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.GET,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("ApplicationSecurityApi.v2.listApplicationSecurityWAFPolicies", ApplicationSecurityApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.GET, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -663,10 +539,7 @@ export class ApplicationSecurityApiRequestFactory extends BaseAPIRequestFactory 
 
     // verify required parameter 'customRuleId' is not null or undefined
     if (customRuleId === null || customRuleId === undefined) {
-      throw new RequiredError(
-        "customRuleId",
-        "updateApplicationSecurityWafCustomRule",
-      );
+      throw new RequiredError("customRuleId", "updateApplicationSecurityWafCustomRule");
     }
 
     // verify required parameter 'body' is not null or undefined
@@ -675,22 +548,14 @@ export class ApplicationSecurityApiRequestFactory extends BaseAPIRequestFactory 
     }
 
     // Path Params
-    const localVarPath =
-      "/api/v2/remote_config/products/asm/waf/custom_rules/{custom_rule_id}".replace(
-        "{custom_rule_id}",
-        encodeURIComponent(String(customRuleId)),
-      );
+    const localVarPath = "/api/v2/remote_config/products/asm/waf/custom_rules/{custom_rule_id}".replace(
+      "{custom_rule_id}",
+      encodeURIComponent(String(customRuleId)),
+    );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "ApplicationSecurityApi.v2.updateApplicationSecurityWafCustomRule",
-      ApplicationSecurityApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.PUT,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("ApplicationSecurityApi.v2.updateApplicationSecurityWafCustomRule", ApplicationSecurityApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.PUT, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -700,15 +565,12 @@ export class ApplicationSecurityApiRequestFactory extends BaseAPIRequestFactory 
     }
 
     // Body Params
-    const contentType = getPreferredMediaType(["application/json"]);
+    const contentType = getPreferredMediaType([
+      "application/json",
+    ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = stringify(
-      serialize(
-        body,
-        TypingInfo,
-        "ApplicationSecurityWafCustomRuleUpdateRequest",
-        "",
-      ),
+      serialize(body, TypingInfo, "ApplicationSecurityWafCustomRuleUpdateRequest", ""),
       contentType,
     );
     requestContext.setBody(serializedBody);
@@ -731,37 +593,23 @@ export class ApplicationSecurityApiRequestFactory extends BaseAPIRequestFactory 
 
     // verify required parameter 'exclusionFilterId' is not null or undefined
     if (exclusionFilterId === null || exclusionFilterId === undefined) {
-      throw new RequiredError(
-        "exclusionFilterId",
-        "updateApplicationSecurityWafExclusionFilter",
-      );
+      throw new RequiredError("exclusionFilterId", "updateApplicationSecurityWafExclusionFilter");
     }
 
     // verify required parameter 'body' is not null or undefined
     if (body === null || body === undefined) {
-      throw new RequiredError(
-        "body",
-        "updateApplicationSecurityWafExclusionFilter",
-      );
+      throw new RequiredError("body", "updateApplicationSecurityWafExclusionFilter");
     }
 
     // Path Params
-    const localVarPath =
-      "/api/v2/remote_config/products/asm/waf/exclusion_filters/{exclusion_filter_id}".replace(
-        "{exclusion_filter_id}",
-        encodeURIComponent(String(exclusionFilterId)),
-      );
+    const localVarPath = "/api/v2/remote_config/products/asm/waf/exclusion_filters/{exclusion_filter_id}".replace(
+      "{exclusion_filter_id}",
+      encodeURIComponent(String(exclusionFilterId)),
+    );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "ApplicationSecurityApi.v2.updateApplicationSecurityWafExclusionFilter",
-      ApplicationSecurityApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.PUT,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("ApplicationSecurityApi.v2.updateApplicationSecurityWafExclusionFilter", ApplicationSecurityApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.PUT, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -771,15 +619,12 @@ export class ApplicationSecurityApiRequestFactory extends BaseAPIRequestFactory 
     }
 
     // Body Params
-    const contentType = getPreferredMediaType(["application/json"]);
+    const contentType = getPreferredMediaType([
+      "application/json",
+    ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = stringify(
-      serialize(
-        body,
-        TypingInfo,
-        "ApplicationSecurityWafExclusionFilterUpdateRequest",
-        "",
-      ),
+      serialize(body, TypingInfo, "ApplicationSecurityWafExclusionFilterUpdateRequest", ""),
       contentType,
     );
     requestContext.setBody(serializedBody);
@@ -811,22 +656,14 @@ export class ApplicationSecurityApiRequestFactory extends BaseAPIRequestFactory 
     }
 
     // Path Params
-    const localVarPath =
-      "/api/v2/remote_config/products/asm/waf/policies/{policy_id}".replace(
-        "{policy_id}",
-        encodeURIComponent(String(policyId)),
-      );
+    const localVarPath = "/api/v2/remote_config/products/asm/waf/policies/{policy_id}".replace(
+      "{policy_id}",
+      encodeURIComponent(String(policyId)),
+    );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "ApplicationSecurityApi.v2.updateApplicationSecurityWafPolicy",
-      ApplicationSecurityApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.PUT,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("ApplicationSecurityApi.v2.updateApplicationSecurityWafPolicy", ApplicationSecurityApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.PUT, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -836,7 +673,9 @@ export class ApplicationSecurityApiRequestFactory extends BaseAPIRequestFactory 
     }
 
     // Body Params
-    const contentType = getPreferredMediaType(["application/json"]);
+    const contentType = getPreferredMediaType([
+      "application/json",
+    ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = stringify(
       serialize(body, TypingInfo, "ApplicationSecurityPolicyUpdateRequest", ""),
@@ -865,7 +704,9 @@ export class ApplicationSecurityApiResponseProcessor {
   public async createApplicationSecurityWafCustomRule(
     response: ResponseContext,
   ): Promise<ApplicationSecurityWafCustomRuleResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 201) {
       const body: ApplicationSecurityWafCustomRuleResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -880,7 +721,10 @@ export class ApplicationSecurityApiResponseProcessor {
       response.httpStatusCode === 409 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -895,7 +739,10 @@ export class ApplicationSecurityApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -926,7 +773,9 @@ export class ApplicationSecurityApiResponseProcessor {
   public async createApplicationSecurityWafExclusionFilter(
     response: ResponseContext,
   ): Promise<ApplicationSecurityWafExclusionFilterResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: ApplicationSecurityWafExclusionFilterResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -941,7 +790,10 @@ export class ApplicationSecurityApiResponseProcessor {
       response.httpStatusCode === 409 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -956,7 +808,10 @@ export class ApplicationSecurityApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -987,7 +842,9 @@ export class ApplicationSecurityApiResponseProcessor {
   public async createApplicationSecurityWafPolicy(
     response: ResponseContext,
   ): Promise<ApplicationSecurityPolicyResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 201) {
       const body: ApplicationSecurityPolicyResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -1002,7 +859,10 @@ export class ApplicationSecurityApiResponseProcessor {
       response.httpStatusCode === 409 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -1017,7 +877,10 @@ export class ApplicationSecurityApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -1048,7 +911,9 @@ export class ApplicationSecurityApiResponseProcessor {
   public async deleteApplicationSecurityWafCustomRule(
     response: ResponseContext,
   ): Promise<void> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 204) {
       return;
     }
@@ -1058,7 +923,10 @@ export class ApplicationSecurityApiResponseProcessor {
       response.httpStatusCode === 409 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -1073,7 +941,10 @@ export class ApplicationSecurityApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -1098,7 +969,9 @@ export class ApplicationSecurityApiResponseProcessor {
   public async deleteApplicationSecurityWafExclusionFilter(
     response: ResponseContext,
   ): Promise<void> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 204) {
       return;
     }
@@ -1108,7 +981,10 @@ export class ApplicationSecurityApiResponseProcessor {
       response.httpStatusCode === 409 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -1123,7 +999,10 @@ export class ApplicationSecurityApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -1148,7 +1027,9 @@ export class ApplicationSecurityApiResponseProcessor {
   public async deleteApplicationSecurityWafPolicy(
     response: ResponseContext,
   ): Promise<void> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 204) {
       return;
     }
@@ -1158,7 +1039,10 @@ export class ApplicationSecurityApiResponseProcessor {
       response.httpStatusCode === 409 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -1173,7 +1057,10 @@ export class ApplicationSecurityApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -1198,7 +1085,9 @@ export class ApplicationSecurityApiResponseProcessor {
   public async getApplicationSecurityWafCustomRule(
     response: ResponseContext,
   ): Promise<ApplicationSecurityWafCustomRuleResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: ApplicationSecurityWafCustomRuleResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -1207,8 +1096,14 @@ export class ApplicationSecurityApiResponseProcessor {
       ) as ApplicationSecurityWafCustomRuleResponse;
       return body;
     }
-    if (response.httpStatusCode === 403 || response.httpStatusCode === 429) {
-      const bodyText = parse(await response.body.text(), contentType);
+    if (
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 429
+    ) {
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -1223,7 +1118,10 @@ export class ApplicationSecurityApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -1254,7 +1152,9 @@ export class ApplicationSecurityApiResponseProcessor {
   public async getApplicationSecurityWafExclusionFilter(
     response: ResponseContext,
   ): Promise<ApplicationSecurityWafExclusionFilterResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: ApplicationSecurityWafExclusionFilterResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -1268,7 +1168,10 @@ export class ApplicationSecurityApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -1283,7 +1186,10 @@ export class ApplicationSecurityApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -1314,7 +1220,9 @@ export class ApplicationSecurityApiResponseProcessor {
   public async getApplicationSecurityWafPolicy(
     response: ResponseContext,
   ): Promise<ApplicationSecurityPolicyResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: ApplicationSecurityPolicyResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -1323,8 +1231,14 @@ export class ApplicationSecurityApiResponseProcessor {
       ) as ApplicationSecurityPolicyResponse;
       return body;
     }
-    if (response.httpStatusCode === 403 || response.httpStatusCode === 429) {
-      const bodyText = parse(await response.body.text(), contentType);
+    if (
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 429
+    ) {
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -1339,7 +1253,10 @@ export class ApplicationSecurityApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -1370,7 +1287,9 @@ export class ApplicationSecurityApiResponseProcessor {
   public async getAsmServiceByName(
     response: ResponseContext,
   ): Promise<ApplicationSecurityServicesResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: ApplicationSecurityServicesResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -1379,8 +1298,14 @@ export class ApplicationSecurityApiResponseProcessor {
       ) as ApplicationSecurityServicesResponse;
       return body;
     }
-    if (response.httpStatusCode === 403 || response.httpStatusCode === 429) {
-      const bodyText = parse(await response.body.text(), contentType);
+    if (
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 429
+    ) {
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -1395,7 +1320,10 @@ export class ApplicationSecurityApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -1426,7 +1354,9 @@ export class ApplicationSecurityApiResponseProcessor {
   public async listApplicationSecurityWAFCustomRules(
     response: ResponseContext,
   ): Promise<ApplicationSecurityWafCustomRuleListResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: ApplicationSecurityWafCustomRuleListResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -1435,8 +1365,14 @@ export class ApplicationSecurityApiResponseProcessor {
       ) as ApplicationSecurityWafCustomRuleListResponse;
       return body;
     }
-    if (response.httpStatusCode === 403 || response.httpStatusCode === 429) {
-      const bodyText = parse(await response.body.text(), contentType);
+    if (
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 429
+    ) {
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -1451,7 +1387,10 @@ export class ApplicationSecurityApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -1482,7 +1421,9 @@ export class ApplicationSecurityApiResponseProcessor {
   public async listApplicationSecurityWafExclusionFilters(
     response: ResponseContext,
   ): Promise<ApplicationSecurityWafExclusionFiltersResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: ApplicationSecurityWafExclusionFiltersResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -1491,8 +1432,14 @@ export class ApplicationSecurityApiResponseProcessor {
       ) as ApplicationSecurityWafExclusionFiltersResponse;
       return body;
     }
-    if (response.httpStatusCode === 403 || response.httpStatusCode === 429) {
-      const bodyText = parse(await response.body.text(), contentType);
+    if (
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 429
+    ) {
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -1507,7 +1454,10 @@ export class ApplicationSecurityApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -1538,7 +1488,9 @@ export class ApplicationSecurityApiResponseProcessor {
   public async listApplicationSecurityWAFPolicies(
     response: ResponseContext,
   ): Promise<ApplicationSecurityPolicyListResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: ApplicationSecurityPolicyListResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -1547,8 +1499,14 @@ export class ApplicationSecurityApiResponseProcessor {
       ) as ApplicationSecurityPolicyListResponse;
       return body;
     }
-    if (response.httpStatusCode === 403 || response.httpStatusCode === 429) {
-      const bodyText = parse(await response.body.text(), contentType);
+    if (
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 429
+    ) {
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -1563,7 +1521,10 @@ export class ApplicationSecurityApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -1594,7 +1555,9 @@ export class ApplicationSecurityApiResponseProcessor {
   public async updateApplicationSecurityWafCustomRule(
     response: ResponseContext,
   ): Promise<ApplicationSecurityWafCustomRuleResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: ApplicationSecurityWafCustomRuleResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -1610,7 +1573,10 @@ export class ApplicationSecurityApiResponseProcessor {
       response.httpStatusCode === 409 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -1625,7 +1591,10 @@ export class ApplicationSecurityApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -1656,7 +1625,9 @@ export class ApplicationSecurityApiResponseProcessor {
   public async updateApplicationSecurityWafExclusionFilter(
     response: ResponseContext,
   ): Promise<ApplicationSecurityWafExclusionFilterResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: ApplicationSecurityWafExclusionFilterResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -1672,7 +1643,10 @@ export class ApplicationSecurityApiResponseProcessor {
       response.httpStatusCode === 409 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -1687,7 +1661,10 @@ export class ApplicationSecurityApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -1718,7 +1695,9 @@ export class ApplicationSecurityApiResponseProcessor {
   public async updateApplicationSecurityWafPolicy(
     response: ResponseContext,
   ): Promise<ApplicationSecurityPolicyResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: ApplicationSecurityPolicyResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -1734,7 +1713,10 @@ export class ApplicationSecurityApiResponseProcessor {
       response.httpStatusCode === 409 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -1749,7 +1731,10 @@ export class ApplicationSecurityApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -1896,7 +1881,8 @@ export class ApplicationSecurityApi {
   private responseProcessor: ApplicationSecurityApiResponseProcessor;
   private configuration: Configuration;
 
-  static operationServers: { [key: string]: BaseServerConfiguration[] } = {};
+  static operationServers: { [key: string]: BaseServerConfiguration[] } = {
+  };
 
   public constructor(
     configuration?: Configuration,
@@ -1919,25 +1905,22 @@ export class ApplicationSecurityApi {
     param: ApplicationSecurityApiCreateApplicationSecurityWafCustomRuleRequest,
     options?: Configuration,
   ): Promise<ApplicationSecurityWafCustomRuleResponse> {
-    const requestContextPromise =
-      this.requestFactory.createApplicationSecurityWafCustomRule(
-        param.body,
-        options,
-      );
+    const requestContextPromise = this.requestFactory.createApplicationSecurityWafCustomRule(
+      param.body,
+      options,
+    );
     return requestContextPromise.then((requestContext) => {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.createApplicationSecurityWafCustomRule(
-            responseContext,
-          );
+          return this.responseProcessor.createApplicationSecurityWafCustomRule(responseContext);
         });
     });
   }
 
   /**
    * Create a new WAF exclusion filter with the given parameters.
-   *
+   * 
    * A request matched by an exclusion filter will be ignored by the Application Security WAF product.
    * Go to https://app.datadoghq.com/security/appsec/passlist to review existing exclusion filters (also called passlist entries).
    * @param param The request object
@@ -1946,18 +1929,15 @@ export class ApplicationSecurityApi {
     param: ApplicationSecurityApiCreateApplicationSecurityWafExclusionFilterRequest,
     options?: Configuration,
   ): Promise<ApplicationSecurityWafExclusionFilterResponse> {
-    const requestContextPromise =
-      this.requestFactory.createApplicationSecurityWafExclusionFilter(
-        param.body,
-        options,
-      );
+    const requestContextPromise = this.requestFactory.createApplicationSecurityWafExclusionFilter(
+      param.body,
+      options,
+    );
     return requestContextPromise.then((requestContext) => {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.createApplicationSecurityWafExclusionFilter(
-            responseContext,
-          );
+          return this.responseProcessor.createApplicationSecurityWafExclusionFilter(responseContext);
         });
     });
   }
@@ -1970,18 +1950,15 @@ export class ApplicationSecurityApi {
     param: ApplicationSecurityApiCreateApplicationSecurityWafPolicyRequest,
     options?: Configuration,
   ): Promise<ApplicationSecurityPolicyResponse> {
-    const requestContextPromise =
-      this.requestFactory.createApplicationSecurityWafPolicy(
-        param.body,
-        options,
-      );
+    const requestContextPromise = this.requestFactory.createApplicationSecurityWafPolicy(
+      param.body,
+      options,
+    );
     return requestContextPromise.then((requestContext) => {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.createApplicationSecurityWafPolicy(
-            responseContext,
-          );
+          return this.responseProcessor.createApplicationSecurityWafPolicy(responseContext);
         });
     });
   }
@@ -1994,18 +1971,15 @@ export class ApplicationSecurityApi {
     param: ApplicationSecurityApiDeleteApplicationSecurityWafCustomRuleRequest,
     options?: Configuration,
   ): Promise<void> {
-    const requestContextPromise =
-      this.requestFactory.deleteApplicationSecurityWafCustomRule(
-        param.customRuleId,
-        options,
-      );
+    const requestContextPromise = this.requestFactory.deleteApplicationSecurityWafCustomRule(
+      param.customRuleId,
+      options,
+    );
     return requestContextPromise.then((requestContext) => {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.deleteApplicationSecurityWafCustomRule(
-            responseContext,
-          );
+          return this.responseProcessor.deleteApplicationSecurityWafCustomRule(responseContext);
         });
     });
   }
@@ -2018,18 +1992,15 @@ export class ApplicationSecurityApi {
     param: ApplicationSecurityApiDeleteApplicationSecurityWafExclusionFilterRequest,
     options?: Configuration,
   ): Promise<void> {
-    const requestContextPromise =
-      this.requestFactory.deleteApplicationSecurityWafExclusionFilter(
-        param.exclusionFilterId,
-        options,
-      );
+    const requestContextPromise = this.requestFactory.deleteApplicationSecurityWafExclusionFilter(
+      param.exclusionFilterId,
+      options,
+    );
     return requestContextPromise.then((requestContext) => {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.deleteApplicationSecurityWafExclusionFilter(
-            responseContext,
-          );
+          return this.responseProcessor.deleteApplicationSecurityWafExclusionFilter(responseContext);
         });
     });
   }
@@ -2042,18 +2013,15 @@ export class ApplicationSecurityApi {
     param: ApplicationSecurityApiDeleteApplicationSecurityWafPolicyRequest,
     options?: Configuration,
   ): Promise<void> {
-    const requestContextPromise =
-      this.requestFactory.deleteApplicationSecurityWafPolicy(
-        param.policyId,
-        options,
-      );
+    const requestContextPromise = this.requestFactory.deleteApplicationSecurityWafPolicy(
+      param.policyId,
+      options,
+    );
     return requestContextPromise.then((requestContext) => {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.deleteApplicationSecurityWafPolicy(
-            responseContext,
-          );
+          return this.responseProcessor.deleteApplicationSecurityWafPolicy(responseContext);
         });
     });
   }
@@ -2066,18 +2034,15 @@ export class ApplicationSecurityApi {
     param: ApplicationSecurityApiGetApplicationSecurityWafCustomRuleRequest,
     options?: Configuration,
   ): Promise<ApplicationSecurityWafCustomRuleResponse> {
-    const requestContextPromise =
-      this.requestFactory.getApplicationSecurityWafCustomRule(
-        param.customRuleId,
-        options,
-      );
+    const requestContextPromise = this.requestFactory.getApplicationSecurityWafCustomRule(
+      param.customRuleId,
+      options,
+    );
     return requestContextPromise.then((requestContext) => {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.getApplicationSecurityWafCustomRule(
-            responseContext,
-          );
+          return this.responseProcessor.getApplicationSecurityWafCustomRule(responseContext);
         });
     });
   }
@@ -2090,18 +2055,15 @@ export class ApplicationSecurityApi {
     param: ApplicationSecurityApiGetApplicationSecurityWafExclusionFilterRequest,
     options?: Configuration,
   ): Promise<ApplicationSecurityWafExclusionFilterResponse> {
-    const requestContextPromise =
-      this.requestFactory.getApplicationSecurityWafExclusionFilter(
-        param.exclusionFilterId,
-        options,
-      );
+    const requestContextPromise = this.requestFactory.getApplicationSecurityWafExclusionFilter(
+      param.exclusionFilterId,
+      options,
+    );
     return requestContextPromise.then((requestContext) => {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.getApplicationSecurityWafExclusionFilter(
-            responseContext,
-          );
+          return this.responseProcessor.getApplicationSecurityWafExclusionFilter(responseContext);
         });
     });
   }
@@ -2114,18 +2076,15 @@ export class ApplicationSecurityApi {
     param: ApplicationSecurityApiGetApplicationSecurityWafPolicyRequest,
     options?: Configuration,
   ): Promise<ApplicationSecurityPolicyResponse> {
-    const requestContextPromise =
-      this.requestFactory.getApplicationSecurityWafPolicy(
-        param.policyId,
-        options,
-      );
+    const requestContextPromise = this.requestFactory.getApplicationSecurityWafPolicy(
+      param.policyId,
+      options,
+    );
     return requestContextPromise.then((requestContext) => {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.getApplicationSecurityWafPolicy(
-            responseContext,
-          );
+          return this.responseProcessor.getApplicationSecurityWafPolicy(responseContext);
         });
     });
   }
@@ -2158,18 +2117,16 @@ export class ApplicationSecurityApi {
    * Retrieve a list of WAF custom rule.
    * @param param The request object
    */
-  public listApplicationSecurityWAFCustomRules(
-    options?: Configuration,
+  public listApplicationSecurityWAFCustomRules(options?: Configuration,
   ): Promise<ApplicationSecurityWafCustomRuleListResponse> {
-    const requestContextPromise =
-      this.requestFactory.listApplicationSecurityWAFCustomRules(options);
+    const requestContextPromise = this.requestFactory.listApplicationSecurityWAFCustomRules(
+      options,
+    );
     return requestContextPromise.then((requestContext) => {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.listApplicationSecurityWAFCustomRules(
-            responseContext,
-          );
+          return this.responseProcessor.listApplicationSecurityWAFCustomRules(responseContext);
         });
     });
   }
@@ -2178,18 +2135,16 @@ export class ApplicationSecurityApi {
    * Retrieve a list of WAF exclusion filters.
    * @param param The request object
    */
-  public listApplicationSecurityWafExclusionFilters(
-    options?: Configuration,
+  public listApplicationSecurityWafExclusionFilters(options?: Configuration,
   ): Promise<ApplicationSecurityWafExclusionFiltersResponse> {
-    const requestContextPromise =
-      this.requestFactory.listApplicationSecurityWafExclusionFilters(options);
+    const requestContextPromise = this.requestFactory.listApplicationSecurityWafExclusionFilters(
+      options,
+    );
     return requestContextPromise.then((requestContext) => {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.listApplicationSecurityWafExclusionFilters(
-            responseContext,
-          );
+          return this.responseProcessor.listApplicationSecurityWafExclusionFilters(responseContext);
         });
     });
   }
@@ -2198,18 +2153,16 @@ export class ApplicationSecurityApi {
    * Retrieve a list of WAF policies.
    * @param param The request object
    */
-  public listApplicationSecurityWAFPolicies(
-    options?: Configuration,
+  public listApplicationSecurityWAFPolicies(options?: Configuration,
   ): Promise<ApplicationSecurityPolicyListResponse> {
-    const requestContextPromise =
-      this.requestFactory.listApplicationSecurityWAFPolicies(options);
+    const requestContextPromise = this.requestFactory.listApplicationSecurityWAFPolicies(
+      options,
+    );
     return requestContextPromise.then((requestContext) => {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.listApplicationSecurityWAFPolicies(
-            responseContext,
-          );
+          return this.responseProcessor.listApplicationSecurityWAFPolicies(responseContext);
         });
     });
   }
@@ -2223,19 +2176,16 @@ export class ApplicationSecurityApi {
     param: ApplicationSecurityApiUpdateApplicationSecurityWafCustomRuleRequest,
     options?: Configuration,
   ): Promise<ApplicationSecurityWafCustomRuleResponse> {
-    const requestContextPromise =
-      this.requestFactory.updateApplicationSecurityWafCustomRule(
-        param.customRuleId,
-        param.body,
-        options,
-      );
+    const requestContextPromise = this.requestFactory.updateApplicationSecurityWafCustomRule(
+      param.customRuleId,
+      param.body,
+      options,
+    );
     return requestContextPromise.then((requestContext) => {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.updateApplicationSecurityWafCustomRule(
-            responseContext,
-          );
+          return this.responseProcessor.updateApplicationSecurityWafCustomRule(responseContext);
         });
     });
   }
@@ -2249,19 +2199,16 @@ export class ApplicationSecurityApi {
     param: ApplicationSecurityApiUpdateApplicationSecurityWafExclusionFilterRequest,
     options?: Configuration,
   ): Promise<ApplicationSecurityWafExclusionFilterResponse> {
-    const requestContextPromise =
-      this.requestFactory.updateApplicationSecurityWafExclusionFilter(
-        param.exclusionFilterId,
-        param.body,
-        options,
-      );
+    const requestContextPromise = this.requestFactory.updateApplicationSecurityWafExclusionFilter(
+      param.exclusionFilterId,
+      param.body,
+      options,
+    );
     return requestContextPromise.then((requestContext) => {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.updateApplicationSecurityWafExclusionFilter(
-            responseContext,
-          );
+          return this.responseProcessor.updateApplicationSecurityWafExclusionFilter(responseContext);
         });
     });
   }
@@ -2275,19 +2222,16 @@ export class ApplicationSecurityApi {
     param: ApplicationSecurityApiUpdateApplicationSecurityWafPolicyRequest,
     options?: Configuration,
   ): Promise<ApplicationSecurityPolicyResponse> {
-    const requestContextPromise =
-      this.requestFactory.updateApplicationSecurityWafPolicy(
-        param.policyId,
-        param.body,
-        options,
-      );
+    const requestContextPromise = this.requestFactory.updateApplicationSecurityWafPolicy(
+      param.policyId,
+      param.body,
+      options,
+    );
     return requestContextPromise.then((requestContext) => {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.updateApplicationSecurityWafPolicy(
-            responseContext,
-          );
+          return this.responseProcessor.updateApplicationSecurityWafPolicy(responseContext);
         });
     });
   }

@@ -35,20 +35,7 @@ import { SAMLAssertionAttributeAttributes } from "./SAMLAssertionAttributeAttrib
 export const TypingInfo: ModelTypingInfo = {
   enumsMap: {
     AuthNMappingResourceType: ["role", "team"],
-    AuthNMappingsSort: [
-      "created_at",
-      "-created_at",
-      "role_id",
-      "-role_id",
-      "saml_assertion_attribute_id",
-      "-saml_assertion_attribute_id",
-      "role.name",
-      "-role.name",
-      "saml_assertion_attribute.attribute_key",
-      "-saml_assertion_attribute.attribute_key",
-      "saml_assertion_attribute.attribute_value",
-      "-saml_assertion_attribute.attribute_value",
-    ],
+    AuthNMappingsSort: ["created_at", "-created_at", "role_id", "-role_id", "saml_assertion_attribute_id", "-saml_assertion_attribute_id", "role.name", "-role.name", "saml_assertion_attribute.attribute_key", "-saml_assertion_attribute.attribute_key", "saml_assertion_attribute.attribute_value", "-saml_assertion_attribute.attribute_value"],
     AuthNMappingsType: ["authn_mappings"],
     PermissionsType: ["permissions"],
     RolesType: ["roles"],
@@ -60,16 +47,12 @@ export const TypingInfo: ModelTypingInfo = {
       "AuthNMappingRelationshipToRole",
       "AuthNMappingRelationshipToTeam",
     ],
-    AuthNMappingIncluded: [
-      "SAMLAssertionAttribute",
-      "Role",
-      "AuthNMappingTeam",
-    ],
+    AuthNMappingIncluded: ["SAMLAssertionAttribute", "Role", "AuthNMappingTeam"],
     AuthNMappingUpdateRelationships: [
       "AuthNMappingRelationshipToRole",
       "AuthNMappingRelationshipToTeam",
     ],
-  },
+    },
   typeMap: {
     APIErrorResponse: APIErrorResponse,
     AuthNMapping: AuthNMapping,
@@ -93,8 +76,7 @@ export const TypingInfo: ModelTypingInfo = {
     RelationshipToRole: RelationshipToRole,
     RelationshipToRoleData: RelationshipToRoleData,
     RelationshipToSAMLAssertionAttribute: RelationshipToSAMLAssertionAttribute,
-    RelationshipToSAMLAssertionAttributeData:
-      RelationshipToSAMLAssertionAttributeData,
+    RelationshipToSAMLAssertionAttributeData: RelationshipToSAMLAssertionAttributeData,
     RelationshipToTeam: RelationshipToTeam,
     RelationshipToTeamData: RelationshipToTeamData,
     ResponseMetaAttributes: ResponseMetaAttributes,

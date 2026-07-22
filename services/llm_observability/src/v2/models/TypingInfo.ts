@@ -331,32 +331,12 @@ export const TypingInfo: ModelTypingInfo = {
     LLMObsAnnotationsType: ["annotations"],
     LLMObsAnthropicEffort: ["low", "medium", "high", "max"],
     LLMObsAnthropicThinkingType: ["enabled", "disabled", "adaptive"],
-    LLMObsAnyInteractionType: [
-      "trace",
-      "experiment_trace",
-      "session",
-      "display_block",
-    ],
+    LLMObsAnyInteractionType: ["trace", "experiment_trace", "session", "display_block"],
     LLMObsContentBlockHeaderLevel: ["sm", "md", "lg", "xl"],
     LLMObsContentBlockLLMObsTraceInteractionType: ["trace", "experiment_trace"],
-    LLMObsContentBlockType: [
-      "markdown",
-      "header",
-      "text",
-      "json",
-      "image",
-      "widget",
-      "llmobs_trace",
-    ],
+    LLMObsContentBlockType: ["markdown", "header", "text", "json", "image", "widget", "llmobs_trace"],
     LLMObsCustomEvalConfigEvalScope: ["span", "trace", "session"],
-    LLMObsCustomEvalConfigIntegrationProvider: [
-      "openai",
-      "amazon-bedrock",
-      "anthropic",
-      "azure-openai",
-      "vertex-ai",
-      "llm-proxy",
-    ],
+    LLMObsCustomEvalConfigIntegrationProvider: ["openai", "amazon-bedrock", "anthropic", "azure-openai", "vertex-ai", "llm-proxy"],
     LLMObsCustomEvalConfigParsingType: ["structured_output", "json"],
     LLMObsCustomEvalConfigType: ["evaluator_config"],
     LLMObsDataDeletionRequestType: ["create_deletion_req"],
@@ -374,14 +354,7 @@ export const TypingInfo: ModelTypingInfo = {
     LLMObsExperimentType: ["experiments"],
     LLMObsExperimentationSortFieldDirection: ["asc", "desc"],
     LLMObsExperimentationType: ["experimentation"],
-    LLMObsIntegrationName: [
-      "openai",
-      "amazon_bedrock",
-      "anthropic",
-      "azure_openai",
-      "vertex_ai",
-      "llmproxy",
-    ],
+    LLMObsIntegrationName: ["openai", "amazon_bedrock", "anthropic", "azure_openai", "vertex_ai", "llmproxy"],
     LLMObsLabelSchemaType: ["score", "categorical", "boolean", "text"],
     LLMObsMetricAssessment: ["pass", "fail"],
     LLMObsMetricScoreType: ["score", "categorical", "boolean", "json"],
@@ -394,9 +367,7 @@ export const TypingInfo: ModelTypingInfo = {
     LLMObsPatternsRunStatusType: ["topic_discovery_run_status"],
     LLMObsPatternsRunsListType: ["list_topic_discovery_runs_response"],
     LLMObsPatternsTopicsType: ["get_topics_response"],
-    LLMObsPatternsTopicsWithClusteredPointsType: [
-      "get_topics_with_cluster_points_response",
-    ],
+    LLMObsPatternsTopicsWithClusteredPointsType: ["get_topics_with_cluster_points_response"],
     LLMObsPatternsTriggerResponseType: ["topic_discovery_run"],
     LLMObsProjectType: ["projects"],
     LLMObsPromptResponseSource: ["registry", "code"],
@@ -436,72 +407,49 @@ export const TypingInfo: ModelTypingInfo = {
       "LLMObsDisplayBlockInteractionResponseItem",
     ],
     LLMObsPromptTemplate: ["string", "Array<LLMObsPromptChatMessage>"],
-  },
+    },
   typeMap: {
     APIErrorResponse: APIErrorResponse,
     JSONAPIErrorItem: JSONAPIErrorItem,
     JSONAPIErrorItemSource: JSONAPIErrorItemSource,
     JSONAPIErrorResponse: JSONAPIErrorResponse,
-    LLMObsAnnotatedInteractionByTraceItem:
-      LLMObsAnnotatedInteractionByTraceItem,
-    LLMObsAnnotatedInteractionsByTraceDataAttributesResponse:
-      LLMObsAnnotatedInteractionsByTraceDataAttributesResponse,
-    LLMObsAnnotatedInteractionsByTraceDataResponse:
-      LLMObsAnnotatedInteractionsByTraceDataResponse,
-    LLMObsAnnotatedInteractionsByTraceResponse:
-      LLMObsAnnotatedInteractionsByTraceResponse,
-    LLMObsAnnotatedInteractionsDataAttributesResponse:
-      LLMObsAnnotatedInteractionsDataAttributesResponse,
-    LLMObsAnnotatedInteractionsDataResponse:
-      LLMObsAnnotatedInteractionsDataResponse,
+    LLMObsAnnotatedInteractionByTraceItem: LLMObsAnnotatedInteractionByTraceItem,
+    LLMObsAnnotatedInteractionsByTraceDataAttributesResponse: LLMObsAnnotatedInteractionsByTraceDataAttributesResponse,
+    LLMObsAnnotatedInteractionsByTraceDataResponse: LLMObsAnnotatedInteractionsByTraceDataResponse,
+    LLMObsAnnotatedInteractionsByTraceResponse: LLMObsAnnotatedInteractionsByTraceResponse,
+    LLMObsAnnotatedInteractionsDataAttributesResponse: LLMObsAnnotatedInteractionsDataAttributesResponse,
+    LLMObsAnnotatedInteractionsDataResponse: LLMObsAnnotatedInteractionsDataResponse,
     LLMObsAnnotatedInteractionsResponse: LLMObsAnnotatedInteractionsResponse,
     LLMObsAnnotationError: LLMObsAnnotationError,
     LLMObsAnnotationItem: LLMObsAnnotationItem,
     LLMObsAnnotationItemResponse: LLMObsAnnotationItemResponse,
     LLMObsAnnotationLabelValue: LLMObsAnnotationLabelValue,
     LLMObsAnnotationLabelValueResponse: LLMObsAnnotationLabelValueResponse,
-    LLMObsAnnotationQueueDataAttributesRequest:
-      LLMObsAnnotationQueueDataAttributesRequest,
-    LLMObsAnnotationQueueDataAttributesResponse:
-      LLMObsAnnotationQueueDataAttributesResponse,
+    LLMObsAnnotationQueueDataAttributesRequest: LLMObsAnnotationQueueDataAttributesRequest,
+    LLMObsAnnotationQueueDataAttributesResponse: LLMObsAnnotationQueueDataAttributesResponse,
     LLMObsAnnotationQueueDataRequest: LLMObsAnnotationQueueDataRequest,
     LLMObsAnnotationQueueDataResponse: LLMObsAnnotationQueueDataResponse,
-    LLMObsAnnotationQueueInteractionsDataAttributesRequest:
-      LLMObsAnnotationQueueInteractionsDataAttributesRequest,
-    LLMObsAnnotationQueueInteractionsDataAttributesResponse:
-      LLMObsAnnotationQueueInteractionsDataAttributesResponse,
-    LLMObsAnnotationQueueInteractionsDataRequest:
-      LLMObsAnnotationQueueInteractionsDataRequest,
-    LLMObsAnnotationQueueInteractionsDataResponse:
-      LLMObsAnnotationQueueInteractionsDataResponse,
-    LLMObsAnnotationQueueInteractionsRequest:
-      LLMObsAnnotationQueueInteractionsRequest,
-    LLMObsAnnotationQueueInteractionsResponse:
-      LLMObsAnnotationQueueInteractionsResponse,
-    LLMObsAnnotationQueueLabelSchemaAttributes:
-      LLMObsAnnotationQueueLabelSchemaAttributes,
+    LLMObsAnnotationQueueInteractionsDataAttributesRequest: LLMObsAnnotationQueueInteractionsDataAttributesRequest,
+    LLMObsAnnotationQueueInteractionsDataAttributesResponse: LLMObsAnnotationQueueInteractionsDataAttributesResponse,
+    LLMObsAnnotationQueueInteractionsDataRequest: LLMObsAnnotationQueueInteractionsDataRequest,
+    LLMObsAnnotationQueueInteractionsDataResponse: LLMObsAnnotationQueueInteractionsDataResponse,
+    LLMObsAnnotationQueueInteractionsRequest: LLMObsAnnotationQueueInteractionsRequest,
+    LLMObsAnnotationQueueInteractionsResponse: LLMObsAnnotationQueueInteractionsResponse,
+    LLMObsAnnotationQueueLabelSchemaAttributes: LLMObsAnnotationQueueLabelSchemaAttributes,
     LLMObsAnnotationQueueLabelSchemaData: LLMObsAnnotationQueueLabelSchemaData,
-    LLMObsAnnotationQueueLabelSchemaResponse:
-      LLMObsAnnotationQueueLabelSchemaResponse,
-    LLMObsAnnotationQueueLabelSchemaUpdateAttributes:
-      LLMObsAnnotationQueueLabelSchemaUpdateAttributes,
-    LLMObsAnnotationQueueLabelSchemaUpdateData:
-      LLMObsAnnotationQueueLabelSchemaUpdateData,
-    LLMObsAnnotationQueueLabelSchemaUpdateRequest:
-      LLMObsAnnotationQueueLabelSchemaUpdateRequest,
+    LLMObsAnnotationQueueLabelSchemaResponse: LLMObsAnnotationQueueLabelSchemaResponse,
+    LLMObsAnnotationQueueLabelSchemaUpdateAttributes: LLMObsAnnotationQueueLabelSchemaUpdateAttributes,
+    LLMObsAnnotationQueueLabelSchemaUpdateData: LLMObsAnnotationQueueLabelSchemaUpdateData,
+    LLMObsAnnotationQueueLabelSchemaUpdateRequest: LLMObsAnnotationQueueLabelSchemaUpdateRequest,
     LLMObsAnnotationQueueRequest: LLMObsAnnotationQueueRequest,
     LLMObsAnnotationQueueResponse: LLMObsAnnotationQueueResponse,
-    LLMObsAnnotationQueueUpdateDataAttributesRequest:
-      LLMObsAnnotationQueueUpdateDataAttributesRequest,
-    LLMObsAnnotationQueueUpdateDataRequest:
-      LLMObsAnnotationQueueUpdateDataRequest,
+    LLMObsAnnotationQueueUpdateDataAttributesRequest: LLMObsAnnotationQueueUpdateDataAttributesRequest,
+    LLMObsAnnotationQueueUpdateDataRequest: LLMObsAnnotationQueueUpdateDataRequest,
     LLMObsAnnotationQueueUpdateRequest: LLMObsAnnotationQueueUpdateRequest,
     LLMObsAnnotationQueuesResponse: LLMObsAnnotationQueuesResponse,
     LLMObsAnnotationSchema: LLMObsAnnotationSchema,
-    LLMObsAnnotationsDataAttributesRequest:
-      LLMObsAnnotationsDataAttributesRequest,
-    LLMObsAnnotationsDataAttributesResponse:
-      LLMObsAnnotationsDataAttributesResponse,
+    LLMObsAnnotationsDataAttributesRequest: LLMObsAnnotationsDataAttributesRequest,
+    LLMObsAnnotationsDataAttributesResponse: LLMObsAnnotationsDataAttributesResponse,
     LLMObsAnnotationsDataRequest: LLMObsAnnotationsDataRequest,
     LLMObsAnnotationsDataResponse: LLMObsAnnotationsDataResponse,
     LLMObsAnnotationsRequest: LLMObsAnnotationsRequest,
@@ -516,49 +464,40 @@ export const TypingInfo: ModelTypingInfo = {
     LLMObsCreatePromptDataAttributes: LLMObsCreatePromptDataAttributes,
     LLMObsCreatePromptRequest: LLMObsCreatePromptRequest,
     LLMObsCreatePromptVersionData: LLMObsCreatePromptVersionData,
-    LLMObsCreatePromptVersionDataAttributes:
-      LLMObsCreatePromptVersionDataAttributes,
+    LLMObsCreatePromptVersionDataAttributes: LLMObsCreatePromptVersionDataAttributes,
     LLMObsCreatePromptVersionRequest: LLMObsCreatePromptVersionRequest,
     LLMObsCursorMeta: LLMObsCursorMeta,
-    LLMObsCustomEvalConfigAssessmentCriteria:
-      LLMObsCustomEvalConfigAssessmentCriteria,
+    LLMObsCustomEvalConfigAssessmentCriteria: LLMObsCustomEvalConfigAssessmentCriteria,
     LLMObsCustomEvalConfigAttributes: LLMObsCustomEvalConfigAttributes,
     LLMObsCustomEvalConfigBedrockOptions: LLMObsCustomEvalConfigBedrockOptions,
     LLMObsCustomEvalConfigData: LLMObsCustomEvalConfigData,
-    LLMObsCustomEvalConfigInferenceParams:
-      LLMObsCustomEvalConfigInferenceParams,
+    LLMObsCustomEvalConfigInferenceParams: LLMObsCustomEvalConfigInferenceParams,
     LLMObsCustomEvalConfigLLMJudgeConfig: LLMObsCustomEvalConfigLLMJudgeConfig,
     LLMObsCustomEvalConfigLLMProvider: LLMObsCustomEvalConfigLLMProvider,
     LLMObsCustomEvalConfigPromptContent: LLMObsCustomEvalConfigPromptContent,
-    LLMObsCustomEvalConfigPromptContentValue:
-      LLMObsCustomEvalConfigPromptContentValue,
+    LLMObsCustomEvalConfigPromptContentValue: LLMObsCustomEvalConfigPromptContentValue,
     LLMObsCustomEvalConfigPromptMessage: LLMObsCustomEvalConfigPromptMessage,
     LLMObsCustomEvalConfigPromptToolCall: LLMObsCustomEvalConfigPromptToolCall,
-    LLMObsCustomEvalConfigPromptToolResult:
-      LLMObsCustomEvalConfigPromptToolResult,
+    LLMObsCustomEvalConfigPromptToolResult: LLMObsCustomEvalConfigPromptToolResult,
     LLMObsCustomEvalConfigResponse: LLMObsCustomEvalConfigResponse,
     LLMObsCustomEvalConfigTarget: LLMObsCustomEvalConfigTarget,
-    LLMObsCustomEvalConfigUpdateAttributes:
-      LLMObsCustomEvalConfigUpdateAttributes,
+    LLMObsCustomEvalConfigUpdateAttributes: LLMObsCustomEvalConfigUpdateAttributes,
     LLMObsCustomEvalConfigUpdateData: LLMObsCustomEvalConfigUpdateData,
     LLMObsCustomEvalConfigUpdateRequest: LLMObsCustomEvalConfigUpdateRequest,
     LLMObsCustomEvalConfigUser: LLMObsCustomEvalConfigUser,
-    LLMObsCustomEvalConfigVertexAIOptions:
-      LLMObsCustomEvalConfigVertexAIOptions,
+    LLMObsCustomEvalConfigVertexAIOptions: LLMObsCustomEvalConfigVertexAIOptions,
     LLMObsDataDeletionRequest: LLMObsDataDeletionRequest,
     LLMObsDataDeletionRequestAttributes: LLMObsDataDeletionRequestAttributes,
     LLMObsDataDeletionRequestData: LLMObsDataDeletionRequestData,
     LLMObsDataDeletionResponse: LLMObsDataDeletionResponse,
     LLMObsDataDeletionResponseAttributes: LLMObsDataDeletionResponseAttributes,
     LLMObsDataDeletionResponseData: LLMObsDataDeletionResponseData,
-    LLMObsDatasetBatchUpdateDataAttributesRequest:
-      LLMObsDatasetBatchUpdateDataAttributesRequest,
+    LLMObsDatasetBatchUpdateDataAttributesRequest: LLMObsDatasetBatchUpdateDataAttributesRequest,
     LLMObsDatasetBatchUpdateDataRequest: LLMObsDatasetBatchUpdateDataRequest,
     LLMObsDatasetBatchUpdateInsertRecord: LLMObsDatasetBatchUpdateInsertRecord,
     LLMObsDatasetBatchUpdateRequest: LLMObsDatasetBatchUpdateRequest,
     LLMObsDatasetBatchUpdateUpdateRecord: LLMObsDatasetBatchUpdateUpdateRecord,
-    LLMObsDatasetCloneDataAttributesRequest:
-      LLMObsDatasetCloneDataAttributesRequest,
+    LLMObsDatasetCloneDataAttributesRequest: LLMObsDatasetCloneDataAttributesRequest,
     LLMObsDatasetCloneDataRequest: LLMObsDatasetCloneDataRequest,
     LLMObsDatasetCloneRequest: LLMObsDatasetCloneRequest,
     LLMObsDatasetDataAttributesRequest: LLMObsDatasetDataAttributesRequest,
@@ -566,35 +505,28 @@ export const TypingInfo: ModelTypingInfo = {
     LLMObsDatasetDataRequest: LLMObsDatasetDataRequest,
     LLMObsDatasetDataResponse: LLMObsDatasetDataResponse,
     LLMObsDatasetDraftStateData: LLMObsDatasetDraftStateData,
-    LLMObsDatasetDraftStateDataAttributes:
-      LLMObsDatasetDraftStateDataAttributes,
+    LLMObsDatasetDraftStateDataAttributes: LLMObsDatasetDraftStateDataAttributes,
     LLMObsDatasetDraftStateResponse: LLMObsDatasetDraftStateResponse,
     LLMObsDatasetDraftStateUser: LLMObsDatasetDraftStateUser,
     LLMObsDatasetRecordDataResponse: LLMObsDatasetRecordDataResponse,
     LLMObsDatasetRecordItem: LLMObsDatasetRecordItem,
     LLMObsDatasetRecordTagOperations: LLMObsDatasetRecordTagOperations,
     LLMObsDatasetRecordUpdateItem: LLMObsDatasetRecordUpdateItem,
-    LLMObsDatasetRecordsDataAttributesRequest:
-      LLMObsDatasetRecordsDataAttributesRequest,
+    LLMObsDatasetRecordsDataAttributesRequest: LLMObsDatasetRecordsDataAttributesRequest,
     LLMObsDatasetRecordsDataRequest: LLMObsDatasetRecordsDataRequest,
     LLMObsDatasetRecordsListResponse: LLMObsDatasetRecordsListResponse,
     LLMObsDatasetRecordsMutationData: LLMObsDatasetRecordsMutationData,
     LLMObsDatasetRecordsMutationResponse: LLMObsDatasetRecordsMutationResponse,
     LLMObsDatasetRecordsRequest: LLMObsDatasetRecordsRequest,
-    LLMObsDatasetRecordsUpdateDataAttributesRequest:
-      LLMObsDatasetRecordsUpdateDataAttributesRequest,
-    LLMObsDatasetRecordsUpdateDataRequest:
-      LLMObsDatasetRecordsUpdateDataRequest,
+    LLMObsDatasetRecordsUpdateDataAttributesRequest: LLMObsDatasetRecordsUpdateDataAttributesRequest,
+    LLMObsDatasetRecordsUpdateDataRequest: LLMObsDatasetRecordsUpdateDataRequest,
     LLMObsDatasetRecordsUpdateRequest: LLMObsDatasetRecordsUpdateRequest,
     LLMObsDatasetRequest: LLMObsDatasetRequest,
     LLMObsDatasetResponse: LLMObsDatasetResponse,
-    LLMObsDatasetRestoreVersionDataAttributesRequest:
-      LLMObsDatasetRestoreVersionDataAttributesRequest,
-    LLMObsDatasetRestoreVersionDataRequest:
-      LLMObsDatasetRestoreVersionDataRequest,
+    LLMObsDatasetRestoreVersionDataAttributesRequest: LLMObsDatasetRestoreVersionDataAttributesRequest,
+    LLMObsDatasetRestoreVersionDataRequest: LLMObsDatasetRestoreVersionDataRequest,
     LLMObsDatasetRestoreVersionRequest: LLMObsDatasetRestoreVersionRequest,
-    LLMObsDatasetUpdateDataAttributesRequest:
-      LLMObsDatasetUpdateDataAttributesRequest,
+    LLMObsDatasetUpdateDataAttributesRequest: LLMObsDatasetUpdateDataAttributesRequest,
     LLMObsDatasetUpdateDataRequest: LLMObsDatasetUpdateDataRequest,
     LLMObsDatasetUpdateRequest: LLMObsDatasetUpdateRequest,
     LLMObsDatasetVersionData: LLMObsDatasetVersionData,
@@ -602,58 +534,42 @@ export const TypingInfo: ModelTypingInfo = {
     LLMObsDatasetVersionsResponse: LLMObsDatasetVersionsResponse,
     LLMObsDatasetsResponse: LLMObsDatasetsResponse,
     LLMObsDeleteAnnotationError: LLMObsDeleteAnnotationError,
-    LLMObsDeleteAnnotationQueueInteractionsDataAttributesRequest:
-      LLMObsDeleteAnnotationQueueInteractionsDataAttributesRequest,
-    LLMObsDeleteAnnotationQueueInteractionsDataRequest:
-      LLMObsDeleteAnnotationQueueInteractionsDataRequest,
-    LLMObsDeleteAnnotationQueueInteractionsRequest:
-      LLMObsDeleteAnnotationQueueInteractionsRequest,
-    LLMObsDeleteAnnotationsDataAttributesRequest:
-      LLMObsDeleteAnnotationsDataAttributesRequest,
-    LLMObsDeleteAnnotationsDataAttributesResponse:
-      LLMObsDeleteAnnotationsDataAttributesResponse,
+    LLMObsDeleteAnnotationQueueInteractionsDataAttributesRequest: LLMObsDeleteAnnotationQueueInteractionsDataAttributesRequest,
+    LLMObsDeleteAnnotationQueueInteractionsDataRequest: LLMObsDeleteAnnotationQueueInteractionsDataRequest,
+    LLMObsDeleteAnnotationQueueInteractionsRequest: LLMObsDeleteAnnotationQueueInteractionsRequest,
+    LLMObsDeleteAnnotationsDataAttributesRequest: LLMObsDeleteAnnotationsDataAttributesRequest,
+    LLMObsDeleteAnnotationsDataAttributesResponse: LLMObsDeleteAnnotationsDataAttributesResponse,
     LLMObsDeleteAnnotationsDataRequest: LLMObsDeleteAnnotationsDataRequest,
     LLMObsDeleteAnnotationsDataResponse: LLMObsDeleteAnnotationsDataResponse,
     LLMObsDeleteAnnotationsRequest: LLMObsDeleteAnnotationsRequest,
     LLMObsDeleteAnnotationsResponse: LLMObsDeleteAnnotationsResponse,
-    LLMObsDeleteDatasetRecordsDataAttributesRequest:
-      LLMObsDeleteDatasetRecordsDataAttributesRequest,
-    LLMObsDeleteDatasetRecordsDataRequest:
-      LLMObsDeleteDatasetRecordsDataRequest,
+    LLMObsDeleteDatasetRecordsDataAttributesRequest: LLMObsDeleteDatasetRecordsDataAttributesRequest,
+    LLMObsDeleteDatasetRecordsDataRequest: LLMObsDeleteDatasetRecordsDataRequest,
     LLMObsDeleteDatasetRecordsRequest: LLMObsDeleteDatasetRecordsRequest,
-    LLMObsDeleteDatasetsDataAttributesRequest:
-      LLMObsDeleteDatasetsDataAttributesRequest,
+    LLMObsDeleteDatasetsDataAttributesRequest: LLMObsDeleteDatasetsDataAttributesRequest,
     LLMObsDeleteDatasetsDataRequest: LLMObsDeleteDatasetsDataRequest,
     LLMObsDeleteDatasetsRequest: LLMObsDeleteDatasetsRequest,
-    LLMObsDeleteExperimentsDataAttributesRequest:
-      LLMObsDeleteExperimentsDataAttributesRequest,
+    LLMObsDeleteExperimentsDataAttributesRequest: LLMObsDeleteExperimentsDataAttributesRequest,
     LLMObsDeleteExperimentsDataRequest: LLMObsDeleteExperimentsDataRequest,
     LLMObsDeleteExperimentsRequest: LLMObsDeleteExperimentsRequest,
-    LLMObsDeleteProjectsDataAttributesRequest:
-      LLMObsDeleteProjectsDataAttributesRequest,
+    LLMObsDeleteProjectsDataAttributesRequest: LLMObsDeleteProjectsDataAttributesRequest,
     LLMObsDeleteProjectsDataRequest: LLMObsDeleteProjectsDataRequest,
     LLMObsDeleteProjectsRequest: LLMObsDeleteProjectsRequest,
     LLMObsDeletedPromptData: LLMObsDeletedPromptData,
     LLMObsDeletedPromptDataAttributes: LLMObsDeletedPromptDataAttributes,
     LLMObsDeletedPromptResponse: LLMObsDeletedPromptResponse,
-    LLMObsDisplayBlockAnnotatedInteractionItem:
-      LLMObsDisplayBlockAnnotatedInteractionItem,
+    LLMObsDisplayBlockAnnotatedInteractionItem: LLMObsDisplayBlockAnnotatedInteractionItem,
     LLMObsDisplayBlockInteractionItem: LLMObsDisplayBlockInteractionItem,
-    LLMObsDisplayBlockInteractionResponseItem:
-      LLMObsDisplayBlockInteractionResponseItem,
-    LLMObsExperimentDataAttributesRequest:
-      LLMObsExperimentDataAttributesRequest,
-    LLMObsExperimentDataAttributesResponse:
-      LLMObsExperimentDataAttributesResponse,
+    LLMObsDisplayBlockInteractionResponseItem: LLMObsDisplayBlockInteractionResponseItem,
+    LLMObsExperimentDataAttributesRequest: LLMObsExperimentDataAttributesRequest,
+    LLMObsExperimentDataAttributesResponse: LLMObsExperimentDataAttributesResponse,
     LLMObsExperimentDataRequest: LLMObsExperimentDataRequest,
     LLMObsExperimentDataResponse: LLMObsExperimentDataResponse,
     LLMObsExperimentEvalMetricEvent: LLMObsExperimentEvalMetricEvent,
-    LLMObsExperimentEventsDataAttributesRequest:
-      LLMObsExperimentEventsDataAttributesRequest,
+    LLMObsExperimentEventsDataAttributesRequest: LLMObsExperimentEventsDataAttributesRequest,
     LLMObsExperimentEventsDataRequest: LLMObsExperimentEventsDataRequest,
     LLMObsExperimentEventsRequest: LLMObsExperimentEventsRequest,
-    LLMObsExperimentEventsV2DataAttributesResponse:
-      LLMObsExperimentEventsV2DataAttributesResponse,
+    LLMObsExperimentEventsV2DataAttributesResponse: LLMObsExperimentEventsV2DataAttributesResponse,
     LLMObsExperimentEventsV2DataResponse: LLMObsExperimentEventsV2DataResponse,
     LLMObsExperimentEventsV2Response: LLMObsExperimentEventsV2Response,
     LLMObsExperimentMetric: LLMObsExperimentMetric,
@@ -667,62 +583,41 @@ export const TypingInfo: ModelTypingInfo = {
     LLMObsExperimentSpanMeta: LLMObsExperimentSpanMeta,
     LLMObsExperimentSpanWithEvals: LLMObsExperimentSpanWithEvals,
     LLMObsExperimentSpansResponse: LLMObsExperimentSpansResponse,
-    LLMObsExperimentUpdateDataAttributesRequest:
-      LLMObsExperimentUpdateDataAttributesRequest,
+    LLMObsExperimentUpdateDataAttributesRequest: LLMObsExperimentUpdateDataAttributesRequest,
     LLMObsExperimentUpdateDataRequest: LLMObsExperimentUpdateDataRequest,
     LLMObsExperimentUpdateRequest: LLMObsExperimentUpdateRequest,
     LLMObsExperimentUser: LLMObsExperimentUser,
-    LLMObsExperimentationAnalyticsAggregate:
-      LLMObsExperimentationAnalyticsAggregate,
-    LLMObsExperimentationAnalyticsCompute:
-      LLMObsExperimentationAnalyticsCompute,
-    LLMObsExperimentationAnalyticsDataAttributesRequest:
-      LLMObsExperimentationAnalyticsDataAttributesRequest,
-    LLMObsExperimentationAnalyticsDataAttributesResponse:
-      LLMObsExperimentationAnalyticsDataAttributesResponse,
-    LLMObsExperimentationAnalyticsDataRequest:
-      LLMObsExperimentationAnalyticsDataRequest,
-    LLMObsExperimentationAnalyticsDataResponse:
-      LLMObsExperimentationAnalyticsDataResponse,
-    LLMObsExperimentationAnalyticsGroupBy:
-      LLMObsExperimentationAnalyticsGroupBy,
-    LLMObsExperimentationAnalyticsRequest:
-      LLMObsExperimentationAnalyticsRequest,
-    LLMObsExperimentationAnalyticsResponse:
-      LLMObsExperimentationAnalyticsResponse,
+    LLMObsExperimentationAnalyticsAggregate: LLMObsExperimentationAnalyticsAggregate,
+    LLMObsExperimentationAnalyticsCompute: LLMObsExperimentationAnalyticsCompute,
+    LLMObsExperimentationAnalyticsDataAttributesRequest: LLMObsExperimentationAnalyticsDataAttributesRequest,
+    LLMObsExperimentationAnalyticsDataAttributesResponse: LLMObsExperimentationAnalyticsDataAttributesResponse,
+    LLMObsExperimentationAnalyticsDataRequest: LLMObsExperimentationAnalyticsDataRequest,
+    LLMObsExperimentationAnalyticsDataResponse: LLMObsExperimentationAnalyticsDataResponse,
+    LLMObsExperimentationAnalyticsGroupBy: LLMObsExperimentationAnalyticsGroupBy,
+    LLMObsExperimentationAnalyticsRequest: LLMObsExperimentationAnalyticsRequest,
+    LLMObsExperimentationAnalyticsResponse: LLMObsExperimentationAnalyticsResponse,
     LLMObsExperimentationAnalyticsResult: LLMObsExperimentationAnalyticsResult,
     LLMObsExperimentationAnalyticsSearch: LLMObsExperimentationAnalyticsSearch,
-    LLMObsExperimentationAnalyticsTimeRange:
-      LLMObsExperimentationAnalyticsTimeRange,
+    LLMObsExperimentationAnalyticsTimeRange: LLMObsExperimentationAnalyticsTimeRange,
     LLMObsExperimentationAnalyticsValue: LLMObsExperimentationAnalyticsValue,
     LLMObsExperimentationContentPreview: LLMObsExperimentationContentPreview,
     LLMObsExperimentationCursorPage: LLMObsExperimentationCursorPage,
     LLMObsExperimentationFilter: LLMObsExperimentationFilter,
     LLMObsExperimentationInclude: LLMObsExperimentationInclude,
     LLMObsExperimentationNumberPage: LLMObsExperimentationNumberPage,
-    LLMObsExperimentationSearchDataAttributesRequest:
-      LLMObsExperimentationSearchDataAttributesRequest,
-    LLMObsExperimentationSearchDataRequest:
-      LLMObsExperimentationSearchDataRequest,
-    LLMObsExperimentationSearchDataResponse:
-      LLMObsExperimentationSearchDataResponse,
+    LLMObsExperimentationSearchDataAttributesRequest: LLMObsExperimentationSearchDataAttributesRequest,
+    LLMObsExperimentationSearchDataRequest: LLMObsExperimentationSearchDataRequest,
+    LLMObsExperimentationSearchDataResponse: LLMObsExperimentationSearchDataResponse,
     LLMObsExperimentationSearchRequest: LLMObsExperimentationSearchRequest,
     LLMObsExperimentationSearchResponse: LLMObsExperimentationSearchResponse,
     LLMObsExperimentationSearchResults: LLMObsExperimentationSearchResults,
-    LLMObsExperimentationSimpleSearchDataAttributesRequest:
-      LLMObsExperimentationSimpleSearchDataAttributesRequest,
-    LLMObsExperimentationSimpleSearchDataRequest:
-      LLMObsExperimentationSimpleSearchDataRequest,
-    LLMObsExperimentationSimpleSearchDataResponse:
-      LLMObsExperimentationSimpleSearchDataResponse,
-    LLMObsExperimentationSimpleSearchMeta:
-      LLMObsExperimentationSimpleSearchMeta,
-    LLMObsExperimentationSimpleSearchMetaPage:
-      LLMObsExperimentationSimpleSearchMetaPage,
-    LLMObsExperimentationSimpleSearchRequest:
-      LLMObsExperimentationSimpleSearchRequest,
-    LLMObsExperimentationSimpleSearchResponse:
-      LLMObsExperimentationSimpleSearchResponse,
+    LLMObsExperimentationSimpleSearchDataAttributesRequest: LLMObsExperimentationSimpleSearchDataAttributesRequest,
+    LLMObsExperimentationSimpleSearchDataRequest: LLMObsExperimentationSimpleSearchDataRequest,
+    LLMObsExperimentationSimpleSearchDataResponse: LLMObsExperimentationSimpleSearchDataResponse,
+    LLMObsExperimentationSimpleSearchMeta: LLMObsExperimentationSimpleSearchMeta,
+    LLMObsExperimentationSimpleSearchMetaPage: LLMObsExperimentationSimpleSearchMetaPage,
+    LLMObsExperimentationSimpleSearchRequest: LLMObsExperimentationSimpleSearchRequest,
+    LLMObsExperimentationSimpleSearchResponse: LLMObsExperimentationSimpleSearchResponse,
     LLMObsExperimentationSortField: LLMObsExperimentationSortField,
     LLMObsExperimentsResponse: LLMObsExperimentsResponse,
     LLMObsInferenceCode: LLMObsInferenceCode,
@@ -745,54 +640,40 @@ export const TypingInfo: ModelTypingInfo = {
     LLMObsPatternsActivityProgress: LLMObsPatternsActivityProgress,
     LLMObsPatternsClusteredPoint: LLMObsPatternsClusteredPoint,
     LLMObsPatternsClusteredPointRef: LLMObsPatternsClusteredPointRef,
-    LLMObsPatternsClusteredPointsResponse:
-      LLMObsPatternsClusteredPointsResponse,
-    LLMObsPatternsClusteredPointsResponseAttributes:
-      LLMObsPatternsClusteredPointsResponseAttributes,
-    LLMObsPatternsClusteredPointsResponseData:
-      LLMObsPatternsClusteredPointsResponseData,
+    LLMObsPatternsClusteredPointsResponse: LLMObsPatternsClusteredPointsResponse,
+    LLMObsPatternsClusteredPointsResponseAttributes: LLMObsPatternsClusteredPointsResponseAttributes,
+    LLMObsPatternsClusteredPointsResponseData: LLMObsPatternsClusteredPointsResponseData,
     LLMObsPatternsConfigAttributes: LLMObsPatternsConfigAttributes,
     LLMObsPatternsConfigItem: LLMObsPatternsConfigItem,
     LLMObsPatternsConfigResponse: LLMObsPatternsConfigResponse,
     LLMObsPatternsConfigResponseData: LLMObsPatternsConfigResponseData,
     LLMObsPatternsConfigSnapshot: LLMObsPatternsConfigSnapshot,
     LLMObsPatternsConfigUpsertRequest: LLMObsPatternsConfigUpsertRequest,
-    LLMObsPatternsConfigUpsertRequestAttributes:
-      LLMObsPatternsConfigUpsertRequestAttributes,
-    LLMObsPatternsConfigUpsertRequestData:
-      LLMObsPatternsConfigUpsertRequestData,
+    LLMObsPatternsConfigUpsertRequestAttributes: LLMObsPatternsConfigUpsertRequestAttributes,
+    LLMObsPatternsConfigUpsertRequestData: LLMObsPatternsConfigUpsertRequestData,
     LLMObsPatternsConfigsResponse: LLMObsPatternsConfigsResponse,
-    LLMObsPatternsConfigsResponseAttributes:
-      LLMObsPatternsConfigsResponseAttributes,
+    LLMObsPatternsConfigsResponseAttributes: LLMObsPatternsConfigsResponseAttributes,
     LLMObsPatternsConfigsResponseData: LLMObsPatternsConfigsResponseData,
     LLMObsPatternsRunStatusResponse: LLMObsPatternsRunStatusResponse,
-    LLMObsPatternsRunStatusResponseAttributes:
-      LLMObsPatternsRunStatusResponseAttributes,
+    LLMObsPatternsRunStatusResponseAttributes: LLMObsPatternsRunStatusResponseAttributes,
     LLMObsPatternsRunStatusResponseData: LLMObsPatternsRunStatusResponseData,
     LLMObsPatternsRunSummary: LLMObsPatternsRunSummary,
     LLMObsPatternsRunsResponse: LLMObsPatternsRunsResponse,
     LLMObsPatternsRunsResponseAttributes: LLMObsPatternsRunsResponseAttributes,
     LLMObsPatternsRunsResponseData: LLMObsPatternsRunsResponseData,
     LLMObsPatternsTopic: LLMObsPatternsTopic,
-    LLMObsPatternsTopicWithClusteredPoints:
-      LLMObsPatternsTopicWithClusteredPoints,
+    LLMObsPatternsTopicWithClusteredPoints: LLMObsPatternsTopicWithClusteredPoints,
     LLMObsPatternsTopicsResponse: LLMObsPatternsTopicsResponse,
-    LLMObsPatternsTopicsResponseAttributes:
-      LLMObsPatternsTopicsResponseAttributes,
+    LLMObsPatternsTopicsResponseAttributes: LLMObsPatternsTopicsResponseAttributes,
     LLMObsPatternsTopicsResponseData: LLMObsPatternsTopicsResponseData,
-    LLMObsPatternsTopicsWithClusteredPointsResponse:
-      LLMObsPatternsTopicsWithClusteredPointsResponse,
-    LLMObsPatternsTopicsWithClusteredPointsResponseAttributes:
-      LLMObsPatternsTopicsWithClusteredPointsResponseAttributes,
-    LLMObsPatternsTopicsWithClusteredPointsResponseData:
-      LLMObsPatternsTopicsWithClusteredPointsResponseData,
+    LLMObsPatternsTopicsWithClusteredPointsResponse: LLMObsPatternsTopicsWithClusteredPointsResponse,
+    LLMObsPatternsTopicsWithClusteredPointsResponseAttributes: LLMObsPatternsTopicsWithClusteredPointsResponseAttributes,
+    LLMObsPatternsTopicsWithClusteredPointsResponseData: LLMObsPatternsTopicsWithClusteredPointsResponseData,
     LLMObsPatternsTriggerRequest: LLMObsPatternsTriggerRequest,
-    LLMObsPatternsTriggerRequestAttributes:
-      LLMObsPatternsTriggerRequestAttributes,
+    LLMObsPatternsTriggerRequestAttributes: LLMObsPatternsTriggerRequestAttributes,
     LLMObsPatternsTriggerRequestData: LLMObsPatternsTriggerRequestData,
     LLMObsPatternsTriggerResponse: LLMObsPatternsTriggerResponse,
-    LLMObsPatternsTriggerResponseAttributes:
-      LLMObsPatternsTriggerResponseAttributes,
+    LLMObsPatternsTriggerResponseAttributes: LLMObsPatternsTriggerResponseAttributes,
     LLMObsPatternsTriggerResponseData: LLMObsPatternsTriggerResponseData,
     LLMObsProjectDataAttributesRequest: LLMObsProjectDataAttributesRequest,
     LLMObsProjectDataAttributesResponse: LLMObsProjectDataAttributesResponse,
@@ -800,8 +681,7 @@ export const TypingInfo: ModelTypingInfo = {
     LLMObsProjectDataResponse: LLMObsProjectDataResponse,
     LLMObsProjectRequest: LLMObsProjectRequest,
     LLMObsProjectResponse: LLMObsProjectResponse,
-    LLMObsProjectUpdateDataAttributesRequest:
-      LLMObsProjectUpdateDataAttributesRequest,
+    LLMObsProjectUpdateDataAttributesRequest: LLMObsProjectUpdateDataAttributesRequest,
     LLMObsProjectUpdateDataRequest: LLMObsProjectUpdateDataRequest,
     LLMObsProjectUpdateRequest: LLMObsProjectUpdateRequest,
     LLMObsProjectsResponse: LLMObsProjectsResponse,
@@ -816,8 +696,7 @@ export const TypingInfo: ModelTypingInfo = {
     LLMObsPromptVersionData: LLMObsPromptVersionData,
     LLMObsPromptVersionDataAttributes: LLMObsPromptVersionDataAttributes,
     LLMObsPromptVersionListData: LLMObsPromptVersionListData,
-    LLMObsPromptVersionListDataAttributes:
-      LLMObsPromptVersionListDataAttributes,
+    LLMObsPromptVersionListDataAttributes: LLMObsPromptVersionListDataAttributes,
     LLMObsPromptVersionResponse: LLMObsPromptVersionResponse,
     LLMObsPromptVersionsResponse: LLMObsPromptVersionsResponse,
     LLMObsPromptsResponse: LLMObsPromptsResponse,
@@ -846,8 +725,7 @@ export const TypingInfo: ModelTypingInfo = {
     LLMObsUpdatePromptDataAttributes: LLMObsUpdatePromptDataAttributes,
     LLMObsUpdatePromptRequest: LLMObsUpdatePromptRequest,
     LLMObsUpdatePromptVersionData: LLMObsUpdatePromptVersionData,
-    LLMObsUpdatePromptVersionDataAttributes:
-      LLMObsUpdatePromptVersionDataAttributes,
+    LLMObsUpdatePromptVersionDataAttributes: LLMObsUpdatePromptVersionDataAttributes,
     LLMObsUpdatePromptVersionRequest: LLMObsUpdatePromptVersionRequest,
     LLMObsUpsertAnnotationItem: LLMObsUpsertAnnotationItem,
     LLMObsVertexAIMetadata: LLMObsVertexAIMetadata,

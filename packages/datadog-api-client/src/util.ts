@@ -51,21 +51,14 @@ export function dateToRFC3339String(date: Date | DDate): string {
   if (date instanceof DDate && date.originalDate) {
     return date.originalDate;
   }
-  return date.toISOString().split(".")[0] + "Z";
+  return date.toISOString().split('.')[0] + "Z";
 }
 
-export function buildUserAgent(
-  clientName: string,
-  clientVersion: string,
-): string {
+export function buildUserAgent(clientName: string, clientVersion: string): string {
   let userAgent = `datadog-api-client-${clientName}/${clientVersion} (datadog-api-client ${version}; typescript; runtime unknown)`;
 
-  if (
-    typeof process !== "undefined" &&
-    process.versions != null &&
-    process.versions.node != null
-  ) {
-    userAgent = `datadog-api-client-${clientName}/${clientVersion} (datadog-api-client ${version}; typescript; node ${process.versions.node}; os ${process.platform}; arch ${process.arch})`;
+  if (typeof process !== 'undefined' && process.versions != null && process.versions.node != null) {
+    userAgent = `datadog-api-client-${clientName}/${clientVersion} (datadog-api-client ${version}; typescript; node ${process.versions.node}; os ${process.platform}; arch ${process.arch})`
   }
 
   return userAgent;

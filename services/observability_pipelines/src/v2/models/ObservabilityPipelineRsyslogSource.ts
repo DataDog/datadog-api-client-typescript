@@ -6,7 +6,7 @@ import { ObservabilityPipelineSyslogSourceMode } from "./ObservabilityPipelineSy
 
 /**
  * The `rsyslog` source listens for logs over TCP or UDP from an `rsyslog` server using the syslog protocol.
- *
+ * 
  * **Supported pipeline types:** logs
  */
 export class ObservabilityPipelineRsyslogSource {
@@ -35,7 +35,7 @@ export class ObservabilityPipelineRsyslogSource {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
   /**
    * @ignore
    */

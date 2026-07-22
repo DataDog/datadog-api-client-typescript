@@ -20,8 +20,7 @@ export const TypingInfo: ModelTypingInfo = {
     APIErrorResponse: APIErrorResponse,
     CancelDataDeletionResponseBody: CancelDataDeletionResponseBody,
     CreateDataDeletionRequestBody: CreateDataDeletionRequestBody,
-    CreateDataDeletionRequestBodyAttributes:
-      CreateDataDeletionRequestBodyAttributes,
+    CreateDataDeletionRequestBodyAttributes: CreateDataDeletionRequestBodyAttributes,
     CreateDataDeletionRequestBodyData: CreateDataDeletionRequestBodyData,
     CreateDataDeletionResponseBody: CreateDataDeletionResponseBody,
     DataDeletionResponseItem: DataDeletionResponseItem,

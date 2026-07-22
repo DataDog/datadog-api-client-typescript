@@ -19,6 +19,7 @@ import {
   ServerConfiguration,
   stringify,
   applySecurityAuthentication,
+  
 } from "@datadog/datadog-api-client";
 
 import { TypingInfo } from "./models/TypingInfo";
@@ -44,15 +45,8 @@ export class AWSLogsIntegrationApiRequestFactory extends BaseAPIRequestFactory {
     const localVarPath = "/api/v2/integration/aws/logs/services";
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "AWSLogsIntegrationApi.v2.listAWSLogsServices",
-      AWSLogsIntegrationApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.GET,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("AWSLogsIntegrationApi.v2.listAWSLogsServices", AWSLogsIntegrationApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.GET, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -82,7 +76,9 @@ export class AWSLogsIntegrationApiResponseProcessor {
   public async listAWSLogsServices(
     response: ResponseContext,
   ): Promise<AWSLogsServicesResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: AWSLogsServicesResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -91,8 +87,14 @@ export class AWSLogsIntegrationApiResponseProcessor {
       ) as AWSLogsServicesResponse;
       return body;
     }
-    if (response.httpStatusCode === 403 || response.httpStatusCode === 429) {
-      const bodyText = parse(await response.body.text(), contentType);
+    if (
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 429
+    ) {
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -107,7 +109,10 @@ export class AWSLogsIntegrationApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -134,7 +139,8 @@ export class AWSLogsIntegrationApi {
   private responseProcessor: AWSLogsIntegrationApiResponseProcessor;
   private configuration: Configuration;
 
-  static operationServers: { [key: string]: BaseServerConfiguration[] } = {};
+  static operationServers: { [key: string]: BaseServerConfiguration[] } = {
+  };
 
   public constructor(
     configuration?: Configuration,
@@ -153,11 +159,11 @@ export class AWSLogsIntegrationApi {
    * Get a list of AWS services that can send logs to Datadog.
    * @param param The request object
    */
-  public listAWSLogsServices(
-    options?: Configuration,
+  public listAWSLogsServices(options?: Configuration,
   ): Promise<AWSLogsServicesResponse> {
-    const requestContextPromise =
-      this.requestFactory.listAWSLogsServices(options);
+    const requestContextPromise = this.requestFactory.listAWSLogsServices(
+      options,
+    );
     return requestContextPromise.then((requestContext) => {
       return this.configuration.httpApi
         .send(requestContext)

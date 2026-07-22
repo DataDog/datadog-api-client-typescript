@@ -38,7 +38,7 @@ export class LLMObsUpdatePromptVersionDataAttributes {
     labels: {
       baseName: "labels",
       type: "Array<LLMObsPromptVersionLabel>",
-    },
+    }
   };
 
   /**

@@ -26,12 +26,7 @@ import { JSONAPIErrorResponse } from "./JSONAPIErrorResponse";
 export const TypingInfo: ModelTypingInfo = {
   enumsMap: {
     CsmAgentlessHostFacetType: ["agentless_host_facet"],
-    CsmAgentlessHostResourceType: [
-      "aws_ec2_instance",
-      "azure_virtual_machine_instance",
-      "gcp_compute_instance",
-      "oci_instance",
-    ],
+    CsmAgentlessHostResourceType: ["aws_ec2_instance", "azure_virtual_machine_instance", "gcp_compute_instance", "oci_instance"],
     CsmAgentlessHostType: ["agentless_host"],
     CsmCloudProvider: ["aws", "gcp", "azure", "oci"],
     CsmFacetInfoType: ["facet_info"],

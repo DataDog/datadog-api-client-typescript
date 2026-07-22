@@ -19,6 +19,7 @@ import {
   ServerConfiguration,
   stringify,
   applySecurityAuthentication,
+  
 } from "@datadog/datadog-api-client";
 
 import { TypingInfo } from "./models/TypingInfo";
@@ -50,15 +51,8 @@ export class APMApiRequestFactory extends BaseAPIRequestFactory {
     const localVarPath = "/api/v2/apm/services";
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "APMApi.v2.getServiceList",
-      APMApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.GET,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("APMApi.v2.getServiceList", APMApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.GET, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -95,8 +89,12 @@ export class APMApiResponseProcessor {
    * @params response Response returned by the server for a request to getServiceList
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async getServiceList(response: ResponseContext): Promise<ServiceList> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+  public async getServiceList(
+    response: ResponseContext,
+  ): Promise<ServiceList> {
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: ServiceList = deserialize(
         parse(await response.body.text(), contentType),
@@ -106,7 +104,10 @@ export class APMApiResponseProcessor {
       return body;
     }
     if (response.httpStatusCode === 429) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -121,7 +122,10 @@ export class APMApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -156,7 +160,8 @@ export class APMApi {
   private responseProcessor: APMApiResponseProcessor;
   private configuration: Configuration;
 
-  static operationServers: { [key: string]: BaseServerConfiguration[] } = {};
+  static operationServers: { [key: string]: BaseServerConfiguration[] } = {
+  };
 
   public constructor(
     configuration?: Configuration,
@@ -165,8 +170,10 @@ export class APMApi {
   ) {
     this.configuration = configuration || createConfiguration();
     this.requestFactory =
-      requestFactory || new APMApiRequestFactory(this.configuration);
-    this.responseProcessor = responseProcessor || new APMApiResponseProcessor();
+      requestFactory ||
+      new APMApiRequestFactory(this.configuration);
+    this.responseProcessor =
+      responseProcessor || new APMApiResponseProcessor();
   }
 
   /**

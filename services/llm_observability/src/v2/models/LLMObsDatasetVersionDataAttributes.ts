@@ -1,5 +1,6 @@
 import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
+
 /**
  * Attributes of an LLM Observability dataset version.
  */
@@ -11,7 +12,7 @@ export class LLMObsDatasetVersionDataAttributes {
   /**
    * Timestamp when this dataset version was last referenced. Null if the version has never been used.
    */
-  "lastUsed": Date | null;
+  "lastUsed": Date|null;
   /**
    * Sequential version number for this dataset version.
    */
@@ -21,7 +22,7 @@ export class LLMObsDatasetVersionDataAttributes {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
   /**
    * @ignore
    */

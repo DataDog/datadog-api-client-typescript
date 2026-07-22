@@ -19,6 +19,7 @@ import {
   ServerConfiguration,
   stringify,
   applySecurityAuthentication,
+  
 } from "@datadog/datadog-api-client";
 
 import { TypingInfo } from "./models/TypingInfo";
@@ -44,12 +45,8 @@ export class RumRateLimitApiRequestFactory extends BaseAPIRequestFactory {
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
-    if (
-      !_config.unstableOperations["RumRateLimitApi.v2.deleteRumRateLimitConfig"]
-    ) {
-      throw new Error(
-        "Unstable operation 'deleteRumRateLimitConfig' is disabled. Enable it by setting `configuration.unstableOperations['RumRateLimitApi.v2.deleteRumRateLimitConfig'] = true`",
-      );
+    if (!_config.unstableOperations["RumRateLimitApi.v2.deleteRumRateLimitConfig"]) {
+      throw new Error("Unstable operation 'deleteRumRateLimitConfig' is disabled. Enable it by setting `configuration.unstableOperations['RumRateLimitApi.v2.deleteRumRateLimitConfig'] = true`");
     }
 
     // verify required parameter 'scopeType' is not null or undefined
@@ -63,20 +60,17 @@ export class RumRateLimitApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Path Params
-    const localVarPath = "/api/v2/rum/config/rate-limit/{scope_type}/{scope_id}"
-      .replace("{scope_type}", encodeURIComponent(String(scopeType)))
-      .replace("{scope_id}", encodeURIComponent(String(scopeId)));
+    const localVarPath = "/api/v2/rum/config/rate-limit/{scope_type}/{scope_id}".replace(
+      "{scope_type}",
+      encodeURIComponent(String(scopeType)),
+    ).replace(
+      "{scope_id}",
+      encodeURIComponent(String(scopeId)),
+    );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "RumRateLimitApi.v2.deleteRumRateLimitConfig",
-      RumRateLimitApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.DELETE,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("RumRateLimitApi.v2.deleteRumRateLimitConfig", RumRateLimitApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.DELETE, overrides);
     requestContext.setHeaderParam("Accept", "*/*");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -101,12 +95,8 @@ export class RumRateLimitApiRequestFactory extends BaseAPIRequestFactory {
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
-    if (
-      !_config.unstableOperations["RumRateLimitApi.v2.getRumRateLimitConfig"]
-    ) {
-      throw new Error(
-        "Unstable operation 'getRumRateLimitConfig' is disabled. Enable it by setting `configuration.unstableOperations['RumRateLimitApi.v2.getRumRateLimitConfig'] = true`",
-      );
+    if (!_config.unstableOperations["RumRateLimitApi.v2.getRumRateLimitConfig"]) {
+      throw new Error("Unstable operation 'getRumRateLimitConfig' is disabled. Enable it by setting `configuration.unstableOperations['RumRateLimitApi.v2.getRumRateLimitConfig'] = true`");
     }
 
     // verify required parameter 'scopeType' is not null or undefined
@@ -120,20 +110,17 @@ export class RumRateLimitApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Path Params
-    const localVarPath = "/api/v2/rum/config/rate-limit/{scope_type}/{scope_id}"
-      .replace("{scope_type}", encodeURIComponent(String(scopeType)))
-      .replace("{scope_id}", encodeURIComponent(String(scopeId)));
+    const localVarPath = "/api/v2/rum/config/rate-limit/{scope_type}/{scope_id}".replace(
+      "{scope_type}",
+      encodeURIComponent(String(scopeType)),
+    ).replace(
+      "{scope_id}",
+      encodeURIComponent(String(scopeId)),
+    );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "RumRateLimitApi.v2.getRumRateLimitConfig",
-      RumRateLimitApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.GET,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("RumRateLimitApi.v2.getRumRateLimitConfig", RumRateLimitApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.GET, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -159,12 +146,8 @@ export class RumRateLimitApiRequestFactory extends BaseAPIRequestFactory {
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
-    if (
-      !_config.unstableOperations["RumRateLimitApi.v2.updateRumRateLimitConfig"]
-    ) {
-      throw new Error(
-        "Unstable operation 'updateRumRateLimitConfig' is disabled. Enable it by setting `configuration.unstableOperations['RumRateLimitApi.v2.updateRumRateLimitConfig'] = true`",
-      );
+    if (!_config.unstableOperations["RumRateLimitApi.v2.updateRumRateLimitConfig"]) {
+      throw new Error("Unstable operation 'updateRumRateLimitConfig' is disabled. Enable it by setting `configuration.unstableOperations['RumRateLimitApi.v2.updateRumRateLimitConfig'] = true`");
     }
 
     // verify required parameter 'scopeType' is not null or undefined
@@ -183,20 +166,17 @@ export class RumRateLimitApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Path Params
-    const localVarPath = "/api/v2/rum/config/rate-limit/{scope_type}/{scope_id}"
-      .replace("{scope_type}", encodeURIComponent(String(scopeType)))
-      .replace("{scope_id}", encodeURIComponent(String(scopeId)));
+    const localVarPath = "/api/v2/rum/config/rate-limit/{scope_type}/{scope_id}".replace(
+      "{scope_type}",
+      encodeURIComponent(String(scopeType)),
+    ).replace(
+      "{scope_id}",
+      encodeURIComponent(String(scopeId)),
+    );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "RumRateLimitApi.v2.updateRumRateLimitConfig",
-      RumRateLimitApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.PUT,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("RumRateLimitApi.v2.updateRumRateLimitConfig", RumRateLimitApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.PUT, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -206,7 +186,9 @@ export class RumRateLimitApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Body Params
-    const contentType = getPreferredMediaType(["application/json"]);
+    const contentType = getPreferredMediaType([
+      "application/json",
+    ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = stringify(
       serialize(body, TypingInfo, "RumRateLimitConfigUpdateRequest", ""),
@@ -235,7 +217,9 @@ export class RumRateLimitApiResponseProcessor {
   public async deleteRumRateLimitConfig(
     response: ResponseContext,
   ): Promise<void> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 204) {
       return;
     }
@@ -245,7 +229,10 @@ export class RumRateLimitApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -260,7 +247,10 @@ export class RumRateLimitApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -285,7 +275,9 @@ export class RumRateLimitApiResponseProcessor {
   public async getRumRateLimitConfig(
     response: ResponseContext,
   ): Promise<RumRateLimitConfigResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: RumRateLimitConfigResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -300,7 +292,10 @@ export class RumRateLimitApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -315,7 +310,10 @@ export class RumRateLimitApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -346,7 +344,9 @@ export class RumRateLimitApiResponseProcessor {
   public async updateRumRateLimitConfig(
     response: ResponseContext,
   ): Promise<RumRateLimitConfigResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: RumRateLimitConfigResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -361,7 +361,10 @@ export class RumRateLimitApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -376,7 +379,10 @@ export class RumRateLimitApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -450,7 +456,8 @@ export class RumRateLimitApi {
   private responseProcessor: RumRateLimitApiResponseProcessor;
   private configuration: Configuration;
 
-  static operationServers: { [key: string]: BaseServerConfiguration[] } = {};
+  static operationServers: { [key: string]: BaseServerConfiguration[] } = {
+  };
 
   public constructor(
     configuration?: Configuration,
@@ -459,7 +466,8 @@ export class RumRateLimitApi {
   ) {
     this.configuration = configuration || createConfiguration();
     this.requestFactory =
-      requestFactory || new RumRateLimitApiRequestFactory(this.configuration);
+      requestFactory ||
+      new RumRateLimitApiRequestFactory(this.configuration);
     this.responseProcessor =
       responseProcessor || new RumRateLimitApiResponseProcessor();
   }
@@ -481,9 +489,7 @@ export class RumRateLimitApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.deleteRumRateLimitConfig(
-            responseContext,
-          );
+          return this.responseProcessor.deleteRumRateLimitConfig(responseContext);
         });
     });
   }
@@ -529,9 +535,7 @@ export class RumRateLimitApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.updateRumRateLimitConfig(
-            responseContext,
-          );
+          return this.responseProcessor.updateRumRateLimitConfig(responseContext);
         });
     });
   }

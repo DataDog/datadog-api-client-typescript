@@ -42,7 +42,7 @@ export class NotebookTemplateVariableAvailableValuesQueryLogRumSpans {
       baseName: "search",
       type: "NotebookTemplateVariableAvailableValuesQuerySearch",
       required: true,
-    },
+    }
   };
 
   /**

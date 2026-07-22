@@ -56,7 +56,7 @@ export class MonitorOptions {
   "groupbySimpleMonitor"?: boolean;
   /**
    * A Boolean indicating whether notifications from this monitor automatically inserts its triggering tags into the title.
-   *
+   * 
    * **Examples**
    * - If `True`, `[Triggered on {host:h1}] Monitor Title`
    * - If `False`, `[Triggered] Monitor Title`
@@ -78,9 +78,9 @@ export class MonitorOptions {
   "minLocationFailed"?: number;
   /**
    * Time (in seconds) to skip evaluations for new groups.
-   *
+   * 
    * For example, this option can be used to skip evaluations for new hosts while they initialize.
-   *
+   * 
    * Must be a non negative integer.
    */
   "newGroupDelay"?: number;
@@ -88,7 +88,7 @@ export class MonitorOptions {
    * Time (in seconds) to allow a host to boot and applications
    * to fully start before starting the evaluation of monitor results.
    * Should be a non negative integer.
-   *
+   * 
    * Use new_group_delay instead.
    */
   "newHostDelay"?: number;
@@ -157,7 +157,7 @@ export class MonitorOptions {
   /**
    * Information about the downtime applied to the monitor. Only shows v1 downtimes.
    */
-  "silenced"?: { [key: string]: number };
+  "silenced"?: { [key: string]: number; };
   /**
    * ID of the corresponding Synthetic check.
    */
@@ -183,7 +183,7 @@ export class MonitorOptions {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
   /**
    * @ignore
    */

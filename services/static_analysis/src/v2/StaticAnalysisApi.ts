@@ -19,6 +19,7 @@ import {
   ServerConfiguration,
   stringify,
   applySecurityAuthentication,
+  
 } from "@datadog/datadog-api-client";
 
 import { TypingInfo } from "./models/TypingInfo";
@@ -72,12 +73,8 @@ export class StaticAnalysisApiRequestFactory extends BaseAPIRequestFactory {
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
-    if (
-      !_config.unstableOperations["StaticAnalysisApi.v2.createAiCustomRule"]
-    ) {
-      throw new Error(
-        "Unstable operation 'createAiCustomRule' is disabled. Enable it by setting `configuration.unstableOperations['StaticAnalysisApi.v2.createAiCustomRule'] = true`",
-      );
+    if (!_config.unstableOperations["StaticAnalysisApi.v2.createAiCustomRule"]) {
+      throw new Error("Unstable operation 'createAiCustomRule' is disabled. Enable it by setting `configuration.unstableOperations['StaticAnalysisApi.v2.createAiCustomRule'] = true`");
     }
 
     // verify required parameter 'rulesetName' is not null or undefined
@@ -91,22 +88,14 @@ export class StaticAnalysisApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Path Params
-    const localVarPath =
-      "/api/v2/static-analysis/ai/rulesets/{ruleset_name}/rules".replace(
-        "{ruleset_name}",
-        encodeURIComponent(String(rulesetName)),
-      );
+    const localVarPath = "/api/v2/static-analysis/ai/rulesets/{ruleset_name}/rules".replace(
+      "{ruleset_name}",
+      encodeURIComponent(String(rulesetName)),
+    );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "StaticAnalysisApi.v2.createAiCustomRule",
-      StaticAnalysisApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.POST,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("StaticAnalysisApi.v2.createAiCustomRule", StaticAnalysisApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.POST, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -116,7 +105,9 @@ export class StaticAnalysisApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Body Params
-    const contentType = getPreferredMediaType(["application/json"]);
+    const contentType = getPreferredMediaType([
+      "application/json",
+    ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = stringify(
       serialize(body, TypingInfo, "AiCustomRuleRequest", ""),
@@ -141,14 +132,8 @@ export class StaticAnalysisApiRequestFactory extends BaseAPIRequestFactory {
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
-    if (
-      !_config.unstableOperations[
-        "StaticAnalysisApi.v2.createAiCustomRuleRevision"
-      ]
-    ) {
-      throw new Error(
-        "Unstable operation 'createAiCustomRuleRevision' is disabled. Enable it by setting `configuration.unstableOperations['StaticAnalysisApi.v2.createAiCustomRuleRevision'] = true`",
-      );
+    if (!_config.unstableOperations["StaticAnalysisApi.v2.createAiCustomRuleRevision"]) {
+      throw new Error("Unstable operation 'createAiCustomRuleRevision' is disabled. Enable it by setting `configuration.unstableOperations['StaticAnalysisApi.v2.createAiCustomRuleRevision'] = true`");
     }
 
     // verify required parameter 'rulesetName' is not null or undefined
@@ -167,21 +152,17 @@ export class StaticAnalysisApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Path Params
-    const localVarPath =
-      "/api/v2/static-analysis/ai/rulesets/{ruleset_name}/rules/{rule_name}/revisions"
-        .replace("{ruleset_name}", encodeURIComponent(String(rulesetName)))
-        .replace("{rule_name}", encodeURIComponent(String(ruleName)));
+    const localVarPath = "/api/v2/static-analysis/ai/rulesets/{ruleset_name}/rules/{rule_name}/revisions".replace(
+      "{ruleset_name}",
+      encodeURIComponent(String(rulesetName)),
+    ).replace(
+      "{rule_name}",
+      encodeURIComponent(String(ruleName)),
+    );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "StaticAnalysisApi.v2.createAiCustomRuleRevision",
-      StaticAnalysisApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.POST,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("StaticAnalysisApi.v2.createAiCustomRuleRevision", StaticAnalysisApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.POST, overrides);
     requestContext.setHeaderParam("Accept", "*/*");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -191,7 +172,9 @@ export class StaticAnalysisApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Body Params
-    const contentType = getPreferredMediaType(["application/json"]);
+    const contentType = getPreferredMediaType([
+      "application/json",
+    ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = stringify(
       serialize(body, TypingInfo, "AiCustomRuleRevisionRequest", ""),
@@ -214,12 +197,8 @@ export class StaticAnalysisApiRequestFactory extends BaseAPIRequestFactory {
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
-    if (
-      !_config.unstableOperations["StaticAnalysisApi.v2.createAiCustomRuleset"]
-    ) {
-      throw new Error(
-        "Unstable operation 'createAiCustomRuleset' is disabled. Enable it by setting `configuration.unstableOperations['StaticAnalysisApi.v2.createAiCustomRuleset'] = true`",
-      );
+    if (!_config.unstableOperations["StaticAnalysisApi.v2.createAiCustomRuleset"]) {
+      throw new Error("Unstable operation 'createAiCustomRuleset' is disabled. Enable it by setting `configuration.unstableOperations['StaticAnalysisApi.v2.createAiCustomRuleset'] = true`");
     }
 
     // verify required parameter 'body' is not null or undefined
@@ -231,15 +210,8 @@ export class StaticAnalysisApiRequestFactory extends BaseAPIRequestFactory {
     const localVarPath = "/api/v2/static-analysis/ai/rulesets";
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "StaticAnalysisApi.v2.createAiCustomRuleset",
-      StaticAnalysisApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.POST,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("StaticAnalysisApi.v2.createAiCustomRuleset", StaticAnalysisApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.POST, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -249,7 +221,9 @@ export class StaticAnalysisApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Body Params
-    const contentType = getPreferredMediaType(["application/json"]);
+    const contentType = getPreferredMediaType([
+      "application/json",
+    ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = stringify(
       serialize(body, TypingInfo, "AiCustomRulesetRequest", ""),
@@ -272,14 +246,8 @@ export class StaticAnalysisApiRequestFactory extends BaseAPIRequestFactory {
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
-    if (
-      !_config.unstableOperations[
-        "StaticAnalysisApi.v2.createAiMemoryViolationResult"
-      ]
-    ) {
-      throw new Error(
-        "Unstable operation 'createAiMemoryViolationResult' is disabled. Enable it by setting `configuration.unstableOperations['StaticAnalysisApi.v2.createAiMemoryViolationResult'] = true`",
-      );
+    if (!_config.unstableOperations["StaticAnalysisApi.v2.createAiMemoryViolationResult"]) {
+      throw new Error("Unstable operation 'createAiMemoryViolationResult' is disabled. Enable it by setting `configuration.unstableOperations['StaticAnalysisApi.v2.createAiMemoryViolationResult'] = true`");
     }
 
     // verify required parameter 'body' is not null or undefined
@@ -291,15 +259,8 @@ export class StaticAnalysisApiRequestFactory extends BaseAPIRequestFactory {
     const localVarPath = "/api/v2/static-analysis/ai/memory";
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "StaticAnalysisApi.v2.createAiMemoryViolationResult",
-      StaticAnalysisApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.POST,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("StaticAnalysisApi.v2.createAiMemoryViolationResult", StaticAnalysisApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.POST, overrides);
     requestContext.setHeaderParam("Accept", "*/*");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -309,7 +270,9 @@ export class StaticAnalysisApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Body Params
-    const contentType = getPreferredMediaType(["application/json"]);
+    const contentType = getPreferredMediaType([
+      "application/json",
+    ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = stringify(
       serialize(body, TypingInfo, "AiMemoryViolationResultRequest", ""),
@@ -334,9 +297,7 @@ export class StaticAnalysisApiRequestFactory extends BaseAPIRequestFactory {
     const _config = _options || this.configuration;
 
     if (!_config.unstableOperations["StaticAnalysisApi.v2.createCustomRule"]) {
-      throw new Error(
-        "Unstable operation 'createCustomRule' is disabled. Enable it by setting `configuration.unstableOperations['StaticAnalysisApi.v2.createCustomRule'] = true`",
-      );
+      throw new Error("Unstable operation 'createCustomRule' is disabled. Enable it by setting `configuration.unstableOperations['StaticAnalysisApi.v2.createCustomRule'] = true`");
     }
 
     // verify required parameter 'rulesetName' is not null or undefined
@@ -350,22 +311,14 @@ export class StaticAnalysisApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Path Params
-    const localVarPath =
-      "/api/v2/static-analysis/custom/rulesets/{ruleset_name}/rules".replace(
-        "{ruleset_name}",
-        encodeURIComponent(String(rulesetName)),
-      );
+    const localVarPath = "/api/v2/static-analysis/custom/rulesets/{ruleset_name}/rules".replace(
+      "{ruleset_name}",
+      encodeURIComponent(String(rulesetName)),
+    );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "StaticAnalysisApi.v2.createCustomRule",
-      StaticAnalysisApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.PUT,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("StaticAnalysisApi.v2.createCustomRule", StaticAnalysisApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.PUT, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -375,7 +328,9 @@ export class StaticAnalysisApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Body Params
-    const contentType = getPreferredMediaType(["application/json"]);
+    const contentType = getPreferredMediaType([
+      "application/json",
+    ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = stringify(
       serialize(body, TypingInfo, "CustomRuleRequest", ""),
@@ -400,14 +355,8 @@ export class StaticAnalysisApiRequestFactory extends BaseAPIRequestFactory {
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
-    if (
-      !_config.unstableOperations[
-        "StaticAnalysisApi.v2.createCustomRuleRevision"
-      ]
-    ) {
-      throw new Error(
-        "Unstable operation 'createCustomRuleRevision' is disabled. Enable it by setting `configuration.unstableOperations['StaticAnalysisApi.v2.createCustomRuleRevision'] = true`",
-      );
+    if (!_config.unstableOperations["StaticAnalysisApi.v2.createCustomRuleRevision"]) {
+      throw new Error("Unstable operation 'createCustomRuleRevision' is disabled. Enable it by setting `configuration.unstableOperations['StaticAnalysisApi.v2.createCustomRuleRevision'] = true`");
     }
 
     // verify required parameter 'rulesetName' is not null or undefined
@@ -426,21 +375,17 @@ export class StaticAnalysisApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Path Params
-    const localVarPath =
-      "/api/v2/static-analysis/custom/rulesets/{ruleset_name}/rules/{rule_name}/revisions"
-        .replace("{ruleset_name}", encodeURIComponent(String(rulesetName)))
-        .replace("{rule_name}", encodeURIComponent(String(ruleName)));
+    const localVarPath = "/api/v2/static-analysis/custom/rulesets/{ruleset_name}/rules/{rule_name}/revisions".replace(
+      "{ruleset_name}",
+      encodeURIComponent(String(rulesetName)),
+    ).replace(
+      "{rule_name}",
+      encodeURIComponent(String(ruleName)),
+    );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "StaticAnalysisApi.v2.createCustomRuleRevision",
-      StaticAnalysisApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.PUT,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("StaticAnalysisApi.v2.createCustomRuleRevision", StaticAnalysisApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.PUT, overrides);
     requestContext.setHeaderParam("Accept", "*/*");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -450,7 +395,9 @@ export class StaticAnalysisApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Body Params
-    const contentType = getPreferredMediaType(["application/json"]);
+    const contentType = getPreferredMediaType([
+      "application/json",
+    ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = stringify(
       serialize(body, TypingInfo, "CustomRuleRevisionRequest", ""),
@@ -473,12 +420,8 @@ export class StaticAnalysisApiRequestFactory extends BaseAPIRequestFactory {
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
-    if (
-      !_config.unstableOperations["StaticAnalysisApi.v2.createCustomRuleset"]
-    ) {
-      throw new Error(
-        "Unstable operation 'createCustomRuleset' is disabled. Enable it by setting `configuration.unstableOperations['StaticAnalysisApi.v2.createCustomRuleset'] = true`",
-      );
+    if (!_config.unstableOperations["StaticAnalysisApi.v2.createCustomRuleset"]) {
+      throw new Error("Unstable operation 'createCustomRuleset' is disabled. Enable it by setting `configuration.unstableOperations['StaticAnalysisApi.v2.createCustomRuleset'] = true`");
     }
 
     // verify required parameter 'body' is not null or undefined
@@ -490,15 +433,8 @@ export class StaticAnalysisApiRequestFactory extends BaseAPIRequestFactory {
     const localVarPath = "/api/v2/static-analysis/custom/rulesets";
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "StaticAnalysisApi.v2.createCustomRuleset",
-      StaticAnalysisApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.PUT,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("StaticAnalysisApi.v2.createCustomRuleset", StaticAnalysisApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.PUT, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -508,7 +444,9 @@ export class StaticAnalysisApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Body Params
-    const contentType = getPreferredMediaType(["application/json"]);
+    const contentType = getPreferredMediaType([
+      "application/json",
+    ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = stringify(
       serialize(body, TypingInfo, "CustomRulesetRequest", ""),
@@ -532,14 +470,8 @@ export class StaticAnalysisApiRequestFactory extends BaseAPIRequestFactory {
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
-    if (
-      !_config.unstableOperations[
-        "StaticAnalysisApi.v2.createSCAResolveVulnerableSymbols"
-      ]
-    ) {
-      throw new Error(
-        "Unstable operation 'createSCAResolveVulnerableSymbols' is disabled. Enable it by setting `configuration.unstableOperations['StaticAnalysisApi.v2.createSCAResolveVulnerableSymbols'] = true`",
-      );
+    if (!_config.unstableOperations["StaticAnalysisApi.v2.createSCAResolveVulnerableSymbols"]) {
+      throw new Error("Unstable operation 'createSCAResolveVulnerableSymbols' is disabled. Enable it by setting `configuration.unstableOperations['StaticAnalysisApi.v2.createSCAResolveVulnerableSymbols'] = true`");
     }
 
     // verify required parameter 'body' is not null or undefined
@@ -548,19 +480,11 @@ export class StaticAnalysisApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Path Params
-    const localVarPath =
-      "/api/v2/static-analysis-sca/vulnerabilities/resolve-vulnerable-symbols";
+    const localVarPath = "/api/v2/static-analysis-sca/vulnerabilities/resolve-vulnerable-symbols";
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "StaticAnalysisApi.v2.createSCAResolveVulnerableSymbols",
-      StaticAnalysisApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.POST,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("StaticAnalysisApi.v2.createSCAResolveVulnerableSymbols", StaticAnalysisApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.POST, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -570,7 +494,9 @@ export class StaticAnalysisApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Body Params
-    const contentType = getPreferredMediaType(["application/json"]);
+    const contentType = getPreferredMediaType([
+      "application/json",
+    ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = stringify(
       serialize(body, TypingInfo, "ResolveVulnerableSymbolsRequest", ""),
@@ -595,9 +521,7 @@ export class StaticAnalysisApiRequestFactory extends BaseAPIRequestFactory {
     const _config = _options || this.configuration;
 
     if (!_config.unstableOperations["StaticAnalysisApi.v2.createSCAResult"]) {
-      throw new Error(
-        "Unstable operation 'createSCAResult' is disabled. Enable it by setting `configuration.unstableOperations['StaticAnalysisApi.v2.createSCAResult'] = true`",
-      );
+      throw new Error("Unstable operation 'createSCAResult' is disabled. Enable it by setting `configuration.unstableOperations['StaticAnalysisApi.v2.createSCAResult'] = true`");
     }
 
     // verify required parameter 'body' is not null or undefined
@@ -609,15 +533,8 @@ export class StaticAnalysisApiRequestFactory extends BaseAPIRequestFactory {
     const localVarPath = "/api/v2/static-analysis-sca/dependencies";
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "StaticAnalysisApi.v2.createSCAResult",
-      StaticAnalysisApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.POST,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("StaticAnalysisApi.v2.createSCAResult", StaticAnalysisApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.POST, overrides);
     requestContext.setHeaderParam("Accept", "*/*");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -627,7 +544,9 @@ export class StaticAnalysisApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Body Params
-    const contentType = getPreferredMediaType(["application/json"]);
+    const contentType = getPreferredMediaType([
+      "application/json",
+    ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = stringify(
       serialize(body, TypingInfo, "ScaRequest", ""),
@@ -652,9 +571,7 @@ export class StaticAnalysisApiRequestFactory extends BaseAPIRequestFactory {
     const _config = _options || this.configuration;
 
     if (!_config.unstableOperations["StaticAnalysisApi.v2.createSCAScan"]) {
-      throw new Error(
-        "Unstable operation 'createSCAScan' is disabled. Enable it by setting `configuration.unstableOperations['StaticAnalysisApi.v2.createSCAScan'] = true`",
-      );
+      throw new Error("Unstable operation 'createSCAScan' is disabled. Enable it by setting `configuration.unstableOperations['StaticAnalysisApi.v2.createSCAScan'] = true`");
     }
 
     // verify required parameter 'body' is not null or undefined
@@ -666,15 +583,8 @@ export class StaticAnalysisApiRequestFactory extends BaseAPIRequestFactory {
     const localVarPath = "/api/v2/static-analysis-sca/dependencies/scan";
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "StaticAnalysisApi.v2.createSCAScan",
-      StaticAnalysisApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.POST,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("StaticAnalysisApi.v2.createSCAScan", StaticAnalysisApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.POST, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -684,7 +594,9 @@ export class StaticAnalysisApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Body Params
-    const contentType = getPreferredMediaType(["application/json"]);
+    const contentType = getPreferredMediaType([
+      "application/json",
+    ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = stringify(
       serialize(body, TypingInfo, "McpScanRequest", ""),
@@ -709,12 +621,8 @@ export class StaticAnalysisApiRequestFactory extends BaseAPIRequestFactory {
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
-    if (
-      !_config.unstableOperations["StaticAnalysisApi.v2.deleteAiCustomRule"]
-    ) {
-      throw new Error(
-        "Unstable operation 'deleteAiCustomRule' is disabled. Enable it by setting `configuration.unstableOperations['StaticAnalysisApi.v2.deleteAiCustomRule'] = true`",
-      );
+    if (!_config.unstableOperations["StaticAnalysisApi.v2.deleteAiCustomRule"]) {
+      throw new Error("Unstable operation 'deleteAiCustomRule' is disabled. Enable it by setting `configuration.unstableOperations['StaticAnalysisApi.v2.deleteAiCustomRule'] = true`");
     }
 
     // verify required parameter 'rulesetName' is not null or undefined
@@ -728,21 +636,17 @@ export class StaticAnalysisApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Path Params
-    const localVarPath =
-      "/api/v2/static-analysis/ai/rulesets/{ruleset_name}/rules/{rule_name}"
-        .replace("{ruleset_name}", encodeURIComponent(String(rulesetName)))
-        .replace("{rule_name}", encodeURIComponent(String(ruleName)));
+    const localVarPath = "/api/v2/static-analysis/ai/rulesets/{ruleset_name}/rules/{rule_name}".replace(
+      "{ruleset_name}",
+      encodeURIComponent(String(rulesetName)),
+    ).replace(
+      "{rule_name}",
+      encodeURIComponent(String(ruleName)),
+    );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "StaticAnalysisApi.v2.deleteAiCustomRule",
-      StaticAnalysisApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.DELETE,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("StaticAnalysisApi.v2.deleteAiCustomRule", StaticAnalysisApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.DELETE, overrides);
     requestContext.setHeaderParam("Accept", "*/*");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -766,12 +670,8 @@ export class StaticAnalysisApiRequestFactory extends BaseAPIRequestFactory {
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
-    if (
-      !_config.unstableOperations["StaticAnalysisApi.v2.deleteAiCustomRuleset"]
-    ) {
-      throw new Error(
-        "Unstable operation 'deleteAiCustomRuleset' is disabled. Enable it by setting `configuration.unstableOperations['StaticAnalysisApi.v2.deleteAiCustomRuleset'] = true`",
-      );
+    if (!_config.unstableOperations["StaticAnalysisApi.v2.deleteAiCustomRuleset"]) {
+      throw new Error("Unstable operation 'deleteAiCustomRuleset' is disabled. Enable it by setting `configuration.unstableOperations['StaticAnalysisApi.v2.deleteAiCustomRuleset'] = true`");
     }
 
     // verify required parameter 'rulesetName' is not null or undefined
@@ -780,22 +680,14 @@ export class StaticAnalysisApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Path Params
-    const localVarPath =
-      "/api/v2/static-analysis/ai/rulesets/{ruleset_name}".replace(
-        "{ruleset_name}",
-        encodeURIComponent(String(rulesetName)),
-      );
+    const localVarPath = "/api/v2/static-analysis/ai/rulesets/{ruleset_name}".replace(
+      "{ruleset_name}",
+      encodeURIComponent(String(rulesetName)),
+    );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "StaticAnalysisApi.v2.deleteAiCustomRuleset",
-      StaticAnalysisApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.DELETE,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("StaticAnalysisApi.v2.deleteAiCustomRuleset", StaticAnalysisApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.DELETE, overrides);
     requestContext.setHeaderParam("Accept", "*/*");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -819,14 +711,8 @@ export class StaticAnalysisApiRequestFactory extends BaseAPIRequestFactory {
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
-    if (
-      !_config.unstableOperations[
-        "StaticAnalysisApi.v2.deleteAiMemoryViolationResult"
-      ]
-    ) {
-      throw new Error(
-        "Unstable operation 'deleteAiMemoryViolationResult' is disabled. Enable it by setting `configuration.unstableOperations['StaticAnalysisApi.v2.deleteAiMemoryViolationResult'] = true`",
-      );
+    if (!_config.unstableOperations["StaticAnalysisApi.v2.deleteAiMemoryViolationResult"]) {
+      throw new Error("Unstable operation 'deleteAiMemoryViolationResult' is disabled. Enable it by setting `configuration.unstableOperations['StaticAnalysisApi.v2.deleteAiMemoryViolationResult'] = true`");
     }
 
     // verify required parameter 'id' is not null or undefined
@@ -841,15 +727,8 @@ export class StaticAnalysisApiRequestFactory extends BaseAPIRequestFactory {
     );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "StaticAnalysisApi.v2.deleteAiMemoryViolationResult",
-      StaticAnalysisApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.DELETE,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("StaticAnalysisApi.v2.deleteAiMemoryViolationResult", StaticAnalysisApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.DELETE, overrides);
     requestContext.setHeaderParam("Accept", "*/*");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -875,9 +754,7 @@ export class StaticAnalysisApiRequestFactory extends BaseAPIRequestFactory {
     const _config = _options || this.configuration;
 
     if (!_config.unstableOperations["StaticAnalysisApi.v2.deleteCustomRule"]) {
-      throw new Error(
-        "Unstable operation 'deleteCustomRule' is disabled. Enable it by setting `configuration.unstableOperations['StaticAnalysisApi.v2.deleteCustomRule'] = true`",
-      );
+      throw new Error("Unstable operation 'deleteCustomRule' is disabled. Enable it by setting `configuration.unstableOperations['StaticAnalysisApi.v2.deleteCustomRule'] = true`");
     }
 
     // verify required parameter 'rulesetName' is not null or undefined
@@ -891,21 +768,17 @@ export class StaticAnalysisApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Path Params
-    const localVarPath =
-      "/api/v2/static-analysis/custom/rulesets/{ruleset_name}/rules/{rule_name}"
-        .replace("{ruleset_name}", encodeURIComponent(String(rulesetName)))
-        .replace("{rule_name}", encodeURIComponent(String(ruleName)));
+    const localVarPath = "/api/v2/static-analysis/custom/rulesets/{ruleset_name}/rules/{rule_name}".replace(
+      "{ruleset_name}",
+      encodeURIComponent(String(rulesetName)),
+    ).replace(
+      "{rule_name}",
+      encodeURIComponent(String(ruleName)),
+    );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "StaticAnalysisApi.v2.deleteCustomRule",
-      StaticAnalysisApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.DELETE,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("StaticAnalysisApi.v2.deleteCustomRule", StaticAnalysisApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.DELETE, overrides);
     requestContext.setHeaderParam("Accept", "*/*");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -929,12 +802,8 @@ export class StaticAnalysisApiRequestFactory extends BaseAPIRequestFactory {
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
-    if (
-      !_config.unstableOperations["StaticAnalysisApi.v2.deleteCustomRuleset"]
-    ) {
-      throw new Error(
-        "Unstable operation 'deleteCustomRuleset' is disabled. Enable it by setting `configuration.unstableOperations['StaticAnalysisApi.v2.deleteCustomRuleset'] = true`",
-      );
+    if (!_config.unstableOperations["StaticAnalysisApi.v2.deleteCustomRuleset"]) {
+      throw new Error("Unstable operation 'deleteCustomRuleset' is disabled. Enable it by setting `configuration.unstableOperations['StaticAnalysisApi.v2.deleteCustomRuleset'] = true`");
     }
 
     // verify required parameter 'rulesetName' is not null or undefined
@@ -943,22 +812,14 @@ export class StaticAnalysisApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Path Params
-    const localVarPath =
-      "/api/v2/static-analysis/custom/rulesets/{ruleset_name}".replace(
-        "{ruleset_name}",
-        encodeURIComponent(String(rulesetName)),
-      );
+    const localVarPath = "/api/v2/static-analysis/custom/rulesets/{ruleset_name}".replace(
+      "{ruleset_name}",
+      encodeURIComponent(String(rulesetName)),
+    );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "StaticAnalysisApi.v2.deleteCustomRuleset",
-      StaticAnalysisApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.DELETE,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("StaticAnalysisApi.v2.deleteCustomRuleset", StaticAnalysisApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.DELETE, overrides);
     requestContext.setHeaderParam("Accept", "*/*");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -984,9 +845,7 @@ export class StaticAnalysisApiRequestFactory extends BaseAPIRequestFactory {
     const _config = _options || this.configuration;
 
     if (!_config.unstableOperations["StaticAnalysisApi.v2.getAiCustomRule"]) {
-      throw new Error(
-        "Unstable operation 'getAiCustomRule' is disabled. Enable it by setting `configuration.unstableOperations['StaticAnalysisApi.v2.getAiCustomRule'] = true`",
-      );
+      throw new Error("Unstable operation 'getAiCustomRule' is disabled. Enable it by setting `configuration.unstableOperations['StaticAnalysisApi.v2.getAiCustomRule'] = true`");
     }
 
     // verify required parameter 'rulesetName' is not null or undefined
@@ -1000,21 +859,17 @@ export class StaticAnalysisApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Path Params
-    const localVarPath =
-      "/api/v2/static-analysis/ai/rulesets/{ruleset_name}/rules/{rule_name}"
-        .replace("{ruleset_name}", encodeURIComponent(String(rulesetName)))
-        .replace("{rule_name}", encodeURIComponent(String(ruleName)));
+    const localVarPath = "/api/v2/static-analysis/ai/rulesets/{ruleset_name}/rules/{rule_name}".replace(
+      "{ruleset_name}",
+      encodeURIComponent(String(rulesetName)),
+    ).replace(
+      "{rule_name}",
+      encodeURIComponent(String(ruleName)),
+    );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "StaticAnalysisApi.v2.getAiCustomRule",
-      StaticAnalysisApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.GET,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("StaticAnalysisApi.v2.getAiCustomRule", StaticAnalysisApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.GET, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -1040,14 +895,8 @@ export class StaticAnalysisApiRequestFactory extends BaseAPIRequestFactory {
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
-    if (
-      !_config.unstableOperations[
-        "StaticAnalysisApi.v2.getAiCustomRuleRevision"
-      ]
-    ) {
-      throw new Error(
-        "Unstable operation 'getAiCustomRuleRevision' is disabled. Enable it by setting `configuration.unstableOperations['StaticAnalysisApi.v2.getAiCustomRuleRevision'] = true`",
-      );
+    if (!_config.unstableOperations["StaticAnalysisApi.v2.getAiCustomRuleRevision"]) {
+      throw new Error("Unstable operation 'getAiCustomRuleRevision' is disabled. Enable it by setting `configuration.unstableOperations['StaticAnalysisApi.v2.getAiCustomRuleRevision'] = true`");
     }
 
     // verify required parameter 'rulesetName' is not null or undefined
@@ -1066,22 +915,20 @@ export class StaticAnalysisApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Path Params
-    const localVarPath =
-      "/api/v2/static-analysis/ai/rulesets/{ruleset_name}/rules/{rule_name}/revisions/{id}"
-        .replace("{ruleset_name}", encodeURIComponent(String(rulesetName)))
-        .replace("{rule_name}", encodeURIComponent(String(ruleName)))
-        .replace("{id}", encodeURIComponent(String(id)));
+    const localVarPath = "/api/v2/static-analysis/ai/rulesets/{ruleset_name}/rules/{rule_name}/revisions/{id}".replace(
+      "{ruleset_name}",
+      encodeURIComponent(String(rulesetName)),
+    ).replace(
+      "{rule_name}",
+      encodeURIComponent(String(ruleName)),
+    ).replace(
+      "{id}",
+      encodeURIComponent(String(id)),
+    );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "StaticAnalysisApi.v2.getAiCustomRuleRevision",
-      StaticAnalysisApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.GET,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("StaticAnalysisApi.v2.getAiCustomRuleRevision", StaticAnalysisApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.GET, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -1105,12 +952,8 @@ export class StaticAnalysisApiRequestFactory extends BaseAPIRequestFactory {
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
-    if (
-      !_config.unstableOperations["StaticAnalysisApi.v2.getAiCustomRuleset"]
-    ) {
-      throw new Error(
-        "Unstable operation 'getAiCustomRuleset' is disabled. Enable it by setting `configuration.unstableOperations['StaticAnalysisApi.v2.getAiCustomRuleset'] = true`",
-      );
+    if (!_config.unstableOperations["StaticAnalysisApi.v2.getAiCustomRuleset"]) {
+      throw new Error("Unstable operation 'getAiCustomRuleset' is disabled. Enable it by setting `configuration.unstableOperations['StaticAnalysisApi.v2.getAiCustomRuleset'] = true`");
     }
 
     // verify required parameter 'rulesetName' is not null or undefined
@@ -1119,22 +962,14 @@ export class StaticAnalysisApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Path Params
-    const localVarPath =
-      "/api/v2/static-analysis/ai/rulesets/{ruleset_name}".replace(
-        "{ruleset_name}",
-        encodeURIComponent(String(rulesetName)),
-      );
+    const localVarPath = "/api/v2/static-analysis/ai/rulesets/{ruleset_name}".replace(
+      "{ruleset_name}",
+      encodeURIComponent(String(rulesetName)),
+    );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "StaticAnalysisApi.v2.getAiCustomRuleset",
-      StaticAnalysisApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.GET,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("StaticAnalysisApi.v2.getAiCustomRuleset", StaticAnalysisApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.GET, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -1160,9 +995,7 @@ export class StaticAnalysisApiRequestFactory extends BaseAPIRequestFactory {
     const _config = _options || this.configuration;
 
     if (!_config.unstableOperations["StaticAnalysisApi.v2.getCustomRule"]) {
-      throw new Error(
-        "Unstable operation 'getCustomRule' is disabled. Enable it by setting `configuration.unstableOperations['StaticAnalysisApi.v2.getCustomRule'] = true`",
-      );
+      throw new Error("Unstable operation 'getCustomRule' is disabled. Enable it by setting `configuration.unstableOperations['StaticAnalysisApi.v2.getCustomRule'] = true`");
     }
 
     // verify required parameter 'rulesetName' is not null or undefined
@@ -1176,21 +1009,17 @@ export class StaticAnalysisApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Path Params
-    const localVarPath =
-      "/api/v2/static-analysis/custom/rulesets/{ruleset_name}/rules/{rule_name}"
-        .replace("{ruleset_name}", encodeURIComponent(String(rulesetName)))
-        .replace("{rule_name}", encodeURIComponent(String(ruleName)));
+    const localVarPath = "/api/v2/static-analysis/custom/rulesets/{ruleset_name}/rules/{rule_name}".replace(
+      "{ruleset_name}",
+      encodeURIComponent(String(rulesetName)),
+    ).replace(
+      "{rule_name}",
+      encodeURIComponent(String(ruleName)),
+    );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "StaticAnalysisApi.v2.getCustomRule",
-      StaticAnalysisApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.GET,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("StaticAnalysisApi.v2.getCustomRule", StaticAnalysisApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.GET, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -1216,12 +1045,8 @@ export class StaticAnalysisApiRequestFactory extends BaseAPIRequestFactory {
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
-    if (
-      !_config.unstableOperations["StaticAnalysisApi.v2.getCustomRuleRevision"]
-    ) {
-      throw new Error(
-        "Unstable operation 'getCustomRuleRevision' is disabled. Enable it by setting `configuration.unstableOperations['StaticAnalysisApi.v2.getCustomRuleRevision'] = true`",
-      );
+    if (!_config.unstableOperations["StaticAnalysisApi.v2.getCustomRuleRevision"]) {
+      throw new Error("Unstable operation 'getCustomRuleRevision' is disabled. Enable it by setting `configuration.unstableOperations['StaticAnalysisApi.v2.getCustomRuleRevision'] = true`");
     }
 
     // verify required parameter 'rulesetName' is not null or undefined
@@ -1240,22 +1065,20 @@ export class StaticAnalysisApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Path Params
-    const localVarPath =
-      "/api/v2/static-analysis/custom/rulesets/{ruleset_name}/rules/{rule_name}/revisions/{id}"
-        .replace("{ruleset_name}", encodeURIComponent(String(rulesetName)))
-        .replace("{rule_name}", encodeURIComponent(String(ruleName)))
-        .replace("{id}", encodeURIComponent(String(id)));
+    const localVarPath = "/api/v2/static-analysis/custom/rulesets/{ruleset_name}/rules/{rule_name}/revisions/{id}".replace(
+      "{ruleset_name}",
+      encodeURIComponent(String(rulesetName)),
+    ).replace(
+      "{rule_name}",
+      encodeURIComponent(String(ruleName)),
+    ).replace(
+      "{id}",
+      encodeURIComponent(String(id)),
+    );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "StaticAnalysisApi.v2.getCustomRuleRevision",
-      StaticAnalysisApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.GET,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("StaticAnalysisApi.v2.getCustomRuleRevision", StaticAnalysisApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.GET, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -1280,9 +1103,7 @@ export class StaticAnalysisApiRequestFactory extends BaseAPIRequestFactory {
     const _config = _options || this.configuration;
 
     if (!_config.unstableOperations["StaticAnalysisApi.v2.getCustomRuleset"]) {
-      throw new Error(
-        "Unstable operation 'getCustomRuleset' is disabled. Enable it by setting `configuration.unstableOperations['StaticAnalysisApi.v2.getCustomRuleset'] = true`",
-      );
+      throw new Error("Unstable operation 'getCustomRuleset' is disabled. Enable it by setting `configuration.unstableOperations['StaticAnalysisApi.v2.getCustomRuleset'] = true`");
     }
 
     // verify required parameter 'rulesetName' is not null or undefined
@@ -1291,22 +1112,14 @@ export class StaticAnalysisApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Path Params
-    const localVarPath =
-      "/api/v2/static-analysis/custom/rulesets/{ruleset_name}".replace(
-        "{ruleset_name}",
-        encodeURIComponent(String(rulesetName)),
-      );
+    const localVarPath = "/api/v2/static-analysis/custom/rulesets/{ruleset_name}".replace(
+      "{ruleset_name}",
+      encodeURIComponent(String(rulesetName)),
+    );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "StaticAnalysisApi.v2.getCustomRuleset",
-      StaticAnalysisApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.GET,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("StaticAnalysisApi.v2.getCustomRuleset", StaticAnalysisApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.GET, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -1331,9 +1144,7 @@ export class StaticAnalysisApiRequestFactory extends BaseAPIRequestFactory {
     const _config = _options || this.configuration;
 
     if (!_config.unstableOperations["StaticAnalysisApi.v2.getSCAScan"]) {
-      throw new Error(
-        "Unstable operation 'getSCAScan' is disabled. Enable it by setting `configuration.unstableOperations['StaticAnalysisApi.v2.getSCAScan'] = true`",
-      );
+      throw new Error("Unstable operation 'getSCAScan' is disabled. Enable it by setting `configuration.unstableOperations['StaticAnalysisApi.v2.getSCAScan'] = true`");
     }
 
     // verify required parameter 'jobId' is not null or undefined
@@ -1342,22 +1153,14 @@ export class StaticAnalysisApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Path Params
-    const localVarPath =
-      "/api/v2/static-analysis-sca/dependencies/scan/{job_id}".replace(
-        "{job_id}",
-        encodeURIComponent(String(jobId)),
-      );
+    const localVarPath = "/api/v2/static-analysis-sca/dependencies/scan/{job_id}".replace(
+      "{job_id}",
+      encodeURIComponent(String(jobId)),
+    );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "StaticAnalysisApi.v2.getSCAScan",
-      StaticAnalysisApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.GET,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("StaticAnalysisApi.v2.getSCAScan", StaticAnalysisApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.GET, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -1385,14 +1188,8 @@ export class StaticAnalysisApiRequestFactory extends BaseAPIRequestFactory {
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
-    if (
-      !_config.unstableOperations[
-        "StaticAnalysisApi.v2.listAiCustomRuleRevisions"
-      ]
-    ) {
-      throw new Error(
-        "Unstable operation 'listAiCustomRuleRevisions' is disabled. Enable it by setting `configuration.unstableOperations['StaticAnalysisApi.v2.listAiCustomRuleRevisions'] = true`",
-      );
+    if (!_config.unstableOperations["StaticAnalysisApi.v2.listAiCustomRuleRevisions"]) {
+      throw new Error("Unstable operation 'listAiCustomRuleRevisions' is disabled. Enable it by setting `configuration.unstableOperations['StaticAnalysisApi.v2.listAiCustomRuleRevisions'] = true`");
     }
 
     // verify required parameter 'rulesetName' is not null or undefined
@@ -1406,21 +1203,17 @@ export class StaticAnalysisApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Path Params
-    const localVarPath =
-      "/api/v2/static-analysis/ai/rulesets/{ruleset_name}/rules/{rule_name}/revisions"
-        .replace("{ruleset_name}", encodeURIComponent(String(rulesetName)))
-        .replace("{rule_name}", encodeURIComponent(String(ruleName)));
+    const localVarPath = "/api/v2/static-analysis/ai/rulesets/{ruleset_name}/rules/{rule_name}/revisions".replace(
+      "{ruleset_name}",
+      encodeURIComponent(String(rulesetName)),
+    ).replace(
+      "{rule_name}",
+      encodeURIComponent(String(ruleName)),
+    );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "StaticAnalysisApi.v2.listAiCustomRuleRevisions",
-      StaticAnalysisApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.GET,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("StaticAnalysisApi.v2.listAiCustomRuleRevisions", StaticAnalysisApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.GET, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -1461,27 +1254,16 @@ export class StaticAnalysisApiRequestFactory extends BaseAPIRequestFactory {
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
-    if (
-      !_config.unstableOperations["StaticAnalysisApi.v2.listAiCustomRulesets"]
-    ) {
-      throw new Error(
-        "Unstable operation 'listAiCustomRulesets' is disabled. Enable it by setting `configuration.unstableOperations['StaticAnalysisApi.v2.listAiCustomRulesets'] = true`",
-      );
+    if (!_config.unstableOperations["StaticAnalysisApi.v2.listAiCustomRulesets"]) {
+      throw new Error("Unstable operation 'listAiCustomRulesets' is disabled. Enable it by setting `configuration.unstableOperations['StaticAnalysisApi.v2.listAiCustomRulesets'] = true`");
     }
 
     // Path Params
     const localVarPath = "/api/v2/static-analysis/ai/rulesets";
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "StaticAnalysisApi.v2.listAiCustomRulesets",
-      StaticAnalysisApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.GET,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("StaticAnalysisApi.v2.listAiCustomRulesets", StaticAnalysisApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.GET, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -1520,29 +1302,16 @@ export class StaticAnalysisApiRequestFactory extends BaseAPIRequestFactory {
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
-    if (
-      !_config.unstableOperations[
-        "StaticAnalysisApi.v2.listAiMemoryViolationResults"
-      ]
-    ) {
-      throw new Error(
-        "Unstable operation 'listAiMemoryViolationResults' is disabled. Enable it by setting `configuration.unstableOperations['StaticAnalysisApi.v2.listAiMemoryViolationResults'] = true`",
-      );
+    if (!_config.unstableOperations["StaticAnalysisApi.v2.listAiMemoryViolationResults"]) {
+      throw new Error("Unstable operation 'listAiMemoryViolationResults' is disabled. Enable it by setting `configuration.unstableOperations['StaticAnalysisApi.v2.listAiMemoryViolationResults'] = true`");
     }
 
     // Path Params
     const localVarPath = "/api/v2/static-analysis/ai/memory";
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "StaticAnalysisApi.v2.listAiMemoryViolationResults",
-      StaticAnalysisApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.GET,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("StaticAnalysisApi.v2.listAiMemoryViolationResults", StaticAnalysisApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.GET, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -1566,24 +1335,15 @@ export class StaticAnalysisApiRequestFactory extends BaseAPIRequestFactory {
     const _config = _options || this.configuration;
 
     if (!_config.unstableOperations["StaticAnalysisApi.v2.listAiPrompts"]) {
-      throw new Error(
-        "Unstable operation 'listAiPrompts' is disabled. Enable it by setting `configuration.unstableOperations['StaticAnalysisApi.v2.listAiPrompts'] = true`",
-      );
+      throw new Error("Unstable operation 'listAiPrompts' is disabled. Enable it by setting `configuration.unstableOperations['StaticAnalysisApi.v2.listAiPrompts'] = true`");
     }
 
     // Path Params
     const localVarPath = "/api/v2/static-analysis/ai/prompts";
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "StaticAnalysisApi.v2.listAiPrompts",
-      StaticAnalysisApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.GET,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("StaticAnalysisApi.v2.listAiPrompts", StaticAnalysisApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.GET, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -1610,14 +1370,8 @@ export class StaticAnalysisApiRequestFactory extends BaseAPIRequestFactory {
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
-    if (
-      !_config.unstableOperations[
-        "StaticAnalysisApi.v2.listCustomRuleRevisions"
-      ]
-    ) {
-      throw new Error(
-        "Unstable operation 'listCustomRuleRevisions' is disabled. Enable it by setting `configuration.unstableOperations['StaticAnalysisApi.v2.listCustomRuleRevisions'] = true`",
-      );
+    if (!_config.unstableOperations["StaticAnalysisApi.v2.listCustomRuleRevisions"]) {
+      throw new Error("Unstable operation 'listCustomRuleRevisions' is disabled. Enable it by setting `configuration.unstableOperations['StaticAnalysisApi.v2.listCustomRuleRevisions'] = true`");
     }
 
     // verify required parameter 'rulesetName' is not null or undefined
@@ -1631,21 +1385,17 @@ export class StaticAnalysisApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Path Params
-    const localVarPath =
-      "/api/v2/static-analysis/custom/rulesets/{ruleset_name}/rules/{rule_name}/revisions"
-        .replace("{ruleset_name}", encodeURIComponent(String(rulesetName)))
-        .replace("{rule_name}", encodeURIComponent(String(ruleName)));
+    const localVarPath = "/api/v2/static-analysis/custom/rulesets/{ruleset_name}/rules/{rule_name}/revisions".replace(
+      "{ruleset_name}",
+      encodeURIComponent(String(rulesetName)),
+    ).replace(
+      "{rule_name}",
+      encodeURIComponent(String(ruleName)),
+    );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "StaticAnalysisApi.v2.listCustomRuleRevisions",
-      StaticAnalysisApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.GET,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("StaticAnalysisApi.v2.listCustomRuleRevisions", StaticAnalysisApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.GET, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -1684,27 +1434,16 @@ export class StaticAnalysisApiRequestFactory extends BaseAPIRequestFactory {
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
-    if (
-      !_config.unstableOperations["StaticAnalysisApi.v2.listCustomRulesets"]
-    ) {
-      throw new Error(
-        "Unstable operation 'listCustomRulesets' is disabled. Enable it by setting `configuration.unstableOperations['StaticAnalysisApi.v2.listCustomRulesets'] = true`",
-      );
+    if (!_config.unstableOperations["StaticAnalysisApi.v2.listCustomRulesets"]) {
+      throw new Error("Unstable operation 'listCustomRulesets' is disabled. Enable it by setting `configuration.unstableOperations['StaticAnalysisApi.v2.listCustomRulesets'] = true`");
     }
 
     // Path Params
     const localVarPath = "/api/v2/static-analysis/custom/rulesets";
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "StaticAnalysisApi.v2.listCustomRulesets",
-      StaticAnalysisApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.GET,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("StaticAnalysisApi.v2.listCustomRulesets", StaticAnalysisApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.GET, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -1729,24 +1468,15 @@ export class StaticAnalysisApiRequestFactory extends BaseAPIRequestFactory {
     const _config = _options || this.configuration;
 
     if (!_config.unstableOperations["StaticAnalysisApi.v2.listSCALicenses"]) {
-      throw new Error(
-        "Unstable operation 'listSCALicenses' is disabled. Enable it by setting `configuration.unstableOperations['StaticAnalysisApi.v2.listSCALicenses'] = true`",
-      );
+      throw new Error("Unstable operation 'listSCALicenses' is disabled. Enable it by setting `configuration.unstableOperations['StaticAnalysisApi.v2.listSCALicenses'] = true`");
     }
 
     // Path Params
     const localVarPath = "/api/v2/static-analysis-sca/licenses/list";
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "StaticAnalysisApi.v2.listSCALicenses",
-      StaticAnalysisApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.GET,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("StaticAnalysisApi.v2.listSCALicenses", StaticAnalysisApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.GET, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -1772,14 +1502,8 @@ export class StaticAnalysisApiRequestFactory extends BaseAPIRequestFactory {
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
-    if (
-      !_config.unstableOperations[
-        "StaticAnalysisApi.v2.revertCustomRuleRevision"
-      ]
-    ) {
-      throw new Error(
-        "Unstable operation 'revertCustomRuleRevision' is disabled. Enable it by setting `configuration.unstableOperations['StaticAnalysisApi.v2.revertCustomRuleRevision'] = true`",
-      );
+    if (!_config.unstableOperations["StaticAnalysisApi.v2.revertCustomRuleRevision"]) {
+      throw new Error("Unstable operation 'revertCustomRuleRevision' is disabled. Enable it by setting `configuration.unstableOperations['StaticAnalysisApi.v2.revertCustomRuleRevision'] = true`");
     }
 
     // verify required parameter 'rulesetName' is not null or undefined
@@ -1798,21 +1522,17 @@ export class StaticAnalysisApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Path Params
-    const localVarPath =
-      "/api/v2/static-analysis/custom/rulesets/{ruleset_name}/rules/{rule_name}/revisions/revert"
-        .replace("{ruleset_name}", encodeURIComponent(String(rulesetName)))
-        .replace("{rule_name}", encodeURIComponent(String(ruleName)));
+    const localVarPath = "/api/v2/static-analysis/custom/rulesets/{ruleset_name}/rules/{rule_name}/revisions/revert".replace(
+      "{ruleset_name}",
+      encodeURIComponent(String(rulesetName)),
+    ).replace(
+      "{rule_name}",
+      encodeURIComponent(String(ruleName)),
+    );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "StaticAnalysisApi.v2.revertCustomRuleRevision",
-      StaticAnalysisApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.POST,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("StaticAnalysisApi.v2.revertCustomRuleRevision", StaticAnalysisApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.POST, overrides);
     requestContext.setHeaderParam("Accept", "*/*");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -1822,7 +1542,9 @@ export class StaticAnalysisApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Body Params
-    const contentType = getPreferredMediaType(["application/json"]);
+    const contentType = getPreferredMediaType([
+      "application/json",
+    ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = stringify(
       serialize(body, TypingInfo, "RevertCustomRuleRevisionRequest", ""),
@@ -1846,12 +1568,8 @@ export class StaticAnalysisApiRequestFactory extends BaseAPIRequestFactory {
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
-    if (
-      !_config.unstableOperations["StaticAnalysisApi.v2.updateAiCustomRuleset"]
-    ) {
-      throw new Error(
-        "Unstable operation 'updateAiCustomRuleset' is disabled. Enable it by setting `configuration.unstableOperations['StaticAnalysisApi.v2.updateAiCustomRuleset'] = true`",
-      );
+    if (!_config.unstableOperations["StaticAnalysisApi.v2.updateAiCustomRuleset"]) {
+      throw new Error("Unstable operation 'updateAiCustomRuleset' is disabled. Enable it by setting `configuration.unstableOperations['StaticAnalysisApi.v2.updateAiCustomRuleset'] = true`");
     }
 
     // verify required parameter 'rulesetName' is not null or undefined
@@ -1865,22 +1583,14 @@ export class StaticAnalysisApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Path Params
-    const localVarPath =
-      "/api/v2/static-analysis/ai/rulesets/{ruleset_name}".replace(
-        "{ruleset_name}",
-        encodeURIComponent(String(rulesetName)),
-      );
+    const localVarPath = "/api/v2/static-analysis/ai/rulesets/{ruleset_name}".replace(
+      "{ruleset_name}",
+      encodeURIComponent(String(rulesetName)),
+    );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "StaticAnalysisApi.v2.updateAiCustomRuleset",
-      StaticAnalysisApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.PATCH,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("StaticAnalysisApi.v2.updateAiCustomRuleset", StaticAnalysisApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.PATCH, overrides);
     requestContext.setHeaderParam("Accept", "*/*");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -1890,7 +1600,9 @@ export class StaticAnalysisApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Body Params
-    const contentType = getPreferredMediaType(["application/json"]);
+    const contentType = getPreferredMediaType([
+      "application/json",
+    ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = stringify(
       serialize(body, TypingInfo, "AiCustomRulesetUpdateRequest", ""),
@@ -1914,12 +1626,8 @@ export class StaticAnalysisApiRequestFactory extends BaseAPIRequestFactory {
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
-    if (
-      !_config.unstableOperations["StaticAnalysisApi.v2.updateCustomRuleset"]
-    ) {
-      throw new Error(
-        "Unstable operation 'updateCustomRuleset' is disabled. Enable it by setting `configuration.unstableOperations['StaticAnalysisApi.v2.updateCustomRuleset'] = true`",
-      );
+    if (!_config.unstableOperations["StaticAnalysisApi.v2.updateCustomRuleset"]) {
+      throw new Error("Unstable operation 'updateCustomRuleset' is disabled. Enable it by setting `configuration.unstableOperations['StaticAnalysisApi.v2.updateCustomRuleset'] = true`");
     }
 
     // verify required parameter 'rulesetName' is not null or undefined
@@ -1933,22 +1641,14 @@ export class StaticAnalysisApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Path Params
-    const localVarPath =
-      "/api/v2/static-analysis/custom/rulesets/{ruleset_name}".replace(
-        "{ruleset_name}",
-        encodeURIComponent(String(rulesetName)),
-      );
+    const localVarPath = "/api/v2/static-analysis/custom/rulesets/{ruleset_name}".replace(
+      "{ruleset_name}",
+      encodeURIComponent(String(rulesetName)),
+    );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "StaticAnalysisApi.v2.updateCustomRuleset",
-      StaticAnalysisApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.PATCH,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("StaticAnalysisApi.v2.updateCustomRuleset", StaticAnalysisApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.PATCH, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -1958,7 +1658,9 @@ export class StaticAnalysisApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Body Params
-    const contentType = getPreferredMediaType(["application/json"]);
+    const contentType = getPreferredMediaType([
+      "application/json",
+    ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = stringify(
       serialize(body, TypingInfo, "CustomRulesetRequest", ""),
@@ -1987,7 +1689,9 @@ export class StaticAnalysisApiResponseProcessor {
   public async createAiCustomRule(
     response: ResponseContext,
   ): Promise<AiCustomRuleResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: AiCustomRuleResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -2003,7 +1707,10 @@ export class StaticAnalysisApiResponseProcessor {
       response.httpStatusCode === 412 ||
       response.httpStatusCode === 500
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: JSONAPIErrorResponse;
       try {
         body = deserialize(
@@ -2024,7 +1731,10 @@ export class StaticAnalysisApiResponseProcessor {
       );
     }
     if (response.httpStatusCode === 429) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -2039,7 +1749,10 @@ export class StaticAnalysisApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -2070,7 +1783,9 @@ export class StaticAnalysisApiResponseProcessor {
   public async createAiCustomRuleRevision(
     response: ResponseContext,
   ): Promise<void> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       return;
     }
@@ -2080,7 +1795,10 @@ export class StaticAnalysisApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 500
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: JSONAPIErrorResponse;
       try {
         body = deserialize(
@@ -2101,7 +1819,10 @@ export class StaticAnalysisApiResponseProcessor {
       );
     }
     if (response.httpStatusCode === 429) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -2116,7 +1837,10 @@ export class StaticAnalysisApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -2141,7 +1865,9 @@ export class StaticAnalysisApiResponseProcessor {
   public async createAiCustomRuleset(
     response: ResponseContext,
   ): Promise<AiCustomRulesetResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: AiCustomRulesetResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -2157,7 +1883,10 @@ export class StaticAnalysisApiResponseProcessor {
       response.httpStatusCode === 412 ||
       response.httpStatusCode === 500
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: JSONAPIErrorResponse;
       try {
         body = deserialize(
@@ -2178,7 +1907,10 @@ export class StaticAnalysisApiResponseProcessor {
       );
     }
     if (response.httpStatusCode === 429) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -2193,7 +1925,10 @@ export class StaticAnalysisApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -2224,7 +1959,9 @@ export class StaticAnalysisApiResponseProcessor {
   public async createAiMemoryViolationResult(
     response: ResponseContext,
   ): Promise<void> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       return;
     }
@@ -2234,7 +1971,10 @@ export class StaticAnalysisApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 500
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: JSONAPIErrorResponse;
       try {
         body = deserialize(
@@ -2255,7 +1995,10 @@ export class StaticAnalysisApiResponseProcessor {
       );
     }
     if (response.httpStatusCode === 429) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -2270,7 +2013,10 @@ export class StaticAnalysisApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -2295,7 +2041,9 @@ export class StaticAnalysisApiResponseProcessor {
   public async createCustomRule(
     response: ResponseContext,
   ): Promise<CustomRuleResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: CustomRuleResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -2310,7 +2058,10 @@ export class StaticAnalysisApiResponseProcessor {
       response.httpStatusCode === 409 ||
       response.httpStatusCode === 412
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: JSONAPIErrorResponse;
       try {
         body = deserialize(
@@ -2331,7 +2082,10 @@ export class StaticAnalysisApiResponseProcessor {
       );
     }
     if (response.httpStatusCode === 429) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -2346,7 +2100,10 @@ export class StaticAnalysisApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -2377,7 +2134,9 @@ export class StaticAnalysisApiResponseProcessor {
   public async createCustomRuleRevision(
     response: ResponseContext,
   ): Promise<void> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       return;
     }
@@ -2386,7 +2145,10 @@ export class StaticAnalysisApiResponseProcessor {
       response.httpStatusCode === 401 ||
       response.httpStatusCode === 404
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: JSONAPIErrorResponse;
       try {
         body = deserialize(
@@ -2407,7 +2169,10 @@ export class StaticAnalysisApiResponseProcessor {
       );
     }
     if (response.httpStatusCode === 429) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -2422,7 +2187,10 @@ export class StaticAnalysisApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -2447,7 +2215,9 @@ export class StaticAnalysisApiResponseProcessor {
   public async createCustomRuleset(
     response: ResponseContext,
   ): Promise<CustomRulesetResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: CustomRulesetResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -2462,7 +2232,10 @@ export class StaticAnalysisApiResponseProcessor {
       response.httpStatusCode === 409 ||
       response.httpStatusCode === 412
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: JSONAPIErrorResponse;
       try {
         body = deserialize(
@@ -2483,7 +2256,10 @@ export class StaticAnalysisApiResponseProcessor {
       );
     }
     if (response.httpStatusCode === 429) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -2498,7 +2274,10 @@ export class StaticAnalysisApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -2529,7 +2308,9 @@ export class StaticAnalysisApiResponseProcessor {
   public async createSCAResolveVulnerableSymbols(
     response: ResponseContext,
   ): Promise<ResolveVulnerableSymbolsResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: ResolveVulnerableSymbolsResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -2539,7 +2320,10 @@ export class StaticAnalysisApiResponseProcessor {
       return body;
     }
     if (response.httpStatusCode === 429) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -2554,7 +2338,10 @@ export class StaticAnalysisApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -2582,13 +2369,20 @@ export class StaticAnalysisApiResponseProcessor {
    * @params response Response returned by the server for a request to createSCAResult
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async createSCAResult(response: ResponseContext): Promise<void> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+  public async createSCAResult(
+    response: ResponseContext,
+  ): Promise<void> {
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       return;
     }
     if (response.httpStatusCode === 429) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -2603,7 +2397,10 @@ export class StaticAnalysisApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -2628,7 +2425,9 @@ export class StaticAnalysisApiResponseProcessor {
   public async createSCAScan(
     response: ResponseContext,
   ): Promise<McpScanRequestResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 202) {
       const body: McpScanRequestResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -2638,7 +2437,10 @@ export class StaticAnalysisApiResponseProcessor {
       return body;
     }
     if (response.httpStatusCode === 400) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: JSONAPIErrorResponse;
       try {
         body = deserialize(
@@ -2659,7 +2461,10 @@ export class StaticAnalysisApiResponseProcessor {
       );
     }
     if (response.httpStatusCode === 429) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -2674,7 +2479,10 @@ export class StaticAnalysisApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -2702,8 +2510,12 @@ export class StaticAnalysisApiResponseProcessor {
    * @params response Response returned by the server for a request to deleteAiCustomRule
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async deleteAiCustomRule(response: ResponseContext): Promise<void> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+  public async deleteAiCustomRule(
+    response: ResponseContext,
+  ): Promise<void> {
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       return;
     }
@@ -2713,7 +2525,10 @@ export class StaticAnalysisApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 500
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: JSONAPIErrorResponse;
       try {
         body = deserialize(
@@ -2734,7 +2549,10 @@ export class StaticAnalysisApiResponseProcessor {
       );
     }
     if (response.httpStatusCode === 429) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -2749,7 +2567,10 @@ export class StaticAnalysisApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -2771,8 +2592,12 @@ export class StaticAnalysisApiResponseProcessor {
    * @params response Response returned by the server for a request to deleteAiCustomRuleset
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async deleteAiCustomRuleset(response: ResponseContext): Promise<void> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+  public async deleteAiCustomRuleset(
+    response: ResponseContext,
+  ): Promise<void> {
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       return;
     }
@@ -2782,7 +2607,10 @@ export class StaticAnalysisApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 500
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: JSONAPIErrorResponse;
       try {
         body = deserialize(
@@ -2803,7 +2631,10 @@ export class StaticAnalysisApiResponseProcessor {
       );
     }
     if (response.httpStatusCode === 429) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -2818,7 +2649,10 @@ export class StaticAnalysisApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -2843,7 +2677,9 @@ export class StaticAnalysisApiResponseProcessor {
   public async deleteAiMemoryViolationResult(
     response: ResponseContext,
   ): Promise<void> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       return;
     }
@@ -2853,7 +2689,10 @@ export class StaticAnalysisApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 500
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: JSONAPIErrorResponse;
       try {
         body = deserialize(
@@ -2874,7 +2713,10 @@ export class StaticAnalysisApiResponseProcessor {
       );
     }
     if (response.httpStatusCode === 429) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -2889,7 +2731,10 @@ export class StaticAnalysisApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -2911,8 +2756,12 @@ export class StaticAnalysisApiResponseProcessor {
    * @params response Response returned by the server for a request to deleteCustomRule
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async deleteCustomRule(response: ResponseContext): Promise<void> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+  public async deleteCustomRule(
+    response: ResponseContext,
+  ): Promise<void> {
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       return;
     }
@@ -2921,7 +2770,10 @@ export class StaticAnalysisApiResponseProcessor {
       response.httpStatusCode === 401 ||
       response.httpStatusCode === 404
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: JSONAPIErrorResponse;
       try {
         body = deserialize(
@@ -2942,7 +2794,10 @@ export class StaticAnalysisApiResponseProcessor {
       );
     }
     if (response.httpStatusCode === 429) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -2957,7 +2812,10 @@ export class StaticAnalysisApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -2979,8 +2837,12 @@ export class StaticAnalysisApiResponseProcessor {
    * @params response Response returned by the server for a request to deleteCustomRuleset
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async deleteCustomRuleset(response: ResponseContext): Promise<void> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+  public async deleteCustomRuleset(
+    response: ResponseContext,
+  ): Promise<void> {
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       return;
     }
@@ -2989,7 +2851,10 @@ export class StaticAnalysisApiResponseProcessor {
       response.httpStatusCode === 401 ||
       response.httpStatusCode === 404
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: JSONAPIErrorResponse;
       try {
         body = deserialize(
@@ -3010,7 +2875,10 @@ export class StaticAnalysisApiResponseProcessor {
       );
     }
     if (response.httpStatusCode === 429) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -3025,7 +2893,10 @@ export class StaticAnalysisApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -3050,7 +2921,9 @@ export class StaticAnalysisApiResponseProcessor {
   public async getAiCustomRule(
     response: ResponseContext,
   ): Promise<AiCustomRuleResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: AiCustomRuleResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -3065,7 +2938,10 @@ export class StaticAnalysisApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 500
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: JSONAPIErrorResponse;
       try {
         body = deserialize(
@@ -3086,7 +2962,10 @@ export class StaticAnalysisApiResponseProcessor {
       );
     }
     if (response.httpStatusCode === 429) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -3101,7 +2980,10 @@ export class StaticAnalysisApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -3132,7 +3014,9 @@ export class StaticAnalysisApiResponseProcessor {
   public async getAiCustomRuleRevision(
     response: ResponseContext,
   ): Promise<AiCustomRuleRevisionResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: AiCustomRuleRevisionResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -3147,7 +3031,10 @@ export class StaticAnalysisApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 500
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: JSONAPIErrorResponse;
       try {
         body = deserialize(
@@ -3168,7 +3055,10 @@ export class StaticAnalysisApiResponseProcessor {
       );
     }
     if (response.httpStatusCode === 429) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -3183,7 +3073,10 @@ export class StaticAnalysisApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -3214,7 +3107,9 @@ export class StaticAnalysisApiResponseProcessor {
   public async getAiCustomRuleset(
     response: ResponseContext,
   ): Promise<AiCustomRulesetResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: AiCustomRulesetResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -3229,7 +3124,10 @@ export class StaticAnalysisApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 500
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: JSONAPIErrorResponse;
       try {
         body = deserialize(
@@ -3250,7 +3148,10 @@ export class StaticAnalysisApiResponseProcessor {
       );
     }
     if (response.httpStatusCode === 429) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -3265,7 +3166,10 @@ export class StaticAnalysisApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -3296,7 +3200,9 @@ export class StaticAnalysisApiResponseProcessor {
   public async getCustomRule(
     response: ResponseContext,
   ): Promise<CustomRuleResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: CustomRuleResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -3310,7 +3216,10 @@ export class StaticAnalysisApiResponseProcessor {
       response.httpStatusCode === 401 ||
       response.httpStatusCode === 404
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: JSONAPIErrorResponse;
       try {
         body = deserialize(
@@ -3331,7 +3240,10 @@ export class StaticAnalysisApiResponseProcessor {
       );
     }
     if (response.httpStatusCode === 429) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -3346,7 +3258,10 @@ export class StaticAnalysisApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -3377,7 +3292,9 @@ export class StaticAnalysisApiResponseProcessor {
   public async getCustomRuleRevision(
     response: ResponseContext,
   ): Promise<CustomRuleRevisionResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: CustomRuleRevisionResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -3391,7 +3308,10 @@ export class StaticAnalysisApiResponseProcessor {
       response.httpStatusCode === 401 ||
       response.httpStatusCode === 404
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: JSONAPIErrorResponse;
       try {
         body = deserialize(
@@ -3412,7 +3332,10 @@ export class StaticAnalysisApiResponseProcessor {
       );
     }
     if (response.httpStatusCode === 429) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -3427,7 +3350,10 @@ export class StaticAnalysisApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -3458,7 +3384,9 @@ export class StaticAnalysisApiResponseProcessor {
   public async getCustomRuleset(
     response: ResponseContext,
   ): Promise<CustomRulesetResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: CustomRulesetResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -3472,7 +3400,10 @@ export class StaticAnalysisApiResponseProcessor {
       response.httpStatusCode === 401 ||
       response.httpStatusCode === 404
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: JSONAPIErrorResponse;
       try {
         body = deserialize(
@@ -3493,7 +3424,10 @@ export class StaticAnalysisApiResponseProcessor {
       );
     }
     if (response.httpStatusCode === 429) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -3508,7 +3442,10 @@ export class StaticAnalysisApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -3539,7 +3476,9 @@ export class StaticAnalysisApiResponseProcessor {
   public async getSCAScan(
     response: ResponseContext,
   ): Promise<ScanResultResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: ScanResultResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -3549,7 +3488,10 @@ export class StaticAnalysisApiResponseProcessor {
       return body;
     }
     if (response.httpStatusCode === 404) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: JSONAPIErrorResponse;
       try {
         body = deserialize(
@@ -3570,7 +3512,10 @@ export class StaticAnalysisApiResponseProcessor {
       );
     }
     if (response.httpStatusCode === 429) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -3585,7 +3530,10 @@ export class StaticAnalysisApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -3616,7 +3564,9 @@ export class StaticAnalysisApiResponseProcessor {
   public async listAiCustomRuleRevisions(
     response: ResponseContext,
   ): Promise<AiCustomRuleRevisionsResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: AiCustomRuleRevisionsResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -3631,7 +3581,10 @@ export class StaticAnalysisApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 500
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: JSONAPIErrorResponse;
       try {
         body = deserialize(
@@ -3652,7 +3605,10 @@ export class StaticAnalysisApiResponseProcessor {
       );
     }
     if (response.httpStatusCode === 429) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -3667,7 +3623,10 @@ export class StaticAnalysisApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -3698,7 +3657,9 @@ export class StaticAnalysisApiResponseProcessor {
   public async listAiCustomRulesets(
     response: ResponseContext,
   ): Promise<AiCustomRulesetsResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: AiCustomRulesetsResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -3707,8 +3668,14 @@ export class StaticAnalysisApiResponseProcessor {
       ) as AiCustomRulesetsResponse;
       return body;
     }
-    if (response.httpStatusCode === 401 || response.httpStatusCode === 500) {
-      const bodyText = parse(await response.body.text(), contentType);
+    if (
+      response.httpStatusCode === 401 ||
+      response.httpStatusCode === 500
+    ) {
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: JSONAPIErrorResponse;
       try {
         body = deserialize(
@@ -3729,7 +3696,10 @@ export class StaticAnalysisApiResponseProcessor {
       );
     }
     if (response.httpStatusCode === 429) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -3744,7 +3714,10 @@ export class StaticAnalysisApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -3775,7 +3748,9 @@ export class StaticAnalysisApiResponseProcessor {
   public async listAiMemoryViolationResults(
     response: ResponseContext,
   ): Promise<AiMemoryViolationResultsResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: AiMemoryViolationResultsResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -3790,7 +3765,10 @@ export class StaticAnalysisApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 500
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: JSONAPIErrorResponse;
       try {
         body = deserialize(
@@ -3811,7 +3789,10 @@ export class StaticAnalysisApiResponseProcessor {
       );
     }
     if (response.httpStatusCode === 429) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -3826,7 +3807,10 @@ export class StaticAnalysisApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -3857,7 +3841,9 @@ export class StaticAnalysisApiResponseProcessor {
   public async listAiPrompts(
     response: ResponseContext,
   ): Promise<AiPromptsResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: AiPromptsResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -3872,7 +3858,10 @@ export class StaticAnalysisApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 500
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: JSONAPIErrorResponse;
       try {
         body = deserialize(
@@ -3893,7 +3882,10 @@ export class StaticAnalysisApiResponseProcessor {
       );
     }
     if (response.httpStatusCode === 429) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -3908,7 +3900,10 @@ export class StaticAnalysisApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -3939,7 +3934,9 @@ export class StaticAnalysisApiResponseProcessor {
   public async listCustomRuleRevisions(
     response: ResponseContext,
   ): Promise<CustomRuleRevisionsResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: CustomRuleRevisionsResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -3954,7 +3951,10 @@ export class StaticAnalysisApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: JSONAPIErrorResponse;
       try {
         body = deserialize(
@@ -4003,7 +4003,9 @@ export class StaticAnalysisApiResponseProcessor {
   public async listCustomRulesets(
     response: ResponseContext,
   ): Promise<CustomRulesetListResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: CustomRulesetListResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -4013,7 +4015,10 @@ export class StaticAnalysisApiResponseProcessor {
       return body;
     }
     if (response.httpStatusCode === 401) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: JSONAPIErrorResponse;
       try {
         body = deserialize(
@@ -4034,7 +4039,10 @@ export class StaticAnalysisApiResponseProcessor {
       );
     }
     if (response.httpStatusCode === 429) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -4049,7 +4057,10 @@ export class StaticAnalysisApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -4080,7 +4091,9 @@ export class StaticAnalysisApiResponseProcessor {
   public async listSCALicenses(
     response: ResponseContext,
   ): Promise<LicensesListResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: LicensesListResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -4090,7 +4103,10 @@ export class StaticAnalysisApiResponseProcessor {
       return body;
     }
     if (response.httpStatusCode === 429) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -4105,7 +4121,10 @@ export class StaticAnalysisApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -4136,12 +4155,20 @@ export class StaticAnalysisApiResponseProcessor {
   public async revertCustomRuleRevision(
     response: ResponseContext,
   ): Promise<void> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       return;
     }
-    if (response.httpStatusCode === 400 || response.httpStatusCode === 401) {
-      const bodyText = parse(await response.body.text(), contentType);
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 401
+    ) {
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: JSONAPIErrorResponse;
       try {
         body = deserialize(
@@ -4162,7 +4189,10 @@ export class StaticAnalysisApiResponseProcessor {
       );
     }
     if (response.httpStatusCode === 429) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -4177,7 +4207,10 @@ export class StaticAnalysisApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -4199,8 +4232,12 @@ export class StaticAnalysisApiResponseProcessor {
    * @params response Response returned by the server for a request to updateAiCustomRuleset
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async updateAiCustomRuleset(response: ResponseContext): Promise<void> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+  public async updateAiCustomRuleset(
+    response: ResponseContext,
+  ): Promise<void> {
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       return;
     }
@@ -4210,7 +4247,10 @@ export class StaticAnalysisApiResponseProcessor {
       response.httpStatusCode === 412 ||
       response.httpStatusCode === 500
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: JSONAPIErrorResponse;
       try {
         body = deserialize(
@@ -4231,7 +4271,10 @@ export class StaticAnalysisApiResponseProcessor {
       );
     }
     if (response.httpStatusCode === 429) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -4246,7 +4289,10 @@ export class StaticAnalysisApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -4271,7 +4317,9 @@ export class StaticAnalysisApiResponseProcessor {
   public async updateCustomRuleset(
     response: ResponseContext,
   ): Promise<CustomRulesetResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: CustomRulesetResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -4285,7 +4333,10 @@ export class StaticAnalysisApiResponseProcessor {
       response.httpStatusCode === 401 ||
       response.httpStatusCode === 412
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: JSONAPIErrorResponse;
       try {
         body = deserialize(
@@ -4306,7 +4357,10 @@ export class StaticAnalysisApiResponseProcessor {
       );
     }
     if (response.httpStatusCode === 429) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -4321,7 +4375,10 @@ export class StaticAnalysisApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -4684,7 +4741,8 @@ export class StaticAnalysisApi {
   private responseProcessor: StaticAnalysisApiResponseProcessor;
   private configuration: Configuration;
 
-  static operationServers: { [key: string]: BaseServerConfiguration[] } = {};
+  static operationServers: { [key: string]: BaseServerConfiguration[] } = {
+  };
 
   public constructor(
     configuration?: Configuration,
@@ -4693,7 +4751,8 @@ export class StaticAnalysisApi {
   ) {
     this.configuration = configuration || createConfiguration();
     this.requestFactory =
-      requestFactory || new StaticAnalysisApiRequestFactory(this.configuration);
+      requestFactory ||
+      new StaticAnalysisApiRequestFactory(this.configuration);
     this.responseProcessor =
       responseProcessor || new StaticAnalysisApiResponseProcessor();
   }
@@ -4728,20 +4787,17 @@ export class StaticAnalysisApi {
     param: StaticAnalysisApiCreateAiCustomRuleRevisionRequest,
     options?: Configuration,
   ): Promise<void> {
-    const requestContextPromise =
-      this.requestFactory.createAiCustomRuleRevision(
-        param.rulesetName,
-        param.ruleName,
-        param.body,
-        options,
-      );
+    const requestContextPromise = this.requestFactory.createAiCustomRuleRevision(
+      param.rulesetName,
+      param.ruleName,
+      param.body,
+      options,
+    );
     return requestContextPromise.then((requestContext) => {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.createAiCustomRuleRevision(
-            responseContext,
-          );
+          return this.responseProcessor.createAiCustomRuleRevision(responseContext);
         });
     });
   }
@@ -4775,15 +4831,15 @@ export class StaticAnalysisApi {
     param: StaticAnalysisApiCreateAiMemoryViolationResultRequest,
     options?: Configuration,
   ): Promise<void> {
-    const requestContextPromise =
-      this.requestFactory.createAiMemoryViolationResult(param.body, options);
+    const requestContextPromise = this.requestFactory.createAiMemoryViolationResult(
+      param.body,
+      options,
+    );
     return requestContextPromise.then((requestContext) => {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.createAiMemoryViolationResult(
-            responseContext,
-          );
+          return this.responseProcessor.createAiMemoryViolationResult(responseContext);
         });
     });
   }
@@ -4828,9 +4884,7 @@ export class StaticAnalysisApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.createCustomRuleRevision(
-            responseContext,
-          );
+          return this.responseProcessor.createCustomRuleRevision(responseContext);
         });
     });
   }
@@ -4863,18 +4917,15 @@ export class StaticAnalysisApi {
     param: StaticAnalysisApiCreateSCAResolveVulnerableSymbolsRequest,
     options?: Configuration,
   ): Promise<ResolveVulnerableSymbolsResponse> {
-    const requestContextPromise =
-      this.requestFactory.createSCAResolveVulnerableSymbols(
-        param.body,
-        options,
-      );
+    const requestContextPromise = this.requestFactory.createSCAResolveVulnerableSymbols(
+      param.body,
+      options,
+    );
     return requestContextPromise.then((requestContext) => {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.createSCAResolveVulnerableSymbols(
-            responseContext,
-          );
+          return this.responseProcessor.createSCAResolveVulnerableSymbols(responseContext);
         });
     });
   }
@@ -4970,15 +5021,15 @@ export class StaticAnalysisApi {
     param: StaticAnalysisApiDeleteAiMemoryViolationResultRequest,
     options?: Configuration,
   ): Promise<void> {
-    const requestContextPromise =
-      this.requestFactory.deleteAiMemoryViolationResult(param.id, options);
+    const requestContextPromise = this.requestFactory.deleteAiMemoryViolationResult(
+      param.id,
+      options,
+    );
     return requestContextPromise.then((requestContext) => {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.deleteAiMemoryViolationResult(
-            responseContext,
-          );
+          return this.responseProcessor.deleteAiMemoryViolationResult(responseContext);
         });
     });
   }
@@ -5066,9 +5117,7 @@ export class StaticAnalysisApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.getAiCustomRuleRevision(
-            responseContext,
-          );
+          return this.responseProcessor.getAiCustomRuleRevision(responseContext);
         });
     });
   }
@@ -5199,9 +5248,7 @@ export class StaticAnalysisApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.listAiCustomRuleRevisions(
-            responseContext,
-          );
+          return this.responseProcessor.listAiCustomRuleRevisions(responseContext);
         });
     });
   }
@@ -5210,28 +5257,19 @@ export class StaticAnalysisApi {
    * Provide a paginated version of listAiCustomRuleRevisions returning a generator with all the items.
    */
   public async *listAiCustomRuleRevisionsWithPagination(
-    param: StaticAnalysisApiListAiCustomRuleRevisionsRequest,
-    options?: Configuration,
+    param: StaticAnalysisApiListAiCustomRuleRevisionsRequest, options?: Configuration,
   ): AsyncGenerator<AiCustomRuleRevisionResponseData> {
+
     let pageSize = 100;
     if (param.pageLimit !== undefined) {
       pageSize = param.pageLimit;
     }
     param.pageLimit = pageSize;
     while (true) {
-      const requestContext =
-        await this.requestFactory.listAiCustomRuleRevisions(
-          param.rulesetName,
-          param.ruleName,
-          param.pageOffset,
-          param.pageLimit,
-          options,
-        );
-      const responseContext =
-        await this.configuration.httpApi.send(requestContext);
+      const requestContext = await this.requestFactory.listAiCustomRuleRevisions(param.rulesetName,param.ruleName,param.pageOffset,param.pageLimit,options);
+      const responseContext = await this.configuration.httpApi.send(requestContext);
 
-      const response =
-        await this.responseProcessor.listAiCustomRuleRevisions(responseContext);
+      const response = await this.responseProcessor.listAiCustomRuleRevisions(responseContext);
       const responseData = response.data;
       if (responseData === undefined) {
         break;
@@ -5277,18 +5315,16 @@ export class StaticAnalysisApi {
    * Get all AI memory violation results for the authenticated organization.
    * @param param The request object
    */
-  public listAiMemoryViolationResults(
-    options?: Configuration,
+  public listAiMemoryViolationResults(options?: Configuration,
   ): Promise<AiMemoryViolationResultsResponse> {
-    const requestContextPromise =
-      this.requestFactory.listAiMemoryViolationResults(options);
+    const requestContextPromise = this.requestFactory.listAiMemoryViolationResults(
+      options,
+    );
     return requestContextPromise.then((requestContext) => {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.listAiMemoryViolationResults(
-            responseContext,
-          );
+          return this.responseProcessor.listAiMemoryViolationResults(responseContext);
         });
     });
   }
@@ -5297,8 +5333,11 @@ export class StaticAnalysisApi {
    * Get all AI prompts, including default prompts and custom AI rule prompts for the authenticated organization.
    * @param param The request object
    */
-  public listAiPrompts(options?: Configuration): Promise<AiPromptsResponse> {
-    const requestContextPromise = this.requestFactory.listAiPrompts(options);
+  public listAiPrompts(options?: Configuration,
+  ): Promise<AiPromptsResponse> {
+    const requestContextPromise = this.requestFactory.listAiPrompts(
+      options,
+    );
     return requestContextPromise.then((requestContext) => {
       return this.configuration.httpApi
         .send(requestContext)
@@ -5327,9 +5366,7 @@ export class StaticAnalysisApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.listCustomRuleRevisions(
-            responseContext,
-          );
+          return this.responseProcessor.listCustomRuleRevisions(responseContext);
         });
     });
   }
@@ -5338,27 +5375,19 @@ export class StaticAnalysisApi {
    * Provide a paginated version of listCustomRuleRevisions returning a generator with all the items.
    */
   public async *listCustomRuleRevisionsWithPagination(
-    param: StaticAnalysisApiListCustomRuleRevisionsRequest,
-    options?: Configuration,
+    param: StaticAnalysisApiListCustomRuleRevisionsRequest, options?: Configuration,
   ): AsyncGenerator<CustomRuleRevision> {
+
     let pageSize = 10;
     if (param.pageLimit !== undefined) {
       pageSize = param.pageLimit;
     }
     param.pageLimit = pageSize;
     while (true) {
-      const requestContext = await this.requestFactory.listCustomRuleRevisions(
-        param.rulesetName,
-        param.ruleName,
-        param.pageOffset,
-        param.pageLimit,
-        options,
-      );
-      const responseContext =
-        await this.configuration.httpApi.send(requestContext);
+      const requestContext = await this.requestFactory.listCustomRuleRevisions(param.rulesetName,param.ruleName,param.pageOffset,param.pageLimit,options);
+      const responseContext = await this.configuration.httpApi.send(requestContext);
 
-      const response =
-        await this.responseProcessor.listCustomRuleRevisions(responseContext);
+      const response = await this.responseProcessor.listCustomRuleRevisions(responseContext);
       const responseData = response.data;
       if (responseData === undefined) {
         break;
@@ -5382,11 +5411,11 @@ export class StaticAnalysisApi {
    * Get all custom rulesets for the authenticated organization.
    * @param param The request object
    */
-  public listCustomRulesets(
-    options?: Configuration,
+  public listCustomRulesets(options?: Configuration,
   ): Promise<CustomRulesetListResponse> {
-    const requestContextPromise =
-      this.requestFactory.listCustomRulesets(options);
+    const requestContextPromise = this.requestFactory.listCustomRulesets(
+      options,
+    );
     return requestContextPromise.then((requestContext) => {
       return this.configuration.httpApi
         .send(requestContext)
@@ -5399,10 +5428,11 @@ export class StaticAnalysisApi {
   /**
    * @param param The request object
    */
-  public listSCALicenses(
-    options?: Configuration,
+  public listSCALicenses(options?: Configuration,
   ): Promise<LicensesListResponse> {
-    const requestContextPromise = this.requestFactory.listSCALicenses(options);
+    const requestContextPromise = this.requestFactory.listSCALicenses(
+      options,
+    );
     return requestContextPromise.then((requestContext) => {
       return this.configuration.httpApi
         .send(requestContext)
@@ -5430,9 +5460,7 @@ export class StaticAnalysisApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.revertCustomRuleRevision(
-            responseContext,
-          );
+          return this.responseProcessor.revertCustomRuleRevision(responseContext);
         });
     });
   }

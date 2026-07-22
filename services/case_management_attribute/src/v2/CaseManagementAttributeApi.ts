@@ -19,6 +19,7 @@ import {
   ServerConfiguration,
   stringify,
   applySecurityAuthentication,
+  
 } from "@datadog/datadog-api-client";
 
 import { TypingInfo } from "./models/TypingInfo";
@@ -56,22 +57,14 @@ export class CaseManagementAttributeApiRequestFactory extends BaseAPIRequestFact
     }
 
     // Path Params
-    const localVarPath =
-      "/api/v2/cases/types/{case_type_id}/custom_attributes".replace(
-        "{case_type_id}",
-        encodeURIComponent(String(caseTypeId)),
-      );
+    const localVarPath = "/api/v2/cases/types/{case_type_id}/custom_attributes".replace(
+      "{case_type_id}",
+      encodeURIComponent(String(caseTypeId)),
+    );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "CaseManagementAttributeApi.v2.createCustomAttributeConfig",
-      CaseManagementAttributeApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.POST,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("CaseManagementAttributeApi.v2.createCustomAttributeConfig", CaseManagementAttributeApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.POST, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -81,7 +74,9 @@ export class CaseManagementAttributeApiRequestFactory extends BaseAPIRequestFact
     }
 
     // Body Params
-    const contentType = getPreferredMediaType(["application/json"]);
+    const contentType = getPreferredMediaType([
+      "application/json",
+    ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = stringify(
       serialize(body, TypingInfo, "CustomAttributeConfigCreateRequest", ""),
@@ -112,31 +107,21 @@ export class CaseManagementAttributeApiRequestFactory extends BaseAPIRequestFact
 
     // verify required parameter 'customAttributeId' is not null or undefined
     if (customAttributeId === null || customAttributeId === undefined) {
-      throw new RequiredError(
-        "customAttributeId",
-        "deleteCustomAttributeConfig",
-      );
+      throw new RequiredError("customAttributeId", "deleteCustomAttributeConfig");
     }
 
     // Path Params
-    const localVarPath =
-      "/api/v2/cases/types/{case_type_id}/custom_attributes/{custom_attribute_id}"
-        .replace("{case_type_id}", encodeURIComponent(String(caseTypeId)))
-        .replace(
-          "{custom_attribute_id}",
-          encodeURIComponent(String(customAttributeId)),
-        );
+    const localVarPath = "/api/v2/cases/types/{case_type_id}/custom_attributes/{custom_attribute_id}".replace(
+      "{case_type_id}",
+      encodeURIComponent(String(caseTypeId)),
+    ).replace(
+      "{custom_attribute_id}",
+      encodeURIComponent(String(customAttributeId)),
+    );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "CaseManagementAttributeApi.v2.deleteCustomAttributeConfig",
-      CaseManagementAttributeApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.DELETE,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("CaseManagementAttributeApi.v2.deleteCustomAttributeConfig", CaseManagementAttributeApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.DELETE, overrides);
     requestContext.setHeaderParam("Accept", "*/*");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -162,29 +147,18 @@ export class CaseManagementAttributeApiRequestFactory extends BaseAPIRequestFact
 
     // verify required parameter 'caseTypeId' is not null or undefined
     if (caseTypeId === null || caseTypeId === undefined) {
-      throw new RequiredError(
-        "caseTypeId",
-        "getAllCustomAttributeConfigsByCaseType",
-      );
+      throw new RequiredError("caseTypeId", "getAllCustomAttributeConfigsByCaseType");
     }
 
     // Path Params
-    const localVarPath =
-      "/api/v2/cases/types/{case_type_id}/custom_attributes".replace(
-        "{case_type_id}",
-        encodeURIComponent(String(caseTypeId)),
-      );
+    const localVarPath = "/api/v2/cases/types/{case_type_id}/custom_attributes".replace(
+      "{case_type_id}",
+      encodeURIComponent(String(caseTypeId)),
+    );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "CaseManagementAttributeApi.v2.getAllCustomAttributeConfigsByCaseType",
-      CaseManagementAttributeApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.GET,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("CaseManagementAttributeApi.v2.getAllCustomAttributeConfigsByCaseType", CaseManagementAttributeApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.GET, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -211,15 +185,8 @@ export class CaseManagementAttributeApiRequestFactory extends BaseAPIRequestFact
     const localVarPath = "/api/v2/cases/types/custom_attributes";
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "CaseManagementAttributeApi.v2.getAllCustomAttributes",
-      CaseManagementAttributeApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.GET,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("CaseManagementAttributeApi.v2.getAllCustomAttributes", CaseManagementAttributeApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.GET, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -252,10 +219,7 @@ export class CaseManagementAttributeApiRequestFactory extends BaseAPIRequestFact
 
     // verify required parameter 'customAttributeId' is not null or undefined
     if (customAttributeId === null || customAttributeId === undefined) {
-      throw new RequiredError(
-        "customAttributeId",
-        "updateCustomAttributeConfig",
-      );
+      throw new RequiredError("customAttributeId", "updateCustomAttributeConfig");
     }
 
     // verify required parameter 'body' is not null or undefined
@@ -264,24 +228,17 @@ export class CaseManagementAttributeApiRequestFactory extends BaseAPIRequestFact
     }
 
     // Path Params
-    const localVarPath =
-      "/api/v2/cases/types/{case_type_id}/custom_attributes/{custom_attribute_id}"
-        .replace("{case_type_id}", encodeURIComponent(String(caseTypeId)))
-        .replace(
-          "{custom_attribute_id}",
-          encodeURIComponent(String(customAttributeId)),
-        );
+    const localVarPath = "/api/v2/cases/types/{case_type_id}/custom_attributes/{custom_attribute_id}".replace(
+      "{case_type_id}",
+      encodeURIComponent(String(caseTypeId)),
+    ).replace(
+      "{custom_attribute_id}",
+      encodeURIComponent(String(customAttributeId)),
+    );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "CaseManagementAttributeApi.v2.updateCustomAttributeConfig",
-      CaseManagementAttributeApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.PUT,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("CaseManagementAttributeApi.v2.updateCustomAttributeConfig", CaseManagementAttributeApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.PUT, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -291,7 +248,9 @@ export class CaseManagementAttributeApiRequestFactory extends BaseAPIRequestFact
     }
 
     // Body Params
-    const contentType = getPreferredMediaType(["application/json"]);
+    const contentType = getPreferredMediaType([
+      "application/json",
+    ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = stringify(
       serialize(body, TypingInfo, "CustomAttributeConfigUpdateRequest", ""),
@@ -321,7 +280,9 @@ export class CaseManagementAttributeApiResponseProcessor {
   public async createCustomAttributeConfig(
     response: ResponseContext,
   ): Promise<CustomAttributeConfigResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 201) {
       const body: CustomAttributeConfigResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -337,7 +298,10 @@ export class CaseManagementAttributeApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -352,7 +316,10 @@ export class CaseManagementAttributeApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -383,7 +350,9 @@ export class CaseManagementAttributeApiResponseProcessor {
   public async deleteCustomAttributeConfig(
     response: ResponseContext,
   ): Promise<void> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 204) {
       return;
     }
@@ -393,7 +362,10 @@ export class CaseManagementAttributeApiResponseProcessor {
       response.httpStatusCode === 403 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -408,7 +380,10 @@ export class CaseManagementAttributeApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -433,7 +408,9 @@ export class CaseManagementAttributeApiResponseProcessor {
   public async getAllCustomAttributeConfigsByCaseType(
     response: ResponseContext,
   ): Promise<CustomAttributeConfigsResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: CustomAttributeConfigsResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -448,7 +425,10 @@ export class CaseManagementAttributeApiResponseProcessor {
       response.httpStatusCode === 403 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -463,7 +443,10 @@ export class CaseManagementAttributeApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -494,7 +477,9 @@ export class CaseManagementAttributeApiResponseProcessor {
   public async getAllCustomAttributes(
     response: ResponseContext,
   ): Promise<CustomAttributeConfigsResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: CustomAttributeConfigsResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -508,7 +493,10 @@ export class CaseManagementAttributeApiResponseProcessor {
       response.httpStatusCode === 403 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -523,7 +511,10 @@ export class CaseManagementAttributeApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -554,7 +545,9 @@ export class CaseManagementAttributeApiResponseProcessor {
   public async updateCustomAttributeConfig(
     response: ResponseContext,
   ): Promise<CustomAttributeConfigResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: CustomAttributeConfigResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -570,7 +563,10 @@ export class CaseManagementAttributeApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -585,7 +581,10 @@ export class CaseManagementAttributeApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -664,7 +663,8 @@ export class CaseManagementAttributeApi {
   private responseProcessor: CaseManagementAttributeApiResponseProcessor;
   private configuration: Configuration;
 
-  static operationServers: { [key: string]: BaseServerConfiguration[] } = {};
+  static operationServers: { [key: string]: BaseServerConfiguration[] } = {
+  };
 
   public constructor(
     configuration?: Configuration,
@@ -687,19 +687,16 @@ export class CaseManagementAttributeApi {
     param: CaseManagementAttributeApiCreateCustomAttributeConfigRequest,
     options?: Configuration,
   ): Promise<CustomAttributeConfigResponse> {
-    const requestContextPromise =
-      this.requestFactory.createCustomAttributeConfig(
-        param.caseTypeId,
-        param.body,
-        options,
-      );
+    const requestContextPromise = this.requestFactory.createCustomAttributeConfig(
+      param.caseTypeId,
+      param.body,
+      options,
+    );
     return requestContextPromise.then((requestContext) => {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.createCustomAttributeConfig(
-            responseContext,
-          );
+          return this.responseProcessor.createCustomAttributeConfig(responseContext);
         });
     });
   }
@@ -712,19 +709,16 @@ export class CaseManagementAttributeApi {
     param: CaseManagementAttributeApiDeleteCustomAttributeConfigRequest,
     options?: Configuration,
   ): Promise<void> {
-    const requestContextPromise =
-      this.requestFactory.deleteCustomAttributeConfig(
-        param.caseTypeId,
-        param.customAttributeId,
-        options,
-      );
+    const requestContextPromise = this.requestFactory.deleteCustomAttributeConfig(
+      param.caseTypeId,
+      param.customAttributeId,
+      options,
+    );
     return requestContextPromise.then((requestContext) => {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.deleteCustomAttributeConfig(
-            responseContext,
-          );
+          return this.responseProcessor.deleteCustomAttributeConfig(responseContext);
         });
     });
   }
@@ -737,18 +731,15 @@ export class CaseManagementAttributeApi {
     param: CaseManagementAttributeApiGetAllCustomAttributeConfigsByCaseTypeRequest,
     options?: Configuration,
   ): Promise<CustomAttributeConfigsResponse> {
-    const requestContextPromise =
-      this.requestFactory.getAllCustomAttributeConfigsByCaseType(
-        param.caseTypeId,
-        options,
-      );
+    const requestContextPromise = this.requestFactory.getAllCustomAttributeConfigsByCaseType(
+      param.caseTypeId,
+      options,
+    );
     return requestContextPromise.then((requestContext) => {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.getAllCustomAttributeConfigsByCaseType(
-            responseContext,
-          );
+          return this.responseProcessor.getAllCustomAttributeConfigsByCaseType(responseContext);
         });
     });
   }
@@ -757,11 +748,11 @@ export class CaseManagementAttributeApi {
    * Get all custom attributes
    * @param param The request object
    */
-  public getAllCustomAttributes(
-    options?: Configuration,
+  public getAllCustomAttributes(options?: Configuration,
   ): Promise<CustomAttributeConfigsResponse> {
-    const requestContextPromise =
-      this.requestFactory.getAllCustomAttributes(options);
+    const requestContextPromise = this.requestFactory.getAllCustomAttributes(
+      options,
+    );
     return requestContextPromise.then((requestContext) => {
       return this.configuration.httpApi
         .send(requestContext)
@@ -779,20 +770,17 @@ export class CaseManagementAttributeApi {
     param: CaseManagementAttributeApiUpdateCustomAttributeConfigRequest,
     options?: Configuration,
   ): Promise<CustomAttributeConfigResponse> {
-    const requestContextPromise =
-      this.requestFactory.updateCustomAttributeConfig(
-        param.caseTypeId,
-        param.customAttributeId,
-        param.body,
-        options,
-      );
+    const requestContextPromise = this.requestFactory.updateCustomAttributeConfig(
+      param.caseTypeId,
+      param.customAttributeId,
+      param.body,
+      options,
+    );
     return requestContextPromise.then((requestContext) => {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.updateCustomAttributeConfig(
-            responseContext,
-          );
+          return this.responseProcessor.updateCustomAttributeConfig(responseContext);
         });
     });
   }

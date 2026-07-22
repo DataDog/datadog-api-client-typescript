@@ -32,7 +32,7 @@ export class FunnelComparisonDuration {
       baseName: "type",
       type: "FunnelComparisonDurationType",
       required: true,
-    },
+    }
   };
 
   /**

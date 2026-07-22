@@ -9,15 +9,7 @@ import { EventResponse } from "./EventResponse";
 
 export const TypingInfo: ModelTypingInfo = {
   enumsMap: {
-    EventAlertType: [
-      "error",
-      "warning",
-      "info",
-      "success",
-      "user_update",
-      "recommendation",
-      "snapshot",
-    ],
+    EventAlertType: ["error", "warning", "info", "success", "user_update", "recommendation", "snapshot"],
     EventPriority: ["normal", "low"],
   },
   oneOfMap: {},

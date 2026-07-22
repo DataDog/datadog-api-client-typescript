@@ -22,7 +22,7 @@ import {
   HttpFile,
 } from "@datadog/datadog-api-client";
 
-import FormData from "form-data";
+import FormData from "form-data"
 
 import { TypingInfo } from "./models/TypingInfo";
 import { APIErrorResponse } from "./models/APIErrorResponse";
@@ -54,15 +54,8 @@ export class StegadographyApiRequestFactory extends BaseAPIRequestFactory {
     const localVarPath = "/api/v2/stegadography/get-widgets";
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "StegadographyApi.v2.getStegadographyWidgets",
-      StegadographyApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.POST,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("StegadographyApi.v2.getStegadographyWidgets", StegadographyApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.POST, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -100,7 +93,9 @@ export class StegadographyApiResponseProcessor {
   public async getStegadographyWidgets(
     response: ResponseContext,
   ): Promise<StegadographyGetWidgetsResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: StegadographyGetWidgetsResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -115,7 +110,10 @@ export class StegadographyApiResponseProcessor {
       response.httpStatusCode === 415 ||
       response.httpStatusCode === 500
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: JSONAPIErrorResponse;
       try {
         body = deserialize(
@@ -136,7 +134,10 @@ export class StegadographyApiResponseProcessor {
       );
     }
     if (response.httpStatusCode === 429) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -151,7 +152,10 @@ export class StegadographyApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -186,7 +190,8 @@ export class StegadographyApi {
   private responseProcessor: StegadographyApiResponseProcessor;
   private configuration: Configuration;
 
-  static operationServers: { [key: string]: BaseServerConfiguration[] } = {};
+  static operationServers: { [key: string]: BaseServerConfiguration[] } = {
+  };
 
   public constructor(
     configuration?: Configuration,
@@ -195,7 +200,8 @@ export class StegadographyApi {
   ) {
     this.configuration = configuration || createConfiguration();
     this.requestFactory =
-      requestFactory || new StegadographyApiRequestFactory(this.configuration);
+      requestFactory ||
+      new StegadographyApiRequestFactory(this.configuration);
     this.responseProcessor =
       responseProcessor || new StegadographyApiResponseProcessor();
   }
@@ -219,9 +225,7 @@ export class StegadographyApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.getStegadographyWidgets(
-            responseContext,
-          );
+          return this.responseProcessor.getStegadographyWidgets(responseContext);
         });
     });
   }

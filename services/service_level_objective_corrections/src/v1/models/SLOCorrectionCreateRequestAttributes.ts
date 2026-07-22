@@ -4,7 +4,7 @@ import { SLOCorrectionCategory } from "./SLOCorrectionCategory";
 
 /**
  * The attribute object associated with the SLO correction to be created.
- *
+ * 
  * Exactly one of `slo_id` or `slo_query` must be provided.
  */
 export class SLOCorrectionCreateRequestAttributes {
@@ -52,7 +52,7 @@ export class SLOCorrectionCreateRequestAttributes {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
   /**
    * @ignore
    */

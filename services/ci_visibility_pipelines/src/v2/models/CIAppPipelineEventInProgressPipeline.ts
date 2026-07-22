@@ -48,7 +48,7 @@ export class CIAppPipelineEventInProgressPipeline {
   /**
    * A map of key-value parameters or environment variables that were defined for the pipeline.
    */
-  "parameters"?: { [key: string]: string };
+  "parameters"?: { [key: string]: string; };
   /**
    * If the pipeline is triggered as child of another pipeline, this should contain the details of the parent pipeline.
    */
@@ -96,7 +96,7 @@ export class CIAppPipelineEventInProgressPipeline {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
   /**
    * @ignore
    */

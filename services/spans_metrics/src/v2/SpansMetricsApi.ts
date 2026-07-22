@@ -19,6 +19,7 @@ import {
   ServerConfiguration,
   stringify,
   applySecurityAuthentication,
+  
 } from "@datadog/datadog-api-client";
 
 import { TypingInfo } from "./models/TypingInfo";
@@ -53,15 +54,8 @@ export class SpansMetricsApiRequestFactory extends BaseAPIRequestFactory {
     const localVarPath = "/api/v2/apm/config/metrics";
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "SpansMetricsApi.v2.createSpansMetric",
-      SpansMetricsApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.POST,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("SpansMetricsApi.v2.createSpansMetric", SpansMetricsApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.POST, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -71,7 +65,9 @@ export class SpansMetricsApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Body Params
-    const contentType = getPreferredMediaType(["application/json"]);
+    const contentType = getPreferredMediaType([
+      "application/json",
+    ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = stringify(
       serialize(body, TypingInfo, "SpansMetricCreateRequest", ""),
@@ -106,15 +102,8 @@ export class SpansMetricsApiRequestFactory extends BaseAPIRequestFactory {
     );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "SpansMetricsApi.v2.deleteSpansMetric",
-      SpansMetricsApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.DELETE,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("SpansMetricsApi.v2.deleteSpansMetric", SpansMetricsApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.DELETE, overrides);
     requestContext.setHeaderParam("Accept", "*/*");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -150,15 +139,8 @@ export class SpansMetricsApiRequestFactory extends BaseAPIRequestFactory {
     );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "SpansMetricsApi.v2.getSpansMetric",
-      SpansMetricsApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.GET,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("SpansMetricsApi.v2.getSpansMetric", SpansMetricsApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.GET, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -185,15 +167,8 @@ export class SpansMetricsApiRequestFactory extends BaseAPIRequestFactory {
     const localVarPath = "/api/v2/apm/config/metrics";
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "SpansMetricsApi.v2.listSpansMetrics",
-      SpansMetricsApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.GET,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("SpansMetricsApi.v2.listSpansMetrics", SpansMetricsApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.GET, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -235,15 +210,8 @@ export class SpansMetricsApiRequestFactory extends BaseAPIRequestFactory {
     );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "SpansMetricsApi.v2.updateSpansMetric",
-      SpansMetricsApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.PATCH,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("SpansMetricsApi.v2.updateSpansMetric", SpansMetricsApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.PATCH, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -253,7 +221,9 @@ export class SpansMetricsApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Body Params
-    const contentType = getPreferredMediaType(["application/json"]);
+    const contentType = getPreferredMediaType([
+      "application/json",
+    ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = stringify(
       serialize(body, TypingInfo, "SpansMetricUpdateRequest", ""),
@@ -282,7 +252,9 @@ export class SpansMetricsApiResponseProcessor {
   public async createSpansMetric(
     response: ResponseContext,
   ): Promise<SpansMetricResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: SpansMetricResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -297,7 +269,10 @@ export class SpansMetricsApiResponseProcessor {
       response.httpStatusCode === 409 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -312,7 +287,10 @@ export class SpansMetricsApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -340,8 +318,12 @@ export class SpansMetricsApiResponseProcessor {
    * @params response Response returned by the server for a request to deleteSpansMetric
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async deleteSpansMetric(response: ResponseContext): Promise<void> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+  public async deleteSpansMetric(
+    response: ResponseContext,
+  ): Promise<void> {
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 204) {
       return;
     }
@@ -350,7 +332,10 @@ export class SpansMetricsApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -365,7 +350,10 @@ export class SpansMetricsApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -390,7 +378,9 @@ export class SpansMetricsApiResponseProcessor {
   public async getSpansMetric(
     response: ResponseContext,
   ): Promise<SpansMetricResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: SpansMetricResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -404,7 +394,10 @@ export class SpansMetricsApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -419,7 +412,10 @@ export class SpansMetricsApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -450,7 +446,9 @@ export class SpansMetricsApiResponseProcessor {
   public async listSpansMetrics(
     response: ResponseContext,
   ): Promise<SpansMetricsResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: SpansMetricsResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -459,8 +457,14 @@ export class SpansMetricsApiResponseProcessor {
       ) as SpansMetricsResponse;
       return body;
     }
-    if (response.httpStatusCode === 403 || response.httpStatusCode === 429) {
-      const bodyText = parse(await response.body.text(), contentType);
+    if (
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 429
+    ) {
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -475,7 +479,10 @@ export class SpansMetricsApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -506,7 +513,9 @@ export class SpansMetricsApiResponseProcessor {
   public async updateSpansMetric(
     response: ResponseContext,
   ): Promise<SpansMetricResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: SpansMetricResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -521,7 +530,10 @@ export class SpansMetricsApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -536,7 +548,10 @@ export class SpansMetricsApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -600,7 +615,8 @@ export class SpansMetricsApi {
   private responseProcessor: SpansMetricsApiResponseProcessor;
   private configuration: Configuration;
 
-  static operationServers: { [key: string]: BaseServerConfiguration[] } = {};
+  static operationServers: { [key: string]: BaseServerConfiguration[] } = {
+  };
 
   public constructor(
     configuration?: Configuration,
@@ -609,7 +625,8 @@ export class SpansMetricsApi {
   ) {
     this.configuration = configuration || createConfiguration();
     this.requestFactory =
-      requestFactory || new SpansMetricsApiRequestFactory(this.configuration);
+      requestFactory ||
+      new SpansMetricsApiRequestFactory(this.configuration);
     this.responseProcessor =
       responseProcessor || new SpansMetricsApiResponseProcessor();
   }
@@ -682,10 +699,11 @@ export class SpansMetricsApi {
    * Get the list of configured span-based metrics with their definitions.
    * @param param The request object
    */
-  public listSpansMetrics(
-    options?: Configuration,
+  public listSpansMetrics(options?: Configuration,
   ): Promise<SpansMetricsResponse> {
-    const requestContextPromise = this.requestFactory.listSpansMetrics(options);
+    const requestContextPromise = this.requestFactory.listSpansMetrics(
+      options,
+    );
     return requestContextPromise.then((requestContext) => {
       return this.configuration.httpApi
         .send(requestContext)

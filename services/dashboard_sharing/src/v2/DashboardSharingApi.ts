@@ -19,6 +19,7 @@ import {
   ServerConfiguration,
   stringify,
   applySecurityAuthentication,
+  
 } from "@datadog/datadog-api-client";
 
 import { TypingInfo } from "./models/TypingInfo";
@@ -42,22 +43,13 @@ export class DashboardSharingApiRequestFactory extends BaseAPIRequestFactory {
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
-    if (
-      !_config.unstableOperations[
-        "DashboardSharingApi.v2.listSharedDashboardsByDashboardId"
-      ]
-    ) {
-      throw new Error(
-        "Unstable operation 'listSharedDashboardsByDashboardId' is disabled. Enable it by setting `configuration.unstableOperations['DashboardSharingApi.v2.listSharedDashboardsByDashboardId'] = true`",
-      );
+    if (!_config.unstableOperations["DashboardSharingApi.v2.listSharedDashboardsByDashboardId"]) {
+      throw new Error("Unstable operation 'listSharedDashboardsByDashboardId' is disabled. Enable it by setting `configuration.unstableOperations['DashboardSharingApi.v2.listSharedDashboardsByDashboardId'] = true`");
     }
 
     // verify required parameter 'dashboardId' is not null or undefined
     if (dashboardId === null || dashboardId === undefined) {
-      throw new RequiredError(
-        "dashboardId",
-        "listSharedDashboardsByDashboardId",
-      );
+      throw new RequiredError("dashboardId", "listSharedDashboardsByDashboardId");
     }
 
     // Path Params
@@ -67,15 +59,8 @@ export class DashboardSharingApiRequestFactory extends BaseAPIRequestFactory {
     );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "DashboardSharingApi.v2.listSharedDashboardsByDashboardId",
-      DashboardSharingApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.GET,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("DashboardSharingApi.v2.listSharedDashboardsByDashboardId", DashboardSharingApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.GET, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -106,7 +91,9 @@ export class DashboardSharingApiResponseProcessor {
   public async listSharedDashboardsByDashboardId(
     response: ResponseContext,
   ): Promise<ListSharedDashboardsResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: ListSharedDashboardsResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -115,8 +102,14 @@ export class DashboardSharingApiResponseProcessor {
       ) as ListSharedDashboardsResponse;
       return body;
     }
-    if (response.httpStatusCode === 403 || response.httpStatusCode === 404) {
-      const bodyText = parse(await response.body.text(), contentType);
+    if (
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 404
+    ) {
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: JSONAPIErrorResponse;
       try {
         body = deserialize(
@@ -137,7 +130,10 @@ export class DashboardSharingApiResponseProcessor {
       );
     }
     if (response.httpStatusCode === 429) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -152,7 +148,10 @@ export class DashboardSharingApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -187,7 +186,8 @@ export class DashboardSharingApi {
   private responseProcessor: DashboardSharingApiResponseProcessor;
   private configuration: Configuration;
 
-  static operationServers: { [key: string]: BaseServerConfiguration[] } = {};
+  static operationServers: { [key: string]: BaseServerConfiguration[] } = {
+  };
 
   public constructor(
     configuration?: Configuration,
@@ -210,18 +210,15 @@ export class DashboardSharingApi {
     param: DashboardSharingApiListSharedDashboardsByDashboardIdRequest,
     options?: Configuration,
   ): Promise<ListSharedDashboardsResponse> {
-    const requestContextPromise =
-      this.requestFactory.listSharedDashboardsByDashboardId(
-        param.dashboardId,
-        options,
-      );
+    const requestContextPromise = this.requestFactory.listSharedDashboardsByDashboardId(
+      param.dashboardId,
+      options,
+    );
     return requestContextPromise.then((requestContext) => {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.listSharedDashboardsByDashboardId(
-            responseContext,
-          );
+          return this.responseProcessor.listSharedDashboardsByDashboardId(responseContext);
         });
     });
   }

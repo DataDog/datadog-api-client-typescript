@@ -19,6 +19,7 @@ import {
   ServerConfiguration,
   stringify,
   applySecurityAuthentication,
+  
 } from "@datadog/datadog-api-client";
 
 import { TypingInfo } from "./models/TypingInfo";
@@ -119,15 +120,8 @@ export class CloudCostManagementApiRequestFactory extends BaseAPIRequestFactory 
     const localVarPath = "/api/v2/cost/aws_cur_config";
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "CloudCostManagementApi.v2.createCostAWSCURConfig",
-      CloudCostManagementApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.POST,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("CloudCostManagementApi.v2.createCostAWSCURConfig", CloudCostManagementApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.POST, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -137,7 +131,9 @@ export class CloudCostManagementApiRequestFactory extends BaseAPIRequestFactory 
     }
 
     // Body Params
-    const contentType = getPreferredMediaType(["application/json"]);
+    const contentType = getPreferredMediaType([
+      "application/json",
+    ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = stringify(
       serialize(body, TypingInfo, "AwsCURConfigPostRequest", ""),
@@ -170,15 +166,8 @@ export class CloudCostManagementApiRequestFactory extends BaseAPIRequestFactory 
     const localVarPath = "/api/v2/cost/azure_uc_config";
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "CloudCostManagementApi.v2.createCostAzureUCConfigs",
-      CloudCostManagementApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.POST,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("CloudCostManagementApi.v2.createCostAzureUCConfigs", CloudCostManagementApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.POST, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -188,7 +177,9 @@ export class CloudCostManagementApiRequestFactory extends BaseAPIRequestFactory 
     }
 
     // Body Params
-    const contentType = getPreferredMediaType(["application/json"]);
+    const contentType = getPreferredMediaType([
+      "application/json",
+    ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = stringify(
       serialize(body, TypingInfo, "AzureUCConfigPostRequest", ""),
@@ -221,15 +212,8 @@ export class CloudCostManagementApiRequestFactory extends BaseAPIRequestFactory 
     const localVarPath = "/api/v2/cost/gcp_uc_config";
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "CloudCostManagementApi.v2.createCostGCPUsageCostConfig",
-      CloudCostManagementApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.POST,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("CloudCostManagementApi.v2.createCostGCPUsageCostConfig", CloudCostManagementApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.POST, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -239,7 +223,9 @@ export class CloudCostManagementApiRequestFactory extends BaseAPIRequestFactory 
     }
 
     // Body Params
-    const contentType = getPreferredMediaType(["application/json"]);
+    const contentType = getPreferredMediaType([
+      "application/json",
+    ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = stringify(
       serialize(body, TypingInfo, "GCPUsageCostConfigPostRequest", ""),
@@ -272,15 +258,8 @@ export class CloudCostManagementApiRequestFactory extends BaseAPIRequestFactory 
     const localVarPath = "/api/v2/cost/arbitrary_rule";
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "CloudCostManagementApi.v2.createCustomAllocationRule",
-      CloudCostManagementApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.POST,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("CloudCostManagementApi.v2.createCustomAllocationRule", CloudCostManagementApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.POST, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -290,7 +269,9 @@ export class CloudCostManagementApiRequestFactory extends BaseAPIRequestFactory 
     }
 
     // Body Params
-    const contentType = getPreferredMediaType(["application/json"]);
+    const contentType = getPreferredMediaType([
+      "application/json",
+    ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = stringify(
       serialize(body, TypingInfo, "ArbitraryCostUpsertRequest", ""),
@@ -323,15 +304,8 @@ export class CloudCostManagementApiRequestFactory extends BaseAPIRequestFactory 
     const localVarPath = "/api/v2/tags/enrichment";
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "CloudCostManagementApi.v2.createTagPipelinesRuleset",
-      CloudCostManagementApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.POST,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("CloudCostManagementApi.v2.createTagPipelinesRuleset", CloudCostManagementApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.POST, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -341,7 +315,9 @@ export class CloudCostManagementApiRequestFactory extends BaseAPIRequestFactory 
     }
 
     // Body Params
-    const contentType = getPreferredMediaType(["application/json"]);
+    const contentType = getPreferredMediaType([
+      "application/json",
+    ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = stringify(
       serialize(body, TypingInfo, "CreateRulesetRequest", ""),
@@ -377,15 +353,8 @@ export class CloudCostManagementApiRequestFactory extends BaseAPIRequestFactory 
     );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "CloudCostManagementApi.v2.deleteBudget",
-      CloudCostManagementApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.DELETE,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("CloudCostManagementApi.v2.deleteBudget", CloudCostManagementApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.DELETE, overrides);
     requestContext.setHeaderParam("Accept", "*/*");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -415,22 +384,14 @@ export class CloudCostManagementApiRequestFactory extends BaseAPIRequestFactory 
     }
 
     // Path Params
-    const localVarPath =
-      "/api/v2/cost/aws_cur_config/{cloud_account_id}".replace(
-        "{cloud_account_id}",
-        encodeURIComponent(String(cloudAccountId)),
-      );
+    const localVarPath = "/api/v2/cost/aws_cur_config/{cloud_account_id}".replace(
+      "{cloud_account_id}",
+      encodeURIComponent(String(cloudAccountId)),
+    );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "CloudCostManagementApi.v2.deleteCostAWSCURConfig",
-      CloudCostManagementApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.DELETE,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("CloudCostManagementApi.v2.deleteCostAWSCURConfig", CloudCostManagementApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.DELETE, overrides);
     requestContext.setHeaderParam("Accept", "*/*");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -461,22 +422,14 @@ export class CloudCostManagementApiRequestFactory extends BaseAPIRequestFactory 
     }
 
     // Path Params
-    const localVarPath =
-      "/api/v2/cost/azure_uc_config/{cloud_account_id}".replace(
-        "{cloud_account_id}",
-        encodeURIComponent(String(cloudAccountId)),
-      );
+    const localVarPath = "/api/v2/cost/azure_uc_config/{cloud_account_id}".replace(
+      "{cloud_account_id}",
+      encodeURIComponent(String(cloudAccountId)),
+    );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "CloudCostManagementApi.v2.deleteCostAzureUCConfig",
-      CloudCostManagementApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.DELETE,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("CloudCostManagementApi.v2.deleteCostAzureUCConfig", CloudCostManagementApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.DELETE, overrides);
     requestContext.setHeaderParam("Accept", "*/*");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -507,22 +460,14 @@ export class CloudCostManagementApiRequestFactory extends BaseAPIRequestFactory 
     }
 
     // Path Params
-    const localVarPath =
-      "/api/v2/cost/gcp_uc_config/{cloud_account_id}".replace(
-        "{cloud_account_id}",
-        encodeURIComponent(String(cloudAccountId)),
-      );
+    const localVarPath = "/api/v2/cost/gcp_uc_config/{cloud_account_id}".replace(
+      "{cloud_account_id}",
+      encodeURIComponent(String(cloudAccountId)),
+    );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "CloudCostManagementApi.v2.deleteCostGCPUsageCostConfig",
-      CloudCostManagementApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.DELETE,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("CloudCostManagementApi.v2.deleteCostGCPUsageCostConfig", CloudCostManagementApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.DELETE, overrides);
     requestContext.setHeaderParam("Accept", "*/*");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -560,15 +505,8 @@ export class CloudCostManagementApiRequestFactory extends BaseAPIRequestFactory 
     );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "CloudCostManagementApi.v2.deleteCostTagDescriptionByKey",
-      CloudCostManagementApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.DELETE,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("CloudCostManagementApi.v2.deleteCostTagDescriptionByKey", CloudCostManagementApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.DELETE, overrides);
     requestContext.setHeaderParam("Accept", "*/*");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -614,15 +552,8 @@ export class CloudCostManagementApiRequestFactory extends BaseAPIRequestFactory 
     );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "CloudCostManagementApi.v2.deleteCustomAllocationRule",
-      CloudCostManagementApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.DELETE,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("CloudCostManagementApi.v2.deleteCustomAllocationRule", CloudCostManagementApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.DELETE, overrides);
     requestContext.setHeaderParam("Accept", "*/*");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -659,15 +590,8 @@ export class CloudCostManagementApiRequestFactory extends BaseAPIRequestFactory 
     );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "CloudCostManagementApi.v2.deleteCustomCostsFile",
-      CloudCostManagementApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.DELETE,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("CloudCostManagementApi.v2.deleteCustomCostsFile", CloudCostManagementApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.DELETE, overrides);
     requestContext.setHeaderParam("Accept", "*/*");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -698,22 +622,14 @@ export class CloudCostManagementApiRequestFactory extends BaseAPIRequestFactory 
     }
 
     // Path Params
-    const localVarPath =
-      "/api/v2/cost/budget/{budget_id}/custom-forecast".replace(
-        "{budget_id}",
-        encodeURIComponent(String(budgetId)),
-      );
+    const localVarPath = "/api/v2/cost/budget/{budget_id}/custom-forecast".replace(
+      "{budget_id}",
+      encodeURIComponent(String(budgetId)),
+    );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "CloudCostManagementApi.v2.deleteCustomForecast",
-      CloudCostManagementApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.DELETE,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("CloudCostManagementApi.v2.deleteCustomForecast", CloudCostManagementApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.DELETE, overrides);
     requestContext.setHeaderParam("Accept", "*/*");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -749,15 +665,8 @@ export class CloudCostManagementApiRequestFactory extends BaseAPIRequestFactory 
     );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "CloudCostManagementApi.v2.deleteTagPipelinesRuleset",
-      CloudCostManagementApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.DELETE,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("CloudCostManagementApi.v2.deleteTagPipelinesRuleset", CloudCostManagementApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.DELETE, overrides);
     requestContext.setHeaderParam("Accept", "*/*");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -788,22 +697,14 @@ export class CloudCostManagementApiRequestFactory extends BaseAPIRequestFactory 
     }
 
     // Path Params
-    const localVarPath =
-      "/api/v2/cost/tag_descriptions/{tag_key}/generate".replace(
-        "{tag_key}",
-        encodeURIComponent(String(tagKey)),
-      );
+    const localVarPath = "/api/v2/cost/tag_descriptions/{tag_key}/generate".replace(
+      "{tag_key}",
+      encodeURIComponent(String(tagKey)),
+    );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "CloudCostManagementApi.v2.generateCostTagDescriptionByKey",
-      CloudCostManagementApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.GET,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("CloudCostManagementApi.v2.generateCostTagDescriptionByKey", CloudCostManagementApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.GET, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -844,15 +745,8 @@ export class CloudCostManagementApiRequestFactory extends BaseAPIRequestFactory 
     );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "CloudCostManagementApi.v2.getBudget",
-      CloudCostManagementApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.GET,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("CloudCostManagementApi.v2.getBudget", CloudCostManagementApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.GET, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -911,14 +805,8 @@ export class CloudCostManagementApiRequestFactory extends BaseAPIRequestFactory 
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
-    if (
-      !_config.unstableOperations[
-        "CloudCostManagementApi.v2.getCommitmentsCommitmentList"
-      ]
-    ) {
-      throw new Error(
-        "Unstable operation 'getCommitmentsCommitmentList' is disabled. Enable it by setting `configuration.unstableOperations['CloudCostManagementApi.v2.getCommitmentsCommitmentList'] = true`",
-      );
+    if (!_config.unstableOperations["CloudCostManagementApi.v2.getCommitmentsCommitmentList"]) {
+      throw new Error("Unstable operation 'getCommitmentsCommitmentList' is disabled. Enable it by setting `configuration.unstableOperations['CloudCostManagementApi.v2.getCommitmentsCommitmentList'] = true`");
     }
 
     // verify required parameter 'provider' is not null or undefined
@@ -945,15 +833,8 @@ export class CloudCostManagementApiRequestFactory extends BaseAPIRequestFactory 
     const localVarPath = "/api/v2/cost/commitments/commitment-list";
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "CloudCostManagementApi.v2.getCommitmentsCommitmentList",
-      CloudCostManagementApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.GET,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("CloudCostManagementApi.v2.getCommitmentsCommitmentList", CloudCostManagementApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.GET, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -1026,14 +907,8 @@ export class CloudCostManagementApiRequestFactory extends BaseAPIRequestFactory 
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
-    if (
-      !_config.unstableOperations[
-        "CloudCostManagementApi.v2.getCommitmentsCoverageScalar"
-      ]
-    ) {
-      throw new Error(
-        "Unstable operation 'getCommitmentsCoverageScalar' is disabled. Enable it by setting `configuration.unstableOperations['CloudCostManagementApi.v2.getCommitmentsCoverageScalar'] = true`",
-      );
+    if (!_config.unstableOperations["CloudCostManagementApi.v2.getCommitmentsCoverageScalar"]) {
+      throw new Error("Unstable operation 'getCommitmentsCoverageScalar' is disabled. Enable it by setting `configuration.unstableOperations['CloudCostManagementApi.v2.getCommitmentsCoverageScalar'] = true`");
     }
 
     // verify required parameter 'provider' is not null or undefined
@@ -1060,15 +935,8 @@ export class CloudCostManagementApiRequestFactory extends BaseAPIRequestFactory 
     const localVarPath = "/api/v2/cost/commitments/coverage/scalar";
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "CloudCostManagementApi.v2.getCommitmentsCoverageScalar",
-      CloudCostManagementApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.GET,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("CloudCostManagementApi.v2.getCommitmentsCoverageScalar", CloudCostManagementApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.GET, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -1134,14 +1002,8 @@ export class CloudCostManagementApiRequestFactory extends BaseAPIRequestFactory 
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
-    if (
-      !_config.unstableOperations[
-        "CloudCostManagementApi.v2.getCommitmentsCoverageTimeseries"
-      ]
-    ) {
-      throw new Error(
-        "Unstable operation 'getCommitmentsCoverageTimeseries' is disabled. Enable it by setting `configuration.unstableOperations['CloudCostManagementApi.v2.getCommitmentsCoverageTimeseries'] = true`",
-      );
+    if (!_config.unstableOperations["CloudCostManagementApi.v2.getCommitmentsCoverageTimeseries"]) {
+      throw new Error("Unstable operation 'getCommitmentsCoverageTimeseries' is disabled. Enable it by setting `configuration.unstableOperations['CloudCostManagementApi.v2.getCommitmentsCoverageTimeseries'] = true`");
     }
 
     // verify required parameter 'provider' is not null or undefined
@@ -1168,15 +1030,8 @@ export class CloudCostManagementApiRequestFactory extends BaseAPIRequestFactory 
     const localVarPath = "/api/v2/cost/commitments/coverage/timeseries";
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "CloudCostManagementApi.v2.getCommitmentsCoverageTimeseries",
-      CloudCostManagementApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.GET,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("CloudCostManagementApi.v2.getCommitmentsCoverageTimeseries", CloudCostManagementApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.GET, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -1242,30 +1097,18 @@ export class CloudCostManagementApiRequestFactory extends BaseAPIRequestFactory 
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
-    if (
-      !_config.unstableOperations[
-        "CloudCostManagementApi.v2.getCommitmentsOnDemandHotspotsScalar"
-      ]
-    ) {
-      throw new Error(
-        "Unstable operation 'getCommitmentsOnDemandHotspotsScalar' is disabled. Enable it by setting `configuration.unstableOperations['CloudCostManagementApi.v2.getCommitmentsOnDemandHotspotsScalar'] = true`",
-      );
+    if (!_config.unstableOperations["CloudCostManagementApi.v2.getCommitmentsOnDemandHotspotsScalar"]) {
+      throw new Error("Unstable operation 'getCommitmentsOnDemandHotspotsScalar' is disabled. Enable it by setting `configuration.unstableOperations['CloudCostManagementApi.v2.getCommitmentsOnDemandHotspotsScalar'] = true`");
     }
 
     // verify required parameter 'provider' is not null or undefined
     if (provider === null || provider === undefined) {
-      throw new RequiredError(
-        "provider",
-        "getCommitmentsOnDemandHotspotsScalar",
-      );
+      throw new RequiredError("provider", "getCommitmentsOnDemandHotspotsScalar");
     }
 
     // verify required parameter 'product' is not null or undefined
     if (product === null || product === undefined) {
-      throw new RequiredError(
-        "product",
-        "getCommitmentsOnDemandHotspotsScalar",
-      );
+      throw new RequiredError("product", "getCommitmentsOnDemandHotspotsScalar");
     }
 
     // verify required parameter 'start' is not null or undefined
@@ -1282,15 +1125,8 @@ export class CloudCostManagementApiRequestFactory extends BaseAPIRequestFactory 
     const localVarPath = "/api/v2/cost/commitments/on-demand-hot-spots/scalar";
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "CloudCostManagementApi.v2.getCommitmentsOnDemandHotspotsScalar",
-      CloudCostManagementApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.GET,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("CloudCostManagementApi.v2.getCommitmentsOnDemandHotspotsScalar", CloudCostManagementApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.GET, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -1356,14 +1192,8 @@ export class CloudCostManagementApiRequestFactory extends BaseAPIRequestFactory 
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
-    if (
-      !_config.unstableOperations[
-        "CloudCostManagementApi.v2.getCommitmentsSavingsScalar"
-      ]
-    ) {
-      throw new Error(
-        "Unstable operation 'getCommitmentsSavingsScalar' is disabled. Enable it by setting `configuration.unstableOperations['CloudCostManagementApi.v2.getCommitmentsSavingsScalar'] = true`",
-      );
+    if (!_config.unstableOperations["CloudCostManagementApi.v2.getCommitmentsSavingsScalar"]) {
+      throw new Error("Unstable operation 'getCommitmentsSavingsScalar' is disabled. Enable it by setting `configuration.unstableOperations['CloudCostManagementApi.v2.getCommitmentsSavingsScalar'] = true`");
     }
 
     // verify required parameter 'provider' is not null or undefined
@@ -1390,15 +1220,8 @@ export class CloudCostManagementApiRequestFactory extends BaseAPIRequestFactory 
     const localVarPath = "/api/v2/cost/commitments/savings/scalar";
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "CloudCostManagementApi.v2.getCommitmentsSavingsScalar",
-      CloudCostManagementApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.GET,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("CloudCostManagementApi.v2.getCommitmentsSavingsScalar", CloudCostManagementApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.GET, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -1464,14 +1287,8 @@ export class CloudCostManagementApiRequestFactory extends BaseAPIRequestFactory 
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
-    if (
-      !_config.unstableOperations[
-        "CloudCostManagementApi.v2.getCommitmentsSavingsTimeseries"
-      ]
-    ) {
-      throw new Error(
-        "Unstable operation 'getCommitmentsSavingsTimeseries' is disabled. Enable it by setting `configuration.unstableOperations['CloudCostManagementApi.v2.getCommitmentsSavingsTimeseries'] = true`",
-      );
+    if (!_config.unstableOperations["CloudCostManagementApi.v2.getCommitmentsSavingsTimeseries"]) {
+      throw new Error("Unstable operation 'getCommitmentsSavingsTimeseries' is disabled. Enable it by setting `configuration.unstableOperations['CloudCostManagementApi.v2.getCommitmentsSavingsTimeseries'] = true`");
     }
 
     // verify required parameter 'provider' is not null or undefined
@@ -1498,15 +1315,8 @@ export class CloudCostManagementApiRequestFactory extends BaseAPIRequestFactory 
     const localVarPath = "/api/v2/cost/commitments/savings/timeseries";
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "CloudCostManagementApi.v2.getCommitmentsSavingsTimeseries",
-      CloudCostManagementApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.GET,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("CloudCostManagementApi.v2.getCommitmentsSavingsTimeseries", CloudCostManagementApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.GET, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -1573,14 +1383,8 @@ export class CloudCostManagementApiRequestFactory extends BaseAPIRequestFactory 
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
-    if (
-      !_config.unstableOperations[
-        "CloudCostManagementApi.v2.getCommitmentsUtilizationScalar"
-      ]
-    ) {
-      throw new Error(
-        "Unstable operation 'getCommitmentsUtilizationScalar' is disabled. Enable it by setting `configuration.unstableOperations['CloudCostManagementApi.v2.getCommitmentsUtilizationScalar'] = true`",
-      );
+    if (!_config.unstableOperations["CloudCostManagementApi.v2.getCommitmentsUtilizationScalar"]) {
+      throw new Error("Unstable operation 'getCommitmentsUtilizationScalar' is disabled. Enable it by setting `configuration.unstableOperations['CloudCostManagementApi.v2.getCommitmentsUtilizationScalar'] = true`");
     }
 
     // verify required parameter 'provider' is not null or undefined
@@ -1607,15 +1411,8 @@ export class CloudCostManagementApiRequestFactory extends BaseAPIRequestFactory 
     const localVarPath = "/api/v2/cost/commitments/utilization/scalar";
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "CloudCostManagementApi.v2.getCommitmentsUtilizationScalar",
-      CloudCostManagementApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.GET,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("CloudCostManagementApi.v2.getCommitmentsUtilizationScalar", CloudCostManagementApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.GET, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -1689,22 +1486,13 @@ export class CloudCostManagementApiRequestFactory extends BaseAPIRequestFactory 
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
-    if (
-      !_config.unstableOperations[
-        "CloudCostManagementApi.v2.getCommitmentsUtilizationTimeseries"
-      ]
-    ) {
-      throw new Error(
-        "Unstable operation 'getCommitmentsUtilizationTimeseries' is disabled. Enable it by setting `configuration.unstableOperations['CloudCostManagementApi.v2.getCommitmentsUtilizationTimeseries'] = true`",
-      );
+    if (!_config.unstableOperations["CloudCostManagementApi.v2.getCommitmentsUtilizationTimeseries"]) {
+      throw new Error("Unstable operation 'getCommitmentsUtilizationTimeseries' is disabled. Enable it by setting `configuration.unstableOperations['CloudCostManagementApi.v2.getCommitmentsUtilizationTimeseries'] = true`");
     }
 
     // verify required parameter 'provider' is not null or undefined
     if (provider === null || provider === undefined) {
-      throw new RequiredError(
-        "provider",
-        "getCommitmentsUtilizationTimeseries",
-      );
+      throw new RequiredError("provider", "getCommitmentsUtilizationTimeseries");
     }
 
     // verify required parameter 'product' is not null or undefined
@@ -1726,15 +1514,8 @@ export class CloudCostManagementApiRequestFactory extends BaseAPIRequestFactory 
     const localVarPath = "/api/v2/cost/commitments/utilization/timeseries";
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "CloudCostManagementApi.v2.getCommitmentsUtilizationTimeseries",
-      CloudCostManagementApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.GET,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("CloudCostManagementApi.v2.getCommitmentsUtilizationTimeseries", CloudCostManagementApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.GET, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -1809,22 +1590,14 @@ export class CloudCostManagementApiRequestFactory extends BaseAPIRequestFactory 
     }
 
     // Path Params
-    const localVarPath =
-      "/api/v2/cost/account_filters/{cloud_account_id}".replace(
-        "{cloud_account_id}",
-        encodeURIComponent(String(cloudAccountId)),
-      );
+    const localVarPath = "/api/v2/cost/account_filters/{cloud_account_id}".replace(
+      "{cloud_account_id}",
+      encodeURIComponent(String(cloudAccountId)),
+    );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "CloudCostManagementApi.v2.getCostAccountFilters",
-      CloudCostManagementApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.GET,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("CloudCostManagementApi.v2.getCostAccountFilters", CloudCostManagementApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.GET, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -1849,12 +1622,8 @@ export class CloudCostManagementApiRequestFactory extends BaseAPIRequestFactory 
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
-    if (
-      !_config.unstableOperations["CloudCostManagementApi.v2.getCostAnomaly"]
-    ) {
-      throw new Error(
-        "Unstable operation 'getCostAnomaly' is disabled. Enable it by setting `configuration.unstableOperations['CloudCostManagementApi.v2.getCostAnomaly'] = true`",
-      );
+    if (!_config.unstableOperations["CloudCostManagementApi.v2.getCostAnomaly"]) {
+      throw new Error("Unstable operation 'getCostAnomaly' is disabled. Enable it by setting `configuration.unstableOperations['CloudCostManagementApi.v2.getCostAnomaly'] = true`");
     }
 
     // verify required parameter 'anomalyId' is not null or undefined
@@ -1869,15 +1638,8 @@ export class CloudCostManagementApiRequestFactory extends BaseAPIRequestFactory 
     );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "CloudCostManagementApi.v2.getCostAnomaly",
-      CloudCostManagementApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.GET,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("CloudCostManagementApi.v2.getCostAnomaly", CloudCostManagementApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.GET, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -1908,22 +1670,14 @@ export class CloudCostManagementApiRequestFactory extends BaseAPIRequestFactory 
     }
 
     // Path Params
-    const localVarPath =
-      "/api/v2/cost/aws_cur_config/{cloud_account_id}".replace(
-        "{cloud_account_id}",
-        encodeURIComponent(String(cloudAccountId)),
-      );
+    const localVarPath = "/api/v2/cost/aws_cur_config/{cloud_account_id}".replace(
+      "{cloud_account_id}",
+      encodeURIComponent(String(cloudAccountId)),
+    );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "CloudCostManagementApi.v2.getCostAWSCURConfig",
-      CloudCostManagementApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.GET,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("CloudCostManagementApi.v2.getCostAWSCURConfig", CloudCostManagementApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.GET, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -1954,22 +1708,14 @@ export class CloudCostManagementApiRequestFactory extends BaseAPIRequestFactory 
     }
 
     // Path Params
-    const localVarPath =
-      "/api/v2/cost/azure_uc_config/{cloud_account_id}".replace(
-        "{cloud_account_id}",
-        encodeURIComponent(String(cloudAccountId)),
-      );
+    const localVarPath = "/api/v2/cost/azure_uc_config/{cloud_account_id}".replace(
+      "{cloud_account_id}",
+      encodeURIComponent(String(cloudAccountId)),
+    );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "CloudCostManagementApi.v2.getCostAzureUCConfig",
-      CloudCostManagementApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.GET,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("CloudCostManagementApi.v2.getCostAzureUCConfig", CloudCostManagementApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.GET, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -2000,22 +1746,14 @@ export class CloudCostManagementApiRequestFactory extends BaseAPIRequestFactory 
     }
 
     // Path Params
-    const localVarPath =
-      "/api/v2/cost/gcp_uc_config/{cloud_account_id}".replace(
-        "{cloud_account_id}",
-        encodeURIComponent(String(cloudAccountId)),
-      );
+    const localVarPath = "/api/v2/cost/gcp_uc_config/{cloud_account_id}".replace(
+      "{cloud_account_id}",
+      encodeURIComponent(String(cloudAccountId)),
+    );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "CloudCostManagementApi.v2.getCostGCPUsageCostConfig",
-      CloudCostManagementApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.GET,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("CloudCostManagementApi.v2.getCostGCPUsageCostConfig", CloudCostManagementApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.GET, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -2053,15 +1791,8 @@ export class CloudCostManagementApiRequestFactory extends BaseAPIRequestFactory 
     );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "CloudCostManagementApi.v2.getCostTagDescriptionByKey",
-      CloudCostManagementApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.GET,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("CloudCostManagementApi.v2.getCostTagDescriptionByKey", CloudCostManagementApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.GET, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -2109,15 +1840,8 @@ export class CloudCostManagementApiRequestFactory extends BaseAPIRequestFactory 
     );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "CloudCostManagementApi.v2.getCostTagKey",
-      CloudCostManagementApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.GET,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("CloudCostManagementApi.v2.getCostTagKey", CloudCostManagementApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.GET, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -2159,14 +1883,8 @@ export class CloudCostManagementApiRequestFactory extends BaseAPIRequestFactory 
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
-    if (
-      !_config.unstableOperations[
-        "CloudCostManagementApi.v2.getCostTagMetadataCurrency"
-      ]
-    ) {
-      throw new Error(
-        "Unstable operation 'getCostTagMetadataCurrency' is disabled. Enable it by setting `configuration.unstableOperations['CloudCostManagementApi.v2.getCostTagMetadataCurrency'] = true`",
-      );
+    if (!_config.unstableOperations["CloudCostManagementApi.v2.getCostTagMetadataCurrency"]) {
+      throw new Error("Unstable operation 'getCostTagMetadataCurrency' is disabled. Enable it by setting `configuration.unstableOperations['CloudCostManagementApi.v2.getCostTagMetadataCurrency'] = true`");
     }
 
     // verify required parameter 'filterMonth' is not null or undefined
@@ -2178,15 +1896,8 @@ export class CloudCostManagementApiRequestFactory extends BaseAPIRequestFactory 
     const localVarPath = "/api/v2/cost/tag_metadata/currency";
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "CloudCostManagementApi.v2.getCostTagMetadataCurrency",
-      CloudCostManagementApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.GET,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("CloudCostManagementApi.v2.getCostTagMetadataCurrency", CloudCostManagementApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.GET, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -2239,15 +1950,8 @@ export class CloudCostManagementApiRequestFactory extends BaseAPIRequestFactory 
     );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "CloudCostManagementApi.v2.getCustomAllocationRule",
-      CloudCostManagementApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.GET,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("CloudCostManagementApi.v2.getCustomAllocationRule", CloudCostManagementApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.GET, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -2284,15 +1988,8 @@ export class CloudCostManagementApiRequestFactory extends BaseAPIRequestFactory 
     );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "CloudCostManagementApi.v2.getCustomCostsFile",
-      CloudCostManagementApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.GET,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("CloudCostManagementApi.v2.getCustomCostsFile", CloudCostManagementApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.GET, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -2323,22 +2020,14 @@ export class CloudCostManagementApiRequestFactory extends BaseAPIRequestFactory 
     }
 
     // Path Params
-    const localVarPath =
-      "/api/v2/cost/budget/{budget_id}/custom-forecast".replace(
-        "{budget_id}",
-        encodeURIComponent(String(budgetId)),
-      );
+    const localVarPath = "/api/v2/cost/budget/{budget_id}/custom-forecast".replace(
+      "{budget_id}",
+      encodeURIComponent(String(budgetId)),
+    );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "CloudCostManagementApi.v2.getCustomForecast",
-      CloudCostManagementApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.GET,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("CloudCostManagementApi.v2.getCustomForecast", CloudCostManagementApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.GET, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -2374,15 +2063,8 @@ export class CloudCostManagementApiRequestFactory extends BaseAPIRequestFactory 
     );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "CloudCostManagementApi.v2.getTagPipelinesRuleset",
-      CloudCostManagementApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.GET,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("CloudCostManagementApi.v2.getTagPipelinesRuleset", CloudCostManagementApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.GET, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -2401,22 +2083,17 @@ export class CloudCostManagementApiRequestFactory extends BaseAPIRequestFactory 
     return requestContext;
   }
 
-  public async listBudgets(_options?: Configuration): Promise<RequestContext> {
+  public async listBudgets(
+    _options?: Configuration,
+  ): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
     // Path Params
     const localVarPath = "/api/v2/cost/budgets";
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "CloudCostManagementApi.v2.listBudgets",
-      CloudCostManagementApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.GET,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("CloudCostManagementApi.v2.listBudgets", CloudCostManagementApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.GET, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -2450,27 +2127,16 @@ export class CloudCostManagementApiRequestFactory extends BaseAPIRequestFactory 
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
-    if (
-      !_config.unstableOperations["CloudCostManagementApi.v2.listCostAnomalies"]
-    ) {
-      throw new Error(
-        "Unstable operation 'listCostAnomalies' is disabled. Enable it by setting `configuration.unstableOperations['CloudCostManagementApi.v2.listCostAnomalies'] = true`",
-      );
+    if (!_config.unstableOperations["CloudCostManagementApi.v2.listCostAnomalies"]) {
+      throw new Error("Unstable operation 'listCostAnomalies' is disabled. Enable it by setting `configuration.unstableOperations['CloudCostManagementApi.v2.listCostAnomalies'] = true`");
     }
 
     // Path Params
     const localVarPath = "/api/v2/cost/anomalies";
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "CloudCostManagementApi.v2.listCostAnomalies",
-      CloudCostManagementApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.GET,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("CloudCostManagementApi.v2.listCostAnomalies", CloudCostManagementApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.GET, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -2577,15 +2243,8 @@ export class CloudCostManagementApiRequestFactory extends BaseAPIRequestFactory 
     const localVarPath = "/api/v2/cost/aws_cur_config";
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "CloudCostManagementApi.v2.listCostAWSCURConfigs",
-      CloudCostManagementApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.GET,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("CloudCostManagementApi.v2.listCostAWSCURConfigs", CloudCostManagementApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.GET, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -2613,15 +2272,8 @@ export class CloudCostManagementApiRequestFactory extends BaseAPIRequestFactory 
     const localVarPath = "/api/v2/cost/azure_uc_config";
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "CloudCostManagementApi.v2.listCostAzureUCConfigs",
-      CloudCostManagementApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.GET,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("CloudCostManagementApi.v2.listCostAzureUCConfigs", CloudCostManagementApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.GET, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -2649,15 +2301,8 @@ export class CloudCostManagementApiRequestFactory extends BaseAPIRequestFactory 
     const localVarPath = "/api/v2/cost/gcp_uc_config";
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "CloudCostManagementApi.v2.listCostGCPUsageCostConfigs",
-      CloudCostManagementApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.GET,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("CloudCostManagementApi.v2.listCostGCPUsageCostConfigs", CloudCostManagementApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.GET, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -2685,15 +2330,8 @@ export class CloudCostManagementApiRequestFactory extends BaseAPIRequestFactory 
     const localVarPath = "/api/v2/cost/oci_config";
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "CloudCostManagementApi.v2.listCostOCIConfigs",
-      CloudCostManagementApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.GET,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("CloudCostManagementApi.v2.listCostOCIConfigs", CloudCostManagementApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.GET, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -2722,15 +2360,8 @@ export class CloudCostManagementApiRequestFactory extends BaseAPIRequestFactory 
     const localVarPath = "/api/v2/cost/tag_descriptions";
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "CloudCostManagementApi.v2.listCostTagDescriptions",
-      CloudCostManagementApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.GET,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("CloudCostManagementApi.v2.listCostTagDescriptions", CloudCostManagementApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.GET, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -2769,15 +2400,8 @@ export class CloudCostManagementApiRequestFactory extends BaseAPIRequestFactory 
     const localVarPath = "/api/v2/cost/tag_keys";
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "CloudCostManagementApi.v2.listCostTagKeys",
-      CloudCostManagementApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.GET,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("CloudCostManagementApi.v2.listCostTagKeys", CloudCostManagementApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.GET, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -2820,14 +2444,8 @@ export class CloudCostManagementApiRequestFactory extends BaseAPIRequestFactory 
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
-    if (
-      !_config.unstableOperations[
-        "CloudCostManagementApi.v2.listCostTagKeySources"
-      ]
-    ) {
-      throw new Error(
-        "Unstable operation 'listCostTagKeySources' is disabled. Enable it by setting `configuration.unstableOperations['CloudCostManagementApi.v2.listCostTagKeySources'] = true`",
-      );
+    if (!_config.unstableOperations["CloudCostManagementApi.v2.listCostTagKeySources"]) {
+      throw new Error("Unstable operation 'listCostTagKeySources' is disabled. Enable it by setting `configuration.unstableOperations['CloudCostManagementApi.v2.listCostTagKeySources'] = true`");
     }
 
     // verify required parameter 'filterMonth' is not null or undefined
@@ -2839,15 +2457,8 @@ export class CloudCostManagementApiRequestFactory extends BaseAPIRequestFactory 
     const localVarPath = "/api/v2/cost/tag_metadata/tag_sources";
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "CloudCostManagementApi.v2.listCostTagKeySources",
-      CloudCostManagementApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.GET,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("CloudCostManagementApi.v2.listCostTagKeySources", CloudCostManagementApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.GET, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -2899,14 +2510,8 @@ export class CloudCostManagementApiRequestFactory extends BaseAPIRequestFactory 
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
-    if (
-      !_config.unstableOperations[
-        "CloudCostManagementApi.v2.listCostTagMetadata"
-      ]
-    ) {
-      throw new Error(
-        "Unstable operation 'listCostTagMetadata' is disabled. Enable it by setting `configuration.unstableOperations['CloudCostManagementApi.v2.listCostTagMetadata'] = true`",
-      );
+    if (!_config.unstableOperations["CloudCostManagementApi.v2.listCostTagMetadata"]) {
+      throw new Error("Unstable operation 'listCostTagMetadata' is disabled. Enable it by setting `configuration.unstableOperations['CloudCostManagementApi.v2.listCostTagMetadata'] = true`");
     }
 
     // verify required parameter 'filterMonth' is not null or undefined
@@ -2918,15 +2523,8 @@ export class CloudCostManagementApiRequestFactory extends BaseAPIRequestFactory 
     const localVarPath = "/api/v2/cost/tag_metadata";
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "CloudCostManagementApi.v2.listCostTagMetadata",
-      CloudCostManagementApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.GET,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("CloudCostManagementApi.v2.listCostTagMetadata", CloudCostManagementApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.GET, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -2989,14 +2587,8 @@ export class CloudCostManagementApiRequestFactory extends BaseAPIRequestFactory 
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
-    if (
-      !_config.unstableOperations[
-        "CloudCostManagementApi.v2.listCostTagMetadataMetrics"
-      ]
-    ) {
-      throw new Error(
-        "Unstable operation 'listCostTagMetadataMetrics' is disabled. Enable it by setting `configuration.unstableOperations['CloudCostManagementApi.v2.listCostTagMetadataMetrics'] = true`",
-      );
+    if (!_config.unstableOperations["CloudCostManagementApi.v2.listCostTagMetadataMetrics"]) {
+      throw new Error("Unstable operation 'listCostTagMetadataMetrics' is disabled. Enable it by setting `configuration.unstableOperations['CloudCostManagementApi.v2.listCostTagMetadataMetrics'] = true`");
     }
 
     // verify required parameter 'filterMonth' is not null or undefined
@@ -3008,15 +2600,8 @@ export class CloudCostManagementApiRequestFactory extends BaseAPIRequestFactory 
     const localVarPath = "/api/v2/cost/tag_metadata/metrics";
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "CloudCostManagementApi.v2.listCostTagMetadataMetrics",
-      CloudCostManagementApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.GET,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("CloudCostManagementApi.v2.listCostTagMetadataMetrics", CloudCostManagementApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.GET, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -3057,14 +2642,8 @@ export class CloudCostManagementApiRequestFactory extends BaseAPIRequestFactory 
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
-    if (
-      !_config.unstableOperations[
-        "CloudCostManagementApi.v2.listCostTagMetadataMonths"
-      ]
-    ) {
-      throw new Error(
-        "Unstable operation 'listCostTagMetadataMonths' is disabled. Enable it by setting `configuration.unstableOperations['CloudCostManagementApi.v2.listCostTagMetadataMonths'] = true`",
-      );
+    if (!_config.unstableOperations["CloudCostManagementApi.v2.listCostTagMetadataMonths"]) {
+      throw new Error("Unstable operation 'listCostTagMetadataMonths' is disabled. Enable it by setting `configuration.unstableOperations['CloudCostManagementApi.v2.listCostTagMetadataMonths'] = true`");
     }
 
     // verify required parameter 'filterProvider' is not null or undefined
@@ -3076,15 +2655,8 @@ export class CloudCostManagementApiRequestFactory extends BaseAPIRequestFactory 
     const localVarPath = "/api/v2/cost/tag_metadata/months";
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "CloudCostManagementApi.v2.listCostTagMetadataMonths",
-      CloudCostManagementApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.GET,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("CloudCostManagementApi.v2.listCostTagMetadataMonths", CloudCostManagementApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.GET, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -3119,37 +2691,21 @@ export class CloudCostManagementApiRequestFactory extends BaseAPIRequestFactory 
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
-    if (
-      !_config.unstableOperations[
-        "CloudCostManagementApi.v2.listCostTagMetadataOrchestrators"
-      ]
-    ) {
-      throw new Error(
-        "Unstable operation 'listCostTagMetadataOrchestrators' is disabled. Enable it by setting `configuration.unstableOperations['CloudCostManagementApi.v2.listCostTagMetadataOrchestrators'] = true`",
-      );
+    if (!_config.unstableOperations["CloudCostManagementApi.v2.listCostTagMetadataOrchestrators"]) {
+      throw new Error("Unstable operation 'listCostTagMetadataOrchestrators' is disabled. Enable it by setting `configuration.unstableOperations['CloudCostManagementApi.v2.listCostTagMetadataOrchestrators'] = true`");
     }
 
     // verify required parameter 'filterMonth' is not null or undefined
     if (filterMonth === null || filterMonth === undefined) {
-      throw new RequiredError(
-        "filterMonth",
-        "listCostTagMetadataOrchestrators",
-      );
+      throw new RequiredError("filterMonth", "listCostTagMetadataOrchestrators");
     }
 
     // Path Params
     const localVarPath = "/api/v2/cost/tag_metadata/orchestrators";
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "CloudCostManagementApi.v2.listCostTagMetadataOrchestrators",
-      CloudCostManagementApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.GET,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("CloudCostManagementApi.v2.listCostTagMetadataOrchestrators", CloudCostManagementApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.GET, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -3198,15 +2754,8 @@ export class CloudCostManagementApiRequestFactory extends BaseAPIRequestFactory 
     const localVarPath = "/api/v2/cost/tags";
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "CloudCostManagementApi.v2.listCostTags",
-      CloudCostManagementApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.GET,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("CloudCostManagementApi.v2.listCostTags", CloudCostManagementApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.GET, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -3271,15 +2820,8 @@ export class CloudCostManagementApiRequestFactory extends BaseAPIRequestFactory 
     const localVarPath = "/api/v2/cost/arbitrary_rule";
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "CloudCostManagementApi.v2.listCustomAllocationRules",
-      CloudCostManagementApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.GET,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("CloudCostManagementApi.v2.listCustomAllocationRules", CloudCostManagementApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.GET, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -3307,15 +2849,8 @@ export class CloudCostManagementApiRequestFactory extends BaseAPIRequestFactory 
     const localVarPath = "/api/v2/cost/arbitrary_rule/status";
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "CloudCostManagementApi.v2.listCustomAllocationRulesStatus",
-      CloudCostManagementApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.GET,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("CloudCostManagementApi.v2.listCustomAllocationRulesStatus", CloudCostManagementApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.GET, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -3349,15 +2884,8 @@ export class CloudCostManagementApiRequestFactory extends BaseAPIRequestFactory 
     const localVarPath = "/api/v2/cost/custom_costs";
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "CloudCostManagementApi.v2.listCustomCostsFiles",
-      CloudCostManagementApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.GET,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("CloudCostManagementApi.v2.listCustomCostsFiles", CloudCostManagementApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.GET, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -3429,15 +2957,8 @@ export class CloudCostManagementApiRequestFactory extends BaseAPIRequestFactory 
     const localVarPath = "/api/v2/tags/enrichment";
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "CloudCostManagementApi.v2.listTagPipelinesRulesets",
-      CloudCostManagementApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.GET,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("CloudCostManagementApi.v2.listTagPipelinesRulesets", CloudCostManagementApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.GET, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -3465,15 +2986,8 @@ export class CloudCostManagementApiRequestFactory extends BaseAPIRequestFactory 
     const localVarPath = "/api/v2/tags/enrichment/status";
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "CloudCostManagementApi.v2.listTagPipelinesRulesetsStatus",
-      CloudCostManagementApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.GET,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("CloudCostManagementApi.v2.listTagPipelinesRulesetsStatus", CloudCostManagementApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.GET, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -3507,15 +3021,8 @@ export class CloudCostManagementApiRequestFactory extends BaseAPIRequestFactory 
     const localVarPath = "/api/v2/cost/arbitrary_rule/reorder";
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "CloudCostManagementApi.v2.reorderCustomAllocationRules",
-      CloudCostManagementApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.POST,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("CloudCostManagementApi.v2.reorderCustomAllocationRules", CloudCostManagementApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.POST, overrides);
     requestContext.setHeaderParam("Accept", "*/*");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -3525,7 +3032,9 @@ export class CloudCostManagementApiRequestFactory extends BaseAPIRequestFactory 
     }
 
     // Body Params
-    const contentType = getPreferredMediaType(["application/json"]);
+    const contentType = getPreferredMediaType([
+      "application/json",
+    ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = stringify(
       serialize(body, TypingInfo, "ReorderRuleResourceArray", ""),
@@ -3558,15 +3067,8 @@ export class CloudCostManagementApiRequestFactory extends BaseAPIRequestFactory 
     const localVarPath = "/api/v2/tags/enrichment/reorder";
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "CloudCostManagementApi.v2.reorderTagPipelinesRulesets",
-      CloudCostManagementApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.POST,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("CloudCostManagementApi.v2.reorderTagPipelinesRulesets", CloudCostManagementApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.POST, overrides);
     requestContext.setHeaderParam("Accept", "*/*");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -3576,7 +3078,9 @@ export class CloudCostManagementApiRequestFactory extends BaseAPIRequestFactory 
     }
 
     // Body Params
-    const contentType = getPreferredMediaType(["application/json"]);
+    const contentType = getPreferredMediaType([
+      "application/json",
+    ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = stringify(
       serialize(body, TypingInfo, "ReorderRulesetResourceArray", ""),
@@ -3602,14 +3106,8 @@ export class CloudCostManagementApiRequestFactory extends BaseAPIRequestFactory 
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
-    if (
-      !_config.unstableOperations[
-        "CloudCostManagementApi.v2.searchCostRecommendations"
-      ]
-    ) {
-      throw new Error(
-        "Unstable operation 'searchCostRecommendations' is disabled. Enable it by setting `configuration.unstableOperations['CloudCostManagementApi.v2.searchCostRecommendations'] = true`",
-      );
+    if (!_config.unstableOperations["CloudCostManagementApi.v2.searchCostRecommendations"]) {
+      throw new Error("Unstable operation 'searchCostRecommendations' is disabled. Enable it by setting `configuration.unstableOperations['CloudCostManagementApi.v2.searchCostRecommendations'] = true`");
     }
 
     // verify required parameter 'body' is not null or undefined
@@ -3621,15 +3119,8 @@ export class CloudCostManagementApiRequestFactory extends BaseAPIRequestFactory 
     const localVarPath = "/api/v2/cost/recommendations";
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "CloudCostManagementApi.v2.searchCostRecommendations",
-      CloudCostManagementApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.POST,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("CloudCostManagementApi.v2.searchCostRecommendations", CloudCostManagementApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.POST, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -3655,7 +3146,9 @@ export class CloudCostManagementApiRequestFactory extends BaseAPIRequestFactory 
     }
 
     // Body Params
-    const contentType = getPreferredMediaType(["application/json"]);
+    const contentType = getPreferredMediaType([
+      "application/json",
+    ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = stringify(
       serialize(body, TypingInfo, "RecommendationsFilterRequest", ""),
@@ -3691,22 +3184,14 @@ export class CloudCostManagementApiRequestFactory extends BaseAPIRequestFactory 
     }
 
     // Path Params
-    const localVarPath =
-      "/api/v2/cost/account_filters/{cloud_account_id}".replace(
-        "{cloud_account_id}",
-        encodeURIComponent(String(cloudAccountId)),
-      );
+    const localVarPath = "/api/v2/cost/account_filters/{cloud_account_id}".replace(
+      "{cloud_account_id}",
+      encodeURIComponent(String(cloudAccountId)),
+    );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "CloudCostManagementApi.v2.updateCostAccountFilters",
-      CloudCostManagementApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.PATCH,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("CloudCostManagementApi.v2.updateCostAccountFilters", CloudCostManagementApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.PATCH, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -3716,7 +3201,9 @@ export class CloudCostManagementApiRequestFactory extends BaseAPIRequestFactory 
     }
 
     // Body Params
-    const contentType = getPreferredMediaType(["application/json"]);
+    const contentType = getPreferredMediaType([
+      "application/json",
+    ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = stringify(
       serialize(body, TypingInfo, "AccountFiltersPatchRequest", ""),
@@ -3752,22 +3239,14 @@ export class CloudCostManagementApiRequestFactory extends BaseAPIRequestFactory 
     }
 
     // Path Params
-    const localVarPath =
-      "/api/v2/cost/aws_cur_config/{cloud_account_id}".replace(
-        "{cloud_account_id}",
-        encodeURIComponent(String(cloudAccountId)),
-      );
+    const localVarPath = "/api/v2/cost/aws_cur_config/{cloud_account_id}".replace(
+      "{cloud_account_id}",
+      encodeURIComponent(String(cloudAccountId)),
+    );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "CloudCostManagementApi.v2.updateCostAWSCURConfig",
-      CloudCostManagementApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.PATCH,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("CloudCostManagementApi.v2.updateCostAWSCURConfig", CloudCostManagementApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.PATCH, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -3777,7 +3256,9 @@ export class CloudCostManagementApiRequestFactory extends BaseAPIRequestFactory 
     }
 
     // Body Params
-    const contentType = getPreferredMediaType(["application/json"]);
+    const contentType = getPreferredMediaType([
+      "application/json",
+    ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = stringify(
       serialize(body, TypingInfo, "AwsCURConfigPatchRequest", ""),
@@ -3813,22 +3294,14 @@ export class CloudCostManagementApiRequestFactory extends BaseAPIRequestFactory 
     }
 
     // Path Params
-    const localVarPath =
-      "/api/v2/cost/azure_uc_config/{cloud_account_id}".replace(
-        "{cloud_account_id}",
-        encodeURIComponent(String(cloudAccountId)),
-      );
+    const localVarPath = "/api/v2/cost/azure_uc_config/{cloud_account_id}".replace(
+      "{cloud_account_id}",
+      encodeURIComponent(String(cloudAccountId)),
+    );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "CloudCostManagementApi.v2.updateCostAzureUCConfigs",
-      CloudCostManagementApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.PATCH,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("CloudCostManagementApi.v2.updateCostAzureUCConfigs", CloudCostManagementApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.PATCH, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -3838,7 +3311,9 @@ export class CloudCostManagementApiRequestFactory extends BaseAPIRequestFactory 
     }
 
     // Body Params
-    const contentType = getPreferredMediaType(["application/json"]);
+    const contentType = getPreferredMediaType([
+      "application/json",
+    ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = stringify(
       serialize(body, TypingInfo, "AzureUCConfigPatchRequest", ""),
@@ -3874,22 +3349,14 @@ export class CloudCostManagementApiRequestFactory extends BaseAPIRequestFactory 
     }
 
     // Path Params
-    const localVarPath =
-      "/api/v2/cost/gcp_uc_config/{cloud_account_id}".replace(
-        "{cloud_account_id}",
-        encodeURIComponent(String(cloudAccountId)),
-      );
+    const localVarPath = "/api/v2/cost/gcp_uc_config/{cloud_account_id}".replace(
+      "{cloud_account_id}",
+      encodeURIComponent(String(cloudAccountId)),
+    );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "CloudCostManagementApi.v2.updateCostGCPUsageCostConfig",
-      CloudCostManagementApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.PATCH,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("CloudCostManagementApi.v2.updateCostGCPUsageCostConfig", CloudCostManagementApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.PATCH, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -3899,7 +3366,9 @@ export class CloudCostManagementApiRequestFactory extends BaseAPIRequestFactory 
     }
 
     // Body Params
-    const contentType = getPreferredMediaType(["application/json"]);
+    const contentType = getPreferredMediaType([
+      "application/json",
+    ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = stringify(
       serialize(body, TypingInfo, "GCPUsageCostConfigPatchRequest", ""),
@@ -3941,15 +3410,8 @@ export class CloudCostManagementApiRequestFactory extends BaseAPIRequestFactory 
     );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "CloudCostManagementApi.v2.updateCustomAllocationRule",
-      CloudCostManagementApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.PATCH,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("CloudCostManagementApi.v2.updateCustomAllocationRule", CloudCostManagementApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.PATCH, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -3959,7 +3421,9 @@ export class CloudCostManagementApiRequestFactory extends BaseAPIRequestFactory 
     }
 
     // Body Params
-    const contentType = getPreferredMediaType(["application/json"]);
+    const contentType = getPreferredMediaType([
+      "application/json",
+    ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = stringify(
       serialize(body, TypingInfo, "ArbitraryCostUpsertRequest", ""),
@@ -4001,15 +3465,8 @@ export class CloudCostManagementApiRequestFactory extends BaseAPIRequestFactory 
     );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "CloudCostManagementApi.v2.updateTagPipelinesRuleset",
-      CloudCostManagementApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.PATCH,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("CloudCostManagementApi.v2.updateTagPipelinesRuleset", CloudCostManagementApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.PATCH, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -4019,7 +3476,9 @@ export class CloudCostManagementApiRequestFactory extends BaseAPIRequestFactory 
     }
 
     // Body Params
-    const contentType = getPreferredMediaType(["application/json"]);
+    const contentType = getPreferredMediaType([
+      "application/json",
+    ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = stringify(
       serialize(body, TypingInfo, "UpdateRulesetRequest", ""),
@@ -4052,15 +3511,8 @@ export class CloudCostManagementApiRequestFactory extends BaseAPIRequestFactory 
     const localVarPath = "/api/v2/cost/custom_costs";
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "CloudCostManagementApi.v2.uploadCustomCostsFile",
-      CloudCostManagementApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.PUT,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("CloudCostManagementApi.v2.uploadCustomCostsFile", CloudCostManagementApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.PUT, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -4070,7 +3522,9 @@ export class CloudCostManagementApiRequestFactory extends BaseAPIRequestFactory 
     }
 
     // Body Params
-    const contentType = getPreferredMediaType(["application/json"]);
+    const contentType = getPreferredMediaType([
+      "application/json",
+    ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = stringify(
       serialize(body, TypingInfo, "Array<CustomCostsFileLineItem>", ""),
@@ -4103,15 +3557,8 @@ export class CloudCostManagementApiRequestFactory extends BaseAPIRequestFactory 
     const localVarPath = "/api/v2/cost/budget";
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "CloudCostManagementApi.v2.upsertBudget",
-      CloudCostManagementApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.PUT,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("CloudCostManagementApi.v2.upsertBudget", CloudCostManagementApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.PUT, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -4121,7 +3568,9 @@ export class CloudCostManagementApiRequestFactory extends BaseAPIRequestFactory 
     }
 
     // Body Params
-    const contentType = getPreferredMediaType(["application/json"]);
+    const contentType = getPreferredMediaType([
+      "application/json",
+    ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = stringify(
       serialize(body, TypingInfo, "BudgetWithEntries", ""),
@@ -4162,15 +3611,8 @@ export class CloudCostManagementApiRequestFactory extends BaseAPIRequestFactory 
     );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "CloudCostManagementApi.v2.upsertCostTagDescriptionByKey",
-      CloudCostManagementApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.PUT,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("CloudCostManagementApi.v2.upsertCostTagDescriptionByKey", CloudCostManagementApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.PUT, overrides);
     requestContext.setHeaderParam("Accept", "*/*");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -4180,7 +3622,9 @@ export class CloudCostManagementApiRequestFactory extends BaseAPIRequestFactory 
     }
 
     // Body Params
-    const contentType = getPreferredMediaType(["application/json"]);
+    const contentType = getPreferredMediaType([
+      "application/json",
+    ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = stringify(
       serialize(body, TypingInfo, "CostTagDescriptionUpsertRequest", ""),
@@ -4213,15 +3657,8 @@ export class CloudCostManagementApiRequestFactory extends BaseAPIRequestFactory 
     const localVarPath = "/api/v2/cost/budget/custom-forecast";
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "CloudCostManagementApi.v2.upsertCustomForecast",
-      CloudCostManagementApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.PUT,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("CloudCostManagementApi.v2.upsertCustomForecast", CloudCostManagementApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.PUT, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -4231,7 +3668,9 @@ export class CloudCostManagementApiRequestFactory extends BaseAPIRequestFactory 
     }
 
     // Body Params
-    const contentType = getPreferredMediaType(["application/json"]);
+    const contentType = getPreferredMediaType([
+      "application/json",
+    ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = stringify(
       serialize(body, TypingInfo, "CustomForecastUpsertRequest", ""),
@@ -4263,15 +3702,8 @@ export class CloudCostManagementApiRequestFactory extends BaseAPIRequestFactory 
     const localVarPath = "/api/v2/cost/budget/validate";
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "CloudCostManagementApi.v2.validateBudget",
-      CloudCostManagementApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.POST,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("CloudCostManagementApi.v2.validateBudget", CloudCostManagementApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.POST, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -4281,7 +3713,9 @@ export class CloudCostManagementApiRequestFactory extends BaseAPIRequestFactory 
     }
 
     // Body Params
-    const contentType = getPreferredMediaType(["application/json"]);
+    const contentType = getPreferredMediaType([
+      "application/json",
+    ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = stringify(
       serialize(body, TypingInfo, "BudgetValidationRequest", ""),
@@ -4307,15 +3741,8 @@ export class CloudCostManagementApiRequestFactory extends BaseAPIRequestFactory 
     const localVarPath = "/api/v2/cost/budget/csv/validate";
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "CloudCostManagementApi.v2.validateCsvBudget",
-      CloudCostManagementApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.POST,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("CloudCostManagementApi.v2.validateCsvBudget", CloudCostManagementApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.POST, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -4342,15 +3769,8 @@ export class CloudCostManagementApiRequestFactory extends BaseAPIRequestFactory 
     const localVarPath = "/api/v2/tags/enrichment/validate-query";
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "CloudCostManagementApi.v2.validateQuery",
-      CloudCostManagementApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.POST,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("CloudCostManagementApi.v2.validateQuery", CloudCostManagementApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.POST, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -4360,7 +3780,9 @@ export class CloudCostManagementApiRequestFactory extends BaseAPIRequestFactory 
     }
 
     // Body Params
-    const contentType = getPreferredMediaType(["application/json"]);
+    const contentType = getPreferredMediaType([
+      "application/json",
+    ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = stringify(
       serialize(body, TypingInfo, "RulesValidateQueryRequest", ""),
@@ -4390,7 +3812,9 @@ export class CloudCostManagementApiResponseProcessor {
   public async createCostAWSCURConfig(
     response: ResponseContext,
   ): Promise<AwsCurConfigResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: AwsCurConfigResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -4404,7 +3828,10 @@ export class CloudCostManagementApiResponseProcessor {
       response.httpStatusCode === 403 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -4419,7 +3846,10 @@ export class CloudCostManagementApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -4450,7 +3880,9 @@ export class CloudCostManagementApiResponseProcessor {
   public async createCostAzureUCConfigs(
     response: ResponseContext,
   ): Promise<AzureUCConfigPairsResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: AzureUCConfigPairsResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -4464,7 +3896,10 @@ export class CloudCostManagementApiResponseProcessor {
       response.httpStatusCode === 403 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -4479,7 +3914,10 @@ export class CloudCostManagementApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -4510,7 +3948,9 @@ export class CloudCostManagementApiResponseProcessor {
   public async createCostGCPUsageCostConfig(
     response: ResponseContext,
   ): Promise<GCPUsageCostConfigResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: GCPUsageCostConfigResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -4524,7 +3964,10 @@ export class CloudCostManagementApiResponseProcessor {
       response.httpStatusCode === 403 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -4539,7 +3982,10 @@ export class CloudCostManagementApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -4570,7 +4016,9 @@ export class CloudCostManagementApiResponseProcessor {
   public async createCustomAllocationRule(
     response: ResponseContext,
   ): Promise<ArbitraryRuleResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: ArbitraryRuleResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -4580,7 +4028,10 @@ export class CloudCostManagementApiResponseProcessor {
       return body;
     }
     if (response.httpStatusCode === 429) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -4595,7 +4046,10 @@ export class CloudCostManagementApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -4626,7 +4080,9 @@ export class CloudCostManagementApiResponseProcessor {
   public async createTagPipelinesRuleset(
     response: ResponseContext,
   ): Promise<RulesetResp> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: RulesetResp = deserialize(
         parse(await response.body.text(), contentType),
@@ -4636,7 +4092,10 @@ export class CloudCostManagementApiResponseProcessor {
       return body;
     }
     if (response.httpStatusCode === 429) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -4651,7 +4110,10 @@ export class CloudCostManagementApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -4679,13 +4141,20 @@ export class CloudCostManagementApiResponseProcessor {
    * @params response Response returned by the server for a request to deleteBudget
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async deleteBudget(response: ResponseContext): Promise<void> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+  public async deleteBudget(
+    response: ResponseContext,
+  ): Promise<void> {
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 204) {
       return;
     }
     if (response.httpStatusCode === 429) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -4700,7 +4169,10 @@ export class CloudCostManagementApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -4725,7 +4197,9 @@ export class CloudCostManagementApiResponseProcessor {
   public async deleteCostAWSCURConfig(
     response: ResponseContext,
   ): Promise<void> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 204) {
       return;
     }
@@ -4734,7 +4208,10 @@ export class CloudCostManagementApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -4749,7 +4226,10 @@ export class CloudCostManagementApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -4774,7 +4254,9 @@ export class CloudCostManagementApiResponseProcessor {
   public async deleteCostAzureUCConfig(
     response: ResponseContext,
   ): Promise<void> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 204) {
       return;
     }
@@ -4783,7 +4265,10 @@ export class CloudCostManagementApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -4798,7 +4283,10 @@ export class CloudCostManagementApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -4823,7 +4311,9 @@ export class CloudCostManagementApiResponseProcessor {
   public async deleteCostGCPUsageCostConfig(
     response: ResponseContext,
   ): Promise<void> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 204) {
       return;
     }
@@ -4832,7 +4322,10 @@ export class CloudCostManagementApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -4847,7 +4340,10 @@ export class CloudCostManagementApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -4872,7 +4368,9 @@ export class CloudCostManagementApiResponseProcessor {
   public async deleteCostTagDescriptionByKey(
     response: ResponseContext,
   ): Promise<void> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 204) {
       return;
     }
@@ -4881,7 +4379,10 @@ export class CloudCostManagementApiResponseProcessor {
       response.httpStatusCode === 403 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -4896,7 +4397,10 @@ export class CloudCostManagementApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -4921,12 +4425,17 @@ export class CloudCostManagementApiResponseProcessor {
   public async deleteCustomAllocationRule(
     response: ResponseContext,
   ): Promise<void> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 204) {
       return;
     }
     if (response.httpStatusCode === 429) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -4941,7 +4450,10 @@ export class CloudCostManagementApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -4963,8 +4475,12 @@ export class CloudCostManagementApiResponseProcessor {
    * @params response Response returned by the server for a request to deleteCustomCostsFile
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async deleteCustomCostsFile(response: ResponseContext): Promise<void> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+  public async deleteCustomCostsFile(
+    response: ResponseContext,
+  ): Promise<void> {
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 204) {
       return;
     }
@@ -4973,7 +4489,10 @@ export class CloudCostManagementApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -4988,7 +4507,10 @@ export class CloudCostManagementApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -5010,8 +4532,12 @@ export class CloudCostManagementApiResponseProcessor {
    * @params response Response returned by the server for a request to deleteCustomForecast
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async deleteCustomForecast(response: ResponseContext): Promise<void> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+  public async deleteCustomForecast(
+    response: ResponseContext,
+  ): Promise<void> {
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 204) {
       return;
     }
@@ -5020,7 +4546,10 @@ export class CloudCostManagementApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -5035,7 +4564,10 @@ export class CloudCostManagementApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -5060,12 +4592,17 @@ export class CloudCostManagementApiResponseProcessor {
   public async deleteTagPipelinesRuleset(
     response: ResponseContext,
   ): Promise<void> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 204) {
       return;
     }
     if (response.httpStatusCode === 429) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -5080,7 +4617,10 @@ export class CloudCostManagementApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -5105,7 +4645,9 @@ export class CloudCostManagementApiResponseProcessor {
   public async generateCostTagDescriptionByKey(
     response: ResponseContext,
   ): Promise<GenerateCostTagDescriptionResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: GenerateCostTagDescriptionResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -5119,7 +4661,10 @@ export class CloudCostManagementApiResponseProcessor {
       response.httpStatusCode === 403 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -5134,7 +4679,10 @@ export class CloudCostManagementApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -5165,7 +4713,9 @@ export class CloudCostManagementApiResponseProcessor {
   public async getBudget(
     response: ResponseContext,
   ): Promise<BudgetWithEntries> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: BudgetWithEntries = deserialize(
         parse(await response.body.text(), contentType),
@@ -5179,7 +4729,10 @@ export class CloudCostManagementApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -5194,7 +4747,10 @@ export class CloudCostManagementApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -5225,7 +4781,9 @@ export class CloudCostManagementApiResponseProcessor {
   public async getCommitmentsCommitmentList(
     response: ResponseContext,
   ): Promise<CommitmentsListResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: CommitmentsListResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -5235,7 +4793,10 @@ export class CloudCostManagementApiResponseProcessor {
       return body;
     }
     if (response.httpStatusCode === 400) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: JSONAPIErrorResponse;
       try {
         body = deserialize(
@@ -5256,7 +4817,10 @@ export class CloudCostManagementApiResponseProcessor {
       );
     }
     if (response.httpStatusCode === 429) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -5271,7 +4835,10 @@ export class CloudCostManagementApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -5302,7 +4869,9 @@ export class CloudCostManagementApiResponseProcessor {
   public async getCommitmentsCoverageScalar(
     response: ResponseContext,
   ): Promise<CommitmentsCoverageScalarResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: CommitmentsCoverageScalarResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -5312,7 +4881,10 @@ export class CloudCostManagementApiResponseProcessor {
       return body;
     }
     if (response.httpStatusCode === 400) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: JSONAPIErrorResponse;
       try {
         body = deserialize(
@@ -5333,7 +4905,10 @@ export class CloudCostManagementApiResponseProcessor {
       );
     }
     if (response.httpStatusCode === 429) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -5348,7 +4923,10 @@ export class CloudCostManagementApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -5379,7 +4957,9 @@ export class CloudCostManagementApiResponseProcessor {
   public async getCommitmentsCoverageTimeseries(
     response: ResponseContext,
   ): Promise<CommitmentsCoverageTimeseriesResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: CommitmentsCoverageTimeseriesResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -5389,7 +4969,10 @@ export class CloudCostManagementApiResponseProcessor {
       return body;
     }
     if (response.httpStatusCode === 400) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: JSONAPIErrorResponse;
       try {
         body = deserialize(
@@ -5410,7 +4993,10 @@ export class CloudCostManagementApiResponseProcessor {
       );
     }
     if (response.httpStatusCode === 429) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -5425,7 +5011,10 @@ export class CloudCostManagementApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -5456,7 +5045,9 @@ export class CloudCostManagementApiResponseProcessor {
   public async getCommitmentsOnDemandHotspotsScalar(
     response: ResponseContext,
   ): Promise<CommitmentsOnDemandHotspotsScalarResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: CommitmentsOnDemandHotspotsScalarResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -5466,7 +5057,10 @@ export class CloudCostManagementApiResponseProcessor {
       return body;
     }
     if (response.httpStatusCode === 400) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: JSONAPIErrorResponse;
       try {
         body = deserialize(
@@ -5487,7 +5081,10 @@ export class CloudCostManagementApiResponseProcessor {
       );
     }
     if (response.httpStatusCode === 429) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -5502,7 +5099,10 @@ export class CloudCostManagementApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -5533,7 +5133,9 @@ export class CloudCostManagementApiResponseProcessor {
   public async getCommitmentsSavingsScalar(
     response: ResponseContext,
   ): Promise<CommitmentsSavingsScalarResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: CommitmentsSavingsScalarResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -5543,7 +5145,10 @@ export class CloudCostManagementApiResponseProcessor {
       return body;
     }
     if (response.httpStatusCode === 400) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: JSONAPIErrorResponse;
       try {
         body = deserialize(
@@ -5564,7 +5169,10 @@ export class CloudCostManagementApiResponseProcessor {
       );
     }
     if (response.httpStatusCode === 429) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -5579,7 +5187,10 @@ export class CloudCostManagementApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -5610,7 +5221,9 @@ export class CloudCostManagementApiResponseProcessor {
   public async getCommitmentsSavingsTimeseries(
     response: ResponseContext,
   ): Promise<CommitmentsSavingsTimeseriesResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: CommitmentsSavingsTimeseriesResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -5620,7 +5233,10 @@ export class CloudCostManagementApiResponseProcessor {
       return body;
     }
     if (response.httpStatusCode === 400) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: JSONAPIErrorResponse;
       try {
         body = deserialize(
@@ -5641,7 +5257,10 @@ export class CloudCostManagementApiResponseProcessor {
       );
     }
     if (response.httpStatusCode === 429) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -5656,7 +5275,10 @@ export class CloudCostManagementApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -5687,7 +5309,9 @@ export class CloudCostManagementApiResponseProcessor {
   public async getCommitmentsUtilizationScalar(
     response: ResponseContext,
   ): Promise<CommitmentsUtilizationScalarResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: CommitmentsUtilizationScalarResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -5697,7 +5321,10 @@ export class CloudCostManagementApiResponseProcessor {
       return body;
     }
     if (response.httpStatusCode === 400) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: JSONAPIErrorResponse;
       try {
         body = deserialize(
@@ -5718,7 +5345,10 @@ export class CloudCostManagementApiResponseProcessor {
       );
     }
     if (response.httpStatusCode === 429) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -5733,7 +5363,10 @@ export class CloudCostManagementApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -5764,7 +5397,9 @@ export class CloudCostManagementApiResponseProcessor {
   public async getCommitmentsUtilizationTimeseries(
     response: ResponseContext,
   ): Promise<CommitmentsUtilizationTimeseriesResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: CommitmentsUtilizationTimeseriesResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -5774,7 +5409,10 @@ export class CloudCostManagementApiResponseProcessor {
       return body;
     }
     if (response.httpStatusCode === 400) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: JSONAPIErrorResponse;
       try {
         body = deserialize(
@@ -5795,7 +5433,10 @@ export class CloudCostManagementApiResponseProcessor {
       );
     }
     if (response.httpStatusCode === 429) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -5810,7 +5451,10 @@ export class CloudCostManagementApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -5841,7 +5485,9 @@ export class CloudCostManagementApiResponseProcessor {
   public async getCostAccountFilters(
     response: ResponseContext,
   ): Promise<AccountFiltersResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: AccountFiltersResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -5856,7 +5502,10 @@ export class CloudCostManagementApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -5871,7 +5520,10 @@ export class CloudCostManagementApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -5902,7 +5554,9 @@ export class CloudCostManagementApiResponseProcessor {
   public async getCostAnomaly(
     response: ResponseContext,
   ): Promise<CostAnomalyResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: CostAnomalyResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -5917,7 +5571,10 @@ export class CloudCostManagementApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -5932,7 +5589,10 @@ export class CloudCostManagementApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -5963,7 +5623,9 @@ export class CloudCostManagementApiResponseProcessor {
   public async getCostAWSCURConfig(
     response: ResponseContext,
   ): Promise<AwsCurConfigResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: AwsCurConfigResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -5973,7 +5635,10 @@ export class CloudCostManagementApiResponseProcessor {
       return body;
     }
     if (response.httpStatusCode === 429) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -5988,7 +5653,10 @@ export class CloudCostManagementApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -6019,7 +5687,9 @@ export class CloudCostManagementApiResponseProcessor {
   public async getCostAzureUCConfig(
     response: ResponseContext,
   ): Promise<UCConfigPair> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: UCConfigPair = deserialize(
         parse(await response.body.text(), contentType),
@@ -6029,7 +5699,10 @@ export class CloudCostManagementApiResponseProcessor {
       return body;
     }
     if (response.httpStatusCode === 429) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -6044,7 +5717,10 @@ export class CloudCostManagementApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -6075,7 +5751,9 @@ export class CloudCostManagementApiResponseProcessor {
   public async getCostGCPUsageCostConfig(
     response: ResponseContext,
   ): Promise<GcpUcConfigResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: GcpUcConfigResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -6085,7 +5763,10 @@ export class CloudCostManagementApiResponseProcessor {
       return body;
     }
     if (response.httpStatusCode === 429) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -6100,7 +5781,10 @@ export class CloudCostManagementApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -6131,7 +5815,9 @@ export class CloudCostManagementApiResponseProcessor {
   public async getCostTagDescriptionByKey(
     response: ResponseContext,
   ): Promise<CostTagDescriptionResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: CostTagDescriptionResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -6146,7 +5832,10 @@ export class CloudCostManagementApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -6161,7 +5850,10 @@ export class CloudCostManagementApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -6192,7 +5884,9 @@ export class CloudCostManagementApiResponseProcessor {
   public async getCostTagKey(
     response: ResponseContext,
   ): Promise<CostTagKeyResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: CostTagKeyResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -6207,7 +5901,10 @@ export class CloudCostManagementApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -6222,7 +5919,10 @@ export class CloudCostManagementApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -6253,7 +5953,9 @@ export class CloudCostManagementApiResponseProcessor {
   public async getCostTagMetadataCurrency(
     response: ResponseContext,
   ): Promise<CostCurrencyResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: CostCurrencyResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -6267,7 +5969,10 @@ export class CloudCostManagementApiResponseProcessor {
       response.httpStatusCode === 403 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -6282,7 +5987,10 @@ export class CloudCostManagementApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -6313,7 +6021,9 @@ export class CloudCostManagementApiResponseProcessor {
   public async getCustomAllocationRule(
     response: ResponseContext,
   ): Promise<ArbitraryRuleResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: ArbitraryRuleResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -6323,7 +6033,10 @@ export class CloudCostManagementApiResponseProcessor {
       return body;
     }
     if (response.httpStatusCode === 429) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -6338,7 +6051,10 @@ export class CloudCostManagementApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -6369,7 +6085,9 @@ export class CloudCostManagementApiResponseProcessor {
   public async getCustomCostsFile(
     response: ResponseContext,
   ): Promise<CustomCostsFileGetResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: CustomCostsFileGetResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -6383,7 +6101,10 @@ export class CloudCostManagementApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -6398,7 +6119,10 @@ export class CloudCostManagementApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -6429,7 +6153,9 @@ export class CloudCostManagementApiResponseProcessor {
   public async getCustomForecast(
     response: ResponseContext,
   ): Promise<CustomForecastResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: CustomForecastResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -6443,7 +6169,10 @@ export class CloudCostManagementApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -6458,7 +6187,10 @@ export class CloudCostManagementApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -6489,7 +6221,9 @@ export class CloudCostManagementApiResponseProcessor {
   public async getTagPipelinesRuleset(
     response: ResponseContext,
   ): Promise<RulesetResp> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: RulesetResp = deserialize(
         parse(await response.body.text(), contentType),
@@ -6499,7 +6233,10 @@ export class CloudCostManagementApiResponseProcessor {
       return body;
     }
     if (response.httpStatusCode === 429) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -6514,7 +6251,10 @@ export class CloudCostManagementApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -6542,8 +6282,12 @@ export class CloudCostManagementApiResponseProcessor {
    * @params response Response returned by the server for a request to listBudgets
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async listBudgets(response: ResponseContext): Promise<BudgetArray> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+  public async listBudgets(
+    response: ResponseContext,
+  ): Promise<BudgetArray> {
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: BudgetArray = deserialize(
         parse(await response.body.text(), contentType),
@@ -6553,7 +6297,10 @@ export class CloudCostManagementApiResponseProcessor {
       return body;
     }
     if (response.httpStatusCode === 429) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -6568,7 +6315,10 @@ export class CloudCostManagementApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -6599,7 +6349,9 @@ export class CloudCostManagementApiResponseProcessor {
   public async listCostAnomalies(
     response: ResponseContext,
   ): Promise<CostAnomaliesResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: CostAnomaliesResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -6613,7 +6365,10 @@ export class CloudCostManagementApiResponseProcessor {
       response.httpStatusCode === 403 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -6628,7 +6383,10 @@ export class CloudCostManagementApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -6659,7 +6417,9 @@ export class CloudCostManagementApiResponseProcessor {
   public async listCostAWSCURConfigs(
     response: ResponseContext,
   ): Promise<AwsCURConfigsResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: AwsCURConfigsResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -6668,8 +6428,14 @@ export class CloudCostManagementApiResponseProcessor {
       ) as AwsCURConfigsResponse;
       return body;
     }
-    if (response.httpStatusCode === 403 || response.httpStatusCode === 429) {
-      const bodyText = parse(await response.body.text(), contentType);
+    if (
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 429
+    ) {
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -6684,7 +6450,10 @@ export class CloudCostManagementApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -6715,7 +6484,9 @@ export class CloudCostManagementApiResponseProcessor {
   public async listCostAzureUCConfigs(
     response: ResponseContext,
   ): Promise<AzureUCConfigsResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: AzureUCConfigsResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -6724,8 +6495,14 @@ export class CloudCostManagementApiResponseProcessor {
       ) as AzureUCConfigsResponse;
       return body;
     }
-    if (response.httpStatusCode === 403 || response.httpStatusCode === 429) {
-      const bodyText = parse(await response.body.text(), contentType);
+    if (
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 429
+    ) {
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -6740,7 +6517,10 @@ export class CloudCostManagementApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -6771,7 +6551,9 @@ export class CloudCostManagementApiResponseProcessor {
   public async listCostGCPUsageCostConfigs(
     response: ResponseContext,
   ): Promise<GCPUsageCostConfigsResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: GCPUsageCostConfigsResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -6780,8 +6562,14 @@ export class CloudCostManagementApiResponseProcessor {
       ) as GCPUsageCostConfigsResponse;
       return body;
     }
-    if (response.httpStatusCode === 403 || response.httpStatusCode === 429) {
-      const bodyText = parse(await response.body.text(), contentType);
+    if (
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 429
+    ) {
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -6796,7 +6584,10 @@ export class CloudCostManagementApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -6827,7 +6618,9 @@ export class CloudCostManagementApiResponseProcessor {
   public async listCostOCIConfigs(
     response: ResponseContext,
   ): Promise<OCIConfigsResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: OCIConfigsResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -6836,8 +6629,14 @@ export class CloudCostManagementApiResponseProcessor {
       ) as OCIConfigsResponse;
       return body;
     }
-    if (response.httpStatusCode === 403 || response.httpStatusCode === 429) {
-      const bodyText = parse(await response.body.text(), contentType);
+    if (
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 429
+    ) {
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -6852,7 +6651,10 @@ export class CloudCostManagementApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -6883,7 +6685,9 @@ export class CloudCostManagementApiResponseProcessor {
   public async listCostTagDescriptions(
     response: ResponseContext,
   ): Promise<CostTagDescriptionsResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: CostTagDescriptionsResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -6892,8 +6696,14 @@ export class CloudCostManagementApiResponseProcessor {
       ) as CostTagDescriptionsResponse;
       return body;
     }
-    if (response.httpStatusCode === 403 || response.httpStatusCode === 429) {
-      const bodyText = parse(await response.body.text(), contentType);
+    if (
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 429
+    ) {
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -6908,7 +6718,10 @@ export class CloudCostManagementApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -6939,7 +6752,9 @@ export class CloudCostManagementApiResponseProcessor {
   public async listCostTagKeys(
     response: ResponseContext,
   ): Promise<CostTagKeysResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: CostTagKeysResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -6953,7 +6768,10 @@ export class CloudCostManagementApiResponseProcessor {
       response.httpStatusCode === 403 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -6968,7 +6786,10 @@ export class CloudCostManagementApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -6999,7 +6820,9 @@ export class CloudCostManagementApiResponseProcessor {
   public async listCostTagKeySources(
     response: ResponseContext,
   ): Promise<CostTagKeySourcesResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: CostTagKeySourcesResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -7013,7 +6836,10 @@ export class CloudCostManagementApiResponseProcessor {
       response.httpStatusCode === 403 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -7028,7 +6854,10 @@ export class CloudCostManagementApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -7059,7 +6888,9 @@ export class CloudCostManagementApiResponseProcessor {
   public async listCostTagMetadata(
     response: ResponseContext,
   ): Promise<CostTagKeyMetadataResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: CostTagKeyMetadataResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -7073,7 +6904,10 @@ export class CloudCostManagementApiResponseProcessor {
       response.httpStatusCode === 403 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -7088,7 +6922,10 @@ export class CloudCostManagementApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -7119,7 +6956,9 @@ export class CloudCostManagementApiResponseProcessor {
   public async listCostTagMetadataMetrics(
     response: ResponseContext,
   ): Promise<CostMetricsResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: CostMetricsResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -7133,7 +6972,10 @@ export class CloudCostManagementApiResponseProcessor {
       response.httpStatusCode === 403 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -7148,7 +6990,10 @@ export class CloudCostManagementApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -7179,7 +7024,9 @@ export class CloudCostManagementApiResponseProcessor {
   public async listCostTagMetadataMonths(
     response: ResponseContext,
   ): Promise<CostTagMetadataMonthsResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: CostTagMetadataMonthsResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -7193,7 +7040,10 @@ export class CloudCostManagementApiResponseProcessor {
       response.httpStatusCode === 403 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -7208,7 +7058,10 @@ export class CloudCostManagementApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -7239,7 +7092,9 @@ export class CloudCostManagementApiResponseProcessor {
   public async listCostTagMetadataOrchestrators(
     response: ResponseContext,
   ): Promise<CostOrchestratorsResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: CostOrchestratorsResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -7253,7 +7108,10 @@ export class CloudCostManagementApiResponseProcessor {
       response.httpStatusCode === 403 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -7268,7 +7126,10 @@ export class CloudCostManagementApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -7299,7 +7160,9 @@ export class CloudCostManagementApiResponseProcessor {
   public async listCostTags(
     response: ResponseContext,
   ): Promise<CostTagsResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: CostTagsResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -7313,7 +7176,10 @@ export class CloudCostManagementApiResponseProcessor {
       response.httpStatusCode === 403 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -7328,7 +7194,10 @@ export class CloudCostManagementApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -7359,7 +7228,9 @@ export class CloudCostManagementApiResponseProcessor {
   public async listCustomAllocationRules(
     response: ResponseContext,
   ): Promise<ArbitraryRuleResponseArray> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: ArbitraryRuleResponseArray = deserialize(
         parse(await response.body.text(), contentType),
@@ -7369,7 +7240,10 @@ export class CloudCostManagementApiResponseProcessor {
       return body;
     }
     if (response.httpStatusCode === 429) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -7384,7 +7258,10 @@ export class CloudCostManagementApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -7415,7 +7292,9 @@ export class CloudCostManagementApiResponseProcessor {
   public async listCustomAllocationRulesStatus(
     response: ResponseContext,
   ): Promise<ArbitraryRuleStatusResponseArray> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: ArbitraryRuleStatusResponseArray = deserialize(
         parse(await response.body.text(), contentType),
@@ -7425,7 +7304,10 @@ export class CloudCostManagementApiResponseProcessor {
       return body;
     }
     if (response.httpStatusCode === 429) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -7440,7 +7322,10 @@ export class CloudCostManagementApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -7471,7 +7356,9 @@ export class CloudCostManagementApiResponseProcessor {
   public async listCustomCostsFiles(
     response: ResponseContext,
   ): Promise<CustomCostsFileListResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: CustomCostsFileListResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -7485,7 +7372,10 @@ export class CloudCostManagementApiResponseProcessor {
       response.httpStatusCode === 403 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -7500,7 +7390,10 @@ export class CloudCostManagementApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -7531,7 +7424,9 @@ export class CloudCostManagementApiResponseProcessor {
   public async listTagPipelinesRulesets(
     response: ResponseContext,
   ): Promise<RulesetRespArray> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: RulesetRespArray = deserialize(
         parse(await response.body.text(), contentType),
@@ -7541,7 +7436,10 @@ export class CloudCostManagementApiResponseProcessor {
       return body;
     }
     if (response.httpStatusCode === 429) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -7556,7 +7454,10 @@ export class CloudCostManagementApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -7587,7 +7488,9 @@ export class CloudCostManagementApiResponseProcessor {
   public async listTagPipelinesRulesetsStatus(
     response: ResponseContext,
   ): Promise<RulesetStatusRespArray> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: RulesetStatusRespArray = deserialize(
         parse(await response.body.text(), contentType),
@@ -7597,7 +7500,10 @@ export class CloudCostManagementApiResponseProcessor {
       return body;
     }
     if (response.httpStatusCode === 429) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -7612,7 +7518,10 @@ export class CloudCostManagementApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -7643,12 +7552,17 @@ export class CloudCostManagementApiResponseProcessor {
   public async reorderCustomAllocationRules(
     response: ResponseContext,
   ): Promise<void> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 204) {
       return;
     }
     if (response.httpStatusCode === 429) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -7663,7 +7577,10 @@ export class CloudCostManagementApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -7688,12 +7605,17 @@ export class CloudCostManagementApiResponseProcessor {
   public async reorderTagPipelinesRulesets(
     response: ResponseContext,
   ): Promise<void> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 204) {
       return;
     }
     if (response.httpStatusCode === 429) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -7708,7 +7630,10 @@ export class CloudCostManagementApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -7733,7 +7658,9 @@ export class CloudCostManagementApiResponseProcessor {
   public async searchCostRecommendations(
     response: ResponseContext,
   ): Promise<CostRecommendationArray> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: CostRecommendationArray = deserialize(
         parse(await response.body.text(), contentType),
@@ -7743,7 +7670,10 @@ export class CloudCostManagementApiResponseProcessor {
       return body;
     }
     if (response.httpStatusCode === 429) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -7758,7 +7688,10 @@ export class CloudCostManagementApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -7789,7 +7722,9 @@ export class CloudCostManagementApiResponseProcessor {
   public async updateCostAccountFilters(
     response: ResponseContext,
   ): Promise<AccountFiltersResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: AccountFiltersResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -7804,7 +7739,10 @@ export class CloudCostManagementApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -7819,7 +7757,10 @@ export class CloudCostManagementApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -7850,7 +7791,9 @@ export class CloudCostManagementApiResponseProcessor {
   public async updateCostAWSCURConfig(
     response: ResponseContext,
   ): Promise<AwsCURConfigsResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: AwsCURConfigsResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -7864,7 +7807,10 @@ export class CloudCostManagementApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -7879,7 +7825,10 @@ export class CloudCostManagementApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -7910,7 +7859,9 @@ export class CloudCostManagementApiResponseProcessor {
   public async updateCostAzureUCConfigs(
     response: ResponseContext,
   ): Promise<AzureUCConfigPairsResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: AzureUCConfigPairsResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -7925,7 +7876,10 @@ export class CloudCostManagementApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -7940,7 +7894,10 @@ export class CloudCostManagementApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -7971,7 +7928,9 @@ export class CloudCostManagementApiResponseProcessor {
   public async updateCostGCPUsageCostConfig(
     response: ResponseContext,
   ): Promise<GCPUsageCostConfigResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: GCPUsageCostConfigResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -7986,7 +7945,10 @@ export class CloudCostManagementApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -8001,7 +7963,10 @@ export class CloudCostManagementApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -8032,7 +7997,9 @@ export class CloudCostManagementApiResponseProcessor {
   public async updateCustomAllocationRule(
     response: ResponseContext,
   ): Promise<ArbitraryRuleResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: ArbitraryRuleResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -8042,7 +8009,10 @@ export class CloudCostManagementApiResponseProcessor {
       return body;
     }
     if (response.httpStatusCode === 429) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -8057,7 +8027,10 @@ export class CloudCostManagementApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -8088,7 +8061,9 @@ export class CloudCostManagementApiResponseProcessor {
   public async updateTagPipelinesRuleset(
     response: ResponseContext,
   ): Promise<RulesetResp> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: RulesetResp = deserialize(
         parse(await response.body.text(), contentType),
@@ -8098,7 +8073,10 @@ export class CloudCostManagementApiResponseProcessor {
       return body;
     }
     if (response.httpStatusCode === 429) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -8113,7 +8091,10 @@ export class CloudCostManagementApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -8144,7 +8125,9 @@ export class CloudCostManagementApiResponseProcessor {
   public async uploadCustomCostsFile(
     response: ResponseContext,
   ): Promise<CustomCostsFileUploadResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 202) {
       const body: CustomCostsFileUploadResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -8158,7 +8141,10 @@ export class CloudCostManagementApiResponseProcessor {
       response.httpStatusCode === 403 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -8173,7 +8159,10 @@ export class CloudCostManagementApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -8204,7 +8193,9 @@ export class CloudCostManagementApiResponseProcessor {
   public async upsertBudget(
     response: ResponseContext,
   ): Promise<BudgetWithEntries> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: BudgetWithEntries = deserialize(
         parse(await response.body.text(), contentType),
@@ -8218,7 +8209,10 @@ export class CloudCostManagementApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -8233,7 +8227,10 @@ export class CloudCostManagementApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -8264,7 +8261,9 @@ export class CloudCostManagementApiResponseProcessor {
   public async upsertCostTagDescriptionByKey(
     response: ResponseContext,
   ): Promise<void> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 204) {
       return;
     }
@@ -8273,7 +8272,10 @@ export class CloudCostManagementApiResponseProcessor {
       response.httpStatusCode === 403 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -8288,7 +8290,10 @@ export class CloudCostManagementApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -8313,7 +8318,9 @@ export class CloudCostManagementApiResponseProcessor {
   public async upsertCustomForecast(
     response: ResponseContext,
   ): Promise<CustomForecastResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: CustomForecastResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -8327,7 +8334,10 @@ export class CloudCostManagementApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -8342,7 +8352,10 @@ export class CloudCostManagementApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -8373,7 +8386,9 @@ export class CloudCostManagementApiResponseProcessor {
   public async validateBudget(
     response: ResponseContext,
   ): Promise<BudgetValidationResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: BudgetValidationResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -8383,7 +8398,10 @@ export class CloudCostManagementApiResponseProcessor {
       return body;
     }
     if (response.httpStatusCode === 429) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -8398,7 +8416,10 @@ export class CloudCostManagementApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -8429,7 +8450,9 @@ export class CloudCostManagementApiResponseProcessor {
   public async validateCsvBudget(
     response: ResponseContext,
   ): Promise<ValidationResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: ValidationResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -8439,7 +8462,10 @@ export class CloudCostManagementApiResponseProcessor {
       return body;
     }
     if (response.httpStatusCode === 429) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -8454,7 +8480,10 @@ export class CloudCostManagementApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -8485,7 +8514,9 @@ export class CloudCostManagementApiResponseProcessor {
   public async validateQuery(
     response: ResponseContext,
   ): Promise<RulesValidateQueryResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: RulesValidateQueryResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -8495,7 +8526,10 @@ export class CloudCostManagementApiResponseProcessor {
       return body;
     }
     if (response.httpStatusCode === 429) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -8510,7 +8544,10 @@ export class CloudCostManagementApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -9413,7 +9450,8 @@ export class CloudCostManagementApi {
   private responseProcessor: CloudCostManagementApiResponseProcessor;
   private configuration: Configuration;
 
-  static operationServers: { [key: string]: BaseServerConfiguration[] } = {};
+  static operationServers: { [key: string]: BaseServerConfiguration[] } = {
+  };
 
   public constructor(
     configuration?: Configuration,
@@ -9465,9 +9503,7 @@ export class CloudCostManagementApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.createCostAzureUCConfigs(
-            responseContext,
-          );
+          return this.responseProcessor.createCostAzureUCConfigs(responseContext);
         });
     });
   }
@@ -9480,32 +9516,32 @@ export class CloudCostManagementApi {
     param: CloudCostManagementApiCreateCostGCPUsageCostConfigRequest,
     options?: Configuration,
   ): Promise<GCPUsageCostConfigResponse> {
-    const requestContextPromise =
-      this.requestFactory.createCostGCPUsageCostConfig(param.body, options);
+    const requestContextPromise = this.requestFactory.createCostGCPUsageCostConfig(
+      param.body,
+      options,
+    );
     return requestContextPromise.then((requestContext) => {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.createCostGCPUsageCostConfig(
-            responseContext,
-          );
+          return this.responseProcessor.createCostGCPUsageCostConfig(responseContext);
         });
     });
   }
 
   /**
    * Create a new custom allocation rule with the specified filters and allocation strategy.
-   *
+   * 
    * **Strategy Methods:**
    * - **PROPORTIONAL/EVEN**: Allocates costs proportionally/evenly based on existing costs. Requires: granularity, allocated_by_tag_keys. Optional: based_on_costs, allocated_by_filters, evaluate_grouped_by_tag_keys, evaluate_grouped_by_filters.
    * - **PROPORTIONAL_TIMESERIES/EVEN_TIMESERIES**: Allocates based on timeseries data. Requires: granularity, based_on_timeseries. Optional: evaluate_grouped_by_tag_keys.
    * - **PERCENT**: Allocates fixed percentages to specific tags. Requires: allocated_by (array of percentage allocations).
-   *
+   * 
    * **Filter Conditions:**
    * - Use **value** for single-value conditions: "is", "is not", "contains", "=", "!=", "like", "not like"
    * - Use **values** for multi-value conditions: "in", "not in"
    * - Cannot use both value and values simultaneously.
-   *
+   * 
    * **Supported operators**: is, is not, contains, in, not in, =, !=, like, not like
    * @param param The request object
    */
@@ -9513,15 +9549,15 @@ export class CloudCostManagementApi {
     param: CloudCostManagementApiCreateCustomAllocationRuleRequest,
     options?: Configuration,
   ): Promise<ArbitraryRuleResponse> {
-    const requestContextPromise =
-      this.requestFactory.createCustomAllocationRule(param.body, options);
+    const requestContextPromise = this.requestFactory.createCustomAllocationRule(
+      param.body,
+      options,
+    );
     return requestContextPromise.then((requestContext) => {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.createCustomAllocationRule(
-            responseContext,
-          );
+          return this.responseProcessor.createCustomAllocationRule(responseContext);
         });
     });
   }
@@ -9542,9 +9578,7 @@ export class CloudCostManagementApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.createTagPipelinesRuleset(
-            responseContext,
-          );
+          return this.responseProcessor.createTagPipelinesRuleset(responseContext);
         });
     });
   }
@@ -9607,9 +9641,7 @@ export class CloudCostManagementApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.deleteCostAzureUCConfig(
-            responseContext,
-          );
+          return this.responseProcessor.deleteCostAzureUCConfig(responseContext);
         });
     });
   }
@@ -9622,18 +9654,15 @@ export class CloudCostManagementApi {
     param: CloudCostManagementApiDeleteCostGCPUsageCostConfigRequest,
     options?: Configuration,
   ): Promise<void> {
-    const requestContextPromise =
-      this.requestFactory.deleteCostGCPUsageCostConfig(
-        param.cloudAccountId,
-        options,
-      );
+    const requestContextPromise = this.requestFactory.deleteCostGCPUsageCostConfig(
+      param.cloudAccountId,
+      options,
+    );
     return requestContextPromise.then((requestContext) => {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.deleteCostGCPUsageCostConfig(
-            responseContext,
-          );
+          return this.responseProcessor.deleteCostGCPUsageCostConfig(responseContext);
         });
     });
   }
@@ -9646,19 +9675,16 @@ export class CloudCostManagementApi {
     param: CloudCostManagementApiDeleteCostTagDescriptionByKeyRequest,
     options?: Configuration,
   ): Promise<void> {
-    const requestContextPromise =
-      this.requestFactory.deleteCostTagDescriptionByKey(
-        param.tagKey,
-        param.cloud,
-        options,
-      );
+    const requestContextPromise = this.requestFactory.deleteCostTagDescriptionByKey(
+      param.tagKey,
+      param.cloud,
+      options,
+    );
     return requestContextPromise.then((requestContext) => {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.deleteCostTagDescriptionByKey(
-            responseContext,
-          );
+          return this.responseProcessor.deleteCostTagDescriptionByKey(responseContext);
         });
     });
   }
@@ -9671,15 +9697,15 @@ export class CloudCostManagementApi {
     param: CloudCostManagementApiDeleteCustomAllocationRuleRequest,
     options?: Configuration,
   ): Promise<void> {
-    const requestContextPromise =
-      this.requestFactory.deleteCustomAllocationRule(param.ruleId, options);
+    const requestContextPromise = this.requestFactory.deleteCustomAllocationRule(
+      param.ruleId,
+      options,
+    );
     return requestContextPromise.then((requestContext) => {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.deleteCustomAllocationRule(
-            responseContext,
-          );
+          return this.responseProcessor.deleteCustomAllocationRule(responseContext);
         });
     });
   }
@@ -9742,9 +9768,7 @@ export class CloudCostManagementApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.deleteTagPipelinesRuleset(
-            responseContext,
-          );
+          return this.responseProcessor.deleteTagPipelinesRuleset(responseContext);
         });
     });
   }
@@ -9757,18 +9781,15 @@ export class CloudCostManagementApi {
     param: CloudCostManagementApiGenerateCostTagDescriptionByKeyRequest,
     options?: Configuration,
   ): Promise<GenerateCostTagDescriptionResponse> {
-    const requestContextPromise =
-      this.requestFactory.generateCostTagDescriptionByKey(
-        param.tagKey,
-        options,
-      );
+    const requestContextPromise = this.requestFactory.generateCostTagDescriptionByKey(
+      param.tagKey,
+      options,
+    );
     return requestContextPromise.then((requestContext) => {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.generateCostTagDescriptionByKey(
-            responseContext,
-          );
+          return this.responseProcessor.generateCostTagDescriptionByKey(responseContext);
         });
     });
   }
@@ -9806,23 +9827,20 @@ export class CloudCostManagementApi {
     param: CloudCostManagementApiGetCommitmentsCommitmentListRequest,
     options?: Configuration,
   ): Promise<CommitmentsListResponse> {
-    const requestContextPromise =
-      this.requestFactory.getCommitmentsCommitmentList(
-        param.provider,
-        param.product,
-        param.start,
-        param.end,
-        param.filterBy,
-        param.commitmentType,
-        options,
-      );
+    const requestContextPromise = this.requestFactory.getCommitmentsCommitmentList(
+      param.provider,
+      param.product,
+      param.start,
+      param.end,
+      param.filterBy,
+      param.commitmentType,
+      options,
+    );
     return requestContextPromise.then((requestContext) => {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.getCommitmentsCommitmentList(
-            responseContext,
-          );
+          return this.responseProcessor.getCommitmentsCommitmentList(responseContext);
         });
     });
   }
@@ -9835,22 +9853,19 @@ export class CloudCostManagementApi {
     param: CloudCostManagementApiGetCommitmentsCoverageScalarRequest,
     options?: Configuration,
   ): Promise<CommitmentsCoverageScalarResponse> {
-    const requestContextPromise =
-      this.requestFactory.getCommitmentsCoverageScalar(
-        param.provider,
-        param.product,
-        param.start,
-        param.end,
-        param.filterBy,
-        options,
-      );
+    const requestContextPromise = this.requestFactory.getCommitmentsCoverageScalar(
+      param.provider,
+      param.product,
+      param.start,
+      param.end,
+      param.filterBy,
+      options,
+    );
     return requestContextPromise.then((requestContext) => {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.getCommitmentsCoverageScalar(
-            responseContext,
-          );
+          return this.responseProcessor.getCommitmentsCoverageScalar(responseContext);
         });
     });
   }
@@ -9863,22 +9878,19 @@ export class CloudCostManagementApi {
     param: CloudCostManagementApiGetCommitmentsCoverageTimeseriesRequest,
     options?: Configuration,
   ): Promise<CommitmentsCoverageTimeseriesResponse> {
-    const requestContextPromise =
-      this.requestFactory.getCommitmentsCoverageTimeseries(
-        param.provider,
-        param.product,
-        param.start,
-        param.end,
-        param.filterBy,
-        options,
-      );
+    const requestContextPromise = this.requestFactory.getCommitmentsCoverageTimeseries(
+      param.provider,
+      param.product,
+      param.start,
+      param.end,
+      param.filterBy,
+      options,
+    );
     return requestContextPromise.then((requestContext) => {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.getCommitmentsCoverageTimeseries(
-            responseContext,
-          );
+          return this.responseProcessor.getCommitmentsCoverageTimeseries(responseContext);
         });
     });
   }
@@ -9891,22 +9903,19 @@ export class CloudCostManagementApi {
     param: CloudCostManagementApiGetCommitmentsOnDemandHotspotsScalarRequest,
     options?: Configuration,
   ): Promise<CommitmentsOnDemandHotspotsScalarResponse> {
-    const requestContextPromise =
-      this.requestFactory.getCommitmentsOnDemandHotspotsScalar(
-        param.provider,
-        param.product,
-        param.start,
-        param.end,
-        param.filterBy,
-        options,
-      );
+    const requestContextPromise = this.requestFactory.getCommitmentsOnDemandHotspotsScalar(
+      param.provider,
+      param.product,
+      param.start,
+      param.end,
+      param.filterBy,
+      options,
+    );
     return requestContextPromise.then((requestContext) => {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.getCommitmentsOnDemandHotspotsScalar(
-            responseContext,
-          );
+          return this.responseProcessor.getCommitmentsOnDemandHotspotsScalar(responseContext);
         });
     });
   }
@@ -9919,22 +9928,19 @@ export class CloudCostManagementApi {
     param: CloudCostManagementApiGetCommitmentsSavingsScalarRequest,
     options?: Configuration,
   ): Promise<CommitmentsSavingsScalarResponse> {
-    const requestContextPromise =
-      this.requestFactory.getCommitmentsSavingsScalar(
-        param.provider,
-        param.product,
-        param.start,
-        param.end,
-        param.filterBy,
-        options,
-      );
+    const requestContextPromise = this.requestFactory.getCommitmentsSavingsScalar(
+      param.provider,
+      param.product,
+      param.start,
+      param.end,
+      param.filterBy,
+      options,
+    );
     return requestContextPromise.then((requestContext) => {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.getCommitmentsSavingsScalar(
-            responseContext,
-          );
+          return this.responseProcessor.getCommitmentsSavingsScalar(responseContext);
         });
     });
   }
@@ -9947,22 +9953,19 @@ export class CloudCostManagementApi {
     param: CloudCostManagementApiGetCommitmentsSavingsTimeseriesRequest,
     options?: Configuration,
   ): Promise<CommitmentsSavingsTimeseriesResponse> {
-    const requestContextPromise =
-      this.requestFactory.getCommitmentsSavingsTimeseries(
-        param.provider,
-        param.product,
-        param.start,
-        param.end,
-        param.filterBy,
-        options,
-      );
+    const requestContextPromise = this.requestFactory.getCommitmentsSavingsTimeseries(
+      param.provider,
+      param.product,
+      param.start,
+      param.end,
+      param.filterBy,
+      options,
+    );
     return requestContextPromise.then((requestContext) => {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.getCommitmentsSavingsTimeseries(
-            responseContext,
-          );
+          return this.responseProcessor.getCommitmentsSavingsTimeseries(responseContext);
         });
     });
   }
@@ -9975,23 +9978,20 @@ export class CloudCostManagementApi {
     param: CloudCostManagementApiGetCommitmentsUtilizationScalarRequest,
     options?: Configuration,
   ): Promise<CommitmentsUtilizationScalarResponse> {
-    const requestContextPromise =
-      this.requestFactory.getCommitmentsUtilizationScalar(
-        param.provider,
-        param.product,
-        param.start,
-        param.end,
-        param.filterBy,
-        param.commitmentType,
-        options,
-      );
+    const requestContextPromise = this.requestFactory.getCommitmentsUtilizationScalar(
+      param.provider,
+      param.product,
+      param.start,
+      param.end,
+      param.filterBy,
+      param.commitmentType,
+      options,
+    );
     return requestContextPromise.then((requestContext) => {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.getCommitmentsUtilizationScalar(
-            responseContext,
-          );
+          return this.responseProcessor.getCommitmentsUtilizationScalar(responseContext);
         });
     });
   }
@@ -10004,23 +10004,20 @@ export class CloudCostManagementApi {
     param: CloudCostManagementApiGetCommitmentsUtilizationTimeseriesRequest,
     options?: Configuration,
   ): Promise<CommitmentsUtilizationTimeseriesResponse> {
-    const requestContextPromise =
-      this.requestFactory.getCommitmentsUtilizationTimeseries(
-        param.provider,
-        param.product,
-        param.start,
-        param.end,
-        param.filterBy,
-        param.commitmentType,
-        options,
-      );
+    const requestContextPromise = this.requestFactory.getCommitmentsUtilizationTimeseries(
+      param.provider,
+      param.product,
+      param.start,
+      param.end,
+      param.filterBy,
+      param.commitmentType,
+      options,
+    );
     return requestContextPromise.then((requestContext) => {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.getCommitmentsUtilizationTimeseries(
-            responseContext,
-          );
+          return this.responseProcessor.getCommitmentsUtilizationTimeseries(responseContext);
         });
     });
   }
@@ -10125,9 +10122,7 @@ export class CloudCostManagementApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.getCostGCPUsageCostConfig(
-            responseContext,
-          );
+          return this.responseProcessor.getCostGCPUsageCostConfig(responseContext);
         });
     });
   }
@@ -10140,19 +10135,16 @@ export class CloudCostManagementApi {
     param: CloudCostManagementApiGetCostTagDescriptionByKeyRequest,
     options?: Configuration,
   ): Promise<CostTagDescriptionResponse> {
-    const requestContextPromise =
-      this.requestFactory.getCostTagDescriptionByKey(
-        param.tagKey,
-        param.filterCloud,
-        options,
-      );
+    const requestContextPromise = this.requestFactory.getCostTagDescriptionByKey(
+      param.tagKey,
+      param.filterCloud,
+      options,
+    );
     return requestContextPromise.then((requestContext) => {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.getCostTagDescriptionByKey(
-            responseContext,
-          );
+          return this.responseProcessor.getCostTagDescriptionByKey(responseContext);
         });
     });
   }
@@ -10188,19 +10180,16 @@ export class CloudCostManagementApi {
     param: CloudCostManagementApiGetCostTagMetadataCurrencyRequest,
     options?: Configuration,
   ): Promise<CostCurrencyResponse> {
-    const requestContextPromise =
-      this.requestFactory.getCostTagMetadataCurrency(
-        param.filterMonth,
-        param.filterProvider,
-        options,
-      );
+    const requestContextPromise = this.requestFactory.getCostTagMetadataCurrency(
+      param.filterMonth,
+      param.filterProvider,
+      options,
+    );
     return requestContextPromise.then((requestContext) => {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.getCostTagMetadataCurrency(
-            responseContext,
-          );
+          return this.responseProcessor.getCostTagMetadataCurrency(responseContext);
         });
     });
   }
@@ -10221,9 +10210,7 @@ export class CloudCostManagementApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.getCustomAllocationRule(
-            responseContext,
-          );
+          return this.responseProcessor.getCustomAllocationRule(responseContext);
         });
     });
   }
@@ -10295,8 +10282,11 @@ export class CloudCostManagementApi {
    * List budgets.
    * @param param The request object
    */
-  public listBudgets(options?: Configuration): Promise<BudgetArray> {
-    const requestContextPromise = this.requestFactory.listBudgets(options);
+  public listBudgets(options?: Configuration,
+  ): Promise<BudgetArray> {
+    const requestContextPromise = this.requestFactory.listBudgets(
+      options,
+    );
     return requestContextPromise.then((requestContext) => {
       return this.configuration.httpApi
         .send(requestContext)
@@ -10341,11 +10331,11 @@ export class CloudCostManagementApi {
    * List the AWS CUR configs.
    * @param param The request object
    */
-  public listCostAWSCURConfigs(
-    options?: Configuration,
+  public listCostAWSCURConfigs(options?: Configuration,
   ): Promise<AwsCURConfigsResponse> {
-    const requestContextPromise =
-      this.requestFactory.listCostAWSCURConfigs(options);
+    const requestContextPromise = this.requestFactory.listCostAWSCURConfigs(
+      options,
+    );
     return requestContextPromise.then((requestContext) => {
       return this.configuration.httpApi
         .send(requestContext)
@@ -10359,11 +10349,11 @@ export class CloudCostManagementApi {
    * List the Azure configs.
    * @param param The request object
    */
-  public listCostAzureUCConfigs(
-    options?: Configuration,
+  public listCostAzureUCConfigs(options?: Configuration,
   ): Promise<AzureUCConfigsResponse> {
-    const requestContextPromise =
-      this.requestFactory.listCostAzureUCConfigs(options);
+    const requestContextPromise = this.requestFactory.listCostAzureUCConfigs(
+      options,
+    );
     return requestContextPromise.then((requestContext) => {
       return this.configuration.httpApi
         .send(requestContext)
@@ -10377,18 +10367,16 @@ export class CloudCostManagementApi {
    * List the Google Cloud Usage Cost configs.
    * @param param The request object
    */
-  public listCostGCPUsageCostConfigs(
-    options?: Configuration,
+  public listCostGCPUsageCostConfigs(options?: Configuration,
   ): Promise<GCPUsageCostConfigsResponse> {
-    const requestContextPromise =
-      this.requestFactory.listCostGCPUsageCostConfigs(options);
+    const requestContextPromise = this.requestFactory.listCostGCPUsageCostConfigs(
+      options,
+    );
     return requestContextPromise.then((requestContext) => {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.listCostGCPUsageCostConfigs(
-            responseContext,
-          );
+          return this.responseProcessor.listCostGCPUsageCostConfigs(responseContext);
         });
     });
   }
@@ -10397,11 +10385,11 @@ export class CloudCostManagementApi {
    * List the OCI configs.
    * @param param The request object
    */
-  public listCostOCIConfigs(
-    options?: Configuration,
+  public listCostOCIConfigs(options?: Configuration,
   ): Promise<OCIConfigsResponse> {
-    const requestContextPromise =
-      this.requestFactory.listCostOCIConfigs(options);
+    const requestContextPromise = this.requestFactory.listCostOCIConfigs(
+      options,
+    );
     return requestContextPromise.then((requestContext) => {
       return this.configuration.httpApi
         .send(requestContext)
@@ -10427,9 +10415,7 @@ export class CloudCostManagementApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.listCostTagDescriptions(
-            responseContext,
-          );
+          return this.responseProcessor.listCostTagDescriptions(responseContext);
         });
     });
   }
@@ -10512,19 +10498,16 @@ export class CloudCostManagementApi {
     param: CloudCostManagementApiListCostTagMetadataMetricsRequest,
     options?: Configuration,
   ): Promise<CostMetricsResponse> {
-    const requestContextPromise =
-      this.requestFactory.listCostTagMetadataMetrics(
-        param.filterMonth,
-        param.filterProvider,
-        options,
-      );
+    const requestContextPromise = this.requestFactory.listCostTagMetadataMetrics(
+      param.filterMonth,
+      param.filterProvider,
+      options,
+    );
     return requestContextPromise.then((requestContext) => {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.listCostTagMetadataMetrics(
-            responseContext,
-          );
+          return this.responseProcessor.listCostTagMetadataMetrics(responseContext);
         });
     });
   }
@@ -10546,9 +10529,7 @@ export class CloudCostManagementApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.listCostTagMetadataMonths(
-            responseContext,
-          );
+          return this.responseProcessor.listCostTagMetadataMonths(responseContext);
         });
     });
   }
@@ -10561,19 +10542,16 @@ export class CloudCostManagementApi {
     param: CloudCostManagementApiListCostTagMetadataOrchestratorsRequest,
     options?: Configuration,
   ): Promise<CostOrchestratorsResponse> {
-    const requestContextPromise =
-      this.requestFactory.listCostTagMetadataOrchestrators(
-        param.filterMonth,
-        param.filterProvider,
-        options,
-      );
+    const requestContextPromise = this.requestFactory.listCostTagMetadataOrchestrators(
+      param.filterMonth,
+      param.filterProvider,
+      options,
+    );
     return requestContextPromise.then((requestContext) => {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.listCostTagMetadataOrchestrators(
-            responseContext,
-          );
+          return this.responseProcessor.listCostTagMetadataOrchestrators(responseContext);
         });
     });
   }
@@ -10607,18 +10585,16 @@ export class CloudCostManagementApi {
    * List all custom allocation rules - Retrieve a list of all custom allocation rules for the organization
    * @param param The request object
    */
-  public listCustomAllocationRules(
-    options?: Configuration,
+  public listCustomAllocationRules(options?: Configuration,
   ): Promise<ArbitraryRuleResponseArray> {
-    const requestContextPromise =
-      this.requestFactory.listCustomAllocationRules(options);
+    const requestContextPromise = this.requestFactory.listCustomAllocationRules(
+      options,
+    );
     return requestContextPromise.then((requestContext) => {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.listCustomAllocationRules(
-            responseContext,
-          );
+          return this.responseProcessor.listCustomAllocationRules(responseContext);
         });
     });
   }
@@ -10627,18 +10603,16 @@ export class CloudCostManagementApi {
    * List the processing status of all custom allocation rules. Returns only the ID and processing status for each rule.
    * @param param The request object
    */
-  public listCustomAllocationRulesStatus(
-    options?: Configuration,
+  public listCustomAllocationRulesStatus(options?: Configuration,
   ): Promise<ArbitraryRuleStatusResponseArray> {
-    const requestContextPromise =
-      this.requestFactory.listCustomAllocationRulesStatus(options);
+    const requestContextPromise = this.requestFactory.listCustomAllocationRulesStatus(
+      options,
+    );
     return requestContextPromise.then((requestContext) => {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.listCustomAllocationRulesStatus(
-            responseContext,
-          );
+          return this.responseProcessor.listCustomAllocationRulesStatus(responseContext);
         });
     });
   }
@@ -10673,18 +10647,16 @@ export class CloudCostManagementApi {
    * List all tag pipeline rulesets - Retrieve a list of all tag pipeline rulesets for the organization
    * @param param The request object
    */
-  public listTagPipelinesRulesets(
-    options?: Configuration,
+  public listTagPipelinesRulesets(options?: Configuration,
   ): Promise<RulesetRespArray> {
-    const requestContextPromise =
-      this.requestFactory.listTagPipelinesRulesets(options);
+    const requestContextPromise = this.requestFactory.listTagPipelinesRulesets(
+      options,
+    );
     return requestContextPromise.then((requestContext) => {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.listTagPipelinesRulesets(
-            responseContext,
-          );
+          return this.responseProcessor.listTagPipelinesRulesets(responseContext);
         });
     });
   }
@@ -10693,29 +10665,27 @@ export class CloudCostManagementApi {
    * List the processing status of all tag pipeline rulesets. Returns only the ID and processing status for each ruleset.
    * @param param The request object
    */
-  public listTagPipelinesRulesetsStatus(
-    options?: Configuration,
+  public listTagPipelinesRulesetsStatus(options?: Configuration,
   ): Promise<RulesetStatusRespArray> {
-    const requestContextPromise =
-      this.requestFactory.listTagPipelinesRulesetsStatus(options);
+    const requestContextPromise = this.requestFactory.listTagPipelinesRulesetsStatus(
+      options,
+    );
     return requestContextPromise.then((requestContext) => {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.listTagPipelinesRulesetsStatus(
-            responseContext,
-          );
+          return this.responseProcessor.listTagPipelinesRulesetsStatus(responseContext);
         });
     });
   }
 
   /**
    * Reorder custom allocation rules - Change the execution order of custom allocation rules.
-   *
+   * 
    * **Important**: You must provide the **complete list** of all rule IDs in the desired execution order. The API will reorder ALL rules according to the provided sequence.
-   *
+   * 
    * Rules are executed in the order specified, with lower indices (earlier in the array) having higher priority.
-   *
+   * 
    * **Example**: If you have rules with IDs [123, 456, 789] and want to change order from 123→456→789 to 456→123→789, send: [{"id": "456"}, {"id": "123"}, {"id": "789"}]
    * @param param The request object
    */
@@ -10723,15 +10693,15 @@ export class CloudCostManagementApi {
     param: CloudCostManagementApiReorderCustomAllocationRulesRequest,
     options?: Configuration,
   ): Promise<void> {
-    const requestContextPromise =
-      this.requestFactory.reorderCustomAllocationRules(param.body, options);
+    const requestContextPromise = this.requestFactory.reorderCustomAllocationRules(
+      param.body,
+      options,
+    );
     return requestContextPromise.then((requestContext) => {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.reorderCustomAllocationRules(
-            responseContext,
-          );
+          return this.responseProcessor.reorderCustomAllocationRules(responseContext);
         });
     });
   }
@@ -10744,15 +10714,15 @@ export class CloudCostManagementApi {
     param: CloudCostManagementApiReorderTagPipelinesRulesetsRequest,
     options?: Configuration,
   ): Promise<void> {
-    const requestContextPromise =
-      this.requestFactory.reorderTagPipelinesRulesets(param.body, options);
+    const requestContextPromise = this.requestFactory.reorderTagPipelinesRulesets(
+      param.body,
+      options,
+    );
     return requestContextPromise.then((requestContext) => {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.reorderTagPipelinesRulesets(
-            responseContext,
-          );
+          return this.responseProcessor.reorderTagPipelinesRulesets(responseContext);
         });
     });
   }
@@ -10775,9 +10745,7 @@ export class CloudCostManagementApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.searchCostRecommendations(
-            responseContext,
-          );
+          return this.responseProcessor.searchCostRecommendations(responseContext);
         });
     });
   }
@@ -10799,9 +10767,7 @@ export class CloudCostManagementApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.updateCostAccountFilters(
-            responseContext,
-          );
+          return this.responseProcessor.updateCostAccountFilters(responseContext);
         });
     });
   }
@@ -10845,9 +10811,7 @@ export class CloudCostManagementApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.updateCostAzureUCConfigs(
-            responseContext,
-          );
+          return this.responseProcessor.updateCostAzureUCConfigs(responseContext);
         });
     });
   }
@@ -10860,37 +10824,34 @@ export class CloudCostManagementApi {
     param: CloudCostManagementApiUpdateCostGCPUsageCostConfigRequest,
     options?: Configuration,
   ): Promise<GCPUsageCostConfigResponse> {
-    const requestContextPromise =
-      this.requestFactory.updateCostGCPUsageCostConfig(
-        param.cloudAccountId,
-        param.body,
-        options,
-      );
+    const requestContextPromise = this.requestFactory.updateCostGCPUsageCostConfig(
+      param.cloudAccountId,
+      param.body,
+      options,
+    );
     return requestContextPromise.then((requestContext) => {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.updateCostGCPUsageCostConfig(
-            responseContext,
-          );
+          return this.responseProcessor.updateCostGCPUsageCostConfig(responseContext);
         });
     });
   }
 
   /**
    * Update an existing custom allocation rule with new filters and allocation strategy.
-   *
+   * 
    * **Strategy Methods:**
    * - **PROPORTIONAL/EVEN**: Allocates costs proportionally/evenly based on existing costs. Requires: granularity, allocated_by_tag_keys. Optional: based_on_costs, allocated_by_filters, evaluate_grouped_by_tag_keys, evaluate_grouped_by_filters.
    * - **PROPORTIONAL_TIMESERIES/EVEN_TIMESERIES**: Allocates based on timeseries data. Requires: granularity, based_on_timeseries. Optional: evaluate_grouped_by_tag_keys.
    * - **PERCENT**: Allocates fixed percentages to specific tags. Requires: allocated_by (array of percentage allocations).
    * - **USAGE_METRIC**: Allocates based on usage metrics (implementation varies).
-   *
+   * 
    * **Filter Conditions:**
    * - Use **value** for single-value conditions: "is", "is not", "contains", "=", "!=", "like", "not like"
    * - Use **values** for multi-value conditions: "in", "not in"
    * - Cannot use both value and values simultaneously.
-   *
+   * 
    * **Supported operators**: is, is not, contains, in, not in, =, !=, like, not like
    * @param param The request object
    */
@@ -10898,19 +10859,16 @@ export class CloudCostManagementApi {
     param: CloudCostManagementApiUpdateCustomAllocationRuleRequest,
     options?: Configuration,
   ): Promise<ArbitraryRuleResponse> {
-    const requestContextPromise =
-      this.requestFactory.updateCustomAllocationRule(
-        param.ruleId,
-        param.body,
-        options,
-      );
+    const requestContextPromise = this.requestFactory.updateCustomAllocationRule(
+      param.ruleId,
+      param.body,
+      options,
+    );
     return requestContextPromise.then((requestContext) => {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.updateCustomAllocationRule(
-            responseContext,
-          );
+          return this.responseProcessor.updateCustomAllocationRule(responseContext);
         });
     });
   }
@@ -10932,9 +10890,7 @@ export class CloudCostManagementApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.updateTagPipelinesRuleset(
-            responseContext,
-          );
+          return this.responseProcessor.updateTagPipelinesRuleset(responseContext);
         });
     });
   }
@@ -10989,19 +10945,16 @@ export class CloudCostManagementApi {
     param: CloudCostManagementApiUpsertCostTagDescriptionByKeyRequest,
     options?: Configuration,
   ): Promise<void> {
-    const requestContextPromise =
-      this.requestFactory.upsertCostTagDescriptionByKey(
-        param.tagKey,
-        param.body,
-        options,
-      );
+    const requestContextPromise = this.requestFactory.upsertCostTagDescriptionByKey(
+      param.tagKey,
+      param.body,
+      options,
+    );
     return requestContextPromise.then((requestContext) => {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.upsertCostTagDescriptionByKey(
-            responseContext,
-          );
+          return this.responseProcessor.upsertCostTagDescriptionByKey(responseContext);
         });
     });
   }
@@ -11052,11 +11005,11 @@ export class CloudCostManagementApi {
   /**
    * @param param The request object
    */
-  public validateCsvBudget(
-    options?: Configuration,
+  public validateCsvBudget(options?: Configuration,
   ): Promise<ValidationResponse> {
-    const requestContextPromise =
-      this.requestFactory.validateCsvBudget(options);
+    const requestContextPromise = this.requestFactory.validateCsvBudget(
+      options,
+    );
     return requestContextPromise.then((requestContext) => {
       return this.configuration.httpApi
         .send(requestContext)

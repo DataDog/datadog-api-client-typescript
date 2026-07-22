@@ -6,10 +6,7 @@ import { RequestContext, HttpMethod } from "./http/http";
  *
  */
 export class BaseServerConfiguration {
-  public constructor(
-    public url: string,
-    public variableConfiguration: { [key: string]: string },
-  ) {}
+  public constructor(public url: string, public variableConfiguration: { [key: string]: string }) {}
 
   /**
    * Sets the value of the variables of this server.
@@ -21,13 +18,11 @@ export class BaseServerConfiguration {
   }
 
   public getConfiguration(): { [key: string]: string } {
-    return this.variableConfiguration;
+    return this.variableConfiguration
   }
 
   public clone(): BaseServerConfiguration {
-    return new BaseServerConfiguration(this.url, {
-      ...this.variableConfiguration,
-    });
+    return new BaseServerConfiguration(this.url, {...this.variableConfiguration});
   }
 
   public getUrl(overrides?: { [key: string]: string }): string {
@@ -67,39 +62,27 @@ export class BaseServerConfiguration {
  * url template and variable configuration based on the url.
  *
  */
-export class ServerConfiguration<
-  T extends { [key: string]: string },
-> extends BaseServerConfiguration {}
+export class ServerConfiguration<T extends { [key: string]: string }> extends BaseServerConfiguration {}
 export const server1 = new ServerConfiguration<{
-  site:
-    | "datadoghq.com"
-    | "us3.datadoghq.com"
-    | "us5.datadoghq.com"
-    | "ap1.datadoghq.com"
-    | "ap2.datadoghq.com"
-    | "uk1.datadoghq.com"
-    | "datadoghq.eu"
-    | "ddog-gov.com"
-    | "us2.ddog-gov.com"
-    | "uk1.datadoghq.com";
-  subdomain: string;
-}>("https://{subdomain}.{site}", {
-  site: "datadoghq.com",
-  subdomain: "api",
-});
+  "site":"datadoghq.com" | "us3.datadoghq.com" | "us5.datadoghq.com" | "ap1.datadoghq.com" | "ap2.datadoghq.com" | "uk1.datadoghq.com" | "datadoghq.eu" | "ddog-gov.com" | "us2.ddog-gov.com" | "uk1.datadoghq.com",
+  "subdomain":string
+  }>("https://{subdomain}.{site}", {
+  "site": "datadoghq.com",
+  "subdomain": "api"
+})
 export const server2 = new ServerConfiguration<{
-  name: string;
-  protocol: string;
-}>("{protocol}://{name}", {
-  name: "api.datadoghq.com",
-  protocol: "https",
-});
+  "name":string,
+  "protocol":string
+  }>("{protocol}://{name}", {
+  "name": "api.datadoghq.com",
+  "protocol": "https"
+})
 export const server3 = new ServerConfiguration<{
-  site: string;
-  subdomain: string;
-}>("https://{subdomain}.{site}", {
-  site: "datadoghq.com",
-  subdomain: "api",
-});
+  "site":string,
+  "subdomain":string
+  }>("https://{subdomain}.{site}", {
+  "site": "datadoghq.com",
+  "subdomain": "api"
+})
 
 export const servers = [server1, server2, server3];

@@ -41,12 +41,10 @@ export const TypingInfo: ModelTypingInfo = {
     OAuthClientRegistrationResponse: OAuthClientRegistrationResponse,
     OAuthScopesRestriction: OAuthScopesRestriction,
     OAuthScopesRestrictionResponse: OAuthScopesRestrictionResponse,
-    OAuthScopesRestrictionResponseAttributes:
-      OAuthScopesRestrictionResponseAttributes,
+    OAuthScopesRestrictionResponseAttributes: OAuthScopesRestrictionResponseAttributes,
     OAuthScopesRestrictionResponseData: OAuthScopesRestrictionResponseData,
     UpsertOAuthScopesRestrictionData: UpsertOAuthScopesRestrictionData,
-    UpsertOAuthScopesRestrictionDataAttributes:
-      UpsertOAuthScopesRestrictionDataAttributes,
+    UpsertOAuthScopesRestrictionDataAttributes: UpsertOAuthScopesRestrictionDataAttributes,
     UpsertOAuthScopesRestrictionRequest: UpsertOAuthScopesRestrictionRequest,
   },
 };

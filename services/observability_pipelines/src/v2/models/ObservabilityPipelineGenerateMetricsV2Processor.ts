@@ -7,7 +7,7 @@ import { ObservabilityPipelineGenerateMetricsV2ProcessorType } from "./Observabi
  * The `generate_metrics` processor creates custom metrics from logs.
  * Metrics can be counters, gauges, or distributions and optionally grouped by log fields.
  * The generated metrics must be routed to a metrics destination using the input `<processor-id>.metrics`.
- *
+ * 
  * **Supported pipeline types:** logs
  */
 export class ObservabilityPipelineGenerateMetricsV2Processor {
@@ -40,7 +40,7 @@ export class ObservabilityPipelineGenerateMetricsV2Processor {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
   /**
    * @ignore
    */

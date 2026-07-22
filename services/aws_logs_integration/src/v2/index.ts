@@ -1,4 +1,6 @@
-export { AWSLogsIntegrationApi } from "./AWSLogsIntegrationApi";
+export {
+  AWSLogsIntegrationApi,
+} from "./AWSLogsIntegrationApi";
 
 export { APIErrorResponse } from "./models/APIErrorResponse";
 export { AWSLogsServicesResponse } from "./models/AWSLogsServicesResponse";

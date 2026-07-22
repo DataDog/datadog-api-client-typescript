@@ -39,18 +39,15 @@ export const TypingInfo: ModelTypingInfo = {
     JiraAccountsMeta: JiraAccountsMeta,
     JiraAccountsResponse: JiraAccountsResponse,
     JiraIssueTemplateCreateRequest: JiraIssueTemplateCreateRequest,
-    JiraIssueTemplateCreateRequestAttributes:
-      JiraIssueTemplateCreateRequestAttributes,
-    JiraIssueTemplateCreateRequestAttributesJiraAccount:
-      JiraIssueTemplateCreateRequestAttributesJiraAccount,
+    JiraIssueTemplateCreateRequestAttributes: JiraIssueTemplateCreateRequestAttributes,
+    JiraIssueTemplateCreateRequestAttributesJiraAccount: JiraIssueTemplateCreateRequestAttributesJiraAccount,
     JiraIssueTemplateCreateRequestData: JiraIssueTemplateCreateRequestData,
     JiraIssueTemplateData: JiraIssueTemplateData,
     JiraIssueTemplateDataAttributes: JiraIssueTemplateDataAttributes,
     JiraIssueTemplateDataRelationships: JiraIssueTemplateDataRelationships,
     JiraIssueTemplateResponse: JiraIssueTemplateResponse,
     JiraIssueTemplateUpdateRequest: JiraIssueTemplateUpdateRequest,
-    JiraIssueTemplateUpdateRequestAttributes:
-      JiraIssueTemplateUpdateRequestAttributes,
+    JiraIssueTemplateUpdateRequestAttributes: JiraIssueTemplateUpdateRequestAttributes,
     JiraIssueTemplateUpdateRequestData: JiraIssueTemplateUpdateRequestData,
     JiraIssueTemplatesResponse: JiraIssueTemplatesResponse,
   },

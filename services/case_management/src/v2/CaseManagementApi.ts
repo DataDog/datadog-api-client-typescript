@@ -19,6 +19,7 @@ import {
   ServerConfiguration,
   stringify,
   applySecurityAuthentication,
+  
 } from "@datadog/datadog-api-client";
 
 import { TypingInfo } from "./models/TypingInfo";
@@ -113,15 +114,8 @@ export class CaseManagementApiRequestFactory extends BaseAPIRequestFactory {
     );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "CaseManagementApi.v2.addCaseInsights",
-      CaseManagementApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.PUT,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("CaseManagementApi.v2.addCaseInsights", CaseManagementApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.PUT, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -131,7 +125,9 @@ export class CaseManagementApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Body Params
-    const contentType = getPreferredMediaType(["application/json"]);
+    const contentType = getPreferredMediaType([
+      "application/json",
+    ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = stringify(
       serialize(body, TypingInfo, "CaseInsightsRequest", ""),
@@ -164,15 +160,8 @@ export class CaseManagementApiRequestFactory extends BaseAPIRequestFactory {
     const localVarPath = "/api/v2/cases/aggregate";
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "CaseManagementApi.v2.aggregateCases",
-      CaseManagementApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.POST,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("CaseManagementApi.v2.aggregateCases", CaseManagementApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.POST, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -182,7 +171,9 @@ export class CaseManagementApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Body Params
-    const contentType = getPreferredMediaType(["application/json"]);
+    const contentType = getPreferredMediaType([
+      "application/json",
+    ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = stringify(
       serialize(body, TypingInfo, "CaseAggregateRequest", ""),
@@ -224,15 +215,8 @@ export class CaseManagementApiRequestFactory extends BaseAPIRequestFactory {
     );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "CaseManagementApi.v2.archiveCase",
-      CaseManagementApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.POST,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("CaseManagementApi.v2.archiveCase", CaseManagementApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.POST, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -242,7 +226,9 @@ export class CaseManagementApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Body Params
-    const contentType = getPreferredMediaType(["application/json"]);
+    const contentType = getPreferredMediaType([
+      "application/json",
+    ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = stringify(
       serialize(body, TypingInfo, "CaseEmptyRequest", ""),
@@ -284,15 +270,8 @@ export class CaseManagementApiRequestFactory extends BaseAPIRequestFactory {
     );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "CaseManagementApi.v2.assignCase",
-      CaseManagementApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.POST,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("CaseManagementApi.v2.assignCase", CaseManagementApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.POST, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -302,7 +281,9 @@ export class CaseManagementApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Body Params
-    const contentType = getPreferredMediaType(["application/json"]);
+    const contentType = getPreferredMediaType([
+      "application/json",
+    ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = stringify(
       serialize(body, TypingInfo, "CaseAssignRequest", ""),
@@ -335,15 +316,8 @@ export class CaseManagementApiRequestFactory extends BaseAPIRequestFactory {
     const localVarPath = "/api/v2/cases/bulk";
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "CaseManagementApi.v2.bulkUpdateCases",
-      CaseManagementApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.POST,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("CaseManagementApi.v2.bulkUpdateCases", CaseManagementApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.POST, overrides);
     requestContext.setHeaderParam("Accept", "*/*");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -353,7 +327,9 @@ export class CaseManagementApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Body Params
-    const contentType = getPreferredMediaType(["application/json"]);
+    const contentType = getPreferredMediaType([
+      "application/json",
+    ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = stringify(
       serialize(body, TypingInfo, "CaseBulkUpdateRequest", ""),
@@ -395,15 +371,8 @@ export class CaseManagementApiRequestFactory extends BaseAPIRequestFactory {
     );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "CaseManagementApi.v2.commentCase",
-      CaseManagementApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.POST,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("CaseManagementApi.v2.commentCase", CaseManagementApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.POST, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -413,7 +382,9 @@ export class CaseManagementApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Body Params
-    const contentType = getPreferredMediaType(["application/json"]);
+    const contentType = getPreferredMediaType([
+      "application/json",
+    ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = stringify(
       serialize(body, TypingInfo, "CaseCommentRequest", ""),
@@ -442,15 +413,8 @@ export class CaseManagementApiRequestFactory extends BaseAPIRequestFactory {
     const localVarPath = "/api/v2/cases/count";
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "CaseManagementApi.v2.countCases",
-      CaseManagementApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.GET,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("CaseManagementApi.v2.countCases", CaseManagementApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.GET, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -507,15 +471,8 @@ export class CaseManagementApiRequestFactory extends BaseAPIRequestFactory {
     const localVarPath = "/api/v2/cases";
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "CaseManagementApi.v2.createCase",
-      CaseManagementApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.POST,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("CaseManagementApi.v2.createCase", CaseManagementApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.POST, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -525,7 +482,9 @@ export class CaseManagementApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Body Params
-    const contentType = getPreferredMediaType(["application/json"]);
+    const contentType = getPreferredMediaType([
+      "application/json",
+    ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = stringify(
       serialize(body, TypingInfo, "CaseCreateRequest", ""),
@@ -567,15 +526,8 @@ export class CaseManagementApiRequestFactory extends BaseAPIRequestFactory {
     );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "CaseManagementApi.v2.createCaseAutomationRule",
-      CaseManagementApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.POST,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("CaseManagementApi.v2.createCaseAutomationRule", CaseManagementApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.POST, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -585,7 +537,9 @@ export class CaseManagementApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Body Params
-    const contentType = getPreferredMediaType(["application/json"]);
+    const contentType = getPreferredMediaType([
+      "application/json",
+    ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = stringify(
       serialize(body, TypingInfo, "AutomationRuleCreateRequest", ""),
@@ -621,22 +575,14 @@ export class CaseManagementApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Path Params
-    const localVarPath =
-      "/api/v2/cases/{case_id}/relationships/jira_issues".replace(
-        "{case_id}",
-        encodeURIComponent(String(caseId)),
-      );
+    const localVarPath = "/api/v2/cases/{case_id}/relationships/jira_issues".replace(
+      "{case_id}",
+      encodeURIComponent(String(caseId)),
+    );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "CaseManagementApi.v2.createCaseJiraIssue",
-      CaseManagementApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.POST,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("CaseManagementApi.v2.createCaseJiraIssue", CaseManagementApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.POST, overrides);
     requestContext.setHeaderParam("Accept", "*/*");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -646,7 +592,9 @@ export class CaseManagementApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Body Params
-    const contentType = getPreferredMediaType(["application/json"]);
+    const contentType = getPreferredMediaType([
+      "application/json",
+    ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = stringify(
       serialize(body, TypingInfo, "JiraIssueCreateRequest", ""),
@@ -679,15 +627,8 @@ export class CaseManagementApiRequestFactory extends BaseAPIRequestFactory {
     const localVarPath = "/api/v2/cases/link";
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "CaseManagementApi.v2.createCaseLink",
-      CaseManagementApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.POST,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("CaseManagementApi.v2.createCaseLink", CaseManagementApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.POST, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -697,7 +638,9 @@ export class CaseManagementApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Body Params
-    const contentType = getPreferredMediaType(["application/json"]);
+    const contentType = getPreferredMediaType([
+      "application/json",
+    ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = stringify(
       serialize(body, TypingInfo, "CaseLinkCreateRequest", ""),
@@ -733,22 +676,14 @@ export class CaseManagementApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Path Params
-    const localVarPath =
-      "/api/v2/cases/{case_id}/relationships/notebook".replace(
-        "{case_id}",
-        encodeURIComponent(String(caseId)),
-      );
+    const localVarPath = "/api/v2/cases/{case_id}/relationships/notebook".replace(
+      "{case_id}",
+      encodeURIComponent(String(caseId)),
+    );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "CaseManagementApi.v2.createCaseNotebook",
-      CaseManagementApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.POST,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("CaseManagementApi.v2.createCaseNotebook", CaseManagementApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.POST, overrides);
     requestContext.setHeaderParam("Accept", "*/*");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -758,7 +693,9 @@ export class CaseManagementApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Body Params
-    const contentType = getPreferredMediaType(["application/json"]);
+    const contentType = getPreferredMediaType([
+      "application/json",
+    ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = stringify(
       serialize(body, TypingInfo, "NotebookCreateRequest", ""),
@@ -794,22 +731,14 @@ export class CaseManagementApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Path Params
-    const localVarPath =
-      "/api/v2/cases/{case_id}/relationships/servicenow_tickets".replace(
-        "{case_id}",
-        encodeURIComponent(String(caseId)),
-      );
+    const localVarPath = "/api/v2/cases/{case_id}/relationships/servicenow_tickets".replace(
+      "{case_id}",
+      encodeURIComponent(String(caseId)),
+    );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "CaseManagementApi.v2.createCaseServiceNowTicket",
-      CaseManagementApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.POST,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("CaseManagementApi.v2.createCaseServiceNowTicket", CaseManagementApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.POST, overrides);
     requestContext.setHeaderParam("Accept", "*/*");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -819,7 +748,9 @@ export class CaseManagementApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Body Params
-    const contentType = getPreferredMediaType(["application/json"]);
+    const contentType = getPreferredMediaType([
+      "application/json",
+    ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = stringify(
       serialize(body, TypingInfo, "ServiceNowTicketCreateRequest", ""),
@@ -852,15 +783,8 @@ export class CaseManagementApiRequestFactory extends BaseAPIRequestFactory {
     const localVarPath = "/api/v2/cases/views";
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "CaseManagementApi.v2.createCaseView",
-      CaseManagementApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.POST,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("CaseManagementApi.v2.createCaseView", CaseManagementApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.POST, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -870,7 +794,9 @@ export class CaseManagementApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Body Params
-    const contentType = getPreferredMediaType(["application/json"]);
+    const contentType = getPreferredMediaType([
+      "application/json",
+    ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = stringify(
       serialize(body, TypingInfo, "CaseViewCreateRequest", ""),
@@ -903,15 +829,8 @@ export class CaseManagementApiRequestFactory extends BaseAPIRequestFactory {
     const localVarPath = "/api/v2/maintenance_windows";
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "CaseManagementApi.v2.createMaintenanceWindow",
-      CaseManagementApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.POST,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("CaseManagementApi.v2.createMaintenanceWindow", CaseManagementApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.POST, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -921,7 +840,9 @@ export class CaseManagementApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Body Params
-    const contentType = getPreferredMediaType(["application/json"]);
+    const contentType = getPreferredMediaType([
+      "application/json",
+    ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = stringify(
       serialize(body, TypingInfo, "MaintenanceWindowCreateRequest", ""),
@@ -954,15 +875,8 @@ export class CaseManagementApiRequestFactory extends BaseAPIRequestFactory {
     const localVarPath = "/api/v2/cases/projects";
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "CaseManagementApi.v2.createProject",
-      CaseManagementApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.POST,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("CaseManagementApi.v2.createProject", CaseManagementApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.POST, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -972,7 +886,9 @@ export class CaseManagementApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Body Params
-    const contentType = getPreferredMediaType(["application/json"]);
+    const contentType = getPreferredMediaType([
+      "application/json",
+    ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = stringify(
       serialize(body, TypingInfo, "ProjectCreateRequest", ""),
@@ -1008,22 +924,14 @@ export class CaseManagementApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Path Params
-    const localVarPath =
-      "/api/v2/cases/projects/{project_id}/notification_rules".replace(
-        "{project_id}",
-        encodeURIComponent(String(projectId)),
-      );
+    const localVarPath = "/api/v2/cases/projects/{project_id}/notification_rules".replace(
+      "{project_id}",
+      encodeURIComponent(String(projectId)),
+    );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "CaseManagementApi.v2.createProjectNotificationRule",
-      CaseManagementApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.POST,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("CaseManagementApi.v2.createProjectNotificationRule", CaseManagementApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.POST, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -1033,7 +941,9 @@ export class CaseManagementApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Body Params
-    const contentType = getPreferredMediaType(["application/json"]);
+    const contentType = getPreferredMediaType([
+      "application/json",
+    ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = stringify(
       serialize(body, TypingInfo, "CaseNotificationRuleCreateRequest", ""),
@@ -1069,20 +979,17 @@ export class CaseManagementApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Path Params
-    const localVarPath = "/api/v2/cases/projects/{project_id}/rules/{rule_id}"
-      .replace("{project_id}", encodeURIComponent(String(projectId)))
-      .replace("{rule_id}", encodeURIComponent(String(ruleId)));
+    const localVarPath = "/api/v2/cases/projects/{project_id}/rules/{rule_id}".replace(
+      "{project_id}",
+      encodeURIComponent(String(projectId)),
+    ).replace(
+      "{rule_id}",
+      encodeURIComponent(String(ruleId)),
+    );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "CaseManagementApi.v2.deleteCaseAutomationRule",
-      CaseManagementApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.DELETE,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("CaseManagementApi.v2.deleteCaseAutomationRule", CaseManagementApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.DELETE, overrides);
     requestContext.setHeaderParam("Accept", "*/*");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -1119,20 +1026,17 @@ export class CaseManagementApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Path Params
-    const localVarPath = "/api/v2/cases/{case_id}/comment/{cell_id}"
-      .replace("{case_id}", encodeURIComponent(String(caseId)))
-      .replace("{cell_id}", encodeURIComponent(String(cellId)));
+    const localVarPath = "/api/v2/cases/{case_id}/comment/{cell_id}".replace(
+      "{case_id}",
+      encodeURIComponent(String(caseId)),
+    ).replace(
+      "{cell_id}",
+      encodeURIComponent(String(cellId)),
+    );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "CaseManagementApi.v2.deleteCaseComment",
-      CaseManagementApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.DELETE,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("CaseManagementApi.v2.deleteCaseComment", CaseManagementApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.DELETE, overrides);
     requestContext.setHeaderParam("Accept", "*/*");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -1164,31 +1068,21 @@ export class CaseManagementApiRequestFactory extends BaseAPIRequestFactory {
 
     // verify required parameter 'customAttributeKey' is not null or undefined
     if (customAttributeKey === null || customAttributeKey === undefined) {
-      throw new RequiredError(
-        "customAttributeKey",
-        "deleteCaseCustomAttribute",
-      );
+      throw new RequiredError("customAttributeKey", "deleteCaseCustomAttribute");
     }
 
     // Path Params
-    const localVarPath =
-      "/api/v2/cases/{case_id}/custom_attributes/{custom_attribute_key}"
-        .replace("{case_id}", encodeURIComponent(String(caseId)))
-        .replace(
-          "{custom_attribute_key}",
-          encodeURIComponent(String(customAttributeKey)),
-        );
+    const localVarPath = "/api/v2/cases/{case_id}/custom_attributes/{custom_attribute_key}".replace(
+      "{case_id}",
+      encodeURIComponent(String(caseId)),
+    ).replace(
+      "{custom_attribute_key}",
+      encodeURIComponent(String(customAttributeKey)),
+    );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "CaseManagementApi.v2.deleteCaseCustomAttribute",
-      CaseManagementApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.DELETE,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("CaseManagementApi.v2.deleteCaseCustomAttribute", CaseManagementApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.DELETE, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -1225,15 +1119,8 @@ export class CaseManagementApiRequestFactory extends BaseAPIRequestFactory {
     );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "CaseManagementApi.v2.deleteCaseLink",
-      CaseManagementApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.DELETE,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("CaseManagementApi.v2.deleteCaseLink", CaseManagementApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.DELETE, overrides);
     requestContext.setHeaderParam("Accept", "*/*");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -1270,15 +1157,8 @@ export class CaseManagementApiRequestFactory extends BaseAPIRequestFactory {
     );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "CaseManagementApi.v2.deleteCaseView",
-      CaseManagementApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.DELETE,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("CaseManagementApi.v2.deleteCaseView", CaseManagementApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.DELETE, overrides);
     requestContext.setHeaderParam("Accept", "*/*");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -1309,22 +1189,14 @@ export class CaseManagementApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Path Params
-    const localVarPath =
-      "/api/v2/maintenance_windows/{maintenance_window_id}".replace(
-        "{maintenance_window_id}",
-        encodeURIComponent(String(maintenanceWindowId)),
-      );
+    const localVarPath = "/api/v2/maintenance_windows/{maintenance_window_id}".replace(
+      "{maintenance_window_id}",
+      encodeURIComponent(String(maintenanceWindowId)),
+    );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "CaseManagementApi.v2.deleteMaintenanceWindow",
-      CaseManagementApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.DELETE,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("CaseManagementApi.v2.deleteMaintenanceWindow", CaseManagementApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.DELETE, overrides);
     requestContext.setHeaderParam("Accept", "*/*");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -1361,15 +1233,8 @@ export class CaseManagementApiRequestFactory extends BaseAPIRequestFactory {
     );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "CaseManagementApi.v2.deleteProject",
-      CaseManagementApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.DELETE,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("CaseManagementApi.v2.deleteProject", CaseManagementApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.DELETE, overrides);
     requestContext.setHeaderParam("Accept", "*/*");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -1402,31 +1267,21 @@ export class CaseManagementApiRequestFactory extends BaseAPIRequestFactory {
 
     // verify required parameter 'notificationRuleId' is not null or undefined
     if (notificationRuleId === null || notificationRuleId === undefined) {
-      throw new RequiredError(
-        "notificationRuleId",
-        "deleteProjectNotificationRule",
-      );
+      throw new RequiredError("notificationRuleId", "deleteProjectNotificationRule");
     }
 
     // Path Params
-    const localVarPath =
-      "/api/v2/cases/projects/{project_id}/notification_rules/{notification_rule_id}"
-        .replace("{project_id}", encodeURIComponent(String(projectId)))
-        .replace(
-          "{notification_rule_id}",
-          encodeURIComponent(String(notificationRuleId)),
-        );
+    const localVarPath = "/api/v2/cases/projects/{project_id}/notification_rules/{notification_rule_id}".replace(
+      "{project_id}",
+      encodeURIComponent(String(projectId)),
+    ).replace(
+      "{notification_rule_id}",
+      encodeURIComponent(String(notificationRuleId)),
+    );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "CaseManagementApi.v2.deleteProjectNotificationRule",
-      CaseManagementApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.DELETE,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("CaseManagementApi.v2.deleteProjectNotificationRule", CaseManagementApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.DELETE, overrides);
     requestContext.setHeaderParam("Accept", "*/*");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -1463,21 +1318,17 @@ export class CaseManagementApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Path Params
-    const localVarPath =
-      "/api/v2/cases/projects/{project_id}/rules/{rule_id}/disable"
-        .replace("{project_id}", encodeURIComponent(String(projectId)))
-        .replace("{rule_id}", encodeURIComponent(String(ruleId)));
+    const localVarPath = "/api/v2/cases/projects/{project_id}/rules/{rule_id}/disable".replace(
+      "{project_id}",
+      encodeURIComponent(String(projectId)),
+    ).replace(
+      "{rule_id}",
+      encodeURIComponent(String(ruleId)),
+    );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "CaseManagementApi.v2.disableCaseAutomationRule",
-      CaseManagementApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.POST,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("CaseManagementApi.v2.disableCaseAutomationRule", CaseManagementApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.POST, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -1514,21 +1365,17 @@ export class CaseManagementApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Path Params
-    const localVarPath =
-      "/api/v2/cases/projects/{project_id}/rules/{rule_id}/enable"
-        .replace("{project_id}", encodeURIComponent(String(projectId)))
-        .replace("{rule_id}", encodeURIComponent(String(ruleId)));
+    const localVarPath = "/api/v2/cases/projects/{project_id}/rules/{rule_id}/enable".replace(
+      "{project_id}",
+      encodeURIComponent(String(projectId)),
+    ).replace(
+      "{rule_id}",
+      encodeURIComponent(String(ruleId)),
+    );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "CaseManagementApi.v2.enableCaseAutomationRule",
-      CaseManagementApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.POST,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("CaseManagementApi.v2.enableCaseAutomationRule", CaseManagementApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.POST, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -1559,22 +1406,14 @@ export class CaseManagementApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Path Params
-    const localVarPath =
-      "/api/v2/cases/projects/{project_id}/favorites".replace(
-        "{project_id}",
-        encodeURIComponent(String(projectId)),
-      );
+    const localVarPath = "/api/v2/cases/projects/{project_id}/favorites".replace(
+      "{project_id}",
+      encodeURIComponent(String(projectId)),
+    );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "CaseManagementApi.v2.favoriteCaseProject",
-      CaseManagementApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.POST,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("CaseManagementApi.v2.favoriteCaseProject", CaseManagementApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.POST, overrides);
     requestContext.setHeaderParam("Accept", "*/*");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -1611,15 +1450,8 @@ export class CaseManagementApiRequestFactory extends BaseAPIRequestFactory {
     );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "CaseManagementApi.v2.getCase",
-      CaseManagementApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.GET,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("CaseManagementApi.v2.getCase", CaseManagementApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.GET, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -1656,20 +1488,17 @@ export class CaseManagementApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Path Params
-    const localVarPath = "/api/v2/cases/projects/{project_id}/rules/{rule_id}"
-      .replace("{project_id}", encodeURIComponent(String(projectId)))
-      .replace("{rule_id}", encodeURIComponent(String(ruleId)));
+    const localVarPath = "/api/v2/cases/projects/{project_id}/rules/{rule_id}".replace(
+      "{project_id}",
+      encodeURIComponent(String(projectId)),
+    ).replace(
+      "{rule_id}",
+      encodeURIComponent(String(ruleId)),
+    );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "CaseManagementApi.v2.getCaseAutomationRule",
-      CaseManagementApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.GET,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("CaseManagementApi.v2.getCaseAutomationRule", CaseManagementApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.GET, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -1706,15 +1535,8 @@ export class CaseManagementApiRequestFactory extends BaseAPIRequestFactory {
     );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "CaseManagementApi.v2.getCaseView",
-      CaseManagementApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.GET,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("CaseManagementApi.v2.getCaseView", CaseManagementApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.GET, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -1751,15 +1573,8 @@ export class CaseManagementApiRequestFactory extends BaseAPIRequestFactory {
     );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "CaseManagementApi.v2.getProject",
-      CaseManagementApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.GET,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("CaseManagementApi.v2.getProject", CaseManagementApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.GET, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -1790,22 +1605,14 @@ export class CaseManagementApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Path Params
-    const localVarPath =
-      "/api/v2/cases/projects/{project_id}/notification_rules".replace(
-        "{project_id}",
-        encodeURIComponent(String(projectId)),
-      );
+    const localVarPath = "/api/v2/cases/projects/{project_id}/notification_rules".replace(
+      "{project_id}",
+      encodeURIComponent(String(projectId)),
+    );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "CaseManagementApi.v2.getProjectNotificationRules",
-      CaseManagementApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.GET,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("CaseManagementApi.v2.getProjectNotificationRules", CaseManagementApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.GET, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -1824,22 +1631,17 @@ export class CaseManagementApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
-  public async getProjects(_options?: Configuration): Promise<RequestContext> {
+  public async getProjects(
+    _options?: Configuration,
+  ): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
     // Path Params
     const localVarPath = "/api/v2/cases/projects";
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "CaseManagementApi.v2.getProjects",
-      CaseManagementApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.GET,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("CaseManagementApi.v2.getProjects", CaseManagementApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.GET, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -1876,22 +1678,14 @@ export class CaseManagementApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Path Params
-    const localVarPath =
-      "/api/v2/cases/{case_id}/relationships/incidents".replace(
-        "{case_id}",
-        encodeURIComponent(String(caseId)),
-      );
+    const localVarPath = "/api/v2/cases/{case_id}/relationships/incidents".replace(
+      "{case_id}",
+      encodeURIComponent(String(caseId)),
+    );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "CaseManagementApi.v2.linkIncident",
-      CaseManagementApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.POST,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("CaseManagementApi.v2.linkIncident", CaseManagementApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.POST, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -1901,7 +1695,9 @@ export class CaseManagementApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Body Params
-    const contentType = getPreferredMediaType(["application/json"]);
+    const contentType = getPreferredMediaType([
+      "application/json",
+    ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = stringify(
       serialize(body, TypingInfo, "RelationshipToIncidentRequest", ""),
@@ -1937,22 +1733,14 @@ export class CaseManagementApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Path Params
-    const localVarPath =
-      "/api/v2/cases/{case_id}/relationships/jira_issues".replace(
-        "{case_id}",
-        encodeURIComponent(String(caseId)),
-      );
+    const localVarPath = "/api/v2/cases/{case_id}/relationships/jira_issues".replace(
+      "{case_id}",
+      encodeURIComponent(String(caseId)),
+    );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "CaseManagementApi.v2.linkJiraIssueToCase",
-      CaseManagementApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.PATCH,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("CaseManagementApi.v2.linkJiraIssueToCase", CaseManagementApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.PATCH, overrides);
     requestContext.setHeaderParam("Accept", "*/*");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -1962,7 +1750,9 @@ export class CaseManagementApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Body Params
-    const contentType = getPreferredMediaType(["application/json"]);
+    const contentType = getPreferredMediaType([
+      "application/json",
+    ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = stringify(
       serialize(body, TypingInfo, "JiraIssueLinkRequest", ""),
@@ -1998,15 +1788,8 @@ export class CaseManagementApiRequestFactory extends BaseAPIRequestFactory {
     );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "CaseManagementApi.v2.listCaseAutomationRules",
-      CaseManagementApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.GET,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("CaseManagementApi.v2.listCaseAutomationRules", CaseManagementApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.GET, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -2047,15 +1830,8 @@ export class CaseManagementApiRequestFactory extends BaseAPIRequestFactory {
     const localVarPath = "/api/v2/cases/link";
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "CaseManagementApi.v2.listCaseLinks",
-      CaseManagementApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.GET,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("CaseManagementApi.v2.listCaseLinks", CaseManagementApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.GET, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -2118,15 +1894,8 @@ export class CaseManagementApiRequestFactory extends BaseAPIRequestFactory {
     );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "CaseManagementApi.v2.listCaseTimeline",
-      CaseManagementApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.GET,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("CaseManagementApi.v2.listCaseTimeline", CaseManagementApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.GET, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -2183,15 +1952,8 @@ export class CaseManagementApiRequestFactory extends BaseAPIRequestFactory {
     const localVarPath = "/api/v2/cases/views";
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "CaseManagementApi.v2.listCaseViews",
-      CaseManagementApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.GET,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("CaseManagementApi.v2.listCaseViews", CaseManagementApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.GET, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -2237,15 +1999,8 @@ export class CaseManagementApiRequestFactory extends BaseAPIRequestFactory {
     );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "CaseManagementApi.v2.listCaseWatchers",
-      CaseManagementApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.GET,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("CaseManagementApi.v2.listCaseWatchers", CaseManagementApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.GET, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -2273,15 +2028,8 @@ export class CaseManagementApiRequestFactory extends BaseAPIRequestFactory {
     const localVarPath = "/api/v2/maintenance_windows";
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "CaseManagementApi.v2.listMaintenanceWindows",
-      CaseManagementApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.GET,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("CaseManagementApi.v2.listMaintenanceWindows", CaseManagementApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.GET, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -2309,15 +2057,8 @@ export class CaseManagementApiRequestFactory extends BaseAPIRequestFactory {
     const localVarPath = "/api/v2/cases/projects/favorites";
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "CaseManagementApi.v2.listUserCaseProjectFavorites",
-      CaseManagementApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.GET,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("CaseManagementApi.v2.listUserCaseProjectFavorites", CaseManagementApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.GET, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -2354,22 +2095,14 @@ export class CaseManagementApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Path Params
-    const localVarPath =
-      "/api/v2/cases/{case_id}/relationships/project".replace(
-        "{case_id}",
-        encodeURIComponent(String(caseId)),
-      );
+    const localVarPath = "/api/v2/cases/{case_id}/relationships/project".replace(
+      "{case_id}",
+      encodeURIComponent(String(caseId)),
+    );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "CaseManagementApi.v2.moveCaseToProject",
-      CaseManagementApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.PATCH,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("CaseManagementApi.v2.moveCaseToProject", CaseManagementApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.PATCH, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -2379,7 +2112,9 @@ export class CaseManagementApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Body Params
-    const contentType = getPreferredMediaType(["application/json"]);
+    const contentType = getPreferredMediaType([
+      "application/json",
+    ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = stringify(
       serialize(body, TypingInfo, "ProjectRelationship", ""),
@@ -2421,15 +2156,8 @@ export class CaseManagementApiRequestFactory extends BaseAPIRequestFactory {
     );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "CaseManagementApi.v2.removeCaseInsights",
-      CaseManagementApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.DELETE,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("CaseManagementApi.v2.removeCaseInsights", CaseManagementApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.DELETE, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -2439,7 +2167,9 @@ export class CaseManagementApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Body Params
-    const contentType = getPreferredMediaType(["application/json"]);
+    const contentType = getPreferredMediaType([
+      "application/json",
+    ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = stringify(
       serialize(body, TypingInfo, "CaseInsightsRequest", ""),
@@ -2471,15 +2201,8 @@ export class CaseManagementApiRequestFactory extends BaseAPIRequestFactory {
     const localVarPath = "/api/v2/cases";
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "CaseManagementApi.v2.searchCases",
-      CaseManagementApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.GET,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("CaseManagementApi.v2.searchCases", CaseManagementApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.GET, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -2559,15 +2282,8 @@ export class CaseManagementApiRequestFactory extends BaseAPIRequestFactory {
     );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "CaseManagementApi.v2.unarchiveCase",
-      CaseManagementApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.POST,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("CaseManagementApi.v2.unarchiveCase", CaseManagementApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.POST, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -2577,7 +2293,9 @@ export class CaseManagementApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Body Params
-    const contentType = getPreferredMediaType(["application/json"]);
+    const contentType = getPreferredMediaType([
+      "application/json",
+    ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = stringify(
       serialize(body, TypingInfo, "CaseEmptyRequest", ""),
@@ -2619,15 +2337,8 @@ export class CaseManagementApiRequestFactory extends BaseAPIRequestFactory {
     );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "CaseManagementApi.v2.unassignCase",
-      CaseManagementApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.POST,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("CaseManagementApi.v2.unassignCase", CaseManagementApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.POST, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -2637,7 +2348,9 @@ export class CaseManagementApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Body Params
-    const contentType = getPreferredMediaType(["application/json"]);
+    const contentType = getPreferredMediaType([
+      "application/json",
+    ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = stringify(
       serialize(body, TypingInfo, "CaseEmptyRequest", ""),
@@ -2667,22 +2380,14 @@ export class CaseManagementApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Path Params
-    const localVarPath =
-      "/api/v2/cases/projects/{project_id}/favorites".replace(
-        "{project_id}",
-        encodeURIComponent(String(projectId)),
-      );
+    const localVarPath = "/api/v2/cases/projects/{project_id}/favorites".replace(
+      "{project_id}",
+      encodeURIComponent(String(projectId)),
+    );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "CaseManagementApi.v2.unfavoriteCaseProject",
-      CaseManagementApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.DELETE,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("CaseManagementApi.v2.unfavoriteCaseProject", CaseManagementApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.DELETE, overrides);
     requestContext.setHeaderParam("Accept", "*/*");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -2713,22 +2418,14 @@ export class CaseManagementApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Path Params
-    const localVarPath =
-      "/api/v2/cases/{case_id}/relationships/jira_issues".replace(
-        "{case_id}",
-        encodeURIComponent(String(caseId)),
-      );
+    const localVarPath = "/api/v2/cases/{case_id}/relationships/jira_issues".replace(
+      "{case_id}",
+      encodeURIComponent(String(caseId)),
+    );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "CaseManagementApi.v2.unlinkJiraIssue",
-      CaseManagementApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.DELETE,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("CaseManagementApi.v2.unlinkJiraIssue", CaseManagementApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.DELETE, overrides);
     requestContext.setHeaderParam("Accept", "*/*");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -2765,20 +2462,17 @@ export class CaseManagementApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Path Params
-    const localVarPath = "/api/v2/cases/{case_id}/watchers/{user_uuid}"
-      .replace("{case_id}", encodeURIComponent(String(caseId)))
-      .replace("{user_uuid}", encodeURIComponent(String(userUuid)));
+    const localVarPath = "/api/v2/cases/{case_id}/watchers/{user_uuid}".replace(
+      "{case_id}",
+      encodeURIComponent(String(caseId)),
+    ).replace(
+      "{user_uuid}",
+      encodeURIComponent(String(userUuid)),
+    );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "CaseManagementApi.v2.unwatchCase",
-      CaseManagementApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.DELETE,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("CaseManagementApi.v2.unwatchCase", CaseManagementApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.DELETE, overrides);
     requestContext.setHeaderParam("Accept", "*/*");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -2821,15 +2515,8 @@ export class CaseManagementApiRequestFactory extends BaseAPIRequestFactory {
     );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "CaseManagementApi.v2.updateAttributes",
-      CaseManagementApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.POST,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("CaseManagementApi.v2.updateAttributes", CaseManagementApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.POST, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -2839,7 +2526,9 @@ export class CaseManagementApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Body Params
-    const contentType = getPreferredMediaType(["application/json"]);
+    const contentType = getPreferredMediaType([
+      "application/json",
+    ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = stringify(
       serialize(body, TypingInfo, "CaseUpdateAttributesRequest", ""),
@@ -2881,20 +2570,17 @@ export class CaseManagementApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Path Params
-    const localVarPath = "/api/v2/cases/projects/{project_id}/rules/{rule_id}"
-      .replace("{project_id}", encodeURIComponent(String(projectId)))
-      .replace("{rule_id}", encodeURIComponent(String(ruleId)));
+    const localVarPath = "/api/v2/cases/projects/{project_id}/rules/{rule_id}".replace(
+      "{project_id}",
+      encodeURIComponent(String(projectId)),
+    ).replace(
+      "{rule_id}",
+      encodeURIComponent(String(ruleId)),
+    );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "CaseManagementApi.v2.updateCaseAutomationRule",
-      CaseManagementApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.PUT,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("CaseManagementApi.v2.updateCaseAutomationRule", CaseManagementApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.PUT, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -2904,7 +2590,9 @@ export class CaseManagementApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Body Params
-    const contentType = getPreferredMediaType(["application/json"]);
+    const contentType = getPreferredMediaType([
+      "application/json",
+    ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = stringify(
       serialize(body, TypingInfo, "AutomationRuleUpdateRequest", ""),
@@ -2946,20 +2634,17 @@ export class CaseManagementApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Path Params
-    const localVarPath = "/api/v2/cases/{case_id}/comment/{cell_id}"
-      .replace("{case_id}", encodeURIComponent(String(caseId)))
-      .replace("{cell_id}", encodeURIComponent(String(cellId)));
+    const localVarPath = "/api/v2/cases/{case_id}/comment/{cell_id}".replace(
+      "{case_id}",
+      encodeURIComponent(String(caseId)),
+    ).replace(
+      "{cell_id}",
+      encodeURIComponent(String(cellId)),
+    );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "CaseManagementApi.v2.updateCaseComment",
-      CaseManagementApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.PUT,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("CaseManagementApi.v2.updateCaseComment", CaseManagementApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.PUT, overrides);
     requestContext.setHeaderParam("Accept", "*/*");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -2969,7 +2654,9 @@ export class CaseManagementApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Body Params
-    const contentType = getPreferredMediaType(["application/json"]);
+    const contentType = getPreferredMediaType([
+      "application/json",
+    ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = stringify(
       serialize(body, TypingInfo, "CaseUpdateCommentRequest", ""),
@@ -3002,10 +2689,7 @@ export class CaseManagementApiRequestFactory extends BaseAPIRequestFactory {
 
     // verify required parameter 'customAttributeKey' is not null or undefined
     if (customAttributeKey === null || customAttributeKey === undefined) {
-      throw new RequiredError(
-        "customAttributeKey",
-        "updateCaseCustomAttribute",
-      );
+      throw new RequiredError("customAttributeKey", "updateCaseCustomAttribute");
     }
 
     // verify required parameter 'body' is not null or undefined
@@ -3014,24 +2698,17 @@ export class CaseManagementApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Path Params
-    const localVarPath =
-      "/api/v2/cases/{case_id}/custom_attributes/{custom_attribute_key}"
-        .replace("{case_id}", encodeURIComponent(String(caseId)))
-        .replace(
-          "{custom_attribute_key}",
-          encodeURIComponent(String(customAttributeKey)),
-        );
+    const localVarPath = "/api/v2/cases/{case_id}/custom_attributes/{custom_attribute_key}".replace(
+      "{case_id}",
+      encodeURIComponent(String(caseId)),
+    ).replace(
+      "{custom_attribute_key}",
+      encodeURIComponent(String(customAttributeKey)),
+    );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "CaseManagementApi.v2.updateCaseCustomAttribute",
-      CaseManagementApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.POST,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("CaseManagementApi.v2.updateCaseCustomAttribute", CaseManagementApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.POST, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -3041,7 +2718,9 @@ export class CaseManagementApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Body Params
-    const contentType = getPreferredMediaType(["application/json"]);
+    const contentType = getPreferredMediaType([
+      "application/json",
+    ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = stringify(
       serialize(body, TypingInfo, "CaseUpdateCustomAttributeRequest", ""),
@@ -3083,15 +2762,8 @@ export class CaseManagementApiRequestFactory extends BaseAPIRequestFactory {
     );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "CaseManagementApi.v2.updateCaseDescription",
-      CaseManagementApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.POST,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("CaseManagementApi.v2.updateCaseDescription", CaseManagementApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.POST, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -3101,7 +2773,9 @@ export class CaseManagementApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Body Params
-    const contentType = getPreferredMediaType(["application/json"]);
+    const contentType = getPreferredMediaType([
+      "application/json",
+    ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = stringify(
       serialize(body, TypingInfo, "CaseUpdateDescriptionRequest", ""),
@@ -3143,15 +2817,8 @@ export class CaseManagementApiRequestFactory extends BaseAPIRequestFactory {
     );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "CaseManagementApi.v2.updateCaseDueDate",
-      CaseManagementApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.POST,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("CaseManagementApi.v2.updateCaseDueDate", CaseManagementApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.POST, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -3161,7 +2828,9 @@ export class CaseManagementApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Body Params
-    const contentType = getPreferredMediaType(["application/json"]);
+    const contentType = getPreferredMediaType([
+      "application/json",
+    ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = stringify(
       serialize(body, TypingInfo, "CaseUpdateDueDateRequest", ""),
@@ -3203,15 +2872,8 @@ export class CaseManagementApiRequestFactory extends BaseAPIRequestFactory {
     );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "CaseManagementApi.v2.updateCaseResolvedReason",
-      CaseManagementApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.POST,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("CaseManagementApi.v2.updateCaseResolvedReason", CaseManagementApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.POST, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -3221,7 +2883,9 @@ export class CaseManagementApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Body Params
-    const contentType = getPreferredMediaType(["application/json"]);
+    const contentType = getPreferredMediaType([
+      "application/json",
+    ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = stringify(
       serialize(body, TypingInfo, "CaseUpdateResolvedReasonRequest", ""),
@@ -3263,15 +2927,8 @@ export class CaseManagementApiRequestFactory extends BaseAPIRequestFactory {
     );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "CaseManagementApi.v2.updateCaseTitle",
-      CaseManagementApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.POST,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("CaseManagementApi.v2.updateCaseTitle", CaseManagementApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.POST, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -3281,7 +2938,9 @@ export class CaseManagementApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Body Params
-    const contentType = getPreferredMediaType(["application/json"]);
+    const contentType = getPreferredMediaType([
+      "application/json",
+    ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = stringify(
       serialize(body, TypingInfo, "CaseUpdateTitleRequest", ""),
@@ -3323,15 +2982,8 @@ export class CaseManagementApiRequestFactory extends BaseAPIRequestFactory {
     );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "CaseManagementApi.v2.updateCaseView",
-      CaseManagementApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.PUT,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("CaseManagementApi.v2.updateCaseView", CaseManagementApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.PUT, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -3341,7 +2993,9 @@ export class CaseManagementApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Body Params
-    const contentType = getPreferredMediaType(["application/json"]);
+    const contentType = getPreferredMediaType([
+      "application/json",
+    ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = stringify(
       serialize(body, TypingInfo, "CaseViewUpdateRequest", ""),
@@ -3377,22 +3031,14 @@ export class CaseManagementApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Path Params
-    const localVarPath =
-      "/api/v2/maintenance_windows/{maintenance_window_id}".replace(
-        "{maintenance_window_id}",
-        encodeURIComponent(String(maintenanceWindowId)),
-      );
+    const localVarPath = "/api/v2/maintenance_windows/{maintenance_window_id}".replace(
+      "{maintenance_window_id}",
+      encodeURIComponent(String(maintenanceWindowId)),
+    );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "CaseManagementApi.v2.updateMaintenanceWindow",
-      CaseManagementApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.PUT,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("CaseManagementApi.v2.updateMaintenanceWindow", CaseManagementApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.PUT, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -3402,7 +3048,9 @@ export class CaseManagementApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Body Params
-    const contentType = getPreferredMediaType(["application/json"]);
+    const contentType = getPreferredMediaType([
+      "application/json",
+    ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = stringify(
       serialize(body, TypingInfo, "MaintenanceWindowUpdateRequest", ""),
@@ -3444,15 +3092,8 @@ export class CaseManagementApiRequestFactory extends BaseAPIRequestFactory {
     );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "CaseManagementApi.v2.updatePriority",
-      CaseManagementApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.POST,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("CaseManagementApi.v2.updatePriority", CaseManagementApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.POST, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -3462,7 +3103,9 @@ export class CaseManagementApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Body Params
-    const contentType = getPreferredMediaType(["application/json"]);
+    const contentType = getPreferredMediaType([
+      "application/json",
+    ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = stringify(
       serialize(body, TypingInfo, "CaseUpdatePriorityRequest", ""),
@@ -3504,15 +3147,8 @@ export class CaseManagementApiRequestFactory extends BaseAPIRequestFactory {
     );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "CaseManagementApi.v2.updateProject",
-      CaseManagementApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.PATCH,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("CaseManagementApi.v2.updateProject", CaseManagementApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.PATCH, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -3522,7 +3158,9 @@ export class CaseManagementApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Body Params
-    const contentType = getPreferredMediaType(["application/json"]);
+    const contentType = getPreferredMediaType([
+      "application/json",
+    ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = stringify(
       serialize(body, TypingInfo, "ProjectUpdateRequest", ""),
@@ -3555,10 +3193,7 @@ export class CaseManagementApiRequestFactory extends BaseAPIRequestFactory {
 
     // verify required parameter 'notificationRuleId' is not null or undefined
     if (notificationRuleId === null || notificationRuleId === undefined) {
-      throw new RequiredError(
-        "notificationRuleId",
-        "updateProjectNotificationRule",
-      );
+      throw new RequiredError("notificationRuleId", "updateProjectNotificationRule");
     }
 
     // verify required parameter 'body' is not null or undefined
@@ -3567,24 +3202,17 @@ export class CaseManagementApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Path Params
-    const localVarPath =
-      "/api/v2/cases/projects/{project_id}/notification_rules/{notification_rule_id}"
-        .replace("{project_id}", encodeURIComponent(String(projectId)))
-        .replace(
-          "{notification_rule_id}",
-          encodeURIComponent(String(notificationRuleId)),
-        );
+    const localVarPath = "/api/v2/cases/projects/{project_id}/notification_rules/{notification_rule_id}".replace(
+      "{project_id}",
+      encodeURIComponent(String(projectId)),
+    ).replace(
+      "{notification_rule_id}",
+      encodeURIComponent(String(notificationRuleId)),
+    );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "CaseManagementApi.v2.updateProjectNotificationRule",
-      CaseManagementApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.PUT,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("CaseManagementApi.v2.updateProjectNotificationRule", CaseManagementApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.PUT, overrides);
     requestContext.setHeaderParam("Accept", "*/*");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -3594,7 +3222,9 @@ export class CaseManagementApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Body Params
-    const contentType = getPreferredMediaType(["application/json"]);
+    const contentType = getPreferredMediaType([
+      "application/json",
+    ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = stringify(
       serialize(body, TypingInfo, "CaseNotificationRuleUpdateRequest", ""),
@@ -3636,15 +3266,8 @@ export class CaseManagementApiRequestFactory extends BaseAPIRequestFactory {
     );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "CaseManagementApi.v2.updateStatus",
-      CaseManagementApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.POST,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("CaseManagementApi.v2.updateStatus", CaseManagementApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.POST, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -3654,7 +3277,9 @@ export class CaseManagementApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Body Params
-    const contentType = getPreferredMediaType(["application/json"]);
+    const contentType = getPreferredMediaType([
+      "application/json",
+    ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = stringify(
       serialize(body, TypingInfo, "CaseUpdateStatusRequest", ""),
@@ -3690,20 +3315,17 @@ export class CaseManagementApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Path Params
-    const localVarPath = "/api/v2/cases/{case_id}/watchers/{user_uuid}"
-      .replace("{case_id}", encodeURIComponent(String(caseId)))
-      .replace("{user_uuid}", encodeURIComponent(String(userUuid)));
+    const localVarPath = "/api/v2/cases/{case_id}/watchers/{user_uuid}".replace(
+      "{case_id}",
+      encodeURIComponent(String(caseId)),
+    ).replace(
+      "{user_uuid}",
+      encodeURIComponent(String(userUuid)),
+    );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "CaseManagementApi.v2.watchCase",
-      CaseManagementApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.POST,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("CaseManagementApi.v2.watchCase", CaseManagementApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.POST, overrides);
     requestContext.setHeaderParam("Accept", "*/*");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -3734,7 +3356,9 @@ export class CaseManagementApiResponseProcessor {
   public async addCaseInsights(
     response: ResponseContext,
   ): Promise<CaseResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: CaseResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -3749,7 +3373,10 @@ export class CaseManagementApiResponseProcessor {
       response.httpStatusCode === 403 ||
       response.httpStatusCode === 404
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: JSONAPIErrorResponse;
       try {
         body = deserialize(
@@ -3770,7 +3397,10 @@ export class CaseManagementApiResponseProcessor {
       );
     }
     if (response.httpStatusCode === 429) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -3785,7 +3415,10 @@ export class CaseManagementApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -3816,7 +3449,9 @@ export class CaseManagementApiResponseProcessor {
   public async aggregateCases(
     response: ResponseContext,
   ): Promise<CaseAggregateResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: CaseAggregateResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -3832,7 +3467,10 @@ export class CaseManagementApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -3847,7 +3485,10 @@ export class CaseManagementApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -3875,8 +3516,12 @@ export class CaseManagementApiResponseProcessor {
    * @params response Response returned by the server for a request to archiveCase
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async archiveCase(response: ResponseContext): Promise<CaseResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+  public async archiveCase(
+    response: ResponseContext,
+  ): Promise<CaseResponse> {
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: CaseResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -3892,7 +3537,10 @@ export class CaseManagementApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -3907,7 +3555,10 @@ export class CaseManagementApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -3935,8 +3586,12 @@ export class CaseManagementApiResponseProcessor {
    * @params response Response returned by the server for a request to assignCase
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async assignCase(response: ResponseContext): Promise<CaseResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+  public async assignCase(
+    response: ResponseContext,
+  ): Promise<CaseResponse> {
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: CaseResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -3952,7 +3607,10 @@ export class CaseManagementApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -3967,7 +3625,10 @@ export class CaseManagementApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -3995,8 +3656,12 @@ export class CaseManagementApiResponseProcessor {
    * @params response Response returned by the server for a request to bulkUpdateCases
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async bulkUpdateCases(response: ResponseContext): Promise<void> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+  public async bulkUpdateCases(
+    response: ResponseContext,
+  ): Promise<void> {
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       return;
     }
@@ -4007,7 +3672,10 @@ export class CaseManagementApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -4022,7 +3690,10 @@ export class CaseManagementApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -4047,7 +3718,9 @@ export class CaseManagementApiResponseProcessor {
   public async commentCase(
     response: ResponseContext,
   ): Promise<TimelineResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: TimelineResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -4063,7 +3736,10 @@ export class CaseManagementApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -4078,7 +3754,10 @@ export class CaseManagementApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -4109,7 +3788,9 @@ export class CaseManagementApiResponseProcessor {
   public async countCases(
     response: ResponseContext,
   ): Promise<CaseCountResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: CaseCountResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -4125,7 +3806,10 @@ export class CaseManagementApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -4140,7 +3824,10 @@ export class CaseManagementApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -4168,8 +3855,12 @@ export class CaseManagementApiResponseProcessor {
    * @params response Response returned by the server for a request to createCase
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async createCase(response: ResponseContext): Promise<CaseResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+  public async createCase(
+    response: ResponseContext,
+  ): Promise<CaseResponse> {
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 201) {
       const body: CaseResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -4185,7 +3876,10 @@ export class CaseManagementApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -4200,7 +3894,10 @@ export class CaseManagementApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -4231,7 +3928,9 @@ export class CaseManagementApiResponseProcessor {
   public async createCaseAutomationRule(
     response: ResponseContext,
   ): Promise<AutomationRuleResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 201) {
       const body: AutomationRuleResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -4247,7 +3946,10 @@ export class CaseManagementApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -4262,7 +3964,10 @@ export class CaseManagementApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -4290,8 +3995,12 @@ export class CaseManagementApiResponseProcessor {
    * @params response Response returned by the server for a request to createCaseJiraIssue
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async createCaseJiraIssue(response: ResponseContext): Promise<void> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+  public async createCaseJiraIssue(
+    response: ResponseContext,
+  ): Promise<void> {
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 202) {
       return;
     }
@@ -4301,7 +4010,10 @@ export class CaseManagementApiResponseProcessor {
       response.httpStatusCode === 403 ||
       response.httpStatusCode === 404
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: JSONAPIErrorResponse;
       try {
         body = deserialize(
@@ -4322,7 +4034,10 @@ export class CaseManagementApiResponseProcessor {
       );
     }
     if (response.httpStatusCode === 429) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -4337,7 +4052,10 @@ export class CaseManagementApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -4362,7 +4080,9 @@ export class CaseManagementApiResponseProcessor {
   public async createCaseLink(
     response: ResponseContext,
   ): Promise<CaseLinkResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 201) {
       const body: CaseLinkResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -4378,7 +4098,10 @@ export class CaseManagementApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -4393,7 +4116,10 @@ export class CaseManagementApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -4421,8 +4147,12 @@ export class CaseManagementApiResponseProcessor {
    * @params response Response returned by the server for a request to createCaseNotebook
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async createCaseNotebook(response: ResponseContext): Promise<void> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+  public async createCaseNotebook(
+    response: ResponseContext,
+  ): Promise<void> {
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 204) {
       return;
     }
@@ -4432,7 +4162,10 @@ export class CaseManagementApiResponseProcessor {
       response.httpStatusCode === 403 ||
       response.httpStatusCode === 404
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: JSONAPIErrorResponse;
       try {
         body = deserialize(
@@ -4453,7 +4186,10 @@ export class CaseManagementApiResponseProcessor {
       );
     }
     if (response.httpStatusCode === 429) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -4468,7 +4204,10 @@ export class CaseManagementApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -4493,7 +4232,9 @@ export class CaseManagementApiResponseProcessor {
   public async createCaseServiceNowTicket(
     response: ResponseContext,
   ): Promise<void> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 202) {
       return;
     }
@@ -4503,7 +4244,10 @@ export class CaseManagementApiResponseProcessor {
       response.httpStatusCode === 403 ||
       response.httpStatusCode === 404
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: JSONAPIErrorResponse;
       try {
         body = deserialize(
@@ -4524,7 +4268,10 @@ export class CaseManagementApiResponseProcessor {
       );
     }
     if (response.httpStatusCode === 429) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -4539,7 +4286,10 @@ export class CaseManagementApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -4564,7 +4314,9 @@ export class CaseManagementApiResponseProcessor {
   public async createCaseView(
     response: ResponseContext,
   ): Promise<CaseViewResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 201) {
       const body: CaseViewResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -4580,7 +4332,10 @@ export class CaseManagementApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -4595,7 +4350,10 @@ export class CaseManagementApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -4626,7 +4384,9 @@ export class CaseManagementApiResponseProcessor {
   public async createMaintenanceWindow(
     response: ResponseContext,
   ): Promise<MaintenanceWindowResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 201) {
       const body: MaintenanceWindowResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -4642,7 +4402,10 @@ export class CaseManagementApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -4657,7 +4420,10 @@ export class CaseManagementApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -4688,7 +4454,9 @@ export class CaseManagementApiResponseProcessor {
   public async createProject(
     response: ResponseContext,
   ): Promise<ProjectResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 201) {
       const body: ProjectResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -4704,7 +4472,10 @@ export class CaseManagementApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -4719,7 +4490,10 @@ export class CaseManagementApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -4750,7 +4524,9 @@ export class CaseManagementApiResponseProcessor {
   public async createProjectNotificationRule(
     response: ResponseContext,
   ): Promise<CaseNotificationRuleResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 201) {
       const body: CaseNotificationRuleResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -4766,7 +4542,10 @@ export class CaseManagementApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -4781,7 +4560,10 @@ export class CaseManagementApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -4812,7 +4594,9 @@ export class CaseManagementApiResponseProcessor {
   public async deleteCaseAutomationRule(
     response: ResponseContext,
   ): Promise<void> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 204) {
       return;
     }
@@ -4821,7 +4605,10 @@ export class CaseManagementApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -4836,7 +4623,10 @@ export class CaseManagementApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -4858,8 +4648,12 @@ export class CaseManagementApiResponseProcessor {
    * @params response Response returned by the server for a request to deleteCaseComment
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async deleteCaseComment(response: ResponseContext): Promise<void> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+  public async deleteCaseComment(
+    response: ResponseContext,
+  ): Promise<void> {
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 204) {
       return;
     }
@@ -4870,7 +4664,10 @@ export class CaseManagementApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -4885,7 +4682,10 @@ export class CaseManagementApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -4910,7 +4710,9 @@ export class CaseManagementApiResponseProcessor {
   public async deleteCaseCustomAttribute(
     response: ResponseContext,
   ): Promise<CaseResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: CaseResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -4925,7 +4727,10 @@ export class CaseManagementApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -4940,7 +4745,10 @@ export class CaseManagementApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -4968,8 +4776,12 @@ export class CaseManagementApiResponseProcessor {
    * @params response Response returned by the server for a request to deleteCaseLink
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async deleteCaseLink(response: ResponseContext): Promise<void> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+  public async deleteCaseLink(
+    response: ResponseContext,
+  ): Promise<void> {
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 204) {
       return;
     }
@@ -4980,7 +4792,10 @@ export class CaseManagementApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -4995,7 +4810,10 @@ export class CaseManagementApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -5017,8 +4835,12 @@ export class CaseManagementApiResponseProcessor {
    * @params response Response returned by the server for a request to deleteCaseView
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async deleteCaseView(response: ResponseContext): Promise<void> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+  public async deleteCaseView(
+    response: ResponseContext,
+  ): Promise<void> {
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 204) {
       return;
     }
@@ -5029,7 +4851,10 @@ export class CaseManagementApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -5044,7 +4869,10 @@ export class CaseManagementApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -5069,7 +4897,9 @@ export class CaseManagementApiResponseProcessor {
   public async deleteMaintenanceWindow(
     response: ResponseContext,
   ): Promise<void> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 204) {
       return;
     }
@@ -5080,7 +4910,10 @@ export class CaseManagementApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -5095,7 +4928,10 @@ export class CaseManagementApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -5117,8 +4953,12 @@ export class CaseManagementApiResponseProcessor {
    * @params response Response returned by the server for a request to deleteProject
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async deleteProject(response: ResponseContext): Promise<void> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+  public async deleteProject(
+    response: ResponseContext,
+  ): Promise<void> {
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 204) {
       return;
     }
@@ -5127,7 +4967,10 @@ export class CaseManagementApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -5142,7 +4985,10 @@ export class CaseManagementApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -5167,7 +5013,9 @@ export class CaseManagementApiResponseProcessor {
   public async deleteProjectNotificationRule(
     response: ResponseContext,
   ): Promise<void> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 204) {
       return;
     }
@@ -5176,7 +5024,10 @@ export class CaseManagementApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -5191,7 +5042,10 @@ export class CaseManagementApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -5216,7 +5070,9 @@ export class CaseManagementApiResponseProcessor {
   public async disableCaseAutomationRule(
     response: ResponseContext,
   ): Promise<AutomationRuleResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: AutomationRuleResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -5232,7 +5088,10 @@ export class CaseManagementApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -5247,7 +5106,10 @@ export class CaseManagementApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -5278,7 +5140,9 @@ export class CaseManagementApiResponseProcessor {
   public async enableCaseAutomationRule(
     response: ResponseContext,
   ): Promise<AutomationRuleResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: AutomationRuleResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -5294,7 +5158,10 @@ export class CaseManagementApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -5309,7 +5176,10 @@ export class CaseManagementApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -5337,8 +5207,12 @@ export class CaseManagementApiResponseProcessor {
    * @params response Response returned by the server for a request to favoriteCaseProject
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async favoriteCaseProject(response: ResponseContext): Promise<void> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+  public async favoriteCaseProject(
+    response: ResponseContext,
+  ): Promise<void> {
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 204) {
       return;
     }
@@ -5349,7 +5223,10 @@ export class CaseManagementApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -5364,7 +5241,10 @@ export class CaseManagementApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -5386,8 +5266,12 @@ export class CaseManagementApiResponseProcessor {
    * @params response Response returned by the server for a request to getCase
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async getCase(response: ResponseContext): Promise<CaseResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+  public async getCase(
+    response: ResponseContext,
+  ): Promise<CaseResponse> {
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: CaseResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -5403,7 +5287,10 @@ export class CaseManagementApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -5418,7 +5305,10 @@ export class CaseManagementApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -5449,7 +5339,9 @@ export class CaseManagementApiResponseProcessor {
   public async getCaseAutomationRule(
     response: ResponseContext,
   ): Promise<AutomationRuleResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: AutomationRuleResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -5465,7 +5357,10 @@ export class CaseManagementApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -5480,7 +5375,10 @@ export class CaseManagementApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -5511,7 +5409,9 @@ export class CaseManagementApiResponseProcessor {
   public async getCaseView(
     response: ResponseContext,
   ): Promise<CaseViewResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: CaseViewResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -5527,7 +5427,10 @@ export class CaseManagementApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -5542,7 +5445,10 @@ export class CaseManagementApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -5570,8 +5476,12 @@ export class CaseManagementApiResponseProcessor {
    * @params response Response returned by the server for a request to getProject
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async getProject(response: ResponseContext): Promise<ProjectResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+  public async getProject(
+    response: ResponseContext,
+  ): Promise<ProjectResponse> {
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: ProjectResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -5587,7 +5497,10 @@ export class CaseManagementApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -5602,7 +5515,10 @@ export class CaseManagementApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -5633,7 +5549,9 @@ export class CaseManagementApiResponseProcessor {
   public async getProjectNotificationRules(
     response: ResponseContext,
   ): Promise<CaseNotificationRulesResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: CaseNotificationRulesResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -5649,7 +5567,10 @@ export class CaseManagementApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -5664,7 +5585,10 @@ export class CaseManagementApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -5695,7 +5619,9 @@ export class CaseManagementApiResponseProcessor {
   public async getProjects(
     response: ResponseContext,
   ): Promise<ProjectsResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: ProjectsResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -5711,7 +5637,10 @@ export class CaseManagementApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -5726,7 +5655,10 @@ export class CaseManagementApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -5754,8 +5686,12 @@ export class CaseManagementApiResponseProcessor {
    * @params response Response returned by the server for a request to linkIncident
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async linkIncident(response: ResponseContext): Promise<CaseResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+  public async linkIncident(
+    response: ResponseContext,
+  ): Promise<CaseResponse> {
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 201) {
       const body: CaseResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -5770,7 +5706,10 @@ export class CaseManagementApiResponseProcessor {
       response.httpStatusCode === 403 ||
       response.httpStatusCode === 404
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: JSONAPIErrorResponse;
       try {
         body = deserialize(
@@ -5791,7 +5730,10 @@ export class CaseManagementApiResponseProcessor {
       );
     }
     if (response.httpStatusCode === 429) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -5806,7 +5748,10 @@ export class CaseManagementApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -5834,8 +5779,12 @@ export class CaseManagementApiResponseProcessor {
    * @params response Response returned by the server for a request to linkJiraIssueToCase
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async linkJiraIssueToCase(response: ResponseContext): Promise<void> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+  public async linkJiraIssueToCase(
+    response: ResponseContext,
+  ): Promise<void> {
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 204) {
       return;
     }
@@ -5846,7 +5795,10 @@ export class CaseManagementApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 409
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: JSONAPIErrorResponse;
       try {
         body = deserialize(
@@ -5867,7 +5819,10 @@ export class CaseManagementApiResponseProcessor {
       );
     }
     if (response.httpStatusCode === 429) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -5882,7 +5837,10 @@ export class CaseManagementApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -5907,7 +5865,9 @@ export class CaseManagementApiResponseProcessor {
   public async listCaseAutomationRules(
     response: ResponseContext,
   ): Promise<AutomationRulesResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: AutomationRulesResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -5923,7 +5883,10 @@ export class CaseManagementApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -5938,7 +5901,10 @@ export class CaseManagementApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -5969,7 +5935,9 @@ export class CaseManagementApiResponseProcessor {
   public async listCaseLinks(
     response: ResponseContext,
   ): Promise<CaseLinksResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: CaseLinksResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -5985,7 +5953,10 @@ export class CaseManagementApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -6000,7 +5971,10 @@ export class CaseManagementApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -6031,7 +6005,9 @@ export class CaseManagementApiResponseProcessor {
   public async listCaseTimeline(
     response: ResponseContext,
   ): Promise<TimelineResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: TimelineResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -6047,7 +6023,10 @@ export class CaseManagementApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -6062,7 +6041,10 @@ export class CaseManagementApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -6093,7 +6075,9 @@ export class CaseManagementApiResponseProcessor {
   public async listCaseViews(
     response: ResponseContext,
   ): Promise<CaseViewsResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: CaseViewsResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -6109,7 +6093,10 @@ export class CaseManagementApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -6124,7 +6111,10 @@ export class CaseManagementApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -6155,7 +6145,9 @@ export class CaseManagementApiResponseProcessor {
   public async listCaseWatchers(
     response: ResponseContext,
   ): Promise<CaseWatchersResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: CaseWatchersResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -6171,7 +6163,10 @@ export class CaseManagementApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -6186,7 +6181,10 @@ export class CaseManagementApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -6217,7 +6215,9 @@ export class CaseManagementApiResponseProcessor {
   public async listMaintenanceWindows(
     response: ResponseContext,
   ): Promise<MaintenanceWindowsResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: MaintenanceWindowsResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -6233,7 +6233,10 @@ export class CaseManagementApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -6248,7 +6251,10 @@ export class CaseManagementApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -6279,7 +6285,9 @@ export class CaseManagementApiResponseProcessor {
   public async listUserCaseProjectFavorites(
     response: ResponseContext,
   ): Promise<ProjectFavoritesResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: ProjectFavoritesResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -6295,7 +6303,10 @@ export class CaseManagementApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -6310,7 +6321,10 @@ export class CaseManagementApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -6341,7 +6355,9 @@ export class CaseManagementApiResponseProcessor {
   public async moveCaseToProject(
     response: ResponseContext,
   ): Promise<CaseResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: CaseResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -6356,7 +6372,10 @@ export class CaseManagementApiResponseProcessor {
       response.httpStatusCode === 403 ||
       response.httpStatusCode === 404
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: JSONAPIErrorResponse;
       try {
         body = deserialize(
@@ -6377,7 +6396,10 @@ export class CaseManagementApiResponseProcessor {
       );
     }
     if (response.httpStatusCode === 429) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -6392,7 +6414,10 @@ export class CaseManagementApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -6423,7 +6448,9 @@ export class CaseManagementApiResponseProcessor {
   public async removeCaseInsights(
     response: ResponseContext,
   ): Promise<CaseResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: CaseResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -6438,7 +6465,10 @@ export class CaseManagementApiResponseProcessor {
       response.httpStatusCode === 403 ||
       response.httpStatusCode === 404
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: JSONAPIErrorResponse;
       try {
         body = deserialize(
@@ -6459,7 +6489,10 @@ export class CaseManagementApiResponseProcessor {
       );
     }
     if (response.httpStatusCode === 429) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -6474,7 +6507,10 @@ export class CaseManagementApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -6502,8 +6538,12 @@ export class CaseManagementApiResponseProcessor {
    * @params response Response returned by the server for a request to searchCases
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async searchCases(response: ResponseContext): Promise<CasesResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+  public async searchCases(
+    response: ResponseContext,
+  ): Promise<CasesResponse> {
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: CasesResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -6519,7 +6559,10 @@ export class CaseManagementApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -6534,7 +6577,10 @@ export class CaseManagementApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -6562,8 +6608,12 @@ export class CaseManagementApiResponseProcessor {
    * @params response Response returned by the server for a request to unarchiveCase
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async unarchiveCase(response: ResponseContext): Promise<CaseResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+  public async unarchiveCase(
+    response: ResponseContext,
+  ): Promise<CaseResponse> {
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: CaseResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -6579,7 +6629,10 @@ export class CaseManagementApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -6594,7 +6647,10 @@ export class CaseManagementApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -6622,8 +6678,12 @@ export class CaseManagementApiResponseProcessor {
    * @params response Response returned by the server for a request to unassignCase
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async unassignCase(response: ResponseContext): Promise<CaseResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+  public async unassignCase(
+    response: ResponseContext,
+  ): Promise<CaseResponse> {
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: CaseResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -6639,7 +6699,10 @@ export class CaseManagementApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -6654,7 +6717,10 @@ export class CaseManagementApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -6682,8 +6748,12 @@ export class CaseManagementApiResponseProcessor {
    * @params response Response returned by the server for a request to unfavoriteCaseProject
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async unfavoriteCaseProject(response: ResponseContext): Promise<void> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+  public async unfavoriteCaseProject(
+    response: ResponseContext,
+  ): Promise<void> {
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 204) {
       return;
     }
@@ -6694,7 +6764,10 @@ export class CaseManagementApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -6709,7 +6782,10 @@ export class CaseManagementApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -6731,8 +6807,12 @@ export class CaseManagementApiResponseProcessor {
    * @params response Response returned by the server for a request to unlinkJiraIssue
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async unlinkJiraIssue(response: ResponseContext): Promise<void> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+  public async unlinkJiraIssue(
+    response: ResponseContext,
+  ): Promise<void> {
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 204) {
       return;
     }
@@ -6742,7 +6822,10 @@ export class CaseManagementApiResponseProcessor {
       response.httpStatusCode === 403 ||
       response.httpStatusCode === 404
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: JSONAPIErrorResponse;
       try {
         body = deserialize(
@@ -6763,7 +6846,10 @@ export class CaseManagementApiResponseProcessor {
       );
     }
     if (response.httpStatusCode === 429) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -6778,7 +6864,10 @@ export class CaseManagementApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -6800,8 +6889,12 @@ export class CaseManagementApiResponseProcessor {
    * @params response Response returned by the server for a request to unwatchCase
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async unwatchCase(response: ResponseContext): Promise<void> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+  public async unwatchCase(
+    response: ResponseContext,
+  ): Promise<void> {
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 204) {
       return;
     }
@@ -6812,7 +6905,10 @@ export class CaseManagementApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -6827,7 +6923,10 @@ export class CaseManagementApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -6852,7 +6951,9 @@ export class CaseManagementApiResponseProcessor {
   public async updateAttributes(
     response: ResponseContext,
   ): Promise<CaseResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: CaseResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -6868,7 +6969,10 @@ export class CaseManagementApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -6883,7 +6987,10 @@ export class CaseManagementApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -6914,7 +7021,9 @@ export class CaseManagementApiResponseProcessor {
   public async updateCaseAutomationRule(
     response: ResponseContext,
   ): Promise<AutomationRuleResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: AutomationRuleResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -6930,7 +7039,10 @@ export class CaseManagementApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -6945,7 +7057,10 @@ export class CaseManagementApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -6973,8 +7088,12 @@ export class CaseManagementApiResponseProcessor {
    * @params response Response returned by the server for a request to updateCaseComment
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async updateCaseComment(response: ResponseContext): Promise<void> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+  public async updateCaseComment(
+    response: ResponseContext,
+  ): Promise<void> {
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       return;
     }
@@ -6985,7 +7104,10 @@ export class CaseManagementApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -7000,7 +7122,10 @@ export class CaseManagementApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -7025,7 +7150,9 @@ export class CaseManagementApiResponseProcessor {
   public async updateCaseCustomAttribute(
     response: ResponseContext,
   ): Promise<CaseResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: CaseResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -7041,7 +7168,10 @@ export class CaseManagementApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -7056,7 +7186,10 @@ export class CaseManagementApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -7087,7 +7220,9 @@ export class CaseManagementApiResponseProcessor {
   public async updateCaseDescription(
     response: ResponseContext,
   ): Promise<CaseResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: CaseResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -7103,7 +7238,10 @@ export class CaseManagementApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -7118,7 +7256,10 @@ export class CaseManagementApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -7149,7 +7290,9 @@ export class CaseManagementApiResponseProcessor {
   public async updateCaseDueDate(
     response: ResponseContext,
   ): Promise<CaseResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: CaseResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -7165,7 +7308,10 @@ export class CaseManagementApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -7180,7 +7326,10 @@ export class CaseManagementApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -7211,7 +7360,9 @@ export class CaseManagementApiResponseProcessor {
   public async updateCaseResolvedReason(
     response: ResponseContext,
   ): Promise<CaseResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: CaseResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -7227,7 +7378,10 @@ export class CaseManagementApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -7242,7 +7396,10 @@ export class CaseManagementApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -7273,7 +7430,9 @@ export class CaseManagementApiResponseProcessor {
   public async updateCaseTitle(
     response: ResponseContext,
   ): Promise<CaseResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: CaseResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -7289,7 +7448,10 @@ export class CaseManagementApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -7304,7 +7466,10 @@ export class CaseManagementApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -7335,7 +7500,9 @@ export class CaseManagementApiResponseProcessor {
   public async updateCaseView(
     response: ResponseContext,
   ): Promise<CaseViewResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: CaseViewResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -7351,7 +7518,10 @@ export class CaseManagementApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -7366,7 +7536,10 @@ export class CaseManagementApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -7397,7 +7570,9 @@ export class CaseManagementApiResponseProcessor {
   public async updateMaintenanceWindow(
     response: ResponseContext,
   ): Promise<MaintenanceWindowResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: MaintenanceWindowResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -7413,7 +7588,10 @@ export class CaseManagementApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -7428,7 +7606,10 @@ export class CaseManagementApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -7459,7 +7640,9 @@ export class CaseManagementApiResponseProcessor {
   public async updatePriority(
     response: ResponseContext,
   ): Promise<CaseResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: CaseResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -7475,7 +7658,10 @@ export class CaseManagementApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -7490,7 +7676,10 @@ export class CaseManagementApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -7521,7 +7710,9 @@ export class CaseManagementApiResponseProcessor {
   public async updateProject(
     response: ResponseContext,
   ): Promise<ProjectResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: ProjectResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -7537,7 +7728,10 @@ export class CaseManagementApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -7552,7 +7746,10 @@ export class CaseManagementApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -7583,7 +7780,9 @@ export class CaseManagementApiResponseProcessor {
   public async updateProjectNotificationRule(
     response: ResponseContext,
   ): Promise<void> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 204) {
       return;
     }
@@ -7594,7 +7793,10 @@ export class CaseManagementApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -7609,7 +7811,10 @@ export class CaseManagementApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -7631,8 +7836,12 @@ export class CaseManagementApiResponseProcessor {
    * @params response Response returned by the server for a request to updateStatus
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async updateStatus(response: ResponseContext): Promise<CaseResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+  public async updateStatus(
+    response: ResponseContext,
+  ): Promise<CaseResponse> {
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: CaseResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -7648,7 +7857,10 @@ export class CaseManagementApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -7663,7 +7875,10 @@ export class CaseManagementApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -7691,8 +7906,12 @@ export class CaseManagementApiResponseProcessor {
    * @params response Response returned by the server for a request to watchCase
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async watchCase(response: ResponseContext): Promise<void> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+  public async watchCase(
+    response: ResponseContext,
+  ): Promise<void> {
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 201) {
       return;
     }
@@ -7703,7 +7922,10 @@ export class CaseManagementApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -7718,7 +7940,10 @@ export class CaseManagementApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -8508,7 +8733,8 @@ export class CaseManagementApi {
   private responseProcessor: CaseManagementApiResponseProcessor;
   private configuration: Configuration;
 
-  static operationServers: { [key: string]: BaseServerConfiguration[] } = {};
+  static operationServers: { [key: string]: BaseServerConfiguration[] } = {
+  };
 
   public constructor(
     configuration?: Configuration,
@@ -8517,7 +8743,8 @@ export class CaseManagementApi {
   ) {
     this.configuration = configuration || createConfiguration();
     this.requestFactory =
-      requestFactory || new CaseManagementApiRequestFactory(this.configuration);
+      requestFactory ||
+      new CaseManagementApiRequestFactory(this.configuration);
     this.responseProcessor =
       responseProcessor || new CaseManagementApiResponseProcessor();
   }
@@ -8713,9 +8940,7 @@ export class CaseManagementApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.createCaseAutomationRule(
-            responseContext,
-          );
+          return this.responseProcessor.createCaseAutomationRule(responseContext);
         });
     });
   }
@@ -8793,19 +9018,16 @@ export class CaseManagementApi {
     param: CaseManagementApiCreateCaseServiceNowTicketRequest,
     options?: Configuration,
   ): Promise<void> {
-    const requestContextPromise =
-      this.requestFactory.createCaseServiceNowTicket(
-        param.caseId,
-        param.body,
-        options,
-      );
+    const requestContextPromise = this.requestFactory.createCaseServiceNowTicket(
+      param.caseId,
+      param.body,
+      options,
+    );
     return requestContextPromise.then((requestContext) => {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.createCaseServiceNowTicket(
-            responseContext,
-          );
+          return this.responseProcessor.createCaseServiceNowTicket(responseContext);
         });
     });
   }
@@ -8847,9 +9069,7 @@ export class CaseManagementApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.createMaintenanceWindow(
-            responseContext,
-          );
+          return this.responseProcessor.createMaintenanceWindow(responseContext);
         });
     });
   }
@@ -8883,19 +9103,16 @@ export class CaseManagementApi {
     param: CaseManagementApiCreateProjectNotificationRuleRequest,
     options?: Configuration,
   ): Promise<CaseNotificationRuleResponse> {
-    const requestContextPromise =
-      this.requestFactory.createProjectNotificationRule(
-        param.projectId,
-        param.body,
-        options,
-      );
+    const requestContextPromise = this.requestFactory.createProjectNotificationRule(
+      param.projectId,
+      param.body,
+      options,
+    );
     return requestContextPromise.then((requestContext) => {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.createProjectNotificationRule(
-            responseContext,
-          );
+          return this.responseProcessor.createProjectNotificationRule(responseContext);
         });
     });
   }
@@ -8917,9 +9134,7 @@ export class CaseManagementApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.deleteCaseAutomationRule(
-            responseContext,
-          );
+          return this.responseProcessor.deleteCaseAutomationRule(responseContext);
         });
     });
   }
@@ -8963,9 +9178,7 @@ export class CaseManagementApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.deleteCaseCustomAttribute(
-            responseContext,
-          );
+          return this.responseProcessor.deleteCaseCustomAttribute(responseContext);
         });
     });
   }
@@ -9028,9 +9241,7 @@ export class CaseManagementApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.deleteMaintenanceWindow(
-            responseContext,
-          );
+          return this.responseProcessor.deleteMaintenanceWindow(responseContext);
         });
     });
   }
@@ -9064,19 +9275,16 @@ export class CaseManagementApi {
     param: CaseManagementApiDeleteProjectNotificationRuleRequest,
     options?: Configuration,
   ): Promise<void> {
-    const requestContextPromise =
-      this.requestFactory.deleteProjectNotificationRule(
-        param.projectId,
-        param.notificationRuleId,
-        options,
-      );
+    const requestContextPromise = this.requestFactory.deleteProjectNotificationRule(
+      param.projectId,
+      param.notificationRuleId,
+      options,
+    );
     return requestContextPromise.then((requestContext) => {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.deleteProjectNotificationRule(
-            responseContext,
-          );
+          return this.responseProcessor.deleteProjectNotificationRule(responseContext);
         });
     });
   }
@@ -9098,9 +9306,7 @@ export class CaseManagementApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.disableCaseAutomationRule(
-            responseContext,
-          );
+          return this.responseProcessor.disableCaseAutomationRule(responseContext);
         });
     });
   }
@@ -9122,9 +9328,7 @@ export class CaseManagementApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.enableCaseAutomationRule(
-            responseContext,
-          );
+          return this.responseProcessor.enableCaseAutomationRule(responseContext);
         });
     });
   }
@@ -9243,15 +9447,15 @@ export class CaseManagementApi {
     param: CaseManagementApiGetProjectNotificationRulesRequest,
     options?: Configuration,
   ): Promise<CaseNotificationRulesResponse> {
-    const requestContextPromise =
-      this.requestFactory.getProjectNotificationRules(param.projectId, options);
+    const requestContextPromise = this.requestFactory.getProjectNotificationRules(
+      param.projectId,
+      options,
+    );
     return requestContextPromise.then((requestContext) => {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.getProjectNotificationRules(
-            responseContext,
-          );
+          return this.responseProcessor.getProjectNotificationRules(responseContext);
         });
     });
   }
@@ -9260,8 +9464,11 @@ export class CaseManagementApi {
    * Get all projects.
    * @param param The request object
    */
-  public getProjects(options?: Configuration): Promise<ProjectsResponse> {
-    const requestContextPromise = this.requestFactory.getProjects(options);
+  public getProjects(options?: Configuration,
+  ): Promise<ProjectsResponse> {
+    const requestContextPromise = this.requestFactory.getProjects(
+      options,
+    );
     return requestContextPromise.then((requestContext) => {
       return this.configuration.httpApi
         .send(requestContext)
@@ -9331,9 +9538,7 @@ export class CaseManagementApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.listCaseAutomationRules(
-            responseContext,
-          );
+          return this.responseProcessor.listCaseAutomationRules(responseContext);
         });
     });
   }
@@ -9431,11 +9636,11 @@ export class CaseManagementApi {
    * Returns all configured maintenance windows for event management cases. Maintenance windows define time periods during which case notifications and automation rules are suppressed for cases matching a given query.
    * @param param The request object
    */
-  public listMaintenanceWindows(
-    options?: Configuration,
+  public listMaintenanceWindows(options?: Configuration,
   ): Promise<MaintenanceWindowsResponse> {
-    const requestContextPromise =
-      this.requestFactory.listMaintenanceWindows(options);
+    const requestContextPromise = this.requestFactory.listMaintenanceWindows(
+      options,
+    );
     return requestContextPromise.then((requestContext) => {
       return this.configuration.httpApi
         .send(requestContext)
@@ -9449,18 +9654,16 @@ export class CaseManagementApi {
    * Returns the list of case projects that the current authenticated user has marked as favorites.
    * @param param The request object
    */
-  public listUserCaseProjectFavorites(
-    options?: Configuration,
+  public listUserCaseProjectFavorites(options?: Configuration,
   ): Promise<ProjectFavoritesResponse> {
-    const requestContextPromise =
-      this.requestFactory.listUserCaseProjectFavorites(options);
+    const requestContextPromise = this.requestFactory.listUserCaseProjectFavorites(
+      options,
+    );
     return requestContextPromise.then((requestContext) => {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.listUserCaseProjectFavorites(
-            responseContext,
-          );
+          return this.responseProcessor.listUserCaseProjectFavorites(responseContext);
         });
     });
   }
@@ -9538,9 +9741,9 @@ export class CaseManagementApi {
    * Provide a paginated version of searchCases returning a generator with all the items.
    */
   public async *searchCasesWithPagination(
-    param: CaseManagementApiSearchCasesRequest = {},
-    options?: Configuration,
+    param: CaseManagementApiSearchCasesRequest = {}, options?: Configuration,
   ): AsyncGenerator<Case> {
+
     let pageSize = 10;
     if (param.pageSize !== undefined) {
       pageSize = param.pageSize;
@@ -9548,19 +9751,10 @@ export class CaseManagementApi {
     param.pageSize = pageSize;
     param.pageNumber = 1;
     while (true) {
-      const requestContext = await this.requestFactory.searchCases(
-        param.pageSize,
-        param.pageNumber,
-        param.sortField,
-        param.filter,
-        param.sortAsc,
-        options,
-      );
-      const responseContext =
-        await this.configuration.httpApi.send(requestContext);
+      const requestContext = await this.requestFactory.searchCases(param.pageSize,param.pageNumber,param.sortField,param.filter,param.sortAsc,options);
+      const responseContext = await this.configuration.httpApi.send(requestContext);
 
-      const response =
-        await this.responseProcessor.searchCases(responseContext);
+      const response = await this.responseProcessor.searchCases(responseContext);
       const responseData = response.data;
       if (responseData === undefined) {
         break;
@@ -9724,9 +9918,7 @@ export class CaseManagementApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.updateCaseAutomationRule(
-            responseContext,
-          );
+          return this.responseProcessor.updateCaseAutomationRule(responseContext);
         });
     });
   }
@@ -9772,9 +9964,7 @@ export class CaseManagementApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.updateCaseCustomAttribute(
-            responseContext,
-          );
+          return this.responseProcessor.updateCaseCustomAttribute(responseContext);
         });
     });
   }
@@ -9840,9 +10030,7 @@ export class CaseManagementApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.updateCaseResolvedReason(
-            responseContext,
-          );
+          return this.responseProcessor.updateCaseResolvedReason(responseContext);
         });
     });
   }
@@ -9908,9 +10096,7 @@ export class CaseManagementApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.updateMaintenanceWindow(
-            responseContext,
-          );
+          return this.responseProcessor.updateMaintenanceWindow(responseContext);
         });
     });
   }
@@ -9967,20 +10153,17 @@ export class CaseManagementApi {
     param: CaseManagementApiUpdateProjectNotificationRuleRequest,
     options?: Configuration,
   ): Promise<void> {
-    const requestContextPromise =
-      this.requestFactory.updateProjectNotificationRule(
-        param.projectId,
-        param.notificationRuleId,
-        param.body,
-        options,
-      );
+    const requestContextPromise = this.requestFactory.updateProjectNotificationRule(
+      param.projectId,
+      param.notificationRuleId,
+      param.body,
+      options,
+    );
     return requestContextPromise.then((requestContext) => {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.updateProjectNotificationRule(
-            responseContext,
-          );
+          return this.responseProcessor.updateProjectNotificationRule(responseContext);
         });
     });
   }

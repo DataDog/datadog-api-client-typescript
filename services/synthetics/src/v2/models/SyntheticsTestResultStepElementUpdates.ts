@@ -1,5 +1,6 @@
 import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
+
 /**
  * Element locator updates produced during a step.
  */
@@ -7,7 +8,7 @@ export class SyntheticsTestResultStepElementUpdates {
   /**
    * Updated multi-locator definition.
    */
-  "multiLocator"?: { [key: string]: string };
+  "multiLocator"?: { [key: string]: string; };
   /**
    * Updated outer HTML of the targeted element.
    */
@@ -21,7 +22,7 @@ export class SyntheticsTestResultStepElementUpdates {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
   /**
    * @ignore
    */

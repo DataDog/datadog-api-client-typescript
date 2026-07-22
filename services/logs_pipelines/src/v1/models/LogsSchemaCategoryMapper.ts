@@ -8,9 +8,9 @@ import { LogsSchemaCategoryMapperType } from "./LogsSchemaCategoryMapperType";
 /**
  * Use the Schema Category Mapper to categorize log event into enum fields.
  * In the case of OCSF, they can be used to map sibling fields which are composed of an ID and a name.
- *
+ * 
  * **Notes**:
- *
+ * 
  * - The syntax of the query is the one of Logs Explorer search bar.
  *   The query can be done on any log attribute or tag, whether it is a facet or not.
  *   Wildcards can also be used inside your query.
@@ -47,7 +47,7 @@ export class LogsSchemaCategoryMapper {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
   /**
    * @ignore
    */

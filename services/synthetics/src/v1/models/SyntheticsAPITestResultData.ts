@@ -28,7 +28,7 @@ export class SyntheticsAPITestResultData {
   /**
    * Request header object used for the API test.
    */
-  "requestHeaders"?: { [key: string]: any };
+  "requestHeaders"?: { [key: string]: any; };
   /**
    * Response body returned for the API test.
    */
@@ -36,7 +36,7 @@ export class SyntheticsAPITestResultData {
   /**
    * Response headers returned for the API test.
    */
-  "responseHeaders"?: { [key: string]: any };
+  "responseHeaders"?: { [key: string]: any; };
   /**
    * Global size in byte of the API test response.
    */
@@ -51,7 +51,7 @@ export class SyntheticsAPITestResultData {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
   /**
    * @ignore
    */

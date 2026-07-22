@@ -19,6 +19,7 @@ import {
   ServerConfiguration,
   stringify,
   applySecurityAuthentication,
+  
 } from "@datadog/datadog-api-client";
 
 import { TypingInfo } from "./models/TypingInfo";
@@ -47,9 +48,7 @@ export class AnnotationsApiRequestFactory extends BaseAPIRequestFactory {
     const _config = _options || this.configuration;
 
     if (!_config.unstableOperations["AnnotationsApi.v2.createAnnotation"]) {
-      throw new Error(
-        "Unstable operation 'createAnnotation' is disabled. Enable it by setting `configuration.unstableOperations['AnnotationsApi.v2.createAnnotation'] = true`",
-      );
+      throw new Error("Unstable operation 'createAnnotation' is disabled. Enable it by setting `configuration.unstableOperations['AnnotationsApi.v2.createAnnotation'] = true`");
     }
 
     // verify required parameter 'body' is not null or undefined
@@ -61,15 +60,8 @@ export class AnnotationsApiRequestFactory extends BaseAPIRequestFactory {
     const localVarPath = "/api/v2/annotation";
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "AnnotationsApi.v2.createAnnotation",
-      AnnotationsApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.POST,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("AnnotationsApi.v2.createAnnotation", AnnotationsApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.POST, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -79,7 +71,9 @@ export class AnnotationsApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Body Params
-    const contentType = getPreferredMediaType(["application/json"]);
+    const contentType = getPreferredMediaType([
+      "application/json",
+    ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = stringify(
       serialize(body, TypingInfo, "AnnotationCreateRequest", ""),
@@ -103,9 +97,7 @@ export class AnnotationsApiRequestFactory extends BaseAPIRequestFactory {
     const _config = _options || this.configuration;
 
     if (!_config.unstableOperations["AnnotationsApi.v2.deleteAnnotation"]) {
-      throw new Error(
-        "Unstable operation 'deleteAnnotation' is disabled. Enable it by setting `configuration.unstableOperations['AnnotationsApi.v2.deleteAnnotation'] = true`",
-      );
+      throw new Error("Unstable operation 'deleteAnnotation' is disabled. Enable it by setting `configuration.unstableOperations['AnnotationsApi.v2.deleteAnnotation'] = true`");
     }
 
     // verify required parameter 'annotationId' is not null or undefined
@@ -120,15 +112,8 @@ export class AnnotationsApiRequestFactory extends BaseAPIRequestFactory {
     );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "AnnotationsApi.v2.deleteAnnotation",
-      AnnotationsApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.DELETE,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("AnnotationsApi.v2.deleteAnnotation", AnnotationsApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.DELETE, overrides);
     requestContext.setHeaderParam("Accept", "*/*");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -155,9 +140,7 @@ export class AnnotationsApiRequestFactory extends BaseAPIRequestFactory {
     const _config = _options || this.configuration;
 
     if (!_config.unstableOperations["AnnotationsApi.v2.getPageAnnotations"]) {
-      throw new Error(
-        "Unstable operation 'getPageAnnotations' is disabled. Enable it by setting `configuration.unstableOperations['AnnotationsApi.v2.getPageAnnotations'] = true`",
-      );
+      throw new Error("Unstable operation 'getPageAnnotations' is disabled. Enable it by setting `configuration.unstableOperations['AnnotationsApi.v2.getPageAnnotations'] = true`");
     }
 
     // verify required parameter 'pageId' is not null or undefined
@@ -182,15 +165,8 @@ export class AnnotationsApiRequestFactory extends BaseAPIRequestFactory {
     );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "AnnotationsApi.v2.getPageAnnotations",
-      AnnotationsApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.GET,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("AnnotationsApi.v2.getPageAnnotations", AnnotationsApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.GET, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -234,9 +210,7 @@ export class AnnotationsApiRequestFactory extends BaseAPIRequestFactory {
     const _config = _options || this.configuration;
 
     if (!_config.unstableOperations["AnnotationsApi.v2.listAnnotations"]) {
-      throw new Error(
-        "Unstable operation 'listAnnotations' is disabled. Enable it by setting `configuration.unstableOperations['AnnotationsApi.v2.listAnnotations'] = true`",
-      );
+      throw new Error("Unstable operation 'listAnnotations' is disabled. Enable it by setting `configuration.unstableOperations['AnnotationsApi.v2.listAnnotations'] = true`");
     }
 
     // verify required parameter 'pageId' is not null or undefined
@@ -258,15 +232,8 @@ export class AnnotationsApiRequestFactory extends BaseAPIRequestFactory {
     const localVarPath = "/api/v2/annotation";
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "AnnotationsApi.v2.listAnnotations",
-      AnnotationsApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.GET,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("AnnotationsApi.v2.listAnnotations", AnnotationsApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.GET, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -322,9 +289,7 @@ export class AnnotationsApiRequestFactory extends BaseAPIRequestFactory {
     const _config = _options || this.configuration;
 
     if (!_config.unstableOperations["AnnotationsApi.v2.updateAnnotation"]) {
-      throw new Error(
-        "Unstable operation 'updateAnnotation' is disabled. Enable it by setting `configuration.unstableOperations['AnnotationsApi.v2.updateAnnotation'] = true`",
-      );
+      throw new Error("Unstable operation 'updateAnnotation' is disabled. Enable it by setting `configuration.unstableOperations['AnnotationsApi.v2.updateAnnotation'] = true`");
     }
 
     // verify required parameter 'annotationId' is not null or undefined
@@ -344,15 +309,8 @@ export class AnnotationsApiRequestFactory extends BaseAPIRequestFactory {
     );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "AnnotationsApi.v2.updateAnnotation",
-      AnnotationsApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.PUT,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("AnnotationsApi.v2.updateAnnotation", AnnotationsApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.PUT, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -362,7 +320,9 @@ export class AnnotationsApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Body Params
-    const contentType = getPreferredMediaType(["application/json"]);
+    const contentType = getPreferredMediaType([
+      "application/json",
+    ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = stringify(
       serialize(body, TypingInfo, "AnnotationUpdateRequest", ""),
@@ -391,7 +351,9 @@ export class AnnotationsApiResponseProcessor {
   public async createAnnotation(
     response: ResponseContext,
   ): Promise<AnnotationResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: AnnotationResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -405,7 +367,10 @@ export class AnnotationsApiResponseProcessor {
       response.httpStatusCode === 403 ||
       response.httpStatusCode === 500
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: JSONAPIErrorResponse;
       try {
         body = deserialize(
@@ -426,7 +391,10 @@ export class AnnotationsApiResponseProcessor {
       );
     }
     if (response.httpStatusCode === 429) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -441,7 +409,10 @@ export class AnnotationsApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -469,8 +440,12 @@ export class AnnotationsApiResponseProcessor {
    * @params response Response returned by the server for a request to deleteAnnotation
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async deleteAnnotation(response: ResponseContext): Promise<void> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+  public async deleteAnnotation(
+    response: ResponseContext,
+  ): Promise<void> {
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 204) {
       return;
     }
@@ -479,7 +454,10 @@ export class AnnotationsApiResponseProcessor {
       response.httpStatusCode === 403 ||
       response.httpStatusCode === 500
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: JSONAPIErrorResponse;
       try {
         body = deserialize(
@@ -500,7 +478,10 @@ export class AnnotationsApiResponseProcessor {
       );
     }
     if (response.httpStatusCode === 429) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -515,7 +496,10 @@ export class AnnotationsApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -540,7 +524,9 @@ export class AnnotationsApiResponseProcessor {
   public async getPageAnnotations(
     response: ResponseContext,
   ): Promise<PageAnnotationsResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: PageAnnotationsResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -554,7 +540,10 @@ export class AnnotationsApiResponseProcessor {
       response.httpStatusCode === 403 ||
       response.httpStatusCode === 500
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: JSONAPIErrorResponse;
       try {
         body = deserialize(
@@ -575,7 +564,10 @@ export class AnnotationsApiResponseProcessor {
       );
     }
     if (response.httpStatusCode === 429) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -590,7 +582,10 @@ export class AnnotationsApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -621,7 +616,9 @@ export class AnnotationsApiResponseProcessor {
   public async listAnnotations(
     response: ResponseContext,
   ): Promise<AnnotationsResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: AnnotationsResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -635,7 +632,10 @@ export class AnnotationsApiResponseProcessor {
       response.httpStatusCode === 403 ||
       response.httpStatusCode === 500
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: JSONAPIErrorResponse;
       try {
         body = deserialize(
@@ -656,7 +656,10 @@ export class AnnotationsApiResponseProcessor {
       );
     }
     if (response.httpStatusCode === 429) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -671,7 +674,10 @@ export class AnnotationsApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -702,7 +708,9 @@ export class AnnotationsApiResponseProcessor {
   public async updateAnnotation(
     response: ResponseContext,
   ): Promise<AnnotationResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: AnnotationResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -717,7 +725,10 @@ export class AnnotationsApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 500
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: JSONAPIErrorResponse;
       try {
         body = deserialize(
@@ -738,7 +749,10 @@ export class AnnotationsApiResponseProcessor {
       );
     }
     if (response.httpStatusCode === 429) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -753,7 +767,10 @@ export class AnnotationsApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -852,7 +869,8 @@ export class AnnotationsApi {
   private responseProcessor: AnnotationsApiResponseProcessor;
   private configuration: Configuration;
 
-  static operationServers: { [key: string]: BaseServerConfiguration[] } = {};
+  static operationServers: { [key: string]: BaseServerConfiguration[] } = {
+  };
 
   public constructor(
     configuration?: Configuration,
@@ -861,7 +879,8 @@ export class AnnotationsApi {
   ) {
     this.configuration = configuration || createConfiguration();
     this.requestFactory =
-      requestFactory || new AnnotationsApiRequestFactory(this.configuration);
+      requestFactory ||
+      new AnnotationsApiRequestFactory(this.configuration);
     this.responseProcessor =
       responseProcessor || new AnnotationsApiResponseProcessor();
   }

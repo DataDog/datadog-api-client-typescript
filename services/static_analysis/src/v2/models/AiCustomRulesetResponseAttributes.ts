@@ -25,7 +25,7 @@ export class AiCustomRulesetResponseAttributes {
   /**
    * The rules contained in the ruleset.
    */
-  "rules": Array<AiCustomRuleItem> | null;
+  "rules": Array<AiCustomRuleItem>|null;
   /**
    * Base64-encoded short description of the ruleset.
    */
@@ -35,7 +35,7 @@ export class AiCustomRulesetResponseAttributes {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
   /**
    * @ignore
    */

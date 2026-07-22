@@ -19,6 +19,7 @@ import {
   ServerConfiguration,
   stringify,
   applySecurityAuthentication,
+  
 } from "@datadog/datadog-api-client";
 
 import { TypingInfo } from "./models/TypingInfo";
@@ -59,22 +60,14 @@ export class DashboardListsApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Path Params
-    const localVarPath =
-      "/api/v2/dashboard/lists/manual/{dashboard_list_id}/dashboards".replace(
-        "{dashboard_list_id}",
-        encodeURIComponent(String(dashboardListId)),
-      );
+    const localVarPath = "/api/v2/dashboard/lists/manual/{dashboard_list_id}/dashboards".replace(
+      "{dashboard_list_id}",
+      encodeURIComponent(String(dashboardListId)),
+    );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "DashboardListsApi.v2.createDashboardListItems",
-      DashboardListsApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.POST,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("DashboardListsApi.v2.createDashboardListItems", DashboardListsApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.POST, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -84,7 +77,9 @@ export class DashboardListsApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Body Params
-    const contentType = getPreferredMediaType(["application/json"]);
+    const contentType = getPreferredMediaType([
+      "application/json",
+    ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = stringify(
       serialize(body, TypingInfo, "DashboardListAddItemsRequest", ""),
@@ -119,22 +114,14 @@ export class DashboardListsApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Path Params
-    const localVarPath =
-      "/api/v2/dashboard/lists/manual/{dashboard_list_id}/dashboards".replace(
-        "{dashboard_list_id}",
-        encodeURIComponent(String(dashboardListId)),
-      );
+    const localVarPath = "/api/v2/dashboard/lists/manual/{dashboard_list_id}/dashboards".replace(
+      "{dashboard_list_id}",
+      encodeURIComponent(String(dashboardListId)),
+    );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "DashboardListsApi.v2.deleteDashboardListItems",
-      DashboardListsApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.DELETE,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("DashboardListsApi.v2.deleteDashboardListItems", DashboardListsApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.DELETE, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -144,7 +131,9 @@ export class DashboardListsApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Body Params
-    const contentType = getPreferredMediaType(["application/json"]);
+    const contentType = getPreferredMediaType([
+      "application/json",
+    ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = stringify(
       serialize(body, TypingInfo, "DashboardListDeleteItemsRequest", ""),
@@ -173,22 +162,14 @@ export class DashboardListsApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Path Params
-    const localVarPath =
-      "/api/v2/dashboard/lists/manual/{dashboard_list_id}/dashboards".replace(
-        "{dashboard_list_id}",
-        encodeURIComponent(String(dashboardListId)),
-      );
+    const localVarPath = "/api/v2/dashboard/lists/manual/{dashboard_list_id}/dashboards".replace(
+      "{dashboard_list_id}",
+      encodeURIComponent(String(dashboardListId)),
+    );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "DashboardListsApi.v2.getDashboardListItems",
-      DashboardListsApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.GET,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("DashboardListsApi.v2.getDashboardListItems", DashboardListsApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.GET, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -225,22 +206,14 @@ export class DashboardListsApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Path Params
-    const localVarPath =
-      "/api/v2/dashboard/lists/manual/{dashboard_list_id}/dashboards".replace(
-        "{dashboard_list_id}",
-        encodeURIComponent(String(dashboardListId)),
-      );
+    const localVarPath = "/api/v2/dashboard/lists/manual/{dashboard_list_id}/dashboards".replace(
+      "{dashboard_list_id}",
+      encodeURIComponent(String(dashboardListId)),
+    );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "DashboardListsApi.v2.updateDashboardListItems",
-      DashboardListsApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.PUT,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("DashboardListsApi.v2.updateDashboardListItems", DashboardListsApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.PUT, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -250,7 +223,9 @@ export class DashboardListsApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Body Params
-    const contentType = getPreferredMediaType(["application/json"]);
+    const contentType = getPreferredMediaType([
+      "application/json",
+    ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = stringify(
       serialize(body, TypingInfo, "DashboardListUpdateItemsRequest", ""),
@@ -279,7 +254,9 @@ export class DashboardListsApiResponseProcessor {
   public async createDashboardListItems(
     response: ResponseContext,
   ): Promise<DashboardListAddItemsResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: DashboardListAddItemsResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -294,7 +271,10 @@ export class DashboardListsApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -309,7 +289,10 @@ export class DashboardListsApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -340,7 +323,9 @@ export class DashboardListsApiResponseProcessor {
   public async deleteDashboardListItems(
     response: ResponseContext,
   ): Promise<DashboardListDeleteItemsResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: DashboardListDeleteItemsResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -355,7 +340,10 @@ export class DashboardListsApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -370,7 +358,10 @@ export class DashboardListsApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -401,7 +392,9 @@ export class DashboardListsApiResponseProcessor {
   public async getDashboardListItems(
     response: ResponseContext,
   ): Promise<DashboardListItems> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: DashboardListItems = deserialize(
         parse(await response.body.text(), contentType),
@@ -415,7 +408,10 @@ export class DashboardListsApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -430,7 +426,10 @@ export class DashboardListsApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -461,7 +460,9 @@ export class DashboardListsApiResponseProcessor {
   public async updateDashboardListItems(
     response: ResponseContext,
   ): Promise<DashboardListUpdateItemsResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: DashboardListUpdateItemsResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -476,7 +477,10 @@ export class DashboardListsApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -491,7 +495,10 @@ export class DashboardListsApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -565,7 +572,8 @@ export class DashboardListsApi {
   private responseProcessor: DashboardListsApiResponseProcessor;
   private configuration: Configuration;
 
-  static operationServers: { [key: string]: BaseServerConfiguration[] } = {};
+  static operationServers: { [key: string]: BaseServerConfiguration[] } = {
+  };
 
   public constructor(
     configuration?: Configuration,
@@ -574,7 +582,8 @@ export class DashboardListsApi {
   ) {
     this.configuration = configuration || createConfiguration();
     this.requestFactory =
-      requestFactory || new DashboardListsApiRequestFactory(this.configuration);
+      requestFactory ||
+      new DashboardListsApiRequestFactory(this.configuration);
     this.responseProcessor =
       responseProcessor || new DashboardListsApiResponseProcessor();
   }
@@ -596,9 +605,7 @@ export class DashboardListsApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.createDashboardListItems(
-            responseContext,
-          );
+          return this.responseProcessor.createDashboardListItems(responseContext);
         });
     });
   }
@@ -620,9 +627,7 @@ export class DashboardListsApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.deleteDashboardListItems(
-            responseContext,
-          );
+          return this.responseProcessor.deleteDashboardListItems(responseContext);
         });
     });
   }
@@ -665,9 +670,7 @@ export class DashboardListsApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.updateDashboardListItems(
-            responseContext,
-          );
+          return this.responseProcessor.updateDashboardListItems(responseContext);
         });
     });
   }

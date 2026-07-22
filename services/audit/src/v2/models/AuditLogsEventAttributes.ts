@@ -1,5 +1,6 @@
 import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
+
 /**
  * JSON object containing all event attributes and their associated values.
  */
@@ -7,7 +8,7 @@ export class AuditLogsEventAttributes {
   /**
    * JSON object of attributes from Audit Logs events.
    */
-  "attributes"?: { [key: string]: any };
+  "attributes"?: { [key: string]: any; };
   /**
    * Message of the event.
    */
@@ -31,7 +32,7 @@ export class AuditLogsEventAttributes {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
   /**
    * @ignore
    */

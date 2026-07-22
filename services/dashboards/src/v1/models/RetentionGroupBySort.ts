@@ -22,7 +22,7 @@ export class RetentionGroupBySort {
     order: {
       baseName: "order",
       type: "WidgetSort",
-    },
+    }
   };
 
   /**

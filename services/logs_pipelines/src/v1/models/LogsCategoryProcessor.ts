@@ -7,9 +7,9 @@ import { LogsCategoryProcessorType } from "./LogsCategoryProcessorType";
  * Use the Category Processor to add a new attribute (without spaces or special characters in the new attribute name)
  * to a log matching a provided search query. Use categories to create groups for an analytical view.
  * For example, URL groups, machine groups, environments, and response time buckets.
- *
+ * 
  * **Notes**:
- *
+ * 
  * - The syntax of the query is the one of Logs Explorer search bar.
  *   The query can be done on any log attribute or tag, whether it is a facet or not.
  *   Wildcards can also be used inside your query.
@@ -45,7 +45,7 @@ export class LogsCategoryProcessor {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
   /**
    * @ignore
    */

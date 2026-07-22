@@ -52,14 +52,12 @@ export const TypingInfo: ModelTypingInfo = {
     ServiceNowInstancesResponse: ServiceNowInstancesResponse,
     ServiceNowTemplateAttributes: ServiceNowTemplateAttributes,
     ServiceNowTemplateCreateRequest: ServiceNowTemplateCreateRequest,
-    ServiceNowTemplateCreateRequestAttributes:
-      ServiceNowTemplateCreateRequestAttributes,
+    ServiceNowTemplateCreateRequestAttributes: ServiceNowTemplateCreateRequestAttributes,
     ServiceNowTemplateCreateRequestData: ServiceNowTemplateCreateRequestData,
     ServiceNowTemplateData: ServiceNowTemplateData,
     ServiceNowTemplateResponse: ServiceNowTemplateResponse,
     ServiceNowTemplateUpdateRequest: ServiceNowTemplateUpdateRequest,
-    ServiceNowTemplateUpdateRequestAttributes:
-      ServiceNowTemplateUpdateRequestAttributes,
+    ServiceNowTemplateUpdateRequestAttributes: ServiceNowTemplateUpdateRequestAttributes,
     ServiceNowTemplateUpdateRequestData: ServiceNowTemplateUpdateRequestData,
     ServiceNowTemplatesResponse: ServiceNowTemplatesResponse,
     ServiceNowUserAttributes: ServiceNowUserAttributes,

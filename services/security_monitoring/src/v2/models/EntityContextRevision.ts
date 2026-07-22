@@ -1,5 +1,6 @@
 import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
+
 /**
  * A single historical revision of an entity, including the time range during which the revision was observed.
  */
@@ -7,7 +8,7 @@ export class EntityContextRevision {
   /**
    * The set of attributes recorded for the entity at this revision. The keys depend on the kind of entity.
    */
-  "attributes": { [key: string]: any };
+  "attributes": { [key: string]: any; };
   /**
    * The first time the entity was observed at this revision.
    */
@@ -21,7 +22,7 @@ export class EntityContextRevision {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
   /**
    * @ignore
    */

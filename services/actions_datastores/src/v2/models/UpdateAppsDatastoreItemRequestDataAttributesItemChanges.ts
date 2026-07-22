@@ -1,5 +1,6 @@
 import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
+
 /**
  * Changes to apply to a datastore item using set operations.
  */
@@ -7,13 +8,13 @@ export class UpdateAppsDatastoreItemRequestDataAttributesItemChanges {
   /**
    * Set operation that contains key-value pairs to set on the datastore item.
    */
-  "opsSet"?: { [key: string]: any };
+  "opsSet"?: { [key: string]: any; };
   /**
    * A container for additional, undeclared properties.
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
   /**
    * @ignore
    */

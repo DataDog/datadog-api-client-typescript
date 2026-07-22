@@ -26,7 +26,7 @@ export class AnnotationInPage {
   /**
    * End time of the annotation in milliseconds since the Unix epoch. Null for `pointInTime` annotations.
    */
-  "endTime": number | null;
+  "endTime": number|null;
   /**
    * Unique identifier of the annotation.
    */
@@ -58,7 +58,7 @@ export class AnnotationInPage {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
   /**
    * @ignore
    */

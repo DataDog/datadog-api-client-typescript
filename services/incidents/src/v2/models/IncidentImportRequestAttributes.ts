@@ -18,7 +18,7 @@ export class IncidentImportRequestAttributes {
   /**
    * A condensed view of the user-defined fields for which to create initial selections.
    */
-  "fields"?: { [key: string]: IncidentImportFieldAttributes };
+  "fields"?: { [key: string]: IncidentImportFieldAttributes; };
   /**
    * A unique identifier that represents the incident type. If not provided, the default incident type is used.
    */
@@ -40,7 +40,7 @@ export class IncidentImportRequestAttributes {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
   /**
    * @ignore
    */

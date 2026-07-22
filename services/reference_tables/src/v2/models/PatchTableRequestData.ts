@@ -32,7 +32,7 @@ export class PatchTableRequestData {
       baseName: "type",
       type: "PatchTableRequestDataType",
       required: true,
-    },
+    }
   };
 
   /**

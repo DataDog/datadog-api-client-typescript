@@ -22,7 +22,7 @@ export class EntityV3Queue {
   /**
    * Custom extensions. This is the free-formed field to send client-side metadata. No Datadog features are affected by this field.
    */
-  "extensions"?: { [key: string]: any };
+  "extensions"?: { [key: string]: any; };
   /**
    * A base schema for defining third-party integrations.
    */
@@ -78,7 +78,7 @@ export class EntityV3Queue {
     spec: {
       baseName: "spec",
       type: "EntityV3QueueSpec",
-    },
+    }
   };
 
   /**

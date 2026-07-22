@@ -1,5 +1,6 @@
 import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
+
 /**
  * Attributes for updating a Jira issue template
  */
@@ -7,7 +8,7 @@ export class JiraIssueTemplateUpdateRequestAttributes {
   /**
    * Custom fields for the Jira issue template
    */
-  "fields"?: { [key: string]: any };
+  "fields"?: { [key: string]: any; };
   /**
    * The name of the issue template
    */
@@ -17,7 +18,7 @@ export class JiraIssueTemplateUpdateRequestAttributes {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
   /**
    * @ignore
    */

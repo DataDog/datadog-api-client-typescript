@@ -33,7 +33,7 @@ export class SankeyNetworkRequest {
       baseName: "request_type",
       type: "SankeyNetworkRequestType",
       required: true,
-    },
+    }
   };
 
   /**

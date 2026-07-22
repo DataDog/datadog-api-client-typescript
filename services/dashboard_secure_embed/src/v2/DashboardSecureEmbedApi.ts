@@ -19,6 +19,7 @@ import {
   ServerConfiguration,
   stringify,
   applySecurityAuthentication,
+  
 } from "@datadog/datadog-api-client";
 
 import { TypingInfo } from "./models/TypingInfo";
@@ -47,14 +48,8 @@ export class DashboardSecureEmbedApiRequestFactory extends BaseAPIRequestFactory
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
-    if (
-      !_config.unstableOperations[
-        "DashboardSecureEmbedApi.v2.createDashboardSecureEmbed"
-      ]
-    ) {
-      throw new Error(
-        "Unstable operation 'createDashboardSecureEmbed' is disabled. Enable it by setting `configuration.unstableOperations['DashboardSecureEmbedApi.v2.createDashboardSecureEmbed'] = true`",
-      );
+    if (!_config.unstableOperations["DashboardSecureEmbedApi.v2.createDashboardSecureEmbed"]) {
+      throw new Error("Unstable operation 'createDashboardSecureEmbed' is disabled. Enable it by setting `configuration.unstableOperations['DashboardSecureEmbedApi.v2.createDashboardSecureEmbed'] = true`");
     }
 
     // verify required parameter 'dashboardId' is not null or undefined
@@ -68,22 +63,14 @@ export class DashboardSecureEmbedApiRequestFactory extends BaseAPIRequestFactory
     }
 
     // Path Params
-    const localVarPath =
-      "/api/v2/dashboard/{dashboard_id}/shared/secure-embed".replace(
-        "{dashboard_id}",
-        encodeURIComponent(String(dashboardId)),
-      );
+    const localVarPath = "/api/v2/dashboard/{dashboard_id}/shared/secure-embed".replace(
+      "{dashboard_id}",
+      encodeURIComponent(String(dashboardId)),
+    );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "DashboardSecureEmbedApi.v2.createDashboardSecureEmbed",
-      DashboardSecureEmbedApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.POST,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("DashboardSecureEmbedApi.v2.createDashboardSecureEmbed", DashboardSecureEmbedApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.POST, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -93,7 +80,9 @@ export class DashboardSecureEmbedApiRequestFactory extends BaseAPIRequestFactory
     }
 
     // Body Params
-    const contentType = getPreferredMediaType(["application/json"]);
+    const contentType = getPreferredMediaType([
+      "application/json",
+    ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = stringify(
       serialize(body, TypingInfo, "SecureEmbedCreateRequest", ""),
@@ -118,14 +107,8 @@ export class DashboardSecureEmbedApiRequestFactory extends BaseAPIRequestFactory
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
-    if (
-      !_config.unstableOperations[
-        "DashboardSecureEmbedApi.v2.deleteDashboardSecureEmbed"
-      ]
-    ) {
-      throw new Error(
-        "Unstable operation 'deleteDashboardSecureEmbed' is disabled. Enable it by setting `configuration.unstableOperations['DashboardSecureEmbedApi.v2.deleteDashboardSecureEmbed'] = true`",
-      );
+    if (!_config.unstableOperations["DashboardSecureEmbedApi.v2.deleteDashboardSecureEmbed"]) {
+      throw new Error("Unstable operation 'deleteDashboardSecureEmbed' is disabled. Enable it by setting `configuration.unstableOperations['DashboardSecureEmbedApi.v2.deleteDashboardSecureEmbed'] = true`");
     }
 
     // verify required parameter 'dashboardId' is not null or undefined
@@ -139,21 +122,17 @@ export class DashboardSecureEmbedApiRequestFactory extends BaseAPIRequestFactory
     }
 
     // Path Params
-    const localVarPath =
-      "/api/v2/dashboard/{dashboard_id}/shared/secure-embed/{token}"
-        .replace("{dashboard_id}", encodeURIComponent(String(dashboardId)))
-        .replace("{token}", encodeURIComponent(String(token)));
+    const localVarPath = "/api/v2/dashboard/{dashboard_id}/shared/secure-embed/{token}".replace(
+      "{dashboard_id}",
+      encodeURIComponent(String(dashboardId)),
+    ).replace(
+      "{token}",
+      encodeURIComponent(String(token)),
+    );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "DashboardSecureEmbedApi.v2.deleteDashboardSecureEmbed",
-      DashboardSecureEmbedApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.DELETE,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("DashboardSecureEmbedApi.v2.deleteDashboardSecureEmbed", DashboardSecureEmbedApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.DELETE, overrides);
     requestContext.setHeaderParam("Accept", "*/*");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -179,14 +158,8 @@ export class DashboardSecureEmbedApiRequestFactory extends BaseAPIRequestFactory
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
-    if (
-      !_config.unstableOperations[
-        "DashboardSecureEmbedApi.v2.getDashboardSecureEmbed"
-      ]
-    ) {
-      throw new Error(
-        "Unstable operation 'getDashboardSecureEmbed' is disabled. Enable it by setting `configuration.unstableOperations['DashboardSecureEmbedApi.v2.getDashboardSecureEmbed'] = true`",
-      );
+    if (!_config.unstableOperations["DashboardSecureEmbedApi.v2.getDashboardSecureEmbed"]) {
+      throw new Error("Unstable operation 'getDashboardSecureEmbed' is disabled. Enable it by setting `configuration.unstableOperations['DashboardSecureEmbedApi.v2.getDashboardSecureEmbed'] = true`");
     }
 
     // verify required parameter 'dashboardId' is not null or undefined
@@ -200,21 +173,17 @@ export class DashboardSecureEmbedApiRequestFactory extends BaseAPIRequestFactory
     }
 
     // Path Params
-    const localVarPath =
-      "/api/v2/dashboard/{dashboard_id}/shared/secure-embed/{token}"
-        .replace("{dashboard_id}", encodeURIComponent(String(dashboardId)))
-        .replace("{token}", encodeURIComponent(String(token)));
+    const localVarPath = "/api/v2/dashboard/{dashboard_id}/shared/secure-embed/{token}".replace(
+      "{dashboard_id}",
+      encodeURIComponent(String(dashboardId)),
+    ).replace(
+      "{token}",
+      encodeURIComponent(String(token)),
+    );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "DashboardSecureEmbedApi.v2.getDashboardSecureEmbed",
-      DashboardSecureEmbedApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.GET,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("DashboardSecureEmbedApi.v2.getDashboardSecureEmbed", DashboardSecureEmbedApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.GET, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -241,14 +210,8 @@ export class DashboardSecureEmbedApiRequestFactory extends BaseAPIRequestFactory
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
-    if (
-      !_config.unstableOperations[
-        "DashboardSecureEmbedApi.v2.updateDashboardSecureEmbed"
-      ]
-    ) {
-      throw new Error(
-        "Unstable operation 'updateDashboardSecureEmbed' is disabled. Enable it by setting `configuration.unstableOperations['DashboardSecureEmbedApi.v2.updateDashboardSecureEmbed'] = true`",
-      );
+    if (!_config.unstableOperations["DashboardSecureEmbedApi.v2.updateDashboardSecureEmbed"]) {
+      throw new Error("Unstable operation 'updateDashboardSecureEmbed' is disabled. Enable it by setting `configuration.unstableOperations['DashboardSecureEmbedApi.v2.updateDashboardSecureEmbed'] = true`");
     }
 
     // verify required parameter 'dashboardId' is not null or undefined
@@ -267,21 +230,17 @@ export class DashboardSecureEmbedApiRequestFactory extends BaseAPIRequestFactory
     }
 
     // Path Params
-    const localVarPath =
-      "/api/v2/dashboard/{dashboard_id}/shared/secure-embed/{token}"
-        .replace("{dashboard_id}", encodeURIComponent(String(dashboardId)))
-        .replace("{token}", encodeURIComponent(String(token)));
+    const localVarPath = "/api/v2/dashboard/{dashboard_id}/shared/secure-embed/{token}".replace(
+      "{dashboard_id}",
+      encodeURIComponent(String(dashboardId)),
+    ).replace(
+      "{token}",
+      encodeURIComponent(String(token)),
+    );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "DashboardSecureEmbedApi.v2.updateDashboardSecureEmbed",
-      DashboardSecureEmbedApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.PATCH,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("DashboardSecureEmbedApi.v2.updateDashboardSecureEmbed", DashboardSecureEmbedApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.PATCH, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -291,7 +250,9 @@ export class DashboardSecureEmbedApiRequestFactory extends BaseAPIRequestFactory
     }
 
     // Body Params
-    const contentType = getPreferredMediaType(["application/json"]);
+    const contentType = getPreferredMediaType([
+      "application/json",
+    ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = stringify(
       serialize(body, TypingInfo, "SecureEmbedUpdateRequest", ""),
@@ -321,7 +282,9 @@ export class DashboardSecureEmbedApiResponseProcessor {
   public async createDashboardSecureEmbed(
     response: ResponseContext,
   ): Promise<SecureEmbedCreateResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: SecureEmbedCreateResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -335,7 +298,10 @@ export class DashboardSecureEmbedApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 409
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: JSONAPIErrorResponse;
       try {
         body = deserialize(
@@ -356,7 +322,10 @@ export class DashboardSecureEmbedApiResponseProcessor {
       );
     }
     if (response.httpStatusCode === 429) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -371,7 +340,10 @@ export class DashboardSecureEmbedApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -402,12 +374,20 @@ export class DashboardSecureEmbedApiResponseProcessor {
   public async deleteDashboardSecureEmbed(
     response: ResponseContext,
   ): Promise<void> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 204) {
       return;
     }
-    if (response.httpStatusCode === 403 || response.httpStatusCode === 404) {
-      const bodyText = parse(await response.body.text(), contentType);
+    if (
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 404
+    ) {
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: JSONAPIErrorResponse;
       try {
         body = deserialize(
@@ -428,7 +408,10 @@ export class DashboardSecureEmbedApiResponseProcessor {
       );
     }
     if (response.httpStatusCode === 429) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -443,7 +426,10 @@ export class DashboardSecureEmbedApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -468,7 +454,9 @@ export class DashboardSecureEmbedApiResponseProcessor {
   public async getDashboardSecureEmbed(
     response: ResponseContext,
   ): Promise<SecureEmbedGetResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: SecureEmbedGetResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -478,7 +466,10 @@ export class DashboardSecureEmbedApiResponseProcessor {
       return body;
     }
     if (response.httpStatusCode === 404) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: JSONAPIErrorResponse;
       try {
         body = deserialize(
@@ -499,7 +490,10 @@ export class DashboardSecureEmbedApiResponseProcessor {
       );
     }
     if (response.httpStatusCode === 429) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -514,7 +508,10 @@ export class DashboardSecureEmbedApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -545,7 +542,9 @@ export class DashboardSecureEmbedApiResponseProcessor {
   public async updateDashboardSecureEmbed(
     response: ResponseContext,
   ): Promise<SecureEmbedUpdateResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: SecureEmbedUpdateResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -554,8 +553,14 @@ export class DashboardSecureEmbedApiResponseProcessor {
       ) as SecureEmbedUpdateResponse;
       return body;
     }
-    if (response.httpStatusCode === 403 || response.httpStatusCode === 404) {
-      const bodyText = parse(await response.body.text(), contentType);
+    if (
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 404
+    ) {
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: JSONAPIErrorResponse;
       try {
         body = deserialize(
@@ -576,7 +581,10 @@ export class DashboardSecureEmbedApiResponseProcessor {
       );
     }
     if (response.httpStatusCode === 429) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -591,7 +599,10 @@ export class DashboardSecureEmbedApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -675,7 +686,8 @@ export class DashboardSecureEmbedApi {
   private responseProcessor: DashboardSecureEmbedApiResponseProcessor;
   private configuration: Configuration;
 
-  static operationServers: { [key: string]: BaseServerConfiguration[] } = {};
+  static operationServers: { [key: string]: BaseServerConfiguration[] } = {
+  };
 
   public constructor(
     configuration?: Configuration,
@@ -698,19 +710,16 @@ export class DashboardSecureEmbedApi {
     param: DashboardSecureEmbedApiCreateDashboardSecureEmbedRequest,
     options?: Configuration,
   ): Promise<SecureEmbedCreateResponse> {
-    const requestContextPromise =
-      this.requestFactory.createDashboardSecureEmbed(
-        param.dashboardId,
-        param.body,
-        options,
-      );
+    const requestContextPromise = this.requestFactory.createDashboardSecureEmbed(
+      param.dashboardId,
+      param.body,
+      options,
+    );
     return requestContextPromise.then((requestContext) => {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.createDashboardSecureEmbed(
-            responseContext,
-          );
+          return this.responseProcessor.createDashboardSecureEmbed(responseContext);
         });
     });
   }
@@ -723,19 +732,16 @@ export class DashboardSecureEmbedApi {
     param: DashboardSecureEmbedApiDeleteDashboardSecureEmbedRequest,
     options?: Configuration,
   ): Promise<void> {
-    const requestContextPromise =
-      this.requestFactory.deleteDashboardSecureEmbed(
-        param.dashboardId,
-        param.token,
-        options,
-      );
+    const requestContextPromise = this.requestFactory.deleteDashboardSecureEmbed(
+      param.dashboardId,
+      param.token,
+      options,
+    );
     return requestContextPromise.then((requestContext) => {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.deleteDashboardSecureEmbed(
-            responseContext,
-          );
+          return this.responseProcessor.deleteDashboardSecureEmbed(responseContext);
         });
     });
   }
@@ -757,9 +763,7 @@ export class DashboardSecureEmbedApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.getDashboardSecureEmbed(
-            responseContext,
-          );
+          return this.responseProcessor.getDashboardSecureEmbed(responseContext);
         });
     });
   }
@@ -772,20 +776,17 @@ export class DashboardSecureEmbedApi {
     param: DashboardSecureEmbedApiUpdateDashboardSecureEmbedRequest,
     options?: Configuration,
   ): Promise<SecureEmbedUpdateResponse> {
-    const requestContextPromise =
-      this.requestFactory.updateDashboardSecureEmbed(
-        param.dashboardId,
-        param.token,
-        param.body,
-        options,
-      );
+    const requestContextPromise = this.requestFactory.updateDashboardSecureEmbed(
+      param.dashboardId,
+      param.token,
+      param.body,
+      options,
+    );
     return requestContextPromise.then((requestContext) => {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.updateDashboardSecureEmbed(
-            responseContext,
-          );
+          return this.responseProcessor.updateDashboardSecureEmbed(responseContext);
         });
     });
   }

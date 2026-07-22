@@ -30,7 +30,7 @@ export class PatchTableRequestDataAttributesFileMetadataCloudStorage {
     syncEnabled: {
       baseName: "sync_enabled",
       type: "boolean",
-    },
+    }
   };
 
   /**

@@ -30,10 +30,10 @@ export class MonitorUpdateRequest {
   "deleted"?: Date;
   /**
    * Indicates whether the monitor is in a draft or published state.
-   *
+   * 
    * `draft`: The monitor appears as Draft and does not send notifications.
    * `published`: The monitor is active and evaluates conditions and notify as configured.
-   *
+   * 
    * This field is in preview. The draft value is only available to customers with the feature enabled.
    */
   "draftStatus"?: MonitorDraftStatus;
@@ -94,7 +94,7 @@ export class MonitorUpdateRequest {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
   /**
    * @ignore
    */

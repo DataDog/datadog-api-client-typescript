@@ -22,11 +22,11 @@ export class UserJourneySearch {
   /**
    * Node objects mapping.
    */
-  "nodeObjects": { [key: string]: any };
+  "nodeObjects": { [key: string]: any; };
   /**
    * Step aliases mapping.
    */
-  "stepAliases"?: { [key: string]: string };
+  "stepAliases"?: { [key: string]: string; };
   /**
    * @ignore
    */
@@ -57,7 +57,7 @@ export class UserJourneySearch {
     stepAliases: {
       baseName: "step_aliases",
       type: "{ [key: string]: string; }",
-    },
+    }
   };
 
   /**

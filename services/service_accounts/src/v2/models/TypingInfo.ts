@@ -65,28 +65,12 @@ import { UserResponseRelationships } from "./UserResponseRelationships";
 
 export const TypingInfo: ModelTypingInfo = {
   enumsMap: {
-    ApplicationKeysSort: [
-      "created_at",
-      "-created_at",
-      "last4",
-      "-last4",
-      "name",
-      "-name",
-    ],
+    ApplicationKeysSort: ["created_at", "-created_at", "last4", "-last4", "name", "-name"],
     ApplicationKeysType: ["application_keys"],
     LeakedKeyType: ["leaked_keys"],
     OrganizationsType: ["orgs"],
     PermissionsType: ["permissions"],
-    PersonalAccessTokensSort: [
-      "name",
-      "-name",
-      "created_at",
-      "-created_at",
-      "expires_at",
-      "-expires_at",
-      "last_used_at",
-      "-last_used_at",
-    ],
+    PersonalAccessTokensSort: ["name", "-name", "created_at", "-created_at", "expires_at", "-expires_at", "last_used_at", "-last_used_at"],
     RolesType: ["roles"],
     ServiceAccessTokensType: ["service_access_tokens"],
     ServiceAccountType: ["service_account"],
@@ -95,7 +79,7 @@ export const TypingInfo: ModelTypingInfo = {
   oneOfMap: {
     ApplicationKeyResponseIncludedItem: ["User", "Role", "LeakedKey"],
     UserResponseIncludedItem: ["Organization", "Permission", "Role"],
-  },
+    },
   typeMap: {
     APIErrorResponse: APIErrorResponse,
     ApplicationKeyCreateAttributes: ApplicationKeyCreateAttributes,
@@ -145,16 +129,12 @@ export const TypingInfo: ModelTypingInfo = {
     ServiceAccessTokenResponse: ServiceAccessTokenResponse,
     ServiceAccessTokenResponseMeta: ServiceAccessTokenResponseMeta,
     ServiceAccessTokenResponseMetaPage: ServiceAccessTokenResponseMetaPage,
-    ServiceAccountAccessTokenCreateAttributes:
-      ServiceAccountAccessTokenCreateAttributes,
+    ServiceAccountAccessTokenCreateAttributes: ServiceAccountAccessTokenCreateAttributes,
     ServiceAccountAccessTokenCreateData: ServiceAccountAccessTokenCreateData,
-    ServiceAccountAccessTokenCreateRequest:
-      ServiceAccountAccessTokenCreateRequest,
-    ServiceAccountAccessTokenUpdateAttributes:
-      ServiceAccountAccessTokenUpdateAttributes,
+    ServiceAccountAccessTokenCreateRequest: ServiceAccountAccessTokenCreateRequest,
+    ServiceAccountAccessTokenUpdateAttributes: ServiceAccountAccessTokenUpdateAttributes,
     ServiceAccountAccessTokenUpdateData: ServiceAccountAccessTokenUpdateData,
-    ServiceAccountAccessTokenUpdateRequest:
-      ServiceAccountAccessTokenUpdateRequest,
+    ServiceAccountAccessTokenUpdateRequest: ServiceAccountAccessTokenUpdateRequest,
     ServiceAccountCreateAttributes: ServiceAccountCreateAttributes,
     ServiceAccountCreateData: ServiceAccountCreateData,
     ServiceAccountCreateRequest: ServiceAccountCreateRequest,

@@ -39,7 +39,7 @@ export class SLOCountDefinitionWithBadEventsFormula {
       baseName: "queries",
       type: "Array<SLODataSourceQueryDefinition>",
       required: true,
-    },
+    }
   };
 
   /**

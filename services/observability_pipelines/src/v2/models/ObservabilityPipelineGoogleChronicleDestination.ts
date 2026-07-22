@@ -7,7 +7,7 @@ import { ObservabilityPipelineGoogleChronicleDestinationType } from "./Observabi
 
 /**
  * The `google_chronicle` destination sends logs to Google Chronicle.
- *
+ * 
  * **Supported pipeline types:** logs
  */
 export class ObservabilityPipelineGoogleChronicleDestination {
@@ -52,7 +52,7 @@ export class ObservabilityPipelineGoogleChronicleDestination {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
   /**
    * @ignore
    */

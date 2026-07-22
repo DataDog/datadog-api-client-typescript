@@ -53,11 +53,7 @@ export const TypingInfo: ModelTypingInfo = {
     ReportScheduleIncludedResourceType: ["resource"],
     ReportScheduleListResponsePaginationType: ["offset_limit"],
     ReportScheduleResourceType: ["dashboard", "integration_dashboard"],
-    ReportScheduleResponseAttributesDeliveryFormat: [
-      "pdf",
-      "png",
-      "pdf_and_png",
-    ],
+    ReportScheduleResponseAttributesDeliveryFormat: ["pdf", "png", "pdf_and_png"],
     ReportScheduleStatus: ["active", "inactive"],
     ReportScheduleType: ["schedule"],
   },
@@ -66,12 +62,11 @@ export const TypingInfo: ModelTypingInfo = {
       "ReportScheduleAuthor",
       "ReportScheduleResource",
     ],
-  },
+    },
   typeMap: {
     APIErrorResponse: APIErrorResponse,
     DatasetReportScheduleListResponse: DatasetReportScheduleListResponse,
-    DatasetReportScheduleResponseAttributes:
-      DatasetReportScheduleResponseAttributes,
+    DatasetReportScheduleResponseAttributes: DatasetReportScheduleResponseAttributes,
     DatasetReportScheduleResponseData: DatasetReportScheduleResponseData,
     JSONAPIErrorItem: JSONAPIErrorItem,
     JSONAPIErrorItemSource: JSONAPIErrorItemSource,
@@ -87,22 +82,18 @@ export const TypingInfo: ModelTypingInfo = {
     ReportScheduleAuthorRelationship: ReportScheduleAuthorRelationship,
     ReportScheduleAuthorRelationshipData: ReportScheduleAuthorRelationshipData,
     ReportScheduleCreateRequest: ReportScheduleCreateRequest,
-    ReportScheduleCreateRequestAttributes:
-      ReportScheduleCreateRequestAttributes,
+    ReportScheduleCreateRequestAttributes: ReportScheduleCreateRequestAttributes,
     ReportScheduleCreateRequestData: ReportScheduleCreateRequestData,
     ReportScheduleIndexTemplateVariable: ReportScheduleIndexTemplateVariable,
-    ReportScheduleListResourceRelationship:
-      ReportScheduleListResourceRelationship,
-    ReportScheduleListResourceRelationshipData:
-      ReportScheduleListResourceRelationshipData,
+    ReportScheduleListResourceRelationship: ReportScheduleListResourceRelationship,
+    ReportScheduleListResourceRelationshipData: ReportScheduleListResourceRelationshipData,
     ReportScheduleListResponse: ReportScheduleListResponse,
     ReportScheduleListResponseAttributes: ReportScheduleListResponseAttributes,
     ReportScheduleListResponseData: ReportScheduleListResponseData,
     ReportScheduleListResponseLinks: ReportScheduleListResponseLinks,
     ReportScheduleListResponseMeta: ReportScheduleListResponseMeta,
     ReportScheduleListResponsePagination: ReportScheduleListResponsePagination,
-    ReportScheduleListResponseRelationships:
-      ReportScheduleListResponseRelationships,
+    ReportScheduleListResponseRelationships: ReportScheduleListResponseRelationships,
     ReportSchedulePatchRequest: ReportSchedulePatchRequest,
     ReportSchedulePatchRequestAttributes: ReportSchedulePatchRequestAttributes,
     ReportSchedulePatchRequestData: ReportSchedulePatchRequestData,
@@ -114,8 +105,7 @@ export const TypingInfo: ModelTypingInfo = {
     ReportScheduleResponseRelationships: ReportScheduleResponseRelationships,
     ReportScheduleTemplateVariable: ReportScheduleTemplateVariable,
     ReportScheduleToggleRequest: ReportScheduleToggleRequest,
-    ReportScheduleToggleRequestAttributes:
-      ReportScheduleToggleRequestAttributes,
+    ReportScheduleToggleRequestAttributes: ReportScheduleToggleRequestAttributes,
     ReportScheduleToggleRequestData: ReportScheduleToggleRequestData,
   },
 };

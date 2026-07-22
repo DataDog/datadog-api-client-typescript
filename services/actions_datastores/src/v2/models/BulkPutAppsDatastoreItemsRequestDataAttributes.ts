@@ -13,13 +13,13 @@ export class BulkPutAppsDatastoreItemsRequestDataAttributes {
   /**
    * An array of items to add to the datastore, where each item is a set of key-value pairs representing the item's data. Up to 100 items can be updated in a single request.
    */
-  "values": Array<{ [key: string]: any }>;
+  "values": Array<{ [key: string]: any; }>;
   /**
    * A container for additional, undeclared properties.
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
   /**
    * @ignore
    */

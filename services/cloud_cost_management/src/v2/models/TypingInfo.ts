@@ -291,7 +291,7 @@ export const TypingInfo: ModelTypingInfo = {
       "CommitmentsAzureVMRICommitment",
       "CommitmentsAzureComputeSPCommitment",
     ],
-  },
+    },
   typeMap: {
     APIErrorResponse: APIErrorResponse,
     AccountFilteringConfig: AccountFilteringConfig,
@@ -303,45 +303,29 @@ export const TypingInfo: ModelTypingInfo = {
     AccountFiltersResponse: AccountFiltersResponse,
     ArbitraryCostUpsertRequest: ArbitraryCostUpsertRequest,
     ArbitraryCostUpsertRequestData: ArbitraryCostUpsertRequestData,
-    ArbitraryCostUpsertRequestDataAttributes:
-      ArbitraryCostUpsertRequestDataAttributes,
-    ArbitraryCostUpsertRequestDataAttributesCostsToAllocateItems:
-      ArbitraryCostUpsertRequestDataAttributesCostsToAllocateItems,
-    ArbitraryCostUpsertRequestDataAttributesStrategy:
-      ArbitraryCostUpsertRequestDataAttributesStrategy,
-    ArbitraryCostUpsertRequestDataAttributesStrategyAllocatedByFiltersItems:
-      ArbitraryCostUpsertRequestDataAttributesStrategyAllocatedByFiltersItems,
-    ArbitraryCostUpsertRequestDataAttributesStrategyAllocatedByItems:
-      ArbitraryCostUpsertRequestDataAttributesStrategyAllocatedByItems,
-    ArbitraryCostUpsertRequestDataAttributesStrategyAllocatedByItemsAllocatedTagsItems:
-      ArbitraryCostUpsertRequestDataAttributesStrategyAllocatedByItemsAllocatedTagsItems,
-    ArbitraryCostUpsertRequestDataAttributesStrategyBasedOnCostsItems:
-      ArbitraryCostUpsertRequestDataAttributesStrategyBasedOnCostsItems,
-    ArbitraryCostUpsertRequestDataAttributesStrategyEvaluateGroupedByFiltersItems:
-      ArbitraryCostUpsertRequestDataAttributesStrategyEvaluateGroupedByFiltersItems,
+    ArbitraryCostUpsertRequestDataAttributes: ArbitraryCostUpsertRequestDataAttributes,
+    ArbitraryCostUpsertRequestDataAttributesCostsToAllocateItems: ArbitraryCostUpsertRequestDataAttributesCostsToAllocateItems,
+    ArbitraryCostUpsertRequestDataAttributesStrategy: ArbitraryCostUpsertRequestDataAttributesStrategy,
+    ArbitraryCostUpsertRequestDataAttributesStrategyAllocatedByFiltersItems: ArbitraryCostUpsertRequestDataAttributesStrategyAllocatedByFiltersItems,
+    ArbitraryCostUpsertRequestDataAttributesStrategyAllocatedByItems: ArbitraryCostUpsertRequestDataAttributesStrategyAllocatedByItems,
+    ArbitraryCostUpsertRequestDataAttributesStrategyAllocatedByItemsAllocatedTagsItems: ArbitraryCostUpsertRequestDataAttributesStrategyAllocatedByItemsAllocatedTagsItems,
+    ArbitraryCostUpsertRequestDataAttributesStrategyBasedOnCostsItems: ArbitraryCostUpsertRequestDataAttributesStrategyBasedOnCostsItems,
+    ArbitraryCostUpsertRequestDataAttributesStrategyEvaluateGroupedByFiltersItems: ArbitraryCostUpsertRequestDataAttributesStrategyEvaluateGroupedByFiltersItems,
     ArbitraryRuleResponse: ArbitraryRuleResponse,
     ArbitraryRuleResponseArray: ArbitraryRuleResponseArray,
     ArbitraryRuleResponseArrayMeta: ArbitraryRuleResponseArrayMeta,
     ArbitraryRuleResponseData: ArbitraryRuleResponseData,
     ArbitraryRuleResponseDataAttributes: ArbitraryRuleResponseDataAttributes,
-    ArbitraryRuleResponseDataAttributesCostsToAllocateItems:
-      ArbitraryRuleResponseDataAttributesCostsToAllocateItems,
-    ArbitraryRuleResponseDataAttributesStrategy:
-      ArbitraryRuleResponseDataAttributesStrategy,
-    ArbitraryRuleResponseDataAttributesStrategyAllocatedByFiltersItems:
-      ArbitraryRuleResponseDataAttributesStrategyAllocatedByFiltersItems,
-    ArbitraryRuleResponseDataAttributesStrategyAllocatedByItems:
-      ArbitraryRuleResponseDataAttributesStrategyAllocatedByItems,
-    ArbitraryRuleResponseDataAttributesStrategyAllocatedByItemsAllocatedTagsItems:
-      ArbitraryRuleResponseDataAttributesStrategyAllocatedByItemsAllocatedTagsItems,
-    ArbitraryRuleResponseDataAttributesStrategyBasedOnCostsItems:
-      ArbitraryRuleResponseDataAttributesStrategyBasedOnCostsItems,
-    ArbitraryRuleResponseDataAttributesStrategyEvaluateGroupedByFiltersItems:
-      ArbitraryRuleResponseDataAttributesStrategyEvaluateGroupedByFiltersItems,
+    ArbitraryRuleResponseDataAttributesCostsToAllocateItems: ArbitraryRuleResponseDataAttributesCostsToAllocateItems,
+    ArbitraryRuleResponseDataAttributesStrategy: ArbitraryRuleResponseDataAttributesStrategy,
+    ArbitraryRuleResponseDataAttributesStrategyAllocatedByFiltersItems: ArbitraryRuleResponseDataAttributesStrategyAllocatedByFiltersItems,
+    ArbitraryRuleResponseDataAttributesStrategyAllocatedByItems: ArbitraryRuleResponseDataAttributesStrategyAllocatedByItems,
+    ArbitraryRuleResponseDataAttributesStrategyAllocatedByItemsAllocatedTagsItems: ArbitraryRuleResponseDataAttributesStrategyAllocatedByItemsAllocatedTagsItems,
+    ArbitraryRuleResponseDataAttributesStrategyBasedOnCostsItems: ArbitraryRuleResponseDataAttributesStrategyBasedOnCostsItems,
+    ArbitraryRuleResponseDataAttributesStrategyEvaluateGroupedByFiltersItems: ArbitraryRuleResponseDataAttributesStrategyEvaluateGroupedByFiltersItems,
     ArbitraryRuleStatusResponseArray: ArbitraryRuleStatusResponseArray,
     ArbitraryRuleStatusResponseData: ArbitraryRuleStatusResponseData,
-    ArbitraryRuleStatusResponseDataAttributes:
-      ArbitraryRuleStatusResponseDataAttributes,
+    ArbitraryRuleStatusResponseDataAttributes: ArbitraryRuleStatusResponseDataAttributes,
     AwsCURConfig: AwsCURConfig,
     AwsCURConfigAttributes: AwsCURConfigAttributes,
     AwsCURConfigPatchData: AwsCURConfigPatchData,
@@ -354,8 +338,7 @@ export const TypingInfo: ModelTypingInfo = {
     AwsCurConfigResponse: AwsCurConfigResponse,
     AwsCurConfigResponseData: AwsCurConfigResponseData,
     AwsCurConfigResponseDataAttributes: AwsCurConfigResponseDataAttributes,
-    AwsCurConfigResponseDataAttributesAccountFilters:
-      AwsCurConfigResponseDataAttributesAccountFilters,
+    AwsCurConfigResponseDataAttributesAccountFilters: AwsCurConfigResponseDataAttributesAccountFilters,
     AzureUCConfig: AzureUCConfig,
     AzureUCConfigPair: AzureUCConfigPair,
     AzureUCConfigPairAttributes: AzureUCConfigPairAttributes,
@@ -377,44 +360,34 @@ export const TypingInfo: ModelTypingInfo = {
     BudgetValidationRequestData: BudgetValidationRequestData,
     BudgetValidationResponse: BudgetValidationResponse,
     BudgetValidationResponseData: BudgetValidationResponseData,
-    BudgetValidationResponseDataAttributes:
-      BudgetValidationResponseDataAttributes,
+    BudgetValidationResponseDataAttributes: BudgetValidationResponseDataAttributes,
     BudgetWithEntries: BudgetWithEntries,
     BudgetWithEntriesData: BudgetWithEntriesData,
     BudgetWithEntriesDataAttributes: BudgetWithEntriesDataAttributes,
-    BudgetWithEntriesDataAttributesEntriesItems:
-      BudgetWithEntriesDataAttributesEntriesItems,
-    BudgetWithEntriesDataAttributesEntriesItemsCosts:
-      BudgetWithEntriesDataAttributesEntriesItemsCosts,
-    BudgetWithEntriesDataAttributesEntriesItemsTagFiltersItems:
-      BudgetWithEntriesDataAttributesEntriesItemsTagFiltersItems,
+    BudgetWithEntriesDataAttributesEntriesItems: BudgetWithEntriesDataAttributesEntriesItems,
+    BudgetWithEntriesDataAttributesEntriesItemsCosts: BudgetWithEntriesDataAttributesEntriesItemsCosts,
+    BudgetWithEntriesDataAttributesEntriesItemsTagFiltersItems: BudgetWithEntriesDataAttributesEntriesItemsTagFiltersItems,
     CommitmentsAwsEC2RICommitment: CommitmentsAwsEC2RICommitment,
-    CommitmentsAwsElasticacheRICommitment:
-      CommitmentsAwsElasticacheRICommitment,
+    CommitmentsAwsElasticacheRICommitment: CommitmentsAwsElasticacheRICommitment,
     CommitmentsAwsRDSRICommitment: CommitmentsAwsRDSRICommitment,
     CommitmentsAwsSPCommitment: CommitmentsAwsSPCommitment,
     CommitmentsAzureComputeSPCommitment: CommitmentsAzureComputeSPCommitment,
     CommitmentsAzureVMRICommitment: CommitmentsAzureVMRICommitment,
     CommitmentsCoverageScalarResponse: CommitmentsCoverageScalarResponse,
-    CommitmentsCoverageTimeseriesResponse:
-      CommitmentsCoverageTimeseriesResponse,
+    CommitmentsCoverageTimeseriesResponse: CommitmentsCoverageTimeseriesResponse,
     CommitmentsListMeta: CommitmentsListMeta,
     CommitmentsListResponse: CommitmentsListResponse,
-    CommitmentsOnDemandHotspotsScalarMeta:
-      CommitmentsOnDemandHotspotsScalarMeta,
-    CommitmentsOnDemandHotspotsScalarResponse:
-      CommitmentsOnDemandHotspotsScalarResponse,
+    CommitmentsOnDemandHotspotsScalarMeta: CommitmentsOnDemandHotspotsScalarMeta,
+    CommitmentsOnDemandHotspotsScalarResponse: CommitmentsOnDemandHotspotsScalarResponse,
     CommitmentsSavingsScalarResponse: CommitmentsSavingsScalarResponse,
     CommitmentsSavingsTimeseriesResponse: CommitmentsSavingsTimeseriesResponse,
     CommitmentsScalarColumn: CommitmentsScalarColumn,
     CommitmentsScalarColumnMeta: CommitmentsScalarColumnMeta,
     CommitmentsTimeseriesMetric: CommitmentsTimeseriesMetric,
     CommitmentsUnit: CommitmentsUnit,
-    CommitmentsUtilizationScalarProductBreakdownEntry:
-      CommitmentsUtilizationScalarProductBreakdownEntry,
+    CommitmentsUtilizationScalarProductBreakdownEntry: CommitmentsUtilizationScalarProductBreakdownEntry,
     CommitmentsUtilizationScalarResponse: CommitmentsUtilizationScalarResponse,
-    CommitmentsUtilizationTimeseriesResponse:
-      CommitmentsUtilizationTimeseriesResponse,
+    CommitmentsUtilizationTimeseriesResponse: CommitmentsUtilizationTimeseriesResponse,
     CostAnomaliesResponse: CostAnomaliesResponse,
     CostAnomaliesResponseData: CostAnomaliesResponseData,
     CostAnomaliesResponseDataAttributes: CostAnomaliesResponseDataAttributes,
@@ -431,8 +404,7 @@ export const TypingInfo: ModelTypingInfo = {
     CostRecommendationArray: CostRecommendationArray,
     CostRecommendationData: CostRecommendationData,
     CostRecommendationDataAttributes: CostRecommendationDataAttributes,
-    CostRecommendationDataAttributesPotentialDailySavings:
-      CostRecommendationDataAttributesPotentialDailySavings,
+    CostRecommendationDataAttributesPotentialDailySavings: CostRecommendationDataAttributesPotentialDailySavings,
     CostTag: CostTag,
     CostTagAttributes: CostTagAttributes,
     CostTagDescription: CostTagDescription,
@@ -440,8 +412,7 @@ export const TypingInfo: ModelTypingInfo = {
     CostTagDescriptionResponse: CostTagDescriptionResponse,
     CostTagDescriptionUpsertRequest: CostTagDescriptionUpsertRequest,
     CostTagDescriptionUpsertRequestData: CostTagDescriptionUpsertRequestData,
-    CostTagDescriptionUpsertRequestDataAttributes:
-      CostTagDescriptionUpsertRequestDataAttributes,
+    CostTagDescriptionUpsertRequestDataAttributes: CostTagDescriptionUpsertRequestDataAttributes,
     CostTagDescriptionsResponse: CostTagDescriptionsResponse,
     CostTagKey: CostTagKey,
     CostTagKeyAttributes: CostTagKeyAttributes,
@@ -460,16 +431,11 @@ export const TypingInfo: ModelTypingInfo = {
     CreateRulesetRequest: CreateRulesetRequest,
     CreateRulesetRequestData: CreateRulesetRequestData,
     CreateRulesetRequestDataAttributes: CreateRulesetRequestDataAttributes,
-    CreateRulesetRequestDataAttributesRulesItems:
-      CreateRulesetRequestDataAttributesRulesItems,
-    CreateRulesetRequestDataAttributesRulesItemsQuery:
-      CreateRulesetRequestDataAttributesRulesItemsQuery,
-    CreateRulesetRequestDataAttributesRulesItemsQueryAddition:
-      CreateRulesetRequestDataAttributesRulesItemsQueryAddition,
-    CreateRulesetRequestDataAttributesRulesItemsReferenceTable:
-      CreateRulesetRequestDataAttributesRulesItemsReferenceTable,
-    CreateRulesetRequestDataAttributesRulesItemsReferenceTableFieldPairsItems:
-      CreateRulesetRequestDataAttributesRulesItemsReferenceTableFieldPairsItems,
+    CreateRulesetRequestDataAttributesRulesItems: CreateRulesetRequestDataAttributesRulesItems,
+    CreateRulesetRequestDataAttributesRulesItemsQuery: CreateRulesetRequestDataAttributesRulesItemsQuery,
+    CreateRulesetRequestDataAttributesRulesItemsQueryAddition: CreateRulesetRequestDataAttributesRulesItemsQueryAddition,
+    CreateRulesetRequestDataAttributesRulesItemsReferenceTable: CreateRulesetRequestDataAttributesRulesItemsReferenceTable,
+    CreateRulesetRequestDataAttributesRulesItemsReferenceTableFieldPairsItems: CreateRulesetRequestDataAttributesRulesItemsReferenceTableFieldPairsItems,
     CustomCostGetResponseMeta: CustomCostGetResponseMeta,
     CustomCostListResponseMeta: CustomCostListResponseMeta,
     CustomCostUploadResponseMeta: CustomCostUploadResponseMeta,
@@ -479,8 +445,7 @@ export const TypingInfo: ModelTypingInfo = {
     CustomCostsFileMetadata: CustomCostsFileMetadata,
     CustomCostsFileMetadataHighLevel: CustomCostsFileMetadataHighLevel,
     CustomCostsFileMetadataWithContent: CustomCostsFileMetadataWithContent,
-    CustomCostsFileMetadataWithContentHighLevel:
-      CustomCostsFileMetadataWithContentHighLevel,
+    CustomCostsFileMetadataWithContentHighLevel: CustomCostsFileMetadataWithContentHighLevel,
     CustomCostsFileUploadResponse: CustomCostsFileUploadResponse,
     CustomCostsFileUsageChargePeriod: CustomCostsFileUsageChargePeriod,
     CustomCostsUser: CustomCostsUser,
@@ -491,19 +456,16 @@ export const TypingInfo: ModelTypingInfo = {
     CustomForecastResponseDataAttributes: CustomForecastResponseDataAttributes,
     CustomForecastUpsertRequest: CustomForecastUpsertRequest,
     CustomForecastUpsertRequestData: CustomForecastUpsertRequestData,
-    CustomForecastUpsertRequestDataAttributes:
-      CustomForecastUpsertRequestDataAttributes,
+    CustomForecastUpsertRequestDataAttributes: CustomForecastUpsertRequestDataAttributes,
     DataAttributesRulesItemsMapping: DataAttributesRulesItemsMapping,
     GCPUsageCostConfig: GCPUsageCostConfig,
     GCPUsageCostConfigAttributes: GCPUsageCostConfigAttributes,
     GCPUsageCostConfigPatchData: GCPUsageCostConfigPatchData,
     GCPUsageCostConfigPatchRequest: GCPUsageCostConfigPatchRequest,
-    GCPUsageCostConfigPatchRequestAttributes:
-      GCPUsageCostConfigPatchRequestAttributes,
+    GCPUsageCostConfigPatchRequestAttributes: GCPUsageCostConfigPatchRequestAttributes,
     GCPUsageCostConfigPostData: GCPUsageCostConfigPostData,
     GCPUsageCostConfigPostRequest: GCPUsageCostConfigPostRequest,
-    GCPUsageCostConfigPostRequestAttributes:
-      GCPUsageCostConfigPostRequestAttributes,
+    GCPUsageCostConfigPostRequestAttributes: GCPUsageCostConfigPostRequestAttributes,
     GCPUsageCostConfigResponse: GCPUsageCostConfigResponse,
     GCPUsageCostConfigsResponse: GCPUsageCostConfigsResponse,
     GcpUcConfigResponse: GcpUcConfigResponse,
@@ -511,8 +473,7 @@ export const TypingInfo: ModelTypingInfo = {
     GcpUcConfigResponseDataAttributes: GcpUcConfigResponseDataAttributes,
     GenerateCostTagDescriptionResponse: GenerateCostTagDescriptionResponse,
     GeneratedCostTagDescription: GeneratedCostTagDescription,
-    GeneratedCostTagDescriptionAttributes:
-      GeneratedCostTagDescriptionAttributes,
+    GeneratedCostTagDescriptionAttributes: GeneratedCostTagDescriptionAttributes,
     JSONAPIErrorItem: JSONAPIErrorItem,
     JSONAPIErrorItemSource: JSONAPIErrorItemSource,
     JSONAPIErrorResponse: JSONAPIErrorResponse,
@@ -520,8 +481,7 @@ export const TypingInfo: ModelTypingInfo = {
     OCIConfigAttributes: OCIConfigAttributes,
     OCIConfigsResponse: OCIConfigsResponse,
     RecommendationsFilterRequest: RecommendationsFilterRequest,
-    RecommendationsFilterRequestSortItems:
-      RecommendationsFilterRequestSortItems,
+    RecommendationsFilterRequestSortItems: RecommendationsFilterRequestSortItems,
     RecommendationsPageMeta: RecommendationsPageMeta,
     RecommendationsPageMetaPage: RecommendationsPageMetaPage,
     ReorderRuleResourceArray: ReorderRuleResourceArray,
@@ -530,12 +490,10 @@ export const TypingInfo: ModelTypingInfo = {
     ReorderRulesetResourceData: ReorderRulesetResourceData,
     RulesValidateQueryRequest: RulesValidateQueryRequest,
     RulesValidateQueryRequestData: RulesValidateQueryRequestData,
-    RulesValidateQueryRequestDataAttributes:
-      RulesValidateQueryRequestDataAttributes,
+    RulesValidateQueryRequestDataAttributes: RulesValidateQueryRequestDataAttributes,
     RulesValidateQueryResponse: RulesValidateQueryResponse,
     RulesValidateQueryResponseData: RulesValidateQueryResponseData,
-    RulesValidateQueryResponseDataAttributes:
-      RulesValidateQueryResponseDataAttributes,
+    RulesValidateQueryResponseDataAttributes: RulesValidateQueryResponseDataAttributes,
     RulesetResp: RulesetResp,
     RulesetRespArray: RulesetRespArray,
     RulesetRespData: RulesetRespData,
@@ -543,35 +501,25 @@ export const TypingInfo: ModelTypingInfo = {
     RulesetRespDataAttributesCreated: RulesetRespDataAttributesCreated,
     RulesetRespDataAttributesModified: RulesetRespDataAttributesModified,
     RulesetRespDataAttributesRulesItems: RulesetRespDataAttributesRulesItems,
-    RulesetRespDataAttributesRulesItemsQuery:
-      RulesetRespDataAttributesRulesItemsQuery,
-    RulesetRespDataAttributesRulesItemsQueryAddition:
-      RulesetRespDataAttributesRulesItemsQueryAddition,
-    RulesetRespDataAttributesRulesItemsReferenceTable:
-      RulesetRespDataAttributesRulesItemsReferenceTable,
-    RulesetRespDataAttributesRulesItemsReferenceTableFieldPairsItems:
-      RulesetRespDataAttributesRulesItemsReferenceTableFieldPairsItems,
+    RulesetRespDataAttributesRulesItemsQuery: RulesetRespDataAttributesRulesItemsQuery,
+    RulesetRespDataAttributesRulesItemsQueryAddition: RulesetRespDataAttributesRulesItemsQueryAddition,
+    RulesetRespDataAttributesRulesItemsReferenceTable: RulesetRespDataAttributesRulesItemsReferenceTable,
+    RulesetRespDataAttributesRulesItemsReferenceTableFieldPairsItems: RulesetRespDataAttributesRulesItemsReferenceTableFieldPairsItems,
     RulesetStatusRespArray: RulesetStatusRespArray,
     RulesetStatusRespData: RulesetStatusRespData,
     RulesetStatusRespDataAttributes: RulesetStatusRespDataAttributes,
     UCConfigPair: UCConfigPair,
     UCConfigPairData: UCConfigPairData,
     UCConfigPairDataAttributes: UCConfigPairDataAttributes,
-    UCConfigPairDataAttributesConfigsItems:
-      UCConfigPairDataAttributesConfigsItems,
+    UCConfigPairDataAttributesConfigsItems: UCConfigPairDataAttributesConfigsItems,
     UpdateRulesetRequest: UpdateRulesetRequest,
     UpdateRulesetRequestData: UpdateRulesetRequestData,
     UpdateRulesetRequestDataAttributes: UpdateRulesetRequestDataAttributes,
-    UpdateRulesetRequestDataAttributesRulesItems:
-      UpdateRulesetRequestDataAttributesRulesItems,
-    UpdateRulesetRequestDataAttributesRulesItemsQuery:
-      UpdateRulesetRequestDataAttributesRulesItemsQuery,
-    UpdateRulesetRequestDataAttributesRulesItemsQueryAddition:
-      UpdateRulesetRequestDataAttributesRulesItemsQueryAddition,
-    UpdateRulesetRequestDataAttributesRulesItemsReferenceTable:
-      UpdateRulesetRequestDataAttributesRulesItemsReferenceTable,
-    UpdateRulesetRequestDataAttributesRulesItemsReferenceTableFieldPairsItems:
-      UpdateRulesetRequestDataAttributesRulesItemsReferenceTableFieldPairsItems,
+    UpdateRulesetRequestDataAttributesRulesItems: UpdateRulesetRequestDataAttributesRulesItems,
+    UpdateRulesetRequestDataAttributesRulesItemsQuery: UpdateRulesetRequestDataAttributesRulesItemsQuery,
+    UpdateRulesetRequestDataAttributesRulesItemsQueryAddition: UpdateRulesetRequestDataAttributesRulesItemsQueryAddition,
+    UpdateRulesetRequestDataAttributesRulesItemsReferenceTable: UpdateRulesetRequestDataAttributesRulesItemsReferenceTable,
+    UpdateRulesetRequestDataAttributesRulesItemsReferenceTableFieldPairsItems: UpdateRulesetRequestDataAttributesRulesItemsReferenceTableFieldPairsItems,
     ValidationError: ValidationError,
     ValidationErrorMeta: ValidationErrorMeta,
     ValidationResponse: ValidationResponse,

@@ -32,7 +32,7 @@ export class ServiceDefinitionV2Dot2 {
   /**
    * Extensions to v2.2 schema.
    */
-  "extensions"?: { [key: string]: any };
+  "extensions"?: { [key: string]: any; };
   /**
    * Third party integrations that Datadog supports.
    */
@@ -74,7 +74,7 @@ export class ServiceDefinitionV2Dot2 {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
   /**
    * @ignore
    */

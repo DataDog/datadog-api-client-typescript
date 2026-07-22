@@ -18,11 +18,11 @@ export class LLMObsDatasetBatchUpdateInsertRecord {
   /**
    * Represents any valid JSON value.
    */
-  "input": AnyValue | null;
+  "input": AnyValue|null;
   /**
    * Arbitrary metadata associated with the record.
    */
-  "metadata"?: { [key: string]: any };
+  "metadata"?: { [key: string]: any; };
   /**
    * Explicit tag operations for updating records. Operations are applied in order, Remove then Add then Set. `set` is the final override; if specified, the result of `remove` and `add` is discarded.
    */
@@ -36,7 +36,7 @@ export class LLMObsDatasetBatchUpdateInsertRecord {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
   /**
    * @ignore
    */

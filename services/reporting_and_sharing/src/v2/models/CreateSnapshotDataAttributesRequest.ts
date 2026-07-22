@@ -34,7 +34,7 @@ export class CreateSnapshotDataAttributesRequest {
   /**
    * The widget definition to render as a snapshot. Must include a valid `type` field and non-empty `requests` array.
    */
-  "widgetDefinition": { [key: string]: any };
+  "widgetDefinition": { [key: string]: any; };
   /**
    * The width of the rendered snapshot in pixels.
    */
@@ -44,7 +44,7 @@ export class CreateSnapshotDataAttributesRequest {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
   /**
    * @ignore
    */

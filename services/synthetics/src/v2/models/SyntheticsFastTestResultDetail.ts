@@ -77,7 +77,7 @@ export class SyntheticsFastTestResultDetail {
   /**
    * Timing breakdown of the test request phases (for example, DNS, TCP, TLS, first byte).
    */
-  "timings"?: { [key: string]: any };
+  "timings"?: { [key: string]: any; };
   /**
    * Traceroute hop results, present for ICMP and TCP tests.
    */
@@ -95,7 +95,7 @@ export class SyntheticsFastTestResultDetail {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
   /**
    * @ignore
    */

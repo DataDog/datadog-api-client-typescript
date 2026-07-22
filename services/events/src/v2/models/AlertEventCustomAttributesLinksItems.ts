@@ -40,7 +40,7 @@ export class AlertEventCustomAttributesLinksItems {
       baseName: "url",
       type: "string",
       required: true,
-    },
+    }
   };
 
   /**

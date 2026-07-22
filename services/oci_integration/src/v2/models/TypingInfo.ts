@@ -37,40 +37,28 @@ export const TypingInfo: ModelTypingInfo = {
     APIErrorResponse: APIErrorResponse,
     CreateTenancyConfigData: CreateTenancyConfigData,
     CreateTenancyConfigDataAttributes: CreateTenancyConfigDataAttributes,
-    CreateTenancyConfigDataAttributesAuthCredentials:
-      CreateTenancyConfigDataAttributesAuthCredentials,
-    CreateTenancyConfigDataAttributesLogsConfig:
-      CreateTenancyConfigDataAttributesLogsConfig,
-    CreateTenancyConfigDataAttributesMetricsConfig:
-      CreateTenancyConfigDataAttributesMetricsConfig,
-    CreateTenancyConfigDataAttributesRegionsConfig:
-      CreateTenancyConfigDataAttributesRegionsConfig,
+    CreateTenancyConfigDataAttributesAuthCredentials: CreateTenancyConfigDataAttributesAuthCredentials,
+    CreateTenancyConfigDataAttributesLogsConfig: CreateTenancyConfigDataAttributesLogsConfig,
+    CreateTenancyConfigDataAttributesMetricsConfig: CreateTenancyConfigDataAttributesMetricsConfig,
+    CreateTenancyConfigDataAttributesRegionsConfig: CreateTenancyConfigDataAttributesRegionsConfig,
     CreateTenancyConfigRequest: CreateTenancyConfigRequest,
     TenancyConfig: TenancyConfig,
     TenancyConfigData: TenancyConfigData,
     TenancyConfigDataAttributes: TenancyConfigDataAttributes,
-    TenancyConfigDataAttributesLogsConfig:
-      TenancyConfigDataAttributesLogsConfig,
-    TenancyConfigDataAttributesMetricsConfig:
-      TenancyConfigDataAttributesMetricsConfig,
-    TenancyConfigDataAttributesRegionsConfig:
-      TenancyConfigDataAttributesRegionsConfig,
+    TenancyConfigDataAttributesLogsConfig: TenancyConfigDataAttributesLogsConfig,
+    TenancyConfigDataAttributesMetricsConfig: TenancyConfigDataAttributesMetricsConfig,
+    TenancyConfigDataAttributesRegionsConfig: TenancyConfigDataAttributesRegionsConfig,
     TenancyConfigList: TenancyConfigList,
     TenancyProductsData: TenancyProductsData,
     TenancyProductsDataAttributes: TenancyProductsDataAttributes,
-    TenancyProductsDataAttributesProductsItems:
-      TenancyProductsDataAttributesProductsItems,
+    TenancyProductsDataAttributesProductsItems: TenancyProductsDataAttributesProductsItems,
     TenancyProductsList: TenancyProductsList,
     UpdateTenancyConfigData: UpdateTenancyConfigData,
     UpdateTenancyConfigDataAttributes: UpdateTenancyConfigDataAttributes,
-    UpdateTenancyConfigDataAttributesAuthCredentials:
-      UpdateTenancyConfigDataAttributesAuthCredentials,
-    UpdateTenancyConfigDataAttributesLogsConfig:
-      UpdateTenancyConfigDataAttributesLogsConfig,
-    UpdateTenancyConfigDataAttributesMetricsConfig:
-      UpdateTenancyConfigDataAttributesMetricsConfig,
-    UpdateTenancyConfigDataAttributesRegionsConfig:
-      UpdateTenancyConfigDataAttributesRegionsConfig,
+    UpdateTenancyConfigDataAttributesAuthCredentials: UpdateTenancyConfigDataAttributesAuthCredentials,
+    UpdateTenancyConfigDataAttributesLogsConfig: UpdateTenancyConfigDataAttributesLogsConfig,
+    UpdateTenancyConfigDataAttributesMetricsConfig: UpdateTenancyConfigDataAttributesMetricsConfig,
+    UpdateTenancyConfigDataAttributesRegionsConfig: UpdateTenancyConfigDataAttributesRegionsConfig,
     UpdateTenancyConfigRequest: UpdateTenancyConfigRequest,
   },
 };

@@ -19,6 +19,7 @@ import {
   ServerConfiguration,
   stringify,
   applySecurityAuthentication,
+  
 } from "@datadog/datadog-api-client";
 
 import { TypingInfo } from "./models/TypingInfo";
@@ -56,15 +57,8 @@ export class CIVisibilityTestsApiRequestFactory extends BaseAPIRequestFactory {
     const localVarPath = "/api/v2/ci/tests/analytics/aggregate";
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "CIVisibilityTestsApi.v2.aggregateCIAppTestEvents",
-      CIVisibilityTestsApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.POST,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("CIVisibilityTestsApi.v2.aggregateCIAppTestEvents", CIVisibilityTestsApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.POST, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -74,7 +68,9 @@ export class CIVisibilityTestsApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Body Params
-    const contentType = getPreferredMediaType(["application/json"]);
+    const contentType = getPreferredMediaType([
+      "application/json",
+    ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = stringify(
       serialize(body, TypingInfo, "CIAppTestsAggregateRequest", ""),
@@ -107,15 +103,8 @@ export class CIVisibilityTestsApiRequestFactory extends BaseAPIRequestFactory {
     const localVarPath = "/api/v2/ci/tests/events";
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "CIVisibilityTestsApi.v2.listCIAppTestEvents",
-      CIVisibilityTestsApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.GET,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("CIVisibilityTestsApi.v2.listCIAppTestEvents", CIVisibilityTestsApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.GET, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -188,15 +177,8 @@ export class CIVisibilityTestsApiRequestFactory extends BaseAPIRequestFactory {
     const localVarPath = "/api/v2/ci/tests/events/search";
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "CIVisibilityTestsApi.v2.searchCIAppTestEvents",
-      CIVisibilityTestsApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.POST,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("CIVisibilityTestsApi.v2.searchCIAppTestEvents", CIVisibilityTestsApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.POST, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -206,7 +188,9 @@ export class CIVisibilityTestsApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Body Params
-    const contentType = getPreferredMediaType(["application/json"]);
+    const contentType = getPreferredMediaType([
+      "application/json",
+    ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = stringify(
       serialize(body, TypingInfo, "CIAppTestEventsRequest", ""),
@@ -236,7 +220,9 @@ export class CIVisibilityTestsApiResponseProcessor {
   public async aggregateCIAppTestEvents(
     response: ResponseContext,
   ): Promise<CIAppTestsAnalyticsAggregateResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: CIAppTestsAnalyticsAggregateResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -250,7 +236,10 @@ export class CIVisibilityTestsApiResponseProcessor {
       response.httpStatusCode === 403 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -265,7 +254,10 @@ export class CIVisibilityTestsApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -296,7 +288,9 @@ export class CIVisibilityTestsApiResponseProcessor {
   public async listCIAppTestEvents(
     response: ResponseContext,
   ): Promise<CIAppTestEventsResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: CIAppTestEventsResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -310,7 +304,10 @@ export class CIVisibilityTestsApiResponseProcessor {
       response.httpStatusCode === 403 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -325,7 +322,10 @@ export class CIVisibilityTestsApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -356,7 +356,9 @@ export class CIVisibilityTestsApiResponseProcessor {
   public async searchCIAppTestEvents(
     response: ResponseContext,
   ): Promise<CIAppTestEventsResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: CIAppTestEventsResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -370,7 +372,10 @@ export class CIVisibilityTestsApiResponseProcessor {
       response.httpStatusCode === 403 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -385,7 +390,10 @@ export class CIVisibilityTestsApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -459,7 +467,8 @@ export class CIVisibilityTestsApi {
   private responseProcessor: CIVisibilityTestsApiResponseProcessor;
   private configuration: Configuration;
 
-  static operationServers: { [key: string]: BaseServerConfiguration[] } = {};
+  static operationServers: { [key: string]: BaseServerConfiguration[] } = {
+  };
 
   public constructor(
     configuration?: Configuration,
@@ -490,9 +499,7 @@ export class CIVisibilityTestsApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.aggregateCIAppTestEvents(
-            responseContext,
-          );
+          return this.responseProcessor.aggregateCIAppTestEvents(responseContext);
         });
     });
   }
@@ -500,7 +507,7 @@ export class CIVisibilityTestsApi {
   /**
    * List endpoint returns CI Visibility test events that match a [search query](https://docs.datadoghq.com/continuous_integration/explorer/search_syntax/).
    * [Results are paginated similarly to logs](https://docs.datadoghq.com/logs/guide/collect-multiple-logs-with-pagination).
-   *
+   * 
    * Use this endpoint to see your latest test events.
    * @param param The request object
    */
@@ -530,29 +537,19 @@ export class CIVisibilityTestsApi {
    * Provide a paginated version of listCIAppTestEvents returning a generator with all the items.
    */
   public async *listCIAppTestEventsWithPagination(
-    param: CIVisibilityTestsApiListCIAppTestEventsRequest = {},
-    options?: Configuration,
+    param: CIVisibilityTestsApiListCIAppTestEventsRequest = {}, options?: Configuration,
   ): AsyncGenerator<CIAppTestEvent> {
+
     let pageSize = 10;
     if (param.pageLimit !== undefined) {
       pageSize = param.pageLimit;
     }
     param.pageLimit = pageSize;
     while (true) {
-      const requestContext = await this.requestFactory.listCIAppTestEvents(
-        param.filterQuery,
-        param.filterFrom,
-        param.filterTo,
-        param.sort,
-        param.pageCursor,
-        param.pageLimit,
-        options,
-      );
-      const responseContext =
-        await this.configuration.httpApi.send(requestContext);
+      const requestContext = await this.requestFactory.listCIAppTestEvents(param.filterQuery,param.filterFrom,param.filterTo,param.sort,param.pageCursor,param.pageLimit,options);
+      const responseContext = await this.configuration.httpApi.send(requestContext);
 
-      const response =
-        await this.responseProcessor.listCIAppTestEvents(responseContext);
+      const response = await this.responseProcessor.listCIAppTestEvents(responseContext);
       const responseData = response.data;
       if (responseData === undefined) {
         break;
@@ -584,7 +581,7 @@ export class CIVisibilityTestsApi {
   /**
    * List endpoint returns CI Visibility test events that match a [search query](https://docs.datadoghq.com/continuous_integration/explorer/search_syntax/).
    * [Results are paginated similarly to logs](https://docs.datadoghq.com/logs/guide/collect-multiple-logs-with-pagination).
-   *
+   * 
    * Use this endpoint to build complex events filtering and search.
    * @param param The request object
    */
@@ -609,9 +606,9 @@ export class CIVisibilityTestsApi {
    * Provide a paginated version of searchCIAppTestEvents returning a generator with all the items.
    */
   public async *searchCIAppTestEventsWithPagination(
-    param: CIVisibilityTestsApiSearchCIAppTestEventsRequest = {},
-    options?: Configuration,
+    param: CIVisibilityTestsApiSearchCIAppTestEventsRequest = {}, options?: Configuration,
   ): AsyncGenerator<CIAppTestEvent> {
+
     let pageSize = 10;
     if (param.body === undefined) {
       param.body = new CIAppTestEventsRequest();
@@ -624,15 +621,10 @@ export class CIVisibilityTestsApi {
     }
     param.body.page.limit = pageSize;
     while (true) {
-      const requestContext = await this.requestFactory.searchCIAppTestEvents(
-        param.body,
-        options,
-      );
-      const responseContext =
-        await this.configuration.httpApi.send(requestContext);
+      const requestContext = await this.requestFactory.searchCIAppTestEvents(param.body,options);
+      const responseContext = await this.configuration.httpApi.send(requestContext);
 
-      const response =
-        await this.responseProcessor.searchCIAppTestEvents(responseContext);
+      const response = await this.responseProcessor.searchCIAppTestEvents(responseContext);
       const responseData = response.data;
       if (responseData === undefined) {
         break;

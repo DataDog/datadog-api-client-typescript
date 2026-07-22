@@ -80,11 +80,11 @@ export class SyntheticsTestRequest {
   /**
    * Form to be used as part of the request in the test. Only valid if `bodyType` is `multipart/form-data`.
    */
-  "form"?: { [key: string]: string };
+  "form"?: { [key: string]: string; };
   /**
    * Headers to include when performing the test.
    */
-  "headers"?: { [key: string]: string };
+  "headers"?: { [key: string]: string; };
   /**
    * Host name to perform the test with.
    */
@@ -112,7 +112,7 @@ export class SyntheticsTestRequest {
   /**
    * Metadata to include when performing the gRPC test.
    */
-  "metadata"?: { [key: string]: string };
+  "metadata"?: { [key: string]: string; };
   /**
    * Either the HTTP method/verb to use or a gRPC method available on the service set in the `service` field. Required if `subtype` is `HTTP` or if `subtype` is `grpc` and `callType` is `unary`.
    */
@@ -162,7 +162,7 @@ export class SyntheticsTestRequest {
   /**
    * Arguments to pass to the MCP tool. Free-form object whose shape depends on the tool. Used when `callType` is `tool_call`.
    */
-  "toolArgs"?: { [key: string]: any };
+  "toolArgs"?: { [key: string]: any; };
   /**
    * The name of the MCP tool to call. Required when `callType` is `tool_call`.
    */
@@ -176,7 +176,7 @@ export class SyntheticsTestRequest {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
   /**
    * @ignore
    */

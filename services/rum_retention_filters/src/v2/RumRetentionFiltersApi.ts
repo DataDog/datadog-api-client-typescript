@@ -19,6 +19,7 @@ import {
   ServerConfiguration,
   stringify,
   applySecurityAuthentication,
+  
 } from "@datadog/datadog-api-client";
 
 import { TypingInfo } from "./models/TypingInfo";
@@ -62,22 +63,14 @@ export class RumRetentionFiltersApiRequestFactory extends BaseAPIRequestFactory 
     }
 
     // Path Params
-    const localVarPath =
-      "/api/v2/rum/applications/{app_id}/retention_filters".replace(
-        "{app_id}",
-        encodeURIComponent(String(appId)),
-      );
+    const localVarPath = "/api/v2/rum/applications/{app_id}/retention_filters".replace(
+      "{app_id}",
+      encodeURIComponent(String(appId)),
+    );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "RumRetentionFiltersApi.v2.createRetentionFilter",
-      RumRetentionFiltersApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.POST,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("RumRetentionFiltersApi.v2.createRetentionFilter", RumRetentionFiltersApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.POST, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -87,7 +80,9 @@ export class RumRetentionFiltersApiRequestFactory extends BaseAPIRequestFactory 
     }
 
     // Body Params
-    const contentType = getPreferredMediaType(["application/json"]);
+    const contentType = getPreferredMediaType([
+      "application/json",
+    ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = stringify(
       serialize(body, TypingInfo, "RumRetentionFilterCreateRequest", ""),
@@ -122,21 +117,17 @@ export class RumRetentionFiltersApiRequestFactory extends BaseAPIRequestFactory 
     }
 
     // Path Params
-    const localVarPath =
-      "/api/v2/rum/applications/{app_id}/retention_filters/{rf_id}"
-        .replace("{app_id}", encodeURIComponent(String(appId)))
-        .replace("{rf_id}", encodeURIComponent(String(rfId)));
+    const localVarPath = "/api/v2/rum/applications/{app_id}/retention_filters/{rf_id}".replace(
+      "{app_id}",
+      encodeURIComponent(String(appId)),
+    ).replace(
+      "{rf_id}",
+      encodeURIComponent(String(rfId)),
+    );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "RumRetentionFiltersApi.v2.deleteRetentionFilter",
-      RumRetentionFiltersApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.DELETE,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("RumRetentionFiltersApi.v2.deleteRetentionFilter", RumRetentionFiltersApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.DELETE, overrides);
     requestContext.setHeaderParam("Accept", "*/*");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -172,24 +163,17 @@ export class RumRetentionFiltersApiRequestFactory extends BaseAPIRequestFactory 
     }
 
     // Path Params
-    const localVarPath =
-      "/api/v2/rum/applications/{app_id}/retention_filters/permanent/{permanent_rf_id}"
-        .replace("{app_id}", encodeURIComponent(String(appId)))
-        .replace(
-          "{permanent_rf_id}",
-          encodeURIComponent(String(permanentRfId)),
-        );
+    const localVarPath = "/api/v2/rum/applications/{app_id}/retention_filters/permanent/{permanent_rf_id}".replace(
+      "{app_id}",
+      encodeURIComponent(String(appId)),
+    ).replace(
+      "{permanent_rf_id}",
+      encodeURIComponent(String(permanentRfId)),
+    );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "RumRetentionFiltersApi.v2.getPermanentRetentionFilter",
-      RumRetentionFiltersApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.GET,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("RumRetentionFiltersApi.v2.getPermanentRetentionFilter", RumRetentionFiltersApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.GET, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -225,21 +209,17 @@ export class RumRetentionFiltersApiRequestFactory extends BaseAPIRequestFactory 
     }
 
     // Path Params
-    const localVarPath =
-      "/api/v2/rum/applications/{app_id}/retention_filters/{rf_id}"
-        .replace("{app_id}", encodeURIComponent(String(appId)))
-        .replace("{rf_id}", encodeURIComponent(String(rfId)));
+    const localVarPath = "/api/v2/rum/applications/{app_id}/retention_filters/{rf_id}".replace(
+      "{app_id}",
+      encodeURIComponent(String(appId)),
+    ).replace(
+      "{rf_id}",
+      encodeURIComponent(String(rfId)),
+    );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "RumRetentionFiltersApi.v2.getRetentionFilter",
-      RumRetentionFiltersApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.GET,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("RumRetentionFiltersApi.v2.getRetentionFilter", RumRetentionFiltersApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.GET, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -269,22 +249,14 @@ export class RumRetentionFiltersApiRequestFactory extends BaseAPIRequestFactory 
     }
 
     // Path Params
-    const localVarPath =
-      "/api/v2/rum/applications/{app_id}/retention_filters/permanent".replace(
-        "{app_id}",
-        encodeURIComponent(String(appId)),
-      );
+    const localVarPath = "/api/v2/rum/applications/{app_id}/retention_filters/permanent".replace(
+      "{app_id}",
+      encodeURIComponent(String(appId)),
+    );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "RumRetentionFiltersApi.v2.listPermanentRetentionFilters",
-      RumRetentionFiltersApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.GET,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("RumRetentionFiltersApi.v2.listPermanentRetentionFilters", RumRetentionFiltersApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.GET, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -314,22 +286,14 @@ export class RumRetentionFiltersApiRequestFactory extends BaseAPIRequestFactory 
     }
 
     // Path Params
-    const localVarPath =
-      "/api/v2/rum/applications/{app_id}/retention_filters".replace(
-        "{app_id}",
-        encodeURIComponent(String(appId)),
-      );
+    const localVarPath = "/api/v2/rum/applications/{app_id}/retention_filters".replace(
+      "{app_id}",
+      encodeURIComponent(String(appId)),
+    );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "RumRetentionFiltersApi.v2.listRetentionFilters",
-      RumRetentionFiltersApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.GET,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("RumRetentionFiltersApi.v2.listRetentionFilters", RumRetentionFiltersApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.GET, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -365,22 +329,14 @@ export class RumRetentionFiltersApiRequestFactory extends BaseAPIRequestFactory 
     }
 
     // Path Params
-    const localVarPath =
-      "/api/v2/rum/applications/{app_id}/relationships/retention_filters".replace(
-        "{app_id}",
-        encodeURIComponent(String(appId)),
-      );
+    const localVarPath = "/api/v2/rum/applications/{app_id}/relationships/retention_filters".replace(
+      "{app_id}",
+      encodeURIComponent(String(appId)),
+    );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "RumRetentionFiltersApi.v2.orderRetentionFilters",
-      RumRetentionFiltersApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.PATCH,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("RumRetentionFiltersApi.v2.orderRetentionFilters", RumRetentionFiltersApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.PATCH, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -390,7 +346,9 @@ export class RumRetentionFiltersApiRequestFactory extends BaseAPIRequestFactory 
     }
 
     // Body Params
-    const contentType = getPreferredMediaType(["application/json"]);
+    const contentType = getPreferredMediaType([
+      "application/json",
+    ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = stringify(
       serialize(body, TypingInfo, "RumRetentionFiltersOrderRequest", ""),
@@ -422,10 +380,7 @@ export class RumRetentionFiltersApiRequestFactory extends BaseAPIRequestFactory 
 
     // verify required parameter 'permanentRfId' is not null or undefined
     if (permanentRfId === null || permanentRfId === undefined) {
-      throw new RequiredError(
-        "permanentRfId",
-        "updatePermanentRetentionFilter",
-      );
+      throw new RequiredError("permanentRfId", "updatePermanentRetentionFilter");
     }
 
     // verify required parameter 'body' is not null or undefined
@@ -434,24 +389,17 @@ export class RumRetentionFiltersApiRequestFactory extends BaseAPIRequestFactory 
     }
 
     // Path Params
-    const localVarPath =
-      "/api/v2/rum/applications/{app_id}/retention_filters/permanent/{permanent_rf_id}"
-        .replace("{app_id}", encodeURIComponent(String(appId)))
-        .replace(
-          "{permanent_rf_id}",
-          encodeURIComponent(String(permanentRfId)),
-        );
+    const localVarPath = "/api/v2/rum/applications/{app_id}/retention_filters/permanent/{permanent_rf_id}".replace(
+      "{app_id}",
+      encodeURIComponent(String(appId)),
+    ).replace(
+      "{permanent_rf_id}",
+      encodeURIComponent(String(permanentRfId)),
+    );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "RumRetentionFiltersApi.v2.updatePermanentRetentionFilter",
-      RumRetentionFiltersApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.PATCH,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("RumRetentionFiltersApi.v2.updatePermanentRetentionFilter", RumRetentionFiltersApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.PATCH, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -461,15 +409,12 @@ export class RumRetentionFiltersApiRequestFactory extends BaseAPIRequestFactory 
     }
 
     // Body Params
-    const contentType = getPreferredMediaType(["application/json"]);
+    const contentType = getPreferredMediaType([
+      "application/json",
+    ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = stringify(
-      serialize(
-        body,
-        TypingInfo,
-        "RumPermanentRetentionFilterUpdateRequest",
-        "",
-      ),
+      serialize(body, TypingInfo, "RumPermanentRetentionFilterUpdateRequest", ""),
       contentType,
     );
     requestContext.setBody(serializedBody);
@@ -507,21 +452,17 @@ export class RumRetentionFiltersApiRequestFactory extends BaseAPIRequestFactory 
     }
 
     // Path Params
-    const localVarPath =
-      "/api/v2/rum/applications/{app_id}/retention_filters/{rf_id}"
-        .replace("{app_id}", encodeURIComponent(String(appId)))
-        .replace("{rf_id}", encodeURIComponent(String(rfId)));
+    const localVarPath = "/api/v2/rum/applications/{app_id}/retention_filters/{rf_id}".replace(
+      "{app_id}",
+      encodeURIComponent(String(appId)),
+    ).replace(
+      "{rf_id}",
+      encodeURIComponent(String(rfId)),
+    );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "RumRetentionFiltersApi.v2.updateRetentionFilter",
-      RumRetentionFiltersApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.PATCH,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("RumRetentionFiltersApi.v2.updateRetentionFilter", RumRetentionFiltersApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.PATCH, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -531,7 +472,9 @@ export class RumRetentionFiltersApiRequestFactory extends BaseAPIRequestFactory 
     }
 
     // Body Params
-    const contentType = getPreferredMediaType(["application/json"]);
+    const contentType = getPreferredMediaType([
+      "application/json",
+    ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = stringify(
       serialize(body, TypingInfo, "RumRetentionFilterUpdateRequest", ""),
@@ -560,7 +503,9 @@ export class RumRetentionFiltersApiResponseProcessor {
   public async createRetentionFilter(
     response: ResponseContext,
   ): Promise<RumRetentionFilterResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 201) {
       const body: RumRetentionFilterResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -574,7 +519,10 @@ export class RumRetentionFiltersApiResponseProcessor {
       response.httpStatusCode === 403 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -589,7 +537,10 @@ export class RumRetentionFiltersApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -617,8 +568,12 @@ export class RumRetentionFiltersApiResponseProcessor {
    * @params response Response returned by the server for a request to deleteRetentionFilter
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async deleteRetentionFilter(response: ResponseContext): Promise<void> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+  public async deleteRetentionFilter(
+    response: ResponseContext,
+  ): Promise<void> {
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 204) {
       return;
     }
@@ -627,7 +582,10 @@ export class RumRetentionFiltersApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -642,7 +600,10 @@ export class RumRetentionFiltersApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -667,7 +628,9 @@ export class RumRetentionFiltersApiResponseProcessor {
   public async getPermanentRetentionFilter(
     response: ResponseContext,
   ): Promise<RumPermanentRetentionFilterResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: RumPermanentRetentionFilterResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -681,7 +644,10 @@ export class RumRetentionFiltersApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -696,7 +662,10 @@ export class RumRetentionFiltersApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -727,7 +696,9 @@ export class RumRetentionFiltersApiResponseProcessor {
   public async getRetentionFilter(
     response: ResponseContext,
   ): Promise<RumRetentionFilterResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: RumRetentionFilterResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -741,7 +712,10 @@ export class RumRetentionFiltersApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -756,7 +730,10 @@ export class RumRetentionFiltersApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -787,7 +764,9 @@ export class RumRetentionFiltersApiResponseProcessor {
   public async listPermanentRetentionFilters(
     response: ResponseContext,
   ): Promise<RumPermanentRetentionFiltersResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: RumPermanentRetentionFiltersResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -796,8 +775,14 @@ export class RumRetentionFiltersApiResponseProcessor {
       ) as RumPermanentRetentionFiltersResponse;
       return body;
     }
-    if (response.httpStatusCode === 403 || response.httpStatusCode === 429) {
-      const bodyText = parse(await response.body.text(), contentType);
+    if (
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 429
+    ) {
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -812,7 +797,10 @@ export class RumRetentionFiltersApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -843,7 +831,9 @@ export class RumRetentionFiltersApiResponseProcessor {
   public async listRetentionFilters(
     response: ResponseContext,
   ): Promise<RumRetentionFiltersResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: RumRetentionFiltersResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -852,8 +842,14 @@ export class RumRetentionFiltersApiResponseProcessor {
       ) as RumRetentionFiltersResponse;
       return body;
     }
-    if (response.httpStatusCode === 403 || response.httpStatusCode === 429) {
-      const bodyText = parse(await response.body.text(), contentType);
+    if (
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 429
+    ) {
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -868,7 +864,10 @@ export class RumRetentionFiltersApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -899,7 +898,9 @@ export class RumRetentionFiltersApiResponseProcessor {
   public async orderRetentionFilters(
     response: ResponseContext,
   ): Promise<RumRetentionFiltersOrderResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: RumRetentionFiltersOrderResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -913,7 +914,10 @@ export class RumRetentionFiltersApiResponseProcessor {
       response.httpStatusCode === 403 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -928,7 +932,10 @@ export class RumRetentionFiltersApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -959,7 +966,9 @@ export class RumRetentionFiltersApiResponseProcessor {
   public async updatePermanentRetentionFilter(
     response: ResponseContext,
   ): Promise<RumPermanentRetentionFilterResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: RumPermanentRetentionFilterResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -974,7 +983,10 @@ export class RumRetentionFiltersApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -989,7 +1001,10 @@ export class RumRetentionFiltersApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -1020,7 +1035,9 @@ export class RumRetentionFiltersApiResponseProcessor {
   public async updateRetentionFilter(
     response: ResponseContext,
   ): Promise<RumRetentionFilterResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: RumRetentionFilterResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -1035,7 +1052,10 @@ export class RumRetentionFiltersApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -1050,7 +1070,10 @@ export class RumRetentionFiltersApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -1194,7 +1217,8 @@ export class RumRetentionFiltersApi {
   private responseProcessor: RumRetentionFiltersApiResponseProcessor;
   private configuration: Configuration;
 
-  static operationServers: { [key: string]: BaseServerConfiguration[] } = {};
+  static operationServers: { [key: string]: BaseServerConfiguration[] } = {
+  };
 
   public constructor(
     configuration?: Configuration,
@@ -1262,19 +1286,16 @@ export class RumRetentionFiltersApi {
     param: RumRetentionFiltersApiGetPermanentRetentionFilterRequest,
     options?: Configuration,
   ): Promise<RumPermanentRetentionFilterResponse> {
-    const requestContextPromise =
-      this.requestFactory.getPermanentRetentionFilter(
-        param.appId,
-        param.permanentRfId,
-        options,
-      );
+    const requestContextPromise = this.requestFactory.getPermanentRetentionFilter(
+      param.appId,
+      param.permanentRfId,
+      options,
+    );
     return requestContextPromise.then((requestContext) => {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.getPermanentRetentionFilter(
-            responseContext,
-          );
+          return this.responseProcessor.getPermanentRetentionFilter(responseContext);
         });
     });
   }
@@ -1311,15 +1332,15 @@ export class RumRetentionFiltersApi {
     param: RumRetentionFiltersApiListPermanentRetentionFiltersRequest,
     options?: Configuration,
   ): Promise<RumPermanentRetentionFiltersResponse> {
-    const requestContextPromise =
-      this.requestFactory.listPermanentRetentionFilters(param.appId, options);
+    const requestContextPromise = this.requestFactory.listPermanentRetentionFilters(
+      param.appId,
+      options,
+    );
     return requestContextPromise.then((requestContext) => {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.listPermanentRetentionFilters(
-            responseContext,
-          );
+          return this.responseProcessor.listPermanentRetentionFilters(responseContext);
         });
     });
   }
@@ -1378,20 +1399,17 @@ export class RumRetentionFiltersApi {
     param: RumRetentionFiltersApiUpdatePermanentRetentionFilterRequest,
     options?: Configuration,
   ): Promise<RumPermanentRetentionFilterResponse> {
-    const requestContextPromise =
-      this.requestFactory.updatePermanentRetentionFilter(
-        param.appId,
-        param.permanentRfId,
-        param.body,
-        options,
-      );
+    const requestContextPromise = this.requestFactory.updatePermanentRetentionFilter(
+      param.appId,
+      param.permanentRfId,
+      param.body,
+      options,
+    );
     return requestContextPromise.then((requestContext) => {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.updatePermanentRetentionFilter(
-            responseContext,
-          );
+          return this.responseProcessor.updatePermanentRetentionFilter(responseContext);
         });
     });
   }

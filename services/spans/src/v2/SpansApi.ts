@@ -19,6 +19,7 @@ import {
   ServerConfiguration,
   stringify,
   applySecurityAuthentication,
+  
 } from "@datadog/datadog-api-client";
 
 import { TypingInfo } from "./models/TypingInfo";
@@ -59,15 +60,8 @@ export class SpansApiRequestFactory extends BaseAPIRequestFactory {
     const localVarPath = "/api/v2/spans/analytics/aggregate";
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "SpansApi.v2.aggregateSpans",
-      SpansApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.POST,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("SpansApi.v2.aggregateSpans", SpansApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.POST, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -77,7 +71,9 @@ export class SpansApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Body Params
-    const contentType = getPreferredMediaType(["application/json"]);
+    const contentType = getPreferredMediaType([
+      "application/json",
+    ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = stringify(
       serialize(body, TypingInfo, "SpansAggregateRequest", ""),
@@ -110,15 +106,8 @@ export class SpansApiRequestFactory extends BaseAPIRequestFactory {
     const localVarPath = "/api/v2/spans/events/search";
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "SpansApi.v2.listSpans",
-      SpansApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.POST,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("SpansApi.v2.listSpans", SpansApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.POST, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -128,7 +117,9 @@ export class SpansApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Body Params
-    const contentType = getPreferredMediaType(["application/json"]);
+    const contentType = getPreferredMediaType([
+      "application/json",
+    ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = stringify(
       serialize(body, TypingInfo, "SpansListRequest", ""),
@@ -161,15 +152,8 @@ export class SpansApiRequestFactory extends BaseAPIRequestFactory {
     const localVarPath = "/api/v2/spans/events";
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "SpansApi.v2.listSpansGet",
-      SpansApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.GET,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("SpansApi.v2.listSpansGet", SpansApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.GET, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -244,7 +228,9 @@ export class SpansApiResponseProcessor {
   public async aggregateSpans(
     response: ResponseContext,
   ): Promise<SpansAggregateResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: SpansAggregateResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -258,7 +244,10 @@ export class SpansApiResponseProcessor {
       response.httpStatusCode === 403 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -273,7 +262,10 @@ export class SpansApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -304,7 +296,9 @@ export class SpansApiResponseProcessor {
   public async listSpans(
     response: ResponseContext,
   ): Promise<SpansListResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: SpansListResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -319,7 +313,10 @@ export class SpansApiResponseProcessor {
       response.httpStatusCode === 422 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: JSONAPIErrorResponse;
       try {
         body = deserialize(
@@ -368,7 +365,9 @@ export class SpansApiResponseProcessor {
   public async listSpansGet(
     response: ResponseContext,
   ): Promise<SpansListResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: SpansListResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -383,7 +382,10 @@ export class SpansApiResponseProcessor {
       response.httpStatusCode === 422 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: JSONAPIErrorResponse;
       try {
         body = deserialize(
@@ -475,7 +477,8 @@ export class SpansApi {
   private responseProcessor: SpansApiResponseProcessor;
   private configuration: Configuration;
 
-  static operationServers: { [key: string]: BaseServerConfiguration[] } = {};
+  static operationServers: { [key: string]: BaseServerConfiguration[] } = {
+  };
 
   public constructor(
     configuration?: Configuration,
@@ -484,7 +487,8 @@ export class SpansApi {
   ) {
     this.configuration = configuration || createConfiguration();
     this.requestFactory =
-      requestFactory || new SpansApiRequestFactory(this.configuration);
+      requestFactory ||
+      new SpansApiRequestFactory(this.configuration);
     this.responseProcessor =
       responseProcessor || new SpansApiResponseProcessor();
   }
@@ -514,10 +518,10 @@ export class SpansApi {
   /**
    * List endpoint returns spans that match a span search query.
    * [Results are paginated][1].
-   *
+   * 
    * Use this endpoint to build complex spans filtering and search.
    * This endpoint is rate limited to `300` requests per hour.
-   *
+   * 
    * [1]: /logs/guide/collect-multiple-logs-with-pagination?tab=v2api
    * @param param The request object
    */
@@ -542,17 +546,17 @@ export class SpansApi {
    * Provide a paginated version of listSpans returning a generator with all the items.
    */
   public async *listSpansWithPagination(
-    param: SpansApiListSpansRequest,
-    options?: Configuration,
+    param: SpansApiListSpansRequest, options?: Configuration,
   ): AsyncGenerator<Span> {
+
     let pageSize = 10;
-    if (param.body.data === undefined) {
+    if (param.body.data === undefined ) {
       param.body.data = new SpansListRequestData();
     }
-    if (param.body.data.attributes === undefined) {
+    if (param.body.data.attributes === undefined ) {
       param.body.data.attributes = new SpansListRequestAttributes();
     }
-    if (param.body.data.attributes.page === undefined) {
+    if (param.body.data.attributes.page === undefined ) {
       param.body.data.attributes.page = new SpansListRequestPage();
     }
     if (param.body.data.attributes.page.limit === undefined) {
@@ -561,12 +565,8 @@ export class SpansApi {
       pageSize = param.body.data.attributes.page.limit;
     }
     while (true) {
-      const requestContext = await this.requestFactory.listSpans(
-        param.body,
-        options,
-      );
-      const responseContext =
-        await this.configuration.httpApi.send(requestContext);
+      const requestContext = await this.requestFactory.listSpans(param.body,options);
+      const responseContext = await this.configuration.httpApi.send(requestContext);
 
       const response = await this.responseProcessor.listSpans(responseContext);
       const responseData = response.data;
@@ -600,10 +600,10 @@ export class SpansApi {
   /**
    * List endpoint returns spans that match a span search query.
    * [Results are paginated][1].
-   *
+   * 
    * Use this endpoint to see your latest spans.
    * This endpoint is rate limited to `300` requests per hour.
-   *
+   * 
    * [1]: /logs/guide/collect-multiple-logs-with-pagination?tab=v2api
    * @param param The request object
    */
@@ -633,29 +633,19 @@ export class SpansApi {
    * Provide a paginated version of listSpansGet returning a generator with all the items.
    */
   public async *listSpansGetWithPagination(
-    param: SpansApiListSpansGetRequest = {},
-    options?: Configuration,
+    param: SpansApiListSpansGetRequest = {}, options?: Configuration,
   ): AsyncGenerator<Span> {
+
     let pageSize = 10;
     if (param.pageLimit !== undefined) {
       pageSize = param.pageLimit;
     }
     param.pageLimit = pageSize;
     while (true) {
-      const requestContext = await this.requestFactory.listSpansGet(
-        param.filterQuery,
-        param.filterFrom,
-        param.filterTo,
-        param.sort,
-        param.pageCursor,
-        param.pageLimit,
-        options,
-      );
-      const responseContext =
-        await this.configuration.httpApi.send(requestContext);
+      const requestContext = await this.requestFactory.listSpansGet(param.filterQuery,param.filterFrom,param.filterTo,param.sort,param.pageCursor,param.pageLimit,options);
+      const responseContext = await this.configuration.httpApi.send(requestContext);
 
-      const response =
-        await this.responseProcessor.listSpansGet(responseContext);
+      const response = await this.responseProcessor.listSpansGet(responseContext);
       const responseData = response.data;
       if (responseData === undefined) {
         break;

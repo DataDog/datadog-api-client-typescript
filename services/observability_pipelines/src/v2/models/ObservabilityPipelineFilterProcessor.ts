@@ -4,7 +4,7 @@ import { ObservabilityPipelineFilterProcessorType } from "./ObservabilityPipelin
 
 /**
  * The `filter` processor allows conditional processing of logs/metrics based on a Datadog search query. Logs/metrics that match the `include` query are passed through; others are discarded.
- *
+ * 
  * **Supported pipeline types:** logs, metrics
  */
 export class ObservabilityPipelineFilterProcessor {
@@ -33,7 +33,7 @@ export class ObservabilityPipelineFilterProcessor {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
   /**
    * @ignore
    */

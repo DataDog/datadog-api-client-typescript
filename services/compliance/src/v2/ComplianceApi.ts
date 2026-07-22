@@ -19,6 +19,7 @@ import {
   ServerConfiguration,
   stringify,
   applySecurityAuthentication,
+  
 } from "@datadog/datadog-api-client";
 
 import { TypingInfo } from "./models/TypingInfo";
@@ -49,9 +50,7 @@ export class ComplianceApiRequestFactory extends BaseAPIRequestFactory {
     const _config = _options || this.configuration;
 
     if (!_config.unstableOperations["ComplianceApi.v2.getRuleBasedView"]) {
-      throw new Error(
-        "Unstable operation 'getRuleBasedView' is disabled. Enable it by setting `configuration.unstableOperations['ComplianceApi.v2.getRuleBasedView'] = true`",
-      );
+      throw new Error("Unstable operation 'getRuleBasedView' is disabled. Enable it by setting `configuration.unstableOperations['ComplianceApi.v2.getRuleBasedView'] = true`");
     }
 
     // verify required parameter 'to' is not null or undefined
@@ -63,15 +62,8 @@ export class ComplianceApiRequestFactory extends BaseAPIRequestFactory {
     const localVarPath = "/api/v2/compliance_findings/rule_based_view";
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "ComplianceApi.v2.getRuleBasedView",
-      ComplianceApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.GET,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("ComplianceApi.v2.getRuleBasedView", ComplianceApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.GET, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -105,12 +97,7 @@ export class ComplianceApiRequestFactory extends BaseAPIRequestFactory {
     if (queryFindingsWithoutFrameworkVersion !== undefined) {
       requestContext.setQueryParam(
         "query_findings_without_framework_version",
-        serialize(
-          queryFindingsWithoutFrameworkVersion,
-          TypingInfo,
-          "boolean",
-          "",
-        ),
+        serialize(queryFindingsWithoutFrameworkVersion, TypingInfo, "boolean", ""),
         "",
       );
     }
@@ -158,7 +145,9 @@ export class ComplianceApiResponseProcessor {
   public async getRuleBasedView(
     response: ResponseContext,
   ): Promise<RuleBasedViewResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: RuleBasedViewResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -167,8 +156,14 @@ export class ComplianceApiResponseProcessor {
       ) as RuleBasedViewResponse;
       return body;
     }
-    if (response.httpStatusCode === 400 || response.httpStatusCode === 503) {
-      const bodyText = parse(await response.body.text(), contentType);
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 503
+    ) {
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: JSONAPIErrorResponse;
       try {
         body = deserialize(
@@ -188,8 +183,14 @@ export class ComplianceApiResponseProcessor {
         body,
       );
     }
-    if (response.httpStatusCode === 403 || response.httpStatusCode === 429) {
-      const bodyText = parse(await response.body.text(), contentType);
+    if (
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 429
+    ) {
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -204,7 +205,10 @@ export class ComplianceApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -269,7 +273,8 @@ export class ComplianceApi {
   private responseProcessor: ComplianceApiResponseProcessor;
   private configuration: Configuration;
 
-  static operationServers: { [key: string]: BaseServerConfiguration[] } = {};
+  static operationServers: { [key: string]: BaseServerConfiguration[] } = {
+  };
 
   public constructor(
     configuration?: Configuration,
@@ -278,14 +283,15 @@ export class ComplianceApi {
   ) {
     this.configuration = configuration || createConfiguration();
     this.requestFactory =
-      requestFactory || new ComplianceApiRequestFactory(this.configuration);
+      requestFactory ||
+      new ComplianceApiRequestFactory(this.configuration);
     this.responseProcessor =
       responseProcessor || new ComplianceApiResponseProcessor();
   }
 
   /**
    * **This endpoint is deprecated.** Use the [Security Monitoring - Search Security Findings](https://docs.datadoghq.com/api/latest/security-monitoring/search-security-findings/) endpoint instead.
-   *
+   * 
    * Get an aggregated view of compliance rules with their pass, fail, and muted finding counts.
    * Supports filtering by compliance framework, framework version, and additional query filters.
    * @param param The request object

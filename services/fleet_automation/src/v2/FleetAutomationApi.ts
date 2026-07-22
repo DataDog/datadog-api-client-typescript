@@ -19,6 +19,7 @@ import {
   ServerConfiguration,
   stringify,
   applySecurityAuthentication,
+  
 } from "@datadog/datadog-api-client";
 
 import { TypingInfo } from "./models/TypingInfo";
@@ -52,12 +53,8 @@ export class FleetAutomationApiRequestFactory extends BaseAPIRequestFactory {
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
-    if (
-      !_config.unstableOperations["FleetAutomationApi.v2.cancelFleetDeployment"]
-    ) {
-      throw new Error(
-        "Unstable operation 'cancelFleetDeployment' is disabled. Enable it by setting `configuration.unstableOperations['FleetAutomationApi.v2.cancelFleetDeployment'] = true`",
-      );
+    if (!_config.unstableOperations["FleetAutomationApi.v2.cancelFleetDeployment"]) {
+      throw new Error("Unstable operation 'cancelFleetDeployment' is disabled. Enable it by setting `configuration.unstableOperations['FleetAutomationApi.v2.cancelFleetDeployment'] = true`");
     }
 
     // verify required parameter 'deploymentId' is not null or undefined
@@ -66,22 +63,14 @@ export class FleetAutomationApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Path Params
-    const localVarPath =
-      "/api/unstable/fleet/deployments/{deployment_id}/cancel".replace(
-        "{deployment_id}",
-        encodeURIComponent(String(deploymentId)),
-      );
+    const localVarPath = "/api/unstable/fleet/deployments/{deployment_id}/cancel".replace(
+      "{deployment_id}",
+      encodeURIComponent(String(deploymentId)),
+    );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "FleetAutomationApi.v2.cancelFleetDeployment",
-      FleetAutomationApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.POST,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("FleetAutomationApi.v2.cancelFleetDeployment", FleetAutomationApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.POST, overrides);
     requestContext.setHeaderParam("Accept", "*/*");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -105,14 +94,8 @@ export class FleetAutomationApiRequestFactory extends BaseAPIRequestFactory {
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
-    if (
-      !_config.unstableOperations[
-        "FleetAutomationApi.v2.createFleetDeploymentConfigure"
-      ]
-    ) {
-      throw new Error(
-        "Unstable operation 'createFleetDeploymentConfigure' is disabled. Enable it by setting `configuration.unstableOperations['FleetAutomationApi.v2.createFleetDeploymentConfigure'] = true`",
-      );
+    if (!_config.unstableOperations["FleetAutomationApi.v2.createFleetDeploymentConfigure"]) {
+      throw new Error("Unstable operation 'createFleetDeploymentConfigure' is disabled. Enable it by setting `configuration.unstableOperations['FleetAutomationApi.v2.createFleetDeploymentConfigure'] = true`");
     }
 
     // verify required parameter 'body' is not null or undefined
@@ -124,15 +107,8 @@ export class FleetAutomationApiRequestFactory extends BaseAPIRequestFactory {
     const localVarPath = "/api/unstable/fleet/deployments/configure";
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "FleetAutomationApi.v2.createFleetDeploymentConfigure",
-      FleetAutomationApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.POST,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("FleetAutomationApi.v2.createFleetDeploymentConfigure", FleetAutomationApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.POST, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -142,7 +118,9 @@ export class FleetAutomationApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Body Params
-    const contentType = getPreferredMediaType(["application/json"]);
+    const contentType = getPreferredMediaType([
+      "application/json",
+    ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = stringify(
       serialize(body, TypingInfo, "FleetDeploymentConfigureCreateRequest", ""),
@@ -165,14 +143,8 @@ export class FleetAutomationApiRequestFactory extends BaseAPIRequestFactory {
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
-    if (
-      !_config.unstableOperations[
-        "FleetAutomationApi.v2.createFleetDeploymentUpgrade"
-      ]
-    ) {
-      throw new Error(
-        "Unstable operation 'createFleetDeploymentUpgrade' is disabled. Enable it by setting `configuration.unstableOperations['FleetAutomationApi.v2.createFleetDeploymentUpgrade'] = true`",
-      );
+    if (!_config.unstableOperations["FleetAutomationApi.v2.createFleetDeploymentUpgrade"]) {
+      throw new Error("Unstable operation 'createFleetDeploymentUpgrade' is disabled. Enable it by setting `configuration.unstableOperations['FleetAutomationApi.v2.createFleetDeploymentUpgrade'] = true`");
     }
 
     // verify required parameter 'body' is not null or undefined
@@ -184,15 +156,8 @@ export class FleetAutomationApiRequestFactory extends BaseAPIRequestFactory {
     const localVarPath = "/api/unstable/fleet/deployments/upgrade";
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "FleetAutomationApi.v2.createFleetDeploymentUpgrade",
-      FleetAutomationApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.POST,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("FleetAutomationApi.v2.createFleetDeploymentUpgrade", FleetAutomationApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.POST, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -202,15 +167,12 @@ export class FleetAutomationApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Body Params
-    const contentType = getPreferredMediaType(["application/json"]);
+    const contentType = getPreferredMediaType([
+      "application/json",
+    ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = stringify(
-      serialize(
-        body,
-        TypingInfo,
-        "FleetDeploymentPackageUpgradeCreateRequest",
-        "",
-      ),
+      serialize(body, TypingInfo, "FleetDeploymentPackageUpgradeCreateRequest", ""),
       contentType,
     );
     requestContext.setBody(serializedBody);
@@ -230,12 +192,8 @@ export class FleetAutomationApiRequestFactory extends BaseAPIRequestFactory {
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
-    if (
-      !_config.unstableOperations["FleetAutomationApi.v2.createFleetSchedule"]
-    ) {
-      throw new Error(
-        "Unstable operation 'createFleetSchedule' is disabled. Enable it by setting `configuration.unstableOperations['FleetAutomationApi.v2.createFleetSchedule'] = true`",
-      );
+    if (!_config.unstableOperations["FleetAutomationApi.v2.createFleetSchedule"]) {
+      throw new Error("Unstable operation 'createFleetSchedule' is disabled. Enable it by setting `configuration.unstableOperations['FleetAutomationApi.v2.createFleetSchedule'] = true`");
     }
 
     // verify required parameter 'body' is not null or undefined
@@ -247,15 +205,8 @@ export class FleetAutomationApiRequestFactory extends BaseAPIRequestFactory {
     const localVarPath = "/api/unstable/fleet/schedules";
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "FleetAutomationApi.v2.createFleetSchedule",
-      FleetAutomationApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.POST,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("FleetAutomationApi.v2.createFleetSchedule", FleetAutomationApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.POST, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -265,7 +216,9 @@ export class FleetAutomationApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Body Params
-    const contentType = getPreferredMediaType(["application/json"]);
+    const contentType = getPreferredMediaType([
+      "application/json",
+    ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = stringify(
       serialize(body, TypingInfo, "FleetScheduleCreateRequest", ""),
@@ -288,12 +241,8 @@ export class FleetAutomationApiRequestFactory extends BaseAPIRequestFactory {
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
-    if (
-      !_config.unstableOperations["FleetAutomationApi.v2.deleteFleetSchedule"]
-    ) {
-      throw new Error(
-        "Unstable operation 'deleteFleetSchedule' is disabled. Enable it by setting `configuration.unstableOperations['FleetAutomationApi.v2.deleteFleetSchedule'] = true`",
-      );
+    if (!_config.unstableOperations["FleetAutomationApi.v2.deleteFleetSchedule"]) {
+      throw new Error("Unstable operation 'deleteFleetSchedule' is disabled. Enable it by setting `configuration.unstableOperations['FleetAutomationApi.v2.deleteFleetSchedule'] = true`");
     }
 
     // verify required parameter 'id' is not null or undefined
@@ -308,15 +257,8 @@ export class FleetAutomationApiRequestFactory extends BaseAPIRequestFactory {
     );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "FleetAutomationApi.v2.deleteFleetSchedule",
-      FleetAutomationApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.DELETE,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("FleetAutomationApi.v2.deleteFleetSchedule", FleetAutomationApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.DELETE, overrides);
     requestContext.setHeaderParam("Accept", "*/*");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -340,12 +282,8 @@ export class FleetAutomationApiRequestFactory extends BaseAPIRequestFactory {
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
-    if (
-      !_config.unstableOperations["FleetAutomationApi.v2.getFleetAgentInfo"]
-    ) {
-      throw new Error(
-        "Unstable operation 'getFleetAgentInfo' is disabled. Enable it by setting `configuration.unstableOperations['FleetAutomationApi.v2.getFleetAgentInfo'] = true`",
-      );
+    if (!_config.unstableOperations["FleetAutomationApi.v2.getFleetAgentInfo"]) {
+      throw new Error("Unstable operation 'getFleetAgentInfo' is disabled. Enable it by setting `configuration.unstableOperations['FleetAutomationApi.v2.getFleetAgentInfo'] = true`");
     }
 
     // verify required parameter 'agentKey' is not null or undefined
@@ -360,15 +298,8 @@ export class FleetAutomationApiRequestFactory extends BaseAPIRequestFactory {
     );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "FleetAutomationApi.v2.getFleetAgentInfo",
-      FleetAutomationApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.GET,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("FleetAutomationApi.v2.getFleetAgentInfo", FleetAutomationApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.GET, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -394,12 +325,8 @@ export class FleetAutomationApiRequestFactory extends BaseAPIRequestFactory {
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
-    if (
-      !_config.unstableOperations["FleetAutomationApi.v2.getFleetDeployment"]
-    ) {
-      throw new Error(
-        "Unstable operation 'getFleetDeployment' is disabled. Enable it by setting `configuration.unstableOperations['FleetAutomationApi.v2.getFleetDeployment'] = true`",
-      );
+    if (!_config.unstableOperations["FleetAutomationApi.v2.getFleetDeployment"]) {
+      throw new Error("Unstable operation 'getFleetDeployment' is disabled. Enable it by setting `configuration.unstableOperations['FleetAutomationApi.v2.getFleetDeployment'] = true`");
     }
 
     // verify required parameter 'deploymentId' is not null or undefined
@@ -408,22 +335,14 @@ export class FleetAutomationApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Path Params
-    const localVarPath =
-      "/api/unstable/fleet/deployments/{deployment_id}".replace(
-        "{deployment_id}",
-        encodeURIComponent(String(deploymentId)),
-      );
+    const localVarPath = "/api/unstable/fleet/deployments/{deployment_id}".replace(
+      "{deployment_id}",
+      encodeURIComponent(String(deploymentId)),
+    );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "FleetAutomationApi.v2.getFleetDeployment",
-      FleetAutomationApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.GET,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("FleetAutomationApi.v2.getFleetDeployment", FleetAutomationApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.GET, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -464,9 +383,7 @@ export class FleetAutomationApiRequestFactory extends BaseAPIRequestFactory {
     const _config = _options || this.configuration;
 
     if (!_config.unstableOperations["FleetAutomationApi.v2.getFleetSchedule"]) {
-      throw new Error(
-        "Unstable operation 'getFleetSchedule' is disabled. Enable it by setting `configuration.unstableOperations['FleetAutomationApi.v2.getFleetSchedule'] = true`",
-      );
+      throw new Error("Unstable operation 'getFleetSchedule' is disabled. Enable it by setting `configuration.unstableOperations['FleetAutomationApi.v2.getFleetSchedule'] = true`");
     }
 
     // verify required parameter 'id' is not null or undefined
@@ -481,15 +398,8 @@ export class FleetAutomationApiRequestFactory extends BaseAPIRequestFactory {
     );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "FleetAutomationApi.v2.getFleetSchedule",
-      FleetAutomationApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.GET,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("FleetAutomationApi.v2.getFleetSchedule", FleetAutomationApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.GET, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -519,24 +429,15 @@ export class FleetAutomationApiRequestFactory extends BaseAPIRequestFactory {
     const _config = _options || this.configuration;
 
     if (!_config.unstableOperations["FleetAutomationApi.v2.listFleetAgents"]) {
-      throw new Error(
-        "Unstable operation 'listFleetAgents' is disabled. Enable it by setting `configuration.unstableOperations['FleetAutomationApi.v2.listFleetAgents'] = true`",
-      );
+      throw new Error("Unstable operation 'listFleetAgents' is disabled. Enable it by setting `configuration.unstableOperations['FleetAutomationApi.v2.listFleetAgents'] = true`");
     }
 
     // Path Params
     const localVarPath = "/api/unstable/fleet/agents";
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "FleetAutomationApi.v2.listFleetAgents",
-      FleetAutomationApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.GET,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("FleetAutomationApi.v2.listFleetAgents", FleetAutomationApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.GET, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -608,12 +509,8 @@ export class FleetAutomationApiRequestFactory extends BaseAPIRequestFactory {
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
-    if (
-      !_config.unstableOperations["FleetAutomationApi.v2.listFleetAgentTracers"]
-    ) {
-      throw new Error(
-        "Unstable operation 'listFleetAgentTracers' is disabled. Enable it by setting `configuration.unstableOperations['FleetAutomationApi.v2.listFleetAgentTracers'] = true`",
-      );
+    if (!_config.unstableOperations["FleetAutomationApi.v2.listFleetAgentTracers"]) {
+      throw new Error("Unstable operation 'listFleetAgentTracers' is disabled. Enable it by setting `configuration.unstableOperations['FleetAutomationApi.v2.listFleetAgentTracers'] = true`");
     }
 
     // verify required parameter 'agentKey' is not null or undefined
@@ -622,22 +519,14 @@ export class FleetAutomationApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Path Params
-    const localVarPath =
-      "/api/unstable/fleet/agents/{agent_key}/tracers".replace(
-        "{agent_key}",
-        encodeURIComponent(String(agentKey)),
-      );
+    const localVarPath = "/api/unstable/fleet/agents/{agent_key}/tracers".replace(
+      "{agent_key}",
+      encodeURIComponent(String(agentKey)),
+    );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "FleetAutomationApi.v2.listFleetAgentTracers",
-      FleetAutomationApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.GET,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("FleetAutomationApi.v2.listFleetAgentTracers", FleetAutomationApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.GET, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -690,29 +579,16 @@ export class FleetAutomationApiRequestFactory extends BaseAPIRequestFactory {
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
-    if (
-      !_config.unstableOperations[
-        "FleetAutomationApi.v2.listFleetAgentVersions"
-      ]
-    ) {
-      throw new Error(
-        "Unstable operation 'listFleetAgentVersions' is disabled. Enable it by setting `configuration.unstableOperations['FleetAutomationApi.v2.listFleetAgentVersions'] = true`",
-      );
+    if (!_config.unstableOperations["FleetAutomationApi.v2.listFleetAgentVersions"]) {
+      throw new Error("Unstable operation 'listFleetAgentVersions' is disabled. Enable it by setting `configuration.unstableOperations['FleetAutomationApi.v2.listFleetAgentVersions'] = true`");
     }
 
     // Path Params
     const localVarPath = "/api/unstable/fleet/agent_versions";
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "FleetAutomationApi.v2.listFleetAgentVersions",
-      FleetAutomationApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.GET,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("FleetAutomationApi.v2.listFleetAgentVersions", FleetAutomationApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.GET, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -737,27 +613,16 @@ export class FleetAutomationApiRequestFactory extends BaseAPIRequestFactory {
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
-    if (
-      !_config.unstableOperations["FleetAutomationApi.v2.listFleetDeployments"]
-    ) {
-      throw new Error(
-        "Unstable operation 'listFleetDeployments' is disabled. Enable it by setting `configuration.unstableOperations['FleetAutomationApi.v2.listFleetDeployments'] = true`",
-      );
+    if (!_config.unstableOperations["FleetAutomationApi.v2.listFleetDeployments"]) {
+      throw new Error("Unstable operation 'listFleetDeployments' is disabled. Enable it by setting `configuration.unstableOperations['FleetAutomationApi.v2.listFleetDeployments'] = true`");
     }
 
     // Path Params
     const localVarPath = "/api/unstable/fleet/deployments";
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "FleetAutomationApi.v2.listFleetDeployments",
-      FleetAutomationApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.GET,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("FleetAutomationApi.v2.listFleetDeployments", FleetAutomationApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.GET, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -796,27 +661,16 @@ export class FleetAutomationApiRequestFactory extends BaseAPIRequestFactory {
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
-    if (
-      !_config.unstableOperations["FleetAutomationApi.v2.listFleetSchedules"]
-    ) {
-      throw new Error(
-        "Unstable operation 'listFleetSchedules' is disabled. Enable it by setting `configuration.unstableOperations['FleetAutomationApi.v2.listFleetSchedules'] = true`",
-      );
+    if (!_config.unstableOperations["FleetAutomationApi.v2.listFleetSchedules"]) {
+      throw new Error("Unstable operation 'listFleetSchedules' is disabled. Enable it by setting `configuration.unstableOperations['FleetAutomationApi.v2.listFleetSchedules'] = true`");
     }
 
     // Path Params
     const localVarPath = "/api/unstable/fleet/schedules";
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "FleetAutomationApi.v2.listFleetSchedules",
-      FleetAutomationApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.GET,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("FleetAutomationApi.v2.listFleetSchedules", FleetAutomationApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.GET, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -845,24 +699,15 @@ export class FleetAutomationApiRequestFactory extends BaseAPIRequestFactory {
     const _config = _options || this.configuration;
 
     if (!_config.unstableOperations["FleetAutomationApi.v2.listFleetTracers"]) {
-      throw new Error(
-        "Unstable operation 'listFleetTracers' is disabled. Enable it by setting `configuration.unstableOperations['FleetAutomationApi.v2.listFleetTracers'] = true`",
-      );
+      throw new Error("Unstable operation 'listFleetTracers' is disabled. Enable it by setting `configuration.unstableOperations['FleetAutomationApi.v2.listFleetTracers'] = true`");
     }
 
     // Path Params
     const localVarPath = "/api/unstable/fleet/tracers";
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "FleetAutomationApi.v2.listFleetTracers",
-      FleetAutomationApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.GET,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("FleetAutomationApi.v2.listFleetTracers", FleetAutomationApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.GET, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -923,12 +768,8 @@ export class FleetAutomationApiRequestFactory extends BaseAPIRequestFactory {
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
-    if (
-      !_config.unstableOperations["FleetAutomationApi.v2.triggerFleetSchedule"]
-    ) {
-      throw new Error(
-        "Unstable operation 'triggerFleetSchedule' is disabled. Enable it by setting `configuration.unstableOperations['FleetAutomationApi.v2.triggerFleetSchedule'] = true`",
-      );
+    if (!_config.unstableOperations["FleetAutomationApi.v2.triggerFleetSchedule"]) {
+      throw new Error("Unstable operation 'triggerFleetSchedule' is disabled. Enable it by setting `configuration.unstableOperations['FleetAutomationApi.v2.triggerFleetSchedule'] = true`");
     }
 
     // verify required parameter 'id' is not null or undefined
@@ -943,15 +784,8 @@ export class FleetAutomationApiRequestFactory extends BaseAPIRequestFactory {
     );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "FleetAutomationApi.v2.triggerFleetSchedule",
-      FleetAutomationApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.POST,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("FleetAutomationApi.v2.triggerFleetSchedule", FleetAutomationApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.POST, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -976,12 +810,8 @@ export class FleetAutomationApiRequestFactory extends BaseAPIRequestFactory {
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
-    if (
-      !_config.unstableOperations["FleetAutomationApi.v2.updateFleetSchedule"]
-    ) {
-      throw new Error(
-        "Unstable operation 'updateFleetSchedule' is disabled. Enable it by setting `configuration.unstableOperations['FleetAutomationApi.v2.updateFleetSchedule'] = true`",
-      );
+    if (!_config.unstableOperations["FleetAutomationApi.v2.updateFleetSchedule"]) {
+      throw new Error("Unstable operation 'updateFleetSchedule' is disabled. Enable it by setting `configuration.unstableOperations['FleetAutomationApi.v2.updateFleetSchedule'] = true`");
     }
 
     // verify required parameter 'id' is not null or undefined
@@ -1001,15 +831,8 @@ export class FleetAutomationApiRequestFactory extends BaseAPIRequestFactory {
     );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "FleetAutomationApi.v2.updateFleetSchedule",
-      FleetAutomationApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.PATCH,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("FleetAutomationApi.v2.updateFleetSchedule", FleetAutomationApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.PATCH, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -1019,7 +842,9 @@ export class FleetAutomationApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Body Params
-    const contentType = getPreferredMediaType(["application/json"]);
+    const contentType = getPreferredMediaType([
+      "application/json",
+    ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = stringify(
       serialize(body, TypingInfo, "FleetSchedulePatchRequest", ""),
@@ -1045,8 +870,12 @@ export class FleetAutomationApiResponseProcessor {
    * @params response Response returned by the server for a request to cancelFleetDeployment
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async cancelFleetDeployment(response: ResponseContext): Promise<void> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+  public async cancelFleetDeployment(
+    response: ResponseContext,
+  ): Promise<void> {
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 204) {
       return;
     }
@@ -1057,7 +886,10 @@ export class FleetAutomationApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -1072,7 +904,10 @@ export class FleetAutomationApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -1097,7 +932,9 @@ export class FleetAutomationApiResponseProcessor {
   public async createFleetDeploymentConfigure(
     response: ResponseContext,
   ): Promise<FleetDeploymentResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 201) {
       const body: FleetDeploymentResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -1112,7 +949,10 @@ export class FleetAutomationApiResponseProcessor {
       response.httpStatusCode === 403 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -1127,7 +967,10 @@ export class FleetAutomationApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -1158,7 +1001,9 @@ export class FleetAutomationApiResponseProcessor {
   public async createFleetDeploymentUpgrade(
     response: ResponseContext,
   ): Promise<FleetDeploymentResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 201) {
       const body: FleetDeploymentResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -1174,7 +1019,10 @@ export class FleetAutomationApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -1189,7 +1037,10 @@ export class FleetAutomationApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -1220,7 +1071,9 @@ export class FleetAutomationApiResponseProcessor {
   public async createFleetSchedule(
     response: ResponseContext,
   ): Promise<FleetScheduleResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 201) {
       const body: FleetScheduleResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -1235,7 +1088,10 @@ export class FleetAutomationApiResponseProcessor {
       response.httpStatusCode === 403 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -1250,7 +1106,10 @@ export class FleetAutomationApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -1278,8 +1137,12 @@ export class FleetAutomationApiResponseProcessor {
    * @params response Response returned by the server for a request to deleteFleetSchedule
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async deleteFleetSchedule(response: ResponseContext): Promise<void> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+  public async deleteFleetSchedule(
+    response: ResponseContext,
+  ): Promise<void> {
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 204) {
       return;
     }
@@ -1290,7 +1153,10 @@ export class FleetAutomationApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -1305,7 +1171,10 @@ export class FleetAutomationApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -1330,7 +1199,9 @@ export class FleetAutomationApiResponseProcessor {
   public async getFleetAgentInfo(
     response: ResponseContext,
   ): Promise<FleetAgentInfoResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: FleetAgentInfoResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -1346,7 +1217,10 @@ export class FleetAutomationApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -1361,7 +1235,10 @@ export class FleetAutomationApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -1392,7 +1269,9 @@ export class FleetAutomationApiResponseProcessor {
   public async getFleetDeployment(
     response: ResponseContext,
   ): Promise<FleetDeploymentResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: FleetDeploymentResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -1408,7 +1287,10 @@ export class FleetAutomationApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -1423,7 +1305,10 @@ export class FleetAutomationApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -1454,7 +1339,9 @@ export class FleetAutomationApiResponseProcessor {
   public async getFleetSchedule(
     response: ResponseContext,
   ): Promise<FleetScheduleResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: FleetScheduleResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -1470,7 +1357,10 @@ export class FleetAutomationApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -1485,7 +1375,10 @@ export class FleetAutomationApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -1516,7 +1409,9 @@ export class FleetAutomationApiResponseProcessor {
   public async listFleetAgents(
     response: ResponseContext,
   ): Promise<FleetAgentsResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: FleetAgentsResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -1532,7 +1427,10 @@ export class FleetAutomationApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -1547,7 +1445,10 @@ export class FleetAutomationApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -1578,7 +1479,9 @@ export class FleetAutomationApiResponseProcessor {
   public async listFleetAgentTracers(
     response: ResponseContext,
   ): Promise<FleetTracersResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: FleetTracersResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -1594,7 +1497,10 @@ export class FleetAutomationApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -1609,7 +1515,10 @@ export class FleetAutomationApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -1640,7 +1549,9 @@ export class FleetAutomationApiResponseProcessor {
   public async listFleetAgentVersions(
     response: ResponseContext,
   ): Promise<FleetAgentVersionsResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: FleetAgentVersionsResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -1656,7 +1567,10 @@ export class FleetAutomationApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -1671,7 +1585,10 @@ export class FleetAutomationApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -1702,7 +1619,9 @@ export class FleetAutomationApiResponseProcessor {
   public async listFleetDeployments(
     response: ResponseContext,
   ): Promise<FleetDeploymentsResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: FleetDeploymentsResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -1717,7 +1636,10 @@ export class FleetAutomationApiResponseProcessor {
       response.httpStatusCode === 403 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -1732,7 +1654,10 @@ export class FleetAutomationApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -1763,7 +1688,9 @@ export class FleetAutomationApiResponseProcessor {
   public async listFleetSchedules(
     response: ResponseContext,
   ): Promise<FleetSchedulesResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: FleetSchedulesResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -1778,7 +1705,10 @@ export class FleetAutomationApiResponseProcessor {
       response.httpStatusCode === 403 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -1793,7 +1723,10 @@ export class FleetAutomationApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -1824,7 +1757,9 @@ export class FleetAutomationApiResponseProcessor {
   public async listFleetTracers(
     response: ResponseContext,
   ): Promise<FleetTracersResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: FleetTracersResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -1840,7 +1775,10 @@ export class FleetAutomationApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -1855,7 +1793,10 @@ export class FleetAutomationApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -1886,7 +1827,9 @@ export class FleetAutomationApiResponseProcessor {
   public async triggerFleetSchedule(
     response: ResponseContext,
   ): Promise<FleetDeploymentResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 201) {
       const body: FleetDeploymentResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -1902,7 +1845,10 @@ export class FleetAutomationApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -1917,7 +1863,10 @@ export class FleetAutomationApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -1948,7 +1897,9 @@ export class FleetAutomationApiResponseProcessor {
   public async updateFleetSchedule(
     response: ResponseContext,
   ): Promise<FleetScheduleResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: FleetScheduleResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -1964,7 +1915,10 @@ export class FleetAutomationApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -1979,7 +1933,10 @@ export class FleetAutomationApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -2203,7 +2160,8 @@ export class FleetAutomationApi {
   private responseProcessor: FleetAutomationApiResponseProcessor;
   private configuration: Configuration;
 
-  static operationServers: { [key: string]: BaseServerConfiguration[] } = {};
+  static operationServers: { [key: string]: BaseServerConfiguration[] } = {
+  };
 
   public constructor(
     configuration?: Configuration,
@@ -2224,7 +2182,7 @@ export class FleetAutomationApi {
    * - All pending operations on hosts that haven't started yet are stopped
    * - Operations currently in progress on hosts may complete or be interrupted, depending on their current state
    * - Configuration changes or package upgrades already applied to hosts are not rolled back
-   *
+   * 
    * After cancellation, you can view the final state of the deployment using the GET endpoint to see which hosts
    * were successfully updated before the cancellation.
    * @param param The request object
@@ -2249,12 +2207,12 @@ export class FleetAutomationApi {
   /**
    * Create a new deployment to apply configuration changes
    * to a fleet of hosts matching the specified filter query.
-   *
+   * 
    * This endpoint supports two types of configuration operations:
    * - `merge-patch`: Merges the provided patch data with the existing configuration file,
    *   creating the file if it doesn't exist
    * - `delete`: Removes the specified configuration file from the target hosts
-   *
+   * 
    * The deployment is created and started automatically. You can specify multiple configuration
    * operations that will be executed in order on each target host. Use the filter query to target
    * specific hosts using the Datadog query syntax.
@@ -2264,15 +2222,15 @@ export class FleetAutomationApi {
     param: FleetAutomationApiCreateFleetDeploymentConfigureRequest,
     options?: Configuration,
   ): Promise<FleetDeploymentResponse> {
-    const requestContextPromise =
-      this.requestFactory.createFleetDeploymentConfigure(param.body, options);
+    const requestContextPromise = this.requestFactory.createFleetDeploymentConfigure(
+      param.body,
+      options,
+    );
     return requestContextPromise.then((requestContext) => {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.createFleetDeploymentConfigure(
-            responseContext,
-          );
+          return this.responseProcessor.createFleetDeploymentConfigure(responseContext);
         });
     });
   }
@@ -2280,10 +2238,10 @@ export class FleetAutomationApi {
   /**
    * Create and immediately start a new package upgrade
    * on hosts matching the specified filter query.
-   *
+   * 
    * This endpoint allows you to upgrade the Datadog Agent to a specific version
    * on hosts matching the specified filter query.
-   *
+   * 
    * The deployment is created and started automatically. The system will:
    * 1. Identify all hosts matching the filter query
    * 2. Validate that the specified version is available
@@ -2294,28 +2252,28 @@ export class FleetAutomationApi {
     param: FleetAutomationApiCreateFleetDeploymentUpgradeRequest,
     options?: Configuration,
   ): Promise<FleetDeploymentResponse> {
-    const requestContextPromise =
-      this.requestFactory.createFleetDeploymentUpgrade(param.body, options);
+    const requestContextPromise = this.requestFactory.createFleetDeploymentUpgrade(
+      param.body,
+      options,
+    );
     return requestContextPromise.then((requestContext) => {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.createFleetDeploymentUpgrade(
-            responseContext,
-          );
+          return this.responseProcessor.createFleetDeploymentUpgrade(responseContext);
         });
     });
   }
 
   /**
    * Create a new schedule for automated package upgrades.
-   *
+   * 
    * Schedules define when and how often to automatically deploy package upgrades to a fleet
    * of hosts. Each schedule includes:
    * - A filter query to select target hosts
    * - A recurrence rule defining maintenance windows
    * - A version strategy (e.g., always latest, or N versions behind latest)
-   *
+   * 
    * When the schedule triggers during a maintenance window, it automatically creates a
    * deployment that upgrades the Datadog Agent to the specified version on all matching hosts.
    * @param param The request object
@@ -2339,12 +2297,12 @@ export class FleetAutomationApi {
 
   /**
    * Delete a schedule permanently.
-   *
+   * 
    * When you delete a schedule:
    * - The schedule is permanently removed and will no longer create deployments
    * - Any deployments already created by this schedule are not affected
    * - This action cannot be undone
-   *
+   * 
    * If you want to temporarily stop a schedule from creating deployments, consider
    * updating its status to "inactive" instead of deleting it.
    * @param param The request object
@@ -2402,14 +2360,14 @@ export class FleetAutomationApi {
    * - Configuration operations that were or are being applied
    * - Detailed host list: A paginated array of hosts included in this deployment with individual
    *   host status, current package versions, and any errors
-   *
+   * 
    * The host list provides visibility into the per-host execution status, allowing you to:
    * - Monitor which hosts have completed successfully
    * - Identify hosts that are still in progress
    * - Investigate failures on specific hosts
    * - View current package versions installed on each host (including initial, target, and current
    *   versions for each package)
-   *
+   * 
    * Pagination: Use the `limit` and `page` query parameters to paginate through hosts. The response
    * includes pagination metadata in the `meta.hosts` field with information about the current page,
    * total pages, and total host count. The default page size is 50 hosts, with a maximum of 100.
@@ -2436,7 +2394,7 @@ export class FleetAutomationApi {
 
   /**
    * Retrieve detailed information about a specific schedule using its unique identifier.
-   *
+   * 
    * This endpoint returns comprehensive information about a schedule, including:
    * - Schedule metadata (ID, name, creation/update timestamps)
    * - Filter query for selecting target hosts
@@ -2492,7 +2450,7 @@ export class FleetAutomationApi {
 
   /**
    * Retrieve a paginated list of tracers for a specific agent.
-   *
+   * 
    * This endpoint returns tracers associated with a given agent key, identified by the
    * agent's hostname. Use this to discover telemetry-derived service names for a particular host.
    * @param param The request object
@@ -2520,17 +2478,17 @@ export class FleetAutomationApi {
 
   /**
    * Retrieve a list of all available Datadog Agent versions.
-   *
+   * 
    * This endpoint returns the available Agent versions that can be deployed to your fleet.
    * These versions are used when creating deployments or configuring schedules for
    * automated Agent upgrades.
    * @param param The request object
    */
-  public listFleetAgentVersions(
-    options?: Configuration,
+  public listFleetAgentVersions(options?: Configuration,
   ): Promise<FleetAgentVersionsResponse> {
-    const requestContextPromise =
-      this.requestFactory.listFleetAgentVersions(options);
+    const requestContextPromise = this.requestFactory.listFleetAgentVersions(
+      options,
+    );
     return requestContextPromise.then((requestContext) => {
       return this.configuration.httpApi
         .send(requestContext)
@@ -2565,17 +2523,17 @@ export class FleetAutomationApi {
 
   /**
    * Retrieve a list of all schedules for automated fleet deployments.
-   *
+   * 
    * Schedules allow you to automate package upgrades by defining maintenance windows
    * and recurrence rules. Each schedule automatically creates deployments based on its
    * configuration.
    * @param param The request object
    */
-  public listFleetSchedules(
-    options?: Configuration,
+  public listFleetSchedules(options?: Configuration,
   ): Promise<FleetSchedulesResponse> {
-    const requestContextPromise =
-      this.requestFactory.listFleetSchedules(options);
+    const requestContextPromise = this.requestFactory.listFleetSchedules(
+      options,
+    );
     return requestContextPromise.then((requestContext) => {
       return this.configuration.httpApi
         .send(requestContext)
@@ -2587,7 +2545,7 @@ export class FleetAutomationApi {
 
   /**
    * Retrieve a paginated list of all fleet tracers.
-   *
+   * 
    * This endpoint returns telemetry-derived service names from the SDK telemetry pipeline.
    * These names may differ from span-derived names in APM and are useful for querying
    * service library configurations.
@@ -2617,19 +2575,19 @@ export class FleetAutomationApi {
 
   /**
    * Manually trigger a schedule to immediately create and start a deployment.
-   *
+   * 
    * This endpoint allows you to manually initiate a deployment using the schedule's
    * configuration, without waiting for the next scheduled maintenance window. This is
    * useful for:
    * - Testing a schedule before it runs automatically
    * - Performing an emergency update outside the regular maintenance window
    * - Creating an ad-hoc deployment with the same settings as a schedule
-   *
+   * 
    * The deployment is created immediately with:
    * - The same filter query as the schedule
    * - The package version determined by the schedule's version strategy
    * - All matching hosts as targets
-   *
+   * 
    * The manually triggered deployment is independent of the schedule and does not
    * affect the schedule's normal recurrence pattern.
    * @param param The request object
@@ -2653,14 +2611,14 @@ export class FleetAutomationApi {
 
   /**
    * Partially update a schedule by providing only the fields you want to change.
-   *
+   * 
    * This endpoint allows you to modify specific attributes of a schedule without
    * affecting other fields. Common use cases include:
    * - Changing the schedule status between active and inactive
    * - Updating the maintenance window times
    * - Modifying the filter query to target different hosts
    * - Adjusting the version strategy
-   *
+   * 
    * Only include the fields you want to update in the request body. All fields
    * are optional in a PATCH request.
    * @param param The request object

@@ -19,6 +19,7 @@ import {
   ServerConfiguration,
   stringify,
   applySecurityAuthentication,
+  
 } from "@datadog/datadog-api-client";
 
 import { TypingInfo } from "./models/TypingInfo";
@@ -61,15 +62,8 @@ export class MetricsApiRequestFactory extends BaseAPIRequestFactory {
     );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "MetricsApi.v1.getMetricMetadata",
-      MetricsApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.GET,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("MetricsApi.v1.getMetricMetadata", MetricsApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.GET, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -105,15 +99,8 @@ export class MetricsApiRequestFactory extends BaseAPIRequestFactory {
     const localVarPath = "/api/v1/metrics";
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "MetricsApi.v1.listActiveMetrics",
-      MetricsApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.GET,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("MetricsApi.v1.listActiveMetrics", MetricsApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.GET, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -170,15 +157,8 @@ export class MetricsApiRequestFactory extends BaseAPIRequestFactory {
     const localVarPath = "/api/v1/search";
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "MetricsApi.v1.listMetrics",
-      MetricsApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.GET,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("MetricsApi.v1.listMetrics", MetricsApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.GET, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -233,15 +213,8 @@ export class MetricsApiRequestFactory extends BaseAPIRequestFactory {
     const localVarPath = "/api/v1/query";
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "MetricsApi.v1.queryMetrics",
-      MetricsApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.GET,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("MetricsApi.v1.queryMetrics", MetricsApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.GET, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -299,15 +272,8 @@ export class MetricsApiRequestFactory extends BaseAPIRequestFactory {
     const localVarPath = "/api/v1/distribution_points";
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "MetricsApi.v1.submitDistributionPoints",
-      MetricsApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.POST,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("MetricsApi.v1.submitDistributionPoints", MetricsApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.POST, overrides);
     requestContext.setHeaderParam("Accept", "text/json, application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -318,19 +284,13 @@ export class MetricsApiRequestFactory extends BaseAPIRequestFactory {
 
     // Header Params
     if (contentEncoding !== undefined) {
-      requestContext.setHeaderParam(
-        "Content-Encoding",
-        serialize(
-          contentEncoding,
-          TypingInfo,
-          "DistributionPointsContentEncoding",
-          "",
-        ),
-      );
+      requestContext.setHeaderParam("Content-Encoding", serialize(contentEncoding, TypingInfo, "DistributionPointsContentEncoding", ""));
     }
 
     // Body Params
-    const contentType = getPreferredMediaType(["text/json"]);
+    const contentType = getPreferredMediaType([
+      "text/json",
+    ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = stringify(
       serialize(body, TypingInfo, "DistributionPointsPayload", ""),
@@ -339,7 +299,9 @@ export class MetricsApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setBody(serializedBody);
 
     // Apply auth methods
-    applySecurityAuthentication(_config, requestContext, ["apiKeyAuth"]);
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+    ]);
 
     return requestContext;
   }
@@ -360,15 +322,8 @@ export class MetricsApiRequestFactory extends BaseAPIRequestFactory {
     const localVarPath = "/api/v1/series";
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "MetricsApi.v1.submitMetrics",
-      MetricsApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.POST,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("MetricsApi.v1.submitMetrics", MetricsApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.POST, overrides);
     requestContext.setHeaderParam("Accept", "text/json, application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -379,14 +334,13 @@ export class MetricsApiRequestFactory extends BaseAPIRequestFactory {
 
     // Header Params
     if (contentEncoding !== undefined) {
-      requestContext.setHeaderParam(
-        "Content-Encoding",
-        serialize(contentEncoding, TypingInfo, "MetricContentEncoding", ""),
-      );
+      requestContext.setHeaderParam("Content-Encoding", serialize(contentEncoding, TypingInfo, "MetricContentEncoding", ""));
     }
 
     // Body Params
-    const contentType = getPreferredMediaType(["text/json"]);
+    const contentType = getPreferredMediaType([
+      "text/json",
+    ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = stringify(
       serialize(body, TypingInfo, "MetricsPayload", ""),
@@ -395,7 +349,9 @@ export class MetricsApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setBody(serializedBody);
 
     // Apply auth methods
-    applySecurityAuthentication(_config, requestContext, ["apiKeyAuth"]);
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+    ]);
 
     return requestContext;
   }
@@ -424,15 +380,8 @@ export class MetricsApiRequestFactory extends BaseAPIRequestFactory {
     );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "MetricsApi.v1.updateMetricMetadata",
-      MetricsApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.PUT,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("MetricsApi.v1.updateMetricMetadata", MetricsApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.PUT, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -442,7 +391,9 @@ export class MetricsApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Body Params
-    const contentType = getPreferredMediaType(["application/json"]);
+    const contentType = getPreferredMediaType([
+      "application/json",
+    ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = stringify(
       serialize(body, TypingInfo, "MetricMetadata", ""),
@@ -471,7 +422,9 @@ export class MetricsApiResponseProcessor {
   public async getMetricMetadata(
     response: ResponseContext,
   ): Promise<MetricMetadata> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: MetricMetadata = deserialize(
         parse(await response.body.text(), contentType),
@@ -485,7 +438,10 @@ export class MetricsApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -500,7 +456,10 @@ export class MetricsApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -531,7 +490,9 @@ export class MetricsApiResponseProcessor {
   public async listActiveMetrics(
     response: ResponseContext,
   ): Promise<MetricsListResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: MetricsListResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -545,7 +506,10 @@ export class MetricsApiResponseProcessor {
       response.httpStatusCode === 403 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -560,7 +524,10 @@ export class MetricsApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -591,7 +558,9 @@ export class MetricsApiResponseProcessor {
   public async listMetrics(
     response: ResponseContext,
   ): Promise<MetricSearchResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: MetricSearchResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -605,7 +574,10 @@ export class MetricsApiResponseProcessor {
       response.httpStatusCode === 403 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -620,7 +592,10 @@ export class MetricsApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -651,7 +626,9 @@ export class MetricsApiResponseProcessor {
   public async queryMetrics(
     response: ResponseContext,
   ): Promise<MetricsQueryResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: MetricsQueryResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -665,7 +642,10 @@ export class MetricsApiResponseProcessor {
       response.httpStatusCode === 403 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -680,7 +660,10 @@ export class MetricsApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -711,7 +694,9 @@ export class MetricsApiResponseProcessor {
   public async submitDistributionPoints(
     response: ResponseContext,
   ): Promise<IntakePayloadAccepted> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 202) {
       const body: IntakePayloadAccepted = deserialize(
         parse(await response.body.text(), contentType),
@@ -727,7 +712,10 @@ export class MetricsApiResponseProcessor {
       response.httpStatusCode === 413 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -742,7 +730,10 @@ export class MetricsApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -773,7 +764,9 @@ export class MetricsApiResponseProcessor {
   public async submitMetrics(
     response: ResponseContext,
   ): Promise<IntakePayloadAccepted> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 202) {
       const body: IntakePayloadAccepted = deserialize(
         parse(await response.body.text(), contentType),
@@ -789,7 +782,10 @@ export class MetricsApiResponseProcessor {
       response.httpStatusCode === 413 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -804,7 +800,10 @@ export class MetricsApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -835,7 +834,9 @@ export class MetricsApiResponseProcessor {
   public async updateMetricMetadata(
     response: ResponseContext,
   ): Promise<MetricMetadata> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: MetricMetadata = deserialize(
         parse(await response.body.text(), contentType),
@@ -850,7 +851,10 @@ export class MetricsApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -865,7 +869,10 @@ export class MetricsApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -983,7 +990,8 @@ export class MetricsApi {
   private responseProcessor: MetricsApiResponseProcessor;
   private configuration: Configuration;
 
-  static operationServers: { [key: string]: BaseServerConfiguration[] } = {};
+  static operationServers: { [key: string]: BaseServerConfiguration[] } = {
+  };
 
   public constructor(
     configuration?: Configuration,
@@ -992,7 +1000,8 @@ export class MetricsApi {
   ) {
     this.configuration = configuration || createConfiguration();
     this.requestFactory =
-      requestFactory || new MetricsApiRequestFactory(this.configuration);
+      requestFactory ||
+      new MetricsApiRequestFactory(this.configuration);
     this.responseProcessor =
       responseProcessor || new MetricsApiResponseProcessor();
   }
@@ -1043,7 +1052,7 @@ export class MetricsApi {
 
   /**
    * **Note**: This endpoint is deprecated. Use `/api/v2/metrics` instead.
-   *
+   * 
    * Search for metrics from the last 24 hours in Datadog.
    * @param param The request object
    */
@@ -1104,9 +1113,7 @@ export class MetricsApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.submitDistributionPoints(
-            responseContext,
-          );
+          return this.responseProcessor.submitDistributionPoints(responseContext);
         });
     });
   }
@@ -1114,9 +1121,9 @@ export class MetricsApi {
   /**
    * The metrics end-point allows you to post time-series data that can be graphed on Datadog’s dashboards.
    * The maximum payload size is 3.2 megabytes (3200000 bytes). Compressed payloads must have a decompressed size of less than 62 megabytes (62914560 bytes).
-   *
+   * 
    * If you’re submitting metrics directly to the Datadog API without using DogStatsD, expect:
-   *
+   * 
    * - 64 bits for the timestamp
    * - 64 bits for the value
    * - 40 bytes for the metric names

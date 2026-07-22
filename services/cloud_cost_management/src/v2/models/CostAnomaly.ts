@@ -25,11 +25,11 @@ export class CostAnomaly {
   /**
    * Map of correlated tag keys to the list of correlated tag values.
    */
-  "correlatedTags": { [key: string]: Array<string> } | null;
+  "correlatedTags": { [key: string]: Array<string>; }|null;
   /**
    * Map of cost dimension keys to their values for the anomaly grouping.
    */
-  "dimensions": { [key: string]: string };
+  "dimensions": { [key: string]: string; };
   /**
    * Resolution metadata for an anomaly that has been dismissed.
    */
@@ -55,7 +55,7 @@ export class CostAnomaly {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
   /**
    * @ignore
    */

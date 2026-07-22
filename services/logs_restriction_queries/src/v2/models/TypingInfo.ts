@@ -28,7 +28,7 @@ export const TypingInfo: ModelTypingInfo = {
   },
   oneOfMap: {
     RestrictionQueryResponseIncludedItem: ["RestrictionQueryRole"],
-  },
+    },
   typeMap: {
     APIErrorResponse: APIErrorResponse,
     RelationshipToRole: RelationshipToRole,
@@ -46,11 +46,9 @@ export const TypingInfo: ModelTypingInfo = {
     RestrictionQueryUpdateData: RestrictionQueryUpdateData,
     RestrictionQueryUpdatePayload: RestrictionQueryUpdatePayload,
     RestrictionQueryWithRelationships: RestrictionQueryWithRelationships,
-    RestrictionQueryWithRelationshipsResponse:
-      RestrictionQueryWithRelationshipsResponse,
+    RestrictionQueryWithRelationshipsResponse: RestrictionQueryWithRelationshipsResponse,
     RestrictionQueryWithoutRelationships: RestrictionQueryWithoutRelationships,
-    RestrictionQueryWithoutRelationshipsResponse:
-      RestrictionQueryWithoutRelationshipsResponse,
+    RestrictionQueryWithoutRelationshipsResponse: RestrictionQueryWithoutRelationshipsResponse,
     UserRelationships: UserRelationships,
   },
 };

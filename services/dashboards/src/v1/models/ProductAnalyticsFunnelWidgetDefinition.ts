@@ -84,7 +84,7 @@ export class ProductAnalyticsFunnelWidgetDefinition {
       baseName: "type",
       type: "FunnelWidgetDefinitionType",
       required: true,
-    },
+    }
   };
 
   /**

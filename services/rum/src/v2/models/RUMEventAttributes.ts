@@ -1,5 +1,6 @@
 import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
+
 /**
  * JSON object containing all event attributes and their associated values.
  */
@@ -7,7 +8,7 @@ export class RUMEventAttributes {
   /**
    * JSON object of attributes from RUM events.
    */
-  "attributes"?: { [key: string]: any };
+  "attributes"?: { [key: string]: any; };
   /**
    * The name of the application or service generating RUM events.
    * It is used to switch from RUM to APM, so make sure you define the same
@@ -27,7 +28,7 @@ export class RUMEventAttributes {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
   /**
    * @ignore
    */

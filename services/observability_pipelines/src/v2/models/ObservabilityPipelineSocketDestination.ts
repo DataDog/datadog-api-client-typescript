@@ -9,7 +9,7 @@ import { ObservabilityPipelineTls } from "./ObservabilityPipelineTls";
 
 /**
  * The `socket` destination sends logs over TCP or UDP to a remote server.
- *
+ * 
  * **Supported pipeline types:** logs
  */
 export class ObservabilityPipelineSocketDestination {
@@ -54,7 +54,7 @@ export class ObservabilityPipelineSocketDestination {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
   /**
    * @ignore
    */

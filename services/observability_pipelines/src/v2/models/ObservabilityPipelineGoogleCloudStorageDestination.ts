@@ -10,7 +10,7 @@ import { ObservabilityPipelineMetadataEntry } from "./ObservabilityPipelineMetad
 /**
  * The `google_cloud_storage` destination stores logs in a Google Cloud Storage (GCS) bucket.
  * It requires a bucket name, Google Cloud authentication, and metadata fields.
- *
+ * 
  * **Supported pipeline types:** logs
  */
 export class ObservabilityPipelineGoogleCloudStorageDestination {
@@ -59,7 +59,7 @@ export class ObservabilityPipelineGoogleCloudStorageDestination {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
   /**
    * @ignore
    */

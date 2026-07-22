@@ -19,6 +19,7 @@ import {
   ServerConfiguration,
   stringify,
   applySecurityAuthentication,
+  
 } from "@datadog/datadog-api-client";
 
 import { TypingInfo } from "./models/TypingInfo";
@@ -51,15 +52,8 @@ export class ServiceChecksApiRequestFactory extends BaseAPIRequestFactory {
     const localVarPath = "/api/v1/check_run";
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "ServiceChecksApi.v1.submitServiceCheck",
-      ServiceChecksApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.POST,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("ServiceChecksApi.v1.submitServiceCheck", ServiceChecksApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.POST, overrides);
     requestContext.setHeaderParam("Accept", "text/json, application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -69,7 +63,9 @@ export class ServiceChecksApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Body Params
-    const contentType = getPreferredMediaType(["application/json"]);
+    const contentType = getPreferredMediaType([
+      "application/json",
+    ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = stringify(
       serialize(body, TypingInfo, "Array<ServiceCheck>", ""),
@@ -78,7 +74,9 @@ export class ServiceChecksApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setBody(serializedBody);
 
     // Apply auth methods
-    applySecurityAuthentication(_config, requestContext, ["apiKeyAuth"]);
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+    ]);
 
     return requestContext;
   }
@@ -95,7 +93,9 @@ export class ServiceChecksApiResponseProcessor {
   public async submitServiceCheck(
     response: ResponseContext,
   ): Promise<IntakePayloadAccepted> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 202) {
       const body: IntakePayloadAccepted = deserialize(
         parse(await response.body.text(), contentType),
@@ -111,7 +111,10 @@ export class ServiceChecksApiResponseProcessor {
       response.httpStatusCode === 413 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -126,7 +129,10 @@ export class ServiceChecksApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -161,7 +167,8 @@ export class ServiceChecksApi {
   private responseProcessor: ServiceChecksApiResponseProcessor;
   private configuration: Configuration;
 
-  static operationServers: { [key: string]: BaseServerConfiguration[] } = {};
+  static operationServers: { [key: string]: BaseServerConfiguration[] } = {
+  };
 
   public constructor(
     configuration?: Configuration,
@@ -170,14 +177,15 @@ export class ServiceChecksApi {
   ) {
     this.configuration = configuration || createConfiguration();
     this.requestFactory =
-      requestFactory || new ServiceChecksApiRequestFactory(this.configuration);
+      requestFactory ||
+      new ServiceChecksApiRequestFactory(this.configuration);
     this.responseProcessor =
       responseProcessor || new ServiceChecksApiResponseProcessor();
   }
 
   /**
    * Submit a list of Service Checks.
-   *
+   * 
    * **Notes**:
    * - A valid API key is required.
    * - Service checks can be submitted up to 10 minutes in the past.

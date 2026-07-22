@@ -29,62 +29,36 @@ import { MicrosoftTeamsWorkflowsWebhookResponseAttributes } from "./MicrosoftTea
 export const TypingInfo: ModelTypingInfo = {
   enumsMap: {
     MicrosoftTeamsChannelInfoType: ["ms-teams-channel-info"],
-    MicrosoftTeamsTenantBasedHandleInfoType: [
-      "ms-teams-tenant-based-handle-info",
-    ],
+    MicrosoftTeamsTenantBasedHandleInfoType: ["ms-teams-tenant-based-handle-info"],
     MicrosoftTeamsTenantBasedHandleType: ["tenant-based-handle"],
     MicrosoftTeamsWorkflowsWebhookHandleType: ["workflows-webhook-handle"],
   },
   oneOfMap: {},
   typeMap: {
     APIErrorResponse: APIErrorResponse,
-    MicrosoftTeamsChannelInfoResponseAttributes:
-      MicrosoftTeamsChannelInfoResponseAttributes,
-    MicrosoftTeamsChannelInfoResponseData:
-      MicrosoftTeamsChannelInfoResponseData,
-    MicrosoftTeamsCreateTenantBasedHandleRequest:
-      MicrosoftTeamsCreateTenantBasedHandleRequest,
-    MicrosoftTeamsCreateWorkflowsWebhookHandleRequest:
-      MicrosoftTeamsCreateWorkflowsWebhookHandleRequest,
-    MicrosoftTeamsGetChannelByNameResponse:
-      MicrosoftTeamsGetChannelByNameResponse,
-    MicrosoftTeamsTenantBasedHandleAttributes:
-      MicrosoftTeamsTenantBasedHandleAttributes,
-    MicrosoftTeamsTenantBasedHandleInfoResponseAttributes:
-      MicrosoftTeamsTenantBasedHandleInfoResponseAttributes,
-    MicrosoftTeamsTenantBasedHandleInfoResponseData:
-      MicrosoftTeamsTenantBasedHandleInfoResponseData,
-    MicrosoftTeamsTenantBasedHandleRequestAttributes:
-      MicrosoftTeamsTenantBasedHandleRequestAttributes,
-    MicrosoftTeamsTenantBasedHandleRequestData:
-      MicrosoftTeamsTenantBasedHandleRequestData,
-    MicrosoftTeamsTenantBasedHandleResponse:
-      MicrosoftTeamsTenantBasedHandleResponse,
-    MicrosoftTeamsTenantBasedHandleResponseData:
-      MicrosoftTeamsTenantBasedHandleResponseData,
-    MicrosoftTeamsTenantBasedHandlesResponse:
-      MicrosoftTeamsTenantBasedHandlesResponse,
-    MicrosoftTeamsUpdateTenantBasedHandleRequest:
-      MicrosoftTeamsUpdateTenantBasedHandleRequest,
-    MicrosoftTeamsUpdateTenantBasedHandleRequestData:
-      MicrosoftTeamsUpdateTenantBasedHandleRequestData,
-    MicrosoftTeamsUpdateWorkflowsWebhookHandleRequest:
-      MicrosoftTeamsUpdateWorkflowsWebhookHandleRequest,
-    MicrosoftTeamsUpdateWorkflowsWebhookHandleRequestData:
-      MicrosoftTeamsUpdateWorkflowsWebhookHandleRequestData,
-    MicrosoftTeamsWorkflowsWebhookHandleAttributes:
-      MicrosoftTeamsWorkflowsWebhookHandleAttributes,
-    MicrosoftTeamsWorkflowsWebhookHandleRequestAttributes:
-      MicrosoftTeamsWorkflowsWebhookHandleRequestAttributes,
-    MicrosoftTeamsWorkflowsWebhookHandleRequestData:
-      MicrosoftTeamsWorkflowsWebhookHandleRequestData,
-    MicrosoftTeamsWorkflowsWebhookHandleResponse:
-      MicrosoftTeamsWorkflowsWebhookHandleResponse,
-    MicrosoftTeamsWorkflowsWebhookHandleResponseData:
-      MicrosoftTeamsWorkflowsWebhookHandleResponseData,
-    MicrosoftTeamsWorkflowsWebhookHandlesResponse:
-      MicrosoftTeamsWorkflowsWebhookHandlesResponse,
-    MicrosoftTeamsWorkflowsWebhookResponseAttributes:
-      MicrosoftTeamsWorkflowsWebhookResponseAttributes,
+    MicrosoftTeamsChannelInfoResponseAttributes: MicrosoftTeamsChannelInfoResponseAttributes,
+    MicrosoftTeamsChannelInfoResponseData: MicrosoftTeamsChannelInfoResponseData,
+    MicrosoftTeamsCreateTenantBasedHandleRequest: MicrosoftTeamsCreateTenantBasedHandleRequest,
+    MicrosoftTeamsCreateWorkflowsWebhookHandleRequest: MicrosoftTeamsCreateWorkflowsWebhookHandleRequest,
+    MicrosoftTeamsGetChannelByNameResponse: MicrosoftTeamsGetChannelByNameResponse,
+    MicrosoftTeamsTenantBasedHandleAttributes: MicrosoftTeamsTenantBasedHandleAttributes,
+    MicrosoftTeamsTenantBasedHandleInfoResponseAttributes: MicrosoftTeamsTenantBasedHandleInfoResponseAttributes,
+    MicrosoftTeamsTenantBasedHandleInfoResponseData: MicrosoftTeamsTenantBasedHandleInfoResponseData,
+    MicrosoftTeamsTenantBasedHandleRequestAttributes: MicrosoftTeamsTenantBasedHandleRequestAttributes,
+    MicrosoftTeamsTenantBasedHandleRequestData: MicrosoftTeamsTenantBasedHandleRequestData,
+    MicrosoftTeamsTenantBasedHandleResponse: MicrosoftTeamsTenantBasedHandleResponse,
+    MicrosoftTeamsTenantBasedHandleResponseData: MicrosoftTeamsTenantBasedHandleResponseData,
+    MicrosoftTeamsTenantBasedHandlesResponse: MicrosoftTeamsTenantBasedHandlesResponse,
+    MicrosoftTeamsUpdateTenantBasedHandleRequest: MicrosoftTeamsUpdateTenantBasedHandleRequest,
+    MicrosoftTeamsUpdateTenantBasedHandleRequestData: MicrosoftTeamsUpdateTenantBasedHandleRequestData,
+    MicrosoftTeamsUpdateWorkflowsWebhookHandleRequest: MicrosoftTeamsUpdateWorkflowsWebhookHandleRequest,
+    MicrosoftTeamsUpdateWorkflowsWebhookHandleRequestData: MicrosoftTeamsUpdateWorkflowsWebhookHandleRequestData,
+    MicrosoftTeamsWorkflowsWebhookHandleAttributes: MicrosoftTeamsWorkflowsWebhookHandleAttributes,
+    MicrosoftTeamsWorkflowsWebhookHandleRequestAttributes: MicrosoftTeamsWorkflowsWebhookHandleRequestAttributes,
+    MicrosoftTeamsWorkflowsWebhookHandleRequestData: MicrosoftTeamsWorkflowsWebhookHandleRequestData,
+    MicrosoftTeamsWorkflowsWebhookHandleResponse: MicrosoftTeamsWorkflowsWebhookHandleResponse,
+    MicrosoftTeamsWorkflowsWebhookHandleResponseData: MicrosoftTeamsWorkflowsWebhookHandleResponseData,
+    MicrosoftTeamsWorkflowsWebhookHandlesResponse: MicrosoftTeamsWorkflowsWebhookHandlesResponse,
+    MicrosoftTeamsWorkflowsWebhookResponseAttributes: MicrosoftTeamsWorkflowsWebhookResponseAttributes,
   },
 };

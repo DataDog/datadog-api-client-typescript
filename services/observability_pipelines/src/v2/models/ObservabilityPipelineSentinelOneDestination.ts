@@ -6,7 +6,7 @@ import { ObservabilityPipelineSentinelOneDestinationType } from "./Observability
 
 /**
  * The `sentinel_one` destination sends logs to SentinelOne.
- *
+ * 
  * **Supported pipeline types:** logs
  */
 export class ObservabilityPipelineSentinelOneDestination {
@@ -39,7 +39,7 @@ export class ObservabilityPipelineSentinelOneDestination {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
   /**
    * @ignore
    */

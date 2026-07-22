@@ -57,7 +57,7 @@ export class MonitorFormulaAndFunctionReferenceTableQueryDefinition {
       baseName: "table_name",
       type: "string",
       required: true,
-    },
+    }
   };
 
   /**

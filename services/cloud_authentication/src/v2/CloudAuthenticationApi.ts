@@ -19,6 +19,7 @@ import {
   ServerConfiguration,
   stringify,
   applySecurityAuthentication,
+  
 } from "@datadog/datadog-api-client";
 
 import { TypingInfo } from "./models/TypingInfo";
@@ -44,14 +45,8 @@ export class CloudAuthenticationApiRequestFactory extends BaseAPIRequestFactory 
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
-    if (
-      !_config.unstableOperations[
-        "CloudAuthenticationApi.v2.createAWSCloudAuthPersonaMapping"
-      ]
-    ) {
-      throw new Error(
-        "Unstable operation 'createAWSCloudAuthPersonaMapping' is disabled. Enable it by setting `configuration.unstableOperations['CloudAuthenticationApi.v2.createAWSCloudAuthPersonaMapping'] = true`",
-      );
+    if (!_config.unstableOperations["CloudAuthenticationApi.v2.createAWSCloudAuthPersonaMapping"]) {
+      throw new Error("Unstable operation 'createAWSCloudAuthPersonaMapping' is disabled. Enable it by setting `configuration.unstableOperations['CloudAuthenticationApi.v2.createAWSCloudAuthPersonaMapping'] = true`");
     }
 
     // verify required parameter 'body' is not null or undefined
@@ -63,15 +58,8 @@ export class CloudAuthenticationApiRequestFactory extends BaseAPIRequestFactory 
     const localVarPath = "/api/v2/cloud_auth/aws/persona_mapping";
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "CloudAuthenticationApi.v2.createAWSCloudAuthPersonaMapping",
-      CloudAuthenticationApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.POST,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("CloudAuthenticationApi.v2.createAWSCloudAuthPersonaMapping", CloudAuthenticationApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.POST, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -81,15 +69,12 @@ export class CloudAuthenticationApiRequestFactory extends BaseAPIRequestFactory 
     }
 
     // Body Params
-    const contentType = getPreferredMediaType(["application/json"]);
+    const contentType = getPreferredMediaType([
+      "application/json",
+    ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = stringify(
-      serialize(
-        body,
-        TypingInfo,
-        "AWSCloudAuthPersonaMappingCreateRequest",
-        "",
-      ),
+      serialize(body, TypingInfo, "AWSCloudAuthPersonaMappingCreateRequest", ""),
       contentType,
     );
     requestContext.setBody(serializedBody);
@@ -109,41 +94,24 @@ export class CloudAuthenticationApiRequestFactory extends BaseAPIRequestFactory 
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
-    if (
-      !_config.unstableOperations[
-        "CloudAuthenticationApi.v2.deleteAWSCloudAuthPersonaMapping"
-      ]
-    ) {
-      throw new Error(
-        "Unstable operation 'deleteAWSCloudAuthPersonaMapping' is disabled. Enable it by setting `configuration.unstableOperations['CloudAuthenticationApi.v2.deleteAWSCloudAuthPersonaMapping'] = true`",
-      );
+    if (!_config.unstableOperations["CloudAuthenticationApi.v2.deleteAWSCloudAuthPersonaMapping"]) {
+      throw new Error("Unstable operation 'deleteAWSCloudAuthPersonaMapping' is disabled. Enable it by setting `configuration.unstableOperations['CloudAuthenticationApi.v2.deleteAWSCloudAuthPersonaMapping'] = true`");
     }
 
     // verify required parameter 'personaMappingId' is not null or undefined
     if (personaMappingId === null || personaMappingId === undefined) {
-      throw new RequiredError(
-        "personaMappingId",
-        "deleteAWSCloudAuthPersonaMapping",
-      );
+      throw new RequiredError("personaMappingId", "deleteAWSCloudAuthPersonaMapping");
     }
 
     // Path Params
-    const localVarPath =
-      "/api/v2/cloud_auth/aws/persona_mapping/{persona_mapping_id}".replace(
-        "{persona_mapping_id}",
-        encodeURIComponent(String(personaMappingId)),
-      );
+    const localVarPath = "/api/v2/cloud_auth/aws/persona_mapping/{persona_mapping_id}".replace(
+      "{persona_mapping_id}",
+      encodeURIComponent(String(personaMappingId)),
+    );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "CloudAuthenticationApi.v2.deleteAWSCloudAuthPersonaMapping",
-      CloudAuthenticationApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.DELETE,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("CloudAuthenticationApi.v2.deleteAWSCloudAuthPersonaMapping", CloudAuthenticationApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.DELETE, overrides);
     requestContext.setHeaderParam("Accept", "*/*");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -167,41 +135,24 @@ export class CloudAuthenticationApiRequestFactory extends BaseAPIRequestFactory 
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
-    if (
-      !_config.unstableOperations[
-        "CloudAuthenticationApi.v2.getAWSCloudAuthPersonaMapping"
-      ]
-    ) {
-      throw new Error(
-        "Unstable operation 'getAWSCloudAuthPersonaMapping' is disabled. Enable it by setting `configuration.unstableOperations['CloudAuthenticationApi.v2.getAWSCloudAuthPersonaMapping'] = true`",
-      );
+    if (!_config.unstableOperations["CloudAuthenticationApi.v2.getAWSCloudAuthPersonaMapping"]) {
+      throw new Error("Unstable operation 'getAWSCloudAuthPersonaMapping' is disabled. Enable it by setting `configuration.unstableOperations['CloudAuthenticationApi.v2.getAWSCloudAuthPersonaMapping'] = true`");
     }
 
     // verify required parameter 'personaMappingId' is not null or undefined
     if (personaMappingId === null || personaMappingId === undefined) {
-      throw new RequiredError(
-        "personaMappingId",
-        "getAWSCloudAuthPersonaMapping",
-      );
+      throw new RequiredError("personaMappingId", "getAWSCloudAuthPersonaMapping");
     }
 
     // Path Params
-    const localVarPath =
-      "/api/v2/cloud_auth/aws/persona_mapping/{persona_mapping_id}".replace(
-        "{persona_mapping_id}",
-        encodeURIComponent(String(personaMappingId)),
-      );
+    const localVarPath = "/api/v2/cloud_auth/aws/persona_mapping/{persona_mapping_id}".replace(
+      "{persona_mapping_id}",
+      encodeURIComponent(String(personaMappingId)),
+    );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "CloudAuthenticationApi.v2.getAWSCloudAuthPersonaMapping",
-      CloudAuthenticationApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.GET,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("CloudAuthenticationApi.v2.getAWSCloudAuthPersonaMapping", CloudAuthenticationApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.GET, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -224,29 +175,16 @@ export class CloudAuthenticationApiRequestFactory extends BaseAPIRequestFactory 
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
-    if (
-      !_config.unstableOperations[
-        "CloudAuthenticationApi.v2.listAWSCloudAuthPersonaMappings"
-      ]
-    ) {
-      throw new Error(
-        "Unstable operation 'listAWSCloudAuthPersonaMappings' is disabled. Enable it by setting `configuration.unstableOperations['CloudAuthenticationApi.v2.listAWSCloudAuthPersonaMappings'] = true`",
-      );
+    if (!_config.unstableOperations["CloudAuthenticationApi.v2.listAWSCloudAuthPersonaMappings"]) {
+      throw new Error("Unstable operation 'listAWSCloudAuthPersonaMappings' is disabled. Enable it by setting `configuration.unstableOperations['CloudAuthenticationApi.v2.listAWSCloudAuthPersonaMappings'] = true`");
     }
 
     // Path Params
     const localVarPath = "/api/v2/cloud_auth/aws/persona_mapping";
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "CloudAuthenticationApi.v2.listAWSCloudAuthPersonaMappings",
-      CloudAuthenticationApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.GET,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("CloudAuthenticationApi.v2.listAWSCloudAuthPersonaMappings", CloudAuthenticationApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.GET, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -276,7 +214,9 @@ export class CloudAuthenticationApiResponseProcessor {
   public async createAWSCloudAuthPersonaMapping(
     response: ResponseContext,
   ): Promise<AWSCloudAuthPersonaMappingResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 201) {
       const body: AWSCloudAuthPersonaMappingResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -290,7 +230,10 @@ export class CloudAuthenticationApiResponseProcessor {
       response.httpStatusCode === 403 ||
       response.httpStatusCode === 409
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: JSONAPIErrorResponse;
       try {
         body = deserialize(
@@ -311,7 +254,10 @@ export class CloudAuthenticationApiResponseProcessor {
       );
     }
     if (response.httpStatusCode === 429) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -326,7 +272,10 @@ export class CloudAuthenticationApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -357,12 +306,20 @@ export class CloudAuthenticationApiResponseProcessor {
   public async deleteAWSCloudAuthPersonaMapping(
     response: ResponseContext,
   ): Promise<void> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 204) {
       return;
     }
-    if (response.httpStatusCode === 403 || response.httpStatusCode === 404) {
-      const bodyText = parse(await response.body.text(), contentType);
+    if (
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 404
+    ) {
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: JSONAPIErrorResponse;
       try {
         body = deserialize(
@@ -383,7 +340,10 @@ export class CloudAuthenticationApiResponseProcessor {
       );
     }
     if (response.httpStatusCode === 429) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -398,7 +358,10 @@ export class CloudAuthenticationApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -423,7 +386,9 @@ export class CloudAuthenticationApiResponseProcessor {
   public async getAWSCloudAuthPersonaMapping(
     response: ResponseContext,
   ): Promise<AWSCloudAuthPersonaMappingResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: AWSCloudAuthPersonaMappingResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -432,8 +397,14 @@ export class CloudAuthenticationApiResponseProcessor {
       ) as AWSCloudAuthPersonaMappingResponse;
       return body;
     }
-    if (response.httpStatusCode === 403 || response.httpStatusCode === 404) {
-      const bodyText = parse(await response.body.text(), contentType);
+    if (
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 404
+    ) {
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: JSONAPIErrorResponse;
       try {
         body = deserialize(
@@ -454,7 +425,10 @@ export class CloudAuthenticationApiResponseProcessor {
       );
     }
     if (response.httpStatusCode === 429) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -469,7 +443,10 @@ export class CloudAuthenticationApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -500,7 +477,9 @@ export class CloudAuthenticationApiResponseProcessor {
   public async listAWSCloudAuthPersonaMappings(
     response: ResponseContext,
   ): Promise<AWSCloudAuthPersonaMappingsResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: AWSCloudAuthPersonaMappingsResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -509,8 +488,14 @@ export class CloudAuthenticationApiResponseProcessor {
       ) as AWSCloudAuthPersonaMappingsResponse;
       return body;
     }
-    if (response.httpStatusCode === 400 || response.httpStatusCode === 403) {
-      const bodyText = parse(await response.body.text(), contentType);
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 403
+    ) {
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: JSONAPIErrorResponse;
       try {
         body = deserialize(
@@ -531,7 +516,10 @@ export class CloudAuthenticationApiResponseProcessor {
       );
     }
     if (response.httpStatusCode === 429) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -546,7 +534,10 @@ export class CloudAuthenticationApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -596,7 +587,8 @@ export class CloudAuthenticationApi {
   private responseProcessor: CloudAuthenticationApiResponseProcessor;
   private configuration: Configuration;
 
-  static operationServers: { [key: string]: BaseServerConfiguration[] } = {};
+  static operationServers: { [key: string]: BaseServerConfiguration[] } = {
+  };
 
   public constructor(
     configuration?: Configuration,
@@ -619,15 +611,15 @@ export class CloudAuthenticationApi {
     param: CloudAuthenticationApiCreateAWSCloudAuthPersonaMappingRequest,
     options?: Configuration,
   ): Promise<AWSCloudAuthPersonaMappingResponse> {
-    const requestContextPromise =
-      this.requestFactory.createAWSCloudAuthPersonaMapping(param.body, options);
+    const requestContextPromise = this.requestFactory.createAWSCloudAuthPersonaMapping(
+      param.body,
+      options,
+    );
     return requestContextPromise.then((requestContext) => {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.createAWSCloudAuthPersonaMapping(
-            responseContext,
-          );
+          return this.responseProcessor.createAWSCloudAuthPersonaMapping(responseContext);
         });
     });
   }
@@ -640,18 +632,15 @@ export class CloudAuthenticationApi {
     param: CloudAuthenticationApiDeleteAWSCloudAuthPersonaMappingRequest,
     options?: Configuration,
   ): Promise<void> {
-    const requestContextPromise =
-      this.requestFactory.deleteAWSCloudAuthPersonaMapping(
-        param.personaMappingId,
-        options,
-      );
+    const requestContextPromise = this.requestFactory.deleteAWSCloudAuthPersonaMapping(
+      param.personaMappingId,
+      options,
+    );
     return requestContextPromise.then((requestContext) => {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.deleteAWSCloudAuthPersonaMapping(
-            responseContext,
-          );
+          return this.responseProcessor.deleteAWSCloudAuthPersonaMapping(responseContext);
         });
     });
   }
@@ -664,18 +653,15 @@ export class CloudAuthenticationApi {
     param: CloudAuthenticationApiGetAWSCloudAuthPersonaMappingRequest,
     options?: Configuration,
   ): Promise<AWSCloudAuthPersonaMappingResponse> {
-    const requestContextPromise =
-      this.requestFactory.getAWSCloudAuthPersonaMapping(
-        param.personaMappingId,
-        options,
-      );
+    const requestContextPromise = this.requestFactory.getAWSCloudAuthPersonaMapping(
+      param.personaMappingId,
+      options,
+    );
     return requestContextPromise.then((requestContext) => {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.getAWSCloudAuthPersonaMapping(
-            responseContext,
-          );
+          return this.responseProcessor.getAWSCloudAuthPersonaMapping(responseContext);
         });
     });
   }
@@ -684,18 +670,16 @@ export class CloudAuthenticationApi {
    * List all AWS cloud authentication persona mappings. This endpoint retrieves all configured persona mappings that associate AWS IAM principals with Datadog users.
    * @param param The request object
    */
-  public listAWSCloudAuthPersonaMappings(
-    options?: Configuration,
+  public listAWSCloudAuthPersonaMappings(options?: Configuration,
   ): Promise<AWSCloudAuthPersonaMappingsResponse> {
-    const requestContextPromise =
-      this.requestFactory.listAWSCloudAuthPersonaMappings(options);
+    const requestContextPromise = this.requestFactory.listAWSCloudAuthPersonaMappings(
+      options,
+    );
     return requestContextPromise.then((requestContext) => {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.listAWSCloudAuthPersonaMappings(
-            responseContext,
-          );
+          return this.responseProcessor.listAWSCloudAuthPersonaMappings(responseContext);
         });
     });
   }

@@ -23,16 +23,13 @@ export const TypingInfo: ModelTypingInfo = {
   typeMap: {
     APIErrorResponse: APIErrorResponse,
     CustomAttributeConfig: CustomAttributeConfig,
-    CustomAttributeConfigAttributesCreate:
-      CustomAttributeConfigAttributesCreate,
+    CustomAttributeConfigAttributesCreate: CustomAttributeConfigAttributesCreate,
     CustomAttributeConfigCreate: CustomAttributeConfigCreate,
     CustomAttributeConfigCreateRequest: CustomAttributeConfigCreateRequest,
-    CustomAttributeConfigResourceAttributes:
-      CustomAttributeConfigResourceAttributes,
+    CustomAttributeConfigResourceAttributes: CustomAttributeConfigResourceAttributes,
     CustomAttributeConfigResponse: CustomAttributeConfigResponse,
     CustomAttributeConfigUpdate: CustomAttributeConfigUpdate,
-    CustomAttributeConfigUpdateAttributes:
-      CustomAttributeConfigUpdateAttributes,
+    CustomAttributeConfigUpdateAttributes: CustomAttributeConfigUpdateAttributes,
     CustomAttributeConfigUpdateRequest: CustomAttributeConfigUpdateRequest,
     CustomAttributeConfigsResponse: CustomAttributeConfigsResponse,
     CustomAttributeSelectOption: CustomAttributeSelectOption,

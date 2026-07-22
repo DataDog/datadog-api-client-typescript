@@ -18,12 +18,7 @@ import { SLOCorrectionUpdateRequestAttributes } from "./SLOCorrectionUpdateReque
 
 export const TypingInfo: ModelTypingInfo = {
   enumsMap: {
-    SLOCorrectionCategory: [
-      "Scheduled Maintenance",
-      "Outside Business Hours",
-      "Deployment",
-      "Other",
-    ],
+    SLOCorrectionCategory: ["Scheduled Maintenance", "Outside Business Hours", "Deployment", "Other"],
     SLOCorrectionType: ["correction"],
   },
   oneOfMap: {},
@@ -39,8 +34,7 @@ export const TypingInfo: ModelTypingInfo = {
     SLOCorrectionListResponse: SLOCorrectionListResponse,
     SLOCorrectionResponse: SLOCorrectionResponse,
     SLOCorrectionResponseAttributes: SLOCorrectionResponseAttributes,
-    SLOCorrectionResponseAttributesModifier:
-      SLOCorrectionResponseAttributesModifier,
+    SLOCorrectionResponseAttributesModifier: SLOCorrectionResponseAttributesModifier,
     SLOCorrectionUpdateData: SLOCorrectionUpdateData,
     SLOCorrectionUpdateRequest: SLOCorrectionUpdateRequest,
     SLOCorrectionUpdateRequestAttributes: SLOCorrectionUpdateRequestAttributes,

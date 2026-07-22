@@ -7,7 +7,7 @@ import { ObservabilityPipelineTls } from "./ObservabilityPipelineTls";
 
 /**
  * The `kafka` source ingests data from Apache Kafka topics.
- *
+ * 
  * **Supported pipeline types:** logs
  */
 export class ObservabilityPipelineKafkaSource {
@@ -48,7 +48,7 @@ export class ObservabilityPipelineKafkaSource {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
   /**
    * @ignore
    */

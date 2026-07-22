@@ -24,15 +24,7 @@ import { RumMetricsResponse } from "./RumMetricsResponse";
 export const TypingInfo: ModelTypingInfo = {
   enumsMap: {
     RumMetricComputeAggregationType: ["count", "distribution"],
-    RumMetricEventType: [
-      "session",
-      "view",
-      "action",
-      "error",
-      "resource",
-      "long_task",
-      "vital",
-    ],
+    RumMetricEventType: ["session", "view", "action", "error", "resource", "long_task", "vital"],
     RumMetricType: ["rum_metrics"],
     RumMetricUniquenessWhen: ["match", "end"],
   },

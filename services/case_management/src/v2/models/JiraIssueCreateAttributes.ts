@@ -1,5 +1,6 @@
 import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
+
 /**
  * Jira issue creation attributes
  */
@@ -7,7 +8,7 @@ export class JiraIssueCreateAttributes {
   /**
    * Additional Jira fields
    */
-  "fields"?: { [key: string]: any };
+  "fields"?: { [key: string]: any; };
   /**
    * Jira issue type ID
    */
@@ -25,7 +26,7 @@ export class JiraIssueCreateAttributes {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
   /**
    * @ignore
    */

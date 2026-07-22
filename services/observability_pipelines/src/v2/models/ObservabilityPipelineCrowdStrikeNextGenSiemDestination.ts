@@ -8,7 +8,7 @@ import { ObservabilityPipelineTls } from "./ObservabilityPipelineTls";
 
 /**
  * The `crowdstrike_next_gen_siem` destination forwards logs to CrowdStrike Next Gen SIEM.
- *
+ * 
  * **Supported pipeline types:** logs
  */
 export class ObservabilityPipelineCrowdStrikeNextGenSiemDestination {
@@ -53,7 +53,7 @@ export class ObservabilityPipelineCrowdStrikeNextGenSiemDestination {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
   /**
    * @ignore
    */

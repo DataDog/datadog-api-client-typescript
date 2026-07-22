@@ -20,7 +20,6 @@ export const TypingInfo: ModelTypingInfo = {
     DomainAllowlistRequest: DomainAllowlistRequest,
     DomainAllowlistResponse: DomainAllowlistResponse,
     DomainAllowlistResponseData: DomainAllowlistResponseData,
-    DomainAllowlistResponseDataAttributes:
-      DomainAllowlistResponseDataAttributes,
+    DomainAllowlistResponseDataAttributes: DomainAllowlistResponseDataAttributes,
   },
 };

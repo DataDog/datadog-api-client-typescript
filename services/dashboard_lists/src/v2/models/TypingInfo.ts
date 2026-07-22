@@ -15,13 +15,7 @@ import { DashboardListUpdateItemsResponse } from "./DashboardListUpdateItemsResp
 
 export const TypingInfo: ModelTypingInfo = {
   enumsMap: {
-    DashboardType: [
-      "custom_timeboard",
-      "custom_screenboard",
-      "integration_screenboard",
-      "integration_timeboard",
-      "host_timeboard",
-    ],
+    DashboardType: ["custom_timeboard", "custom_screenboard", "integration_screenboard", "integration_timeboard", "host_timeboard"],
   },
   oneOfMap: {},
   typeMap: {

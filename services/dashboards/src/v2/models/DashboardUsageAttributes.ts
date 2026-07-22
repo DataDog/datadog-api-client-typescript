@@ -41,7 +41,7 @@ export class DashboardUsageAttributes {
   /**
    * View counts keyed by view type (`in_app`, `embed`, `public`, `shared`, `api`, `unknown`). Counts only views captured by Real User Monitoring (RUM); empty in orgs without RUM.
    */
-  "totalViewsByType"?: { [key: string]: number };
+  "totalViewsByType"?: { [key: string]: number; };
   /**
    * When the dashboard was most recently viewed. Populated only when Real User Monitoring (RUM) is active for the org; `null` in orgs without RUM.
    */
@@ -57,13 +57,13 @@ export class DashboardUsageAttributes {
   /**
    * Widget counts keyed by widget type. The map includes group widgets and widgets without requests.
    */
-  "widgetCountByType"?: { [key: string]: number };
+  "widgetCountByType"?: { [key: string]: number; };
   /**
    * A container for additional, undeclared properties.
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
   /**
    * @ignore
    */

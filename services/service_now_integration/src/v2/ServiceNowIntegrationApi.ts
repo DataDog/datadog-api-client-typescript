@@ -19,6 +19,7 @@ import {
   ServerConfiguration,
   stringify,
   applySecurityAuthentication,
+  
 } from "@datadog/datadog-api-client";
 
 import { TypingInfo } from "./models/TypingInfo";
@@ -58,15 +59,8 @@ export class ServiceNowIntegrationApiRequestFactory extends BaseAPIRequestFactor
     const localVarPath = "/api/v2/integration/servicenow/handles";
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "ServiceNowIntegrationApi.v2.createServiceNowTemplate",
-      ServiceNowIntegrationApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.POST,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("ServiceNowIntegrationApi.v2.createServiceNowTemplate", ServiceNowIntegrationApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.POST, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -76,7 +70,9 @@ export class ServiceNowIntegrationApiRequestFactory extends BaseAPIRequestFactor
     }
 
     // Body Params
-    const contentType = getPreferredMediaType(["application/json"]);
+    const contentType = getPreferredMediaType([
+      "application/json",
+    ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = stringify(
       serialize(body, TypingInfo, "ServiceNowTemplateCreateRequest", ""),
@@ -105,22 +101,14 @@ export class ServiceNowIntegrationApiRequestFactory extends BaseAPIRequestFactor
     }
 
     // Path Params
-    const localVarPath =
-      "/api/v2/integration/servicenow/handles/{template_id}".replace(
-        "{template_id}",
-        encodeURIComponent(String(templateId)),
-      );
+    const localVarPath = "/api/v2/integration/servicenow/handles/{template_id}".replace(
+      "{template_id}",
+      encodeURIComponent(String(templateId)),
+    );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "ServiceNowIntegrationApi.v2.deleteServiceNowTemplate",
-      ServiceNowIntegrationApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.DELETE,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("ServiceNowIntegrationApi.v2.deleteServiceNowTemplate", ServiceNowIntegrationApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.DELETE, overrides);
     requestContext.setHeaderParam("Accept", "*/*");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -150,22 +138,14 @@ export class ServiceNowIntegrationApiRequestFactory extends BaseAPIRequestFactor
     }
 
     // Path Params
-    const localVarPath =
-      "/api/v2/integration/servicenow/handles/{template_id}".replace(
-        "{template_id}",
-        encodeURIComponent(String(templateId)),
-      );
+    const localVarPath = "/api/v2/integration/servicenow/handles/{template_id}".replace(
+      "{template_id}",
+      encodeURIComponent(String(templateId)),
+    );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "ServiceNowIntegrationApi.v2.getServiceNowTemplate",
-      ServiceNowIntegrationApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.GET,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("ServiceNowIntegrationApi.v2.getServiceNowTemplate", ServiceNowIntegrationApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.GET, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -195,22 +175,14 @@ export class ServiceNowIntegrationApiRequestFactory extends BaseAPIRequestFactor
     }
 
     // Path Params
-    const localVarPath =
-      "/api/v2/integration/servicenow/assignment_groups/{instance_id}".replace(
-        "{instance_id}",
-        encodeURIComponent(String(instanceId)),
-      );
+    const localVarPath = "/api/v2/integration/servicenow/assignment_groups/{instance_id}".replace(
+      "{instance_id}",
+      encodeURIComponent(String(instanceId)),
+    );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "ServiceNowIntegrationApi.v2.listServiceNowAssignmentGroups",
-      ServiceNowIntegrationApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.GET,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("ServiceNowIntegrationApi.v2.listServiceNowAssignmentGroups", ServiceNowIntegrationApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.GET, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -240,22 +212,14 @@ export class ServiceNowIntegrationApiRequestFactory extends BaseAPIRequestFactor
     }
 
     // Path Params
-    const localVarPath =
-      "/api/v2/integration/servicenow/business_services/{instance_id}".replace(
-        "{instance_id}",
-        encodeURIComponent(String(instanceId)),
-      );
+    const localVarPath = "/api/v2/integration/servicenow/business_services/{instance_id}".replace(
+      "{instance_id}",
+      encodeURIComponent(String(instanceId)),
+    );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "ServiceNowIntegrationApi.v2.listServiceNowBusinessServices",
-      ServiceNowIntegrationApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.GET,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("ServiceNowIntegrationApi.v2.listServiceNowBusinessServices", ServiceNowIntegrationApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.GET, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -282,15 +246,8 @@ export class ServiceNowIntegrationApiRequestFactory extends BaseAPIRequestFactor
     const localVarPath = "/api/v2/integration/servicenow/instances";
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "ServiceNowIntegrationApi.v2.listServiceNowInstances",
-      ServiceNowIntegrationApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.GET,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("ServiceNowIntegrationApi.v2.listServiceNowInstances", ServiceNowIntegrationApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.GET, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -317,15 +274,8 @@ export class ServiceNowIntegrationApiRequestFactory extends BaseAPIRequestFactor
     const localVarPath = "/api/v2/integration/servicenow/handles";
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "ServiceNowIntegrationApi.v2.listServiceNowTemplates",
-      ServiceNowIntegrationApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.GET,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("ServiceNowIntegrationApi.v2.listServiceNowTemplates", ServiceNowIntegrationApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.GET, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -355,22 +305,14 @@ export class ServiceNowIntegrationApiRequestFactory extends BaseAPIRequestFactor
     }
 
     // Path Params
-    const localVarPath =
-      "/api/v2/integration/servicenow/users/{instance_id}".replace(
-        "{instance_id}",
-        encodeURIComponent(String(instanceId)),
-      );
+    const localVarPath = "/api/v2/integration/servicenow/users/{instance_id}".replace(
+      "{instance_id}",
+      encodeURIComponent(String(instanceId)),
+    );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "ServiceNowIntegrationApi.v2.listServiceNowUsers",
-      ServiceNowIntegrationApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.GET,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("ServiceNowIntegrationApi.v2.listServiceNowUsers", ServiceNowIntegrationApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.GET, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -406,22 +348,14 @@ export class ServiceNowIntegrationApiRequestFactory extends BaseAPIRequestFactor
     }
 
     // Path Params
-    const localVarPath =
-      "/api/v2/integration/servicenow/handles/{template_id}".replace(
-        "{template_id}",
-        encodeURIComponent(String(templateId)),
-      );
+    const localVarPath = "/api/v2/integration/servicenow/handles/{template_id}".replace(
+      "{template_id}",
+      encodeURIComponent(String(templateId)),
+    );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "ServiceNowIntegrationApi.v2.updateServiceNowTemplate",
-      ServiceNowIntegrationApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.PUT,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("ServiceNowIntegrationApi.v2.updateServiceNowTemplate", ServiceNowIntegrationApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.PUT, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -431,7 +365,9 @@ export class ServiceNowIntegrationApiRequestFactory extends BaseAPIRequestFactor
     }
 
     // Body Params
-    const contentType = getPreferredMediaType(["application/json"]);
+    const contentType = getPreferredMediaType([
+      "application/json",
+    ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = stringify(
       serialize(body, TypingInfo, "ServiceNowTemplateUpdateRequest", ""),
@@ -460,7 +396,9 @@ export class ServiceNowIntegrationApiResponseProcessor {
   public async createServiceNowTemplate(
     response: ResponseContext,
   ): Promise<ServiceNowTemplateResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 201) {
       const body: ServiceNowTemplateResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -470,7 +408,10 @@ export class ServiceNowIntegrationApiResponseProcessor {
       return body;
     }
     if (response.httpStatusCode === 400) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: JSONAPIErrorResponse;
       try {
         body = deserialize(
@@ -491,7 +432,10 @@ export class ServiceNowIntegrationApiResponseProcessor {
       );
     }
     if (response.httpStatusCode === 429) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -506,7 +450,10 @@ export class ServiceNowIntegrationApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -537,12 +484,20 @@ export class ServiceNowIntegrationApiResponseProcessor {
   public async deleteServiceNowTemplate(
     response: ResponseContext,
   ): Promise<void> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       return;
     }
-    if (response.httpStatusCode === 400 || response.httpStatusCode === 404) {
-      const bodyText = parse(await response.body.text(), contentType);
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 404
+    ) {
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: JSONAPIErrorResponse;
       try {
         body = deserialize(
@@ -563,7 +518,10 @@ export class ServiceNowIntegrationApiResponseProcessor {
       );
     }
     if (response.httpStatusCode === 429) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -578,7 +536,10 @@ export class ServiceNowIntegrationApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -603,7 +564,9 @@ export class ServiceNowIntegrationApiResponseProcessor {
   public async getServiceNowTemplate(
     response: ResponseContext,
   ): Promise<ServiceNowTemplateResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: ServiceNowTemplateResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -612,8 +575,14 @@ export class ServiceNowIntegrationApiResponseProcessor {
       ) as ServiceNowTemplateResponse;
       return body;
     }
-    if (response.httpStatusCode === 400 || response.httpStatusCode === 404) {
-      const bodyText = parse(await response.body.text(), contentType);
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 404
+    ) {
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: JSONAPIErrorResponse;
       try {
         body = deserialize(
@@ -634,7 +603,10 @@ export class ServiceNowIntegrationApiResponseProcessor {
       );
     }
     if (response.httpStatusCode === 429) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -649,7 +621,10 @@ export class ServiceNowIntegrationApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -680,7 +655,9 @@ export class ServiceNowIntegrationApiResponseProcessor {
   public async listServiceNowAssignmentGroups(
     response: ResponseContext,
   ): Promise<ServiceNowAssignmentGroupsResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: ServiceNowAssignmentGroupsResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -689,8 +666,14 @@ export class ServiceNowIntegrationApiResponseProcessor {
       ) as ServiceNowAssignmentGroupsResponse;
       return body;
     }
-    if (response.httpStatusCode === 400 || response.httpStatusCode === 404) {
-      const bodyText = parse(await response.body.text(), contentType);
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 404
+    ) {
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: JSONAPIErrorResponse;
       try {
         body = deserialize(
@@ -711,7 +694,10 @@ export class ServiceNowIntegrationApiResponseProcessor {
       );
     }
     if (response.httpStatusCode === 429) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -726,7 +712,10 @@ export class ServiceNowIntegrationApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -757,7 +746,9 @@ export class ServiceNowIntegrationApiResponseProcessor {
   public async listServiceNowBusinessServices(
     response: ResponseContext,
   ): Promise<ServiceNowBusinessServicesResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: ServiceNowBusinessServicesResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -766,8 +757,14 @@ export class ServiceNowIntegrationApiResponseProcessor {
       ) as ServiceNowBusinessServicesResponse;
       return body;
     }
-    if (response.httpStatusCode === 400 || response.httpStatusCode === 404) {
-      const bodyText = parse(await response.body.text(), contentType);
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 404
+    ) {
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: JSONAPIErrorResponse;
       try {
         body = deserialize(
@@ -788,7 +785,10 @@ export class ServiceNowIntegrationApiResponseProcessor {
       );
     }
     if (response.httpStatusCode === 429) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -803,7 +803,10 @@ export class ServiceNowIntegrationApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -834,7 +837,9 @@ export class ServiceNowIntegrationApiResponseProcessor {
   public async listServiceNowInstances(
     response: ResponseContext,
   ): Promise<ServiceNowInstancesResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: ServiceNowInstancesResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -844,7 +849,10 @@ export class ServiceNowIntegrationApiResponseProcessor {
       return body;
     }
     if (response.httpStatusCode === 404) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: JSONAPIErrorResponse;
       try {
         body = deserialize(
@@ -865,7 +873,10 @@ export class ServiceNowIntegrationApiResponseProcessor {
       );
     }
     if (response.httpStatusCode === 429) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -880,7 +891,10 @@ export class ServiceNowIntegrationApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -911,7 +925,9 @@ export class ServiceNowIntegrationApiResponseProcessor {
   public async listServiceNowTemplates(
     response: ResponseContext,
   ): Promise<ServiceNowTemplatesResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: ServiceNowTemplatesResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -921,7 +937,10 @@ export class ServiceNowIntegrationApiResponseProcessor {
       return body;
     }
     if (response.httpStatusCode === 429) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -936,7 +955,10 @@ export class ServiceNowIntegrationApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -967,7 +989,9 @@ export class ServiceNowIntegrationApiResponseProcessor {
   public async listServiceNowUsers(
     response: ResponseContext,
   ): Promise<ServiceNowUsersResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: ServiceNowUsersResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -976,8 +1000,14 @@ export class ServiceNowIntegrationApiResponseProcessor {
       ) as ServiceNowUsersResponse;
       return body;
     }
-    if (response.httpStatusCode === 400 || response.httpStatusCode === 404) {
-      const bodyText = parse(await response.body.text(), contentType);
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 404
+    ) {
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: JSONAPIErrorResponse;
       try {
         body = deserialize(
@@ -998,7 +1028,10 @@ export class ServiceNowIntegrationApiResponseProcessor {
       );
     }
     if (response.httpStatusCode === 429) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -1013,7 +1046,10 @@ export class ServiceNowIntegrationApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -1044,7 +1080,9 @@ export class ServiceNowIntegrationApiResponseProcessor {
   public async updateServiceNowTemplate(
     response: ResponseContext,
   ): Promise<ServiceNowTemplateResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: ServiceNowTemplateResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -1053,8 +1091,14 @@ export class ServiceNowIntegrationApiResponseProcessor {
       ) as ServiceNowTemplateResponse;
       return body;
     }
-    if (response.httpStatusCode === 400 || response.httpStatusCode === 404) {
-      const bodyText = parse(await response.body.text(), contentType);
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 404
+    ) {
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: JSONAPIErrorResponse;
       try {
         body = deserialize(
@@ -1075,7 +1119,10 @@ export class ServiceNowIntegrationApiResponseProcessor {
       );
     }
     if (response.httpStatusCode === 429) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -1090,7 +1137,10 @@ export class ServiceNowIntegrationApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -1176,7 +1226,8 @@ export class ServiceNowIntegrationApi {
   private responseProcessor: ServiceNowIntegrationApiResponseProcessor;
   private configuration: Configuration;
 
-  static operationServers: { [key: string]: BaseServerConfiguration[] } = {};
+  static operationServers: { [key: string]: BaseServerConfiguration[] } = {
+  };
 
   public constructor(
     configuration?: Configuration,
@@ -1207,9 +1258,7 @@ export class ServiceNowIntegrationApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.createServiceNowTemplate(
-            responseContext,
-          );
+          return this.responseProcessor.createServiceNowTemplate(responseContext);
         });
     });
   }
@@ -1230,9 +1279,7 @@ export class ServiceNowIntegrationApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.deleteServiceNowTemplate(
-            responseContext,
-          );
+          return this.responseProcessor.deleteServiceNowTemplate(responseContext);
         });
     });
   }
@@ -1266,18 +1313,15 @@ export class ServiceNowIntegrationApi {
     param: ServiceNowIntegrationApiListServiceNowAssignmentGroupsRequest,
     options?: Configuration,
   ): Promise<ServiceNowAssignmentGroupsResponse> {
-    const requestContextPromise =
-      this.requestFactory.listServiceNowAssignmentGroups(
-        param.instanceId,
-        options,
-      );
+    const requestContextPromise = this.requestFactory.listServiceNowAssignmentGroups(
+      param.instanceId,
+      options,
+    );
     return requestContextPromise.then((requestContext) => {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.listServiceNowAssignmentGroups(
-            responseContext,
-          );
+          return this.responseProcessor.listServiceNowAssignmentGroups(responseContext);
         });
     });
   }
@@ -1290,18 +1334,15 @@ export class ServiceNowIntegrationApi {
     param: ServiceNowIntegrationApiListServiceNowBusinessServicesRequest,
     options?: Configuration,
   ): Promise<ServiceNowBusinessServicesResponse> {
-    const requestContextPromise =
-      this.requestFactory.listServiceNowBusinessServices(
-        param.instanceId,
-        options,
-      );
+    const requestContextPromise = this.requestFactory.listServiceNowBusinessServices(
+      param.instanceId,
+      options,
+    );
     return requestContextPromise.then((requestContext) => {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.listServiceNowBusinessServices(
-            responseContext,
-          );
+          return this.responseProcessor.listServiceNowBusinessServices(responseContext);
         });
     });
   }
@@ -1310,18 +1351,16 @@ export class ServiceNowIntegrationApi {
    * Get all ServiceNow instances for the organization.
    * @param param The request object
    */
-  public listServiceNowInstances(
-    options?: Configuration,
+  public listServiceNowInstances(options?: Configuration,
   ): Promise<ServiceNowInstancesResponse> {
-    const requestContextPromise =
-      this.requestFactory.listServiceNowInstances(options);
+    const requestContextPromise = this.requestFactory.listServiceNowInstances(
+      options,
+    );
     return requestContextPromise.then((requestContext) => {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.listServiceNowInstances(
-            responseContext,
-          );
+          return this.responseProcessor.listServiceNowInstances(responseContext);
         });
     });
   }
@@ -1330,18 +1369,16 @@ export class ServiceNowIntegrationApi {
    * Get all ServiceNow templates for the organization.
    * @param param The request object
    */
-  public listServiceNowTemplates(
-    options?: Configuration,
+  public listServiceNowTemplates(options?: Configuration,
   ): Promise<ServiceNowTemplatesResponse> {
-    const requestContextPromise =
-      this.requestFactory.listServiceNowTemplates(options);
+    const requestContextPromise = this.requestFactory.listServiceNowTemplates(
+      options,
+    );
     return requestContextPromise.then((requestContext) => {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.listServiceNowTemplates(
-            responseContext,
-          );
+          return this.responseProcessor.listServiceNowTemplates(responseContext);
         });
     });
   }
@@ -1384,9 +1421,7 @@ export class ServiceNowIntegrationApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.updateServiceNowTemplate(
-            responseContext,
-          );
+          return this.responseProcessor.updateServiceNowTemplate(responseContext);
         });
     });
   }

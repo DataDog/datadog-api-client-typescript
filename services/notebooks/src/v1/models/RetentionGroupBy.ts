@@ -66,7 +66,7 @@ export class RetentionGroupBy {
       baseName: "target",
       type: "RetentionGroupByTarget",
       required: true,
-    },
+    }
   };
 
   /**

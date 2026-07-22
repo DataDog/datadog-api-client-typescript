@@ -41,7 +41,7 @@ export class MonitorFormulaAndFunctionAggregateQueryJoinCondition {
       baseName: "join_type",
       type: "MonitorFormulaAndFunctionAggregateQueryJoinType",
       required: true,
-    },
+    }
   };
 
   /**

@@ -1,5 +1,6 @@
 import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
+
 /**
  * DNS resolution details recorded during the test execution.
  */
@@ -7,7 +8,7 @@ export class SyntheticsTestResultDnsResolution {
   /**
    * DNS resolution attempts made during the test.
    */
-  "attempts"?: Array<{ [key: string]: string }>;
+  "attempts"?: Array<{ [key: string]: string; }>;
   /**
    * Resolved IP address for the target host.
    */
@@ -25,7 +26,7 @@ export class SyntheticsTestResultDnsResolution {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
   /**
    * @ignore
    */

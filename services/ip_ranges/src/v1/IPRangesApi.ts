@@ -18,6 +18,7 @@ import {
   serialize,
   ServerConfiguration,
   stringify,
+  
 } from "@datadog/datadog-api-client";
 
 import { TypingInfo } from "./models/TypingInfo";
@@ -34,22 +35,17 @@ export class IPRangesApiRequestFactory extends BaseAPIRequestFactory {
       this.userAgent = buildUserAgent("ip-ranges", version);
     }
   }
-  public async getIPRanges(_options?: Configuration): Promise<RequestContext> {
+  public async getIPRanges(
+    _options?: Configuration,
+  ): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
     // Path Params
     const localVarPath = "/";
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "IPRangesApi.v1.getIPRanges",
-      IPRangesApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.GET,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("IPRangesApi.v1.getIPRanges", IPRangesApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.GET, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -70,8 +66,12 @@ export class IPRangesApiResponseProcessor {
    * @params response Response returned by the server for a request to getIPRanges
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async getIPRanges(response: ResponseContext): Promise<IPRanges> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+  public async getIPRanges(
+    response: ResponseContext,
+  ): Promise<IPRanges> {
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: IPRanges = deserialize(
         parse(await response.body.text(), contentType),
@@ -81,7 +81,10 @@ export class IPRangesApiResponseProcessor {
       return body;
     }
     if (response.httpStatusCode === 429) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -96,7 +99,10 @@ export class IPRangesApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -125,34 +131,22 @@ export class IPRangesApi {
 
   static operationServers: { [key: string]: BaseServerConfiguration[] } = {
     "IPRangesApi.v1.getIPRanges": [
-      new ServerConfiguration<{
-        site:
-          | "datadoghq.com"
-          | "us3.datadoghq.com"
-          | "us5.datadoghq.com"
-          | "ap1.datadoghq.com"
-          | "ap2.datadoghq.com"
-          | "uk1.datadoghq.com"
-          | "datadoghq.eu"
-          | "ddog-gov.com"
-          | "us2.ddog-gov.com";
-        subdomain: string;
-      }>("https://{subdomain}.{site}", {
-        site: "datadoghq.com",
-        subdomain: "ip-ranges",
-      }),
-      new ServerConfiguration<{
-        name: string;
-        protocol: string;
-      }>("{protocol}://{name}", {
-        name: "ip-ranges.datadoghq.com",
-        protocol: "https",
-      }),
-      new ServerConfiguration<{
-        subdomain: string;
-      }>("https://{subdomain}.datadoghq.com", {
-        subdomain: "ip-ranges",
-      }),
+        new ServerConfiguration<{
+          "site":"datadoghq.com" | "us3.datadoghq.com" | "us5.datadoghq.com" | "ap1.datadoghq.com" | "ap2.datadoghq.com" | "uk1.datadoghq.com" | "datadoghq.eu" | "ddog-gov.com" | "us2.ddog-gov.com",
+          "subdomain":string }>("https://{subdomain}.{site}", {
+          "site": "datadoghq.com",
+          "subdomain": "ip-ranges"
+        }),
+        new ServerConfiguration<{
+          "name":string,
+          "protocol":string }>("{protocol}://{name}", {
+          "name": "ip-ranges.datadoghq.com",
+          "protocol": "https"
+        }),
+        new ServerConfiguration<{
+          "subdomain":string }>("https://{subdomain}.datadoghq.com", {
+          "subdomain": "ip-ranges"
+        }),
     ],
   };
 
@@ -163,7 +157,8 @@ export class IPRangesApi {
   ) {
     this.configuration = configuration || createConfiguration();
     this.requestFactory =
-      requestFactory || new IPRangesApiRequestFactory(this.configuration);
+      requestFactory ||
+      new IPRangesApiRequestFactory(this.configuration);
     this.responseProcessor =
       responseProcessor || new IPRangesApiResponseProcessor();
   }
@@ -172,8 +167,11 @@ export class IPRangesApi {
    * Get information about Datadog IP ranges.
    * @param param The request object
    */
-  public getIPRanges(options?: Configuration): Promise<IPRanges> {
-    const requestContextPromise = this.requestFactory.getIPRanges(options);
+  public getIPRanges(options?: Configuration,
+  ): Promise<IPRanges> {
+    const requestContextPromise = this.requestFactory.getIPRanges(
+      options,
+    );
     return requestContextPromise.then((requestContext) => {
       return this.configuration.httpApi
         .send(requestContext)

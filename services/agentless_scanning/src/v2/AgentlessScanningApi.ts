@@ -19,6 +19,7 @@ import {
   ServerConfiguration,
   stringify,
   applySecurityAuthentication,
+  
 } from "@datadog/datadog-api-client";
 
 import { TypingInfo } from "./models/TypingInfo";
@@ -62,15 +63,8 @@ export class AgentlessScanningApiRequestFactory extends BaseAPIRequestFactory {
     const localVarPath = "/api/v2/agentless_scanning/ondemand/aws";
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "AgentlessScanningApi.v2.createAwsOnDemandTask",
-      AgentlessScanningApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.POST,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("AgentlessScanningApi.v2.createAwsOnDemandTask", AgentlessScanningApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.POST, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -80,7 +74,9 @@ export class AgentlessScanningApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Body Params
-    const contentType = getPreferredMediaType(["application/json"]);
+    const contentType = getPreferredMediaType([
+      "application/json",
+    ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = stringify(
       serialize(body, TypingInfo, "AwsOnDemandCreateRequest", ""),
@@ -113,15 +109,8 @@ export class AgentlessScanningApiRequestFactory extends BaseAPIRequestFactory {
     const localVarPath = "/api/v2/agentless_scanning/accounts/aws";
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "AgentlessScanningApi.v2.createAwsScanOptions",
-      AgentlessScanningApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.POST,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("AgentlessScanningApi.v2.createAwsScanOptions", AgentlessScanningApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.POST, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -131,7 +120,9 @@ export class AgentlessScanningApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Body Params
-    const contentType = getPreferredMediaType(["application/json"]);
+    const contentType = getPreferredMediaType([
+      "application/json",
+    ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = stringify(
       serialize(body, TypingInfo, "AwsScanOptionsCreateRequest", ""),
@@ -164,15 +155,8 @@ export class AgentlessScanningApiRequestFactory extends BaseAPIRequestFactory {
     const localVarPath = "/api/v2/agentless_scanning/accounts/azure";
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "AgentlessScanningApi.v2.createAzureScanOptions",
-      AgentlessScanningApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.POST,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("AgentlessScanningApi.v2.createAzureScanOptions", AgentlessScanningApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.POST, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -182,7 +166,9 @@ export class AgentlessScanningApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Body Params
-    const contentType = getPreferredMediaType(["application/json"]);
+    const contentType = getPreferredMediaType([
+      "application/json",
+    ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = stringify(
       serialize(body, TypingInfo, "AzureScanOptions", ""),
@@ -215,15 +201,8 @@ export class AgentlessScanningApiRequestFactory extends BaseAPIRequestFactory {
     const localVarPath = "/api/v2/agentless_scanning/accounts/gcp";
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "AgentlessScanningApi.v2.createGcpScanOptions",
-      AgentlessScanningApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.POST,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("AgentlessScanningApi.v2.createGcpScanOptions", AgentlessScanningApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.POST, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -233,7 +212,9 @@ export class AgentlessScanningApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Body Params
-    const contentType = getPreferredMediaType(["application/json"]);
+    const contentType = getPreferredMediaType([
+      "application/json",
+    ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = stringify(
       serialize(body, TypingInfo, "GcpScanOptions", ""),
@@ -263,22 +244,14 @@ export class AgentlessScanningApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Path Params
-    const localVarPath =
-      "/api/v2/agentless_scanning/accounts/aws/{account_id}".replace(
-        "{account_id}",
-        encodeURIComponent(String(accountId)),
-      );
+    const localVarPath = "/api/v2/agentless_scanning/accounts/aws/{account_id}".replace(
+      "{account_id}",
+      encodeURIComponent(String(accountId)),
+    );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "AgentlessScanningApi.v2.deleteAwsScanOptions",
-      AgentlessScanningApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.DELETE,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("AgentlessScanningApi.v2.deleteAwsScanOptions", AgentlessScanningApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.DELETE, overrides);
     requestContext.setHeaderParam("Accept", "*/*");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -309,22 +282,14 @@ export class AgentlessScanningApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Path Params
-    const localVarPath =
-      "/api/v2/agentless_scanning/accounts/azure/{subscription_id}".replace(
-        "{subscription_id}",
-        encodeURIComponent(String(subscriptionId)),
-      );
+    const localVarPath = "/api/v2/agentless_scanning/accounts/azure/{subscription_id}".replace(
+      "{subscription_id}",
+      encodeURIComponent(String(subscriptionId)),
+    );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "AgentlessScanningApi.v2.deleteAzureScanOptions",
-      AgentlessScanningApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.DELETE,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("AgentlessScanningApi.v2.deleteAzureScanOptions", AgentlessScanningApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.DELETE, overrides);
     requestContext.setHeaderParam("Accept", "*/*");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -355,22 +320,14 @@ export class AgentlessScanningApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Path Params
-    const localVarPath =
-      "/api/v2/agentless_scanning/accounts/gcp/{project_id}".replace(
-        "{project_id}",
-        encodeURIComponent(String(projectId)),
-      );
+    const localVarPath = "/api/v2/agentless_scanning/accounts/gcp/{project_id}".replace(
+      "{project_id}",
+      encodeURIComponent(String(projectId)),
+    );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "AgentlessScanningApi.v2.deleteGcpScanOptions",
-      AgentlessScanningApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.DELETE,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("AgentlessScanningApi.v2.deleteGcpScanOptions", AgentlessScanningApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.DELETE, overrides);
     requestContext.setHeaderParam("Accept", "*/*");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -401,22 +358,14 @@ export class AgentlessScanningApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Path Params
-    const localVarPath =
-      "/api/v2/agentless_scanning/ondemand/aws/{task_id}".replace(
-        "{task_id}",
-        encodeURIComponent(String(taskId)),
-      );
+    const localVarPath = "/api/v2/agentless_scanning/ondemand/aws/{task_id}".replace(
+      "{task_id}",
+      encodeURIComponent(String(taskId)),
+    );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "AgentlessScanningApi.v2.getAwsOnDemandTask",
-      AgentlessScanningApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.GET,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("AgentlessScanningApi.v2.getAwsOnDemandTask", AgentlessScanningApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.GET, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -447,22 +396,14 @@ export class AgentlessScanningApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Path Params
-    const localVarPath =
-      "/api/v2/agentless_scanning/accounts/aws/{account_id}".replace(
-        "{account_id}",
-        encodeURIComponent(String(accountId)),
-      );
+    const localVarPath = "/api/v2/agentless_scanning/accounts/aws/{account_id}".replace(
+      "{account_id}",
+      encodeURIComponent(String(accountId)),
+    );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "AgentlessScanningApi.v2.getAwsScanOptions",
-      AgentlessScanningApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.GET,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("AgentlessScanningApi.v2.getAwsScanOptions", AgentlessScanningApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.GET, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -493,22 +434,14 @@ export class AgentlessScanningApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Path Params
-    const localVarPath =
-      "/api/v2/agentless_scanning/accounts/azure/{subscription_id}".replace(
-        "{subscription_id}",
-        encodeURIComponent(String(subscriptionId)),
-      );
+    const localVarPath = "/api/v2/agentless_scanning/accounts/azure/{subscription_id}".replace(
+      "{subscription_id}",
+      encodeURIComponent(String(subscriptionId)),
+    );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "AgentlessScanningApi.v2.getAzureScanOptions",
-      AgentlessScanningApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.GET,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("AgentlessScanningApi.v2.getAzureScanOptions", AgentlessScanningApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.GET, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -539,22 +472,14 @@ export class AgentlessScanningApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Path Params
-    const localVarPath =
-      "/api/v2/agentless_scanning/accounts/gcp/{project_id}".replace(
-        "{project_id}",
-        encodeURIComponent(String(projectId)),
-      );
+    const localVarPath = "/api/v2/agentless_scanning/accounts/gcp/{project_id}".replace(
+      "{project_id}",
+      encodeURIComponent(String(projectId)),
+    );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "AgentlessScanningApi.v2.getGcpScanOptions",
-      AgentlessScanningApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.GET,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("AgentlessScanningApi.v2.getGcpScanOptions", AgentlessScanningApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.GET, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -582,15 +507,8 @@ export class AgentlessScanningApiRequestFactory extends BaseAPIRequestFactory {
     const localVarPath = "/api/v2/agentless_scanning/ondemand/aws";
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "AgentlessScanningApi.v2.listAwsOnDemandTasks",
-      AgentlessScanningApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.GET,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("AgentlessScanningApi.v2.listAwsOnDemandTasks", AgentlessScanningApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.GET, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -618,15 +536,8 @@ export class AgentlessScanningApiRequestFactory extends BaseAPIRequestFactory {
     const localVarPath = "/api/v2/agentless_scanning/accounts/aws";
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "AgentlessScanningApi.v2.listAwsScanOptions",
-      AgentlessScanningApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.GET,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("AgentlessScanningApi.v2.listAwsScanOptions", AgentlessScanningApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.GET, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -654,15 +565,8 @@ export class AgentlessScanningApiRequestFactory extends BaseAPIRequestFactory {
     const localVarPath = "/api/v2/agentless_scanning/accounts/azure";
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "AgentlessScanningApi.v2.listAzureScanOptions",
-      AgentlessScanningApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.GET,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("AgentlessScanningApi.v2.listAzureScanOptions", AgentlessScanningApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.GET, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -690,15 +594,8 @@ export class AgentlessScanningApiRequestFactory extends BaseAPIRequestFactory {
     const localVarPath = "/api/v2/agentless_scanning/accounts/gcp";
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "AgentlessScanningApi.v2.listGcpScanOptions",
-      AgentlessScanningApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.GET,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("AgentlessScanningApi.v2.listGcpScanOptions", AgentlessScanningApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.GET, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -735,22 +632,14 @@ export class AgentlessScanningApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Path Params
-    const localVarPath =
-      "/api/v2/agentless_scanning/accounts/aws/{account_id}".replace(
-        "{account_id}",
-        encodeURIComponent(String(accountId)),
-      );
+    const localVarPath = "/api/v2/agentless_scanning/accounts/aws/{account_id}".replace(
+      "{account_id}",
+      encodeURIComponent(String(accountId)),
+    );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "AgentlessScanningApi.v2.updateAwsScanOptions",
-      AgentlessScanningApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.PATCH,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("AgentlessScanningApi.v2.updateAwsScanOptions", AgentlessScanningApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.PATCH, overrides);
     requestContext.setHeaderParam("Accept", "*/*");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -760,7 +649,9 @@ export class AgentlessScanningApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Body Params
-    const contentType = getPreferredMediaType(["application/json"]);
+    const contentType = getPreferredMediaType([
+      "application/json",
+    ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = stringify(
       serialize(body, TypingInfo, "AwsScanOptionsUpdateRequest", ""),
@@ -796,22 +687,14 @@ export class AgentlessScanningApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Path Params
-    const localVarPath =
-      "/api/v2/agentless_scanning/accounts/azure/{subscription_id}".replace(
-        "{subscription_id}",
-        encodeURIComponent(String(subscriptionId)),
-      );
+    const localVarPath = "/api/v2/agentless_scanning/accounts/azure/{subscription_id}".replace(
+      "{subscription_id}",
+      encodeURIComponent(String(subscriptionId)),
+    );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "AgentlessScanningApi.v2.updateAzureScanOptions",
-      AgentlessScanningApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.PATCH,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("AgentlessScanningApi.v2.updateAzureScanOptions", AgentlessScanningApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.PATCH, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -821,7 +704,9 @@ export class AgentlessScanningApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Body Params
-    const contentType = getPreferredMediaType(["application/json"]);
+    const contentType = getPreferredMediaType([
+      "application/json",
+    ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = stringify(
       serialize(body, TypingInfo, "AzureScanOptionsInputUpdate", ""),
@@ -857,22 +742,14 @@ export class AgentlessScanningApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Path Params
-    const localVarPath =
-      "/api/v2/agentless_scanning/accounts/gcp/{project_id}".replace(
-        "{project_id}",
-        encodeURIComponent(String(projectId)),
-      );
+    const localVarPath = "/api/v2/agentless_scanning/accounts/gcp/{project_id}".replace(
+      "{project_id}",
+      encodeURIComponent(String(projectId)),
+    );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "AgentlessScanningApi.v2.updateGcpScanOptions",
-      AgentlessScanningApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.PATCH,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("AgentlessScanningApi.v2.updateGcpScanOptions", AgentlessScanningApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.PATCH, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -882,7 +759,9 @@ export class AgentlessScanningApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Body Params
-    const contentType = getPreferredMediaType(["application/json"]);
+    const contentType = getPreferredMediaType([
+      "application/json",
+    ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = stringify(
       serialize(body, TypingInfo, "GcpScanOptionsInputUpdate", ""),
@@ -912,7 +791,9 @@ export class AgentlessScanningApiResponseProcessor {
   public async createAwsOnDemandTask(
     response: ResponseContext,
   ): Promise<AwsOnDemandResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 201) {
       const body: AwsOnDemandResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -926,7 +807,10 @@ export class AgentlessScanningApiResponseProcessor {
       response.httpStatusCode === 403 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -941,7 +825,10 @@ export class AgentlessScanningApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -972,7 +859,9 @@ export class AgentlessScanningApiResponseProcessor {
   public async createAwsScanOptions(
     response: ResponseContext,
   ): Promise<AwsScanOptionsResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 201) {
       const body: AwsScanOptionsResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -987,7 +876,10 @@ export class AgentlessScanningApiResponseProcessor {
       response.httpStatusCode === 409 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -1002,7 +894,10 @@ export class AgentlessScanningApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -1033,7 +928,9 @@ export class AgentlessScanningApiResponseProcessor {
   public async createAzureScanOptions(
     response: ResponseContext,
   ): Promise<AzureScanOptions> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 201) {
       const body: AzureScanOptions = deserialize(
         parse(await response.body.text(), contentType),
@@ -1043,7 +940,10 @@ export class AgentlessScanningApiResponseProcessor {
       return body;
     }
     if (response.httpStatusCode === 429) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -1058,7 +958,10 @@ export class AgentlessScanningApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -1089,7 +992,9 @@ export class AgentlessScanningApiResponseProcessor {
   public async createGcpScanOptions(
     response: ResponseContext,
   ): Promise<GcpScanOptions> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 201) {
       const body: GcpScanOptions = deserialize(
         parse(await response.body.text(), contentType),
@@ -1104,7 +1009,10 @@ export class AgentlessScanningApiResponseProcessor {
       response.httpStatusCode === 409 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -1119,7 +1027,10 @@ export class AgentlessScanningApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -1147,8 +1058,12 @@ export class AgentlessScanningApiResponseProcessor {
    * @params response Response returned by the server for a request to deleteAwsScanOptions
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async deleteAwsScanOptions(response: ResponseContext): Promise<void> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+  public async deleteAwsScanOptions(
+    response: ResponseContext,
+  ): Promise<void> {
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 204) {
       return;
     }
@@ -1158,7 +1073,10 @@ export class AgentlessScanningApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -1173,7 +1091,10 @@ export class AgentlessScanningApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -1198,12 +1119,17 @@ export class AgentlessScanningApiResponseProcessor {
   public async deleteAzureScanOptions(
     response: ResponseContext,
   ): Promise<void> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 204) {
       return;
     }
     if (response.httpStatusCode === 429) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -1218,7 +1144,10 @@ export class AgentlessScanningApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -1240,8 +1169,12 @@ export class AgentlessScanningApiResponseProcessor {
    * @params response Response returned by the server for a request to deleteGcpScanOptions
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async deleteGcpScanOptions(response: ResponseContext): Promise<void> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+  public async deleteGcpScanOptions(
+    response: ResponseContext,
+  ): Promise<void> {
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 204) {
       return;
     }
@@ -1251,7 +1184,10 @@ export class AgentlessScanningApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -1266,7 +1202,10 @@ export class AgentlessScanningApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -1291,7 +1230,9 @@ export class AgentlessScanningApiResponseProcessor {
   public async getAwsOnDemandTask(
     response: ResponseContext,
   ): Promise<AwsOnDemandResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: AwsOnDemandResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -1306,7 +1247,10 @@ export class AgentlessScanningApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -1321,7 +1265,10 @@ export class AgentlessScanningApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -1352,7 +1299,9 @@ export class AgentlessScanningApiResponseProcessor {
   public async getAwsScanOptions(
     response: ResponseContext,
   ): Promise<AwsScanOptionsResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: AwsScanOptionsResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -1367,7 +1316,10 @@ export class AgentlessScanningApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -1382,7 +1334,10 @@ export class AgentlessScanningApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -1413,7 +1368,9 @@ export class AgentlessScanningApiResponseProcessor {
   public async getAzureScanOptions(
     response: ResponseContext,
   ): Promise<AzureScanOptions> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: AzureScanOptions = deserialize(
         parse(await response.body.text(), contentType),
@@ -1428,7 +1385,10 @@ export class AgentlessScanningApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -1443,7 +1403,10 @@ export class AgentlessScanningApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -1474,7 +1437,9 @@ export class AgentlessScanningApiResponseProcessor {
   public async getGcpScanOptions(
     response: ResponseContext,
   ): Promise<GcpScanOptions> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: GcpScanOptions = deserialize(
         parse(await response.body.text(), contentType),
@@ -1489,7 +1454,10 @@ export class AgentlessScanningApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -1504,7 +1472,10 @@ export class AgentlessScanningApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -1535,7 +1506,9 @@ export class AgentlessScanningApiResponseProcessor {
   public async listAwsOnDemandTasks(
     response: ResponseContext,
   ): Promise<AwsOnDemandListResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: AwsOnDemandListResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -1544,8 +1517,14 @@ export class AgentlessScanningApiResponseProcessor {
       ) as AwsOnDemandListResponse;
       return body;
     }
-    if (response.httpStatusCode === 403 || response.httpStatusCode === 429) {
-      const bodyText = parse(await response.body.text(), contentType);
+    if (
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 429
+    ) {
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -1560,7 +1539,10 @@ export class AgentlessScanningApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -1591,7 +1573,9 @@ export class AgentlessScanningApiResponseProcessor {
   public async listAwsScanOptions(
     response: ResponseContext,
   ): Promise<AwsScanOptionsListResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: AwsScanOptionsListResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -1600,8 +1584,14 @@ export class AgentlessScanningApiResponseProcessor {
       ) as AwsScanOptionsListResponse;
       return body;
     }
-    if (response.httpStatusCode === 403 || response.httpStatusCode === 429) {
-      const bodyText = parse(await response.body.text(), contentType);
+    if (
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 429
+    ) {
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -1616,7 +1606,10 @@ export class AgentlessScanningApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -1647,7 +1640,9 @@ export class AgentlessScanningApiResponseProcessor {
   public async listAzureScanOptions(
     response: ResponseContext,
   ): Promise<AzureScanOptionsArray> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: AzureScanOptionsArray = deserialize(
         parse(await response.body.text(), contentType),
@@ -1657,7 +1652,10 @@ export class AgentlessScanningApiResponseProcessor {
       return body;
     }
     if (response.httpStatusCode === 429) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -1672,7 +1670,10 @@ export class AgentlessScanningApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -1703,7 +1704,9 @@ export class AgentlessScanningApiResponseProcessor {
   public async listGcpScanOptions(
     response: ResponseContext,
   ): Promise<GcpScanOptionsArray> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: GcpScanOptionsArray = deserialize(
         parse(await response.body.text(), contentType),
@@ -1712,8 +1715,14 @@ export class AgentlessScanningApiResponseProcessor {
       ) as GcpScanOptionsArray;
       return body;
     }
-    if (response.httpStatusCode === 403 || response.httpStatusCode === 429) {
-      const bodyText = parse(await response.body.text(), contentType);
+    if (
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 429
+    ) {
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -1728,7 +1737,10 @@ export class AgentlessScanningApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -1756,8 +1768,12 @@ export class AgentlessScanningApiResponseProcessor {
    * @params response Response returned by the server for a request to updateAwsScanOptions
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async updateAwsScanOptions(response: ResponseContext): Promise<void> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+  public async updateAwsScanOptions(
+    response: ResponseContext,
+  ): Promise<void> {
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 204) {
       return;
     }
@@ -1767,7 +1783,10 @@ export class AgentlessScanningApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -1782,7 +1801,10 @@ export class AgentlessScanningApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -1807,7 +1829,9 @@ export class AgentlessScanningApiResponseProcessor {
   public async updateAzureScanOptions(
     response: ResponseContext,
   ): Promise<AzureScanOptions> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: AzureScanOptions = deserialize(
         parse(await response.body.text(), contentType),
@@ -1817,7 +1841,10 @@ export class AgentlessScanningApiResponseProcessor {
       return body;
     }
     if (response.httpStatusCode === 429) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -1832,7 +1859,10 @@ export class AgentlessScanningApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -1863,7 +1893,9 @@ export class AgentlessScanningApiResponseProcessor {
   public async updateGcpScanOptions(
     response: ResponseContext,
   ): Promise<GcpScanOptions> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: GcpScanOptions = deserialize(
         parse(await response.body.text(), contentType),
@@ -1878,7 +1910,10 @@ export class AgentlessScanningApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -1893,7 +1928,10 @@ export class AgentlessScanningApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -2045,7 +2083,8 @@ export class AgentlessScanningApi {
   private responseProcessor: AgentlessScanningApiResponseProcessor;
   private configuration: Configuration;
 
-  static operationServers: { [key: string]: BaseServerConfiguration[] } = {};
+  static operationServers: { [key: string]: BaseServerConfiguration[] } = {
+  };
 
   public constructor(
     configuration?: Configuration,
@@ -2295,11 +2334,11 @@ export class AgentlessScanningApi {
    * Fetches the most recent 1000 AWS on demand tasks.
    * @param param The request object
    */
-  public listAwsOnDemandTasks(
-    options?: Configuration,
+  public listAwsOnDemandTasks(options?: Configuration,
   ): Promise<AwsOnDemandListResponse> {
-    const requestContextPromise =
-      this.requestFactory.listAwsOnDemandTasks(options);
+    const requestContextPromise = this.requestFactory.listAwsOnDemandTasks(
+      options,
+    );
     return requestContextPromise.then((requestContext) => {
       return this.configuration.httpApi
         .send(requestContext)
@@ -2313,11 +2352,11 @@ export class AgentlessScanningApi {
    * Fetches the scan options configured for AWS accounts.
    * @param param The request object
    */
-  public listAwsScanOptions(
-    options?: Configuration,
+  public listAwsScanOptions(options?: Configuration,
   ): Promise<AwsScanOptionsListResponse> {
-    const requestContextPromise =
-      this.requestFactory.listAwsScanOptions(options);
+    const requestContextPromise = this.requestFactory.listAwsScanOptions(
+      options,
+    );
     return requestContextPromise.then((requestContext) => {
       return this.configuration.httpApi
         .send(requestContext)
@@ -2331,11 +2370,11 @@ export class AgentlessScanningApi {
    * Fetches the scan options configured for Azure accounts.
    * @param param The request object
    */
-  public listAzureScanOptions(
-    options?: Configuration,
+  public listAzureScanOptions(options?: Configuration,
   ): Promise<AzureScanOptionsArray> {
-    const requestContextPromise =
-      this.requestFactory.listAzureScanOptions(options);
+    const requestContextPromise = this.requestFactory.listAzureScanOptions(
+      options,
+    );
     return requestContextPromise.then((requestContext) => {
       return this.configuration.httpApi
         .send(requestContext)
@@ -2349,11 +2388,11 @@ export class AgentlessScanningApi {
    * Fetches the scan options configured for all GCP projects.
    * @param param The request object
    */
-  public listGcpScanOptions(
-    options?: Configuration,
+  public listGcpScanOptions(options?: Configuration,
   ): Promise<GcpScanOptionsArray> {
-    const requestContextPromise =
-      this.requestFactory.listGcpScanOptions(options);
+    const requestContextPromise = this.requestFactory.listGcpScanOptions(
+      options,
+    );
     return requestContextPromise.then((requestContext) => {
       return this.configuration.httpApi
         .send(requestContext)

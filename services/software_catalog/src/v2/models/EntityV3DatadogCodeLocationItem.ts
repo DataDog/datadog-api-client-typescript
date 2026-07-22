@@ -1,5 +1,6 @@
 import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
+
 /**
  * Code location item.
  */
@@ -28,7 +29,7 @@ export class EntityV3DatadogCodeLocationItem {
     repositoryUrl: {
       baseName: "repositoryURL",
       type: "string",
-    },
+    }
   };
 
   /**

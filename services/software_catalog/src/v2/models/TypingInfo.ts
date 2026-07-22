@@ -59,6 +59,9 @@ import { EntityV3MetadataLinksItems } from "./EntityV3MetadataLinksItems";
 import { EntityV3Queue } from "./EntityV3Queue";
 import { EntityV3QueueDatadog } from "./EntityV3QueueDatadog";
 import { EntityV3QueueSpec } from "./EntityV3QueueSpec";
+import { EntityV3Repository } from "./EntityV3Repository";
+import { EntityV3RepositoryDatadog } from "./EntityV3RepositoryDatadog";
+import { EntityV3RepositorySpec } from "./EntityV3RepositorySpec";
 import { EntityV3Service } from "./EntityV3Service";
 import { EntityV3ServiceDatadog } from "./EntityV3ServiceDatadog";
 import { EntityV3ServiceSpec } from "./EntityV3ServiceSpec";
@@ -92,9 +95,7 @@ export const TypingInfo: ModelTypingInfo = {
     EntityResponseDataRelationshipsIncidentsDataItemsType: ["incident"],
     EntityResponseDataRelationshipsOncallsDataItemsType: ["oncall"],
     EntityResponseDataRelationshipsRawSchemaDataType: ["rawSchema"],
-    EntityResponseDataRelationshipsRelatedEntitiesDataItemsType: [
-      "relatedEntity",
-    ],
+    EntityResponseDataRelationshipsRelatedEntitiesDataItemsType: ["relatedEntity"],
     EntityResponseDataRelationshipsSchemaDataType: ["schema"],
     EntityResponseDataType: ["entity"],
     EntityResponseIncludedIncidentType: ["incident"],
@@ -106,23 +107,13 @@ export const TypingInfo: ModelTypingInfo = {
     EntityV3APIVersion: ["v3", "v2.2", "v2.1", "v2"],
     EntityV3DatastoreKind: ["datastore"],
     EntityV3QueueKind: ["queue"],
+    EntityV3RepositoryKind: ["repository"],
     EntityV3ServiceKind: ["service"],
     EntityV3SystemKind: ["system"],
     IncludeType: ["schema", "raw_schema", "oncall", "incident", "relation"],
     RelationIncludeType: ["entity", "schema"],
     RelationResponseType: ["relation"],
-    RelationType: [
-      "RelationTypeOwns",
-      "RelationTypeOwnedBy",
-      "RelationTypeDependsOn",
-      "RelationTypeDependencyOf",
-      "RelationTypePartsOf",
-      "RelationTypeHasPart",
-      "RelationTypeOtherOwns",
-      "RelationTypeOtherOwnedBy",
-      "RelationTypeImplementedBy",
-      "RelationTypeImplements",
-    ],
+    RelationType: ["RelationTypeOwns", "RelationTypeOwnedBy", "RelationTypeDependsOn", "RelationTypeDependencyOf", "RelationTypePartsOf", "RelationTypeHasPart", "RelationTypeOtherOwns", "RelationTypeOtherOwnedBy", "RelationTypeImplementedBy", "RelationTypeImplements"],
   },
   oneOfMap: {
     EntityV3: [
@@ -131,6 +122,7 @@ export const TypingInfo: ModelTypingInfo = {
       "EntityV3Queue",
       "EntityV3System",
       "EntityV3API",
+      "EntityV3Repository",
     ],
     EntityV3APISpecInterface: [
       "EntityV3APISpecInterfaceFileRef",
@@ -146,7 +138,7 @@ export const TypingInfo: ModelTypingInfo = {
     UpsertCatalogEntityRequest: ["EntityV3", "string"],
     UpsertCatalogEntityResponseIncludedItem: ["EntityResponseIncludedSchema"],
     UpsertCatalogKindRequest: ["KindObj", "string"],
-  },
+    },
   typeMap: {
     APIErrorResponse: APIErrorResponse,
     EntityAttributes: EntityAttributes,
@@ -156,45 +148,28 @@ export const TypingInfo: ModelTypingInfo = {
     EntityResponseArray: EntityResponseArray,
     EntityResponseDataAttributes: EntityResponseDataAttributes,
     EntityResponseDataRelationships: EntityResponseDataRelationships,
-    EntityResponseDataRelationshipsIncidents:
-      EntityResponseDataRelationshipsIncidents,
-    EntityResponseDataRelationshipsIncidentsDataItems:
-      EntityResponseDataRelationshipsIncidentsDataItems,
-    EntityResponseDataRelationshipsOncalls:
-      EntityResponseDataRelationshipsOncalls,
-    EntityResponseDataRelationshipsOncallsDataItems:
-      EntityResponseDataRelationshipsOncallsDataItems,
-    EntityResponseDataRelationshipsRawSchema:
-      EntityResponseDataRelationshipsRawSchema,
-    EntityResponseDataRelationshipsRawSchemaData:
-      EntityResponseDataRelationshipsRawSchemaData,
-    EntityResponseDataRelationshipsRelatedEntities:
-      EntityResponseDataRelationshipsRelatedEntities,
-    EntityResponseDataRelationshipsRelatedEntitiesDataItems:
-      EntityResponseDataRelationshipsRelatedEntitiesDataItems,
-    EntityResponseDataRelationshipsSchema:
-      EntityResponseDataRelationshipsSchema,
-    EntityResponseDataRelationshipsSchemaData:
-      EntityResponseDataRelationshipsSchemaData,
+    EntityResponseDataRelationshipsIncidents: EntityResponseDataRelationshipsIncidents,
+    EntityResponseDataRelationshipsIncidentsDataItems: EntityResponseDataRelationshipsIncidentsDataItems,
+    EntityResponseDataRelationshipsOncalls: EntityResponseDataRelationshipsOncalls,
+    EntityResponseDataRelationshipsOncallsDataItems: EntityResponseDataRelationshipsOncallsDataItems,
+    EntityResponseDataRelationshipsRawSchema: EntityResponseDataRelationshipsRawSchema,
+    EntityResponseDataRelationshipsRawSchemaData: EntityResponseDataRelationshipsRawSchemaData,
+    EntityResponseDataRelationshipsRelatedEntities: EntityResponseDataRelationshipsRelatedEntities,
+    EntityResponseDataRelationshipsRelatedEntitiesDataItems: EntityResponseDataRelationshipsRelatedEntitiesDataItems,
+    EntityResponseDataRelationshipsSchema: EntityResponseDataRelationshipsSchema,
+    EntityResponseDataRelationshipsSchemaData: EntityResponseDataRelationshipsSchemaData,
     EntityResponseIncludedIncident: EntityResponseIncludedIncident,
     EntityResponseIncludedOncall: EntityResponseIncludedOncall,
     EntityResponseIncludedRawSchema: EntityResponseIncludedRawSchema,
-    EntityResponseIncludedRawSchemaAttributes:
-      EntityResponseIncludedRawSchemaAttributes,
+    EntityResponseIncludedRawSchemaAttributes: EntityResponseIncludedRawSchemaAttributes,
     EntityResponseIncludedRelatedEntity: EntityResponseIncludedRelatedEntity,
-    EntityResponseIncludedRelatedEntityAttributes:
-      EntityResponseIncludedRelatedEntityAttributes,
-    EntityResponseIncludedRelatedEntityMeta:
-      EntityResponseIncludedRelatedEntityMeta,
-    EntityResponseIncludedRelatedIncidentAttributes:
-      EntityResponseIncludedRelatedIncidentAttributes,
-    EntityResponseIncludedRelatedOncallAttributes:
-      EntityResponseIncludedRelatedOncallAttributes,
-    EntityResponseIncludedRelatedOncallEscalationItem:
-      EntityResponseIncludedRelatedOncallEscalationItem,
+    EntityResponseIncludedRelatedEntityAttributes: EntityResponseIncludedRelatedEntityAttributes,
+    EntityResponseIncludedRelatedEntityMeta: EntityResponseIncludedRelatedEntityMeta,
+    EntityResponseIncludedRelatedIncidentAttributes: EntityResponseIncludedRelatedIncidentAttributes,
+    EntityResponseIncludedRelatedOncallAttributes: EntityResponseIncludedRelatedOncallAttributes,
+    EntityResponseIncludedRelatedOncallEscalationItem: EntityResponseIncludedRelatedOncallEscalationItem,
     EntityResponseIncludedSchema: EntityResponseIncludedSchema,
-    EntityResponseIncludedSchemaAttributes:
-      EntityResponseIncludedSchemaAttributes,
+    EntityResponseIncludedSchemaAttributes: EntityResponseIncludedSchemaAttributes,
     EntityResponseMeta: EntityResponseMeta,
     EntityToIncidents: EntityToIncidents,
     EntityToOncalls: EntityToOncalls,
@@ -218,13 +193,15 @@ export const TypingInfo: ModelTypingInfo = {
     EntityV3DatastoreSpec: EntityV3DatastoreSpec,
     EntityV3Integrations: EntityV3Integrations,
     EntityV3Metadata: EntityV3Metadata,
-    EntityV3MetadataAdditionalOwnersItems:
-      EntityV3MetadataAdditionalOwnersItems,
+    EntityV3MetadataAdditionalOwnersItems: EntityV3MetadataAdditionalOwnersItems,
     EntityV3MetadataContactsItems: EntityV3MetadataContactsItems,
     EntityV3MetadataLinksItems: EntityV3MetadataLinksItems,
     EntityV3Queue: EntityV3Queue,
     EntityV3QueueDatadog: EntityV3QueueDatadog,
     EntityV3QueueSpec: EntityV3QueueSpec,
+    EntityV3Repository: EntityV3Repository,
+    EntityV3RepositoryDatadog: EntityV3RepositoryDatadog,
+    EntityV3RepositorySpec: EntityV3RepositorySpec,
     EntityV3Service: EntityV3Service,
     EntityV3ServiceDatadog: EntityV3ServiceDatadog,
     EntityV3ServiceSpec: EntityV3ServiceSpec,

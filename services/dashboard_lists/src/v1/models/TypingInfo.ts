@@ -7,7 +7,8 @@ import { DashboardListDeleteResponse } from "./DashboardListDeleteResponse";
 import { DashboardListListResponse } from "./DashboardListListResponse";
 
 export const TypingInfo: ModelTypingInfo = {
-  enumsMap: {},
+  enumsMap: {
+  },
   oneOfMap: {},
   typeMap: {
     APIErrorResponse: APIErrorResponse,

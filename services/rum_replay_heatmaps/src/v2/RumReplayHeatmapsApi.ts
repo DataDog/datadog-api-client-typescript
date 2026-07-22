@@ -19,6 +19,7 @@ import {
   ServerConfiguration,
   stringify,
   applySecurityAuthentication,
+  
 } from "@datadog/datadog-api-client";
 
 import { TypingInfo } from "./models/TypingInfo";
@@ -53,15 +54,8 @@ export class RumReplayHeatmapsApiRequestFactory extends BaseAPIRequestFactory {
     const localVarPath = "/api/v2/replay/heatmap/snapshots";
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "RumReplayHeatmapsApi.v2.createReplayHeatmapSnapshot",
-      RumReplayHeatmapsApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.POST,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("RumReplayHeatmapsApi.v2.createReplayHeatmapSnapshot", RumReplayHeatmapsApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.POST, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -71,7 +65,9 @@ export class RumReplayHeatmapsApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Body Params
-    const contentType = getPreferredMediaType(["application/json"]);
+    const contentType = getPreferredMediaType([
+      "application/json",
+    ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = stringify(
       serialize(body, TypingInfo, "SnapshotCreateRequest", ""),
@@ -101,22 +97,14 @@ export class RumReplayHeatmapsApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Path Params
-    const localVarPath =
-      "/api/v2/replay/heatmap/snapshots/{snapshot_id}".replace(
-        "{snapshot_id}",
-        encodeURIComponent(String(snapshotId)),
-      );
+    const localVarPath = "/api/v2/replay/heatmap/snapshots/{snapshot_id}".replace(
+      "{snapshot_id}",
+      encodeURIComponent(String(snapshotId)),
+    );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "RumReplayHeatmapsApi.v2.deleteReplayHeatmapSnapshot",
-      RumReplayHeatmapsApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.DELETE,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("RumReplayHeatmapsApi.v2.deleteReplayHeatmapSnapshot", RumReplayHeatmapsApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.DELETE, overrides);
     requestContext.setHeaderParam("Accept", "*/*");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -153,15 +141,8 @@ export class RumReplayHeatmapsApiRequestFactory extends BaseAPIRequestFactory {
     const localVarPath = "/api/v2/replay/heatmap/snapshots";
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "RumReplayHeatmapsApi.v2.listReplayHeatmapSnapshots",
-      RumReplayHeatmapsApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.GET,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("RumReplayHeatmapsApi.v2.listReplayHeatmapSnapshots", RumReplayHeatmapsApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.GET, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -228,22 +209,14 @@ export class RumReplayHeatmapsApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Path Params
-    const localVarPath =
-      "/api/v2/replay/heatmap/snapshots/{snapshot_id}".replace(
-        "{snapshot_id}",
-        encodeURIComponent(String(snapshotId)),
-      );
+    const localVarPath = "/api/v2/replay/heatmap/snapshots/{snapshot_id}".replace(
+      "{snapshot_id}",
+      encodeURIComponent(String(snapshotId)),
+    );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "RumReplayHeatmapsApi.v2.updateReplayHeatmapSnapshot",
-      RumReplayHeatmapsApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.PATCH,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("RumReplayHeatmapsApi.v2.updateReplayHeatmapSnapshot", RumReplayHeatmapsApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.PATCH, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -253,7 +226,9 @@ export class RumReplayHeatmapsApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Body Params
-    const contentType = getPreferredMediaType(["application/json"]);
+    const contentType = getPreferredMediaType([
+      "application/json",
+    ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = stringify(
       serialize(body, TypingInfo, "SnapshotUpdateRequest", ""),
@@ -283,7 +258,9 @@ export class RumReplayHeatmapsApiResponseProcessor {
   public async createReplayHeatmapSnapshot(
     response: ResponseContext,
   ): Promise<Snapshot> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 201) {
       const body: Snapshot = deserialize(
         parse(await response.body.text(), contentType),
@@ -293,7 +270,10 @@ export class RumReplayHeatmapsApiResponseProcessor {
       return body;
     }
     if (response.httpStatusCode === 429) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -308,7 +288,10 @@ export class RumReplayHeatmapsApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -339,12 +322,17 @@ export class RumReplayHeatmapsApiResponseProcessor {
   public async deleteReplayHeatmapSnapshot(
     response: ResponseContext,
   ): Promise<void> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 204) {
       return;
     }
     if (response.httpStatusCode === 429) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -359,7 +347,10 @@ export class RumReplayHeatmapsApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -384,7 +375,9 @@ export class RumReplayHeatmapsApiResponseProcessor {
   public async listReplayHeatmapSnapshots(
     response: ResponseContext,
   ): Promise<SnapshotArray> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: SnapshotArray = deserialize(
         parse(await response.body.text(), contentType),
@@ -394,7 +387,10 @@ export class RumReplayHeatmapsApiResponseProcessor {
       return body;
     }
     if (response.httpStatusCode === 429) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -409,7 +405,10 @@ export class RumReplayHeatmapsApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -440,7 +439,9 @@ export class RumReplayHeatmapsApiResponseProcessor {
   public async updateReplayHeatmapSnapshot(
     response: ResponseContext,
   ): Promise<Snapshot> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: Snapshot = deserialize(
         parse(await response.body.text(), contentType),
@@ -450,7 +451,10 @@ export class RumReplayHeatmapsApiResponseProcessor {
       return body;
     }
     if (response.httpStatusCode === 429) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -465,7 +469,10 @@ export class RumReplayHeatmapsApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -542,7 +549,8 @@ export class RumReplayHeatmapsApi {
   private responseProcessor: RumReplayHeatmapsApiResponseProcessor;
   private configuration: Configuration;
 
-  static operationServers: { [key: string]: BaseServerConfiguration[] } = {};
+  static operationServers: { [key: string]: BaseServerConfiguration[] } = {
+  };
 
   public constructor(
     configuration?: Configuration,
@@ -565,15 +573,15 @@ export class RumReplayHeatmapsApi {
     param: RumReplayHeatmapsApiCreateReplayHeatmapSnapshotRequest,
     options?: Configuration,
   ): Promise<Snapshot> {
-    const requestContextPromise =
-      this.requestFactory.createReplayHeatmapSnapshot(param.body, options);
+    const requestContextPromise = this.requestFactory.createReplayHeatmapSnapshot(
+      param.body,
+      options,
+    );
     return requestContextPromise.then((requestContext) => {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.createReplayHeatmapSnapshot(
-            responseContext,
-          );
+          return this.responseProcessor.createReplayHeatmapSnapshot(responseContext);
         });
     });
   }
@@ -586,18 +594,15 @@ export class RumReplayHeatmapsApi {
     param: RumReplayHeatmapsApiDeleteReplayHeatmapSnapshotRequest,
     options?: Configuration,
   ): Promise<void> {
-    const requestContextPromise =
-      this.requestFactory.deleteReplayHeatmapSnapshot(
-        param.snapshotId,
-        options,
-      );
+    const requestContextPromise = this.requestFactory.deleteReplayHeatmapSnapshot(
+      param.snapshotId,
+      options,
+    );
     return requestContextPromise.then((requestContext) => {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.deleteReplayHeatmapSnapshot(
-            responseContext,
-          );
+          return this.responseProcessor.deleteReplayHeatmapSnapshot(responseContext);
         });
     });
   }
@@ -610,21 +615,18 @@ export class RumReplayHeatmapsApi {
     param: RumReplayHeatmapsApiListReplayHeatmapSnapshotsRequest,
     options?: Configuration,
   ): Promise<SnapshotArray> {
-    const requestContextPromise =
-      this.requestFactory.listReplayHeatmapSnapshots(
-        param.filterViewName,
-        param.filterDeviceType,
-        param.pageLimit,
-        param.filterApplicationId,
-        options,
-      );
+    const requestContextPromise = this.requestFactory.listReplayHeatmapSnapshots(
+      param.filterViewName,
+      param.filterDeviceType,
+      param.pageLimit,
+      param.filterApplicationId,
+      options,
+    );
     return requestContextPromise.then((requestContext) => {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.listReplayHeatmapSnapshots(
-            responseContext,
-          );
+          return this.responseProcessor.listReplayHeatmapSnapshots(responseContext);
         });
     });
   }
@@ -637,19 +639,16 @@ export class RumReplayHeatmapsApi {
     param: RumReplayHeatmapsApiUpdateReplayHeatmapSnapshotRequest,
     options?: Configuration,
   ): Promise<Snapshot> {
-    const requestContextPromise =
-      this.requestFactory.updateReplayHeatmapSnapshot(
-        param.snapshotId,
-        param.body,
-        options,
-      );
+    const requestContextPromise = this.requestFactory.updateReplayHeatmapSnapshot(
+      param.snapshotId,
+      param.body,
+      options,
+    );
     return requestContextPromise.then((requestContext) => {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.updateReplayHeatmapSnapshot(
-            responseContext,
-          );
+          return this.responseProcessor.updateReplayHeatmapSnapshot(responseContext);
         });
     });
   }

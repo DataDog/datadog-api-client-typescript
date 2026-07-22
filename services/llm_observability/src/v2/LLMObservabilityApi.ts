@@ -22,7 +22,7 @@ import {
   HttpFile,
 } from "@datadog/datadog-api-client";
 
-import FormData from "form-data";
+import FormData from "form-data"
 
 import { TypingInfo } from "./models/TypingInfo";
 import { APIErrorResponse } from "./models/APIErrorResponse";
@@ -125,14 +125,8 @@ export class LLMObservabilityApiRequestFactory extends BaseAPIRequestFactory {
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
-    if (
-      !_config.unstableOperations[
-        "LLMObservabilityApi.v2.aggregateLLMObsExperimentation"
-      ]
-    ) {
-      throw new Error(
-        "Unstable operation 'aggregateLLMObsExperimentation' is disabled. Enable it by setting `configuration.unstableOperations['LLMObservabilityApi.v2.aggregateLLMObsExperimentation'] = true`",
-      );
+    if (!_config.unstableOperations["LLMObservabilityApi.v2.aggregateLLMObsExperimentation"]) {
+      throw new Error("Unstable operation 'aggregateLLMObsExperimentation' is disabled. Enable it by setting `configuration.unstableOperations['LLMObservabilityApi.v2.aggregateLLMObsExperimentation'] = true`");
     }
 
     // verify required parameter 'body' is not null or undefined
@@ -144,15 +138,8 @@ export class LLMObservabilityApiRequestFactory extends BaseAPIRequestFactory {
     const localVarPath = "/api/v2/llm-obs/v1/experimentation/analytics";
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "LLMObservabilityApi.v2.aggregateLLMObsExperimentation",
-      LLMObservabilityApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.POST,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("LLMObservabilityApi.v2.aggregateLLMObsExperimentation", LLMObservabilityApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.POST, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -162,7 +149,9 @@ export class LLMObservabilityApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Body Params
-    const contentType = getPreferredMediaType(["application/json"]);
+    const contentType = getPreferredMediaType([
+      "application/json",
+    ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = stringify(
       serialize(body, TypingInfo, "LLMObsExperimentationAnalyticsRequest", ""),
@@ -187,14 +176,8 @@ export class LLMObservabilityApiRequestFactory extends BaseAPIRequestFactory {
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
-    if (
-      !_config.unstableOperations[
-        "LLMObservabilityApi.v2.batchUpdateLLMObsDataset"
-      ]
-    ) {
-      throw new Error(
-        "Unstable operation 'batchUpdateLLMObsDataset' is disabled. Enable it by setting `configuration.unstableOperations['LLMObservabilityApi.v2.batchUpdateLLMObsDataset'] = true`",
-      );
+    if (!_config.unstableOperations["LLMObservabilityApi.v2.batchUpdateLLMObsDataset"]) {
+      throw new Error("Unstable operation 'batchUpdateLLMObsDataset' is disabled. Enable it by setting `configuration.unstableOperations['LLMObservabilityApi.v2.batchUpdateLLMObsDataset'] = true`");
     }
 
     // verify required parameter 'projectId' is not null or undefined
@@ -213,21 +196,17 @@ export class LLMObservabilityApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Path Params
-    const localVarPath =
-      "/api/v2/llm-obs/v1/{project_id}/datasets/{dataset_id}/batch_update"
-        .replace("{project_id}", encodeURIComponent(String(projectId)))
-        .replace("{dataset_id}", encodeURIComponent(String(datasetId)));
+    const localVarPath = "/api/v2/llm-obs/v1/{project_id}/datasets/{dataset_id}/batch_update".replace(
+      "{project_id}",
+      encodeURIComponent(String(projectId)),
+    ).replace(
+      "{dataset_id}",
+      encodeURIComponent(String(datasetId)),
+    );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "LLMObservabilityApi.v2.batchUpdateLLMObsDataset",
-      LLMObservabilityApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.POST,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("LLMObservabilityApi.v2.batchUpdateLLMObsDataset", LLMObservabilityApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.POST, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -237,7 +216,9 @@ export class LLMObservabilityApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Body Params
-    const contentType = getPreferredMediaType(["application/json"]);
+    const contentType = getPreferredMediaType([
+      "application/json",
+    ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = stringify(
       serialize(body, TypingInfo, "LLMObsDatasetBatchUpdateRequest", ""),
@@ -262,12 +243,8 @@ export class LLMObservabilityApiRequestFactory extends BaseAPIRequestFactory {
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
-    if (
-      !_config.unstableOperations["LLMObservabilityApi.v2.cloneLLMObsDataset"]
-    ) {
-      throw new Error(
-        "Unstable operation 'cloneLLMObsDataset' is disabled. Enable it by setting `configuration.unstableOperations['LLMObservabilityApi.v2.cloneLLMObsDataset'] = true`",
-      );
+    if (!_config.unstableOperations["LLMObservabilityApi.v2.cloneLLMObsDataset"]) {
+      throw new Error("Unstable operation 'cloneLLMObsDataset' is disabled. Enable it by setting `configuration.unstableOperations['LLMObservabilityApi.v2.cloneLLMObsDataset'] = true`");
     }
 
     // verify required parameter 'projectId' is not null or undefined
@@ -286,21 +263,17 @@ export class LLMObservabilityApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Path Params
-    const localVarPath =
-      "/api/v2/llm-obs/v1/{project_id}/datasets/{dataset_id}/clone"
-        .replace("{project_id}", encodeURIComponent(String(projectId)))
-        .replace("{dataset_id}", encodeURIComponent(String(datasetId)));
+    const localVarPath = "/api/v2/llm-obs/v1/{project_id}/datasets/{dataset_id}/clone".replace(
+      "{project_id}",
+      encodeURIComponent(String(projectId)),
+    ).replace(
+      "{dataset_id}",
+      encodeURIComponent(String(datasetId)),
+    );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "LLMObservabilityApi.v2.cloneLLMObsDataset",
-      LLMObservabilityApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.POST,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("LLMObservabilityApi.v2.cloneLLMObsDataset", LLMObservabilityApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.POST, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -310,7 +283,9 @@ export class LLMObservabilityApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Body Params
-    const contentType = getPreferredMediaType(["application/json"]);
+    const contentType = getPreferredMediaType([
+      "application/json",
+    ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = stringify(
       serialize(body, TypingInfo, "LLMObsDatasetCloneRequest", ""),
@@ -333,14 +308,8 @@ export class LLMObservabilityApiRequestFactory extends BaseAPIRequestFactory {
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
-    if (
-      !_config.unstableOperations[
-        "LLMObservabilityApi.v2.createLLMObsAnnotationQueue"
-      ]
-    ) {
-      throw new Error(
-        "Unstable operation 'createLLMObsAnnotationQueue' is disabled. Enable it by setting `configuration.unstableOperations['LLMObservabilityApi.v2.createLLMObsAnnotationQueue'] = true`",
-      );
+    if (!_config.unstableOperations["LLMObservabilityApi.v2.createLLMObsAnnotationQueue"]) {
+      throw new Error("Unstable operation 'createLLMObsAnnotationQueue' is disabled. Enable it by setting `configuration.unstableOperations['LLMObservabilityApi.v2.createLLMObsAnnotationQueue'] = true`");
     }
 
     // verify required parameter 'body' is not null or undefined
@@ -352,15 +321,8 @@ export class LLMObservabilityApiRequestFactory extends BaseAPIRequestFactory {
     const localVarPath = "/api/v2/llm-obs/v1/annotation-queues";
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "LLMObservabilityApi.v2.createLLMObsAnnotationQueue",
-      LLMObservabilityApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.POST,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("LLMObservabilityApi.v2.createLLMObsAnnotationQueue", LLMObservabilityApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.POST, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -370,7 +332,9 @@ export class LLMObservabilityApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Body Params
-    const contentType = getPreferredMediaType(["application/json"]);
+    const contentType = getPreferredMediaType([
+      "application/json",
+    ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = stringify(
       serialize(body, TypingInfo, "LLMObsAnnotationQueueRequest", ""),
@@ -394,49 +358,29 @@ export class LLMObservabilityApiRequestFactory extends BaseAPIRequestFactory {
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
-    if (
-      !_config.unstableOperations[
-        "LLMObservabilityApi.v2.createLLMObsAnnotationQueueInteractions"
-      ]
-    ) {
-      throw new Error(
-        "Unstable operation 'createLLMObsAnnotationQueueInteractions' is disabled. Enable it by setting `configuration.unstableOperations['LLMObservabilityApi.v2.createLLMObsAnnotationQueueInteractions'] = true`",
-      );
+    if (!_config.unstableOperations["LLMObservabilityApi.v2.createLLMObsAnnotationQueueInteractions"]) {
+      throw new Error("Unstable operation 'createLLMObsAnnotationQueueInteractions' is disabled. Enable it by setting `configuration.unstableOperations['LLMObservabilityApi.v2.createLLMObsAnnotationQueueInteractions'] = true`");
     }
 
     // verify required parameter 'queueId' is not null or undefined
     if (queueId === null || queueId === undefined) {
-      throw new RequiredError(
-        "queueId",
-        "createLLMObsAnnotationQueueInteractions",
-      );
+      throw new RequiredError("queueId", "createLLMObsAnnotationQueueInteractions");
     }
 
     // verify required parameter 'body' is not null or undefined
     if (body === null || body === undefined) {
-      throw new RequiredError(
-        "body",
-        "createLLMObsAnnotationQueueInteractions",
-      );
+      throw new RequiredError("body", "createLLMObsAnnotationQueueInteractions");
     }
 
     // Path Params
-    const localVarPath =
-      "/api/v2/llm-obs/v1/annotation-queues/{queue_id}/interactions".replace(
-        "{queue_id}",
-        encodeURIComponent(String(queueId)),
-      );
+    const localVarPath = "/api/v2/llm-obs/v1/annotation-queues/{queue_id}/interactions".replace(
+      "{queue_id}",
+      encodeURIComponent(String(queueId)),
+    );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "LLMObservabilityApi.v2.createLLMObsAnnotationQueueInteractions",
-      LLMObservabilityApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.POST,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("LLMObservabilityApi.v2.createLLMObsAnnotationQueueInteractions", LLMObservabilityApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.POST, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -446,15 +390,12 @@ export class LLMObservabilityApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Body Params
-    const contentType = getPreferredMediaType(["application/json"]);
+    const contentType = getPreferredMediaType([
+      "application/json",
+    ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = stringify(
-      serialize(
-        body,
-        TypingInfo,
-        "LLMObsAnnotationQueueInteractionsRequest",
-        "",
-      ),
+      serialize(body, TypingInfo, "LLMObsAnnotationQueueInteractionsRequest", ""),
       contentType,
     );
     requestContext.setBody(serializedBody);
@@ -475,12 +416,8 @@ export class LLMObservabilityApiRequestFactory extends BaseAPIRequestFactory {
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
-    if (
-      !_config.unstableOperations["LLMObservabilityApi.v2.createLLMObsDataset"]
-    ) {
-      throw new Error(
-        "Unstable operation 'createLLMObsDataset' is disabled. Enable it by setting `configuration.unstableOperations['LLMObservabilityApi.v2.createLLMObsDataset'] = true`",
-      );
+    if (!_config.unstableOperations["LLMObservabilityApi.v2.createLLMObsDataset"]) {
+      throw new Error("Unstable operation 'createLLMObsDataset' is disabled. Enable it by setting `configuration.unstableOperations['LLMObservabilityApi.v2.createLLMObsDataset'] = true`");
     }
 
     // verify required parameter 'projectId' is not null or undefined
@@ -500,15 +437,8 @@ export class LLMObservabilityApiRequestFactory extends BaseAPIRequestFactory {
     );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "LLMObservabilityApi.v2.createLLMObsDataset",
-      LLMObservabilityApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.POST,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("LLMObservabilityApi.v2.createLLMObsDataset", LLMObservabilityApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.POST, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -518,7 +448,9 @@ export class LLMObservabilityApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Body Params
-    const contentType = getPreferredMediaType(["application/json"]);
+    const contentType = getPreferredMediaType([
+      "application/json",
+    ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = stringify(
       serialize(body, TypingInfo, "LLMObsDatasetRequest", ""),
@@ -543,14 +475,8 @@ export class LLMObservabilityApiRequestFactory extends BaseAPIRequestFactory {
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
-    if (
-      !_config.unstableOperations[
-        "LLMObservabilityApi.v2.createLLMObsDatasetRecords"
-      ]
-    ) {
-      throw new Error(
-        "Unstable operation 'createLLMObsDatasetRecords' is disabled. Enable it by setting `configuration.unstableOperations['LLMObservabilityApi.v2.createLLMObsDatasetRecords'] = true`",
-      );
+    if (!_config.unstableOperations["LLMObservabilityApi.v2.createLLMObsDatasetRecords"]) {
+      throw new Error("Unstable operation 'createLLMObsDatasetRecords' is disabled. Enable it by setting `configuration.unstableOperations['LLMObservabilityApi.v2.createLLMObsDatasetRecords'] = true`");
     }
 
     // verify required parameter 'projectId' is not null or undefined
@@ -569,21 +495,17 @@ export class LLMObservabilityApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Path Params
-    const localVarPath =
-      "/api/v2/llm-obs/v1/{project_id}/datasets/{dataset_id}/records"
-        .replace("{project_id}", encodeURIComponent(String(projectId)))
-        .replace("{dataset_id}", encodeURIComponent(String(datasetId)));
+    const localVarPath = "/api/v2/llm-obs/v1/{project_id}/datasets/{dataset_id}/records".replace(
+      "{project_id}",
+      encodeURIComponent(String(projectId)),
+    ).replace(
+      "{dataset_id}",
+      encodeURIComponent(String(datasetId)),
+    );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "LLMObservabilityApi.v2.createLLMObsDatasetRecords",
-      LLMObservabilityApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.POST,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("LLMObservabilityApi.v2.createLLMObsDatasetRecords", LLMObservabilityApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.POST, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -593,7 +515,9 @@ export class LLMObservabilityApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Body Params
-    const contentType = getPreferredMediaType(["application/json"]);
+    const contentType = getPreferredMediaType([
+      "application/json",
+    ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = stringify(
       serialize(body, TypingInfo, "LLMObsDatasetRecordsRequest", ""),
@@ -616,14 +540,8 @@ export class LLMObservabilityApiRequestFactory extends BaseAPIRequestFactory {
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
-    if (
-      !_config.unstableOperations[
-        "LLMObservabilityApi.v2.createLLMObsExperiment"
-      ]
-    ) {
-      throw new Error(
-        "Unstable operation 'createLLMObsExperiment' is disabled. Enable it by setting `configuration.unstableOperations['LLMObservabilityApi.v2.createLLMObsExperiment'] = true`",
-      );
+    if (!_config.unstableOperations["LLMObservabilityApi.v2.createLLMObsExperiment"]) {
+      throw new Error("Unstable operation 'createLLMObsExperiment' is disabled. Enable it by setting `configuration.unstableOperations['LLMObservabilityApi.v2.createLLMObsExperiment'] = true`");
     }
 
     // verify required parameter 'body' is not null or undefined
@@ -635,15 +553,8 @@ export class LLMObservabilityApiRequestFactory extends BaseAPIRequestFactory {
     const localVarPath = "/api/v2/llm-obs/v1/experiments";
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "LLMObservabilityApi.v2.createLLMObsExperiment",
-      LLMObservabilityApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.POST,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("LLMObservabilityApi.v2.createLLMObsExperiment", LLMObservabilityApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.POST, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -653,7 +564,9 @@ export class LLMObservabilityApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Body Params
-    const contentType = getPreferredMediaType(["application/json"]);
+    const contentType = getPreferredMediaType([
+      "application/json",
+    ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = stringify(
       serialize(body, TypingInfo, "LLMObsExperimentRequest", ""),
@@ -677,14 +590,8 @@ export class LLMObservabilityApiRequestFactory extends BaseAPIRequestFactory {
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
-    if (
-      !_config.unstableOperations[
-        "LLMObservabilityApi.v2.createLLMObsExperimentEvents"
-      ]
-    ) {
-      throw new Error(
-        "Unstable operation 'createLLMObsExperimentEvents' is disabled. Enable it by setting `configuration.unstableOperations['LLMObservabilityApi.v2.createLLMObsExperimentEvents'] = true`",
-      );
+    if (!_config.unstableOperations["LLMObservabilityApi.v2.createLLMObsExperimentEvents"]) {
+      throw new Error("Unstable operation 'createLLMObsExperimentEvents' is disabled. Enable it by setting `configuration.unstableOperations['LLMObservabilityApi.v2.createLLMObsExperimentEvents'] = true`");
     }
 
     // verify required parameter 'experimentId' is not null or undefined
@@ -698,22 +605,14 @@ export class LLMObservabilityApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Path Params
-    const localVarPath =
-      "/api/v2/llm-obs/v1/experiments/{experiment_id}/events".replace(
-        "{experiment_id}",
-        encodeURIComponent(String(experimentId)),
-      );
+    const localVarPath = "/api/v2/llm-obs/v1/experiments/{experiment_id}/events".replace(
+      "{experiment_id}",
+      encodeURIComponent(String(experimentId)),
+    );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "LLMObservabilityApi.v2.createLLMObsExperimentEvents",
-      LLMObservabilityApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.POST,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("LLMObservabilityApi.v2.createLLMObsExperimentEvents", LLMObservabilityApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.POST, overrides);
     requestContext.setHeaderParam("Accept", "*/*");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -723,7 +622,9 @@ export class LLMObservabilityApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Body Params
-    const contentType = getPreferredMediaType(["application/json"]);
+    const contentType = getPreferredMediaType([
+      "application/json",
+    ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = stringify(
       serialize(body, TypingInfo, "LLMObsExperimentEventsRequest", ""),
@@ -748,22 +649,13 @@ export class LLMObservabilityApiRequestFactory extends BaseAPIRequestFactory {
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
-    if (
-      !_config.unstableOperations[
-        "LLMObservabilityApi.v2.createLLMObsIntegrationInference"
-      ]
-    ) {
-      throw new Error(
-        "Unstable operation 'createLLMObsIntegrationInference' is disabled. Enable it by setting `configuration.unstableOperations['LLMObservabilityApi.v2.createLLMObsIntegrationInference'] = true`",
-      );
+    if (!_config.unstableOperations["LLMObservabilityApi.v2.createLLMObsIntegrationInference"]) {
+      throw new Error("Unstable operation 'createLLMObsIntegrationInference' is disabled. Enable it by setting `configuration.unstableOperations['LLMObservabilityApi.v2.createLLMObsIntegrationInference'] = true`");
     }
 
     // verify required parameter 'integration' is not null or undefined
     if (integration === null || integration === undefined) {
-      throw new RequiredError(
-        "integration",
-        "createLLMObsIntegrationInference",
-      );
+      throw new RequiredError("integration", "createLLMObsIntegrationInference");
     }
 
     // verify required parameter 'accountId' is not null or undefined
@@ -777,21 +669,17 @@ export class LLMObservabilityApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Path Params
-    const localVarPath =
-      "/api/v2/llm-obs/v1/integrations/{integration}/{account_id}/inference"
-        .replace("{integration}", encodeURIComponent(String(integration)))
-        .replace("{account_id}", encodeURIComponent(String(accountId)));
+    const localVarPath = "/api/v2/llm-obs/v1/integrations/{integration}/{account_id}/inference".replace(
+      "{integration}",
+      encodeURIComponent(String(integration)),
+    ).replace(
+      "{account_id}",
+      encodeURIComponent(String(accountId)),
+    );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "LLMObservabilityApi.v2.createLLMObsIntegrationInference",
-      LLMObservabilityApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.POST,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("LLMObservabilityApi.v2.createLLMObsIntegrationInference", LLMObservabilityApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.POST, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -801,7 +689,9 @@ export class LLMObservabilityApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Body Params
-    const contentType = getPreferredMediaType(["application/json"]);
+    const contentType = getPreferredMediaType([
+      "application/json",
+    ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = stringify(
       serialize(body, TypingInfo, "LLMObsIntegrationInferenceRequest", ""),
@@ -824,12 +714,8 @@ export class LLMObservabilityApiRequestFactory extends BaseAPIRequestFactory {
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
-    if (
-      !_config.unstableOperations["LLMObservabilityApi.v2.createLLMObsProject"]
-    ) {
-      throw new Error(
-        "Unstable operation 'createLLMObsProject' is disabled. Enable it by setting `configuration.unstableOperations['LLMObservabilityApi.v2.createLLMObsProject'] = true`",
-      );
+    if (!_config.unstableOperations["LLMObservabilityApi.v2.createLLMObsProject"]) {
+      throw new Error("Unstable operation 'createLLMObsProject' is disabled. Enable it by setting `configuration.unstableOperations['LLMObservabilityApi.v2.createLLMObsProject'] = true`");
     }
 
     // verify required parameter 'body' is not null or undefined
@@ -841,15 +727,8 @@ export class LLMObservabilityApiRequestFactory extends BaseAPIRequestFactory {
     const localVarPath = "/api/v2/llm-obs/v1/projects";
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "LLMObservabilityApi.v2.createLLMObsProject",
-      LLMObservabilityApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.POST,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("LLMObservabilityApi.v2.createLLMObsProject", LLMObservabilityApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.POST, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -859,7 +738,9 @@ export class LLMObservabilityApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Body Params
-    const contentType = getPreferredMediaType(["application/json"]);
+    const contentType = getPreferredMediaType([
+      "application/json",
+    ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = stringify(
       serialize(body, TypingInfo, "LLMObsProjectRequest", ""),
@@ -882,12 +763,8 @@ export class LLMObservabilityApiRequestFactory extends BaseAPIRequestFactory {
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
-    if (
-      !_config.unstableOperations["LLMObservabilityApi.v2.createLLMObsPrompt"]
-    ) {
-      throw new Error(
-        "Unstable operation 'createLLMObsPrompt' is disabled. Enable it by setting `configuration.unstableOperations['LLMObservabilityApi.v2.createLLMObsPrompt'] = true`",
-      );
+    if (!_config.unstableOperations["LLMObservabilityApi.v2.createLLMObsPrompt"]) {
+      throw new Error("Unstable operation 'createLLMObsPrompt' is disabled. Enable it by setting `configuration.unstableOperations['LLMObservabilityApi.v2.createLLMObsPrompt'] = true`");
     }
 
     // verify required parameter 'body' is not null or undefined
@@ -899,15 +776,8 @@ export class LLMObservabilityApiRequestFactory extends BaseAPIRequestFactory {
     const localVarPath = "/api/v2/llm-obs/v1/prompts";
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "LLMObservabilityApi.v2.createLLMObsPrompt",
-      LLMObservabilityApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.POST,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("LLMObservabilityApi.v2.createLLMObsPrompt", LLMObservabilityApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.POST, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -917,7 +787,9 @@ export class LLMObservabilityApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Body Params
-    const contentType = getPreferredMediaType(["application/json"]);
+    const contentType = getPreferredMediaType([
+      "application/json",
+    ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = stringify(
       serialize(body, TypingInfo, "LLMObsCreatePromptRequest", ""),
@@ -941,14 +813,8 @@ export class LLMObservabilityApiRequestFactory extends BaseAPIRequestFactory {
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
-    if (
-      !_config.unstableOperations[
-        "LLMObservabilityApi.v2.createLLMObsPromptVersion"
-      ]
-    ) {
-      throw new Error(
-        "Unstable operation 'createLLMObsPromptVersion' is disabled. Enable it by setting `configuration.unstableOperations['LLMObservabilityApi.v2.createLLMObsPromptVersion'] = true`",
-      );
+    if (!_config.unstableOperations["LLMObservabilityApi.v2.createLLMObsPromptVersion"]) {
+      throw new Error("Unstable operation 'createLLMObsPromptVersion' is disabled. Enable it by setting `configuration.unstableOperations['LLMObservabilityApi.v2.createLLMObsPromptVersion'] = true`");
     }
 
     // verify required parameter 'promptId' is not null or undefined
@@ -962,22 +828,14 @@ export class LLMObservabilityApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Path Params
-    const localVarPath =
-      "/api/v2/llm-obs/v1/prompts/{prompt_id}/versions".replace(
-        "{prompt_id}",
-        encodeURIComponent(String(promptId)),
-      );
+    const localVarPath = "/api/v2/llm-obs/v1/prompts/{prompt_id}/versions".replace(
+      "{prompt_id}",
+      encodeURIComponent(String(promptId)),
+    );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "LLMObservabilityApi.v2.createLLMObsPromptVersion",
-      LLMObservabilityApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.POST,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("LLMObservabilityApi.v2.createLLMObsPromptVersion", LLMObservabilityApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.POST, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -987,7 +845,9 @@ export class LLMObservabilityApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Body Params
-    const contentType = getPreferredMediaType(["application/json"]);
+    const contentType = getPreferredMediaType([
+      "application/json",
+    ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = stringify(
       serialize(body, TypingInfo, "LLMObsCreatePromptVersionRequest", ""),
@@ -1010,14 +870,8 @@ export class LLMObservabilityApiRequestFactory extends BaseAPIRequestFactory {
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
-    if (
-      !_config.unstableOperations[
-        "LLMObservabilityApi.v2.deleteLLMObsAnnotationQueue"
-      ]
-    ) {
-      throw new Error(
-        "Unstable operation 'deleteLLMObsAnnotationQueue' is disabled. Enable it by setting `configuration.unstableOperations['LLMObservabilityApi.v2.deleteLLMObsAnnotationQueue'] = true`",
-      );
+    if (!_config.unstableOperations["LLMObservabilityApi.v2.deleteLLMObsAnnotationQueue"]) {
+      throw new Error("Unstable operation 'deleteLLMObsAnnotationQueue' is disabled. Enable it by setting `configuration.unstableOperations['LLMObservabilityApi.v2.deleteLLMObsAnnotationQueue'] = true`");
     }
 
     // verify required parameter 'queueId' is not null or undefined
@@ -1026,22 +880,14 @@ export class LLMObservabilityApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Path Params
-    const localVarPath =
-      "/api/v2/llm-obs/v1/annotation-queues/{queue_id}".replace(
-        "{queue_id}",
-        encodeURIComponent(String(queueId)),
-      );
+    const localVarPath = "/api/v2/llm-obs/v1/annotation-queues/{queue_id}".replace(
+      "{queue_id}",
+      encodeURIComponent(String(queueId)),
+    );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "LLMObservabilityApi.v2.deleteLLMObsAnnotationQueue",
-      LLMObservabilityApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.DELETE,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("LLMObservabilityApi.v2.deleteLLMObsAnnotationQueue", LLMObservabilityApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.DELETE, overrides);
     requestContext.setHeaderParam("Accept", "*/*");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -1066,49 +912,29 @@ export class LLMObservabilityApiRequestFactory extends BaseAPIRequestFactory {
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
-    if (
-      !_config.unstableOperations[
-        "LLMObservabilityApi.v2.deleteLLMObsAnnotationQueueInteractions"
-      ]
-    ) {
-      throw new Error(
-        "Unstable operation 'deleteLLMObsAnnotationQueueInteractions' is disabled. Enable it by setting `configuration.unstableOperations['LLMObservabilityApi.v2.deleteLLMObsAnnotationQueueInteractions'] = true`",
-      );
+    if (!_config.unstableOperations["LLMObservabilityApi.v2.deleteLLMObsAnnotationQueueInteractions"]) {
+      throw new Error("Unstable operation 'deleteLLMObsAnnotationQueueInteractions' is disabled. Enable it by setting `configuration.unstableOperations['LLMObservabilityApi.v2.deleteLLMObsAnnotationQueueInteractions'] = true`");
     }
 
     // verify required parameter 'queueId' is not null or undefined
     if (queueId === null || queueId === undefined) {
-      throw new RequiredError(
-        "queueId",
-        "deleteLLMObsAnnotationQueueInteractions",
-      );
+      throw new RequiredError("queueId", "deleteLLMObsAnnotationQueueInteractions");
     }
 
     // verify required parameter 'body' is not null or undefined
     if (body === null || body === undefined) {
-      throw new RequiredError(
-        "body",
-        "deleteLLMObsAnnotationQueueInteractions",
-      );
+      throw new RequiredError("body", "deleteLLMObsAnnotationQueueInteractions");
     }
 
     // Path Params
-    const localVarPath =
-      "/api/v2/llm-obs/v1/annotation-queues/{queue_id}/interactions/delete".replace(
-        "{queue_id}",
-        encodeURIComponent(String(queueId)),
-      );
+    const localVarPath = "/api/v2/llm-obs/v1/annotation-queues/{queue_id}/interactions/delete".replace(
+      "{queue_id}",
+      encodeURIComponent(String(queueId)),
+    );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "LLMObservabilityApi.v2.deleteLLMObsAnnotationQueueInteractions",
-      LLMObservabilityApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.POST,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("LLMObservabilityApi.v2.deleteLLMObsAnnotationQueueInteractions", LLMObservabilityApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.POST, overrides);
     requestContext.setHeaderParam("Accept", "*/*");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -1118,15 +944,12 @@ export class LLMObservabilityApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Body Params
-    const contentType = getPreferredMediaType(["application/json"]);
+    const contentType = getPreferredMediaType([
+      "application/json",
+    ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = stringify(
-      serialize(
-        body,
-        TypingInfo,
-        "LLMObsDeleteAnnotationQueueInteractionsRequest",
-        "",
-      ),
+      serialize(body, TypingInfo, "LLMObsDeleteAnnotationQueueInteractionsRequest", ""),
       contentType,
     );
     requestContext.setBody(serializedBody);
@@ -1147,14 +970,8 @@ export class LLMObservabilityApiRequestFactory extends BaseAPIRequestFactory {
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
-    if (
-      !_config.unstableOperations[
-        "LLMObservabilityApi.v2.deleteLLMObsAnnotations"
-      ]
-    ) {
-      throw new Error(
-        "Unstable operation 'deleteLLMObsAnnotations' is disabled. Enable it by setting `configuration.unstableOperations['LLMObservabilityApi.v2.deleteLLMObsAnnotations'] = true`",
-      );
+    if (!_config.unstableOperations["LLMObservabilityApi.v2.deleteLLMObsAnnotations"]) {
+      throw new Error("Unstable operation 'deleteLLMObsAnnotations' is disabled. Enable it by setting `configuration.unstableOperations['LLMObservabilityApi.v2.deleteLLMObsAnnotations'] = true`");
     }
 
     // verify required parameter 'queueId' is not null or undefined
@@ -1168,22 +985,14 @@ export class LLMObservabilityApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Path Params
-    const localVarPath =
-      "/api/v2/llm-obs/v1/annotation-queues/{queue_id}/annotations/delete".replace(
-        "{queue_id}",
-        encodeURIComponent(String(queueId)),
-      );
+    const localVarPath = "/api/v2/llm-obs/v1/annotation-queues/{queue_id}/annotations/delete".replace(
+      "{queue_id}",
+      encodeURIComponent(String(queueId)),
+    );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "LLMObservabilityApi.v2.deleteLLMObsAnnotations",
-      LLMObservabilityApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.POST,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("LLMObservabilityApi.v2.deleteLLMObsAnnotations", LLMObservabilityApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.POST, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -1193,7 +1002,9 @@ export class LLMObservabilityApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Body Params
-    const contentType = getPreferredMediaType(["application/json"]);
+    const contentType = getPreferredMediaType([
+      "application/json",
+    ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = stringify(
       serialize(body, TypingInfo, "LLMObsDeleteAnnotationsRequest", ""),
@@ -1216,14 +1027,8 @@ export class LLMObservabilityApiRequestFactory extends BaseAPIRequestFactory {
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
-    if (
-      !_config.unstableOperations[
-        "LLMObservabilityApi.v2.deleteLLMObsCustomEvalConfig"
-      ]
-    ) {
-      throw new Error(
-        "Unstable operation 'deleteLLMObsCustomEvalConfig' is disabled. Enable it by setting `configuration.unstableOperations['LLMObservabilityApi.v2.deleteLLMObsCustomEvalConfig'] = true`",
-      );
+    if (!_config.unstableOperations["LLMObservabilityApi.v2.deleteLLMObsCustomEvalConfig"]) {
+      throw new Error("Unstable operation 'deleteLLMObsCustomEvalConfig' is disabled. Enable it by setting `configuration.unstableOperations['LLMObservabilityApi.v2.deleteLLMObsCustomEvalConfig'] = true`");
     }
 
     // verify required parameter 'evalName' is not null or undefined
@@ -1232,22 +1037,14 @@ export class LLMObservabilityApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Path Params
-    const localVarPath =
-      "/api/unstable/llm-obs/config/evaluators/custom/{eval_name}".replace(
-        "{eval_name}",
-        encodeURIComponent(String(evalName)),
-      );
+    const localVarPath = "/api/unstable/llm-obs/config/evaluators/custom/{eval_name}".replace(
+      "{eval_name}",
+      encodeURIComponent(String(evalName)),
+    );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "LLMObservabilityApi.v2.deleteLLMObsCustomEvalConfig",
-      LLMObservabilityApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.DELETE,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("LLMObservabilityApi.v2.deleteLLMObsCustomEvalConfig", LLMObservabilityApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.DELETE, overrides);
     requestContext.setHeaderParam("Accept", "*/*");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -1271,12 +1068,8 @@ export class LLMObservabilityApiRequestFactory extends BaseAPIRequestFactory {
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
-    if (
-      !_config.unstableOperations["LLMObservabilityApi.v2.deleteLLMObsData"]
-    ) {
-      throw new Error(
-        "Unstable operation 'deleteLLMObsData' is disabled. Enable it by setting `configuration.unstableOperations['LLMObservabilityApi.v2.deleteLLMObsData'] = true`",
-      );
+    if (!_config.unstableOperations["LLMObservabilityApi.v2.deleteLLMObsData"]) {
+      throw new Error("Unstable operation 'deleteLLMObsData' is disabled. Enable it by setting `configuration.unstableOperations['LLMObservabilityApi.v2.deleteLLMObsData'] = true`");
     }
 
     // verify required parameter 'body' is not null or undefined
@@ -1288,15 +1081,8 @@ export class LLMObservabilityApiRequestFactory extends BaseAPIRequestFactory {
     const localVarPath = "/api/v2/llm-obs/deletion/data/llmobs";
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "LLMObservabilityApi.v2.deleteLLMObsData",
-      LLMObservabilityApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.POST,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("LLMObservabilityApi.v2.deleteLLMObsData", LLMObservabilityApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.POST, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -1306,7 +1092,9 @@ export class LLMObservabilityApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Body Params
-    const contentType = getPreferredMediaType(["application/json"]);
+    const contentType = getPreferredMediaType([
+      "application/json",
+    ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = stringify(
       serialize(body, TypingInfo, "LLMObsDataDeletionRequest", ""),
@@ -1331,14 +1119,8 @@ export class LLMObservabilityApiRequestFactory extends BaseAPIRequestFactory {
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
-    if (
-      !_config.unstableOperations[
-        "LLMObservabilityApi.v2.deleteLLMObsDatasetRecords"
-      ]
-    ) {
-      throw new Error(
-        "Unstable operation 'deleteLLMObsDatasetRecords' is disabled. Enable it by setting `configuration.unstableOperations['LLMObservabilityApi.v2.deleteLLMObsDatasetRecords'] = true`",
-      );
+    if (!_config.unstableOperations["LLMObservabilityApi.v2.deleteLLMObsDatasetRecords"]) {
+      throw new Error("Unstable operation 'deleteLLMObsDatasetRecords' is disabled. Enable it by setting `configuration.unstableOperations['LLMObservabilityApi.v2.deleteLLMObsDatasetRecords'] = true`");
     }
 
     // verify required parameter 'projectId' is not null or undefined
@@ -1357,21 +1139,17 @@ export class LLMObservabilityApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Path Params
-    const localVarPath =
-      "/api/v2/llm-obs/v1/{project_id}/datasets/{dataset_id}/records/delete"
-        .replace("{project_id}", encodeURIComponent(String(projectId)))
-        .replace("{dataset_id}", encodeURIComponent(String(datasetId)));
+    const localVarPath = "/api/v2/llm-obs/v1/{project_id}/datasets/{dataset_id}/records/delete".replace(
+      "{project_id}",
+      encodeURIComponent(String(projectId)),
+    ).replace(
+      "{dataset_id}",
+      encodeURIComponent(String(datasetId)),
+    );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "LLMObservabilityApi.v2.deleteLLMObsDatasetRecords",
-      LLMObservabilityApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.POST,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("LLMObservabilityApi.v2.deleteLLMObsDatasetRecords", LLMObservabilityApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.POST, overrides);
     requestContext.setHeaderParam("Accept", "*/*");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -1381,7 +1159,9 @@ export class LLMObservabilityApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Body Params
-    const contentType = getPreferredMediaType(["application/json"]);
+    const contentType = getPreferredMediaType([
+      "application/json",
+    ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = stringify(
       serialize(body, TypingInfo, "LLMObsDeleteDatasetRecordsRequest", ""),
@@ -1405,12 +1185,8 @@ export class LLMObservabilityApiRequestFactory extends BaseAPIRequestFactory {
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
-    if (
-      !_config.unstableOperations["LLMObservabilityApi.v2.deleteLLMObsDatasets"]
-    ) {
-      throw new Error(
-        "Unstable operation 'deleteLLMObsDatasets' is disabled. Enable it by setting `configuration.unstableOperations['LLMObservabilityApi.v2.deleteLLMObsDatasets'] = true`",
-      );
+    if (!_config.unstableOperations["LLMObservabilityApi.v2.deleteLLMObsDatasets"]) {
+      throw new Error("Unstable operation 'deleteLLMObsDatasets' is disabled. Enable it by setting `configuration.unstableOperations['LLMObservabilityApi.v2.deleteLLMObsDatasets'] = true`");
     }
 
     // verify required parameter 'projectId' is not null or undefined
@@ -1424,22 +1200,14 @@ export class LLMObservabilityApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Path Params
-    const localVarPath =
-      "/api/v2/llm-obs/v1/{project_id}/datasets/delete".replace(
-        "{project_id}",
-        encodeURIComponent(String(projectId)),
-      );
+    const localVarPath = "/api/v2/llm-obs/v1/{project_id}/datasets/delete".replace(
+      "{project_id}",
+      encodeURIComponent(String(projectId)),
+    );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "LLMObservabilityApi.v2.deleteLLMObsDatasets",
-      LLMObservabilityApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.POST,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("LLMObservabilityApi.v2.deleteLLMObsDatasets", LLMObservabilityApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.POST, overrides);
     requestContext.setHeaderParam("Accept", "*/*");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -1449,7 +1217,9 @@ export class LLMObservabilityApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Body Params
-    const contentType = getPreferredMediaType(["application/json"]);
+    const contentType = getPreferredMediaType([
+      "application/json",
+    ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = stringify(
       serialize(body, TypingInfo, "LLMObsDeleteDatasetsRequest", ""),
@@ -1472,14 +1242,8 @@ export class LLMObservabilityApiRequestFactory extends BaseAPIRequestFactory {
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
-    if (
-      !_config.unstableOperations[
-        "LLMObservabilityApi.v2.deleteLLMObsExperiments"
-      ]
-    ) {
-      throw new Error(
-        "Unstable operation 'deleteLLMObsExperiments' is disabled. Enable it by setting `configuration.unstableOperations['LLMObservabilityApi.v2.deleteLLMObsExperiments'] = true`",
-      );
+    if (!_config.unstableOperations["LLMObservabilityApi.v2.deleteLLMObsExperiments"]) {
+      throw new Error("Unstable operation 'deleteLLMObsExperiments' is disabled. Enable it by setting `configuration.unstableOperations['LLMObservabilityApi.v2.deleteLLMObsExperiments'] = true`");
     }
 
     // verify required parameter 'body' is not null or undefined
@@ -1491,15 +1255,8 @@ export class LLMObservabilityApiRequestFactory extends BaseAPIRequestFactory {
     const localVarPath = "/api/v2/llm-obs/v1/experiments/delete";
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "LLMObservabilityApi.v2.deleteLLMObsExperiments",
-      LLMObservabilityApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.POST,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("LLMObservabilityApi.v2.deleteLLMObsExperiments", LLMObservabilityApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.POST, overrides);
     requestContext.setHeaderParam("Accept", "*/*");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -1509,7 +1266,9 @@ export class LLMObservabilityApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Body Params
-    const contentType = getPreferredMediaType(["application/json"]);
+    const contentType = getPreferredMediaType([
+      "application/json",
+    ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = stringify(
       serialize(body, TypingInfo, "LLMObsDeleteExperimentsRequest", ""),
@@ -1532,14 +1291,8 @@ export class LLMObservabilityApiRequestFactory extends BaseAPIRequestFactory {
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
-    if (
-      !_config.unstableOperations[
-        "LLMObservabilityApi.v2.deleteLLMObsPatternsConfig"
-      ]
-    ) {
-      throw new Error(
-        "Unstable operation 'deleteLLMObsPatternsConfig' is disabled. Enable it by setting `configuration.unstableOperations['LLMObservabilityApi.v2.deleteLLMObsPatternsConfig'] = true`",
-      );
+    if (!_config.unstableOperations["LLMObservabilityApi.v2.deleteLLMObsPatternsConfig"]) {
+      throw new Error("Unstable operation 'deleteLLMObsPatternsConfig' is disabled. Enable it by setting `configuration.unstableOperations['LLMObservabilityApi.v2.deleteLLMObsPatternsConfig'] = true`");
     }
 
     // verify required parameter 'configId' is not null or undefined
@@ -1548,22 +1301,14 @@ export class LLMObservabilityApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Path Params
-    const localVarPath =
-      "/api/v2/llm-obs/v1/topic-discovery-configs/{config_id}".replace(
-        "{config_id}",
-        encodeURIComponent(String(configId)),
-      );
+    const localVarPath = "/api/v2/llm-obs/v1/topic-discovery-configs/{config_id}".replace(
+      "{config_id}",
+      encodeURIComponent(String(configId)),
+    );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "LLMObservabilityApi.v2.deleteLLMObsPatternsConfig",
-      LLMObservabilityApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.DELETE,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("LLMObservabilityApi.v2.deleteLLMObsPatternsConfig", LLMObservabilityApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.DELETE, overrides);
     requestContext.setHeaderParam("Accept", "*/*");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -1587,12 +1332,8 @@ export class LLMObservabilityApiRequestFactory extends BaseAPIRequestFactory {
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
-    if (
-      !_config.unstableOperations["LLMObservabilityApi.v2.deleteLLMObsProjects"]
-    ) {
-      throw new Error(
-        "Unstable operation 'deleteLLMObsProjects' is disabled. Enable it by setting `configuration.unstableOperations['LLMObservabilityApi.v2.deleteLLMObsProjects'] = true`",
-      );
+    if (!_config.unstableOperations["LLMObservabilityApi.v2.deleteLLMObsProjects"]) {
+      throw new Error("Unstable operation 'deleteLLMObsProjects' is disabled. Enable it by setting `configuration.unstableOperations['LLMObservabilityApi.v2.deleteLLMObsProjects'] = true`");
     }
 
     // verify required parameter 'body' is not null or undefined
@@ -1604,15 +1345,8 @@ export class LLMObservabilityApiRequestFactory extends BaseAPIRequestFactory {
     const localVarPath = "/api/v2/llm-obs/v1/projects/delete";
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "LLMObservabilityApi.v2.deleteLLMObsProjects",
-      LLMObservabilityApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.POST,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("LLMObservabilityApi.v2.deleteLLMObsProjects", LLMObservabilityApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.POST, overrides);
     requestContext.setHeaderParam("Accept", "*/*");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -1622,7 +1356,9 @@ export class LLMObservabilityApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Body Params
-    const contentType = getPreferredMediaType(["application/json"]);
+    const contentType = getPreferredMediaType([
+      "application/json",
+    ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = stringify(
       serialize(body, TypingInfo, "LLMObsDeleteProjectsRequest", ""),
@@ -1645,12 +1381,8 @@ export class LLMObservabilityApiRequestFactory extends BaseAPIRequestFactory {
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
-    if (
-      !_config.unstableOperations["LLMObservabilityApi.v2.deleteLLMObsPrompt"]
-    ) {
-      throw new Error(
-        "Unstable operation 'deleteLLMObsPrompt' is disabled. Enable it by setting `configuration.unstableOperations['LLMObservabilityApi.v2.deleteLLMObsPrompt'] = true`",
-      );
+    if (!_config.unstableOperations["LLMObservabilityApi.v2.deleteLLMObsPrompt"]) {
+      throw new Error("Unstable operation 'deleteLLMObsPrompt' is disabled. Enable it by setting `configuration.unstableOperations['LLMObservabilityApi.v2.deleteLLMObsPrompt'] = true`");
     }
 
     // verify required parameter 'promptId' is not null or undefined
@@ -1665,15 +1397,8 @@ export class LLMObservabilityApiRequestFactory extends BaseAPIRequestFactory {
     );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "LLMObservabilityApi.v2.deleteLLMObsPrompt",
-      LLMObservabilityApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.DELETE,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("LLMObservabilityApi.v2.deleteLLMObsPrompt", LLMObservabilityApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.DELETE, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -1700,12 +1425,8 @@ export class LLMObservabilityApiRequestFactory extends BaseAPIRequestFactory {
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
-    if (
-      !_config.unstableOperations["LLMObservabilityApi.v2.exportLLMObsDataset"]
-    ) {
-      throw new Error(
-        "Unstable operation 'exportLLMObsDataset' is disabled. Enable it by setting `configuration.unstableOperations['LLMObservabilityApi.v2.exportLLMObsDataset'] = true`",
-      );
+    if (!_config.unstableOperations["LLMObservabilityApi.v2.exportLLMObsDataset"]) {
+      throw new Error("Unstable operation 'exportLLMObsDataset' is disabled. Enable it by setting `configuration.unstableOperations['LLMObservabilityApi.v2.exportLLMObsDataset'] = true`");
     }
 
     // verify required parameter 'projectId' is not null or undefined
@@ -1719,21 +1440,17 @@ export class LLMObservabilityApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Path Params
-    const localVarPath =
-      "/api/v2/llm-obs/v1/{project_id}/datasets/{dataset_id}/export"
-        .replace("{project_id}", encodeURIComponent(String(projectId)))
-        .replace("{dataset_id}", encodeURIComponent(String(datasetId)));
+    const localVarPath = "/api/v2/llm-obs/v1/{project_id}/datasets/{dataset_id}/export".replace(
+      "{project_id}",
+      encodeURIComponent(String(projectId)),
+    ).replace(
+      "{dataset_id}",
+      encodeURIComponent(String(datasetId)),
+    );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "LLMObservabilityApi.v2.exportLLMObsDataset",
-      LLMObservabilityApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.GET,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("LLMObservabilityApi.v2.exportLLMObsDataset", LLMObservabilityApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.GET, overrides);
     requestContext.setHeaderParam("Accept", "text/csv, application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -1773,14 +1490,8 @@ export class LLMObservabilityApiRequestFactory extends BaseAPIRequestFactory {
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
-    if (
-      !_config.unstableOperations[
-        "LLMObservabilityApi.v2.getLLMObsAnnotatedInteractions"
-      ]
-    ) {
-      throw new Error(
-        "Unstable operation 'getLLMObsAnnotatedInteractions' is disabled. Enable it by setting `configuration.unstableOperations['LLMObservabilityApi.v2.getLLMObsAnnotatedInteractions'] = true`",
-      );
+    if (!_config.unstableOperations["LLMObservabilityApi.v2.getLLMObsAnnotatedInteractions"]) {
+      throw new Error("Unstable operation 'getLLMObsAnnotatedInteractions' is disabled. Enable it by setting `configuration.unstableOperations['LLMObservabilityApi.v2.getLLMObsAnnotatedInteractions'] = true`");
     }
 
     // verify required parameter 'queueId' is not null or undefined
@@ -1789,22 +1500,14 @@ export class LLMObservabilityApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Path Params
-    const localVarPath =
-      "/api/v2/llm-obs/v1/annotation-queues/{queue_id}/annotated-interactions".replace(
-        "{queue_id}",
-        encodeURIComponent(String(queueId)),
-      );
+    const localVarPath = "/api/v2/llm-obs/v1/annotation-queues/{queue_id}/annotated-interactions".replace(
+      "{queue_id}",
+      encodeURIComponent(String(queueId)),
+    );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "LLMObservabilityApi.v2.getLLMObsAnnotatedInteractions",
-      LLMObservabilityApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.GET,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("LLMObservabilityApi.v2.getLLMObsAnnotatedInteractions", LLMObservabilityApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.GET, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -1830,37 +1533,21 @@ export class LLMObservabilityApiRequestFactory extends BaseAPIRequestFactory {
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
-    if (
-      !_config.unstableOperations[
-        "LLMObservabilityApi.v2.getLLMObsAnnotatedInteractionsByTraceIDs"
-      ]
-    ) {
-      throw new Error(
-        "Unstable operation 'getLLMObsAnnotatedInteractionsByTraceIDs' is disabled. Enable it by setting `configuration.unstableOperations['LLMObservabilityApi.v2.getLLMObsAnnotatedInteractionsByTraceIDs'] = true`",
-      );
+    if (!_config.unstableOperations["LLMObservabilityApi.v2.getLLMObsAnnotatedInteractionsByTraceIDs"]) {
+      throw new Error("Unstable operation 'getLLMObsAnnotatedInteractionsByTraceIDs' is disabled. Enable it by setting `configuration.unstableOperations['LLMObservabilityApi.v2.getLLMObsAnnotatedInteractionsByTraceIDs'] = true`");
     }
 
     // verify required parameter 'contentIds' is not null or undefined
     if (contentIds === null || contentIds === undefined) {
-      throw new RequiredError(
-        "contentIds",
-        "getLLMObsAnnotatedInteractionsByTraceIDs",
-      );
+      throw new RequiredError("contentIds", "getLLMObsAnnotatedInteractionsByTraceIDs");
     }
 
     // Path Params
     const localVarPath = "/api/v2/llm-obs/v1/annotated-interactions";
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "LLMObservabilityApi.v2.getLLMObsAnnotatedInteractionsByTraceIDs",
-      LLMObservabilityApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.GET,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("LLMObservabilityApi.v2.getLLMObsAnnotatedInteractionsByTraceIDs", LLMObservabilityApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.GET, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -1907,14 +1594,8 @@ export class LLMObservabilityApiRequestFactory extends BaseAPIRequestFactory {
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
-    if (
-      !_config.unstableOperations[
-        "LLMObservabilityApi.v2.getLLMObsAnnotationQueueLabelSchema"
-      ]
-    ) {
-      throw new Error(
-        "Unstable operation 'getLLMObsAnnotationQueueLabelSchema' is disabled. Enable it by setting `configuration.unstableOperations['LLMObservabilityApi.v2.getLLMObsAnnotationQueueLabelSchema'] = true`",
-      );
+    if (!_config.unstableOperations["LLMObservabilityApi.v2.getLLMObsAnnotationQueueLabelSchema"]) {
+      throw new Error("Unstable operation 'getLLMObsAnnotationQueueLabelSchema' is disabled. Enable it by setting `configuration.unstableOperations['LLMObservabilityApi.v2.getLLMObsAnnotationQueueLabelSchema'] = true`");
     }
 
     // verify required parameter 'queueId' is not null or undefined
@@ -1923,22 +1604,14 @@ export class LLMObservabilityApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Path Params
-    const localVarPath =
-      "/api/v2/llm-obs/v1/annotation-queues/{queue_id}/label-schema".replace(
-        "{queue_id}",
-        encodeURIComponent(String(queueId)),
-      );
+    const localVarPath = "/api/v2/llm-obs/v1/annotation-queues/{queue_id}/label-schema".replace(
+      "{queue_id}",
+      encodeURIComponent(String(queueId)),
+    );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "LLMObservabilityApi.v2.getLLMObsAnnotationQueueLabelSchema",
-      LLMObservabilityApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.GET,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("LLMObservabilityApi.v2.getLLMObsAnnotationQueueLabelSchema", LLMObservabilityApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.GET, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -1962,14 +1635,8 @@ export class LLMObservabilityApiRequestFactory extends BaseAPIRequestFactory {
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
-    if (
-      !_config.unstableOperations[
-        "LLMObservabilityApi.v2.getLLMObsCustomEvalConfig"
-      ]
-    ) {
-      throw new Error(
-        "Unstable operation 'getLLMObsCustomEvalConfig' is disabled. Enable it by setting `configuration.unstableOperations['LLMObservabilityApi.v2.getLLMObsCustomEvalConfig'] = true`",
-      );
+    if (!_config.unstableOperations["LLMObservabilityApi.v2.getLLMObsCustomEvalConfig"]) {
+      throw new Error("Unstable operation 'getLLMObsCustomEvalConfig' is disabled. Enable it by setting `configuration.unstableOperations['LLMObservabilityApi.v2.getLLMObsCustomEvalConfig'] = true`");
     }
 
     // verify required parameter 'evalName' is not null or undefined
@@ -1978,22 +1645,14 @@ export class LLMObservabilityApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Path Params
-    const localVarPath =
-      "/api/unstable/llm-obs/config/evaluators/custom/{eval_name}".replace(
-        "{eval_name}",
-        encodeURIComponent(String(evalName)),
-      );
+    const localVarPath = "/api/unstable/llm-obs/config/evaluators/custom/{eval_name}".replace(
+      "{eval_name}",
+      encodeURIComponent(String(evalName)),
+    );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "LLMObservabilityApi.v2.getLLMObsCustomEvalConfig",
-      LLMObservabilityApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.GET,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("LLMObservabilityApi.v2.getLLMObsCustomEvalConfig", LLMObservabilityApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.GET, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -2018,14 +1677,8 @@ export class LLMObservabilityApiRequestFactory extends BaseAPIRequestFactory {
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
-    if (
-      !_config.unstableOperations[
-        "LLMObservabilityApi.v2.getLLMObsDatasetDraftState"
-      ]
-    ) {
-      throw new Error(
-        "Unstable operation 'getLLMObsDatasetDraftState' is disabled. Enable it by setting `configuration.unstableOperations['LLMObservabilityApi.v2.getLLMObsDatasetDraftState'] = true`",
-      );
+    if (!_config.unstableOperations["LLMObservabilityApi.v2.getLLMObsDatasetDraftState"]) {
+      throw new Error("Unstable operation 'getLLMObsDatasetDraftState' is disabled. Enable it by setting `configuration.unstableOperations['LLMObservabilityApi.v2.getLLMObsDatasetDraftState'] = true`");
     }
 
     // verify required parameter 'projectId' is not null or undefined
@@ -2039,21 +1692,17 @@ export class LLMObservabilityApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Path Params
-    const localVarPath =
-      "/api/v2/llm-obs/v1/{project_id}/datasets/{dataset_id}/draft_state"
-        .replace("{project_id}", encodeURIComponent(String(projectId)))
-        .replace("{dataset_id}", encodeURIComponent(String(datasetId)));
+    const localVarPath = "/api/v2/llm-obs/v1/{project_id}/datasets/{dataset_id}/draft_state".replace(
+      "{project_id}",
+      encodeURIComponent(String(projectId)),
+    ).replace(
+      "{dataset_id}",
+      encodeURIComponent(String(datasetId)),
+    );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "LLMObservabilityApi.v2.getLLMObsDatasetDraftState",
-      LLMObservabilityApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.GET,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("LLMObservabilityApi.v2.getLLMObsDatasetDraftState", LLMObservabilityApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.GET, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -2076,29 +1725,16 @@ export class LLMObservabilityApiRequestFactory extends BaseAPIRequestFactory {
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
-    if (
-      !_config.unstableOperations[
-        "LLMObservabilityApi.v2.getLLMObsPatternsConfig"
-      ]
-    ) {
-      throw new Error(
-        "Unstable operation 'getLLMObsPatternsConfig' is disabled. Enable it by setting `configuration.unstableOperations['LLMObservabilityApi.v2.getLLMObsPatternsConfig'] = true`",
-      );
+    if (!_config.unstableOperations["LLMObservabilityApi.v2.getLLMObsPatternsConfig"]) {
+      throw new Error("Unstable operation 'getLLMObsPatternsConfig' is disabled. Enable it by setting `configuration.unstableOperations['LLMObservabilityApi.v2.getLLMObsPatternsConfig'] = true`");
     }
 
     // Path Params
     const localVarPath = "/api/v2/llm-obs/v1/topic-discovery-configs/latest";
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "LLMObservabilityApi.v2.getLLMObsPatternsConfig",
-      LLMObservabilityApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.GET,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("LLMObservabilityApi.v2.getLLMObsPatternsConfig", LLMObservabilityApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.GET, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -2122,14 +1758,8 @@ export class LLMObservabilityApiRequestFactory extends BaseAPIRequestFactory {
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
-    if (
-      !_config.unstableOperations[
-        "LLMObservabilityApi.v2.getLLMObsPatternsRunStatus"
-      ]
-    ) {
-      throw new Error(
-        "Unstable operation 'getLLMObsPatternsRunStatus' is disabled. Enable it by setting `configuration.unstableOperations['LLMObservabilityApi.v2.getLLMObsPatternsRunStatus'] = true`",
-      );
+    if (!_config.unstableOperations["LLMObservabilityApi.v2.getLLMObsPatternsRunStatus"]) {
+      throw new Error("Unstable operation 'getLLMObsPatternsRunStatus' is disabled. Enable it by setting `configuration.unstableOperations['LLMObservabilityApi.v2.getLLMObsPatternsRunStatus'] = true`");
     }
 
     // verify required parameter 'configId' is not null or undefined
@@ -2141,15 +1771,8 @@ export class LLMObservabilityApiRequestFactory extends BaseAPIRequestFactory {
     const localVarPath = "/api/v2/llm-obs/v1/topic-discovery-runs/status";
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "LLMObservabilityApi.v2.getLLMObsPatternsRunStatus",
-      LLMObservabilityApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.GET,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("LLMObservabilityApi.v2.getLLMObsPatternsRunStatus", LLMObservabilityApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.GET, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -2184,9 +1807,7 @@ export class LLMObservabilityApiRequestFactory extends BaseAPIRequestFactory {
     const _config = _options || this.configuration;
 
     if (!_config.unstableOperations["LLMObservabilityApi.v2.getLLMObsPrompt"]) {
-      throw new Error(
-        "Unstable operation 'getLLMObsPrompt' is disabled. Enable it by setting `configuration.unstableOperations['LLMObservabilityApi.v2.getLLMObsPrompt'] = true`",
-      );
+      throw new Error("Unstable operation 'getLLMObsPrompt' is disabled. Enable it by setting `configuration.unstableOperations['LLMObservabilityApi.v2.getLLMObsPrompt'] = true`");
     }
 
     // verify required parameter 'promptId' is not null or undefined
@@ -2201,15 +1822,8 @@ export class LLMObservabilityApiRequestFactory extends BaseAPIRequestFactory {
     );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "LLMObservabilityApi.v2.getLLMObsPrompt",
-      LLMObservabilityApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.GET,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("LLMObservabilityApi.v2.getLLMObsPrompt", LLMObservabilityApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.GET, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -2243,14 +1857,8 @@ export class LLMObservabilityApiRequestFactory extends BaseAPIRequestFactory {
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
-    if (
-      !_config.unstableOperations[
-        "LLMObservabilityApi.v2.getLLMObsPromptVersion"
-      ]
-    ) {
-      throw new Error(
-        "Unstable operation 'getLLMObsPromptVersion' is disabled. Enable it by setting `configuration.unstableOperations['LLMObservabilityApi.v2.getLLMObsPromptVersion'] = true`",
-      );
+    if (!_config.unstableOperations["LLMObservabilityApi.v2.getLLMObsPromptVersion"]) {
+      throw new Error("Unstable operation 'getLLMObsPromptVersion' is disabled. Enable it by setting `configuration.unstableOperations['LLMObservabilityApi.v2.getLLMObsPromptVersion'] = true`");
     }
 
     // verify required parameter 'promptId' is not null or undefined
@@ -2264,21 +1872,17 @@ export class LLMObservabilityApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Path Params
-    const localVarPath =
-      "/api/v2/llm-obs/v1/prompts/{prompt_id}/versions/{version}"
-        .replace("{prompt_id}", encodeURIComponent(String(promptId)))
-        .replace("{version}", encodeURIComponent(String(version)));
+    const localVarPath = "/api/v2/llm-obs/v1/prompts/{prompt_id}/versions/{version}".replace(
+      "{prompt_id}",
+      encodeURIComponent(String(promptId)),
+    ).replace(
+      "{version}",
+      encodeURIComponent(String(version)),
+    );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "LLMObservabilityApi.v2.getLLMObsPromptVersion",
-      LLMObservabilityApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.GET,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("LLMObservabilityApi.v2.getLLMObsPromptVersion", LLMObservabilityApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.GET, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -2303,29 +1907,16 @@ export class LLMObservabilityApiRequestFactory extends BaseAPIRequestFactory {
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
-    if (
-      !_config.unstableOperations[
-        "LLMObservabilityApi.v2.listLLMObsAnnotationQueues"
-      ]
-    ) {
-      throw new Error(
-        "Unstable operation 'listLLMObsAnnotationQueues' is disabled. Enable it by setting `configuration.unstableOperations['LLMObservabilityApi.v2.listLLMObsAnnotationQueues'] = true`",
-      );
+    if (!_config.unstableOperations["LLMObservabilityApi.v2.listLLMObsAnnotationQueues"]) {
+      throw new Error("Unstable operation 'listLLMObsAnnotationQueues' is disabled. Enable it by setting `configuration.unstableOperations['LLMObservabilityApi.v2.listLLMObsAnnotationQueues'] = true`");
     }
 
     // Path Params
     const localVarPath = "/api/v2/llm-obs/v1/annotation-queues";
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "LLMObservabilityApi.v2.listLLMObsAnnotationQueues",
-      LLMObservabilityApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.GET,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("LLMObservabilityApi.v2.listLLMObsAnnotationQueues", LLMObservabilityApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.GET, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -2369,14 +1960,8 @@ export class LLMObservabilityApiRequestFactory extends BaseAPIRequestFactory {
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
-    if (
-      !_config.unstableOperations[
-        "LLMObservabilityApi.v2.listLLMObsDatasetRecords"
-      ]
-    ) {
-      throw new Error(
-        "Unstable operation 'listLLMObsDatasetRecords' is disabled. Enable it by setting `configuration.unstableOperations['LLMObservabilityApi.v2.listLLMObsDatasetRecords'] = true`",
-      );
+    if (!_config.unstableOperations["LLMObservabilityApi.v2.listLLMObsDatasetRecords"]) {
+      throw new Error("Unstable operation 'listLLMObsDatasetRecords' is disabled. Enable it by setting `configuration.unstableOperations['LLMObservabilityApi.v2.listLLMObsDatasetRecords'] = true`");
     }
 
     // verify required parameter 'projectId' is not null or undefined
@@ -2390,21 +1975,17 @@ export class LLMObservabilityApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Path Params
-    const localVarPath =
-      "/api/v2/llm-obs/v1/{project_id}/datasets/{dataset_id}/records"
-        .replace("{project_id}", encodeURIComponent(String(projectId)))
-        .replace("{dataset_id}", encodeURIComponent(String(datasetId)));
+    const localVarPath = "/api/v2/llm-obs/v1/{project_id}/datasets/{dataset_id}/records".replace(
+      "{project_id}",
+      encodeURIComponent(String(projectId)),
+    ).replace(
+      "{dataset_id}",
+      encodeURIComponent(String(datasetId)),
+    );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "LLMObservabilityApi.v2.listLLMObsDatasetRecords",
-      LLMObservabilityApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.GET,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("LLMObservabilityApi.v2.listLLMObsDatasetRecords", LLMObservabilityApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.GET, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -2455,12 +2036,8 @@ export class LLMObservabilityApiRequestFactory extends BaseAPIRequestFactory {
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
-    if (
-      !_config.unstableOperations["LLMObservabilityApi.v2.listLLMObsDatasets"]
-    ) {
-      throw new Error(
-        "Unstable operation 'listLLMObsDatasets' is disabled. Enable it by setting `configuration.unstableOperations['LLMObservabilityApi.v2.listLLMObsDatasets'] = true`",
-      );
+    if (!_config.unstableOperations["LLMObservabilityApi.v2.listLLMObsDatasets"]) {
+      throw new Error("Unstable operation 'listLLMObsDatasets' is disabled. Enable it by setting `configuration.unstableOperations['LLMObservabilityApi.v2.listLLMObsDatasets'] = true`");
     }
 
     // verify required parameter 'projectId' is not null or undefined
@@ -2475,15 +2052,8 @@ export class LLMObservabilityApiRequestFactory extends BaseAPIRequestFactory {
     );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "LLMObservabilityApi.v2.listLLMObsDatasets",
-      LLMObservabilityApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.GET,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("LLMObservabilityApi.v2.listLLMObsDatasets", LLMObservabilityApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.GET, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -2538,14 +2108,8 @@ export class LLMObservabilityApiRequestFactory extends BaseAPIRequestFactory {
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
-    if (
-      !_config.unstableOperations[
-        "LLMObservabilityApi.v2.listLLMObsDatasetVersions"
-      ]
-    ) {
-      throw new Error(
-        "Unstable operation 'listLLMObsDatasetVersions' is disabled. Enable it by setting `configuration.unstableOperations['LLMObservabilityApi.v2.listLLMObsDatasetVersions'] = true`",
-      );
+    if (!_config.unstableOperations["LLMObservabilityApi.v2.listLLMObsDatasetVersions"]) {
+      throw new Error("Unstable operation 'listLLMObsDatasetVersions' is disabled. Enable it by setting `configuration.unstableOperations['LLMObservabilityApi.v2.listLLMObsDatasetVersions'] = true`");
     }
 
     // verify required parameter 'projectId' is not null or undefined
@@ -2559,21 +2123,17 @@ export class LLMObservabilityApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Path Params
-    const localVarPath =
-      "/api/v2/llm-obs/v1/{project_id}/datasets/{dataset_id}/versions"
-        .replace("{project_id}", encodeURIComponent(String(projectId)))
-        .replace("{dataset_id}", encodeURIComponent(String(datasetId)));
+    const localVarPath = "/api/v2/llm-obs/v1/{project_id}/datasets/{dataset_id}/versions".replace(
+      "{project_id}",
+      encodeURIComponent(String(projectId)),
+    ).replace(
+      "{dataset_id}",
+      encodeURIComponent(String(datasetId)),
+    );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "LLMObservabilityApi.v2.listLLMObsDatasetVersions",
-      LLMObservabilityApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.GET,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("LLMObservabilityApi.v2.listLLMObsDatasetVersions", LLMObservabilityApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.GET, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -2599,14 +2159,8 @@ export class LLMObservabilityApiRequestFactory extends BaseAPIRequestFactory {
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
-    if (
-      !_config.unstableOperations[
-        "LLMObservabilityApi.v2.listLLMObsExperimentEvents"
-      ]
-    ) {
-      throw new Error(
-        "Unstable operation 'listLLMObsExperimentEvents' is disabled. Enable it by setting `configuration.unstableOperations['LLMObservabilityApi.v2.listLLMObsExperimentEvents'] = true`",
-      );
+    if (!_config.unstableOperations["LLMObservabilityApi.v2.listLLMObsExperimentEvents"]) {
+      throw new Error("Unstable operation 'listLLMObsExperimentEvents' is disabled. Enable it by setting `configuration.unstableOperations['LLMObservabilityApi.v2.listLLMObsExperimentEvents'] = true`");
     }
 
     // verify required parameter 'experimentId' is not null or undefined
@@ -2615,22 +2169,14 @@ export class LLMObservabilityApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Path Params
-    const localVarPath =
-      "/api/v2/llm-obs/v3/experiments/{experiment_id}/events".replace(
-        "{experiment_id}",
-        encodeURIComponent(String(experimentId)),
-      );
+    const localVarPath = "/api/v2/llm-obs/v3/experiments/{experiment_id}/events".replace(
+      "{experiment_id}",
+      encodeURIComponent(String(experimentId)),
+    );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "LLMObservabilityApi.v2.listLLMObsExperimentEvents",
-      LLMObservabilityApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.GET,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("LLMObservabilityApi.v2.listLLMObsExperimentEvents", LLMObservabilityApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.GET, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -2670,14 +2216,8 @@ export class LLMObservabilityApiRequestFactory extends BaseAPIRequestFactory {
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
-    if (
-      !_config.unstableOperations[
-        "LLMObservabilityApi.v2.listLLMObsExperimentEventsV1"
-      ]
-    ) {
-      throw new Error(
-        "Unstable operation 'listLLMObsExperimentEventsV1' is disabled. Enable it by setting `configuration.unstableOperations['LLMObservabilityApi.v2.listLLMObsExperimentEventsV1'] = true`",
-      );
+    if (!_config.unstableOperations["LLMObservabilityApi.v2.listLLMObsExperimentEventsV1"]) {
+      throw new Error("Unstable operation 'listLLMObsExperimentEventsV1' is disabled. Enable it by setting `configuration.unstableOperations['LLMObservabilityApi.v2.listLLMObsExperimentEventsV1'] = true`");
     }
 
     // verify required parameter 'experimentId' is not null or undefined
@@ -2686,22 +2226,14 @@ export class LLMObservabilityApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Path Params
-    const localVarPath =
-      "/api/v2/llm-obs/v1/experiments/{experiment_id}/events".replace(
-        "{experiment_id}",
-        encodeURIComponent(String(experimentId)),
-      );
+    const localVarPath = "/api/v2/llm-obs/v1/experiments/{experiment_id}/events".replace(
+      "{experiment_id}",
+      encodeURIComponent(String(experimentId)),
+    );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "LLMObservabilityApi.v2.listLLMObsExperimentEventsV1",
-      LLMObservabilityApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.GET,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("LLMObservabilityApi.v2.listLLMObsExperimentEventsV1", LLMObservabilityApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.GET, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -2725,14 +2257,8 @@ export class LLMObservabilityApiRequestFactory extends BaseAPIRequestFactory {
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
-    if (
-      !_config.unstableOperations[
-        "LLMObservabilityApi.v2.listLLMObsExperimentEventsV2"
-      ]
-    ) {
-      throw new Error(
-        "Unstable operation 'listLLMObsExperimentEventsV2' is disabled. Enable it by setting `configuration.unstableOperations['LLMObservabilityApi.v2.listLLMObsExperimentEventsV2'] = true`",
-      );
+    if (!_config.unstableOperations["LLMObservabilityApi.v2.listLLMObsExperimentEventsV2"]) {
+      throw new Error("Unstable operation 'listLLMObsExperimentEventsV2' is disabled. Enable it by setting `configuration.unstableOperations['LLMObservabilityApi.v2.listLLMObsExperimentEventsV2'] = true`");
     }
 
     // verify required parameter 'experimentId' is not null or undefined
@@ -2741,22 +2267,14 @@ export class LLMObservabilityApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Path Params
-    const localVarPath =
-      "/api/v2/llm-obs/v2/experiments/{experiment_id}/events".replace(
-        "{experiment_id}",
-        encodeURIComponent(String(experimentId)),
-      );
+    const localVarPath = "/api/v2/llm-obs/v2/experiments/{experiment_id}/events".replace(
+      "{experiment_id}",
+      encodeURIComponent(String(experimentId)),
+    );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "LLMObservabilityApi.v2.listLLMObsExperimentEventsV2",
-      LLMObservabilityApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.GET,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("LLMObservabilityApi.v2.listLLMObsExperimentEventsV2", LLMObservabilityApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.GET, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -2791,29 +2309,16 @@ export class LLMObservabilityApiRequestFactory extends BaseAPIRequestFactory {
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
-    if (
-      !_config.unstableOperations[
-        "LLMObservabilityApi.v2.listLLMObsExperiments"
-      ]
-    ) {
-      throw new Error(
-        "Unstable operation 'listLLMObsExperiments' is disabled. Enable it by setting `configuration.unstableOperations['LLMObservabilityApi.v2.listLLMObsExperiments'] = true`",
-      );
+    if (!_config.unstableOperations["LLMObservabilityApi.v2.listLLMObsExperiments"]) {
+      throw new Error("Unstable operation 'listLLMObsExperiments' is disabled. Enable it by setting `configuration.unstableOperations['LLMObservabilityApi.v2.listLLMObsExperiments'] = true`");
     }
 
     // Path Params
     const localVarPath = "/api/v2/llm-obs/v1/experiments";
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "LLMObservabilityApi.v2.listLLMObsExperiments",
-      LLMObservabilityApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.GET,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("LLMObservabilityApi.v2.listLLMObsExperiments", LLMObservabilityApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.GET, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -2923,14 +2428,8 @@ export class LLMObservabilityApiRequestFactory extends BaseAPIRequestFactory {
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
-    if (
-      !_config.unstableOperations[
-        "LLMObservabilityApi.v2.listLLMObsIntegrationAccounts"
-      ]
-    ) {
-      throw new Error(
-        "Unstable operation 'listLLMObsIntegrationAccounts' is disabled. Enable it by setting `configuration.unstableOperations['LLMObservabilityApi.v2.listLLMObsIntegrationAccounts'] = true`",
-      );
+    if (!_config.unstableOperations["LLMObservabilityApi.v2.listLLMObsIntegrationAccounts"]) {
+      throw new Error("Unstable operation 'listLLMObsIntegrationAccounts' is disabled. Enable it by setting `configuration.unstableOperations['LLMObservabilityApi.v2.listLLMObsIntegrationAccounts'] = true`");
     }
 
     // verify required parameter 'integration' is not null or undefined
@@ -2939,22 +2438,14 @@ export class LLMObservabilityApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Path Params
-    const localVarPath =
-      "/api/v2/llm-obs/v1/integrations/{integration}/accounts".replace(
-        "{integration}",
-        encodeURIComponent(String(integration)),
-      );
+    const localVarPath = "/api/v2/llm-obs/v1/integrations/{integration}/accounts".replace(
+      "{integration}",
+      encodeURIComponent(String(integration)),
+    );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "LLMObservabilityApi.v2.listLLMObsIntegrationAccounts",
-      LLMObservabilityApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.GET,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("LLMObservabilityApi.v2.listLLMObsIntegrationAccounts", LLMObservabilityApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.GET, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -2979,14 +2470,8 @@ export class LLMObservabilityApiRequestFactory extends BaseAPIRequestFactory {
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
-    if (
-      !_config.unstableOperations[
-        "LLMObservabilityApi.v2.listLLMObsIntegrationModels"
-      ]
-    ) {
-      throw new Error(
-        "Unstable operation 'listLLMObsIntegrationModels' is disabled. Enable it by setting `configuration.unstableOperations['LLMObservabilityApi.v2.listLLMObsIntegrationModels'] = true`",
-      );
+    if (!_config.unstableOperations["LLMObservabilityApi.v2.listLLMObsIntegrationModels"]) {
+      throw new Error("Unstable operation 'listLLMObsIntegrationModels' is disabled. Enable it by setting `configuration.unstableOperations['LLMObservabilityApi.v2.listLLMObsIntegrationModels'] = true`");
     }
 
     // verify required parameter 'integration' is not null or undefined
@@ -3000,21 +2485,17 @@ export class LLMObservabilityApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Path Params
-    const localVarPath =
-      "/api/v2/llm-obs/v1/integrations/{integration}/{account_id}/models"
-        .replace("{integration}", encodeURIComponent(String(integration)))
-        .replace("{account_id}", encodeURIComponent(String(accountId)));
+    const localVarPath = "/api/v2/llm-obs/v1/integrations/{integration}/{account_id}/models".replace(
+      "{integration}",
+      encodeURIComponent(String(integration)),
+    ).replace(
+      "{account_id}",
+      encodeURIComponent(String(accountId)),
+    );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "LLMObservabilityApi.v2.listLLMObsIntegrationModels",
-      LLMObservabilityApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.GET,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("LLMObservabilityApi.v2.listLLMObsIntegrationModels", LLMObservabilityApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.GET, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -3040,14 +2521,8 @@ export class LLMObservabilityApiRequestFactory extends BaseAPIRequestFactory {
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
-    if (
-      !_config.unstableOperations[
-        "LLMObservabilityApi.v2.listLLMObsPatternsClusteredPoints"
-      ]
-    ) {
-      throw new Error(
-        "Unstable operation 'listLLMObsPatternsClusteredPoints' is disabled. Enable it by setting `configuration.unstableOperations['LLMObservabilityApi.v2.listLLMObsPatternsClusteredPoints'] = true`",
-      );
+    if (!_config.unstableOperations["LLMObservabilityApi.v2.listLLMObsPatternsClusteredPoints"]) {
+      throw new Error("Unstable operation 'listLLMObsPatternsClusteredPoints' is disabled. Enable it by setting `configuration.unstableOperations['LLMObservabilityApi.v2.listLLMObsPatternsClusteredPoints'] = true`");
     }
 
     // verify required parameter 'topicId' is not null or undefined
@@ -3059,15 +2534,8 @@ export class LLMObservabilityApiRequestFactory extends BaseAPIRequestFactory {
     const localVarPath = "/api/v2/llm-obs/v1/topic-discovery-clustered-points";
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "LLMObservabilityApi.v2.listLLMObsPatternsClusteredPoints",
-      LLMObservabilityApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.GET,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("LLMObservabilityApi.v2.listLLMObsPatternsClusteredPoints", LLMObservabilityApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.GET, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -3113,29 +2581,16 @@ export class LLMObservabilityApiRequestFactory extends BaseAPIRequestFactory {
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
-    if (
-      !_config.unstableOperations[
-        "LLMObservabilityApi.v2.listLLMObsPatternsConfigs"
-      ]
-    ) {
-      throw new Error(
-        "Unstable operation 'listLLMObsPatternsConfigs' is disabled. Enable it by setting `configuration.unstableOperations['LLMObservabilityApi.v2.listLLMObsPatternsConfigs'] = true`",
-      );
+    if (!_config.unstableOperations["LLMObservabilityApi.v2.listLLMObsPatternsConfigs"]) {
+      throw new Error("Unstable operation 'listLLMObsPatternsConfigs' is disabled. Enable it by setting `configuration.unstableOperations['LLMObservabilityApi.v2.listLLMObsPatternsConfigs'] = true`");
     }
 
     // Path Params
     const localVarPath = "/api/v2/llm-obs/v1/topic-discovery-configs";
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "LLMObservabilityApi.v2.listLLMObsPatternsConfigs",
-      LLMObservabilityApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.GET,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("LLMObservabilityApi.v2.listLLMObsPatternsConfigs", LLMObservabilityApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.GET, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -3159,14 +2614,8 @@ export class LLMObservabilityApiRequestFactory extends BaseAPIRequestFactory {
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
-    if (
-      !_config.unstableOperations[
-        "LLMObservabilityApi.v2.listLLMObsPatternsRuns"
-      ]
-    ) {
-      throw new Error(
-        "Unstable operation 'listLLMObsPatternsRuns' is disabled. Enable it by setting `configuration.unstableOperations['LLMObservabilityApi.v2.listLLMObsPatternsRuns'] = true`",
-      );
+    if (!_config.unstableOperations["LLMObservabilityApi.v2.listLLMObsPatternsRuns"]) {
+      throw new Error("Unstable operation 'listLLMObsPatternsRuns' is disabled. Enable it by setting `configuration.unstableOperations['LLMObservabilityApi.v2.listLLMObsPatternsRuns'] = true`");
     }
 
     // verify required parameter 'configId' is not null or undefined
@@ -3178,15 +2627,8 @@ export class LLMObservabilityApiRequestFactory extends BaseAPIRequestFactory {
     const localVarPath = "/api/v2/llm-obs/v1/topic-discovery-runs";
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "LLMObservabilityApi.v2.listLLMObsPatternsRuns",
-      LLMObservabilityApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.GET,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("LLMObservabilityApi.v2.listLLMObsPatternsRuns", LLMObservabilityApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.GET, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -3220,14 +2662,8 @@ export class LLMObservabilityApiRequestFactory extends BaseAPIRequestFactory {
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
-    if (
-      !_config.unstableOperations[
-        "LLMObservabilityApi.v2.listLLMObsPatternsTopics"
-      ]
-    ) {
-      throw new Error(
-        "Unstable operation 'listLLMObsPatternsTopics' is disabled. Enable it by setting `configuration.unstableOperations['LLMObservabilityApi.v2.listLLMObsPatternsTopics'] = true`",
-      );
+    if (!_config.unstableOperations["LLMObservabilityApi.v2.listLLMObsPatternsTopics"]) {
+      throw new Error("Unstable operation 'listLLMObsPatternsTopics' is disabled. Enable it by setting `configuration.unstableOperations['LLMObservabilityApi.v2.listLLMObsPatternsTopics'] = true`");
     }
 
     // verify required parameter 'configId' is not null or undefined
@@ -3239,15 +2675,8 @@ export class LLMObservabilityApiRequestFactory extends BaseAPIRequestFactory {
     const localVarPath = "/api/v2/llm-obs/v1/topic-discovery-topics";
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "LLMObservabilityApi.v2.listLLMObsPatternsTopics",
-      LLMObservabilityApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.GET,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("LLMObservabilityApi.v2.listLLMObsPatternsTopics", LLMObservabilityApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.GET, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -3289,38 +2718,21 @@ export class LLMObservabilityApiRequestFactory extends BaseAPIRequestFactory {
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
-    if (
-      !_config.unstableOperations[
-        "LLMObservabilityApi.v2.listLLMObsPatternsTopicsWithClusteredPoints"
-      ]
-    ) {
-      throw new Error(
-        "Unstable operation 'listLLMObsPatternsTopicsWithClusteredPoints' is disabled. Enable it by setting `configuration.unstableOperations['LLMObservabilityApi.v2.listLLMObsPatternsTopicsWithClusteredPoints'] = true`",
-      );
+    if (!_config.unstableOperations["LLMObservabilityApi.v2.listLLMObsPatternsTopicsWithClusteredPoints"]) {
+      throw new Error("Unstable operation 'listLLMObsPatternsTopicsWithClusteredPoints' is disabled. Enable it by setting `configuration.unstableOperations['LLMObservabilityApi.v2.listLLMObsPatternsTopicsWithClusteredPoints'] = true`");
     }
 
     // verify required parameter 'configId' is not null or undefined
     if (configId === null || configId === undefined) {
-      throw new RequiredError(
-        "configId",
-        "listLLMObsPatternsTopicsWithClusteredPoints",
-      );
+      throw new RequiredError("configId", "listLLMObsPatternsTopicsWithClusteredPoints");
     }
 
     // Path Params
-    const localVarPath =
-      "/api/v2/llm-obs/v1/topic-discovery-topics/with-cluster-points";
+    const localVarPath = "/api/v2/llm-obs/v1/topic-discovery-topics/with-cluster-points";
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "LLMObservabilityApi.v2.listLLMObsPatternsTopicsWithClusteredPoints",
-      LLMObservabilityApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.GET,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("LLMObservabilityApi.v2.listLLMObsPatternsTopicsWithClusteredPoints", LLMObservabilityApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.GET, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -3370,27 +2782,16 @@ export class LLMObservabilityApiRequestFactory extends BaseAPIRequestFactory {
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
-    if (
-      !_config.unstableOperations["LLMObservabilityApi.v2.listLLMObsProjects"]
-    ) {
-      throw new Error(
-        "Unstable operation 'listLLMObsProjects' is disabled. Enable it by setting `configuration.unstableOperations['LLMObservabilityApi.v2.listLLMObsProjects'] = true`",
-      );
+    if (!_config.unstableOperations["LLMObservabilityApi.v2.listLLMObsProjects"]) {
+      throw new Error("Unstable operation 'listLLMObsProjects' is disabled. Enable it by setting `configuration.unstableOperations['LLMObservabilityApi.v2.listLLMObsProjects'] = true`");
     }
 
     // Path Params
     const localVarPath = "/api/v2/llm-obs/v1/projects";
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "LLMObservabilityApi.v2.listLLMObsProjects",
-      LLMObservabilityApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.GET,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("LLMObservabilityApi.v2.listLLMObsProjects", LLMObservabilityApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.GET, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -3444,27 +2845,16 @@ export class LLMObservabilityApiRequestFactory extends BaseAPIRequestFactory {
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
-    if (
-      !_config.unstableOperations["LLMObservabilityApi.v2.listLLMObsPrompts"]
-    ) {
-      throw new Error(
-        "Unstable operation 'listLLMObsPrompts' is disabled. Enable it by setting `configuration.unstableOperations['LLMObservabilityApi.v2.listLLMObsPrompts'] = true`",
-      );
+    if (!_config.unstableOperations["LLMObservabilityApi.v2.listLLMObsPrompts"]) {
+      throw new Error("Unstable operation 'listLLMObsPrompts' is disabled. Enable it by setting `configuration.unstableOperations['LLMObservabilityApi.v2.listLLMObsPrompts'] = true`");
     }
 
     // Path Params
     const localVarPath = "/api/v2/llm-obs/v1/prompts";
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "LLMObservabilityApi.v2.listLLMObsPrompts",
-      LLMObservabilityApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.GET,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("LLMObservabilityApi.v2.listLLMObsPrompts", LLMObservabilityApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.GET, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -3497,14 +2887,8 @@ export class LLMObservabilityApiRequestFactory extends BaseAPIRequestFactory {
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
-    if (
-      !_config.unstableOperations[
-        "LLMObservabilityApi.v2.listLLMObsPromptVersions"
-      ]
-    ) {
-      throw new Error(
-        "Unstable operation 'listLLMObsPromptVersions' is disabled. Enable it by setting `configuration.unstableOperations['LLMObservabilityApi.v2.listLLMObsPromptVersions'] = true`",
-      );
+    if (!_config.unstableOperations["LLMObservabilityApi.v2.listLLMObsPromptVersions"]) {
+      throw new Error("Unstable operation 'listLLMObsPromptVersions' is disabled. Enable it by setting `configuration.unstableOperations['LLMObservabilityApi.v2.listLLMObsPromptVersions'] = true`");
     }
 
     // verify required parameter 'promptId' is not null or undefined
@@ -3513,22 +2897,14 @@ export class LLMObservabilityApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Path Params
-    const localVarPath =
-      "/api/v2/llm-obs/v1/prompts/{prompt_id}/versions".replace(
-        "{prompt_id}",
-        encodeURIComponent(String(promptId)),
-      );
+    const localVarPath = "/api/v2/llm-obs/v1/prompts/{prompt_id}/versions".replace(
+      "{prompt_id}",
+      encodeURIComponent(String(promptId)),
+    );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "LLMObservabilityApi.v2.listLLMObsPromptVersions",
-      LLMObservabilityApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.GET,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("LLMObservabilityApi.v2.listLLMObsPromptVersions", LLMObservabilityApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.GET, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -3564,24 +2940,15 @@ export class LLMObservabilityApiRequestFactory extends BaseAPIRequestFactory {
     const _config = _options || this.configuration;
 
     if (!_config.unstableOperations["LLMObservabilityApi.v2.listLLMObsSpans"]) {
-      throw new Error(
-        "Unstable operation 'listLLMObsSpans' is disabled. Enable it by setting `configuration.unstableOperations['LLMObservabilityApi.v2.listLLMObsSpans'] = true`",
-      );
+      throw new Error("Unstable operation 'listLLMObsSpans' is disabled. Enable it by setting `configuration.unstableOperations['LLMObservabilityApi.v2.listLLMObsSpans'] = true`");
     }
 
     // Path Params
     const localVarPath = "/api/v2/llm-obs/v1/spans/events";
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "LLMObservabilityApi.v2.listLLMObsSpans",
-      LLMObservabilityApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.GET,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("LLMObservabilityApi.v2.listLLMObsSpans", LLMObservabilityApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.GET, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -3692,14 +3059,8 @@ export class LLMObservabilityApiRequestFactory extends BaseAPIRequestFactory {
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
-    if (
-      !_config.unstableOperations[
-        "LLMObservabilityApi.v2.lockLLMObsDatasetDraftState"
-      ]
-    ) {
-      throw new Error(
-        "Unstable operation 'lockLLMObsDatasetDraftState' is disabled. Enable it by setting `configuration.unstableOperations['LLMObservabilityApi.v2.lockLLMObsDatasetDraftState'] = true`",
-      );
+    if (!_config.unstableOperations["LLMObservabilityApi.v2.lockLLMObsDatasetDraftState"]) {
+      throw new Error("Unstable operation 'lockLLMObsDatasetDraftState' is disabled. Enable it by setting `configuration.unstableOperations['LLMObservabilityApi.v2.lockLLMObsDatasetDraftState'] = true`");
     }
 
     // verify required parameter 'projectId' is not null or undefined
@@ -3713,21 +3074,17 @@ export class LLMObservabilityApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Path Params
-    const localVarPath =
-      "/api/v2/llm-obs/v1/{project_id}/datasets/{dataset_id}/draft_state/lock"
-        .replace("{project_id}", encodeURIComponent(String(projectId)))
-        .replace("{dataset_id}", encodeURIComponent(String(datasetId)));
+    const localVarPath = "/api/v2/llm-obs/v1/{project_id}/datasets/{dataset_id}/draft_state/lock".replace(
+      "{project_id}",
+      encodeURIComponent(String(projectId)),
+    ).replace(
+      "{dataset_id}",
+      encodeURIComponent(String(datasetId)),
+    );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "LLMObservabilityApi.v2.lockLLMObsDatasetDraftState",
-      LLMObservabilityApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.PATCH,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("LLMObservabilityApi.v2.lockLLMObsDatasetDraftState", LLMObservabilityApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.PATCH, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -3753,14 +3110,8 @@ export class LLMObservabilityApiRequestFactory extends BaseAPIRequestFactory {
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
-    if (
-      !_config.unstableOperations[
-        "LLMObservabilityApi.v2.restoreLLMObsDatasetVersion"
-      ]
-    ) {
-      throw new Error(
-        "Unstable operation 'restoreLLMObsDatasetVersion' is disabled. Enable it by setting `configuration.unstableOperations['LLMObservabilityApi.v2.restoreLLMObsDatasetVersion'] = true`",
-      );
+    if (!_config.unstableOperations["LLMObservabilityApi.v2.restoreLLMObsDatasetVersion"]) {
+      throw new Error("Unstable operation 'restoreLLMObsDatasetVersion' is disabled. Enable it by setting `configuration.unstableOperations['LLMObservabilityApi.v2.restoreLLMObsDatasetVersion'] = true`");
     }
 
     // verify required parameter 'projectId' is not null or undefined
@@ -3779,21 +3130,17 @@ export class LLMObservabilityApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Path Params
-    const localVarPath =
-      "/api/v2/llm-obs/v1/{project_id}/datasets/{dataset_id}/restore"
-        .replace("{project_id}", encodeURIComponent(String(projectId)))
-        .replace("{dataset_id}", encodeURIComponent(String(datasetId)));
+    const localVarPath = "/api/v2/llm-obs/v1/{project_id}/datasets/{dataset_id}/restore".replace(
+      "{project_id}",
+      encodeURIComponent(String(projectId)),
+    ).replace(
+      "{dataset_id}",
+      encodeURIComponent(String(datasetId)),
+    );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "LLMObservabilityApi.v2.restoreLLMObsDatasetVersion",
-      LLMObservabilityApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.POST,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("LLMObservabilityApi.v2.restoreLLMObsDatasetVersion", LLMObservabilityApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.POST, overrides);
     requestContext.setHeaderParam("Accept", "*/*");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -3803,7 +3150,9 @@ export class LLMObservabilityApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Body Params
-    const contentType = getPreferredMediaType(["application/json"]);
+    const contentType = getPreferredMediaType([
+      "application/json",
+    ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = stringify(
       serialize(body, TypingInfo, "LLMObsDatasetRestoreVersionRequest", ""),
@@ -3826,14 +3175,8 @@ export class LLMObservabilityApiRequestFactory extends BaseAPIRequestFactory {
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
-    if (
-      !_config.unstableOperations[
-        "LLMObservabilityApi.v2.searchLLMObsExperimentation"
-      ]
-    ) {
-      throw new Error(
-        "Unstable operation 'searchLLMObsExperimentation' is disabled. Enable it by setting `configuration.unstableOperations['LLMObservabilityApi.v2.searchLLMObsExperimentation'] = true`",
-      );
+    if (!_config.unstableOperations["LLMObservabilityApi.v2.searchLLMObsExperimentation"]) {
+      throw new Error("Unstable operation 'searchLLMObsExperimentation' is disabled. Enable it by setting `configuration.unstableOperations['LLMObservabilityApi.v2.searchLLMObsExperimentation'] = true`");
     }
 
     // verify required parameter 'body' is not null or undefined
@@ -3845,15 +3188,8 @@ export class LLMObservabilityApiRequestFactory extends BaseAPIRequestFactory {
     const localVarPath = "/api/v2/llm-obs/v1/experimentation/search";
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "LLMObservabilityApi.v2.searchLLMObsExperimentation",
-      LLMObservabilityApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.POST,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("LLMObservabilityApi.v2.searchLLMObsExperimentation", LLMObservabilityApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.POST, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -3863,7 +3199,9 @@ export class LLMObservabilityApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Body Params
-    const contentType = getPreferredMediaType(["application/json"]);
+    const contentType = getPreferredMediaType([
+      "application/json",
+    ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = stringify(
       serialize(body, TypingInfo, "LLMObsExperimentationSearchRequest", ""),
@@ -3886,12 +3224,8 @@ export class LLMObservabilityApiRequestFactory extends BaseAPIRequestFactory {
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
-    if (
-      !_config.unstableOperations["LLMObservabilityApi.v2.searchLLMObsSpans"]
-    ) {
-      throw new Error(
-        "Unstable operation 'searchLLMObsSpans' is disabled. Enable it by setting `configuration.unstableOperations['LLMObservabilityApi.v2.searchLLMObsSpans'] = true`",
-      );
+    if (!_config.unstableOperations["LLMObservabilityApi.v2.searchLLMObsSpans"]) {
+      throw new Error("Unstable operation 'searchLLMObsSpans' is disabled. Enable it by setting `configuration.unstableOperations['LLMObservabilityApi.v2.searchLLMObsSpans'] = true`");
     }
 
     // verify required parameter 'body' is not null or undefined
@@ -3903,15 +3237,8 @@ export class LLMObservabilityApiRequestFactory extends BaseAPIRequestFactory {
     const localVarPath = "/api/v2/llm-obs/v1/spans/events/search";
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "LLMObservabilityApi.v2.searchLLMObsSpans",
-      LLMObservabilityApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.POST,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("LLMObservabilityApi.v2.searchLLMObsSpans", LLMObservabilityApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.POST, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -3921,7 +3248,9 @@ export class LLMObservabilityApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Body Params
-    const contentType = getPreferredMediaType(["application/json"]);
+    const contentType = getPreferredMediaType([
+      "application/json",
+    ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = stringify(
       serialize(body, TypingInfo, "LLMObsSearchSpansRequest", ""),
@@ -3944,14 +3273,8 @@ export class LLMObservabilityApiRequestFactory extends BaseAPIRequestFactory {
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
-    if (
-      !_config.unstableOperations[
-        "LLMObservabilityApi.v2.simpleSearchLLMObsExperimentation"
-      ]
-    ) {
-      throw new Error(
-        "Unstable operation 'simpleSearchLLMObsExperimentation' is disabled. Enable it by setting `configuration.unstableOperations['LLMObservabilityApi.v2.simpleSearchLLMObsExperimentation'] = true`",
-      );
+    if (!_config.unstableOperations["LLMObservabilityApi.v2.simpleSearchLLMObsExperimentation"]) {
+      throw new Error("Unstable operation 'simpleSearchLLMObsExperimentation' is disabled. Enable it by setting `configuration.unstableOperations['LLMObservabilityApi.v2.simpleSearchLLMObsExperimentation'] = true`");
     }
 
     // verify required parameter 'body' is not null or undefined
@@ -3963,15 +3286,8 @@ export class LLMObservabilityApiRequestFactory extends BaseAPIRequestFactory {
     const localVarPath = "/api/v2/llm-obs/v1/experimentation/simple-search";
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "LLMObservabilityApi.v2.simpleSearchLLMObsExperimentation",
-      LLMObservabilityApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.POST,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("LLMObservabilityApi.v2.simpleSearchLLMObsExperimentation", LLMObservabilityApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.POST, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -3981,15 +3297,12 @@ export class LLMObservabilityApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Body Params
-    const contentType = getPreferredMediaType(["application/json"]);
+    const contentType = getPreferredMediaType([
+      "application/json",
+    ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = stringify(
-      serialize(
-        body,
-        TypingInfo,
-        "LLMObsExperimentationSimpleSearchRequest",
-        "",
-      ),
+      serialize(body, TypingInfo, "LLMObsExperimentationSimpleSearchRequest", ""),
       contentType,
     );
     requestContext.setBody(serializedBody);
@@ -4009,14 +3322,8 @@ export class LLMObservabilityApiRequestFactory extends BaseAPIRequestFactory {
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
-    if (
-      !_config.unstableOperations[
-        "LLMObservabilityApi.v2.triggerLLMObsPatterns"
-      ]
-    ) {
-      throw new Error(
-        "Unstable operation 'triggerLLMObsPatterns' is disabled. Enable it by setting `configuration.unstableOperations['LLMObservabilityApi.v2.triggerLLMObsPatterns'] = true`",
-      );
+    if (!_config.unstableOperations["LLMObservabilityApi.v2.triggerLLMObsPatterns"]) {
+      throw new Error("Unstable operation 'triggerLLMObsPatterns' is disabled. Enable it by setting `configuration.unstableOperations['LLMObservabilityApi.v2.triggerLLMObsPatterns'] = true`");
     }
 
     // verify required parameter 'body' is not null or undefined
@@ -4028,15 +3335,8 @@ export class LLMObservabilityApiRequestFactory extends BaseAPIRequestFactory {
     const localVarPath = "/api/v2/llm-obs/v1/topic-discovery-runs";
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "LLMObservabilityApi.v2.triggerLLMObsPatterns",
-      LLMObservabilityApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.POST,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("LLMObservabilityApi.v2.triggerLLMObsPatterns", LLMObservabilityApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.POST, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -4046,7 +3346,9 @@ export class LLMObservabilityApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Body Params
-    const contentType = getPreferredMediaType(["application/json"]);
+    const contentType = getPreferredMediaType([
+      "application/json",
+    ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = stringify(
       serialize(body, TypingInfo, "LLMObsPatternsTriggerRequest", ""),
@@ -4070,14 +3372,8 @@ export class LLMObservabilityApiRequestFactory extends BaseAPIRequestFactory {
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
-    if (
-      !_config.unstableOperations[
-        "LLMObservabilityApi.v2.unlockLLMObsDatasetDraftState"
-      ]
-    ) {
-      throw new Error(
-        "Unstable operation 'unlockLLMObsDatasetDraftState' is disabled. Enable it by setting `configuration.unstableOperations['LLMObservabilityApi.v2.unlockLLMObsDatasetDraftState'] = true`",
-      );
+    if (!_config.unstableOperations["LLMObservabilityApi.v2.unlockLLMObsDatasetDraftState"]) {
+      throw new Error("Unstable operation 'unlockLLMObsDatasetDraftState' is disabled. Enable it by setting `configuration.unstableOperations['LLMObservabilityApi.v2.unlockLLMObsDatasetDraftState'] = true`");
     }
 
     // verify required parameter 'projectId' is not null or undefined
@@ -4091,21 +3387,17 @@ export class LLMObservabilityApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Path Params
-    const localVarPath =
-      "/api/v2/llm-obs/v1/{project_id}/datasets/{dataset_id}/draft_state/unlock"
-        .replace("{project_id}", encodeURIComponent(String(projectId)))
-        .replace("{dataset_id}", encodeURIComponent(String(datasetId)));
+    const localVarPath = "/api/v2/llm-obs/v1/{project_id}/datasets/{dataset_id}/draft_state/unlock".replace(
+      "{project_id}",
+      encodeURIComponent(String(projectId)),
+    ).replace(
+      "{dataset_id}",
+      encodeURIComponent(String(datasetId)),
+    );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "LLMObservabilityApi.v2.unlockLLMObsDatasetDraftState",
-      LLMObservabilityApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.PATCH,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("LLMObservabilityApi.v2.unlockLLMObsDatasetDraftState", LLMObservabilityApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.PATCH, overrides);
     requestContext.setHeaderParam("Accept", "*/*");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -4130,14 +3422,8 @@ export class LLMObservabilityApiRequestFactory extends BaseAPIRequestFactory {
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
-    if (
-      !_config.unstableOperations[
-        "LLMObservabilityApi.v2.updateLLMObsAnnotationQueue"
-      ]
-    ) {
-      throw new Error(
-        "Unstable operation 'updateLLMObsAnnotationQueue' is disabled. Enable it by setting `configuration.unstableOperations['LLMObservabilityApi.v2.updateLLMObsAnnotationQueue'] = true`",
-      );
+    if (!_config.unstableOperations["LLMObservabilityApi.v2.updateLLMObsAnnotationQueue"]) {
+      throw new Error("Unstable operation 'updateLLMObsAnnotationQueue' is disabled. Enable it by setting `configuration.unstableOperations['LLMObservabilityApi.v2.updateLLMObsAnnotationQueue'] = true`");
     }
 
     // verify required parameter 'queueId' is not null or undefined
@@ -4151,22 +3437,14 @@ export class LLMObservabilityApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Path Params
-    const localVarPath =
-      "/api/v2/llm-obs/v1/annotation-queues/{queue_id}".replace(
-        "{queue_id}",
-        encodeURIComponent(String(queueId)),
-      );
+    const localVarPath = "/api/v2/llm-obs/v1/annotation-queues/{queue_id}".replace(
+      "{queue_id}",
+      encodeURIComponent(String(queueId)),
+    );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "LLMObservabilityApi.v2.updateLLMObsAnnotationQueue",
-      LLMObservabilityApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.PATCH,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("LLMObservabilityApi.v2.updateLLMObsAnnotationQueue", LLMObservabilityApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.PATCH, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -4176,7 +3454,9 @@ export class LLMObservabilityApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Body Params
-    const contentType = getPreferredMediaType(["application/json"]);
+    const contentType = getPreferredMediaType([
+      "application/json",
+    ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = stringify(
       serialize(body, TypingInfo, "LLMObsAnnotationQueueUpdateRequest", ""),
@@ -4200,22 +3480,13 @@ export class LLMObservabilityApiRequestFactory extends BaseAPIRequestFactory {
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
-    if (
-      !_config.unstableOperations[
-        "LLMObservabilityApi.v2.updateLLMObsAnnotationQueueLabelSchema"
-      ]
-    ) {
-      throw new Error(
-        "Unstable operation 'updateLLMObsAnnotationQueueLabelSchema' is disabled. Enable it by setting `configuration.unstableOperations['LLMObservabilityApi.v2.updateLLMObsAnnotationQueueLabelSchema'] = true`",
-      );
+    if (!_config.unstableOperations["LLMObservabilityApi.v2.updateLLMObsAnnotationQueueLabelSchema"]) {
+      throw new Error("Unstable operation 'updateLLMObsAnnotationQueueLabelSchema' is disabled. Enable it by setting `configuration.unstableOperations['LLMObservabilityApi.v2.updateLLMObsAnnotationQueueLabelSchema'] = true`");
     }
 
     // verify required parameter 'queueId' is not null or undefined
     if (queueId === null || queueId === undefined) {
-      throw new RequiredError(
-        "queueId",
-        "updateLLMObsAnnotationQueueLabelSchema",
-      );
+      throw new RequiredError("queueId", "updateLLMObsAnnotationQueueLabelSchema");
     }
 
     // verify required parameter 'body' is not null or undefined
@@ -4224,22 +3495,14 @@ export class LLMObservabilityApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Path Params
-    const localVarPath =
-      "/api/v2/llm-obs/v1/annotation-queues/{queue_id}/label-schema".replace(
-        "{queue_id}",
-        encodeURIComponent(String(queueId)),
-      );
+    const localVarPath = "/api/v2/llm-obs/v1/annotation-queues/{queue_id}/label-schema".replace(
+      "{queue_id}",
+      encodeURIComponent(String(queueId)),
+    );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "LLMObservabilityApi.v2.updateLLMObsAnnotationQueueLabelSchema",
-      LLMObservabilityApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.PUT,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("LLMObservabilityApi.v2.updateLLMObsAnnotationQueueLabelSchema", LLMObservabilityApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.PUT, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -4249,15 +3512,12 @@ export class LLMObservabilityApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Body Params
-    const contentType = getPreferredMediaType(["application/json"]);
+    const contentType = getPreferredMediaType([
+      "application/json",
+    ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = stringify(
-      serialize(
-        body,
-        TypingInfo,
-        "LLMObsAnnotationQueueLabelSchemaUpdateRequest",
-        "",
-      ),
+      serialize(body, TypingInfo, "LLMObsAnnotationQueueLabelSchemaUpdateRequest", ""),
       contentType,
     );
     requestContext.setBody(serializedBody);
@@ -4278,14 +3538,8 @@ export class LLMObservabilityApiRequestFactory extends BaseAPIRequestFactory {
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
-    if (
-      !_config.unstableOperations[
-        "LLMObservabilityApi.v2.updateLLMObsCustomEvalConfig"
-      ]
-    ) {
-      throw new Error(
-        "Unstable operation 'updateLLMObsCustomEvalConfig' is disabled. Enable it by setting `configuration.unstableOperations['LLMObservabilityApi.v2.updateLLMObsCustomEvalConfig'] = true`",
-      );
+    if (!_config.unstableOperations["LLMObservabilityApi.v2.updateLLMObsCustomEvalConfig"]) {
+      throw new Error("Unstable operation 'updateLLMObsCustomEvalConfig' is disabled. Enable it by setting `configuration.unstableOperations['LLMObservabilityApi.v2.updateLLMObsCustomEvalConfig'] = true`");
     }
 
     // verify required parameter 'evalName' is not null or undefined
@@ -4299,22 +3553,14 @@ export class LLMObservabilityApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Path Params
-    const localVarPath =
-      "/api/unstable/llm-obs/config/evaluators/custom/{eval_name}".replace(
-        "{eval_name}",
-        encodeURIComponent(String(evalName)),
-      );
+    const localVarPath = "/api/unstable/llm-obs/config/evaluators/custom/{eval_name}".replace(
+      "{eval_name}",
+      encodeURIComponent(String(evalName)),
+    );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "LLMObservabilityApi.v2.updateLLMObsCustomEvalConfig",
-      LLMObservabilityApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.PUT,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("LLMObservabilityApi.v2.updateLLMObsCustomEvalConfig", LLMObservabilityApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.PUT, overrides);
     requestContext.setHeaderParam("Accept", "*/*");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -4324,7 +3570,9 @@ export class LLMObservabilityApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Body Params
-    const contentType = getPreferredMediaType(["application/json"]);
+    const contentType = getPreferredMediaType([
+      "application/json",
+    ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = stringify(
       serialize(body, TypingInfo, "LLMObsCustomEvalConfigUpdateRequest", ""),
@@ -4349,12 +3597,8 @@ export class LLMObservabilityApiRequestFactory extends BaseAPIRequestFactory {
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
-    if (
-      !_config.unstableOperations["LLMObservabilityApi.v2.updateLLMObsDataset"]
-    ) {
-      throw new Error(
-        "Unstable operation 'updateLLMObsDataset' is disabled. Enable it by setting `configuration.unstableOperations['LLMObservabilityApi.v2.updateLLMObsDataset'] = true`",
-      );
+    if (!_config.unstableOperations["LLMObservabilityApi.v2.updateLLMObsDataset"]) {
+      throw new Error("Unstable operation 'updateLLMObsDataset' is disabled. Enable it by setting `configuration.unstableOperations['LLMObservabilityApi.v2.updateLLMObsDataset'] = true`");
     }
 
     // verify required parameter 'projectId' is not null or undefined
@@ -4373,20 +3617,17 @@ export class LLMObservabilityApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Path Params
-    const localVarPath = "/api/v2/llm-obs/v1/{project_id}/datasets/{dataset_id}"
-      .replace("{project_id}", encodeURIComponent(String(projectId)))
-      .replace("{dataset_id}", encodeURIComponent(String(datasetId)));
+    const localVarPath = "/api/v2/llm-obs/v1/{project_id}/datasets/{dataset_id}".replace(
+      "{project_id}",
+      encodeURIComponent(String(projectId)),
+    ).replace(
+      "{dataset_id}",
+      encodeURIComponent(String(datasetId)),
+    );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "LLMObservabilityApi.v2.updateLLMObsDataset",
-      LLMObservabilityApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.PATCH,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("LLMObservabilityApi.v2.updateLLMObsDataset", LLMObservabilityApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.PATCH, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -4396,7 +3637,9 @@ export class LLMObservabilityApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Body Params
-    const contentType = getPreferredMediaType(["application/json"]);
+    const contentType = getPreferredMediaType([
+      "application/json",
+    ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = stringify(
       serialize(body, TypingInfo, "LLMObsDatasetUpdateRequest", ""),
@@ -4421,14 +3664,8 @@ export class LLMObservabilityApiRequestFactory extends BaseAPIRequestFactory {
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
-    if (
-      !_config.unstableOperations[
-        "LLMObservabilityApi.v2.updateLLMObsDatasetRecords"
-      ]
-    ) {
-      throw new Error(
-        "Unstable operation 'updateLLMObsDatasetRecords' is disabled. Enable it by setting `configuration.unstableOperations['LLMObservabilityApi.v2.updateLLMObsDatasetRecords'] = true`",
-      );
+    if (!_config.unstableOperations["LLMObservabilityApi.v2.updateLLMObsDatasetRecords"]) {
+      throw new Error("Unstable operation 'updateLLMObsDatasetRecords' is disabled. Enable it by setting `configuration.unstableOperations['LLMObservabilityApi.v2.updateLLMObsDatasetRecords'] = true`");
     }
 
     // verify required parameter 'projectId' is not null or undefined
@@ -4447,21 +3684,17 @@ export class LLMObservabilityApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Path Params
-    const localVarPath =
-      "/api/v2/llm-obs/v1/{project_id}/datasets/{dataset_id}/records"
-        .replace("{project_id}", encodeURIComponent(String(projectId)))
-        .replace("{dataset_id}", encodeURIComponent(String(datasetId)));
+    const localVarPath = "/api/v2/llm-obs/v1/{project_id}/datasets/{dataset_id}/records".replace(
+      "{project_id}",
+      encodeURIComponent(String(projectId)),
+    ).replace(
+      "{dataset_id}",
+      encodeURIComponent(String(datasetId)),
+    );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "LLMObservabilityApi.v2.updateLLMObsDatasetRecords",
-      LLMObservabilityApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.PATCH,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("LLMObservabilityApi.v2.updateLLMObsDatasetRecords", LLMObservabilityApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.PATCH, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -4471,7 +3704,9 @@ export class LLMObservabilityApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Body Params
-    const contentType = getPreferredMediaType(["application/json"]);
+    const contentType = getPreferredMediaType([
+      "application/json",
+    ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = stringify(
       serialize(body, TypingInfo, "LLMObsDatasetRecordsUpdateRequest", ""),
@@ -4495,14 +3730,8 @@ export class LLMObservabilityApiRequestFactory extends BaseAPIRequestFactory {
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
-    if (
-      !_config.unstableOperations[
-        "LLMObservabilityApi.v2.updateLLMObsExperiment"
-      ]
-    ) {
-      throw new Error(
-        "Unstable operation 'updateLLMObsExperiment' is disabled. Enable it by setting `configuration.unstableOperations['LLMObservabilityApi.v2.updateLLMObsExperiment'] = true`",
-      );
+    if (!_config.unstableOperations["LLMObservabilityApi.v2.updateLLMObsExperiment"]) {
+      throw new Error("Unstable operation 'updateLLMObsExperiment' is disabled. Enable it by setting `configuration.unstableOperations['LLMObservabilityApi.v2.updateLLMObsExperiment'] = true`");
     }
 
     // verify required parameter 'experimentId' is not null or undefined
@@ -4516,22 +3745,14 @@ export class LLMObservabilityApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Path Params
-    const localVarPath =
-      "/api/v2/llm-obs/v1/experiments/{experiment_id}".replace(
-        "{experiment_id}",
-        encodeURIComponent(String(experimentId)),
-      );
+    const localVarPath = "/api/v2/llm-obs/v1/experiments/{experiment_id}".replace(
+      "{experiment_id}",
+      encodeURIComponent(String(experimentId)),
+    );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "LLMObservabilityApi.v2.updateLLMObsExperiment",
-      LLMObservabilityApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.PATCH,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("LLMObservabilityApi.v2.updateLLMObsExperiment", LLMObservabilityApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.PATCH, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -4541,7 +3762,9 @@ export class LLMObservabilityApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Body Params
-    const contentType = getPreferredMediaType(["application/json"]);
+    const contentType = getPreferredMediaType([
+      "application/json",
+    ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = stringify(
       serialize(body, TypingInfo, "LLMObsExperimentUpdateRequest", ""),
@@ -4565,12 +3788,8 @@ export class LLMObservabilityApiRequestFactory extends BaseAPIRequestFactory {
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
-    if (
-      !_config.unstableOperations["LLMObservabilityApi.v2.updateLLMObsProject"]
-    ) {
-      throw new Error(
-        "Unstable operation 'updateLLMObsProject' is disabled. Enable it by setting `configuration.unstableOperations['LLMObservabilityApi.v2.updateLLMObsProject'] = true`",
-      );
+    if (!_config.unstableOperations["LLMObservabilityApi.v2.updateLLMObsProject"]) {
+      throw new Error("Unstable operation 'updateLLMObsProject' is disabled. Enable it by setting `configuration.unstableOperations['LLMObservabilityApi.v2.updateLLMObsProject'] = true`");
     }
 
     // verify required parameter 'projectId' is not null or undefined
@@ -4590,15 +3809,8 @@ export class LLMObservabilityApiRequestFactory extends BaseAPIRequestFactory {
     );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "LLMObservabilityApi.v2.updateLLMObsProject",
-      LLMObservabilityApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.PATCH,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("LLMObservabilityApi.v2.updateLLMObsProject", LLMObservabilityApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.PATCH, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -4608,7 +3820,9 @@ export class LLMObservabilityApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Body Params
-    const contentType = getPreferredMediaType(["application/json"]);
+    const contentType = getPreferredMediaType([
+      "application/json",
+    ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = stringify(
       serialize(body, TypingInfo, "LLMObsProjectUpdateRequest", ""),
@@ -4632,12 +3846,8 @@ export class LLMObservabilityApiRequestFactory extends BaseAPIRequestFactory {
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
-    if (
-      !_config.unstableOperations["LLMObservabilityApi.v2.updateLLMObsPrompt"]
-    ) {
-      throw new Error(
-        "Unstable operation 'updateLLMObsPrompt' is disabled. Enable it by setting `configuration.unstableOperations['LLMObservabilityApi.v2.updateLLMObsPrompt'] = true`",
-      );
+    if (!_config.unstableOperations["LLMObservabilityApi.v2.updateLLMObsPrompt"]) {
+      throw new Error("Unstable operation 'updateLLMObsPrompt' is disabled. Enable it by setting `configuration.unstableOperations['LLMObservabilityApi.v2.updateLLMObsPrompt'] = true`");
     }
 
     // verify required parameter 'promptId' is not null or undefined
@@ -4657,15 +3867,8 @@ export class LLMObservabilityApiRequestFactory extends BaseAPIRequestFactory {
     );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "LLMObservabilityApi.v2.updateLLMObsPrompt",
-      LLMObservabilityApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.PATCH,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("LLMObservabilityApi.v2.updateLLMObsPrompt", LLMObservabilityApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.PATCH, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -4675,7 +3878,9 @@ export class LLMObservabilityApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Body Params
-    const contentType = getPreferredMediaType(["application/json"]);
+    const contentType = getPreferredMediaType([
+      "application/json",
+    ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = stringify(
       serialize(body, TypingInfo, "LLMObsUpdatePromptRequest", ""),
@@ -4700,14 +3905,8 @@ export class LLMObservabilityApiRequestFactory extends BaseAPIRequestFactory {
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
-    if (
-      !_config.unstableOperations[
-        "LLMObservabilityApi.v2.updateLLMObsPromptVersion"
-      ]
-    ) {
-      throw new Error(
-        "Unstable operation 'updateLLMObsPromptVersion' is disabled. Enable it by setting `configuration.unstableOperations['LLMObservabilityApi.v2.updateLLMObsPromptVersion'] = true`",
-      );
+    if (!_config.unstableOperations["LLMObservabilityApi.v2.updateLLMObsPromptVersion"]) {
+      throw new Error("Unstable operation 'updateLLMObsPromptVersion' is disabled. Enable it by setting `configuration.unstableOperations['LLMObservabilityApi.v2.updateLLMObsPromptVersion'] = true`");
     }
 
     // verify required parameter 'promptId' is not null or undefined
@@ -4726,21 +3925,17 @@ export class LLMObservabilityApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Path Params
-    const localVarPath =
-      "/api/v2/llm-obs/v1/prompts/{prompt_id}/versions/{version}"
-        .replace("{prompt_id}", encodeURIComponent(String(promptId)))
-        .replace("{version}", encodeURIComponent(String(version)));
+    const localVarPath = "/api/v2/llm-obs/v1/prompts/{prompt_id}/versions/{version}".replace(
+      "{prompt_id}",
+      encodeURIComponent(String(promptId)),
+    ).replace(
+      "{version}",
+      encodeURIComponent(String(version)),
+    );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "LLMObservabilityApi.v2.updateLLMObsPromptVersion",
-      LLMObservabilityApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.PATCH,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("LLMObservabilityApi.v2.updateLLMObsPromptVersion", LLMObservabilityApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.PATCH, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -4750,7 +3945,9 @@ export class LLMObservabilityApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Body Params
-    const contentType = getPreferredMediaType(["application/json"]);
+    const contentType = getPreferredMediaType([
+      "application/json",
+    ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = stringify(
       serialize(body, TypingInfo, "LLMObsUpdatePromptVersionRequest", ""),
@@ -4779,14 +3976,8 @@ export class LLMObservabilityApiRequestFactory extends BaseAPIRequestFactory {
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
-    if (
-      !_config.unstableOperations[
-        "LLMObservabilityApi.v2.uploadLLMObsDatasetRecordsFile"
-      ]
-    ) {
-      throw new Error(
-        "Unstable operation 'uploadLLMObsDatasetRecordsFile' is disabled. Enable it by setting `configuration.unstableOperations['LLMObservabilityApi.v2.uploadLLMObsDatasetRecordsFile'] = true`",
-      );
+    if (!_config.unstableOperations["LLMObservabilityApi.v2.uploadLLMObsDatasetRecordsFile"]) {
+      throw new Error("Unstable operation 'uploadLLMObsDatasetRecordsFile' is disabled. Enable it by setting `configuration.unstableOperations['LLMObservabilityApi.v2.uploadLLMObsDatasetRecordsFile'] = true`");
     }
 
     // verify required parameter 'projectId' is not null or undefined
@@ -4800,21 +3991,17 @@ export class LLMObservabilityApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Path Params
-    const localVarPath =
-      "/api/v2/llm-obs/v2/{project_id}/datasets/{dataset_id}/records/upload"
-        .replace("{project_id}", encodeURIComponent(String(projectId)))
-        .replace("{dataset_id}", encodeURIComponent(String(datasetId)));
+    const localVarPath = "/api/v2/llm-obs/v2/{project_id}/datasets/{dataset_id}/records/upload".replace(
+      "{project_id}",
+      encodeURIComponent(String(projectId)),
+    ).replace(
+      "{dataset_id}",
+      encodeURIComponent(String(datasetId)),
+    );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "LLMObservabilityApi.v2.uploadLLMObsDatasetRecordsFile",
-      LLMObservabilityApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.POST,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("LLMObservabilityApi.v2.uploadLLMObsDatasetRecordsFile", LLMObservabilityApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.POST, overrides);
     requestContext.setHeaderParam("Accept", "*/*");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -4877,14 +4064,8 @@ export class LLMObservabilityApiRequestFactory extends BaseAPIRequestFactory {
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
-    if (
-      !_config.unstableOperations[
-        "LLMObservabilityApi.v2.upsertLLMObsAnnotations"
-      ]
-    ) {
-      throw new Error(
-        "Unstable operation 'upsertLLMObsAnnotations' is disabled. Enable it by setting `configuration.unstableOperations['LLMObservabilityApi.v2.upsertLLMObsAnnotations'] = true`",
-      );
+    if (!_config.unstableOperations["LLMObservabilityApi.v2.upsertLLMObsAnnotations"]) {
+      throw new Error("Unstable operation 'upsertLLMObsAnnotations' is disabled. Enable it by setting `configuration.unstableOperations['LLMObservabilityApi.v2.upsertLLMObsAnnotations'] = true`");
     }
 
     // verify required parameter 'queueId' is not null or undefined
@@ -4898,22 +4079,14 @@ export class LLMObservabilityApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Path Params
-    const localVarPath =
-      "/api/v2/llm-obs/v1/annotation-queues/{queue_id}/annotations".replace(
-        "{queue_id}",
-        encodeURIComponent(String(queueId)),
-      );
+    const localVarPath = "/api/v2/llm-obs/v1/annotation-queues/{queue_id}/annotations".replace(
+      "{queue_id}",
+      encodeURIComponent(String(queueId)),
+    );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "LLMObservabilityApi.v2.upsertLLMObsAnnotations",
-      LLMObservabilityApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.POST,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("LLMObservabilityApi.v2.upsertLLMObsAnnotations", LLMObservabilityApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.POST, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -4923,7 +4096,9 @@ export class LLMObservabilityApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Body Params
-    const contentType = getPreferredMediaType(["application/json"]);
+    const contentType = getPreferredMediaType([
+      "application/json",
+    ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = stringify(
       serialize(body, TypingInfo, "LLMObsAnnotationsRequest", ""),
@@ -4946,14 +4121,8 @@ export class LLMObservabilityApiRequestFactory extends BaseAPIRequestFactory {
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
-    if (
-      !_config.unstableOperations[
-        "LLMObservabilityApi.v2.upsertLLMObsPatternsConfig"
-      ]
-    ) {
-      throw new Error(
-        "Unstable operation 'upsertLLMObsPatternsConfig' is disabled. Enable it by setting `configuration.unstableOperations['LLMObservabilityApi.v2.upsertLLMObsPatternsConfig'] = true`",
-      );
+    if (!_config.unstableOperations["LLMObservabilityApi.v2.upsertLLMObsPatternsConfig"]) {
+      throw new Error("Unstable operation 'upsertLLMObsPatternsConfig' is disabled. Enable it by setting `configuration.unstableOperations['LLMObservabilityApi.v2.upsertLLMObsPatternsConfig'] = true`");
     }
 
     // verify required parameter 'body' is not null or undefined
@@ -4965,15 +4134,8 @@ export class LLMObservabilityApiRequestFactory extends BaseAPIRequestFactory {
     const localVarPath = "/api/v2/llm-obs/v1/topic-discovery-configs";
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "LLMObservabilityApi.v2.upsertLLMObsPatternsConfig",
-      LLMObservabilityApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.PUT,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("LLMObservabilityApi.v2.upsertLLMObsPatternsConfig", LLMObservabilityApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.PUT, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -4983,7 +4145,9 @@ export class LLMObservabilityApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Body Params
-    const contentType = getPreferredMediaType(["application/json"]);
+    const contentType = getPreferredMediaType([
+      "application/json",
+    ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = stringify(
       serialize(body, TypingInfo, "LLMObsPatternsConfigUpsertRequest", ""),
@@ -5012,7 +4176,9 @@ export class LLMObservabilityApiResponseProcessor {
   public async aggregateLLMObsExperimentation(
     response: ResponseContext,
   ): Promise<LLMObsExperimentationAnalyticsResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: LLMObsExperimentationAnalyticsResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -5027,7 +4193,10 @@ export class LLMObservabilityApiResponseProcessor {
       response.httpStatusCode === 403 ||
       response.httpStatusCode === 500
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: JSONAPIErrorResponse;
       try {
         body = deserialize(
@@ -5048,7 +4217,10 @@ export class LLMObservabilityApiResponseProcessor {
       );
     }
     if (response.httpStatusCode === 429) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -5063,7 +4235,10 @@ export class LLMObservabilityApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -5094,7 +4269,9 @@ export class LLMObservabilityApiResponseProcessor {
   public async batchUpdateLLMObsDataset(
     response: ResponseContext,
   ): Promise<LLMObsDatasetRecordsMutationResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: LLMObsDatasetRecordsMutationResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -5111,7 +4288,10 @@ export class LLMObservabilityApiResponseProcessor {
       response.httpStatusCode === 413 ||
       response.httpStatusCode === 500
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: JSONAPIErrorResponse;
       try {
         body = deserialize(
@@ -5132,7 +4312,10 @@ export class LLMObservabilityApiResponseProcessor {
       );
     }
     if (response.httpStatusCode === 429) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -5147,7 +4330,10 @@ export class LLMObservabilityApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -5178,7 +4364,9 @@ export class LLMObservabilityApiResponseProcessor {
   public async cloneLLMObsDataset(
     response: ResponseContext,
   ): Promise<LLMObsDatasetResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: LLMObsDatasetResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -5194,7 +4382,10 @@ export class LLMObservabilityApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 500
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: JSONAPIErrorResponse;
       try {
         body = deserialize(
@@ -5215,7 +4406,10 @@ export class LLMObservabilityApiResponseProcessor {
       );
     }
     if (response.httpStatusCode === 429) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -5230,7 +4424,10 @@ export class LLMObservabilityApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -5261,7 +4458,9 @@ export class LLMObservabilityApiResponseProcessor {
   public async createLLMObsAnnotationQueue(
     response: ResponseContext,
   ): Promise<LLMObsAnnotationQueueResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 201) {
       const body: LLMObsAnnotationQueueResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -5275,7 +4474,10 @@ export class LLMObservabilityApiResponseProcessor {
       response.httpStatusCode === 401 ||
       response.httpStatusCode === 403
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: JSONAPIErrorResponse;
       try {
         body = deserialize(
@@ -5296,7 +4498,10 @@ export class LLMObservabilityApiResponseProcessor {
       );
     }
     if (response.httpStatusCode === 429) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -5311,7 +4516,10 @@ export class LLMObservabilityApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -5342,7 +4550,9 @@ export class LLMObservabilityApiResponseProcessor {
   public async createLLMObsAnnotationQueueInteractions(
     response: ResponseContext,
   ): Promise<LLMObsAnnotationQueueInteractionsResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 201) {
       const body: LLMObsAnnotationQueueInteractionsResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -5357,7 +4567,10 @@ export class LLMObservabilityApiResponseProcessor {
       response.httpStatusCode === 403 ||
       response.httpStatusCode === 404
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: JSONAPIErrorResponse;
       try {
         body = deserialize(
@@ -5378,7 +4591,10 @@ export class LLMObservabilityApiResponseProcessor {
       );
     }
     if (response.httpStatusCode === 429) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -5393,7 +4609,10 @@ export class LLMObservabilityApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -5424,8 +4643,13 @@ export class LLMObservabilityApiResponseProcessor {
   public async createLLMObsDataset(
     response: ResponseContext,
   ): Promise<LLMObsDatasetResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
-    if (response.httpStatusCode === 200 || response.httpStatusCode === 201) {
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
+    if (
+      response.httpStatusCode === 200 ||
+      response.httpStatusCode === 201
+    ) {
       const body: LLMObsDatasetResponse = deserialize(
         parse(await response.body.text(), contentType),
         TypingInfo,
@@ -5439,7 +4663,10 @@ export class LLMObservabilityApiResponseProcessor {
       response.httpStatusCode === 403 ||
       response.httpStatusCode === 404
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: JSONAPIErrorResponse;
       try {
         body = deserialize(
@@ -5460,7 +4687,10 @@ export class LLMObservabilityApiResponseProcessor {
       );
     }
     if (response.httpStatusCode === 429) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -5475,7 +4705,10 @@ export class LLMObservabilityApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -5506,8 +4739,13 @@ export class LLMObservabilityApiResponseProcessor {
   public async createLLMObsDatasetRecords(
     response: ResponseContext,
   ): Promise<LLMObsDatasetRecordsMutationResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
-    if (response.httpStatusCode === 200 || response.httpStatusCode === 201) {
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
+    if (
+      response.httpStatusCode === 200 ||
+      response.httpStatusCode === 201
+    ) {
       const body: LLMObsDatasetRecordsMutationResponse = deserialize(
         parse(await response.body.text(), contentType),
         TypingInfo,
@@ -5521,7 +4759,10 @@ export class LLMObservabilityApiResponseProcessor {
       response.httpStatusCode === 403 ||
       response.httpStatusCode === 404
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: JSONAPIErrorResponse;
       try {
         body = deserialize(
@@ -5542,7 +4783,10 @@ export class LLMObservabilityApiResponseProcessor {
       );
     }
     if (response.httpStatusCode === 429) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -5557,7 +4801,10 @@ export class LLMObservabilityApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -5588,8 +4835,13 @@ export class LLMObservabilityApiResponseProcessor {
   public async createLLMObsExperiment(
     response: ResponseContext,
   ): Promise<LLMObsExperimentResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
-    if (response.httpStatusCode === 200 || response.httpStatusCode === 201) {
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
+    if (
+      response.httpStatusCode === 200 ||
+      response.httpStatusCode === 201
+    ) {
       const body: LLMObsExperimentResponse = deserialize(
         parse(await response.body.text(), contentType),
         TypingInfo,
@@ -5602,7 +4854,10 @@ export class LLMObservabilityApiResponseProcessor {
       response.httpStatusCode === 401 ||
       response.httpStatusCode === 403
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: JSONAPIErrorResponse;
       try {
         body = deserialize(
@@ -5623,7 +4878,10 @@ export class LLMObservabilityApiResponseProcessor {
       );
     }
     if (response.httpStatusCode === 429) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -5638,7 +4896,10 @@ export class LLMObservabilityApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -5669,7 +4930,9 @@ export class LLMObservabilityApiResponseProcessor {
   public async createLLMObsExperimentEvents(
     response: ResponseContext,
   ): Promise<void> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 202) {
       return;
     }
@@ -5679,7 +4942,10 @@ export class LLMObservabilityApiResponseProcessor {
       response.httpStatusCode === 403 ||
       response.httpStatusCode === 404
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: JSONAPIErrorResponse;
       try {
         body = deserialize(
@@ -5700,7 +4966,10 @@ export class LLMObservabilityApiResponseProcessor {
       );
     }
     if (response.httpStatusCode === 429) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -5715,7 +4984,10 @@ export class LLMObservabilityApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -5740,7 +5012,9 @@ export class LLMObservabilityApiResponseProcessor {
   public async createLLMObsIntegrationInference(
     response: ResponseContext,
   ): Promise<LLMObsIntegrationInferenceResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: LLMObsIntegrationInferenceResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -5755,7 +5029,10 @@ export class LLMObservabilityApiResponseProcessor {
       response.httpStatusCode === 403 ||
       response.httpStatusCode === 500
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: JSONAPIErrorResponse;
       try {
         body = deserialize(
@@ -5776,7 +5053,10 @@ export class LLMObservabilityApiResponseProcessor {
       );
     }
     if (response.httpStatusCode === 429) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -5791,7 +5071,10 @@ export class LLMObservabilityApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -5822,8 +5105,13 @@ export class LLMObservabilityApiResponseProcessor {
   public async createLLMObsProject(
     response: ResponseContext,
   ): Promise<LLMObsProjectResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
-    if (response.httpStatusCode === 200 || response.httpStatusCode === 201) {
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
+    if (
+      response.httpStatusCode === 200 ||
+      response.httpStatusCode === 201
+    ) {
       const body: LLMObsProjectResponse = deserialize(
         parse(await response.body.text(), contentType),
         TypingInfo,
@@ -5836,7 +5124,10 @@ export class LLMObservabilityApiResponseProcessor {
       response.httpStatusCode === 401 ||
       response.httpStatusCode === 403
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: JSONAPIErrorResponse;
       try {
         body = deserialize(
@@ -5857,7 +5148,10 @@ export class LLMObservabilityApiResponseProcessor {
       );
     }
     if (response.httpStatusCode === 429) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -5872,7 +5166,10 @@ export class LLMObservabilityApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -5903,7 +5200,9 @@ export class LLMObservabilityApiResponseProcessor {
   public async createLLMObsPrompt(
     response: ResponseContext,
   ): Promise<LLMObsPromptResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: LLMObsPromptResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -5918,7 +5217,10 @@ export class LLMObservabilityApiResponseProcessor {
       response.httpStatusCode === 403 ||
       response.httpStatusCode === 409
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: JSONAPIErrorResponse;
       try {
         body = deserialize(
@@ -5939,7 +5241,10 @@ export class LLMObservabilityApiResponseProcessor {
       );
     }
     if (response.httpStatusCode === 429) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -5954,7 +5259,10 @@ export class LLMObservabilityApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -5985,7 +5293,9 @@ export class LLMObservabilityApiResponseProcessor {
   public async createLLMObsPromptVersion(
     response: ResponseContext,
   ): Promise<LLMObsPromptVersionResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: LLMObsPromptVersionResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -6000,7 +5310,10 @@ export class LLMObservabilityApiResponseProcessor {
       response.httpStatusCode === 403 ||
       response.httpStatusCode === 404
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: JSONAPIErrorResponse;
       try {
         body = deserialize(
@@ -6021,7 +5334,10 @@ export class LLMObservabilityApiResponseProcessor {
       );
     }
     if (response.httpStatusCode === 429) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -6036,7 +5352,10 @@ export class LLMObservabilityApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -6067,7 +5386,9 @@ export class LLMObservabilityApiResponseProcessor {
   public async deleteLLMObsAnnotationQueue(
     response: ResponseContext,
   ): Promise<void> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 204) {
       return;
     }
@@ -6076,7 +5397,10 @@ export class LLMObservabilityApiResponseProcessor {
       response.httpStatusCode === 403 ||
       response.httpStatusCode === 404
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: JSONAPIErrorResponse;
       try {
         body = deserialize(
@@ -6097,7 +5421,10 @@ export class LLMObservabilityApiResponseProcessor {
       );
     }
     if (response.httpStatusCode === 429) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -6112,7 +5439,10 @@ export class LLMObservabilityApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -6137,7 +5467,9 @@ export class LLMObservabilityApiResponseProcessor {
   public async deleteLLMObsAnnotationQueueInteractions(
     response: ResponseContext,
   ): Promise<void> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 204) {
       return;
     }
@@ -6147,7 +5479,10 @@ export class LLMObservabilityApiResponseProcessor {
       response.httpStatusCode === 403 ||
       response.httpStatusCode === 404
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: JSONAPIErrorResponse;
       try {
         body = deserialize(
@@ -6168,7 +5503,10 @@ export class LLMObservabilityApiResponseProcessor {
       );
     }
     if (response.httpStatusCode === 429) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -6183,7 +5521,10 @@ export class LLMObservabilityApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -6208,7 +5549,9 @@ export class LLMObservabilityApiResponseProcessor {
   public async deleteLLMObsAnnotations(
     response: ResponseContext,
   ): Promise<LLMObsDeleteAnnotationsResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: LLMObsDeleteAnnotationsResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -6223,7 +5566,10 @@ export class LLMObservabilityApiResponseProcessor {
       response.httpStatusCode === 403 ||
       response.httpStatusCode === 404
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: JSONAPIErrorResponse;
       try {
         body = deserialize(
@@ -6244,7 +5590,10 @@ export class LLMObservabilityApiResponseProcessor {
       );
     }
     if (response.httpStatusCode === 429) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -6259,7 +5608,10 @@ export class LLMObservabilityApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -6290,7 +5642,9 @@ export class LLMObservabilityApiResponseProcessor {
   public async deleteLLMObsCustomEvalConfig(
     response: ResponseContext,
   ): Promise<void> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 204) {
       return;
     }
@@ -6300,7 +5654,10 @@ export class LLMObservabilityApiResponseProcessor {
       response.httpStatusCode === 403 ||
       response.httpStatusCode === 404
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: JSONAPIErrorResponse;
       try {
         body = deserialize(
@@ -6321,7 +5678,10 @@ export class LLMObservabilityApiResponseProcessor {
       );
     }
     if (response.httpStatusCode === 429) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -6336,7 +5696,10 @@ export class LLMObservabilityApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -6361,7 +5724,9 @@ export class LLMObservabilityApiResponseProcessor {
   public async deleteLLMObsData(
     response: ResponseContext,
   ): Promise<LLMObsDataDeletionResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 202) {
       const body: LLMObsDataDeletionResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -6375,7 +5740,10 @@ export class LLMObservabilityApiResponseProcessor {
       response.httpStatusCode === 401 ||
       response.httpStatusCode === 403
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: JSONAPIErrorResponse;
       try {
         body = deserialize(
@@ -6396,7 +5764,10 @@ export class LLMObservabilityApiResponseProcessor {
       );
     }
     if (response.httpStatusCode === 429) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -6411,7 +5782,10 @@ export class LLMObservabilityApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -6442,7 +5816,9 @@ export class LLMObservabilityApiResponseProcessor {
   public async deleteLLMObsDatasetRecords(
     response: ResponseContext,
   ): Promise<void> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 204) {
       return;
     }
@@ -6452,7 +5828,10 @@ export class LLMObservabilityApiResponseProcessor {
       response.httpStatusCode === 403 ||
       response.httpStatusCode === 404
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: JSONAPIErrorResponse;
       try {
         body = deserialize(
@@ -6473,7 +5852,10 @@ export class LLMObservabilityApiResponseProcessor {
       );
     }
     if (response.httpStatusCode === 429) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -6488,7 +5870,10 @@ export class LLMObservabilityApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -6510,8 +5895,12 @@ export class LLMObservabilityApiResponseProcessor {
    * @params response Response returned by the server for a request to deleteLLMObsDatasets
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async deleteLLMObsDatasets(response: ResponseContext): Promise<void> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+  public async deleteLLMObsDatasets(
+    response: ResponseContext,
+  ): Promise<void> {
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 204) {
       return;
     }
@@ -6521,7 +5910,10 @@ export class LLMObservabilityApiResponseProcessor {
       response.httpStatusCode === 403 ||
       response.httpStatusCode === 404
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: JSONAPIErrorResponse;
       try {
         body = deserialize(
@@ -6542,7 +5934,10 @@ export class LLMObservabilityApiResponseProcessor {
       );
     }
     if (response.httpStatusCode === 429) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -6557,7 +5952,10 @@ export class LLMObservabilityApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -6582,7 +5980,9 @@ export class LLMObservabilityApiResponseProcessor {
   public async deleteLLMObsExperiments(
     response: ResponseContext,
   ): Promise<void> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 204) {
       return;
     }
@@ -6591,7 +5991,10 @@ export class LLMObservabilityApiResponseProcessor {
       response.httpStatusCode === 401 ||
       response.httpStatusCode === 403
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: JSONAPIErrorResponse;
       try {
         body = deserialize(
@@ -6612,7 +6015,10 @@ export class LLMObservabilityApiResponseProcessor {
       );
     }
     if (response.httpStatusCode === 429) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -6627,7 +6033,10 @@ export class LLMObservabilityApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -6652,7 +6061,9 @@ export class LLMObservabilityApiResponseProcessor {
   public async deleteLLMObsPatternsConfig(
     response: ResponseContext,
   ): Promise<void> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 204) {
       return;
     }
@@ -6663,7 +6074,10 @@ export class LLMObservabilityApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 500
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: JSONAPIErrorResponse;
       try {
         body = deserialize(
@@ -6684,7 +6098,10 @@ export class LLMObservabilityApiResponseProcessor {
       );
     }
     if (response.httpStatusCode === 429) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -6699,7 +6116,10 @@ export class LLMObservabilityApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -6721,8 +6141,12 @@ export class LLMObservabilityApiResponseProcessor {
    * @params response Response returned by the server for a request to deleteLLMObsProjects
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async deleteLLMObsProjects(response: ResponseContext): Promise<void> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+  public async deleteLLMObsProjects(
+    response: ResponseContext,
+  ): Promise<void> {
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 204) {
       return;
     }
@@ -6731,7 +6155,10 @@ export class LLMObservabilityApiResponseProcessor {
       response.httpStatusCode === 401 ||
       response.httpStatusCode === 403
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: JSONAPIErrorResponse;
       try {
         body = deserialize(
@@ -6752,7 +6179,10 @@ export class LLMObservabilityApiResponseProcessor {
       );
     }
     if (response.httpStatusCode === 429) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -6767,7 +6197,10 @@ export class LLMObservabilityApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -6792,7 +6225,9 @@ export class LLMObservabilityApiResponseProcessor {
   public async deleteLLMObsPrompt(
     response: ResponseContext,
   ): Promise<LLMObsDeletedPromptResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: LLMObsDeletedPromptResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -6806,7 +6241,10 @@ export class LLMObservabilityApiResponseProcessor {
       response.httpStatusCode === 403 ||
       response.httpStatusCode === 404
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: JSONAPIErrorResponse;
       try {
         body = deserialize(
@@ -6827,7 +6265,10 @@ export class LLMObservabilityApiResponseProcessor {
       );
     }
     if (response.httpStatusCode === 429) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -6842,7 +6283,10 @@ export class LLMObservabilityApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -6870,8 +6314,12 @@ export class LLMObservabilityApiResponseProcessor {
    * @params response Response returned by the server for a request to exportLLMObsDataset
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async exportLLMObsDataset(response: ResponseContext): Promise<string> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+  public async exportLLMObsDataset(
+    response: ResponseContext,
+  ): Promise<string> {
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: string = deserialize(
         parse(await response.body.text(), contentType),
@@ -6887,7 +6335,10 @@ export class LLMObservabilityApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 500
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: JSONAPIErrorResponse;
       try {
         body = deserialize(
@@ -6908,7 +6359,10 @@ export class LLMObservabilityApiResponseProcessor {
       );
     }
     if (response.httpStatusCode === 429) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -6923,7 +6377,10 @@ export class LLMObservabilityApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -6954,7 +6411,9 @@ export class LLMObservabilityApiResponseProcessor {
   public async getLLMObsAnnotatedInteractions(
     response: ResponseContext,
   ): Promise<LLMObsAnnotatedInteractionsResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: LLMObsAnnotatedInteractionsResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -6969,7 +6428,10 @@ export class LLMObservabilityApiResponseProcessor {
       response.httpStatusCode === 403 ||
       response.httpStatusCode === 404
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: JSONAPIErrorResponse;
       try {
         body = deserialize(
@@ -6990,7 +6452,10 @@ export class LLMObservabilityApiResponseProcessor {
       );
     }
     if (response.httpStatusCode === 429) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -7005,7 +6470,10 @@ export class LLMObservabilityApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -7036,7 +6504,9 @@ export class LLMObservabilityApiResponseProcessor {
   public async getLLMObsAnnotatedInteractionsByTraceIDs(
     response: ResponseContext,
   ): Promise<LLMObsAnnotatedInteractionsByTraceResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: LLMObsAnnotatedInteractionsByTraceResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -7051,7 +6521,10 @@ export class LLMObservabilityApiResponseProcessor {
       response.httpStatusCode === 403 ||
       response.httpStatusCode === 500
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: JSONAPIErrorResponse;
       try {
         body = deserialize(
@@ -7072,7 +6545,10 @@ export class LLMObservabilityApiResponseProcessor {
       );
     }
     if (response.httpStatusCode === 429) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -7087,7 +6563,10 @@ export class LLMObservabilityApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -7118,7 +6597,9 @@ export class LLMObservabilityApiResponseProcessor {
   public async getLLMObsAnnotationQueueLabelSchema(
     response: ResponseContext,
   ): Promise<LLMObsAnnotationQueueLabelSchemaResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: LLMObsAnnotationQueueLabelSchemaResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -7133,7 +6614,10 @@ export class LLMObservabilityApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 500
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: JSONAPIErrorResponse;
       try {
         body = deserialize(
@@ -7154,7 +6638,10 @@ export class LLMObservabilityApiResponseProcessor {
       );
     }
     if (response.httpStatusCode === 429) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -7169,7 +6656,10 @@ export class LLMObservabilityApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -7200,7 +6690,9 @@ export class LLMObservabilityApiResponseProcessor {
   public async getLLMObsCustomEvalConfig(
     response: ResponseContext,
   ): Promise<LLMObsCustomEvalConfigResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: LLMObsCustomEvalConfigResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -7215,7 +6707,10 @@ export class LLMObservabilityApiResponseProcessor {
       response.httpStatusCode === 403 ||
       response.httpStatusCode === 404
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: JSONAPIErrorResponse;
       try {
         body = deserialize(
@@ -7236,7 +6731,10 @@ export class LLMObservabilityApiResponseProcessor {
       );
     }
     if (response.httpStatusCode === 429) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -7251,7 +6749,10 @@ export class LLMObservabilityApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -7282,7 +6783,9 @@ export class LLMObservabilityApiResponseProcessor {
   public async getLLMObsDatasetDraftState(
     response: ResponseContext,
   ): Promise<LLMObsDatasetDraftStateResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: LLMObsDatasetDraftStateResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -7298,7 +6801,10 @@ export class LLMObservabilityApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 500
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: JSONAPIErrorResponse;
       try {
         body = deserialize(
@@ -7319,7 +6825,10 @@ export class LLMObservabilityApiResponseProcessor {
       );
     }
     if (response.httpStatusCode === 429) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -7334,7 +6843,10 @@ export class LLMObservabilityApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -7365,7 +6877,9 @@ export class LLMObservabilityApiResponseProcessor {
   public async getLLMObsPatternsConfig(
     response: ResponseContext,
   ): Promise<LLMObsPatternsConfigResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: LLMObsPatternsConfigResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -7381,7 +6895,10 @@ export class LLMObservabilityApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 500
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: JSONAPIErrorResponse;
       try {
         body = deserialize(
@@ -7402,7 +6919,10 @@ export class LLMObservabilityApiResponseProcessor {
       );
     }
     if (response.httpStatusCode === 429) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -7417,7 +6937,10 @@ export class LLMObservabilityApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -7448,7 +6971,9 @@ export class LLMObservabilityApiResponseProcessor {
   public async getLLMObsPatternsRunStatus(
     response: ResponseContext,
   ): Promise<LLMObsPatternsRunStatusResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: LLMObsPatternsRunStatusResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -7464,7 +6989,10 @@ export class LLMObservabilityApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 500
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: JSONAPIErrorResponse;
       try {
         body = deserialize(
@@ -7485,7 +7013,10 @@ export class LLMObservabilityApiResponseProcessor {
       );
     }
     if (response.httpStatusCode === 429) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -7500,7 +7031,10 @@ export class LLMObservabilityApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -7531,7 +7065,9 @@ export class LLMObservabilityApiResponseProcessor {
   public async getLLMObsPrompt(
     response: ResponseContext,
   ): Promise<LLMObsPromptSDKResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: LLMObsPromptSDKResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -7545,7 +7081,10 @@ export class LLMObservabilityApiResponseProcessor {
       response.httpStatusCode === 403 ||
       response.httpStatusCode === 404
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: JSONAPIErrorResponse;
       try {
         body = deserialize(
@@ -7566,7 +7105,10 @@ export class LLMObservabilityApiResponseProcessor {
       );
     }
     if (response.httpStatusCode === 429) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -7581,7 +7123,10 @@ export class LLMObservabilityApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -7612,7 +7157,9 @@ export class LLMObservabilityApiResponseProcessor {
   public async getLLMObsPromptVersion(
     response: ResponseContext,
   ): Promise<LLMObsPromptVersionResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: LLMObsPromptVersionResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -7627,7 +7174,10 @@ export class LLMObservabilityApiResponseProcessor {
       response.httpStatusCode === 403 ||
       response.httpStatusCode === 404
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: JSONAPIErrorResponse;
       try {
         body = deserialize(
@@ -7648,7 +7198,10 @@ export class LLMObservabilityApiResponseProcessor {
       );
     }
     if (response.httpStatusCode === 429) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -7663,7 +7216,10 @@ export class LLMObservabilityApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -7694,7 +7250,9 @@ export class LLMObservabilityApiResponseProcessor {
   public async listLLMObsAnnotationQueues(
     response: ResponseContext,
   ): Promise<LLMObsAnnotationQueuesResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: LLMObsAnnotationQueuesResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -7708,7 +7266,10 @@ export class LLMObservabilityApiResponseProcessor {
       response.httpStatusCode === 401 ||
       response.httpStatusCode === 403
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: JSONAPIErrorResponse;
       try {
         body = deserialize(
@@ -7729,7 +7290,10 @@ export class LLMObservabilityApiResponseProcessor {
       );
     }
     if (response.httpStatusCode === 429) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -7744,7 +7308,10 @@ export class LLMObservabilityApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -7775,7 +7342,9 @@ export class LLMObservabilityApiResponseProcessor {
   public async listLLMObsDatasetRecords(
     response: ResponseContext,
   ): Promise<LLMObsDatasetRecordsListResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: LLMObsDatasetRecordsListResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -7790,7 +7359,10 @@ export class LLMObservabilityApiResponseProcessor {
       response.httpStatusCode === 403 ||
       response.httpStatusCode === 404
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: JSONAPIErrorResponse;
       try {
         body = deserialize(
@@ -7811,7 +7383,10 @@ export class LLMObservabilityApiResponseProcessor {
       );
     }
     if (response.httpStatusCode === 429) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -7826,7 +7401,10 @@ export class LLMObservabilityApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -7857,7 +7435,9 @@ export class LLMObservabilityApiResponseProcessor {
   public async listLLMObsDatasets(
     response: ResponseContext,
   ): Promise<LLMObsDatasetsResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: LLMObsDatasetsResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -7872,7 +7452,10 @@ export class LLMObservabilityApiResponseProcessor {
       response.httpStatusCode === 403 ||
       response.httpStatusCode === 404
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: JSONAPIErrorResponse;
       try {
         body = deserialize(
@@ -7893,7 +7476,10 @@ export class LLMObservabilityApiResponseProcessor {
       );
     }
     if (response.httpStatusCode === 429) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -7908,7 +7494,10 @@ export class LLMObservabilityApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -7939,7 +7528,9 @@ export class LLMObservabilityApiResponseProcessor {
   public async listLLMObsDatasetVersions(
     response: ResponseContext,
   ): Promise<LLMObsDatasetVersionsResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: LLMObsDatasetVersionsResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -7955,7 +7546,10 @@ export class LLMObservabilityApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 500
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: JSONAPIErrorResponse;
       try {
         body = deserialize(
@@ -7976,7 +7570,10 @@ export class LLMObservabilityApiResponseProcessor {
       );
     }
     if (response.httpStatusCode === 429) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -7991,7 +7588,10 @@ export class LLMObservabilityApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -8022,7 +7622,9 @@ export class LLMObservabilityApiResponseProcessor {
   public async listLLMObsExperimentEvents(
     response: ResponseContext,
   ): Promise<LLMObsExperimentEventsV2Response> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: LLMObsExperimentEventsV2Response = deserialize(
         parse(await response.body.text(), contentType),
@@ -8038,7 +7640,10 @@ export class LLMObservabilityApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 500
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: JSONAPIErrorResponse;
       try {
         body = deserialize(
@@ -8059,7 +7664,10 @@ export class LLMObservabilityApiResponseProcessor {
       );
     }
     if (response.httpStatusCode === 429) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -8074,7 +7682,10 @@ export class LLMObservabilityApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -8105,7 +7716,9 @@ export class LLMObservabilityApiResponseProcessor {
   public async listLLMObsExperimentEventsV1(
     response: ResponseContext,
   ): Promise<LLMObsExperimentSpansResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: LLMObsExperimentSpansResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -8121,7 +7734,10 @@ export class LLMObservabilityApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 500
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: JSONAPIErrorResponse;
       try {
         body = deserialize(
@@ -8142,7 +7758,10 @@ export class LLMObservabilityApiResponseProcessor {
       );
     }
     if (response.httpStatusCode === 429) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -8157,7 +7776,10 @@ export class LLMObservabilityApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -8188,7 +7810,9 @@ export class LLMObservabilityApiResponseProcessor {
   public async listLLMObsExperimentEventsV2(
     response: ResponseContext,
   ): Promise<LLMObsExperimentEventsV2Response> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: LLMObsExperimentEventsV2Response = deserialize(
         parse(await response.body.text(), contentType),
@@ -8204,7 +7828,10 @@ export class LLMObservabilityApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 500
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: JSONAPIErrorResponse;
       try {
         body = deserialize(
@@ -8225,7 +7852,10 @@ export class LLMObservabilityApiResponseProcessor {
       );
     }
     if (response.httpStatusCode === 429) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -8240,7 +7870,10 @@ export class LLMObservabilityApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -8271,7 +7904,9 @@ export class LLMObservabilityApiResponseProcessor {
   public async listLLMObsExperiments(
     response: ResponseContext,
   ): Promise<LLMObsExperimentsResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: LLMObsExperimentsResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -8285,7 +7920,10 @@ export class LLMObservabilityApiResponseProcessor {
       response.httpStatusCode === 401 ||
       response.httpStatusCode === 403
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: JSONAPIErrorResponse;
       try {
         body = deserialize(
@@ -8306,7 +7944,10 @@ export class LLMObservabilityApiResponseProcessor {
       );
     }
     if (response.httpStatusCode === 429) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -8321,7 +7962,10 @@ export class LLMObservabilityApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -8352,7 +7996,9 @@ export class LLMObservabilityApiResponseProcessor {
   public async listLLMObsIntegrationAccounts(
     response: ResponseContext,
   ): Promise<Array<LLMObsIntegrationAccount>> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: Array<LLMObsIntegrationAccount> = deserialize(
         parse(await response.body.text(), contentType),
@@ -8366,7 +8012,10 @@ export class LLMObservabilityApiResponseProcessor {
       response.httpStatusCode === 401 ||
       response.httpStatusCode === 403
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: JSONAPIErrorResponse;
       try {
         body = deserialize(
@@ -8387,7 +8036,10 @@ export class LLMObservabilityApiResponseProcessor {
       );
     }
     if (response.httpStatusCode === 429) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -8402,7 +8054,10 @@ export class LLMObservabilityApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -8433,7 +8088,9 @@ export class LLMObservabilityApiResponseProcessor {
   public async listLLMObsIntegrationModels(
     response: ResponseContext,
   ): Promise<Array<LLMObsIntegrationModel>> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: Array<LLMObsIntegrationModel> = deserialize(
         parse(await response.body.text(), contentType),
@@ -8447,7 +8104,10 @@ export class LLMObservabilityApiResponseProcessor {
       response.httpStatusCode === 401 ||
       response.httpStatusCode === 403
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: JSONAPIErrorResponse;
       try {
         body = deserialize(
@@ -8468,7 +8128,10 @@ export class LLMObservabilityApiResponseProcessor {
       );
     }
     if (response.httpStatusCode === 429) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -8483,7 +8146,10 @@ export class LLMObservabilityApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -8514,7 +8180,9 @@ export class LLMObservabilityApiResponseProcessor {
   public async listLLMObsPatternsClusteredPoints(
     response: ResponseContext,
   ): Promise<LLMObsPatternsClusteredPointsResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: LLMObsPatternsClusteredPointsResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -8530,7 +8198,10 @@ export class LLMObservabilityApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 500
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: JSONAPIErrorResponse;
       try {
         body = deserialize(
@@ -8551,7 +8222,10 @@ export class LLMObservabilityApiResponseProcessor {
       );
     }
     if (response.httpStatusCode === 429) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -8566,7 +8240,10 @@ export class LLMObservabilityApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -8597,7 +8274,9 @@ export class LLMObservabilityApiResponseProcessor {
   public async listLLMObsPatternsConfigs(
     response: ResponseContext,
   ): Promise<LLMObsPatternsConfigsResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: LLMObsPatternsConfigsResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -8612,7 +8291,10 @@ export class LLMObservabilityApiResponseProcessor {
       response.httpStatusCode === 403 ||
       response.httpStatusCode === 500
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: JSONAPIErrorResponse;
       try {
         body = deserialize(
@@ -8633,7 +8315,10 @@ export class LLMObservabilityApiResponseProcessor {
       );
     }
     if (response.httpStatusCode === 429) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -8648,7 +8333,10 @@ export class LLMObservabilityApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -8679,7 +8367,9 @@ export class LLMObservabilityApiResponseProcessor {
   public async listLLMObsPatternsRuns(
     response: ResponseContext,
   ): Promise<LLMObsPatternsRunsResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: LLMObsPatternsRunsResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -8695,7 +8385,10 @@ export class LLMObservabilityApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 500
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: JSONAPIErrorResponse;
       try {
         body = deserialize(
@@ -8716,7 +8409,10 @@ export class LLMObservabilityApiResponseProcessor {
       );
     }
     if (response.httpStatusCode === 429) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -8731,7 +8427,10 @@ export class LLMObservabilityApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -8762,7 +8461,9 @@ export class LLMObservabilityApiResponseProcessor {
   public async listLLMObsPatternsTopics(
     response: ResponseContext,
   ): Promise<LLMObsPatternsTopicsResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: LLMObsPatternsTopicsResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -8778,7 +8479,10 @@ export class LLMObservabilityApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 500
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: JSONAPIErrorResponse;
       try {
         body = deserialize(
@@ -8799,7 +8503,10 @@ export class LLMObservabilityApiResponseProcessor {
       );
     }
     if (response.httpStatusCode === 429) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -8814,7 +8521,10 @@ export class LLMObservabilityApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -8845,7 +8555,9 @@ export class LLMObservabilityApiResponseProcessor {
   public async listLLMObsPatternsTopicsWithClusteredPoints(
     response: ResponseContext,
   ): Promise<LLMObsPatternsTopicsWithClusteredPointsResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: LLMObsPatternsTopicsWithClusteredPointsResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -8861,7 +8573,10 @@ export class LLMObservabilityApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 500
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: JSONAPIErrorResponse;
       try {
         body = deserialize(
@@ -8882,7 +8597,10 @@ export class LLMObservabilityApiResponseProcessor {
       );
     }
     if (response.httpStatusCode === 429) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -8897,7 +8615,10 @@ export class LLMObservabilityApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -8928,7 +8649,9 @@ export class LLMObservabilityApiResponseProcessor {
   public async listLLMObsProjects(
     response: ResponseContext,
   ): Promise<LLMObsProjectsResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: LLMObsProjectsResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -8942,7 +8665,10 @@ export class LLMObservabilityApiResponseProcessor {
       response.httpStatusCode === 401 ||
       response.httpStatusCode === 403
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: JSONAPIErrorResponse;
       try {
         body = deserialize(
@@ -8963,7 +8689,10 @@ export class LLMObservabilityApiResponseProcessor {
       );
     }
     if (response.httpStatusCode === 429) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -8978,7 +8707,10 @@ export class LLMObservabilityApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -9009,7 +8741,9 @@ export class LLMObservabilityApiResponseProcessor {
   public async listLLMObsPrompts(
     response: ResponseContext,
   ): Promise<LLMObsPromptsResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: LLMObsPromptsResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -9018,8 +8752,14 @@ export class LLMObservabilityApiResponseProcessor {
       ) as LLMObsPromptsResponse;
       return body;
     }
-    if (response.httpStatusCode === 401 || response.httpStatusCode === 403) {
-      const bodyText = parse(await response.body.text(), contentType);
+    if (
+      response.httpStatusCode === 401 ||
+      response.httpStatusCode === 403
+    ) {
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: JSONAPIErrorResponse;
       try {
         body = deserialize(
@@ -9040,7 +8780,10 @@ export class LLMObservabilityApiResponseProcessor {
       );
     }
     if (response.httpStatusCode === 429) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -9055,7 +8798,10 @@ export class LLMObservabilityApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -9086,7 +8832,9 @@ export class LLMObservabilityApiResponseProcessor {
   public async listLLMObsPromptVersions(
     response: ResponseContext,
   ): Promise<LLMObsPromptVersionsResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: LLMObsPromptVersionsResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -9095,8 +8843,14 @@ export class LLMObservabilityApiResponseProcessor {
       ) as LLMObsPromptVersionsResponse;
       return body;
     }
-    if (response.httpStatusCode === 401 || response.httpStatusCode === 403) {
-      const bodyText = parse(await response.body.text(), contentType);
+    if (
+      response.httpStatusCode === 401 ||
+      response.httpStatusCode === 403
+    ) {
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: JSONAPIErrorResponse;
       try {
         body = deserialize(
@@ -9117,7 +8871,10 @@ export class LLMObservabilityApiResponseProcessor {
       );
     }
     if (response.httpStatusCode === 429) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -9132,7 +8889,10 @@ export class LLMObservabilityApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -9163,7 +8923,9 @@ export class LLMObservabilityApiResponseProcessor {
   public async listLLMObsSpans(
     response: ResponseContext,
   ): Promise<LLMObsSpansResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: LLMObsSpansResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -9177,7 +8939,10 @@ export class LLMObservabilityApiResponseProcessor {
       response.httpStatusCode === 401 ||
       response.httpStatusCode === 403
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: JSONAPIErrorResponse;
       try {
         body = deserialize(
@@ -9198,7 +8963,10 @@ export class LLMObservabilityApiResponseProcessor {
       );
     }
     if (response.httpStatusCode === 429) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -9213,7 +8981,10 @@ export class LLMObservabilityApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -9244,7 +9015,9 @@ export class LLMObservabilityApiResponseProcessor {
   public async lockLLMObsDatasetDraftState(
     response: ResponseContext,
   ): Promise<LLMObsDatasetDraftStateResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: LLMObsDatasetDraftStateResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -9260,7 +9033,10 @@ export class LLMObservabilityApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 500
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: JSONAPIErrorResponse;
       try {
         body = deserialize(
@@ -9281,7 +9057,10 @@ export class LLMObservabilityApiResponseProcessor {
       );
     }
     if (response.httpStatusCode === 429) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -9296,7 +9075,10 @@ export class LLMObservabilityApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -9327,7 +9109,9 @@ export class LLMObservabilityApiResponseProcessor {
   public async restoreLLMObsDatasetVersion(
     response: ResponseContext,
   ): Promise<void> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       return;
     }
@@ -9338,7 +9122,10 @@ export class LLMObservabilityApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 500
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: JSONAPIErrorResponse;
       try {
         body = deserialize(
@@ -9359,7 +9146,10 @@ export class LLMObservabilityApiResponseProcessor {
       );
     }
     if (response.httpStatusCode === 429) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -9374,7 +9164,10 @@ export class LLMObservabilityApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -9399,8 +9192,13 @@ export class LLMObservabilityApiResponseProcessor {
   public async searchLLMObsExperimentation(
     response: ResponseContext,
   ): Promise<LLMObsExperimentationSearchResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
-    if (response.httpStatusCode === 200 || response.httpStatusCode === 206) {
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
+    if (
+      response.httpStatusCode === 200 ||
+      response.httpStatusCode === 206
+    ) {
       const body: LLMObsExperimentationSearchResponse = deserialize(
         parse(await response.body.text(), contentType),
         TypingInfo,
@@ -9414,7 +9212,10 @@ export class LLMObservabilityApiResponseProcessor {
       response.httpStatusCode === 403 ||
       response.httpStatusCode === 500
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: JSONAPIErrorResponse;
       try {
         body = deserialize(
@@ -9435,7 +9236,10 @@ export class LLMObservabilityApiResponseProcessor {
       );
     }
     if (response.httpStatusCode === 429) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -9450,7 +9254,10 @@ export class LLMObservabilityApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -9481,7 +9288,9 @@ export class LLMObservabilityApiResponseProcessor {
   public async searchLLMObsSpans(
     response: ResponseContext,
   ): Promise<LLMObsSpansResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: LLMObsSpansResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -9495,7 +9304,10 @@ export class LLMObservabilityApiResponseProcessor {
       response.httpStatusCode === 401 ||
       response.httpStatusCode === 403
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: JSONAPIErrorResponse;
       try {
         body = deserialize(
@@ -9516,7 +9328,10 @@ export class LLMObservabilityApiResponseProcessor {
       );
     }
     if (response.httpStatusCode === 429) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -9531,7 +9346,10 @@ export class LLMObservabilityApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -9562,7 +9380,9 @@ export class LLMObservabilityApiResponseProcessor {
   public async simpleSearchLLMObsExperimentation(
     response: ResponseContext,
   ): Promise<LLMObsExperimentationSimpleSearchResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: LLMObsExperimentationSimpleSearchResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -9577,7 +9397,10 @@ export class LLMObservabilityApiResponseProcessor {
       response.httpStatusCode === 403 ||
       response.httpStatusCode === 500
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: JSONAPIErrorResponse;
       try {
         body = deserialize(
@@ -9598,7 +9421,10 @@ export class LLMObservabilityApiResponseProcessor {
       );
     }
     if (response.httpStatusCode === 429) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -9613,7 +9439,10 @@ export class LLMObservabilityApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -9644,7 +9473,9 @@ export class LLMObservabilityApiResponseProcessor {
   public async triggerLLMObsPatterns(
     response: ResponseContext,
   ): Promise<LLMObsPatternsTriggerResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 202) {
       const body: LLMObsPatternsTriggerResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -9660,7 +9491,10 @@ export class LLMObservabilityApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 500
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: JSONAPIErrorResponse;
       try {
         body = deserialize(
@@ -9681,7 +9515,10 @@ export class LLMObservabilityApiResponseProcessor {
       );
     }
     if (response.httpStatusCode === 429) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -9696,7 +9533,10 @@ export class LLMObservabilityApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -9727,7 +9567,9 @@ export class LLMObservabilityApiResponseProcessor {
   public async unlockLLMObsDatasetDraftState(
     response: ResponseContext,
   ): Promise<void> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       return;
     }
@@ -9738,7 +9580,10 @@ export class LLMObservabilityApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 500
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: JSONAPIErrorResponse;
       try {
         body = deserialize(
@@ -9759,7 +9604,10 @@ export class LLMObservabilityApiResponseProcessor {
       );
     }
     if (response.httpStatusCode === 429) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -9774,7 +9622,10 @@ export class LLMObservabilityApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -9799,7 +9650,9 @@ export class LLMObservabilityApiResponseProcessor {
   public async updateLLMObsAnnotationQueue(
     response: ResponseContext,
   ): Promise<LLMObsAnnotationQueueResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: LLMObsAnnotationQueueResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -9814,7 +9667,10 @@ export class LLMObservabilityApiResponseProcessor {
       response.httpStatusCode === 403 ||
       response.httpStatusCode === 404
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: JSONAPIErrorResponse;
       try {
         body = deserialize(
@@ -9835,7 +9691,10 @@ export class LLMObservabilityApiResponseProcessor {
       );
     }
     if (response.httpStatusCode === 429) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -9850,7 +9709,10 @@ export class LLMObservabilityApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -9881,7 +9743,9 @@ export class LLMObservabilityApiResponseProcessor {
   public async updateLLMObsAnnotationQueueLabelSchema(
     response: ResponseContext,
   ): Promise<LLMObsAnnotationQueueLabelSchemaResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: LLMObsAnnotationQueueLabelSchemaResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -9897,7 +9761,10 @@ export class LLMObservabilityApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 500
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: JSONAPIErrorResponse;
       try {
         body = deserialize(
@@ -9918,7 +9785,10 @@ export class LLMObservabilityApiResponseProcessor {
       );
     }
     if (response.httpStatusCode === 429) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -9933,7 +9803,10 @@ export class LLMObservabilityApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -9964,7 +9837,9 @@ export class LLMObservabilityApiResponseProcessor {
   public async updateLLMObsCustomEvalConfig(
     response: ResponseContext,
   ): Promise<void> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       return;
     }
@@ -9975,7 +9850,10 @@ export class LLMObservabilityApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 422
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: JSONAPIErrorResponse;
       try {
         body = deserialize(
@@ -9996,7 +9874,10 @@ export class LLMObservabilityApiResponseProcessor {
       );
     }
     if (response.httpStatusCode === 429) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -10011,7 +9892,10 @@ export class LLMObservabilityApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -10036,7 +9920,9 @@ export class LLMObservabilityApiResponseProcessor {
   public async updateLLMObsDataset(
     response: ResponseContext,
   ): Promise<LLMObsDatasetResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: LLMObsDatasetResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -10051,7 +9937,10 @@ export class LLMObservabilityApiResponseProcessor {
       response.httpStatusCode === 403 ||
       response.httpStatusCode === 404
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: JSONAPIErrorResponse;
       try {
         body = deserialize(
@@ -10072,7 +9961,10 @@ export class LLMObservabilityApiResponseProcessor {
       );
     }
     if (response.httpStatusCode === 429) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -10087,7 +9979,10 @@ export class LLMObservabilityApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -10118,7 +10013,9 @@ export class LLMObservabilityApiResponseProcessor {
   public async updateLLMObsDatasetRecords(
     response: ResponseContext,
   ): Promise<LLMObsDatasetRecordsMutationResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: LLMObsDatasetRecordsMutationResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -10133,7 +10030,10 @@ export class LLMObservabilityApiResponseProcessor {
       response.httpStatusCode === 403 ||
       response.httpStatusCode === 404
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: JSONAPIErrorResponse;
       try {
         body = deserialize(
@@ -10154,7 +10054,10 @@ export class LLMObservabilityApiResponseProcessor {
       );
     }
     if (response.httpStatusCode === 429) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -10169,7 +10072,10 @@ export class LLMObservabilityApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -10200,7 +10106,9 @@ export class LLMObservabilityApiResponseProcessor {
   public async updateLLMObsExperiment(
     response: ResponseContext,
   ): Promise<LLMObsExperimentResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: LLMObsExperimentResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -10215,7 +10123,10 @@ export class LLMObservabilityApiResponseProcessor {
       response.httpStatusCode === 403 ||
       response.httpStatusCode === 404
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: JSONAPIErrorResponse;
       try {
         body = deserialize(
@@ -10236,7 +10147,10 @@ export class LLMObservabilityApiResponseProcessor {
       );
     }
     if (response.httpStatusCode === 429) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -10251,7 +10165,10 @@ export class LLMObservabilityApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -10282,7 +10199,9 @@ export class LLMObservabilityApiResponseProcessor {
   public async updateLLMObsProject(
     response: ResponseContext,
   ): Promise<LLMObsProjectResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: LLMObsProjectResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -10297,7 +10216,10 @@ export class LLMObservabilityApiResponseProcessor {
       response.httpStatusCode === 403 ||
       response.httpStatusCode === 404
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: JSONAPIErrorResponse;
       try {
         body = deserialize(
@@ -10318,7 +10240,10 @@ export class LLMObservabilityApiResponseProcessor {
       );
     }
     if (response.httpStatusCode === 429) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -10333,7 +10258,10 @@ export class LLMObservabilityApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -10364,7 +10292,9 @@ export class LLMObservabilityApiResponseProcessor {
   public async updateLLMObsPrompt(
     response: ResponseContext,
   ): Promise<LLMObsPromptResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: LLMObsPromptResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -10379,7 +10309,10 @@ export class LLMObservabilityApiResponseProcessor {
       response.httpStatusCode === 403 ||
       response.httpStatusCode === 404
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: JSONAPIErrorResponse;
       try {
         body = deserialize(
@@ -10400,7 +10333,10 @@ export class LLMObservabilityApiResponseProcessor {
       );
     }
     if (response.httpStatusCode === 429) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -10415,7 +10351,10 @@ export class LLMObservabilityApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -10446,7 +10385,9 @@ export class LLMObservabilityApiResponseProcessor {
   public async updateLLMObsPromptVersion(
     response: ResponseContext,
   ): Promise<LLMObsPromptVersionResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: LLMObsPromptVersionResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -10461,7 +10402,10 @@ export class LLMObservabilityApiResponseProcessor {
       response.httpStatusCode === 403 ||
       response.httpStatusCode === 404
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: JSONAPIErrorResponse;
       try {
         body = deserialize(
@@ -10482,7 +10426,10 @@ export class LLMObservabilityApiResponseProcessor {
       );
     }
     if (response.httpStatusCode === 429) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -10497,7 +10444,10 @@ export class LLMObservabilityApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -10528,7 +10478,9 @@ export class LLMObservabilityApiResponseProcessor {
   public async uploadLLMObsDatasetRecordsFile(
     response: ResponseContext,
   ): Promise<void> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       return;
     }
@@ -10539,7 +10491,10 @@ export class LLMObservabilityApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 500
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: JSONAPIErrorResponse;
       try {
         body = deserialize(
@@ -10560,7 +10515,10 @@ export class LLMObservabilityApiResponseProcessor {
       );
     }
     if (response.httpStatusCode === 429) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -10575,7 +10533,10 @@ export class LLMObservabilityApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -10600,7 +10561,9 @@ export class LLMObservabilityApiResponseProcessor {
   public async upsertLLMObsAnnotations(
     response: ResponseContext,
   ): Promise<LLMObsAnnotationsResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: LLMObsAnnotationsResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -10615,7 +10578,10 @@ export class LLMObservabilityApiResponseProcessor {
       response.httpStatusCode === 403 ||
       response.httpStatusCode === 404
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: JSONAPIErrorResponse;
       try {
         body = deserialize(
@@ -10636,7 +10602,10 @@ export class LLMObservabilityApiResponseProcessor {
       );
     }
     if (response.httpStatusCode === 429) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -10651,7 +10620,10 @@ export class LLMObservabilityApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -10682,7 +10654,9 @@ export class LLMObservabilityApiResponseProcessor {
   public async upsertLLMObsPatternsConfig(
     response: ResponseContext,
   ): Promise<LLMObsPatternsConfigResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: LLMObsPatternsConfigResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -10698,7 +10672,10 @@ export class LLMObservabilityApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 500
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: JSONAPIErrorResponse;
       try {
         body = deserialize(
@@ -10719,7 +10696,10 @@ export class LLMObservabilityApiResponseProcessor {
       );
     }
     if (response.httpStatusCode === 429) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -10734,7 +10714,10 @@ export class LLMObservabilityApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -11780,7 +11763,8 @@ export class LLMObservabilityApi {
   private responseProcessor: LLMObservabilityApiResponseProcessor;
   private configuration: Configuration;
 
-  static operationServers: { [key: string]: BaseServerConfiguration[] } = {};
+  static operationServers: { [key: string]: BaseServerConfiguration[] } = {
+  };
 
   public constructor(
     configuration?: Configuration,
@@ -11798,7 +11782,7 @@ export class LLMObservabilityApi {
   /**
    * Execute an analytics aggregation over LLM Observability experimentation data.
    * Use this endpoint to compute metrics (for example average eval scores) grouped by fields such as `span_id` or `experiment_id`.
-   *
+   * 
    * At least one `compute` definition and one `index` must be provided.
    * @param param The request object
    */
@@ -11806,15 +11790,15 @@ export class LLMObservabilityApi {
     param: LLMObservabilityApiAggregateLLMObsExperimentationRequest,
     options?: Configuration,
   ): Promise<LLMObsExperimentationAnalyticsResponse> {
-    const requestContextPromise =
-      this.requestFactory.aggregateLLMObsExperimentation(param.body, options);
+    const requestContextPromise = this.requestFactory.aggregateLLMObsExperimentation(
+      param.body,
+      options,
+    );
     return requestContextPromise.then((requestContext) => {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.aggregateLLMObsExperimentation(
-            responseContext,
-          );
+          return this.responseProcessor.aggregateLLMObsExperimentation(responseContext);
         });
     });
   }
@@ -11837,9 +11821,7 @@ export class LLMObservabilityApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.batchUpdateLLMObsDataset(
-            responseContext,
-          );
+          return this.responseProcessor.batchUpdateLLMObsDataset(responseContext);
         });
     });
   }
@@ -11878,15 +11860,15 @@ export class LLMObservabilityApi {
     param: LLMObservabilityApiCreateLLMObsAnnotationQueueRequest,
     options?: Configuration,
   ): Promise<LLMObsAnnotationQueueResponse> {
-    const requestContextPromise =
-      this.requestFactory.createLLMObsAnnotationQueue(param.body, options);
+    const requestContextPromise = this.requestFactory.createLLMObsAnnotationQueue(
+      param.body,
+      options,
+    );
     return requestContextPromise.then((requestContext) => {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.createLLMObsAnnotationQueue(
-            responseContext,
-          );
+          return this.responseProcessor.createLLMObsAnnotationQueue(responseContext);
         });
     });
   }
@@ -11894,13 +11876,13 @@ export class LLMObservabilityApi {
   /**
    * Add one or more interactions to an annotation queue. At least one
    * interaction must be provided. Each interaction has a `type`:
-   *
+   * 
    * - `trace`, `experiment_trace`, `session`: `content_id` references the
    *   upstream entity; the server fetches the actual content.
    * - `display_block`: omit `content_id` and provide the rendered content
    *   in `display_block`. The server generates `content_id` as a
    *   deterministic hash of the block list.
-   *
+   * 
    * Items of different types can be mixed in a single request.
    * @param param The request object
    */
@@ -11908,19 +11890,16 @@ export class LLMObservabilityApi {
     param: LLMObservabilityApiCreateLLMObsAnnotationQueueInteractionsRequest,
     options?: Configuration,
   ): Promise<LLMObsAnnotationQueueInteractionsResponse> {
-    const requestContextPromise =
-      this.requestFactory.createLLMObsAnnotationQueueInteractions(
-        param.queueId,
-        param.body,
-        options,
-      );
+    const requestContextPromise = this.requestFactory.createLLMObsAnnotationQueueInteractions(
+      param.queueId,
+      param.body,
+      options,
+    );
     return requestContextPromise.then((requestContext) => {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.createLLMObsAnnotationQueueInteractions(
-            responseContext,
-          );
+          return this.responseProcessor.createLLMObsAnnotationQueueInteractions(responseContext);
         });
     });
   }
@@ -11955,20 +11934,17 @@ export class LLMObservabilityApi {
     param: LLMObservabilityApiCreateLLMObsDatasetRecordsRequest,
     options?: Configuration,
   ): Promise<LLMObsDatasetRecordsMutationResponse> {
-    const requestContextPromise =
-      this.requestFactory.createLLMObsDatasetRecords(
-        param.projectId,
-        param.datasetId,
-        param.body,
-        options,
-      );
+    const requestContextPromise = this.requestFactory.createLLMObsDatasetRecords(
+      param.projectId,
+      param.datasetId,
+      param.body,
+      options,
+    );
     return requestContextPromise.then((requestContext) => {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.createLLMObsDatasetRecords(
-            responseContext,
-          );
+          return this.responseProcessor.createLLMObsDatasetRecords(responseContext);
         });
     });
   }
@@ -12002,19 +11978,16 @@ export class LLMObservabilityApi {
     param: LLMObservabilityApiCreateLLMObsExperimentEventsRequest,
     options?: Configuration,
   ): Promise<void> {
-    const requestContextPromise =
-      this.requestFactory.createLLMObsExperimentEvents(
-        param.experimentId,
-        param.body,
-        options,
-      );
+    const requestContextPromise = this.requestFactory.createLLMObsExperimentEvents(
+      param.experimentId,
+      param.body,
+      options,
+    );
     return requestContextPromise.then((requestContext) => {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.createLLMObsExperimentEvents(
-            responseContext,
-          );
+          return this.responseProcessor.createLLMObsExperimentEvents(responseContext);
         });
     });
   }
@@ -12027,20 +12000,17 @@ export class LLMObservabilityApi {
     param: LLMObservabilityApiCreateLLMObsIntegrationInferenceRequest,
     options?: Configuration,
   ): Promise<LLMObsIntegrationInferenceResponse> {
-    const requestContextPromise =
-      this.requestFactory.createLLMObsIntegrationInference(
-        param.integration,
-        param.accountId,
-        param.body,
-        options,
-      );
+    const requestContextPromise = this.requestFactory.createLLMObsIntegrationInference(
+      param.integration,
+      param.accountId,
+      param.body,
+      options,
+    );
     return requestContextPromise.then((requestContext) => {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.createLLMObsIntegrationInference(
-            responseContext,
-          );
+          return this.responseProcessor.createLLMObsIntegrationInference(responseContext);
         });
     });
   }
@@ -12104,9 +12074,7 @@ export class LLMObservabilityApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.createLLMObsPromptVersion(
-            responseContext,
-          );
+          return this.responseProcessor.createLLMObsPromptVersion(responseContext);
         });
     });
   }
@@ -12119,15 +12087,15 @@ export class LLMObservabilityApi {
     param: LLMObservabilityApiDeleteLLMObsAnnotationQueueRequest,
     options?: Configuration,
   ): Promise<void> {
-    const requestContextPromise =
-      this.requestFactory.deleteLLMObsAnnotationQueue(param.queueId, options);
+    const requestContextPromise = this.requestFactory.deleteLLMObsAnnotationQueue(
+      param.queueId,
+      options,
+    );
     return requestContextPromise.then((requestContext) => {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.deleteLLMObsAnnotationQueue(
-            responseContext,
-          );
+          return this.responseProcessor.deleteLLMObsAnnotationQueue(responseContext);
         });
     });
   }
@@ -12140,19 +12108,16 @@ export class LLMObservabilityApi {
     param: LLMObservabilityApiDeleteLLMObsAnnotationQueueInteractionsRequest,
     options?: Configuration,
   ): Promise<void> {
-    const requestContextPromise =
-      this.requestFactory.deleteLLMObsAnnotationQueueInteractions(
-        param.queueId,
-        param.body,
-        options,
-      );
+    const requestContextPromise = this.requestFactory.deleteLLMObsAnnotationQueueInteractions(
+      param.queueId,
+      param.body,
+      options,
+    );
     return requestContextPromise.then((requestContext) => {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.deleteLLMObsAnnotationQueueInteractions(
-            responseContext,
-          );
+          return this.responseProcessor.deleteLLMObsAnnotationQueueInteractions(responseContext);
         });
     });
   }
@@ -12174,9 +12139,7 @@ export class LLMObservabilityApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.deleteLLMObsAnnotations(
-            responseContext,
-          );
+          return this.responseProcessor.deleteLLMObsAnnotations(responseContext);
         });
     });
   }
@@ -12189,15 +12152,15 @@ export class LLMObservabilityApi {
     param: LLMObservabilityApiDeleteLLMObsCustomEvalConfigRequest,
     options?: Configuration,
   ): Promise<void> {
-    const requestContextPromise =
-      this.requestFactory.deleteLLMObsCustomEvalConfig(param.evalName, options);
+    const requestContextPromise = this.requestFactory.deleteLLMObsCustomEvalConfig(
+      param.evalName,
+      options,
+    );
     return requestContextPromise.then((requestContext) => {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.deleteLLMObsCustomEvalConfig(
-            responseContext,
-          );
+          return this.responseProcessor.deleteLLMObsCustomEvalConfig(responseContext);
         });
     });
   }
@@ -12231,20 +12194,17 @@ export class LLMObservabilityApi {
     param: LLMObservabilityApiDeleteLLMObsDatasetRecordsRequest,
     options?: Configuration,
   ): Promise<void> {
-    const requestContextPromise =
-      this.requestFactory.deleteLLMObsDatasetRecords(
-        param.projectId,
-        param.datasetId,
-        param.body,
-        options,
-      );
+    const requestContextPromise = this.requestFactory.deleteLLMObsDatasetRecords(
+      param.projectId,
+      param.datasetId,
+      param.body,
+      options,
+    );
     return requestContextPromise.then((requestContext) => {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.deleteLLMObsDatasetRecords(
-            responseContext,
-          );
+          return this.responseProcessor.deleteLLMObsDatasetRecords(responseContext);
         });
     });
   }
@@ -12287,9 +12247,7 @@ export class LLMObservabilityApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.deleteLLMObsExperiments(
-            responseContext,
-          );
+          return this.responseProcessor.deleteLLMObsExperiments(responseContext);
         });
     });
   }
@@ -12302,15 +12260,15 @@ export class LLMObservabilityApi {
     param: LLMObservabilityApiDeleteLLMObsPatternsConfigRequest,
     options?: Configuration,
   ): Promise<void> {
-    const requestContextPromise =
-      this.requestFactory.deleteLLMObsPatternsConfig(param.configId, options);
+    const requestContextPromise = this.requestFactory.deleteLLMObsPatternsConfig(
+      param.configId,
+      options,
+    );
     return requestContextPromise.then((requestContext) => {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.deleteLLMObsPatternsConfig(
-            responseContext,
-          );
+          return this.responseProcessor.deleteLLMObsPatternsConfig(responseContext);
         });
     });
   }
@@ -12389,18 +12347,15 @@ export class LLMObservabilityApi {
     param: LLMObservabilityApiGetLLMObsAnnotatedInteractionsRequest,
     options?: Configuration,
   ): Promise<LLMObsAnnotatedInteractionsResponse> {
-    const requestContextPromise =
-      this.requestFactory.getLLMObsAnnotatedInteractions(
-        param.queueId,
-        options,
-      );
+    const requestContextPromise = this.requestFactory.getLLMObsAnnotatedInteractions(
+      param.queueId,
+      options,
+    );
     return requestContextPromise.then((requestContext) => {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.getLLMObsAnnotatedInteractions(
-            responseContext,
-          );
+          return this.responseProcessor.getLLMObsAnnotatedInteractions(responseContext);
         });
     });
   }
@@ -12414,20 +12369,17 @@ export class LLMObservabilityApi {
     param: LLMObservabilityApiGetLLMObsAnnotatedInteractionsByTraceIDsRequest,
     options?: Configuration,
   ): Promise<LLMObsAnnotatedInteractionsByTraceResponse> {
-    const requestContextPromise =
-      this.requestFactory.getLLMObsAnnotatedInteractionsByTraceIDs(
-        param.contentIds,
-        param.offset,
-        param.limit,
-        options,
-      );
+    const requestContextPromise = this.requestFactory.getLLMObsAnnotatedInteractionsByTraceIDs(
+      param.contentIds,
+      param.offset,
+      param.limit,
+      options,
+    );
     return requestContextPromise.then((requestContext) => {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.getLLMObsAnnotatedInteractionsByTraceIDs(
-            responseContext,
-          );
+          return this.responseProcessor.getLLMObsAnnotatedInteractionsByTraceIDs(responseContext);
         });
     });
   }
@@ -12440,18 +12392,15 @@ export class LLMObservabilityApi {
     param: LLMObservabilityApiGetLLMObsAnnotationQueueLabelSchemaRequest,
     options?: Configuration,
   ): Promise<LLMObsAnnotationQueueLabelSchemaResponse> {
-    const requestContextPromise =
-      this.requestFactory.getLLMObsAnnotationQueueLabelSchema(
-        param.queueId,
-        options,
-      );
+    const requestContextPromise = this.requestFactory.getLLMObsAnnotationQueueLabelSchema(
+      param.queueId,
+      options,
+    );
     return requestContextPromise.then((requestContext) => {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.getLLMObsAnnotationQueueLabelSchema(
-            responseContext,
-          );
+          return this.responseProcessor.getLLMObsAnnotationQueueLabelSchema(responseContext);
         });
     });
   }
@@ -12472,9 +12421,7 @@ export class LLMObservabilityApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.getLLMObsCustomEvalConfig(
-            responseContext,
-          );
+          return this.responseProcessor.getLLMObsCustomEvalConfig(responseContext);
         });
     });
   }
@@ -12487,19 +12434,16 @@ export class LLMObservabilityApi {
     param: LLMObservabilityApiGetLLMObsDatasetDraftStateRequest,
     options?: Configuration,
   ): Promise<LLMObsDatasetDraftStateResponse> {
-    const requestContextPromise =
-      this.requestFactory.getLLMObsDatasetDraftState(
-        param.projectId,
-        param.datasetId,
-        options,
-      );
+    const requestContextPromise = this.requestFactory.getLLMObsDatasetDraftState(
+      param.projectId,
+      param.datasetId,
+      options,
+    );
     return requestContextPromise.then((requestContext) => {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.getLLMObsDatasetDraftState(
-            responseContext,
-          );
+          return this.responseProcessor.getLLMObsDatasetDraftState(responseContext);
         });
     });
   }
@@ -12508,18 +12452,16 @@ export class LLMObservabilityApi {
    * Retrieve the patterns configuration for the organization.
    * @param param The request object
    */
-  public getLLMObsPatternsConfig(
-    options?: Configuration,
+  public getLLMObsPatternsConfig(options?: Configuration,
   ): Promise<LLMObsPatternsConfigResponse> {
-    const requestContextPromise =
-      this.requestFactory.getLLMObsPatternsConfig(options);
+    const requestContextPromise = this.requestFactory.getLLMObsPatternsConfig(
+      options,
+    );
     return requestContextPromise.then((requestContext) => {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.getLLMObsPatternsConfig(
-            responseContext,
-          );
+          return this.responseProcessor.getLLMObsPatternsConfig(responseContext);
         });
     });
   }
@@ -12533,15 +12475,15 @@ export class LLMObservabilityApi {
     param: LLMObservabilityApiGetLLMObsPatternsRunStatusRequest,
     options?: Configuration,
   ): Promise<LLMObsPatternsRunStatusResponse> {
-    const requestContextPromise =
-      this.requestFactory.getLLMObsPatternsRunStatus(param.configId, options);
+    const requestContextPromise = this.requestFactory.getLLMObsPatternsRunStatus(
+      param.configId,
+      options,
+    );
     return requestContextPromise.then((requestContext) => {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.getLLMObsPatternsRunStatus(
-            responseContext,
-          );
+          return this.responseProcessor.getLLMObsPatternsRunStatus(responseContext);
         });
     });
   }
@@ -12599,19 +12541,16 @@ export class LLMObservabilityApi {
     param: LLMObservabilityApiListLLMObsAnnotationQueuesRequest = {},
     options?: Configuration,
   ): Promise<LLMObsAnnotationQueuesResponse> {
-    const requestContextPromise =
-      this.requestFactory.listLLMObsAnnotationQueues(
-        param.projectId,
-        param.queueIds,
-        options,
-      );
+    const requestContextPromise = this.requestFactory.listLLMObsAnnotationQueues(
+      param.projectId,
+      param.queueIds,
+      options,
+    );
     return requestContextPromise.then((requestContext) => {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.listLLMObsAnnotationQueues(
-            responseContext,
-          );
+          return this.responseProcessor.listLLMObsAnnotationQueues(responseContext);
         });
     });
   }
@@ -12636,9 +12575,7 @@ export class LLMObservabilityApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.listLLMObsDatasetRecords(
-            responseContext,
-          );
+          return this.responseProcessor.listLLMObsDatasetRecords(responseContext);
         });
     });
   }
@@ -12685,9 +12622,7 @@ export class LLMObservabilityApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.listLLMObsDatasetVersions(
-            responseContext,
-          );
+          return this.responseProcessor.listLLMObsDatasetVersions(responseContext);
         });
     });
   }
@@ -12700,20 +12635,17 @@ export class LLMObservabilityApi {
     param: LLMObservabilityApiListLLMObsExperimentEventsRequest,
     options?: Configuration,
   ): Promise<LLMObsExperimentEventsV2Response> {
-    const requestContextPromise =
-      this.requestFactory.listLLMObsExperimentEvents(
-        param.experimentId,
-        param.pageLimit,
-        param.pageCursor,
-        options,
-      );
+    const requestContextPromise = this.requestFactory.listLLMObsExperimentEvents(
+      param.experimentId,
+      param.pageLimit,
+      param.pageCursor,
+      options,
+    );
     return requestContextPromise.then((requestContext) => {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.listLLMObsExperimentEvents(
-            responseContext,
-          );
+          return this.responseProcessor.listLLMObsExperimentEvents(responseContext);
         });
     });
   }
@@ -12726,18 +12658,15 @@ export class LLMObservabilityApi {
     param: LLMObservabilityApiListLLMObsExperimentEventsV1Request,
     options?: Configuration,
   ): Promise<LLMObsExperimentSpansResponse> {
-    const requestContextPromise =
-      this.requestFactory.listLLMObsExperimentEventsV1(
-        param.experimentId,
-        options,
-      );
+    const requestContextPromise = this.requestFactory.listLLMObsExperimentEventsV1(
+      param.experimentId,
+      options,
+    );
     return requestContextPromise.then((requestContext) => {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.listLLMObsExperimentEventsV1(
-            responseContext,
-          );
+          return this.responseProcessor.listLLMObsExperimentEventsV1(responseContext);
         });
     });
   }
@@ -12750,18 +12679,15 @@ export class LLMObservabilityApi {
     param: LLMObservabilityApiListLLMObsExperimentEventsV2Request,
     options?: Configuration,
   ): Promise<LLMObsExperimentEventsV2Response> {
-    const requestContextPromise =
-      this.requestFactory.listLLMObsExperimentEventsV2(
-        param.experimentId,
-        options,
-      );
+    const requestContextPromise = this.requestFactory.listLLMObsExperimentEventsV2(
+      param.experimentId,
+      options,
+    );
     return requestContextPromise.then((requestContext) => {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.listLLMObsExperimentEventsV2(
-            responseContext,
-          );
+          return this.responseProcessor.listLLMObsExperimentEventsV2(responseContext);
         });
     });
   }
@@ -12806,18 +12732,15 @@ export class LLMObservabilityApi {
     param: LLMObservabilityApiListLLMObsIntegrationAccountsRequest,
     options?: Configuration,
   ): Promise<Array<LLMObsIntegrationAccount>> {
-    const requestContextPromise =
-      this.requestFactory.listLLMObsIntegrationAccounts(
-        param.integration,
-        options,
-      );
+    const requestContextPromise = this.requestFactory.listLLMObsIntegrationAccounts(
+      param.integration,
+      options,
+    );
     return requestContextPromise.then((requestContext) => {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.listLLMObsIntegrationAccounts(
-            responseContext,
-          );
+          return this.responseProcessor.listLLMObsIntegrationAccounts(responseContext);
         });
     });
   }
@@ -12830,19 +12753,16 @@ export class LLMObservabilityApi {
     param: LLMObservabilityApiListLLMObsIntegrationModelsRequest,
     options?: Configuration,
   ): Promise<Array<LLMObsIntegrationModel>> {
-    const requestContextPromise =
-      this.requestFactory.listLLMObsIntegrationModels(
-        param.integration,
-        param.accountId,
-        options,
-      );
+    const requestContextPromise = this.requestFactory.listLLMObsIntegrationModels(
+      param.integration,
+      param.accountId,
+      options,
+    );
     return requestContextPromise.then((requestContext) => {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.listLLMObsIntegrationModels(
-            responseContext,
-          );
+          return this.responseProcessor.listLLMObsIntegrationModels(responseContext);
         });
     });
   }
@@ -12856,20 +12776,17 @@ export class LLMObservabilityApi {
     param: LLMObservabilityApiListLLMObsPatternsClusteredPointsRequest,
     options?: Configuration,
   ): Promise<LLMObsPatternsClusteredPointsResponse> {
-    const requestContextPromise =
-      this.requestFactory.listLLMObsPatternsClusteredPoints(
-        param.topicId,
-        param.pageSize,
-        param.pageToken,
-        options,
-      );
+    const requestContextPromise = this.requestFactory.listLLMObsPatternsClusteredPoints(
+      param.topicId,
+      param.pageSize,
+      param.pageToken,
+      options,
+    );
     return requestContextPromise.then((requestContext) => {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.listLLMObsPatternsClusteredPoints(
-            responseContext,
-          );
+          return this.responseProcessor.listLLMObsPatternsClusteredPoints(responseContext);
         });
     });
   }
@@ -12878,18 +12795,16 @@ export class LLMObservabilityApi {
    * List all patterns configurations for the organization.
    * @param param The request object
    */
-  public listLLMObsPatternsConfigs(
-    options?: Configuration,
+  public listLLMObsPatternsConfigs(options?: Configuration,
   ): Promise<LLMObsPatternsConfigsResponse> {
-    const requestContextPromise =
-      this.requestFactory.listLLMObsPatternsConfigs(options);
+    const requestContextPromise = this.requestFactory.listLLMObsPatternsConfigs(
+      options,
+    );
     return requestContextPromise.then((requestContext) => {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.listLLMObsPatternsConfigs(
-            responseContext,
-          );
+          return this.responseProcessor.listLLMObsPatternsConfigs(responseContext);
         });
     });
   }
@@ -12933,9 +12848,7 @@ export class LLMObservabilityApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.listLLMObsPatternsTopics(
-            responseContext,
-          );
+          return this.responseProcessor.listLLMObsPatternsTopics(responseContext);
         });
     });
   }
@@ -12950,20 +12863,17 @@ export class LLMObservabilityApi {
     param: LLMObservabilityApiListLLMObsPatternsTopicsWithClusteredPointsRequest,
     options?: Configuration,
   ): Promise<LLMObsPatternsTopicsWithClusteredPointsResponse> {
-    const requestContextPromise =
-      this.requestFactory.listLLMObsPatternsTopicsWithClusteredPoints(
-        param.configId,
-        param.runId,
-        param.includeMetrics,
-        options,
-      );
+    const requestContextPromise = this.requestFactory.listLLMObsPatternsTopicsWithClusteredPoints(
+      param.configId,
+      param.runId,
+      param.includeMetrics,
+      options,
+    );
     return requestContextPromise.then((requestContext) => {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.listLLMObsPatternsTopicsWithClusteredPoints(
-            responseContext,
-          );
+          return this.responseProcessor.listLLMObsPatternsTopicsWithClusteredPoints(responseContext);
         });
     });
   }
@@ -13029,9 +12939,7 @@ export class LLMObservabilityApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.listLLMObsPromptVersions(
-            responseContext,
-          );
+          return this.responseProcessor.listLLMObsPromptVersions(responseContext);
         });
     });
   }
@@ -13076,19 +12984,16 @@ export class LLMObservabilityApi {
     param: LLMObservabilityApiLockLLMObsDatasetDraftStateRequest,
     options?: Configuration,
   ): Promise<LLMObsDatasetDraftStateResponse> {
-    const requestContextPromise =
-      this.requestFactory.lockLLMObsDatasetDraftState(
-        param.projectId,
-        param.datasetId,
-        options,
-      );
+    const requestContextPromise = this.requestFactory.lockLLMObsDatasetDraftState(
+      param.projectId,
+      param.datasetId,
+      options,
+    );
     return requestContextPromise.then((requestContext) => {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.lockLLMObsDatasetDraftState(
-            responseContext,
-          );
+          return this.responseProcessor.lockLLMObsDatasetDraftState(responseContext);
         });
     });
   }
@@ -13101,29 +13006,26 @@ export class LLMObservabilityApi {
     param: LLMObservabilityApiRestoreLLMObsDatasetVersionRequest,
     options?: Configuration,
   ): Promise<void> {
-    const requestContextPromise =
-      this.requestFactory.restoreLLMObsDatasetVersion(
-        param.projectId,
-        param.datasetId,
-        param.body,
-        options,
-      );
+    const requestContextPromise = this.requestFactory.restoreLLMObsDatasetVersion(
+      param.projectId,
+      param.datasetId,
+      param.body,
+      options,
+    );
     return requestContextPromise.then((requestContext) => {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.restoreLLMObsDatasetVersion(
-            responseContext,
-          );
+          return this.responseProcessor.restoreLLMObsDatasetVersion(responseContext);
         });
     });
   }
 
   /**
    * Search across LLM Observability experimentation entities — projects, datasets, dataset records, experiments, and experiment runs — using cursor-based pagination.
-   *
+   * 
    * The `filter.scope` field controls which entity types are returned. At least one valid scope must be provided.
-   *
+   * 
    * Returns `200 OK` when all results fit in a single page. Returns `206 Partial Content` with a cursor in `meta.after` when additional pages are available.
    * @param param The request object
    */
@@ -13131,15 +13033,15 @@ export class LLMObservabilityApi {
     param: LLMObservabilityApiSearchLLMObsExperimentationRequest,
     options?: Configuration,
   ): Promise<LLMObsExperimentationSearchResponse> {
-    const requestContextPromise =
-      this.requestFactory.searchLLMObsExperimentation(param.body, options);
+    const requestContextPromise = this.requestFactory.searchLLMObsExperimentation(
+      param.body,
+      options,
+    );
     return requestContextPromise.then((requestContext) => {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.searchLLMObsExperimentation(
-            responseContext,
-          );
+          return this.responseProcessor.searchLLMObsExperimentation(responseContext);
         });
     });
   }
@@ -13168,7 +13070,7 @@ export class LLMObservabilityApi {
   /**
    * Search across LLM Observability experimentation entities using offset-based (page-number) pagination.
    * Use this endpoint when you need total page count or want to navigate to a specific page number.
-   *
+   * 
    * The `filter.scope` field controls which entity types are returned. At least one valid scope must be provided.
    * @param param The request object
    */
@@ -13176,18 +13078,15 @@ export class LLMObservabilityApi {
     param: LLMObservabilityApiSimpleSearchLLMObsExperimentationRequest,
     options?: Configuration,
   ): Promise<LLMObsExperimentationSimpleSearchResponse> {
-    const requestContextPromise =
-      this.requestFactory.simpleSearchLLMObsExperimentation(
-        param.body,
-        options,
-      );
+    const requestContextPromise = this.requestFactory.simpleSearchLLMObsExperimentation(
+      param.body,
+      options,
+    );
     return requestContextPromise.then((requestContext) => {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.simpleSearchLLMObsExperimentation(
-            responseContext,
-          );
+          return this.responseProcessor.simpleSearchLLMObsExperimentation(responseContext);
         });
     });
   }
@@ -13221,19 +13120,16 @@ export class LLMObservabilityApi {
     param: LLMObservabilityApiUnlockLLMObsDatasetDraftStateRequest,
     options?: Configuration,
   ): Promise<void> {
-    const requestContextPromise =
-      this.requestFactory.unlockLLMObsDatasetDraftState(
-        param.projectId,
-        param.datasetId,
-        options,
-      );
+    const requestContextPromise = this.requestFactory.unlockLLMObsDatasetDraftState(
+      param.projectId,
+      param.datasetId,
+      options,
+    );
     return requestContextPromise.then((requestContext) => {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.unlockLLMObsDatasetDraftState(
-            responseContext,
-          );
+          return this.responseProcessor.unlockLLMObsDatasetDraftState(responseContext);
         });
     });
   }
@@ -13246,19 +13142,16 @@ export class LLMObservabilityApi {
     param: LLMObservabilityApiUpdateLLMObsAnnotationQueueRequest,
     options?: Configuration,
   ): Promise<LLMObsAnnotationQueueResponse> {
-    const requestContextPromise =
-      this.requestFactory.updateLLMObsAnnotationQueue(
-        param.queueId,
-        param.body,
-        options,
-      );
+    const requestContextPromise = this.requestFactory.updateLLMObsAnnotationQueue(
+      param.queueId,
+      param.body,
+      options,
+    );
     return requestContextPromise.then((requestContext) => {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.updateLLMObsAnnotationQueue(
-            responseContext,
-          );
+          return this.responseProcessor.updateLLMObsAnnotationQueue(responseContext);
         });
     });
   }
@@ -13274,19 +13167,16 @@ export class LLMObservabilityApi {
     param: LLMObservabilityApiUpdateLLMObsAnnotationQueueLabelSchemaRequest,
     options?: Configuration,
   ): Promise<LLMObsAnnotationQueueLabelSchemaResponse> {
-    const requestContextPromise =
-      this.requestFactory.updateLLMObsAnnotationQueueLabelSchema(
-        param.queueId,
-        param.body,
-        options,
-      );
+    const requestContextPromise = this.requestFactory.updateLLMObsAnnotationQueueLabelSchema(
+      param.queueId,
+      param.body,
+      options,
+    );
     return requestContextPromise.then((requestContext) => {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.updateLLMObsAnnotationQueueLabelSchema(
-            responseContext,
-          );
+          return this.responseProcessor.updateLLMObsAnnotationQueueLabelSchema(responseContext);
         });
     });
   }
@@ -13299,19 +13189,16 @@ export class LLMObservabilityApi {
     param: LLMObservabilityApiUpdateLLMObsCustomEvalConfigRequest,
     options?: Configuration,
   ): Promise<void> {
-    const requestContextPromise =
-      this.requestFactory.updateLLMObsCustomEvalConfig(
-        param.evalName,
-        param.body,
-        options,
-      );
+    const requestContextPromise = this.requestFactory.updateLLMObsCustomEvalConfig(
+      param.evalName,
+      param.body,
+      options,
+    );
     return requestContextPromise.then((requestContext) => {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.updateLLMObsCustomEvalConfig(
-            responseContext,
-          );
+          return this.responseProcessor.updateLLMObsCustomEvalConfig(responseContext);
         });
     });
   }
@@ -13347,20 +13234,17 @@ export class LLMObservabilityApi {
     param: LLMObservabilityApiUpdateLLMObsDatasetRecordsRequest,
     options?: Configuration,
   ): Promise<LLMObsDatasetRecordsMutationResponse> {
-    const requestContextPromise =
-      this.requestFactory.updateLLMObsDatasetRecords(
-        param.projectId,
-        param.datasetId,
-        param.body,
-        options,
-      );
+    const requestContextPromise = this.requestFactory.updateLLMObsDatasetRecords(
+      param.projectId,
+      param.datasetId,
+      param.body,
+      options,
+    );
     return requestContextPromise.then((requestContext) => {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.updateLLMObsDatasetRecords(
-            responseContext,
-          );
+          return this.responseProcessor.updateLLMObsDatasetRecords(responseContext);
         });
     });
   }
@@ -13449,9 +13333,7 @@ export class LLMObservabilityApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.updateLLMObsPromptVersion(
-            responseContext,
-          );
+          return this.responseProcessor.updateLLMObsPromptVersion(responseContext);
         });
     });
   }
@@ -13459,7 +13341,7 @@ export class LLMObservabilityApi {
   /**
    * Upload records to a dataset from a file. The request is a `multipart/form-data` upload containing a single `file` part.
    * Currently only CSV is supported. The CSV must include an `input` column. Optional columns are `id`, `expected_output`, `metadata`, and `tags`.
-   *
+   * 
    * The response is a Server-Sent Events stream (`text/event-stream`) emitting progress updates while records are processed. The stream emits the following named events:
    *   - `progress`: incremental record counts written so far.
    *   - `completed`: terminal event with a JSON body containing `records_created`.
@@ -13470,24 +13352,21 @@ export class LLMObservabilityApi {
     param: LLMObservabilityApiUploadLLMObsDatasetRecordsFileRequest,
     options?: Configuration,
   ): Promise<void> {
-    const requestContextPromise =
-      this.requestFactory.uploadLLMObsDatasetRecordsFile(
-        param.projectId,
-        param.datasetId,
-        param.deduplicate,
-        param.overwrite,
-        param.tags,
-        param.includeUserData,
-        param.file,
-        options,
-      );
+    const requestContextPromise = this.requestFactory.uploadLLMObsDatasetRecordsFile(
+      param.projectId,
+      param.datasetId,
+      param.deduplicate,
+      param.overwrite,
+      param.tags,
+      param.includeUserData,
+      param.file,
+      options,
+    );
     return requestContextPromise.then((requestContext) => {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.uploadLLMObsDatasetRecordsFile(
-            responseContext,
-          );
+          return this.responseProcessor.uploadLLMObsDatasetRecordsFile(responseContext);
         });
     });
   }
@@ -13512,9 +13391,7 @@ export class LLMObservabilityApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.upsertLLMObsAnnotations(
-            responseContext,
-          );
+          return this.responseProcessor.upsertLLMObsAnnotations(responseContext);
         });
     });
   }
@@ -13527,15 +13404,15 @@ export class LLMObservabilityApi {
     param: LLMObservabilityApiUpsertLLMObsPatternsConfigRequest,
     options?: Configuration,
   ): Promise<LLMObsPatternsConfigResponse> {
-    const requestContextPromise =
-      this.requestFactory.upsertLLMObsPatternsConfig(param.body, options);
+    const requestContextPromise = this.requestFactory.upsertLLMObsPatternsConfig(
+      param.body,
+      options,
+    );
     return requestContextPromise.then((requestContext) => {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.upsertLLMObsPatternsConfig(
-            responseContext,
-          );
+          return this.responseProcessor.upsertLLMObsPatternsConfig(responseContext);
         });
     });
   }

@@ -1,5 +1,6 @@
 import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
+
 /**
  * A single annotation on an interaction.
  */
@@ -23,7 +24,7 @@ export class LLMObsAnnotationItem {
   /**
    * Label values for this annotation.
    */
-  "labelValues": { [key: string]: any };
+  "labelValues": { [key: string]: any; };
   /**
    * Timestamp when the annotation was last modified.
    */
@@ -37,7 +38,7 @@ export class LLMObsAnnotationItem {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
   /**
    * @ignore
    */

@@ -6,7 +6,7 @@ import { ObservabilityPipelineNewRelicDestinationType } from "./ObservabilityPip
 
 /**
  * The `new_relic` destination sends logs to the New Relic platform.
- *
+ * 
  * **Supported pipeline types:** logs
  */
 export class ObservabilityPipelineNewRelicDestination {
@@ -43,7 +43,7 @@ export class ObservabilityPipelineNewRelicDestination {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
   /**
    * @ignore
    */

@@ -4,7 +4,7 @@ import { UsageSummaryDateOrg } from "./UsageSummaryDateOrg";
 
 /**
  * Response with hourly report of all data billed by Datadog for all organizations.
- *
+ * 
  * For SDK users only: all fields at this response level are accessible through the
  * `additionalProperties` map. Existing typed-field getters are unchanged. New billing
  * dimensions will not have typed-field getters. Use
@@ -1257,7 +1257,7 @@ export class UsageSummaryDate {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
   /**
    * @ignore
    */
@@ -2572,38 +2572,32 @@ export class UsageSummaryDate {
       format: "int64",
     },
     serverlessAppsApmExclFargateApmAzureAppserviceInstancesAvg: {
-      baseName:
-        "serverless_apps_apm_excl_fargate_apm_azure_appservice_instances_avg",
+      baseName: "serverless_apps_apm_excl_fargate_apm_azure_appservice_instances_avg",
       type: "number",
       format: "int64",
     },
     serverlessAppsApmExclFargateApmAzureAzurefunctionInstancesAvg: {
-      baseName:
-        "serverless_apps_apm_excl_fargate_apm_azure_azurefunction_instances_avg",
+      baseName: "serverless_apps_apm_excl_fargate_apm_azure_azurefunction_instances_avg",
       type: "number",
       format: "int64",
     },
     serverlessAppsApmExclFargateApmAzureContainerappInstancesAvg: {
-      baseName:
-        "serverless_apps_apm_excl_fargate_apm_azure_containerapp_instances_avg",
+      baseName: "serverless_apps_apm_excl_fargate_apm_azure_containerapp_instances_avg",
       type: "number",
       format: "int64",
     },
     serverlessAppsApmExclFargateApmGcpCloudfunctionInstancesAvg: {
-      baseName:
-        "serverless_apps_apm_excl_fargate_apm_gcp_cloudfunction_instances_avg",
+      baseName: "serverless_apps_apm_excl_fargate_apm_gcp_cloudfunction_instances_avg",
       type: "number",
       format: "int64",
     },
     serverlessAppsApmExclFargateApmGcpCloudrunInstancesAvg: {
-      baseName:
-        "serverless_apps_apm_excl_fargate_apm_gcp_cloudrun_instances_avg",
+      baseName: "serverless_apps_apm_excl_fargate_apm_gcp_cloudrun_instances_avg",
       type: "number",
       format: "int64",
     },
     serverlessAppsApmExclFargateApmGcpGkeAutopilotPodsAvg: {
-      baseName:
-        "serverless_apps_apm_excl_fargate_apm_gcp_gke_autopilot_pods_avg",
+      baseName: "serverless_apps_apm_excl_fargate_apm_gcp_gke_autopilot_pods_avg",
       type: "number",
       format: "int64",
     },
@@ -2653,8 +2647,7 @@ export class UsageSummaryDate {
       format: "int64",
     },
     serverlessAppsExclFargateAzureContainerAppInstancesAvg: {
-      baseName:
-        "serverless_apps_excl_fargate_azure_container_app_instances_avg",
+      baseName: "serverless_apps_excl_fargate_azure_container_app_instances_avg",
       type: "number",
       format: "int64",
     },
@@ -2669,8 +2662,7 @@ export class UsageSummaryDate {
       format: "int64",
     },
     serverlessAppsExclFargateGoogleCloudFunctionsInstancesAvg: {
-      baseName:
-        "serverless_apps_excl_fargate_google_cloud_functions_instances_avg",
+      baseName: "serverless_apps_excl_fargate_google_cloud_functions_instances_avg",
       type: "number",
       format: "int64",
     },

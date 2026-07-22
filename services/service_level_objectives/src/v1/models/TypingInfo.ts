@@ -62,24 +62,10 @@ import { ServiceLevelObjectiveRequest } from "./ServiceLevelObjectiveRequest";
 
 export const TypingInfo: ModelTypingInfo = {
   enumsMap: {
-    FormulaAndFunctionMetricAggregation: [
-      "avg",
-      "min",
-      "max",
-      "sum",
-      "last",
-      "area",
-      "l2norm",
-      "percentile",
-    ],
+    FormulaAndFunctionMetricAggregation: ["avg", "min", "max", "sum", "last", "area", "l2norm", "percentile"],
     FormulaAndFunctionMetricDataSource: ["metrics"],
     FormulaAndFunctionMetricSemanticMode: ["combined", "native"],
-    SLOCorrectionCategory: [
-      "Scheduled Maintenance",
-      "Outside Business Hours",
-      "Deployment",
-      "Other",
-    ],
+    SLOCorrectionCategory: ["Scheduled Maintenance", "Outside Business Hours", "Deployment", "Other"],
     SLOCorrectionType: ["correction"],
     SLOErrorTimeframe: ["7d", "30d", "90d", "all"],
     SLOState: ["breached", "warning", "ok", "no_data"],
@@ -97,14 +83,13 @@ export const TypingInfo: ModelTypingInfo = {
     ],
     SLODataSourceQueryDefinition: ["FormulaAndFunctionMetricQueryDefinition"],
     SLOSliSpec: ["SLOTimeSliceSpec", "SLOCountSpec"],
-  },
+    },
   typeMap: {
     APIErrorResponse: APIErrorResponse,
     CheckCanDeleteSLOResponse: CheckCanDeleteSLOResponse,
     CheckCanDeleteSLOResponseData: CheckCanDeleteSLOResponseData,
     Creator: Creator,
-    FormulaAndFunctionMetricQueryDefinition:
-      FormulaAndFunctionMetricQueryDefinition,
+    FormulaAndFunctionMetricQueryDefinition: FormulaAndFunctionMetricQueryDefinition,
     Pagination: Pagination,
     ResponseMetaAttributes: ResponseMetaAttributes,
     SLOBulkDeleteError: SLOBulkDeleteError,
@@ -113,12 +98,9 @@ export const TypingInfo: ModelTypingInfo = {
     SLOCorrection: SLOCorrection,
     SLOCorrectionListResponse: SLOCorrectionListResponse,
     SLOCorrectionResponseAttributes: SLOCorrectionResponseAttributes,
-    SLOCorrectionResponseAttributesModifier:
-      SLOCorrectionResponseAttributesModifier,
-    SLOCountDefinitionWithBadEventsFormula:
-      SLOCountDefinitionWithBadEventsFormula,
-    SLOCountDefinitionWithTotalEventsFormula:
-      SLOCountDefinitionWithTotalEventsFormula,
+    SLOCorrectionResponseAttributesModifier: SLOCorrectionResponseAttributesModifier,
+    SLOCountDefinitionWithBadEventsFormula: SLOCountDefinitionWithBadEventsFormula,
+    SLOCountDefinitionWithTotalEventsFormula: SLOCountDefinitionWithTotalEventsFormula,
     SLOCountSpec: SLOCountSpec,
     SLOCreator: SLOCreator,
     SLODeleteResponse: SLODeleteResponse,
@@ -149,19 +131,15 @@ export const TypingInfo: ModelTypingInfo = {
     SearchSLOResponse: SearchSLOResponse,
     SearchSLOResponseData: SearchSLOResponseData,
     SearchSLOResponseDataAttributes: SearchSLOResponseDataAttributes,
-    SearchSLOResponseDataAttributesFacets:
-      SearchSLOResponseDataAttributesFacets,
-    SearchSLOResponseDataAttributesFacetsObjectInt:
-      SearchSLOResponseDataAttributesFacetsObjectInt,
-    SearchSLOResponseDataAttributesFacetsObjectString:
-      SearchSLOResponseDataAttributesFacetsObjectString,
+    SearchSLOResponseDataAttributesFacets: SearchSLOResponseDataAttributesFacets,
+    SearchSLOResponseDataAttributesFacetsObjectInt: SearchSLOResponseDataAttributesFacetsObjectInt,
+    SearchSLOResponseDataAttributesFacetsObjectString: SearchSLOResponseDataAttributesFacetsObjectString,
     SearchSLOResponseLinks: SearchSLOResponseLinks,
     SearchSLOResponseMeta: SearchSLOResponseMeta,
     SearchSLOResponseMetaPage: SearchSLOResponseMetaPage,
     SearchSLOThreshold: SearchSLOThreshold,
     SearchServiceLevelObjective: SearchServiceLevelObjective,
-    SearchServiceLevelObjectiveAttributes:
-      SearchServiceLevelObjectiveAttributes,
+    SearchServiceLevelObjectiveAttributes: SearchServiceLevelObjectiveAttributes,
     SearchServiceLevelObjectiveData: SearchServiceLevelObjectiveData,
     ServiceLevelObjective: ServiceLevelObjective,
     ServiceLevelObjectiveQuery: ServiceLevelObjectiveQuery,

@@ -10,7 +10,7 @@ export class CoverageSummaryAttributes {
   /**
    * Coverage statistics broken down by code owner.
    */
-  "codeowners"?: { [key: string]: CoverageSummaryCodeownerStats };
+  "codeowners"?: { [key: string]: CoverageSummaryCodeownerStats; };
   /**
    * Total number of coverage flags evaluated.
    */
@@ -26,7 +26,7 @@ export class CoverageSummaryAttributes {
   /**
    * Coverage statistics broken down by service.
    */
-  "services"?: { [key: string]: CoverageSummaryServiceStats };
+  "services"?: { [key: string]: CoverageSummaryServiceStats; };
   /**
    * Overall total coverage percentage.
    */
@@ -36,7 +36,7 @@ export class CoverageSummaryAttributes {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
   /**
    * @ignore
    */

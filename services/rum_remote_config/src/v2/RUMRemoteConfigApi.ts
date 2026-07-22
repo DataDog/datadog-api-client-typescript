@@ -19,6 +19,7 @@ import {
   ServerConfiguration,
   stringify,
   applySecurityAuthentication,
+  
 } from "@datadog/datadog-api-client";
 
 import { TypingInfo } from "./models/TypingInfo";
@@ -44,9 +45,7 @@ export class RUMRemoteConfigApiRequestFactory extends BaseAPIRequestFactory {
     const _config = _options || this.configuration;
 
     if (!_config.unstableOperations["RUMRemoteConfigApi.v2.getRumSdkConfig"]) {
-      throw new Error(
-        "Unstable operation 'getRumSdkConfig' is disabled. Enable it by setting `configuration.unstableOperations['RUMRemoteConfigApi.v2.getRumSdkConfig'] = true`",
-      );
+      throw new Error("Unstable operation 'getRumSdkConfig' is disabled. Enable it by setting `configuration.unstableOperations['RUMRemoteConfigApi.v2.getRumSdkConfig'] = true`");
     }
 
     // verify required parameter 'configId' is not null or undefined
@@ -55,22 +54,14 @@ export class RUMRemoteConfigApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Path Params
-    const localVarPath =
-      "/api/v2/remote_config/products/rum/configs/{config_id}".replace(
-        "{config_id}",
-        encodeURIComponent(String(configId)),
-      );
+    const localVarPath = "/api/v2/remote_config/products/rum/configs/{config_id}".replace(
+      "{config_id}",
+      encodeURIComponent(String(configId)),
+    );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "RUMRemoteConfigApi.v2.getRumSdkConfig",
-      RUMRemoteConfigApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.GET,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("RUMRemoteConfigApi.v2.getRumSdkConfig", RUMRemoteConfigApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.GET, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -95,12 +86,8 @@ export class RUMRemoteConfigApiRequestFactory extends BaseAPIRequestFactory {
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
-    if (
-      !_config.unstableOperations["RUMRemoteConfigApi.v2.updateRumSdkConfig"]
-    ) {
-      throw new Error(
-        "Unstable operation 'updateRumSdkConfig' is disabled. Enable it by setting `configuration.unstableOperations['RUMRemoteConfigApi.v2.updateRumSdkConfig'] = true`",
-      );
+    if (!_config.unstableOperations["RUMRemoteConfigApi.v2.updateRumSdkConfig"]) {
+      throw new Error("Unstable operation 'updateRumSdkConfig' is disabled. Enable it by setting `configuration.unstableOperations['RUMRemoteConfigApi.v2.updateRumSdkConfig'] = true`");
     }
 
     // verify required parameter 'configId' is not null or undefined
@@ -114,22 +101,14 @@ export class RUMRemoteConfigApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Path Params
-    const localVarPath =
-      "/api/v2/remote_config/products/rum/configs/{config_id}".replace(
-        "{config_id}",
-        encodeURIComponent(String(configId)),
-      );
+    const localVarPath = "/api/v2/remote_config/products/rum/configs/{config_id}".replace(
+      "{config_id}",
+      encodeURIComponent(String(configId)),
+    );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "RUMRemoteConfigApi.v2.updateRumSdkConfig",
-      RUMRemoteConfigApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.PUT,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("RUMRemoteConfigApi.v2.updateRumSdkConfig", RUMRemoteConfigApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.PUT, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -139,7 +118,9 @@ export class RUMRemoteConfigApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Body Params
-    const contentType = getPreferredMediaType(["application/json"]);
+    const contentType = getPreferredMediaType([
+      "application/json",
+    ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = stringify(
       serialize(body, TypingInfo, "RumSdkConfigUpdateRequest", ""),
@@ -168,7 +149,9 @@ export class RUMRemoteConfigApiResponseProcessor {
   public async getRumSdkConfig(
     response: ResponseContext,
   ): Promise<RumSdkConfigResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: RumSdkConfigResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -177,8 +160,14 @@ export class RUMRemoteConfigApiResponseProcessor {
       ) as RumSdkConfigResponse;
       return body;
     }
-    if (response.httpStatusCode === 403 || response.httpStatusCode === 429) {
-      const bodyText = parse(await response.body.text(), contentType);
+    if (
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 429
+    ) {
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -193,10 +182,16 @@ export class RUMRemoteConfigApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
     if (response.httpStatusCode === 404) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: JSONAPIErrorResponse;
       try {
         body = deserialize(
@@ -245,7 +240,9 @@ export class RUMRemoteConfigApiResponseProcessor {
   public async updateRumSdkConfig(
     response: ResponseContext,
   ): Promise<RumSdkConfigResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: RumSdkConfigResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -254,8 +251,14 @@ export class RUMRemoteConfigApiResponseProcessor {
       ) as RumSdkConfigResponse;
       return body;
     }
-    if (response.httpStatusCode === 400 || response.httpStatusCode === 404) {
-      const bodyText = parse(await response.body.text(), contentType);
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 404
+    ) {
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: JSONAPIErrorResponse;
       try {
         body = deserialize(
@@ -275,8 +278,14 @@ export class RUMRemoteConfigApiResponseProcessor {
         body,
       );
     }
-    if (response.httpStatusCode === 403 || response.httpStatusCode === 429) {
-      const bodyText = parse(await response.body.text(), contentType);
+    if (
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 429
+    ) {
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -291,7 +300,10 @@ export class RUMRemoteConfigApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -339,7 +351,8 @@ export class RUMRemoteConfigApi {
   private responseProcessor: RUMRemoteConfigApiResponseProcessor;
   private configuration: Configuration;
 
-  static operationServers: { [key: string]: BaseServerConfiguration[] } = {};
+  static operationServers: { [key: string]: BaseServerConfiguration[] } = {
+  };
 
   public constructor(
     configuration?: Configuration,

@@ -6,7 +6,7 @@ import { ObservabilityPipelineDatabricksZerobusDestinationType } from "./Observa
 
 /**
  * The `databricks_zerobus` destination sends logs to Databricks using the Zerobus ingestion API, streaming data directly into your Databricks Lakehouse.
- *
+ * 
  * **Supported pipeline types:** Logs, rehydration
  */
 export class ObservabilityPipelineDatabricksZerobusDestination {
@@ -47,7 +47,7 @@ export class ObservabilityPipelineDatabricksZerobusDestination {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
   /**
    * @ignore
    */

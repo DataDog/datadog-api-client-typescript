@@ -17,7 +17,7 @@ export class LLMObsDatasetRecordDataResponse {
   /**
    * Represents any valid JSON value.
    */
-  "expectedOutput": AnyValue | null;
+  "expectedOutput": AnyValue|null;
   /**
    * Unique identifier of the record.
    */
@@ -25,11 +25,11 @@ export class LLMObsDatasetRecordDataResponse {
   /**
    * Represents any valid JSON value.
    */
-  "input": AnyValue | null;
+  "input": AnyValue|null;
   /**
    * Arbitrary metadata associated with the record.
    */
-  "metadata": { [key: string]: any } | null;
+  "metadata": { [key: string]: any; }|null;
   /**
    * Timestamp when the record was last updated.
    */
@@ -39,7 +39,7 @@ export class LLMObsDatasetRecordDataResponse {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
   /**
    * @ignore
    */

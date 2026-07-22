@@ -15,7 +15,7 @@ export class LLMObsSpanAttributes {
   /**
    * Evaluation metrics keyed by evaluator name.
    */
-  "evaluation"?: { [key: string]: LLMObsSpanEvaluationMetric };
+  "evaluation"?: { [key: string]: LLMObsSpanEvaluationMetric; };
   /**
    * Input or output content of an LLM Observability span.
    */
@@ -27,11 +27,11 @@ export class LLMObsSpanAttributes {
   /**
    * Arbitrary metadata associated with the span.
    */
-  "metadata"?: { [key: string]: any };
+  "metadata"?: { [key: string]: any; };
   /**
    * Numeric metrics associated with the span (e.g., token counts).
    */
-  "metrics"?: { [key: string]: number };
+  "metrics"?: { [key: string]: number; };
   /**
    * Name of the ML application this span belongs to.
    */
@@ -89,7 +89,7 @@ export class LLMObsSpanAttributes {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
   /**
    * @ignore
    */

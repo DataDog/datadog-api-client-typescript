@@ -39,7 +39,7 @@ export class SyntheticsCITest {
   /**
    * Headers to include when performing the test.
    */
-  "headers"?: { [key: string]: string };
+  "headers"?: { [key: string]: string; };
   /**
    * Array of locations used to run the test.
    */
@@ -63,7 +63,7 @@ export class SyntheticsCITest {
   /**
    * Variables to replace in the test.
    */
-  "variables"?: { [key: string]: string };
+  "variables"?: { [key: string]: string; };
   /**
    * The version number of the Synthetic test version to trigger.
    */
@@ -73,7 +73,7 @@ export class SyntheticsCITest {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
   /**
    * @ignore
    */

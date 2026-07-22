@@ -32,7 +32,7 @@ export class ChangeEventCustomAttributesAuthor {
       baseName: "type",
       type: "ChangeEventCustomAttributesAuthorType",
       required: true,
-    },
+    }
   };
 
   /**

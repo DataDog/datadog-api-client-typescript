@@ -26,19 +26,14 @@ export const TypingInfo: ModelTypingInfo = {
     JSONAPIErrorItemSource: JSONAPIErrorItemSource,
     JSONAPIErrorResponse: JSONAPIErrorResponse,
     WebIntegrationAccountCreateRequest: WebIntegrationAccountCreateRequest,
-    WebIntegrationAccountCreateRequestAttributes:
-      WebIntegrationAccountCreateRequestAttributes,
-    WebIntegrationAccountCreateRequestData:
-      WebIntegrationAccountCreateRequestData,
+    WebIntegrationAccountCreateRequestAttributes: WebIntegrationAccountCreateRequestAttributes,
+    WebIntegrationAccountCreateRequestData: WebIntegrationAccountCreateRequestData,
     WebIntegrationAccountResponse: WebIntegrationAccountResponse,
-    WebIntegrationAccountResponseAttributes:
-      WebIntegrationAccountResponseAttributes,
+    WebIntegrationAccountResponseAttributes: WebIntegrationAccountResponseAttributes,
     WebIntegrationAccountResponseData: WebIntegrationAccountResponseData,
     WebIntegrationAccountUpdateRequest: WebIntegrationAccountUpdateRequest,
-    WebIntegrationAccountUpdateRequestAttributes:
-      WebIntegrationAccountUpdateRequestAttributes,
-    WebIntegrationAccountUpdateRequestData:
-      WebIntegrationAccountUpdateRequestData,
+    WebIntegrationAccountUpdateRequestAttributes: WebIntegrationAccountUpdateRequestAttributes,
+    WebIntegrationAccountUpdateRequestData: WebIntegrationAccountUpdateRequestData,
     WebIntegrationAccountsResponse: WebIntegrationAccountsResponse,
   },
 };
