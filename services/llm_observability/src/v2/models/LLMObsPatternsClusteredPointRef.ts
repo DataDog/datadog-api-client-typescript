@@ -1,5 +1,6 @@
 import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
+
 /**
  * A clustered point attached inline to a topic. The metric fields are populated
  * only when the request includes `include_metrics=true`.
@@ -17,7 +18,7 @@ export class LLMObsPatternsClusteredPointRef {
    * Evaluation results for the source span keyed by evaluation name. Included
    * only when metrics are requested.
    */
-  "evaluation"?: { [key: string]: any };
+  "evaluation"?: { [key: string]: any; };
   /**
    * Number of input tokens of the source span. Included only when metrics are requested.
    */
@@ -43,7 +44,7 @@ export class LLMObsPatternsClusteredPointRef {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
   /**
    * @ignore
    */

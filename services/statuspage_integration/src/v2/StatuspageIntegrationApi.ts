@@ -19,6 +19,7 @@ import {
   ServerConfiguration,
   stringify,
   applySecurityAuthentication,
+  
 } from "@datadog/datadog-api-client";
 
 import { TypingInfo } from "./models/TypingInfo";
@@ -56,15 +57,8 @@ export class StatuspageIntegrationApiRequestFactory extends BaseAPIRequestFactor
     const localVarPath = "/api/v2/integration/statuspage/account";
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "StatuspageIntegrationApi.v2.createStatuspageAccount",
-      StatuspageIntegrationApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.POST,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("StatuspageIntegrationApi.v2.createStatuspageAccount", StatuspageIntegrationApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.POST, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -74,7 +68,9 @@ export class StatuspageIntegrationApiRequestFactory extends BaseAPIRequestFactor
     }
 
     // Body Params
-    const contentType = getPreferredMediaType(["application/json"]);
+    const contentType = getPreferredMediaType([
+      "application/json",
+    ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = stringify(
       serialize(body, TypingInfo, "StatuspageAccountCreateRequest", ""),
@@ -106,15 +102,8 @@ export class StatuspageIntegrationApiRequestFactory extends BaseAPIRequestFactor
     const localVarPath = "/api/v2/integration/statuspage/url_settings";
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "StatuspageIntegrationApi.v2.createStatuspageUrlSetting",
-      StatuspageIntegrationApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.POST,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("StatuspageIntegrationApi.v2.createStatuspageUrlSetting", StatuspageIntegrationApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.POST, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -124,7 +113,9 @@ export class StatuspageIntegrationApiRequestFactory extends BaseAPIRequestFactor
     }
 
     // Body Params
-    const contentType = getPreferredMediaType(["application/json"]);
+    const contentType = getPreferredMediaType([
+      "application/json",
+    ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = stringify(
       serialize(body, TypingInfo, "StatuspageUrlSettingCreateRequest", ""),
@@ -150,15 +141,8 @@ export class StatuspageIntegrationApiRequestFactory extends BaseAPIRequestFactor
     const localVarPath = "/api/v2/integration/statuspage/account";
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "StatuspageIntegrationApi.v2.deleteStatuspageAccount",
-      StatuspageIntegrationApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.DELETE,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("StatuspageIntegrationApi.v2.deleteStatuspageAccount", StatuspageIntegrationApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.DELETE, overrides);
     requestContext.setHeaderParam("Accept", "*/*");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -183,33 +167,19 @@ export class StatuspageIntegrationApiRequestFactory extends BaseAPIRequestFactor
     const _config = _options || this.configuration;
 
     // verify required parameter 'statuspageUrlSettingId' is not null or undefined
-    if (
-      statuspageUrlSettingId === null ||
-      statuspageUrlSettingId === undefined
-    ) {
-      throw new RequiredError(
-        "statuspageUrlSettingId",
-        "deleteStatuspageUrlSetting",
-      );
+    if (statuspageUrlSettingId === null || statuspageUrlSettingId === undefined) {
+      throw new RequiredError("statuspageUrlSettingId", "deleteStatuspageUrlSetting");
     }
 
     // Path Params
-    const localVarPath =
-      "/api/v2/integration/statuspage/url_settings/{statuspage_url_setting_id}".replace(
-        "{statuspage_url_setting_id}",
-        encodeURIComponent(String(statuspageUrlSettingId)),
-      );
+    const localVarPath = "/api/v2/integration/statuspage/url_settings/{statuspage_url_setting_id}".replace(
+      "{statuspage_url_setting_id}",
+      encodeURIComponent(String(statuspageUrlSettingId)),
+    );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "StatuspageIntegrationApi.v2.deleteStatuspageUrlSetting",
-      StatuspageIntegrationApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.DELETE,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("StatuspageIntegrationApi.v2.deleteStatuspageUrlSetting", StatuspageIntegrationApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.DELETE, overrides);
     requestContext.setHeaderParam("Accept", "*/*");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -236,15 +206,8 @@ export class StatuspageIntegrationApiRequestFactory extends BaseAPIRequestFactor
     const localVarPath = "/api/v2/integration/statuspage/account";
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "StatuspageIntegrationApi.v2.getStatuspageAccount",
-      StatuspageIntegrationApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.GET,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("StatuspageIntegrationApi.v2.getStatuspageAccount", StatuspageIntegrationApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.GET, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -271,15 +234,8 @@ export class StatuspageIntegrationApiRequestFactory extends BaseAPIRequestFactor
     const localVarPath = "/api/v2/integration/statuspage/url_settings";
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "StatuspageIntegrationApi.v2.listStatuspageUrlSettings",
-      StatuspageIntegrationApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.GET,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("StatuspageIntegrationApi.v2.listStatuspageUrlSettings", StatuspageIntegrationApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.GET, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -312,15 +268,8 @@ export class StatuspageIntegrationApiRequestFactory extends BaseAPIRequestFactor
     const localVarPath = "/api/v2/integration/statuspage/account";
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "StatuspageIntegrationApi.v2.updateStatuspageAccount",
-      StatuspageIntegrationApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.PATCH,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("StatuspageIntegrationApi.v2.updateStatuspageAccount", StatuspageIntegrationApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.PATCH, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -330,7 +279,9 @@ export class StatuspageIntegrationApiRequestFactory extends BaseAPIRequestFactor
     }
 
     // Body Params
-    const contentType = getPreferredMediaType(["application/json"]);
+    const contentType = getPreferredMediaType([
+      "application/json",
+    ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = stringify(
       serialize(body, TypingInfo, "StatuspageAccountUpdateRequest", ""),
@@ -355,14 +306,8 @@ export class StatuspageIntegrationApiRequestFactory extends BaseAPIRequestFactor
     const _config = _options || this.configuration;
 
     // verify required parameter 'statuspageUrlSettingId' is not null or undefined
-    if (
-      statuspageUrlSettingId === null ||
-      statuspageUrlSettingId === undefined
-    ) {
-      throw new RequiredError(
-        "statuspageUrlSettingId",
-        "updateStatuspageUrlSetting",
-      );
+    if (statuspageUrlSettingId === null || statuspageUrlSettingId === undefined) {
+      throw new RequiredError("statuspageUrlSettingId", "updateStatuspageUrlSetting");
     }
 
     // verify required parameter 'body' is not null or undefined
@@ -371,22 +316,14 @@ export class StatuspageIntegrationApiRequestFactory extends BaseAPIRequestFactor
     }
 
     // Path Params
-    const localVarPath =
-      "/api/v2/integration/statuspage/url_settings/{statuspage_url_setting_id}".replace(
-        "{statuspage_url_setting_id}",
-        encodeURIComponent(String(statuspageUrlSettingId)),
-      );
+    const localVarPath = "/api/v2/integration/statuspage/url_settings/{statuspage_url_setting_id}".replace(
+      "{statuspage_url_setting_id}",
+      encodeURIComponent(String(statuspageUrlSettingId)),
+    );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "StatuspageIntegrationApi.v2.updateStatuspageUrlSetting",
-      StatuspageIntegrationApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.PATCH,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("StatuspageIntegrationApi.v2.updateStatuspageUrlSetting", StatuspageIntegrationApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.PATCH, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -396,7 +333,9 @@ export class StatuspageIntegrationApiRequestFactory extends BaseAPIRequestFactor
     }
 
     // Body Params
-    const contentType = getPreferredMediaType(["application/json"]);
+    const contentType = getPreferredMediaType([
+      "application/json",
+    ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = stringify(
       serialize(body, TypingInfo, "StatuspageUrlSettingUpdateRequest", ""),
@@ -425,7 +364,9 @@ export class StatuspageIntegrationApiResponseProcessor {
   public async createStatuspageAccount(
     response: ResponseContext,
   ): Promise<StatuspageAccountResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 201) {
       const body: StatuspageAccountResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -440,7 +381,10 @@ export class StatuspageIntegrationApiResponseProcessor {
       response.httpStatusCode === 409 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -455,7 +399,10 @@ export class StatuspageIntegrationApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -486,7 +433,9 @@ export class StatuspageIntegrationApiResponseProcessor {
   public async createStatuspageUrlSetting(
     response: ResponseContext,
   ): Promise<StatuspageUrlSettingResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 201) {
       const body: StatuspageUrlSettingResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -501,7 +450,10 @@ export class StatuspageIntegrationApiResponseProcessor {
       response.httpStatusCode === 409 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -516,7 +468,10 @@ export class StatuspageIntegrationApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -547,7 +502,9 @@ export class StatuspageIntegrationApiResponseProcessor {
   public async deleteStatuspageAccount(
     response: ResponseContext,
   ): Promise<void> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 204) {
       return;
     }
@@ -557,7 +514,10 @@ export class StatuspageIntegrationApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -572,7 +532,10 @@ export class StatuspageIntegrationApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -597,7 +560,9 @@ export class StatuspageIntegrationApiResponseProcessor {
   public async deleteStatuspageUrlSetting(
     response: ResponseContext,
   ): Promise<void> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 204) {
       return;
     }
@@ -607,7 +572,10 @@ export class StatuspageIntegrationApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -622,7 +590,10 @@ export class StatuspageIntegrationApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -647,7 +618,9 @@ export class StatuspageIntegrationApiResponseProcessor {
   public async getStatuspageAccount(
     response: ResponseContext,
   ): Promise<StatuspageAccountResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: StatuspageAccountResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -661,7 +634,10 @@ export class StatuspageIntegrationApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -676,7 +652,10 @@ export class StatuspageIntegrationApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -707,7 +686,9 @@ export class StatuspageIntegrationApiResponseProcessor {
   public async listStatuspageUrlSettings(
     response: ResponseContext,
   ): Promise<StatuspageUrlSettingsResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: StatuspageUrlSettingsResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -721,7 +702,10 @@ export class StatuspageIntegrationApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -736,7 +720,10 @@ export class StatuspageIntegrationApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -767,7 +754,9 @@ export class StatuspageIntegrationApiResponseProcessor {
   public async updateStatuspageAccount(
     response: ResponseContext,
   ): Promise<StatuspageAccountResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: StatuspageAccountResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -782,7 +771,10 @@ export class StatuspageIntegrationApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -797,7 +789,10 @@ export class StatuspageIntegrationApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -828,7 +823,9 @@ export class StatuspageIntegrationApiResponseProcessor {
   public async updateStatuspageUrlSetting(
     response: ResponseContext,
   ): Promise<StatuspageUrlSettingResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: StatuspageUrlSettingResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -844,7 +841,10 @@ export class StatuspageIntegrationApiResponseProcessor {
       response.httpStatusCode === 409 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -859,7 +859,10 @@ export class StatuspageIntegrationApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -931,7 +934,8 @@ export class StatuspageIntegrationApi {
   private responseProcessor: StatuspageIntegrationApiResponseProcessor;
   private configuration: Configuration;
 
-  static operationServers: { [key: string]: BaseServerConfiguration[] } = {};
+  static operationServers: { [key: string]: BaseServerConfiguration[] } = {
+  };
 
   public constructor(
     configuration?: Configuration,
@@ -963,9 +967,7 @@ export class StatuspageIntegrationApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.createStatuspageAccount(
-            responseContext,
-          );
+          return this.responseProcessor.createStatuspageAccount(responseContext);
         });
     });
   }
@@ -978,15 +980,15 @@ export class StatuspageIntegrationApi {
     param: StatuspageIntegrationApiCreateStatuspageUrlSettingRequest,
     options?: Configuration,
   ): Promise<StatuspageUrlSettingResponse> {
-    const requestContextPromise =
-      this.requestFactory.createStatuspageUrlSetting(param.body, options);
+    const requestContextPromise = this.requestFactory.createStatuspageUrlSetting(
+      param.body,
+      options,
+    );
     return requestContextPromise.then((requestContext) => {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.createStatuspageUrlSetting(
-            responseContext,
-          );
+          return this.responseProcessor.createStatuspageUrlSetting(responseContext);
         });
     });
   }
@@ -995,16 +997,16 @@ export class StatuspageIntegrationApi {
    * Delete the Statuspage account configured for your organization.
    * @param param The request object
    */
-  public deleteStatuspageAccount(options?: Configuration): Promise<void> {
-    const requestContextPromise =
-      this.requestFactory.deleteStatuspageAccount(options);
+  public deleteStatuspageAccount(options?: Configuration,
+  ): Promise<void> {
+    const requestContextPromise = this.requestFactory.deleteStatuspageAccount(
+      options,
+    );
     return requestContextPromise.then((requestContext) => {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.deleteStatuspageAccount(
-            responseContext,
-          );
+          return this.responseProcessor.deleteStatuspageAccount(responseContext);
         });
     });
   }
@@ -1017,18 +1019,15 @@ export class StatuspageIntegrationApi {
     param: StatuspageIntegrationApiDeleteStatuspageUrlSettingRequest,
     options?: Configuration,
   ): Promise<void> {
-    const requestContextPromise =
-      this.requestFactory.deleteStatuspageUrlSetting(
-        param.statuspageUrlSettingId,
-        options,
-      );
+    const requestContextPromise = this.requestFactory.deleteStatuspageUrlSetting(
+      param.statuspageUrlSettingId,
+      options,
+    );
     return requestContextPromise.then((requestContext) => {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.deleteStatuspageUrlSetting(
-            responseContext,
-          );
+          return this.responseProcessor.deleteStatuspageUrlSetting(responseContext);
         });
     });
   }
@@ -1037,11 +1036,11 @@ export class StatuspageIntegrationApi {
    * Get the Statuspage account configured for your organization.
    * @param param The request object
    */
-  public getStatuspageAccount(
-    options?: Configuration,
+  public getStatuspageAccount(options?: Configuration,
   ): Promise<StatuspageAccountResponse> {
-    const requestContextPromise =
-      this.requestFactory.getStatuspageAccount(options);
+    const requestContextPromise = this.requestFactory.getStatuspageAccount(
+      options,
+    );
     return requestContextPromise.then((requestContext) => {
       return this.configuration.httpApi
         .send(requestContext)
@@ -1055,18 +1054,16 @@ export class StatuspageIntegrationApi {
    * Get all Statuspage URL settings configured for your organization.
    * @param param The request object
    */
-  public listStatuspageUrlSettings(
-    options?: Configuration,
+  public listStatuspageUrlSettings(options?: Configuration,
   ): Promise<StatuspageUrlSettingsResponse> {
-    const requestContextPromise =
-      this.requestFactory.listStatuspageUrlSettings(options);
+    const requestContextPromise = this.requestFactory.listStatuspageUrlSettings(
+      options,
+    );
     return requestContextPromise.then((requestContext) => {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.listStatuspageUrlSettings(
-            responseContext,
-          );
+          return this.responseProcessor.listStatuspageUrlSettings(responseContext);
         });
     });
   }
@@ -1087,9 +1084,7 @@ export class StatuspageIntegrationApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.updateStatuspageAccount(
-            responseContext,
-          );
+          return this.responseProcessor.updateStatuspageAccount(responseContext);
         });
     });
   }
@@ -1102,19 +1097,16 @@ export class StatuspageIntegrationApi {
     param: StatuspageIntegrationApiUpdateStatuspageUrlSettingRequest,
     options?: Configuration,
   ): Promise<StatuspageUrlSettingResponse> {
-    const requestContextPromise =
-      this.requestFactory.updateStatuspageUrlSetting(
-        param.statuspageUrlSettingId,
-        param.body,
-        options,
-      );
+    const requestContextPromise = this.requestFactory.updateStatuspageUrlSetting(
+      param.statuspageUrlSettingId,
+      param.body,
+      options,
+    );
     return requestContextPromise.then((requestContext) => {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.updateStatuspageUrlSetting(
-            responseContext,
-          );
+          return this.responseProcessor.updateStatuspageUrlSetting(responseContext);
         });
     });
   }

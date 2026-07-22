@@ -10,7 +10,8 @@ import { AWSLogsListServicesResponse } from "./AWSLogsListServicesResponse";
 import { AWSLogsServicesRequest } from "./AWSLogsServicesRequest";
 
 export const TypingInfo: ModelTypingInfo = {
-  enumsMap: {},
+  enumsMap: {
+  },
   oneOfMap: {},
   typeMap: {
     APIErrorResponse: APIErrorResponse,

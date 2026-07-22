@@ -19,6 +19,7 @@ import {
   ServerConfiguration,
   stringify,
   applySecurityAuthentication,
+  
 } from "@datadog/datadog-api-client";
 
 import { TypingInfo } from "./models/TypingInfo";
@@ -44,14 +45,8 @@ export class DataDeletionApiRequestFactory extends BaseAPIRequestFactory {
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
-    if (
-      !_config.unstableOperations[
-        "DataDeletionApi.v2.cancelDataDeletionRequest"
-      ]
-    ) {
-      throw new Error(
-        "Unstable operation 'cancelDataDeletionRequest' is disabled. Enable it by setting `configuration.unstableOperations['DataDeletionApi.v2.cancelDataDeletionRequest'] = true`",
-      );
+    if (!_config.unstableOperations["DataDeletionApi.v2.cancelDataDeletionRequest"]) {
+      throw new Error("Unstable operation 'cancelDataDeletionRequest' is disabled. Enable it by setting `configuration.unstableOperations['DataDeletionApi.v2.cancelDataDeletionRequest'] = true`");
     }
 
     // verify required parameter 'id' is not null or undefined
@@ -66,15 +61,8 @@ export class DataDeletionApiRequestFactory extends BaseAPIRequestFactory {
     );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "DataDeletionApi.v2.cancelDataDeletionRequest",
-      DataDeletionApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.PUT,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("DataDeletionApi.v2.cancelDataDeletionRequest", DataDeletionApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.PUT, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -99,14 +87,8 @@ export class DataDeletionApiRequestFactory extends BaseAPIRequestFactory {
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
-    if (
-      !_config.unstableOperations[
-        "DataDeletionApi.v2.createDataDeletionRequest"
-      ]
-    ) {
-      throw new Error(
-        "Unstable operation 'createDataDeletionRequest' is disabled. Enable it by setting `configuration.unstableOperations['DataDeletionApi.v2.createDataDeletionRequest'] = true`",
-      );
+    if (!_config.unstableOperations["DataDeletionApi.v2.createDataDeletionRequest"]) {
+      throw new Error("Unstable operation 'createDataDeletionRequest' is disabled. Enable it by setting `configuration.unstableOperations['DataDeletionApi.v2.createDataDeletionRequest'] = true`");
     }
 
     // verify required parameter 'product' is not null or undefined
@@ -126,15 +108,8 @@ export class DataDeletionApiRequestFactory extends BaseAPIRequestFactory {
     );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "DataDeletionApi.v2.createDataDeletionRequest",
-      DataDeletionApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.POST,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("DataDeletionApi.v2.createDataDeletionRequest", DataDeletionApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.POST, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -144,7 +119,9 @@ export class DataDeletionApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Body Params
-    const contentType = getPreferredMediaType(["application/json"]);
+    const contentType = getPreferredMediaType([
+      "application/json",
+    ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = stringify(
       serialize(body, TypingInfo, "CreateDataDeletionRequestBody", ""),
@@ -171,27 +148,16 @@ export class DataDeletionApiRequestFactory extends BaseAPIRequestFactory {
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
-    if (
-      !_config.unstableOperations["DataDeletionApi.v2.getDataDeletionRequests"]
-    ) {
-      throw new Error(
-        "Unstable operation 'getDataDeletionRequests' is disabled. Enable it by setting `configuration.unstableOperations['DataDeletionApi.v2.getDataDeletionRequests'] = true`",
-      );
+    if (!_config.unstableOperations["DataDeletionApi.v2.getDataDeletionRequests"]) {
+      throw new Error("Unstable operation 'getDataDeletionRequests' is disabled. Enable it by setting `configuration.unstableOperations['DataDeletionApi.v2.getDataDeletionRequests'] = true`");
     }
 
     // Path Params
     const localVarPath = "/api/v2/deletion/requests";
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "DataDeletionApi.v2.getDataDeletionRequests",
-      DataDeletionApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.GET,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("DataDeletionApi.v2.getDataDeletionRequests", DataDeletionApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.GET, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -258,7 +224,9 @@ export class DataDeletionApiResponseProcessor {
   public async cancelDataDeletionRequest(
     response: ResponseContext,
   ): Promise<CancelDataDeletionResponseBody> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: CancelDataDeletionResponseBody = deserialize(
         parse(await response.body.text(), contentType),
@@ -274,7 +242,10 @@ export class DataDeletionApiResponseProcessor {
       response.httpStatusCode === 429 ||
       response.httpStatusCode === 500
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -289,7 +260,10 @@ export class DataDeletionApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -320,7 +294,9 @@ export class DataDeletionApiResponseProcessor {
   public async createDataDeletionRequest(
     response: ResponseContext,
   ): Promise<CreateDataDeletionResponseBody> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: CreateDataDeletionResponseBody = deserialize(
         parse(await response.body.text(), contentType),
@@ -336,7 +312,10 @@ export class DataDeletionApiResponseProcessor {
       response.httpStatusCode === 429 ||
       response.httpStatusCode === 500
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -351,7 +330,10 @@ export class DataDeletionApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -382,7 +364,9 @@ export class DataDeletionApiResponseProcessor {
   public async getDataDeletionRequests(
     response: ResponseContext,
   ): Promise<GetDataDeletionsResponseBody> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: GetDataDeletionsResponseBody = deserialize(
         parse(await response.body.text(), contentType),
@@ -397,7 +381,10 @@ export class DataDeletionApiResponseProcessor {
       response.httpStatusCode === 429 ||
       response.httpStatusCode === 500
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -412,7 +399,10 @@ export class DataDeletionApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -487,7 +477,8 @@ export class DataDeletionApi {
   private responseProcessor: DataDeletionApiResponseProcessor;
   private configuration: Configuration;
 
-  static operationServers: { [key: string]: BaseServerConfiguration[] } = {};
+  static operationServers: { [key: string]: BaseServerConfiguration[] } = {
+  };
 
   public constructor(
     configuration?: Configuration,
@@ -496,7 +487,8 @@ export class DataDeletionApi {
   ) {
     this.configuration = configuration || createConfiguration();
     this.requestFactory =
-      requestFactory || new DataDeletionApiRequestFactory(this.configuration);
+      requestFactory ||
+      new DataDeletionApiRequestFactory(this.configuration);
     this.responseProcessor =
       responseProcessor || new DataDeletionApiResponseProcessor();
   }
@@ -517,9 +509,7 @@ export class DataDeletionApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.cancelDataDeletionRequest(
-            responseContext,
-          );
+          return this.responseProcessor.cancelDataDeletionRequest(responseContext);
         });
     });
   }
@@ -541,9 +531,7 @@ export class DataDeletionApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.createDataDeletionRequest(
-            responseContext,
-          );
+          return this.responseProcessor.createDataDeletionRequest(responseContext);
         });
     });
   }
@@ -568,9 +556,7 @@ export class DataDeletionApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.getDataDeletionRequests(
-            responseContext,
-          );
+          return this.responseProcessor.getDataDeletionRequests(responseContext);
         });
     });
   }

@@ -1,5 +1,6 @@
 import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
+
 /**
  * Specification for updating an existing field in a connection, including which field to modify and the new values.
  */
@@ -29,7 +30,7 @@ export class UpdateConnectionRequestDataAttributesFieldsToUpdateItems {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
   /**
    * @ignore
    */

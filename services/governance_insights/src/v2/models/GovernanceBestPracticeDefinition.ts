@@ -1,5 +1,6 @@
 import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
+
 /**
  * The best practice associated with an insight. Populated with the first active best practice
  * matched to the insight; `null` when no best practice is attached.
@@ -66,7 +67,7 @@ export class GovernanceBestPracticeDefinition {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
   /**
    * @ignore
    */

@@ -81,7 +81,7 @@ export class MonitorFormulaAndFunctionAggregateAugmentedQueryDefinition {
     name: {
       baseName: "name",
       type: "string",
-    },
+    }
   };
 
   /**

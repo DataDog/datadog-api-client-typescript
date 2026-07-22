@@ -1,5 +1,6 @@
 import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
+
 /**
  * Attributes object of a web integration account. Secrets are never returned.
  */
@@ -11,13 +12,13 @@ export class WebIntegrationAccountResponseAttributes {
   /**
    * Integration-specific settings. The shape of this object varies by integration.
    */
-  "settings"?: { [key: string]: any };
+  "settings"?: { [key: string]: any; };
   /**
    * A container for additional, undeclared properties.
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
   /**
    * @ignore
    */

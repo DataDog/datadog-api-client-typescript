@@ -1,5 +1,6 @@
 import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
+
 /**
  * A browser error captured during a browser test step.
  */
@@ -27,13 +28,13 @@ export class SyntheticsTestResultBrowserError {
   /**
    * URL associated with the error.
    */
-  "url"?: { [key: string]: any };
+  "url"?: { [key: string]: any; };
   /**
    * A container for additional, undeclared properties.
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
   /**
    * @ignore
    */

@@ -19,6 +19,7 @@ import {
   ServerConfiguration,
   stringify,
   applySecurityAuthentication,
+  
 } from "@datadog/datadog-api-client";
 
 import { TypingInfo } from "./models/TypingInfo";
@@ -44,9 +45,7 @@ export class DashboardsApiRequestFactory extends BaseAPIRequestFactory {
     const _config = _options || this.configuration;
 
     if (!_config.unstableOperations["DashboardsApi.v2.getDashboardUsage"]) {
-      throw new Error(
-        "Unstable operation 'getDashboardUsage' is disabled. Enable it by setting `configuration.unstableOperations['DashboardsApi.v2.getDashboardUsage'] = true`",
-      );
+      throw new Error("Unstable operation 'getDashboardUsage' is disabled. Enable it by setting `configuration.unstableOperations['DashboardsApi.v2.getDashboardUsage'] = true`");
     }
 
     // verify required parameter 'dashboardId' is not null or undefined
@@ -61,15 +60,8 @@ export class DashboardsApiRequestFactory extends BaseAPIRequestFactory {
     );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "DashboardsApi.v2.getDashboardUsage",
-      DashboardsApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.GET,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("DashboardsApi.v2.getDashboardUsage", DashboardsApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.GET, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -98,24 +90,15 @@ export class DashboardsApiRequestFactory extends BaseAPIRequestFactory {
     const _config = _options || this.configuration;
 
     if (!_config.unstableOperations["DashboardsApi.v2.listDashboardsUsage"]) {
-      throw new Error(
-        "Unstable operation 'listDashboardsUsage' is disabled. Enable it by setting `configuration.unstableOperations['DashboardsApi.v2.listDashboardsUsage'] = true`",
-      );
+      throw new Error("Unstable operation 'listDashboardsUsage' is disabled. Enable it by setting `configuration.unstableOperations['DashboardsApi.v2.listDashboardsUsage'] = true`");
     }
 
     // Path Params
     const localVarPath = "/api/v2/dashboards/usage";
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "DashboardsApi.v2.listDashboardsUsage",
-      DashboardsApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.GET,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("DashboardsApi.v2.listDashboardsUsage", DashboardsApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.GET, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -176,7 +159,9 @@ export class DashboardsApiResponseProcessor {
   public async getDashboardUsage(
     response: ResponseContext,
   ): Promise<DashboardUsageResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: DashboardUsageResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -191,7 +176,10 @@ export class DashboardsApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -206,7 +194,10 @@ export class DashboardsApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -237,7 +228,9 @@ export class DashboardsApiResponseProcessor {
   public async listDashboardsUsage(
     response: ResponseContext,
   ): Promise<ListDashboardsUsageResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: ListDashboardsUsageResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -251,7 +244,10 @@ export class DashboardsApiResponseProcessor {
       response.httpStatusCode === 403 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -266,7 +262,10 @@ export class DashboardsApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -324,7 +323,8 @@ export class DashboardsApi {
   private responseProcessor: DashboardsApiResponseProcessor;
   private configuration: Configuration;
 
-  static operationServers: { [key: string]: BaseServerConfiguration[] } = {};
+  static operationServers: { [key: string]: BaseServerConfiguration[] } = {
+  };
 
   public constructor(
     configuration?: Configuration,
@@ -333,7 +333,8 @@ export class DashboardsApi {
   ) {
     this.configuration = configuration || createConfiguration();
     this.requestFactory =
-      requestFactory || new DashboardsApiRequestFactory(this.configuration);
+      requestFactory ||
+      new DashboardsApiRequestFactory(this.configuration);
     this.responseProcessor =
       responseProcessor || new DashboardsApiResponseProcessor();
   }
@@ -387,27 +388,19 @@ export class DashboardsApi {
    * Provide a paginated version of listDashboardsUsage returning a generator with all the items.
    */
   public async *listDashboardsUsageWithPagination(
-    param: DashboardsApiListDashboardsUsageRequest = {},
-    options?: Configuration,
+    param: DashboardsApiListDashboardsUsageRequest = {}, options?: Configuration,
   ): AsyncGenerator<DashboardUsage> {
+
     let pageSize = 250;
     if (param.pageLimit !== undefined) {
       pageSize = param.pageLimit;
     }
     param.pageLimit = pageSize;
     while (true) {
-      const requestContext = await this.requestFactory.listDashboardsUsage(
-        param.pageLimit,
-        param.pageOffset,
-        param.filterEditedBefore,
-        param.filterViewedBefore,
-        options,
-      );
-      const responseContext =
-        await this.configuration.httpApi.send(requestContext);
+      const requestContext = await this.requestFactory.listDashboardsUsage(param.pageLimit,param.pageOffset,param.filterEditedBefore,param.filterViewedBefore,options);
+      const responseContext = await this.configuration.httpApi.send(requestContext);
 
-      const response =
-        await this.responseProcessor.listDashboardsUsage(responseContext);
+      const response = await this.responseProcessor.listDashboardsUsage(responseContext);
       const responseData = response.data;
       if (responseData === undefined) {
         break;

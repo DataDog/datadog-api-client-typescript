@@ -19,6 +19,7 @@ import {
   ServerConfiguration,
   stringify,
   applySecurityAuthentication,
+  
 } from "@datadog/datadog-api-client";
 
 import { TypingInfo } from "./models/TypingInfo";
@@ -43,12 +44,8 @@ export class ReportingAndSharingApiRequestFactory extends BaseAPIRequestFactory 
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
-    if (
-      !_config.unstableOperations["ReportingAndSharingApi.v2.createSnapshot"]
-    ) {
-      throw new Error(
-        "Unstable operation 'createSnapshot' is disabled. Enable it by setting `configuration.unstableOperations['ReportingAndSharingApi.v2.createSnapshot'] = true`",
-      );
+    if (!_config.unstableOperations["ReportingAndSharingApi.v2.createSnapshot"]) {
+      throw new Error("Unstable operation 'createSnapshot' is disabled. Enable it by setting `configuration.unstableOperations['ReportingAndSharingApi.v2.createSnapshot'] = true`");
     }
 
     // verify required parameter 'body' is not null or undefined
@@ -60,15 +57,8 @@ export class ReportingAndSharingApiRequestFactory extends BaseAPIRequestFactory 
     const localVarPath = "/api/v2/snapshot";
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "ReportingAndSharingApi.v2.createSnapshot",
-      ReportingAndSharingApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.POST,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("ReportingAndSharingApi.v2.createSnapshot", ReportingAndSharingApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.POST, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -78,7 +68,9 @@ export class ReportingAndSharingApiRequestFactory extends BaseAPIRequestFactory 
     }
 
     // Body Params
-    const contentType = getPreferredMediaType(["application/json"]);
+    const contentType = getPreferredMediaType([
+      "application/json",
+    ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = stringify(
       serialize(body, TypingInfo, "CreateSnapshotRequest", ""),
@@ -107,7 +99,9 @@ export class ReportingAndSharingApiResponseProcessor {
   public async createSnapshot(
     response: ResponseContext,
   ): Promise<CreateSnapshotResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: CreateSnapshotResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -122,7 +116,10 @@ export class ReportingAndSharingApiResponseProcessor {
       response.httpStatusCode === 403 ||
       response.httpStatusCode === 404
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: JSONAPIErrorResponse;
       try {
         body = deserialize(
@@ -143,7 +140,10 @@ export class ReportingAndSharingApiResponseProcessor {
       );
     }
     if (response.httpStatusCode === 429) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -158,7 +158,10 @@ export class ReportingAndSharingApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -192,7 +195,8 @@ export class ReportingAndSharingApi {
   private responseProcessor: ReportingAndSharingApiResponseProcessor;
   private configuration: Configuration;
 
-  static operationServers: { [key: string]: BaseServerConfiguration[] } = {};
+  static operationServers: { [key: string]: BaseServerConfiguration[] } = {
+  };
 
   public constructor(
     configuration?: Configuration,

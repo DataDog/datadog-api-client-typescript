@@ -21,9 +21,7 @@ export const TypingInfo: ModelTypingInfo = {
   enumsMap: {
     WebhooksAuthMethodProtocol: ["oauth2-client-credentials"],
     WebhooksAuthMethodType: ["webhooks-auth-method"],
-    WebhooksOAuth2ClientCredentialsType: [
-      "webhooks-auth-method-oauth2-client-credentials",
-    ],
+    WebhooksOAuth2ClientCredentialsType: ["webhooks-auth-method-oauth2-client-credentials"],
   },
   oneOfMap: {},
   typeMap: {
@@ -32,27 +30,16 @@ export const TypingInfo: ModelTypingInfo = {
     WebhooksAuthMethodRelationships: WebhooksAuthMethodRelationships,
     WebhooksAuthMethodResponseData: WebhooksAuthMethodResponseData,
     WebhooksAuthMethodsResponse: WebhooksAuthMethodsResponse,
-    WebhooksOAuth2ClientCredentialsCreateAttributes:
-      WebhooksOAuth2ClientCredentialsCreateAttributes,
-    WebhooksOAuth2ClientCredentialsCreateData:
-      WebhooksOAuth2ClientCredentialsCreateData,
-    WebhooksOAuth2ClientCredentialsCreateRequest:
-      WebhooksOAuth2ClientCredentialsCreateRequest,
-    WebhooksOAuth2ClientCredentialsRelationship:
-      WebhooksOAuth2ClientCredentialsRelationship,
-    WebhooksOAuth2ClientCredentialsRelationshipData:
-      WebhooksOAuth2ClientCredentialsRelationshipData,
-    WebhooksOAuth2ClientCredentialsResponse:
-      WebhooksOAuth2ClientCredentialsResponse,
-    WebhooksOAuth2ClientCredentialsResponseAttributes:
-      WebhooksOAuth2ClientCredentialsResponseAttributes,
-    WebhooksOAuth2ClientCredentialsResponseData:
-      WebhooksOAuth2ClientCredentialsResponseData,
-    WebhooksOAuth2ClientCredentialsUpdateAttributes:
-      WebhooksOAuth2ClientCredentialsUpdateAttributes,
-    WebhooksOAuth2ClientCredentialsUpdateData:
-      WebhooksOAuth2ClientCredentialsUpdateData,
-    WebhooksOAuth2ClientCredentialsUpdateRequest:
-      WebhooksOAuth2ClientCredentialsUpdateRequest,
+    WebhooksOAuth2ClientCredentialsCreateAttributes: WebhooksOAuth2ClientCredentialsCreateAttributes,
+    WebhooksOAuth2ClientCredentialsCreateData: WebhooksOAuth2ClientCredentialsCreateData,
+    WebhooksOAuth2ClientCredentialsCreateRequest: WebhooksOAuth2ClientCredentialsCreateRequest,
+    WebhooksOAuth2ClientCredentialsRelationship: WebhooksOAuth2ClientCredentialsRelationship,
+    WebhooksOAuth2ClientCredentialsRelationshipData: WebhooksOAuth2ClientCredentialsRelationshipData,
+    WebhooksOAuth2ClientCredentialsResponse: WebhooksOAuth2ClientCredentialsResponse,
+    WebhooksOAuth2ClientCredentialsResponseAttributes: WebhooksOAuth2ClientCredentialsResponseAttributes,
+    WebhooksOAuth2ClientCredentialsResponseData: WebhooksOAuth2ClientCredentialsResponseData,
+    WebhooksOAuth2ClientCredentialsUpdateAttributes: WebhooksOAuth2ClientCredentialsUpdateAttributes,
+    WebhooksOAuth2ClientCredentialsUpdateData: WebhooksOAuth2ClientCredentialsUpdateData,
+    WebhooksOAuth2ClientCredentialsUpdateRequest: WebhooksOAuth2ClientCredentialsUpdateRequest,
   },
 };

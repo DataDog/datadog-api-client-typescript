@@ -21,7 +21,7 @@ export const TypingInfo: ModelTypingInfo = {
   },
   oneOfMap: {
     ContainerItem: ["Container", "ContainerGroup"],
-  },
+    },
   typeMap: {
     APIErrorResponse: APIErrorResponse,
     Container: Container,

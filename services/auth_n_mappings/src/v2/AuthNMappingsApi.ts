@@ -19,6 +19,7 @@ import {
   ServerConfiguration,
   stringify,
   applySecurityAuthentication,
+  
 } from "@datadog/datadog-api-client";
 
 import { TypingInfo } from "./models/TypingInfo";
@@ -55,15 +56,8 @@ export class AuthNMappingsApiRequestFactory extends BaseAPIRequestFactory {
     const localVarPath = "/api/v2/authn_mappings";
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "AuthNMappingsApi.v2.createAuthNMapping",
-      AuthNMappingsApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.POST,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("AuthNMappingsApi.v2.createAuthNMapping", AuthNMappingsApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.POST, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -73,7 +67,9 @@ export class AuthNMappingsApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Body Params
-    const contentType = getPreferredMediaType(["application/json"]);
+    const contentType = getPreferredMediaType([
+      "application/json",
+    ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = stringify(
       serialize(body, TypingInfo, "AuthNMappingCreateRequest", ""),
@@ -108,15 +104,8 @@ export class AuthNMappingsApiRequestFactory extends BaseAPIRequestFactory {
     );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "AuthNMappingsApi.v2.deleteAuthNMapping",
-      AuthNMappingsApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.DELETE,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("AuthNMappingsApi.v2.deleteAuthNMapping", AuthNMappingsApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.DELETE, overrides);
     requestContext.setHeaderParam("Accept", "*/*");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -152,15 +141,8 @@ export class AuthNMappingsApiRequestFactory extends BaseAPIRequestFactory {
     );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "AuthNMappingsApi.v2.getAuthNMapping",
-      AuthNMappingsApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.GET,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("AuthNMappingsApi.v2.getAuthNMapping", AuthNMappingsApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.GET, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -192,15 +174,8 @@ export class AuthNMappingsApiRequestFactory extends BaseAPIRequestFactory {
     const localVarPath = "/api/v2/authn_mappings";
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "AuthNMappingsApi.v2.listAuthNMappings",
-      AuthNMappingsApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.GET,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("AuthNMappingsApi.v2.listAuthNMappings", AuthNMappingsApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.GET, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -279,15 +254,8 @@ export class AuthNMappingsApiRequestFactory extends BaseAPIRequestFactory {
     );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "AuthNMappingsApi.v2.updateAuthNMapping",
-      AuthNMappingsApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.PATCH,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("AuthNMappingsApi.v2.updateAuthNMapping", AuthNMappingsApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.PATCH, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -297,7 +265,9 @@ export class AuthNMappingsApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Body Params
-    const contentType = getPreferredMediaType(["application/json"]);
+    const contentType = getPreferredMediaType([
+      "application/json",
+    ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = stringify(
       serialize(body, TypingInfo, "AuthNMappingUpdateRequest", ""),
@@ -326,7 +296,9 @@ export class AuthNMappingsApiResponseProcessor {
   public async createAuthNMapping(
     response: ResponseContext,
   ): Promise<AuthNMappingResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: AuthNMappingResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -341,7 +313,10 @@ export class AuthNMappingsApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -356,7 +331,10 @@ export class AuthNMappingsApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -384,8 +362,12 @@ export class AuthNMappingsApiResponseProcessor {
    * @params response Response returned by the server for a request to deleteAuthNMapping
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async deleteAuthNMapping(response: ResponseContext): Promise<void> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+  public async deleteAuthNMapping(
+    response: ResponseContext,
+  ): Promise<void> {
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 204) {
       return;
     }
@@ -394,7 +376,10 @@ export class AuthNMappingsApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -409,7 +394,10 @@ export class AuthNMappingsApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -434,7 +422,9 @@ export class AuthNMappingsApiResponseProcessor {
   public async getAuthNMapping(
     response: ResponseContext,
   ): Promise<AuthNMappingResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: AuthNMappingResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -448,7 +438,10 @@ export class AuthNMappingsApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -463,7 +456,10 @@ export class AuthNMappingsApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -494,7 +490,9 @@ export class AuthNMappingsApiResponseProcessor {
   public async listAuthNMappings(
     response: ResponseContext,
   ): Promise<AuthNMappingsResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: AuthNMappingsResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -503,8 +501,14 @@ export class AuthNMappingsApiResponseProcessor {
       ) as AuthNMappingsResponse;
       return body;
     }
-    if (response.httpStatusCode === 403 || response.httpStatusCode === 429) {
-      const bodyText = parse(await response.body.text(), contentType);
+    if (
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 429
+    ) {
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -519,7 +523,10 @@ export class AuthNMappingsApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -550,7 +557,9 @@ export class AuthNMappingsApiResponseProcessor {
   public async updateAuthNMapping(
     response: ResponseContext,
   ): Promise<AuthNMappingResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: AuthNMappingResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -567,7 +576,10 @@ export class AuthNMappingsApiResponseProcessor {
       response.httpStatusCode === 422 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -582,7 +594,10 @@ export class AuthNMappingsApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -672,7 +687,8 @@ export class AuthNMappingsApi {
   private responseProcessor: AuthNMappingsApiResponseProcessor;
   private configuration: Configuration;
 
-  static operationServers: { [key: string]: BaseServerConfiguration[] } = {};
+  static operationServers: { [key: string]: BaseServerConfiguration[] } = {
+  };
 
   public constructor(
     configuration?: Configuration,
@@ -681,7 +697,8 @@ export class AuthNMappingsApi {
   ) {
     this.configuration = configuration || createConfiguration();
     this.requestFactory =
-      requestFactory || new AuthNMappingsApiRequestFactory(this.configuration);
+      requestFactory ||
+      new AuthNMappingsApiRequestFactory(this.configuration);
     this.responseProcessor =
       responseProcessor || new AuthNMappingsApiResponseProcessor();
   }

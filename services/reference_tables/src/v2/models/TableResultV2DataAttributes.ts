@@ -18,11 +18,11 @@ export class TableResultV2DataAttributes {
   "description"?: string;
   /**
    * Metadata specifying where and how to access the reference table's data file.
-   *
+   * 
    * For cloud storage tables (S3/GCS/Azure):
    *   - sync_enabled and access_details will always be present
    *   - error fields (error_message, error_row_count, error_type) are present only when errors occur
-   *
+   * 
    * For local file tables:
    *   - error fields (error_message, error_row_count) are present only when errors occur
    *   - sync_enabled, access_details are never present
@@ -65,7 +65,7 @@ export class TableResultV2DataAttributes {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
   /**
    * @ignore
    */

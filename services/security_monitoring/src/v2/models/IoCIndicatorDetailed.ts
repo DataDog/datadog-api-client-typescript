@@ -14,7 +14,7 @@ export class IoCIndicatorDetailed {
   /**
    * Additional domain-specific context from threat intelligence sources.
    */
-  "additionalData"?: { [key: string]: any };
+  "additionalData"?: { [key: string]: any; };
   /**
    * Autonomous system CIDR block.
    */
@@ -150,13 +150,13 @@ export class IoCIndicatorDetailed {
   /**
    * Users associated with this indicator, grouped by category.
    */
-  "users"?: { [key: string]: Array<string> };
+  "users"?: { [key: string]: Array<string>; };
   /**
    * A container for additional, undeclared properties.
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
   /**
    * @ignore
    */

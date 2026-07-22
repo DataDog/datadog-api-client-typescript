@@ -19,6 +19,7 @@ import {
   ServerConfiguration,
   stringify,
   applySecurityAuthentication,
+  
 } from "@datadog/datadog-api-client";
 
 import { TypingInfo } from "./models/TypingInfo";
@@ -55,10 +56,7 @@ export class GoogleChatIntegrationApiRequestFactory extends BaseAPIRequestFactor
 
     // verify required parameter 'organizationBindingId' is not null or undefined
     if (organizationBindingId === null || organizationBindingId === undefined) {
-      throw new RequiredError(
-        "organizationBindingId",
-        "createGoogleChatTargetAudience",
-      );
+      throw new RequiredError("organizationBindingId", "createGoogleChatTargetAudience");
     }
 
     // verify required parameter 'body' is not null or undefined
@@ -67,22 +65,14 @@ export class GoogleChatIntegrationApiRequestFactory extends BaseAPIRequestFactor
     }
 
     // Path Params
-    const localVarPath =
-      "/api/v2/integration/google-chat/organizations/{organization_binding_id}/target-audiences".replace(
-        "{organization_binding_id}",
-        encodeURIComponent(String(organizationBindingId)),
-      );
+    const localVarPath = "/api/v2/integration/google-chat/organizations/{organization_binding_id}/target-audiences".replace(
+      "{organization_binding_id}",
+      encodeURIComponent(String(organizationBindingId)),
+    );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "GoogleChatIntegrationApi.v2.createGoogleChatTargetAudience",
-      GoogleChatIntegrationApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.POST,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("GoogleChatIntegrationApi.v2.createGoogleChatTargetAudience", GoogleChatIntegrationApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.POST, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -92,7 +82,9 @@ export class GoogleChatIntegrationApiRequestFactory extends BaseAPIRequestFactor
     }
 
     // Body Params
-    const contentType = getPreferredMediaType(["application/json"]);
+    const contentType = getPreferredMediaType([
+      "application/json",
+    ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = stringify(
       serialize(body, TypingInfo, "GoogleChatTargetAudienceCreateRequest", ""),
@@ -118,10 +110,7 @@ export class GoogleChatIntegrationApiRequestFactory extends BaseAPIRequestFactor
 
     // verify required parameter 'organizationBindingId' is not null or undefined
     if (organizationBindingId === null || organizationBindingId === undefined) {
-      throw new RequiredError(
-        "organizationBindingId",
-        "createOrganizationHandle",
-      );
+      throw new RequiredError("organizationBindingId", "createOrganizationHandle");
     }
 
     // verify required parameter 'body' is not null or undefined
@@ -130,22 +119,14 @@ export class GoogleChatIntegrationApiRequestFactory extends BaseAPIRequestFactor
     }
 
     // Path Params
-    const localVarPath =
-      "/api/v2/integration/google-chat/organizations/{organization_binding_id}/organization-handles".replace(
-        "{organization_binding_id}",
-        encodeURIComponent(String(organizationBindingId)),
-      );
+    const localVarPath = "/api/v2/integration/google-chat/organizations/{organization_binding_id}/organization-handles".replace(
+      "{organization_binding_id}",
+      encodeURIComponent(String(organizationBindingId)),
+    );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "GoogleChatIntegrationApi.v2.createOrganizationHandle",
-      GoogleChatIntegrationApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.POST,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("GoogleChatIntegrationApi.v2.createOrganizationHandle", GoogleChatIntegrationApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.POST, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -155,15 +136,12 @@ export class GoogleChatIntegrationApiRequestFactory extends BaseAPIRequestFactor
     }
 
     // Body Params
-    const contentType = getPreferredMediaType(["application/json"]);
+    const contentType = getPreferredMediaType([
+      "application/json",
+    ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = stringify(
-      serialize(
-        body,
-        TypingInfo,
-        "GoogleChatCreateOrganizationHandleRequest",
-        "",
-      ),
+      serialize(body, TypingInfo, "GoogleChatCreateOrganizationHandleRequest", ""),
       contentType,
     );
     requestContext.setBody(serializedBody);
@@ -185,29 +163,18 @@ export class GoogleChatIntegrationApiRequestFactory extends BaseAPIRequestFactor
 
     // verify required parameter 'organizationBindingId' is not null or undefined
     if (organizationBindingId === null || organizationBindingId === undefined) {
-      throw new RequiredError(
-        "organizationBindingId",
-        "deleteGoogleChatDelegatedUser",
-      );
+      throw new RequiredError("organizationBindingId", "deleteGoogleChatDelegatedUser");
     }
 
     // Path Params
-    const localVarPath =
-      "/api/v2/integration/google-chat/organizations/{organization_binding_id}/delegated-user".replace(
-        "{organization_binding_id}",
-        encodeURIComponent(String(organizationBindingId)),
-      );
+    const localVarPath = "/api/v2/integration/google-chat/organizations/{organization_binding_id}/delegated-user".replace(
+      "{organization_binding_id}",
+      encodeURIComponent(String(organizationBindingId)),
+    );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "GoogleChatIntegrationApi.v2.deleteGoogleChatDelegatedUser",
-      GoogleChatIntegrationApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.DELETE,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("GoogleChatIntegrationApi.v2.deleteGoogleChatDelegatedUser", GoogleChatIntegrationApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.DELETE, overrides);
     requestContext.setHeaderParam("Accept", "*/*");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -233,29 +200,18 @@ export class GoogleChatIntegrationApiRequestFactory extends BaseAPIRequestFactor
 
     // verify required parameter 'organizationBindingId' is not null or undefined
     if (organizationBindingId === null || organizationBindingId === undefined) {
-      throw new RequiredError(
-        "organizationBindingId",
-        "deleteGoogleChatOrganization",
-      );
+      throw new RequiredError("organizationBindingId", "deleteGoogleChatOrganization");
     }
 
     // Path Params
-    const localVarPath =
-      "/api/v2/integration/google-chat/organizations/{organization_binding_id}".replace(
-        "{organization_binding_id}",
-        encodeURIComponent(String(organizationBindingId)),
-      );
+    const localVarPath = "/api/v2/integration/google-chat/organizations/{organization_binding_id}".replace(
+      "{organization_binding_id}",
+      encodeURIComponent(String(organizationBindingId)),
+    );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "GoogleChatIntegrationApi.v2.deleteGoogleChatOrganization",
-      GoogleChatIntegrationApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.DELETE,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("GoogleChatIntegrationApi.v2.deleteGoogleChatOrganization", GoogleChatIntegrationApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.DELETE, overrides);
     requestContext.setHeaderParam("Accept", "*/*");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -282,42 +238,26 @@ export class GoogleChatIntegrationApiRequestFactory extends BaseAPIRequestFactor
 
     // verify required parameter 'organizationBindingId' is not null or undefined
     if (organizationBindingId === null || organizationBindingId === undefined) {
-      throw new RequiredError(
-        "organizationBindingId",
-        "deleteGoogleChatTargetAudience",
-      );
+      throw new RequiredError("organizationBindingId", "deleteGoogleChatTargetAudience");
     }
 
     // verify required parameter 'targetAudienceId' is not null or undefined
     if (targetAudienceId === null || targetAudienceId === undefined) {
-      throw new RequiredError(
-        "targetAudienceId",
-        "deleteGoogleChatTargetAudience",
-      );
+      throw new RequiredError("targetAudienceId", "deleteGoogleChatTargetAudience");
     }
 
     // Path Params
-    const localVarPath =
-      "/api/v2/integration/google-chat/organizations/{organization_binding_id}/target-audiences/{target_audience_id}"
-        .replace(
-          "{organization_binding_id}",
-          encodeURIComponent(String(organizationBindingId)),
-        )
-        .replace(
-          "{target_audience_id}",
-          encodeURIComponent(String(targetAudienceId)),
-        );
+    const localVarPath = "/api/v2/integration/google-chat/organizations/{organization_binding_id}/target-audiences/{target_audience_id}".replace(
+      "{organization_binding_id}",
+      encodeURIComponent(String(organizationBindingId)),
+    ).replace(
+      "{target_audience_id}",
+      encodeURIComponent(String(targetAudienceId)),
+    );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "GoogleChatIntegrationApi.v2.deleteGoogleChatTargetAudience",
-      GoogleChatIntegrationApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.DELETE,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("GoogleChatIntegrationApi.v2.deleteGoogleChatTargetAudience", GoogleChatIntegrationApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.DELETE, overrides);
     requestContext.setHeaderParam("Accept", "*/*");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -344,10 +284,7 @@ export class GoogleChatIntegrationApiRequestFactory extends BaseAPIRequestFactor
 
     // verify required parameter 'organizationBindingId' is not null or undefined
     if (organizationBindingId === null || organizationBindingId === undefined) {
-      throw new RequiredError(
-        "organizationBindingId",
-        "deleteOrganizationHandle",
-      );
+      throw new RequiredError("organizationBindingId", "deleteOrganizationHandle");
     }
 
     // verify required parameter 'handleId' is not null or undefined
@@ -356,24 +293,17 @@ export class GoogleChatIntegrationApiRequestFactory extends BaseAPIRequestFactor
     }
 
     // Path Params
-    const localVarPath =
-      "/api/v2/integration/google-chat/organizations/{organization_binding_id}/organization-handles/{handle_id}"
-        .replace(
-          "{organization_binding_id}",
-          encodeURIComponent(String(organizationBindingId)),
-        )
-        .replace("{handle_id}", encodeURIComponent(String(handleId)));
+    const localVarPath = "/api/v2/integration/google-chat/organizations/{organization_binding_id}/organization-handles/{handle_id}".replace(
+      "{organization_binding_id}",
+      encodeURIComponent(String(organizationBindingId)),
+    ).replace(
+      "{handle_id}",
+      encodeURIComponent(String(handleId)),
+    );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "GoogleChatIntegrationApi.v2.deleteOrganizationHandle",
-      GoogleChatIntegrationApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.DELETE,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("GoogleChatIntegrationApi.v2.deleteOrganizationHandle", GoogleChatIntegrationApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.DELETE, overrides);
     requestContext.setHeaderParam("Accept", "*/*");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -399,29 +329,18 @@ export class GoogleChatIntegrationApiRequestFactory extends BaseAPIRequestFactor
 
     // verify required parameter 'organizationBindingId' is not null or undefined
     if (organizationBindingId === null || organizationBindingId === undefined) {
-      throw new RequiredError(
-        "organizationBindingId",
-        "getGoogleChatDelegatedUser",
-      );
+      throw new RequiredError("organizationBindingId", "getGoogleChatDelegatedUser");
     }
 
     // Path Params
-    const localVarPath =
-      "/api/v2/integration/google-chat/organizations/{organization_binding_id}/delegated-user".replace(
-        "{organization_binding_id}",
-        encodeURIComponent(String(organizationBindingId)),
-      );
+    const localVarPath = "/api/v2/integration/google-chat/organizations/{organization_binding_id}/delegated-user".replace(
+      "{organization_binding_id}",
+      encodeURIComponent(String(organizationBindingId)),
+    );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "GoogleChatIntegrationApi.v2.getGoogleChatDelegatedUser",
-      GoogleChatIntegrationApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.GET,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("GoogleChatIntegrationApi.v2.getGoogleChatDelegatedUser", GoogleChatIntegrationApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.GET, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -447,29 +366,18 @@ export class GoogleChatIntegrationApiRequestFactory extends BaseAPIRequestFactor
 
     // verify required parameter 'organizationBindingId' is not null or undefined
     if (organizationBindingId === null || organizationBindingId === undefined) {
-      throw new RequiredError(
-        "organizationBindingId",
-        "getGoogleChatOrganization",
-      );
+      throw new RequiredError("organizationBindingId", "getGoogleChatOrganization");
     }
 
     // Path Params
-    const localVarPath =
-      "/api/v2/integration/google-chat/organizations/{organization_binding_id}".replace(
-        "{organization_binding_id}",
-        encodeURIComponent(String(organizationBindingId)),
-      );
+    const localVarPath = "/api/v2/integration/google-chat/organizations/{organization_binding_id}".replace(
+      "{organization_binding_id}",
+      encodeURIComponent(String(organizationBindingId)),
+    );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "GoogleChatIntegrationApi.v2.getGoogleChatOrganization",
-      GoogleChatIntegrationApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.GET,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("GoogleChatIntegrationApi.v2.getGoogleChatOrganization", GoogleChatIntegrationApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.GET, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -496,42 +404,26 @@ export class GoogleChatIntegrationApiRequestFactory extends BaseAPIRequestFactor
 
     // verify required parameter 'organizationBindingId' is not null or undefined
     if (organizationBindingId === null || organizationBindingId === undefined) {
-      throw new RequiredError(
-        "organizationBindingId",
-        "getGoogleChatTargetAudience",
-      );
+      throw new RequiredError("organizationBindingId", "getGoogleChatTargetAudience");
     }
 
     // verify required parameter 'targetAudienceId' is not null or undefined
     if (targetAudienceId === null || targetAudienceId === undefined) {
-      throw new RequiredError(
-        "targetAudienceId",
-        "getGoogleChatTargetAudience",
-      );
+      throw new RequiredError("targetAudienceId", "getGoogleChatTargetAudience");
     }
 
     // Path Params
-    const localVarPath =
-      "/api/v2/integration/google-chat/organizations/{organization_binding_id}/target-audiences/{target_audience_id}"
-        .replace(
-          "{organization_binding_id}",
-          encodeURIComponent(String(organizationBindingId)),
-        )
-        .replace(
-          "{target_audience_id}",
-          encodeURIComponent(String(targetAudienceId)),
-        );
+    const localVarPath = "/api/v2/integration/google-chat/organizations/{organization_binding_id}/target-audiences/{target_audience_id}".replace(
+      "{organization_binding_id}",
+      encodeURIComponent(String(organizationBindingId)),
+    ).replace(
+      "{target_audience_id}",
+      encodeURIComponent(String(targetAudienceId)),
+    );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "GoogleChatIntegrationApi.v2.getGoogleChatTargetAudience",
-      GoogleChatIntegrationApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.GET,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("GoogleChatIntegrationApi.v2.getGoogleChatTargetAudience", GoogleChatIntegrationApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.GET, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -567,24 +459,17 @@ export class GoogleChatIntegrationApiRequestFactory extends BaseAPIRequestFactor
     }
 
     // Path Params
-    const localVarPath =
-      "/api/v2/integration/google-chat/organizations/{organization_binding_id}/organization-handles/{handle_id}"
-        .replace(
-          "{organization_binding_id}",
-          encodeURIComponent(String(organizationBindingId)),
-        )
-        .replace("{handle_id}", encodeURIComponent(String(handleId)));
+    const localVarPath = "/api/v2/integration/google-chat/organizations/{organization_binding_id}/organization-handles/{handle_id}".replace(
+      "{organization_binding_id}",
+      encodeURIComponent(String(organizationBindingId)),
+    ).replace(
+      "{handle_id}",
+      encodeURIComponent(String(handleId)),
+    );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "GoogleChatIntegrationApi.v2.getOrganizationHandle",
-      GoogleChatIntegrationApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.GET,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("GoogleChatIntegrationApi.v2.getOrganizationHandle", GoogleChatIntegrationApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.GET, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -620,24 +505,17 @@ export class GoogleChatIntegrationApiRequestFactory extends BaseAPIRequestFactor
     }
 
     // Path Params
-    const localVarPath =
-      "/api/v2/integration/google-chat/organizations/app/named-spaces/{domain_name}/{space_display_name}"
-        .replace("{domain_name}", encodeURIComponent(String(domainName)))
-        .replace(
-          "{space_display_name}",
-          encodeURIComponent(String(spaceDisplayName)),
-        );
+    const localVarPath = "/api/v2/integration/google-chat/organizations/app/named-spaces/{domain_name}/{space_display_name}".replace(
+      "{domain_name}",
+      encodeURIComponent(String(domainName)),
+    ).replace(
+      "{space_display_name}",
+      encodeURIComponent(String(spaceDisplayName)),
+    );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "GoogleChatIntegrationApi.v2.getSpaceByDisplayName",
-      GoogleChatIntegrationApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.GET,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("GoogleChatIntegrationApi.v2.getSpaceByDisplayName", GoogleChatIntegrationApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.GET, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -664,15 +542,8 @@ export class GoogleChatIntegrationApiRequestFactory extends BaseAPIRequestFactor
     const localVarPath = "/api/v2/integration/google-chat/organizations";
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "GoogleChatIntegrationApi.v2.listGoogleChatOrganizations",
-      GoogleChatIntegrationApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.GET,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("GoogleChatIntegrationApi.v2.listGoogleChatOrganizations", GoogleChatIntegrationApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.GET, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -698,29 +569,18 @@ export class GoogleChatIntegrationApiRequestFactory extends BaseAPIRequestFactor
 
     // verify required parameter 'organizationBindingId' is not null or undefined
     if (organizationBindingId === null || organizationBindingId === undefined) {
-      throw new RequiredError(
-        "organizationBindingId",
-        "listGoogleChatTargetAudiences",
-      );
+      throw new RequiredError("organizationBindingId", "listGoogleChatTargetAudiences");
     }
 
     // Path Params
-    const localVarPath =
-      "/api/v2/integration/google-chat/organizations/{organization_binding_id}/target-audiences".replace(
-        "{organization_binding_id}",
-        encodeURIComponent(String(organizationBindingId)),
-      );
+    const localVarPath = "/api/v2/integration/google-chat/organizations/{organization_binding_id}/target-audiences".replace(
+      "{organization_binding_id}",
+      encodeURIComponent(String(organizationBindingId)),
+    );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "GoogleChatIntegrationApi.v2.listGoogleChatTargetAudiences",
-      GoogleChatIntegrationApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.GET,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("GoogleChatIntegrationApi.v2.listGoogleChatTargetAudiences", GoogleChatIntegrationApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.GET, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -746,29 +606,18 @@ export class GoogleChatIntegrationApiRequestFactory extends BaseAPIRequestFactor
 
     // verify required parameter 'organizationBindingId' is not null or undefined
     if (organizationBindingId === null || organizationBindingId === undefined) {
-      throw new RequiredError(
-        "organizationBindingId",
-        "listOrganizationHandles",
-      );
+      throw new RequiredError("organizationBindingId", "listOrganizationHandles");
     }
 
     // Path Params
-    const localVarPath =
-      "/api/v2/integration/google-chat/organizations/{organization_binding_id}/organization-handles".replace(
-        "{organization_binding_id}",
-        encodeURIComponent(String(organizationBindingId)),
-      );
+    const localVarPath = "/api/v2/integration/google-chat/organizations/{organization_binding_id}/organization-handles".replace(
+      "{organization_binding_id}",
+      encodeURIComponent(String(organizationBindingId)),
+    );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "GoogleChatIntegrationApi.v2.listOrganizationHandles",
-      GoogleChatIntegrationApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.GET,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("GoogleChatIntegrationApi.v2.listOrganizationHandles", GoogleChatIntegrationApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.GET, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -796,18 +645,12 @@ export class GoogleChatIntegrationApiRequestFactory extends BaseAPIRequestFactor
 
     // verify required parameter 'organizationBindingId' is not null or undefined
     if (organizationBindingId === null || organizationBindingId === undefined) {
-      throw new RequiredError(
-        "organizationBindingId",
-        "updateGoogleChatTargetAudience",
-      );
+      throw new RequiredError("organizationBindingId", "updateGoogleChatTargetAudience");
     }
 
     // verify required parameter 'targetAudienceId' is not null or undefined
     if (targetAudienceId === null || targetAudienceId === undefined) {
-      throw new RequiredError(
-        "targetAudienceId",
-        "updateGoogleChatTargetAudience",
-      );
+      throw new RequiredError("targetAudienceId", "updateGoogleChatTargetAudience");
     }
 
     // verify required parameter 'body' is not null or undefined
@@ -816,27 +659,17 @@ export class GoogleChatIntegrationApiRequestFactory extends BaseAPIRequestFactor
     }
 
     // Path Params
-    const localVarPath =
-      "/api/v2/integration/google-chat/organizations/{organization_binding_id}/target-audiences/{target_audience_id}"
-        .replace(
-          "{organization_binding_id}",
-          encodeURIComponent(String(organizationBindingId)),
-        )
-        .replace(
-          "{target_audience_id}",
-          encodeURIComponent(String(targetAudienceId)),
-        );
+    const localVarPath = "/api/v2/integration/google-chat/organizations/{organization_binding_id}/target-audiences/{target_audience_id}".replace(
+      "{organization_binding_id}",
+      encodeURIComponent(String(organizationBindingId)),
+    ).replace(
+      "{target_audience_id}",
+      encodeURIComponent(String(targetAudienceId)),
+    );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "GoogleChatIntegrationApi.v2.updateGoogleChatTargetAudience",
-      GoogleChatIntegrationApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.PATCH,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("GoogleChatIntegrationApi.v2.updateGoogleChatTargetAudience", GoogleChatIntegrationApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.PATCH, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -846,7 +679,9 @@ export class GoogleChatIntegrationApiRequestFactory extends BaseAPIRequestFactor
     }
 
     // Body Params
-    const contentType = getPreferredMediaType(["application/json"]);
+    const contentType = getPreferredMediaType([
+      "application/json",
+    ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = stringify(
       serialize(body, TypingInfo, "GoogleChatTargetAudienceUpdateRequest", ""),
@@ -873,10 +708,7 @@ export class GoogleChatIntegrationApiRequestFactory extends BaseAPIRequestFactor
 
     // verify required parameter 'organizationBindingId' is not null or undefined
     if (organizationBindingId === null || organizationBindingId === undefined) {
-      throw new RequiredError(
-        "organizationBindingId",
-        "updateOrganizationHandle",
-      );
+      throw new RequiredError("organizationBindingId", "updateOrganizationHandle");
     }
 
     // verify required parameter 'handleId' is not null or undefined
@@ -890,24 +722,17 @@ export class GoogleChatIntegrationApiRequestFactory extends BaseAPIRequestFactor
     }
 
     // Path Params
-    const localVarPath =
-      "/api/v2/integration/google-chat/organizations/{organization_binding_id}/organization-handles/{handle_id}"
-        .replace(
-          "{organization_binding_id}",
-          encodeURIComponent(String(organizationBindingId)),
-        )
-        .replace("{handle_id}", encodeURIComponent(String(handleId)));
+    const localVarPath = "/api/v2/integration/google-chat/organizations/{organization_binding_id}/organization-handles/{handle_id}".replace(
+      "{organization_binding_id}",
+      encodeURIComponent(String(organizationBindingId)),
+    ).replace(
+      "{handle_id}",
+      encodeURIComponent(String(handleId)),
+    );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "GoogleChatIntegrationApi.v2.updateOrganizationHandle",
-      GoogleChatIntegrationApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.PATCH,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("GoogleChatIntegrationApi.v2.updateOrganizationHandle", GoogleChatIntegrationApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.PATCH, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -917,15 +742,12 @@ export class GoogleChatIntegrationApiRequestFactory extends BaseAPIRequestFactor
     }
 
     // Body Params
-    const contentType = getPreferredMediaType(["application/json"]);
+    const contentType = getPreferredMediaType([
+      "application/json",
+    ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = stringify(
-      serialize(
-        body,
-        TypingInfo,
-        "GoogleChatUpdateOrganizationHandleRequest",
-        "",
-      ),
+      serialize(body, TypingInfo, "GoogleChatUpdateOrganizationHandleRequest", ""),
       contentType,
     );
     requestContext.setBody(serializedBody);
@@ -951,7 +773,9 @@ export class GoogleChatIntegrationApiResponseProcessor {
   public async createGoogleChatTargetAudience(
     response: ResponseContext,
   ): Promise<GoogleChatTargetAudienceResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 201) {
       const body: GoogleChatTargetAudienceResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -967,7 +791,10 @@ export class GoogleChatIntegrationApiResponseProcessor {
       response.httpStatusCode === 409 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -982,7 +809,10 @@ export class GoogleChatIntegrationApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -1013,7 +843,9 @@ export class GoogleChatIntegrationApiResponseProcessor {
   public async createOrganizationHandle(
     response: ResponseContext,
   ): Promise<GoogleChatOrganizationHandleResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 201) {
       const body: GoogleChatOrganizationHandleResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -1029,7 +861,10 @@ export class GoogleChatIntegrationApiResponseProcessor {
       response.httpStatusCode === 409 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -1044,7 +879,10 @@ export class GoogleChatIntegrationApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -1075,7 +913,9 @@ export class GoogleChatIntegrationApiResponseProcessor {
   public async deleteGoogleChatDelegatedUser(
     response: ResponseContext,
   ): Promise<void> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 204) {
       return;
     }
@@ -1084,7 +924,10 @@ export class GoogleChatIntegrationApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -1099,7 +942,10 @@ export class GoogleChatIntegrationApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -1124,7 +970,9 @@ export class GoogleChatIntegrationApiResponseProcessor {
   public async deleteGoogleChatOrganization(
     response: ResponseContext,
   ): Promise<void> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 204) {
       return;
     }
@@ -1133,7 +981,10 @@ export class GoogleChatIntegrationApiResponseProcessor {
       response.httpStatusCode === 403 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -1148,7 +999,10 @@ export class GoogleChatIntegrationApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -1173,7 +1027,9 @@ export class GoogleChatIntegrationApiResponseProcessor {
   public async deleteGoogleChatTargetAudience(
     response: ResponseContext,
   ): Promise<void> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 204) {
       return;
     }
@@ -1182,7 +1038,10 @@ export class GoogleChatIntegrationApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -1197,7 +1056,10 @@ export class GoogleChatIntegrationApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -1222,7 +1084,9 @@ export class GoogleChatIntegrationApiResponseProcessor {
   public async deleteOrganizationHandle(
     response: ResponseContext,
   ): Promise<void> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 204) {
       return;
     }
@@ -1231,7 +1095,10 @@ export class GoogleChatIntegrationApiResponseProcessor {
       response.httpStatusCode === 403 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -1246,7 +1113,10 @@ export class GoogleChatIntegrationApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -1271,7 +1141,9 @@ export class GoogleChatIntegrationApiResponseProcessor {
   public async getGoogleChatDelegatedUser(
     response: ResponseContext,
   ): Promise<GoogleChatDelegatedUserResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: GoogleChatDelegatedUserResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -1285,7 +1157,10 @@ export class GoogleChatIntegrationApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -1300,7 +1175,10 @@ export class GoogleChatIntegrationApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -1331,7 +1209,9 @@ export class GoogleChatIntegrationApiResponseProcessor {
   public async getGoogleChatOrganization(
     response: ResponseContext,
   ): Promise<GoogleChatOrganizationResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: GoogleChatOrganizationResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -1345,7 +1225,10 @@ export class GoogleChatIntegrationApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -1360,7 +1243,10 @@ export class GoogleChatIntegrationApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -1391,7 +1277,9 @@ export class GoogleChatIntegrationApiResponseProcessor {
   public async getGoogleChatTargetAudience(
     response: ResponseContext,
   ): Promise<GoogleChatTargetAudienceResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: GoogleChatTargetAudienceResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -1405,7 +1293,10 @@ export class GoogleChatIntegrationApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -1420,7 +1311,10 @@ export class GoogleChatIntegrationApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -1451,7 +1345,9 @@ export class GoogleChatIntegrationApiResponseProcessor {
   public async getOrganizationHandle(
     response: ResponseContext,
   ): Promise<GoogleChatOrganizationHandleResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: GoogleChatOrganizationHandleResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -1466,7 +1362,10 @@ export class GoogleChatIntegrationApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -1481,7 +1380,10 @@ export class GoogleChatIntegrationApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -1512,7 +1414,9 @@ export class GoogleChatIntegrationApiResponseProcessor {
   public async getSpaceByDisplayName(
     response: ResponseContext,
   ): Promise<GoogleChatAppNamedSpaceResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: GoogleChatAppNamedSpaceResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -1527,7 +1431,10 @@ export class GoogleChatIntegrationApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -1542,7 +1449,10 @@ export class GoogleChatIntegrationApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -1573,7 +1483,9 @@ export class GoogleChatIntegrationApiResponseProcessor {
   public async listGoogleChatOrganizations(
     response: ResponseContext,
   ): Promise<GoogleChatOrganizationsResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: GoogleChatOrganizationsResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -1582,8 +1494,14 @@ export class GoogleChatIntegrationApiResponseProcessor {
       ) as GoogleChatOrganizationsResponse;
       return body;
     }
-    if (response.httpStatusCode === 403 || response.httpStatusCode === 429) {
-      const bodyText = parse(await response.body.text(), contentType);
+    if (
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 429
+    ) {
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -1598,7 +1516,10 @@ export class GoogleChatIntegrationApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -1629,7 +1550,9 @@ export class GoogleChatIntegrationApiResponseProcessor {
   public async listGoogleChatTargetAudiences(
     response: ResponseContext,
   ): Promise<GoogleChatTargetAudiencesResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: GoogleChatTargetAudiencesResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -1643,7 +1566,10 @@ export class GoogleChatIntegrationApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -1658,7 +1584,10 @@ export class GoogleChatIntegrationApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -1689,7 +1618,9 @@ export class GoogleChatIntegrationApiResponseProcessor {
   public async listOrganizationHandles(
     response: ResponseContext,
   ): Promise<GoogleChatOrganizationHandlesResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: GoogleChatOrganizationHandlesResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -1704,7 +1635,10 @@ export class GoogleChatIntegrationApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -1719,7 +1653,10 @@ export class GoogleChatIntegrationApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -1750,7 +1687,9 @@ export class GoogleChatIntegrationApiResponseProcessor {
   public async updateGoogleChatTargetAudience(
     response: ResponseContext,
   ): Promise<GoogleChatTargetAudienceResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: GoogleChatTargetAudienceResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -1765,7 +1704,10 @@ export class GoogleChatIntegrationApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -1780,7 +1722,10 @@ export class GoogleChatIntegrationApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -1811,7 +1756,9 @@ export class GoogleChatIntegrationApiResponseProcessor {
   public async updateOrganizationHandle(
     response: ResponseContext,
   ): Promise<GoogleChatOrganizationHandleResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: GoogleChatOrganizationHandleResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -1827,7 +1774,10 @@ export class GoogleChatIntegrationApiResponseProcessor {
       response.httpStatusCode === 409 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -1842,7 +1792,10 @@ export class GoogleChatIntegrationApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -2044,7 +1997,8 @@ export class GoogleChatIntegrationApi {
   private responseProcessor: GoogleChatIntegrationApiResponseProcessor;
   private configuration: Configuration;
 
-  static operationServers: { [key: string]: BaseServerConfiguration[] } = {};
+  static operationServers: { [key: string]: BaseServerConfiguration[] } = {
+  };
 
   public constructor(
     configuration?: Configuration,
@@ -2067,19 +2021,16 @@ export class GoogleChatIntegrationApi {
     param: GoogleChatIntegrationApiCreateGoogleChatTargetAudienceRequest,
     options?: Configuration,
   ): Promise<GoogleChatTargetAudienceResponse> {
-    const requestContextPromise =
-      this.requestFactory.createGoogleChatTargetAudience(
-        param.organizationBindingId,
-        param.body,
-        options,
-      );
+    const requestContextPromise = this.requestFactory.createGoogleChatTargetAudience(
+      param.organizationBindingId,
+      param.body,
+      options,
+    );
     return requestContextPromise.then((requestContext) => {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.createGoogleChatTargetAudience(
-            responseContext,
-          );
+          return this.responseProcessor.createGoogleChatTargetAudience(responseContext);
         });
     });
   }
@@ -2101,9 +2052,7 @@ export class GoogleChatIntegrationApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.createOrganizationHandle(
-            responseContext,
-          );
+          return this.responseProcessor.createOrganizationHandle(responseContext);
         });
     });
   }
@@ -2116,18 +2065,15 @@ export class GoogleChatIntegrationApi {
     param: GoogleChatIntegrationApiDeleteGoogleChatDelegatedUserRequest,
     options?: Configuration,
   ): Promise<void> {
-    const requestContextPromise =
-      this.requestFactory.deleteGoogleChatDelegatedUser(
-        param.organizationBindingId,
-        options,
-      );
+    const requestContextPromise = this.requestFactory.deleteGoogleChatDelegatedUser(
+      param.organizationBindingId,
+      options,
+    );
     return requestContextPromise.then((requestContext) => {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.deleteGoogleChatDelegatedUser(
-            responseContext,
-          );
+          return this.responseProcessor.deleteGoogleChatDelegatedUser(responseContext);
         });
     });
   }
@@ -2140,18 +2086,15 @@ export class GoogleChatIntegrationApi {
     param: GoogleChatIntegrationApiDeleteGoogleChatOrganizationRequest,
     options?: Configuration,
   ): Promise<void> {
-    const requestContextPromise =
-      this.requestFactory.deleteGoogleChatOrganization(
-        param.organizationBindingId,
-        options,
-      );
+    const requestContextPromise = this.requestFactory.deleteGoogleChatOrganization(
+      param.organizationBindingId,
+      options,
+    );
     return requestContextPromise.then((requestContext) => {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.deleteGoogleChatOrganization(
-            responseContext,
-          );
+          return this.responseProcessor.deleteGoogleChatOrganization(responseContext);
         });
     });
   }
@@ -2164,19 +2107,16 @@ export class GoogleChatIntegrationApi {
     param: GoogleChatIntegrationApiDeleteGoogleChatTargetAudienceRequest,
     options?: Configuration,
   ): Promise<void> {
-    const requestContextPromise =
-      this.requestFactory.deleteGoogleChatTargetAudience(
-        param.organizationBindingId,
-        param.targetAudienceId,
-        options,
-      );
+    const requestContextPromise = this.requestFactory.deleteGoogleChatTargetAudience(
+      param.organizationBindingId,
+      param.targetAudienceId,
+      options,
+    );
     return requestContextPromise.then((requestContext) => {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.deleteGoogleChatTargetAudience(
-            responseContext,
-          );
+          return this.responseProcessor.deleteGoogleChatTargetAudience(responseContext);
         });
     });
   }
@@ -2198,9 +2138,7 @@ export class GoogleChatIntegrationApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.deleteOrganizationHandle(
-            responseContext,
-          );
+          return this.responseProcessor.deleteOrganizationHandle(responseContext);
         });
     });
   }
@@ -2213,18 +2151,15 @@ export class GoogleChatIntegrationApi {
     param: GoogleChatIntegrationApiGetGoogleChatDelegatedUserRequest,
     options?: Configuration,
   ): Promise<GoogleChatDelegatedUserResponse> {
-    const requestContextPromise =
-      this.requestFactory.getGoogleChatDelegatedUser(
-        param.organizationBindingId,
-        options,
-      );
+    const requestContextPromise = this.requestFactory.getGoogleChatDelegatedUser(
+      param.organizationBindingId,
+      options,
+    );
     return requestContextPromise.then((requestContext) => {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.getGoogleChatDelegatedUser(
-            responseContext,
-          );
+          return this.responseProcessor.getGoogleChatDelegatedUser(responseContext);
         });
     });
   }
@@ -2245,9 +2180,7 @@ export class GoogleChatIntegrationApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.getGoogleChatOrganization(
-            responseContext,
-          );
+          return this.responseProcessor.getGoogleChatOrganization(responseContext);
         });
     });
   }
@@ -2260,19 +2193,16 @@ export class GoogleChatIntegrationApi {
     param: GoogleChatIntegrationApiGetGoogleChatTargetAudienceRequest,
     options?: Configuration,
   ): Promise<GoogleChatTargetAudienceResponse> {
-    const requestContextPromise =
-      this.requestFactory.getGoogleChatTargetAudience(
-        param.organizationBindingId,
-        param.targetAudienceId,
-        options,
-      );
+    const requestContextPromise = this.requestFactory.getGoogleChatTargetAudience(
+      param.organizationBindingId,
+      param.targetAudienceId,
+      options,
+    );
     return requestContextPromise.then((requestContext) => {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.getGoogleChatTargetAudience(
-            responseContext,
-          );
+          return this.responseProcessor.getGoogleChatTargetAudience(responseContext);
         });
     });
   }
@@ -2325,18 +2255,16 @@ export class GoogleChatIntegrationApi {
    * Get a list of all Google Chat organization bindings in the Datadog Google Chat integration.
    * @param param The request object
    */
-  public listGoogleChatOrganizations(
-    options?: Configuration,
+  public listGoogleChatOrganizations(options?: Configuration,
   ): Promise<GoogleChatOrganizationsResponse> {
-    const requestContextPromise =
-      this.requestFactory.listGoogleChatOrganizations(options);
+    const requestContextPromise = this.requestFactory.listGoogleChatOrganizations(
+      options,
+    );
     return requestContextPromise.then((requestContext) => {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.listGoogleChatOrganizations(
-            responseContext,
-          );
+          return this.responseProcessor.listGoogleChatOrganizations(responseContext);
         });
     });
   }
@@ -2349,18 +2277,15 @@ export class GoogleChatIntegrationApi {
     param: GoogleChatIntegrationApiListGoogleChatTargetAudiencesRequest,
     options?: Configuration,
   ): Promise<GoogleChatTargetAudiencesResponse> {
-    const requestContextPromise =
-      this.requestFactory.listGoogleChatTargetAudiences(
-        param.organizationBindingId,
-        options,
-      );
+    const requestContextPromise = this.requestFactory.listGoogleChatTargetAudiences(
+      param.organizationBindingId,
+      options,
+    );
     return requestContextPromise.then((requestContext) => {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.listGoogleChatTargetAudiences(
-            responseContext,
-          );
+          return this.responseProcessor.listGoogleChatTargetAudiences(responseContext);
         });
     });
   }
@@ -2381,9 +2306,7 @@ export class GoogleChatIntegrationApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.listOrganizationHandles(
-            responseContext,
-          );
+          return this.responseProcessor.listOrganizationHandles(responseContext);
         });
     });
   }
@@ -2396,20 +2319,17 @@ export class GoogleChatIntegrationApi {
     param: GoogleChatIntegrationApiUpdateGoogleChatTargetAudienceRequest,
     options?: Configuration,
   ): Promise<GoogleChatTargetAudienceResponse> {
-    const requestContextPromise =
-      this.requestFactory.updateGoogleChatTargetAudience(
-        param.organizationBindingId,
-        param.targetAudienceId,
-        param.body,
-        options,
-      );
+    const requestContextPromise = this.requestFactory.updateGoogleChatTargetAudience(
+      param.organizationBindingId,
+      param.targetAudienceId,
+      param.body,
+      options,
+    );
     return requestContextPromise.then((requestContext) => {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.updateGoogleChatTargetAudience(
-            responseContext,
-          );
+          return this.responseProcessor.updateGoogleChatTargetAudience(responseContext);
         });
     });
   }
@@ -2432,9 +2352,7 @@ export class GoogleChatIntegrationApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.updateOrganizationHandle(
-            responseContext,
-          );
+          return this.responseProcessor.updateOrganizationHandle(responseContext);
         });
     });
   }

@@ -18,36 +18,14 @@ import { WidgetSearchMeta } from "./WidgetSearchMeta";
 
 export const TypingInfo: ModelTypingInfo = {
   enumsMap: {
-    WidgetExperienceType: [
-      "ccm_reports",
-      "logs_reports",
-      "csv_reports",
-      "product_analytics",
-    ],
-    WidgetType: [
-      "bar_chart",
-      "change",
-      "cloud_cost_summary",
-      "cohort",
-      "funnel",
-      "geomap",
-      "list_stream",
-      "query_table",
-      "query_value",
-      "retention_curve",
-      "sankey",
-      "sunburst",
-      "timeseries",
-      "toplist",
-      "treemap",
-    ],
+    WidgetExperienceType: ["ccm_reports", "logs_reports", "csv_reports", "product_analytics"],
+    WidgetType: ["bar_chart", "change", "cloud_cost_summary", "cohort", "funnel", "geomap", "list_stream", "query_table", "query_value", "retention_curve", "sankey", "sunburst", "timeseries", "toplist", "treemap"],
   },
   oneOfMap: {},
   typeMap: {
     APIErrorResponse: APIErrorResponse,
     CreateOrUpdateWidgetRequest: CreateOrUpdateWidgetRequest,
-    CreateOrUpdateWidgetRequestAttributes:
-      CreateOrUpdateWidgetRequestAttributes,
+    CreateOrUpdateWidgetRequestAttributes: CreateOrUpdateWidgetRequestAttributes,
     CreateOrUpdateWidgetRequestData: CreateOrUpdateWidgetRequestData,
     WidgetAttributes: WidgetAttributes,
     WidgetData: WidgetData,

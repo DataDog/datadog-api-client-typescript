@@ -27,7 +27,7 @@ export class LLMObsExperimentMetric {
   /**
    * JSON value. Used when `metric_type` is `json`.
    */
-  "jsonValue"?: { [key: string]: any };
+  "jsonValue"?: { [key: string]: any; };
   /**
    * Label or name for the metric.
    */
@@ -35,7 +35,7 @@ export class LLMObsExperimentMetric {
   /**
    * Arbitrary metadata associated with the metric.
    */
-  "metadata"?: { [key: string]: any };
+  "metadata"?: { [key: string]: any; };
   /**
    * Type of metric recorded for an LLM Observability experiment.
    */
@@ -65,7 +65,7 @@ export class LLMObsExperimentMetric {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
   /**
    * @ignore
    */

@@ -58,7 +58,7 @@ export class Host {
   /**
    * List of tags for each source (AWS, Datadog Agent, Chef..).
    */
-  "tagsBySource"?: { [key: string]: Array<string> };
+  "tagsBySource"?: { [key: string]: Array<string>; };
   /**
    * Displays UP when the expected metrics are received and displays `???` if no metrics are received.
    */
@@ -68,7 +68,7 @@ export class Host {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
   /**
    * @ignore
    */

@@ -32,7 +32,7 @@ export class CreateTableRequestData {
       baseName: "type",
       type: "CreateTableRequestDataType",
       required: true,
-    },
+    }
   };
 
   /**

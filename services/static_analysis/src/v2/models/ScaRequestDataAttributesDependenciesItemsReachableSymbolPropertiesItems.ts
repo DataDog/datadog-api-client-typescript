@@ -1,5 +1,6 @@
 import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
+
 /**
  * A key-value property describing a reachable symbol within a dependency.
  */
@@ -17,7 +18,7 @@ export class ScaRequestDataAttributesDependenciesItemsReachableSymbolPropertiesI
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
   /**
    * @ignore
    */

@@ -1,5 +1,6 @@
 import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
+
 /**
  * Aggregated high script evaluation detection grouped by source.
  */
@@ -31,7 +32,7 @@ export class AggregatedHighScriptEval {
   /**
    * Category of the script source.
    */
-  "sourceCategory": string | null;
+  "sourceCategory": string|null;
   /**
    * Name of the function that triggered the high script evaluation.
    */
@@ -39,7 +40,7 @@ export class AggregatedHighScriptEval {
   /**
    * URL of the script that triggered the high script evaluation.
    */
-  "sourceUrl": string | null;
+  "sourceUrl": string|null;
   /**
    * Number of sampled views where this detection occurred.
    */
@@ -49,7 +50,7 @@ export class AggregatedHighScriptEval {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
   /**
    * @ignore
    */

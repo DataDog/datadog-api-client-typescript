@@ -1,5 +1,6 @@
 import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
+
 /**
  * Used to perform a histogram computation (only for measure facets).
  * Note: at most 100 buckets are allowed, the number of buckets is (max - min)/interval.
@@ -24,7 +25,7 @@ export class LogsGroupByHistogram {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
   /**
    * @ignore
    */

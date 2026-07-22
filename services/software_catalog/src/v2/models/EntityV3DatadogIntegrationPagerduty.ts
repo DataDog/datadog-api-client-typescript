@@ -1,5 +1,6 @@
 import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
+
 /**
  * A PagerDuty integration schema.
  */
@@ -21,7 +22,7 @@ export class EntityV3DatadogIntegrationPagerduty {
       baseName: "serviceURL",
       type: "string",
       required: true,
-    },
+    }
   };
 
   /**

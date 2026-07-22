@@ -19,6 +19,7 @@ import {
   ServerConfiguration,
   stringify,
   applySecurityAuthentication,
+  
 } from "@datadog/datadog-api-client";
 
 import { TypingInfo } from "./models/TypingInfo";
@@ -51,9 +52,7 @@ export class APMTraceApiRequestFactory extends BaseAPIRequestFactory {
     const _config = _options || this.configuration;
 
     if (!_config.unstableOperations["APMTraceApi.v2.getPrunedTraceByID"]) {
-      throw new Error(
-        "Unstable operation 'getPrunedTraceByID' is disabled. Enable it by setting `configuration.unstableOperations['APMTraceApi.v2.getPrunedTraceByID'] = true`",
-      );
+      throw new Error("Unstable operation 'getPrunedTraceByID' is disabled. Enable it by setting `configuration.unstableOperations['APMTraceApi.v2.getPrunedTraceByID'] = true`");
     }
 
     // verify required parameter 'traceId' is not null or undefined
@@ -68,15 +67,8 @@ export class APMTraceApiRequestFactory extends BaseAPIRequestFactory {
     );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "APMTraceApi.v2.getPrunedTraceByID",
-      APMTraceApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.GET,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("APMTraceApi.v2.getPrunedTraceByID", APMTraceApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.GET, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -154,9 +146,7 @@ export class APMTraceApiRequestFactory extends BaseAPIRequestFactory {
     const _config = _options || this.configuration;
 
     if (!_config.unstableOperations["APMTraceApi.v2.getTraceByID"]) {
-      throw new Error(
-        "Unstable operation 'getTraceByID' is disabled. Enable it by setting `configuration.unstableOperations['APMTraceApi.v2.getTraceByID'] = true`",
-      );
+      throw new Error("Unstable operation 'getTraceByID' is disabled. Enable it by setting `configuration.unstableOperations['APMTraceApi.v2.getTraceByID'] = true`");
     }
 
     // verify required parameter 'traceId' is not null or undefined
@@ -171,15 +161,8 @@ export class APMTraceApiRequestFactory extends BaseAPIRequestFactory {
     );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "APMTraceApi.v2.getTraceByID",
-      APMTraceApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.GET,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("APMTraceApi.v2.getTraceByID", APMTraceApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.GET, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -219,7 +202,9 @@ export class APMTraceApiResponseProcessor {
   public async getPrunedTraceByID(
     response: ResponseContext,
   ): Promise<PrunedTraceResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: PrunedTraceResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -233,7 +218,10 @@ export class APMTraceApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 504
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: JSONAPIErrorResponse;
       try {
         body = deserialize(
@@ -254,7 +242,10 @@ export class APMTraceApiResponseProcessor {
       );
     }
     if (response.httpStatusCode === 429) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -269,7 +260,10 @@ export class APMTraceApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -297,8 +291,12 @@ export class APMTraceApiResponseProcessor {
    * @params response Response returned by the server for a request to getTraceByID
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async getTraceByID(response: ResponseContext): Promise<TraceResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+  public async getTraceByID(
+    response: ResponseContext,
+  ): Promise<TraceResponse> {
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: TraceResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -312,7 +310,10 @@ export class APMTraceApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 413
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: JSONAPIErrorResponse;
       try {
         body = deserialize(
@@ -333,7 +334,10 @@ export class APMTraceApiResponseProcessor {
       );
     }
     if (response.httpStatusCode === 429) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -348,7 +352,10 @@ export class APMTraceApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -440,7 +447,8 @@ export class APMTraceApi {
   private responseProcessor: APMTraceApiResponseProcessor;
   private configuration: Configuration;
 
-  static operationServers: { [key: string]: BaseServerConfiguration[] } = {};
+  static operationServers: { [key: string]: BaseServerConfiguration[] } = {
+  };
 
   public constructor(
     configuration?: Configuration,
@@ -449,7 +457,8 @@ export class APMTraceApi {
   ) {
     this.configuration = configuration || createConfiguration();
     this.requestFactory =
-      requestFactory || new APMTraceApiRequestFactory(this.configuration);
+      requestFactory ||
+      new APMTraceApiRequestFactory(this.configuration);
     this.responseProcessor =
       responseProcessor || new APMTraceApiResponseProcessor();
   }

@@ -19,6 +19,7 @@ import {
   ServerConfiguration,
   stringify,
   applySecurityAuthentication,
+  
 } from "@datadog/datadog-api-client";
 
 import { TypingInfo } from "./models/TypingInfo";
@@ -55,15 +56,8 @@ export class ServiceDefinitionApiRequestFactory extends BaseAPIRequestFactory {
     const localVarPath = "/api/v2/services/definitions";
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "ServiceDefinitionApi.v2.createOrUpdateServiceDefinitions",
-      ServiceDefinitionApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.POST,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("ServiceDefinitionApi.v2.createOrUpdateServiceDefinitions", ServiceDefinitionApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.POST, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -73,7 +67,9 @@ export class ServiceDefinitionApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Body Params
-    const contentType = getPreferredMediaType(["application/json"]);
+    const contentType = getPreferredMediaType([
+      "application/json",
+    ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = stringify(
       serialize(body, TypingInfo, "ServiceDefinitionsCreateRequest", ""),
@@ -109,15 +105,8 @@ export class ServiceDefinitionApiRequestFactory extends BaseAPIRequestFactory {
     );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "ServiceDefinitionApi.v2.deleteServiceDefinition",
-      ServiceDefinitionApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.DELETE,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("ServiceDefinitionApi.v2.deleteServiceDefinition", ServiceDefinitionApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.DELETE, overrides);
     requestContext.setHeaderParam("Accept", "*/*");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -155,15 +144,8 @@ export class ServiceDefinitionApiRequestFactory extends BaseAPIRequestFactory {
     );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "ServiceDefinitionApi.v2.getServiceDefinition",
-      ServiceDefinitionApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.GET,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("ServiceDefinitionApi.v2.getServiceDefinition", ServiceDefinitionApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.GET, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -176,12 +158,7 @@ export class ServiceDefinitionApiRequestFactory extends BaseAPIRequestFactory {
     if (schemaVersion !== undefined) {
       requestContext.setQueryParam(
         "schema_version",
-        serialize(
-          schemaVersion,
-          TypingInfo,
-          "ServiceDefinitionSchemaVersions",
-          "",
-        ),
+        serialize(schemaVersion, TypingInfo, "ServiceDefinitionSchemaVersions", ""),
         "",
       );
     }
@@ -208,15 +185,8 @@ export class ServiceDefinitionApiRequestFactory extends BaseAPIRequestFactory {
     const localVarPath = "/api/v2/services/definitions";
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "ServiceDefinitionApi.v2.listServiceDefinitions",
-      ServiceDefinitionApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.GET,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("ServiceDefinitionApi.v2.listServiceDefinitions", ServiceDefinitionApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.GET, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -243,12 +213,7 @@ export class ServiceDefinitionApiRequestFactory extends BaseAPIRequestFactory {
     if (schemaVersion !== undefined) {
       requestContext.setQueryParam(
         "schema_version",
-        serialize(
-          schemaVersion,
-          TypingInfo,
-          "ServiceDefinitionSchemaVersions",
-          "",
-        ),
+        serialize(schemaVersion, TypingInfo, "ServiceDefinitionSchemaVersions", ""),
         "",
       );
     }
@@ -275,7 +240,9 @@ export class ServiceDefinitionApiResponseProcessor {
   public async createOrUpdateServiceDefinitions(
     response: ResponseContext,
   ): Promise<ServiceDefinitionCreateResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: ServiceDefinitionCreateResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -290,7 +257,10 @@ export class ServiceDefinitionApiResponseProcessor {
       response.httpStatusCode === 409 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -305,7 +275,10 @@ export class ServiceDefinitionApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -336,7 +309,9 @@ export class ServiceDefinitionApiResponseProcessor {
   public async deleteServiceDefinition(
     response: ResponseContext,
   ): Promise<void> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 204) {
       return;
     }
@@ -346,7 +321,10 @@ export class ServiceDefinitionApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -361,7 +339,10 @@ export class ServiceDefinitionApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -386,7 +367,9 @@ export class ServiceDefinitionApiResponseProcessor {
   public async getServiceDefinition(
     response: ResponseContext,
   ): Promise<ServiceDefinitionGetResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: ServiceDefinitionGetResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -402,7 +385,10 @@ export class ServiceDefinitionApiResponseProcessor {
       response.httpStatusCode === 409 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -417,7 +403,10 @@ export class ServiceDefinitionApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -448,7 +437,9 @@ export class ServiceDefinitionApiResponseProcessor {
   public async listServiceDefinitions(
     response: ResponseContext,
   ): Promise<ServiceDefinitionsListResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: ServiceDefinitionsListResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -457,8 +448,14 @@ export class ServiceDefinitionApiResponseProcessor {
       ) as ServiceDefinitionsListResponse;
       return body;
     }
-    if (response.httpStatusCode === 403 || response.httpStatusCode === 429) {
-      const bodyText = parse(await response.body.text(), contentType);
+    if (
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 429
+    ) {
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -473,7 +470,10 @@ export class ServiceDefinitionApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -547,7 +547,8 @@ export class ServiceDefinitionApi {
   private responseProcessor: ServiceDefinitionApiResponseProcessor;
   private configuration: Configuration;
 
-  static operationServers: { [key: string]: BaseServerConfiguration[] } = {};
+  static operationServers: { [key: string]: BaseServerConfiguration[] } = {
+  };
 
   public constructor(
     configuration?: Configuration,
@@ -570,15 +571,15 @@ export class ServiceDefinitionApi {
     param: ServiceDefinitionApiCreateOrUpdateServiceDefinitionsRequest,
     options?: Configuration,
   ): Promise<ServiceDefinitionCreateResponse> {
-    const requestContextPromise =
-      this.requestFactory.createOrUpdateServiceDefinitions(param.body, options);
+    const requestContextPromise = this.requestFactory.createOrUpdateServiceDefinitions(
+      param.body,
+      options,
+    );
     return requestContextPromise.then((requestContext) => {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.createOrUpdateServiceDefinitions(
-            responseContext,
-          );
+          return this.responseProcessor.createOrUpdateServiceDefinitions(responseContext);
         });
     });
   }
@@ -599,9 +600,7 @@ export class ServiceDefinitionApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.deleteServiceDefinition(
-            responseContext,
-          );
+          return this.responseProcessor.deleteServiceDefinition(responseContext);
         });
     });
   }
@@ -655,9 +654,9 @@ export class ServiceDefinitionApi {
    * Provide a paginated version of listServiceDefinitions returning a generator with all the items.
    */
   public async *listServiceDefinitionsWithPagination(
-    param: ServiceDefinitionApiListServiceDefinitionsRequest = {},
-    options?: Configuration,
+    param: ServiceDefinitionApiListServiceDefinitionsRequest = {}, options?: Configuration,
   ): AsyncGenerator<ServiceDefinitionData> {
+
     let pageSize = 10;
     if (param.pageSize !== undefined) {
       pageSize = param.pageSize;
@@ -665,17 +664,10 @@ export class ServiceDefinitionApi {
     param.pageSize = pageSize;
     param.pageNumber = 0;
     while (true) {
-      const requestContext = await this.requestFactory.listServiceDefinitions(
-        param.pageSize,
-        param.pageNumber,
-        param.schemaVersion,
-        options,
-      );
-      const responseContext =
-        await this.configuration.httpApi.send(requestContext);
+      const requestContext = await this.requestFactory.listServiceDefinitions(param.pageSize,param.pageNumber,param.schemaVersion,options);
+      const responseContext = await this.configuration.httpApi.send(requestContext);
 
-      const response =
-        await this.responseProcessor.listServiceDefinitions(responseContext);
+      const response = await this.responseProcessor.listServiceDefinitions(responseContext);
       const responseData = response.data;
       if (responseData === undefined) {
         break;

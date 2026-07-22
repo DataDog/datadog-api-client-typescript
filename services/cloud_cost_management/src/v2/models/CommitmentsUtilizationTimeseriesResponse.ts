@@ -9,7 +9,7 @@ export class CommitmentsUtilizationTimeseriesResponse {
   /**
    * Timeseries data as a map of series names to their corresponding value arrays.
    */
-  "series": { [key: string]: Array<number> };
+  "series": { [key: string]: Array<number>; };
   /**
    * Unix timestamps in seconds for the timeseries data points.
    */
@@ -23,7 +23,7 @@ export class CommitmentsUtilizationTimeseriesResponse {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
   /**
    * @ignore
    */

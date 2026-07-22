@@ -19,6 +19,7 @@ import {
   ServerConfiguration,
   stringify,
   applySecurityAuthentication,
+  
 } from "@datadog/datadog-api-client";
 
 import { TypingInfo } from "./models/TypingInfo";
@@ -45,15 +46,8 @@ export class DomainAllowlistApiRequestFactory extends BaseAPIRequestFactory {
     const localVarPath = "/api/v2/domain_allowlist";
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "DomainAllowlistApi.v2.getDomainAllowlist",
-      DomainAllowlistApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.GET,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("DomainAllowlistApi.v2.getDomainAllowlist", DomainAllowlistApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.GET, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -87,15 +81,8 @@ export class DomainAllowlistApiRequestFactory extends BaseAPIRequestFactory {
     const localVarPath = "/api/v2/domain_allowlist";
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "DomainAllowlistApi.v2.patchDomainAllowlist",
-      DomainAllowlistApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.PATCH,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("DomainAllowlistApi.v2.patchDomainAllowlist", DomainAllowlistApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.PATCH, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -105,7 +92,9 @@ export class DomainAllowlistApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Body Params
-    const contentType = getPreferredMediaType(["application/json"]);
+    const contentType = getPreferredMediaType([
+      "application/json",
+    ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = stringify(
       serialize(body, TypingInfo, "DomainAllowlistRequest", ""),
@@ -135,7 +124,9 @@ export class DomainAllowlistApiResponseProcessor {
   public async getDomainAllowlist(
     response: ResponseContext,
   ): Promise<DomainAllowlistResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: DomainAllowlistResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -145,7 +136,10 @@ export class DomainAllowlistApiResponseProcessor {
       return body;
     }
     if (response.httpStatusCode === 429) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -160,7 +154,10 @@ export class DomainAllowlistApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -191,7 +188,9 @@ export class DomainAllowlistApiResponseProcessor {
   public async patchDomainAllowlist(
     response: ResponseContext,
   ): Promise<DomainAllowlistResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: DomainAllowlistResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -201,7 +200,10 @@ export class DomainAllowlistApiResponseProcessor {
       return body;
     }
     if (response.httpStatusCode === 429) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -216,7 +218,10 @@ export class DomainAllowlistApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -250,7 +255,8 @@ export class DomainAllowlistApi {
   private responseProcessor: DomainAllowlistApiResponseProcessor;
   private configuration: Configuration;
 
-  static operationServers: { [key: string]: BaseServerConfiguration[] } = {};
+  static operationServers: { [key: string]: BaseServerConfiguration[] } = {
+  };
 
   public constructor(
     configuration?: Configuration,
@@ -269,11 +275,11 @@ export class DomainAllowlistApi {
    * Get the domain allowlist for an organization.
    * @param param The request object
    */
-  public getDomainAllowlist(
-    options?: Configuration,
+  public getDomainAllowlist(options?: Configuration,
   ): Promise<DomainAllowlistResponse> {
-    const requestContextPromise =
-      this.requestFactory.getDomainAllowlist(options);
+    const requestContextPromise = this.requestFactory.getDomainAllowlist(
+      options,
+    );
     return requestContextPromise.then((requestContext) => {
       return this.configuration.httpApi
         .send(requestContext)

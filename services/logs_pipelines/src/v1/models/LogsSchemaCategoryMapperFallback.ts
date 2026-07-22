@@ -1,5 +1,6 @@
 import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
+
 /**
  * Used to override hardcoded category values with a value pulled from a source attribute on the log.
  */
@@ -7,17 +8,17 @@ export class LogsSchemaCategoryMapperFallback {
   /**
    * Fallback sources used to populate value of field.
    */
-  "sources"?: { [key: string]: Array<string> };
+  "sources"?: { [key: string]: Array<string>; };
   /**
    * Values that define when the fallback is used.
    */
-  "values"?: { [key: string]: string };
+  "values"?: { [key: string]: string; };
   /**
    * A container for additional, undeclared properties.
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
   /**
    * @ignore
    */

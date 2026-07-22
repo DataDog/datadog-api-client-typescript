@@ -43,12 +43,7 @@ export const TypingInfo: ModelTypingInfo = {
   enumsMap: {
     AggregatedLongTasksRequestType: ["aggregated_long_tasks"],
     AggregatedSignalsProblemsRequestType: ["aggregated_signals_problems"],
-    AggregatedWaterfallPerformanceCriteriaMetric: [
-      "loading_time",
-      "largest_contentful_paint",
-      "first_contentful_paint",
-      "interaction_to_next_paint",
-    ],
+    AggregatedWaterfallPerformanceCriteriaMetric: ["loading_time", "largest_contentful_paint", "first_contentful_paint", "interaction_to_next_paint"],
     AggregatedWaterfallRequestType: ["aggregated_waterfall"],
   },
   oneOfMap: {},
@@ -61,33 +56,27 @@ export const TypingInfo: ModelTypingInfo = {
     AggregatedLongTasksRequestAttributes: AggregatedLongTasksRequestAttributes,
     AggregatedLongTasksRequestData: AggregatedLongTasksRequestData,
     AggregatedLongTasksResponse: AggregatedLongTasksResponse,
-    AggregatedLongTasksResponseAttributes:
-      AggregatedLongTasksResponseAttributes,
+    AggregatedLongTasksResponseAttributes: AggregatedLongTasksResponseAttributes,
     AggregatedLongTasksResponseData: AggregatedLongTasksResponseData,
     AggregatedLowCacheHitRate: AggregatedLowCacheHitRate,
     AggregatedMobileScrollFriction: AggregatedMobileScrollFriction,
     AggregatedResource: AggregatedResource,
     AggregatedResourceTimingBreakdown: AggregatedResourceTimingBreakdown,
     AggregatedSignalsProblemsRequest: AggregatedSignalsProblemsRequest,
-    AggregatedSignalsProblemsRequestAttributes:
-      AggregatedSignalsProblemsRequestAttributes,
+    AggregatedSignalsProblemsRequestAttributes: AggregatedSignalsProblemsRequestAttributes,
     AggregatedSignalsProblemsRequestData: AggregatedSignalsProblemsRequestData,
     AggregatedSignalsProblemsResponse: AggregatedSignalsProblemsResponse,
-    AggregatedSignalsProblemsResponseAttributes:
-      AggregatedSignalsProblemsResponseAttributes,
-    AggregatedSignalsProblemsResponseData:
-      AggregatedSignalsProblemsResponseData,
+    AggregatedSignalsProblemsResponseAttributes: AggregatedSignalsProblemsResponseAttributes,
+    AggregatedSignalsProblemsResponseData: AggregatedSignalsProblemsResponseData,
     AggregatedSlowFCPHighBytes: AggregatedSlowFCPHighBytes,
     AggregatedSlowInteractionLongTask: AggregatedSlowInteractionLongTask,
     AggregatedUncompressedResource: AggregatedUncompressedResource,
-    AggregatedWaterfallPerformanceCriteria:
-      AggregatedWaterfallPerformanceCriteria,
+    AggregatedWaterfallPerformanceCriteria: AggregatedWaterfallPerformanceCriteria,
     AggregatedWaterfallRequest: AggregatedWaterfallRequest,
     AggregatedWaterfallRequestAttributes: AggregatedWaterfallRequestAttributes,
     AggregatedWaterfallRequestData: AggregatedWaterfallRequestData,
     AggregatedWaterfallResponse: AggregatedWaterfallResponse,
-    AggregatedWaterfallResponseAttributes:
-      AggregatedWaterfallResponseAttributes,
+    AggregatedWaterfallResponseAttributes: AggregatedWaterfallResponseAttributes,
     AggregatedWaterfallResponseData: AggregatedWaterfallResponseData,
     JSONAPIErrorItem: JSONAPIErrorItem,
     JSONAPIErrorItemSource: JSONAPIErrorItemSource,

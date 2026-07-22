@@ -33,7 +33,7 @@ export class RetentionCohortCriteriaTimeInterval {
       baseName: "value",
       type: "CalendarInterval",
       required: true,
-    },
+    }
   };
 
   /**

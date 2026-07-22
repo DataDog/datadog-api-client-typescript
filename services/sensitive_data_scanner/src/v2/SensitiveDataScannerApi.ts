@@ -19,6 +19,7 @@ import {
   ServerConfiguration,
   stringify,
   applySecurityAuthentication,
+  
 } from "@datadog/datadog-api-client";
 
 import { TypingInfo } from "./models/TypingInfo";
@@ -65,15 +66,8 @@ export class SensitiveDataScannerApiRequestFactory extends BaseAPIRequestFactory
     const localVarPath = "/api/v2/sensitive-data-scanner/config/groups";
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "SensitiveDataScannerApi.v2.createScanningGroup",
-      SensitiveDataScannerApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.POST,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("SensitiveDataScannerApi.v2.createScanningGroup", SensitiveDataScannerApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.POST, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -83,7 +77,9 @@ export class SensitiveDataScannerApiRequestFactory extends BaseAPIRequestFactory
     }
 
     // Body Params
-    const contentType = getPreferredMediaType(["application/json"]);
+    const contentType = getPreferredMediaType([
+      "application/json",
+    ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = stringify(
       serialize(body, TypingInfo, "SensitiveDataScannerGroupCreateRequest", ""),
@@ -115,15 +111,8 @@ export class SensitiveDataScannerApiRequestFactory extends BaseAPIRequestFactory
     const localVarPath = "/api/v2/sensitive-data-scanner/config/rules";
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "SensitiveDataScannerApi.v2.createScanningRule",
-      SensitiveDataScannerApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.POST,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("SensitiveDataScannerApi.v2.createScanningRule", SensitiveDataScannerApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.POST, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -133,7 +122,9 @@ export class SensitiveDataScannerApiRequestFactory extends BaseAPIRequestFactory
     }
 
     // Body Params
-    const contentType = getPreferredMediaType(["application/json"]);
+    const contentType = getPreferredMediaType([
+      "application/json",
+    ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = stringify(
       serialize(body, TypingInfo, "SensitiveDataScannerRuleCreateRequest", ""),
@@ -168,22 +159,14 @@ export class SensitiveDataScannerApiRequestFactory extends BaseAPIRequestFactory
     }
 
     // Path Params
-    const localVarPath =
-      "/api/v2/sensitive-data-scanner/config/groups/{group_id}".replace(
-        "{group_id}",
-        encodeURIComponent(String(groupId)),
-      );
+    const localVarPath = "/api/v2/sensitive-data-scanner/config/groups/{group_id}".replace(
+      "{group_id}",
+      encodeURIComponent(String(groupId)),
+    );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "SensitiveDataScannerApi.v2.deleteScanningGroup",
-      SensitiveDataScannerApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.DELETE,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("SensitiveDataScannerApi.v2.deleteScanningGroup", SensitiveDataScannerApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.DELETE, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -193,7 +176,9 @@ export class SensitiveDataScannerApiRequestFactory extends BaseAPIRequestFactory
     }
 
     // Body Params
-    const contentType = getPreferredMediaType(["application/json"]);
+    const contentType = getPreferredMediaType([
+      "application/json",
+    ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = stringify(
       serialize(body, TypingInfo, "SensitiveDataScannerGroupDeleteRequest", ""),
@@ -228,22 +213,14 @@ export class SensitiveDataScannerApiRequestFactory extends BaseAPIRequestFactory
     }
 
     // Path Params
-    const localVarPath =
-      "/api/v2/sensitive-data-scanner/config/rules/{rule_id}".replace(
-        "{rule_id}",
-        encodeURIComponent(String(ruleId)),
-      );
+    const localVarPath = "/api/v2/sensitive-data-scanner/config/rules/{rule_id}".replace(
+      "{rule_id}",
+      encodeURIComponent(String(ruleId)),
+    );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "SensitiveDataScannerApi.v2.deleteScanningRule",
-      SensitiveDataScannerApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.DELETE,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("SensitiveDataScannerApi.v2.deleteScanningRule", SensitiveDataScannerApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.DELETE, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -253,7 +230,9 @@ export class SensitiveDataScannerApiRequestFactory extends BaseAPIRequestFactory
     }
 
     // Body Params
-    const contentType = getPreferredMediaType(["application/json"]);
+    const contentType = getPreferredMediaType([
+      "application/json",
+    ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = stringify(
       serialize(body, TypingInfo, "SensitiveDataScannerRuleDeleteRequest", ""),
@@ -279,15 +258,8 @@ export class SensitiveDataScannerApiRequestFactory extends BaseAPIRequestFactory
     const localVarPath = "/api/v2/sensitive-data-scanner/config";
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "SensitiveDataScannerApi.v2.listScanningGroups",
-      SensitiveDataScannerApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.GET,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("SensitiveDataScannerApi.v2.listScanningGroups", SensitiveDataScannerApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.GET, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -311,19 +283,11 @@ export class SensitiveDataScannerApiRequestFactory extends BaseAPIRequestFactory
     const _config = _options || this.configuration;
 
     // Path Params
-    const localVarPath =
-      "/api/v2/sensitive-data-scanner/config/standard-patterns";
+    const localVarPath = "/api/v2/sensitive-data-scanner/config/standard-patterns";
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "SensitiveDataScannerApi.v2.listStandardPatterns",
-      SensitiveDataScannerApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.GET,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("SensitiveDataScannerApi.v2.listStandardPatterns", SensitiveDataScannerApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.GET, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -356,15 +320,8 @@ export class SensitiveDataScannerApiRequestFactory extends BaseAPIRequestFactory
     const localVarPath = "/api/v2/sensitive-data-scanner/config";
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "SensitiveDataScannerApi.v2.reorderScanningGroups",
-      SensitiveDataScannerApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.PATCH,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("SensitiveDataScannerApi.v2.reorderScanningGroups", SensitiveDataScannerApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.PATCH, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -374,7 +331,9 @@ export class SensitiveDataScannerApiRequestFactory extends BaseAPIRequestFactory
     }
 
     // Body Params
-    const contentType = getPreferredMediaType(["application/json"]);
+    const contentType = getPreferredMediaType([
+      "application/json",
+    ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = stringify(
       serialize(body, TypingInfo, "SensitiveDataScannerConfigRequest", ""),
@@ -409,22 +368,14 @@ export class SensitiveDataScannerApiRequestFactory extends BaseAPIRequestFactory
     }
 
     // Path Params
-    const localVarPath =
-      "/api/v2/sensitive-data-scanner/config/groups/{group_id}".replace(
-        "{group_id}",
-        encodeURIComponent(String(groupId)),
-      );
+    const localVarPath = "/api/v2/sensitive-data-scanner/config/groups/{group_id}".replace(
+      "{group_id}",
+      encodeURIComponent(String(groupId)),
+    );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "SensitiveDataScannerApi.v2.updateScanningGroup",
-      SensitiveDataScannerApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.PATCH,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("SensitiveDataScannerApi.v2.updateScanningGroup", SensitiveDataScannerApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.PATCH, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -434,7 +385,9 @@ export class SensitiveDataScannerApiRequestFactory extends BaseAPIRequestFactory
     }
 
     // Body Params
-    const contentType = getPreferredMediaType(["application/json"]);
+    const contentType = getPreferredMediaType([
+      "application/json",
+    ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = stringify(
       serialize(body, TypingInfo, "SensitiveDataScannerGroupUpdateRequest", ""),
@@ -469,22 +422,14 @@ export class SensitiveDataScannerApiRequestFactory extends BaseAPIRequestFactory
     }
 
     // Path Params
-    const localVarPath =
-      "/api/v2/sensitive-data-scanner/config/rules/{rule_id}".replace(
-        "{rule_id}",
-        encodeURIComponent(String(ruleId)),
-      );
+    const localVarPath = "/api/v2/sensitive-data-scanner/config/rules/{rule_id}".replace(
+      "{rule_id}",
+      encodeURIComponent(String(ruleId)),
+    );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "SensitiveDataScannerApi.v2.updateScanningRule",
-      SensitiveDataScannerApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.PATCH,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("SensitiveDataScannerApi.v2.updateScanningRule", SensitiveDataScannerApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.PATCH, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -494,7 +439,9 @@ export class SensitiveDataScannerApiRequestFactory extends BaseAPIRequestFactory
     }
 
     // Body Params
-    const contentType = getPreferredMediaType(["application/json"]);
+    const contentType = getPreferredMediaType([
+      "application/json",
+    ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = stringify(
       serialize(body, TypingInfo, "SensitiveDataScannerRuleUpdateRequest", ""),
@@ -523,7 +470,9 @@ export class SensitiveDataScannerApiResponseProcessor {
   public async createScanningGroup(
     response: ResponseContext,
   ): Promise<SensitiveDataScannerCreateGroupResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 201) {
       const body: SensitiveDataScannerCreateGroupResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -537,7 +486,10 @@ export class SensitiveDataScannerApiResponseProcessor {
       response.httpStatusCode === 403 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -552,7 +504,10 @@ export class SensitiveDataScannerApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -583,7 +538,9 @@ export class SensitiveDataScannerApiResponseProcessor {
   public async createScanningRule(
     response: ResponseContext,
   ): Promise<SensitiveDataScannerCreateRuleResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 201) {
       const body: SensitiveDataScannerCreateRuleResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -597,7 +554,10 @@ export class SensitiveDataScannerApiResponseProcessor {
       response.httpStatusCode === 403 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -612,7 +572,10 @@ export class SensitiveDataScannerApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -643,7 +606,9 @@ export class SensitiveDataScannerApiResponseProcessor {
   public async deleteScanningGroup(
     response: ResponseContext,
   ): Promise<SensitiveDataScannerGroupDeleteResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: SensitiveDataScannerGroupDeleteResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -658,7 +623,10 @@ export class SensitiveDataScannerApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -673,7 +641,10 @@ export class SensitiveDataScannerApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -704,7 +675,9 @@ export class SensitiveDataScannerApiResponseProcessor {
   public async deleteScanningRule(
     response: ResponseContext,
   ): Promise<SensitiveDataScannerRuleDeleteResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: SensitiveDataScannerRuleDeleteResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -719,7 +692,10 @@ export class SensitiveDataScannerApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -734,7 +710,10 @@ export class SensitiveDataScannerApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -765,7 +744,9 @@ export class SensitiveDataScannerApiResponseProcessor {
   public async listScanningGroups(
     response: ResponseContext,
   ): Promise<SensitiveDataScannerGetConfigResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: SensitiveDataScannerGetConfigResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -779,7 +760,10 @@ export class SensitiveDataScannerApiResponseProcessor {
       response.httpStatusCode === 403 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -794,7 +778,10 @@ export class SensitiveDataScannerApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -825,14 +812,15 @@ export class SensitiveDataScannerApiResponseProcessor {
   public async listStandardPatterns(
     response: ResponseContext,
   ): Promise<SensitiveDataScannerStandardPatternsResponseData> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
-      const body: SensitiveDataScannerStandardPatternsResponseData =
-        deserialize(
-          parse(await response.body.text(), contentType),
-          TypingInfo,
-          "SensitiveDataScannerStandardPatternsResponseData",
-        ) as SensitiveDataScannerStandardPatternsResponseData;
+      const body: SensitiveDataScannerStandardPatternsResponseData = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "SensitiveDataScannerStandardPatternsResponseData",
+      ) as SensitiveDataScannerStandardPatternsResponseData;
       return body;
     }
     if (
@@ -840,7 +828,10 @@ export class SensitiveDataScannerApiResponseProcessor {
       response.httpStatusCode === 403 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -855,18 +846,20 @@ export class SensitiveDataScannerApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-      const body: SensitiveDataScannerStandardPatternsResponseData =
-        deserialize(
-          parse(await response.body.text(), contentType),
-          TypingInfo,
-          "SensitiveDataScannerStandardPatternsResponseData",
-          "",
-        ) as SensitiveDataScannerStandardPatternsResponseData;
+      const body: SensitiveDataScannerStandardPatternsResponseData = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "SensitiveDataScannerStandardPatternsResponseData",
+        "",
+      ) as SensitiveDataScannerStandardPatternsResponseData;
       return body;
     }
 
@@ -887,7 +880,9 @@ export class SensitiveDataScannerApiResponseProcessor {
   public async reorderScanningGroups(
     response: ResponseContext,
   ): Promise<SensitiveDataScannerReorderGroupsResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: SensitiveDataScannerReorderGroupsResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -901,7 +896,10 @@ export class SensitiveDataScannerApiResponseProcessor {
       response.httpStatusCode === 403 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -916,7 +914,10 @@ export class SensitiveDataScannerApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -947,7 +948,9 @@ export class SensitiveDataScannerApiResponseProcessor {
   public async updateScanningGroup(
     response: ResponseContext,
   ): Promise<SensitiveDataScannerGroupUpdateResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: SensitiveDataScannerGroupUpdateResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -962,7 +965,10 @@ export class SensitiveDataScannerApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -977,7 +983,10 @@ export class SensitiveDataScannerApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -1008,7 +1017,9 @@ export class SensitiveDataScannerApiResponseProcessor {
   public async updateScanningRule(
     response: ResponseContext,
   ): Promise<SensitiveDataScannerRuleUpdateResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: SensitiveDataScannerRuleUpdateResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -1023,7 +1034,10 @@ export class SensitiveDataScannerApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -1038,7 +1052,10 @@ export class SensitiveDataScannerApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -1134,7 +1151,8 @@ export class SensitiveDataScannerApi {
   private responseProcessor: SensitiveDataScannerApiResponseProcessor;
   private configuration: Configuration;
 
-  static operationServers: { [key: string]: BaseServerConfiguration[] } = {};
+  static operationServers: { [key: string]: BaseServerConfiguration[] } = {
+  };
 
   public constructor(
     configuration?: Configuration,
@@ -1247,11 +1265,11 @@ export class SensitiveDataScannerApi {
    * List all the Scanning groups in your organization.
    * @param param The request object
    */
-  public listScanningGroups(
-    options?: Configuration,
+  public listScanningGroups(options?: Configuration,
   ): Promise<SensitiveDataScannerGetConfigResponse> {
-    const requestContextPromise =
-      this.requestFactory.listScanningGroups(options);
+    const requestContextPromise = this.requestFactory.listScanningGroups(
+      options,
+    );
     return requestContextPromise.then((requestContext) => {
       return this.configuration.httpApi
         .send(requestContext)
@@ -1265,11 +1283,11 @@ export class SensitiveDataScannerApi {
    * Returns all standard patterns.
    * @param param The request object
    */
-  public listStandardPatterns(
-    options?: Configuration,
+  public listStandardPatterns(options?: Configuration,
   ): Promise<SensitiveDataScannerStandardPatternsResponseData> {
-    const requestContextPromise =
-      this.requestFactory.listStandardPatterns(options);
+    const requestContextPromise = this.requestFactory.listStandardPatterns(
+      options,
+    );
     return requestContextPromise.then((requestContext) => {
       return this.configuration.httpApi
         .send(requestContext)

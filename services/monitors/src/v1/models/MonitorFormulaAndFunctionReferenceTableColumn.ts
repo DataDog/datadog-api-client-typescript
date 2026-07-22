@@ -1,5 +1,6 @@
 import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
+
 /**
  * A column definition for reference table queries.
  */
@@ -29,7 +30,7 @@ export class MonitorFormulaAndFunctionReferenceTableColumn {
       baseName: "name",
       type: "string",
       required: true,
-    },
+    }
   };
 
   /**

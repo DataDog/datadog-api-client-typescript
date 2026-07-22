@@ -13,11 +13,7 @@ import { RuleBasedViewRuleStats } from "./RuleBasedViewRuleStats";
 
 export const TypingInfo: ModelTypingInfo = {
   enumsMap: {
-    RuleBasedViewRuleCategory: [
-      "cloud_configuration",
-      "infrastructure_configuration",
-      "api_security",
-    ],
+    RuleBasedViewRuleCategory: ["cloud_configuration", "infrastructure_configuration", "api_security"],
     RuleBasedViewType: ["rule_based_view"],
   },
   oneOfMap: {},

@@ -1,5 +1,6 @@
 import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
+
 /**
  * The incident impact's attributes for a create request.
  */
@@ -15,7 +16,7 @@ export class IncidentImpactCreateAttributes {
   /**
    * An object mapping impact field names to field values.
    */
-  "fields"?: { [key: string]: any };
+  "fields"?: { [key: string]: any; };
   /**
    * Timestamp when the impact started.
    */
@@ -25,7 +26,7 @@ export class IncidentImpactCreateAttributes {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
   /**
    * @ignore
    */

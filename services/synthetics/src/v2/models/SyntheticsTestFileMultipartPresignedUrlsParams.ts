@@ -1,5 +1,6 @@
 import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
+
 /**
  * Presigned URL parameters returned for a multipart upload.
  */
@@ -15,13 +16,13 @@ export class SyntheticsTestFileMultipartPresignedUrlsParams {
   /**
    * A map of part numbers to presigned upload URLs.
    */
-  "urls"?: { [key: string]: string };
+  "urls"?: { [key: string]: string; };
   /**
    * A container for additional, undeclared properties.
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
   /**
    * @ignore
    */

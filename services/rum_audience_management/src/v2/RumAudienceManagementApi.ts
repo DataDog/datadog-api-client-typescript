@@ -19,6 +19,7 @@ import {
   ServerConfiguration,
   stringify,
   applySecurityAuthentication,
+  
 } from "@datadog/datadog-api-client";
 
 import { TypingInfo } from "./models/TypingInfo";
@@ -51,14 +52,8 @@ export class RumAudienceManagementApiRequestFactory extends BaseAPIRequestFactor
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
-    if (
-      !_config.unstableOperations[
-        "RumAudienceManagementApi.v2.createConnection"
-      ]
-    ) {
-      throw new Error(
-        "Unstable operation 'createConnection' is disabled. Enable it by setting `configuration.unstableOperations['RumAudienceManagementApi.v2.createConnection'] = true`",
-      );
+    if (!_config.unstableOperations["RumAudienceManagementApi.v2.createConnection"]) {
+      throw new Error("Unstable operation 'createConnection' is disabled. Enable it by setting `configuration.unstableOperations['RumAudienceManagementApi.v2.createConnection'] = true`");
     }
 
     // verify required parameter 'entity' is not null or undefined
@@ -72,22 +67,14 @@ export class RumAudienceManagementApiRequestFactory extends BaseAPIRequestFactor
     }
 
     // Path Params
-    const localVarPath =
-      "/api/v2/product-analytics/{entity}/mapping/connection".replace(
-        "{entity}",
-        encodeURIComponent(String(entity)),
-      );
+    const localVarPath = "/api/v2/product-analytics/{entity}/mapping/connection".replace(
+      "{entity}",
+      encodeURIComponent(String(entity)),
+    );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "RumAudienceManagementApi.v2.createConnection",
-      RumAudienceManagementApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.POST,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("RumAudienceManagementApi.v2.createConnection", RumAudienceManagementApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.POST, overrides);
     requestContext.setHeaderParam("Accept", "*/*");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -97,7 +84,9 @@ export class RumAudienceManagementApiRequestFactory extends BaseAPIRequestFactor
     }
 
     // Body Params
-    const contentType = getPreferredMediaType(["application/json"]);
+    const contentType = getPreferredMediaType([
+      "application/json",
+    ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = stringify(
       serialize(body, TypingInfo, "CreateConnectionRequest", ""),
@@ -122,14 +111,8 @@ export class RumAudienceManagementApiRequestFactory extends BaseAPIRequestFactor
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
-    if (
-      !_config.unstableOperations[
-        "RumAudienceManagementApi.v2.deleteConnection"
-      ]
-    ) {
-      throw new Error(
-        "Unstable operation 'deleteConnection' is disabled. Enable it by setting `configuration.unstableOperations['RumAudienceManagementApi.v2.deleteConnection'] = true`",
-      );
+    if (!_config.unstableOperations["RumAudienceManagementApi.v2.deleteConnection"]) {
+      throw new Error("Unstable operation 'deleteConnection' is disabled. Enable it by setting `configuration.unstableOperations['RumAudienceManagementApi.v2.deleteConnection'] = true`");
     }
 
     // verify required parameter 'id' is not null or undefined
@@ -143,21 +126,17 @@ export class RumAudienceManagementApiRequestFactory extends BaseAPIRequestFactor
     }
 
     // Path Params
-    const localVarPath =
-      "/api/v2/product-analytics/{entity}/mapping/connection/{id}"
-        .replace("{id}", encodeURIComponent(String(id)))
-        .replace("{entity}", encodeURIComponent(String(entity)));
+    const localVarPath = "/api/v2/product-analytics/{entity}/mapping/connection/{id}".replace(
+      "{id}",
+      encodeURIComponent(String(id)),
+    ).replace(
+      "{entity}",
+      encodeURIComponent(String(entity)),
+    );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "RumAudienceManagementApi.v2.deleteConnection",
-      RumAudienceManagementApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.DELETE,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("RumAudienceManagementApi.v2.deleteConnection", RumAudienceManagementApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.DELETE, overrides);
     requestContext.setHeaderParam("Accept", "*/*");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -182,14 +161,8 @@ export class RumAudienceManagementApiRequestFactory extends BaseAPIRequestFactor
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
-    if (
-      !_config.unstableOperations[
-        "RumAudienceManagementApi.v2.getAccountFacetInfo"
-      ]
-    ) {
-      throw new Error(
-        "Unstable operation 'getAccountFacetInfo' is disabled. Enable it by setting `configuration.unstableOperations['RumAudienceManagementApi.v2.getAccountFacetInfo'] = true`",
-      );
+    if (!_config.unstableOperations["RumAudienceManagementApi.v2.getAccountFacetInfo"]) {
+      throw new Error("Unstable operation 'getAccountFacetInfo' is disabled. Enable it by setting `configuration.unstableOperations['RumAudienceManagementApi.v2.getAccountFacetInfo'] = true`");
     }
 
     // verify required parameter 'body' is not null or undefined
@@ -201,15 +174,8 @@ export class RumAudienceManagementApiRequestFactory extends BaseAPIRequestFactor
     const localVarPath = "/api/v2/product-analytics/accounts/facet_info";
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "RumAudienceManagementApi.v2.getAccountFacetInfo",
-      RumAudienceManagementApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.POST,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("RumAudienceManagementApi.v2.getAccountFacetInfo", RumAudienceManagementApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.POST, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -219,7 +185,9 @@ export class RumAudienceManagementApiRequestFactory extends BaseAPIRequestFactor
     }
 
     // Body Params
-    const contentType = getPreferredMediaType(["application/json"]);
+    const contentType = getPreferredMediaType([
+      "application/json",
+    ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = stringify(
       serialize(body, TypingInfo, "FacetInfoRequest", ""),
@@ -244,9 +212,7 @@ export class RumAudienceManagementApiRequestFactory extends BaseAPIRequestFactor
     const _config = _options || this.configuration;
 
     if (!_config.unstableOperations["RumAudienceManagementApi.v2.getMapping"]) {
-      throw new Error(
-        "Unstable operation 'getMapping' is disabled. Enable it by setting `configuration.unstableOperations['RumAudienceManagementApi.v2.getMapping'] = true`",
-      );
+      throw new Error("Unstable operation 'getMapping' is disabled. Enable it by setting `configuration.unstableOperations['RumAudienceManagementApi.v2.getMapping'] = true`");
     }
 
     // verify required parameter 'entity' is not null or undefined
@@ -261,15 +227,8 @@ export class RumAudienceManagementApiRequestFactory extends BaseAPIRequestFactor
     );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "RumAudienceManagementApi.v2.getMapping",
-      RumAudienceManagementApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.GET,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("RumAudienceManagementApi.v2.getMapping", RumAudienceManagementApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.GET, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -294,14 +253,8 @@ export class RumAudienceManagementApiRequestFactory extends BaseAPIRequestFactor
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
-    if (
-      !_config.unstableOperations[
-        "RumAudienceManagementApi.v2.getUserFacetInfo"
-      ]
-    ) {
-      throw new Error(
-        "Unstable operation 'getUserFacetInfo' is disabled. Enable it by setting `configuration.unstableOperations['RumAudienceManagementApi.v2.getUserFacetInfo'] = true`",
-      );
+    if (!_config.unstableOperations["RumAudienceManagementApi.v2.getUserFacetInfo"]) {
+      throw new Error("Unstable operation 'getUserFacetInfo' is disabled. Enable it by setting `configuration.unstableOperations['RumAudienceManagementApi.v2.getUserFacetInfo'] = true`");
     }
 
     // verify required parameter 'body' is not null or undefined
@@ -313,15 +266,8 @@ export class RumAudienceManagementApiRequestFactory extends BaseAPIRequestFactor
     const localVarPath = "/api/v2/product-analytics/users/facet_info";
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "RumAudienceManagementApi.v2.getUserFacetInfo",
-      RumAudienceManagementApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.POST,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("RumAudienceManagementApi.v2.getUserFacetInfo", RumAudienceManagementApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.POST, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -331,7 +277,9 @@ export class RumAudienceManagementApiRequestFactory extends BaseAPIRequestFactor
     }
 
     // Body Params
-    const contentType = getPreferredMediaType(["application/json"]);
+    const contentType = getPreferredMediaType([
+      "application/json",
+    ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = stringify(
       serialize(body, TypingInfo, "FacetInfoRequest", ""),
@@ -355,12 +303,8 @@ export class RumAudienceManagementApiRequestFactory extends BaseAPIRequestFactor
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
-    if (
-      !_config.unstableOperations["RumAudienceManagementApi.v2.listConnections"]
-    ) {
-      throw new Error(
-        "Unstable operation 'listConnections' is disabled. Enable it by setting `configuration.unstableOperations['RumAudienceManagementApi.v2.listConnections'] = true`",
-      );
+    if (!_config.unstableOperations["RumAudienceManagementApi.v2.listConnections"]) {
+      throw new Error("Unstable operation 'listConnections' is disabled. Enable it by setting `configuration.unstableOperations['RumAudienceManagementApi.v2.listConnections'] = true`");
     }
 
     // verify required parameter 'entity' is not null or undefined
@@ -369,22 +313,14 @@ export class RumAudienceManagementApiRequestFactory extends BaseAPIRequestFactor
     }
 
     // Path Params
-    const localVarPath =
-      "/api/v2/product-analytics/{entity}/mapping/connections".replace(
-        "{entity}",
-        encodeURIComponent(String(entity)),
-      );
+    const localVarPath = "/api/v2/product-analytics/{entity}/mapping/connections".replace(
+      "{entity}",
+      encodeURIComponent(String(entity)),
+    );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "RumAudienceManagementApi.v2.listConnections",
-      RumAudienceManagementApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.GET,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("RumAudienceManagementApi.v2.listConnections", RumAudienceManagementApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.GET, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -409,12 +345,8 @@ export class RumAudienceManagementApiRequestFactory extends BaseAPIRequestFactor
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
-    if (
-      !_config.unstableOperations["RumAudienceManagementApi.v2.queryAccounts"]
-    ) {
-      throw new Error(
-        "Unstable operation 'queryAccounts' is disabled. Enable it by setting `configuration.unstableOperations['RumAudienceManagementApi.v2.queryAccounts'] = true`",
-      );
+    if (!_config.unstableOperations["RumAudienceManagementApi.v2.queryAccounts"]) {
+      throw new Error("Unstable operation 'queryAccounts' is disabled. Enable it by setting `configuration.unstableOperations['RumAudienceManagementApi.v2.queryAccounts'] = true`");
     }
 
     // verify required parameter 'body' is not null or undefined
@@ -426,15 +358,8 @@ export class RumAudienceManagementApiRequestFactory extends BaseAPIRequestFactor
     const localVarPath = "/api/v2/product-analytics/accounts/query";
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "RumAudienceManagementApi.v2.queryAccounts",
-      RumAudienceManagementApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.POST,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("RumAudienceManagementApi.v2.queryAccounts", RumAudienceManagementApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.POST, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -444,7 +369,9 @@ export class RumAudienceManagementApiRequestFactory extends BaseAPIRequestFactor
     }
 
     // Body Params
-    const contentType = getPreferredMediaType(["application/json"]);
+    const contentType = getPreferredMediaType([
+      "application/json",
+    ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = stringify(
       serialize(body, TypingInfo, "QueryAccountRequest", ""),
@@ -468,14 +395,8 @@ export class RumAudienceManagementApiRequestFactory extends BaseAPIRequestFactor
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
-    if (
-      !_config.unstableOperations[
-        "RumAudienceManagementApi.v2.queryEventFilteredUsers"
-      ]
-    ) {
-      throw new Error(
-        "Unstable operation 'queryEventFilteredUsers' is disabled. Enable it by setting `configuration.unstableOperations['RumAudienceManagementApi.v2.queryEventFilteredUsers'] = true`",
-      );
+    if (!_config.unstableOperations["RumAudienceManagementApi.v2.queryEventFilteredUsers"]) {
+      throw new Error("Unstable operation 'queryEventFilteredUsers' is disabled. Enable it by setting `configuration.unstableOperations['RumAudienceManagementApi.v2.queryEventFilteredUsers'] = true`");
     }
 
     // verify required parameter 'body' is not null or undefined
@@ -487,15 +408,8 @@ export class RumAudienceManagementApiRequestFactory extends BaseAPIRequestFactor
     const localVarPath = "/api/v2/product-analytics/users/event_filtered_query";
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "RumAudienceManagementApi.v2.queryEventFilteredUsers",
-      RumAudienceManagementApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.POST,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("RumAudienceManagementApi.v2.queryEventFilteredUsers", RumAudienceManagementApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.POST, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -505,7 +419,9 @@ export class RumAudienceManagementApiRequestFactory extends BaseAPIRequestFactor
     }
 
     // Body Params
-    const contentType = getPreferredMediaType(["application/json"]);
+    const contentType = getPreferredMediaType([
+      "application/json",
+    ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = stringify(
       serialize(body, TypingInfo, "QueryEventFilteredUsersRequest", ""),
@@ -530,9 +446,7 @@ export class RumAudienceManagementApiRequestFactory extends BaseAPIRequestFactor
     const _config = _options || this.configuration;
 
     if (!_config.unstableOperations["RumAudienceManagementApi.v2.queryUsers"]) {
-      throw new Error(
-        "Unstable operation 'queryUsers' is disabled. Enable it by setting `configuration.unstableOperations['RumAudienceManagementApi.v2.queryUsers'] = true`",
-      );
+      throw new Error("Unstable operation 'queryUsers' is disabled. Enable it by setting `configuration.unstableOperations['RumAudienceManagementApi.v2.queryUsers'] = true`");
     }
 
     // verify required parameter 'body' is not null or undefined
@@ -544,15 +458,8 @@ export class RumAudienceManagementApiRequestFactory extends BaseAPIRequestFactor
     const localVarPath = "/api/v2/product-analytics/users/query";
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "RumAudienceManagementApi.v2.queryUsers",
-      RumAudienceManagementApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.POST,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("RumAudienceManagementApi.v2.queryUsers", RumAudienceManagementApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.POST, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -562,7 +469,9 @@ export class RumAudienceManagementApiRequestFactory extends BaseAPIRequestFactor
     }
 
     // Body Params
-    const contentType = getPreferredMediaType(["application/json"]);
+    const contentType = getPreferredMediaType([
+      "application/json",
+    ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = stringify(
       serialize(body, TypingInfo, "QueryUsersRequest", ""),
@@ -587,14 +496,8 @@ export class RumAudienceManagementApiRequestFactory extends BaseAPIRequestFactor
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
-    if (
-      !_config.unstableOperations[
-        "RumAudienceManagementApi.v2.updateConnection"
-      ]
-    ) {
-      throw new Error(
-        "Unstable operation 'updateConnection' is disabled. Enable it by setting `configuration.unstableOperations['RumAudienceManagementApi.v2.updateConnection'] = true`",
-      );
+    if (!_config.unstableOperations["RumAudienceManagementApi.v2.updateConnection"]) {
+      throw new Error("Unstable operation 'updateConnection' is disabled. Enable it by setting `configuration.unstableOperations['RumAudienceManagementApi.v2.updateConnection'] = true`");
     }
 
     // verify required parameter 'entity' is not null or undefined
@@ -608,22 +511,14 @@ export class RumAudienceManagementApiRequestFactory extends BaseAPIRequestFactor
     }
 
     // Path Params
-    const localVarPath =
-      "/api/v2/product-analytics/{entity}/mapping/connection".replace(
-        "{entity}",
-        encodeURIComponent(String(entity)),
-      );
+    const localVarPath = "/api/v2/product-analytics/{entity}/mapping/connection".replace(
+      "{entity}",
+      encodeURIComponent(String(entity)),
+    );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "RumAudienceManagementApi.v2.updateConnection",
-      RumAudienceManagementApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.PUT,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("RumAudienceManagementApi.v2.updateConnection", RumAudienceManagementApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.PUT, overrides);
     requestContext.setHeaderParam("Accept", "*/*");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -633,7 +528,9 @@ export class RumAudienceManagementApiRequestFactory extends BaseAPIRequestFactor
     }
 
     // Body Params
-    const contentType = getPreferredMediaType(["application/json"]);
+    const contentType = getPreferredMediaType([
+      "application/json",
+    ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = stringify(
       serialize(body, TypingInfo, "UpdateConnectionRequest", ""),
@@ -660,13 +557,20 @@ export class RumAudienceManagementApiResponseProcessor {
    * @params response Response returned by the server for a request to createConnection
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async createConnection(response: ResponseContext): Promise<void> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+  public async createConnection(
+    response: ResponseContext,
+  ): Promise<void> {
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 201) {
       return;
     }
     if (response.httpStatusCode === 429) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -681,7 +585,10 @@ export class RumAudienceManagementApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -703,13 +610,20 @@ export class RumAudienceManagementApiResponseProcessor {
    * @params response Response returned by the server for a request to deleteConnection
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async deleteConnection(response: ResponseContext): Promise<void> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+  public async deleteConnection(
+    response: ResponseContext,
+  ): Promise<void> {
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 204) {
       return;
     }
     if (response.httpStatusCode === 429) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -724,7 +638,10 @@ export class RumAudienceManagementApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -749,7 +666,9 @@ export class RumAudienceManagementApiResponseProcessor {
   public async getAccountFacetInfo(
     response: ResponseContext,
   ): Promise<FacetInfoResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: FacetInfoResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -759,7 +678,10 @@ export class RumAudienceManagementApiResponseProcessor {
       return body;
     }
     if (response.httpStatusCode === 429) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -774,7 +696,10 @@ export class RumAudienceManagementApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -805,7 +730,9 @@ export class RumAudienceManagementApiResponseProcessor {
   public async getMapping(
     response: ResponseContext,
   ): Promise<GetMappingResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: GetMappingResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -815,7 +742,10 @@ export class RumAudienceManagementApiResponseProcessor {
       return body;
     }
     if (response.httpStatusCode === 429) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -830,7 +760,10 @@ export class RumAudienceManagementApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -861,7 +794,9 @@ export class RumAudienceManagementApiResponseProcessor {
   public async getUserFacetInfo(
     response: ResponseContext,
   ): Promise<FacetInfoResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: FacetInfoResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -871,7 +806,10 @@ export class RumAudienceManagementApiResponseProcessor {
       return body;
     }
     if (response.httpStatusCode === 429) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -886,7 +824,10 @@ export class RumAudienceManagementApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -917,7 +858,9 @@ export class RumAudienceManagementApiResponseProcessor {
   public async listConnections(
     response: ResponseContext,
   ): Promise<ListConnectionsResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: ListConnectionsResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -927,7 +870,10 @@ export class RumAudienceManagementApiResponseProcessor {
       return body;
     }
     if (response.httpStatusCode === 429) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -942,7 +888,10 @@ export class RumAudienceManagementApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -973,7 +922,9 @@ export class RumAudienceManagementApiResponseProcessor {
   public async queryAccounts(
     response: ResponseContext,
   ): Promise<QueryResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: QueryResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -983,7 +934,10 @@ export class RumAudienceManagementApiResponseProcessor {
       return body;
     }
     if (response.httpStatusCode === 429) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -998,7 +952,10 @@ export class RumAudienceManagementApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -1029,7 +986,9 @@ export class RumAudienceManagementApiResponseProcessor {
   public async queryEventFilteredUsers(
     response: ResponseContext,
   ): Promise<QueryResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: QueryResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -1039,7 +998,10 @@ export class RumAudienceManagementApiResponseProcessor {
       return body;
     }
     if (response.httpStatusCode === 429) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -1054,7 +1016,10 @@ export class RumAudienceManagementApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -1082,8 +1047,12 @@ export class RumAudienceManagementApiResponseProcessor {
    * @params response Response returned by the server for a request to queryUsers
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async queryUsers(response: ResponseContext): Promise<QueryResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+  public async queryUsers(
+    response: ResponseContext,
+  ): Promise<QueryResponse> {
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: QueryResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -1093,7 +1062,10 @@ export class RumAudienceManagementApiResponseProcessor {
       return body;
     }
     if (response.httpStatusCode === 429) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -1108,7 +1080,10 @@ export class RumAudienceManagementApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -1136,13 +1111,20 @@ export class RumAudienceManagementApiResponseProcessor {
    * @params response Response returned by the server for a request to updateConnection
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async updateConnection(response: ResponseContext): Promise<void> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+  public async updateConnection(
+    response: ResponseContext,
+  ): Promise<void> {
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       return;
     }
     if (response.httpStatusCode === 429) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -1157,7 +1139,10 @@ export class RumAudienceManagementApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -1266,7 +1251,8 @@ export class RumAudienceManagementApi {
   private responseProcessor: RumAudienceManagementApiResponseProcessor;
   private configuration: Configuration;
 
-  static operationServers: { [key: string]: BaseServerConfiguration[] } = {};
+  static operationServers: { [key: string]: BaseServerConfiguration[] } = {
+  };
 
   public constructor(
     configuration?: Configuration,
@@ -1446,9 +1432,7 @@ export class RumAudienceManagementApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.queryEventFilteredUsers(
-            responseContext,
-          );
+          return this.responseProcessor.queryEventFilteredUsers(responseContext);
         });
     });
   }

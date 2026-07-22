@@ -113,7 +113,7 @@ export const TypingInfo: ModelTypingInfo = {
       "LogsArrayMapProcessor",
     ],
     LogsSchemaMapper: ["LogsSchemaRemapper", "LogsSchemaCategoryMapper"],
-  },
+    },
   typeMap: {
     APIErrorResponse: APIErrorResponse,
     LogsAPIError: LogsAPIError,
@@ -123,8 +123,7 @@ export const TypingInfo: ModelTypingInfo = {
     LogsArrayMapAttributeRemapper: LogsArrayMapAttributeRemapper,
     LogsArrayMapCategorySubProcessor: LogsArrayMapCategorySubProcessor,
     LogsArrayMapProcessor: LogsArrayMapProcessor,
-    LogsArrayMapStringBuilderSubProcessor:
-      LogsArrayMapStringBuilderSubProcessor,
+    LogsArrayMapStringBuilderSubProcessor: LogsArrayMapStringBuilderSubProcessor,
     LogsArrayProcessor: LogsArrayProcessor,
     LogsArrayProcessorOperationAppend: LogsArrayProcessorOperationAppend,
     LogsArrayProcessorOperationLength: LogsArrayProcessorOperationLength,

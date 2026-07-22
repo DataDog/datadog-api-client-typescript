@@ -19,6 +19,7 @@ import {
   ServerConfiguration,
   stringify,
   applySecurityAuthentication,
+  
 } from "@datadog/datadog-api-client";
 
 import { TypingInfo } from "./models/TypingInfo";
@@ -61,15 +62,8 @@ export class TagsApiRequestFactory extends BaseAPIRequestFactory {
     );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "TagsApi.v1.createHostTags",
-      TagsApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.POST,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("TagsApi.v1.createHostTags", TagsApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.POST, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -88,7 +82,9 @@ export class TagsApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Body Params
-    const contentType = getPreferredMediaType(["application/json"]);
+    const contentType = getPreferredMediaType([
+      "application/json",
+    ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = stringify(
       serialize(body, TypingInfo, "HostTags", ""),
@@ -124,15 +120,8 @@ export class TagsApiRequestFactory extends BaseAPIRequestFactory {
     );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "TagsApi.v1.deleteHostTags",
-      TagsApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.DELETE,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("TagsApi.v1.deleteHostTags", TagsApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.DELETE, overrides);
     requestContext.setHeaderParam("Accept", "*/*");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -178,15 +167,8 @@ export class TagsApiRequestFactory extends BaseAPIRequestFactory {
     );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "TagsApi.v1.getHostTags",
-      TagsApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.GET,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("TagsApi.v1.getHostTags", TagsApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.GET, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -223,15 +205,8 @@ export class TagsApiRequestFactory extends BaseAPIRequestFactory {
     const localVarPath = "/api/v1/tags/hosts";
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "TagsApi.v1.listHostTags",
-      TagsApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.GET,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("TagsApi.v1.listHostTags", TagsApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.GET, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -284,15 +259,8 @@ export class TagsApiRequestFactory extends BaseAPIRequestFactory {
     );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "TagsApi.v1.updateHostTags",
-      TagsApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.PUT,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("TagsApi.v1.updateHostTags", TagsApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.PUT, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -311,7 +279,9 @@ export class TagsApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Body Params
-    const contentType = getPreferredMediaType(["application/json"]);
+    const contentType = getPreferredMediaType([
+      "application/json",
+    ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = stringify(
       serialize(body, TypingInfo, "HostTags", ""),
@@ -337,8 +307,12 @@ export class TagsApiResponseProcessor {
    * @params response Response returned by the server for a request to createHostTags
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async createHostTags(response: ResponseContext): Promise<HostTags> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+  public async createHostTags(
+    response: ResponseContext,
+  ): Promise<HostTags> {
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 201) {
       const body: HostTags = deserialize(
         parse(await response.body.text(), contentType),
@@ -352,7 +326,10 @@ export class TagsApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -367,7 +344,10 @@ export class TagsApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -395,8 +375,12 @@ export class TagsApiResponseProcessor {
    * @params response Response returned by the server for a request to deleteHostTags
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async deleteHostTags(response: ResponseContext): Promise<void> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+  public async deleteHostTags(
+    response: ResponseContext,
+  ): Promise<void> {
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 204) {
       return;
     }
@@ -405,7 +389,10 @@ export class TagsApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -420,7 +407,10 @@ export class TagsApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -442,8 +432,12 @@ export class TagsApiResponseProcessor {
    * @params response Response returned by the server for a request to getHostTags
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async getHostTags(response: ResponseContext): Promise<HostTags> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+  public async getHostTags(
+    response: ResponseContext,
+  ): Promise<HostTags> {
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: HostTags = deserialize(
         parse(await response.body.text(), contentType),
@@ -457,7 +451,10 @@ export class TagsApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -472,7 +469,10 @@ export class TagsApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -500,8 +500,12 @@ export class TagsApiResponseProcessor {
    * @params response Response returned by the server for a request to listHostTags
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async listHostTags(response: ResponseContext): Promise<TagToHosts> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+  public async listHostTags(
+    response: ResponseContext,
+  ): Promise<TagToHosts> {
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: TagToHosts = deserialize(
         parse(await response.body.text(), contentType),
@@ -515,7 +519,10 @@ export class TagsApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -530,7 +537,10 @@ export class TagsApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -558,8 +568,12 @@ export class TagsApiResponseProcessor {
    * @params response Response returned by the server for a request to updateHostTags
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async updateHostTags(response: ResponseContext): Promise<HostTags> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+  public async updateHostTags(
+    response: ResponseContext,
+  ): Promise<HostTags> {
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 201) {
       const body: HostTags = deserialize(
         parse(await response.body.text(), contentType),
@@ -573,7 +587,10 @@ export class TagsApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -588,7 +605,10 @@ export class TagsApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -685,7 +705,8 @@ export class TagsApi {
   private responseProcessor: TagsApiResponseProcessor;
   private configuration: Configuration;
 
-  static operationServers: { [key: string]: BaseServerConfiguration[] } = {};
+  static operationServers: { [key: string]: BaseServerConfiguration[] } = {
+  };
 
   public constructor(
     configuration?: Configuration,
@@ -694,7 +715,8 @@ export class TagsApi {
   ) {
     this.configuration = configuration || createConfiguration();
     this.requestFactory =
-      requestFactory || new TagsApiRequestFactory(this.configuration);
+      requestFactory ||
+      new TagsApiRequestFactory(this.configuration);
     this.responseProcessor =
       responseProcessor || new TagsApiResponseProcessor();
   }

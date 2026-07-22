@@ -1,5 +1,6 @@
 import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
+
 /**
  * The definition of Entity V3 Queue Spec object.
  */
@@ -44,7 +45,7 @@ export class EntityV3QueueSpec {
     type: {
       baseName: "type",
       type: "string",
-    },
+    }
   };
 
   /**

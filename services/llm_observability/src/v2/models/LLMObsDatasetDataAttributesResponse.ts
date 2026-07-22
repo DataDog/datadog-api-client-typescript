@@ -1,5 +1,6 @@
 import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
+
 /**
  * Attributes of an LLM Observability dataset.
  */
@@ -15,11 +16,11 @@ export class LLMObsDatasetDataAttributesResponse {
   /**
    * Description of the dataset.
    */
-  "description": string | null;
+  "description": string|null;
   /**
    * Arbitrary metadata associated with the dataset.
    */
-  "metadata": { [key: string]: any } | null;
+  "metadata": { [key: string]: any; }|null;
   /**
    * Name of the dataset.
    */
@@ -33,7 +34,7 @@ export class LLMObsDatasetDataAttributesResponse {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
   /**
    * @ignore
    */

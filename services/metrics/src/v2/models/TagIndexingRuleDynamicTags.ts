@@ -1,13 +1,14 @@
 import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
+
 /**
  * Options for dynamic tag indexing applied per metric, such as tags filtered by query usage.
- *
+ * 
  * Before a tag key is dropped by this rule, two grace period conditions must be met:
- *
+ * 
  * 1. The metric must be submitted for at least as long as the selected window.
  * 2. A tag key must have been submitted for at least 15 days.
- *
+ * 
  * Any metric or tag key that does not meet these conditions are excluded from this
  * indexing rule. The `exclude_not_*` fields require `exclude_tags_mode` to be set to `true`.
  */
@@ -33,7 +34,7 @@ export class TagIndexingRuleDynamicTags {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
   /**
    * @ignore
    */

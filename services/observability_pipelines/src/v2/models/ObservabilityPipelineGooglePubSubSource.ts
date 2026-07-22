@@ -7,7 +7,7 @@ import { ObservabilityPipelineTls } from "./ObservabilityPipelineTls";
 
 /**
  * The `google_pubsub` source ingests logs from a Google Cloud Pub/Sub subscription.
- *
+ * 
  * **Supported pipeline types:** logs
  */
 export class ObservabilityPipelineGooglePubSubSource {
@@ -44,7 +44,7 @@ export class ObservabilityPipelineGooglePubSubSource {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
   /**
    * @ignore
    */

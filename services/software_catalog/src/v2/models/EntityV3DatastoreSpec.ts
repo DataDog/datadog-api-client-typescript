@@ -1,5 +1,6 @@
 import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
+
 /**
  * The definition of Entity V3 Datastore Spec object.
  */
@@ -44,7 +45,7 @@ export class EntityV3DatastoreSpec {
     type: {
       baseName: "type",
       type: "string",
-    },
+    }
   };
 
   /**

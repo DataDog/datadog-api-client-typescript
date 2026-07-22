@@ -565,14 +565,7 @@ export const TypingInfo: ModelTypingInfo = {
     AnalysisRequestDataType: ["analysis_request"],
     AnalysisResponseDataType: ["server_request"],
     AssetEntityType: ["assets"],
-    AssetType: [
-      "Repository",
-      "Service",
-      "Host",
-      "HostImage",
-      "Image",
-      "ServerlessFunction",
-    ],
+    AssetType: ["Repository", "Service", "Host", "HostImage", "Image", "ServerlessFunction"],
     AssigneeDataType: ["assignee"],
     AutomationRuleActorType: ["user", "system"],
     CaseDataType: ["cases"],
@@ -580,52 +573,25 @@ export const TypingInfo: ModelTypingInfo = {
     CasePriority: ["NOT_DEFINED", "P1", "P2", "P3", "P4", "P5"],
     CloudAssetType: ["Host", "HostImage", "Image"],
     CloudConfigurationRuleType: ["cloud_configuration"],
-    ConvertJobResultsToSignalsDataType: [
-      "historicalDetectionsJobResultSignalConversion",
-    ],
+    ConvertJobResultsToSignalsDataType: ["historicalDetectionsJobResultSignalConversion"],
     CustomFrameworkType: ["custom_framework"],
     CycloneDXComponentType: ["library", "application", "operating-system"],
     DefaultRulesetsPerLanguageDataType: ["defaultRulesetsPerLanguage"],
     DetailedFindingType: ["detailed_finding"],
     DueDateFrom: ["first_seen", "fix_available"],
     DueDateRuleType: ["due_date_rules"],
-    DueDateSeverity: [
-      "critical",
-      "high",
-      "medium",
-      "low",
-      "info",
-      "none",
-      "unknown",
-    ],
+    DueDateSeverity: ["critical", "high", "medium", "low", "info", "none", "unknown"],
     FindingDataType: ["findings"],
     FindingEvaluation: ["pass", "fail"],
-    FindingMuteReason: [
-      "PENDING_FIX",
-      "FALSE_POSITIVE",
-      "ACCEPTED_RISK",
-      "NO_PENDING_FIX",
-      "HUMAN_ERROR",
-      "NO_LONGER_ACCEPTED_RISK",
-      "OTHER",
-    ],
+    FindingMuteReason: ["PENDING_FIX", "FALSE_POSITIVE", "ACCEPTED_RISK", "NO_PENDING_FIX", "HUMAN_ERROR", "NO_LONGER_ACCEPTED_RISK", "OTHER"],
     FindingStatus: ["critical", "high", "medium", "low", "info"],
     FindingType: ["finding"],
-    FindingVulnerabilityType: [
-      "misconfiguration",
-      "attack_path",
-      "identity_risk",
-      "api_security",
-    ],
+    FindingVulnerabilityType: ["misconfiguration", "attack_path", "identity_risk", "api_security"],
     GetAstRequestDataType: ["get_ast_request"],
     GetAstResponseDataType: ["get_ast_response"],
     GetMultipleRulesetsRequestDataType: ["get_multiple_rulesets_request"],
-    GetMultipleRulesetsResponseDataAttributesRulesetsItemsDataType: [
-      "rulesets",
-    ],
-    GetMultipleRulesetsResponseDataAttributesRulesetsItemsRulesItemsDataType: [
-      "rules",
-    ],
+    GetMultipleRulesetsResponseDataAttributesRulesetsItemsDataType: ["rulesets"],
+    GetMultipleRulesetsResponseDataAttributesRulesetsItemsRulesItemsDataType: ["rules"],
     GetMultipleRulesetsResponseDataType: ["get_multiple_rulesets_response"],
     GetRuleVersionHistoryDataType: ["GetRuleVersionHistoryResponse"],
     GetSuppressionVersionHistoryDataType: ["suppression_version_history"],
@@ -635,25 +601,8 @@ export const TypingInfo: ModelTypingInfo = {
     JiraIssuesDataType: ["jira_issues"],
     LinearIssuesDataType: ["linear_issues"],
     MuteDataType: ["mute"],
-    MuteFindingsReason: [
-      "PENDING_FIX",
-      "FALSE_POSITIVE",
-      "OTHER",
-      "NO_FIX",
-      "DUPLICATE",
-      "RISK_ACCEPTED",
-      "NO_PENDING_FIX",
-      "HUMAN_ERROR",
-      "NO_LONGER_ACCEPTED_RISK",
-    ],
-    MuteReason: [
-      "duplicate",
-      "false_positive",
-      "no_fix",
-      "other",
-      "pending_fix",
-      "risk_accepted",
-    ],
+    MuteFindingsReason: ["PENDING_FIX", "FALSE_POSITIVE", "OTHER", "NO_FIX", "DUPLICATE", "RISK_ACCEPTED", "NO_PENDING_FIX", "HUMAN_ERROR", "NO_LONGER_ACCEPTED_RISK"],
+    MuteReason: ["duplicate", "false_positive", "no_fix", "other", "pending_fix", "risk_accepted"],
     MuteRuleType: ["mute_rules"],
     NodeTypesResponseDataType: ["get_node_types_response"],
     NotificationRulePreviewNotificationStatus: ["SUCCESS", "DEFAULT", "ERROR"],
@@ -662,313 +611,82 @@ export const TypingInfo: ModelTypingInfo = {
     NotificationRulesType: ["notification_rules"],
     ResourceFilterRequestType: ["csm_resource_filter"],
     RuleSeverity: ["critical", "high", "medium", "low", "unknown", "info"],
-    RuleTypesItems: [
-      "application_security",
-      "log_detection",
-      "workload_security",
-      "signal_correlation",
-      "cloud_configuration",
-      "infrastructure_configuration",
-      "application_code_vulnerability",
-      "application_library_vulnerability",
-      "attack_path",
-      "container_image_vulnerability",
-      "identity_risk",
-      "misconfiguration",
-      "api_security",
-      "host_vulnerability",
-      "iac_misconfiguration",
-      "sast_vulnerability",
-      "secret_vulnerability",
-      "workload_activity",
-    ],
+    RuleTypesItems: ["application_security", "log_detection", "workload_security", "signal_correlation", "cloud_configuration", "infrastructure_configuration", "application_code_vulnerability", "application_library_vulnerability", "attack_path", "container_image_vulnerability", "identity_risk", "misconfiguration", "api_security", "host_vulnerability", "iac_misconfiguration", "sast_vulnerability", "secret_vulnerability", "workload_activity"],
     RunHistoricalJobRequestDataType: ["historicalDetectionsJobCreate"],
-    SBOMComponentLicenseType: [
-      "network_strong_copyleft",
-      "non_standard_copyleft",
-      "other_non_free",
-      "other_non_standard",
-      "permissive",
-      "public_domain",
-      "strong_copyleft",
-      "weak_copyleft",
-    ],
-    SBOMComponentType: [
-      "application",
-      "container",
-      "data",
-      "device",
-      "device-driver",
-      "file",
-      "firmware",
-      "framework",
-      "library",
-      "machine-learning-model",
-      "operating-system",
-      "platform",
-    ],
+    SBOMComponentLicenseType: ["network_strong_copyleft", "non_standard_copyleft", "other_non_free", "other_non_standard", "permissive", "public_domain", "strong_copyleft", "weak_copyleft"],
+    SBOMComponentType: ["application", "container", "data", "device", "device-driver", "file", "firmware", "framework", "library", "machine-learning-model", "operating-system", "platform"],
     SBOMFormat: ["CycloneDX", "SPDX"],
     SBOMType: ["sboms"],
-    SampleLogGenerationBulkSubscriptionRequestType: [
-      "bulk_subscription_requests",
-    ],
+    SampleLogGenerationBulkSubscriptionRequestType: ["bulk_subscription_requests"],
     SampleLogGenerationDuration: ["1h", "1d", "3d", "7d"],
     SampleLogGenerationSubscriptionRequestType: ["subscription_requests"],
     SampleLogGenerationSubscriptionResourceType: ["subscriptions"],
-    SampleLogGenerationSubscriptionStatus: [
-      "subscribed",
-      "renewed",
-      "unsubscribed",
-      "no_active_subscription",
-      "not_available",
-      "active",
-      "expired",
-    ],
+    SampleLogGenerationSubscriptionStatus: ["subscribed", "renewed", "unsubscribed", "no_active_subscription", "not_available", "active", "expired"],
     SampleLogGenerationSubscriptionsStatusFilter: ["active", "all"],
     SecretRuleDataType: ["secret_rule"],
     SecurityFilterFilteredDataType: ["logs"],
     SecurityFilterType: ["security_filters"],
     SecurityFilterVersionType: ["security_filters_configuration"],
-    SecurityFindingType: [
-      "api_security",
-      "attack_path",
-      "host_and_container_vulnerability",
-      "iac_misconfiguration",
-      "identity_risk",
-      "library_vulnerability",
-      "misconfiguration",
-      "runtime_code_vulnerability",
-      "secret",
-      "static_code_vulnerability",
-      "workload_activity",
-    ],
+    SecurityFindingType: ["api_security", "attack_path", "host_and_container_vulnerability", "iac_misconfiguration", "identity_risk", "library_vulnerability", "misconfiguration", "runtime_code_vulnerability", "secret", "static_code_vulnerability", "workload_activity"],
     SecurityFindingsDataType: ["finding"],
     SecurityFindingsSort: ["@detection_changed_at", "-@detection_changed_at"],
     SecurityFindingsStatus: ["done", "timeout"],
-    SecurityMonitoringContentPackActivation: [
-      "never_activated",
-      "activated",
-      "deactivated",
-    ],
-    SecurityMonitoringContentPackIntegrationStatus: [
-      "installed",
-      "available",
-      "partially_installed",
-      "detected",
-      "error",
-    ],
+    SecurityMonitoringContentPackActivation: ["never_activated", "activated", "deactivated"],
+    SecurityMonitoringContentPackIntegrationStatus: ["installed", "available", "partially_installed", "detected", "error"],
     SecurityMonitoringContentPackStateType: ["content_pack_state"],
-    SecurityMonitoringContentPackStatus: [
-      "install",
-      "activate",
-      "initializing",
-      "active",
-      "warning",
-      "broken",
-    ],
-    SecurityMonitoringContentPackTimestampBucket: [
-      "not_seen",
-      "within_24_hours",
-      "within_24_to_72_hours",
-      "over_72h_to_30d",
-      "over_30d",
-    ],
-    SecurityMonitoringCriticalAssetSeverity: [
-      "info",
-      "low",
-      "medium",
-      "high",
-      "critical",
-      "increase",
-      "decrease",
-      "no-op",
-    ],
+    SecurityMonitoringContentPackStatus: ["install", "activate", "initializing", "active", "warning", "broken"],
+    SecurityMonitoringContentPackTimestampBucket: ["not_seen", "within_24_hours", "within_24_to_72_hours", "over_72h_to_30d", "over_30d"],
+    SecurityMonitoringCriticalAssetSeverity: ["info", "low", "medium", "high", "critical", "increase", "decrease", "no-op"],
     SecurityMonitoringCriticalAssetType: ["critical_assets"],
     SecurityMonitoringDatasetCreateType: ["datasetCreate"],
     SecurityMonitoringDatasetDependentsType: ["datasetDependents"],
     SecurityMonitoringDatasetType: ["dataset"],
     SecurityMonitoringDatasetUpdateType: ["datasetUpdate"],
     SecurityMonitoringDatasetVersionHistoryType: ["dataset_version_history"],
-    SecurityMonitoringEntraIdAzureAppRegistrationsResourceType: [
-      "entra_id_azure_app_registrations",
-    ],
+    SecurityMonitoringEntraIdAzureAppRegistrationsResourceType: ["entra_id_azure_app_registrations"],
     SecurityMonitoringFilterAction: ["require", "suppress"],
-    SecurityMonitoringIntegrationActivateResourceType: [
-      "activate_entra_id_request",
-    ],
+    SecurityMonitoringIntegrationActivateResourceType: ["activate_entra_id_request"],
     SecurityMonitoringIntegrationConfigResourceType: ["integration_config"],
-    SecurityMonitoringIntegrationConfigState: [
-      "valid",
-      "invalid",
-      "initializing",
-    ],
-    SecurityMonitoringIntegrationType: [
-      "GOOGLE_WORKSPACE",
-      "OKTA",
-      "ENTRA_ID",
-      "CROWDSTRIKE",
-      "SENTINELONE",
-    ],
+    SecurityMonitoringIntegrationConfigState: ["valid", "invalid", "initializing"],
+    SecurityMonitoringIntegrationType: ["GOOGLE_WORKSPACE", "OKTA", "ENTRA_ID", "CROWDSTRIKE", "SENTINELONE"],
     SecurityMonitoringIntegrationTypeCrowdStrike: ["CROWDSTRIKE"],
     SecurityMonitoringIntegrationTypeEntraId: ["ENTRA_ID"],
     SecurityMonitoringIntegrationTypeGoogleWorkspace: ["GOOGLE_WORKSPACE"],
     SecurityMonitoringIntegrationTypeOkta: ["OKTA"],
     SecurityMonitoringIntegrationTypeSentinelOne: ["SENTINELONE"],
-    SecurityMonitoringRuleAnomalyDetectionOptionsBucketDuration: [
-      300, 600, 900, 1800, 3600, 10800,
-    ],
-    SecurityMonitoringRuleAnomalyDetectionOptionsDetectionTolerance: [
-      1, 2, 3, 4, 5,
-    ],
-    SecurityMonitoringRuleAnomalyDetectionOptionsLearningDuration: [
-      1, 6, 12, 24, 48, 168, 336,
-    ],
+    SecurityMonitoringRuleAnomalyDetectionOptionsBucketDuration: [300, 600, 900, 1800, 3600, 10800],
+    SecurityMonitoringRuleAnomalyDetectionOptionsDetectionTolerance: [1, 2, 3, 4, 5],
+    SecurityMonitoringRuleAnomalyDetectionOptionsLearningDuration: [1, 6, 12, 24, 48, 168, 336],
     SecurityMonitoringRuleBulkDeleteRequestDataType: ["bulk_delete_rules"],
-    SecurityMonitoringRuleBulkExportDataType: [
-      "security_monitoring_rules_bulk_export",
-    ],
-    SecurityMonitoringRuleCaseActionOptionsFlaggedIPType: [
-      "SUSPICIOUS",
-      "FLAGGED",
-    ],
-    SecurityMonitoringRuleCaseActionType: [
-      "block_ip",
-      "block_user",
-      "user_behavior",
-      "flag_ip",
-    ],
-    SecurityMonitoringRuleConvertBulkDataType: [
-      "security_monitoring_rules_convert_bulk",
-    ],
-    SecurityMonitoringRuleDetectionMethod: [
-      "threshold",
-      "new_value",
-      "anomaly_detection",
-      "impossible_travel",
-      "hardcoded",
-      "third_party",
-      "anomaly_threshold",
-      "sequence_detection",
-    ],
-    SecurityMonitoringRuleEvaluationWindow: [
-      0, 60, 300, 600, 900, 1800, 3600, 7200, 10800, 21600, 43200, 86400,
-    ],
+    SecurityMonitoringRuleBulkExportDataType: ["security_monitoring_rules_bulk_export"],
+    SecurityMonitoringRuleCaseActionOptionsFlaggedIPType: ["SUSPICIOUS", "FLAGGED"],
+    SecurityMonitoringRuleCaseActionType: ["block_ip", "block_user", "user_behavior", "flag_ip"],
+    SecurityMonitoringRuleConvertBulkDataType: ["security_monitoring_rules_convert_bulk"],
+    SecurityMonitoringRuleDetectionMethod: ["threshold", "new_value", "anomaly_detection", "impossible_travel", "hardcoded", "third_party", "anomaly_threshold", "sequence_detection"],
+    SecurityMonitoringRuleEvaluationWindow: [0, 60, 300, 600, 900, 1800, 3600, 7200, 10800, 21600, 43200, 86400],
     SecurityMonitoringRuleHardcodedEvaluatorType: ["log4shell"],
-    SecurityMonitoringRuleKeepAlive: [
-      0, 60, 300, 600, 900, 1800, 3600, 7200, 10800, 21600, 43200, 86400,
-    ],
-    SecurityMonitoringRuleMaxSignalDuration: [
-      0, 60, 300, 600, 900, 1800, 3600, 7200, 10800, 21600, 43200, 86400,
-    ],
-    SecurityMonitoringRuleNewValueOptionsLearningMethod: [
-      "duration",
-      "threshold",
-    ],
+    SecurityMonitoringRuleKeepAlive: [0, 60, 300, 600, 900, 1800, 3600, 7200, 10800, 21600, 43200, 86400],
+    SecurityMonitoringRuleMaxSignalDuration: [0, 60, 300, 600, 900, 1800, 3600, 7200, 10800, 21600, 43200, 86400],
+    SecurityMonitoringRuleNewValueOptionsLearningMethod: ["duration", "threshold"],
     SecurityMonitoringRuleNewValueOptionsLearningThreshold: [0, 1],
-    SecurityMonitoringRuleQueryAggregation: [
-      "count",
-      "cardinality",
-      "sum",
-      "max",
-      "new_value",
-      "geo_data",
-      "event_count",
-      "none",
-    ],
-    SecurityMonitoringRuleSeverity: [
-      "info",
-      "low",
-      "medium",
-      "high",
-      "critical",
-    ],
-    SecurityMonitoringRuleSort: [
-      "name",
-      "creation_date",
-      "update_date",
-      "enabled",
-      "type",
-      "highest_severity",
-      "source",
-      "-name",
-      "-creation_date",
-      "-update_date",
-      "-enabled",
-      "-type",
-      "-highest_severity",
-      "-source",
-    ],
-    SecurityMonitoringRuleTypeCreate: [
-      "api_security",
-      "application_security",
-      "log_detection",
-      "workload_activity",
-      "workload_security",
-    ],
-    SecurityMonitoringRuleTypeRead: [
-      "log_detection",
-      "infrastructure_configuration",
-      "workload_security",
-      "cloud_configuration",
-      "application_security",
-      "api_security",
-      "workload_activity",
-    ],
+    SecurityMonitoringRuleQueryAggregation: ["count", "cardinality", "sum", "max", "new_value", "geo_data", "event_count", "none"],
+    SecurityMonitoringRuleSeverity: ["info", "low", "medium", "high", "critical"],
+    SecurityMonitoringRuleSort: ["name", "creation_date", "update_date", "enabled", "type", "highest_severity", "source", "-name", "-creation_date", "-update_date", "-enabled", "-type", "-highest_severity", "-source"],
+    SecurityMonitoringRuleTypeCreate: ["api_security", "application_security", "log_detection", "workload_activity", "workload_security"],
+    SecurityMonitoringRuleTypeRead: ["log_detection", "infrastructure_configuration", "workload_security", "cloud_configuration", "application_security", "api_security", "workload_activity"],
     SecurityMonitoringRuleTypeTest: ["log_detection"],
-    SecurityMonitoringSKU: [
-      "per_gb_analyzed",
-      "per_event_in_siem_index_2023",
-      "add_on_2024",
-    ],
-    SecurityMonitoringSignalArchiveReason: [
-      "none",
-      "false_positive",
-      "testing_or_maintenance",
-      "remediated",
-      "investigated_case_opened",
-      "true_positive_benign",
-      "true_positive_malicious",
-      "other",
-    ],
+    SecurityMonitoringSKU: ["per_gb_analyzed", "per_event_in_siem_index_2023", "add_on_2024"],
+    SecurityMonitoringSignalArchiveReason: ["none", "false_positive", "testing_or_maintenance", "remediated", "investigated_case_opened", "true_positive_benign", "true_positive_malicious", "other"],
     SecurityMonitoringSignalMetadataType: ["signal_metadata"],
     SecurityMonitoringSignalRuleType: ["signal_correlation"],
     SecurityMonitoringSignalState: ["open", "archived", "under_review"],
-    SecurityMonitoringSignalSuggestedActionType: [
-      "investigation_log_queries",
-      "recommended_blog_posts",
-    ],
+    SecurityMonitoringSignalSuggestedActionType: ["investigation_log_queries", "recommended_blog_posts"],
     SecurityMonitoringSignalType: ["signal"],
     SecurityMonitoringSignalsSort: ["timestamp", "-timestamp"],
-    SecurityMonitoringStandardDataSource: [
-      "logs",
-      "audit",
-      "app_sec_spans",
-      "spans",
-      "security_runtime",
-      "network",
-      "events",
-      "security_signals",
-    ],
-    SecurityMonitoringSuppressionSort: [
-      "name",
-      "start_date",
-      "expiration_date",
-      "update_date",
-      "enabled",
-      "-name",
-      "-start_date",
-      "-expiration_date",
-      "-update_date",
-      "-creation_date",
-      "-enabled",
-    ],
+    SecurityMonitoringStandardDataSource: ["logs", "audit", "app_sec_spans", "spans", "security_runtime", "network", "events", "security_signals"],
+    SecurityMonitoringSuppressionSort: ["name", "start_date", "expiration_date", "update_date", "enabled", "-name", "-start_date", "-expiration_date", "-update_date", "-creation_date", "-enabled"],
     SecurityMonitoringSuppressionType: ["suppressions"],
-    SecurityMonitoringTerraformResourceType: [
-      "suppressions",
-      "critical_assets",
-      "security_filters",
-      "rules",
-    ],
+    SecurityMonitoringTerraformResourceType: ["suppressions", "critical_assets", "security_filters", "rules"],
     ServiceNowTicketsDataType: ["servicenow_tickets"],
     SignalEntitiesType: ["entities"],
     SpecVersion: ["1.0", "1.1", "1.2", "1.3", "1.4", "1.5"],
@@ -978,84 +696,11 @@ export const TypingInfo: ModelTypingInfo = {
     UsersType: ["users"],
     VersionHistoryUpdateType: ["create", "update", "delete"],
     VulnerabilitiesType: ["vulnerabilities"],
-    VulnerabilityEcosystem: [
-      "PyPI",
-      "Maven",
-      "NuGet",
-      "Npm",
-      "RubyGems",
-      "Go",
-      "Packagist",
-      "Deb",
-      "Rpm",
-      "Apk",
-      "Windows",
-      "Generic",
-      "MacOs",
-      "Oci",
-      "BottleRocket",
-      "None",
-    ],
-    VulnerabilitySeverity: [
-      "Unknown",
-      "None",
-      "Low",
-      "Medium",
-      "High",
-      "Critical",
-    ],
-    VulnerabilityStatus: [
-      "Open",
-      "Muted",
-      "Remediated",
-      "InProgress",
-      "AutoClosed",
-    ],
+    VulnerabilityEcosystem: ["PyPI", "Maven", "NuGet", "Npm", "RubyGems", "Go", "Packagist", "Deb", "Rpm", "Apk", "Windows", "Generic", "MacOs", "Oci", "BottleRocket", "None"],
+    VulnerabilitySeverity: ["Unknown", "None", "Low", "Medium", "High", "Critical"],
+    VulnerabilityStatus: ["Open", "Muted", "Remediated", "InProgress", "AutoClosed"],
     VulnerabilityTool: ["IAST", "SCA", "Infra", "SAST"],
-    VulnerabilityType: [
-      "AdminConsoleActive",
-      "CodeInjection",
-      "CommandInjection",
-      "ComponentWithKnownVulnerability",
-      "DangerousWorkflows",
-      "DefaultAppDeployed",
-      "DefaultHtmlEscapeInvalid",
-      "DirectoryListingLeak",
-      "EmailHtmlInjection",
-      "EndOfLife",
-      "HardcodedPassword",
-      "HardcodedSecret",
-      "HeaderInjection",
-      "HstsHeaderMissing",
-      "InsecureAuthProtocol",
-      "InsecureCookie",
-      "InsecureJspLayout",
-      "LdapInjection",
-      "MaliciousPackage",
-      "MandatoryRemediation",
-      "NoHttpOnlyCookie",
-      "NoSameSiteCookie",
-      "NoSqlMongoDbInjection",
-      "PathTraversal",
-      "ReflectionInjection",
-      "RiskyLicense",
-      "SessionRewriting",
-      "SessionTimeout",
-      "SqlInjection",
-      "Ssrf",
-      "StackTraceLeak",
-      "TrustBoundaryViolation",
-      "Unmaintained",
-      "UntrustedDeserialization",
-      "UnvalidatedRedirect",
-      "VerbTampering",
-      "WeakCipher",
-      "WeakHash",
-      "WeakRandomness",
-      "XContentTypeHeaderMissing",
-      "XPathInjection",
-      "Xss",
-    ],
+    VulnerabilityType: ["AdminConsoleActive", "CodeInjection", "CommandInjection", "ComponentWithKnownVulnerability", "DangerousWorkflows", "DefaultAppDeployed", "DefaultHtmlEscapeInvalid", "DirectoryListingLeak", "EmailHtmlInjection", "EndOfLife", "HardcodedPassword", "HardcodedSecret", "HeaderInjection", "HstsHeaderMissing", "InsecureAuthProtocol", "InsecureCookie", "InsecureJspLayout", "LdapInjection", "MaliciousPackage", "MandatoryRemediation", "NoHttpOnlyCookie", "NoSameSiteCookie", "NoSqlMongoDbInjection", "PathTraversal", "ReflectionInjection", "RiskyLicense", "SessionRewriting", "SessionTimeout", "SqlInjection", "Ssrf", "StackTraceLeak", "TrustBoundaryViolation", "Unmaintained", "UntrustedDeserialization", "UnvalidatedRedirect", "VerbTampering", "WeakCipher", "WeakHash", "WeakRandomness", "XContentTypeHeaderMissing", "XPathInjection", "Xss"],
   },
   oneOfMap: {
     SecurityMonitoringIntegrationConfigCreateAttributes: [
@@ -1096,15 +741,13 @@ export const TypingInfo: ModelTypingInfo = {
       "SecurityMonitoringStandardRuleResponse",
       "SecurityMonitoringSignalRuleResponse",
     ],
-    SecurityMonitoringRuleTestPayload: [
-      "SecurityMonitoringStandardRuleTestPayload",
-    ],
+    SecurityMonitoringRuleTestPayload: ["SecurityMonitoringStandardRuleTestPayload"],
     SecurityMonitoringRuleValidatePayload: [
       "SecurityMonitoringStandardRulePayload",
       "SecurityMonitoringSignalRulePayload",
       "CloudConfigurationRulePayload",
     ],
-  },
+    },
   typeMap: {
     APIErrorResponse: APIErrorResponse,
     Advisory: Advisory,
@@ -1140,20 +783,15 @@ export const TypingInfo: ModelTypingInfo = {
     AttachJiraIssueRequest: AttachJiraIssueRequest,
     AttachJiraIssueRequestData: AttachJiraIssueRequestData,
     AttachJiraIssueRequestDataAttributes: AttachJiraIssueRequestDataAttributes,
-    AttachJiraIssueRequestDataRelationships:
-      AttachJiraIssueRequestDataRelationships,
+    AttachJiraIssueRequestDataRelationships: AttachJiraIssueRequestDataRelationships,
     AttachLinearIssueRequest: AttachLinearIssueRequest,
     AttachLinearIssueRequestData: AttachLinearIssueRequestData,
-    AttachLinearIssueRequestDataAttributes:
-      AttachLinearIssueRequestDataAttributes,
-    AttachLinearIssueRequestDataRelationships:
-      AttachLinearIssueRequestDataRelationships,
+    AttachLinearIssueRequestDataAttributes: AttachLinearIssueRequestDataAttributes,
+    AttachLinearIssueRequestDataRelationships: AttachLinearIssueRequestDataRelationships,
     AttachServiceNowTicketRequest: AttachServiceNowTicketRequest,
     AttachServiceNowTicketRequestData: AttachServiceNowTicketRequestData,
-    AttachServiceNowTicketRequestDataAttributes:
-      AttachServiceNowTicketRequestDataAttributes,
-    AttachServiceNowTicketRequestDataRelationships:
-      AttachServiceNowTicketRequestDataRelationships,
+    AttachServiceNowTicketRequestDataAttributes: AttachServiceNowTicketRequestDataAttributes,
+    AttachServiceNowTicketRequestDataRelationships: AttachServiceNowTicketRequestDataRelationships,
     AutomationRuleCreatedBy: AutomationRuleCreatedBy,
     AutomationRuleModifiedBy: AutomationRuleModifiedBy,
     AutomationRuleScope: AutomationRuleScope,
@@ -1162,12 +800,10 @@ export const TypingInfo: ModelTypingInfo = {
     CaseInsightsItems: CaseInsightsItems,
     CaseManagementProject: CaseManagementProject,
     CaseManagementProjectData: CaseManagementProjectData,
-    CloudConfigurationComplianceRuleOptions:
-      CloudConfigurationComplianceRuleOptions,
+    CloudConfigurationComplianceRuleOptions: CloudConfigurationComplianceRuleOptions,
     CloudConfigurationRegoRule: CloudConfigurationRegoRule,
     CloudConfigurationRuleCaseCreate: CloudConfigurationRuleCaseCreate,
-    CloudConfigurationRuleComplianceSignalOptions:
-      CloudConfigurationRuleComplianceSignalOptions,
+    CloudConfigurationRuleComplianceSignalOptions: CloudConfigurationRuleComplianceSignalOptions,
     CloudConfigurationRuleCreatePayload: CloudConfigurationRuleCreatePayload,
     CloudConfigurationRuleOptions: CloudConfigurationRuleOptions,
     CloudConfigurationRulePayload: CloudConfigurationRulePayload,
@@ -1184,24 +820,18 @@ export const TypingInfo: ModelTypingInfo = {
     CreateJiraIssueRequestArray: CreateJiraIssueRequestArray,
     CreateJiraIssueRequestData: CreateJiraIssueRequestData,
     CreateJiraIssueRequestDataAttributes: CreateJiraIssueRequestDataAttributes,
-    CreateJiraIssueRequestDataRelationships:
-      CreateJiraIssueRequestDataRelationships,
+    CreateJiraIssueRequestDataRelationships: CreateJiraIssueRequestDataRelationships,
     CreateLinearIssueRequestArray: CreateLinearIssueRequestArray,
     CreateLinearIssueRequestData: CreateLinearIssueRequestData,
-    CreateLinearIssueRequestDataAttributes:
-      CreateLinearIssueRequestDataAttributes,
-    CreateLinearIssueRequestDataRelationships:
-      CreateLinearIssueRequestDataRelationships,
+    CreateLinearIssueRequestDataAttributes: CreateLinearIssueRequestDataAttributes,
+    CreateLinearIssueRequestDataRelationships: CreateLinearIssueRequestDataRelationships,
     CreateNotificationRuleParameters: CreateNotificationRuleParameters,
     CreateNotificationRuleParametersData: CreateNotificationRuleParametersData,
-    CreateNotificationRuleParametersDataAttributes:
-      CreateNotificationRuleParametersDataAttributes,
+    CreateNotificationRuleParametersDataAttributes: CreateNotificationRuleParametersDataAttributes,
     CreateServiceNowTicketRequestArray: CreateServiceNowTicketRequestArray,
     CreateServiceNowTicketRequestData: CreateServiceNowTicketRequestData,
-    CreateServiceNowTicketRequestDataAttributes:
-      CreateServiceNowTicketRequestDataAttributes,
-    CreateServiceNowTicketRequestDataRelationships:
-      CreateServiceNowTicketRequestDataRelationships,
+    CreateServiceNowTicketRequestDataAttributes: CreateServiceNowTicketRequestDataAttributes,
+    CreateServiceNowTicketRequestDataRelationships: CreateServiceNowTicketRequestDataRelationships,
     CustomFrameworkControl: CustomFrameworkControl,
     CustomFrameworkData: CustomFrameworkData,
     CustomFrameworkDataAttributes: CustomFrameworkDataAttributes,
@@ -1221,11 +851,9 @@ export const TypingInfo: ModelTypingInfo = {
     CycloneDXVulnerabilityAnalysis: CycloneDXVulnerabilityAnalysis,
     CycloneDXVulnerabilityRating: CycloneDXVulnerabilityRating,
     CycloneDXVulnerabilityReference: CycloneDXVulnerabilityReference,
-    CycloneDXVulnerabilityReferenceSource:
-      CycloneDXVulnerabilityReferenceSource,
+    CycloneDXVulnerabilityReferenceSource: CycloneDXVulnerabilityReferenceSource,
     DefaultRulesetsPerLanguageData: DefaultRulesetsPerLanguageData,
-    DefaultRulesetsPerLanguageDataAttributes:
-      DefaultRulesetsPerLanguageDataAttributes,
+    DefaultRulesetsPerLanguageDataAttributes: DefaultRulesetsPerLanguageDataAttributes,
     DefaultRulesetsPerLanguageResponse: DefaultRulesetsPerLanguageResponse,
     DeleteCustomFrameworkResponse: DeleteCustomFrameworkResponse,
     DependencyLocation: DependencyLocation,
@@ -1270,8 +898,7 @@ export const TypingInfo: ModelTypingInfo = {
     FindingServiceNowTicket: FindingServiceNowTicket,
     FindingServiceNowTicketResult: FindingServiceNowTicketResult,
     Findings: Findings,
-    FrameworkHandleAndVersionResponseData:
-      FrameworkHandleAndVersionResponseData,
+    FrameworkHandleAndVersionResponseData: FrameworkHandleAndVersionResponseData,
     FullCustomFrameworkData: FullCustomFrameworkData,
     FullCustomFrameworkDataAttributes: FullCustomFrameworkDataAttributes,
     GetAstRequest: GetAstRequest,
@@ -1287,27 +914,18 @@ export const TypingInfo: ModelTypingInfo = {
     GetIoCIndicatorResponseData: GetIoCIndicatorResponseData,
     GetMultipleRulesetsRequest: GetMultipleRulesetsRequest,
     GetMultipleRulesetsRequestData: GetMultipleRulesetsRequestData,
-    GetMultipleRulesetsRequestDataAttributes:
-      GetMultipleRulesetsRequestDataAttributes,
+    GetMultipleRulesetsRequestDataAttributes: GetMultipleRulesetsRequestDataAttributes,
     GetMultipleRulesetsResponse: GetMultipleRulesetsResponse,
     GetMultipleRulesetsResponseData: GetMultipleRulesetsResponseData,
-    GetMultipleRulesetsResponseDataAttributes:
-      GetMultipleRulesetsResponseDataAttributes,
-    GetMultipleRulesetsResponseDataAttributesRulesetsItems:
-      GetMultipleRulesetsResponseDataAttributesRulesetsItems,
-    GetMultipleRulesetsResponseDataAttributesRulesetsItemsData:
-      GetMultipleRulesetsResponseDataAttributesRulesetsItemsData,
-    GetMultipleRulesetsResponseDataAttributesRulesetsItemsRulesItems:
-      GetMultipleRulesetsResponseDataAttributesRulesetsItemsRulesItems,
-    GetMultipleRulesetsResponseDataAttributesRulesetsItemsRulesItemsArgumentsItems:
-      GetMultipleRulesetsResponseDataAttributesRulesetsItemsRulesItemsArgumentsItems,
-    GetMultipleRulesetsResponseDataAttributesRulesetsItemsRulesItemsData:
-      GetMultipleRulesetsResponseDataAttributesRulesetsItemsRulesItemsData,
-    GetMultipleRulesetsResponseDataAttributesRulesetsItemsRulesItemsTestsItems:
-      GetMultipleRulesetsResponseDataAttributesRulesetsItemsRulesItemsTestsItems,
+    GetMultipleRulesetsResponseDataAttributes: GetMultipleRulesetsResponseDataAttributes,
+    GetMultipleRulesetsResponseDataAttributesRulesetsItems: GetMultipleRulesetsResponseDataAttributesRulesetsItems,
+    GetMultipleRulesetsResponseDataAttributesRulesetsItemsData: GetMultipleRulesetsResponseDataAttributesRulesetsItemsData,
+    GetMultipleRulesetsResponseDataAttributesRulesetsItemsRulesItems: GetMultipleRulesetsResponseDataAttributesRulesetsItemsRulesItems,
+    GetMultipleRulesetsResponseDataAttributesRulesetsItemsRulesItemsArgumentsItems: GetMultipleRulesetsResponseDataAttributesRulesetsItemsRulesItemsArgumentsItems,
+    GetMultipleRulesetsResponseDataAttributesRulesetsItemsRulesItemsData: GetMultipleRulesetsResponseDataAttributesRulesetsItemsRulesItemsData,
+    GetMultipleRulesetsResponseDataAttributesRulesetsItemsRulesItemsTestsItems: GetMultipleRulesetsResponseDataAttributesRulesetsItemsRulesItemsTestsItems,
     GetResourceEvaluationFiltersResponse: GetResourceEvaluationFiltersResponse,
-    GetResourceEvaluationFiltersResponseData:
-      GetResourceEvaluationFiltersResponseData,
+    GetResourceEvaluationFiltersResponseData: GetResourceEvaluationFiltersResponseData,
     GetRuleVersionHistoryData: GetRuleVersionHistoryData,
     GetRuleVersionHistoryResponse: GetRuleVersionHistoryResponse,
     GetSBOMResponse: GetSBOMResponse,
@@ -1378,8 +996,7 @@ export const TypingInfo: ModelTypingInfo = {
     NotificationRule: NotificationRule,
     NotificationRuleAttributes: NotificationRuleAttributes,
     NotificationRulePreviewResponse: NotificationRulePreviewResponse,
-    NotificationRulePreviewResponseAttributes:
-      NotificationRulePreviewResponseAttributes,
+    NotificationRulePreviewResponseAttributes: NotificationRulePreviewResponseAttributes,
     NotificationRulePreviewResponseData: NotificationRulePreviewResponseData,
     NotificationRulePreviewResult: NotificationRulePreviewResult,
     NotificationRuleResponse: NotificationRuleResponse,
@@ -1388,8 +1005,7 @@ export const TypingInfo: ModelTypingInfo = {
     Pagination: Pagination,
     PatchNotificationRuleParameters: PatchNotificationRuleParameters,
     PatchNotificationRuleParametersData: PatchNotificationRuleParametersData,
-    PatchNotificationRuleParametersDataAttributes:
-      PatchNotificationRuleParametersDataAttributes,
+    PatchNotificationRuleParametersDataAttributes: PatchNotificationRuleParametersDataAttributes,
     RelationshipToUser: RelationshipToUser,
     RelationshipToUserData: RelationshipToUserData,
     Remediation: Remediation,
@@ -1412,33 +1028,20 @@ export const TypingInfo: ModelTypingInfo = {
     SBOMMetadata: SBOMMetadata,
     SBOMMetadataAuthor: SBOMMetadataAuthor,
     SBOMMetadataComponent: SBOMMetadataComponent,
-    SampleLogGenerationBulkSubscriptionAttributes:
-      SampleLogGenerationBulkSubscriptionAttributes,
-    SampleLogGenerationBulkSubscriptionData:
-      SampleLogGenerationBulkSubscriptionData,
-    SampleLogGenerationBulkSubscriptionItemMeta:
-      SampleLogGenerationBulkSubscriptionItemMeta,
-    SampleLogGenerationBulkSubscriptionRequest:
-      SampleLogGenerationBulkSubscriptionRequest,
-    SampleLogGenerationBulkSubscriptionResponse:
-      SampleLogGenerationBulkSubscriptionResponse,
-    SampleLogGenerationBulkSubscriptionResultItem:
-      SampleLogGenerationBulkSubscriptionResultItem,
-    SampleLogGenerationSubscriptionAttributes:
-      SampleLogGenerationSubscriptionAttributes,
-    SampleLogGenerationSubscriptionCreateAttributes:
-      SampleLogGenerationSubscriptionCreateAttributes,
-    SampleLogGenerationSubscriptionCreateData:
-      SampleLogGenerationSubscriptionCreateData,
-    SampleLogGenerationSubscriptionCreateRequest:
-      SampleLogGenerationSubscriptionCreateRequest,
+    SampleLogGenerationBulkSubscriptionAttributes: SampleLogGenerationBulkSubscriptionAttributes,
+    SampleLogGenerationBulkSubscriptionData: SampleLogGenerationBulkSubscriptionData,
+    SampleLogGenerationBulkSubscriptionItemMeta: SampleLogGenerationBulkSubscriptionItemMeta,
+    SampleLogGenerationBulkSubscriptionRequest: SampleLogGenerationBulkSubscriptionRequest,
+    SampleLogGenerationBulkSubscriptionResponse: SampleLogGenerationBulkSubscriptionResponse,
+    SampleLogGenerationBulkSubscriptionResultItem: SampleLogGenerationBulkSubscriptionResultItem,
+    SampleLogGenerationSubscriptionAttributes: SampleLogGenerationSubscriptionAttributes,
+    SampleLogGenerationSubscriptionCreateAttributes: SampleLogGenerationSubscriptionCreateAttributes,
+    SampleLogGenerationSubscriptionCreateData: SampleLogGenerationSubscriptionCreateData,
+    SampleLogGenerationSubscriptionCreateRequest: SampleLogGenerationSubscriptionCreateRequest,
     SampleLogGenerationSubscriptionData: SampleLogGenerationSubscriptionData,
-    SampleLogGenerationSubscriptionResponse:
-      SampleLogGenerationSubscriptionResponse,
-    SampleLogGenerationSubscriptionsResponse:
-      SampleLogGenerationSubscriptionsResponse,
-    SampleLogGenerationSubscriptionsResponseMeta:
-      SampleLogGenerationSubscriptionsResponseMeta,
+    SampleLogGenerationSubscriptionResponse: SampleLogGenerationSubscriptionResponse,
+    SampleLogGenerationSubscriptionsResponse: SampleLogGenerationSubscriptionsResponse,
+    SampleLogGenerationSubscriptionsResponseMeta: SampleLogGenerationSubscriptionsResponseMeta,
     SastRulesetData: SastRulesetData,
     SastRulesetDataAttributes: SastRulesetDataAttributes,
     SastRulesetResponse: SastRulesetResponse,
@@ -1451,12 +1054,9 @@ export const TypingInfo: ModelTypingInfo = {
     SecretRuleArray: SecretRuleArray,
     SecretRuleData: SecretRuleData,
     SecretRuleDataAttributes: SecretRuleDataAttributes,
-    SecretRuleDataAttributesMatchValidation:
-      SecretRuleDataAttributesMatchValidation,
-    SecretRuleDataAttributesMatchValidationInvalidHttpStatusCodeItems:
-      SecretRuleDataAttributesMatchValidationInvalidHttpStatusCodeItems,
-    SecretRuleDataAttributesMatchValidationValidHttpStatusCodeItems:
-      SecretRuleDataAttributesMatchValidationValidHttpStatusCodeItems,
+    SecretRuleDataAttributesMatchValidation: SecretRuleDataAttributesMatchValidation,
+    SecretRuleDataAttributesMatchValidationInvalidHttpStatusCodeItems: SecretRuleDataAttributesMatchValidationInvalidHttpStatusCodeItems,
+    SecretRuleDataAttributesMatchValidationValidHttpStatusCodeItems: SecretRuleDataAttributesMatchValidationValidHttpStatusCodeItems,
     SecurityAutomationRulesLinks: SecurityAutomationRulesLinks,
     SecurityAutomationRulesMeta: SecurityAutomationRulesMeta,
     SecurityAutomationRulesPageInfo: SecurityAutomationRulesPageInfo,
@@ -1466,8 +1066,7 @@ export const TypingInfo: ModelTypingInfo = {
     SecurityFilterCreateData: SecurityFilterCreateData,
     SecurityFilterCreateRequest: SecurityFilterCreateRequest,
     SecurityFilterExclusionFilter: SecurityFilterExclusionFilter,
-    SecurityFilterExclusionFilterResponse:
-      SecurityFilterExclusionFilterResponse,
+    SecurityFilterExclusionFilterResponse: SecurityFilterExclusionFilterResponse,
     SecurityFilterMeta: SecurityFilterMeta,
     SecurityFilterResponse: SecurityFilterResponse,
     SecurityFilterUpdateAttributes: SecurityFilterUpdateAttributes,
@@ -1485,341 +1084,192 @@ export const TypingInfo: ModelTypingInfo = {
     SecurityFindingsPage: SecurityFindingsPage,
     SecurityFindingsSearchRequest: SecurityFindingsSearchRequest,
     SecurityFindingsSearchRequestData: SecurityFindingsSearchRequestData,
-    SecurityFindingsSearchRequestDataAttributes:
-      SecurityFindingsSearchRequestDataAttributes,
+    SecurityFindingsSearchRequestDataAttributes: SecurityFindingsSearchRequestDataAttributes,
     SecurityFindingsSearchRequestPage: SecurityFindingsSearchRequestPage,
-    SecurityMonitoringAzureAppRegistration:
-      SecurityMonitoringAzureAppRegistration,
-    SecurityMonitoringContentPackStateAttributes:
-      SecurityMonitoringContentPackStateAttributes,
-    SecurityMonitoringContentPackStateData:
-      SecurityMonitoringContentPackStateData,
-    SecurityMonitoringContentPackStateMeta:
-      SecurityMonitoringContentPackStateMeta,
-    SecurityMonitoringContentPackStatesResponse:
-      SecurityMonitoringContentPackStatesResponse,
+    SecurityMonitoringAzureAppRegistration: SecurityMonitoringAzureAppRegistration,
+    SecurityMonitoringContentPackStateAttributes: SecurityMonitoringContentPackStateAttributes,
+    SecurityMonitoringContentPackStateData: SecurityMonitoringContentPackStateData,
+    SecurityMonitoringContentPackStateMeta: SecurityMonitoringContentPackStateMeta,
+    SecurityMonitoringContentPackStatesResponse: SecurityMonitoringContentPackStatesResponse,
     SecurityMonitoringCriticalAsset: SecurityMonitoringCriticalAsset,
-    SecurityMonitoringCriticalAssetAttributes:
-      SecurityMonitoringCriticalAssetAttributes,
-    SecurityMonitoringCriticalAssetCreateAttributes:
-      SecurityMonitoringCriticalAssetCreateAttributes,
-    SecurityMonitoringCriticalAssetCreateData:
-      SecurityMonitoringCriticalAssetCreateData,
-    SecurityMonitoringCriticalAssetCreateRequest:
-      SecurityMonitoringCriticalAssetCreateRequest,
-    SecurityMonitoringCriticalAssetResponse:
-      SecurityMonitoringCriticalAssetResponse,
-    SecurityMonitoringCriticalAssetUpdateAttributes:
-      SecurityMonitoringCriticalAssetUpdateAttributes,
-    SecurityMonitoringCriticalAssetUpdateData:
-      SecurityMonitoringCriticalAssetUpdateData,
-    SecurityMonitoringCriticalAssetUpdateRequest:
-      SecurityMonitoringCriticalAssetUpdateRequest,
-    SecurityMonitoringCriticalAssetsResponse:
-      SecurityMonitoringCriticalAssetsResponse,
-    SecurityMonitoringCrowdStrikeIntegrationConfigCreateAttributes:
-      SecurityMonitoringCrowdStrikeIntegrationConfigCreateAttributes,
-    SecurityMonitoringCrowdStrikeIntegrationConfigUpdateAttributes:
-      SecurityMonitoringCrowdStrikeIntegrationConfigUpdateAttributes,
-    SecurityMonitoringCrowdStrikeIntegrationCredentialsValidateAttributes:
-      SecurityMonitoringCrowdStrikeIntegrationCredentialsValidateAttributes,
-    SecurityMonitoringDatasetAttributesRequest:
-      SecurityMonitoringDatasetAttributesRequest,
-    SecurityMonitoringDatasetAttributesResponse:
-      SecurityMonitoringDatasetAttributesResponse,
+    SecurityMonitoringCriticalAssetAttributes: SecurityMonitoringCriticalAssetAttributes,
+    SecurityMonitoringCriticalAssetCreateAttributes: SecurityMonitoringCriticalAssetCreateAttributes,
+    SecurityMonitoringCriticalAssetCreateData: SecurityMonitoringCriticalAssetCreateData,
+    SecurityMonitoringCriticalAssetCreateRequest: SecurityMonitoringCriticalAssetCreateRequest,
+    SecurityMonitoringCriticalAssetResponse: SecurityMonitoringCriticalAssetResponse,
+    SecurityMonitoringCriticalAssetUpdateAttributes: SecurityMonitoringCriticalAssetUpdateAttributes,
+    SecurityMonitoringCriticalAssetUpdateData: SecurityMonitoringCriticalAssetUpdateData,
+    SecurityMonitoringCriticalAssetUpdateRequest: SecurityMonitoringCriticalAssetUpdateRequest,
+    SecurityMonitoringCriticalAssetsResponse: SecurityMonitoringCriticalAssetsResponse,
+    SecurityMonitoringCrowdStrikeIntegrationConfigCreateAttributes: SecurityMonitoringCrowdStrikeIntegrationConfigCreateAttributes,
+    SecurityMonitoringCrowdStrikeIntegrationConfigUpdateAttributes: SecurityMonitoringCrowdStrikeIntegrationConfigUpdateAttributes,
+    SecurityMonitoringCrowdStrikeIntegrationCredentialsValidateAttributes: SecurityMonitoringCrowdStrikeIntegrationCredentialsValidateAttributes,
+    SecurityMonitoringDatasetAttributesRequest: SecurityMonitoringDatasetAttributesRequest,
+    SecurityMonitoringDatasetAttributesResponse: SecurityMonitoringDatasetAttributesResponse,
     SecurityMonitoringDatasetColumn: SecurityMonitoringDatasetColumn,
     SecurityMonitoringDatasetCreateData: SecurityMonitoringDatasetCreateData,
-    SecurityMonitoringDatasetCreateRequest:
-      SecurityMonitoringDatasetCreateRequest,
-    SecurityMonitoringDatasetCreateResponse:
-      SecurityMonitoringDatasetCreateResponse,
-    SecurityMonitoringDatasetCreateResponseData:
-      SecurityMonitoringDatasetCreateResponseData,
+    SecurityMonitoringDatasetCreateRequest: SecurityMonitoringDatasetCreateRequest,
+    SecurityMonitoringDatasetCreateResponse: SecurityMonitoringDatasetCreateResponse,
+    SecurityMonitoringDatasetCreateResponseData: SecurityMonitoringDatasetCreateResponseData,
     SecurityMonitoringDatasetData: SecurityMonitoringDatasetData,
     SecurityMonitoringDatasetDefinition: SecurityMonitoringDatasetDefinition,
-    SecurityMonitoringDatasetDependenciesRequest:
-      SecurityMonitoringDatasetDependenciesRequest,
-    SecurityMonitoringDatasetDependenciesRequestAttributes:
-      SecurityMonitoringDatasetDependenciesRequestAttributes,
-    SecurityMonitoringDatasetDependenciesRequestData:
-      SecurityMonitoringDatasetDependenciesRequestData,
-    SecurityMonitoringDatasetDependenciesResponse:
-      SecurityMonitoringDatasetDependenciesResponse,
-    SecurityMonitoringDatasetDependentsAttributes:
-      SecurityMonitoringDatasetDependentsAttributes,
-    SecurityMonitoringDatasetDependentsData:
-      SecurityMonitoringDatasetDependentsData,
+    SecurityMonitoringDatasetDependenciesRequest: SecurityMonitoringDatasetDependenciesRequest,
+    SecurityMonitoringDatasetDependenciesRequestAttributes: SecurityMonitoringDatasetDependenciesRequestAttributes,
+    SecurityMonitoringDatasetDependenciesRequestData: SecurityMonitoringDatasetDependenciesRequestData,
+    SecurityMonitoringDatasetDependenciesResponse: SecurityMonitoringDatasetDependenciesResponse,
+    SecurityMonitoringDatasetDependentsAttributes: SecurityMonitoringDatasetDependentsAttributes,
+    SecurityMonitoringDatasetDependentsData: SecurityMonitoringDatasetDependentsData,
     SecurityMonitoringDatasetResponse: SecurityMonitoringDatasetResponse,
     SecurityMonitoringDatasetSearch: SecurityMonitoringDatasetSearch,
     SecurityMonitoringDatasetTimeWindow: SecurityMonitoringDatasetTimeWindow,
     SecurityMonitoringDatasetUpdateData: SecurityMonitoringDatasetUpdateData,
-    SecurityMonitoringDatasetUpdateRequest:
-      SecurityMonitoringDatasetUpdateRequest,
-    SecurityMonitoringDatasetVersionEntry:
-      SecurityMonitoringDatasetVersionEntry,
-    SecurityMonitoringDatasetVersionFieldChange:
-      SecurityMonitoringDatasetVersionFieldChange,
-    SecurityMonitoringDatasetVersionHistoryAttributes:
-      SecurityMonitoringDatasetVersionHistoryAttributes,
-    SecurityMonitoringDatasetVersionHistoryData:
-      SecurityMonitoringDatasetVersionHistoryData,
-    SecurityMonitoringDatasetVersionHistoryResponse:
-      SecurityMonitoringDatasetVersionHistoryResponse,
+    SecurityMonitoringDatasetUpdateRequest: SecurityMonitoringDatasetUpdateRequest,
+    SecurityMonitoringDatasetVersionEntry: SecurityMonitoringDatasetVersionEntry,
+    SecurityMonitoringDatasetVersionFieldChange: SecurityMonitoringDatasetVersionFieldChange,
+    SecurityMonitoringDatasetVersionHistoryAttributes: SecurityMonitoringDatasetVersionHistoryAttributes,
+    SecurityMonitoringDatasetVersionHistoryData: SecurityMonitoringDatasetVersionHistoryData,
+    SecurityMonitoringDatasetVersionHistoryResponse: SecurityMonitoringDatasetVersionHistoryResponse,
     SecurityMonitoringDatasetsListMeta: SecurityMonitoringDatasetsListMeta,
-    SecurityMonitoringDatasetsListResponse:
-      SecurityMonitoringDatasetsListResponse,
-    SecurityMonitoringEntraIdAzureAppRegistrationsAttributes:
-      SecurityMonitoringEntraIdAzureAppRegistrationsAttributes,
-    SecurityMonitoringEntraIdAzureAppRegistrationsData:
-      SecurityMonitoringEntraIdAzureAppRegistrationsData,
-    SecurityMonitoringEntraIdAzureAppRegistrationsResponse:
-      SecurityMonitoringEntraIdAzureAppRegistrationsResponse,
-    SecurityMonitoringEntraIdIntegrationConfigCreateAttributes:
-      SecurityMonitoringEntraIdIntegrationConfigCreateAttributes,
-    SecurityMonitoringEntraIdIntegrationConfigUpdateAttributes:
-      SecurityMonitoringEntraIdIntegrationConfigUpdateAttributes,
-    SecurityMonitoringEntraIdIntegrationCredentialsValidateAttributes:
-      SecurityMonitoringEntraIdIntegrationCredentialsValidateAttributes,
+    SecurityMonitoringDatasetsListResponse: SecurityMonitoringDatasetsListResponse,
+    SecurityMonitoringEntraIdAzureAppRegistrationsAttributes: SecurityMonitoringEntraIdAzureAppRegistrationsAttributes,
+    SecurityMonitoringEntraIdAzureAppRegistrationsData: SecurityMonitoringEntraIdAzureAppRegistrationsData,
+    SecurityMonitoringEntraIdAzureAppRegistrationsResponse: SecurityMonitoringEntraIdAzureAppRegistrationsResponse,
+    SecurityMonitoringEntraIdIntegrationConfigCreateAttributes: SecurityMonitoringEntraIdIntegrationConfigCreateAttributes,
+    SecurityMonitoringEntraIdIntegrationConfigUpdateAttributes: SecurityMonitoringEntraIdIntegrationConfigUpdateAttributes,
+    SecurityMonitoringEntraIdIntegrationCredentialsValidateAttributes: SecurityMonitoringEntraIdIntegrationCredentialsValidateAttributes,
     SecurityMonitoringFilter: SecurityMonitoringFilter,
-    SecurityMonitoringGoogleWorkspaceIntegrationConfigCreateAttributes:
-      SecurityMonitoringGoogleWorkspaceIntegrationConfigCreateAttributes,
-    SecurityMonitoringGoogleWorkspaceIntegrationConfigUpdateAttributes:
-      SecurityMonitoringGoogleWorkspaceIntegrationConfigUpdateAttributes,
-    SecurityMonitoringGoogleWorkspaceIntegrationCredentialsValidateAttributes:
-      SecurityMonitoringGoogleWorkspaceIntegrationCredentialsValidateAttributes,
-    SecurityMonitoringIntegrationActivateAttributes:
-      SecurityMonitoringIntegrationActivateAttributes,
-    SecurityMonitoringIntegrationActivateData:
-      SecurityMonitoringIntegrationActivateData,
-    SecurityMonitoringIntegrationActivateRequest:
-      SecurityMonitoringIntegrationActivateRequest,
-    SecurityMonitoringIntegrationConfigAttributes:
-      SecurityMonitoringIntegrationConfigAttributes,
-    SecurityMonitoringIntegrationConfigCreateData:
-      SecurityMonitoringIntegrationConfigCreateData,
-    SecurityMonitoringIntegrationConfigCreateRequest:
-      SecurityMonitoringIntegrationConfigCreateRequest,
-    SecurityMonitoringIntegrationConfigCrowdStrikeSecrets:
-      SecurityMonitoringIntegrationConfigCrowdStrikeSecrets,
-    SecurityMonitoringIntegrationConfigData:
-      SecurityMonitoringIntegrationConfigData,
-    SecurityMonitoringIntegrationConfigGoogleWorkspaceSecrets:
-      SecurityMonitoringIntegrationConfigGoogleWorkspaceSecrets,
-    SecurityMonitoringIntegrationConfigGoogleWorkspaceServiceAccount:
-      SecurityMonitoringIntegrationConfigGoogleWorkspaceServiceAccount,
-    SecurityMonitoringIntegrationConfigOktaSecrets:
-      SecurityMonitoringIntegrationConfigOktaSecrets,
-    SecurityMonitoringIntegrationConfigResponse:
-      SecurityMonitoringIntegrationConfigResponse,
-    SecurityMonitoringIntegrationConfigSentinelOneSecrets:
-      SecurityMonitoringIntegrationConfigSentinelOneSecrets,
-    SecurityMonitoringIntegrationConfigUpdateData:
-      SecurityMonitoringIntegrationConfigUpdateData,
-    SecurityMonitoringIntegrationConfigUpdateRequest:
-      SecurityMonitoringIntegrationConfigUpdateRequest,
-    SecurityMonitoringIntegrationConfigsResponse:
-      SecurityMonitoringIntegrationConfigsResponse,
-    SecurityMonitoringIntegrationCredentialsValidateData:
-      SecurityMonitoringIntegrationCredentialsValidateData,
-    SecurityMonitoringIntegrationCredentialsValidateRequest:
-      SecurityMonitoringIntegrationCredentialsValidateRequest,
+    SecurityMonitoringGoogleWorkspaceIntegrationConfigCreateAttributes: SecurityMonitoringGoogleWorkspaceIntegrationConfigCreateAttributes,
+    SecurityMonitoringGoogleWorkspaceIntegrationConfigUpdateAttributes: SecurityMonitoringGoogleWorkspaceIntegrationConfigUpdateAttributes,
+    SecurityMonitoringGoogleWorkspaceIntegrationCredentialsValidateAttributes: SecurityMonitoringGoogleWorkspaceIntegrationCredentialsValidateAttributes,
+    SecurityMonitoringIntegrationActivateAttributes: SecurityMonitoringIntegrationActivateAttributes,
+    SecurityMonitoringIntegrationActivateData: SecurityMonitoringIntegrationActivateData,
+    SecurityMonitoringIntegrationActivateRequest: SecurityMonitoringIntegrationActivateRequest,
+    SecurityMonitoringIntegrationConfigAttributes: SecurityMonitoringIntegrationConfigAttributes,
+    SecurityMonitoringIntegrationConfigCreateData: SecurityMonitoringIntegrationConfigCreateData,
+    SecurityMonitoringIntegrationConfigCreateRequest: SecurityMonitoringIntegrationConfigCreateRequest,
+    SecurityMonitoringIntegrationConfigCrowdStrikeSecrets: SecurityMonitoringIntegrationConfigCrowdStrikeSecrets,
+    SecurityMonitoringIntegrationConfigData: SecurityMonitoringIntegrationConfigData,
+    SecurityMonitoringIntegrationConfigGoogleWorkspaceSecrets: SecurityMonitoringIntegrationConfigGoogleWorkspaceSecrets,
+    SecurityMonitoringIntegrationConfigGoogleWorkspaceServiceAccount: SecurityMonitoringIntegrationConfigGoogleWorkspaceServiceAccount,
+    SecurityMonitoringIntegrationConfigOktaSecrets: SecurityMonitoringIntegrationConfigOktaSecrets,
+    SecurityMonitoringIntegrationConfigResponse: SecurityMonitoringIntegrationConfigResponse,
+    SecurityMonitoringIntegrationConfigSentinelOneSecrets: SecurityMonitoringIntegrationConfigSentinelOneSecrets,
+    SecurityMonitoringIntegrationConfigUpdateData: SecurityMonitoringIntegrationConfigUpdateData,
+    SecurityMonitoringIntegrationConfigUpdateRequest: SecurityMonitoringIntegrationConfigUpdateRequest,
+    SecurityMonitoringIntegrationConfigsResponse: SecurityMonitoringIntegrationConfigsResponse,
+    SecurityMonitoringIntegrationCredentialsValidateData: SecurityMonitoringIntegrationCredentialsValidateData,
+    SecurityMonitoringIntegrationCredentialsValidateRequest: SecurityMonitoringIntegrationCredentialsValidateRequest,
     SecurityMonitoringListRulesResponse: SecurityMonitoringListRulesResponse,
-    SecurityMonitoringOktaIntegrationConfigCreateAttributes:
-      SecurityMonitoringOktaIntegrationConfigCreateAttributes,
-    SecurityMonitoringOktaIntegrationConfigUpdateAttributes:
-      SecurityMonitoringOktaIntegrationConfigUpdateAttributes,
-    SecurityMonitoringOktaIntegrationCredentialsValidateAttributes:
-      SecurityMonitoringOktaIntegrationCredentialsValidateAttributes,
-    SecurityMonitoringPaginatedSuppressionsResponse:
-      SecurityMonitoringPaginatedSuppressionsResponse,
+    SecurityMonitoringOktaIntegrationConfigCreateAttributes: SecurityMonitoringOktaIntegrationConfigCreateAttributes,
+    SecurityMonitoringOktaIntegrationConfigUpdateAttributes: SecurityMonitoringOktaIntegrationConfigUpdateAttributes,
+    SecurityMonitoringOktaIntegrationCredentialsValidateAttributes: SecurityMonitoringOktaIntegrationCredentialsValidateAttributes,
+    SecurityMonitoringPaginatedSuppressionsResponse: SecurityMonitoringPaginatedSuppressionsResponse,
     SecurityMonitoringReferenceTable: SecurityMonitoringReferenceTable,
-    SecurityMonitoringRuleAnomalyDetectionOptions:
-      SecurityMonitoringRuleAnomalyDetectionOptions,
-    SecurityMonitoringRuleBulkDeleteAttributes:
-      SecurityMonitoringRuleBulkDeleteAttributes,
+    SecurityMonitoringRuleAnomalyDetectionOptions: SecurityMonitoringRuleAnomalyDetectionOptions,
+    SecurityMonitoringRuleBulkDeleteAttributes: SecurityMonitoringRuleBulkDeleteAttributes,
     SecurityMonitoringRuleBulkDeleteData: SecurityMonitoringRuleBulkDeleteData,
-    SecurityMonitoringRuleBulkDeletePayload:
-      SecurityMonitoringRuleBulkDeletePayload,
-    SecurityMonitoringRuleBulkDeleteResponse:
-      SecurityMonitoringRuleBulkDeleteResponse,
-    SecurityMonitoringRuleBulkExportAttributes:
-      SecurityMonitoringRuleBulkExportAttributes,
+    SecurityMonitoringRuleBulkDeletePayload: SecurityMonitoringRuleBulkDeletePayload,
+    SecurityMonitoringRuleBulkDeleteResponse: SecurityMonitoringRuleBulkDeleteResponse,
+    SecurityMonitoringRuleBulkExportAttributes: SecurityMonitoringRuleBulkExportAttributes,
     SecurityMonitoringRuleBulkExportData: SecurityMonitoringRuleBulkExportData,
-    SecurityMonitoringRuleBulkExportPayload:
-      SecurityMonitoringRuleBulkExportPayload,
+    SecurityMonitoringRuleBulkExportPayload: SecurityMonitoringRuleBulkExportPayload,
     SecurityMonitoringRuleCase: SecurityMonitoringRuleCase,
     SecurityMonitoringRuleCaseAction: SecurityMonitoringRuleCaseAction,
-    SecurityMonitoringRuleCaseActionOptions:
-      SecurityMonitoringRuleCaseActionOptions,
+    SecurityMonitoringRuleCaseActionOptions: SecurityMonitoringRuleCaseActionOptions,
     SecurityMonitoringRuleCaseCreate: SecurityMonitoringRuleCaseCreate,
-    SecurityMonitoringRuleConvertBulkAttributes:
-      SecurityMonitoringRuleConvertBulkAttributes,
-    SecurityMonitoringRuleConvertBulkData:
-      SecurityMonitoringRuleConvertBulkData,
-    SecurityMonitoringRuleConvertBulkPayload:
-      SecurityMonitoringRuleConvertBulkPayload,
-    SecurityMonitoringRuleConvertResponse:
-      SecurityMonitoringRuleConvertResponse,
-    SecurityMonitoringRuleImpossibleTravelOptions:
-      SecurityMonitoringRuleImpossibleTravelOptions,
-    SecurityMonitoringRuleNewValueOptions:
-      SecurityMonitoringRuleNewValueOptions,
+    SecurityMonitoringRuleConvertBulkAttributes: SecurityMonitoringRuleConvertBulkAttributes,
+    SecurityMonitoringRuleConvertBulkData: SecurityMonitoringRuleConvertBulkData,
+    SecurityMonitoringRuleConvertBulkPayload: SecurityMonitoringRuleConvertBulkPayload,
+    SecurityMonitoringRuleConvertResponse: SecurityMonitoringRuleConvertResponse,
+    SecurityMonitoringRuleImpossibleTravelOptions: SecurityMonitoringRuleImpossibleTravelOptions,
+    SecurityMonitoringRuleNewValueOptions: SecurityMonitoringRuleNewValueOptions,
     SecurityMonitoringRuleOptions: SecurityMonitoringRuleOptions,
     SecurityMonitoringRuleQueryPayload: SecurityMonitoringRuleQueryPayload,
-    SecurityMonitoringRuleQueryPayloadData:
-      SecurityMonitoringRuleQueryPayloadData,
-    SecurityMonitoringRuleSequenceDetectionOptions:
-      SecurityMonitoringRuleSequenceDetectionOptions,
-    SecurityMonitoringRuleSequenceDetectionStep:
-      SecurityMonitoringRuleSequenceDetectionStep,
-    SecurityMonitoringRuleSequenceDetectionStepTransition:
-      SecurityMonitoringRuleSequenceDetectionStepTransition,
+    SecurityMonitoringRuleQueryPayloadData: SecurityMonitoringRuleQueryPayloadData,
+    SecurityMonitoringRuleSequenceDetectionOptions: SecurityMonitoringRuleSequenceDetectionOptions,
+    SecurityMonitoringRuleSequenceDetectionStep: SecurityMonitoringRuleSequenceDetectionStep,
+    SecurityMonitoringRuleSequenceDetectionStepTransition: SecurityMonitoringRuleSequenceDetectionStepTransition,
     SecurityMonitoringRuleTestRequest: SecurityMonitoringRuleTestRequest,
     SecurityMonitoringRuleTestResponse: SecurityMonitoringRuleTestResponse,
-    SecurityMonitoringRuleThirdPartyOptions:
-      SecurityMonitoringRuleThirdPartyOptions,
+    SecurityMonitoringRuleThirdPartyOptions: SecurityMonitoringRuleThirdPartyOptions,
     SecurityMonitoringRuleUpdatePayload: SecurityMonitoringRuleUpdatePayload,
     SecurityMonitoringSchedulingOptions: SecurityMonitoringSchedulingOptions,
-    SecurityMonitoringSentinelOneIntegrationConfigCreateAttributes:
-      SecurityMonitoringSentinelOneIntegrationConfigCreateAttributes,
-    SecurityMonitoringSentinelOneIntegrationConfigUpdateAttributes:
-      SecurityMonitoringSentinelOneIntegrationConfigUpdateAttributes,
-    SecurityMonitoringSentinelOneIntegrationCredentialsValidateAttributes:
-      SecurityMonitoringSentinelOneIntegrationCredentialsValidateAttributes,
+    SecurityMonitoringSentinelOneIntegrationConfigCreateAttributes: SecurityMonitoringSentinelOneIntegrationConfigCreateAttributes,
+    SecurityMonitoringSentinelOneIntegrationConfigUpdateAttributes: SecurityMonitoringSentinelOneIntegrationConfigUpdateAttributes,
+    SecurityMonitoringSentinelOneIntegrationCredentialsValidateAttributes: SecurityMonitoringSentinelOneIntegrationCredentialsValidateAttributes,
     SecurityMonitoringSignal: SecurityMonitoringSignal,
-    SecurityMonitoringSignalAssigneeUpdateAttributes:
-      SecurityMonitoringSignalAssigneeUpdateAttributes,
-    SecurityMonitoringSignalAssigneeUpdateData:
-      SecurityMonitoringSignalAssigneeUpdateData,
-    SecurityMonitoringSignalAssigneeUpdateRequest:
-      SecurityMonitoringSignalAssigneeUpdateRequest,
+    SecurityMonitoringSignalAssigneeUpdateAttributes: SecurityMonitoringSignalAssigneeUpdateAttributes,
+    SecurityMonitoringSignalAssigneeUpdateData: SecurityMonitoringSignalAssigneeUpdateData,
+    SecurityMonitoringSignalAssigneeUpdateRequest: SecurityMonitoringSignalAssigneeUpdateRequest,
     SecurityMonitoringSignalAttributes: SecurityMonitoringSignalAttributes,
-    SecurityMonitoringSignalIncidentsUpdateAttributes:
-      SecurityMonitoringSignalIncidentsUpdateAttributes,
-    SecurityMonitoringSignalIncidentsUpdateData:
-      SecurityMonitoringSignalIncidentsUpdateData,
-    SecurityMonitoringSignalIncidentsUpdateRequest:
-      SecurityMonitoringSignalIncidentsUpdateRequest,
+    SecurityMonitoringSignalIncidentsUpdateAttributes: SecurityMonitoringSignalIncidentsUpdateAttributes,
+    SecurityMonitoringSignalIncidentsUpdateData: SecurityMonitoringSignalIncidentsUpdateData,
+    SecurityMonitoringSignalIncidentsUpdateRequest: SecurityMonitoringSignalIncidentsUpdateRequest,
     SecurityMonitoringSignalListRequest: SecurityMonitoringSignalListRequest,
-    SecurityMonitoringSignalListRequestFilter:
-      SecurityMonitoringSignalListRequestFilter,
-    SecurityMonitoringSignalListRequestPage:
-      SecurityMonitoringSignalListRequestPage,
+    SecurityMonitoringSignalListRequestFilter: SecurityMonitoringSignalListRequestFilter,
+    SecurityMonitoringSignalListRequestPage: SecurityMonitoringSignalListRequestPage,
     SecurityMonitoringSignalResponse: SecurityMonitoringSignalResponse,
-    SecurityMonitoringSignalRuleCreatePayload:
-      SecurityMonitoringSignalRuleCreatePayload,
+    SecurityMonitoringSignalRuleCreatePayload: SecurityMonitoringSignalRuleCreatePayload,
     SecurityMonitoringSignalRulePayload: SecurityMonitoringSignalRulePayload,
     SecurityMonitoringSignalRuleQuery: SecurityMonitoringSignalRuleQuery,
     SecurityMonitoringSignalRuleResponse: SecurityMonitoringSignalRuleResponse,
-    SecurityMonitoringSignalRuleResponseQuery:
-      SecurityMonitoringSignalRuleResponseQuery,
-    SecurityMonitoringSignalStateUpdateAttributes:
-      SecurityMonitoringSignalStateUpdateAttributes,
-    SecurityMonitoringSignalStateUpdateData:
-      SecurityMonitoringSignalStateUpdateData,
-    SecurityMonitoringSignalStateUpdateRequest:
-      SecurityMonitoringSignalStateUpdateRequest,
-    SecurityMonitoringSignalSuggestedAction:
-      SecurityMonitoringSignalSuggestedAction,
-    SecurityMonitoringSignalSuggestedActionAttributes:
-      SecurityMonitoringSignalSuggestedActionAttributes,
-    SecurityMonitoringSignalSuggestedActionsResponse:
-      SecurityMonitoringSignalSuggestedActionsResponse,
-    SecurityMonitoringSignalTriageAttributes:
-      SecurityMonitoringSignalTriageAttributes,
-    SecurityMonitoringSignalTriageUpdateData:
-      SecurityMonitoringSignalTriageUpdateData,
-    SecurityMonitoringSignalTriageUpdateResponse:
-      SecurityMonitoringSignalTriageUpdateResponse,
-    SecurityMonitoringSignalUpdateAttributes:
-      SecurityMonitoringSignalUpdateAttributes,
+    SecurityMonitoringSignalRuleResponseQuery: SecurityMonitoringSignalRuleResponseQuery,
+    SecurityMonitoringSignalStateUpdateAttributes: SecurityMonitoringSignalStateUpdateAttributes,
+    SecurityMonitoringSignalStateUpdateData: SecurityMonitoringSignalStateUpdateData,
+    SecurityMonitoringSignalStateUpdateRequest: SecurityMonitoringSignalStateUpdateRequest,
+    SecurityMonitoringSignalSuggestedAction: SecurityMonitoringSignalSuggestedAction,
+    SecurityMonitoringSignalSuggestedActionAttributes: SecurityMonitoringSignalSuggestedActionAttributes,
+    SecurityMonitoringSignalSuggestedActionsResponse: SecurityMonitoringSignalSuggestedActionsResponse,
+    SecurityMonitoringSignalTriageAttributes: SecurityMonitoringSignalTriageAttributes,
+    SecurityMonitoringSignalTriageUpdateData: SecurityMonitoringSignalTriageUpdateData,
+    SecurityMonitoringSignalTriageUpdateResponse: SecurityMonitoringSignalTriageUpdateResponse,
+    SecurityMonitoringSignalUpdateAttributes: SecurityMonitoringSignalUpdateAttributes,
     SecurityMonitoringSignalUpdateData: SecurityMonitoringSignalUpdateData,
-    SecurityMonitoringSignalUpdateRequest:
-      SecurityMonitoringSignalUpdateRequest,
-    SecurityMonitoringSignalsBulkAssigneeUpdateAttributes:
-      SecurityMonitoringSignalsBulkAssigneeUpdateAttributes,
-    SecurityMonitoringSignalsBulkAssigneeUpdateData:
-      SecurityMonitoringSignalsBulkAssigneeUpdateData,
-    SecurityMonitoringSignalsBulkAssigneeUpdateRequest:
-      SecurityMonitoringSignalsBulkAssigneeUpdateRequest,
-    SecurityMonitoringSignalsBulkStateUpdateData:
-      SecurityMonitoringSignalsBulkStateUpdateData,
-    SecurityMonitoringSignalsBulkStateUpdateRequest:
-      SecurityMonitoringSignalsBulkStateUpdateRequest,
-    SecurityMonitoringSignalsBulkTriageEvent:
-      SecurityMonitoringSignalsBulkTriageEvent,
-    SecurityMonitoringSignalsBulkTriageEventAttributes:
-      SecurityMonitoringSignalsBulkTriageEventAttributes,
-    SecurityMonitoringSignalsBulkTriageUpdateResponse:
-      SecurityMonitoringSignalsBulkTriageUpdateResponse,
-    SecurityMonitoringSignalsBulkTriageUpdateResult:
-      SecurityMonitoringSignalsBulkTriageUpdateResult,
-    SecurityMonitoringSignalsBulkUpdateData:
-      SecurityMonitoringSignalsBulkUpdateData,
-    SecurityMonitoringSignalsBulkUpdateRequest:
-      SecurityMonitoringSignalsBulkUpdateRequest,
-    SecurityMonitoringSignalsListResponse:
-      SecurityMonitoringSignalsListResponse,
-    SecurityMonitoringSignalsListResponseLinks:
-      SecurityMonitoringSignalsListResponseLinks,
-    SecurityMonitoringSignalsListResponseMeta:
-      SecurityMonitoringSignalsListResponseMeta,
-    SecurityMonitoringSignalsListResponseMetaPage:
-      SecurityMonitoringSignalsListResponseMetaPage,
-    SecurityMonitoringStandardRuleCreatePayload:
-      SecurityMonitoringStandardRuleCreatePayload,
-    SecurityMonitoringStandardRulePayload:
-      SecurityMonitoringStandardRulePayload,
+    SecurityMonitoringSignalUpdateRequest: SecurityMonitoringSignalUpdateRequest,
+    SecurityMonitoringSignalsBulkAssigneeUpdateAttributes: SecurityMonitoringSignalsBulkAssigneeUpdateAttributes,
+    SecurityMonitoringSignalsBulkAssigneeUpdateData: SecurityMonitoringSignalsBulkAssigneeUpdateData,
+    SecurityMonitoringSignalsBulkAssigneeUpdateRequest: SecurityMonitoringSignalsBulkAssigneeUpdateRequest,
+    SecurityMonitoringSignalsBulkStateUpdateData: SecurityMonitoringSignalsBulkStateUpdateData,
+    SecurityMonitoringSignalsBulkStateUpdateRequest: SecurityMonitoringSignalsBulkStateUpdateRequest,
+    SecurityMonitoringSignalsBulkTriageEvent: SecurityMonitoringSignalsBulkTriageEvent,
+    SecurityMonitoringSignalsBulkTriageEventAttributes: SecurityMonitoringSignalsBulkTriageEventAttributes,
+    SecurityMonitoringSignalsBulkTriageUpdateResponse: SecurityMonitoringSignalsBulkTriageUpdateResponse,
+    SecurityMonitoringSignalsBulkTriageUpdateResult: SecurityMonitoringSignalsBulkTriageUpdateResult,
+    SecurityMonitoringSignalsBulkUpdateData: SecurityMonitoringSignalsBulkUpdateData,
+    SecurityMonitoringSignalsBulkUpdateRequest: SecurityMonitoringSignalsBulkUpdateRequest,
+    SecurityMonitoringSignalsListResponse: SecurityMonitoringSignalsListResponse,
+    SecurityMonitoringSignalsListResponseLinks: SecurityMonitoringSignalsListResponseLinks,
+    SecurityMonitoringSignalsListResponseMeta: SecurityMonitoringSignalsListResponseMeta,
+    SecurityMonitoringSignalsListResponseMetaPage: SecurityMonitoringSignalsListResponseMetaPage,
+    SecurityMonitoringStandardRuleCreatePayload: SecurityMonitoringStandardRuleCreatePayload,
+    SecurityMonitoringStandardRulePayload: SecurityMonitoringStandardRulePayload,
     SecurityMonitoringStandardRuleQuery: SecurityMonitoringStandardRuleQuery,
-    SecurityMonitoringStandardRuleResponse:
-      SecurityMonitoringStandardRuleResponse,
-    SecurityMonitoringStandardRuleTestPayload:
-      SecurityMonitoringStandardRuleTestPayload,
+    SecurityMonitoringStandardRuleResponse: SecurityMonitoringStandardRuleResponse,
+    SecurityMonitoringStandardRuleTestPayload: SecurityMonitoringStandardRuleTestPayload,
     SecurityMonitoringSuppression: SecurityMonitoringSuppression,
-    SecurityMonitoringSuppressionAttributes:
-      SecurityMonitoringSuppressionAttributes,
-    SecurityMonitoringSuppressionCreateAttributes:
-      SecurityMonitoringSuppressionCreateAttributes,
-    SecurityMonitoringSuppressionCreateData:
-      SecurityMonitoringSuppressionCreateData,
-    SecurityMonitoringSuppressionCreateRequest:
-      SecurityMonitoringSuppressionCreateRequest,
-    SecurityMonitoringSuppressionResponse:
-      SecurityMonitoringSuppressionResponse,
-    SecurityMonitoringSuppressionUpdateAttributes:
-      SecurityMonitoringSuppressionUpdateAttributes,
-    SecurityMonitoringSuppressionUpdateData:
-      SecurityMonitoringSuppressionUpdateData,
-    SecurityMonitoringSuppressionUpdateRequest:
-      SecurityMonitoringSuppressionUpdateRequest,
+    SecurityMonitoringSuppressionAttributes: SecurityMonitoringSuppressionAttributes,
+    SecurityMonitoringSuppressionCreateAttributes: SecurityMonitoringSuppressionCreateAttributes,
+    SecurityMonitoringSuppressionCreateData: SecurityMonitoringSuppressionCreateData,
+    SecurityMonitoringSuppressionCreateRequest: SecurityMonitoringSuppressionCreateRequest,
+    SecurityMonitoringSuppressionResponse: SecurityMonitoringSuppressionResponse,
+    SecurityMonitoringSuppressionUpdateAttributes: SecurityMonitoringSuppressionUpdateAttributes,
+    SecurityMonitoringSuppressionUpdateData: SecurityMonitoringSuppressionUpdateData,
+    SecurityMonitoringSuppressionUpdateRequest: SecurityMonitoringSuppressionUpdateRequest,
     SecurityMonitoringSuppressionsMeta: SecurityMonitoringSuppressionsMeta,
-    SecurityMonitoringSuppressionsPageMeta:
-      SecurityMonitoringSuppressionsPageMeta,
-    SecurityMonitoringSuppressionsResponse:
-      SecurityMonitoringSuppressionsResponse,
-    SecurityMonitoringTerraformBulkExportAttributes:
-      SecurityMonitoringTerraformBulkExportAttributes,
-    SecurityMonitoringTerraformBulkExportData:
-      SecurityMonitoringTerraformBulkExportData,
-    SecurityMonitoringTerraformBulkExportRequest:
-      SecurityMonitoringTerraformBulkExportRequest,
-    SecurityMonitoringTerraformConvertAttributes:
-      SecurityMonitoringTerraformConvertAttributes,
-    SecurityMonitoringTerraformConvertData:
-      SecurityMonitoringTerraformConvertData,
-    SecurityMonitoringTerraformConvertRequest:
-      SecurityMonitoringTerraformConvertRequest,
-    SecurityMonitoringTerraformExportAttributes:
-      SecurityMonitoringTerraformExportAttributes,
-    SecurityMonitoringTerraformExportData:
-      SecurityMonitoringTerraformExportData,
-    SecurityMonitoringTerraformExportResponse:
-      SecurityMonitoringTerraformExportResponse,
-    SecurityMonitoringThirdPartyRootQuery:
-      SecurityMonitoringThirdPartyRootQuery,
+    SecurityMonitoringSuppressionsPageMeta: SecurityMonitoringSuppressionsPageMeta,
+    SecurityMonitoringSuppressionsResponse: SecurityMonitoringSuppressionsResponse,
+    SecurityMonitoringTerraformBulkExportAttributes: SecurityMonitoringTerraformBulkExportAttributes,
+    SecurityMonitoringTerraformBulkExportData: SecurityMonitoringTerraformBulkExportData,
+    SecurityMonitoringTerraformBulkExportRequest: SecurityMonitoringTerraformBulkExportRequest,
+    SecurityMonitoringTerraformConvertAttributes: SecurityMonitoringTerraformConvertAttributes,
+    SecurityMonitoringTerraformConvertData: SecurityMonitoringTerraformConvertData,
+    SecurityMonitoringTerraformConvertRequest: SecurityMonitoringTerraformConvertRequest,
+    SecurityMonitoringTerraformExportAttributes: SecurityMonitoringTerraformExportAttributes,
+    SecurityMonitoringTerraformExportData: SecurityMonitoringTerraformExportData,
+    SecurityMonitoringTerraformExportResponse: SecurityMonitoringTerraformExportResponse,
+    SecurityMonitoringThirdPartyRootQuery: SecurityMonitoringThirdPartyRootQuery,
     SecurityMonitoringThirdPartyRuleCase: SecurityMonitoringThirdPartyRuleCase,
-    SecurityMonitoringThirdPartyRuleCaseCreate:
-      SecurityMonitoringThirdPartyRuleCaseCreate,
+    SecurityMonitoringThirdPartyRuleCaseCreate: SecurityMonitoringThirdPartyRuleCaseCreate,
     SecurityMonitoringTriageUser: SecurityMonitoringTriageUser,
     SecurityMonitoringUser: SecurityMonitoringUser,
     Selectors: Selectors,
@@ -1843,14 +1293,10 @@ export const TypingInfo: ModelTypingInfo = {
     TicketCreationRulesResponse: TicketCreationRulesResponse,
     UpdateCustomFrameworkRequest: UpdateCustomFrameworkRequest,
     UpdateCustomFrameworkResponse: UpdateCustomFrameworkResponse,
-    UpdateResourceEvaluationFiltersRequest:
-      UpdateResourceEvaluationFiltersRequest,
-    UpdateResourceEvaluationFiltersRequestData:
-      UpdateResourceEvaluationFiltersRequestData,
-    UpdateResourceEvaluationFiltersResponse:
-      UpdateResourceEvaluationFiltersResponse,
-    UpdateResourceEvaluationFiltersResponseData:
-      UpdateResourceEvaluationFiltersResponseData,
+    UpdateResourceEvaluationFiltersRequest: UpdateResourceEvaluationFiltersRequest,
+    UpdateResourceEvaluationFiltersRequestData: UpdateResourceEvaluationFiltersRequestData,
+    UpdateResourceEvaluationFiltersResponse: UpdateResourceEvaluationFiltersResponse,
+    UpdateResourceEvaluationFiltersResponseData: UpdateResourceEvaluationFiltersResponseData,
     VersionHistoryUpdate: VersionHistoryUpdate,
     Vulnerability: Vulnerability,
     VulnerabilityAdvisory: VulnerabilityAdvisory,
@@ -1859,8 +1305,7 @@ export const TypingInfo: ModelTypingInfo = {
     VulnerabilityDependencyLocations: VulnerabilityDependencyLocations,
     VulnerabilityRelationships: VulnerabilityRelationships,
     VulnerabilityRelationshipsAffects: VulnerabilityRelationshipsAffects,
-    VulnerabilityRelationshipsAffectsData:
-      VulnerabilityRelationshipsAffectsData,
+    VulnerabilityRelationshipsAffectsData: VulnerabilityRelationshipsAffectsData,
     VulnerabilityRisks: VulnerabilityRisks,
   },
 };

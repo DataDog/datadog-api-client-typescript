@@ -45,7 +45,7 @@ export const TypingInfo: ModelTypingInfo = {
   },
   oneOfMap: {
     UserResponseIncludedItem: ["Organization", "Permission", "Role"],
-  },
+    },
   typeMap: {
     APIErrorResponse: APIErrorResponse,
     IdentityProviderAttributes: IdentityProviderAttributes,

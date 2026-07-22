@@ -18,8 +18,7 @@ export type SecurityFindingType =
   | UnparsedObject;
 export const API_SECURITY = "api_security";
 export const ATTACK_PATH = "attack_path";
-export const HOST_AND_CONTAINER_VULNERABILITY =
-  "host_and_container_vulnerability";
+export const HOST_AND_CONTAINER_VULNERABILITY = "host_and_container_vulnerability";
 export const IAC_MISCONFIGURATION = "iac_misconfiguration";
 export const IDENTITY_RISK = "identity_risk";
 export const LIBRARY_VULNERABILITY = "library_vulnerability";

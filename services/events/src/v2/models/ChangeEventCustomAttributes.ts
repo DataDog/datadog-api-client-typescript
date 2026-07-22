@@ -15,7 +15,7 @@ export class ChangeEventCustomAttributes {
   /**
    * Free form JSON object with information related to the `change` event. Supports up to 100 properties per object and a maximum nesting depth of 10 levels.
    */
-  "changeMetadata"?: { [key: string]: any };
+  "changeMetadata"?: { [key: string]: any; };
   /**
    * A uniquely identified resource.
    */
@@ -28,11 +28,11 @@ export class ChangeEventCustomAttributes {
   /**
    * Free form JSON object representing the new state of the changed resource.
    */
-  "newValue"?: { [key: string]: any };
+  "newValue"?: { [key: string]: any; };
   /**
    * Free form JSON object representing the previous state of the changed resource.
    */
-  "prevValue"?: { [key: string]: any };
+  "prevValue"?: { [key: string]: any; };
   /**
    * @ignore
    */
@@ -66,7 +66,7 @@ export class ChangeEventCustomAttributes {
     prevValue: {
       baseName: "prev_value",
       type: "{ [key: string]: any; }",
-    },
+    }
   };
 
   /**

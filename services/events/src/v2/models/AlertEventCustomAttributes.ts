@@ -11,7 +11,7 @@ export class AlertEventCustomAttributes {
   /**
    * Free form JSON object for arbitrary data. Supports up to 100 properties per object and a maximum nesting depth of 10 levels.
    */
-  "custom"?: { [key: string]: any };
+  "custom"?: { [key: string]: any; };
   /**
    * The links related to the event. Maximum of 20 links allowed.
    */
@@ -49,7 +49,7 @@ export class AlertEventCustomAttributes {
       baseName: "status",
       type: "AlertEventCustomAttributesStatus",
       required: true,
-    },
+    }
   };
 
   /**

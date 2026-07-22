@@ -19,6 +19,7 @@ import {
   ServerConfiguration,
   stringify,
   applySecurityAuthentication,
+  
 } from "@datadog/datadog-api-client";
 
 import { TypingInfo } from "./models/TypingInfo";
@@ -60,15 +61,8 @@ export class LogsApiRequestFactory extends BaseAPIRequestFactory {
     const localVarPath = "/api/v2/logs/analytics/aggregate";
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "LogsApi.v2.aggregateLogs",
-      LogsApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.POST,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("LogsApi.v2.aggregateLogs", LogsApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.POST, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -78,7 +72,9 @@ export class LogsApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Body Params
-    const contentType = getPreferredMediaType(["application/json"]);
+    const contentType = getPreferredMediaType([
+      "application/json",
+    ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = stringify(
       serialize(body, TypingInfo, "LogsAggregateRequest", ""),
@@ -105,15 +101,8 @@ export class LogsApiRequestFactory extends BaseAPIRequestFactory {
     const localVarPath = "/api/v2/logs/events/search";
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "LogsApi.v2.listLogs",
-      LogsApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.POST,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("LogsApi.v2.listLogs", LogsApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.POST, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -123,7 +112,9 @@ export class LogsApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Body Params
-    const contentType = getPreferredMediaType(["application/json"]);
+    const contentType = getPreferredMediaType([
+      "application/json",
+    ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = stringify(
       serialize(body, TypingInfo, "LogsListRequest", ""),
@@ -157,15 +148,8 @@ export class LogsApiRequestFactory extends BaseAPIRequestFactory {
     const localVarPath = "/api/v2/logs/events";
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "LogsApi.v2.listLogsGet",
-      LogsApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.GET,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("LogsApi.v2.listLogsGet", LogsApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.GET, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -258,15 +242,8 @@ export class LogsApiRequestFactory extends BaseAPIRequestFactory {
     const localVarPath = "/api/v2/logs";
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "LogsApi.v2.submitLog",
-      LogsApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.POST,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("LogsApi.v2.submitLog", LogsApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.POST, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -286,10 +263,7 @@ export class LogsApiRequestFactory extends BaseAPIRequestFactory {
 
     // Header Params
     if (contentEncoding !== undefined) {
-      requestContext.setHeaderParam(
-        "Content-Encoding",
-        serialize(contentEncoding, TypingInfo, "ContentEncoding", ""),
-      );
+      requestContext.setHeaderParam("Content-Encoding", serialize(contentEncoding, TypingInfo, "ContentEncoding", ""));
     }
 
     // Body Params
@@ -306,7 +280,9 @@ export class LogsApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setBody(serializedBody);
 
     // Apply auth methods
-    applySecurityAuthentication(_config, requestContext, ["apiKeyAuth"]);
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+    ]);
 
     return requestContext;
   }
@@ -323,7 +299,9 @@ export class LogsApiResponseProcessor {
   public async aggregateLogs(
     response: ResponseContext,
   ): Promise<LogsAggregateResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: LogsAggregateResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -337,7 +315,10 @@ export class LogsApiResponseProcessor {
       response.httpStatusCode === 403 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -352,7 +333,10 @@ export class LogsApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -380,8 +364,12 @@ export class LogsApiResponseProcessor {
    * @params response Response returned by the server for a request to listLogs
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async listLogs(response: ResponseContext): Promise<LogsListResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+  public async listLogs(
+    response: ResponseContext,
+  ): Promise<LogsListResponse> {
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: LogsListResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -395,7 +383,10 @@ export class LogsApiResponseProcessor {
       response.httpStatusCode === 403 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -410,7 +401,10 @@ export class LogsApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -441,7 +435,9 @@ export class LogsApiResponseProcessor {
   public async listLogsGet(
     response: ResponseContext,
   ): Promise<LogsListResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: LogsListResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -455,7 +451,10 @@ export class LogsApiResponseProcessor {
       response.httpStatusCode === 403 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -470,7 +469,10 @@ export class LogsApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -498,8 +500,12 @@ export class LogsApiResponseProcessor {
    * @params response Response returned by the server for a request to submitLog
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async submitLog(response: ResponseContext): Promise<any> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+  public async submitLog(
+    response: ResponseContext,
+  ): Promise<any> {
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 202) {
       const body: any = deserialize(
         parse(await response.body.text(), contentType),
@@ -518,7 +524,10 @@ export class LogsApiResponseProcessor {
       response.httpStatusCode === 500 ||
       response.httpStatusCode === 503
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: HTTPLogErrors;
       try {
         body = deserialize(
@@ -533,7 +542,10 @@ export class LogsApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<HTTPLogErrors>(response.httpStatusCode, body);
+      throw new ApiException<HTTPLogErrors>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -638,36 +650,24 @@ export class LogsApi {
 
   static operationServers: { [key: string]: BaseServerConfiguration[] } = {
     "LogsApi.v2.submitLog": [
-      new ServerConfiguration<{
-        site:
-          | "datadoghq.com"
-          | "us3.datadoghq.com"
-          | "us5.datadoghq.com"
-          | "ap1.datadoghq.com"
-          | "ap2.datadoghq.com"
-          | "uk1.datadoghq.com"
-          | "datadoghq.eu"
-          | "ddog-gov.com"
-          | "us2.ddog-gov.com";
-        subdomain: string;
-      }>("https://{subdomain}.{site}", {
-        site: "datadoghq.com",
-        subdomain: "http-intake.logs",
-      }),
-      new ServerConfiguration<{
-        name: string;
-        protocol: string;
-      }>("{protocol}://{name}", {
-        name: "http-intake.logs.datadoghq.com",
-        protocol: "https",
-      }),
-      new ServerConfiguration<{
-        site: string;
-        subdomain: string;
-      }>("https://{subdomain}.{site}", {
-        site: "datadoghq.com",
-        subdomain: "http-intake.logs",
-      }),
+        new ServerConfiguration<{
+          "site":"datadoghq.com" | "us3.datadoghq.com" | "us5.datadoghq.com" | "ap1.datadoghq.com" | "ap2.datadoghq.com" | "uk1.datadoghq.com" | "datadoghq.eu" | "ddog-gov.com" | "us2.ddog-gov.com",
+          "subdomain":string }>("https://{subdomain}.{site}", {
+          "site": "datadoghq.com",
+          "subdomain": "http-intake.logs"
+        }),
+        new ServerConfiguration<{
+          "name":string,
+          "protocol":string }>("{protocol}://{name}", {
+          "name": "http-intake.logs.datadoghq.com",
+          "protocol": "https"
+        }),
+        new ServerConfiguration<{
+          "site":string,
+          "subdomain":string }>("https://{subdomain}.{site}", {
+          "site": "datadoghq.com",
+          "subdomain": "http-intake.logs"
+        }),
     ],
   };
 
@@ -678,7 +678,8 @@ export class LogsApi {
   ) {
     this.configuration = configuration || createConfiguration();
     this.requestFactory =
-      requestFactory || new LogsApiRequestFactory(this.configuration);
+      requestFactory ||
+      new LogsApiRequestFactory(this.configuration);
     this.responseProcessor =
       responseProcessor || new LogsApiResponseProcessor();
   }
@@ -707,13 +708,13 @@ export class LogsApi {
   /**
    * List endpoint returns logs that match a log search query.
    * [Results are paginated][1].
-   *
+   * 
    * Use this endpoint to search and filter your logs.
-   *
+   * 
    * **If you are considering archiving logs for your organization,
    * consider use of the Datadog archive capabilities instead of the log list API.
    * See [Datadog Logs Archive documentation][2].**
-   *
+   * 
    * [1]: /logs/guide/collect-multiple-logs-with-pagination
    * [2]: https://docs.datadoghq.com/logs/archives
    * @param param The request object
@@ -739,9 +740,9 @@ export class LogsApi {
    * Provide a paginated version of listLogs returning a generator with all the items.
    */
   public async *listLogsWithPagination(
-    param: LogsApiListLogsRequest = {},
-    options?: Configuration,
+    param: LogsApiListLogsRequest = {}, options?: Configuration,
   ): AsyncGenerator<Log> {
+
     let pageSize = 10;
     if (param.body === undefined) {
       param.body = new LogsListRequest();
@@ -754,12 +755,8 @@ export class LogsApi {
     }
     param.body.page.limit = pageSize;
     while (true) {
-      const requestContext = await this.requestFactory.listLogs(
-        param.body,
-        options,
-      );
-      const responseContext =
-        await this.configuration.httpApi.send(requestContext);
+      const requestContext = await this.requestFactory.listLogs(param.body,options);
+      const responseContext = await this.configuration.httpApi.send(requestContext);
 
       const response = await this.responseProcessor.listLogs(responseContext);
       const responseData = response.data;
@@ -793,13 +790,13 @@ export class LogsApi {
   /**
    * List endpoint returns logs that match a log search query.
    * [Results are paginated][1].
-   *
+   * 
    * Use this endpoint to search and filter your logs.
-   *
+   * 
    * **If you are considering archiving logs for your organization,
    * consider use of the Datadog archive capabilities instead of the log list API.
    * See [Datadog Logs Archive documentation][2].**
-   *
+   * 
    * [1]: /logs/guide/collect-multiple-logs-with-pagination
    * [2]: https://docs.datadoghq.com/logs/archives
    * @param param The request object
@@ -832,31 +829,19 @@ export class LogsApi {
    * Provide a paginated version of listLogsGet returning a generator with all the items.
    */
   public async *listLogsGetWithPagination(
-    param: LogsApiListLogsGetRequest = {},
-    options?: Configuration,
+    param: LogsApiListLogsGetRequest = {}, options?: Configuration,
   ): AsyncGenerator<Log> {
+
     let pageSize = 10;
     if (param.pageLimit !== undefined) {
       pageSize = param.pageLimit;
     }
     param.pageLimit = pageSize;
     while (true) {
-      const requestContext = await this.requestFactory.listLogsGet(
-        param.filterQuery,
-        param.filterIndexes,
-        param.filterFrom,
-        param.filterTo,
-        param.filterStorageTier,
-        param.sort,
-        param.pageCursor,
-        param.pageLimit,
-        options,
-      );
-      const responseContext =
-        await this.configuration.httpApi.send(requestContext);
+      const requestContext = await this.requestFactory.listLogsGet(param.filterQuery,param.filterIndexes,param.filterFrom,param.filterTo,param.filterStorageTier,param.sort,param.pageCursor,param.pageLimit,options);
+      const responseContext = await this.configuration.httpApi.send(requestContext);
 
-      const response =
-        await this.responseProcessor.listLogsGet(responseContext);
+      const response = await this.responseProcessor.listLogsGet(responseContext);
       const responseData = response.data;
       if (responseData === undefined) {
         break;
@@ -887,19 +872,19 @@ export class LogsApi {
 
   /**
    * Send your logs to your Datadog platform over HTTP. Limits per HTTP request are:
-   *
+   * 
    * - Maximum content size per payload (uncompressed): 5MB
    * - Maximum size for a single log: 1MB
    * - Maximum array size if sending multiple logs in an array: 1000 entries
-   *
+   * 
    * Any log exceeding 1MB is accepted and truncated by Datadog:
    * - For a single log request, the API truncates the log at 1MB and returns a 2xx.
    * - For a multi-logs request, the API processes all logs, truncates only logs larger than 1MB, and returns a 2xx.
-   *
+   * 
    * Datadog recommends sending your logs compressed.
    * Add the `Content-Encoding: gzip` header to the request when sending compressed logs.
    * Log events can be submitted with a timestamp that is up to 18 hours in the past.
-   *
+   * 
    * The status codes answered by the HTTP API are:
    * - 202: Accepted: the request has been accepted for processing
    * - 400: Bad request (likely an issue in the payload formatting)

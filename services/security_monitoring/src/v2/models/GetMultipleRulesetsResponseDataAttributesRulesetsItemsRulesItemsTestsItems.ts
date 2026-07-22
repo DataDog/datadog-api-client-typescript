@@ -1,5 +1,6 @@
 import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
+
 /**
  * A test case associated with a static analysis rule, containing the source code and expected annotation count.
  */
@@ -21,7 +22,7 @@ export class GetMultipleRulesetsResponseDataAttributesRulesetsItemsRulesItemsTes
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
   /**
    * @ignore
    */

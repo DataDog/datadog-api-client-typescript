@@ -1,5 +1,6 @@
 import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
+
 /**
  * Line item details from a Custom Costs file.
  */
@@ -31,13 +32,13 @@ export class CustomCostsFileLineItem {
   /**
    * Additional tags for the line item.
    */
-  "tags"?: { [key: string]: string };
+  "tags"?: { [key: string]: string; };
   /**
    * A container for additional, undeclared properties.
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
   /**
    * @ignore
    */

@@ -111,7 +111,7 @@ export class SankeyRumQuery {
     target: {
       baseName: "target",
       type: "string",
-    },
+    }
   };
 
   /**

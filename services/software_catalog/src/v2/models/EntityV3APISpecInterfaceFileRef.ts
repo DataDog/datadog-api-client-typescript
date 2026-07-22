@@ -1,5 +1,6 @@
 import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
+
 /**
  * The definition of `EntityV3APISpecInterfaceFileRef` object.
  */
@@ -20,7 +21,7 @@ export class EntityV3APISpecInterfaceFileRef {
     fileRef: {
       baseName: "fileRef",
       type: "string",
-    },
+    }
   };
 
   /**

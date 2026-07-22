@@ -1,5 +1,6 @@
 import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
+
 /**
  * The definition of `EntityV3APISpecInterfaceDefinition` object.
  */
@@ -20,7 +21,7 @@ export class EntityV3APISpecInterfaceDefinition {
     definition: {
       baseName: "definition",
       type: "any",
-    },
+    }
   };
 
   /**

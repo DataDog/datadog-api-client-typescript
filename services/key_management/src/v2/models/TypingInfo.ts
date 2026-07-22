@@ -81,41 +81,16 @@ import { ValidateV2Response } from "./ValidateV2Response";
 
 export const TypingInfo: ModelTypingInfo = {
   enumsMap: {
-    APIKeysSort: [
-      "created_at",
-      "-created_at",
-      "last4",
-      "-last4",
-      "modified_at",
-      "-modified_at",
-      "name",
-      "-name",
-    ],
+    APIKeysSort: ["created_at", "-created_at", "last4", "-last4", "modified_at", "-modified_at", "name", "-name"],
     APIKeysType: ["api_keys"],
     AccessTokenOwnerType: ["users", "service_account"],
     AccessTokensType: ["personal_access_tokens", "service_access_tokens"],
-    ApplicationKeysSort: [
-      "created_at",
-      "-created_at",
-      "last4",
-      "-last4",
-      "name",
-      "-name",
-    ],
+    ApplicationKeysSort: ["created_at", "-created_at", "last4", "-last4", "name", "-name"],
     ApplicationKeysType: ["application_keys"],
     LeakedKeyType: ["leaked_keys"],
     OrganizationsType: ["orgs"],
     PermissionsType: ["permissions"],
-    PersonalAccessTokensSort: [
-      "name",
-      "-name",
-      "created_at",
-      "-created_at",
-      "expires_at",
-      "-expires_at",
-      "last_used_at",
-      "-last_used_at",
-    ],
+    PersonalAccessTokensSort: ["name", "-name", "created_at", "-created_at", "expires_at", "-expires_at", "last_used_at", "-last_used_at"],
     PersonalAccessTokensType: ["personal_access_tokens"],
     RolesType: ["roles"],
     UsersType: ["users"],
@@ -125,7 +100,7 @@ export const TypingInfo: ModelTypingInfo = {
   oneOfMap: {
     APIKeyResponseIncludedItem: ["User", "LeakedKey"],
     ApplicationKeyResponseIncludedItem: ["User", "Role", "LeakedKey"],
-  },
+    },
   typeMap: {
     APIErrorResponse: APIErrorResponse,
     APIKeyCreateAttributes: APIKeyCreateAttributes,

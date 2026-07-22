@@ -30,7 +30,7 @@ export class WidgetLegacyLiveSpan {
     liveSpan: {
       baseName: "live_span",
       type: "WidgetLiveSpan",
-    },
+    }
   };
 
   /**

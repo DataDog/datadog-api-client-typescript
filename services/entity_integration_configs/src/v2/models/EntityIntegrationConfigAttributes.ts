@@ -1,5 +1,6 @@
 import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
+
 /**
  * The organization ID, integration identifier, and integration-specific configuration payload for an entity integration configuration.
  */
@@ -7,7 +8,7 @@ export class EntityIntegrationConfigAttributes {
   /**
    * Integration-specific configuration payload. The shape of this object depends on the integration identified by the path parameter. For `github`, the object must contain an `enabled_repos` array. For `jira`, it must contain an `enabled_projects` array. For `pagerduty`, it must contain an `accounts` array.
    */
-  "config": { [key: string]: any };
+  "config": { [key: string]: any; };
   /**
    * The identifier of the integration this configuration applies to (for example, `github`, `jira`, or `pagerduty`).
    */
@@ -21,7 +22,7 @@ export class EntityIntegrationConfigAttributes {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
   /**
    * @ignore
    */

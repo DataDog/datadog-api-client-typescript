@@ -19,6 +19,7 @@ import {
   ServerConfiguration,
   stringify,
   applySecurityAuthentication,
+  
 } from "@datadog/datadog-api-client";
 
 import { TypingInfo } from "./models/TypingInfo";
@@ -58,15 +59,8 @@ export class EventsApiRequestFactory extends BaseAPIRequestFactory {
     const localVarPath = "/api/v2/events";
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "EventsApi.v2.createEvent",
-      EventsApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.POST,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("EventsApi.v2.createEvent", EventsApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.POST, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -76,7 +70,9 @@ export class EventsApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Body Params
-    const contentType = getPreferredMediaType(["application/json"]);
+    const contentType = getPreferredMediaType([
+      "application/json",
+    ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = stringify(
       serialize(body, TypingInfo, "EventCreateRequestPayload", ""),
@@ -111,15 +107,8 @@ export class EventsApiRequestFactory extends BaseAPIRequestFactory {
     );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "EventsApi.v2.getEvent",
-      EventsApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.GET,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("EventsApi.v2.getEvent", EventsApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.GET, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -153,15 +142,8 @@ export class EventsApiRequestFactory extends BaseAPIRequestFactory {
     const localVarPath = "/api/v2/events";
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "EventsApi.v2.listEvents",
-      EventsApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.GET,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("EventsApi.v2.listEvents", EventsApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.GET, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -234,15 +216,8 @@ export class EventsApiRequestFactory extends BaseAPIRequestFactory {
     const localVarPath = "/api/v2/events/search";
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "EventsApi.v2.searchEvents",
-      EventsApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.POST,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("EventsApi.v2.searchEvents", EventsApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.POST, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -252,7 +227,9 @@ export class EventsApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Body Params
-    const contentType = getPreferredMediaType(["application/json"]);
+    const contentType = getPreferredMediaType([
+      "application/json",
+    ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = stringify(
       serialize(body, TypingInfo, "EventsListRequest", ""),
@@ -281,7 +258,9 @@ export class EventsApiResponseProcessor {
   public async createEvent(
     response: ResponseContext,
   ): Promise<EventCreateResponsePayload> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 202) {
       const body: EventCreateResponsePayload = deserialize(
         parse(await response.body.text(), contentType),
@@ -290,8 +269,14 @@ export class EventsApiResponseProcessor {
       ) as EventCreateResponsePayload;
       return body;
     }
-    if (response.httpStatusCode === 400 || response.httpStatusCode === 403) {
-      const bodyText = parse(await response.body.text(), contentType);
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 403
+    ) {
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: JSONAPIErrorResponse;
       try {
         body = deserialize(
@@ -312,7 +297,10 @@ export class EventsApiResponseProcessor {
       );
     }
     if (response.httpStatusCode === 429) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -327,7 +315,10 @@ export class EventsApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -355,8 +346,12 @@ export class EventsApiResponseProcessor {
    * @params response Response returned by the server for a request to getEvent
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async getEvent(response: ResponseContext): Promise<V2EventResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+  public async getEvent(
+    response: ResponseContext,
+  ): Promise<V2EventResponse> {
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: V2EventResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -372,7 +367,10 @@ export class EventsApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -387,7 +385,10 @@ export class EventsApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -418,7 +419,9 @@ export class EventsApiResponseProcessor {
   public async listEvents(
     response: ResponseContext,
   ): Promise<EventsListResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: EventsListResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -432,7 +435,10 @@ export class EventsApiResponseProcessor {
       response.httpStatusCode === 403 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -447,7 +453,10 @@ export class EventsApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -478,7 +487,9 @@ export class EventsApiResponseProcessor {
   public async searchEvents(
     response: ResponseContext,
   ): Promise<EventsListResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: EventsListResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -492,7 +503,10 @@ export class EventsApiResponseProcessor {
       response.httpStatusCode === 403 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -507,7 +521,10 @@ export class EventsApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -592,36 +609,24 @@ export class EventsApi {
 
   static operationServers: { [key: string]: BaseServerConfiguration[] } = {
     "EventsApi.v2.createEvent": [
-      new ServerConfiguration<{
-        site:
-          | "datadoghq.com"
-          | "us3.datadoghq.com"
-          | "us5.datadoghq.com"
-          | "ap1.datadoghq.com"
-          | "ap2.datadoghq.com"
-          | "uk1.datadoghq.com"
-          | "datadoghq.eu"
-          | "ddog-gov.com"
-          | "us2.ddog-gov.com";
-        subdomain: string;
-      }>("https://{subdomain}.{site}", {
-        site: "datadoghq.com",
-        subdomain: "event-management-intake",
-      }),
-      new ServerConfiguration<{
-        name: string;
-        protocol: string;
-      }>("{protocol}://{name}", {
-        name: "event-management-intake.datadoghq.com",
-        protocol: "https",
-      }),
-      new ServerConfiguration<{
-        site: string;
-        subdomain: string;
-      }>("https://{subdomain}.{site}", {
-        site: "datadoghq.com",
-        subdomain: "event-management-intake",
-      }),
+        new ServerConfiguration<{
+          "site":"datadoghq.com" | "us3.datadoghq.com" | "us5.datadoghq.com" | "ap1.datadoghq.com" | "ap2.datadoghq.com" | "uk1.datadoghq.com" | "datadoghq.eu" | "ddog-gov.com" | "us2.ddog-gov.com",
+          "subdomain":string }>("https://{subdomain}.{site}", {
+          "site": "datadoghq.com",
+          "subdomain": "event-management-intake"
+        }),
+        new ServerConfiguration<{
+          "name":string,
+          "protocol":string }>("{protocol}://{name}", {
+          "name": "event-management-intake.datadoghq.com",
+          "protocol": "https"
+        }),
+        new ServerConfiguration<{
+          "site":string,
+          "subdomain":string }>("https://{subdomain}.{site}", {
+          "site": "datadoghq.com",
+          "subdomain": "event-management-intake"
+        }),
     ],
   };
 
@@ -632,20 +637,21 @@ export class EventsApi {
   ) {
     this.configuration = configuration || createConfiguration();
     this.requestFactory =
-      requestFactory || new EventsApiRequestFactory(this.configuration);
+      requestFactory ||
+      new EventsApiRequestFactory(this.configuration);
     this.responseProcessor =
       responseProcessor || new EventsApiResponseProcessor();
   }
 
   /**
    * This endpoint allows you to publish events.
-   *
+   * 
    * **Note:** To utilize this endpoint with our client libraries, please ensure you are using the latest version released on or after July 1, 2025. Earlier versions do not support this functionality.
-   *
+   * 
    * **Important:** Upgrade to the latest client library version to use the updated endpoint at `https://event-management-intake.{site}/api/v2/events`. Older client library versions of the Post an event (v2) API send requests to a deprecated endpoint (`https://api.{site}/api/v2/events`).
-   *
+   * 
    * ✅ **Only events with the `change` or `alert` category** are in General Availability. For change events, see [Change Tracking](https://docs.datadoghq.com/change_tracking) for more details.
-   *
+   * 
    * ❌ For use cases involving other event categories, use the V1 endpoint or reach out to [support](https://www.datadoghq.com/support/).
    * @param param The request object
    */
@@ -690,7 +696,7 @@ export class EventsApi {
   /**
    * List endpoint returns events that match an events search query.
    * [Results are paginated similarly to logs](https://docs.datadoghq.com/logs/guide/collect-multiple-logs-with-pagination).
-   *
+   * 
    * Use this endpoint to see your latest events.
    * @param param The request object
    */
@@ -720,26 +726,17 @@ export class EventsApi {
    * Provide a paginated version of listEvents returning a generator with all the items.
    */
   public async *listEventsWithPagination(
-    param: EventsApiListEventsRequest = {},
-    options?: Configuration,
+    param: EventsApiListEventsRequest = {}, options?: Configuration,
   ): AsyncGenerator<EventResponse> {
+
     let pageSize = 10;
     if (param.pageLimit !== undefined) {
       pageSize = param.pageLimit;
     }
     param.pageLimit = pageSize;
     while (true) {
-      const requestContext = await this.requestFactory.listEvents(
-        param.filterQuery,
-        param.filterFrom,
-        param.filterTo,
-        param.sort,
-        param.pageCursor,
-        param.pageLimit,
-        options,
-      );
-      const responseContext =
-        await this.configuration.httpApi.send(requestContext);
+      const requestContext = await this.requestFactory.listEvents(param.filterQuery,param.filterFrom,param.filterTo,param.sort,param.pageCursor,param.pageLimit,options);
+      const responseContext = await this.configuration.httpApi.send(requestContext);
 
       const response = await this.responseProcessor.listEvents(responseContext);
       const responseData = response.data;
@@ -773,7 +770,7 @@ export class EventsApi {
   /**
    * List endpoint returns events that match an events search query.
    * [Results are paginated similarly to logs](https://docs.datadoghq.com/logs/guide/collect-multiple-logs-with-pagination).
-   *
+   * 
    * Use this endpoint to build complex events filtering and search.
    * @param param The request object
    */
@@ -798,9 +795,9 @@ export class EventsApi {
    * Provide a paginated version of searchEvents returning a generator with all the items.
    */
   public async *searchEventsWithPagination(
-    param: EventsApiSearchEventsRequest = {},
-    options?: Configuration,
+    param: EventsApiSearchEventsRequest = {}, options?: Configuration,
   ): AsyncGenerator<EventResponse> {
+
     let pageSize = 10;
     if (param.body === undefined) {
       param.body = new EventsListRequest();
@@ -813,15 +810,10 @@ export class EventsApi {
     }
     param.body.page.limit = pageSize;
     while (true) {
-      const requestContext = await this.requestFactory.searchEvents(
-        param.body,
-        options,
-      );
-      const responseContext =
-        await this.configuration.httpApi.send(requestContext);
+      const requestContext = await this.requestFactory.searchEvents(param.body,options);
+      const responseContext = await this.configuration.httpApi.send(requestContext);
 
-      const response =
-        await this.responseProcessor.searchEvents(responseContext);
+      const response = await this.responseProcessor.searchEvents(responseContext);
       const responseData = response.data;
       if (responseData === undefined) {
         break;

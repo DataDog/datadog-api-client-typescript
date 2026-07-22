@@ -12,11 +12,11 @@ export class IncidentUserDefinedFieldAttributesResponse {
   /**
    * The section in which the field appears: "what_happened" or "why_it_happened". When null, the field appears in the Attributes section.
    */
-  "category": IncidentUserDefinedFieldCategory | null;
+  "category": IncidentUserDefinedFieldCategory|null;
   /**
    * The lifecycle stage at which the app prompts users to fill out this field. Cannot be set on required fields.
    */
-  "collected": IncidentUserDefinedFieldCollected | null;
+  "collected": IncidentUserDefinedFieldCollected|null;
   /**
    * Timestamp when the field was created.
    */
@@ -24,11 +24,11 @@ export class IncidentUserDefinedFieldAttributesResponse {
   /**
    * The default value for the field.
    */
-  "defaultValue": string | null;
+  "defaultValue": string|null;
   /**
    * Timestamp when the field was soft-deleted, or null if not deleted.
    */
-  "deleted": Date | null;
+  "deleted": Date|null;
   /**
    * The human-readable name shown in the UI.
    */
@@ -36,11 +36,11 @@ export class IncidentUserDefinedFieldAttributesResponse {
   /**
    * Metadata for autocomplete-type user-defined fields, describing how to populate autocomplete options.
    */
-  "metadata": IncidentUserDefinedFieldMetadata | null;
+  "metadata": IncidentUserDefinedFieldMetadata|null;
   /**
    * Timestamp when the field was last modified.
    */
-  "modified": Date | null;
+  "modified": Date|null;
   /**
    * The unique identifier of the field.
    */
@@ -48,7 +48,7 @@ export class IncidentUserDefinedFieldAttributesResponse {
   /**
    * A decimal string representing the field's display order in the UI.
    */
-  "ordinal": string | null;
+  "ordinal": string|null;
   /**
    * When true, users must fill out this field on incidents.
    */
@@ -60,21 +60,21 @@ export class IncidentUserDefinedFieldAttributesResponse {
   /**
    * For metric tag-type fields only, the metric tag key that powers the autocomplete options.
    */
-  "tagKey": string | null;
+  "tagKey": string|null;
   /**
    * The data type of the field. 1=dropdown, 2=multiselect, 3=textbox, 4=textarray, 5=metrictag, 6=autocomplete, 7=number, 8=datetime.
    */
-  "type": number | null;
+  "type": number|null;
   /**
    * The list of allowed values for dropdown, multiselect, and autocomplete fields.
    */
-  "validValues": Array<IncidentUserDefinedFieldValidValue> | null;
+  "validValues": Array<IncidentUserDefinedFieldValidValue>|null;
   /**
    * A container for additional, undeclared properties.
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
   /**
    * @ignore
    */

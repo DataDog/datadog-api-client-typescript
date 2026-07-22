@@ -5,7 +5,7 @@ import { ObservabilityPipelineMetricTagsProcessorType } from "./ObservabilityPip
 
 /**
  * The `metric_tags` processor filters metrics based on their tags using Datadog tag key patterns.
- *
+ * 
  * **Supported pipeline types:** metrics
  */
 export class ObservabilityPipelineMetricTagsProcessor {
@@ -38,7 +38,7 @@ export class ObservabilityPipelineMetricTagsProcessor {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
   /**
    * @ignore
    */

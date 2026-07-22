@@ -1,5 +1,6 @@
 import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
+
 /**
  * Attributes for creating an LLM Observability experiment.
  */
@@ -7,7 +8,7 @@ export class LLMObsExperimentDataAttributesRequest {
   /**
    * Configuration parameters for the experiment.
    */
-  "config"?: { [key: string]: any };
+  "config"?: { [key: string]: any; };
   /**
    * Identifier of the dataset used in this experiment.
    */
@@ -27,7 +28,7 @@ export class LLMObsExperimentDataAttributesRequest {
   /**
    * Arbitrary metadata associated with the experiment.
    */
-  "metadata"?: { [key: string]: any };
+  "metadata"?: { [key: string]: any; };
   /**
    * Name of the experiment.
    */
@@ -49,7 +50,7 @@ export class LLMObsExperimentDataAttributesRequest {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
   /**
    * @ignore
    */

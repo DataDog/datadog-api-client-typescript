@@ -49,7 +49,7 @@ export const TypingInfo: ModelTypingInfo = {
       "ChangeRequestIncludedUser",
       "ChangeRequestIncludedDecision",
     ],
-  },
+    },
   typeMap: {
     APIErrorResponse: APIErrorResponse,
     ChangeRequestBranchCreateAttributes: ChangeRequestBranchCreateAttributes,
@@ -58,21 +58,15 @@ export const TypingInfo: ModelTypingInfo = {
     ChangeRequestCreateAttributes: ChangeRequestCreateAttributes,
     ChangeRequestCreateData: ChangeRequestCreateData,
     ChangeRequestCreateRequest: ChangeRequestCreateRequest,
-    ChangeRequestDecisionCreateAttributes:
-      ChangeRequestDecisionCreateAttributes,
+    ChangeRequestDecisionCreateAttributes: ChangeRequestDecisionCreateAttributes,
     ChangeRequestDecisionCreateItem: ChangeRequestDecisionCreateItem,
-    ChangeRequestDecisionCreateRelationships:
-      ChangeRequestDecisionCreateRelationships,
-    ChangeRequestDecisionRelationshipData:
-      ChangeRequestDecisionRelationshipData,
+    ChangeRequestDecisionCreateRelationships: ChangeRequestDecisionCreateRelationships,
+    ChangeRequestDecisionRelationshipData: ChangeRequestDecisionRelationshipData,
     ChangeRequestDecisionRelationships: ChangeRequestDecisionRelationships,
-    ChangeRequestDecisionResponseAttributes:
-      ChangeRequestDecisionResponseAttributes,
+    ChangeRequestDecisionResponseAttributes: ChangeRequestDecisionResponseAttributes,
     ChangeRequestDecisionUpdateData: ChangeRequestDecisionUpdateData,
-    ChangeRequestDecisionUpdateDataAttributes:
-      ChangeRequestDecisionUpdateDataAttributes,
-    ChangeRequestDecisionUpdateDataRelationships:
-      ChangeRequestDecisionUpdateDataRelationships,
+    ChangeRequestDecisionUpdateDataAttributes: ChangeRequestDecisionUpdateDataAttributes,
+    ChangeRequestDecisionUpdateDataRelationships: ChangeRequestDecisionUpdateDataRelationships,
     ChangeRequestDecisionUpdateRequest: ChangeRequestDecisionUpdateRequest,
     ChangeRequestDecisionsRelationship: ChangeRequestDecisionsRelationship,
     ChangeRequestIncludedDecision: ChangeRequestIncludedDecision,

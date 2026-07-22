@@ -17,7 +17,7 @@ export class CreateJiraIssueRequestDataAttributes {
   /**
    * Custom fields of the Jira issue to create. For the list of available fields, see [Jira documentation](https://developer.atlassian.com/cloud/jira/platform/rest/v2/api-group-issues/#api-rest-api-2-issue-createmeta-projectidorkey-issuetypes-issuetypeid-get).
    */
-  "fields"?: { [key: string]: any };
+  "fields"?: { [key: string]: any; };
   /**
    * Case priority
    */
@@ -31,7 +31,7 @@ export class CreateJiraIssueRequestDataAttributes {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
   /**
    * @ignore
    */

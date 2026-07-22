@@ -5,7 +5,7 @@ import { ObservabilityPipelineFieldValue } from "./ObservabilityPipelineFieldVal
 
 /**
  * The `add_metric_tags` processor adds static tags to metrics.
- *
+ * 
  * **Supported pipeline types:** metrics
  */
 export class ObservabilityPipelineAddMetricTagsProcessor {
@@ -38,7 +38,7 @@ export class ObservabilityPipelineAddMetricTagsProcessor {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
   /**
    * @ignore
    */

@@ -6,5 +6,4 @@ import { UnparsedObject } from "@datadog/datadog-api-client";
 export type OrgGroupMembershipBulkUpdateType =
   | typeof ORG_GROUP_MEMBERSHIP_BULK_UPDATES
   | UnparsedObject;
-export const ORG_GROUP_MEMBERSHIP_BULK_UPDATES =
-  "org_group_membership_bulk_updates";
+export const ORG_GROUP_MEMBERSHIP_BULK_UPDATES = "org_group_membership_bulk_updates";

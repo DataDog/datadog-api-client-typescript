@@ -42,7 +42,7 @@ export class RetentionCurveWidgetRequest {
     style: {
       baseName: "style",
       type: "RetentionCurveStyle",
-    },
+    }
   };
 
   /**

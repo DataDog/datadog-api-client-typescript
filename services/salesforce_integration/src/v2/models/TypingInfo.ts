@@ -18,40 +18,24 @@ import { SalesforceIncidentsTemplatesResponse } from "./SalesforceIncidentsTempl
 export const TypingInfo: ModelTypingInfo = {
   enumsMap: {
     SalesforceIncidentsOrganizationType: ["salesforce-incidents-org"],
-    SalesforceIncidentsTemplatePriority: [
-      "Critical",
-      "High",
-      "Moderate",
-      "Low",
-    ],
+    SalesforceIncidentsTemplatePriority: ["Critical", "High", "Moderate", "Low"],
     SalesforceIncidentsTemplateType: ["salesforce-incidents-incident-template"],
   },
   oneOfMap: {},
   typeMap: {
     APIErrorResponse: APIErrorResponse,
-    SalesforceIncidentsOrganizationResponseAttributes:
-      SalesforceIncidentsOrganizationResponseAttributes,
-    SalesforceIncidentsOrganizationResponseData:
-      SalesforceIncidentsOrganizationResponseData,
-    SalesforceIncidentsOrganizationsResponse:
-      SalesforceIncidentsOrganizationsResponse,
-    SalesforceIncidentsTemplateCreateAttributes:
-      SalesforceIncidentsTemplateCreateAttributes,
-    SalesforceIncidentsTemplateCreateData:
-      SalesforceIncidentsTemplateCreateData,
-    SalesforceIncidentsTemplateCreateRequest:
-      SalesforceIncidentsTemplateCreateRequest,
+    SalesforceIncidentsOrganizationResponseAttributes: SalesforceIncidentsOrganizationResponseAttributes,
+    SalesforceIncidentsOrganizationResponseData: SalesforceIncidentsOrganizationResponseData,
+    SalesforceIncidentsOrganizationsResponse: SalesforceIncidentsOrganizationsResponse,
+    SalesforceIncidentsTemplateCreateAttributes: SalesforceIncidentsTemplateCreateAttributes,
+    SalesforceIncidentsTemplateCreateData: SalesforceIncidentsTemplateCreateData,
+    SalesforceIncidentsTemplateCreateRequest: SalesforceIncidentsTemplateCreateRequest,
     SalesforceIncidentsTemplateResponse: SalesforceIncidentsTemplateResponse,
-    SalesforceIncidentsTemplateResponseAttributes:
-      SalesforceIncidentsTemplateResponseAttributes,
-    SalesforceIncidentsTemplateResponseData:
-      SalesforceIncidentsTemplateResponseData,
-    SalesforceIncidentsTemplateUpdateAttributes:
-      SalesforceIncidentsTemplateUpdateAttributes,
-    SalesforceIncidentsTemplateUpdateData:
-      SalesforceIncidentsTemplateUpdateData,
-    SalesforceIncidentsTemplateUpdateRequest:
-      SalesforceIncidentsTemplateUpdateRequest,
+    SalesforceIncidentsTemplateResponseAttributes: SalesforceIncidentsTemplateResponseAttributes,
+    SalesforceIncidentsTemplateResponseData: SalesforceIncidentsTemplateResponseData,
+    SalesforceIncidentsTemplateUpdateAttributes: SalesforceIncidentsTemplateUpdateAttributes,
+    SalesforceIncidentsTemplateUpdateData: SalesforceIncidentsTemplateUpdateData,
+    SalesforceIncidentsTemplateUpdateRequest: SalesforceIncidentsTemplateUpdateRequest,
     SalesforceIncidentsTemplatesResponse: SalesforceIncidentsTemplatesResponse,
   },
 };

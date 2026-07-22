@@ -1,5 +1,6 @@
 import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
+
 /**
  * Join keys.
  */
@@ -29,7 +30,7 @@ export class SankeyJoinKeys {
     secondary: {
       baseName: "secondary",
       type: "Array<string>",
-    },
+    }
   };
 
   /**

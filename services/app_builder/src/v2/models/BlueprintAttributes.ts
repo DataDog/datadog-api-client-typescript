@@ -21,15 +21,15 @@ export class BlueprintAttributes {
   /**
    * Embedded datastore blueprints.
    */
-  "embeddedDatastoreBlueprints"?: { [key: string]: any };
+  "embeddedDatastoreBlueprints"?: { [key: string]: any; };
   /**
    * Embedded native actions.
    */
-  "embeddedNativeActions"?: Array<{ [key: string]: any }>;
+  "embeddedNativeActions"?: Array<{ [key: string]: any; }>;
   /**
    * Embedded workflow blueprints.
    */
-  "embeddedWorkflowBlueprints"?: { [key: string]: any };
+  "embeddedWorkflowBlueprints"?: { [key: string]: any; };
   /**
    * The integration ID associated with the blueprint.
    */
@@ -37,7 +37,7 @@ export class BlueprintAttributes {
   /**
    * Mocked outputs for testing the blueprint.
    */
-  "mockedOutputs"?: { [key: string]: any };
+  "mockedOutputs"?: { [key: string]: any; };
   /**
    * The human-readable name of the blueprint.
    */
@@ -67,7 +67,7 @@ export class BlueprintAttributes {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
   /**
    * @ignore
    */

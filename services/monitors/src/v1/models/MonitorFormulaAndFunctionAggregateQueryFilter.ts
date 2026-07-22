@@ -1,5 +1,6 @@
 import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
+
 /**
  * Filter definition for aggregate filtered queries.
  */
@@ -38,7 +39,7 @@ export class MonitorFormulaAndFunctionAggregateQueryFilter {
       baseName: "filter_attribute",
       type: "string",
       required: true,
-    },
+    }
   };
 
   /**

@@ -69,7 +69,7 @@ export class RetentionQuery {
       baseName: "search",
       type: "RetentionSearch",
       required: true,
-    },
+    }
   };
 
   /**

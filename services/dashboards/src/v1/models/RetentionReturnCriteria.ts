@@ -31,7 +31,7 @@ export class RetentionReturnCriteria {
     timeInterval: {
       baseName: "time_interval",
       type: "RetentionReturnCriteriaTimeInterval",
-    },
+    }
   };
 
   /**

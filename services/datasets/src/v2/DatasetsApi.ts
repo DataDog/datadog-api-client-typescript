@@ -19,6 +19,7 @@ import {
   ServerConfiguration,
   stringify,
   applySecurityAuthentication,
+  
 } from "@datadog/datadog-api-client";
 
 import { TypingInfo } from "./models/TypingInfo";
@@ -45,9 +46,7 @@ export class DatasetsApiRequestFactory extends BaseAPIRequestFactory {
     const _config = _options || this.configuration;
 
     if (!_config.unstableOperations["DatasetsApi.v2.createDataset"]) {
-      throw new Error(
-        "Unstable operation 'createDataset' is disabled. Enable it by setting `configuration.unstableOperations['DatasetsApi.v2.createDataset'] = true`",
-      );
+      throw new Error("Unstable operation 'createDataset' is disabled. Enable it by setting `configuration.unstableOperations['DatasetsApi.v2.createDataset'] = true`");
     }
 
     // verify required parameter 'body' is not null or undefined
@@ -59,15 +58,8 @@ export class DatasetsApiRequestFactory extends BaseAPIRequestFactory {
     const localVarPath = "/api/v2/datasets";
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "DatasetsApi.v2.createDataset",
-      DatasetsApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.POST,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("DatasetsApi.v2.createDataset", DatasetsApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.POST, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -77,7 +69,9 @@ export class DatasetsApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Body Params
-    const contentType = getPreferredMediaType(["application/json"]);
+    const contentType = getPreferredMediaType([
+      "application/json",
+    ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = stringify(
       serialize(body, TypingInfo, "DatasetCreateRequest", ""),
@@ -102,9 +96,7 @@ export class DatasetsApiRequestFactory extends BaseAPIRequestFactory {
     const _config = _options || this.configuration;
 
     if (!_config.unstableOperations["DatasetsApi.v2.deleteDataset"]) {
-      throw new Error(
-        "Unstable operation 'deleteDataset' is disabled. Enable it by setting `configuration.unstableOperations['DatasetsApi.v2.deleteDataset'] = true`",
-      );
+      throw new Error("Unstable operation 'deleteDataset' is disabled. Enable it by setting `configuration.unstableOperations['DatasetsApi.v2.deleteDataset'] = true`");
     }
 
     // verify required parameter 'datasetId' is not null or undefined
@@ -119,15 +111,8 @@ export class DatasetsApiRequestFactory extends BaseAPIRequestFactory {
     );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "DatasetsApi.v2.deleteDataset",
-      DatasetsApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.DELETE,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("DatasetsApi.v2.deleteDataset", DatasetsApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.DELETE, overrides);
     requestContext.setHeaderParam("Accept", "*/*");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -152,24 +137,15 @@ export class DatasetsApiRequestFactory extends BaseAPIRequestFactory {
     const _config = _options || this.configuration;
 
     if (!_config.unstableOperations["DatasetsApi.v2.getAllDatasets"]) {
-      throw new Error(
-        "Unstable operation 'getAllDatasets' is disabled. Enable it by setting `configuration.unstableOperations['DatasetsApi.v2.getAllDatasets'] = true`",
-      );
+      throw new Error("Unstable operation 'getAllDatasets' is disabled. Enable it by setting `configuration.unstableOperations['DatasetsApi.v2.getAllDatasets'] = true`");
     }
 
     // Path Params
     const localVarPath = "/api/v2/datasets";
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "DatasetsApi.v2.getAllDatasets",
-      DatasetsApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.GET,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("DatasetsApi.v2.getAllDatasets", DatasetsApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.GET, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -195,9 +171,7 @@ export class DatasetsApiRequestFactory extends BaseAPIRequestFactory {
     const _config = _options || this.configuration;
 
     if (!_config.unstableOperations["DatasetsApi.v2.getDataset"]) {
-      throw new Error(
-        "Unstable operation 'getDataset' is disabled. Enable it by setting `configuration.unstableOperations['DatasetsApi.v2.getDataset'] = true`",
-      );
+      throw new Error("Unstable operation 'getDataset' is disabled. Enable it by setting `configuration.unstableOperations['DatasetsApi.v2.getDataset'] = true`");
     }
 
     // verify required parameter 'datasetId' is not null or undefined
@@ -212,15 +186,8 @@ export class DatasetsApiRequestFactory extends BaseAPIRequestFactory {
     );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "DatasetsApi.v2.getDataset",
-      DatasetsApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.GET,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("DatasetsApi.v2.getDataset", DatasetsApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.GET, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -247,9 +214,7 @@ export class DatasetsApiRequestFactory extends BaseAPIRequestFactory {
     const _config = _options || this.configuration;
 
     if (!_config.unstableOperations["DatasetsApi.v2.updateDataset"]) {
-      throw new Error(
-        "Unstable operation 'updateDataset' is disabled. Enable it by setting `configuration.unstableOperations['DatasetsApi.v2.updateDataset'] = true`",
-      );
+      throw new Error("Unstable operation 'updateDataset' is disabled. Enable it by setting `configuration.unstableOperations['DatasetsApi.v2.updateDataset'] = true`");
     }
 
     // verify required parameter 'datasetId' is not null or undefined
@@ -269,15 +234,8 @@ export class DatasetsApiRequestFactory extends BaseAPIRequestFactory {
     );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "DatasetsApi.v2.updateDataset",
-      DatasetsApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.PUT,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("DatasetsApi.v2.updateDataset", DatasetsApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.PUT, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -287,7 +245,9 @@ export class DatasetsApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Body Params
-    const contentType = getPreferredMediaType(["application/json"]);
+    const contentType = getPreferredMediaType([
+      "application/json",
+    ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = stringify(
       serialize(body, TypingInfo, "DatasetUpdateRequest", ""),
@@ -317,7 +277,9 @@ export class DatasetsApiResponseProcessor {
   public async createDataset(
     response: ResponseContext,
   ): Promise<DatasetResponseSingle> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: DatasetResponseSingle = deserialize(
         parse(await response.body.text(), contentType),
@@ -332,7 +294,10 @@ export class DatasetsApiResponseProcessor {
       response.httpStatusCode === 409 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -347,7 +312,10 @@ export class DatasetsApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -375,8 +343,12 @@ export class DatasetsApiResponseProcessor {
    * @params response Response returned by the server for a request to deleteDataset
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async deleteDataset(response: ResponseContext): Promise<void> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+  public async deleteDataset(
+    response: ResponseContext,
+  ): Promise<void> {
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 204) {
       return;
     }
@@ -386,7 +358,10 @@ export class DatasetsApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -401,7 +376,10 @@ export class DatasetsApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -426,7 +404,9 @@ export class DatasetsApiResponseProcessor {
   public async getAllDatasets(
     response: ResponseContext,
   ): Promise<DatasetResponseMulti> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: DatasetResponseMulti = deserialize(
         parse(await response.body.text(), contentType),
@@ -435,8 +415,14 @@ export class DatasetsApiResponseProcessor {
       ) as DatasetResponseMulti;
       return body;
     }
-    if (response.httpStatusCode === 403 || response.httpStatusCode === 429) {
-      const bodyText = parse(await response.body.text(), contentType);
+    if (
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 429
+    ) {
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -451,7 +437,10 @@ export class DatasetsApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -482,7 +471,9 @@ export class DatasetsApiResponseProcessor {
   public async getDataset(
     response: ResponseContext,
   ): Promise<DatasetResponseSingle> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: DatasetResponseSingle = deserialize(
         parse(await response.body.text(), contentType),
@@ -497,7 +488,10 @@ export class DatasetsApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -512,7 +506,10 @@ export class DatasetsApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -543,7 +540,9 @@ export class DatasetsApiResponseProcessor {
   public async updateDataset(
     response: ResponseContext,
   ): Promise<DatasetResponseSingle> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: DatasetResponseSingle = deserialize(
         parse(await response.body.text(), contentType),
@@ -558,7 +557,10 @@ export class DatasetsApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -573,7 +575,10 @@ export class DatasetsApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -637,7 +642,8 @@ export class DatasetsApi {
   private responseProcessor: DatasetsApiResponseProcessor;
   private configuration: Configuration;
 
-  static operationServers: { [key: string]: BaseServerConfiguration[] } = {};
+  static operationServers: { [key: string]: BaseServerConfiguration[] } = {
+  };
 
   public constructor(
     configuration?: Configuration,
@@ -646,7 +652,8 @@ export class DatasetsApi {
   ) {
     this.configuration = configuration || createConfiguration();
     this.requestFactory =
-      requestFactory || new DatasetsApiRequestFactory(this.configuration);
+      requestFactory ||
+      new DatasetsApiRequestFactory(this.configuration);
     this.responseProcessor =
       responseProcessor || new DatasetsApiResponseProcessor();
   }
@@ -697,10 +704,11 @@ export class DatasetsApi {
    * Get all datasets that have been configured for an organization.
    * @param param The request object
    */
-  public getAllDatasets(
-    options?: Configuration,
+  public getAllDatasets(options?: Configuration,
   ): Promise<DatasetResponseMulti> {
-    const requestContextPromise = this.requestFactory.getAllDatasets(options);
+    const requestContextPromise = this.requestFactory.getAllDatasets(
+      options,
+    );
     return requestContextPromise.then((requestContext) => {
       return this.configuration.httpApi
         .send(requestContext)

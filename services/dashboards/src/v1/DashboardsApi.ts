@@ -19,6 +19,7 @@ import {
   ServerConfiguration,
   stringify,
   applySecurityAuthentication,
+  
 } from "@datadog/datadog-api-client";
 
 import { TypingInfo } from "./models/TypingInfo";
@@ -59,15 +60,8 @@ export class DashboardsApiRequestFactory extends BaseAPIRequestFactory {
     const localVarPath = "/api/v1/dashboard";
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "DashboardsApi.v1.createDashboard",
-      DashboardsApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.POST,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("DashboardsApi.v1.createDashboard", DashboardsApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.POST, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -77,7 +71,9 @@ export class DashboardsApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Body Params
-    const contentType = getPreferredMediaType(["application/json"]);
+    const contentType = getPreferredMediaType([
+      "application/json",
+    ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = stringify(
       serialize(body, TypingInfo, "Dashboard", ""),
@@ -110,15 +106,8 @@ export class DashboardsApiRequestFactory extends BaseAPIRequestFactory {
     const localVarPath = "/api/v1/dashboard/public";
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "DashboardsApi.v1.createPublicDashboard",
-      DashboardsApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.POST,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("DashboardsApi.v1.createPublicDashboard", DashboardsApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.POST, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -128,7 +117,9 @@ export class DashboardsApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Body Params
-    const contentType = getPreferredMediaType(["application/json"]);
+    const contentType = getPreferredMediaType([
+      "application/json",
+    ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = stringify(
       serialize(body, TypingInfo, "SharedDashboard", ""),
@@ -164,15 +155,8 @@ export class DashboardsApiRequestFactory extends BaseAPIRequestFactory {
     );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "DashboardsApi.v1.deleteDashboard",
-      DashboardsApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.DELETE,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("DashboardsApi.v1.deleteDashboard", DashboardsApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.DELETE, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -206,15 +190,8 @@ export class DashboardsApiRequestFactory extends BaseAPIRequestFactory {
     const localVarPath = "/api/v1/dashboard";
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "DashboardsApi.v1.deleteDashboards",
-      DashboardsApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.DELETE,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("DashboardsApi.v1.deleteDashboards", DashboardsApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.DELETE, overrides);
     requestContext.setHeaderParam("Accept", "*/*");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -224,7 +201,9 @@ export class DashboardsApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Body Params
-    const contentType = getPreferredMediaType(["application/json"]);
+    const contentType = getPreferredMediaType([
+      "application/json",
+    ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = stringify(
       serialize(body, TypingInfo, "DashboardBulkDeleteRequest", ""),
@@ -260,15 +239,8 @@ export class DashboardsApiRequestFactory extends BaseAPIRequestFactory {
     );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "DashboardsApi.v1.deletePublicDashboard",
-      DashboardsApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.DELETE,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("DashboardsApi.v1.deletePublicDashboard", DashboardsApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.DELETE, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -311,15 +283,8 @@ export class DashboardsApiRequestFactory extends BaseAPIRequestFactory {
     );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "DashboardsApi.v1.deletePublicDashboardInvitation",
-      DashboardsApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.DELETE,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("DashboardsApi.v1.deletePublicDashboardInvitation", DashboardsApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.DELETE, overrides);
     requestContext.setHeaderParam("Accept", "*/*");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -329,7 +294,9 @@ export class DashboardsApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Body Params
-    const contentType = getPreferredMediaType(["application/json"]);
+    const contentType = getPreferredMediaType([
+      "application/json",
+    ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = stringify(
       serialize(body, TypingInfo, "SharedDashboardInvites", ""),
@@ -365,15 +332,8 @@ export class DashboardsApiRequestFactory extends BaseAPIRequestFactory {
     );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "DashboardsApi.v1.getDashboard",
-      DashboardsApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.GET,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("DashboardsApi.v1.getDashboard", DashboardsApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.GET, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -410,15 +370,8 @@ export class DashboardsApiRequestFactory extends BaseAPIRequestFactory {
     );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "DashboardsApi.v1.getPublicDashboard",
-      DashboardsApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.GET,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("DashboardsApi.v1.getPublicDashboard", DashboardsApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.GET, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -457,15 +410,8 @@ export class DashboardsApiRequestFactory extends BaseAPIRequestFactory {
     );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "DashboardsApi.v1.getPublicDashboardInvitations",
-      DashboardsApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.GET,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("DashboardsApi.v1.getPublicDashboardInvitations", DashboardsApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.GET, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -513,15 +459,8 @@ export class DashboardsApiRequestFactory extends BaseAPIRequestFactory {
     const localVarPath = "/api/v1/dashboard";
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "DashboardsApi.v1.listDashboards",
-      DashboardsApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.GET,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("DashboardsApi.v1.listDashboards", DashboardsApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.GET, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -585,15 +524,8 @@ export class DashboardsApiRequestFactory extends BaseAPIRequestFactory {
     const localVarPath = "/api/v1/dashboard";
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "DashboardsApi.v1.restoreDashboards",
-      DashboardsApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.PATCH,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("DashboardsApi.v1.restoreDashboards", DashboardsApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.PATCH, overrides);
     requestContext.setHeaderParam("Accept", "*/*");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -603,7 +535,9 @@ export class DashboardsApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Body Params
-    const contentType = getPreferredMediaType(["application/json"]);
+    const contentType = getPreferredMediaType([
+      "application/json",
+    ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = stringify(
       serialize(body, TypingInfo, "DashboardRestoreRequest", ""),
@@ -645,15 +579,8 @@ export class DashboardsApiRequestFactory extends BaseAPIRequestFactory {
     );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "DashboardsApi.v1.sendPublicDashboardInvitation",
-      DashboardsApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.POST,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("DashboardsApi.v1.sendPublicDashboardInvitation", DashboardsApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.POST, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -663,7 +590,9 @@ export class DashboardsApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Body Params
-    const contentType = getPreferredMediaType(["application/json"]);
+    const contentType = getPreferredMediaType([
+      "application/json",
+    ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = stringify(
       serialize(body, TypingInfo, "SharedDashboardInvites", ""),
@@ -705,15 +634,8 @@ export class DashboardsApiRequestFactory extends BaseAPIRequestFactory {
     );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "DashboardsApi.v1.updateDashboard",
-      DashboardsApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.PUT,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("DashboardsApi.v1.updateDashboard", DashboardsApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.PUT, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -723,7 +645,9 @@ export class DashboardsApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Body Params
-    const contentType = getPreferredMediaType(["application/json"]);
+    const contentType = getPreferredMediaType([
+      "application/json",
+    ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = stringify(
       serialize(body, TypingInfo, "Dashboard", ""),
@@ -765,15 +689,8 @@ export class DashboardsApiRequestFactory extends BaseAPIRequestFactory {
     );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "DashboardsApi.v1.updatePublicDashboard",
-      DashboardsApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.PUT,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("DashboardsApi.v1.updatePublicDashboard", DashboardsApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.PUT, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -783,7 +700,9 @@ export class DashboardsApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Body Params
-    const contentType = getPreferredMediaType(["application/json"]);
+    const contentType = getPreferredMediaType([
+      "application/json",
+    ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = stringify(
       serialize(body, TypingInfo, "SharedDashboardUpdateRequest", ""),
@@ -810,8 +729,12 @@ export class DashboardsApiResponseProcessor {
    * @params response Response returned by the server for a request to createDashboard
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async createDashboard(response: ResponseContext): Promise<Dashboard> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+  public async createDashboard(
+    response: ResponseContext,
+  ): Promise<Dashboard> {
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: Dashboard = deserialize(
         parse(await response.body.text(), contentType),
@@ -825,7 +748,10 @@ export class DashboardsApiResponseProcessor {
       response.httpStatusCode === 403 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -840,7 +766,10 @@ export class DashboardsApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -871,7 +800,9 @@ export class DashboardsApiResponseProcessor {
   public async createPublicDashboard(
     response: ResponseContext,
   ): Promise<SharedDashboard> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: SharedDashboard = deserialize(
         parse(await response.body.text(), contentType),
@@ -886,7 +817,10 @@ export class DashboardsApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -901,7 +835,10 @@ export class DashboardsApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -932,7 +869,9 @@ export class DashboardsApiResponseProcessor {
   public async deleteDashboard(
     response: ResponseContext,
   ): Promise<DashboardDeleteResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: DashboardDeleteResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -946,7 +885,10 @@ export class DashboardsApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -961,7 +903,10 @@ export class DashboardsApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -989,8 +934,12 @@ export class DashboardsApiResponseProcessor {
    * @params response Response returned by the server for a request to deleteDashboards
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async deleteDashboards(response: ResponseContext): Promise<void> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+  public async deleteDashboards(
+    response: ResponseContext,
+  ): Promise<void> {
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 204) {
       return;
     }
@@ -1000,7 +949,10 @@ export class DashboardsApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -1015,7 +967,10 @@ export class DashboardsApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -1040,7 +995,9 @@ export class DashboardsApiResponseProcessor {
   public async deletePublicDashboard(
     response: ResponseContext,
   ): Promise<DeleteSharedDashboardResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: DeleteSharedDashboardResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -1054,7 +1011,10 @@ export class DashboardsApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -1069,7 +1029,10 @@ export class DashboardsApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -1100,7 +1063,9 @@ export class DashboardsApiResponseProcessor {
   public async deletePublicDashboardInvitation(
     response: ResponseContext,
   ): Promise<void> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 204) {
       return;
     }
@@ -1109,7 +1074,10 @@ export class DashboardsApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -1124,7 +1092,10 @@ export class DashboardsApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -1146,8 +1117,12 @@ export class DashboardsApiResponseProcessor {
    * @params response Response returned by the server for a request to getDashboard
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async getDashboard(response: ResponseContext): Promise<Dashboard> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+  public async getDashboard(
+    response: ResponseContext,
+  ): Promise<Dashboard> {
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: Dashboard = deserialize(
         parse(await response.body.text(), contentType),
@@ -1161,7 +1136,10 @@ export class DashboardsApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -1176,7 +1154,10 @@ export class DashboardsApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -1207,7 +1188,9 @@ export class DashboardsApiResponseProcessor {
   public async getPublicDashboard(
     response: ResponseContext,
   ): Promise<SharedDashboard> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: SharedDashboard = deserialize(
         parse(await response.body.text(), contentType),
@@ -1221,7 +1204,10 @@ export class DashboardsApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -1236,7 +1222,10 @@ export class DashboardsApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -1267,7 +1256,9 @@ export class DashboardsApiResponseProcessor {
   public async getPublicDashboardInvitations(
     response: ResponseContext,
   ): Promise<SharedDashboardInvites> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: SharedDashboardInvites = deserialize(
         parse(await response.body.text(), contentType),
@@ -1281,7 +1272,10 @@ export class DashboardsApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -1296,7 +1290,10 @@ export class DashboardsApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -1327,7 +1324,9 @@ export class DashboardsApiResponseProcessor {
   public async listDashboards(
     response: ResponseContext,
   ): Promise<DashboardSummary> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: DashboardSummary = deserialize(
         parse(await response.body.text(), contentType),
@@ -1336,8 +1335,14 @@ export class DashboardsApiResponseProcessor {
       ) as DashboardSummary;
       return body;
     }
-    if (response.httpStatusCode === 403 || response.httpStatusCode === 429) {
-      const bodyText = parse(await response.body.text(), contentType);
+    if (
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 429
+    ) {
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -1352,7 +1357,10 @@ export class DashboardsApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -1380,8 +1388,12 @@ export class DashboardsApiResponseProcessor {
    * @params response Response returned by the server for a request to restoreDashboards
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async restoreDashboards(response: ResponseContext): Promise<void> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+  public async restoreDashboards(
+    response: ResponseContext,
+  ): Promise<void> {
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 204) {
       return;
     }
@@ -1391,7 +1403,10 @@ export class DashboardsApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -1406,7 +1421,10 @@ export class DashboardsApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -1431,7 +1449,9 @@ export class DashboardsApiResponseProcessor {
   public async sendPublicDashboardInvitation(
     response: ResponseContext,
   ): Promise<SharedDashboardInvites> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 201) {
       const body: SharedDashboardInvites = deserialize(
         parse(await response.body.text(), contentType),
@@ -1446,7 +1466,10 @@ export class DashboardsApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -1461,7 +1484,10 @@ export class DashboardsApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -1489,8 +1515,12 @@ export class DashboardsApiResponseProcessor {
    * @params response Response returned by the server for a request to updateDashboard
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async updateDashboard(response: ResponseContext): Promise<Dashboard> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+  public async updateDashboard(
+    response: ResponseContext,
+  ): Promise<Dashboard> {
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: Dashboard = deserialize(
         parse(await response.body.text(), contentType),
@@ -1505,7 +1535,10 @@ export class DashboardsApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -1520,7 +1553,10 @@ export class DashboardsApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -1551,7 +1587,9 @@ export class DashboardsApiResponseProcessor {
   public async updatePublicDashboard(
     response: ResponseContext,
   ): Promise<SharedDashboard> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: SharedDashboard = deserialize(
         parse(await response.body.text(), contentType),
@@ -1566,7 +1604,10 @@ export class DashboardsApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -1581,7 +1622,10 @@ export class DashboardsApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -1767,7 +1811,8 @@ export class DashboardsApi {
   private responseProcessor: DashboardsApiResponseProcessor;
   private configuration: Configuration;
 
-  static operationServers: { [key: string]: BaseServerConfiguration[] } = {};
+  static operationServers: { [key: string]: BaseServerConfiguration[] } = {
+  };
 
   public constructor(
     configuration?: Configuration,
@@ -1776,7 +1821,8 @@ export class DashboardsApi {
   ) {
     this.configuration = configuration || createConfiguration();
     this.requestFactory =
-      requestFactory || new DashboardsApiRequestFactory(this.configuration);
+      requestFactory ||
+      new DashboardsApiRequestFactory(this.configuration);
     this.responseProcessor =
       responseProcessor || new DashboardsApiResponseProcessor();
   }
@@ -1895,19 +1941,16 @@ export class DashboardsApi {
     param: DashboardsApiDeletePublicDashboardInvitationRequest,
     options?: Configuration,
   ): Promise<void> {
-    const requestContextPromise =
-      this.requestFactory.deletePublicDashboardInvitation(
-        param.token,
-        param.body,
-        options,
-      );
+    const requestContextPromise = this.requestFactory.deletePublicDashboardInvitation(
+      param.token,
+      param.body,
+      options,
+    );
     return requestContextPromise.then((requestContext) => {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.deletePublicDashboardInvitation(
-            responseContext,
-          );
+          return this.responseProcessor.deletePublicDashboardInvitation(responseContext);
         });
     });
   }
@@ -1962,27 +2005,24 @@ export class DashboardsApi {
     param: DashboardsApiGetPublicDashboardInvitationsRequest,
     options?: Configuration,
   ): Promise<SharedDashboardInvites> {
-    const requestContextPromise =
-      this.requestFactory.getPublicDashboardInvitations(
-        param.token,
-        param.pageSize,
-        param.pageNumber,
-        options,
-      );
+    const requestContextPromise = this.requestFactory.getPublicDashboardInvitations(
+      param.token,
+      param.pageSize,
+      param.pageNumber,
+      options,
+    );
     return requestContextPromise.then((requestContext) => {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.getPublicDashboardInvitations(
-            responseContext,
-          );
+          return this.responseProcessor.getPublicDashboardInvitations(responseContext);
         });
     });
   }
 
   /**
    * Get all dashboards.
-   *
+   * 
    * **Note**: This query will only return custom created or cloned dashboards.
    * This query will not return preset dashboards.
    * @param param The request object
@@ -2011,27 +2051,19 @@ export class DashboardsApi {
    * Provide a paginated version of listDashboards returning a generator with all the items.
    */
   public async *listDashboardsWithPagination(
-    param: DashboardsApiListDashboardsRequest = {},
-    options?: Configuration,
+    param: DashboardsApiListDashboardsRequest = {}, options?: Configuration,
   ): AsyncGenerator<DashboardSummaryDefinition> {
+
     let pageSize = 100;
     if (param.count !== undefined) {
       pageSize = param.count;
     }
     param.count = pageSize;
     while (true) {
-      const requestContext = await this.requestFactory.listDashboards(
-        param.filterShared,
-        param.filterDeleted,
-        param.count,
-        param.start,
-        options,
-      );
-      const responseContext =
-        await this.configuration.httpApi.send(requestContext);
+      const requestContext = await this.requestFactory.listDashboards(param.filterShared,param.filterDeleted,param.count,param.start,options);
+      const responseContext = await this.configuration.httpApi.send(requestContext);
 
-      const response =
-        await this.responseProcessor.listDashboards(responseContext);
+      const response = await this.responseProcessor.listDashboards(responseContext);
       const responseDashboards = response.dashboards;
       if (responseDashboards === undefined) {
         break;
@@ -2080,19 +2112,16 @@ export class DashboardsApi {
     param: DashboardsApiSendPublicDashboardInvitationRequest,
     options?: Configuration,
   ): Promise<SharedDashboardInvites> {
-    const requestContextPromise =
-      this.requestFactory.sendPublicDashboardInvitation(
-        param.token,
-        param.body,
-        options,
-      );
+    const requestContextPromise = this.requestFactory.sendPublicDashboardInvitation(
+      param.token,
+      param.body,
+      options,
+    );
     return requestContextPromise.then((requestContext) => {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.sendPublicDashboardInvitation(
-            responseContext,
-          );
+          return this.responseProcessor.sendPublicDashboardInvitation(responseContext);
         });
     });
   }

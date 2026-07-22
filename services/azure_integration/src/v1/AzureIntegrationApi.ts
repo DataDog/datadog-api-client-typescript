@@ -19,6 +19,7 @@ import {
   ServerConfiguration,
   stringify,
   applySecurityAuthentication,
+  
 } from "@datadog/datadog-api-client";
 
 import { TypingInfo } from "./models/TypingInfo";
@@ -50,15 +51,8 @@ export class AzureIntegrationApiRequestFactory extends BaseAPIRequestFactory {
     const localVarPath = "/api/v1/integration/azure";
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "AzureIntegrationApi.v1.createAzureIntegration",
-      AzureIntegrationApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.POST,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("AzureIntegrationApi.v1.createAzureIntegration", AzureIntegrationApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.POST, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -68,7 +62,9 @@ export class AzureIntegrationApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Body Params
-    const contentType = getPreferredMediaType(["application/json"]);
+    const contentType = getPreferredMediaType([
+      "application/json",
+    ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = stringify(
       serialize(body, TypingInfo, "AzureAccount", ""),
@@ -100,15 +96,8 @@ export class AzureIntegrationApiRequestFactory extends BaseAPIRequestFactory {
     const localVarPath = "/api/v1/integration/azure";
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "AzureIntegrationApi.v1.deleteAzureIntegration",
-      AzureIntegrationApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.DELETE,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("AzureIntegrationApi.v1.deleteAzureIntegration", AzureIntegrationApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.DELETE, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -118,7 +107,9 @@ export class AzureIntegrationApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Body Params
-    const contentType = getPreferredMediaType(["application/json"]);
+    const contentType = getPreferredMediaType([
+      "application/json",
+    ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = stringify(
       serialize(body, TypingInfo, "AzureAccount", ""),
@@ -144,15 +135,8 @@ export class AzureIntegrationApiRequestFactory extends BaseAPIRequestFactory {
     const localVarPath = "/api/v1/integration/azure";
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "AzureIntegrationApi.v1.listAzureIntegration",
-      AzureIntegrationApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.GET,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("AzureIntegrationApi.v1.listAzureIntegration", AzureIntegrationApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.GET, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -185,15 +169,8 @@ export class AzureIntegrationApiRequestFactory extends BaseAPIRequestFactory {
     const localVarPath = "/api/v1/integration/azure/host_filters";
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "AzureIntegrationApi.v1.updateAzureHostFilters",
-      AzureIntegrationApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.POST,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("AzureIntegrationApi.v1.updateAzureHostFilters", AzureIntegrationApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.POST, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -203,7 +180,9 @@ export class AzureIntegrationApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Body Params
-    const contentType = getPreferredMediaType(["application/json"]);
+    const contentType = getPreferredMediaType([
+      "application/json",
+    ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = stringify(
       serialize(body, TypingInfo, "AzureAccount", ""),
@@ -235,15 +214,8 @@ export class AzureIntegrationApiRequestFactory extends BaseAPIRequestFactory {
     const localVarPath = "/api/v1/integration/azure";
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "AzureIntegrationApi.v1.updateAzureIntegration",
-      AzureIntegrationApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.PUT,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("AzureIntegrationApi.v1.updateAzureIntegration", AzureIntegrationApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.PUT, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -253,7 +225,9 @@ export class AzureIntegrationApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Body Params
-    const contentType = getPreferredMediaType(["application/json"]);
+    const contentType = getPreferredMediaType([
+      "application/json",
+    ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = stringify(
       serialize(body, TypingInfo, "AzureAccount", ""),
@@ -279,8 +253,12 @@ export class AzureIntegrationApiResponseProcessor {
    * @params response Response returned by the server for a request to createAzureIntegration
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async createAzureIntegration(response: ResponseContext): Promise<any> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+  public async createAzureIntegration(
+    response: ResponseContext,
+  ): Promise<any> {
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: any = deserialize(
         parse(await response.body.text(), contentType),
@@ -294,7 +272,10 @@ export class AzureIntegrationApiResponseProcessor {
       response.httpStatusCode === 403 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -309,7 +290,10 @@ export class AzureIntegrationApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -337,8 +321,12 @@ export class AzureIntegrationApiResponseProcessor {
    * @params response Response returned by the server for a request to deleteAzureIntegration
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async deleteAzureIntegration(response: ResponseContext): Promise<any> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+  public async deleteAzureIntegration(
+    response: ResponseContext,
+  ): Promise<any> {
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: any = deserialize(
         parse(await response.body.text(), contentType),
@@ -352,7 +340,10 @@ export class AzureIntegrationApiResponseProcessor {
       response.httpStatusCode === 403 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -367,7 +358,10 @@ export class AzureIntegrationApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -398,7 +392,9 @@ export class AzureIntegrationApiResponseProcessor {
   public async listAzureIntegration(
     response: ResponseContext,
   ): Promise<Array<AzureAccount>> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: Array<AzureAccount> = deserialize(
         parse(await response.body.text(), contentType),
@@ -412,7 +408,10 @@ export class AzureIntegrationApiResponseProcessor {
       response.httpStatusCode === 403 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -427,7 +426,10 @@ export class AzureIntegrationApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -455,8 +457,12 @@ export class AzureIntegrationApiResponseProcessor {
    * @params response Response returned by the server for a request to updateAzureHostFilters
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async updateAzureHostFilters(response: ResponseContext): Promise<any> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+  public async updateAzureHostFilters(
+    response: ResponseContext,
+  ): Promise<any> {
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: any = deserialize(
         parse(await response.body.text(), contentType),
@@ -470,7 +476,10 @@ export class AzureIntegrationApiResponseProcessor {
       response.httpStatusCode === 403 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -485,7 +494,10 @@ export class AzureIntegrationApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -513,8 +525,12 @@ export class AzureIntegrationApiResponseProcessor {
    * @params response Response returned by the server for a request to updateAzureIntegration
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async updateAzureIntegration(response: ResponseContext): Promise<any> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+  public async updateAzureIntegration(
+    response: ResponseContext,
+  ): Promise<any> {
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: any = deserialize(
         parse(await response.body.text(), contentType),
@@ -528,7 +544,10 @@ export class AzureIntegrationApiResponseProcessor {
       response.httpStatusCode === 403 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -543,7 +562,10 @@ export class AzureIntegrationApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -602,7 +624,8 @@ export class AzureIntegrationApi {
   private responseProcessor: AzureIntegrationApiResponseProcessor;
   private configuration: Configuration;
 
-  static operationServers: { [key: string]: BaseServerConfiguration[] } = {};
+  static operationServers: { [key: string]: BaseServerConfiguration[] } = {
+  };
 
   public constructor(
     configuration?: Configuration,
@@ -619,10 +642,10 @@ export class AzureIntegrationApi {
 
   /**
    * Create a Datadog-Azure integration.
-   *
+   * 
    * Using the `POST` method updates your integration configuration by adding your new
    * configuration to the existing one in your Datadog organization.
-   *
+   * 
    * Using the `PUT` method updates your integration configuration by replacing your
    * current configuration with the new one sent to your Datadog organization.
    * @param param The request object
@@ -669,11 +692,11 @@ export class AzureIntegrationApi {
    * List all Datadog-Azure integrations configured in your Datadog account.
    * @param param The request object
    */
-  public listAzureIntegration(
-    options?: Configuration,
+  public listAzureIntegration(options?: Configuration,
   ): Promise<Array<AzureAccount>> {
-    const requestContextPromise =
-      this.requestFactory.listAzureIntegration(options);
+    const requestContextPromise = this.requestFactory.listAzureIntegration(
+      options,
+    );
     return requestContextPromise.then((requestContext) => {
       return this.configuration.httpApi
         .send(requestContext)

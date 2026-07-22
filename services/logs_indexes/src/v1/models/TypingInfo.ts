@@ -14,7 +14,8 @@ import { LogsIndexUpdateRequest } from "./LogsIndexUpdateRequest";
 import { LogsIndexesOrder } from "./LogsIndexesOrder";
 
 export const TypingInfo: ModelTypingInfo = {
-  enumsMap: {},
+  enumsMap: {
+  },
   oneOfMap: {},
   typeMap: {
     APIErrorResponse: APIErrorResponse,

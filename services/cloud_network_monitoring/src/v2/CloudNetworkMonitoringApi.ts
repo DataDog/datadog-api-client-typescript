@@ -19,6 +19,7 @@ import {
   ServerConfiguration,
   stringify,
   applySecurityAuthentication,
+  
 } from "@datadog/datadog-api-client";
 
 import { TypingInfo } from "./models/TypingInfo";
@@ -51,15 +52,8 @@ export class CloudNetworkMonitoringApiRequestFactory extends BaseAPIRequestFacto
     const localVarPath = "/api/v2/network/connections/aggregate";
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "CloudNetworkMonitoringApi.v2.getAggregatedConnections",
-      CloudNetworkMonitoringApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.GET,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("CloudNetworkMonitoringApi.v2.getAggregatedConnections", CloudNetworkMonitoringApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.GET, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -136,15 +130,8 @@ export class CloudNetworkMonitoringApiRequestFactory extends BaseAPIRequestFacto
     const localVarPath = "/api/v2/network/dns/aggregate";
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "CloudNetworkMonitoringApi.v2.getAggregatedDns",
-      CloudNetworkMonitoringApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.GET,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("CloudNetworkMonitoringApi.v2.getAggregatedDns", CloudNetworkMonitoringApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.GET, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -218,7 +205,9 @@ export class CloudNetworkMonitoringApiResponseProcessor {
   public async getAggregatedConnections(
     response: ResponseContext,
   ): Promise<SingleAggregatedConnectionResponseArray> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: SingleAggregatedConnectionResponseArray = deserialize(
         parse(await response.body.text(), contentType),
@@ -227,8 +216,14 @@ export class CloudNetworkMonitoringApiResponseProcessor {
       ) as SingleAggregatedConnectionResponseArray;
       return body;
     }
-    if (response.httpStatusCode === 400 || response.httpStatusCode === 429) {
-      const bodyText = parse(await response.body.text(), contentType);
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 429
+    ) {
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -243,7 +238,10 @@ export class CloudNetworkMonitoringApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -274,7 +272,9 @@ export class CloudNetworkMonitoringApiResponseProcessor {
   public async getAggregatedDns(
     response: ResponseContext,
   ): Promise<SingleAggregatedDnsResponseArray> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: SingleAggregatedDnsResponseArray = deserialize(
         parse(await response.body.text(), contentType),
@@ -283,8 +283,14 @@ export class CloudNetworkMonitoringApiResponseProcessor {
       ) as SingleAggregatedDnsResponseArray;
       return body;
     }
-    if (response.httpStatusCode === 400 || response.httpStatusCode === 429) {
-      const bodyText = parse(await response.body.text(), contentType);
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 429
+    ) {
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -299,7 +305,10 @@ export class CloudNetworkMonitoringApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -392,7 +401,8 @@ export class CloudNetworkMonitoringApi {
   private responseProcessor: CloudNetworkMonitoringApiResponseProcessor;
   private configuration: Configuration;
 
-  static operationServers: { [key: string]: BaseServerConfiguration[] } = {};
+  static operationServers: { [key: string]: BaseServerConfiguration[] } = {
+  };
 
   public constructor(
     configuration?: Configuration,
@@ -428,9 +438,7 @@ export class CloudNetworkMonitoringApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.getAggregatedConnections(
-            responseContext,
-          );
+          return this.responseProcessor.getAggregatedConnections(responseContext);
         });
     });
   }

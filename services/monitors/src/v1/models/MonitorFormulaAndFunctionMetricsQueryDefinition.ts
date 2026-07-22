@@ -49,7 +49,7 @@ export class MonitorFormulaAndFunctionMetricsQueryDefinition {
       baseName: "query",
       type: "string",
       required: true,
-    },
+    }
   };
 
   /**

@@ -4,7 +4,7 @@ import { ObservabilityPipelineThrottleProcessorType } from "./ObservabilityPipel
 
 /**
  * The `throttle` processor limits the number of events that pass through over a given time window.
- *
+ * 
  * **Supported pipeline types:** logs
  */
 export class ObservabilityPipelineThrottleProcessor {
@@ -45,7 +45,7 @@ export class ObservabilityPipelineThrottleProcessor {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
   /**
    * @ignore
    */

@@ -1,8 +1,9 @@
 import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
+
 /**
  * Event overlay control options.
- *
+ * 
  * See the dedicated [Events JSON schema documentation](https://docs.datadoghq.com/dashboards/graphing_json/widget_json/#events-schema)
  * to learn how to build the `<EVENTS_SCHEMA>`.
  */
@@ -20,7 +21,7 @@ export class WidgetEvent {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
   /**
    * @ignore
    */

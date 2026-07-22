@@ -6,5 +6,4 @@ import { UnparsedObject } from "@datadog/datadog-api-client";
 export type SecurityMonitoringRuleConvertBulkDataType =
   | typeof SECURITY_MONITORING_RULES_CONVERT_BULK
   | UnparsedObject;
-export const SECURITY_MONITORING_RULES_CONVERT_BULK =
-  "security_monitoring_rules_convert_bulk";
+export const SECURITY_MONITORING_RULES_CONVERT_BULK = "security_monitoring_rules_convert_bulk";

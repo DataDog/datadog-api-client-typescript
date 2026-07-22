@@ -1,5 +1,6 @@
 import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
+
 /**
  * Attributes of a resource filter.
  */
@@ -7,7 +8,7 @@ export class ResourceFilterAttributes {
   /**
    * A map of cloud provider names (e.g., "aws", "gcp", "azure") to a map of account/resource IDs and their associated tag filters.
    */
-  "cloudProvider": { [key: string]: { [key: string]: Array<string> } };
+  "cloudProvider": { [key: string]: { [key: string]: Array<string>; }; };
   /**
    * The UUID of the resource filter.
    */
@@ -17,7 +18,7 @@ export class ResourceFilterAttributes {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
   /**
    * @ignore
    */

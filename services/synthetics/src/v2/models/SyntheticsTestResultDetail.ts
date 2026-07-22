@@ -158,7 +158,7 @@ export class SyntheticsTestResultDetail {
   /**
    * Timing breakdown of the test request phases (for example, DNS, TCP, TLS, first byte).
    */
-  "timings"?: { [key: string]: any };
+  "timings"?: { [key: string]: any; };
   /**
    * Trace identifiers associated with a Synthetic test result.
    */
@@ -192,7 +192,7 @@ export class SyntheticsTestResultDetail {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
   /**
    * @ignore
    */

@@ -83,7 +83,7 @@ export class SankeyWidgetDefinition {
       baseName: "type",
       type: "SankeyWidgetDefinitionType",
       required: true,
-    },
+    }
   };
 
   /**

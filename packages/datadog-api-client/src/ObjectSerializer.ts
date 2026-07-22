@@ -249,12 +249,7 @@ export function serialize(
   }
 }
 
-export function deserialize(
-  data: any,
-  typingInfo: ModelTypingInfo,
-  type: string,
-  format: string = "",
-): any {
+export function deserialize(data: any, typingInfo: ModelTypingInfo, type: string, format: string = ""): any {
   if (data == undefined || type === "any") {
     return data;
   } else if (
@@ -292,12 +287,7 @@ export function deserialize(
     const subType: string = type.substring(MAP_PREFIX.length, type.length - 3);
     const transformedData: { [key: string]: any } = {};
     for (const key in data) {
-      transformedData[key] = deserialize(
-        data[key],
-        typingInfo,
-        subType,
-        format,
-      );
+      transformedData[key] = deserialize(data[key], typingInfo, subType, format);
     }
     return transformedData;
   } else if (type === "Date") {
@@ -339,8 +329,7 @@ export function deserialize(
     const instance = new typingInfo.typeMap[type]();
     const attributesMap = typingInfo.typeMap[type].getAttributeTypeMap();
     const keepAllInAdditional =
-      (typingInfo.typeMap[type] as any)._keepTypedInAdditionalProperties ===
-      true;
+      (typingInfo.typeMap[type] as any)._keepTypedInAdditionalProperties === true;
     // Single pass: build attributesBaseNames (for extra-key detection) and, when needed,
     // baseNameToAttr (for per-field typed deserialization preserving int64 precision).
     const attributesBaseNames: { [key: string]: string } = {};

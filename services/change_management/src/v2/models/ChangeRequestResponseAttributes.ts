@@ -14,7 +14,7 @@ export class ChangeRequestResponseAttributes {
   /**
    * Custom attributes of the change request as key-value pairs.
    */
-  "attributes": { [key: string]: Array<string> };
+  "attributes": { [key: string]: Array<string>; };
   /**
    * The UUID of the linked incident.
    */
@@ -96,7 +96,7 @@ export class ChangeRequestResponseAttributes {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
   /**
    * @ignore
    */

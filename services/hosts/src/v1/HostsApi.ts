@@ -19,6 +19,7 @@ import {
   ServerConfiguration,
   stringify,
   applySecurityAuthentication,
+  
 } from "@datadog/datadog-api-client";
 
 import { TypingInfo } from "./models/TypingInfo";
@@ -48,15 +49,8 @@ export class HostsApiRequestFactory extends BaseAPIRequestFactory {
     const localVarPath = "/api/v1/hosts/totals";
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "HostsApi.v1.getHostTotals",
-      HostsApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.GET,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("HostsApi.v1.getHostTotals", HostsApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.GET, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -101,15 +95,8 @@ export class HostsApiRequestFactory extends BaseAPIRequestFactory {
     const localVarPath = "/api/v1/hosts";
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "HostsApi.v1.listHosts",
-      HostsApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.GET,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("HostsApi.v1.listHosts", HostsApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.GET, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -210,15 +197,8 @@ export class HostsApiRequestFactory extends BaseAPIRequestFactory {
     );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "HostsApi.v1.muteHost",
-      HostsApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.POST,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("HostsApi.v1.muteHost", HostsApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.POST, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -228,7 +208,9 @@ export class HostsApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Body Params
-    const contentType = getPreferredMediaType(["application/json"]);
+    const contentType = getPreferredMediaType([
+      "application/json",
+    ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = stringify(
       serialize(body, TypingInfo, "HostMuteSettings", ""),
@@ -263,15 +245,8 @@ export class HostsApiRequestFactory extends BaseAPIRequestFactory {
     );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "HostsApi.v1.unmuteHost",
-      HostsApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.POST,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("HostsApi.v1.unmuteHost", HostsApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.POST, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -298,8 +273,12 @@ export class HostsApiResponseProcessor {
    * @params response Response returned by the server for a request to getHostTotals
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async getHostTotals(response: ResponseContext): Promise<HostTotals> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+  public async getHostTotals(
+    response: ResponseContext,
+  ): Promise<HostTotals> {
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: HostTotals = deserialize(
         parse(await response.body.text(), contentType),
@@ -313,7 +292,10 @@ export class HostsApiResponseProcessor {
       response.httpStatusCode === 403 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -328,7 +310,10 @@ export class HostsApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -356,8 +341,12 @@ export class HostsApiResponseProcessor {
    * @params response Response returned by the server for a request to listHosts
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async listHosts(response: ResponseContext): Promise<HostListResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+  public async listHosts(
+    response: ResponseContext,
+  ): Promise<HostListResponse> {
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: HostListResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -371,7 +360,10 @@ export class HostsApiResponseProcessor {
       response.httpStatusCode === 403 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -386,7 +378,10 @@ export class HostsApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -414,8 +409,12 @@ export class HostsApiResponseProcessor {
    * @params response Response returned by the server for a request to muteHost
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async muteHost(response: ResponseContext): Promise<HostMuteResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+  public async muteHost(
+    response: ResponseContext,
+  ): Promise<HostMuteResponse> {
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: HostMuteResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -429,7 +428,10 @@ export class HostsApiResponseProcessor {
       response.httpStatusCode === 403 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -444,7 +446,10 @@ export class HostsApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -475,7 +480,9 @@ export class HostsApiResponseProcessor {
   public async unmuteHost(
     response: ResponseContext,
   ): Promise<HostMuteResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: HostMuteResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -489,7 +496,10 @@ export class HostsApiResponseProcessor {
       response.httpStatusCode === 403 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -504,7 +514,10 @@ export class HostsApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -603,7 +616,8 @@ export class HostsApi {
   private responseProcessor: HostsApiResponseProcessor;
   private configuration: Configuration;
 
-  static operationServers: { [key: string]: BaseServerConfiguration[] } = {};
+  static operationServers: { [key: string]: BaseServerConfiguration[] } = {
+  };
 
   public constructor(
     configuration?: Configuration,
@@ -612,7 +626,8 @@ export class HostsApi {
   ) {
     this.configuration = configuration || createConfiguration();
     this.requestFactory =
-      requestFactory || new HostsApiRequestFactory(this.configuration);
+      requestFactory ||
+      new HostsApiRequestFactory(this.configuration);
     this.responseProcessor =
       responseProcessor || new HostsApiResponseProcessor();
   }

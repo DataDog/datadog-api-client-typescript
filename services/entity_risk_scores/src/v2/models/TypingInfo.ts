@@ -14,13 +14,7 @@ import { SecurityEntityRiskScoresResponse } from "./SecurityEntityRiskScoresResp
 
 export const TypingInfo: ModelTypingInfo = {
   enumsMap: {
-    SecurityEntityRiskScoreAttributesSeverity: [
-      "critical",
-      "high",
-      "medium",
-      "low",
-      "info",
-    ],
+    SecurityEntityRiskScoreAttributesSeverity: ["critical", "high", "medium", "low", "info"],
     SecurityEntityRiskScoreType: ["SecurityEntityRiskScore"],
   },
   oneOfMap: {},

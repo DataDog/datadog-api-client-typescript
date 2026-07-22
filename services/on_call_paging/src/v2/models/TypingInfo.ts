@@ -21,8 +21,7 @@ export const TypingInfo: ModelTypingInfo = {
     CreatePageRequest: CreatePageRequest,
     CreatePageRequestData: CreatePageRequestData,
     CreatePageRequestDataAttributes: CreatePageRequestDataAttributes,
-    CreatePageRequestDataAttributesTarget:
-      CreatePageRequestDataAttributesTarget,
+    CreatePageRequestDataAttributesTarget: CreatePageRequestDataAttributesTarget,
     CreatePageResponse: CreatePageResponse,
     CreatePageResponseData: CreatePageResponseData,
   },

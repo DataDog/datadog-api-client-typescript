@@ -29,11 +29,11 @@ export class CustomRuleRevisionInputAttributes {
   /**
    * Associated CVE
    */
-  "cve": string | null;
+  "cve": string|null;
   /**
    * Associated CWE
    */
-  "cwe": string | null;
+  "cwe": string|null;
   /**
    * Full description
    */
@@ -41,7 +41,7 @@ export class CustomRuleRevisionInputAttributes {
   /**
    * Documentation URL
    */
-  "documentationUrl": string | null;
+  "documentationUrl": string|null;
   /**
    * Whether the revision is published
    */
@@ -83,7 +83,7 @@ export class CustomRuleRevisionInputAttributes {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
   /**
    * @ignore
    */

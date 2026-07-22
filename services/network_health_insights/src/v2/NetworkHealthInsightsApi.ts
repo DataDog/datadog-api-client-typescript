@@ -19,6 +19,7 @@ import {
   ServerConfiguration,
   stringify,
   applySecurityAuthentication,
+  
 } from "@datadog/datadog-api-client";
 
 import { TypingInfo } from "./models/TypingInfo";
@@ -43,29 +44,16 @@ export class NetworkHealthInsightsApiRequestFactory extends BaseAPIRequestFactor
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
-    if (
-      !_config.unstableOperations[
-        "NetworkHealthInsightsApi.v2.listNetworkHealthInsights"
-      ]
-    ) {
-      throw new Error(
-        "Unstable operation 'listNetworkHealthInsights' is disabled. Enable it by setting `configuration.unstableOperations['NetworkHealthInsightsApi.v2.listNetworkHealthInsights'] = true`",
-      );
+    if (!_config.unstableOperations["NetworkHealthInsightsApi.v2.listNetworkHealthInsights"]) {
+      throw new Error("Unstable operation 'listNetworkHealthInsights' is disabled. Enable it by setting `configuration.unstableOperations['NetworkHealthInsightsApi.v2.listNetworkHealthInsights'] = true`");
     }
 
     // Path Params
     const localVarPath = "/api/v2/network-health-insights";
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "NetworkHealthInsightsApi.v2.listNetworkHealthInsights",
-      NetworkHealthInsightsApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.GET,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("NetworkHealthInsightsApi.v2.listNetworkHealthInsights", NetworkHealthInsightsApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.GET, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -111,7 +99,9 @@ export class NetworkHealthInsightsApiResponseProcessor {
   public async listNetworkHealthInsights(
     response: ResponseContext,
   ): Promise<NetworkHealthInsightsResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: NetworkHealthInsightsResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -125,7 +115,10 @@ export class NetworkHealthInsightsApiResponseProcessor {
       response.httpStatusCode === 403 ||
       response.httpStatusCode === 500
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: JSONAPIErrorResponse;
       try {
         body = deserialize(
@@ -146,7 +139,10 @@ export class NetworkHealthInsightsApiResponseProcessor {
       );
     }
     if (response.httpStatusCode === 429) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -161,7 +157,10 @@ export class NetworkHealthInsightsApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -205,7 +204,8 @@ export class NetworkHealthInsightsApi {
   private responseProcessor: NetworkHealthInsightsApiResponseProcessor;
   private configuration: Configuration;
 
-  static operationServers: { [key: string]: BaseServerConfiguration[] } = {};
+  static operationServers: { [key: string]: BaseServerConfiguration[] } = {
+  };
 
   public constructor(
     configuration?: Configuration,
@@ -241,9 +241,7 @@ export class NetworkHealthInsightsApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.listNetworkHealthInsights(
-            responseContext,
-          );
+          return this.responseProcessor.listNetworkHealthInsights(responseContext);
         });
     });
   }

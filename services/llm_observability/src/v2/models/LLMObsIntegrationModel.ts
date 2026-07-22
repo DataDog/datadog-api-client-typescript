@@ -1,5 +1,6 @@
 import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
+
 /**
  * A model available for a given LLM provider integration and account.
  */
@@ -43,13 +44,13 @@ export class LLMObsIntegrationModel {
   /**
    * Map of region-specific model ID prefix overrides.
    */
-  "regionPrefixOverrides"?: { [key: string]: string };
+  "regionPrefixOverrides"?: { [key: string]: string; };
   /**
    * A container for additional, undeclared properties.
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
   /**
    * @ignore
    */

@@ -12,37 +12,20 @@ import { SingleAggregatedDnsResponseDataAttributesMetricsItems } from "./SingleA
 
 export const TypingInfo: ModelTypingInfo = {
   enumsMap: {
-    DnsMetricKey: [
-      "dns_total_requests",
-      "dns_failures",
-      "dns_successful_responses",
-      "dns_failed_responses",
-      "dns_timeouts",
-      "dns_responses.nxdomain",
-      "dns_responses.servfail",
-      "dns_responses.other",
-      "dns_success_latency_percentile",
-      "dns_failure_latency_percentile",
-    ],
+    DnsMetricKey: ["dns_total_requests", "dns_failures", "dns_successful_responses", "dns_failed_responses", "dns_timeouts", "dns_responses.nxdomain", "dns_responses.servfail", "dns_responses.other", "dns_success_latency_percentile", "dns_failure_latency_percentile"],
     SingleAggregatedConnectionResponseDataType: ["aggregated_connection"],
     SingleAggregatedDnsResponseDataType: ["aggregated_dns"],
   },
   oneOfMap: {},
   typeMap: {
     APIErrorResponse: APIErrorResponse,
-    SingleAggregatedConnectionResponseArray:
-      SingleAggregatedConnectionResponseArray,
-    SingleAggregatedConnectionResponseData:
-      SingleAggregatedConnectionResponseData,
-    SingleAggregatedConnectionResponseDataAttributes:
-      SingleAggregatedConnectionResponseDataAttributes,
+    SingleAggregatedConnectionResponseArray: SingleAggregatedConnectionResponseArray,
+    SingleAggregatedConnectionResponseData: SingleAggregatedConnectionResponseData,
+    SingleAggregatedConnectionResponseDataAttributes: SingleAggregatedConnectionResponseDataAttributes,
     SingleAggregatedDnsResponseArray: SingleAggregatedDnsResponseArray,
     SingleAggregatedDnsResponseData: SingleAggregatedDnsResponseData,
-    SingleAggregatedDnsResponseDataAttributes:
-      SingleAggregatedDnsResponseDataAttributes,
-    SingleAggregatedDnsResponseDataAttributesGroupByItems:
-      SingleAggregatedDnsResponseDataAttributesGroupByItems,
-    SingleAggregatedDnsResponseDataAttributesMetricsItems:
-      SingleAggregatedDnsResponseDataAttributesMetricsItems,
+    SingleAggregatedDnsResponseDataAttributes: SingleAggregatedDnsResponseDataAttributes,
+    SingleAggregatedDnsResponseDataAttributesGroupByItems: SingleAggregatedDnsResponseDataAttributesGroupByItems,
+    SingleAggregatedDnsResponseDataAttributesMetricsItems: SingleAggregatedDnsResponseDataAttributesMetricsItems,
   },
 };

@@ -6,7 +6,7 @@ import { ObservabilityPipelineDatadogTagsProcessorType } from "./ObservabilityPi
 
 /**
  * The `datadog_tags` processor includes or excludes specific Datadog tags in your logs.
- *
+ * 
  * **Supported pipeline types:** logs
  */
 export class ObservabilityPipelineDatadogTagsProcessor {
@@ -47,7 +47,7 @@ export class ObservabilityPipelineDatadogTagsProcessor {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
   /**
    * @ignore
    */

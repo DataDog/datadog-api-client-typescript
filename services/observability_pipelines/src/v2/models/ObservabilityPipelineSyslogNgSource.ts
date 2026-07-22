@@ -6,7 +6,7 @@ import { ObservabilityPipelineSyslogSourceMode } from "./ObservabilityPipelineSy
 
 /**
  * The `syslog_ng` source listens for logs over TCP or UDP from a `syslog-ng` server using the syslog protocol.
- *
+ * 
  * **Supported pipeline types:** logs
  */
 export class ObservabilityPipelineSyslogNgSource {
@@ -35,7 +35,7 @@ export class ObservabilityPipelineSyslogNgSource {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
   /**
    * @ignore
    */

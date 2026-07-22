@@ -85,18 +85,15 @@ export const TypingInfo: ModelTypingInfo = {
     FleetDeploymentAttributes: FleetDeploymentAttributes,
     FleetDeploymentConfigureAttributes: FleetDeploymentConfigureAttributes,
     FleetDeploymentConfigureCreate: FleetDeploymentConfigureCreate,
-    FleetDeploymentConfigureCreateRequest:
-      FleetDeploymentConfigureCreateRequest,
+    FleetDeploymentConfigureCreateRequest: FleetDeploymentConfigureCreateRequest,
     FleetDeploymentHost: FleetDeploymentHost,
     FleetDeploymentHostPackage: FleetDeploymentHostPackage,
     FleetDeploymentHostsPage: FleetDeploymentHostsPage,
     FleetDeploymentOperation: FleetDeploymentOperation,
     FleetDeploymentPackage: FleetDeploymentPackage,
-    FleetDeploymentPackageUpgradeAttributes:
-      FleetDeploymentPackageUpgradeAttributes,
+    FleetDeploymentPackageUpgradeAttributes: FleetDeploymentPackageUpgradeAttributes,
     FleetDeploymentPackageUpgradeCreate: FleetDeploymentPackageUpgradeCreate,
-    FleetDeploymentPackageUpgradeCreateRequest:
-      FleetDeploymentPackageUpgradeCreateRequest,
+    FleetDeploymentPackageUpgradeCreateRequest: FleetDeploymentPackageUpgradeCreateRequest,
     FleetDeploymentResponse: FleetDeploymentResponse,
     FleetDeploymentResponseMeta: FleetDeploymentResponseMeta,
     FleetDeploymentsPage: FleetDeploymentsPage,

@@ -10,7 +10,7 @@ export class LLMObsExperimentDataAttributesResponse {
   /**
    * Pre-computed aggregate metrics for this experiment run, including eval score distributions, token costs, and error rates.
    */
-  "aggregateData"?: { [key: string]: any };
+  "aggregateData"?: { [key: string]: any; };
   /**
    * User data for the author of an experiment. Only present when `include[user_data]` is `true`.
    */
@@ -18,7 +18,7 @@ export class LLMObsExperimentDataAttributesResponse {
   /**
    * Configuration parameters for the experiment.
    */
-  "config": { [key: string]: any } | null;
+  "config": { [key: string]: any; }|null;
   /**
    * Timestamp when the experiment was created.
    */
@@ -43,7 +43,7 @@ export class LLMObsExperimentDataAttributesResponse {
   /**
    * Description of the experiment.
    */
-  "description": string | null;
+  "description": string|null;
   /**
    * Error message describing why the experiment failed, if applicable.
    */
@@ -55,7 +55,7 @@ export class LLMObsExperimentDataAttributesResponse {
   /**
    * Arbitrary metadata associated with the experiment.
    */
-  "metadata": { [key: string]: any } | null;
+  "metadata": { [key: string]: any; }|null;
   /**
    * Name of the experiment.
    */
@@ -85,7 +85,7 @@ export class LLMObsExperimentDataAttributesResponse {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
   /**
    * @ignore
    */

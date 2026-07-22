@@ -1,5 +1,6 @@
 import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
+
 /**
  * The time window defining the start and end of the event query period as Unix timestamps.
  */
@@ -17,7 +18,7 @@ export class QueryEventFilteredUsersRequestDataAttributesEventQueryTimeFrame {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
   /**
    * @ignore
    */

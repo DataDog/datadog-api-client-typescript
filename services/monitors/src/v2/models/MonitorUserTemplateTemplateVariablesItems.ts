@@ -1,5 +1,6 @@
 import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
+
 /**
  * List of objects representing template variables on the monitor which can have selectable values.
  */
@@ -45,7 +46,7 @@ export class MonitorUserTemplateTemplateVariablesItems {
     tagKey: {
       baseName: "tag_key",
       type: "string",
-    },
+    }
   };
 
   /**

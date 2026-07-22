@@ -19,6 +19,7 @@ import {
   ServerConfiguration,
   stringify,
   applySecurityAuthentication,
+  
 } from "@datadog/datadog-api-client";
 
 import { TypingInfo } from "./models/TypingInfo";
@@ -43,9 +44,7 @@ export class SpaApiRequestFactory extends BaseAPIRequestFactory {
     const _config = _options || this.configuration;
 
     if (!_config.unstableOperations["SpaApi.v2.getSPARecommendations"]) {
-      throw new Error(
-        "Unstable operation 'getSPARecommendations' is disabled. Enable it by setting `configuration.unstableOperations['SpaApi.v2.getSPARecommendations'] = true`",
-      );
+      throw new Error("Unstable operation 'getSPARecommendations' is disabled. Enable it by setting `configuration.unstableOperations['SpaApi.v2.getSPARecommendations'] = true`");
     }
 
     // verify required parameter 'service' is not null or undefined
@@ -60,15 +59,8 @@ export class SpaApiRequestFactory extends BaseAPIRequestFactory {
     );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "SpaApi.v2.getSPARecommendations",
-      SpaApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.GET,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("SpaApi.v2.getSPARecommendations", SpaApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.GET, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -87,7 +79,9 @@ export class SpaApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Apply auth methods
-    applySecurityAuthentication(_config, requestContext, ["AuthZ"]);
+    applySecurityAuthentication(_config, requestContext, [
+      "AuthZ",
+    ]);
 
     return requestContext;
   }
@@ -100,12 +94,8 @@ export class SpaApiRequestFactory extends BaseAPIRequestFactory {
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
-    if (
-      !_config.unstableOperations["SpaApi.v2.getSPARecommendationsWithShard"]
-    ) {
-      throw new Error(
-        "Unstable operation 'getSPARecommendationsWithShard' is disabled. Enable it by setting `configuration.unstableOperations['SpaApi.v2.getSPARecommendationsWithShard'] = true`",
-      );
+    if (!_config.unstableOperations["SpaApi.v2.getSPARecommendationsWithShard"]) {
+      throw new Error("Unstable operation 'getSPARecommendationsWithShard' is disabled. Enable it by setting `configuration.unstableOperations['SpaApi.v2.getSPARecommendationsWithShard'] = true`");
     }
 
     // verify required parameter 'shard' is not null or undefined
@@ -119,20 +109,17 @@ export class SpaApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Path Params
-    const localVarPath = "/api/v2/spa/recommendations/{service}/{shard}"
-      .replace("{shard}", encodeURIComponent(String(shard)))
-      .replace("{service}", encodeURIComponent(String(service)));
+    const localVarPath = "/api/v2/spa/recommendations/{service}/{shard}".replace(
+      "{shard}",
+      encodeURIComponent(String(shard)),
+    ).replace(
+      "{service}",
+      encodeURIComponent(String(service)),
+    );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "SpaApi.v2.getSPARecommendationsWithShard",
-      SpaApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.GET,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("SpaApi.v2.getSPARecommendationsWithShard", SpaApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.GET, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -151,7 +138,9 @@ export class SpaApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Apply auth methods
-    applySecurityAuthentication(_config, requestContext, ["AuthZ"]);
+    applySecurityAuthentication(_config, requestContext, [
+      "AuthZ",
+    ]);
 
     return requestContext;
   }
@@ -168,7 +157,9 @@ export class SpaApiResponseProcessor {
   public async getSPARecommendations(
     response: ResponseContext,
   ): Promise<RecommendationDocument> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: RecommendationDocument = deserialize(
         parse(await response.body.text(), contentType),
@@ -182,7 +173,10 @@ export class SpaApiResponseProcessor {
       response.httpStatusCode === 403 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -197,7 +191,10 @@ export class SpaApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -228,7 +225,9 @@ export class SpaApiResponseProcessor {
   public async getSPARecommendationsWithShard(
     response: ResponseContext,
   ): Promise<RecommendationDocument> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: RecommendationDocument = deserialize(
         parse(await response.body.text(), contentType),
@@ -242,7 +241,10 @@ export class SpaApiResponseProcessor {
       response.httpStatusCode === 403 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -257,7 +259,10 @@ export class SpaApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -315,7 +320,8 @@ export class SpaApi {
   private responseProcessor: SpaApiResponseProcessor;
   private configuration: Configuration;
 
-  static operationServers: { [key: string]: BaseServerConfiguration[] } = {};
+  static operationServers: { [key: string]: BaseServerConfiguration[] } = {
+  };
 
   public constructor(
     configuration?: Configuration,
@@ -324,8 +330,10 @@ export class SpaApi {
   ) {
     this.configuration = configuration || createConfiguration();
     this.requestFactory =
-      requestFactory || new SpaApiRequestFactory(this.configuration);
-    this.responseProcessor = responseProcessor || new SpaApiResponseProcessor();
+      requestFactory ||
+      new SpaApiRequestFactory(this.configuration);
+    this.responseProcessor =
+      responseProcessor || new SpaApiResponseProcessor();
   }
 
   /**
@@ -358,20 +366,17 @@ export class SpaApi {
     param: SpaApiGetSPARecommendationsWithShardRequest,
     options?: Configuration,
   ): Promise<RecommendationDocument> {
-    const requestContextPromise =
-      this.requestFactory.getSPARecommendationsWithShard(
-        param.shard,
-        param.service,
-        param.bypassCache,
-        options,
-      );
+    const requestContextPromise = this.requestFactory.getSPARecommendationsWithShard(
+      param.shard,
+      param.service,
+      param.bypassCache,
+      options,
+    );
     return requestContextPromise.then((requestContext) => {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.getSPARecommendationsWithShard(
-            responseContext,
-          );
+          return this.responseProcessor.getSPARecommendationsWithShard(responseContext);
         });
     });
   }

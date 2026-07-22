@@ -1,5 +1,6 @@
 import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
+
 /**
  * The lists of field names returned by `GET /api/v1/usage/summary` at each
  * of its three response levels. Each list contains every key the data endpoint
@@ -30,7 +31,7 @@ export class UsageSummaryAvailableFieldsAttributes {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
   /**
    * @ignore
    */

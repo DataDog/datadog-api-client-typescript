@@ -22,12 +22,12 @@ export class APMTraceSpan {
    * String-valued tags attached to the span. Tag keys starting with `_` are
    * filtered out of the response.
    */
-  "meta": { [key: string]: string };
+  "meta": { [key: string]: string; };
   /**
    * Numeric metrics attached to the span. Metric keys starting with `_` are
    * filtered out of the response.
    */
-  "metrics": { [key: string]: number };
+  "metrics": { [key: string]: number; };
   /**
    * The operation name of the span.
    */
@@ -81,7 +81,7 @@ export class APMTraceSpan {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
   /**
    * @ignore
    */

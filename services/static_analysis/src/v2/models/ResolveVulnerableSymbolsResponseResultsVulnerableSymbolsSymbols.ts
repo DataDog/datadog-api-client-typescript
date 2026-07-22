@@ -1,5 +1,6 @@
 import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
+
 /**
  * A symbol identified as vulnerable within a dependency, including its name, type, and value.
  */
@@ -21,7 +22,7 @@ export class ResolveVulnerableSymbolsResponseResultsVulnerableSymbolsSymbols {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
   /**
    * @ignore
    */

@@ -22,7 +22,7 @@ import {
   HttpFile,
 } from "@datadog/datadog-api-client";
 
-import FormData from "form-data";
+import FormData from "form-data"
 
 import { TypingInfo } from "./models/TypingInfo";
 import { APIErrorResponse } from "./models/APIErrorResponse";
@@ -48,24 +48,15 @@ export class APIManagementApiRequestFactory extends BaseAPIRequestFactory {
     const _config = _options || this.configuration;
 
     if (!_config.unstableOperations["APIManagementApi.v2.createOpenAPI"]) {
-      throw new Error(
-        "Unstable operation 'createOpenAPI' is disabled. Enable it by setting `configuration.unstableOperations['APIManagementApi.v2.createOpenAPI'] = true`",
-      );
+      throw new Error("Unstable operation 'createOpenAPI' is disabled. Enable it by setting `configuration.unstableOperations['APIManagementApi.v2.createOpenAPI'] = true`");
     }
 
     // Path Params
     const localVarPath = "/api/v2/apicatalog/openapi";
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "APIManagementApi.v2.createOpenAPI",
-      APIManagementApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.POST,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("APIManagementApi.v2.createOpenAPI", APIManagementApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.POST, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -99,9 +90,7 @@ export class APIManagementApiRequestFactory extends BaseAPIRequestFactory {
     const _config = _options || this.configuration;
 
     if (!_config.unstableOperations["APIManagementApi.v2.deleteOpenAPI"]) {
-      throw new Error(
-        "Unstable operation 'deleteOpenAPI' is disabled. Enable it by setting `configuration.unstableOperations['APIManagementApi.v2.deleteOpenAPI'] = true`",
-      );
+      throw new Error("Unstable operation 'deleteOpenAPI' is disabled. Enable it by setting `configuration.unstableOperations['APIManagementApi.v2.deleteOpenAPI'] = true`");
     }
 
     // verify required parameter 'id' is not null or undefined
@@ -116,15 +105,8 @@ export class APIManagementApiRequestFactory extends BaseAPIRequestFactory {
     );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "APIManagementApi.v2.deleteOpenAPI",
-      APIManagementApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.DELETE,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("APIManagementApi.v2.deleteOpenAPI", APIManagementApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.DELETE, overrides);
     requestContext.setHeaderParam("Accept", "*/*");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -150,9 +132,7 @@ export class APIManagementApiRequestFactory extends BaseAPIRequestFactory {
     const _config = _options || this.configuration;
 
     if (!_config.unstableOperations["APIManagementApi.v2.getOpenAPI"]) {
-      throw new Error(
-        "Unstable operation 'getOpenAPI' is disabled. Enable it by setting `configuration.unstableOperations['APIManagementApi.v2.getOpenAPI'] = true`",
-      );
+      throw new Error("Unstable operation 'getOpenAPI' is disabled. Enable it by setting `configuration.unstableOperations['APIManagementApi.v2.getOpenAPI'] = true`");
     }
 
     // verify required parameter 'id' is not null or undefined
@@ -167,19 +147,9 @@ export class APIManagementApiRequestFactory extends BaseAPIRequestFactory {
     );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "APIManagementApi.v2.getOpenAPI",
-      APIManagementApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.GET,
-      overrides,
-    );
-    requestContext.setHeaderParam(
-      "Accept",
-      "multipart/form-data, application/json",
-    );
+    const { server, overrides } = _config.getServerAndOverrides("APIManagementApi.v2.getOpenAPI", APIManagementApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.GET, overrides);
+    requestContext.setHeaderParam("Accept", "multipart/form-data, application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
     // Set User-Agent
@@ -206,24 +176,15 @@ export class APIManagementApiRequestFactory extends BaseAPIRequestFactory {
     const _config = _options || this.configuration;
 
     if (!_config.unstableOperations["APIManagementApi.v2.listAPIs"]) {
-      throw new Error(
-        "Unstable operation 'listAPIs' is disabled. Enable it by setting `configuration.unstableOperations['APIManagementApi.v2.listAPIs'] = true`",
-      );
+      throw new Error("Unstable operation 'listAPIs' is disabled. Enable it by setting `configuration.unstableOperations['APIManagementApi.v2.listAPIs'] = true`");
     }
 
     // Path Params
     const localVarPath = "/api/v2/apicatalog/api";
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "APIManagementApi.v2.listAPIs",
-      APIManagementApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.GET,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("APIManagementApi.v2.listAPIs", APIManagementApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.GET, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -273,9 +234,7 @@ export class APIManagementApiRequestFactory extends BaseAPIRequestFactory {
     const _config = _options || this.configuration;
 
     if (!_config.unstableOperations["APIManagementApi.v2.updateOpenAPI"]) {
-      throw new Error(
-        "Unstable operation 'updateOpenAPI' is disabled. Enable it by setting `configuration.unstableOperations['APIManagementApi.v2.updateOpenAPI'] = true`",
-      );
+      throw new Error("Unstable operation 'updateOpenAPI' is disabled. Enable it by setting `configuration.unstableOperations['APIManagementApi.v2.updateOpenAPI'] = true`");
     }
 
     // verify required parameter 'id' is not null or undefined
@@ -290,15 +249,8 @@ export class APIManagementApiRequestFactory extends BaseAPIRequestFactory {
     );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "APIManagementApi.v2.updateOpenAPI",
-      APIManagementApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.PUT,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("APIManagementApi.v2.updateOpenAPI", APIManagementApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.PUT, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -337,7 +289,9 @@ export class APIManagementApiResponseProcessor {
   public async createOpenAPI(
     response: ResponseContext,
   ): Promise<CreateOpenAPIResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 201) {
       const body: CreateOpenAPIResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -346,8 +300,14 @@ export class APIManagementApiResponseProcessor {
       ) as CreateOpenAPIResponse;
       return body;
     }
-    if (response.httpStatusCode === 400 || response.httpStatusCode === 403) {
-      const bodyText = parse(await response.body.text(), contentType);
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 403
+    ) {
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: JSONAPIErrorResponse;
       try {
         body = deserialize(
@@ -368,7 +328,10 @@ export class APIManagementApiResponseProcessor {
       );
     }
     if (response.httpStatusCode === 429) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -383,7 +346,10 @@ export class APIManagementApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -411,8 +377,12 @@ export class APIManagementApiResponseProcessor {
    * @params response Response returned by the server for a request to deleteOpenAPI
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async deleteOpenAPI(response: ResponseContext): Promise<void> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+  public async deleteOpenAPI(
+    response: ResponseContext,
+  ): Promise<void> {
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 204) {
       return;
     }
@@ -421,7 +391,10 @@ export class APIManagementApiResponseProcessor {
       response.httpStatusCode === 403 ||
       response.httpStatusCode === 404
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: JSONAPIErrorResponse;
       try {
         body = deserialize(
@@ -442,7 +415,10 @@ export class APIManagementApiResponseProcessor {
       );
     }
     if (response.httpStatusCode === 429) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -457,7 +433,10 @@ export class APIManagementApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -479,10 +458,14 @@ export class APIManagementApiResponseProcessor {
    * @params response Response returned by the server for a request to getOpenAPI
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async getOpenAPI(response: ResponseContext): Promise<HttpFile> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+  public async getOpenAPI(
+    response: ResponseContext,
+  ): Promise<HttpFile> {
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
-      const body: HttpFile = (await response.getBodyAsFile()) as HttpFile;
+      const body: HttpFile = await response.getBodyAsFile() as HttpFile;
       return body;
     }
     if (
@@ -490,7 +473,10 @@ export class APIManagementApiResponseProcessor {
       response.httpStatusCode === 403 ||
       response.httpStatusCode === 404
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: JSONAPIErrorResponse;
       try {
         body = deserialize(
@@ -511,7 +497,10 @@ export class APIManagementApiResponseProcessor {
       );
     }
     if (response.httpStatusCode === 429) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -526,13 +515,15 @@ export class APIManagementApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-      const body: HttpFile =
-        (await response.getBodyAsFile()) as any as HttpFile;
+      const body: HttpFile = await response.getBodyAsFile() as any as HttpFile;
       return body;
     }
 
@@ -550,8 +541,12 @@ export class APIManagementApiResponseProcessor {
    * @params response Response returned by the server for a request to listAPIs
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async listAPIs(response: ResponseContext): Promise<ListAPIsResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+  public async listAPIs(
+    response: ResponseContext,
+  ): Promise<ListAPIsResponse> {
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: ListAPIsResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -560,8 +555,14 @@ export class APIManagementApiResponseProcessor {
       ) as ListAPIsResponse;
       return body;
     }
-    if (response.httpStatusCode === 400 || response.httpStatusCode === 403) {
-      const bodyText = parse(await response.body.text(), contentType);
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 403
+    ) {
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: JSONAPIErrorResponse;
       try {
         body = deserialize(
@@ -582,7 +583,10 @@ export class APIManagementApiResponseProcessor {
       );
     }
     if (response.httpStatusCode === 429) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -597,7 +601,10 @@ export class APIManagementApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -628,7 +635,9 @@ export class APIManagementApiResponseProcessor {
   public async updateOpenAPI(
     response: ResponseContext,
   ): Promise<UpdateOpenAPIResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: UpdateOpenAPIResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -642,7 +651,10 @@ export class APIManagementApiResponseProcessor {
       response.httpStatusCode === 403 ||
       response.httpStatusCode === 404
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: JSONAPIErrorResponse;
       try {
         body = deserialize(
@@ -663,7 +675,10 @@ export class APIManagementApiResponseProcessor {
       );
     }
     if (response.httpStatusCode === 429) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -678,7 +693,10 @@ export class APIManagementApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -760,7 +778,8 @@ export class APIManagementApi {
   private responseProcessor: APIManagementApiResponseProcessor;
   private configuration: Configuration;
 
-  static operationServers: { [key: string]: BaseServerConfiguration[] } = {};
+  static operationServers: { [key: string]: BaseServerConfiguration[] } = {
+  };
 
   public constructor(
     configuration?: Configuration,
@@ -769,7 +788,8 @@ export class APIManagementApi {
   ) {
     this.configuration = configuration || createConfiguration();
     this.requestFactory =
-      requestFactory || new APIManagementApiRequestFactory(this.configuration);
+      requestFactory ||
+      new APIManagementApiRequestFactory(this.configuration);
     this.responseProcessor =
       responseProcessor || new APIManagementApiResponseProcessor();
   }

@@ -13,7 +13,7 @@ export class CaseBulkUpdateRequestAttributes {
   /**
    * A key-value map of action-specific parameters. The required keys depend on the action type (for example, `priority` for the priority action, `assignee_id` for assign).
    */
-  "payload"?: { [key: string]: string };
+  "payload"?: { [key: string]: string; };
   /**
    * The type of action to apply in a bulk update. Allowed values are `priority`, `status`, `assign`, `unassign`, `archive`, `unarchive`, `jira`, `servicenow`, `linear`, `update_project`.
    */
@@ -23,7 +23,7 @@ export class CaseBulkUpdateRequestAttributes {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
   /**
    * @ignore
    */

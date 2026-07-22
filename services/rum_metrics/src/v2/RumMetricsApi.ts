@@ -19,6 +19,7 @@ import {
   ServerConfiguration,
   stringify,
   applySecurityAuthentication,
+  
 } from "@datadog/datadog-api-client";
 
 import { TypingInfo } from "./models/TypingInfo";
@@ -53,15 +54,8 @@ export class RumMetricsApiRequestFactory extends BaseAPIRequestFactory {
     const localVarPath = "/api/v2/rum/config/metrics";
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "RumMetricsApi.v2.createRumMetric",
-      RumMetricsApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.POST,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("RumMetricsApi.v2.createRumMetric", RumMetricsApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.POST, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -71,7 +65,9 @@ export class RumMetricsApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Body Params
-    const contentType = getPreferredMediaType(["application/json"]);
+    const contentType = getPreferredMediaType([
+      "application/json",
+    ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = stringify(
       serialize(body, TypingInfo, "RumMetricCreateRequest", ""),
@@ -106,15 +102,8 @@ export class RumMetricsApiRequestFactory extends BaseAPIRequestFactory {
     );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "RumMetricsApi.v2.deleteRumMetric",
-      RumMetricsApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.DELETE,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("RumMetricsApi.v2.deleteRumMetric", RumMetricsApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.DELETE, overrides);
     requestContext.setHeaderParam("Accept", "*/*");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -150,15 +139,8 @@ export class RumMetricsApiRequestFactory extends BaseAPIRequestFactory {
     );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "RumMetricsApi.v2.getRumMetric",
-      RumMetricsApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.GET,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("RumMetricsApi.v2.getRumMetric", RumMetricsApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.GET, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -185,15 +167,8 @@ export class RumMetricsApiRequestFactory extends BaseAPIRequestFactory {
     const localVarPath = "/api/v2/rum/config/metrics";
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "RumMetricsApi.v2.listRumMetrics",
-      RumMetricsApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.GET,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("RumMetricsApi.v2.listRumMetrics", RumMetricsApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.GET, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -235,15 +210,8 @@ export class RumMetricsApiRequestFactory extends BaseAPIRequestFactory {
     );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "RumMetricsApi.v2.updateRumMetric",
-      RumMetricsApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.PATCH,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("RumMetricsApi.v2.updateRumMetric", RumMetricsApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.PATCH, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -253,7 +221,9 @@ export class RumMetricsApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Body Params
-    const contentType = getPreferredMediaType(["application/json"]);
+    const contentType = getPreferredMediaType([
+      "application/json",
+    ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = stringify(
       serialize(body, TypingInfo, "RumMetricUpdateRequest", ""),
@@ -282,7 +252,9 @@ export class RumMetricsApiResponseProcessor {
   public async createRumMetric(
     response: ResponseContext,
   ): Promise<RumMetricResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 201) {
       const body: RumMetricResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -297,7 +269,10 @@ export class RumMetricsApiResponseProcessor {
       response.httpStatusCode === 409 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -312,7 +287,10 @@ export class RumMetricsApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -340,8 +318,12 @@ export class RumMetricsApiResponseProcessor {
    * @params response Response returned by the server for a request to deleteRumMetric
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async deleteRumMetric(response: ResponseContext): Promise<void> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+  public async deleteRumMetric(
+    response: ResponseContext,
+  ): Promise<void> {
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 204) {
       return;
     }
@@ -350,7 +332,10 @@ export class RumMetricsApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -365,7 +350,10 @@ export class RumMetricsApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -390,7 +378,9 @@ export class RumMetricsApiResponseProcessor {
   public async getRumMetric(
     response: ResponseContext,
   ): Promise<RumMetricResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: RumMetricResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -404,7 +394,10 @@ export class RumMetricsApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -419,7 +412,10 @@ export class RumMetricsApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -450,7 +446,9 @@ export class RumMetricsApiResponseProcessor {
   public async listRumMetrics(
     response: ResponseContext,
   ): Promise<RumMetricsResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: RumMetricsResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -459,8 +457,14 @@ export class RumMetricsApiResponseProcessor {
       ) as RumMetricsResponse;
       return body;
     }
-    if (response.httpStatusCode === 403 || response.httpStatusCode === 429) {
-      const bodyText = parse(await response.body.text(), contentType);
+    if (
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 429
+    ) {
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -475,7 +479,10 @@ export class RumMetricsApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -506,7 +513,9 @@ export class RumMetricsApiResponseProcessor {
   public async updateRumMetric(
     response: ResponseContext,
   ): Promise<RumMetricResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: RumMetricResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -522,7 +531,10 @@ export class RumMetricsApiResponseProcessor {
       response.httpStatusCode === 409 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -537,7 +549,10 @@ export class RumMetricsApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -601,7 +616,8 @@ export class RumMetricsApi {
   private responseProcessor: RumMetricsApiResponseProcessor;
   private configuration: Configuration;
 
-  static operationServers: { [key: string]: BaseServerConfiguration[] } = {};
+  static operationServers: { [key: string]: BaseServerConfiguration[] } = {
+  };
 
   public constructor(
     configuration?: Configuration,
@@ -610,7 +626,8 @@ export class RumMetricsApi {
   ) {
     this.configuration = configuration || createConfiguration();
     this.requestFactory =
-      requestFactory || new RumMetricsApiRequestFactory(this.configuration);
+      requestFactory ||
+      new RumMetricsApiRequestFactory(this.configuration);
     this.responseProcessor =
       responseProcessor || new RumMetricsApiResponseProcessor();
   }
@@ -683,8 +700,11 @@ export class RumMetricsApi {
    * Get the list of configured RUM-based metrics with their definitions.
    * @param param The request object
    */
-  public listRumMetrics(options?: Configuration): Promise<RumMetricsResponse> {
-    const requestContextPromise = this.requestFactory.listRumMetrics(options);
+  public listRumMetrics(options?: Configuration,
+  ): Promise<RumMetricsResponse> {
+    const requestContextPromise = this.requestFactory.listRumMetrics(
+      options,
+    );
     return requestContextPromise.then((requestContext) => {
       return this.configuration.httpApi
         .send(requestContext)

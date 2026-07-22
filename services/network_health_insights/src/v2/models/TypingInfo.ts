@@ -12,15 +12,7 @@ import { NetworkHealthInsightsResponse } from "./NetworkHealthInsightsResponse";
 export const TypingInfo: ModelTypingInfo = {
   enumsMap: {
     NetworkHealthInsightCategory: ["dns", "tcp", "tls-cert", "security-group"],
-    NetworkHealthInsightFailureType: [
-      "timeout",
-      "nxdomain",
-      "servfail",
-      "general_failure",
-      "expired",
-      "expiring_soon",
-      "denied",
-    ],
+    NetworkHealthInsightFailureType: ["timeout", "nxdomain", "servfail", "general_failure", "expired", "expiring_soon", "denied"],
     NetworkHealthInsightsType: ["network-health-insights"],
   },
   oneOfMap: {},

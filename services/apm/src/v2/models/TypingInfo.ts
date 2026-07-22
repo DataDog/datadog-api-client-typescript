@@ -16,7 +16,6 @@ export const TypingInfo: ModelTypingInfo = {
     ServiceList: ServiceList,
     ServiceListData: ServiceListData,
     ServiceListDataAttributes: ServiceListDataAttributes,
-    ServiceListDataAttributesMetadataItems:
-      ServiceListDataAttributesMetadataItems,
+    ServiceListDataAttributesMetadataItems: ServiceListDataAttributesMetadataItems,
   },
 };

@@ -20,11 +20,7 @@ export class IntegrationJiraSyncProperties {
   /**
    * Map of custom field identifiers to their sync configurations.
    */
-  "customFields"?: {
-    [
-      key: string
-    ]: IntegrationJiraSyncPropertiesCustomFieldsAdditionalProperties;
-  };
+  "customFields"?: { [key: string]: IntegrationJiraSyncPropertiesCustomFieldsAdditionalProperties; };
   /**
    * Sync property configuration.
    */
@@ -50,7 +46,7 @@ export class IntegrationJiraSyncProperties {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
   /**
    * @ignore
    */

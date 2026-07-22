@@ -15,7 +15,8 @@ import { IPPrefixesWebhooks } from "./IPPrefixesWebhooks";
 import { IPRanges } from "./IPRanges";
 
 export const TypingInfo: ModelTypingInfo = {
-  enumsMap: {},
+  enumsMap: {
+  },
   oneOfMap: {},
   typeMap: {
     APIErrorResponse: APIErrorResponse,

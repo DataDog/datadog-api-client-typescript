@@ -6,7 +6,7 @@ import { ObservabilityPipelineGenerateMetricsProcessorType } from "./Observabili
 /**
  * The `generate_datadog_metrics` processor creates custom metrics from logs and sends them to Datadog.
  * Metrics can be counters, gauges, or distributions and optionally grouped by log fields.
- *
+ * 
  * **Supported pipeline types:** logs
  */
 export class ObservabilityPipelineGenerateMetricsProcessor {
@@ -39,7 +39,7 @@ export class ObservabilityPipelineGenerateMetricsProcessor {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
   /**
    * @ignore
    */

@@ -20,15 +20,13 @@ export const TypingInfo: ModelTypingInfo = {
   typeMap: {
     APIErrorResponse: APIErrorResponse,
     CloudflareAccountCreateRequest: CloudflareAccountCreateRequest,
-    CloudflareAccountCreateRequestAttributes:
-      CloudflareAccountCreateRequestAttributes,
+    CloudflareAccountCreateRequestAttributes: CloudflareAccountCreateRequestAttributes,
     CloudflareAccountCreateRequestData: CloudflareAccountCreateRequestData,
     CloudflareAccountResponse: CloudflareAccountResponse,
     CloudflareAccountResponseAttributes: CloudflareAccountResponseAttributes,
     CloudflareAccountResponseData: CloudflareAccountResponseData,
     CloudflareAccountUpdateRequest: CloudflareAccountUpdateRequest,
-    CloudflareAccountUpdateRequestAttributes:
-      CloudflareAccountUpdateRequestAttributes,
+    CloudflareAccountUpdateRequestAttributes: CloudflareAccountUpdateRequestAttributes,
     CloudflareAccountUpdateRequestData: CloudflareAccountUpdateRequestData,
     CloudflareAccountsResponse: CloudflareAccountsResponse,
   },

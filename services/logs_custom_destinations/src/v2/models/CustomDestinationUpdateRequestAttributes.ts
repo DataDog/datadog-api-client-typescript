@@ -24,7 +24,7 @@ export class CustomDestinationUpdateRequestAttributes {
    * How `forward_tags_restriction_list` parameter should be interpreted.
    * If `ALLOW_LIST`, then only tags whose keys on the forwarded logs match the ones on the restriction list
    * are forwarded.
-   *
+   * 
    * `BLOCK_LIST` works the opposite way. It does not forward the tags matching the ones on the list.
    */
   "forwardTagsRestrictionListType"?: CustomDestinationAttributeTagsRestrictionListType;
@@ -45,7 +45,7 @@ export class CustomDestinationUpdateRequestAttributes {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
   /**
    * @ignore
    */

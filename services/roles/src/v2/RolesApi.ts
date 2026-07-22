@@ -19,6 +19,7 @@ import {
   ServerConfiguration,
   stringify,
   applySecurityAuthentication,
+  
 } from "@datadog/datadog-api-client";
 
 import { TypingInfo } from "./models/TypingInfo";
@@ -71,15 +72,8 @@ export class RolesApiRequestFactory extends BaseAPIRequestFactory {
     );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "RolesApi.v2.addPermissionToRole",
-      RolesApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.POST,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("RolesApi.v2.addPermissionToRole", RolesApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.POST, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -89,7 +83,9 @@ export class RolesApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Body Params
-    const contentType = getPreferredMediaType(["application/json"]);
+    const contentType = getPreferredMediaType([
+      "application/json",
+    ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = stringify(
       serialize(body, TypingInfo, "RelationshipToPermission", ""),
@@ -131,15 +127,8 @@ export class RolesApiRequestFactory extends BaseAPIRequestFactory {
     );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "RolesApi.v2.addUserToRole",
-      RolesApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.POST,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("RolesApi.v2.addUserToRole", RolesApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.POST, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -149,7 +138,9 @@ export class RolesApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Body Params
-    const contentType = getPreferredMediaType(["application/json"]);
+    const contentType = getPreferredMediaType([
+      "application/json",
+    ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = stringify(
       serialize(body, TypingInfo, "RelationshipToUser", ""),
@@ -191,15 +182,8 @@ export class RolesApiRequestFactory extends BaseAPIRequestFactory {
     );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "RolesApi.v2.cloneRole",
-      RolesApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.POST,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("RolesApi.v2.cloneRole", RolesApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.POST, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -209,7 +193,9 @@ export class RolesApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Body Params
-    const contentType = getPreferredMediaType(["application/json"]);
+    const contentType = getPreferredMediaType([
+      "application/json",
+    ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = stringify(
       serialize(body, TypingInfo, "RoleCloneRequest", ""),
@@ -242,15 +228,8 @@ export class RolesApiRequestFactory extends BaseAPIRequestFactory {
     const localVarPath = "/api/v2/roles";
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "RolesApi.v2.createRole",
-      RolesApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.POST,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("RolesApi.v2.createRole", RolesApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.POST, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -260,7 +239,9 @@ export class RolesApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Body Params
-    const contentType = getPreferredMediaType(["application/json"]);
+    const contentType = getPreferredMediaType([
+      "application/json",
+    ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = stringify(
       serialize(body, TypingInfo, "RoleCreateRequest", ""),
@@ -296,15 +277,8 @@ export class RolesApiRequestFactory extends BaseAPIRequestFactory {
     );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "RolesApi.v2.deleteRole",
-      RolesApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.DELETE,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("RolesApi.v2.deleteRole", RolesApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.DELETE, overrides);
     requestContext.setHeaderParam("Accept", "*/*");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -341,15 +315,8 @@ export class RolesApiRequestFactory extends BaseAPIRequestFactory {
     );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "RolesApi.v2.getRole",
-      RolesApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.GET,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("RolesApi.v2.getRole", RolesApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.GET, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -377,15 +344,8 @@ export class RolesApiRequestFactory extends BaseAPIRequestFactory {
     const localVarPath = "/api/v2/permissions";
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "RolesApi.v2.listPermissions",
-      RolesApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.GET,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("RolesApi.v2.listPermissions", RolesApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.GET, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -422,15 +382,8 @@ export class RolesApiRequestFactory extends BaseAPIRequestFactory {
     );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "RolesApi.v2.listRolePermissions",
-      RolesApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.GET,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("RolesApi.v2.listRolePermissions", RolesApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.GET, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -463,15 +416,8 @@ export class RolesApiRequestFactory extends BaseAPIRequestFactory {
     const localVarPath = "/api/v2/roles";
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "RolesApi.v2.listRoles",
-      RolesApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.GET,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("RolesApi.v2.listRoles", RolesApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.GET, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -533,24 +479,15 @@ export class RolesApiRequestFactory extends BaseAPIRequestFactory {
     const _config = _options || this.configuration;
 
     if (!_config.unstableOperations["RolesApi.v2.listRoleTemplates"]) {
-      throw new Error(
-        "Unstable operation 'listRoleTemplates' is disabled. Enable it by setting `configuration.unstableOperations['RolesApi.v2.listRoleTemplates'] = true`",
-      );
+      throw new Error("Unstable operation 'listRoleTemplates' is disabled. Enable it by setting `configuration.unstableOperations['RolesApi.v2.listRoleTemplates'] = true`");
     }
 
     // Path Params
     const localVarPath = "/api/v2/roles/templates";
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "RolesApi.v2.listRoleTemplates",
-      RolesApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.GET,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("RolesApi.v2.listRoleTemplates", RolesApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.GET, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -591,15 +528,8 @@ export class RolesApiRequestFactory extends BaseAPIRequestFactory {
     );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "RolesApi.v2.listRoleUsers",
-      RolesApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.GET,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("RolesApi.v2.listRoleUsers", RolesApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.GET, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -672,15 +602,8 @@ export class RolesApiRequestFactory extends BaseAPIRequestFactory {
     );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "RolesApi.v2.removePermissionFromRole",
-      RolesApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.DELETE,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("RolesApi.v2.removePermissionFromRole", RolesApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.DELETE, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -690,7 +613,9 @@ export class RolesApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Body Params
-    const contentType = getPreferredMediaType(["application/json"]);
+    const contentType = getPreferredMediaType([
+      "application/json",
+    ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = stringify(
       serialize(body, TypingInfo, "RelationshipToPermission", ""),
@@ -732,15 +657,8 @@ export class RolesApiRequestFactory extends BaseAPIRequestFactory {
     );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "RolesApi.v2.removeUserFromRole",
-      RolesApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.DELETE,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("RolesApi.v2.removeUserFromRole", RolesApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.DELETE, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -750,7 +668,9 @@ export class RolesApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Body Params
-    const contentType = getPreferredMediaType(["application/json"]);
+    const contentType = getPreferredMediaType([
+      "application/json",
+    ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = stringify(
       serialize(body, TypingInfo, "RelationshipToUser", ""),
@@ -792,15 +712,8 @@ export class RolesApiRequestFactory extends BaseAPIRequestFactory {
     );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "RolesApi.v2.updateRole",
-      RolesApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.PATCH,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("RolesApi.v2.updateRole", RolesApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.PATCH, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -810,7 +723,9 @@ export class RolesApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Body Params
-    const contentType = getPreferredMediaType(["application/json"]);
+    const contentType = getPreferredMediaType([
+      "application/json",
+    ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = stringify(
       serialize(body, TypingInfo, "RoleUpdateRequest", ""),
@@ -840,7 +755,9 @@ export class RolesApiResponseProcessor {
   public async addPermissionToRole(
     response: ResponseContext,
   ): Promise<PermissionsResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: PermissionsResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -855,7 +772,10 @@ export class RolesApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -870,7 +790,10 @@ export class RolesApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -901,7 +824,9 @@ export class RolesApiResponseProcessor {
   public async addUserToRole(
     response: ResponseContext,
   ): Promise<UsersResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: UsersResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -916,7 +841,10 @@ export class RolesApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -931,7 +859,10 @@ export class RolesApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -959,8 +890,12 @@ export class RolesApiResponseProcessor {
    * @params response Response returned by the server for a request to cloneRole
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async cloneRole(response: ResponseContext): Promise<RoleResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+  public async cloneRole(
+    response: ResponseContext,
+  ): Promise<RoleResponse> {
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: RoleResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -976,7 +911,10 @@ export class RolesApiResponseProcessor {
       response.httpStatusCode === 409 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -991,7 +929,10 @@ export class RolesApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -1022,7 +963,9 @@ export class RolesApiResponseProcessor {
   public async createRole(
     response: ResponseContext,
   ): Promise<RoleCreateResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: RoleCreateResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -1036,7 +979,10 @@ export class RolesApiResponseProcessor {
       response.httpStatusCode === 403 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -1051,7 +997,10 @@ export class RolesApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -1079,8 +1028,12 @@ export class RolesApiResponseProcessor {
    * @params response Response returned by the server for a request to deleteRole
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async deleteRole(response: ResponseContext): Promise<void> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+  public async deleteRole(
+    response: ResponseContext,
+  ): Promise<void> {
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 204) {
       return;
     }
@@ -1089,7 +1042,10 @@ export class RolesApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -1104,7 +1060,10 @@ export class RolesApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -1126,8 +1085,12 @@ export class RolesApiResponseProcessor {
    * @params response Response returned by the server for a request to getRole
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async getRole(response: ResponseContext): Promise<RoleResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+  public async getRole(
+    response: ResponseContext,
+  ): Promise<RoleResponse> {
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: RoleResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -1141,7 +1104,10 @@ export class RolesApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -1156,7 +1122,10 @@ export class RolesApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -1187,7 +1156,9 @@ export class RolesApiResponseProcessor {
   public async listPermissions(
     response: ResponseContext,
   ): Promise<PermissionsResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: PermissionsResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -1201,7 +1172,10 @@ export class RolesApiResponseProcessor {
       response.httpStatusCode === 403 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -1216,7 +1190,10 @@ export class RolesApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -1247,7 +1224,9 @@ export class RolesApiResponseProcessor {
   public async listRolePermissions(
     response: ResponseContext,
   ): Promise<PermissionsResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: PermissionsResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -1261,7 +1240,10 @@ export class RolesApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -1276,7 +1258,10 @@ export class RolesApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -1304,8 +1289,12 @@ export class RolesApiResponseProcessor {
    * @params response Response returned by the server for a request to listRoles
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async listRoles(response: ResponseContext): Promise<RolesResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+  public async listRoles(
+    response: ResponseContext,
+  ): Promise<RolesResponse> {
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: RolesResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -1314,8 +1303,14 @@ export class RolesApiResponseProcessor {
       ) as RolesResponse;
       return body;
     }
-    if (response.httpStatusCode === 403 || response.httpStatusCode === 429) {
-      const bodyText = parse(await response.body.text(), contentType);
+    if (
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 429
+    ) {
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -1330,7 +1325,10 @@ export class RolesApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -1361,7 +1359,9 @@ export class RolesApiResponseProcessor {
   public async listRoleTemplates(
     response: ResponseContext,
   ): Promise<RoleTemplateArray> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: RoleTemplateArray = deserialize(
         parse(await response.body.text(), contentType),
@@ -1371,7 +1371,10 @@ export class RolesApiResponseProcessor {
       return body;
     }
     if (response.httpStatusCode === 429) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -1386,7 +1389,10 @@ export class RolesApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -1417,7 +1423,9 @@ export class RolesApiResponseProcessor {
   public async listRoleUsers(
     response: ResponseContext,
   ): Promise<UsersResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: UsersResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -1431,7 +1439,10 @@ export class RolesApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -1446,7 +1457,10 @@ export class RolesApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -1477,7 +1491,9 @@ export class RolesApiResponseProcessor {
   public async removePermissionFromRole(
     response: ResponseContext,
   ): Promise<PermissionsResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: PermissionsResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -1492,7 +1508,10 @@ export class RolesApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -1507,7 +1526,10 @@ export class RolesApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -1538,7 +1560,9 @@ export class RolesApiResponseProcessor {
   public async removeUserFromRole(
     response: ResponseContext,
   ): Promise<UsersResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: UsersResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -1553,7 +1577,10 @@ export class RolesApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -1568,7 +1595,10 @@ export class RolesApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -1599,7 +1629,9 @@ export class RolesApiResponseProcessor {
   public async updateRole(
     response: ResponseContext,
   ): Promise<RoleUpdateResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: RoleUpdateResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -1615,7 +1647,10 @@ export class RolesApiResponseProcessor {
       response.httpStatusCode === 422 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -1630,7 +1665,10 @@ export class RolesApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -1820,7 +1858,8 @@ export class RolesApi {
   private responseProcessor: RolesApiResponseProcessor;
   private configuration: Configuration;
 
-  static operationServers: { [key: string]: BaseServerConfiguration[] } = {};
+  static operationServers: { [key: string]: BaseServerConfiguration[] } = {
+  };
 
   public constructor(
     configuration?: Configuration,
@@ -1829,7 +1868,8 @@ export class RolesApi {
   ) {
     this.configuration = configuration || createConfiguration();
     this.requestFactory =
-      requestFactory || new RolesApiRequestFactory(this.configuration);
+      requestFactory ||
+      new RolesApiRequestFactory(this.configuration);
     this.responseProcessor =
       responseProcessor || new RolesApiResponseProcessor();
   }
@@ -1902,9 +1942,9 @@ export class RolesApi {
 
   /**
    * Create a new role for your organization.
-   *
+   * 
    * The following read permissions are automatically added to every new role, even if they are not included in the request:
-   *
+   * 
    * - Dashboards Read
    * - Notebooks Read
    * - Monitors Read
@@ -1980,10 +2020,11 @@ export class RolesApi {
    * Returns a list of all permissions, including name, description, and ID.
    * @param param The request object
    */
-  public listPermissions(
-    options?: Configuration,
+  public listPermissions(options?: Configuration,
   ): Promise<PermissionsResponse> {
-    const requestContextPromise = this.requestFactory.listPermissions(options);
+    const requestContextPromise = this.requestFactory.listPermissions(
+      options,
+    );
     return requestContextPromise.then((requestContext) => {
       return this.configuration.httpApi
         .send(requestContext)
@@ -2043,11 +2084,11 @@ export class RolesApi {
    * List all role templates
    * @param param The request object
    */
-  public listRoleTemplates(
-    options?: Configuration,
+  public listRoleTemplates(options?: Configuration,
   ): Promise<RoleTemplateArray> {
-    const requestContextPromise =
-      this.requestFactory.listRoleTemplates(options);
+    const requestContextPromise = this.requestFactory.listRoleTemplates(
+      options,
+    );
     return requestContextPromise.then((requestContext) => {
       return this.configuration.httpApi
         .send(requestContext)
@@ -2099,9 +2140,7 @@ export class RolesApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.removePermissionFromRole(
-            responseContext,
-          );
+          return this.responseProcessor.removePermissionFromRole(responseContext);
         });
     });
   }

@@ -23,7 +23,7 @@ export const TypingInfo: ModelTypingInfo = {
   },
   oneOfMap: {
     ContainerImageItem: ["ContainerImage", "ContainerImageGroup"],
-  },
+    },
   typeMap: {
     APIErrorResponse: APIErrorResponse,
     ContainerImage: ContainerImage,
@@ -31,11 +31,9 @@ export const TypingInfo: ModelTypingInfo = {
     ContainerImageFlavor: ContainerImageFlavor,
     ContainerImageGroup: ContainerImageGroup,
     ContainerImageGroupAttributes: ContainerImageGroupAttributes,
-    ContainerImageGroupImagesRelationshipsLink:
-      ContainerImageGroupImagesRelationshipsLink,
+    ContainerImageGroupImagesRelationshipsLink: ContainerImageGroupImagesRelationshipsLink,
     ContainerImageGroupRelationships: ContainerImageGroupRelationships,
-    ContainerImageGroupRelationshipsLinks:
-      ContainerImageGroupRelationshipsLinks,
+    ContainerImageGroupRelationshipsLinks: ContainerImageGroupRelationshipsLinks,
     ContainerImageMeta: ContainerImageMeta,
     ContainerImageMetaPage: ContainerImageMetaPage,
     ContainerImageVulnerabilities: ContainerImageVulnerabilities,

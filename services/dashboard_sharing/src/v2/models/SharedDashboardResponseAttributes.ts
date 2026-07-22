@@ -21,11 +21,11 @@ export class SharedDashboardResponseAttributes {
   /**
    * Time when the shared dashboard expires.
    */
-  "expiration": Date | null;
+  "expiration": Date|null;
   /**
    * Default time range configuration for the shared dashboard.
    */
-  "globalTime": { [key: string]: any } | null;
+  "globalTime": { [key: string]: any; }|null;
   /**
    * Whether viewers can select a different global time setting.
    */
@@ -37,7 +37,7 @@ export class SharedDashboardResponseAttributes {
   /**
    * Time when the shared dashboard was last accessed.
    */
-  "lastAccessed": Date | null;
+  "lastAccessed": Date|null;
   /**
    * Template variables that viewers can modify.
    */
@@ -75,7 +75,7 @@ export class SharedDashboardResponseAttributes {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
   /**
    * @ignore
    */

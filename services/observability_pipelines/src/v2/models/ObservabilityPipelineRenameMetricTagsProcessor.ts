@@ -5,7 +5,7 @@ import { ObservabilityPipelineRenameMetricTagsProcessorType } from "./Observabil
 
 /**
  * The `rename_metric_tags` processor changes the keys of tags on metrics.
- *
+ * 
  * **Supported pipeline types:** metrics
  */
 export class ObservabilityPipelineRenameMetricTagsProcessor {
@@ -38,7 +38,7 @@ export class ObservabilityPipelineRenameMetricTagsProcessor {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
   /**
    * @ignore
    */

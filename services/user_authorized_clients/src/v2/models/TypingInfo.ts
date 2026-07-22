@@ -35,17 +35,12 @@ export const TypingInfo: ModelTypingInfo = {
     ResponseMetaAttributes: ResponseMetaAttributes,
     UserAuthorizedClientAttributes: UserAuthorizedClientAttributes,
     UserAuthorizedClientData: UserAuthorizedClientData,
-    UserAuthorizedClientRelationshipOAuth2Client:
-      UserAuthorizedClientRelationshipOAuth2Client,
-    UserAuthorizedClientRelationshipOAuth2ClientData:
-      UserAuthorizedClientRelationshipOAuth2ClientData,
-    UserAuthorizedClientRelationshipScopeData:
-      UserAuthorizedClientRelationshipScopeData,
-    UserAuthorizedClientRelationshipScopes:
-      UserAuthorizedClientRelationshipScopes,
+    UserAuthorizedClientRelationshipOAuth2Client: UserAuthorizedClientRelationshipOAuth2Client,
+    UserAuthorizedClientRelationshipOAuth2ClientData: UserAuthorizedClientRelationshipOAuth2ClientData,
+    UserAuthorizedClientRelationshipScopeData: UserAuthorizedClientRelationshipScopeData,
+    UserAuthorizedClientRelationshipScopes: UserAuthorizedClientRelationshipScopes,
     UserAuthorizedClientRelationshipUser: UserAuthorizedClientRelationshipUser,
-    UserAuthorizedClientRelationshipUserData:
-      UserAuthorizedClientRelationshipUserData,
+    UserAuthorizedClientRelationshipUserData: UserAuthorizedClientRelationshipUserData,
     UserAuthorizedClientRelationships: UserAuthorizedClientRelationships,
     UserAuthorizedClientResponse: UserAuthorizedClientResponse,
     UserAuthorizedClientsResponse: UserAuthorizedClientsResponse,

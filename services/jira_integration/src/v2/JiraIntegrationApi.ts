@@ -19,6 +19,7 @@ import {
   ServerConfiguration,
   stringify,
   applySecurityAuthentication,
+  
 } from "@datadog/datadog-api-client";
 
 import { TypingInfo } from "./models/TypingInfo";
@@ -46,14 +47,8 @@ export class JiraIntegrationApiRequestFactory extends BaseAPIRequestFactory {
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
-    if (
-      !_config.unstableOperations[
-        "JiraIntegrationApi.v2.createJiraIssueTemplate"
-      ]
-    ) {
-      throw new Error(
-        "Unstable operation 'createJiraIssueTemplate' is disabled. Enable it by setting `configuration.unstableOperations['JiraIntegrationApi.v2.createJiraIssueTemplate'] = true`",
-      );
+    if (!_config.unstableOperations["JiraIntegrationApi.v2.createJiraIssueTemplate"]) {
+      throw new Error("Unstable operation 'createJiraIssueTemplate' is disabled. Enable it by setting `configuration.unstableOperations['JiraIntegrationApi.v2.createJiraIssueTemplate'] = true`");
     }
 
     // verify required parameter 'body' is not null or undefined
@@ -65,15 +60,8 @@ export class JiraIntegrationApiRequestFactory extends BaseAPIRequestFactory {
     const localVarPath = "/api/v2/integration/jira/issue-templates";
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "JiraIntegrationApi.v2.createJiraIssueTemplate",
-      JiraIntegrationApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.POST,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("JiraIntegrationApi.v2.createJiraIssueTemplate", JiraIntegrationApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.POST, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -83,7 +71,9 @@ export class JiraIntegrationApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Body Params
-    const contentType = getPreferredMediaType(["application/json"]);
+    const contentType = getPreferredMediaType([
+      "application/json",
+    ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = stringify(
       serialize(body, TypingInfo, "JiraIssueTemplateCreateRequest", ""),
@@ -106,12 +96,8 @@ export class JiraIntegrationApiRequestFactory extends BaseAPIRequestFactory {
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
-    if (
-      !_config.unstableOperations["JiraIntegrationApi.v2.deleteJiraAccount"]
-    ) {
-      throw new Error(
-        "Unstable operation 'deleteJiraAccount' is disabled. Enable it by setting `configuration.unstableOperations['JiraIntegrationApi.v2.deleteJiraAccount'] = true`",
-      );
+    if (!_config.unstableOperations["JiraIntegrationApi.v2.deleteJiraAccount"]) {
+      throw new Error("Unstable operation 'deleteJiraAccount' is disabled. Enable it by setting `configuration.unstableOperations['JiraIntegrationApi.v2.deleteJiraAccount'] = true`");
     }
 
     // verify required parameter 'accountId' is not null or undefined
@@ -120,22 +106,14 @@ export class JiraIntegrationApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Path Params
-    const localVarPath =
-      "/api/v2/integration/jira/accounts/{account_id}".replace(
-        "{account_id}",
-        encodeURIComponent(String(accountId)),
-      );
+    const localVarPath = "/api/v2/integration/jira/accounts/{account_id}".replace(
+      "{account_id}",
+      encodeURIComponent(String(accountId)),
+    );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "JiraIntegrationApi.v2.deleteJiraAccount",
-      JiraIntegrationApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.DELETE,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("JiraIntegrationApi.v2.deleteJiraAccount", JiraIntegrationApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.DELETE, overrides);
     requestContext.setHeaderParam("Accept", "*/*");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -159,14 +137,8 @@ export class JiraIntegrationApiRequestFactory extends BaseAPIRequestFactory {
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
-    if (
-      !_config.unstableOperations[
-        "JiraIntegrationApi.v2.deleteJiraIssueTemplate"
-      ]
-    ) {
-      throw new Error(
-        "Unstable operation 'deleteJiraIssueTemplate' is disabled. Enable it by setting `configuration.unstableOperations['JiraIntegrationApi.v2.deleteJiraIssueTemplate'] = true`",
-      );
+    if (!_config.unstableOperations["JiraIntegrationApi.v2.deleteJiraIssueTemplate"]) {
+      throw new Error("Unstable operation 'deleteJiraIssueTemplate' is disabled. Enable it by setting `configuration.unstableOperations['JiraIntegrationApi.v2.deleteJiraIssueTemplate'] = true`");
     }
 
     // verify required parameter 'issueTemplateId' is not null or undefined
@@ -175,22 +147,14 @@ export class JiraIntegrationApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Path Params
-    const localVarPath =
-      "/api/v2/integration/jira/issue-templates/{issue_template_id}".replace(
-        "{issue_template_id}",
-        encodeURIComponent(String(issueTemplateId)),
-      );
+    const localVarPath = "/api/v2/integration/jira/issue-templates/{issue_template_id}".replace(
+      "{issue_template_id}",
+      encodeURIComponent(String(issueTemplateId)),
+    );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "JiraIntegrationApi.v2.deleteJiraIssueTemplate",
-      JiraIntegrationApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.DELETE,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("JiraIntegrationApi.v2.deleteJiraIssueTemplate", JiraIntegrationApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.DELETE, overrides);
     requestContext.setHeaderParam("Accept", "*/*");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -214,12 +178,8 @@ export class JiraIntegrationApiRequestFactory extends BaseAPIRequestFactory {
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
-    if (
-      !_config.unstableOperations["JiraIntegrationApi.v2.getJiraIssueTemplate"]
-    ) {
-      throw new Error(
-        "Unstable operation 'getJiraIssueTemplate' is disabled. Enable it by setting `configuration.unstableOperations['JiraIntegrationApi.v2.getJiraIssueTemplate'] = true`",
-      );
+    if (!_config.unstableOperations["JiraIntegrationApi.v2.getJiraIssueTemplate"]) {
+      throw new Error("Unstable operation 'getJiraIssueTemplate' is disabled. Enable it by setting `configuration.unstableOperations['JiraIntegrationApi.v2.getJiraIssueTemplate'] = true`");
     }
 
     // verify required parameter 'issueTemplateId' is not null or undefined
@@ -228,22 +188,14 @@ export class JiraIntegrationApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Path Params
-    const localVarPath =
-      "/api/v2/integration/jira/issue-templates/{issue_template_id}".replace(
-        "{issue_template_id}",
-        encodeURIComponent(String(issueTemplateId)),
-      );
+    const localVarPath = "/api/v2/integration/jira/issue-templates/{issue_template_id}".replace(
+      "{issue_template_id}",
+      encodeURIComponent(String(issueTemplateId)),
+    );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "JiraIntegrationApi.v2.getJiraIssueTemplate",
-      JiraIntegrationApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.GET,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("JiraIntegrationApi.v2.getJiraIssueTemplate", JiraIntegrationApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.GET, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -267,24 +219,15 @@ export class JiraIntegrationApiRequestFactory extends BaseAPIRequestFactory {
     const _config = _options || this.configuration;
 
     if (!_config.unstableOperations["JiraIntegrationApi.v2.listJiraAccounts"]) {
-      throw new Error(
-        "Unstable operation 'listJiraAccounts' is disabled. Enable it by setting `configuration.unstableOperations['JiraIntegrationApi.v2.listJiraAccounts'] = true`",
-      );
+      throw new Error("Unstable operation 'listJiraAccounts' is disabled. Enable it by setting `configuration.unstableOperations['JiraIntegrationApi.v2.listJiraAccounts'] = true`");
     }
 
     // Path Params
     const localVarPath = "/api/v2/integration/jira/accounts";
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "JiraIntegrationApi.v2.listJiraAccounts",
-      JiraIntegrationApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.GET,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("JiraIntegrationApi.v2.listJiraAccounts", JiraIntegrationApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.GET, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -307,29 +250,16 @@ export class JiraIntegrationApiRequestFactory extends BaseAPIRequestFactory {
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
-    if (
-      !_config.unstableOperations[
-        "JiraIntegrationApi.v2.listJiraIssueTemplates"
-      ]
-    ) {
-      throw new Error(
-        "Unstable operation 'listJiraIssueTemplates' is disabled. Enable it by setting `configuration.unstableOperations['JiraIntegrationApi.v2.listJiraIssueTemplates'] = true`",
-      );
+    if (!_config.unstableOperations["JiraIntegrationApi.v2.listJiraIssueTemplates"]) {
+      throw new Error("Unstable operation 'listJiraIssueTemplates' is disabled. Enable it by setting `configuration.unstableOperations['JiraIntegrationApi.v2.listJiraIssueTemplates'] = true`");
     }
 
     // Path Params
     const localVarPath = "/api/v2/integration/jira/issue-templates";
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "JiraIntegrationApi.v2.listJiraIssueTemplates",
-      JiraIntegrationApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.GET,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("JiraIntegrationApi.v2.listJiraIssueTemplates", JiraIntegrationApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.GET, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -354,14 +284,8 @@ export class JiraIntegrationApiRequestFactory extends BaseAPIRequestFactory {
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
-    if (
-      !_config.unstableOperations[
-        "JiraIntegrationApi.v2.updateJiraIssueTemplate"
-      ]
-    ) {
-      throw new Error(
-        "Unstable operation 'updateJiraIssueTemplate' is disabled. Enable it by setting `configuration.unstableOperations['JiraIntegrationApi.v2.updateJiraIssueTemplate'] = true`",
-      );
+    if (!_config.unstableOperations["JiraIntegrationApi.v2.updateJiraIssueTemplate"]) {
+      throw new Error("Unstable operation 'updateJiraIssueTemplate' is disabled. Enable it by setting `configuration.unstableOperations['JiraIntegrationApi.v2.updateJiraIssueTemplate'] = true`");
     }
 
     // verify required parameter 'issueTemplateId' is not null or undefined
@@ -375,22 +299,14 @@ export class JiraIntegrationApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Path Params
-    const localVarPath =
-      "/api/v2/integration/jira/issue-templates/{issue_template_id}".replace(
-        "{issue_template_id}",
-        encodeURIComponent(String(issueTemplateId)),
-      );
+    const localVarPath = "/api/v2/integration/jira/issue-templates/{issue_template_id}".replace(
+      "{issue_template_id}",
+      encodeURIComponent(String(issueTemplateId)),
+    );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "JiraIntegrationApi.v2.updateJiraIssueTemplate",
-      JiraIntegrationApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.PATCH,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("JiraIntegrationApi.v2.updateJiraIssueTemplate", JiraIntegrationApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.PATCH, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -400,7 +316,9 @@ export class JiraIntegrationApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Body Params
-    const contentType = getPreferredMediaType(["application/json"]);
+    const contentType = getPreferredMediaType([
+      "application/json",
+    ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = stringify(
       serialize(body, TypingInfo, "JiraIssueTemplateUpdateRequest", ""),
@@ -429,7 +347,9 @@ export class JiraIntegrationApiResponseProcessor {
   public async createJiraIssueTemplate(
     response: ResponseContext,
   ): Promise<JiraIssueTemplateResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 201) {
       const body: JiraIssueTemplateResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -439,7 +359,10 @@ export class JiraIntegrationApiResponseProcessor {
       return body;
     }
     if (response.httpStatusCode === 400) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: JSONAPIErrorResponse;
       try {
         body = deserialize(
@@ -460,7 +383,10 @@ export class JiraIntegrationApiResponseProcessor {
       );
     }
     if (response.httpStatusCode === 429) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -475,7 +401,10 @@ export class JiraIntegrationApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -503,13 +432,20 @@ export class JiraIntegrationApiResponseProcessor {
    * @params response Response returned by the server for a request to deleteJiraAccount
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async deleteJiraAccount(response: ResponseContext): Promise<void> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+  public async deleteJiraAccount(
+    response: ResponseContext,
+  ): Promise<void> {
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 204) {
       return;
     }
     if (response.httpStatusCode === 400) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: JSONAPIErrorResponse;
       try {
         body = deserialize(
@@ -530,7 +466,10 @@ export class JiraIntegrationApiResponseProcessor {
       );
     }
     if (response.httpStatusCode === 429) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -545,7 +484,10 @@ export class JiraIntegrationApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -570,12 +512,17 @@ export class JiraIntegrationApiResponseProcessor {
   public async deleteJiraIssueTemplate(
     response: ResponseContext,
   ): Promise<void> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 204) {
       return;
     }
     if (response.httpStatusCode === 429) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -590,7 +537,10 @@ export class JiraIntegrationApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -615,7 +565,9 @@ export class JiraIntegrationApiResponseProcessor {
   public async getJiraIssueTemplate(
     response: ResponseContext,
   ): Promise<JiraIssueTemplateResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: JiraIssueTemplateResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -625,7 +577,10 @@ export class JiraIntegrationApiResponseProcessor {
       return body;
     }
     if (response.httpStatusCode === 400) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: JSONAPIErrorResponse;
       try {
         body = deserialize(
@@ -646,7 +601,10 @@ export class JiraIntegrationApiResponseProcessor {
       );
     }
     if (response.httpStatusCode === 429) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -661,7 +619,10 @@ export class JiraIntegrationApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -692,7 +653,9 @@ export class JiraIntegrationApiResponseProcessor {
   public async listJiraAccounts(
     response: ResponseContext,
   ): Promise<JiraAccountsResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: JiraAccountsResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -702,7 +665,10 @@ export class JiraIntegrationApiResponseProcessor {
       return body;
     }
     if (response.httpStatusCode === 404) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: JSONAPIErrorResponse;
       try {
         body = deserialize(
@@ -723,7 +689,10 @@ export class JiraIntegrationApiResponseProcessor {
       );
     }
     if (response.httpStatusCode === 429) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -738,7 +707,10 @@ export class JiraIntegrationApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -769,7 +741,9 @@ export class JiraIntegrationApiResponseProcessor {
   public async listJiraIssueTemplates(
     response: ResponseContext,
   ): Promise<JiraIssueTemplatesResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: JiraIssueTemplatesResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -779,7 +753,10 @@ export class JiraIntegrationApiResponseProcessor {
       return body;
     }
     if (response.httpStatusCode === 429) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -794,7 +771,10 @@ export class JiraIntegrationApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -825,7 +805,9 @@ export class JiraIntegrationApiResponseProcessor {
   public async updateJiraIssueTemplate(
     response: ResponseContext,
   ): Promise<JiraIssueTemplateResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: JiraIssueTemplateResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -835,7 +817,10 @@ export class JiraIntegrationApiResponseProcessor {
       return body;
     }
     if (response.httpStatusCode === 400) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: JSONAPIErrorResponse;
       try {
         body = deserialize(
@@ -856,7 +841,10 @@ export class JiraIntegrationApiResponseProcessor {
       );
     }
     if (response.httpStatusCode === 429) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -871,7 +859,10 @@ export class JiraIntegrationApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -941,7 +932,8 @@ export class JiraIntegrationApi {
   private responseProcessor: JiraIntegrationApiResponseProcessor;
   private configuration: Configuration;
 
-  static operationServers: { [key: string]: BaseServerConfiguration[] } = {};
+  static operationServers: { [key: string]: BaseServerConfiguration[] } = {
+  };
 
   public constructor(
     configuration?: Configuration,
@@ -972,9 +964,7 @@ export class JiraIntegrationApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.createJiraIssueTemplate(
-            responseContext,
-          );
+          return this.responseProcessor.createJiraIssueTemplate(responseContext);
         });
     });
   }
@@ -1016,9 +1006,7 @@ export class JiraIntegrationApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.deleteJiraIssueTemplate(
-            responseContext,
-          );
+          return this.responseProcessor.deleteJiraIssueTemplate(responseContext);
         });
     });
   }
@@ -1048,10 +1036,11 @@ export class JiraIntegrationApi {
    * Get all Jira accounts for the organization.
    * @param param The request object
    */
-  public listJiraAccounts(
-    options?: Configuration,
+  public listJiraAccounts(options?: Configuration,
   ): Promise<JiraAccountsResponse> {
-    const requestContextPromise = this.requestFactory.listJiraAccounts(options);
+    const requestContextPromise = this.requestFactory.listJiraAccounts(
+      options,
+    );
     return requestContextPromise.then((requestContext) => {
       return this.configuration.httpApi
         .send(requestContext)
@@ -1065,11 +1054,11 @@ export class JiraIntegrationApi {
    * Get all Jira issue templates for the organization.
    * @param param The request object
    */
-  public listJiraIssueTemplates(
-    options?: Configuration,
+  public listJiraIssueTemplates(options?: Configuration,
   ): Promise<JiraIssueTemplatesResponse> {
-    const requestContextPromise =
-      this.requestFactory.listJiraIssueTemplates(options);
+    const requestContextPromise = this.requestFactory.listJiraIssueTemplates(
+      options,
+    );
     return requestContextPromise.then((requestContext) => {
       return this.configuration.httpApi
         .send(requestContext)
@@ -1096,9 +1085,7 @@ export class JiraIntegrationApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.updateJiraIssueTemplate(
-            responseContext,
-          );
+          return this.responseProcessor.updateJiraIssueTemplate(responseContext);
         });
     });
   }

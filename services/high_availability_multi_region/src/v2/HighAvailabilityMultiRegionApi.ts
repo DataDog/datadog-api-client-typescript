@@ -19,6 +19,7 @@ import {
   ServerConfiguration,
   stringify,
   applySecurityAuthentication,
+  
 } from "@datadog/datadog-api-client";
 
 import { TypingInfo } from "./models/TypingInfo";
@@ -34,10 +35,7 @@ export class HighAvailabilityMultiRegionApiRequestFactory extends BaseAPIRequest
   public constructor(configuration: Configuration) {
     super(configuration);
     if (!isBrowser) {
-      this.userAgent = buildUserAgent(
-        "high-availability-multi-region",
-        version,
-      );
+      this.userAgent = buildUserAgent("high-availability-multi-region", version);
     }
   }
   public async createHamrOrgConnection(
@@ -46,14 +44,8 @@ export class HighAvailabilityMultiRegionApiRequestFactory extends BaseAPIRequest
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
-    if (
-      !_config.unstableOperations[
-        "HighAvailabilityMultiRegionApi.v2.createHamrOrgConnection"
-      ]
-    ) {
-      throw new Error(
-        "Unstable operation 'createHamrOrgConnection' is disabled. Enable it by setting `configuration.unstableOperations['HighAvailabilityMultiRegionApi.v2.createHamrOrgConnection'] = true`",
-      );
+    if (!_config.unstableOperations["HighAvailabilityMultiRegionApi.v2.createHamrOrgConnection"]) {
+      throw new Error("Unstable operation 'createHamrOrgConnection' is disabled. Enable it by setting `configuration.unstableOperations['HighAvailabilityMultiRegionApi.v2.createHamrOrgConnection'] = true`");
     }
 
     // verify required parameter 'body' is not null or undefined
@@ -65,15 +57,8 @@ export class HighAvailabilityMultiRegionApiRequestFactory extends BaseAPIRequest
     const localVarPath = "/api/v2/hamr";
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "HighAvailabilityMultiRegionApi.v2.createHamrOrgConnection",
-      HighAvailabilityMultiRegionApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.POST,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("HighAvailabilityMultiRegionApi.v2.createHamrOrgConnection", HighAvailabilityMultiRegionApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.POST, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -83,7 +68,9 @@ export class HighAvailabilityMultiRegionApiRequestFactory extends BaseAPIRequest
     }
 
     // Body Params
-    const contentType = getPreferredMediaType(["application/json"]);
+    const contentType = getPreferredMediaType([
+      "application/json",
+    ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = stringify(
       serialize(body, TypingInfo, "HamrOrgConnectionRequest", ""),
@@ -105,29 +92,16 @@ export class HighAvailabilityMultiRegionApiRequestFactory extends BaseAPIRequest
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
-    if (
-      !_config.unstableOperations[
-        "HighAvailabilityMultiRegionApi.v2.getHamrOrgConnection"
-      ]
-    ) {
-      throw new Error(
-        "Unstable operation 'getHamrOrgConnection' is disabled. Enable it by setting `configuration.unstableOperations['HighAvailabilityMultiRegionApi.v2.getHamrOrgConnection'] = true`",
-      );
+    if (!_config.unstableOperations["HighAvailabilityMultiRegionApi.v2.getHamrOrgConnection"]) {
+      throw new Error("Unstable operation 'getHamrOrgConnection' is disabled. Enable it by setting `configuration.unstableOperations['HighAvailabilityMultiRegionApi.v2.getHamrOrgConnection'] = true`");
     }
 
     // Path Params
     const localVarPath = "/api/v2/hamr";
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "HighAvailabilityMultiRegionApi.v2.getHamrOrgConnection",
-      HighAvailabilityMultiRegionApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.GET,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("HighAvailabilityMultiRegionApi.v2.getHamrOrgConnection", HighAvailabilityMultiRegionApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.GET, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -157,7 +131,9 @@ export class HighAvailabilityMultiRegionApiResponseProcessor {
   public async createHamrOrgConnection(
     response: ResponseContext,
   ): Promise<HamrOrgConnectionResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: HamrOrgConnectionResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -171,7 +147,10 @@ export class HighAvailabilityMultiRegionApiResponseProcessor {
       response.httpStatusCode === 403 ||
       response.httpStatusCode === 500
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: JSONAPIErrorResponse;
       try {
         body = deserialize(
@@ -192,7 +171,10 @@ export class HighAvailabilityMultiRegionApiResponseProcessor {
       );
     }
     if (response.httpStatusCode === 429) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -207,7 +189,10 @@ export class HighAvailabilityMultiRegionApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -238,7 +223,9 @@ export class HighAvailabilityMultiRegionApiResponseProcessor {
   public async getHamrOrgConnection(
     response: ResponseContext,
   ): Promise<HamrOrgConnectionResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: HamrOrgConnectionResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -252,7 +239,10 @@ export class HighAvailabilityMultiRegionApiResponseProcessor {
       response.httpStatusCode === 403 ||
       response.httpStatusCode === 404
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: JSONAPIErrorResponse;
       try {
         body = deserialize(
@@ -273,7 +263,10 @@ export class HighAvailabilityMultiRegionApiResponseProcessor {
       );
     }
     if (response.httpStatusCode === 429) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -288,7 +281,10 @@ export class HighAvailabilityMultiRegionApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -322,7 +318,8 @@ export class HighAvailabilityMultiRegionApi {
   private responseProcessor: HighAvailabilityMultiRegionApiResponseProcessor;
   private configuration: Configuration;
 
-  static operationServers: { [key: string]: BaseServerConfiguration[] } = {};
+  static operationServers: { [key: string]: BaseServerConfiguration[] } = {
+  };
 
   public constructor(
     configuration?: Configuration,
@@ -334,8 +331,7 @@ export class HighAvailabilityMultiRegionApi {
       requestFactory ||
       new HighAvailabilityMultiRegionApiRequestFactory(this.configuration);
     this.responseProcessor =
-      responseProcessor ||
-      new HighAvailabilityMultiRegionApiResponseProcessor();
+      responseProcessor || new HighAvailabilityMultiRegionApiResponseProcessor();
   }
 
   /**
@@ -356,9 +352,7 @@ export class HighAvailabilityMultiRegionApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.createHamrOrgConnection(
-            responseContext,
-          );
+          return this.responseProcessor.createHamrOrgConnection(responseContext);
         });
     });
   }
@@ -369,11 +363,11 @@ export class HighAvailabilityMultiRegionApi {
    * datacenter, status, and whether this is the primary or secondary organization in the HAMR relationship.
    * @param param The request object
    */
-  public getHamrOrgConnection(
-    options?: Configuration,
+  public getHamrOrgConnection(options?: Configuration,
   ): Promise<HamrOrgConnectionResponse> {
-    const requestContextPromise =
-      this.requestFactory.getHamrOrgConnection(options);
+    const requestContextPromise = this.requestFactory.getHamrOrgConnection(
+      options,
+    );
     return requestContextPromise.then((requestContext) => {
       return this.configuration.httpApi
         .send(requestContext)

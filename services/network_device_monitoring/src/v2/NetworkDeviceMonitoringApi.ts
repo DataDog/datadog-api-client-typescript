@@ -19,6 +19,7 @@ import {
   ServerConfiguration,
   stringify,
   applySecurityAuthentication,
+  
 } from "@datadog/datadog-api-client";
 
 import { TypingInfo } from "./models/TypingInfo";
@@ -58,15 +59,8 @@ export class NetworkDeviceMonitoringApiRequestFactory extends BaseAPIRequestFact
     );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "NetworkDeviceMonitoringApi.v2.getDevice",
-      NetworkDeviceMonitoringApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.GET,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("NetworkDeviceMonitoringApi.v2.getDevice", NetworkDeviceMonitoringApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.GET, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -100,15 +94,8 @@ export class NetworkDeviceMonitoringApiRequestFactory extends BaseAPIRequestFact
     const localVarPath = "/api/v2/ndm/interfaces";
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "NetworkDeviceMonitoringApi.v2.getInterfaces",
-      NetworkDeviceMonitoringApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.GET,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("NetworkDeviceMonitoringApi.v2.getInterfaces", NetworkDeviceMonitoringApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.GET, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -155,15 +142,8 @@ export class NetworkDeviceMonitoringApiRequestFactory extends BaseAPIRequestFact
     const localVarPath = "/api/v2/ndm/devices";
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "NetworkDeviceMonitoringApi.v2.listDevices",
-      NetworkDeviceMonitoringApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.GET,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("NetworkDeviceMonitoringApi.v2.listDevices", NetworkDeviceMonitoringApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.GET, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -229,15 +209,8 @@ export class NetworkDeviceMonitoringApiRequestFactory extends BaseAPIRequestFact
     );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "NetworkDeviceMonitoringApi.v2.listDeviceUserTags",
-      NetworkDeviceMonitoringApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.GET,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("NetworkDeviceMonitoringApi.v2.listDeviceUserTags", NetworkDeviceMonitoringApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.GET, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -273,15 +246,8 @@ export class NetworkDeviceMonitoringApiRequestFactory extends BaseAPIRequestFact
     );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "NetworkDeviceMonitoringApi.v2.listInterfaceUserTags",
-      NetworkDeviceMonitoringApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.GET,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("NetworkDeviceMonitoringApi.v2.listInterfaceUserTags", NetworkDeviceMonitoringApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.GET, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -323,15 +289,8 @@ export class NetworkDeviceMonitoringApiRequestFactory extends BaseAPIRequestFact
     );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "NetworkDeviceMonitoringApi.v2.updateDeviceUserTags",
-      NetworkDeviceMonitoringApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.PATCH,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("NetworkDeviceMonitoringApi.v2.updateDeviceUserTags", NetworkDeviceMonitoringApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.PATCH, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -341,7 +300,9 @@ export class NetworkDeviceMonitoringApiRequestFactory extends BaseAPIRequestFact
     }
 
     // Body Params
-    const contentType = getPreferredMediaType(["application/json"]);
+    const contentType = getPreferredMediaType([
+      "application/json",
+    ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = stringify(
       serialize(body, TypingInfo, "ListTagsResponse", ""),
@@ -382,15 +343,8 @@ export class NetworkDeviceMonitoringApiRequestFactory extends BaseAPIRequestFact
     );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "NetworkDeviceMonitoringApi.v2.updateInterfaceUserTags",
-      NetworkDeviceMonitoringApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.PATCH,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("NetworkDeviceMonitoringApi.v2.updateInterfaceUserTags", NetworkDeviceMonitoringApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.PATCH, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -400,7 +354,9 @@ export class NetworkDeviceMonitoringApiRequestFactory extends BaseAPIRequestFact
     }
 
     // Body Params
-    const contentType = getPreferredMediaType(["application/json"]);
+    const contentType = getPreferredMediaType([
+      "application/json",
+    ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = stringify(
       serialize(body, TypingInfo, "ListInterfaceTagsResponse", ""),
@@ -429,7 +385,9 @@ export class NetworkDeviceMonitoringApiResponseProcessor {
   public async getDevice(
     response: ResponseContext,
   ): Promise<GetDeviceResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: GetDeviceResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -443,7 +401,10 @@ export class NetworkDeviceMonitoringApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -458,7 +419,10 @@ export class NetworkDeviceMonitoringApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -489,7 +453,9 @@ export class NetworkDeviceMonitoringApiResponseProcessor {
   public async getInterfaces(
     response: ResponseContext,
   ): Promise<GetInterfacesResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: GetInterfacesResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -498,8 +464,14 @@ export class NetworkDeviceMonitoringApiResponseProcessor {
       ) as GetInterfacesResponse;
       return body;
     }
-    if (response.httpStatusCode === 403 || response.httpStatusCode === 429) {
-      const bodyText = parse(await response.body.text(), contentType);
+    if (
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 429
+    ) {
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -514,7 +486,10 @@ export class NetworkDeviceMonitoringApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -545,7 +520,9 @@ export class NetworkDeviceMonitoringApiResponseProcessor {
   public async listDevices(
     response: ResponseContext,
   ): Promise<ListDevicesResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: ListDevicesResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -559,7 +536,10 @@ export class NetworkDeviceMonitoringApiResponseProcessor {
       response.httpStatusCode === 403 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -574,7 +554,10 @@ export class NetworkDeviceMonitoringApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -605,7 +588,9 @@ export class NetworkDeviceMonitoringApiResponseProcessor {
   public async listDeviceUserTags(
     response: ResponseContext,
   ): Promise<ListTagsResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: ListTagsResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -619,7 +604,10 @@ export class NetworkDeviceMonitoringApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -634,7 +622,10 @@ export class NetworkDeviceMonitoringApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -665,7 +656,9 @@ export class NetworkDeviceMonitoringApiResponseProcessor {
   public async listInterfaceUserTags(
     response: ResponseContext,
   ): Promise<ListInterfaceTagsResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: ListInterfaceTagsResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -679,7 +672,10 @@ export class NetworkDeviceMonitoringApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -694,7 +690,10 @@ export class NetworkDeviceMonitoringApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -725,7 +724,9 @@ export class NetworkDeviceMonitoringApiResponseProcessor {
   public async updateDeviceUserTags(
     response: ResponseContext,
   ): Promise<ListTagsResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: ListTagsResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -739,7 +740,10 @@ export class NetworkDeviceMonitoringApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -754,7 +758,10 @@ export class NetworkDeviceMonitoringApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -785,7 +792,9 @@ export class NetworkDeviceMonitoringApiResponseProcessor {
   public async updateInterfaceUserTags(
     response: ResponseContext,
   ): Promise<ListInterfaceTagsResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: ListInterfaceTagsResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -799,7 +808,10 @@ export class NetworkDeviceMonitoringApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -814,7 +826,10 @@ export class NetworkDeviceMonitoringApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -925,7 +940,8 @@ export class NetworkDeviceMonitoringApi {
   private responseProcessor: NetworkDeviceMonitoringApiResponseProcessor;
   private configuration: Configuration;
 
-  static operationServers: { [key: string]: BaseServerConfiguration[] } = {};
+  static operationServers: { [key: string]: BaseServerConfiguration[] } = {
+  };
 
   public constructor(
     configuration?: Configuration,
@@ -1011,9 +1027,9 @@ export class NetworkDeviceMonitoringApi {
    * Provide a paginated version of listDevices returning a generator with all the items.
    */
   public async *listDevicesWithPagination(
-    param: NetworkDeviceMonitoringApiListDevicesRequest = {},
-    options?: Configuration,
+    param: NetworkDeviceMonitoringApiListDevicesRequest = {}, options?: Configuration,
   ): AsyncGenerator<DevicesListData> {
+
     let pageSize = 50;
     if (param.pageSize !== undefined) {
       pageSize = param.pageSize;
@@ -1021,18 +1037,10 @@ export class NetworkDeviceMonitoringApi {
     param.pageSize = pageSize;
     param.pageNumber = 0;
     while (true) {
-      const requestContext = await this.requestFactory.listDevices(
-        param.pageSize,
-        param.pageNumber,
-        param.sort,
-        param.filterTag,
-        options,
-      );
-      const responseContext =
-        await this.configuration.httpApi.send(requestContext);
+      const requestContext = await this.requestFactory.listDevices(param.pageSize,param.pageNumber,param.sort,param.filterTag,options);
+      const responseContext = await this.configuration.httpApi.send(requestContext);
 
-      const response =
-        await this.responseProcessor.listDevices(responseContext);
+      const response = await this.responseProcessor.listDevices(responseContext);
       const responseData = response.data;
       if (responseData === undefined) {
         break;
@@ -1129,9 +1137,7 @@ export class NetworkDeviceMonitoringApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.updateInterfaceUserTags(
-            responseContext,
-          );
+          return this.responseProcessor.updateInterfaceUserTags(responseContext);
         });
     });
   }

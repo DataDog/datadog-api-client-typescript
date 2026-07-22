@@ -6,5 +6,4 @@ import { UnparsedObject } from "@datadog/datadog-api-client";
 export type ConvertJobResultsToSignalsDataType =
   | typeof HISTORICALDETECTIONSJOBRESULTSIGNALCONVERSION
   | UnparsedObject;
-export const HISTORICALDETECTIONSJOBRESULTSIGNALCONVERSION =
-  "historicalDetectionsJobResultSignalConversion";
+export const HISTORICALDETECTIONSJOBRESULTSIGNALCONVERSION = "historicalDetectionsJobResultSignalConversion";

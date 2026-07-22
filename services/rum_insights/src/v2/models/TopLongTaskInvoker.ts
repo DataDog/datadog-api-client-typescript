@@ -13,7 +13,7 @@ export class TopLongTaskInvoker {
   /**
    * Cleaned source file path for the invoker script.
    */
-  "file": string | null;
+  "file": string|null;
   /**
    * Rank-product impact score combining view frequency and blocking time severity.
    */
@@ -35,7 +35,7 @@ export class TopLongTaskInvoker {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
   /**
    * @ignore
    */

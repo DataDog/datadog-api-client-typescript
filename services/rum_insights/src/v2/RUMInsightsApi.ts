@@ -19,6 +19,7 @@ import {
   ServerConfiguration,
   stringify,
   applySecurityAuthentication,
+  
 } from "@datadog/datadog-api-client";
 
 import { TypingInfo } from "./models/TypingInfo";
@@ -47,12 +48,8 @@ export class RUMInsightsApiRequestFactory extends BaseAPIRequestFactory {
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
-    if (
-      !_config.unstableOperations["RUMInsightsApi.v2.queryAggregatedLongTasks"]
-    ) {
-      throw new Error(
-        "Unstable operation 'queryAggregatedLongTasks' is disabled. Enable it by setting `configuration.unstableOperations['RUMInsightsApi.v2.queryAggregatedLongTasks'] = true`",
-      );
+    if (!_config.unstableOperations["RUMInsightsApi.v2.queryAggregatedLongTasks"]) {
+      throw new Error("Unstable operation 'queryAggregatedLongTasks' is disabled. Enable it by setting `configuration.unstableOperations['RUMInsightsApi.v2.queryAggregatedLongTasks'] = true`");
     }
 
     // verify required parameter 'body' is not null or undefined
@@ -64,15 +61,8 @@ export class RUMInsightsApiRequestFactory extends BaseAPIRequestFactory {
     const localVarPath = "/api/v2/rum/query/insight/aggregated_long_tasks";
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "RUMInsightsApi.v2.queryAggregatedLongTasks",
-      RUMInsightsApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.POST,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("RUMInsightsApi.v2.queryAggregatedLongTasks", RUMInsightsApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.POST, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -82,7 +72,9 @@ export class RUMInsightsApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Body Params
-    const contentType = getPreferredMediaType(["application/json"]);
+    const contentType = getPreferredMediaType([
+      "application/json",
+    ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = stringify(
       serialize(body, TypingInfo, "AggregatedLongTasksRequest", ""),
@@ -105,14 +97,8 @@ export class RUMInsightsApiRequestFactory extends BaseAPIRequestFactory {
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
-    if (
-      !_config.unstableOperations[
-        "RUMInsightsApi.v2.queryAggregatedSignalsProblems"
-      ]
-    ) {
-      throw new Error(
-        "Unstable operation 'queryAggregatedSignalsProblems' is disabled. Enable it by setting `configuration.unstableOperations['RUMInsightsApi.v2.queryAggregatedSignalsProblems'] = true`",
-      );
+    if (!_config.unstableOperations["RUMInsightsApi.v2.queryAggregatedSignalsProblems"]) {
+      throw new Error("Unstable operation 'queryAggregatedSignalsProblems' is disabled. Enable it by setting `configuration.unstableOperations['RUMInsightsApi.v2.queryAggregatedSignalsProblems'] = true`");
     }
 
     // verify required parameter 'body' is not null or undefined
@@ -121,19 +107,11 @@ export class RUMInsightsApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Path Params
-    const localVarPath =
-      "/api/v2/rum/query/insight/aggregated_signals_problems";
+    const localVarPath = "/api/v2/rum/query/insight/aggregated_signals_problems";
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "RUMInsightsApi.v2.queryAggregatedSignalsProblems",
-      RUMInsightsApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.POST,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("RUMInsightsApi.v2.queryAggregatedSignalsProblems", RUMInsightsApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.POST, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -143,7 +121,9 @@ export class RUMInsightsApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Body Params
-    const contentType = getPreferredMediaType(["application/json"]);
+    const contentType = getPreferredMediaType([
+      "application/json",
+    ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = stringify(
       serialize(body, TypingInfo, "AggregatedSignalsProblemsRequest", ""),
@@ -166,12 +146,8 @@ export class RUMInsightsApiRequestFactory extends BaseAPIRequestFactory {
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
-    if (
-      !_config.unstableOperations["RUMInsightsApi.v2.queryAggregatedWaterfall"]
-    ) {
-      throw new Error(
-        "Unstable operation 'queryAggregatedWaterfall' is disabled. Enable it by setting `configuration.unstableOperations['RUMInsightsApi.v2.queryAggregatedWaterfall'] = true`",
-      );
+    if (!_config.unstableOperations["RUMInsightsApi.v2.queryAggregatedWaterfall"]) {
+      throw new Error("Unstable operation 'queryAggregatedWaterfall' is disabled. Enable it by setting `configuration.unstableOperations['RUMInsightsApi.v2.queryAggregatedWaterfall'] = true`");
     }
 
     // verify required parameter 'body' is not null or undefined
@@ -183,15 +159,8 @@ export class RUMInsightsApiRequestFactory extends BaseAPIRequestFactory {
     const localVarPath = "/api/v2/rum/query/insight/aggregated_waterfall";
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "RUMInsightsApi.v2.queryAggregatedWaterfall",
-      RUMInsightsApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.POST,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("RUMInsightsApi.v2.queryAggregatedWaterfall", RUMInsightsApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.POST, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -201,7 +170,9 @@ export class RUMInsightsApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Body Params
-    const contentType = getPreferredMediaType(["application/json"]);
+    const contentType = getPreferredMediaType([
+      "application/json",
+    ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = stringify(
       serialize(body, TypingInfo, "AggregatedWaterfallRequest", ""),
@@ -230,7 +201,9 @@ export class RUMInsightsApiResponseProcessor {
   public async queryAggregatedLongTasks(
     response: ResponseContext,
   ): Promise<AggregatedLongTasksResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 201) {
       const body: AggregatedLongTasksResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -239,8 +212,14 @@ export class RUMInsightsApiResponseProcessor {
       ) as AggregatedLongTasksResponse;
       return body;
     }
-    if (response.httpStatusCode === 400 || response.httpStatusCode === 401) {
-      const bodyText = parse(await response.body.text(), contentType);
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 401
+    ) {
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: JSONAPIErrorResponse;
       try {
         body = deserialize(
@@ -261,7 +240,10 @@ export class RUMInsightsApiResponseProcessor {
       );
     }
     if (response.httpStatusCode === 429) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -276,7 +258,10 @@ export class RUMInsightsApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -307,7 +292,9 @@ export class RUMInsightsApiResponseProcessor {
   public async queryAggregatedSignalsProblems(
     response: ResponseContext,
   ): Promise<AggregatedSignalsProblemsResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 201) {
       const body: AggregatedSignalsProblemsResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -316,8 +303,14 @@ export class RUMInsightsApiResponseProcessor {
       ) as AggregatedSignalsProblemsResponse;
       return body;
     }
-    if (response.httpStatusCode === 400 || response.httpStatusCode === 401) {
-      const bodyText = parse(await response.body.text(), contentType);
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 401
+    ) {
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: JSONAPIErrorResponse;
       try {
         body = deserialize(
@@ -338,7 +331,10 @@ export class RUMInsightsApiResponseProcessor {
       );
     }
     if (response.httpStatusCode === 429) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -353,7 +349,10 @@ export class RUMInsightsApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -384,7 +383,9 @@ export class RUMInsightsApiResponseProcessor {
   public async queryAggregatedWaterfall(
     response: ResponseContext,
   ): Promise<AggregatedWaterfallResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 201) {
       const body: AggregatedWaterfallResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -393,8 +394,14 @@ export class RUMInsightsApiResponseProcessor {
       ) as AggregatedWaterfallResponse;
       return body;
     }
-    if (response.httpStatusCode === 400 || response.httpStatusCode === 401) {
-      const bodyText = parse(await response.body.text(), contentType);
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 401
+    ) {
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: JSONAPIErrorResponse;
       try {
         body = deserialize(
@@ -415,7 +422,10 @@ export class RUMInsightsApiResponseProcessor {
       );
     }
     if (response.httpStatusCode === 429) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -430,7 +440,10 @@ export class RUMInsightsApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -478,7 +491,8 @@ export class RUMInsightsApi {
   private responseProcessor: RUMInsightsApiResponseProcessor;
   private configuration: Configuration;
 
-  static operationServers: { [key: string]: BaseServerConfiguration[] } = {};
+  static operationServers: { [key: string]: BaseServerConfiguration[] } = {
+  };
 
   public constructor(
     configuration?: Configuration,
@@ -487,7 +501,8 @@ export class RUMInsightsApi {
   ) {
     this.configuration = configuration || createConfiguration();
     this.requestFactory =
-      requestFactory || new RUMInsightsApiRequestFactory(this.configuration);
+      requestFactory ||
+      new RUMInsightsApiRequestFactory(this.configuration);
     this.responseProcessor =
       responseProcessor || new RUMInsightsApiResponseProcessor();
   }
@@ -508,9 +523,7 @@ export class RUMInsightsApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.queryAggregatedLongTasks(
-            responseContext,
-          );
+          return this.responseProcessor.queryAggregatedLongTasks(responseContext);
         });
     });
   }
@@ -523,15 +536,15 @@ export class RUMInsightsApi {
     param: RUMInsightsApiQueryAggregatedSignalsProblemsRequest,
     options?: Configuration,
   ): Promise<AggregatedSignalsProblemsResponse> {
-    const requestContextPromise =
-      this.requestFactory.queryAggregatedSignalsProblems(param.body, options);
+    const requestContextPromise = this.requestFactory.queryAggregatedSignalsProblems(
+      param.body,
+      options,
+    );
     return requestContextPromise.then((requestContext) => {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.queryAggregatedSignalsProblems(
-            responseContext,
-          );
+          return this.responseProcessor.queryAggregatedSignalsProblems(responseContext);
         });
     });
   }
@@ -552,9 +565,7 @@ export class RUMInsightsApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.queryAggregatedWaterfall(
-            responseContext,
-          );
+          return this.responseProcessor.queryAggregatedWaterfall(responseContext);
         });
     });
   }

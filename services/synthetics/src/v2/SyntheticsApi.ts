@@ -19,6 +19,7 @@ import {
   ServerConfiguration,
   stringify,
   applySecurityAuthentication,
+  
 } from "@datadog/datadog-api-client";
 
 import { TypingInfo } from "./models/TypingInfo";
@@ -87,22 +88,14 @@ export class SyntheticsApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Path Params
-    const localVarPath =
-      "/api/v2/synthetics/tests/{public_id}/files/multipart-upload-abort".replace(
-        "{public_id}",
-        encodeURIComponent(String(publicId)),
-      );
+    const localVarPath = "/api/v2/synthetics/tests/{public_id}/files/multipart-upload-abort".replace(
+      "{public_id}",
+      encodeURIComponent(String(publicId)),
+    );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "SyntheticsApi.v2.abortTestFileMultipartUpload",
-      SyntheticsApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.POST,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("SyntheticsApi.v2.abortTestFileMultipartUpload", SyntheticsApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.POST, overrides);
     requestContext.setHeaderParam("Accept", "*/*");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -112,15 +105,12 @@ export class SyntheticsApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Body Params
-    const contentType = getPreferredMediaType(["application/json"]);
+    const contentType = getPreferredMediaType([
+      "application/json",
+    ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = stringify(
-      serialize(
-        body,
-        TypingInfo,
-        "SyntheticsTestFileAbortMultipartUploadRequest",
-        "",
-      ),
+      serialize(body, TypingInfo, "SyntheticsTestFileAbortMultipartUploadRequest", ""),
       contentType,
     );
     requestContext.setBody(serializedBody);
@@ -153,21 +143,17 @@ export class SyntheticsApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Path Params
-    const localVarPath =
-      "/api/v2/synthetics/downtimes/{downtime_id}/tests/{test_id}"
-        .replace("{downtime_id}", encodeURIComponent(String(downtimeId)))
-        .replace("{test_id}", encodeURIComponent(String(testId)));
+    const localVarPath = "/api/v2/synthetics/downtimes/{downtime_id}/tests/{test_id}".replace(
+      "{downtime_id}",
+      encodeURIComponent(String(downtimeId)),
+    ).replace(
+      "{test_id}",
+      encodeURIComponent(String(testId)),
+    );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "SyntheticsApi.v2.addTestToSyntheticsDowntime",
-      SyntheticsApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.PUT,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("SyntheticsApi.v2.addTestToSyntheticsDowntime", SyntheticsApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.PUT, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -203,22 +189,14 @@ export class SyntheticsApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Path Params
-    const localVarPath =
-      "/api/v2/synthetics/tests/{public_id}/files/multipart-upload-complete".replace(
-        "{public_id}",
-        encodeURIComponent(String(publicId)),
-      );
+    const localVarPath = "/api/v2/synthetics/tests/{public_id}/files/multipart-upload-complete".replace(
+      "{public_id}",
+      encodeURIComponent(String(publicId)),
+    );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "SyntheticsApi.v2.completeTestFileMultipartUpload",
-      SyntheticsApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.POST,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("SyntheticsApi.v2.completeTestFileMultipartUpload", SyntheticsApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.POST, overrides);
     requestContext.setHeaderParam("Accept", "*/*");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -228,15 +206,12 @@ export class SyntheticsApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Body Params
-    const contentType = getPreferredMediaType(["application/json"]);
+    const contentType = getPreferredMediaType([
+      "application/json",
+    ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = stringify(
-      serialize(
-        body,
-        TypingInfo,
-        "SyntheticsTestFileCompleteMultipartUploadRequest",
-        "",
-      ),
+      serialize(body, TypingInfo, "SyntheticsTestFileCompleteMultipartUploadRequest", ""),
       contentType,
     );
     requestContext.setBody(serializedBody);
@@ -266,15 +241,8 @@ export class SyntheticsApiRequestFactory extends BaseAPIRequestFactory {
     const localVarPath = "/api/v2/synthetics/downtimes";
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "SyntheticsApi.v2.createSyntheticsDowntime",
-      SyntheticsApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.POST,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("SyntheticsApi.v2.createSyntheticsDowntime", SyntheticsApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.POST, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -284,7 +252,9 @@ export class SyntheticsApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Body Params
-    const contentType = getPreferredMediaType(["application/json"]);
+    const contentType = getPreferredMediaType([
+      "application/json",
+    ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = stringify(
       serialize(body, TypingInfo, "SyntheticsDowntimeRequest", ""),
@@ -316,15 +286,8 @@ export class SyntheticsApiRequestFactory extends BaseAPIRequestFactory {
     const localVarPath = "/api/v2/synthetics/tests/network";
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "SyntheticsApi.v2.createSyntheticsNetworkTest",
-      SyntheticsApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.POST,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("SyntheticsApi.v2.createSyntheticsNetworkTest", SyntheticsApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.POST, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -334,7 +297,9 @@ export class SyntheticsApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Body Params
-    const contentType = getPreferredMediaType(["application/json"]);
+    const contentType = getPreferredMediaType([
+      "application/json",
+    ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = stringify(
       serialize(body, TypingInfo, "SyntheticsNetworkTestEditRequest", ""),
@@ -367,15 +332,8 @@ export class SyntheticsApiRequestFactory extends BaseAPIRequestFactory {
     const localVarPath = "/api/v2/synthetics/suites";
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "SyntheticsApi.v2.createSyntheticsSuite",
-      SyntheticsApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.POST,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("SyntheticsApi.v2.createSyntheticsSuite", SyntheticsApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.POST, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -385,7 +343,9 @@ export class SyntheticsApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Body Params
-    const contentType = getPreferredMediaType(["application/json"]);
+    const contentType = getPreferredMediaType([
+      "application/json",
+    ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = stringify(
       serialize(body, TypingInfo, "SuiteCreateEditRequest", ""),
@@ -421,15 +381,8 @@ export class SyntheticsApiRequestFactory extends BaseAPIRequestFactory {
     );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "SyntheticsApi.v2.deleteSyntheticsDowntime",
-      SyntheticsApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.DELETE,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("SyntheticsApi.v2.deleteSyntheticsDowntime", SyntheticsApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.DELETE, overrides);
     requestContext.setHeaderParam("Accept", "*/*");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -462,15 +415,8 @@ export class SyntheticsApiRequestFactory extends BaseAPIRequestFactory {
     const localVarPath = "/api/v2/synthetics/suites/bulk-delete";
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "SyntheticsApi.v2.deleteSyntheticsSuites",
-      SyntheticsApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.POST,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("SyntheticsApi.v2.deleteSyntheticsSuites", SyntheticsApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.POST, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -480,7 +426,9 @@ export class SyntheticsApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Body Params
-    const contentType = getPreferredMediaType(["application/json"]);
+    const contentType = getPreferredMediaType([
+      "application/json",
+    ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = stringify(
       serialize(body, TypingInfo, "DeletedSuitesRequestDeleteRequest", ""),
@@ -513,15 +461,8 @@ export class SyntheticsApiRequestFactory extends BaseAPIRequestFactory {
     const localVarPath = "/api/v2/synthetics/tests/bulk-delete";
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "SyntheticsApi.v2.deleteSyntheticsTests",
-      SyntheticsApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.POST,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("SyntheticsApi.v2.deleteSyntheticsTests", SyntheticsApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.POST, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -531,7 +472,9 @@ export class SyntheticsApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Body Params
-    const contentType = getPreferredMediaType(["application/json"]);
+    const contentType = getPreferredMediaType([
+      "application/json",
+    ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = stringify(
       serialize(body, TypingInfo, "DeletedTestsRequestDeleteRequest", ""),
@@ -573,15 +516,8 @@ export class SyntheticsApiRequestFactory extends BaseAPIRequestFactory {
     );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "SyntheticsApi.v2.editSyntheticsSuite",
-      SyntheticsApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.PUT,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("SyntheticsApi.v2.editSyntheticsSuite", SyntheticsApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.PUT, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -591,7 +527,9 @@ export class SyntheticsApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Body Params
-    const contentType = getPreferredMediaType(["application/json"]);
+    const contentType = getPreferredMediaType([
+      "application/json",
+    ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = stringify(
       serialize(body, TypingInfo, "SuiteCreateEditRequest", ""),
@@ -621,22 +559,14 @@ export class SyntheticsApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Path Params
-    const localVarPath =
-      "/api/v2/synthetics/api-multistep/subtests/{public_id}/parents".replace(
-        "{public_id}",
-        encodeURIComponent(String(publicId)),
-      );
+    const localVarPath = "/api/v2/synthetics/api-multistep/subtests/{public_id}/parents".replace(
+      "{public_id}",
+      encodeURIComponent(String(publicId)),
+    );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "SyntheticsApi.v2.getApiMultistepSubtestParents",
-      SyntheticsApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.GET,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("SyntheticsApi.v2.getApiMultistepSubtestParents", SyntheticsApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.GET, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -667,22 +597,14 @@ export class SyntheticsApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Path Params
-    const localVarPath =
-      "/api/v2/synthetics/api-multistep/subtests/{public_id}".replace(
-        "{public_id}",
-        encodeURIComponent(String(publicId)),
-      );
+    const localVarPath = "/api/v2/synthetics/api-multistep/subtests/{public_id}".replace(
+      "{public_id}",
+      encodeURIComponent(String(publicId)),
+    );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "SyntheticsApi.v2.getApiMultistepSubtests",
-      SyntheticsApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.GET,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("SyntheticsApi.v2.getApiMultistepSubtests", SyntheticsApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.GET, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -707,19 +629,11 @@ export class SyntheticsApiRequestFactory extends BaseAPIRequestFactory {
     const _config = _options || this.configuration;
 
     // Path Params
-    const localVarPath =
-      "/api/v2/synthetics/settings/on_demand_concurrency_cap";
+    const localVarPath = "/api/v2/synthetics/settings/on_demand_concurrency_cap";
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "SyntheticsApi.v2.getOnDemandConcurrencyCap",
-      SyntheticsApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.GET,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("SyntheticsApi.v2.getOnDemandConcurrencyCap", SyntheticsApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.GET, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -757,21 +671,17 @@ export class SyntheticsApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Path Params
-    const localVarPath =
-      "/api/v2/synthetics/tests/browser/{public_id}/results/{result_id}"
-        .replace("{public_id}", encodeURIComponent(String(publicId)))
-        .replace("{result_id}", encodeURIComponent(String(resultId)));
+    const localVarPath = "/api/v2/synthetics/tests/browser/{public_id}/results/{result_id}".replace(
+      "{public_id}",
+      encodeURIComponent(String(publicId)),
+    ).replace(
+      "{result_id}",
+      encodeURIComponent(String(resultId)),
+    );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "SyntheticsApi.v2.getSyntheticsBrowserTestResult",
-      SyntheticsApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.GET,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("SyntheticsApi.v2.getSyntheticsBrowserTestResult", SyntheticsApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.GET, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -824,15 +734,8 @@ export class SyntheticsApiRequestFactory extends BaseAPIRequestFactory {
     );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "SyntheticsApi.v2.getSyntheticsDowntime",
-      SyntheticsApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.GET,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("SyntheticsApi.v2.getSyntheticsDowntime", SyntheticsApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.GET, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -868,15 +771,8 @@ export class SyntheticsApiRequestFactory extends BaseAPIRequestFactory {
     );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "SyntheticsApi.v2.getSyntheticsFastTestResult",
-      SyntheticsApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.GET,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("SyntheticsApi.v2.getSyntheticsFastTestResult", SyntheticsApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.GET, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -913,15 +809,8 @@ export class SyntheticsApiRequestFactory extends BaseAPIRequestFactory {
     );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "SyntheticsApi.v2.getSyntheticsNetworkTest",
-      SyntheticsApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.GET,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("SyntheticsApi.v2.getSyntheticsNetworkTest", SyntheticsApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.GET, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -958,15 +847,8 @@ export class SyntheticsApiRequestFactory extends BaseAPIRequestFactory {
     );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "SyntheticsApi.v2.getSyntheticsSuite",
-      SyntheticsApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.GET,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("SyntheticsApi.v2.getSyntheticsSuite", SyntheticsApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.GET, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -1005,21 +887,17 @@ export class SyntheticsApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Path Params
-    const localVarPath =
-      "/api/v2/synthetics/tests/{public_id}/results/{result_id}"
-        .replace("{public_id}", encodeURIComponent(String(publicId)))
-        .replace("{result_id}", encodeURIComponent(String(resultId)));
+    const localVarPath = "/api/v2/synthetics/tests/{public_id}/results/{result_id}".replace(
+      "{public_id}",
+      encodeURIComponent(String(publicId)),
+    ).replace(
+      "{result_id}",
+      encodeURIComponent(String(resultId)),
+    );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "SyntheticsApi.v2.getSyntheticsTestResult",
-      SyntheticsApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.GET,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("SyntheticsApi.v2.getSyntheticsTestResult", SyntheticsApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.GET, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -1074,21 +952,17 @@ export class SyntheticsApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Path Params
-    const localVarPath =
-      "/api/v2/synthetics/tests/{public_id}/version_history/{version_number}"
-        .replace("{public_id}", encodeURIComponent(String(publicId)))
-        .replace("{version_number}", encodeURIComponent(String(versionNumber)));
+    const localVarPath = "/api/v2/synthetics/tests/{public_id}/version_history/{version_number}".replace(
+      "{public_id}",
+      encodeURIComponent(String(publicId)),
+    ).replace(
+      "{version_number}",
+      encodeURIComponent(String(versionNumber)),
+    );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "SyntheticsApi.v2.getSyntheticsTestVersion",
-      SyntheticsApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.GET,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("SyntheticsApi.v2.getSyntheticsTestVersion", SyntheticsApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.GET, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -1141,22 +1015,14 @@ export class SyntheticsApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Path Params
-    const localVarPath =
-      "/api/v2/synthetics/tests/{public_id}/files/download".replace(
-        "{public_id}",
-        encodeURIComponent(String(publicId)),
-      );
+    const localVarPath = "/api/v2/synthetics/tests/{public_id}/files/download".replace(
+      "{public_id}",
+      encodeURIComponent(String(publicId)),
+    );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "SyntheticsApi.v2.getTestFileDownloadUrl",
-      SyntheticsApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.POST,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("SyntheticsApi.v2.getTestFileDownloadUrl", SyntheticsApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.POST, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -1166,7 +1032,9 @@ export class SyntheticsApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Body Params
-    const contentType = getPreferredMediaType(["application/json"]);
+    const contentType = getPreferredMediaType([
+      "application/json",
+    ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = stringify(
       serialize(body, TypingInfo, "SyntheticsTestFileDownloadRequest", ""),
@@ -1202,22 +1070,14 @@ export class SyntheticsApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Path Params
-    const localVarPath =
-      "/api/v2/synthetics/tests/{public_id}/files/multipart-presigned-urls".replace(
-        "{public_id}",
-        encodeURIComponent(String(publicId)),
-      );
+    const localVarPath = "/api/v2/synthetics/tests/{public_id}/files/multipart-presigned-urls".replace(
+      "{public_id}",
+      encodeURIComponent(String(publicId)),
+    );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "SyntheticsApi.v2.getTestFileMultipartPresignedUrls",
-      SyntheticsApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.POST,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("SyntheticsApi.v2.getTestFileMultipartPresignedUrls", SyntheticsApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.POST, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -1227,15 +1087,12 @@ export class SyntheticsApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Body Params
-    const contentType = getPreferredMediaType(["application/json"]);
+    const contentType = getPreferredMediaType([
+      "application/json",
+    ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = stringify(
-      serialize(
-        body,
-        TypingInfo,
-        "SyntheticsTestFileMultipartPresignedUrlsRequest",
-        "",
-      ),
+      serialize(body, TypingInfo, "SyntheticsTestFileMultipartPresignedUrlsRequest", ""),
       contentType,
     );
     requestContext.setBody(serializedBody);
@@ -1262,22 +1119,14 @@ export class SyntheticsApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Path Params
-    const localVarPath =
-      "/api/v2/synthetics/tests/{public_id}/parent-suites".replace(
-        "{public_id}",
-        encodeURIComponent(String(publicId)),
-      );
+    const localVarPath = "/api/v2/synthetics/tests/{public_id}/parent-suites".replace(
+      "{public_id}",
+      encodeURIComponent(String(publicId)),
+    );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "SyntheticsApi.v2.getTestParentSuites",
-      SyntheticsApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.GET,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("SyntheticsApi.v2.getTestParentSuites", SyntheticsApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.GET, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -1310,29 +1159,18 @@ export class SyntheticsApiRequestFactory extends BaseAPIRequestFactory {
 
     // verify required parameter 'publicId' is not null or undefined
     if (publicId === null || publicId === undefined) {
-      throw new RequiredError(
-        "publicId",
-        "listSyntheticsBrowserTestLatestResults",
-      );
+      throw new RequiredError("publicId", "listSyntheticsBrowserTestLatestResults");
     }
 
     // Path Params
-    const localVarPath =
-      "/api/v2/synthetics/tests/browser/{public_id}/results".replace(
-        "{public_id}",
-        encodeURIComponent(String(publicId)),
-      );
+    const localVarPath = "/api/v2/synthetics/tests/browser/{public_id}/results".replace(
+      "{public_id}",
+      encodeURIComponent(String(publicId)),
+    );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "SyntheticsApi.v2.listSyntheticsBrowserTestLatestResults",
-      SyntheticsApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.GET,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("SyntheticsApi.v2.listSyntheticsBrowserTestLatestResults", SyntheticsApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.GET, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -1406,15 +1244,8 @@ export class SyntheticsApiRequestFactory extends BaseAPIRequestFactory {
     const localVarPath = "/api/v2/synthetics/downtimes";
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "SyntheticsApi.v2.listSyntheticsDowntimes",
-      SyntheticsApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.GET,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("SyntheticsApi.v2.listSyntheticsDowntimes", SyntheticsApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.GET, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -1472,15 +1303,8 @@ export class SyntheticsApiRequestFactory extends BaseAPIRequestFactory {
     );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "SyntheticsApi.v2.listSyntheticsTestLatestResults",
-      SyntheticsApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.GET,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("SyntheticsApi.v2.listSyntheticsTestLatestResults", SyntheticsApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.GET, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -1557,22 +1381,14 @@ export class SyntheticsApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Path Params
-    const localVarPath =
-      "/api/v2/synthetics/tests/{public_id}/version_history".replace(
-        "{public_id}",
-        encodeURIComponent(String(publicId)),
-      );
+    const localVarPath = "/api/v2/synthetics/tests/{public_id}/version_history".replace(
+      "{public_id}",
+      encodeURIComponent(String(publicId)),
+    );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "SyntheticsApi.v2.listSyntheticsTestVersions",
-      SyntheticsApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.GET,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("SyntheticsApi.v2.listSyntheticsTestVersions", SyntheticsApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.GET, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -1625,22 +1441,14 @@ export class SyntheticsApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Path Params
-    const localVarPath =
-      "/api/v2/synthetics/variables/{variable_id}/jsonpatch".replace(
-        "{variable_id}",
-        encodeURIComponent(String(variableId)),
-      );
+    const localVarPath = "/api/v2/synthetics/variables/{variable_id}/jsonpatch".replace(
+      "{variable_id}",
+      encodeURIComponent(String(variableId)),
+    );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "SyntheticsApi.v2.patchGlobalVariable",
-      SyntheticsApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.PATCH,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("SyntheticsApi.v2.patchGlobalVariable", SyntheticsApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.PATCH, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -1650,7 +1458,9 @@ export class SyntheticsApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Body Params
-    const contentType = getPreferredMediaType(["application/json"]);
+    const contentType = getPreferredMediaType([
+      "application/json",
+    ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = stringify(
       serialize(body, TypingInfo, "GlobalVariableJsonPatchRequest", ""),
@@ -1685,22 +1495,14 @@ export class SyntheticsApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Path Params
-    const localVarPath =
-      "/api/v2/synthetics/suites/{public_id}/jsonpatch".replace(
-        "{public_id}",
-        encodeURIComponent(String(publicId)),
-      );
+    const localVarPath = "/api/v2/synthetics/suites/{public_id}/jsonpatch".replace(
+      "{public_id}",
+      encodeURIComponent(String(publicId)),
+    );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "SyntheticsApi.v2.patchTestSuite",
-      SyntheticsApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.PATCH,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("SyntheticsApi.v2.patchTestSuite", SyntheticsApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.PATCH, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -1710,7 +1512,9 @@ export class SyntheticsApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Body Params
-    const contentType = getPreferredMediaType(["application/json"]);
+    const contentType = getPreferredMediaType([
+      "application/json",
+    ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = stringify(
       serialize(body, TypingInfo, "SuiteJsonPatchRequest", ""),
@@ -1743,15 +1547,8 @@ export class SyntheticsApiRequestFactory extends BaseAPIRequestFactory {
     const localVarPath = "/api/v2/synthetics/tests/poll_results";
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "SyntheticsApi.v2.pollSyntheticsTestResults",
-      SyntheticsApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.GET,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("SyntheticsApi.v2.pollSyntheticsTestResults", SyntheticsApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.GET, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -1797,21 +1594,17 @@ export class SyntheticsApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Path Params
-    const localVarPath =
-      "/api/v2/synthetics/downtimes/{downtime_id}/tests/{test_id}"
-        .replace("{downtime_id}", encodeURIComponent(String(downtimeId)))
-        .replace("{test_id}", encodeURIComponent(String(testId)));
+    const localVarPath = "/api/v2/synthetics/downtimes/{downtime_id}/tests/{test_id}".replace(
+      "{downtime_id}",
+      encodeURIComponent(String(downtimeId)),
+    ).replace(
+      "{test_id}",
+      encodeURIComponent(String(testId)),
+    );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "SyntheticsApi.v2.removeTestFromSyntheticsDowntime",
-      SyntheticsApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.DELETE,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("SyntheticsApi.v2.removeTestFromSyntheticsDowntime", SyntheticsApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.DELETE, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -1843,15 +1636,8 @@ export class SyntheticsApiRequestFactory extends BaseAPIRequestFactory {
     const localVarPath = "/api/v2/synthetics/suites/search";
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "SyntheticsApi.v2.searchSuites",
-      SyntheticsApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.GET,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("SyntheticsApi.v2.searchSuites", SyntheticsApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.GET, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -1919,19 +1705,11 @@ export class SyntheticsApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Path Params
-    const localVarPath =
-      "/api/v2/synthetics/settings/on_demand_concurrency_cap";
+    const localVarPath = "/api/v2/synthetics/settings/on_demand_concurrency_cap";
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "SyntheticsApi.v2.setOnDemandConcurrencyCap",
-      SyntheticsApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.POST,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("SyntheticsApi.v2.setOnDemandConcurrencyCap", SyntheticsApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.POST, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -1941,7 +1719,9 @@ export class SyntheticsApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Body Params
-    const contentType = getPreferredMediaType(["application/json"]);
+    const contentType = getPreferredMediaType([
+      "application/json",
+    ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = stringify(
       serialize(body, TypingInfo, "OnDemandConcurrencyCapAttributes", ""),
@@ -1982,15 +1762,8 @@ export class SyntheticsApiRequestFactory extends BaseAPIRequestFactory {
     );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "SyntheticsApi.v2.updateSyntheticsDowntime",
-      SyntheticsApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.PUT,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("SyntheticsApi.v2.updateSyntheticsDowntime", SyntheticsApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.PUT, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -2000,7 +1773,9 @@ export class SyntheticsApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Body Params
-    const contentType = getPreferredMediaType(["application/json"]);
+    const contentType = getPreferredMediaType([
+      "application/json",
+    ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = stringify(
       serialize(body, TypingInfo, "SyntheticsDowntimeRequest", ""),
@@ -2041,15 +1816,8 @@ export class SyntheticsApiRequestFactory extends BaseAPIRequestFactory {
     );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "SyntheticsApi.v2.updateSyntheticsNetworkTest",
-      SyntheticsApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.PUT,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("SyntheticsApi.v2.updateSyntheticsNetworkTest", SyntheticsApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.PUT, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -2059,7 +1827,9 @@ export class SyntheticsApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Body Params
-    const contentType = getPreferredMediaType(["application/json"]);
+    const contentType = getPreferredMediaType([
+      "application/json",
+    ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = stringify(
       serialize(body, TypingInfo, "SyntheticsNetworkTestEditRequest", ""),
@@ -2089,7 +1859,9 @@ export class SyntheticsApiResponseProcessor {
   public async abortTestFileMultipartUpload(
     response: ResponseContext,
   ): Promise<void> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 204) {
       return;
     }
@@ -2099,7 +1871,10 @@ export class SyntheticsApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -2114,7 +1889,10 @@ export class SyntheticsApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -2139,7 +1917,9 @@ export class SyntheticsApiResponseProcessor {
   public async addTestToSyntheticsDowntime(
     response: ResponseContext,
   ): Promise<SyntheticsDowntimeResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: SyntheticsDowntimeResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -2153,7 +1933,10 @@ export class SyntheticsApiResponseProcessor {
       response.httpStatusCode === 403 ||
       response.httpStatusCode === 404
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: JSONAPIErrorResponse;
       try {
         body = deserialize(
@@ -2174,7 +1957,10 @@ export class SyntheticsApiResponseProcessor {
       );
     }
     if (response.httpStatusCode === 429) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -2189,7 +1975,10 @@ export class SyntheticsApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -2220,7 +2009,9 @@ export class SyntheticsApiResponseProcessor {
   public async completeTestFileMultipartUpload(
     response: ResponseContext,
   ): Promise<void> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 204) {
       return;
     }
@@ -2230,7 +2021,10 @@ export class SyntheticsApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -2245,7 +2039,10 @@ export class SyntheticsApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -2270,7 +2067,9 @@ export class SyntheticsApiResponseProcessor {
   public async createSyntheticsDowntime(
     response: ResponseContext,
   ): Promise<SyntheticsDowntimeResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 201) {
       const body: SyntheticsDowntimeResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -2279,8 +2078,14 @@ export class SyntheticsApiResponseProcessor {
       ) as SyntheticsDowntimeResponse;
       return body;
     }
-    if (response.httpStatusCode === 400 || response.httpStatusCode === 403) {
-      const bodyText = parse(await response.body.text(), contentType);
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 403
+    ) {
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: JSONAPIErrorResponse;
       try {
         body = deserialize(
@@ -2301,7 +2106,10 @@ export class SyntheticsApiResponseProcessor {
       );
     }
     if (response.httpStatusCode === 429) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -2316,7 +2124,10 @@ export class SyntheticsApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -2347,7 +2158,9 @@ export class SyntheticsApiResponseProcessor {
   public async createSyntheticsNetworkTest(
     response: ResponseContext,
   ): Promise<SyntheticsNetworkTestResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: SyntheticsNetworkTestResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -2356,8 +2169,14 @@ export class SyntheticsApiResponseProcessor {
       ) as SyntheticsNetworkTestResponse;
       return body;
     }
-    if (response.httpStatusCode === 400 || response.httpStatusCode === 429) {
-      const bodyText = parse(await response.body.text(), contentType);
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 429
+    ) {
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -2372,7 +2191,10 @@ export class SyntheticsApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -2403,7 +2225,9 @@ export class SyntheticsApiResponseProcessor {
   public async createSyntheticsSuite(
     response: ResponseContext,
   ): Promise<SyntheticsSuiteResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: SyntheticsSuiteResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -2412,8 +2236,14 @@ export class SyntheticsApiResponseProcessor {
       ) as SyntheticsSuiteResponse;
       return body;
     }
-    if (response.httpStatusCode === 400 || response.httpStatusCode === 429) {
-      const bodyText = parse(await response.body.text(), contentType);
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 429
+    ) {
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -2428,7 +2258,10 @@ export class SyntheticsApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -2459,7 +2292,9 @@ export class SyntheticsApiResponseProcessor {
   public async deleteSyntheticsDowntime(
     response: ResponseContext,
   ): Promise<void> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 204) {
       return;
     }
@@ -2468,7 +2303,10 @@ export class SyntheticsApiResponseProcessor {
       response.httpStatusCode === 403 ||
       response.httpStatusCode === 404
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: JSONAPIErrorResponse;
       try {
         body = deserialize(
@@ -2489,7 +2327,10 @@ export class SyntheticsApiResponseProcessor {
       );
     }
     if (response.httpStatusCode === 429) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -2504,7 +2345,10 @@ export class SyntheticsApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -2529,7 +2373,9 @@ export class SyntheticsApiResponseProcessor {
   public async deleteSyntheticsSuites(
     response: ResponseContext,
   ): Promise<DeletedSuitesResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: DeletedSuitesResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -2538,8 +2384,14 @@ export class SyntheticsApiResponseProcessor {
       ) as DeletedSuitesResponse;
       return body;
     }
-    if (response.httpStatusCode === 400 || response.httpStatusCode === 429) {
-      const bodyText = parse(await response.body.text(), contentType);
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 429
+    ) {
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -2554,7 +2406,10 @@ export class SyntheticsApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -2585,7 +2440,9 @@ export class SyntheticsApiResponseProcessor {
   public async deleteSyntheticsTests(
     response: ResponseContext,
   ): Promise<DeletedTestsResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: DeletedTestsResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -2599,7 +2456,10 @@ export class SyntheticsApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -2614,7 +2474,10 @@ export class SyntheticsApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -2645,7 +2508,9 @@ export class SyntheticsApiResponseProcessor {
   public async editSyntheticsSuite(
     response: ResponseContext,
   ): Promise<SyntheticsSuiteResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: SyntheticsSuiteResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -2654,8 +2519,14 @@ export class SyntheticsApiResponseProcessor {
       ) as SyntheticsSuiteResponse;
       return body;
     }
-    if (response.httpStatusCode === 400 || response.httpStatusCode === 429) {
-      const bodyText = parse(await response.body.text(), contentType);
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 429
+    ) {
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -2670,7 +2541,10 @@ export class SyntheticsApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -2701,7 +2575,9 @@ export class SyntheticsApiResponseProcessor {
   public async getApiMultistepSubtestParents(
     response: ResponseContext,
   ): Promise<SyntheticsApiMultistepParentTestsResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: SyntheticsApiMultistepParentTestsResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -2710,8 +2586,14 @@ export class SyntheticsApiResponseProcessor {
       ) as SyntheticsApiMultistepParentTestsResponse;
       return body;
     }
-    if (response.httpStatusCode === 404 || response.httpStatusCode === 429) {
-      const bodyText = parse(await response.body.text(), contentType);
+    if (
+      response.httpStatusCode === 404 ||
+      response.httpStatusCode === 429
+    ) {
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -2726,7 +2608,10 @@ export class SyntheticsApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -2757,7 +2642,9 @@ export class SyntheticsApiResponseProcessor {
   public async getApiMultistepSubtests(
     response: ResponseContext,
   ): Promise<SyntheticsApiMultistepSubtestsResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: SyntheticsApiMultistepSubtestsResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -2767,7 +2654,10 @@ export class SyntheticsApiResponseProcessor {
       return body;
     }
     if (response.httpStatusCode === 429) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -2782,7 +2672,10 @@ export class SyntheticsApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -2813,7 +2706,9 @@ export class SyntheticsApiResponseProcessor {
   public async getOnDemandConcurrencyCap(
     response: ResponseContext,
   ): Promise<OnDemandConcurrencyCapResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: OnDemandConcurrencyCapResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -2823,7 +2718,10 @@ export class SyntheticsApiResponseProcessor {
       return body;
     }
     if (response.httpStatusCode === 429) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -2838,7 +2736,10 @@ export class SyntheticsApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -2869,7 +2770,9 @@ export class SyntheticsApiResponseProcessor {
   public async getSyntheticsBrowserTestResult(
     response: ResponseContext,
   ): Promise<SyntheticsTestResultResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: SyntheticsTestResultResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -2883,7 +2786,10 @@ export class SyntheticsApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -2898,7 +2804,10 @@ export class SyntheticsApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -2929,7 +2838,9 @@ export class SyntheticsApiResponseProcessor {
   public async getSyntheticsDowntime(
     response: ResponseContext,
   ): Promise<SyntheticsDowntimeResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: SyntheticsDowntimeResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -2943,7 +2854,10 @@ export class SyntheticsApiResponseProcessor {
       response.httpStatusCode === 403 ||
       response.httpStatusCode === 404
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: JSONAPIErrorResponse;
       try {
         body = deserialize(
@@ -2964,7 +2878,10 @@ export class SyntheticsApiResponseProcessor {
       );
     }
     if (response.httpStatusCode === 429) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -2979,7 +2896,10 @@ export class SyntheticsApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -3010,7 +2930,9 @@ export class SyntheticsApiResponseProcessor {
   public async getSyntheticsFastTestResult(
     response: ResponseContext,
   ): Promise<SyntheticsFastTestResult> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: SyntheticsFastTestResult = deserialize(
         parse(await response.body.text(), contentType),
@@ -3024,7 +2946,10 @@ export class SyntheticsApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -3039,7 +2964,10 @@ export class SyntheticsApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -3070,7 +2998,9 @@ export class SyntheticsApiResponseProcessor {
   public async getSyntheticsNetworkTest(
     response: ResponseContext,
   ): Promise<SyntheticsNetworkTestResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: SyntheticsNetworkTestResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -3084,7 +3014,10 @@ export class SyntheticsApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -3099,7 +3032,10 @@ export class SyntheticsApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -3130,7 +3066,9 @@ export class SyntheticsApiResponseProcessor {
   public async getSyntheticsSuite(
     response: ResponseContext,
   ): Promise<SyntheticsSuiteResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: SyntheticsSuiteResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -3139,8 +3077,14 @@ export class SyntheticsApiResponseProcessor {
       ) as SyntheticsSuiteResponse;
       return body;
     }
-    if (response.httpStatusCode === 404 || response.httpStatusCode === 429) {
-      const bodyText = parse(await response.body.text(), contentType);
+    if (
+      response.httpStatusCode === 404 ||
+      response.httpStatusCode === 429
+    ) {
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -3155,7 +3099,10 @@ export class SyntheticsApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -3186,7 +3133,9 @@ export class SyntheticsApiResponseProcessor {
   public async getSyntheticsTestResult(
     response: ResponseContext,
   ): Promise<SyntheticsTestResultResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: SyntheticsTestResultResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -3200,7 +3149,10 @@ export class SyntheticsApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -3215,7 +3167,10 @@ export class SyntheticsApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -3246,7 +3201,9 @@ export class SyntheticsApiResponseProcessor {
   public async getSyntheticsTestVersion(
     response: ResponseContext,
   ): Promise<SyntheticsTestVersionResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: SyntheticsTestVersionResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -3255,8 +3212,14 @@ export class SyntheticsApiResponseProcessor {
       ) as SyntheticsTestVersionResponse;
       return body;
     }
-    if (response.httpStatusCode === 404 || response.httpStatusCode === 429) {
-      const bodyText = parse(await response.body.text(), contentType);
+    if (
+      response.httpStatusCode === 404 ||
+      response.httpStatusCode === 429
+    ) {
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -3271,7 +3234,10 @@ export class SyntheticsApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -3302,7 +3268,9 @@ export class SyntheticsApiResponseProcessor {
   public async getTestFileDownloadUrl(
     response: ResponseContext,
   ): Promise<SyntheticsTestFileDownloadResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: SyntheticsTestFileDownloadResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -3317,7 +3285,10 @@ export class SyntheticsApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -3332,7 +3303,10 @@ export class SyntheticsApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -3363,14 +3337,15 @@ export class SyntheticsApiResponseProcessor {
   public async getTestFileMultipartPresignedUrls(
     response: ResponseContext,
   ): Promise<SyntheticsTestFileMultipartPresignedUrlsResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
-      const body: SyntheticsTestFileMultipartPresignedUrlsResponse =
-        deserialize(
-          parse(await response.body.text(), contentType),
-          TypingInfo,
-          "SyntheticsTestFileMultipartPresignedUrlsResponse",
-        ) as SyntheticsTestFileMultipartPresignedUrlsResponse;
+      const body: SyntheticsTestFileMultipartPresignedUrlsResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "SyntheticsTestFileMultipartPresignedUrlsResponse",
+      ) as SyntheticsTestFileMultipartPresignedUrlsResponse;
       return body;
     }
     if (
@@ -3379,7 +3354,10 @@ export class SyntheticsApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -3394,18 +3372,20 @@ export class SyntheticsApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-      const body: SyntheticsTestFileMultipartPresignedUrlsResponse =
-        deserialize(
-          parse(await response.body.text(), contentType),
-          TypingInfo,
-          "SyntheticsTestFileMultipartPresignedUrlsResponse",
-          "",
-        ) as SyntheticsTestFileMultipartPresignedUrlsResponse;
+      const body: SyntheticsTestFileMultipartPresignedUrlsResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "SyntheticsTestFileMultipartPresignedUrlsResponse",
+        "",
+      ) as SyntheticsTestFileMultipartPresignedUrlsResponse;
       return body;
     }
 
@@ -3426,7 +3406,9 @@ export class SyntheticsApiResponseProcessor {
   public async getTestParentSuites(
     response: ResponseContext,
   ): Promise<SyntheticsTestParentSuitesResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: SyntheticsTestParentSuitesResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -3435,8 +3417,14 @@ export class SyntheticsApiResponseProcessor {
       ) as SyntheticsTestParentSuitesResponse;
       return body;
     }
-    if (response.httpStatusCode === 404 || response.httpStatusCode === 429) {
-      const bodyText = parse(await response.body.text(), contentType);
+    if (
+      response.httpStatusCode === 404 ||
+      response.httpStatusCode === 429
+    ) {
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -3451,7 +3439,10 @@ export class SyntheticsApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -3482,7 +3473,9 @@ export class SyntheticsApiResponseProcessor {
   public async listSyntheticsBrowserTestLatestResults(
     response: ResponseContext,
   ): Promise<SyntheticsTestLatestResultsResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: SyntheticsTestLatestResultsResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -3496,7 +3489,10 @@ export class SyntheticsApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -3511,7 +3507,10 @@ export class SyntheticsApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -3542,7 +3541,9 @@ export class SyntheticsApiResponseProcessor {
   public async listSyntheticsDowntimes(
     response: ResponseContext,
   ): Promise<SyntheticsDowntimesResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: SyntheticsDowntimesResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -3551,8 +3552,14 @@ export class SyntheticsApiResponseProcessor {
       ) as SyntheticsDowntimesResponse;
       return body;
     }
-    if (response.httpStatusCode === 400 || response.httpStatusCode === 403) {
-      const bodyText = parse(await response.body.text(), contentType);
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 403
+    ) {
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: JSONAPIErrorResponse;
       try {
         body = deserialize(
@@ -3573,7 +3580,10 @@ export class SyntheticsApiResponseProcessor {
       );
     }
     if (response.httpStatusCode === 429) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -3588,7 +3598,10 @@ export class SyntheticsApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -3619,7 +3632,9 @@ export class SyntheticsApiResponseProcessor {
   public async listSyntheticsTestLatestResults(
     response: ResponseContext,
   ): Promise<SyntheticsTestLatestResultsResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: SyntheticsTestLatestResultsResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -3633,7 +3648,10 @@ export class SyntheticsApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -3648,7 +3666,10 @@ export class SyntheticsApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -3679,7 +3700,9 @@ export class SyntheticsApiResponseProcessor {
   public async listSyntheticsTestVersions(
     response: ResponseContext,
   ): Promise<SyntheticsTestVersionHistoryResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: SyntheticsTestVersionHistoryResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -3693,7 +3716,10 @@ export class SyntheticsApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -3708,7 +3734,10 @@ export class SyntheticsApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -3739,7 +3768,9 @@ export class SyntheticsApiResponseProcessor {
   public async patchGlobalVariable(
     response: ResponseContext,
   ): Promise<GlobalVariableResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: GlobalVariableResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -3753,7 +3784,10 @@ export class SyntheticsApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -3768,7 +3802,10 @@ export class SyntheticsApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -3799,7 +3836,9 @@ export class SyntheticsApiResponseProcessor {
   public async patchTestSuite(
     response: ResponseContext,
   ): Promise<SyntheticsSuiteResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: SyntheticsSuiteResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -3808,8 +3847,14 @@ export class SyntheticsApiResponseProcessor {
       ) as SyntheticsSuiteResponse;
       return body;
     }
-    if (response.httpStatusCode === 400 || response.httpStatusCode === 429) {
-      const bodyText = parse(await response.body.text(), contentType);
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 429
+    ) {
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -3824,7 +3869,10 @@ export class SyntheticsApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -3855,7 +3903,9 @@ export class SyntheticsApiResponseProcessor {
   public async pollSyntheticsTestResults(
     response: ResponseContext,
   ): Promise<SyntheticsPollTestResultsResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: SyntheticsPollTestResultsResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -3869,7 +3919,10 @@ export class SyntheticsApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -3884,7 +3937,10 @@ export class SyntheticsApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -3915,7 +3971,9 @@ export class SyntheticsApiResponseProcessor {
   public async removeTestFromSyntheticsDowntime(
     response: ResponseContext,
   ): Promise<SyntheticsDowntimeResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: SyntheticsDowntimeResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -3929,7 +3987,10 @@ export class SyntheticsApiResponseProcessor {
       response.httpStatusCode === 403 ||
       response.httpStatusCode === 404
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: JSONAPIErrorResponse;
       try {
         body = deserialize(
@@ -3950,7 +4011,10 @@ export class SyntheticsApiResponseProcessor {
       );
     }
     if (response.httpStatusCode === 429) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -3965,7 +4029,10 @@ export class SyntheticsApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -3996,7 +4063,9 @@ export class SyntheticsApiResponseProcessor {
   public async searchSuites(
     response: ResponseContext,
   ): Promise<SyntheticsSuiteSearchResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: SyntheticsSuiteSearchResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -4005,8 +4074,14 @@ export class SyntheticsApiResponseProcessor {
       ) as SyntheticsSuiteSearchResponse;
       return body;
     }
-    if (response.httpStatusCode === 400 || response.httpStatusCode === 429) {
-      const bodyText = parse(await response.body.text(), contentType);
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 429
+    ) {
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -4021,7 +4096,10 @@ export class SyntheticsApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -4052,7 +4130,9 @@ export class SyntheticsApiResponseProcessor {
   public async setOnDemandConcurrencyCap(
     response: ResponseContext,
   ): Promise<OnDemandConcurrencyCapResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: OnDemandConcurrencyCapResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -4062,7 +4142,10 @@ export class SyntheticsApiResponseProcessor {
       return body;
     }
     if (response.httpStatusCode === 429) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -4077,7 +4160,10 @@ export class SyntheticsApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -4108,7 +4194,9 @@ export class SyntheticsApiResponseProcessor {
   public async updateSyntheticsDowntime(
     response: ResponseContext,
   ): Promise<SyntheticsDowntimeResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: SyntheticsDowntimeResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -4122,7 +4210,10 @@ export class SyntheticsApiResponseProcessor {
       response.httpStatusCode === 403 ||
       response.httpStatusCode === 404
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: JSONAPIErrorResponse;
       try {
         body = deserialize(
@@ -4143,7 +4234,10 @@ export class SyntheticsApiResponseProcessor {
       );
     }
     if (response.httpStatusCode === 429) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -4158,7 +4252,10 @@ export class SyntheticsApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -4189,7 +4286,9 @@ export class SyntheticsApiResponseProcessor {
   public async updateSyntheticsNetworkTest(
     response: ResponseContext,
   ): Promise<SyntheticsNetworkTestResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: SyntheticsNetworkTestResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -4203,7 +4302,10 @@ export class SyntheticsApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -4218,7 +4320,10 @@ export class SyntheticsApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -4703,7 +4808,8 @@ export class SyntheticsApi {
   private responseProcessor: SyntheticsApiResponseProcessor;
   private configuration: Configuration;
 
-  static operationServers: { [key: string]: BaseServerConfiguration[] } = {};
+  static operationServers: { [key: string]: BaseServerConfiguration[] } = {
+  };
 
   public constructor(
     configuration?: Configuration,
@@ -4712,7 +4818,8 @@ export class SyntheticsApi {
   ) {
     this.configuration = configuration || createConfiguration();
     this.requestFactory =
-      requestFactory || new SyntheticsApiRequestFactory(this.configuration);
+      requestFactory ||
+      new SyntheticsApiRequestFactory(this.configuration);
     this.responseProcessor =
       responseProcessor || new SyntheticsApiResponseProcessor();
   }
@@ -4726,19 +4833,16 @@ export class SyntheticsApi {
     param: SyntheticsApiAbortTestFileMultipartUploadRequest,
     options?: Configuration,
   ): Promise<void> {
-    const requestContextPromise =
-      this.requestFactory.abortTestFileMultipartUpload(
-        param.publicId,
-        param.body,
-        options,
-      );
+    const requestContextPromise = this.requestFactory.abortTestFileMultipartUpload(
+      param.publicId,
+      param.body,
+      options,
+    );
     return requestContextPromise.then((requestContext) => {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.abortTestFileMultipartUpload(
-            responseContext,
-          );
+          return this.responseProcessor.abortTestFileMultipartUpload(responseContext);
         });
     });
   }
@@ -4751,19 +4855,16 @@ export class SyntheticsApi {
     param: SyntheticsApiAddTestToSyntheticsDowntimeRequest,
     options?: Configuration,
   ): Promise<SyntheticsDowntimeResponse> {
-    const requestContextPromise =
-      this.requestFactory.addTestToSyntheticsDowntime(
-        param.downtimeId,
-        param.testId,
-        options,
-      );
+    const requestContextPromise = this.requestFactory.addTestToSyntheticsDowntime(
+      param.downtimeId,
+      param.testId,
+      options,
+    );
     return requestContextPromise.then((requestContext) => {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.addTestToSyntheticsDowntime(
-            responseContext,
-          );
+          return this.responseProcessor.addTestToSyntheticsDowntime(responseContext);
         });
     });
   }
@@ -4777,19 +4878,16 @@ export class SyntheticsApi {
     param: SyntheticsApiCompleteTestFileMultipartUploadRequest,
     options?: Configuration,
   ): Promise<void> {
-    const requestContextPromise =
-      this.requestFactory.completeTestFileMultipartUpload(
-        param.publicId,
-        param.body,
-        options,
-      );
+    const requestContextPromise = this.requestFactory.completeTestFileMultipartUpload(
+      param.publicId,
+      param.body,
+      options,
+    );
     return requestContextPromise.then((requestContext) => {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.completeTestFileMultipartUpload(
-            responseContext,
-          );
+          return this.responseProcessor.completeTestFileMultipartUpload(responseContext);
         });
     });
   }
@@ -4810,9 +4908,7 @@ export class SyntheticsApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.createSyntheticsDowntime(
-            responseContext,
-          );
+          return this.responseProcessor.createSyntheticsDowntime(responseContext);
         });
     });
   }
@@ -4824,15 +4920,15 @@ export class SyntheticsApi {
     param: SyntheticsApiCreateSyntheticsNetworkTestRequest,
     options?: Configuration,
   ): Promise<SyntheticsNetworkTestResponse> {
-    const requestContextPromise =
-      this.requestFactory.createSyntheticsNetworkTest(param.body, options);
+    const requestContextPromise = this.requestFactory.createSyntheticsNetworkTest(
+      param.body,
+      options,
+    );
     return requestContextPromise.then((requestContext) => {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.createSyntheticsNetworkTest(
-            responseContext,
-          );
+          return this.responseProcessor.createSyntheticsNetworkTest(responseContext);
         });
     });
   }
@@ -4873,9 +4969,7 @@ export class SyntheticsApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.deleteSyntheticsDowntime(
-            responseContext,
-          );
+          return this.responseProcessor.deleteSyntheticsDowntime(responseContext);
         });
     });
   }
@@ -4950,18 +5044,15 @@ export class SyntheticsApi {
     param: SyntheticsApiGetApiMultistepSubtestParentsRequest,
     options?: Configuration,
   ): Promise<SyntheticsApiMultistepParentTestsResponse> {
-    const requestContextPromise =
-      this.requestFactory.getApiMultistepSubtestParents(
-        param.publicId,
-        options,
-      );
+    const requestContextPromise = this.requestFactory.getApiMultistepSubtestParents(
+      param.publicId,
+      options,
+    );
     return requestContextPromise.then((requestContext) => {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.getApiMultistepSubtestParents(
-            responseContext,
-          );
+          return this.responseProcessor.getApiMultistepSubtestParents(responseContext);
         });
     });
   }
@@ -4983,9 +5074,7 @@ export class SyntheticsApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.getApiMultistepSubtests(
-            responseContext,
-          );
+          return this.responseProcessor.getApiMultistepSubtests(responseContext);
         });
     });
   }
@@ -4994,18 +5083,16 @@ export class SyntheticsApi {
    * Get the on-demand concurrency cap.
    * @param param The request object
    */
-  public getOnDemandConcurrencyCap(
-    options?: Configuration,
+  public getOnDemandConcurrencyCap(options?: Configuration,
   ): Promise<OnDemandConcurrencyCapResponse> {
-    const requestContextPromise =
-      this.requestFactory.getOnDemandConcurrencyCap(options);
+    const requestContextPromise = this.requestFactory.getOnDemandConcurrencyCap(
+      options,
+    );
     return requestContextPromise.then((requestContext) => {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.getOnDemandConcurrencyCap(
-            responseContext,
-          );
+          return this.responseProcessor.getOnDemandConcurrencyCap(responseContext);
         });
     });
   }
@@ -5018,21 +5105,18 @@ export class SyntheticsApi {
     param: SyntheticsApiGetSyntheticsBrowserTestResultRequest,
     options?: Configuration,
   ): Promise<SyntheticsTestResultResponse> {
-    const requestContextPromise =
-      this.requestFactory.getSyntheticsBrowserTestResult(
-        param.publicId,
-        param.resultId,
-        param.eventId,
-        param.timestamp,
-        options,
-      );
+    const requestContextPromise = this.requestFactory.getSyntheticsBrowserTestResult(
+      param.publicId,
+      param.resultId,
+      param.eventId,
+      param.timestamp,
+      options,
+    );
     return requestContextPromise.then((requestContext) => {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.getSyntheticsBrowserTestResult(
-            responseContext,
-          );
+          return this.responseProcessor.getSyntheticsBrowserTestResult(responseContext);
         });
     });
   }
@@ -5065,15 +5149,15 @@ export class SyntheticsApi {
     param: SyntheticsApiGetSyntheticsFastTestResultRequest,
     options?: Configuration,
   ): Promise<SyntheticsFastTestResult> {
-    const requestContextPromise =
-      this.requestFactory.getSyntheticsFastTestResult(param.id, options);
+    const requestContextPromise = this.requestFactory.getSyntheticsFastTestResult(
+      param.id,
+      options,
+    );
     return requestContextPromise.then((requestContext) => {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.getSyntheticsFastTestResult(
-            responseContext,
-          );
+          return this.responseProcessor.getSyntheticsFastTestResult(responseContext);
         });
     });
   }
@@ -5093,9 +5177,7 @@ export class SyntheticsApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.getSyntheticsNetworkTest(
-            responseContext,
-          );
+          return this.responseProcessor.getSyntheticsNetworkTest(responseContext);
         });
     });
   }
@@ -5139,9 +5221,7 @@ export class SyntheticsApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.getSyntheticsTestResult(
-            responseContext,
-          );
+          return this.responseProcessor.getSyntheticsTestResult(responseContext);
         });
     });
   }
@@ -5165,9 +5245,7 @@ export class SyntheticsApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.getSyntheticsTestVersion(
-            responseContext,
-          );
+          return this.responseProcessor.getSyntheticsTestVersion(responseContext);
         });
     });
   }
@@ -5204,19 +5282,16 @@ export class SyntheticsApi {
     param: SyntheticsApiGetTestFileMultipartPresignedUrlsRequest,
     options?: Configuration,
   ): Promise<SyntheticsTestFileMultipartPresignedUrlsResponse> {
-    const requestContextPromise =
-      this.requestFactory.getTestFileMultipartPresignedUrls(
-        param.publicId,
-        param.body,
-        options,
-      );
+    const requestContextPromise = this.requestFactory.getTestFileMultipartPresignedUrls(
+      param.publicId,
+      param.body,
+      options,
+    );
     return requestContextPromise.then((requestContext) => {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.getTestFileMultipartPresignedUrls(
-            responseContext,
-          );
+          return this.responseProcessor.getTestFileMultipartPresignedUrls(responseContext);
         });
     });
   }
@@ -5250,24 +5325,21 @@ export class SyntheticsApi {
     param: SyntheticsApiListSyntheticsBrowserTestLatestResultsRequest,
     options?: Configuration,
   ): Promise<SyntheticsTestLatestResultsResponse> {
-    const requestContextPromise =
-      this.requestFactory.listSyntheticsBrowserTestLatestResults(
-        param.publicId,
-        param.fromTs,
-        param.toTs,
-        param.status,
-        param.runType,
-        param.probeDc,
-        param.deviceId,
-        options,
-      );
+    const requestContextPromise = this.requestFactory.listSyntheticsBrowserTestLatestResults(
+      param.publicId,
+      param.fromTs,
+      param.toTs,
+      param.status,
+      param.runType,
+      param.probeDc,
+      param.deviceId,
+      options,
+    );
     return requestContextPromise.then((requestContext) => {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.listSyntheticsBrowserTestLatestResults(
-            responseContext,
-          );
+          return this.responseProcessor.listSyntheticsBrowserTestLatestResults(responseContext);
         });
     });
   }
@@ -5289,9 +5361,7 @@ export class SyntheticsApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.listSyntheticsDowntimes(
-            responseContext,
-          );
+          return this.responseProcessor.listSyntheticsDowntimes(responseContext);
         });
     });
   }
@@ -5304,24 +5374,21 @@ export class SyntheticsApi {
     param: SyntheticsApiListSyntheticsTestLatestResultsRequest,
     options?: Configuration,
   ): Promise<SyntheticsTestLatestResultsResponse> {
-    const requestContextPromise =
-      this.requestFactory.listSyntheticsTestLatestResults(
-        param.publicId,
-        param.fromTs,
-        param.toTs,
-        param.status,
-        param.runType,
-        param.probeDc,
-        param.deviceId,
-        options,
-      );
+    const requestContextPromise = this.requestFactory.listSyntheticsTestLatestResults(
+      param.publicId,
+      param.fromTs,
+      param.toTs,
+      param.status,
+      param.runType,
+      param.probeDc,
+      param.deviceId,
+      options,
+    );
     return requestContextPromise.then((requestContext) => {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.listSyntheticsTestLatestResults(
-            responseContext,
-          );
+          return this.responseProcessor.listSyntheticsTestLatestResults(responseContext);
         });
     });
   }
@@ -5334,20 +5401,17 @@ export class SyntheticsApi {
     param: SyntheticsApiListSyntheticsTestVersionsRequest,
     options?: Configuration,
   ): Promise<SyntheticsTestVersionHistoryResponse> {
-    const requestContextPromise =
-      this.requestFactory.listSyntheticsTestVersions(
-        param.publicId,
-        param.lastVersionNumber,
-        param.limit,
-        options,
-      );
+    const requestContextPromise = this.requestFactory.listSyntheticsTestVersions(
+      param.publicId,
+      param.lastVersionNumber,
+      param.limit,
+      options,
+    );
     return requestContextPromise.then((requestContext) => {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.listSyntheticsTestVersions(
-            responseContext,
-          );
+          return this.responseProcessor.listSyntheticsTestVersions(responseContext);
         });
     });
   }
@@ -5355,7 +5419,7 @@ export class SyntheticsApi {
   /**
    * Patch a global variable using JSON Patch (RFC 6902).
    * This endpoint allows partial updates to a global variable by specifying only the fields to modify.
-   *
+   * 
    * Common operations include:
    * - Replace field values: `{"op": "replace", "path": "/name", "value": "new_name"}`
    * - Update nested values: `{"op": "replace", "path": "/value/value", "value": "new_value"}`
@@ -5384,7 +5448,7 @@ export class SyntheticsApi {
   /**
    * Patch a Synthetic test suite using JSON Patch (RFC 6902).
    * Use partial updates to modify only specific fields of a test suite.
-   *
+   * 
    * Common operations include:
    * - Replace field values: `{"op": "replace", "path": "/name", "value": "new_name"}`
    * - Add/update tags: `{"op": "add", "path": "/tags/-", "value": "new_tag"}`
@@ -5426,9 +5490,7 @@ export class SyntheticsApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.pollSyntheticsTestResults(
-            responseContext,
-          );
+          return this.responseProcessor.pollSyntheticsTestResults(responseContext);
         });
     });
   }
@@ -5441,19 +5503,16 @@ export class SyntheticsApi {
     param: SyntheticsApiRemoveTestFromSyntheticsDowntimeRequest,
     options?: Configuration,
   ): Promise<SyntheticsDowntimeResponse> {
-    const requestContextPromise =
-      this.requestFactory.removeTestFromSyntheticsDowntime(
-        param.downtimeId,
-        param.testId,
-        options,
-      );
+    const requestContextPromise = this.requestFactory.removeTestFromSyntheticsDowntime(
+      param.downtimeId,
+      param.testId,
+      options,
+    );
     return requestContextPromise.then((requestContext) => {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.removeTestFromSyntheticsDowntime(
-            responseContext,
-          );
+          return this.responseProcessor.removeTestFromSyntheticsDowntime(responseContext);
         });
     });
   }
@@ -5499,9 +5558,7 @@ export class SyntheticsApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.setOnDemandConcurrencyCap(
-            responseContext,
-          );
+          return this.responseProcessor.setOnDemandConcurrencyCap(responseContext);
         });
     });
   }
@@ -5523,9 +5580,7 @@ export class SyntheticsApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.updateSyntheticsDowntime(
-            responseContext,
-          );
+          return this.responseProcessor.updateSyntheticsDowntime(responseContext);
         });
     });
   }
@@ -5537,19 +5592,16 @@ export class SyntheticsApi {
     param: SyntheticsApiUpdateSyntheticsNetworkTestRequest,
     options?: Configuration,
   ): Promise<SyntheticsNetworkTestResponse> {
-    const requestContextPromise =
-      this.requestFactory.updateSyntheticsNetworkTest(
-        param.publicId,
-        param.body,
-        options,
-      );
+    const requestContextPromise = this.requestFactory.updateSyntheticsNetworkTest(
+      param.publicId,
+      param.body,
+      options,
+    );
     return requestContextPromise.then((requestContext) => {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.updateSyntheticsNetworkTest(
-            responseContext,
-          );
+          return this.responseProcessor.updateSyntheticsNetworkTest(responseContext);
         });
     });
   }

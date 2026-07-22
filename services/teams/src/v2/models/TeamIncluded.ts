@@ -7,8 +7,4 @@ import { UserTeamPermission } from "./UserTeamPermission";
 /**
  * Included resources related to the team
  */
-export type TeamIncluded =
-  | User
-  | TeamLink
-  | UserTeamPermission
-  | UnparsedObject;
+export type TeamIncluded = User | TeamLink | UserTeamPermission | UnparsedObject;

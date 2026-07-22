@@ -19,6 +19,7 @@ import {
   ServerConfiguration,
   stringify,
   applySecurityAuthentication,
+  
 } from "@datadog/datadog-api-client";
 
 import { TypingInfo } from "./models/TypingInfo";
@@ -99,12 +100,8 @@ export class IncidentsApiRequestFactory extends BaseAPIRequestFactory {
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
-    if (
-      !_config.unstableOperations["IncidentsApi.v2.createGlobalIncidentHandle"]
-    ) {
-      throw new Error(
-        "Unstable operation 'createGlobalIncidentHandle' is disabled. Enable it by setting `configuration.unstableOperations['IncidentsApi.v2.createGlobalIncidentHandle'] = true`",
-      );
+    if (!_config.unstableOperations["IncidentsApi.v2.createGlobalIncidentHandle"]) {
+      throw new Error("Unstable operation 'createGlobalIncidentHandle' is disabled. Enable it by setting `configuration.unstableOperations['IncidentsApi.v2.createGlobalIncidentHandle'] = true`");
     }
 
     // verify required parameter 'body' is not null or undefined
@@ -116,15 +113,8 @@ export class IncidentsApiRequestFactory extends BaseAPIRequestFactory {
     const localVarPath = "/api/v2/incidents/config/global/incident-handles";
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "IncidentsApi.v2.createGlobalIncidentHandle",
-      IncidentsApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.POST,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("IncidentsApi.v2.createGlobalIncidentHandle", IncidentsApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.POST, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -143,7 +133,9 @@ export class IncidentsApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Body Params
-    const contentType = getPreferredMediaType(["application/json"]);
+    const contentType = getPreferredMediaType([
+      "application/json",
+    ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = stringify(
       serialize(body, TypingInfo, "IncidentHandleRequest", ""),
@@ -167,9 +159,7 @@ export class IncidentsApiRequestFactory extends BaseAPIRequestFactory {
     const _config = _options || this.configuration;
 
     if (!_config.unstableOperations["IncidentsApi.v2.createIncident"]) {
-      throw new Error(
-        "Unstable operation 'createIncident' is disabled. Enable it by setting `configuration.unstableOperations['IncidentsApi.v2.createIncident'] = true`",
-      );
+      throw new Error("Unstable operation 'createIncident' is disabled. Enable it by setting `configuration.unstableOperations['IncidentsApi.v2.createIncident'] = true`");
     }
 
     // verify required parameter 'body' is not null or undefined
@@ -181,15 +171,8 @@ export class IncidentsApiRequestFactory extends BaseAPIRequestFactory {
     const localVarPath = "/api/v2/incidents";
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "IncidentsApi.v2.createIncident",
-      IncidentsApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.POST,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("IncidentsApi.v2.createIncident", IncidentsApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.POST, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -199,7 +182,9 @@ export class IncidentsApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Body Params
-    const contentType = getPreferredMediaType(["application/json"]);
+    const contentType = getPreferredMediaType([
+      "application/json",
+    ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = stringify(
       serialize(body, TypingInfo, "IncidentCreateRequest", ""),
@@ -225,12 +210,8 @@ export class IncidentsApiRequestFactory extends BaseAPIRequestFactory {
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
-    if (
-      !_config.unstableOperations["IncidentsApi.v2.createIncidentAttachment"]
-    ) {
-      throw new Error(
-        "Unstable operation 'createIncidentAttachment' is disabled. Enable it by setting `configuration.unstableOperations['IncidentsApi.v2.createIncidentAttachment'] = true`",
-      );
+    if (!_config.unstableOperations["IncidentsApi.v2.createIncidentAttachment"]) {
+      throw new Error("Unstable operation 'createIncidentAttachment' is disabled. Enable it by setting `configuration.unstableOperations['IncidentsApi.v2.createIncidentAttachment'] = true`");
     }
 
     // verify required parameter 'incidentId' is not null or undefined
@@ -250,15 +231,8 @@ export class IncidentsApiRequestFactory extends BaseAPIRequestFactory {
     );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "IncidentsApi.v2.createIncidentAttachment",
-      IncidentsApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.POST,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("IncidentsApi.v2.createIncidentAttachment", IncidentsApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.POST, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -277,7 +251,9 @@ export class IncidentsApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Body Params
-    const contentType = getPreferredMediaType(["application/json"]);
+    const contentType = getPreferredMediaType([
+      "application/json",
+    ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = stringify(
       serialize(body, TypingInfo, "CreateAttachmentRequest", ""),
@@ -320,15 +296,8 @@ export class IncidentsApiRequestFactory extends BaseAPIRequestFactory {
     );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "IncidentsApi.v2.createIncidentImpact",
-      IncidentsApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.POST,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("IncidentsApi.v2.createIncidentImpact", IncidentsApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.POST, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -341,18 +310,15 @@ export class IncidentsApiRequestFactory extends BaseAPIRequestFactory {
     if (include !== undefined) {
       requestContext.setQueryParam(
         "include",
-        serialize(
-          include,
-          TypingInfo,
-          "Array<IncidentImpactRelatedObject>",
-          "",
-        ),
+        serialize(include, TypingInfo, "Array<IncidentImpactRelatedObject>", ""),
         "csv",
       );
     }
 
     // Body Params
-    const contentType = getPreferredMediaType(["application/json"]);
+    const contentType = getPreferredMediaType([
+      "application/json",
+    ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = stringify(
       serialize(body, TypingInfo, "IncidentImpactCreateRequest", ""),
@@ -377,12 +343,8 @@ export class IncidentsApiRequestFactory extends BaseAPIRequestFactory {
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
-    if (
-      !_config.unstableOperations["IncidentsApi.v2.createIncidentIntegration"]
-    ) {
-      throw new Error(
-        "Unstable operation 'createIncidentIntegration' is disabled. Enable it by setting `configuration.unstableOperations['IncidentsApi.v2.createIncidentIntegration'] = true`",
-      );
+    if (!_config.unstableOperations["IncidentsApi.v2.createIncidentIntegration"]) {
+      throw new Error("Unstable operation 'createIncidentIntegration' is disabled. Enable it by setting `configuration.unstableOperations['IncidentsApi.v2.createIncidentIntegration'] = true`");
     }
 
     // verify required parameter 'incidentId' is not null or undefined
@@ -396,22 +358,14 @@ export class IncidentsApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Path Params
-    const localVarPath =
-      "/api/v2/incidents/{incident_id}/relationships/integrations".replace(
-        "{incident_id}",
-        encodeURIComponent(String(incidentId)),
-      );
+    const localVarPath = "/api/v2/incidents/{incident_id}/relationships/integrations".replace(
+      "{incident_id}",
+      encodeURIComponent(String(incidentId)),
+    );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "IncidentsApi.v2.createIncidentIntegration",
-      IncidentsApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.POST,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("IncidentsApi.v2.createIncidentIntegration", IncidentsApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.POST, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -421,15 +375,12 @@ export class IncidentsApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Body Params
-    const contentType = getPreferredMediaType(["application/json"]);
+    const contentType = getPreferredMediaType([
+      "application/json",
+    ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = stringify(
-      serialize(
-        body,
-        TypingInfo,
-        "IncidentIntegrationMetadataCreateRequest",
-        "",
-      ),
+      serialize(body, TypingInfo, "IncidentIntegrationMetadataCreateRequest", ""),
       contentType,
     );
     requestContext.setBody(serializedBody);
@@ -450,14 +401,8 @@ export class IncidentsApiRequestFactory extends BaseAPIRequestFactory {
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
-    if (
-      !_config.unstableOperations[
-        "IncidentsApi.v2.createIncidentNotificationRule"
-      ]
-    ) {
-      throw new Error(
-        "Unstable operation 'createIncidentNotificationRule' is disabled. Enable it by setting `configuration.unstableOperations['IncidentsApi.v2.createIncidentNotificationRule'] = true`",
-      );
+    if (!_config.unstableOperations["IncidentsApi.v2.createIncidentNotificationRule"]) {
+      throw new Error("Unstable operation 'createIncidentNotificationRule' is disabled. Enable it by setting `configuration.unstableOperations['IncidentsApi.v2.createIncidentNotificationRule'] = true`");
     }
 
     // verify required parameter 'body' is not null or undefined
@@ -469,15 +414,8 @@ export class IncidentsApiRequestFactory extends BaseAPIRequestFactory {
     const localVarPath = "/api/v2/incidents/config/notification-rules";
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "IncidentsApi.v2.createIncidentNotificationRule",
-      IncidentsApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.POST,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("IncidentsApi.v2.createIncidentNotificationRule", IncidentsApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.POST, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -487,7 +425,9 @@ export class IncidentsApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Body Params
-    const contentType = getPreferredMediaType(["application/json"]);
+    const contentType = getPreferredMediaType([
+      "application/json",
+    ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = stringify(
       serialize(body, TypingInfo, "CreateIncidentNotificationRuleRequest", ""),
@@ -511,14 +451,8 @@ export class IncidentsApiRequestFactory extends BaseAPIRequestFactory {
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
-    if (
-      !_config.unstableOperations[
-        "IncidentsApi.v2.createIncidentNotificationTemplate"
-      ]
-    ) {
-      throw new Error(
-        "Unstable operation 'createIncidentNotificationTemplate' is disabled. Enable it by setting `configuration.unstableOperations['IncidentsApi.v2.createIncidentNotificationTemplate'] = true`",
-      );
+    if (!_config.unstableOperations["IncidentsApi.v2.createIncidentNotificationTemplate"]) {
+      throw new Error("Unstable operation 'createIncidentNotificationTemplate' is disabled. Enable it by setting `configuration.unstableOperations['IncidentsApi.v2.createIncidentNotificationTemplate'] = true`");
     }
 
     // verify required parameter 'body' is not null or undefined
@@ -530,15 +464,8 @@ export class IncidentsApiRequestFactory extends BaseAPIRequestFactory {
     const localVarPath = "/api/v2/incidents/config/notification-templates";
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "IncidentsApi.v2.createIncidentNotificationTemplate",
-      IncidentsApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.POST,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("IncidentsApi.v2.createIncidentNotificationTemplate", IncidentsApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.POST, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -548,15 +475,12 @@ export class IncidentsApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Body Params
-    const contentType = getPreferredMediaType(["application/json"]);
+    const contentType = getPreferredMediaType([
+      "application/json",
+    ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = stringify(
-      serialize(
-        body,
-        TypingInfo,
-        "CreateIncidentNotificationTemplateRequest",
-        "",
-      ),
+      serialize(body, TypingInfo, "CreateIncidentNotificationTemplateRequest", ""),
       contentType,
     );
     requestContext.setBody(serializedBody);
@@ -578,22 +502,13 @@ export class IncidentsApiRequestFactory extends BaseAPIRequestFactory {
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
-    if (
-      !_config.unstableOperations[
-        "IncidentsApi.v2.createIncidentPostmortemAttachment"
-      ]
-    ) {
-      throw new Error(
-        "Unstable operation 'createIncidentPostmortemAttachment' is disabled. Enable it by setting `configuration.unstableOperations['IncidentsApi.v2.createIncidentPostmortemAttachment'] = true`",
-      );
+    if (!_config.unstableOperations["IncidentsApi.v2.createIncidentPostmortemAttachment"]) {
+      throw new Error("Unstable operation 'createIncidentPostmortemAttachment' is disabled. Enable it by setting `configuration.unstableOperations['IncidentsApi.v2.createIncidentPostmortemAttachment'] = true`");
     }
 
     // verify required parameter 'incidentId' is not null or undefined
     if (incidentId === null || incidentId === undefined) {
-      throw new RequiredError(
-        "incidentId",
-        "createIncidentPostmortemAttachment",
-      );
+      throw new RequiredError("incidentId", "createIncidentPostmortemAttachment");
     }
 
     // verify required parameter 'body' is not null or undefined
@@ -602,22 +517,14 @@ export class IncidentsApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Path Params
-    const localVarPath =
-      "/api/v2/incidents/{incident_id}/attachments/postmortems".replace(
-        "{incident_id}",
-        encodeURIComponent(String(incidentId)),
-      );
+    const localVarPath = "/api/v2/incidents/{incident_id}/attachments/postmortems".replace(
+      "{incident_id}",
+      encodeURIComponent(String(incidentId)),
+    );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "IncidentsApi.v2.createIncidentPostmortemAttachment",
-      IncidentsApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.POST,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("IncidentsApi.v2.createIncidentPostmortemAttachment", IncidentsApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.POST, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -627,7 +534,9 @@ export class IncidentsApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Body Params
-    const contentType = getPreferredMediaType(["application/json"]);
+    const contentType = getPreferredMediaType([
+      "application/json",
+    ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = stringify(
       serialize(body, TypingInfo, "PostmortemAttachmentRequest", ""),
@@ -650,14 +559,8 @@ export class IncidentsApiRequestFactory extends BaseAPIRequestFactory {
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
-    if (
-      !_config.unstableOperations[
-        "IncidentsApi.v2.createIncidentPostmortemTemplate"
-      ]
-    ) {
-      throw new Error(
-        "Unstable operation 'createIncidentPostmortemTemplate' is disabled. Enable it by setting `configuration.unstableOperations['IncidentsApi.v2.createIncidentPostmortemTemplate'] = true`",
-      );
+    if (!_config.unstableOperations["IncidentsApi.v2.createIncidentPostmortemTemplate"]) {
+      throw new Error("Unstable operation 'createIncidentPostmortemTemplate' is disabled. Enable it by setting `configuration.unstableOperations['IncidentsApi.v2.createIncidentPostmortemTemplate'] = true`");
     }
 
     // verify required parameter 'body' is not null or undefined
@@ -669,15 +572,8 @@ export class IncidentsApiRequestFactory extends BaseAPIRequestFactory {
     const localVarPath = "/api/v2/incidents/config/postmortem-templates";
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "IncidentsApi.v2.createIncidentPostmortemTemplate",
-      IncidentsApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.POST,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("IncidentsApi.v2.createIncidentPostmortemTemplate", IncidentsApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.POST, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -687,7 +583,9 @@ export class IncidentsApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Body Params
-    const contentType = getPreferredMediaType(["application/json"]);
+    const contentType = getPreferredMediaType([
+      "application/json",
+    ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = stringify(
       serialize(body, TypingInfo, "PostmortemTemplateRequest", ""),
@@ -712,9 +610,7 @@ export class IncidentsApiRequestFactory extends BaseAPIRequestFactory {
     const _config = _options || this.configuration;
 
     if (!_config.unstableOperations["IncidentsApi.v2.createIncidentTodo"]) {
-      throw new Error(
-        "Unstable operation 'createIncidentTodo' is disabled. Enable it by setting `configuration.unstableOperations['IncidentsApi.v2.createIncidentTodo'] = true`",
-      );
+      throw new Error("Unstable operation 'createIncidentTodo' is disabled. Enable it by setting `configuration.unstableOperations['IncidentsApi.v2.createIncidentTodo'] = true`");
     }
 
     // verify required parameter 'incidentId' is not null or undefined
@@ -728,22 +624,14 @@ export class IncidentsApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Path Params
-    const localVarPath =
-      "/api/v2/incidents/{incident_id}/relationships/todos".replace(
-        "{incident_id}",
-        encodeURIComponent(String(incidentId)),
-      );
+    const localVarPath = "/api/v2/incidents/{incident_id}/relationships/todos".replace(
+      "{incident_id}",
+      encodeURIComponent(String(incidentId)),
+    );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "IncidentsApi.v2.createIncidentTodo",
-      IncidentsApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.POST,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("IncidentsApi.v2.createIncidentTodo", IncidentsApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.POST, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -753,7 +641,9 @@ export class IncidentsApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Body Params
-    const contentType = getPreferredMediaType(["application/json"]);
+    const contentType = getPreferredMediaType([
+      "application/json",
+    ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = stringify(
       serialize(body, TypingInfo, "IncidentTodoCreateRequest", ""),
@@ -778,9 +668,7 @@ export class IncidentsApiRequestFactory extends BaseAPIRequestFactory {
     const _config = _options || this.configuration;
 
     if (!_config.unstableOperations["IncidentsApi.v2.createIncidentType"]) {
-      throw new Error(
-        "Unstable operation 'createIncidentType' is disabled. Enable it by setting `configuration.unstableOperations['IncidentsApi.v2.createIncidentType'] = true`",
-      );
+      throw new Error("Unstable operation 'createIncidentType' is disabled. Enable it by setting `configuration.unstableOperations['IncidentsApi.v2.createIncidentType'] = true`");
     }
 
     // verify required parameter 'body' is not null or undefined
@@ -792,15 +680,8 @@ export class IncidentsApiRequestFactory extends BaseAPIRequestFactory {
     const localVarPath = "/api/v2/incidents/config/types";
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "IncidentsApi.v2.createIncidentType",
-      IncidentsApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.POST,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("IncidentsApi.v2.createIncidentType", IncidentsApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.POST, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -810,7 +691,9 @@ export class IncidentsApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Body Params
-    const contentType = getPreferredMediaType(["application/json"]);
+    const contentType = getPreferredMediaType([
+      "application/json",
+    ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = stringify(
       serialize(body, TypingInfo, "IncidentTypeCreateRequest", ""),
@@ -835,14 +718,8 @@ export class IncidentsApiRequestFactory extends BaseAPIRequestFactory {
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
-    if (
-      !_config.unstableOperations[
-        "IncidentsApi.v2.createIncidentUserDefinedField"
-      ]
-    ) {
-      throw new Error(
-        "Unstable operation 'createIncidentUserDefinedField' is disabled. Enable it by setting `configuration.unstableOperations['IncidentsApi.v2.createIncidentUserDefinedField'] = true`",
-      );
+    if (!_config.unstableOperations["IncidentsApi.v2.createIncidentUserDefinedField"]) {
+      throw new Error("Unstable operation 'createIncidentUserDefinedField' is disabled. Enable it by setting `configuration.unstableOperations['IncidentsApi.v2.createIncidentUserDefinedField'] = true`");
     }
 
     // verify required parameter 'body' is not null or undefined
@@ -854,15 +731,8 @@ export class IncidentsApiRequestFactory extends BaseAPIRequestFactory {
     const localVarPath = "/api/v2/incidents/config/user-defined-fields";
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "IncidentsApi.v2.createIncidentUserDefinedField",
-      IncidentsApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.POST,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("IncidentsApi.v2.createIncidentUserDefinedField", IncidentsApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.POST, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -881,7 +751,9 @@ export class IncidentsApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Body Params
-    const contentType = getPreferredMediaType(["application/json"]);
+    const contentType = getPreferredMediaType([
+      "application/json",
+    ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = stringify(
       serialize(body, TypingInfo, "IncidentUserDefinedFieldCreateRequest", ""),
@@ -906,14 +778,8 @@ export class IncidentsApiRequestFactory extends BaseAPIRequestFactory {
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
-    if (
-      !_config.unstableOperations[
-        "IncidentsApi.v2.createIncidentUserDefinedRole"
-      ]
-    ) {
-      throw new Error(
-        "Unstable operation 'createIncidentUserDefinedRole' is disabled. Enable it by setting `configuration.unstableOperations['IncidentsApi.v2.createIncidentUserDefinedRole'] = true`",
-      );
+    if (!_config.unstableOperations["IncidentsApi.v2.createIncidentUserDefinedRole"]) {
+      throw new Error("Unstable operation 'createIncidentUserDefinedRole' is disabled. Enable it by setting `configuration.unstableOperations['IncidentsApi.v2.createIncidentUserDefinedRole'] = true`");
     }
 
     // verify required parameter 'body' is not null or undefined
@@ -925,15 +791,8 @@ export class IncidentsApiRequestFactory extends BaseAPIRequestFactory {
     const localVarPath = "/api/v2/incidents/config/user-defined-roles";
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "IncidentsApi.v2.createIncidentUserDefinedRole",
-      IncidentsApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.POST,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("IncidentsApi.v2.createIncidentUserDefinedRole", IncidentsApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.POST, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -952,7 +811,9 @@ export class IncidentsApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Body Params
-    const contentType = getPreferredMediaType(["application/json"]);
+    const contentType = getPreferredMediaType([
+      "application/json",
+    ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = stringify(
       serialize(body, TypingInfo, "IncidentUserDefinedRoleRequest", ""),
@@ -975,27 +836,16 @@ export class IncidentsApiRequestFactory extends BaseAPIRequestFactory {
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
-    if (
-      !_config.unstableOperations["IncidentsApi.v2.deleteGlobalIncidentHandle"]
-    ) {
-      throw new Error(
-        "Unstable operation 'deleteGlobalIncidentHandle' is disabled. Enable it by setting `configuration.unstableOperations['IncidentsApi.v2.deleteGlobalIncidentHandle'] = true`",
-      );
+    if (!_config.unstableOperations["IncidentsApi.v2.deleteGlobalIncidentHandle"]) {
+      throw new Error("Unstable operation 'deleteGlobalIncidentHandle' is disabled. Enable it by setting `configuration.unstableOperations['IncidentsApi.v2.deleteGlobalIncidentHandle'] = true`");
     }
 
     // Path Params
     const localVarPath = "/api/v2/incidents/config/global/incident-handles";
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "IncidentsApi.v2.deleteGlobalIncidentHandle",
-      IncidentsApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.DELETE,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("IncidentsApi.v2.deleteGlobalIncidentHandle", IncidentsApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.DELETE, overrides);
     requestContext.setHeaderParam("Accept", "*/*");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -1020,9 +870,7 @@ export class IncidentsApiRequestFactory extends BaseAPIRequestFactory {
     const _config = _options || this.configuration;
 
     if (!_config.unstableOperations["IncidentsApi.v2.deleteIncident"]) {
-      throw new Error(
-        "Unstable operation 'deleteIncident' is disabled. Enable it by setting `configuration.unstableOperations['IncidentsApi.v2.deleteIncident'] = true`",
-      );
+      throw new Error("Unstable operation 'deleteIncident' is disabled. Enable it by setting `configuration.unstableOperations['IncidentsApi.v2.deleteIncident'] = true`");
     }
 
     // verify required parameter 'incidentId' is not null or undefined
@@ -1037,15 +885,8 @@ export class IncidentsApiRequestFactory extends BaseAPIRequestFactory {
     );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "IncidentsApi.v2.deleteIncident",
-      IncidentsApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.DELETE,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("IncidentsApi.v2.deleteIncident", IncidentsApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.DELETE, overrides);
     requestContext.setHeaderParam("Accept", "*/*");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -1071,12 +912,8 @@ export class IncidentsApiRequestFactory extends BaseAPIRequestFactory {
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
-    if (
-      !_config.unstableOperations["IncidentsApi.v2.deleteIncidentAttachment"]
-    ) {
-      throw new Error(
-        "Unstable operation 'deleteIncidentAttachment' is disabled. Enable it by setting `configuration.unstableOperations['IncidentsApi.v2.deleteIncidentAttachment'] = true`",
-      );
+    if (!_config.unstableOperations["IncidentsApi.v2.deleteIncidentAttachment"]) {
+      throw new Error("Unstable operation 'deleteIncidentAttachment' is disabled. Enable it by setting `configuration.unstableOperations['IncidentsApi.v2.deleteIncidentAttachment'] = true`");
     }
 
     // verify required parameter 'incidentId' is not null or undefined
@@ -1090,21 +927,17 @@ export class IncidentsApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Path Params
-    const localVarPath =
-      "/api/v2/incidents/{incident_id}/attachments/{attachment_id}"
-        .replace("{incident_id}", encodeURIComponent(String(incidentId)))
-        .replace("{attachment_id}", encodeURIComponent(String(attachmentId)));
+    const localVarPath = "/api/v2/incidents/{incident_id}/attachments/{attachment_id}".replace(
+      "{incident_id}",
+      encodeURIComponent(String(incidentId)),
+    ).replace(
+      "{attachment_id}",
+      encodeURIComponent(String(attachmentId)),
+    );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "IncidentsApi.v2.deleteIncidentAttachment",
-      IncidentsApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.DELETE,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("IncidentsApi.v2.deleteIncidentAttachment", IncidentsApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.DELETE, overrides);
     requestContext.setHeaderParam("Accept", "*/*");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -1141,20 +974,17 @@ export class IncidentsApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Path Params
-    const localVarPath = "/api/v2/incidents/{incident_id}/impacts/{impact_id}"
-      .replace("{incident_id}", encodeURIComponent(String(incidentId)))
-      .replace("{impact_id}", encodeURIComponent(String(impactId)));
+    const localVarPath = "/api/v2/incidents/{incident_id}/impacts/{impact_id}".replace(
+      "{incident_id}",
+      encodeURIComponent(String(incidentId)),
+    ).replace(
+      "{impact_id}",
+      encodeURIComponent(String(impactId)),
+    );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "IncidentsApi.v2.deleteIncidentImpact",
-      IncidentsApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.DELETE,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("IncidentsApi.v2.deleteIncidentImpact", IncidentsApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.DELETE, overrides);
     requestContext.setHeaderParam("Accept", "*/*");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -1180,12 +1010,8 @@ export class IncidentsApiRequestFactory extends BaseAPIRequestFactory {
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
-    if (
-      !_config.unstableOperations["IncidentsApi.v2.deleteIncidentIntegration"]
-    ) {
-      throw new Error(
-        "Unstable operation 'deleteIncidentIntegration' is disabled. Enable it by setting `configuration.unstableOperations['IncidentsApi.v2.deleteIncidentIntegration'] = true`",
-      );
+    if (!_config.unstableOperations["IncidentsApi.v2.deleteIncidentIntegration"]) {
+      throw new Error("Unstable operation 'deleteIncidentIntegration' is disabled. Enable it by setting `configuration.unstableOperations['IncidentsApi.v2.deleteIncidentIntegration'] = true`");
     }
 
     // verify required parameter 'incidentId' is not null or undefined
@@ -1195,31 +1021,21 @@ export class IncidentsApiRequestFactory extends BaseAPIRequestFactory {
 
     // verify required parameter 'integrationMetadataId' is not null or undefined
     if (integrationMetadataId === null || integrationMetadataId === undefined) {
-      throw new RequiredError(
-        "integrationMetadataId",
-        "deleteIncidentIntegration",
-      );
+      throw new RequiredError("integrationMetadataId", "deleteIncidentIntegration");
     }
 
     // Path Params
-    const localVarPath =
-      "/api/v2/incidents/{incident_id}/relationships/integrations/{integration_metadata_id}"
-        .replace("{incident_id}", encodeURIComponent(String(incidentId)))
-        .replace(
-          "{integration_metadata_id}",
-          encodeURIComponent(String(integrationMetadataId)),
-        );
+    const localVarPath = "/api/v2/incidents/{incident_id}/relationships/integrations/{integration_metadata_id}".replace(
+      "{incident_id}",
+      encodeURIComponent(String(incidentId)),
+    ).replace(
+      "{integration_metadata_id}",
+      encodeURIComponent(String(integrationMetadataId)),
+    );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "IncidentsApi.v2.deleteIncidentIntegration",
-      IncidentsApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.DELETE,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("IncidentsApi.v2.deleteIncidentIntegration", IncidentsApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.DELETE, overrides);
     requestContext.setHeaderParam("Accept", "*/*");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -1245,14 +1061,8 @@ export class IncidentsApiRequestFactory extends BaseAPIRequestFactory {
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
-    if (
-      !_config.unstableOperations[
-        "IncidentsApi.v2.deleteIncidentNotificationRule"
-      ]
-    ) {
-      throw new Error(
-        "Unstable operation 'deleteIncidentNotificationRule' is disabled. Enable it by setting `configuration.unstableOperations['IncidentsApi.v2.deleteIncidentNotificationRule'] = true`",
-      );
+    if (!_config.unstableOperations["IncidentsApi.v2.deleteIncidentNotificationRule"]) {
+      throw new Error("Unstable operation 'deleteIncidentNotificationRule' is disabled. Enable it by setting `configuration.unstableOperations['IncidentsApi.v2.deleteIncidentNotificationRule'] = true`");
     }
 
     // verify required parameter 'id' is not null or undefined
@@ -1261,22 +1071,14 @@ export class IncidentsApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Path Params
-    const localVarPath =
-      "/api/v2/incidents/config/notification-rules/{id}".replace(
-        "{id}",
-        encodeURIComponent(String(id)),
-      );
+    const localVarPath = "/api/v2/incidents/config/notification-rules/{id}".replace(
+      "{id}",
+      encodeURIComponent(String(id)),
+    );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "IncidentsApi.v2.deleteIncidentNotificationRule",
-      IncidentsApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.DELETE,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("IncidentsApi.v2.deleteIncidentNotificationRule", IncidentsApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.DELETE, overrides);
     requestContext.setHeaderParam("Accept", "*/*");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -1311,14 +1113,8 @@ export class IncidentsApiRequestFactory extends BaseAPIRequestFactory {
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
-    if (
-      !_config.unstableOperations[
-        "IncidentsApi.v2.deleteIncidentNotificationTemplate"
-      ]
-    ) {
-      throw new Error(
-        "Unstable operation 'deleteIncidentNotificationTemplate' is disabled. Enable it by setting `configuration.unstableOperations['IncidentsApi.v2.deleteIncidentNotificationTemplate'] = true`",
-      );
+    if (!_config.unstableOperations["IncidentsApi.v2.deleteIncidentNotificationTemplate"]) {
+      throw new Error("Unstable operation 'deleteIncidentNotificationTemplate' is disabled. Enable it by setting `configuration.unstableOperations['IncidentsApi.v2.deleteIncidentNotificationTemplate'] = true`");
     }
 
     // verify required parameter 'id' is not null or undefined
@@ -1327,22 +1123,14 @@ export class IncidentsApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Path Params
-    const localVarPath =
-      "/api/v2/incidents/config/notification-templates/{id}".replace(
-        "{id}",
-        encodeURIComponent(String(id)),
-      );
+    const localVarPath = "/api/v2/incidents/config/notification-templates/{id}".replace(
+      "{id}",
+      encodeURIComponent(String(id)),
+    );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "IncidentsApi.v2.deleteIncidentNotificationTemplate",
-      IncidentsApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.DELETE,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("IncidentsApi.v2.deleteIncidentNotificationTemplate", IncidentsApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.DELETE, overrides);
     requestContext.setHeaderParam("Accept", "*/*");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -1376,14 +1164,8 @@ export class IncidentsApiRequestFactory extends BaseAPIRequestFactory {
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
-    if (
-      !_config.unstableOperations[
-        "IncidentsApi.v2.deleteIncidentPostmortemTemplate"
-      ]
-    ) {
-      throw new Error(
-        "Unstable operation 'deleteIncidentPostmortemTemplate' is disabled. Enable it by setting `configuration.unstableOperations['IncidentsApi.v2.deleteIncidentPostmortemTemplate'] = true`",
-      );
+    if (!_config.unstableOperations["IncidentsApi.v2.deleteIncidentPostmortemTemplate"]) {
+      throw new Error("Unstable operation 'deleteIncidentPostmortemTemplate' is disabled. Enable it by setting `configuration.unstableOperations['IncidentsApi.v2.deleteIncidentPostmortemTemplate'] = true`");
     }
 
     // verify required parameter 'templateId' is not null or undefined
@@ -1392,22 +1174,14 @@ export class IncidentsApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Path Params
-    const localVarPath =
-      "/api/v2/incidents/config/postmortem-templates/{template_id}".replace(
-        "{template_id}",
-        encodeURIComponent(String(templateId)),
-      );
+    const localVarPath = "/api/v2/incidents/config/postmortem-templates/{template_id}".replace(
+      "{template_id}",
+      encodeURIComponent(String(templateId)),
+    );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "IncidentsApi.v2.deleteIncidentPostmortemTemplate",
-      IncidentsApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.DELETE,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("IncidentsApi.v2.deleteIncidentPostmortemTemplate", IncidentsApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.DELETE, overrides);
     requestContext.setHeaderParam("Accept", "*/*");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -1433,9 +1207,7 @@ export class IncidentsApiRequestFactory extends BaseAPIRequestFactory {
     const _config = _options || this.configuration;
 
     if (!_config.unstableOperations["IncidentsApi.v2.deleteIncidentTodo"]) {
-      throw new Error(
-        "Unstable operation 'deleteIncidentTodo' is disabled. Enable it by setting `configuration.unstableOperations['IncidentsApi.v2.deleteIncidentTodo'] = true`",
-      );
+      throw new Error("Unstable operation 'deleteIncidentTodo' is disabled. Enable it by setting `configuration.unstableOperations['IncidentsApi.v2.deleteIncidentTodo'] = true`");
     }
 
     // verify required parameter 'incidentId' is not null or undefined
@@ -1449,21 +1221,17 @@ export class IncidentsApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Path Params
-    const localVarPath =
-      "/api/v2/incidents/{incident_id}/relationships/todos/{todo_id}"
-        .replace("{incident_id}", encodeURIComponent(String(incidentId)))
-        .replace("{todo_id}", encodeURIComponent(String(todoId)));
+    const localVarPath = "/api/v2/incidents/{incident_id}/relationships/todos/{todo_id}".replace(
+      "{incident_id}",
+      encodeURIComponent(String(incidentId)),
+    ).replace(
+      "{todo_id}",
+      encodeURIComponent(String(todoId)),
+    );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "IncidentsApi.v2.deleteIncidentTodo",
-      IncidentsApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.DELETE,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("IncidentsApi.v2.deleteIncidentTodo", IncidentsApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.DELETE, overrides);
     requestContext.setHeaderParam("Accept", "*/*");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -1489,9 +1257,7 @@ export class IncidentsApiRequestFactory extends BaseAPIRequestFactory {
     const _config = _options || this.configuration;
 
     if (!_config.unstableOperations["IncidentsApi.v2.deleteIncidentType"]) {
-      throw new Error(
-        "Unstable operation 'deleteIncidentType' is disabled. Enable it by setting `configuration.unstableOperations['IncidentsApi.v2.deleteIncidentType'] = true`",
-      );
+      throw new Error("Unstable operation 'deleteIncidentType' is disabled. Enable it by setting `configuration.unstableOperations['IncidentsApi.v2.deleteIncidentType'] = true`");
     }
 
     // verify required parameter 'incidentTypeId' is not null or undefined
@@ -1500,22 +1266,14 @@ export class IncidentsApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Path Params
-    const localVarPath =
-      "/api/v2/incidents/config/types/{incident_type_id}".replace(
-        "{incident_type_id}",
-        encodeURIComponent(String(incidentTypeId)),
-      );
+    const localVarPath = "/api/v2/incidents/config/types/{incident_type_id}".replace(
+      "{incident_type_id}",
+      encodeURIComponent(String(incidentTypeId)),
+    );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "IncidentsApi.v2.deleteIncidentType",
-      IncidentsApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.DELETE,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("IncidentsApi.v2.deleteIncidentType", IncidentsApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.DELETE, overrides);
     requestContext.setHeaderParam("Accept", "*/*");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -1540,14 +1298,8 @@ export class IncidentsApiRequestFactory extends BaseAPIRequestFactory {
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
-    if (
-      !_config.unstableOperations[
-        "IncidentsApi.v2.deleteIncidentUserDefinedField"
-      ]
-    ) {
-      throw new Error(
-        "Unstable operation 'deleteIncidentUserDefinedField' is disabled. Enable it by setting `configuration.unstableOperations['IncidentsApi.v2.deleteIncidentUserDefinedField'] = true`",
-      );
+    if (!_config.unstableOperations["IncidentsApi.v2.deleteIncidentUserDefinedField"]) {
+      throw new Error("Unstable operation 'deleteIncidentUserDefinedField' is disabled. Enable it by setting `configuration.unstableOperations['IncidentsApi.v2.deleteIncidentUserDefinedField'] = true`");
     }
 
     // verify required parameter 'fieldId' is not null or undefined
@@ -1556,22 +1308,14 @@ export class IncidentsApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Path Params
-    const localVarPath =
-      "/api/v2/incidents/config/user-defined-fields/{field_id}".replace(
-        "{field_id}",
-        encodeURIComponent(String(fieldId)),
-      );
+    const localVarPath = "/api/v2/incidents/config/user-defined-fields/{field_id}".replace(
+      "{field_id}",
+      encodeURIComponent(String(fieldId)),
+    );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "IncidentsApi.v2.deleteIncidentUserDefinedField",
-      IncidentsApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.DELETE,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("IncidentsApi.v2.deleteIncidentUserDefinedField", IncidentsApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.DELETE, overrides);
     requestContext.setHeaderParam("Accept", "*/*");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -1596,14 +1340,8 @@ export class IncidentsApiRequestFactory extends BaseAPIRequestFactory {
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
-    if (
-      !_config.unstableOperations[
-        "IncidentsApi.v2.deleteIncidentUserDefinedRole"
-      ]
-    ) {
-      throw new Error(
-        "Unstable operation 'deleteIncidentUserDefinedRole' is disabled. Enable it by setting `configuration.unstableOperations['IncidentsApi.v2.deleteIncidentUserDefinedRole'] = true`",
-      );
+    if (!_config.unstableOperations["IncidentsApi.v2.deleteIncidentUserDefinedRole"]) {
+      throw new Error("Unstable operation 'deleteIncidentUserDefinedRole' is disabled. Enable it by setting `configuration.unstableOperations['IncidentsApi.v2.deleteIncidentUserDefinedRole'] = true`");
     }
 
     // verify required parameter 'roleId' is not null or undefined
@@ -1612,22 +1350,14 @@ export class IncidentsApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Path Params
-    const localVarPath =
-      "/api/v2/incidents/config/user-defined-roles/{role_id}".replace(
-        "{role_id}",
-        encodeURIComponent(String(roleId)),
-      );
+    const localVarPath = "/api/v2/incidents/config/user-defined-roles/{role_id}".replace(
+      "{role_id}",
+      encodeURIComponent(String(roleId)),
+    );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "IncidentsApi.v2.deleteIncidentUserDefinedRole",
-      IncidentsApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.DELETE,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("IncidentsApi.v2.deleteIncidentUserDefinedRole", IncidentsApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.DELETE, overrides);
     requestContext.setHeaderParam("Accept", "*/*");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -1651,27 +1381,16 @@ export class IncidentsApiRequestFactory extends BaseAPIRequestFactory {
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
-    if (
-      !_config.unstableOperations["IncidentsApi.v2.getGlobalIncidentSettings"]
-    ) {
-      throw new Error(
-        "Unstable operation 'getGlobalIncidentSettings' is disabled. Enable it by setting `configuration.unstableOperations['IncidentsApi.v2.getGlobalIncidentSettings'] = true`",
-      );
+    if (!_config.unstableOperations["IncidentsApi.v2.getGlobalIncidentSettings"]) {
+      throw new Error("Unstable operation 'getGlobalIncidentSettings' is disabled. Enable it by setting `configuration.unstableOperations['IncidentsApi.v2.getGlobalIncidentSettings'] = true`");
     }
 
     // Path Params
     const localVarPath = "/api/v2/incidents/config/global/settings";
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "IncidentsApi.v2.getGlobalIncidentSettings",
-      IncidentsApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.GET,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("IncidentsApi.v2.getGlobalIncidentSettings", IncidentsApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.GET, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -1697,9 +1416,7 @@ export class IncidentsApiRequestFactory extends BaseAPIRequestFactory {
     const _config = _options || this.configuration;
 
     if (!_config.unstableOperations["IncidentsApi.v2.getIncident"]) {
-      throw new Error(
-        "Unstable operation 'getIncident' is disabled. Enable it by setting `configuration.unstableOperations['IncidentsApi.v2.getIncident'] = true`",
-      );
+      throw new Error("Unstable operation 'getIncident' is disabled. Enable it by setting `configuration.unstableOperations['IncidentsApi.v2.getIncident'] = true`");
     }
 
     // verify required parameter 'incidentId' is not null or undefined
@@ -1714,15 +1431,8 @@ export class IncidentsApiRequestFactory extends BaseAPIRequestFactory {
     );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "IncidentsApi.v2.getIncident",
-      IncidentsApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.GET,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("IncidentsApi.v2.getIncident", IncidentsApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.GET, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -1758,9 +1468,7 @@ export class IncidentsApiRequestFactory extends BaseAPIRequestFactory {
     const _config = _options || this.configuration;
 
     if (!_config.unstableOperations["IncidentsApi.v2.getIncidentIntegration"]) {
-      throw new Error(
-        "Unstable operation 'getIncidentIntegration' is disabled. Enable it by setting `configuration.unstableOperations['IncidentsApi.v2.getIncidentIntegration'] = true`",
-      );
+      throw new Error("Unstable operation 'getIncidentIntegration' is disabled. Enable it by setting `configuration.unstableOperations['IncidentsApi.v2.getIncidentIntegration'] = true`");
     }
 
     // verify required parameter 'incidentId' is not null or undefined
@@ -1770,31 +1478,21 @@ export class IncidentsApiRequestFactory extends BaseAPIRequestFactory {
 
     // verify required parameter 'integrationMetadataId' is not null or undefined
     if (integrationMetadataId === null || integrationMetadataId === undefined) {
-      throw new RequiredError(
-        "integrationMetadataId",
-        "getIncidentIntegration",
-      );
+      throw new RequiredError("integrationMetadataId", "getIncidentIntegration");
     }
 
     // Path Params
-    const localVarPath =
-      "/api/v2/incidents/{incident_id}/relationships/integrations/{integration_metadata_id}"
-        .replace("{incident_id}", encodeURIComponent(String(incidentId)))
-        .replace(
-          "{integration_metadata_id}",
-          encodeURIComponent(String(integrationMetadataId)),
-        );
+    const localVarPath = "/api/v2/incidents/{incident_id}/relationships/integrations/{integration_metadata_id}".replace(
+      "{incident_id}",
+      encodeURIComponent(String(incidentId)),
+    ).replace(
+      "{integration_metadata_id}",
+      encodeURIComponent(String(integrationMetadataId)),
+    );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "IncidentsApi.v2.getIncidentIntegration",
-      IncidentsApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.GET,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("IncidentsApi.v2.getIncidentIntegration", IncidentsApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.GET, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -1820,12 +1518,8 @@ export class IncidentsApiRequestFactory extends BaseAPIRequestFactory {
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
-    if (
-      !_config.unstableOperations["IncidentsApi.v2.getIncidentNotificationRule"]
-    ) {
-      throw new Error(
-        "Unstable operation 'getIncidentNotificationRule' is disabled. Enable it by setting `configuration.unstableOperations['IncidentsApi.v2.getIncidentNotificationRule'] = true`",
-      );
+    if (!_config.unstableOperations["IncidentsApi.v2.getIncidentNotificationRule"]) {
+      throw new Error("Unstable operation 'getIncidentNotificationRule' is disabled. Enable it by setting `configuration.unstableOperations['IncidentsApi.v2.getIncidentNotificationRule'] = true`");
     }
 
     // verify required parameter 'id' is not null or undefined
@@ -1834,22 +1528,14 @@ export class IncidentsApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Path Params
-    const localVarPath =
-      "/api/v2/incidents/config/notification-rules/{id}".replace(
-        "{id}",
-        encodeURIComponent(String(id)),
-      );
+    const localVarPath = "/api/v2/incidents/config/notification-rules/{id}".replace(
+      "{id}",
+      encodeURIComponent(String(id)),
+    );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "IncidentsApi.v2.getIncidentNotificationRule",
-      IncidentsApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.GET,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("IncidentsApi.v2.getIncidentNotificationRule", IncidentsApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.GET, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -1884,14 +1570,8 @@ export class IncidentsApiRequestFactory extends BaseAPIRequestFactory {
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
-    if (
-      !_config.unstableOperations[
-        "IncidentsApi.v2.getIncidentNotificationTemplate"
-      ]
-    ) {
-      throw new Error(
-        "Unstable operation 'getIncidentNotificationTemplate' is disabled. Enable it by setting `configuration.unstableOperations['IncidentsApi.v2.getIncidentNotificationTemplate'] = true`",
-      );
+    if (!_config.unstableOperations["IncidentsApi.v2.getIncidentNotificationTemplate"]) {
+      throw new Error("Unstable operation 'getIncidentNotificationTemplate' is disabled. Enable it by setting `configuration.unstableOperations['IncidentsApi.v2.getIncidentNotificationTemplate'] = true`");
     }
 
     // verify required parameter 'id' is not null or undefined
@@ -1900,22 +1580,14 @@ export class IncidentsApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Path Params
-    const localVarPath =
-      "/api/v2/incidents/config/notification-templates/{id}".replace(
-        "{id}",
-        encodeURIComponent(String(id)),
-      );
+    const localVarPath = "/api/v2/incidents/config/notification-templates/{id}".replace(
+      "{id}",
+      encodeURIComponent(String(id)),
+    );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "IncidentsApi.v2.getIncidentNotificationTemplate",
-      IncidentsApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.GET,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("IncidentsApi.v2.getIncidentNotificationTemplate", IncidentsApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.GET, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -1949,14 +1621,8 @@ export class IncidentsApiRequestFactory extends BaseAPIRequestFactory {
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
-    if (
-      !_config.unstableOperations[
-        "IncidentsApi.v2.getIncidentPostmortemTemplate"
-      ]
-    ) {
-      throw new Error(
-        "Unstable operation 'getIncidentPostmortemTemplate' is disabled. Enable it by setting `configuration.unstableOperations['IncidentsApi.v2.getIncidentPostmortemTemplate'] = true`",
-      );
+    if (!_config.unstableOperations["IncidentsApi.v2.getIncidentPostmortemTemplate"]) {
+      throw new Error("Unstable operation 'getIncidentPostmortemTemplate' is disabled. Enable it by setting `configuration.unstableOperations['IncidentsApi.v2.getIncidentPostmortemTemplate'] = true`");
     }
 
     // verify required parameter 'templateId' is not null or undefined
@@ -1965,22 +1631,14 @@ export class IncidentsApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Path Params
-    const localVarPath =
-      "/api/v2/incidents/config/postmortem-templates/{template_id}".replace(
-        "{template_id}",
-        encodeURIComponent(String(templateId)),
-      );
+    const localVarPath = "/api/v2/incidents/config/postmortem-templates/{template_id}".replace(
+      "{template_id}",
+      encodeURIComponent(String(templateId)),
+    );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "IncidentsApi.v2.getIncidentPostmortemTemplate",
-      IncidentsApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.GET,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("IncidentsApi.v2.getIncidentPostmortemTemplate", IncidentsApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.GET, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -2006,9 +1664,7 @@ export class IncidentsApiRequestFactory extends BaseAPIRequestFactory {
     const _config = _options || this.configuration;
 
     if (!_config.unstableOperations["IncidentsApi.v2.getIncidentTodo"]) {
-      throw new Error(
-        "Unstable operation 'getIncidentTodo' is disabled. Enable it by setting `configuration.unstableOperations['IncidentsApi.v2.getIncidentTodo'] = true`",
-      );
+      throw new Error("Unstable operation 'getIncidentTodo' is disabled. Enable it by setting `configuration.unstableOperations['IncidentsApi.v2.getIncidentTodo'] = true`");
     }
 
     // verify required parameter 'incidentId' is not null or undefined
@@ -2022,21 +1678,17 @@ export class IncidentsApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Path Params
-    const localVarPath =
-      "/api/v2/incidents/{incident_id}/relationships/todos/{todo_id}"
-        .replace("{incident_id}", encodeURIComponent(String(incidentId)))
-        .replace("{todo_id}", encodeURIComponent(String(todoId)));
+    const localVarPath = "/api/v2/incidents/{incident_id}/relationships/todos/{todo_id}".replace(
+      "{incident_id}",
+      encodeURIComponent(String(incidentId)),
+    ).replace(
+      "{todo_id}",
+      encodeURIComponent(String(todoId)),
+    );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "IncidentsApi.v2.getIncidentTodo",
-      IncidentsApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.GET,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("IncidentsApi.v2.getIncidentTodo", IncidentsApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.GET, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -2062,9 +1714,7 @@ export class IncidentsApiRequestFactory extends BaseAPIRequestFactory {
     const _config = _options || this.configuration;
 
     if (!_config.unstableOperations["IncidentsApi.v2.getIncidentType"]) {
-      throw new Error(
-        "Unstable operation 'getIncidentType' is disabled. Enable it by setting `configuration.unstableOperations['IncidentsApi.v2.getIncidentType'] = true`",
-      );
+      throw new Error("Unstable operation 'getIncidentType' is disabled. Enable it by setting `configuration.unstableOperations['IncidentsApi.v2.getIncidentType'] = true`");
     }
 
     // verify required parameter 'incidentTypeId' is not null or undefined
@@ -2073,22 +1723,14 @@ export class IncidentsApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Path Params
-    const localVarPath =
-      "/api/v2/incidents/config/types/{incident_type_id}".replace(
-        "{incident_type_id}",
-        encodeURIComponent(String(incidentTypeId)),
-      );
+    const localVarPath = "/api/v2/incidents/config/types/{incident_type_id}".replace(
+      "{incident_type_id}",
+      encodeURIComponent(String(incidentTypeId)),
+    );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "IncidentsApi.v2.getIncidentType",
-      IncidentsApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.GET,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("IncidentsApi.v2.getIncidentType", IncidentsApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.GET, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -2114,12 +1756,8 @@ export class IncidentsApiRequestFactory extends BaseAPIRequestFactory {
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
-    if (
-      !_config.unstableOperations["IncidentsApi.v2.getIncidentUserDefinedField"]
-    ) {
-      throw new Error(
-        "Unstable operation 'getIncidentUserDefinedField' is disabled. Enable it by setting `configuration.unstableOperations['IncidentsApi.v2.getIncidentUserDefinedField'] = true`",
-      );
+    if (!_config.unstableOperations["IncidentsApi.v2.getIncidentUserDefinedField"]) {
+      throw new Error("Unstable operation 'getIncidentUserDefinedField' is disabled. Enable it by setting `configuration.unstableOperations['IncidentsApi.v2.getIncidentUserDefinedField'] = true`");
     }
 
     // verify required parameter 'fieldId' is not null or undefined
@@ -2128,22 +1766,14 @@ export class IncidentsApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Path Params
-    const localVarPath =
-      "/api/v2/incidents/config/user-defined-fields/{field_id}".replace(
-        "{field_id}",
-        encodeURIComponent(String(fieldId)),
-      );
+    const localVarPath = "/api/v2/incidents/config/user-defined-fields/{field_id}".replace(
+      "{field_id}",
+      encodeURIComponent(String(fieldId)),
+    );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "IncidentsApi.v2.getIncidentUserDefinedField",
-      IncidentsApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.GET,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("IncidentsApi.v2.getIncidentUserDefinedField", IncidentsApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.GET, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -2178,12 +1808,8 @@ export class IncidentsApiRequestFactory extends BaseAPIRequestFactory {
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
-    if (
-      !_config.unstableOperations["IncidentsApi.v2.getIncidentUserDefinedRole"]
-    ) {
-      throw new Error(
-        "Unstable operation 'getIncidentUserDefinedRole' is disabled. Enable it by setting `configuration.unstableOperations['IncidentsApi.v2.getIncidentUserDefinedRole'] = true`",
-      );
+    if (!_config.unstableOperations["IncidentsApi.v2.getIncidentUserDefinedRole"]) {
+      throw new Error("Unstable operation 'getIncidentUserDefinedRole' is disabled. Enable it by setting `configuration.unstableOperations['IncidentsApi.v2.getIncidentUserDefinedRole'] = true`");
     }
 
     // verify required parameter 'roleId' is not null or undefined
@@ -2192,22 +1818,14 @@ export class IncidentsApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Path Params
-    const localVarPath =
-      "/api/v2/incidents/config/user-defined-roles/{role_id}".replace(
-        "{role_id}",
-        encodeURIComponent(String(roleId)),
-      );
+    const localVarPath = "/api/v2/incidents/config/user-defined-roles/{role_id}".replace(
+      "{role_id}",
+      encodeURIComponent(String(roleId)),
+    );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "IncidentsApi.v2.getIncidentUserDefinedRole",
-      IncidentsApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.GET,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("IncidentsApi.v2.getIncidentUserDefinedRole", IncidentsApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.GET, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -2243,9 +1861,7 @@ export class IncidentsApiRequestFactory extends BaseAPIRequestFactory {
     const _config = _options || this.configuration;
 
     if (!_config.unstableOperations["IncidentsApi.v2.importIncident"]) {
-      throw new Error(
-        "Unstable operation 'importIncident' is disabled. Enable it by setting `configuration.unstableOperations['IncidentsApi.v2.importIncident'] = true`",
-      );
+      throw new Error("Unstable operation 'importIncident' is disabled. Enable it by setting `configuration.unstableOperations['IncidentsApi.v2.importIncident'] = true`");
     }
 
     // verify required parameter 'body' is not null or undefined
@@ -2257,15 +1873,8 @@ export class IncidentsApiRequestFactory extends BaseAPIRequestFactory {
     const localVarPath = "/api/v2/incidents/import";
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "IncidentsApi.v2.importIncident",
-      IncidentsApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.POST,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("IncidentsApi.v2.importIncident", IncidentsApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.POST, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -2278,18 +1887,15 @@ export class IncidentsApiRequestFactory extends BaseAPIRequestFactory {
     if (include !== undefined) {
       requestContext.setQueryParam(
         "include",
-        serialize(
-          include,
-          TypingInfo,
-          "Array<IncidentImportRelatedObject>",
-          "",
-        ),
+        serialize(include, TypingInfo, "Array<IncidentImportRelatedObject>", ""),
         "csv",
       );
     }
 
     // Body Params
-    const contentType = getPreferredMediaType(["application/json"]);
+    const contentType = getPreferredMediaType([
+      "application/json",
+    ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = stringify(
       serialize(body, TypingInfo, "IncidentImportRequest", ""),
@@ -2313,27 +1919,16 @@ export class IncidentsApiRequestFactory extends BaseAPIRequestFactory {
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
-    if (
-      !_config.unstableOperations["IncidentsApi.v2.listGlobalIncidentHandles"]
-    ) {
-      throw new Error(
-        "Unstable operation 'listGlobalIncidentHandles' is disabled. Enable it by setting `configuration.unstableOperations['IncidentsApi.v2.listGlobalIncidentHandles'] = true`",
-      );
+    if (!_config.unstableOperations["IncidentsApi.v2.listGlobalIncidentHandles"]) {
+      throw new Error("Unstable operation 'listGlobalIncidentHandles' is disabled. Enable it by setting `configuration.unstableOperations['IncidentsApi.v2.listGlobalIncidentHandles'] = true`");
     }
 
     // Path Params
     const localVarPath = "/api/v2/incidents/config/global/incident-handles";
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "IncidentsApi.v2.listGlobalIncidentHandles",
-      IncidentsApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.GET,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("IncidentsApi.v2.listGlobalIncidentHandles", IncidentsApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.GET, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -2368,12 +1963,8 @@ export class IncidentsApiRequestFactory extends BaseAPIRequestFactory {
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
-    if (
-      !_config.unstableOperations["IncidentsApi.v2.listIncidentAttachments"]
-    ) {
-      throw new Error(
-        "Unstable operation 'listIncidentAttachments' is disabled. Enable it by setting `configuration.unstableOperations['IncidentsApi.v2.listIncidentAttachments'] = true`",
-      );
+    if (!_config.unstableOperations["IncidentsApi.v2.listIncidentAttachments"]) {
+      throw new Error("Unstable operation 'listIncidentAttachments' is disabled. Enable it by setting `configuration.unstableOperations['IncidentsApi.v2.listIncidentAttachments'] = true`");
     }
 
     // verify required parameter 'incidentId' is not null or undefined
@@ -2388,15 +1979,8 @@ export class IncidentsApiRequestFactory extends BaseAPIRequestFactory {
     );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "IncidentsApi.v2.listIncidentAttachments",
-      IncidentsApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.GET,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("IncidentsApi.v2.listIncidentAttachments", IncidentsApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.GET, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -2449,15 +2033,8 @@ export class IncidentsApiRequestFactory extends BaseAPIRequestFactory {
     );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "IncidentsApi.v2.listIncidentImpacts",
-      IncidentsApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.GET,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("IncidentsApi.v2.listIncidentImpacts", IncidentsApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.GET, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -2470,12 +2047,7 @@ export class IncidentsApiRequestFactory extends BaseAPIRequestFactory {
     if (include !== undefined) {
       requestContext.setQueryParam(
         "include",
-        serialize(
-          include,
-          TypingInfo,
-          "Array<IncidentImpactRelatedObject>",
-          "",
-        ),
+        serialize(include, TypingInfo, "Array<IncidentImpactRelatedObject>", ""),
         "csv",
       );
     }
@@ -2496,12 +2068,8 @@ export class IncidentsApiRequestFactory extends BaseAPIRequestFactory {
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
-    if (
-      !_config.unstableOperations["IncidentsApi.v2.listIncidentIntegrations"]
-    ) {
-      throw new Error(
-        "Unstable operation 'listIncidentIntegrations' is disabled. Enable it by setting `configuration.unstableOperations['IncidentsApi.v2.listIncidentIntegrations'] = true`",
-      );
+    if (!_config.unstableOperations["IncidentsApi.v2.listIncidentIntegrations"]) {
+      throw new Error("Unstable operation 'listIncidentIntegrations' is disabled. Enable it by setting `configuration.unstableOperations['IncidentsApi.v2.listIncidentIntegrations'] = true`");
     }
 
     // verify required parameter 'incidentId' is not null or undefined
@@ -2510,22 +2078,14 @@ export class IncidentsApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Path Params
-    const localVarPath =
-      "/api/v2/incidents/{incident_id}/relationships/integrations".replace(
-        "{incident_id}",
-        encodeURIComponent(String(incidentId)),
-      );
+    const localVarPath = "/api/v2/incidents/{incident_id}/relationships/integrations".replace(
+      "{incident_id}",
+      encodeURIComponent(String(incidentId)),
+    );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "IncidentsApi.v2.listIncidentIntegrations",
-      IncidentsApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.GET,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("IncidentsApi.v2.listIncidentIntegrations", IncidentsApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.GET, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -2550,29 +2110,16 @@ export class IncidentsApiRequestFactory extends BaseAPIRequestFactory {
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
-    if (
-      !_config.unstableOperations[
-        "IncidentsApi.v2.listIncidentNotificationRules"
-      ]
-    ) {
-      throw new Error(
-        "Unstable operation 'listIncidentNotificationRules' is disabled. Enable it by setting `configuration.unstableOperations['IncidentsApi.v2.listIncidentNotificationRules'] = true`",
-      );
+    if (!_config.unstableOperations["IncidentsApi.v2.listIncidentNotificationRules"]) {
+      throw new Error("Unstable operation 'listIncidentNotificationRules' is disabled. Enable it by setting `configuration.unstableOperations['IncidentsApi.v2.listIncidentNotificationRules'] = true`");
     }
 
     // Path Params
     const localVarPath = "/api/v2/incidents/config/notification-rules";
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "IncidentsApi.v2.listIncidentNotificationRules",
-      IncidentsApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.GET,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("IncidentsApi.v2.listIncidentNotificationRules", IncidentsApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.GET, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -2607,29 +2154,16 @@ export class IncidentsApiRequestFactory extends BaseAPIRequestFactory {
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
-    if (
-      !_config.unstableOperations[
-        "IncidentsApi.v2.listIncidentNotificationTemplates"
-      ]
-    ) {
-      throw new Error(
-        "Unstable operation 'listIncidentNotificationTemplates' is disabled. Enable it by setting `configuration.unstableOperations['IncidentsApi.v2.listIncidentNotificationTemplates'] = true`",
-      );
+    if (!_config.unstableOperations["IncidentsApi.v2.listIncidentNotificationTemplates"]) {
+      throw new Error("Unstable operation 'listIncidentNotificationTemplates' is disabled. Enable it by setting `configuration.unstableOperations['IncidentsApi.v2.listIncidentNotificationTemplates'] = true`");
     }
 
     // Path Params
     const localVarPath = "/api/v2/incidents/config/notification-templates";
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "IncidentsApi.v2.listIncidentNotificationTemplates",
-      IncidentsApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.GET,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("IncidentsApi.v2.listIncidentNotificationTemplates", IncidentsApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.GET, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -2669,29 +2203,16 @@ export class IncidentsApiRequestFactory extends BaseAPIRequestFactory {
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
-    if (
-      !_config.unstableOperations[
-        "IncidentsApi.v2.listIncidentPostmortemTemplates"
-      ]
-    ) {
-      throw new Error(
-        "Unstable operation 'listIncidentPostmortemTemplates' is disabled. Enable it by setting `configuration.unstableOperations['IncidentsApi.v2.listIncidentPostmortemTemplates'] = true`",
-      );
+    if (!_config.unstableOperations["IncidentsApi.v2.listIncidentPostmortemTemplates"]) {
+      throw new Error("Unstable operation 'listIncidentPostmortemTemplates' is disabled. Enable it by setting `configuration.unstableOperations['IncidentsApi.v2.listIncidentPostmortemTemplates'] = true`");
     }
 
     // Path Params
     const localVarPath = "/api/v2/incidents/config/postmortem-templates";
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "IncidentsApi.v2.listIncidentPostmortemTemplates",
-      IncidentsApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.GET,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("IncidentsApi.v2.listIncidentPostmortemTemplates", IncidentsApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.GET, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -2718,24 +2239,15 @@ export class IncidentsApiRequestFactory extends BaseAPIRequestFactory {
     const _config = _options || this.configuration;
 
     if (!_config.unstableOperations["IncidentsApi.v2.listIncidents"]) {
-      throw new Error(
-        "Unstable operation 'listIncidents' is disabled. Enable it by setting `configuration.unstableOperations['IncidentsApi.v2.listIncidents'] = true`",
-      );
+      throw new Error("Unstable operation 'listIncidents' is disabled. Enable it by setting `configuration.unstableOperations['IncidentsApi.v2.listIncidents'] = true`");
     }
 
     // Path Params
     const localVarPath = "/api/v2/incidents";
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "IncidentsApi.v2.listIncidents",
-      IncidentsApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.GET,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("IncidentsApi.v2.listIncidents", IncidentsApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.GET, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -2784,9 +2296,7 @@ export class IncidentsApiRequestFactory extends BaseAPIRequestFactory {
     const _config = _options || this.configuration;
 
     if (!_config.unstableOperations["IncidentsApi.v2.listIncidentTodos"]) {
-      throw new Error(
-        "Unstable operation 'listIncidentTodos' is disabled. Enable it by setting `configuration.unstableOperations['IncidentsApi.v2.listIncidentTodos'] = true`",
-      );
+      throw new Error("Unstable operation 'listIncidentTodos' is disabled. Enable it by setting `configuration.unstableOperations['IncidentsApi.v2.listIncidentTodos'] = true`");
     }
 
     // verify required parameter 'incidentId' is not null or undefined
@@ -2795,22 +2305,14 @@ export class IncidentsApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Path Params
-    const localVarPath =
-      "/api/v2/incidents/{incident_id}/relationships/todos".replace(
-        "{incident_id}",
-        encodeURIComponent(String(incidentId)),
-      );
+    const localVarPath = "/api/v2/incidents/{incident_id}/relationships/todos".replace(
+      "{incident_id}",
+      encodeURIComponent(String(incidentId)),
+    );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "IncidentsApi.v2.listIncidentTodos",
-      IncidentsApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.GET,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("IncidentsApi.v2.listIncidentTodos", IncidentsApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.GET, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -2836,24 +2338,15 @@ export class IncidentsApiRequestFactory extends BaseAPIRequestFactory {
     const _config = _options || this.configuration;
 
     if (!_config.unstableOperations["IncidentsApi.v2.listIncidentTypes"]) {
-      throw new Error(
-        "Unstable operation 'listIncidentTypes' is disabled. Enable it by setting `configuration.unstableOperations['IncidentsApi.v2.listIncidentTypes'] = true`",
-      );
+      throw new Error("Unstable operation 'listIncidentTypes' is disabled. Enable it by setting `configuration.unstableOperations['IncidentsApi.v2.listIncidentTypes'] = true`");
     }
 
     // Path Params
     const localVarPath = "/api/v2/incidents/config/types";
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "IncidentsApi.v2.listIncidentTypes",
-      IncidentsApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.GET,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("IncidentsApi.v2.listIncidentTypes", IncidentsApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.GET, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -2891,29 +2384,16 @@ export class IncidentsApiRequestFactory extends BaseAPIRequestFactory {
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
-    if (
-      !_config.unstableOperations[
-        "IncidentsApi.v2.listIncidentUserDefinedFields"
-      ]
-    ) {
-      throw new Error(
-        "Unstable operation 'listIncidentUserDefinedFields' is disabled. Enable it by setting `configuration.unstableOperations['IncidentsApi.v2.listIncidentUserDefinedFields'] = true`",
-      );
+    if (!_config.unstableOperations["IncidentsApi.v2.listIncidentUserDefinedFields"]) {
+      throw new Error("Unstable operation 'listIncidentUserDefinedFields' is disabled. Enable it by setting `configuration.unstableOperations['IncidentsApi.v2.listIncidentUserDefinedFields'] = true`");
     }
 
     // Path Params
     const localVarPath = "/api/v2/incidents/config/user-defined-fields";
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "IncidentsApi.v2.listIncidentUserDefinedFields",
-      IncidentsApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.GET,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("IncidentsApi.v2.listIncidentUserDefinedFields", IncidentsApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.GET, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -2976,29 +2456,16 @@ export class IncidentsApiRequestFactory extends BaseAPIRequestFactory {
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
-    if (
-      !_config.unstableOperations[
-        "IncidentsApi.v2.listIncidentUserDefinedRoles"
-      ]
-    ) {
-      throw new Error(
-        "Unstable operation 'listIncidentUserDefinedRoles' is disabled. Enable it by setting `configuration.unstableOperations['IncidentsApi.v2.listIncidentUserDefinedRoles'] = true`",
-      );
+    if (!_config.unstableOperations["IncidentsApi.v2.listIncidentUserDefinedRoles"]) {
+      throw new Error("Unstable operation 'listIncidentUserDefinedRoles' is disabled. Enable it by setting `configuration.unstableOperations['IncidentsApi.v2.listIncidentUserDefinedRoles'] = true`");
     }
 
     // Path Params
     const localVarPath = "/api/v2/incidents/config/user-defined-roles";
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "IncidentsApi.v2.listIncidentUserDefinedRoles",
-      IncidentsApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.GET,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("IncidentsApi.v2.listIncidentUserDefinedRoles", IncidentsApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.GET, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -3044,9 +2511,7 @@ export class IncidentsApiRequestFactory extends BaseAPIRequestFactory {
     const _config = _options || this.configuration;
 
     if (!_config.unstableOperations["IncidentsApi.v2.searchIncidents"]) {
-      throw new Error(
-        "Unstable operation 'searchIncidents' is disabled. Enable it by setting `configuration.unstableOperations['IncidentsApi.v2.searchIncidents'] = true`",
-      );
+      throw new Error("Unstable operation 'searchIncidents' is disabled. Enable it by setting `configuration.unstableOperations['IncidentsApi.v2.searchIncidents'] = true`");
     }
 
     // verify required parameter 'query' is not null or undefined
@@ -3058,15 +2523,8 @@ export class IncidentsApiRequestFactory extends BaseAPIRequestFactory {
     const localVarPath = "/api/v2/incidents/search";
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "IncidentsApi.v2.searchIncidents",
-      IncidentsApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.GET,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("IncidentsApi.v2.searchIncidents", IncidentsApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.GET, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -3129,12 +2587,8 @@ export class IncidentsApiRequestFactory extends BaseAPIRequestFactory {
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
-    if (
-      !_config.unstableOperations["IncidentsApi.v2.updateGlobalIncidentHandle"]
-    ) {
-      throw new Error(
-        "Unstable operation 'updateGlobalIncidentHandle' is disabled. Enable it by setting `configuration.unstableOperations['IncidentsApi.v2.updateGlobalIncidentHandle'] = true`",
-      );
+    if (!_config.unstableOperations["IncidentsApi.v2.updateGlobalIncidentHandle"]) {
+      throw new Error("Unstable operation 'updateGlobalIncidentHandle' is disabled. Enable it by setting `configuration.unstableOperations['IncidentsApi.v2.updateGlobalIncidentHandle'] = true`");
     }
 
     // verify required parameter 'body' is not null or undefined
@@ -3146,15 +2600,8 @@ export class IncidentsApiRequestFactory extends BaseAPIRequestFactory {
     const localVarPath = "/api/v2/incidents/config/global/incident-handles";
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "IncidentsApi.v2.updateGlobalIncidentHandle",
-      IncidentsApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.PUT,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("IncidentsApi.v2.updateGlobalIncidentHandle", IncidentsApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.PUT, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -3173,7 +2620,9 @@ export class IncidentsApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Body Params
-    const contentType = getPreferredMediaType(["application/json"]);
+    const contentType = getPreferredMediaType([
+      "application/json",
+    ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = stringify(
       serialize(body, TypingInfo, "IncidentHandleRequest", ""),
@@ -3196,14 +2645,8 @@ export class IncidentsApiRequestFactory extends BaseAPIRequestFactory {
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
-    if (
-      !_config.unstableOperations[
-        "IncidentsApi.v2.updateGlobalIncidentSettings"
-      ]
-    ) {
-      throw new Error(
-        "Unstable operation 'updateGlobalIncidentSettings' is disabled. Enable it by setting `configuration.unstableOperations['IncidentsApi.v2.updateGlobalIncidentSettings'] = true`",
-      );
+    if (!_config.unstableOperations["IncidentsApi.v2.updateGlobalIncidentSettings"]) {
+      throw new Error("Unstable operation 'updateGlobalIncidentSettings' is disabled. Enable it by setting `configuration.unstableOperations['IncidentsApi.v2.updateGlobalIncidentSettings'] = true`");
     }
 
     // verify required parameter 'body' is not null or undefined
@@ -3215,15 +2658,8 @@ export class IncidentsApiRequestFactory extends BaseAPIRequestFactory {
     const localVarPath = "/api/v2/incidents/config/global/settings";
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "IncidentsApi.v2.updateGlobalIncidentSettings",
-      IncidentsApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.PATCH,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("IncidentsApi.v2.updateGlobalIncidentSettings", IncidentsApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.PATCH, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -3233,7 +2669,9 @@ export class IncidentsApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Body Params
-    const contentType = getPreferredMediaType(["application/json"]);
+    const contentType = getPreferredMediaType([
+      "application/json",
+    ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = stringify(
       serialize(body, TypingInfo, "GlobalIncidentSettingsRequest", ""),
@@ -3259,9 +2697,7 @@ export class IncidentsApiRequestFactory extends BaseAPIRequestFactory {
     const _config = _options || this.configuration;
 
     if (!_config.unstableOperations["IncidentsApi.v2.updateIncident"]) {
-      throw new Error(
-        "Unstable operation 'updateIncident' is disabled. Enable it by setting `configuration.unstableOperations['IncidentsApi.v2.updateIncident'] = true`",
-      );
+      throw new Error("Unstable operation 'updateIncident' is disabled. Enable it by setting `configuration.unstableOperations['IncidentsApi.v2.updateIncident'] = true`");
     }
 
     // verify required parameter 'incidentId' is not null or undefined
@@ -3281,15 +2717,8 @@ export class IncidentsApiRequestFactory extends BaseAPIRequestFactory {
     );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "IncidentsApi.v2.updateIncident",
-      IncidentsApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.PATCH,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("IncidentsApi.v2.updateIncident", IncidentsApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.PATCH, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -3308,7 +2737,9 @@ export class IncidentsApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Body Params
-    const contentType = getPreferredMediaType(["application/json"]);
+    const contentType = getPreferredMediaType([
+      "application/json",
+    ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = stringify(
       serialize(body, TypingInfo, "IncidentUpdateRequest", ""),
@@ -3335,12 +2766,8 @@ export class IncidentsApiRequestFactory extends BaseAPIRequestFactory {
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
-    if (
-      !_config.unstableOperations["IncidentsApi.v2.updateIncidentAttachment"]
-    ) {
-      throw new Error(
-        "Unstable operation 'updateIncidentAttachment' is disabled. Enable it by setting `configuration.unstableOperations['IncidentsApi.v2.updateIncidentAttachment'] = true`",
-      );
+    if (!_config.unstableOperations["IncidentsApi.v2.updateIncidentAttachment"]) {
+      throw new Error("Unstable operation 'updateIncidentAttachment' is disabled. Enable it by setting `configuration.unstableOperations['IncidentsApi.v2.updateIncidentAttachment'] = true`");
     }
 
     // verify required parameter 'incidentId' is not null or undefined
@@ -3359,21 +2786,17 @@ export class IncidentsApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Path Params
-    const localVarPath =
-      "/api/v2/incidents/{incident_id}/attachments/{attachment_id}"
-        .replace("{incident_id}", encodeURIComponent(String(incidentId)))
-        .replace("{attachment_id}", encodeURIComponent(String(attachmentId)));
+    const localVarPath = "/api/v2/incidents/{incident_id}/attachments/{attachment_id}".replace(
+      "{incident_id}",
+      encodeURIComponent(String(incidentId)),
+    ).replace(
+      "{attachment_id}",
+      encodeURIComponent(String(attachmentId)),
+    );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "IncidentsApi.v2.updateIncidentAttachment",
-      IncidentsApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.PATCH,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("IncidentsApi.v2.updateIncidentAttachment", IncidentsApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.PATCH, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -3392,7 +2815,9 @@ export class IncidentsApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Body Params
-    const contentType = getPreferredMediaType(["application/json"]);
+    const contentType = getPreferredMediaType([
+      "application/json",
+    ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = stringify(
       serialize(body, TypingInfo, "PatchAttachmentRequest", ""),
@@ -3418,12 +2843,8 @@ export class IncidentsApiRequestFactory extends BaseAPIRequestFactory {
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
-    if (
-      !_config.unstableOperations["IncidentsApi.v2.updateIncidentIntegration"]
-    ) {
-      throw new Error(
-        "Unstable operation 'updateIncidentIntegration' is disabled. Enable it by setting `configuration.unstableOperations['IncidentsApi.v2.updateIncidentIntegration'] = true`",
-      );
+    if (!_config.unstableOperations["IncidentsApi.v2.updateIncidentIntegration"]) {
+      throw new Error("Unstable operation 'updateIncidentIntegration' is disabled. Enable it by setting `configuration.unstableOperations['IncidentsApi.v2.updateIncidentIntegration'] = true`");
     }
 
     // verify required parameter 'incidentId' is not null or undefined
@@ -3433,10 +2854,7 @@ export class IncidentsApiRequestFactory extends BaseAPIRequestFactory {
 
     // verify required parameter 'integrationMetadataId' is not null or undefined
     if (integrationMetadataId === null || integrationMetadataId === undefined) {
-      throw new RequiredError(
-        "integrationMetadataId",
-        "updateIncidentIntegration",
-      );
+      throw new RequiredError("integrationMetadataId", "updateIncidentIntegration");
     }
 
     // verify required parameter 'body' is not null or undefined
@@ -3445,24 +2863,17 @@ export class IncidentsApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Path Params
-    const localVarPath =
-      "/api/v2/incidents/{incident_id}/relationships/integrations/{integration_metadata_id}"
-        .replace("{incident_id}", encodeURIComponent(String(incidentId)))
-        .replace(
-          "{integration_metadata_id}",
-          encodeURIComponent(String(integrationMetadataId)),
-        );
+    const localVarPath = "/api/v2/incidents/{incident_id}/relationships/integrations/{integration_metadata_id}".replace(
+      "{incident_id}",
+      encodeURIComponent(String(incidentId)),
+    ).replace(
+      "{integration_metadata_id}",
+      encodeURIComponent(String(integrationMetadataId)),
+    );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "IncidentsApi.v2.updateIncidentIntegration",
-      IncidentsApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.PATCH,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("IncidentsApi.v2.updateIncidentIntegration", IncidentsApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.PATCH, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -3472,15 +2883,12 @@ export class IncidentsApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Body Params
-    const contentType = getPreferredMediaType(["application/json"]);
+    const contentType = getPreferredMediaType([
+      "application/json",
+    ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = stringify(
-      serialize(
-        body,
-        TypingInfo,
-        "IncidentIntegrationMetadataPatchRequest",
-        "",
-      ),
+      serialize(body, TypingInfo, "IncidentIntegrationMetadataPatchRequest", ""),
       contentType,
     );
     requestContext.setBody(serializedBody);
@@ -3503,14 +2911,8 @@ export class IncidentsApiRequestFactory extends BaseAPIRequestFactory {
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
-    if (
-      !_config.unstableOperations[
-        "IncidentsApi.v2.updateIncidentNotificationRule"
-      ]
-    ) {
-      throw new Error(
-        "Unstable operation 'updateIncidentNotificationRule' is disabled. Enable it by setting `configuration.unstableOperations['IncidentsApi.v2.updateIncidentNotificationRule'] = true`",
-      );
+    if (!_config.unstableOperations["IncidentsApi.v2.updateIncidentNotificationRule"]) {
+      throw new Error("Unstable operation 'updateIncidentNotificationRule' is disabled. Enable it by setting `configuration.unstableOperations['IncidentsApi.v2.updateIncidentNotificationRule'] = true`");
     }
 
     // verify required parameter 'id' is not null or undefined
@@ -3524,22 +2926,14 @@ export class IncidentsApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Path Params
-    const localVarPath =
-      "/api/v2/incidents/config/notification-rules/{id}".replace(
-        "{id}",
-        encodeURIComponent(String(id)),
-      );
+    const localVarPath = "/api/v2/incidents/config/notification-rules/{id}".replace(
+      "{id}",
+      encodeURIComponent(String(id)),
+    );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "IncidentsApi.v2.updateIncidentNotificationRule",
-      IncidentsApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.PUT,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("IncidentsApi.v2.updateIncidentNotificationRule", IncidentsApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.PUT, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -3558,7 +2952,9 @@ export class IncidentsApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Body Params
-    const contentType = getPreferredMediaType(["application/json"]);
+    const contentType = getPreferredMediaType([
+      "application/json",
+    ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = stringify(
       serialize(body, TypingInfo, "PutIncidentNotificationRuleRequest", ""),
@@ -3584,14 +2980,8 @@ export class IncidentsApiRequestFactory extends BaseAPIRequestFactory {
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
-    if (
-      !_config.unstableOperations[
-        "IncidentsApi.v2.updateIncidentNotificationTemplate"
-      ]
-    ) {
-      throw new Error(
-        "Unstable operation 'updateIncidentNotificationTemplate' is disabled. Enable it by setting `configuration.unstableOperations['IncidentsApi.v2.updateIncidentNotificationTemplate'] = true`",
-      );
+    if (!_config.unstableOperations["IncidentsApi.v2.updateIncidentNotificationTemplate"]) {
+      throw new Error("Unstable operation 'updateIncidentNotificationTemplate' is disabled. Enable it by setting `configuration.unstableOperations['IncidentsApi.v2.updateIncidentNotificationTemplate'] = true`");
     }
 
     // verify required parameter 'id' is not null or undefined
@@ -3605,22 +2995,14 @@ export class IncidentsApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Path Params
-    const localVarPath =
-      "/api/v2/incidents/config/notification-templates/{id}".replace(
-        "{id}",
-        encodeURIComponent(String(id)),
-      );
+    const localVarPath = "/api/v2/incidents/config/notification-templates/{id}".replace(
+      "{id}",
+      encodeURIComponent(String(id)),
+    );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "IncidentsApi.v2.updateIncidentNotificationTemplate",
-      IncidentsApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.PATCH,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("IncidentsApi.v2.updateIncidentNotificationTemplate", IncidentsApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.PATCH, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -3639,15 +3021,12 @@ export class IncidentsApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Body Params
-    const contentType = getPreferredMediaType(["application/json"]);
+    const contentType = getPreferredMediaType([
+      "application/json",
+    ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = stringify(
-      serialize(
-        body,
-        TypingInfo,
-        "PatchIncidentNotificationTemplateRequest",
-        "",
-      ),
+      serialize(body, TypingInfo, "PatchIncidentNotificationTemplateRequest", ""),
       contentType,
     );
     requestContext.setBody(serializedBody);
@@ -3669,14 +3048,8 @@ export class IncidentsApiRequestFactory extends BaseAPIRequestFactory {
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
-    if (
-      !_config.unstableOperations[
-        "IncidentsApi.v2.updateIncidentPostmortemTemplate"
-      ]
-    ) {
-      throw new Error(
-        "Unstable operation 'updateIncidentPostmortemTemplate' is disabled. Enable it by setting `configuration.unstableOperations['IncidentsApi.v2.updateIncidentPostmortemTemplate'] = true`",
-      );
+    if (!_config.unstableOperations["IncidentsApi.v2.updateIncidentPostmortemTemplate"]) {
+      throw new Error("Unstable operation 'updateIncidentPostmortemTemplate' is disabled. Enable it by setting `configuration.unstableOperations['IncidentsApi.v2.updateIncidentPostmortemTemplate'] = true`");
     }
 
     // verify required parameter 'templateId' is not null or undefined
@@ -3690,22 +3063,14 @@ export class IncidentsApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Path Params
-    const localVarPath =
-      "/api/v2/incidents/config/postmortem-templates/{template_id}".replace(
-        "{template_id}",
-        encodeURIComponent(String(templateId)),
-      );
+    const localVarPath = "/api/v2/incidents/config/postmortem-templates/{template_id}".replace(
+      "{template_id}",
+      encodeURIComponent(String(templateId)),
+    );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "IncidentsApi.v2.updateIncidentPostmortemTemplate",
-      IncidentsApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.PATCH,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("IncidentsApi.v2.updateIncidentPostmortemTemplate", IncidentsApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.PATCH, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -3715,7 +3080,9 @@ export class IncidentsApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Body Params
-    const contentType = getPreferredMediaType(["application/json"]);
+    const contentType = getPreferredMediaType([
+      "application/json",
+    ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = stringify(
       serialize(body, TypingInfo, "PostmortemTemplateRequest", ""),
@@ -3741,9 +3108,7 @@ export class IncidentsApiRequestFactory extends BaseAPIRequestFactory {
     const _config = _options || this.configuration;
 
     if (!_config.unstableOperations["IncidentsApi.v2.updateIncidentTodo"]) {
-      throw new Error(
-        "Unstable operation 'updateIncidentTodo' is disabled. Enable it by setting `configuration.unstableOperations['IncidentsApi.v2.updateIncidentTodo'] = true`",
-      );
+      throw new Error("Unstable operation 'updateIncidentTodo' is disabled. Enable it by setting `configuration.unstableOperations['IncidentsApi.v2.updateIncidentTodo'] = true`");
     }
 
     // verify required parameter 'incidentId' is not null or undefined
@@ -3762,21 +3127,17 @@ export class IncidentsApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Path Params
-    const localVarPath =
-      "/api/v2/incidents/{incident_id}/relationships/todos/{todo_id}"
-        .replace("{incident_id}", encodeURIComponent(String(incidentId)))
-        .replace("{todo_id}", encodeURIComponent(String(todoId)));
+    const localVarPath = "/api/v2/incidents/{incident_id}/relationships/todos/{todo_id}".replace(
+      "{incident_id}",
+      encodeURIComponent(String(incidentId)),
+    ).replace(
+      "{todo_id}",
+      encodeURIComponent(String(todoId)),
+    );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "IncidentsApi.v2.updateIncidentTodo",
-      IncidentsApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.PATCH,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("IncidentsApi.v2.updateIncidentTodo", IncidentsApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.PATCH, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -3786,7 +3147,9 @@ export class IncidentsApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Body Params
-    const contentType = getPreferredMediaType(["application/json"]);
+    const contentType = getPreferredMediaType([
+      "application/json",
+    ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = stringify(
       serialize(body, TypingInfo, "IncidentTodoPatchRequest", ""),
@@ -3812,9 +3175,7 @@ export class IncidentsApiRequestFactory extends BaseAPIRequestFactory {
     const _config = _options || this.configuration;
 
     if (!_config.unstableOperations["IncidentsApi.v2.updateIncidentType"]) {
-      throw new Error(
-        "Unstable operation 'updateIncidentType' is disabled. Enable it by setting `configuration.unstableOperations['IncidentsApi.v2.updateIncidentType'] = true`",
-      );
+      throw new Error("Unstable operation 'updateIncidentType' is disabled. Enable it by setting `configuration.unstableOperations['IncidentsApi.v2.updateIncidentType'] = true`");
     }
 
     // verify required parameter 'incidentTypeId' is not null or undefined
@@ -3828,22 +3189,14 @@ export class IncidentsApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Path Params
-    const localVarPath =
-      "/api/v2/incidents/config/types/{incident_type_id}".replace(
-        "{incident_type_id}",
-        encodeURIComponent(String(incidentTypeId)),
-      );
+    const localVarPath = "/api/v2/incidents/config/types/{incident_type_id}".replace(
+      "{incident_type_id}",
+      encodeURIComponent(String(incidentTypeId)),
+    );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "IncidentsApi.v2.updateIncidentType",
-      IncidentsApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.PATCH,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("IncidentsApi.v2.updateIncidentType", IncidentsApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.PATCH, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -3853,7 +3206,9 @@ export class IncidentsApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Body Params
-    const contentType = getPreferredMediaType(["application/json"]);
+    const contentType = getPreferredMediaType([
+      "application/json",
+    ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = stringify(
       serialize(body, TypingInfo, "IncidentTypePatchRequest", ""),
@@ -3879,14 +3234,8 @@ export class IncidentsApiRequestFactory extends BaseAPIRequestFactory {
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
-    if (
-      !_config.unstableOperations[
-        "IncidentsApi.v2.updateIncidentUserDefinedField"
-      ]
-    ) {
-      throw new Error(
-        "Unstable operation 'updateIncidentUserDefinedField' is disabled. Enable it by setting `configuration.unstableOperations['IncidentsApi.v2.updateIncidentUserDefinedField'] = true`",
-      );
+    if (!_config.unstableOperations["IncidentsApi.v2.updateIncidentUserDefinedField"]) {
+      throw new Error("Unstable operation 'updateIncidentUserDefinedField' is disabled. Enable it by setting `configuration.unstableOperations['IncidentsApi.v2.updateIncidentUserDefinedField'] = true`");
     }
 
     // verify required parameter 'fieldId' is not null or undefined
@@ -3900,22 +3249,14 @@ export class IncidentsApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Path Params
-    const localVarPath =
-      "/api/v2/incidents/config/user-defined-fields/{field_id}".replace(
-        "{field_id}",
-        encodeURIComponent(String(fieldId)),
-      );
+    const localVarPath = "/api/v2/incidents/config/user-defined-fields/{field_id}".replace(
+      "{field_id}",
+      encodeURIComponent(String(fieldId)),
+    );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "IncidentsApi.v2.updateIncidentUserDefinedField",
-      IncidentsApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.PATCH,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("IncidentsApi.v2.updateIncidentUserDefinedField", IncidentsApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.PATCH, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -3934,7 +3275,9 @@ export class IncidentsApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Body Params
-    const contentType = getPreferredMediaType(["application/json"]);
+    const contentType = getPreferredMediaType([
+      "application/json",
+    ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = stringify(
       serialize(body, TypingInfo, "IncidentUserDefinedFieldUpdateRequest", ""),
@@ -3960,14 +3303,8 @@ export class IncidentsApiRequestFactory extends BaseAPIRequestFactory {
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
-    if (
-      !_config.unstableOperations[
-        "IncidentsApi.v2.updateIncidentUserDefinedRole"
-      ]
-    ) {
-      throw new Error(
-        "Unstable operation 'updateIncidentUserDefinedRole' is disabled. Enable it by setting `configuration.unstableOperations['IncidentsApi.v2.updateIncidentUserDefinedRole'] = true`",
-      );
+    if (!_config.unstableOperations["IncidentsApi.v2.updateIncidentUserDefinedRole"]) {
+      throw new Error("Unstable operation 'updateIncidentUserDefinedRole' is disabled. Enable it by setting `configuration.unstableOperations['IncidentsApi.v2.updateIncidentUserDefinedRole'] = true`");
     }
 
     // verify required parameter 'roleId' is not null or undefined
@@ -3981,22 +3318,14 @@ export class IncidentsApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Path Params
-    const localVarPath =
-      "/api/v2/incidents/config/user-defined-roles/{role_id}".replace(
-        "{role_id}",
-        encodeURIComponent(String(roleId)),
-      );
+    const localVarPath = "/api/v2/incidents/config/user-defined-roles/{role_id}".replace(
+      "{role_id}",
+      encodeURIComponent(String(roleId)),
+    );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "IncidentsApi.v2.updateIncidentUserDefinedRole",
-      IncidentsApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.PATCH,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("IncidentsApi.v2.updateIncidentUserDefinedRole", IncidentsApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.PATCH, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -4015,7 +3344,9 @@ export class IncidentsApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Body Params
-    const contentType = getPreferredMediaType(["application/json"]);
+    const contentType = getPreferredMediaType([
+      "application/json",
+    ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = stringify(
       serialize(body, TypingInfo, "IncidentUserDefinedRolePatchRequest", ""),
@@ -4045,7 +3376,9 @@ export class IncidentsApiResponseProcessor {
   public async createGlobalIncidentHandle(
     response: ResponseContext,
   ): Promise<IncidentHandleResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 201) {
       const body: IncidentHandleResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -4055,7 +3388,10 @@ export class IncidentsApiResponseProcessor {
       return body;
     }
     if (response.httpStatusCode === 400) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: JSONAPIErrorResponse;
       try {
         body = deserialize(
@@ -4076,7 +3412,10 @@ export class IncidentsApiResponseProcessor {
       );
     }
     if (response.httpStatusCode === 429) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -4091,7 +3430,10 @@ export class IncidentsApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -4122,7 +3464,9 @@ export class IncidentsApiResponseProcessor {
   public async createIncident(
     response: ResponseContext,
   ): Promise<IncidentResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 201) {
       const body: IncidentResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -4138,7 +3482,10 @@ export class IncidentsApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -4153,7 +3500,10 @@ export class IncidentsApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -4184,7 +3534,9 @@ export class IncidentsApiResponseProcessor {
   public async createIncidentAttachment(
     response: ResponseContext,
   ): Promise<Attachment> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 201) {
       const body: Attachment = deserialize(
         parse(await response.body.text(), contentType),
@@ -4198,7 +3550,10 @@ export class IncidentsApiResponseProcessor {
       response.httpStatusCode === 403 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -4213,7 +3568,10 @@ export class IncidentsApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -4244,7 +3602,9 @@ export class IncidentsApiResponseProcessor {
   public async createIncidentImpact(
     response: ResponseContext,
   ): Promise<IncidentImpactResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 201) {
       const body: IncidentImpactResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -4260,7 +3620,10 @@ export class IncidentsApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -4275,7 +3638,10 @@ export class IncidentsApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -4306,7 +3672,9 @@ export class IncidentsApiResponseProcessor {
   public async createIncidentIntegration(
     response: ResponseContext,
   ): Promise<IncidentIntegrationMetadataResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 201) {
       const body: IncidentIntegrationMetadataResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -4322,7 +3690,10 @@ export class IncidentsApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -4337,7 +3708,10 @@ export class IncidentsApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -4368,7 +3742,9 @@ export class IncidentsApiResponseProcessor {
   public async createIncidentNotificationRule(
     response: ResponseContext,
   ): Promise<IncidentNotificationRule> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 201) {
       const body: IncidentNotificationRule = deserialize(
         parse(await response.body.text(), contentType),
@@ -4384,7 +3760,10 @@ export class IncidentsApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -4399,7 +3778,10 @@ export class IncidentsApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -4430,7 +3812,9 @@ export class IncidentsApiResponseProcessor {
   public async createIncidentNotificationTemplate(
     response: ResponseContext,
   ): Promise<IncidentNotificationTemplate> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 201) {
       const body: IncidentNotificationTemplate = deserialize(
         parse(await response.body.text(), contentType),
@@ -4446,7 +3830,10 @@ export class IncidentsApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -4461,7 +3848,10 @@ export class IncidentsApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -4492,7 +3882,9 @@ export class IncidentsApiResponseProcessor {
   public async createIncidentPostmortemAttachment(
     response: ResponseContext,
   ): Promise<Attachment> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 201) {
       const body: Attachment = deserialize(
         parse(await response.body.text(), contentType),
@@ -4502,7 +3894,10 @@ export class IncidentsApiResponseProcessor {
       return body;
     }
     if (response.httpStatusCode === 400) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: JSONAPIErrorResponse;
       try {
         body = deserialize(
@@ -4523,7 +3918,10 @@ export class IncidentsApiResponseProcessor {
       );
     }
     if (response.httpStatusCode === 429) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -4538,7 +3936,10 @@ export class IncidentsApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -4569,7 +3970,9 @@ export class IncidentsApiResponseProcessor {
   public async createIncidentPostmortemTemplate(
     response: ResponseContext,
   ): Promise<PostmortemTemplateResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 201) {
       const body: PostmortemTemplateResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -4578,8 +3981,14 @@ export class IncidentsApiResponseProcessor {
       ) as PostmortemTemplateResponse;
       return body;
     }
-    if (response.httpStatusCode === 400 || response.httpStatusCode === 403) {
-      const bodyText = parse(await response.body.text(), contentType);
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 403
+    ) {
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: JSONAPIErrorResponse;
       try {
         body = deserialize(
@@ -4600,7 +4009,10 @@ export class IncidentsApiResponseProcessor {
       );
     }
     if (response.httpStatusCode === 429) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -4615,7 +4027,10 @@ export class IncidentsApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -4646,7 +4061,9 @@ export class IncidentsApiResponseProcessor {
   public async createIncidentTodo(
     response: ResponseContext,
   ): Promise<IncidentTodoResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 201) {
       const body: IncidentTodoResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -4662,7 +4079,10 @@ export class IncidentsApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -4677,7 +4097,10 @@ export class IncidentsApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -4708,7 +4131,9 @@ export class IncidentsApiResponseProcessor {
   public async createIncidentType(
     response: ResponseContext,
   ): Promise<IncidentTypeResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 201) {
       const body: IncidentTypeResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -4724,7 +4149,10 @@ export class IncidentsApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -4739,7 +4167,10 @@ export class IncidentsApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -4770,7 +4201,9 @@ export class IncidentsApiResponseProcessor {
   public async createIncidentUserDefinedField(
     response: ResponseContext,
   ): Promise<IncidentUserDefinedFieldResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 201) {
       const body: IncidentUserDefinedFieldResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -4779,8 +4212,14 @@ export class IncidentsApiResponseProcessor {
       ) as IncidentUserDefinedFieldResponse;
       return body;
     }
-    if (response.httpStatusCode === 400 || response.httpStatusCode === 404) {
-      const bodyText = parse(await response.body.text(), contentType);
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 404
+    ) {
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: JSONAPIErrorResponse;
       try {
         body = deserialize(
@@ -4805,7 +4244,10 @@ export class IncidentsApiResponseProcessor {
       response.httpStatusCode === 403 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -4820,7 +4262,10 @@ export class IncidentsApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -4851,7 +4296,9 @@ export class IncidentsApiResponseProcessor {
   public async createIncidentUserDefinedRole(
     response: ResponseContext,
   ): Promise<IncidentUserDefinedRoleResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 201) {
       const body: IncidentUserDefinedRoleResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -4860,8 +4307,14 @@ export class IncidentsApiResponseProcessor {
       ) as IncidentUserDefinedRoleResponse;
       return body;
     }
-    if (response.httpStatusCode === 400 || response.httpStatusCode === 403) {
-      const bodyText = parse(await response.body.text(), contentType);
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 403
+    ) {
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: JSONAPIErrorResponse;
       try {
         body = deserialize(
@@ -4882,7 +4335,10 @@ export class IncidentsApiResponseProcessor {
       );
     }
     if (response.httpStatusCode === 429) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -4897,7 +4353,10 @@ export class IncidentsApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -4928,12 +4387,17 @@ export class IncidentsApiResponseProcessor {
   public async deleteGlobalIncidentHandle(
     response: ResponseContext,
   ): Promise<void> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 204) {
       return;
     }
     if (response.httpStatusCode === 400) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: JSONAPIErrorResponse;
       try {
         body = deserialize(
@@ -4954,7 +4418,10 @@ export class IncidentsApiResponseProcessor {
       );
     }
     if (response.httpStatusCode === 429) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -4969,7 +4436,10 @@ export class IncidentsApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -4991,8 +4461,12 @@ export class IncidentsApiResponseProcessor {
    * @params response Response returned by the server for a request to deleteIncident
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async deleteIncident(response: ResponseContext): Promise<void> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+  public async deleteIncident(
+    response: ResponseContext,
+  ): Promise<void> {
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 204) {
       return;
     }
@@ -5003,7 +4477,10 @@ export class IncidentsApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -5018,7 +4495,10 @@ export class IncidentsApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -5043,7 +4523,9 @@ export class IncidentsApiResponseProcessor {
   public async deleteIncidentAttachment(
     response: ResponseContext,
   ): Promise<void> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 204) {
       return;
     }
@@ -5053,7 +4535,10 @@ export class IncidentsApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -5068,7 +4553,10 @@ export class IncidentsApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -5090,8 +4578,12 @@ export class IncidentsApiResponseProcessor {
    * @params response Response returned by the server for a request to deleteIncidentImpact
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async deleteIncidentImpact(response: ResponseContext): Promise<void> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+  public async deleteIncidentImpact(
+    response: ResponseContext,
+  ): Promise<void> {
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 204) {
       return;
     }
@@ -5101,7 +4593,10 @@ export class IncidentsApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -5116,7 +4611,10 @@ export class IncidentsApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -5141,7 +4639,9 @@ export class IncidentsApiResponseProcessor {
   public async deleteIncidentIntegration(
     response: ResponseContext,
   ): Promise<void> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 204) {
       return;
     }
@@ -5152,7 +4652,10 @@ export class IncidentsApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -5167,7 +4670,10 @@ export class IncidentsApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -5192,7 +4698,9 @@ export class IncidentsApiResponseProcessor {
   public async deleteIncidentNotificationRule(
     response: ResponseContext,
   ): Promise<void> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 204) {
       return;
     }
@@ -5203,7 +4711,10 @@ export class IncidentsApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -5218,7 +4729,10 @@ export class IncidentsApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -5243,7 +4757,9 @@ export class IncidentsApiResponseProcessor {
   public async deleteIncidentNotificationTemplate(
     response: ResponseContext,
   ): Promise<void> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 204) {
       return;
     }
@@ -5254,7 +4770,10 @@ export class IncidentsApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -5269,7 +4788,10 @@ export class IncidentsApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -5294,12 +4816,20 @@ export class IncidentsApiResponseProcessor {
   public async deleteIncidentPostmortemTemplate(
     response: ResponseContext,
   ): Promise<void> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 204) {
       return;
     }
-    if (response.httpStatusCode === 400 || response.httpStatusCode === 404) {
-      const bodyText = parse(await response.body.text(), contentType);
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 404
+    ) {
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: JSONAPIErrorResponse;
       try {
         body = deserialize(
@@ -5320,7 +4850,10 @@ export class IncidentsApiResponseProcessor {
       );
     }
     if (response.httpStatusCode === 429) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -5335,7 +4868,10 @@ export class IncidentsApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -5357,8 +4893,12 @@ export class IncidentsApiResponseProcessor {
    * @params response Response returned by the server for a request to deleteIncidentTodo
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async deleteIncidentTodo(response: ResponseContext): Promise<void> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+  public async deleteIncidentTodo(
+    response: ResponseContext,
+  ): Promise<void> {
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 204) {
       return;
     }
@@ -5369,7 +4909,10 @@ export class IncidentsApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -5384,7 +4927,10 @@ export class IncidentsApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -5406,8 +4952,12 @@ export class IncidentsApiResponseProcessor {
    * @params response Response returned by the server for a request to deleteIncidentType
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async deleteIncidentType(response: ResponseContext): Promise<void> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+  public async deleteIncidentType(
+    response: ResponseContext,
+  ): Promise<void> {
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 204) {
       return;
     }
@@ -5418,7 +4968,10 @@ export class IncidentsApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -5433,7 +4986,10 @@ export class IncidentsApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -5458,12 +5014,20 @@ export class IncidentsApiResponseProcessor {
   public async deleteIncidentUserDefinedField(
     response: ResponseContext,
   ): Promise<void> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 204) {
       return;
     }
-    if (response.httpStatusCode === 400 || response.httpStatusCode === 404) {
-      const bodyText = parse(await response.body.text(), contentType);
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 404
+    ) {
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: JSONAPIErrorResponse;
       try {
         body = deserialize(
@@ -5488,7 +5052,10 @@ export class IncidentsApiResponseProcessor {
       response.httpStatusCode === 403 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -5503,7 +5070,10 @@ export class IncidentsApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -5528,12 +5098,20 @@ export class IncidentsApiResponseProcessor {
   public async deleteIncidentUserDefinedRole(
     response: ResponseContext,
   ): Promise<void> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 204) {
       return;
     }
-    if (response.httpStatusCode === 400 || response.httpStatusCode === 404) {
-      const bodyText = parse(await response.body.text(), contentType);
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 404
+    ) {
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: JSONAPIErrorResponse;
       try {
         body = deserialize(
@@ -5554,7 +5132,10 @@ export class IncidentsApiResponseProcessor {
       );
     }
     if (response.httpStatusCode === 429) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -5569,7 +5150,10 @@ export class IncidentsApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -5594,7 +5178,9 @@ export class IncidentsApiResponseProcessor {
   public async getGlobalIncidentSettings(
     response: ResponseContext,
   ): Promise<GlobalIncidentSettingsResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: GlobalIncidentSettingsResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -5604,7 +5190,10 @@ export class IncidentsApiResponseProcessor {
       return body;
     }
     if (response.httpStatusCode === 400) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: JSONAPIErrorResponse;
       try {
         body = deserialize(
@@ -5625,7 +5214,10 @@ export class IncidentsApiResponseProcessor {
       );
     }
     if (response.httpStatusCode === 429) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -5640,7 +5232,10 @@ export class IncidentsApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -5671,7 +5266,9 @@ export class IncidentsApiResponseProcessor {
   public async getIncident(
     response: ResponseContext,
   ): Promise<IncidentResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: IncidentResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -5687,7 +5284,10 @@ export class IncidentsApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -5702,7 +5302,10 @@ export class IncidentsApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -5733,7 +5336,9 @@ export class IncidentsApiResponseProcessor {
   public async getIncidentIntegration(
     response: ResponseContext,
   ): Promise<IncidentIntegrationMetadataResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: IncidentIntegrationMetadataResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -5749,7 +5354,10 @@ export class IncidentsApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -5764,7 +5372,10 @@ export class IncidentsApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -5795,7 +5406,9 @@ export class IncidentsApiResponseProcessor {
   public async getIncidentNotificationRule(
     response: ResponseContext,
   ): Promise<IncidentNotificationRule> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: IncidentNotificationRule = deserialize(
         parse(await response.body.text(), contentType),
@@ -5811,7 +5424,10 @@ export class IncidentsApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -5826,7 +5442,10 @@ export class IncidentsApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -5857,7 +5476,9 @@ export class IncidentsApiResponseProcessor {
   public async getIncidentNotificationTemplate(
     response: ResponseContext,
   ): Promise<IncidentNotificationTemplate> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: IncidentNotificationTemplate = deserialize(
         parse(await response.body.text(), contentType),
@@ -5873,7 +5494,10 @@ export class IncidentsApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -5888,7 +5512,10 @@ export class IncidentsApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -5919,7 +5546,9 @@ export class IncidentsApiResponseProcessor {
   public async getIncidentPostmortemTemplate(
     response: ResponseContext,
   ): Promise<PostmortemTemplateResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: PostmortemTemplateResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -5928,8 +5557,14 @@ export class IncidentsApiResponseProcessor {
       ) as PostmortemTemplateResponse;
       return body;
     }
-    if (response.httpStatusCode === 400 || response.httpStatusCode === 404) {
-      const bodyText = parse(await response.body.text(), contentType);
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 404
+    ) {
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: JSONAPIErrorResponse;
       try {
         body = deserialize(
@@ -5950,7 +5585,10 @@ export class IncidentsApiResponseProcessor {
       );
     }
     if (response.httpStatusCode === 429) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -5965,7 +5603,10 @@ export class IncidentsApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -5996,7 +5637,9 @@ export class IncidentsApiResponseProcessor {
   public async getIncidentTodo(
     response: ResponseContext,
   ): Promise<IncidentTodoResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: IncidentTodoResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -6012,7 +5655,10 @@ export class IncidentsApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -6027,7 +5673,10 @@ export class IncidentsApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -6058,7 +5707,9 @@ export class IncidentsApiResponseProcessor {
   public async getIncidentType(
     response: ResponseContext,
   ): Promise<IncidentTypeResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: IncidentTypeResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -6074,7 +5725,10 @@ export class IncidentsApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -6089,7 +5743,10 @@ export class IncidentsApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -6120,7 +5777,9 @@ export class IncidentsApiResponseProcessor {
   public async getIncidentUserDefinedField(
     response: ResponseContext,
   ): Promise<IncidentUserDefinedFieldResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: IncidentUserDefinedFieldResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -6134,7 +5793,10 @@ export class IncidentsApiResponseProcessor {
       response.httpStatusCode === 403 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -6149,10 +5811,16 @@ export class IncidentsApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
     if (response.httpStatusCode === 404) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: JSONAPIErrorResponse;
       try {
         body = deserialize(
@@ -6201,7 +5869,9 @@ export class IncidentsApiResponseProcessor {
   public async getIncidentUserDefinedRole(
     response: ResponseContext,
   ): Promise<IncidentUserDefinedRoleResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: IncidentUserDefinedRoleResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -6210,8 +5880,14 @@ export class IncidentsApiResponseProcessor {
       ) as IncidentUserDefinedRoleResponse;
       return body;
     }
-    if (response.httpStatusCode === 400 || response.httpStatusCode === 404) {
-      const bodyText = parse(await response.body.text(), contentType);
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 404
+    ) {
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: JSONAPIErrorResponse;
       try {
         body = deserialize(
@@ -6232,7 +5908,10 @@ export class IncidentsApiResponseProcessor {
       );
     }
     if (response.httpStatusCode === 429) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -6247,7 +5926,10 @@ export class IncidentsApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -6278,7 +5960,9 @@ export class IncidentsApiResponseProcessor {
   public async importIncident(
     response: ResponseContext,
   ): Promise<IncidentImportResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 201) {
       const body: IncidentImportResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -6294,7 +5978,10 @@ export class IncidentsApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -6309,7 +5996,10 @@ export class IncidentsApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -6340,7 +6030,9 @@ export class IncidentsApiResponseProcessor {
   public async listGlobalIncidentHandles(
     response: ResponseContext,
   ): Promise<IncidentHandlesResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: IncidentHandlesResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -6350,7 +6042,10 @@ export class IncidentsApiResponseProcessor {
       return body;
     }
     if (response.httpStatusCode === 400) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: JSONAPIErrorResponse;
       try {
         body = deserialize(
@@ -6371,7 +6066,10 @@ export class IncidentsApiResponseProcessor {
       );
     }
     if (response.httpStatusCode === 429) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -6386,7 +6084,10 @@ export class IncidentsApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -6417,7 +6118,9 @@ export class IncidentsApiResponseProcessor {
   public async listIncidentAttachments(
     response: ResponseContext,
   ): Promise<AttachmentArray> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: AttachmentArray = deserialize(
         parse(await response.body.text(), contentType),
@@ -6426,8 +6129,14 @@ export class IncidentsApiResponseProcessor {
       ) as AttachmentArray;
       return body;
     }
-    if (response.httpStatusCode === 400 || response.httpStatusCode === 429) {
-      const bodyText = parse(await response.body.text(), contentType);
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 429
+    ) {
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -6442,7 +6151,10 @@ export class IncidentsApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -6473,7 +6185,9 @@ export class IncidentsApiResponseProcessor {
   public async listIncidentImpacts(
     response: ResponseContext,
   ): Promise<IncidentImpactsResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: IncidentImpactsResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -6489,7 +6203,10 @@ export class IncidentsApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -6504,7 +6221,10 @@ export class IncidentsApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -6535,7 +6255,9 @@ export class IncidentsApiResponseProcessor {
   public async listIncidentIntegrations(
     response: ResponseContext,
   ): Promise<IncidentIntegrationMetadataListResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: IncidentIntegrationMetadataListResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -6551,7 +6273,10 @@ export class IncidentsApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -6566,7 +6291,10 @@ export class IncidentsApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -6597,7 +6325,9 @@ export class IncidentsApiResponseProcessor {
   public async listIncidentNotificationRules(
     response: ResponseContext,
   ): Promise<IncidentNotificationRuleArray> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: IncidentNotificationRuleArray = deserialize(
         parse(await response.body.text(), contentType),
@@ -6613,7 +6343,10 @@ export class IncidentsApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -6628,7 +6361,10 @@ export class IncidentsApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -6659,7 +6395,9 @@ export class IncidentsApiResponseProcessor {
   public async listIncidentNotificationTemplates(
     response: ResponseContext,
   ): Promise<IncidentNotificationTemplateArray> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: IncidentNotificationTemplateArray = deserialize(
         parse(await response.body.text(), contentType),
@@ -6675,7 +6413,10 @@ export class IncidentsApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -6690,7 +6431,10 @@ export class IncidentsApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -6721,7 +6465,9 @@ export class IncidentsApiResponseProcessor {
   public async listIncidentPostmortemTemplates(
     response: ResponseContext,
   ): Promise<PostmortemTemplatesResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: PostmortemTemplatesResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -6731,7 +6477,10 @@ export class IncidentsApiResponseProcessor {
       return body;
     }
     if (response.httpStatusCode === 400) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: JSONAPIErrorResponse;
       try {
         body = deserialize(
@@ -6752,7 +6501,10 @@ export class IncidentsApiResponseProcessor {
       );
     }
     if (response.httpStatusCode === 429) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -6767,7 +6519,10 @@ export class IncidentsApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -6798,7 +6553,9 @@ export class IncidentsApiResponseProcessor {
   public async listIncidents(
     response: ResponseContext,
   ): Promise<IncidentsResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: IncidentsResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -6814,7 +6571,10 @@ export class IncidentsApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -6829,7 +6589,10 @@ export class IncidentsApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -6860,7 +6623,9 @@ export class IncidentsApiResponseProcessor {
   public async listIncidentTodos(
     response: ResponseContext,
   ): Promise<IncidentTodoListResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: IncidentTodoListResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -6876,7 +6641,10 @@ export class IncidentsApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -6891,7 +6659,10 @@ export class IncidentsApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -6922,7 +6693,9 @@ export class IncidentsApiResponseProcessor {
   public async listIncidentTypes(
     response: ResponseContext,
   ): Promise<IncidentTypeListResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: IncidentTypeListResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -6937,7 +6710,10 @@ export class IncidentsApiResponseProcessor {
       response.httpStatusCode === 403 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -6952,7 +6728,10 @@ export class IncidentsApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -6983,7 +6762,9 @@ export class IncidentsApiResponseProcessor {
   public async listIncidentUserDefinedFields(
     response: ResponseContext,
   ): Promise<IncidentUserDefinedFieldListResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: IncidentUserDefinedFieldListResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -6993,7 +6774,10 @@ export class IncidentsApiResponseProcessor {
       return body;
     }
     if (response.httpStatusCode === 400) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: JSONAPIErrorResponse;
       try {
         body = deserialize(
@@ -7018,7 +6802,10 @@ export class IncidentsApiResponseProcessor {
       response.httpStatusCode === 403 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -7033,7 +6820,10 @@ export class IncidentsApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -7064,7 +6854,9 @@ export class IncidentsApiResponseProcessor {
   public async listIncidentUserDefinedRoles(
     response: ResponseContext,
   ): Promise<IncidentUserDefinedRolesResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: IncidentUserDefinedRolesResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -7074,7 +6866,10 @@ export class IncidentsApiResponseProcessor {
       return body;
     }
     if (response.httpStatusCode === 400) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: JSONAPIErrorResponse;
       try {
         body = deserialize(
@@ -7095,7 +6890,10 @@ export class IncidentsApiResponseProcessor {
       );
     }
     if (response.httpStatusCode === 429) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -7110,7 +6908,10 @@ export class IncidentsApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -7141,7 +6942,9 @@ export class IncidentsApiResponseProcessor {
   public async searchIncidents(
     response: ResponseContext,
   ): Promise<IncidentSearchResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: IncidentSearchResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -7157,7 +6960,10 @@ export class IncidentsApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -7172,7 +6978,10 @@ export class IncidentsApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -7203,7 +7012,9 @@ export class IncidentsApiResponseProcessor {
   public async updateGlobalIncidentHandle(
     response: ResponseContext,
   ): Promise<IncidentHandleResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: IncidentHandleResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -7213,7 +7024,10 @@ export class IncidentsApiResponseProcessor {
       return body;
     }
     if (response.httpStatusCode === 400) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: JSONAPIErrorResponse;
       try {
         body = deserialize(
@@ -7234,7 +7048,10 @@ export class IncidentsApiResponseProcessor {
       );
     }
     if (response.httpStatusCode === 429) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -7249,7 +7066,10 @@ export class IncidentsApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -7280,7 +7100,9 @@ export class IncidentsApiResponseProcessor {
   public async updateGlobalIncidentSettings(
     response: ResponseContext,
   ): Promise<GlobalIncidentSettingsResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: GlobalIncidentSettingsResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -7290,7 +7112,10 @@ export class IncidentsApiResponseProcessor {
       return body;
     }
     if (response.httpStatusCode === 400) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: JSONAPIErrorResponse;
       try {
         body = deserialize(
@@ -7311,7 +7136,10 @@ export class IncidentsApiResponseProcessor {
       );
     }
     if (response.httpStatusCode === 429) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -7326,7 +7154,10 @@ export class IncidentsApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -7357,7 +7188,9 @@ export class IncidentsApiResponseProcessor {
   public async updateIncident(
     response: ResponseContext,
   ): Promise<IncidentResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: IncidentResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -7373,7 +7206,10 @@ export class IncidentsApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -7388,7 +7224,10 @@ export class IncidentsApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -7419,7 +7258,9 @@ export class IncidentsApiResponseProcessor {
   public async updateIncidentAttachment(
     response: ResponseContext,
   ): Promise<Attachment> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: Attachment = deserialize(
         parse(await response.body.text(), contentType),
@@ -7434,7 +7275,10 @@ export class IncidentsApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -7449,7 +7293,10 @@ export class IncidentsApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -7480,7 +7327,9 @@ export class IncidentsApiResponseProcessor {
   public async updateIncidentIntegration(
     response: ResponseContext,
   ): Promise<IncidentIntegrationMetadataResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: IncidentIntegrationMetadataResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -7496,7 +7345,10 @@ export class IncidentsApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -7511,7 +7363,10 @@ export class IncidentsApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -7542,7 +7397,9 @@ export class IncidentsApiResponseProcessor {
   public async updateIncidentNotificationRule(
     response: ResponseContext,
   ): Promise<IncidentNotificationRule> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: IncidentNotificationRule = deserialize(
         parse(await response.body.text(), contentType),
@@ -7558,7 +7415,10 @@ export class IncidentsApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -7573,7 +7433,10 @@ export class IncidentsApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -7604,7 +7467,9 @@ export class IncidentsApiResponseProcessor {
   public async updateIncidentNotificationTemplate(
     response: ResponseContext,
   ): Promise<IncidentNotificationTemplate> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: IncidentNotificationTemplate = deserialize(
         parse(await response.body.text(), contentType),
@@ -7620,7 +7485,10 @@ export class IncidentsApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -7635,7 +7503,10 @@ export class IncidentsApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -7666,7 +7537,9 @@ export class IncidentsApiResponseProcessor {
   public async updateIncidentPostmortemTemplate(
     response: ResponseContext,
   ): Promise<PostmortemTemplateResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: PostmortemTemplateResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -7675,8 +7548,14 @@ export class IncidentsApiResponseProcessor {
       ) as PostmortemTemplateResponse;
       return body;
     }
-    if (response.httpStatusCode === 400 || response.httpStatusCode === 404) {
-      const bodyText = parse(await response.body.text(), contentType);
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 404
+    ) {
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: JSONAPIErrorResponse;
       try {
         body = deserialize(
@@ -7697,7 +7576,10 @@ export class IncidentsApiResponseProcessor {
       );
     }
     if (response.httpStatusCode === 429) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -7712,7 +7594,10 @@ export class IncidentsApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -7743,7 +7628,9 @@ export class IncidentsApiResponseProcessor {
   public async updateIncidentTodo(
     response: ResponseContext,
   ): Promise<IncidentTodoResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: IncidentTodoResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -7759,7 +7646,10 @@ export class IncidentsApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -7774,7 +7664,10 @@ export class IncidentsApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -7805,7 +7698,9 @@ export class IncidentsApiResponseProcessor {
   public async updateIncidentType(
     response: ResponseContext,
   ): Promise<IncidentTypeResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: IncidentTypeResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -7821,7 +7716,10 @@ export class IncidentsApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -7836,7 +7734,10 @@ export class IncidentsApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -7867,7 +7768,9 @@ export class IncidentsApiResponseProcessor {
   public async updateIncidentUserDefinedField(
     response: ResponseContext,
   ): Promise<IncidentUserDefinedFieldResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: IncidentUserDefinedFieldResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -7876,8 +7779,14 @@ export class IncidentsApiResponseProcessor {
       ) as IncidentUserDefinedFieldResponse;
       return body;
     }
-    if (response.httpStatusCode === 400 || response.httpStatusCode === 404) {
-      const bodyText = parse(await response.body.text(), contentType);
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 404
+    ) {
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: JSONAPIErrorResponse;
       try {
         body = deserialize(
@@ -7902,7 +7811,10 @@ export class IncidentsApiResponseProcessor {
       response.httpStatusCode === 403 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -7917,7 +7829,10 @@ export class IncidentsApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -7948,7 +7863,9 @@ export class IncidentsApiResponseProcessor {
   public async updateIncidentUserDefinedRole(
     response: ResponseContext,
   ): Promise<IncidentUserDefinedRoleResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: IncidentUserDefinedRoleResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -7957,8 +7874,14 @@ export class IncidentsApiResponseProcessor {
       ) as IncidentUserDefinedRoleResponse;
       return body;
     }
-    if (response.httpStatusCode === 400 || response.httpStatusCode === 404) {
-      const bodyText = parse(await response.body.text(), contentType);
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 404
+    ) {
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: JSONAPIErrorResponse;
       try {
         body = deserialize(
@@ -7979,7 +7902,10 @@ export class IncidentsApiResponseProcessor {
       );
     }
     if (response.httpStatusCode === 429) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -7994,7 +7920,10 @@ export class IncidentsApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -8768,7 +8697,8 @@ export class IncidentsApi {
   private responseProcessor: IncidentsApiResponseProcessor;
   private configuration: Configuration;
 
-  static operationServers: { [key: string]: BaseServerConfiguration[] } = {};
+  static operationServers: { [key: string]: BaseServerConfiguration[] } = {
+  };
 
   public constructor(
     configuration?: Configuration,
@@ -8777,7 +8707,8 @@ export class IncidentsApi {
   ) {
     this.configuration = configuration || createConfiguration();
     this.requestFactory =
-      requestFactory || new IncidentsApiRequestFactory(this.configuration);
+      requestFactory ||
+      new IncidentsApiRequestFactory(this.configuration);
     this.responseProcessor =
       responseProcessor || new IncidentsApiResponseProcessor();
   }
@@ -8790,19 +8721,16 @@ export class IncidentsApi {
     param: IncidentsApiCreateGlobalIncidentHandleRequest,
     options?: Configuration,
   ): Promise<IncidentHandleResponse> {
-    const requestContextPromise =
-      this.requestFactory.createGlobalIncidentHandle(
-        param.body,
-        param.include,
-        options,
-      );
+    const requestContextPromise = this.requestFactory.createGlobalIncidentHandle(
+      param.body,
+      param.include,
+      options,
+    );
     return requestContextPromise.then((requestContext) => {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.createGlobalIncidentHandle(
-            responseContext,
-          );
+          return this.responseProcessor.createGlobalIncidentHandle(responseContext);
         });
     });
   }
@@ -8846,9 +8774,7 @@ export class IncidentsApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.createIncidentAttachment(
-            responseContext,
-          );
+          return this.responseProcessor.createIncidentAttachment(responseContext);
         });
     });
   }
@@ -8893,9 +8819,7 @@ export class IncidentsApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.createIncidentIntegration(
-            responseContext,
-          );
+          return this.responseProcessor.createIncidentIntegration(responseContext);
         });
     });
   }
@@ -8908,15 +8832,15 @@ export class IncidentsApi {
     param: IncidentsApiCreateIncidentNotificationRuleRequest,
     options?: Configuration,
   ): Promise<IncidentNotificationRule> {
-    const requestContextPromise =
-      this.requestFactory.createIncidentNotificationRule(param.body, options);
+    const requestContextPromise = this.requestFactory.createIncidentNotificationRule(
+      param.body,
+      options,
+    );
     return requestContextPromise.then((requestContext) => {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.createIncidentNotificationRule(
-            responseContext,
-          );
+          return this.responseProcessor.createIncidentNotificationRule(responseContext);
         });
     });
   }
@@ -8929,25 +8853,22 @@ export class IncidentsApi {
     param: IncidentsApiCreateIncidentNotificationTemplateRequest,
     options?: Configuration,
   ): Promise<IncidentNotificationTemplate> {
-    const requestContextPromise =
-      this.requestFactory.createIncidentNotificationTemplate(
-        param.body,
-        options,
-      );
+    const requestContextPromise = this.requestFactory.createIncidentNotificationTemplate(
+      param.body,
+      options,
+    );
     return requestContextPromise.then((requestContext) => {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.createIncidentNotificationTemplate(
-            responseContext,
-          );
+          return this.responseProcessor.createIncidentNotificationTemplate(responseContext);
         });
     });
   }
 
   /**
    * Create a postmortem attachment for an incident.
-   *
+   * 
    * The endpoint accepts markdown for notebooks created in Confluence or Google Docs.
    * Postmortems created from notebooks need to be formatted using frontend notebook cells,
    * in addition to markdown format.
@@ -8957,19 +8878,16 @@ export class IncidentsApi {
     param: IncidentsApiCreateIncidentPostmortemAttachmentRequest,
     options?: Configuration,
   ): Promise<Attachment> {
-    const requestContextPromise =
-      this.requestFactory.createIncidentPostmortemAttachment(
-        param.incidentId,
-        param.body,
-        options,
-      );
+    const requestContextPromise = this.requestFactory.createIncidentPostmortemAttachment(
+      param.incidentId,
+      param.body,
+      options,
+    );
     return requestContextPromise.then((requestContext) => {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.createIncidentPostmortemAttachment(
-            responseContext,
-          );
+          return this.responseProcessor.createIncidentPostmortemAttachment(responseContext);
         });
     });
   }
@@ -8982,15 +8900,15 @@ export class IncidentsApi {
     param: IncidentsApiCreateIncidentPostmortemTemplateRequest,
     options?: Configuration,
   ): Promise<PostmortemTemplateResponse> {
-    const requestContextPromise =
-      this.requestFactory.createIncidentPostmortemTemplate(param.body, options);
+    const requestContextPromise = this.requestFactory.createIncidentPostmortemTemplate(
+      param.body,
+      options,
+    );
     return requestContextPromise.then((requestContext) => {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.createIncidentPostmortemTemplate(
-            responseContext,
-          );
+          return this.responseProcessor.createIncidentPostmortemTemplate(responseContext);
         });
     });
   }
@@ -9046,19 +8964,16 @@ export class IncidentsApi {
     param: IncidentsApiCreateIncidentUserDefinedFieldRequest,
     options?: Configuration,
   ): Promise<IncidentUserDefinedFieldResponse> {
-    const requestContextPromise =
-      this.requestFactory.createIncidentUserDefinedField(
-        param.body,
-        param.include,
-        options,
-      );
+    const requestContextPromise = this.requestFactory.createIncidentUserDefinedField(
+      param.body,
+      param.include,
+      options,
+    );
     return requestContextPromise.then((requestContext) => {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.createIncidentUserDefinedField(
-            responseContext,
-          );
+          return this.responseProcessor.createIncidentUserDefinedField(responseContext);
         });
     });
   }
@@ -9071,19 +8986,16 @@ export class IncidentsApi {
     param: IncidentsApiCreateIncidentUserDefinedRoleRequest,
     options?: Configuration,
   ): Promise<IncidentUserDefinedRoleResponse> {
-    const requestContextPromise =
-      this.requestFactory.createIncidentUserDefinedRole(
-        param.body,
-        param.include,
-        options,
-      );
+    const requestContextPromise = this.requestFactory.createIncidentUserDefinedRole(
+      param.body,
+      param.include,
+      options,
+    );
     return requestContextPromise.then((requestContext) => {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.createIncidentUserDefinedRole(
-            responseContext,
-          );
+          return this.responseProcessor.createIncidentUserDefinedRole(responseContext);
         });
     });
   }
@@ -9092,16 +9004,16 @@ export class IncidentsApi {
    * Delete a global incident handle.
    * @param param The request object
    */
-  public deleteGlobalIncidentHandle(options?: Configuration): Promise<void> {
-    const requestContextPromise =
-      this.requestFactory.deleteGlobalIncidentHandle(options);
+  public deleteGlobalIncidentHandle(options?: Configuration,
+  ): Promise<void> {
+    const requestContextPromise = this.requestFactory.deleteGlobalIncidentHandle(
+      options,
+    );
     return requestContextPromise.then((requestContext) => {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.deleteGlobalIncidentHandle(
-            responseContext,
-          );
+          return this.responseProcessor.deleteGlobalIncidentHandle(responseContext);
         });
     });
   }
@@ -9143,9 +9055,7 @@ export class IncidentsApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.deleteIncidentAttachment(
-            responseContext,
-          );
+          return this.responseProcessor.deleteIncidentAttachment(responseContext);
         });
     });
   }
@@ -9189,9 +9099,7 @@ export class IncidentsApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.deleteIncidentIntegration(
-            responseContext,
-          );
+          return this.responseProcessor.deleteIncidentIntegration(responseContext);
         });
     });
   }
@@ -9204,19 +9112,16 @@ export class IncidentsApi {
     param: IncidentsApiDeleteIncidentNotificationRuleRequest,
     options?: Configuration,
   ): Promise<void> {
-    const requestContextPromise =
-      this.requestFactory.deleteIncidentNotificationRule(
-        param.id,
-        param.include,
-        options,
-      );
+    const requestContextPromise = this.requestFactory.deleteIncidentNotificationRule(
+      param.id,
+      param.include,
+      options,
+    );
     return requestContextPromise.then((requestContext) => {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.deleteIncidentNotificationRule(
-            responseContext,
-          );
+          return this.responseProcessor.deleteIncidentNotificationRule(responseContext);
         });
     });
   }
@@ -9229,19 +9134,16 @@ export class IncidentsApi {
     param: IncidentsApiDeleteIncidentNotificationTemplateRequest,
     options?: Configuration,
   ): Promise<void> {
-    const requestContextPromise =
-      this.requestFactory.deleteIncidentNotificationTemplate(
-        param.id,
-        param.include,
-        options,
-      );
+    const requestContextPromise = this.requestFactory.deleteIncidentNotificationTemplate(
+      param.id,
+      param.include,
+      options,
+    );
     return requestContextPromise.then((requestContext) => {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.deleteIncidentNotificationTemplate(
-            responseContext,
-          );
+          return this.responseProcessor.deleteIncidentNotificationTemplate(responseContext);
         });
     });
   }
@@ -9254,18 +9156,15 @@ export class IncidentsApi {
     param: IncidentsApiDeleteIncidentPostmortemTemplateRequest,
     options?: Configuration,
   ): Promise<void> {
-    const requestContextPromise =
-      this.requestFactory.deleteIncidentPostmortemTemplate(
-        param.templateId,
-        options,
-      );
+    const requestContextPromise = this.requestFactory.deleteIncidentPostmortemTemplate(
+      param.templateId,
+      options,
+    );
     return requestContextPromise.then((requestContext) => {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.deleteIncidentPostmortemTemplate(
-            responseContext,
-          );
+          return this.responseProcessor.deleteIncidentPostmortemTemplate(responseContext);
         });
     });
   }
@@ -9321,18 +9220,15 @@ export class IncidentsApi {
     param: IncidentsApiDeleteIncidentUserDefinedFieldRequest,
     options?: Configuration,
   ): Promise<void> {
-    const requestContextPromise =
-      this.requestFactory.deleteIncidentUserDefinedField(
-        param.fieldId,
-        options,
-      );
+    const requestContextPromise = this.requestFactory.deleteIncidentUserDefinedField(
+      param.fieldId,
+      options,
+    );
     return requestContextPromise.then((requestContext) => {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.deleteIncidentUserDefinedField(
-            responseContext,
-          );
+          return this.responseProcessor.deleteIncidentUserDefinedField(responseContext);
         });
     });
   }
@@ -9345,15 +9241,15 @@ export class IncidentsApi {
     param: IncidentsApiDeleteIncidentUserDefinedRoleRequest,
     options?: Configuration,
   ): Promise<void> {
-    const requestContextPromise =
-      this.requestFactory.deleteIncidentUserDefinedRole(param.roleId, options);
+    const requestContextPromise = this.requestFactory.deleteIncidentUserDefinedRole(
+      param.roleId,
+      options,
+    );
     return requestContextPromise.then((requestContext) => {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.deleteIncidentUserDefinedRole(
-            responseContext,
-          );
+          return this.responseProcessor.deleteIncidentUserDefinedRole(responseContext);
         });
     });
   }
@@ -9362,18 +9258,16 @@ export class IncidentsApi {
    * Retrieve global incident settings for the organization.
    * @param param The request object
    */
-  public getGlobalIncidentSettings(
-    options?: Configuration,
+  public getGlobalIncidentSettings(options?: Configuration,
   ): Promise<GlobalIncidentSettingsResponse> {
-    const requestContextPromise =
-      this.requestFactory.getGlobalIncidentSettings(options);
+    const requestContextPromise = this.requestFactory.getGlobalIncidentSettings(
+      options,
+    );
     return requestContextPromise.then((requestContext) => {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.getGlobalIncidentSettings(
-            responseContext,
-          );
+          return this.responseProcessor.getGlobalIncidentSettings(responseContext);
         });
     });
   }
@@ -9430,19 +9324,16 @@ export class IncidentsApi {
     param: IncidentsApiGetIncidentNotificationRuleRequest,
     options?: Configuration,
   ): Promise<IncidentNotificationRule> {
-    const requestContextPromise =
-      this.requestFactory.getIncidentNotificationRule(
-        param.id,
-        param.include,
-        options,
-      );
+    const requestContextPromise = this.requestFactory.getIncidentNotificationRule(
+      param.id,
+      param.include,
+      options,
+    );
     return requestContextPromise.then((requestContext) => {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.getIncidentNotificationRule(
-            responseContext,
-          );
+          return this.responseProcessor.getIncidentNotificationRule(responseContext);
         });
     });
   }
@@ -9455,19 +9346,16 @@ export class IncidentsApi {
     param: IncidentsApiGetIncidentNotificationTemplateRequest,
     options?: Configuration,
   ): Promise<IncidentNotificationTemplate> {
-    const requestContextPromise =
-      this.requestFactory.getIncidentNotificationTemplate(
-        param.id,
-        param.include,
-        options,
-      );
+    const requestContextPromise = this.requestFactory.getIncidentNotificationTemplate(
+      param.id,
+      param.include,
+      options,
+    );
     return requestContextPromise.then((requestContext) => {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.getIncidentNotificationTemplate(
-            responseContext,
-          );
+          return this.responseProcessor.getIncidentNotificationTemplate(responseContext);
         });
     });
   }
@@ -9480,18 +9368,15 @@ export class IncidentsApi {
     param: IncidentsApiGetIncidentPostmortemTemplateRequest,
     options?: Configuration,
   ): Promise<PostmortemTemplateResponse> {
-    const requestContextPromise =
-      this.requestFactory.getIncidentPostmortemTemplate(
-        param.templateId,
-        options,
-      );
+    const requestContextPromise = this.requestFactory.getIncidentPostmortemTemplate(
+      param.templateId,
+      options,
+    );
     return requestContextPromise.then((requestContext) => {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.getIncidentPostmortemTemplate(
-            responseContext,
-          );
+          return this.responseProcessor.getIncidentPostmortemTemplate(responseContext);
         });
     });
   }
@@ -9547,19 +9432,16 @@ export class IncidentsApi {
     param: IncidentsApiGetIncidentUserDefinedFieldRequest,
     options?: Configuration,
   ): Promise<IncidentUserDefinedFieldResponse> {
-    const requestContextPromise =
-      this.requestFactory.getIncidentUserDefinedField(
-        param.fieldId,
-        param.include,
-        options,
-      );
+    const requestContextPromise = this.requestFactory.getIncidentUserDefinedField(
+      param.fieldId,
+      param.include,
+      options,
+    );
     return requestContextPromise.then((requestContext) => {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.getIncidentUserDefinedField(
-            responseContext,
-          );
+          return this.responseProcessor.getIncidentUserDefinedField(responseContext);
         });
     });
   }
@@ -9572,19 +9454,16 @@ export class IncidentsApi {
     param: IncidentsApiGetIncidentUserDefinedRoleRequest,
     options?: Configuration,
   ): Promise<IncidentUserDefinedRoleResponse> {
-    const requestContextPromise =
-      this.requestFactory.getIncidentUserDefinedRole(
-        param.roleId,
-        param.include,
-        options,
-      );
+    const requestContextPromise = this.requestFactory.getIncidentUserDefinedRole(
+      param.roleId,
+      param.include,
+      options,
+    );
     return requestContextPromise.then((requestContext) => {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.getIncidentUserDefinedRole(
-            responseContext,
-          );
+          return this.responseProcessor.getIncidentUserDefinedRole(responseContext);
         });
     });
   }
@@ -9629,9 +9508,7 @@ export class IncidentsApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.listGlobalIncidentHandles(
-            responseContext,
-          );
+          return this.responseProcessor.listGlobalIncidentHandles(responseContext);
         });
     });
   }
@@ -9654,9 +9531,7 @@ export class IncidentsApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.listIncidentAttachments(
-            responseContext,
-          );
+          return this.responseProcessor.listIncidentAttachments(responseContext);
         });
     });
   }
@@ -9699,9 +9574,7 @@ export class IncidentsApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.listIncidentIntegrations(
-            responseContext,
-          );
+          return this.responseProcessor.listIncidentIntegrations(responseContext);
         });
     });
   }
@@ -9714,15 +9587,15 @@ export class IncidentsApi {
     param: IncidentsApiListIncidentNotificationRulesRequest = {},
     options?: Configuration,
   ): Promise<IncidentNotificationRuleArray> {
-    const requestContextPromise =
-      this.requestFactory.listIncidentNotificationRules(param.include, options);
+    const requestContextPromise = this.requestFactory.listIncidentNotificationRules(
+      param.include,
+      options,
+    );
     return requestContextPromise.then((requestContext) => {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.listIncidentNotificationRules(
-            responseContext,
-          );
+          return this.responseProcessor.listIncidentNotificationRules(responseContext);
         });
     });
   }
@@ -9735,19 +9608,16 @@ export class IncidentsApi {
     param: IncidentsApiListIncidentNotificationTemplatesRequest = {},
     options?: Configuration,
   ): Promise<IncidentNotificationTemplateArray> {
-    const requestContextPromise =
-      this.requestFactory.listIncidentNotificationTemplates(
-        param.filterIncidentType,
-        param.include,
-        options,
-      );
+    const requestContextPromise = this.requestFactory.listIncidentNotificationTemplates(
+      param.filterIncidentType,
+      param.include,
+      options,
+    );
     return requestContextPromise.then((requestContext) => {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.listIncidentNotificationTemplates(
-            responseContext,
-          );
+          return this.responseProcessor.listIncidentNotificationTemplates(responseContext);
         });
     });
   }
@@ -9756,18 +9626,16 @@ export class IncidentsApi {
    * Retrieve a list of all postmortem templates for incidents.
    * @param param The request object
    */
-  public listIncidentPostmortemTemplates(
-    options?: Configuration,
+  public listIncidentPostmortemTemplates(options?: Configuration,
   ): Promise<PostmortemTemplatesResponse> {
-    const requestContextPromise =
-      this.requestFactory.listIncidentPostmortemTemplates(options);
+    const requestContextPromise = this.requestFactory.listIncidentPostmortemTemplates(
+      options,
+    );
     return requestContextPromise.then((requestContext) => {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.listIncidentPostmortemTemplates(
-            responseContext,
-          );
+          return this.responseProcessor.listIncidentPostmortemTemplates(responseContext);
         });
     });
   }
@@ -9799,26 +9667,19 @@ export class IncidentsApi {
    * Provide a paginated version of listIncidents returning a generator with all the items.
    */
   public async *listIncidentsWithPagination(
-    param: IncidentsApiListIncidentsRequest = {},
-    options?: Configuration,
+    param: IncidentsApiListIncidentsRequest = {}, options?: Configuration,
   ): AsyncGenerator<IncidentResponseData> {
+
     let pageSize = 10;
     if (param.pageSize !== undefined) {
       pageSize = param.pageSize;
     }
     param.pageSize = pageSize;
     while (true) {
-      const requestContext = await this.requestFactory.listIncidents(
-        param.include,
-        param.pageSize,
-        param.pageOffset,
-        options,
-      );
-      const responseContext =
-        await this.configuration.httpApi.send(requestContext);
+      const requestContext = await this.requestFactory.listIncidents(param.include,param.pageSize,param.pageOffset,options);
+      const responseContext = await this.configuration.httpApi.send(requestContext);
 
-      const response =
-        await this.responseProcessor.listIncidents(responseContext);
+      const response = await this.responseProcessor.listIncidents(responseContext);
       const responseData = response.data;
       if (responseData === undefined) {
         break;
@@ -9888,22 +9749,19 @@ export class IncidentsApi {
     param: IncidentsApiListIncidentUserDefinedFieldsRequest = {},
     options?: Configuration,
   ): Promise<IncidentUserDefinedFieldListResponse> {
-    const requestContextPromise =
-      this.requestFactory.listIncidentUserDefinedFields(
-        param.pageSize,
-        param.pageNumber,
-        param.includeDeleted,
-        param.filterIncidentType,
-        param.include,
-        options,
-      );
+    const requestContextPromise = this.requestFactory.listIncidentUserDefinedFields(
+      param.pageSize,
+      param.pageNumber,
+      param.includeDeleted,
+      param.filterIncidentType,
+      param.include,
+      options,
+    );
     return requestContextPromise.then((requestContext) => {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.listIncidentUserDefinedFields(
-            responseContext,
-          );
+          return this.responseProcessor.listIncidentUserDefinedFields(responseContext);
         });
     });
   }
@@ -9916,19 +9774,16 @@ export class IncidentsApi {
     param: IncidentsApiListIncidentUserDefinedRolesRequest = {},
     options?: Configuration,
   ): Promise<IncidentUserDefinedRolesResponse> {
-    const requestContextPromise =
-      this.requestFactory.listIncidentUserDefinedRoles(
-        param.filterIncidentType,
-        param.include,
-        options,
-      );
+    const requestContextPromise = this.requestFactory.listIncidentUserDefinedRoles(
+      param.filterIncidentType,
+      param.include,
+      options,
+    );
     return requestContextPromise.then((requestContext) => {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.listIncidentUserDefinedRoles(
-            responseContext,
-          );
+          return this.responseProcessor.listIncidentUserDefinedRoles(responseContext);
         });
     });
   }
@@ -9962,28 +9817,19 @@ export class IncidentsApi {
    * Provide a paginated version of searchIncidents returning a generator with all the items.
    */
   public async *searchIncidentsWithPagination(
-    param: IncidentsApiSearchIncidentsRequest,
-    options?: Configuration,
+    param: IncidentsApiSearchIncidentsRequest, options?: Configuration,
   ): AsyncGenerator<IncidentSearchResponseIncidentsData> {
+
     let pageSize = 10;
     if (param.pageSize !== undefined) {
       pageSize = param.pageSize;
     }
     param.pageSize = pageSize;
     while (true) {
-      const requestContext = await this.requestFactory.searchIncidents(
-        param.query,
-        param.include,
-        param.sort,
-        param.pageSize,
-        param.pageOffset,
-        options,
-      );
-      const responseContext =
-        await this.configuration.httpApi.send(requestContext);
+      const requestContext = await this.requestFactory.searchIncidents(param.query,param.include,param.sort,param.pageSize,param.pageOffset,options);
+      const responseContext = await this.configuration.httpApi.send(requestContext);
 
-      const response =
-        await this.responseProcessor.searchIncidents(responseContext);
+      const response = await this.responseProcessor.searchIncidents(responseContext);
       const responseData = response.data;
       if (responseData === undefined) {
         break;
@@ -10019,19 +9865,16 @@ export class IncidentsApi {
     param: IncidentsApiUpdateGlobalIncidentHandleRequest,
     options?: Configuration,
   ): Promise<IncidentHandleResponse> {
-    const requestContextPromise =
-      this.requestFactory.updateGlobalIncidentHandle(
-        param.body,
-        param.include,
-        options,
-      );
+    const requestContextPromise = this.requestFactory.updateGlobalIncidentHandle(
+      param.body,
+      param.include,
+      options,
+    );
     return requestContextPromise.then((requestContext) => {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.updateGlobalIncidentHandle(
-            responseContext,
-          );
+          return this.responseProcessor.updateGlobalIncidentHandle(responseContext);
         });
     });
   }
@@ -10044,15 +9887,15 @@ export class IncidentsApi {
     param: IncidentsApiUpdateGlobalIncidentSettingsRequest,
     options?: Configuration,
   ): Promise<GlobalIncidentSettingsResponse> {
-    const requestContextPromise =
-      this.requestFactory.updateGlobalIncidentSettings(param.body, options);
+    const requestContextPromise = this.requestFactory.updateGlobalIncidentSettings(
+      param.body,
+      options,
+    );
     return requestContextPromise.then((requestContext) => {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.updateGlobalIncidentSettings(
-            responseContext,
-          );
+          return this.responseProcessor.updateGlobalIncidentSettings(responseContext);
         });
     });
   }
@@ -10098,9 +9941,7 @@ export class IncidentsApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.updateIncidentAttachment(
-            responseContext,
-          );
+          return this.responseProcessor.updateIncidentAttachment(responseContext);
         });
     });
   }
@@ -10123,9 +9964,7 @@ export class IncidentsApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.updateIncidentIntegration(
-            responseContext,
-          );
+          return this.responseProcessor.updateIncidentIntegration(responseContext);
         });
     });
   }
@@ -10138,20 +9977,17 @@ export class IncidentsApi {
     param: IncidentsApiUpdateIncidentNotificationRuleRequest,
     options?: Configuration,
   ): Promise<IncidentNotificationRule> {
-    const requestContextPromise =
-      this.requestFactory.updateIncidentNotificationRule(
-        param.id,
-        param.body,
-        param.include,
-        options,
-      );
+    const requestContextPromise = this.requestFactory.updateIncidentNotificationRule(
+      param.id,
+      param.body,
+      param.include,
+      options,
+    );
     return requestContextPromise.then((requestContext) => {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.updateIncidentNotificationRule(
-            responseContext,
-          );
+          return this.responseProcessor.updateIncidentNotificationRule(responseContext);
         });
     });
   }
@@ -10164,20 +10000,17 @@ export class IncidentsApi {
     param: IncidentsApiUpdateIncidentNotificationTemplateRequest,
     options?: Configuration,
   ): Promise<IncidentNotificationTemplate> {
-    const requestContextPromise =
-      this.requestFactory.updateIncidentNotificationTemplate(
-        param.id,
-        param.body,
-        param.include,
-        options,
-      );
+    const requestContextPromise = this.requestFactory.updateIncidentNotificationTemplate(
+      param.id,
+      param.body,
+      param.include,
+      options,
+    );
     return requestContextPromise.then((requestContext) => {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.updateIncidentNotificationTemplate(
-            responseContext,
-          );
+          return this.responseProcessor.updateIncidentNotificationTemplate(responseContext);
         });
     });
   }
@@ -10190,19 +10023,16 @@ export class IncidentsApi {
     param: IncidentsApiUpdateIncidentPostmortemTemplateRequest,
     options?: Configuration,
   ): Promise<PostmortemTemplateResponse> {
-    const requestContextPromise =
-      this.requestFactory.updateIncidentPostmortemTemplate(
-        param.templateId,
-        param.body,
-        options,
-      );
+    const requestContextPromise = this.requestFactory.updateIncidentPostmortemTemplate(
+      param.templateId,
+      param.body,
+      options,
+    );
     return requestContextPromise.then((requestContext) => {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.updateIncidentPostmortemTemplate(
-            responseContext,
-          );
+          return this.responseProcessor.updateIncidentPostmortemTemplate(responseContext);
         });
     });
   }
@@ -10260,20 +10090,17 @@ export class IncidentsApi {
     param: IncidentsApiUpdateIncidentUserDefinedFieldRequest,
     options?: Configuration,
   ): Promise<IncidentUserDefinedFieldResponse> {
-    const requestContextPromise =
-      this.requestFactory.updateIncidentUserDefinedField(
-        param.fieldId,
-        param.body,
-        param.include,
-        options,
-      );
+    const requestContextPromise = this.requestFactory.updateIncidentUserDefinedField(
+      param.fieldId,
+      param.body,
+      param.include,
+      options,
+    );
     return requestContextPromise.then((requestContext) => {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.updateIncidentUserDefinedField(
-            responseContext,
-          );
+          return this.responseProcessor.updateIncidentUserDefinedField(responseContext);
         });
     });
   }
@@ -10286,20 +10113,17 @@ export class IncidentsApi {
     param: IncidentsApiUpdateIncidentUserDefinedRoleRequest,
     options?: Configuration,
   ): Promise<IncidentUserDefinedRoleResponse> {
-    const requestContextPromise =
-      this.requestFactory.updateIncidentUserDefinedRole(
-        param.roleId,
-        param.body,
-        param.include,
-        options,
-      );
+    const requestContextPromise = this.requestFactory.updateIncidentUserDefinedRole(
+      param.roleId,
+      param.body,
+      param.include,
+      options,
+    );
     return requestContextPromise.then((requestContext) => {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.updateIncidentUserDefinedRole(
-            responseContext,
-          );
+          return this.responseProcessor.updateIncidentUserDefinedRole(responseContext);
         });
     });
   }

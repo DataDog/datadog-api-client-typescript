@@ -47,55 +47,37 @@ export const TypingInfo: ModelTypingInfo = {
   typeMap: {
     APIErrorResponse: APIErrorResponse,
     GoogleChatAppNamedSpaceResponse: GoogleChatAppNamedSpaceResponse,
-    GoogleChatAppNamedSpaceResponseAttributes:
-      GoogleChatAppNamedSpaceResponseAttributes,
+    GoogleChatAppNamedSpaceResponseAttributes: GoogleChatAppNamedSpaceResponseAttributes,
     GoogleChatAppNamedSpaceResponseData: GoogleChatAppNamedSpaceResponseData,
-    GoogleChatCreateOrganizationHandleRequest:
-      GoogleChatCreateOrganizationHandleRequest,
-    GoogleChatCreateOrganizationHandleRequestAttributes:
-      GoogleChatCreateOrganizationHandleRequestAttributes,
-    GoogleChatCreateOrganizationHandleRequestData:
-      GoogleChatCreateOrganizationHandleRequestData,
+    GoogleChatCreateOrganizationHandleRequest: GoogleChatCreateOrganizationHandleRequest,
+    GoogleChatCreateOrganizationHandleRequestAttributes: GoogleChatCreateOrganizationHandleRequestAttributes,
+    GoogleChatCreateOrganizationHandleRequestData: GoogleChatCreateOrganizationHandleRequestData,
     GoogleChatDelegatedUserAttributes: GoogleChatDelegatedUserAttributes,
     GoogleChatDelegatedUserData: GoogleChatDelegatedUserData,
     GoogleChatDelegatedUserResponse: GoogleChatDelegatedUserResponse,
     GoogleChatOrganizationAttributes: GoogleChatOrganizationAttributes,
     GoogleChatOrganizationData: GoogleChatOrganizationData,
     GoogleChatOrganizationHandleResponse: GoogleChatOrganizationHandleResponse,
-    GoogleChatOrganizationHandleResponseAttributes:
-      GoogleChatOrganizationHandleResponseAttributes,
-    GoogleChatOrganizationHandleResponseData:
-      GoogleChatOrganizationHandleResponseData,
-    GoogleChatOrganizationHandlesResponse:
-      GoogleChatOrganizationHandlesResponse,
+    GoogleChatOrganizationHandleResponseAttributes: GoogleChatOrganizationHandleResponseAttributes,
+    GoogleChatOrganizationHandleResponseData: GoogleChatOrganizationHandleResponseData,
+    GoogleChatOrganizationHandlesResponse: GoogleChatOrganizationHandlesResponse,
     GoogleChatOrganizationRelationships: GoogleChatOrganizationRelationships,
-    GoogleChatOrganizationRelationshipsDelegatedUser:
-      GoogleChatOrganizationRelationshipsDelegatedUser,
-    GoogleChatOrganizationRelationshipsDelegatedUserData:
-      GoogleChatOrganizationRelationshipsDelegatedUserData,
+    GoogleChatOrganizationRelationshipsDelegatedUser: GoogleChatOrganizationRelationshipsDelegatedUser,
+    GoogleChatOrganizationRelationshipsDelegatedUserData: GoogleChatOrganizationRelationshipsDelegatedUserData,
     GoogleChatOrganizationResponse: GoogleChatOrganizationResponse,
     GoogleChatOrganizationsResponse: GoogleChatOrganizationsResponse,
     GoogleChatTargetAudienceAttributes: GoogleChatTargetAudienceAttributes,
-    GoogleChatTargetAudienceCreateRequest:
-      GoogleChatTargetAudienceCreateRequest,
-    GoogleChatTargetAudienceCreateRequestAttributes:
-      GoogleChatTargetAudienceCreateRequestAttributes,
-    GoogleChatTargetAudienceCreateRequestData:
-      GoogleChatTargetAudienceCreateRequestData,
+    GoogleChatTargetAudienceCreateRequest: GoogleChatTargetAudienceCreateRequest,
+    GoogleChatTargetAudienceCreateRequestAttributes: GoogleChatTargetAudienceCreateRequestAttributes,
+    GoogleChatTargetAudienceCreateRequestData: GoogleChatTargetAudienceCreateRequestData,
     GoogleChatTargetAudienceData: GoogleChatTargetAudienceData,
     GoogleChatTargetAudienceResponse: GoogleChatTargetAudienceResponse,
-    GoogleChatTargetAudienceUpdateRequest:
-      GoogleChatTargetAudienceUpdateRequest,
-    GoogleChatTargetAudienceUpdateRequestAttributes:
-      GoogleChatTargetAudienceUpdateRequestAttributes,
-    GoogleChatTargetAudienceUpdateRequestData:
-      GoogleChatTargetAudienceUpdateRequestData,
+    GoogleChatTargetAudienceUpdateRequest: GoogleChatTargetAudienceUpdateRequest,
+    GoogleChatTargetAudienceUpdateRequestAttributes: GoogleChatTargetAudienceUpdateRequestAttributes,
+    GoogleChatTargetAudienceUpdateRequestData: GoogleChatTargetAudienceUpdateRequestData,
     GoogleChatTargetAudiencesResponse: GoogleChatTargetAudiencesResponse,
-    GoogleChatUpdateOrganizationHandleRequest:
-      GoogleChatUpdateOrganizationHandleRequest,
-    GoogleChatUpdateOrganizationHandleRequestAttributes:
-      GoogleChatUpdateOrganizationHandleRequestAttributes,
-    GoogleChatUpdateOrganizationHandleRequestData:
-      GoogleChatUpdateOrganizationHandleRequestData,
+    GoogleChatUpdateOrganizationHandleRequest: GoogleChatUpdateOrganizationHandleRequest,
+    GoogleChatUpdateOrganizationHandleRequestAttributes: GoogleChatUpdateOrganizationHandleRequestAttributes,
+    GoogleChatUpdateOrganizationHandleRequestData: GoogleChatUpdateOrganizationHandleRequestData,
   },
 };

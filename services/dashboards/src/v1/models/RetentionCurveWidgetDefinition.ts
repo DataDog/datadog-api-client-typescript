@@ -75,7 +75,7 @@ export class RetentionCurveWidgetDefinition {
       baseName: "type",
       type: "RetentionCurveWidgetDefinitionType",
       required: true,
-    },
+    }
   };
 
   /**

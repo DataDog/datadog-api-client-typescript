@@ -19,6 +19,7 @@ import {
   ServerConfiguration,
   stringify,
   applySecurityAuthentication,
+  
 } from "@datadog/datadog-api-client";
 
 import { TypingInfo } from "./models/TypingInfo";
@@ -51,19 +52,11 @@ export class WebhooksIntegrationApiRequestFactory extends BaseAPIRequestFactory 
     }
 
     // Path Params
-    const localVarPath =
-      "/api/v2/integration/webhooks/configuration/auth-method/oauth2-client-credentials";
+    const localVarPath = "/api/v2/integration/webhooks/configuration/auth-method/oauth2-client-credentials";
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "WebhooksIntegrationApi.v2.createOAuth2ClientCredentials",
-      WebhooksIntegrationApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.POST,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("WebhooksIntegrationApi.v2.createOAuth2ClientCredentials", WebhooksIntegrationApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.POST, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -73,15 +66,12 @@ export class WebhooksIntegrationApiRequestFactory extends BaseAPIRequestFactory 
     }
 
     // Body Params
-    const contentType = getPreferredMediaType(["application/json"]);
+    const contentType = getPreferredMediaType([
+      "application/json",
+    ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = stringify(
-      serialize(
-        body,
-        TypingInfo,
-        "WebhooksOAuth2ClientCredentialsCreateRequest",
-        "",
-      ),
+      serialize(body, TypingInfo, "WebhooksOAuth2ClientCredentialsCreateRequest", ""),
       contentType,
     );
     requestContext.setBody(serializedBody);
@@ -107,22 +97,14 @@ export class WebhooksIntegrationApiRequestFactory extends BaseAPIRequestFactory 
     }
 
     // Path Params
-    const localVarPath =
-      "/api/v2/integration/webhooks/configuration/auth-method/oauth2-client-credentials/{auth_method_id}".replace(
-        "{auth_method_id}",
-        encodeURIComponent(String(authMethodId)),
-      );
+    const localVarPath = "/api/v2/integration/webhooks/configuration/auth-method/oauth2-client-credentials/{auth_method_id}".replace(
+      "{auth_method_id}",
+      encodeURIComponent(String(authMethodId)),
+    );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "WebhooksIntegrationApi.v2.deleteOAuth2ClientCredentials",
-      WebhooksIntegrationApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.DELETE,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("WebhooksIntegrationApi.v2.deleteOAuth2ClientCredentials", WebhooksIntegrationApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.DELETE, overrides);
     requestContext.setHeaderParam("Accept", "*/*");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -147,19 +129,11 @@ export class WebhooksIntegrationApiRequestFactory extends BaseAPIRequestFactory 
     const _config = _options || this.configuration;
 
     // Path Params
-    const localVarPath =
-      "/api/v2/integration/webhooks/configuration/auth-method";
+    const localVarPath = "/api/v2/integration/webhooks/configuration/auth-method";
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "WebhooksIntegrationApi.v2.getAllAuthMethods",
-      WebhooksIntegrationApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.GET,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("WebhooksIntegrationApi.v2.getAllAuthMethods", WebhooksIntegrationApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.GET, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -198,22 +172,14 @@ export class WebhooksIntegrationApiRequestFactory extends BaseAPIRequestFactory 
     }
 
     // Path Params
-    const localVarPath =
-      "/api/v2/integration/webhooks/configuration/auth-method/oauth2-client-credentials/{auth_method_id}".replace(
-        "{auth_method_id}",
-        encodeURIComponent(String(authMethodId)),
-      );
+    const localVarPath = "/api/v2/integration/webhooks/configuration/auth-method/oauth2-client-credentials/{auth_method_id}".replace(
+      "{auth_method_id}",
+      encodeURIComponent(String(authMethodId)),
+    );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "WebhooksIntegrationApi.v2.getOAuth2ClientCredentials",
-      WebhooksIntegrationApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.GET,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("WebhooksIntegrationApi.v2.getOAuth2ClientCredentials", WebhooksIntegrationApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.GET, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -249,22 +215,14 @@ export class WebhooksIntegrationApiRequestFactory extends BaseAPIRequestFactory 
     }
 
     // Path Params
-    const localVarPath =
-      "/api/v2/integration/webhooks/configuration/auth-method/oauth2-client-credentials/{auth_method_id}".replace(
-        "{auth_method_id}",
-        encodeURIComponent(String(authMethodId)),
-      );
+    const localVarPath = "/api/v2/integration/webhooks/configuration/auth-method/oauth2-client-credentials/{auth_method_id}".replace(
+      "{auth_method_id}",
+      encodeURIComponent(String(authMethodId)),
+    );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "WebhooksIntegrationApi.v2.updateOAuth2ClientCredentials",
-      WebhooksIntegrationApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.PATCH,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("WebhooksIntegrationApi.v2.updateOAuth2ClientCredentials", WebhooksIntegrationApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.PATCH, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -274,15 +232,12 @@ export class WebhooksIntegrationApiRequestFactory extends BaseAPIRequestFactory 
     }
 
     // Body Params
-    const contentType = getPreferredMediaType(["application/json"]);
+    const contentType = getPreferredMediaType([
+      "application/json",
+    ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = stringify(
-      serialize(
-        body,
-        TypingInfo,
-        "WebhooksOAuth2ClientCredentialsUpdateRequest",
-        "",
-      ),
+      serialize(body, TypingInfo, "WebhooksOAuth2ClientCredentialsUpdateRequest", ""),
       contentType,
     );
     requestContext.setBody(serializedBody);
@@ -308,7 +263,9 @@ export class WebhooksIntegrationApiResponseProcessor {
   public async createOAuth2ClientCredentials(
     response: ResponseContext,
   ): Promise<WebhooksOAuth2ClientCredentialsResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 201) {
       const body: WebhooksOAuth2ClientCredentialsResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -323,7 +280,10 @@ export class WebhooksIntegrationApiResponseProcessor {
       response.httpStatusCode === 409 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -338,7 +298,10 @@ export class WebhooksIntegrationApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -369,7 +332,9 @@ export class WebhooksIntegrationApiResponseProcessor {
   public async deleteOAuth2ClientCredentials(
     response: ResponseContext,
   ): Promise<void> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 204) {
       return;
     }
@@ -378,7 +343,10 @@ export class WebhooksIntegrationApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -393,7 +361,10 @@ export class WebhooksIntegrationApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -418,7 +389,9 @@ export class WebhooksIntegrationApiResponseProcessor {
   public async getAllAuthMethods(
     response: ResponseContext,
   ): Promise<WebhooksAuthMethodsResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: WebhooksAuthMethodsResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -427,8 +400,14 @@ export class WebhooksIntegrationApiResponseProcessor {
       ) as WebhooksAuthMethodsResponse;
       return body;
     }
-    if (response.httpStatusCode === 403 || response.httpStatusCode === 429) {
-      const bodyText = parse(await response.body.text(), contentType);
+    if (
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 429
+    ) {
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -443,7 +422,10 @@ export class WebhooksIntegrationApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -474,7 +456,9 @@ export class WebhooksIntegrationApiResponseProcessor {
   public async getOAuth2ClientCredentials(
     response: ResponseContext,
   ): Promise<WebhooksOAuth2ClientCredentialsResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: WebhooksOAuth2ClientCredentialsResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -488,7 +472,10 @@ export class WebhooksIntegrationApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -503,7 +490,10 @@ export class WebhooksIntegrationApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -534,7 +524,9 @@ export class WebhooksIntegrationApiResponseProcessor {
   public async updateOAuth2ClientCredentials(
     response: ResponseContext,
   ): Promise<WebhooksOAuth2ClientCredentialsResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: WebhooksOAuth2ClientCredentialsResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -550,7 +542,10 @@ export class WebhooksIntegrationApiResponseProcessor {
       response.httpStatusCode === 409 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -565,7 +560,10 @@ export class WebhooksIntegrationApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -637,7 +635,8 @@ export class WebhooksIntegrationApi {
   private responseProcessor: WebhooksIntegrationApiResponseProcessor;
   private configuration: Configuration;
 
-  static operationServers: { [key: string]: BaseServerConfiguration[] } = {};
+  static operationServers: { [key: string]: BaseServerConfiguration[] } = {
+  };
 
   public constructor(
     configuration?: Configuration,
@@ -661,15 +660,15 @@ export class WebhooksIntegrationApi {
     param: WebhooksIntegrationApiCreateOAuth2ClientCredentialsRequest,
     options?: Configuration,
   ): Promise<WebhooksOAuth2ClientCredentialsResponse> {
-    const requestContextPromise =
-      this.requestFactory.createOAuth2ClientCredentials(param.body, options);
+    const requestContextPromise = this.requestFactory.createOAuth2ClientCredentials(
+      param.body,
+      options,
+    );
     return requestContextPromise.then((requestContext) => {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.createOAuth2ClientCredentials(
-            responseContext,
-          );
+          return this.responseProcessor.createOAuth2ClientCredentials(responseContext);
         });
     });
   }
@@ -682,18 +681,15 @@ export class WebhooksIntegrationApi {
     param: WebhooksIntegrationApiDeleteOAuth2ClientCredentialsRequest,
     options?: Configuration,
   ): Promise<void> {
-    const requestContextPromise =
-      this.requestFactory.deleteOAuth2ClientCredentials(
-        param.authMethodId,
-        options,
-      );
+    const requestContextPromise = this.requestFactory.deleteOAuth2ClientCredentials(
+      param.authMethodId,
+      options,
+    );
     return requestContextPromise.then((requestContext) => {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.deleteOAuth2ClientCredentials(
-            responseContext,
-          );
+          return this.responseProcessor.deleteOAuth2ClientCredentials(responseContext);
         });
     });
   }
@@ -728,18 +724,15 @@ export class WebhooksIntegrationApi {
     param: WebhooksIntegrationApiGetOAuth2ClientCredentialsRequest,
     options?: Configuration,
   ): Promise<WebhooksOAuth2ClientCredentialsResponse> {
-    const requestContextPromise =
-      this.requestFactory.getOAuth2ClientCredentials(
-        param.authMethodId,
-        options,
-      );
+    const requestContextPromise = this.requestFactory.getOAuth2ClientCredentials(
+      param.authMethodId,
+      options,
+    );
     return requestContextPromise.then((requestContext) => {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.getOAuth2ClientCredentials(
-            responseContext,
-          );
+          return this.responseProcessor.getOAuth2ClientCredentials(responseContext);
         });
     });
   }
@@ -752,19 +745,16 @@ export class WebhooksIntegrationApi {
     param: WebhooksIntegrationApiUpdateOAuth2ClientCredentialsRequest,
     options?: Configuration,
   ): Promise<WebhooksOAuth2ClientCredentialsResponse> {
-    const requestContextPromise =
-      this.requestFactory.updateOAuth2ClientCredentials(
-        param.authMethodId,
-        param.body,
-        options,
-      );
+    const requestContextPromise = this.requestFactory.updateOAuth2ClientCredentials(
+      param.authMethodId,
+      param.body,
+      options,
+    );
     return requestContextPromise.then((requestContext) => {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.updateOAuth2ClientCredentials(
-            responseContext,
-          );
+          return this.responseProcessor.updateOAuth2ClientCredentials(responseContext);
         });
     });
   }

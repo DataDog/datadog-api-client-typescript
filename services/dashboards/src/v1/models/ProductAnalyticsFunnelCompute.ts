@@ -33,7 +33,7 @@ export class ProductAnalyticsFunnelCompute {
       baseName: "metric",
       type: "ProductAnalyticsFunnelComputeMetric",
       required: true,
-    },
+    }
   };
 
   /**

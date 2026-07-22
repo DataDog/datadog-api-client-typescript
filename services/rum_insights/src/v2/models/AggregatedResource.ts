@@ -41,7 +41,7 @@ export class AggregatedResource {
   /**
    * HTTP method for the resource request.
    */
-  "httpMethod": string | null;
+  "httpMethod": string|null;
   /**
    * Percentage of sampled view instances that loaded this resource.
    */
@@ -69,7 +69,7 @@ export class AggregatedResource {
   /**
    * Resource type (JS, CSS, image, fetch, XHR, document, and so on).
    */
-  "resourceType": string | null;
+  "resourceType": string|null;
   /**
    * URL path group used to aggregate similar resources.
    */
@@ -91,7 +91,7 @@ export class AggregatedResource {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
   /**
    * @ignore
    */

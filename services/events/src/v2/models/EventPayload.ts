@@ -94,7 +94,7 @@ export class EventPayload {
       baseName: "title",
       type: "string",
       required: true,
-    },
+    }
   };
 
   /**

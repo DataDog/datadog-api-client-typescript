@@ -74,13 +74,11 @@ export const TypingInfo: ModelTypingInfo = {
       "MonitorNotificationRuleFilterScope",
     ],
     MonitorNotificationRuleResponseIncludedItem: ["User"],
-  },
+    },
   typeMap: {
     APIErrorResponse: APIErrorResponse,
-    MonitorConfigPolicyAttributeCreateRequest:
-      MonitorConfigPolicyAttributeCreateRequest,
-    MonitorConfigPolicyAttributeEditRequest:
-      MonitorConfigPolicyAttributeEditRequest,
+    MonitorConfigPolicyAttributeCreateRequest: MonitorConfigPolicyAttributeCreateRequest,
+    MonitorConfigPolicyAttributeEditRequest: MonitorConfigPolicyAttributeEditRequest,
     MonitorConfigPolicyAttributeResponse: MonitorConfigPolicyAttributeResponse,
     MonitorConfigPolicyCreateData: MonitorConfigPolicyCreateData,
     MonitorConfigPolicyCreateRequest: MonitorConfigPolicyCreateRequest,
@@ -90,30 +88,23 @@ export const TypingInfo: ModelTypingInfo = {
     MonitorConfigPolicyResponse: MonitorConfigPolicyResponse,
     MonitorConfigPolicyResponseData: MonitorConfigPolicyResponseData,
     MonitorConfigPolicyTagPolicy: MonitorConfigPolicyTagPolicy,
-    MonitorConfigPolicyTagPolicyCreateRequest:
-      MonitorConfigPolicyTagPolicyCreateRequest,
+    MonitorConfigPolicyTagPolicyCreateRequest: MonitorConfigPolicyTagPolicyCreateRequest,
     MonitorNotificationRuleAttributes: MonitorNotificationRuleAttributes,
     MonitorNotificationRuleCondition: MonitorNotificationRuleCondition,
-    MonitorNotificationRuleConditionalRecipients:
-      MonitorNotificationRuleConditionalRecipients,
+    MonitorNotificationRuleConditionalRecipients: MonitorNotificationRuleConditionalRecipients,
     MonitorNotificationRuleCreateRequest: MonitorNotificationRuleCreateRequest,
-    MonitorNotificationRuleCreateRequestData:
-      MonitorNotificationRuleCreateRequestData,
+    MonitorNotificationRuleCreateRequestData: MonitorNotificationRuleCreateRequestData,
     MonitorNotificationRuleData: MonitorNotificationRuleData,
     MonitorNotificationRuleFilterScope: MonitorNotificationRuleFilterScope,
     MonitorNotificationRuleFilterTags: MonitorNotificationRuleFilterTags,
     MonitorNotificationRuleListResponse: MonitorNotificationRuleListResponse,
     MonitorNotificationRuleRelationships: MonitorNotificationRuleRelationships,
-    MonitorNotificationRuleRelationshipsCreatedBy:
-      MonitorNotificationRuleRelationshipsCreatedBy,
-    MonitorNotificationRuleRelationshipsCreatedByData:
-      MonitorNotificationRuleRelationshipsCreatedByData,
+    MonitorNotificationRuleRelationshipsCreatedBy: MonitorNotificationRuleRelationshipsCreatedBy,
+    MonitorNotificationRuleRelationshipsCreatedByData: MonitorNotificationRuleRelationshipsCreatedByData,
     MonitorNotificationRuleResponse: MonitorNotificationRuleResponse,
-    MonitorNotificationRuleResponseAttributes:
-      MonitorNotificationRuleResponseAttributes,
+    MonitorNotificationRuleResponseAttributes: MonitorNotificationRuleResponseAttributes,
     MonitorNotificationRuleUpdateRequest: MonitorNotificationRuleUpdateRequest,
-    MonitorNotificationRuleUpdateRequestData:
-      MonitorNotificationRuleUpdateRequestData,
+    MonitorNotificationRuleUpdateRequestData: MonitorNotificationRuleUpdateRequestData,
     MonitorUserTemplate: MonitorUserTemplate,
     MonitorUserTemplateCreateData: MonitorUserTemplateCreateData,
     MonitorUserTemplateCreateRequest: MonitorUserTemplateCreateRequest,
@@ -121,13 +112,10 @@ export const TypingInfo: ModelTypingInfo = {
     MonitorUserTemplateListResponse: MonitorUserTemplateListResponse,
     MonitorUserTemplateRequestAttributes: MonitorUserTemplateRequestAttributes,
     MonitorUserTemplateResponse: MonitorUserTemplateResponse,
-    MonitorUserTemplateResponseAttributes:
-      MonitorUserTemplateResponseAttributes,
+    MonitorUserTemplateResponseAttributes: MonitorUserTemplateResponseAttributes,
     MonitorUserTemplateResponseData: MonitorUserTemplateResponseData,
-    MonitorUserTemplateResponseDataWithVersions:
-      MonitorUserTemplateResponseDataWithVersions,
-    MonitorUserTemplateTemplateVariablesItems:
-      MonitorUserTemplateTemplateVariablesItems,
+    MonitorUserTemplateResponseDataWithVersions: MonitorUserTemplateResponseDataWithVersions,
+    MonitorUserTemplateTemplateVariablesItems: MonitorUserTemplateTemplateVariablesItems,
     MonitorUserTemplateUpdateData: MonitorUserTemplateUpdateData,
     MonitorUserTemplateUpdateRequest: MonitorUserTemplateUpdateRequest,
     RelationshipToOrganization: RelationshipToOrganization,

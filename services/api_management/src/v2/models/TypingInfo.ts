@@ -18,7 +18,8 @@ import { UpdateOpenAPIResponseAttributes } from "./UpdateOpenAPIResponseAttribut
 import { UpdateOpenAPIResponseData } from "./UpdateOpenAPIResponseData";
 
 export const TypingInfo: ModelTypingInfo = {
-  enumsMap: {},
+  enumsMap: {
+  },
   oneOfMap: {},
   typeMap: {
     APIErrorResponse: APIErrorResponse,

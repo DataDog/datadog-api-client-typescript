@@ -19,6 +19,7 @@ import {
   ServerConfiguration,
   stringify,
   applySecurityAuthentication,
+  
 } from "@datadog/datadog-api-client";
 
 import { TypingInfo } from "./models/TypingInfo";
@@ -68,15 +69,8 @@ export class OnCallApiRequestFactory extends BaseAPIRequestFactory {
     const localVarPath = "/api/v2/on-call/escalation-policies";
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "OnCallApi.v2.createOnCallEscalationPolicy",
-      OnCallApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.POST,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("OnCallApi.v2.createOnCallEscalationPolicy", OnCallApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.POST, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -95,7 +89,9 @@ export class OnCallApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Body Params
-    const contentType = getPreferredMediaType(["application/json"]);
+    const contentType = getPreferredMediaType([
+      "application/json",
+    ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = stringify(
       serialize(body, TypingInfo, "EscalationPolicyCreateRequest", ""),
@@ -129,15 +125,8 @@ export class OnCallApiRequestFactory extends BaseAPIRequestFactory {
     const localVarPath = "/api/v2/on-call/schedules";
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "OnCallApi.v2.createOnCallSchedule",
-      OnCallApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.POST,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("OnCallApi.v2.createOnCallSchedule", OnCallApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.POST, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -156,7 +145,9 @@ export class OnCallApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Body Params
-    const contentType = getPreferredMediaType(["application/json"]);
+    const contentType = getPreferredMediaType([
+      "application/json",
+    ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = stringify(
       serialize(body, TypingInfo, "ScheduleCreateRequest", ""),
@@ -192,22 +183,14 @@ export class OnCallApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Path Params
-    const localVarPath =
-      "/api/v2/on-call/users/{user_id}/notification-channels".replace(
-        "{user_id}",
-        encodeURIComponent(String(userId)),
-      );
+    const localVarPath = "/api/v2/on-call/users/{user_id}/notification-channels".replace(
+      "{user_id}",
+      encodeURIComponent(String(userId)),
+    );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "OnCallApi.v2.createUserNotificationChannel",
-      OnCallApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.POST,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("OnCallApi.v2.createUserNotificationChannel", OnCallApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.POST, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -217,7 +200,9 @@ export class OnCallApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Body Params
-    const contentType = getPreferredMediaType(["application/json"]);
+    const contentType = getPreferredMediaType([
+      "application/json",
+    ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = stringify(
       serialize(body, TypingInfo, "CreateUserNotificationChannelRequest", ""),
@@ -253,22 +238,14 @@ export class OnCallApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Path Params
-    const localVarPath =
-      "/api/v2/on-call/users/{user_id}/notification-rules".replace(
-        "{user_id}",
-        encodeURIComponent(String(userId)),
-      );
+    const localVarPath = "/api/v2/on-call/users/{user_id}/notification-rules".replace(
+      "{user_id}",
+      encodeURIComponent(String(userId)),
+    );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "OnCallApi.v2.createUserNotificationRule",
-      OnCallApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.POST,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("OnCallApi.v2.createUserNotificationRule", OnCallApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.POST, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -278,7 +255,9 @@ export class OnCallApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Body Params
-    const contentType = getPreferredMediaType(["application/json"]);
+    const contentType = getPreferredMediaType([
+      "application/json",
+    ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = stringify(
       serialize(body, TypingInfo, "CreateOnCallNotificationRuleRequest", ""),
@@ -308,22 +287,14 @@ export class OnCallApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Path Params
-    const localVarPath =
-      "/api/v2/on-call/escalation-policies/{policy_id}".replace(
-        "{policy_id}",
-        encodeURIComponent(String(policyId)),
-      );
+    const localVarPath = "/api/v2/on-call/escalation-policies/{policy_id}".replace(
+      "{policy_id}",
+      encodeURIComponent(String(policyId)),
+    );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "OnCallApi.v2.deleteOnCallEscalationPolicy",
-      OnCallApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.DELETE,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("OnCallApi.v2.deleteOnCallEscalationPolicy", OnCallApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.DELETE, overrides);
     requestContext.setHeaderParam("Accept", "*/*");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -360,15 +331,8 @@ export class OnCallApiRequestFactory extends BaseAPIRequestFactory {
     );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "OnCallApi.v2.deleteOnCallSchedule",
-      OnCallApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.DELETE,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("OnCallApi.v2.deleteOnCallSchedule", OnCallApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.DELETE, overrides);
     requestContext.setHeaderParam("Accept", "*/*");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -405,21 +369,17 @@ export class OnCallApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Path Params
-    const localVarPath =
-      "/api/v2/on-call/users/{user_id}/notification-channels/{channel_id}"
-        .replace("{user_id}", encodeURIComponent(String(userId)))
-        .replace("{channel_id}", encodeURIComponent(String(channelId)));
+    const localVarPath = "/api/v2/on-call/users/{user_id}/notification-channels/{channel_id}".replace(
+      "{user_id}",
+      encodeURIComponent(String(userId)),
+    ).replace(
+      "{channel_id}",
+      encodeURIComponent(String(channelId)),
+    );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "OnCallApi.v2.deleteUserNotificationChannel",
-      OnCallApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.DELETE,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("OnCallApi.v2.deleteUserNotificationChannel", OnCallApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.DELETE, overrides);
     requestContext.setHeaderParam("Accept", "*/*");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -456,21 +416,17 @@ export class OnCallApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Path Params
-    const localVarPath =
-      "/api/v2/on-call/users/{user_id}/notification-rules/{rule_id}"
-        .replace("{user_id}", encodeURIComponent(String(userId)))
-        .replace("{rule_id}", encodeURIComponent(String(ruleId)));
+    const localVarPath = "/api/v2/on-call/users/{user_id}/notification-rules/{rule_id}".replace(
+      "{user_id}",
+      encodeURIComponent(String(userId)),
+    ).replace(
+      "{rule_id}",
+      encodeURIComponent(String(ruleId)),
+    );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "OnCallApi.v2.deleteUserNotificationRule",
-      OnCallApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.DELETE,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("OnCallApi.v2.deleteUserNotificationRule", OnCallApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.DELETE, overrides);
     requestContext.setHeaderParam("Accept", "*/*");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -502,22 +458,14 @@ export class OnCallApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Path Params
-    const localVarPath =
-      "/api/v2/on-call/escalation-policies/{policy_id}".replace(
-        "{policy_id}",
-        encodeURIComponent(String(policyId)),
-      );
+    const localVarPath = "/api/v2/on-call/escalation-policies/{policy_id}".replace(
+      "{policy_id}",
+      encodeURIComponent(String(policyId)),
+    );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "OnCallApi.v2.getOnCallEscalationPolicy",
-      OnCallApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.GET,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("OnCallApi.v2.getOnCallEscalationPolicy", OnCallApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.GET, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -564,15 +512,8 @@ export class OnCallApiRequestFactory extends BaseAPIRequestFactory {
     );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "OnCallApi.v2.getOnCallSchedule",
-      OnCallApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.GET,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("OnCallApi.v2.getOnCallSchedule", OnCallApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.GET, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -613,22 +554,14 @@ export class OnCallApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Path Params
-    const localVarPath =
-      "/api/v2/on-call/teams/{team_id}/routing-rules".replace(
-        "{team_id}",
-        encodeURIComponent(String(teamId)),
-      );
+    const localVarPath = "/api/v2/on-call/teams/{team_id}/routing-rules".replace(
+      "{team_id}",
+      encodeURIComponent(String(teamId)),
+    );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "OnCallApi.v2.getOnCallTeamRoutingRules",
-      OnCallApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.GET,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("OnCallApi.v2.getOnCallTeamRoutingRules", OnCallApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.GET, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -671,22 +604,14 @@ export class OnCallApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Path Params
-    const localVarPath =
-      "/api/v2/on-call/schedules/{schedule_id}/responders".replace(
-        "{schedule_id}",
-        encodeURIComponent(String(scheduleId)),
-      );
+    const localVarPath = "/api/v2/on-call/schedules/{schedule_id}/responders".replace(
+      "{schedule_id}",
+      encodeURIComponent(String(scheduleId)),
+    );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "OnCallApi.v2.getScheduleOnCallResponders",
-      OnCallApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.GET,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("OnCallApi.v2.getScheduleOnCallResponders", OnCallApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.GET, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -742,22 +667,14 @@ export class OnCallApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Path Params
-    const localVarPath =
-      "/api/v2/on-call/schedules/{schedule_id}/on-call".replace(
-        "{schedule_id}",
-        encodeURIComponent(String(scheduleId)),
-      );
+    const localVarPath = "/api/v2/on-call/schedules/{schedule_id}/on-call".replace(
+      "{schedule_id}",
+      encodeURIComponent(String(scheduleId)),
+    );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "OnCallApi.v2.getScheduleOnCallUser",
-      OnCallApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.GET,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("OnCallApi.v2.getScheduleOnCallUser", OnCallApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.GET, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -811,15 +728,8 @@ export class OnCallApiRequestFactory extends BaseAPIRequestFactory {
     );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "OnCallApi.v2.getTeamOnCallUsers",
-      OnCallApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.GET,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("OnCallApi.v2.getTeamOnCallUsers", OnCallApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.GET, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -865,21 +775,17 @@ export class OnCallApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Path Params
-    const localVarPath =
-      "/api/v2/on-call/users/{user_id}/notification-channels/{channel_id}"
-        .replace("{user_id}", encodeURIComponent(String(userId)))
-        .replace("{channel_id}", encodeURIComponent(String(channelId)));
+    const localVarPath = "/api/v2/on-call/users/{user_id}/notification-channels/{channel_id}".replace(
+      "{user_id}",
+      encodeURIComponent(String(userId)),
+    ).replace(
+      "{channel_id}",
+      encodeURIComponent(String(channelId)),
+    );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "OnCallApi.v2.getUserNotificationChannel",
-      OnCallApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.GET,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("OnCallApi.v2.getUserNotificationChannel", OnCallApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.GET, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -917,21 +823,17 @@ export class OnCallApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Path Params
-    const localVarPath =
-      "/api/v2/on-call/users/{user_id}/notification-rules/{rule_id}"
-        .replace("{user_id}", encodeURIComponent(String(userId)))
-        .replace("{rule_id}", encodeURIComponent(String(ruleId)));
+    const localVarPath = "/api/v2/on-call/users/{user_id}/notification-rules/{rule_id}".replace(
+      "{user_id}",
+      encodeURIComponent(String(userId)),
+    ).replace(
+      "{rule_id}",
+      encodeURIComponent(String(ruleId)),
+    );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "OnCallApi.v2.getUserNotificationRule",
-      OnCallApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.GET,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("OnCallApi.v2.getUserNotificationRule", OnCallApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.GET, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -971,22 +873,14 @@ export class OnCallApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Path Params
-    const localVarPath =
-      "/api/v2/on-call/users/{user_id}/notification-channels".replace(
-        "{user_id}",
-        encodeURIComponent(String(userId)),
-      );
+    const localVarPath = "/api/v2/on-call/users/{user_id}/notification-channels".replace(
+      "{user_id}",
+      encodeURIComponent(String(userId)),
+    );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "OnCallApi.v2.listUserNotificationChannels",
-      OnCallApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.GET,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("OnCallApi.v2.listUserNotificationChannels", OnCallApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.GET, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -1018,22 +912,14 @@ export class OnCallApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Path Params
-    const localVarPath =
-      "/api/v2/on-call/users/{user_id}/notification-rules".replace(
-        "{user_id}",
-        encodeURIComponent(String(userId)),
-      );
+    const localVarPath = "/api/v2/on-call/users/{user_id}/notification-rules".replace(
+      "{user_id}",
+      encodeURIComponent(String(userId)),
+    );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "OnCallApi.v2.listUserNotificationRules",
-      OnCallApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.GET,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("OnCallApi.v2.listUserNotificationRules", OnCallApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.GET, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -1080,22 +966,14 @@ export class OnCallApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Path Params
-    const localVarPath =
-      "/api/v2/on-call/teams/{team_id}/routing-rules".replace(
-        "{team_id}",
-        encodeURIComponent(String(teamId)),
-      );
+    const localVarPath = "/api/v2/on-call/teams/{team_id}/routing-rules".replace(
+      "{team_id}",
+      encodeURIComponent(String(teamId)),
+    );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "OnCallApi.v2.setOnCallTeamRoutingRules",
-      OnCallApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.PUT,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("OnCallApi.v2.setOnCallTeamRoutingRules", OnCallApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.PUT, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -1114,7 +992,9 @@ export class OnCallApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Body Params
-    const contentType = getPreferredMediaType(["application/json"]);
+    const contentType = getPreferredMediaType([
+      "application/json",
+    ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = stringify(
       serialize(body, TypingInfo, "TeamRoutingRulesRequest", ""),
@@ -1151,22 +1031,14 @@ export class OnCallApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Path Params
-    const localVarPath =
-      "/api/v2/on-call/escalation-policies/{policy_id}".replace(
-        "{policy_id}",
-        encodeURIComponent(String(policyId)),
-      );
+    const localVarPath = "/api/v2/on-call/escalation-policies/{policy_id}".replace(
+      "{policy_id}",
+      encodeURIComponent(String(policyId)),
+    );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "OnCallApi.v2.updateOnCallEscalationPolicy",
-      OnCallApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.PUT,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("OnCallApi.v2.updateOnCallEscalationPolicy", OnCallApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.PUT, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -1185,7 +1057,9 @@ export class OnCallApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Body Params
-    const contentType = getPreferredMediaType(["application/json"]);
+    const contentType = getPreferredMediaType([
+      "application/json",
+    ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = stringify(
       serialize(body, TypingInfo, "EscalationPolicyUpdateRequest", ""),
@@ -1228,15 +1102,8 @@ export class OnCallApiRequestFactory extends BaseAPIRequestFactory {
     );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "OnCallApi.v2.updateOnCallSchedule",
-      OnCallApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.PUT,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("OnCallApi.v2.updateOnCallSchedule", OnCallApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.PUT, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -1255,7 +1122,9 @@ export class OnCallApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Body Params
-    const contentType = getPreferredMediaType(["application/json"]);
+    const contentType = getPreferredMediaType([
+      "application/json",
+    ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = stringify(
       serialize(body, TypingInfo, "ScheduleUpdateRequest", ""),
@@ -1298,21 +1167,17 @@ export class OnCallApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Path Params
-    const localVarPath =
-      "/api/v2/on-call/users/{user_id}/notification-rules/{rule_id}"
-        .replace("{user_id}", encodeURIComponent(String(userId)))
-        .replace("{rule_id}", encodeURIComponent(String(ruleId)));
+    const localVarPath = "/api/v2/on-call/users/{user_id}/notification-rules/{rule_id}".replace(
+      "{user_id}",
+      encodeURIComponent(String(userId)),
+    ).replace(
+      "{rule_id}",
+      encodeURIComponent(String(ruleId)),
+    );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "OnCallApi.v2.updateUserNotificationRule",
-      OnCallApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.PUT,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("OnCallApi.v2.updateUserNotificationRule", OnCallApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.PUT, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -1331,7 +1196,9 @@ export class OnCallApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Body Params
-    const contentType = getPreferredMediaType(["application/json"]);
+    const contentType = getPreferredMediaType([
+      "application/json",
+    ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = stringify(
       serialize(body, TypingInfo, "UpdateOnCallNotificationRuleRequest", ""),
@@ -1361,7 +1228,9 @@ export class OnCallApiResponseProcessor {
   public async createOnCallEscalationPolicy(
     response: ResponseContext,
   ): Promise<EscalationPolicy> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 201) {
       const body: EscalationPolicy = deserialize(
         parse(await response.body.text(), contentType),
@@ -1376,7 +1245,10 @@ export class OnCallApiResponseProcessor {
       response.httpStatusCode === 403 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -1391,7 +1263,10 @@ export class OnCallApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -1422,7 +1297,9 @@ export class OnCallApiResponseProcessor {
   public async createOnCallSchedule(
     response: ResponseContext,
   ): Promise<Schedule> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 201) {
       const body: Schedule = deserialize(
         parse(await response.body.text(), contentType),
@@ -1437,7 +1314,10 @@ export class OnCallApiResponseProcessor {
       response.httpStatusCode === 403 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -1452,7 +1332,10 @@ export class OnCallApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -1483,7 +1366,9 @@ export class OnCallApiResponseProcessor {
   public async createUserNotificationChannel(
     response: ResponseContext,
   ): Promise<NotificationChannel> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 201) {
       const body: NotificationChannel = deserialize(
         parse(await response.body.text(), contentType),
@@ -1499,7 +1384,10 @@ export class OnCallApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -1514,7 +1402,10 @@ export class OnCallApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -1545,7 +1436,9 @@ export class OnCallApiResponseProcessor {
   public async createUserNotificationRule(
     response: ResponseContext,
   ): Promise<OnCallNotificationRule> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 201) {
       const body: OnCallNotificationRule = deserialize(
         parse(await response.body.text(), contentType),
@@ -1561,7 +1454,10 @@ export class OnCallApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -1576,7 +1472,10 @@ export class OnCallApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -1607,7 +1506,9 @@ export class OnCallApiResponseProcessor {
   public async deleteOnCallEscalationPolicy(
     response: ResponseContext,
   ): Promise<void> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 204) {
       return;
     }
@@ -1617,7 +1518,10 @@ export class OnCallApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -1632,7 +1536,10 @@ export class OnCallApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -1654,8 +1561,12 @@ export class OnCallApiResponseProcessor {
    * @params response Response returned by the server for a request to deleteOnCallSchedule
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async deleteOnCallSchedule(response: ResponseContext): Promise<void> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+  public async deleteOnCallSchedule(
+    response: ResponseContext,
+  ): Promise<void> {
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 204) {
       return;
     }
@@ -1665,7 +1576,10 @@ export class OnCallApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -1680,7 +1594,10 @@ export class OnCallApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -1705,7 +1622,9 @@ export class OnCallApiResponseProcessor {
   public async deleteUserNotificationChannel(
     response: ResponseContext,
   ): Promise<void> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 204) {
       return;
     }
@@ -1716,7 +1635,10 @@ export class OnCallApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -1731,7 +1653,10 @@ export class OnCallApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -1756,7 +1681,9 @@ export class OnCallApiResponseProcessor {
   public async deleteUserNotificationRule(
     response: ResponseContext,
   ): Promise<void> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 204) {
       return;
     }
@@ -1767,7 +1694,10 @@ export class OnCallApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -1782,7 +1712,10 @@ export class OnCallApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -1807,7 +1740,9 @@ export class OnCallApiResponseProcessor {
   public async getOnCallEscalationPolicy(
     response: ResponseContext,
   ): Promise<EscalationPolicy> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: EscalationPolicy = deserialize(
         parse(await response.body.text(), contentType),
@@ -1823,7 +1758,10 @@ export class OnCallApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -1838,7 +1776,10 @@ export class OnCallApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -1866,8 +1807,12 @@ export class OnCallApiResponseProcessor {
    * @params response Response returned by the server for a request to getOnCallSchedule
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async getOnCallSchedule(response: ResponseContext): Promise<Schedule> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+  public async getOnCallSchedule(
+    response: ResponseContext,
+  ): Promise<Schedule> {
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: Schedule = deserialize(
         parse(await response.body.text(), contentType),
@@ -1882,7 +1827,10 @@ export class OnCallApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -1897,7 +1845,10 @@ export class OnCallApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -1928,7 +1879,9 @@ export class OnCallApiResponseProcessor {
   public async getOnCallTeamRoutingRules(
     response: ResponseContext,
   ): Promise<TeamRoutingRules> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: TeamRoutingRules = deserialize(
         parse(await response.body.text(), contentType),
@@ -1938,7 +1891,10 @@ export class OnCallApiResponseProcessor {
       return body;
     }
     if (response.httpStatusCode === 429) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -1953,7 +1909,10 @@ export class OnCallApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -1984,7 +1943,9 @@ export class OnCallApiResponseProcessor {
   public async getScheduleOnCallResponders(
     response: ResponseContext,
   ): Promise<ScheduleOnCallResponders> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: ScheduleOnCallResponders = deserialize(
         parse(await response.body.text(), contentType),
@@ -2000,7 +1961,10 @@ export class OnCallApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -2015,7 +1979,10 @@ export class OnCallApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -2046,7 +2013,9 @@ export class OnCallApiResponseProcessor {
   public async getScheduleOnCallUser(
     response: ResponseContext,
   ): Promise<Shift> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: Shift = deserialize(
         parse(await response.body.text(), contentType),
@@ -2062,7 +2031,10 @@ export class OnCallApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -2077,7 +2049,10 @@ export class OnCallApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -2108,7 +2083,9 @@ export class OnCallApiResponseProcessor {
   public async getTeamOnCallUsers(
     response: ResponseContext,
   ): Promise<TeamOnCallResponders> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: TeamOnCallResponders = deserialize(
         parse(await response.body.text(), contentType),
@@ -2124,7 +2101,10 @@ export class OnCallApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -2139,7 +2119,10 @@ export class OnCallApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -2170,7 +2153,9 @@ export class OnCallApiResponseProcessor {
   public async getUserNotificationChannel(
     response: ResponseContext,
   ): Promise<NotificationChannel> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: NotificationChannel = deserialize(
         parse(await response.body.text(), contentType),
@@ -2186,7 +2171,10 @@ export class OnCallApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -2201,7 +2189,10 @@ export class OnCallApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -2232,7 +2223,9 @@ export class OnCallApiResponseProcessor {
   public async getUserNotificationRule(
     response: ResponseContext,
   ): Promise<OnCallNotificationRule> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: OnCallNotificationRule = deserialize(
         parse(await response.body.text(), contentType),
@@ -2248,7 +2241,10 @@ export class OnCallApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -2263,7 +2259,10 @@ export class OnCallApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -2294,7 +2293,9 @@ export class OnCallApiResponseProcessor {
   public async listUserNotificationChannels(
     response: ResponseContext,
   ): Promise<ListNotificationChannelsResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: ListNotificationChannelsResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -2310,7 +2311,10 @@ export class OnCallApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -2325,7 +2329,10 @@ export class OnCallApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -2356,7 +2363,9 @@ export class OnCallApiResponseProcessor {
   public async listUserNotificationRules(
     response: ResponseContext,
   ): Promise<ListOnCallNotificationRulesResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: ListOnCallNotificationRulesResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -2372,7 +2381,10 @@ export class OnCallApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -2387,7 +2399,10 @@ export class OnCallApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -2418,7 +2433,9 @@ export class OnCallApiResponseProcessor {
   public async setOnCallTeamRoutingRules(
     response: ResponseContext,
   ): Promise<TeamRoutingRules> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: TeamRoutingRules = deserialize(
         parse(await response.body.text(), contentType),
@@ -2428,7 +2445,10 @@ export class OnCallApiResponseProcessor {
       return body;
     }
     if (response.httpStatusCode === 429) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -2443,7 +2463,10 @@ export class OnCallApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -2474,7 +2497,9 @@ export class OnCallApiResponseProcessor {
   public async updateOnCallEscalationPolicy(
     response: ResponseContext,
   ): Promise<EscalationPolicy> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: EscalationPolicy = deserialize(
         parse(await response.body.text(), contentType),
@@ -2490,7 +2515,10 @@ export class OnCallApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -2505,7 +2533,10 @@ export class OnCallApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -2536,7 +2567,9 @@ export class OnCallApiResponseProcessor {
   public async updateOnCallSchedule(
     response: ResponseContext,
   ): Promise<Schedule> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: Schedule = deserialize(
         parse(await response.body.text(), contentType),
@@ -2552,7 +2585,10 @@ export class OnCallApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -2567,7 +2603,10 @@ export class OnCallApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -2598,7 +2637,9 @@ export class OnCallApiResponseProcessor {
   public async updateUserNotificationRule(
     response: ResponseContext,
   ): Promise<OnCallNotificationRule> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: OnCallNotificationRule = deserialize(
         parse(await response.body.text(), contentType),
@@ -2614,7 +2655,10 @@ export class OnCallApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -2629,7 +2673,10 @@ export class OnCallApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -2964,7 +3011,8 @@ export class OnCallApi {
   private responseProcessor: OnCallApiResponseProcessor;
   private configuration: Configuration;
 
-  static operationServers: { [key: string]: BaseServerConfiguration[] } = {};
+  static operationServers: { [key: string]: BaseServerConfiguration[] } = {
+  };
 
   public constructor(
     configuration?: Configuration,
@@ -2973,7 +3021,8 @@ export class OnCallApi {
   ) {
     this.configuration = configuration || createConfiguration();
     this.requestFactory =
-      requestFactory || new OnCallApiRequestFactory(this.configuration);
+      requestFactory ||
+      new OnCallApiRequestFactory(this.configuration);
     this.responseProcessor =
       responseProcessor || new OnCallApiResponseProcessor();
   }
@@ -2986,19 +3035,16 @@ export class OnCallApi {
     param: OnCallApiCreateOnCallEscalationPolicyRequest,
     options?: Configuration,
   ): Promise<EscalationPolicy> {
-    const requestContextPromise =
-      this.requestFactory.createOnCallEscalationPolicy(
-        param.body,
-        param.include,
-        options,
-      );
+    const requestContextPromise = this.requestFactory.createOnCallEscalationPolicy(
+      param.body,
+      param.include,
+      options,
+    );
     return requestContextPromise.then((requestContext) => {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.createOnCallEscalationPolicy(
-            responseContext,
-          );
+          return this.responseProcessor.createOnCallEscalationPolicy(responseContext);
         });
     });
   }
@@ -3033,19 +3079,16 @@ export class OnCallApi {
     param: OnCallApiCreateUserNotificationChannelRequest,
     options?: Configuration,
   ): Promise<NotificationChannel> {
-    const requestContextPromise =
-      this.requestFactory.createUserNotificationChannel(
-        param.userId,
-        param.body,
-        options,
-      );
+    const requestContextPromise = this.requestFactory.createUserNotificationChannel(
+      param.userId,
+      param.body,
+      options,
+    );
     return requestContextPromise.then((requestContext) => {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.createUserNotificationChannel(
-            responseContext,
-          );
+          return this.responseProcessor.createUserNotificationChannel(responseContext);
         });
     });
   }
@@ -3058,19 +3101,16 @@ export class OnCallApi {
     param: OnCallApiCreateUserNotificationRuleRequest,
     options?: Configuration,
   ): Promise<OnCallNotificationRule> {
-    const requestContextPromise =
-      this.requestFactory.createUserNotificationRule(
-        param.userId,
-        param.body,
-        options,
-      );
+    const requestContextPromise = this.requestFactory.createUserNotificationRule(
+      param.userId,
+      param.body,
+      options,
+    );
     return requestContextPromise.then((requestContext) => {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.createUserNotificationRule(
-            responseContext,
-          );
+          return this.responseProcessor.createUserNotificationRule(responseContext);
         });
     });
   }
@@ -3083,15 +3123,15 @@ export class OnCallApi {
     param: OnCallApiDeleteOnCallEscalationPolicyRequest,
     options?: Configuration,
   ): Promise<void> {
-    const requestContextPromise =
-      this.requestFactory.deleteOnCallEscalationPolicy(param.policyId, options);
+    const requestContextPromise = this.requestFactory.deleteOnCallEscalationPolicy(
+      param.policyId,
+      options,
+    );
     return requestContextPromise.then((requestContext) => {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.deleteOnCallEscalationPolicy(
-            responseContext,
-          );
+          return this.responseProcessor.deleteOnCallEscalationPolicy(responseContext);
         });
     });
   }
@@ -3125,19 +3165,16 @@ export class OnCallApi {
     param: OnCallApiDeleteUserNotificationChannelRequest,
     options?: Configuration,
   ): Promise<void> {
-    const requestContextPromise =
-      this.requestFactory.deleteUserNotificationChannel(
-        param.userId,
-        param.channelId,
-        options,
-      );
+    const requestContextPromise = this.requestFactory.deleteUserNotificationChannel(
+      param.userId,
+      param.channelId,
+      options,
+    );
     return requestContextPromise.then((requestContext) => {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.deleteUserNotificationChannel(
-            responseContext,
-          );
+          return this.responseProcessor.deleteUserNotificationChannel(responseContext);
         });
     });
   }
@@ -3150,19 +3187,16 @@ export class OnCallApi {
     param: OnCallApiDeleteUserNotificationRuleRequest,
     options?: Configuration,
   ): Promise<void> {
-    const requestContextPromise =
-      this.requestFactory.deleteUserNotificationRule(
-        param.userId,
-        param.ruleId,
-        options,
-      );
+    const requestContextPromise = this.requestFactory.deleteUserNotificationRule(
+      param.userId,
+      param.ruleId,
+      options,
+    );
     return requestContextPromise.then((requestContext) => {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.deleteUserNotificationRule(
-            responseContext,
-          );
+          return this.responseProcessor.deleteUserNotificationRule(responseContext);
         });
     });
   }
@@ -3184,9 +3218,7 @@ export class OnCallApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.getOnCallEscalationPolicy(
-            responseContext,
-          );
+          return this.responseProcessor.getOnCallEscalationPolicy(responseContext);
         });
     });
   }
@@ -3230,9 +3262,7 @@ export class OnCallApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.getOnCallTeamRoutingRules(
-            responseContext,
-          );
+          return this.responseProcessor.getOnCallTeamRoutingRules(responseContext);
         });
     });
   }
@@ -3245,21 +3275,18 @@ export class OnCallApi {
     param: OnCallApiGetScheduleOnCallRespondersRequest,
     options?: Configuration,
   ): Promise<ScheduleOnCallResponders> {
-    const requestContextPromise =
-      this.requestFactory.getScheduleOnCallResponders(
-        param.scheduleId,
-        param.include,
-        param.filterPosition,
-        param.filterAtTs,
-        options,
-      );
+    const requestContextPromise = this.requestFactory.getScheduleOnCallResponders(
+      param.scheduleId,
+      param.include,
+      param.filterPosition,
+      param.filterAtTs,
+      options,
+    );
     return requestContextPromise.then((requestContext) => {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.getScheduleOnCallResponders(
-            responseContext,
-          );
+          return this.responseProcessor.getScheduleOnCallResponders(responseContext);
         });
     });
   }
@@ -3317,19 +3344,16 @@ export class OnCallApi {
     param: OnCallApiGetUserNotificationChannelRequest,
     options?: Configuration,
   ): Promise<NotificationChannel> {
-    const requestContextPromise =
-      this.requestFactory.getUserNotificationChannel(
-        param.userId,
-        param.channelId,
-        options,
-      );
+    const requestContextPromise = this.requestFactory.getUserNotificationChannel(
+      param.userId,
+      param.channelId,
+      options,
+    );
     return requestContextPromise.then((requestContext) => {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.getUserNotificationChannel(
-            responseContext,
-          );
+          return this.responseProcessor.getUserNotificationChannel(responseContext);
         });
     });
   }
@@ -3352,9 +3376,7 @@ export class OnCallApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.getUserNotificationRule(
-            responseContext,
-          );
+          return this.responseProcessor.getUserNotificationRule(responseContext);
         });
     });
   }
@@ -3367,15 +3389,15 @@ export class OnCallApi {
     param: OnCallApiListUserNotificationChannelsRequest,
     options?: Configuration,
   ): Promise<ListNotificationChannelsResponse> {
-    const requestContextPromise =
-      this.requestFactory.listUserNotificationChannels(param.userId, options);
+    const requestContextPromise = this.requestFactory.listUserNotificationChannels(
+      param.userId,
+      options,
+    );
     return requestContextPromise.then((requestContext) => {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.listUserNotificationChannels(
-            responseContext,
-          );
+          return this.responseProcessor.listUserNotificationChannels(responseContext);
         });
     });
   }
@@ -3397,9 +3419,7 @@ export class OnCallApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.listUserNotificationRules(
-            responseContext,
-          );
+          return this.responseProcessor.listUserNotificationRules(responseContext);
         });
     });
   }
@@ -3422,9 +3442,7 @@ export class OnCallApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.setOnCallTeamRoutingRules(
-            responseContext,
-          );
+          return this.responseProcessor.setOnCallTeamRoutingRules(responseContext);
         });
     });
   }
@@ -3437,20 +3455,17 @@ export class OnCallApi {
     param: OnCallApiUpdateOnCallEscalationPolicyRequest,
     options?: Configuration,
   ): Promise<EscalationPolicy> {
-    const requestContextPromise =
-      this.requestFactory.updateOnCallEscalationPolicy(
-        param.policyId,
-        param.body,
-        param.include,
-        options,
-      );
+    const requestContextPromise = this.requestFactory.updateOnCallEscalationPolicy(
+      param.policyId,
+      param.body,
+      param.include,
+      options,
+    );
     return requestContextPromise.then((requestContext) => {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.updateOnCallEscalationPolicy(
-            responseContext,
-          );
+          return this.responseProcessor.updateOnCallEscalationPolicy(responseContext);
         });
     });
   }
@@ -3486,21 +3501,18 @@ export class OnCallApi {
     param: OnCallApiUpdateUserNotificationRuleRequest,
     options?: Configuration,
   ): Promise<OnCallNotificationRule> {
-    const requestContextPromise =
-      this.requestFactory.updateUserNotificationRule(
-        param.userId,
-        param.ruleId,
-        param.body,
-        param.include,
-        options,
-      );
+    const requestContextPromise = this.requestFactory.updateUserNotificationRule(
+      param.userId,
+      param.ruleId,
+      param.body,
+      param.include,
+      options,
+    );
     return requestContextPromise.then((requestContext) => {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.updateUserNotificationRule(
-            responseContext,
-          );
+          return this.responseProcessor.updateUserNotificationRule(responseContext);
         });
     });
   }

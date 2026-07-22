@@ -19,6 +19,7 @@ import {
   ServerConfiguration,
   stringify,
   applySecurityAuthentication,
+  
 } from "@datadog/datadog-api-client";
 
 import { TypingInfo } from "./models/TypingInfo";
@@ -49,15 +50,8 @@ export class CSMAgentsApiRequestFactory extends BaseAPIRequestFactory {
     const localVarPath = "/api/v2/csm/onboarding/agents";
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "CSMAgentsApi.v2.listAllCSMAgents",
-      CSMAgentsApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.GET,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("CSMAgentsApi.v2.listAllCSMAgents", CSMAgentsApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.GET, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -118,15 +112,8 @@ export class CSMAgentsApiRequestFactory extends BaseAPIRequestFactory {
     const localVarPath = "/api/v2/csm/onboarding/serverless/agents";
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "CSMAgentsApi.v2.listAllCSMServerlessAgents",
-      CSMAgentsApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.GET,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("CSMAgentsApi.v2.listAllCSMServerlessAgents", CSMAgentsApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.GET, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -186,7 +173,9 @@ export class CSMAgentsApiResponseProcessor {
   public async listAllCSMAgents(
     response: ResponseContext,
   ): Promise<CsmAgentsResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: CsmAgentsResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -195,8 +184,14 @@ export class CSMAgentsApiResponseProcessor {
       ) as CsmAgentsResponse;
       return body;
     }
-    if (response.httpStatusCode === 403 || response.httpStatusCode === 429) {
-      const bodyText = parse(await response.body.text(), contentType);
+    if (
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 429
+    ) {
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -211,7 +206,10 @@ export class CSMAgentsApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -242,7 +240,9 @@ export class CSMAgentsApiResponseProcessor {
   public async listAllCSMServerlessAgents(
     response: ResponseContext,
   ): Promise<CsmAgentsResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: CsmAgentsResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -251,8 +251,14 @@ export class CSMAgentsApiResponseProcessor {
       ) as CsmAgentsResponse;
       return body;
     }
-    if (response.httpStatusCode === 403 || response.httpStatusCode === 429) {
-      const bodyText = parse(await response.body.text(), contentType);
+    if (
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 429
+    ) {
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -267,7 +273,10 @@ export class CSMAgentsApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -340,7 +349,8 @@ export class CSMAgentsApi {
   private responseProcessor: CSMAgentsApiResponseProcessor;
   private configuration: Configuration;
 
-  static operationServers: { [key: string]: BaseServerConfiguration[] } = {};
+  static operationServers: { [key: string]: BaseServerConfiguration[] } = {
+  };
 
   public constructor(
     configuration?: Configuration,
@@ -349,7 +359,8 @@ export class CSMAgentsApi {
   ) {
     this.configuration = configuration || createConfiguration();
     this.requestFactory =
-      requestFactory || new CSMAgentsApiRequestFactory(this.configuration);
+      requestFactory ||
+      new CSMAgentsApiRequestFactory(this.configuration);
     this.responseProcessor =
       responseProcessor || new CSMAgentsApiResponseProcessor();
   }
@@ -386,21 +397,18 @@ export class CSMAgentsApi {
     param: CSMAgentsApiListAllCSMServerlessAgentsRequest = {},
     options?: Configuration,
   ): Promise<CsmAgentsResponse> {
-    const requestContextPromise =
-      this.requestFactory.listAllCSMServerlessAgents(
-        param.page,
-        param.size,
-        param.query,
-        param.orderDirection,
-        options,
-      );
+    const requestContextPromise = this.requestFactory.listAllCSMServerlessAgents(
+      param.page,
+      param.size,
+      param.query,
+      param.orderDirection,
+      options,
+    );
     return requestContextPromise.then((requestContext) => {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.listAllCSMServerlessAgents(
-            responseContext,
-          );
+          return this.responseProcessor.listAllCSMServerlessAgents(responseContext);
         });
     });
   }

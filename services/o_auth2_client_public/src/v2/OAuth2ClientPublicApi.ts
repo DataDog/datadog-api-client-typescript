@@ -19,6 +19,7 @@ import {
   ServerConfiguration,
   stringify,
   applySecurityAuthentication,
+  
 } from "@datadog/datadog-api-client";
 
 import { TypingInfo } from "./models/TypingInfo";
@@ -47,14 +48,8 @@ export class OAuth2ClientPublicApiRequestFactory extends BaseAPIRequestFactory {
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
-    if (
-      !_config.unstableOperations[
-        "OAuth2ClientPublicApi.v2.deleteScopesRestriction"
-      ]
-    ) {
-      throw new Error(
-        "Unstable operation 'deleteScopesRestriction' is disabled. Enable it by setting `configuration.unstableOperations['OAuth2ClientPublicApi.v2.deleteScopesRestriction'] = true`",
-      );
+    if (!_config.unstableOperations["OAuth2ClientPublicApi.v2.deleteScopesRestriction"]) {
+      throw new Error("Unstable operation 'deleteScopesRestriction' is disabled. Enable it by setting `configuration.unstableOperations['OAuth2ClientPublicApi.v2.deleteScopesRestriction'] = true`");
     }
 
     // verify required parameter 'clientUuid' is not null or undefined
@@ -63,22 +58,14 @@ export class OAuth2ClientPublicApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Path Params
-    const localVarPath =
-      "/api/v2/oauth2/clients/{client_uuid}/scopes_restriction".replace(
-        "{client_uuid}",
-        encodeURIComponent(String(clientUuid)),
-      );
+    const localVarPath = "/api/v2/oauth2/clients/{client_uuid}/scopes_restriction".replace(
+      "{client_uuid}",
+      encodeURIComponent(String(clientUuid)),
+    );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "OAuth2ClientPublicApi.v2.deleteScopesRestriction",
-      OAuth2ClientPublicApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.DELETE,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("OAuth2ClientPublicApi.v2.deleteScopesRestriction", OAuth2ClientPublicApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.DELETE, overrides);
     requestContext.setHeaderParam("Accept", "*/*");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -101,29 +88,16 @@ export class OAuth2ClientPublicApiRequestFactory extends BaseAPIRequestFactory {
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
-    if (
-      !_config.unstableOperations[
-        "OAuth2ClientPublicApi.v2.getOAuth2WellKnownSites"
-      ]
-    ) {
-      throw new Error(
-        "Unstable operation 'getOAuth2WellKnownSites' is disabled. Enable it by setting `configuration.unstableOperations['OAuth2ClientPublicApi.v2.getOAuth2WellKnownSites'] = true`",
-      );
+    if (!_config.unstableOperations["OAuth2ClientPublicApi.v2.getOAuth2WellKnownSites"]) {
+      throw new Error("Unstable operation 'getOAuth2WellKnownSites' is disabled. Enable it by setting `configuration.unstableOperations['OAuth2ClientPublicApi.v2.getOAuth2WellKnownSites'] = true`");
     }
 
     // Path Params
     const localVarPath = "/api/v2/oauth2/.well-known/sites";
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "OAuth2ClientPublicApi.v2.getOAuth2WellKnownSites",
-      OAuth2ClientPublicApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.GET,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("OAuth2ClientPublicApi.v2.getOAuth2WellKnownSites", OAuth2ClientPublicApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.GET, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -141,14 +115,8 @@ export class OAuth2ClientPublicApiRequestFactory extends BaseAPIRequestFactory {
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
-    if (
-      !_config.unstableOperations[
-        "OAuth2ClientPublicApi.v2.getScopesRestriction"
-      ]
-    ) {
-      throw new Error(
-        "Unstable operation 'getScopesRestriction' is disabled. Enable it by setting `configuration.unstableOperations['OAuth2ClientPublicApi.v2.getScopesRestriction'] = true`",
-      );
+    if (!_config.unstableOperations["OAuth2ClientPublicApi.v2.getScopesRestriction"]) {
+      throw new Error("Unstable operation 'getScopesRestriction' is disabled. Enable it by setting `configuration.unstableOperations['OAuth2ClientPublicApi.v2.getScopesRestriction'] = true`");
     }
 
     // verify required parameter 'clientUuid' is not null or undefined
@@ -157,22 +125,14 @@ export class OAuth2ClientPublicApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Path Params
-    const localVarPath =
-      "/api/v2/oauth2/clients/{client_uuid}/scopes_restriction".replace(
-        "{client_uuid}",
-        encodeURIComponent(String(clientUuid)),
-      );
+    const localVarPath = "/api/v2/oauth2/clients/{client_uuid}/scopes_restriction".replace(
+      "{client_uuid}",
+      encodeURIComponent(String(clientUuid)),
+    );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "OAuth2ClientPublicApi.v2.getScopesRestriction",
-      OAuth2ClientPublicApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.GET,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("OAuth2ClientPublicApi.v2.getScopesRestriction", OAuth2ClientPublicApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.GET, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -196,14 +156,8 @@ export class OAuth2ClientPublicApiRequestFactory extends BaseAPIRequestFactory {
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
-    if (
-      !_config.unstableOperations[
-        "OAuth2ClientPublicApi.v2.registerOAuthClient"
-      ]
-    ) {
-      throw new Error(
-        "Unstable operation 'registerOAuthClient' is disabled. Enable it by setting `configuration.unstableOperations['OAuth2ClientPublicApi.v2.registerOAuthClient'] = true`",
-      );
+    if (!_config.unstableOperations["OAuth2ClientPublicApi.v2.registerOAuthClient"]) {
+      throw new Error("Unstable operation 'registerOAuthClient' is disabled. Enable it by setting `configuration.unstableOperations['OAuth2ClientPublicApi.v2.registerOAuthClient'] = true`");
     }
 
     // verify required parameter 'body' is not null or undefined
@@ -215,15 +169,8 @@ export class OAuth2ClientPublicApiRequestFactory extends BaseAPIRequestFactory {
     const localVarPath = "/api/v2/oauth2/register";
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "OAuth2ClientPublicApi.v2.registerOAuthClient",
-      OAuth2ClientPublicApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.POST,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("OAuth2ClientPublicApi.v2.registerOAuthClient", OAuth2ClientPublicApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.POST, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -233,7 +180,9 @@ export class OAuth2ClientPublicApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Body Params
-    const contentType = getPreferredMediaType(["application/json"]);
+    const contentType = getPreferredMediaType([
+      "application/json",
+    ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = stringify(
       serialize(body, TypingInfo, "OAuthClientRegistrationRequest", ""),
@@ -251,14 +200,8 @@ export class OAuth2ClientPublicApiRequestFactory extends BaseAPIRequestFactory {
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
-    if (
-      !_config.unstableOperations[
-        "OAuth2ClientPublicApi.v2.upsertScopesRestriction"
-      ]
-    ) {
-      throw new Error(
-        "Unstable operation 'upsertScopesRestriction' is disabled. Enable it by setting `configuration.unstableOperations['OAuth2ClientPublicApi.v2.upsertScopesRestriction'] = true`",
-      );
+    if (!_config.unstableOperations["OAuth2ClientPublicApi.v2.upsertScopesRestriction"]) {
+      throw new Error("Unstable operation 'upsertScopesRestriction' is disabled. Enable it by setting `configuration.unstableOperations['OAuth2ClientPublicApi.v2.upsertScopesRestriction'] = true`");
     }
 
     // verify required parameter 'clientUuid' is not null or undefined
@@ -272,22 +215,14 @@ export class OAuth2ClientPublicApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Path Params
-    const localVarPath =
-      "/api/v2/oauth2/clients/{client_uuid}/scopes_restriction".replace(
-        "{client_uuid}",
-        encodeURIComponent(String(clientUuid)),
-      );
+    const localVarPath = "/api/v2/oauth2/clients/{client_uuid}/scopes_restriction".replace(
+      "{client_uuid}",
+      encodeURIComponent(String(clientUuid)),
+    );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "OAuth2ClientPublicApi.v2.upsertScopesRestriction",
-      OAuth2ClientPublicApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.POST,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("OAuth2ClientPublicApi.v2.upsertScopesRestriction", OAuth2ClientPublicApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.POST, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -297,7 +232,9 @@ export class OAuth2ClientPublicApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Body Params
-    const contentType = getPreferredMediaType(["application/json"]);
+    const contentType = getPreferredMediaType([
+      "application/json",
+    ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = stringify(
       serialize(body, TypingInfo, "UpsertOAuthScopesRestrictionRequest", ""),
@@ -326,12 +263,20 @@ export class OAuth2ClientPublicApiResponseProcessor {
   public async deleteScopesRestriction(
     response: ResponseContext,
   ): Promise<void> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 204) {
       return;
     }
-    if (response.httpStatusCode === 400 || response.httpStatusCode === 404) {
-      const bodyText = parse(await response.body.text(), contentType);
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 404
+    ) {
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: JSONAPIErrorResponse;
       try {
         body = deserialize(
@@ -352,7 +297,10 @@ export class OAuth2ClientPublicApiResponseProcessor {
       );
     }
     if (response.httpStatusCode === 429) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -367,7 +315,10 @@ export class OAuth2ClientPublicApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -392,7 +343,9 @@ export class OAuth2ClientPublicApiResponseProcessor {
   public async getOAuth2WellKnownSites(
     response: ResponseContext,
   ): Promise<OAuth2WellKnownSitesResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: OAuth2WellKnownSitesResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -402,7 +355,10 @@ export class OAuth2ClientPublicApiResponseProcessor {
       return body;
     }
     if (response.httpStatusCode === 429) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -417,7 +373,10 @@ export class OAuth2ClientPublicApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -448,7 +407,9 @@ export class OAuth2ClientPublicApiResponseProcessor {
   public async getScopesRestriction(
     response: ResponseContext,
   ): Promise<OAuthScopesRestrictionResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: OAuthScopesRestrictionResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -457,8 +418,14 @@ export class OAuth2ClientPublicApiResponseProcessor {
       ) as OAuthScopesRestrictionResponse;
       return body;
     }
-    if (response.httpStatusCode === 400 || response.httpStatusCode === 404) {
-      const bodyText = parse(await response.body.text(), contentType);
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 404
+    ) {
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: JSONAPIErrorResponse;
       try {
         body = deserialize(
@@ -479,7 +446,10 @@ export class OAuth2ClientPublicApiResponseProcessor {
       );
     }
     if (response.httpStatusCode === 429) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -494,7 +464,10 @@ export class OAuth2ClientPublicApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -525,7 +498,9 @@ export class OAuth2ClientPublicApiResponseProcessor {
   public async registerOAuthClient(
     response: ResponseContext,
   ): Promise<OAuthClientRegistrationResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 201) {
       const body: OAuthClientRegistrationResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -535,7 +510,10 @@ export class OAuth2ClientPublicApiResponseProcessor {
       return body;
     }
     if (response.httpStatusCode === 400) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: OAuthClientRegistrationError;
       try {
         body = deserialize(
@@ -556,7 +534,10 @@ export class OAuth2ClientPublicApiResponseProcessor {
       );
     }
     if (response.httpStatusCode === 429) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -571,7 +552,10 @@ export class OAuth2ClientPublicApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -602,7 +586,9 @@ export class OAuth2ClientPublicApiResponseProcessor {
   public async upsertScopesRestriction(
     response: ResponseContext,
   ): Promise<OAuthScopesRestrictionResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: OAuthScopesRestrictionResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -611,8 +597,14 @@ export class OAuth2ClientPublicApiResponseProcessor {
       ) as OAuthScopesRestrictionResponse;
       return body;
     }
-    if (response.httpStatusCode === 400 || response.httpStatusCode === 404) {
-      const bodyText = parse(await response.body.text(), contentType);
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 404
+    ) {
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: JSONAPIErrorResponse;
       try {
         body = deserialize(
@@ -633,7 +625,10 @@ export class OAuth2ClientPublicApiResponseProcessor {
       );
     }
     if (response.httpStatusCode === 429) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -648,7 +643,10 @@ export class OAuth2ClientPublicApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -710,7 +708,8 @@ export class OAuth2ClientPublicApi {
   private responseProcessor: OAuth2ClientPublicApiResponseProcessor;
   private configuration: Configuration;
 
-  static operationServers: { [key: string]: BaseServerConfiguration[] } = {};
+  static operationServers: { [key: string]: BaseServerConfiguration[] } = {
+  };
 
   public constructor(
     configuration?: Configuration,
@@ -741,9 +740,7 @@ export class OAuth2ClientPublicApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.deleteScopesRestriction(
-            responseContext,
-          );
+          return this.responseProcessor.deleteScopesRestriction(responseContext);
         });
     });
   }
@@ -752,18 +749,16 @@ export class OAuth2ClientPublicApi {
    * Retrieve the list of public OAuth2 sites available for the current environment. This endpoint is used for OAuth2 discovery and returns sites where users can authenticate.
    * @param param The request object
    */
-  public getOAuth2WellKnownSites(
-    options?: Configuration,
+  public getOAuth2WellKnownSites(options?: Configuration,
   ): Promise<OAuth2WellKnownSitesResponse> {
-    const requestContextPromise =
-      this.requestFactory.getOAuth2WellKnownSites(options);
+    const requestContextPromise = this.requestFactory.getOAuth2WellKnownSites(
+      options,
+    );
     return requestContextPromise.then((requestContext) => {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.getOAuth2WellKnownSites(
-            responseContext,
-          );
+          return this.responseProcessor.getOAuth2WellKnownSites(responseContext);
         });
     });
   }
@@ -827,9 +822,7 @@ export class OAuth2ClientPublicApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.upsertScopesRestriction(
-            responseContext,
-          );
+          return this.responseProcessor.upsertScopesRestriction(responseContext);
         });
     });
   }

@@ -19,6 +19,7 @@ import {
   ServerConfiguration,
   stringify,
   applySecurityAuthentication,
+  
 } from "@datadog/datadog-api-client";
 
 import { TypingInfo } from "./models/TypingInfo";
@@ -35,22 +36,17 @@ export class AuthenticationApiRequestFactory extends BaseAPIRequestFactory {
       this.userAgent = buildUserAgent("authentication", version);
     }
   }
-  public async validate(_options?: Configuration): Promise<RequestContext> {
+  public async validate(
+    _options?: Configuration,
+  ): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
     // Path Params
     const localVarPath = "/api/v1/validate";
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "AuthenticationApi.v1.validate",
-      AuthenticationApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.GET,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("AuthenticationApi.v1.validate", AuthenticationApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.GET, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -60,7 +56,9 @@ export class AuthenticationApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Apply auth methods
-    applySecurityAuthentication(_config, requestContext, ["apiKeyAuth"]);
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+    ]);
 
     return requestContext;
   }
@@ -77,7 +75,9 @@ export class AuthenticationApiResponseProcessor {
   public async validate(
     response: ResponseContext,
   ): Promise<AuthenticationValidationResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: AuthenticationValidationResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -86,8 +86,14 @@ export class AuthenticationApiResponseProcessor {
       ) as AuthenticationValidationResponse;
       return body;
     }
-    if (response.httpStatusCode === 403 || response.httpStatusCode === 429) {
-      const bodyText = parse(await response.body.text(), contentType);
+    if (
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 429
+    ) {
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -102,7 +108,10 @@ export class AuthenticationApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -129,7 +138,8 @@ export class AuthenticationApi {
   private responseProcessor: AuthenticationApiResponseProcessor;
   private configuration: Configuration;
 
-  static operationServers: { [key: string]: BaseServerConfiguration[] } = {};
+  static operationServers: { [key: string]: BaseServerConfiguration[] } = {
+  };
 
   public constructor(
     configuration?: Configuration,
@@ -138,7 +148,8 @@ export class AuthenticationApi {
   ) {
     this.configuration = configuration || createConfiguration();
     this.requestFactory =
-      requestFactory || new AuthenticationApiRequestFactory(this.configuration);
+      requestFactory ||
+      new AuthenticationApiRequestFactory(this.configuration);
     this.responseProcessor =
       responseProcessor || new AuthenticationApiResponseProcessor();
   }
@@ -147,10 +158,11 @@ export class AuthenticationApi {
    * Check if the API key (not the APP key) is valid. If invalid, a 403 is returned.
    * @param param The request object
    */
-  public validate(
-    options?: Configuration,
+  public validate(options?: Configuration,
   ): Promise<AuthenticationValidationResponse> {
-    const requestContextPromise = this.requestFactory.validate(options);
+    const requestContextPromise = this.requestFactory.validate(
+      options,
+    );
     return requestContextPromise.then((requestContext) => {
       return this.configuration.httpApi
         .send(requestContext)

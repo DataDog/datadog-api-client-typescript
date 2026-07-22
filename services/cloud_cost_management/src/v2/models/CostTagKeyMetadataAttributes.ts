@@ -1,5 +1,6 @@
 import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
+
 /**
  * Attributes of a Cloud Cost Management tag key metadata entry.
  */
@@ -7,7 +8,7 @@ export class CostTagKeyMetadataAttributes {
   /**
    * Number of unique tag values observed for this tag key, keyed by cloud account ID.
    */
-  "cardinalityByAccount": { [key: string]: number };
+  "cardinalityByAccount": { [key: string]: number; };
   /**
    * Total cost (in the report currency) of cost line items that carry this tag key for the requested period.
    */
@@ -31,13 +32,13 @@ export class CostTagKeyMetadataAttributes {
   /**
    * A sample of the most frequent tag values observed for this tag key, keyed by cloud account ID.
    */
-  "topValuesByAccount": { [key: string]: Array<string> };
+  "topValuesByAccount": { [key: string]: Array<string>; };
   /**
    * A container for additional, undeclared properties.
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
   /**
    * @ignore
    */

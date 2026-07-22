@@ -6,7 +6,7 @@ import { ObservabilityPipelineBufferOptions } from "./ObservabilityPipelineBuffe
 
 /**
  * The `amazon_opensearch` destination writes logs to Amazon OpenSearch.
- *
+ * 
  * **Supported pipeline types:** logs
  */
 export class ObservabilityPipelineAmazonOpenSearchDestination {
@@ -40,7 +40,7 @@ export class ObservabilityPipelineAmazonOpenSearchDestination {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
   /**
    * @ignore
    */

@@ -22,12 +22,8 @@ export const GCP_CLOUD_AUDIT_CREATESINK = "GCP Cloud Audit CreateSink";
 export const GCP_CLOUD_AUDIT_SETIAMPOLICY = "GCP Cloud Audit SetIamPolicy";
 export const GCP_CLOUD_AUDIT_UPDATESINK = "GCP Cloud Audit UpdateSink";
 export const GITHUB_AUDIT_LOG_API_ACTIVITY = "Github Audit Log API Activity";
-export const GOOGLE_WORKSPACE_ADMIN_AUDIT_ADDPRIVILEGE =
-  "Google Workspace Admin Audit addPrivilege";
-export const MICROSOFT_365_DEFENDER_INCIDENT =
-  "Microsoft 365 Defender Incident";
-export const MICROSOFT_365_DEFENDER_USERLOGGEDIN =
-  "Microsoft 365 Defender UserLoggedIn";
+export const GOOGLE_WORKSPACE_ADMIN_AUDIT_ADDPRIVILEGE = "Google Workspace Admin Audit addPrivilege";
+export const MICROSOFT_365_DEFENDER_INCIDENT = "Microsoft 365 Defender Incident";
+export const MICROSOFT_365_DEFENDER_USERLOGGEDIN = "Microsoft 365 Defender UserLoggedIn";
 export const OKTA_SYSTEM_LOG_AUTHENTICATION = "Okta System Log Authentication";
-export const PALO_ALTO_NETWORKS_FIREWALL_TRAFFIC =
-  "Palo Alto Networks Firewall Traffic";
+export const PALO_ALTO_NETWORKS_FIREWALL_TRAFFIC = "Palo Alto Networks Firewall Traffic";

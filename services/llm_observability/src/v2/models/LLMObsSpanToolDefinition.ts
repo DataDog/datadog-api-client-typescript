@@ -1,5 +1,6 @@
 import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
+
 /**
  * A tool definition available to an LLM span.
  */
@@ -15,7 +16,7 @@ export class LLMObsSpanToolDefinition {
   /**
    * JSON schema describing the tool's input parameters.
    */
-  "schema"?: { [key: string]: any };
+  "schema"?: { [key: string]: any; };
   /**
    * Version of the tool definition.
    */
@@ -25,7 +26,7 @@ export class LLMObsSpanToolDefinition {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
   /**
    * @ignore
    */

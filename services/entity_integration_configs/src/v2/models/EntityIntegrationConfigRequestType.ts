@@ -6,5 +6,4 @@ import { UnparsedObject } from "@datadog/datadog-api-client";
 export type EntityIntegrationConfigRequestType =
   | typeof ENTITY_INTEGRATION_CONFIG_REQUESTS
   | UnparsedObject;
-export const ENTITY_INTEGRATION_CONFIG_REQUESTS =
-  "entity_integration_config_requests";
+export const ENTITY_INTEGRATION_CONFIG_REQUESTS = "entity_integration_config_requests";

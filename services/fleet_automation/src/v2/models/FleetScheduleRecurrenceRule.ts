@@ -1,5 +1,6 @@
 import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
+
 /**
  * Defines the recurrence pattern for the schedule. Specifies when deployments should be
  * automatically triggered based on maintenance windows.
@@ -28,7 +29,7 @@ export class FleetScheduleRecurrenceRule {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
   /**
    * @ignore
    */

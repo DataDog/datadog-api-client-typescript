@@ -1,5 +1,6 @@
 import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
+
 /**
  * The definition of Entity V3 Metadata Links Items object.
  */
@@ -47,7 +48,7 @@ export class EntityV3MetadataLinksItems {
       baseName: "url",
       type: "string",
       required: true,
-    },
+    }
   };
 
   /**

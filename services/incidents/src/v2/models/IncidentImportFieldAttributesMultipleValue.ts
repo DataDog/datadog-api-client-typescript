@@ -1,5 +1,6 @@
 import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
+
 /**
  * A field with potentially multiple values selected.
  */
@@ -20,7 +21,7 @@ export class IncidentImportFieldAttributesMultipleValue {
     value: {
       baseName: "value",
       type: "Array<string>",
-    },
+    }
   };
 
   /**

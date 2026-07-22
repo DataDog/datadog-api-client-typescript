@@ -106,44 +106,22 @@ export const TypingInfo: ModelTypingInfo = {
     AiMemoryViolationType: ["TP", "FP"],
     AiPromptDataType: ["ai_prompt"],
     CustomRuleDataType: ["custom_rule"],
-    CustomRuleRevisionAttributesCategory: [
-      "SECURITY",
-      "BEST_PRACTICES",
-      "CODE_STYLE",
-      "ERROR_PRONE",
-      "PERFORMANCE",
-    ],
+    CustomRuleRevisionAttributesCategory: ["SECURITY", "BEST_PRACTICES", "CODE_STYLE", "ERROR_PRONE", "PERFORMANCE"],
     CustomRuleRevisionAttributesSeverity: ["ERROR", "WARNING", "NOTICE"],
     CustomRuleRevisionDataType: ["custom_rule_revision"],
     CustomRulesetDataType: ["custom_ruleset"],
-    Language: [
-      "PYTHON",
-      "JAVASCRIPT",
-      "TYPESCRIPT",
-      "JAVA",
-      "GO",
-      "YAML",
-      "RUBY",
-      "CSHARP",
-      "PHP",
-      "KOTLIN",
-      "SWIFT",
-    ],
+    Language: ["PYTHON", "JAVASCRIPT", "TYPESCRIPT", "JAVA", "GO", "YAML", "RUBY", "CSHARP", "PHP", "KOTLIN", "SWIFT"],
     LicensesListResponseDataType: ["licenserequest"],
     McpScanRequestDataType: ["mcpscanrequest"],
     McpScanRequestResponseDataType: ["mcpscanrequestresponse"],
-    ResolveVulnerableSymbolsRequestDataType: [
-      "resolve-vulnerable-symbols-request",
-    ],
-    ResolveVulnerableSymbolsResponseDataType: [
-      "resolve-vulnerable-symbols-response",
-    ],
+    ResolveVulnerableSymbolsRequestDataType: ["resolve-vulnerable-symbols-request"],
+    ResolveVulnerableSymbolsResponseDataType: ["resolve-vulnerable-symbols-response"],
     RevertCustomRuleRevisionDataType: ["revert_custom_rule_revision_request"],
     ScaRequestDataType: ["scarequests"],
   },
   oneOfMap: {
     ScanResultResponse: ["{ [key: string]: any; }"],
-  },
+    },
   typeMap: {
     APIErrorResponse: APIErrorResponse,
     AiCustomRuleItem: AiCustomRuleItem,
@@ -153,12 +131,10 @@ export const TypingInfo: ModelTypingInfo = {
     AiCustomRuleResponse: AiCustomRuleResponse,
     AiCustomRuleResponseData: AiCustomRuleResponseData,
     AiCustomRuleRevisionRequest: AiCustomRuleRevisionRequest,
-    AiCustomRuleRevisionRequestAttributes:
-      AiCustomRuleRevisionRequestAttributes,
+    AiCustomRuleRevisionRequestAttributes: AiCustomRuleRevisionRequestAttributes,
     AiCustomRuleRevisionRequestData: AiCustomRuleRevisionRequestData,
     AiCustomRuleRevisionResponse: AiCustomRuleRevisionResponse,
-    AiCustomRuleRevisionResponseAttributes:
-      AiCustomRuleRevisionResponseAttributes,
+    AiCustomRuleRevisionResponseAttributes: AiCustomRuleRevisionResponseAttributes,
     AiCustomRuleRevisionResponseData: AiCustomRuleRevisionResponseData,
     AiCustomRuleRevisionsResponse: AiCustomRuleRevisionsResponse,
     AiCustomRulesetRequest: AiCustomRulesetRequest,
@@ -172,11 +148,9 @@ export const TypingInfo: ModelTypingInfo = {
     AiCustomRulesetUpdateRequest: AiCustomRulesetUpdateRequest,
     AiCustomRulesetsResponse: AiCustomRulesetsResponse,
     AiMemoryViolationResultRequest: AiMemoryViolationResultRequest,
-    AiMemoryViolationResultRequestAttributes:
-      AiMemoryViolationResultRequestAttributes,
+    AiMemoryViolationResultRequestAttributes: AiMemoryViolationResultRequestAttributes,
     AiMemoryViolationResultRequestData: AiMemoryViolationResultRequestData,
-    AiMemoryViolationResultResponseAttributes:
-      AiMemoryViolationResultResponseAttributes,
+    AiMemoryViolationResultResponseAttributes: AiMemoryViolationResultResponseAttributes,
     AiMemoryViolationResultResponseData: AiMemoryViolationResultResponseData,
     AiMemoryViolationResultsResponse: AiMemoryViolationResultsResponse,
     AiPromptResponseAttributes: AiPromptResponseAttributes,
@@ -210,55 +184,39 @@ export const TypingInfo: ModelTypingInfo = {
     LicensesListResponse: LicensesListResponse,
     LicensesListResponseData: LicensesListResponseData,
     LicensesListResponseDataAttributes: LicensesListResponseDataAttributes,
-    LicensesListResponseDataAttributesLicensesItems:
-      LicensesListResponseDataAttributesLicensesItems,
+    LicensesListResponseDataAttributesLicensesItems: LicensesListResponseDataAttributesLicensesItems,
     McpScanRequest: McpScanRequest,
     McpScanRequestData: McpScanRequestData,
     McpScanRequestDataAttributes: McpScanRequestDataAttributes,
-    McpScanRequestDataAttributesLibrariesItems:
-      McpScanRequestDataAttributesLibrariesItems,
+    McpScanRequestDataAttributesLibrariesItems: McpScanRequestDataAttributesLibrariesItems,
     McpScanRequestResponse: McpScanRequestResponse,
     McpScanRequestResponseData: McpScanRequestResponseData,
     McpScanRequestResponseDataAttributes: McpScanRequestResponseDataAttributes,
     ResolveVulnerableSymbolsRequest: ResolveVulnerableSymbolsRequest,
     ResolveVulnerableSymbolsRequestData: ResolveVulnerableSymbolsRequestData,
-    ResolveVulnerableSymbolsRequestDataAttributes:
-      ResolveVulnerableSymbolsRequestDataAttributes,
+    ResolveVulnerableSymbolsRequestDataAttributes: ResolveVulnerableSymbolsRequestDataAttributes,
     ResolveVulnerableSymbolsResponse: ResolveVulnerableSymbolsResponse,
     ResolveVulnerableSymbolsResponseData: ResolveVulnerableSymbolsResponseData,
-    ResolveVulnerableSymbolsResponseDataAttributes:
-      ResolveVulnerableSymbolsResponseDataAttributes,
-    ResolveVulnerableSymbolsResponseResults:
-      ResolveVulnerableSymbolsResponseResults,
-    ResolveVulnerableSymbolsResponseResultsVulnerableSymbols:
-      ResolveVulnerableSymbolsResponseResultsVulnerableSymbols,
-    ResolveVulnerableSymbolsResponseResultsVulnerableSymbolsSymbols:
-      ResolveVulnerableSymbolsResponseResultsVulnerableSymbolsSymbols,
+    ResolveVulnerableSymbolsResponseDataAttributes: ResolveVulnerableSymbolsResponseDataAttributes,
+    ResolveVulnerableSymbolsResponseResults: ResolveVulnerableSymbolsResponseResults,
+    ResolveVulnerableSymbolsResponseResultsVulnerableSymbols: ResolveVulnerableSymbolsResponseResultsVulnerableSymbols,
+    ResolveVulnerableSymbolsResponseResultsVulnerableSymbolsSymbols: ResolveVulnerableSymbolsResponseResultsVulnerableSymbolsSymbols,
     RevertCustomRuleRevisionRequest: RevertCustomRuleRevisionRequest,
     RevertCustomRuleRevisionRequestData: RevertCustomRuleRevisionRequestData,
-    RevertCustomRuleRevisionRequestDataAttributes:
-      RevertCustomRuleRevisionRequestDataAttributes,
+    RevertCustomRuleRevisionRequestDataAttributes: RevertCustomRuleRevisionRequestDataAttributes,
     ScaRequest: ScaRequest,
     ScaRequestData: ScaRequestData,
     ScaRequestDataAttributes: ScaRequestDataAttributes,
     ScaRequestDataAttributesCommit: ScaRequestDataAttributesCommit,
-    ScaRequestDataAttributesDependenciesItems:
-      ScaRequestDataAttributesDependenciesItems,
-    ScaRequestDataAttributesDependenciesItemsLocationsItems:
-      ScaRequestDataAttributesDependenciesItemsLocationsItems,
-    ScaRequestDataAttributesDependenciesItemsLocationsItemsFilePosition:
-      ScaRequestDataAttributesDependenciesItemsLocationsItemsFilePosition,
-    ScaRequestDataAttributesDependenciesItemsLocationsItemsPosition:
-      ScaRequestDataAttributesDependenciesItemsLocationsItemsPosition,
-    ScaRequestDataAttributesDependenciesItemsReachableSymbolPropertiesItems:
-      ScaRequestDataAttributesDependenciesItemsReachableSymbolPropertiesItems,
+    ScaRequestDataAttributesDependenciesItems: ScaRequestDataAttributesDependenciesItems,
+    ScaRequestDataAttributesDependenciesItemsLocationsItems: ScaRequestDataAttributesDependenciesItemsLocationsItems,
+    ScaRequestDataAttributesDependenciesItemsLocationsItemsFilePosition: ScaRequestDataAttributesDependenciesItemsLocationsItemsFilePosition,
+    ScaRequestDataAttributesDependenciesItemsLocationsItemsPosition: ScaRequestDataAttributesDependenciesItemsLocationsItemsPosition,
+    ScaRequestDataAttributesDependenciesItemsReachableSymbolPropertiesItems: ScaRequestDataAttributesDependenciesItemsReachableSymbolPropertiesItems,
     ScaRequestDataAttributesFilesItems: ScaRequestDataAttributesFilesItems,
-    ScaRequestDataAttributesRelationsItems:
-      ScaRequestDataAttributesRelationsItems,
+    ScaRequestDataAttributesRelationsItems: ScaRequestDataAttributesRelationsItems,
     ScaRequestDataAttributesRepository: ScaRequestDataAttributesRepository,
-    ScaRequestDataAttributesVulnerabilitiesItems:
-      ScaRequestDataAttributesVulnerabilitiesItems,
-    ScaRequestDataAttributesVulnerabilitiesItemsAffectsItems:
-      ScaRequestDataAttributesVulnerabilitiesItemsAffectsItems,
+    ScaRequestDataAttributesVulnerabilitiesItems: ScaRequestDataAttributesVulnerabilitiesItems,
+    ScaRequestDataAttributesVulnerabilitiesItemsAffectsItems: ScaRequestDataAttributesVulnerabilitiesItemsAffectsItems,
   },
 };

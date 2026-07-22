@@ -1,5 +1,6 @@
 import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
+
 /**
  * Filters monitor notifications by a list of tag key:value pairs.
  */
@@ -21,7 +22,7 @@ export class MonitorNotificationRuleFilterTags {
       baseName: "tags",
       type: "Array<string>",
       required: true,
-    },
+    }
   };
 
   /**

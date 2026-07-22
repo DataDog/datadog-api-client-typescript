@@ -40,7 +40,7 @@ export class CreateUploadResponseData {
       baseName: "type",
       type: "CreateUploadResponseDataType",
       required: true,
-    },
+    }
   };
 
   /**

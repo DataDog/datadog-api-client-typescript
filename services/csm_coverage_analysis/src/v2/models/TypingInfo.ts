@@ -13,26 +13,20 @@ import { CsmServerlessCoverageAnalysisData } from "./CsmServerlessCoverageAnalys
 import { CsmServerlessCoverageAnalysisResponse } from "./CsmServerlessCoverageAnalysisResponse";
 
 export const TypingInfo: ModelTypingInfo = {
-  enumsMap: {},
+  enumsMap: {
+  },
   oneOfMap: {},
   typeMap: {
     APIErrorResponse: APIErrorResponse,
-    CsmCloudAccountsCoverageAnalysisAttributes:
-      CsmCloudAccountsCoverageAnalysisAttributes,
+    CsmCloudAccountsCoverageAnalysisAttributes: CsmCloudAccountsCoverageAnalysisAttributes,
     CsmCloudAccountsCoverageAnalysisData: CsmCloudAccountsCoverageAnalysisData,
-    CsmCloudAccountsCoverageAnalysisResponse:
-      CsmCloudAccountsCoverageAnalysisResponse,
+    CsmCloudAccountsCoverageAnalysisResponse: CsmCloudAccountsCoverageAnalysisResponse,
     CsmCoverageAnalysis: CsmCoverageAnalysis,
-    CsmHostsAndContainersCoverageAnalysisAttributes:
-      CsmHostsAndContainersCoverageAnalysisAttributes,
-    CsmHostsAndContainersCoverageAnalysisData:
-      CsmHostsAndContainersCoverageAnalysisData,
-    CsmHostsAndContainersCoverageAnalysisResponse:
-      CsmHostsAndContainersCoverageAnalysisResponse,
-    CsmServerlessCoverageAnalysisAttributes:
-      CsmServerlessCoverageAnalysisAttributes,
+    CsmHostsAndContainersCoverageAnalysisAttributes: CsmHostsAndContainersCoverageAnalysisAttributes,
+    CsmHostsAndContainersCoverageAnalysisData: CsmHostsAndContainersCoverageAnalysisData,
+    CsmHostsAndContainersCoverageAnalysisResponse: CsmHostsAndContainersCoverageAnalysisResponse,
+    CsmServerlessCoverageAnalysisAttributes: CsmServerlessCoverageAnalysisAttributes,
     CsmServerlessCoverageAnalysisData: CsmServerlessCoverageAnalysisData,
-    CsmServerlessCoverageAnalysisResponse:
-      CsmServerlessCoverageAnalysisResponse,
+    CsmServerlessCoverageAnalysisResponse: CsmServerlessCoverageAnalysisResponse,
   },
 };

@@ -1,5 +1,6 @@
 import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
+
 /**
  * Monitor options for deployment rules.
  */
@@ -30,7 +31,7 @@ export class DeploymentRuleOptionsMonitor {
       baseName: "query",
       type: "string",
       required: true,
-    },
+    }
   };
 
   /**

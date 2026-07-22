@@ -34,7 +34,7 @@ export const TypingInfo: ModelTypingInfo = {
       "SharedDashboardIncludedDashboard",
       "SharedDashboardIncludedUser",
     ],
-  },
+    },
   typeMap: {
     APIErrorResponse: APIErrorResponse,
     JSONAPIErrorItem: JSONAPIErrorItem,
@@ -42,21 +42,17 @@ export const TypingInfo: ModelTypingInfo = {
     JSONAPIErrorResponse: JSONAPIErrorResponse,
     ListSharedDashboardsResponse: ListSharedDashboardsResponse,
     SharedDashboardIncludedDashboard: SharedDashboardIncludedDashboard,
-    SharedDashboardIncludedDashboardAttributes:
-      SharedDashboardIncludedDashboardAttributes,
+    SharedDashboardIncludedDashboardAttributes: SharedDashboardIncludedDashboardAttributes,
     SharedDashboardIncludedUser: SharedDashboardIncludedUser,
-    SharedDashboardIncludedUserAttributes:
-      SharedDashboardIncludedUserAttributes,
+    SharedDashboardIncludedUserAttributes: SharedDashboardIncludedUserAttributes,
     SharedDashboardInvitee: SharedDashboardInvitee,
     SharedDashboardRelationshipDashboard: SharedDashboardRelationshipDashboard,
-    SharedDashboardRelationshipDashboardData:
-      SharedDashboardRelationshipDashboardData,
+    SharedDashboardRelationshipDashboardData: SharedDashboardRelationshipDashboardData,
     SharedDashboardRelationshipSharer: SharedDashboardRelationshipSharer,
     SharedDashboardRelationships: SharedDashboardRelationships,
     SharedDashboardResponse: SharedDashboardResponse,
     SharedDashboardResponseAttributes: SharedDashboardResponseAttributes,
-    SharedDashboardSelectableTemplateVariable:
-      SharedDashboardSelectableTemplateVariable,
+    SharedDashboardSelectableTemplateVariable: SharedDashboardSelectableTemplateVariable,
     SharedDashboardViewingPreferences: SharedDashboardViewingPreferences,
     UserRelationshipData: UserRelationshipData,
   },

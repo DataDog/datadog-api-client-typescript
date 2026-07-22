@@ -6,5 +6,4 @@ import { UnparsedObject } from "@datadog/datadog-api-client";
 export type DeploymentGatesEvaluationRequestDataType =
   | typeof DEPLOYMENT_GATES_EVALUATION_REQUEST
   | UnparsedObject;
-export const DEPLOYMENT_GATES_EVALUATION_REQUEST =
-  "deployment_gates_evaluation_request";
+export const DEPLOYMENT_GATES_EVALUATION_REQUEST = "deployment_gates_evaluation_request";

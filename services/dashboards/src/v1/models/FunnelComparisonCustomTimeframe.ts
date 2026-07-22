@@ -1,5 +1,6 @@
 import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
+
 /**
  * Custom timeframe for funnel comparison.
  */
@@ -32,7 +33,7 @@ export class FunnelComparisonCustomTimeframe {
       type: "number",
       required: true,
       format: "double",
-    },
+    }
   };
 
   /**

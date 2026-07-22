@@ -19,6 +19,7 @@ import {
   ServerConfiguration,
   stringify,
   applySecurityAuthentication,
+  
 } from "@datadog/datadog-api-client";
 
 import { TypingInfo } from "./models/TypingInfo";
@@ -54,9 +55,7 @@ export class FormsApiRequestFactory extends BaseAPIRequestFactory {
     const _config = _options || this.configuration;
 
     if (!_config.unstableOperations["FormsApi.v2.cloneForm"]) {
-      throw new Error(
-        "Unstable operation 'cloneForm' is disabled. Enable it by setting `configuration.unstableOperations['FormsApi.v2.cloneForm'] = true`",
-      );
+      throw new Error("Unstable operation 'cloneForm' is disabled. Enable it by setting `configuration.unstableOperations['FormsApi.v2.cloneForm'] = true`");
     }
 
     // verify required parameter 'formId' is not null or undefined
@@ -76,15 +75,8 @@ export class FormsApiRequestFactory extends BaseAPIRequestFactory {
     );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "FormsApi.v2.cloneForm",
-      FormsApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.POST,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("FormsApi.v2.cloneForm", FormsApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.POST, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -94,7 +86,9 @@ export class FormsApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Body Params
-    const contentType = getPreferredMediaType(["application/json"]);
+    const contentType = getPreferredMediaType([
+      "application/json",
+    ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = stringify(
       serialize(body, TypingInfo, "CloneFormRequest", ""),
@@ -118,9 +112,7 @@ export class FormsApiRequestFactory extends BaseAPIRequestFactory {
     const _config = _options || this.configuration;
 
     if (!_config.unstableOperations["FormsApi.v2.createAndPublishForm"]) {
-      throw new Error(
-        "Unstable operation 'createAndPublishForm' is disabled. Enable it by setting `configuration.unstableOperations['FormsApi.v2.createAndPublishForm'] = true`",
-      );
+      throw new Error("Unstable operation 'createAndPublishForm' is disabled. Enable it by setting `configuration.unstableOperations['FormsApi.v2.createAndPublishForm'] = true`");
     }
 
     // verify required parameter 'body' is not null or undefined
@@ -132,15 +124,8 @@ export class FormsApiRequestFactory extends BaseAPIRequestFactory {
     const localVarPath = "/api/v2/forms/create_and_publish";
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "FormsApi.v2.createAndPublishForm",
-      FormsApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.POST,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("FormsApi.v2.createAndPublishForm", FormsApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.POST, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -150,7 +135,9 @@ export class FormsApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Body Params
-    const contentType = getPreferredMediaType(["application/json"]);
+    const contentType = getPreferredMediaType([
+      "application/json",
+    ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = stringify(
       serialize(body, TypingInfo, "CreateFormRequest", ""),
@@ -174,9 +161,7 @@ export class FormsApiRequestFactory extends BaseAPIRequestFactory {
     const _config = _options || this.configuration;
 
     if (!_config.unstableOperations["FormsApi.v2.createForm"]) {
-      throw new Error(
-        "Unstable operation 'createForm' is disabled. Enable it by setting `configuration.unstableOperations['FormsApi.v2.createForm'] = true`",
-      );
+      throw new Error("Unstable operation 'createForm' is disabled. Enable it by setting `configuration.unstableOperations['FormsApi.v2.createForm'] = true`");
     }
 
     // verify required parameter 'body' is not null or undefined
@@ -188,15 +173,8 @@ export class FormsApiRequestFactory extends BaseAPIRequestFactory {
     const localVarPath = "/api/v2/forms";
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "FormsApi.v2.createForm",
-      FormsApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.POST,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("FormsApi.v2.createForm", FormsApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.POST, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -206,7 +184,9 @@ export class FormsApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Body Params
-    const contentType = getPreferredMediaType(["application/json"]);
+    const contentType = getPreferredMediaType([
+      "application/json",
+    ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = stringify(
       serialize(body, TypingInfo, "CreateFormRequest", ""),
@@ -230,9 +210,7 @@ export class FormsApiRequestFactory extends BaseAPIRequestFactory {
     const _config = _options || this.configuration;
 
     if (!_config.unstableOperations["FormsApi.v2.deleteForm"]) {
-      throw new Error(
-        "Unstable operation 'deleteForm' is disabled. Enable it by setting `configuration.unstableOperations['FormsApi.v2.deleteForm'] = true`",
-      );
+      throw new Error("Unstable operation 'deleteForm' is disabled. Enable it by setting `configuration.unstableOperations['FormsApi.v2.deleteForm'] = true`");
     }
 
     // verify required parameter 'formId' is not null or undefined
@@ -247,15 +225,8 @@ export class FormsApiRequestFactory extends BaseAPIRequestFactory {
     );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "FormsApi.v2.deleteForm",
-      FormsApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.DELETE,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("FormsApi.v2.deleteForm", FormsApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.DELETE, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -281,9 +252,7 @@ export class FormsApiRequestFactory extends BaseAPIRequestFactory {
     const _config = _options || this.configuration;
 
     if (!_config.unstableOperations["FormsApi.v2.getForm"]) {
-      throw new Error(
-        "Unstable operation 'getForm' is disabled. Enable it by setting `configuration.unstableOperations['FormsApi.v2.getForm'] = true`",
-      );
+      throw new Error("Unstable operation 'getForm' is disabled. Enable it by setting `configuration.unstableOperations['FormsApi.v2.getForm'] = true`");
     }
 
     // verify required parameter 'formId' is not null or undefined
@@ -298,15 +267,8 @@ export class FormsApiRequestFactory extends BaseAPIRequestFactory {
     );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "FormsApi.v2.getForm",
-      FormsApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.GET,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("FormsApi.v2.getForm", FormsApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.GET, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -333,28 +295,21 @@ export class FormsApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
-  public async listForms(_options?: Configuration): Promise<RequestContext> {
+  public async listForms(
+    _options?: Configuration,
+  ): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
     if (!_config.unstableOperations["FormsApi.v2.listForms"]) {
-      throw new Error(
-        "Unstable operation 'listForms' is disabled. Enable it by setting `configuration.unstableOperations['FormsApi.v2.listForms'] = true`",
-      );
+      throw new Error("Unstable operation 'listForms' is disabled. Enable it by setting `configuration.unstableOperations['FormsApi.v2.listForms'] = true`");
     }
 
     // Path Params
     const localVarPath = "/api/v2/forms";
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "FormsApi.v2.listForms",
-      FormsApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.GET,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("FormsApi.v2.listForms", FormsApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.GET, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -380,9 +335,7 @@ export class FormsApiRequestFactory extends BaseAPIRequestFactory {
     const _config = _options || this.configuration;
 
     if (!_config.unstableOperations["FormsApi.v2.publishForm"]) {
-      throw new Error(
-        "Unstable operation 'publishForm' is disabled. Enable it by setting `configuration.unstableOperations['FormsApi.v2.publishForm'] = true`",
-      );
+      throw new Error("Unstable operation 'publishForm' is disabled. Enable it by setting `configuration.unstableOperations['FormsApi.v2.publishForm'] = true`");
     }
 
     // verify required parameter 'formId' is not null or undefined
@@ -402,15 +355,8 @@ export class FormsApiRequestFactory extends BaseAPIRequestFactory {
     );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "FormsApi.v2.publishForm",
-      FormsApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.POST,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("FormsApi.v2.publishForm", FormsApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.POST, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -420,7 +366,9 @@ export class FormsApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Body Params
-    const contentType = getPreferredMediaType(["application/json"]);
+    const contentType = getPreferredMediaType([
+      "application/json",
+    ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = stringify(
       serialize(body, TypingInfo, "PublishFormRequest", ""),
@@ -445,9 +393,7 @@ export class FormsApiRequestFactory extends BaseAPIRequestFactory {
     const _config = _options || this.configuration;
 
     if (!_config.unstableOperations["FormsApi.v2.updateForm"]) {
-      throw new Error(
-        "Unstable operation 'updateForm' is disabled. Enable it by setting `configuration.unstableOperations['FormsApi.v2.updateForm'] = true`",
-      );
+      throw new Error("Unstable operation 'updateForm' is disabled. Enable it by setting `configuration.unstableOperations['FormsApi.v2.updateForm'] = true`");
     }
 
     // verify required parameter 'formId' is not null or undefined
@@ -467,15 +413,8 @@ export class FormsApiRequestFactory extends BaseAPIRequestFactory {
     );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "FormsApi.v2.updateForm",
-      FormsApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.PATCH,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("FormsApi.v2.updateForm", FormsApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.PATCH, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -485,7 +424,9 @@ export class FormsApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Body Params
-    const contentType = getPreferredMediaType(["application/json"]);
+    const contentType = getPreferredMediaType([
+      "application/json",
+    ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = stringify(
       serialize(body, TypingInfo, "UpdateFormRequest", ""),
@@ -509,12 +450,8 @@ export class FormsApiRequestFactory extends BaseAPIRequestFactory {
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
-    if (
-      !_config.unstableOperations["FormsApi.v2.upsertAndPublishFormVersion"]
-    ) {
-      throw new Error(
-        "Unstable operation 'upsertAndPublishFormVersion' is disabled. Enable it by setting `configuration.unstableOperations['FormsApi.v2.upsertAndPublishFormVersion'] = true`",
-      );
+    if (!_config.unstableOperations["FormsApi.v2.upsertAndPublishFormVersion"]) {
+      throw new Error("Unstable operation 'upsertAndPublishFormVersion' is disabled. Enable it by setting `configuration.unstableOperations['FormsApi.v2.upsertAndPublishFormVersion'] = true`");
     }
 
     // verify required parameter 'formId' is not null or undefined
@@ -528,22 +465,14 @@ export class FormsApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Path Params
-    const localVarPath =
-      "/api/v2/forms/{form_id}/versions/upsert_and_publish".replace(
-        "{form_id}",
-        encodeURIComponent(String(formId)),
-      );
+    const localVarPath = "/api/v2/forms/{form_id}/versions/upsert_and_publish".replace(
+      "{form_id}",
+      encodeURIComponent(String(formId)),
+    );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "FormsApi.v2.upsertAndPublishFormVersion",
-      FormsApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.POST,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("FormsApi.v2.upsertAndPublishFormVersion", FormsApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.POST, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -553,7 +482,9 @@ export class FormsApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Body Params
-    const contentType = getPreferredMediaType(["application/json"]);
+    const contentType = getPreferredMediaType([
+      "application/json",
+    ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = stringify(
       serialize(body, TypingInfo, "UpsertAndPublishFormVersionRequest", ""),
@@ -578,9 +509,7 @@ export class FormsApiRequestFactory extends BaseAPIRequestFactory {
     const _config = _options || this.configuration;
 
     if (!_config.unstableOperations["FormsApi.v2.upsertFormVersion"]) {
-      throw new Error(
-        "Unstable operation 'upsertFormVersion' is disabled. Enable it by setting `configuration.unstableOperations['FormsApi.v2.upsertFormVersion'] = true`",
-      );
+      throw new Error("Unstable operation 'upsertFormVersion' is disabled. Enable it by setting `configuration.unstableOperations['FormsApi.v2.upsertFormVersion'] = true`");
     }
 
     // verify required parameter 'formId' is not null or undefined
@@ -600,15 +529,8 @@ export class FormsApiRequestFactory extends BaseAPIRequestFactory {
     );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "FormsApi.v2.upsertFormVersion",
-      FormsApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.POST,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("FormsApi.v2.upsertFormVersion", FormsApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.POST, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -618,7 +540,9 @@ export class FormsApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Body Params
-    const contentType = getPreferredMediaType(["application/json"]);
+    const contentType = getPreferredMediaType([
+      "application/json",
+    ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = stringify(
       serialize(body, TypingInfo, "UpsertFormVersionRequest", ""),
@@ -644,8 +568,12 @@ export class FormsApiResponseProcessor {
    * @params response Response returned by the server for a request to cloneForm
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async cloneForm(response: ResponseContext): Promise<FormResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+  public async cloneForm(
+    response: ResponseContext,
+  ): Promise<FormResponse> {
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: FormResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -659,7 +587,10 @@ export class FormsApiResponseProcessor {
       response.httpStatusCode === 401 ||
       response.httpStatusCode === 404
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: JSONAPIErrorResponse;
       try {
         body = deserialize(
@@ -680,7 +611,10 @@ export class FormsApiResponseProcessor {
       );
     }
     if (response.httpStatusCode === 429) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -695,7 +629,10 @@ export class FormsApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -726,7 +663,9 @@ export class FormsApiResponseProcessor {
   public async createAndPublishForm(
     response: ResponseContext,
   ): Promise<FormResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: FormResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -735,8 +674,14 @@ export class FormsApiResponseProcessor {
       ) as FormResponse;
       return body;
     }
-    if (response.httpStatusCode === 400 || response.httpStatusCode === 401) {
-      const bodyText = parse(await response.body.text(), contentType);
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 401
+    ) {
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: JSONAPIErrorResponse;
       try {
         body = deserialize(
@@ -757,7 +702,10 @@ export class FormsApiResponseProcessor {
       );
     }
     if (response.httpStatusCode === 429) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -772,7 +720,10 @@ export class FormsApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -800,8 +751,12 @@ export class FormsApiResponseProcessor {
    * @params response Response returned by the server for a request to createForm
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async createForm(response: ResponseContext): Promise<FormResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+  public async createForm(
+    response: ResponseContext,
+  ): Promise<FormResponse> {
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: FormResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -810,8 +765,14 @@ export class FormsApiResponseProcessor {
       ) as FormResponse;
       return body;
     }
-    if (response.httpStatusCode === 400 || response.httpStatusCode === 401) {
-      const bodyText = parse(await response.body.text(), contentType);
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 401
+    ) {
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: JSONAPIErrorResponse;
       try {
         body = deserialize(
@@ -832,7 +793,10 @@ export class FormsApiResponseProcessor {
       );
     }
     if (response.httpStatusCode === 429) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -847,7 +811,10 @@ export class FormsApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -878,7 +845,9 @@ export class FormsApiResponseProcessor {
   public async deleteForm(
     response: ResponseContext,
   ): Promise<DeleteFormResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: DeleteFormResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -887,8 +856,14 @@ export class FormsApiResponseProcessor {
       ) as DeleteFormResponse;
       return body;
     }
-    if (response.httpStatusCode === 400 || response.httpStatusCode === 401) {
-      const bodyText = parse(await response.body.text(), contentType);
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 401
+    ) {
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: JSONAPIErrorResponse;
       try {
         body = deserialize(
@@ -909,7 +884,10 @@ export class FormsApiResponseProcessor {
       );
     }
     if (response.httpStatusCode === 429) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -924,7 +902,10 @@ export class FormsApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -952,8 +933,12 @@ export class FormsApiResponseProcessor {
    * @params response Response returned by the server for a request to getForm
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async getForm(response: ResponseContext): Promise<FormResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+  public async getForm(
+    response: ResponseContext,
+  ): Promise<FormResponse> {
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: FormResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -967,7 +952,10 @@ export class FormsApiResponseProcessor {
       response.httpStatusCode === 401 ||
       response.httpStatusCode === 404
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: JSONAPIErrorResponse;
       try {
         body = deserialize(
@@ -988,7 +976,10 @@ export class FormsApiResponseProcessor {
       );
     }
     if (response.httpStatusCode === 429) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -1003,7 +994,10 @@ export class FormsApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -1031,8 +1025,12 @@ export class FormsApiResponseProcessor {
    * @params response Response returned by the server for a request to listForms
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async listForms(response: ResponseContext): Promise<FormsResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+  public async listForms(
+    response: ResponseContext,
+  ): Promise<FormsResponse> {
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: FormsResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -1041,8 +1039,14 @@ export class FormsApiResponseProcessor {
       ) as FormsResponse;
       return body;
     }
-    if (response.httpStatusCode === 400 || response.httpStatusCode === 401) {
-      const bodyText = parse(await response.body.text(), contentType);
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 401
+    ) {
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: JSONAPIErrorResponse;
       try {
         body = deserialize(
@@ -1063,7 +1067,10 @@ export class FormsApiResponseProcessor {
       );
     }
     if (response.httpStatusCode === 429) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -1078,7 +1085,10 @@ export class FormsApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -1109,7 +1119,9 @@ export class FormsApiResponseProcessor {
   public async publishForm(
     response: ResponseContext,
   ): Promise<FormPublicationResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: FormPublicationResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -1123,7 +1135,10 @@ export class FormsApiResponseProcessor {
       response.httpStatusCode === 401 ||
       response.httpStatusCode === 404
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: JSONAPIErrorResponse;
       try {
         body = deserialize(
@@ -1144,7 +1159,10 @@ export class FormsApiResponseProcessor {
       );
     }
     if (response.httpStatusCode === 429) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -1159,7 +1177,10 @@ export class FormsApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -1187,8 +1208,12 @@ export class FormsApiResponseProcessor {
    * @params response Response returned by the server for a request to updateForm
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async updateForm(response: ResponseContext): Promise<FormResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+  public async updateForm(
+    response: ResponseContext,
+  ): Promise<FormResponse> {
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: FormResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -1202,7 +1227,10 @@ export class FormsApiResponseProcessor {
       response.httpStatusCode === 401 ||
       response.httpStatusCode === 404
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: JSONAPIErrorResponse;
       try {
         body = deserialize(
@@ -1223,7 +1251,10 @@ export class FormsApiResponseProcessor {
       );
     }
     if (response.httpStatusCode === 429) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -1238,7 +1269,10 @@ export class FormsApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -1269,7 +1303,9 @@ export class FormsApiResponseProcessor {
   public async upsertAndPublishFormVersion(
     response: ResponseContext,
   ): Promise<FormResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: FormResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -1283,7 +1319,10 @@ export class FormsApiResponseProcessor {
       response.httpStatusCode === 401 ||
       response.httpStatusCode === 404
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: JSONAPIErrorResponse;
       try {
         body = deserialize(
@@ -1304,7 +1343,10 @@ export class FormsApiResponseProcessor {
       );
     }
     if (response.httpStatusCode === 429) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -1319,7 +1361,10 @@ export class FormsApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -1350,7 +1395,9 @@ export class FormsApiResponseProcessor {
   public async upsertFormVersion(
     response: ResponseContext,
   ): Promise<FormVersionResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: FormVersionResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -1364,7 +1411,10 @@ export class FormsApiResponseProcessor {
       response.httpStatusCode === 401 ||
       response.httpStatusCode === 404
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: JSONAPIErrorResponse;
       try {
         body = deserialize(
@@ -1385,7 +1435,10 @@ export class FormsApiResponseProcessor {
       );
     }
     if (response.httpStatusCode === 429) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -1400,7 +1453,10 @@ export class FormsApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -1522,7 +1578,8 @@ export class FormsApi {
   private responseProcessor: FormsApiResponseProcessor;
   private configuration: Configuration;
 
-  static operationServers: { [key: string]: BaseServerConfiguration[] } = {};
+  static operationServers: { [key: string]: BaseServerConfiguration[] } = {
+  };
 
   public constructor(
     configuration?: Configuration,
@@ -1531,7 +1588,8 @@ export class FormsApi {
   ) {
     this.configuration = configuration || createConfiguration();
     this.requestFactory =
-      requestFactory || new FormsApiRequestFactory(this.configuration);
+      requestFactory ||
+      new FormsApiRequestFactory(this.configuration);
     this.responseProcessor =
       responseProcessor || new FormsApiResponseProcessor();
   }
@@ -1647,8 +1705,11 @@ export class FormsApi {
    * Get all forms for the authenticated user's organization.
    * @param param The request object
    */
-  public listForms(options?: Configuration): Promise<FormsResponse> {
-    const requestContextPromise = this.requestFactory.listForms(options);
+  public listForms(options?: Configuration,
+  ): Promise<FormsResponse> {
+    const requestContextPromise = this.requestFactory.listForms(
+      options,
+    );
     return requestContextPromise.then((requestContext) => {
       return this.configuration.httpApi
         .send(requestContext)
@@ -1710,19 +1771,16 @@ export class FormsApi {
     param: FormsApiUpsertAndPublishFormVersionRequest,
     options?: Configuration,
   ): Promise<FormResponse> {
-    const requestContextPromise =
-      this.requestFactory.upsertAndPublishFormVersion(
-        param.formId,
-        param.body,
-        options,
-      );
+    const requestContextPromise = this.requestFactory.upsertAndPublishFormVersion(
+      param.formId,
+      param.body,
+      options,
+    );
     return requestContextPromise.then((requestContext) => {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.upsertAndPublishFormVersion(
-            responseContext,
-          );
+          return this.responseProcessor.upsertAndPublishFormVersion(responseContext);
         });
     });
   }

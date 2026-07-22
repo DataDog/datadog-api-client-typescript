@@ -1,4 +1,6 @@
-export { IntegrationsApi } from "./IntegrationsApi";
+export {
+  IntegrationsApi,
+} from "./IntegrationsApi";
 
 export { APIErrorResponse } from "./models/APIErrorResponse";
 export { Integration } from "./models/Integration";

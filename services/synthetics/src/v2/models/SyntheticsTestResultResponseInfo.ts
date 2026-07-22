@@ -29,7 +29,7 @@ export class SyntheticsTestResultResponseInfo {
   /**
    * Cache-related response headers.
    */
-  "cacheHeaders"?: { [key: string]: string };
+  "cacheHeaders"?: { [key: string]: string; };
   /**
    * CDN provider details inferred from response headers.
    */
@@ -45,7 +45,7 @@ export class SyntheticsTestResultResponseInfo {
   /**
    * Response headers.
    */
-  "headers"?: { [key: string]: any };
+  "headers"?: { [key: string]: any; };
   /**
    * Health check information returned from a gRPC health check call.
    */
@@ -69,7 +69,7 @@ export class SyntheticsTestResultResponseInfo {
   /**
    * Additional metadata returned with the response.
    */
-  "metadata"?: { [key: string]: string };
+  "metadata"?: { [key: string]: string; };
   /**
    * DNS records returned in the response (DNS tests only).
    */
@@ -87,7 +87,7 @@ export class SyntheticsTestResultResponseInfo {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
   /**
    * @ignore
    */

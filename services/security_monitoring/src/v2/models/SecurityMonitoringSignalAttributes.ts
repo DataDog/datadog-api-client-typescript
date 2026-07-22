@@ -1,5 +1,6 @@
 import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
+
 /**
  * The object containing all signal attributes and their
  * associated values.
@@ -8,7 +9,7 @@ export class SecurityMonitoringSignalAttributes {
   /**
    * A JSON object of attributes in the security signal.
    */
-  "custom"?: { [key: string]: any };
+  "custom"?: { [key: string]: any; };
   /**
    * The message in the security signal defined by the rule that generated the signal.
    */
@@ -26,7 +27,7 @@ export class SecurityMonitoringSignalAttributes {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
   /**
    * @ignore
    */

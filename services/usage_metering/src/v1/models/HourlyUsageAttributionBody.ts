@@ -28,12 +28,12 @@ export class HourlyUsageAttributionBody {
   "tagConfigSource"?: string;
   /**
    * Tag keys and values.
-   *
+   * 
    * A `null` value here means that the requested tag breakdown cannot be applied because it does not match the [tags
    * configured for usage attribution](https://docs.datadoghq.com/account_management/billing/usage_attribution/#getting-started).
    * In this scenario the API returns the total usage, not broken down by tags.
    */
-  "tags"?: { [key: string]: Array<string> };
+  "tags"?: { [key: string]: Array<string>; };
   /**
    * Total product usage for the given tags within the hour.
    */
@@ -52,7 +52,7 @@ export class HourlyUsageAttributionBody {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
   /**
    * @ignore
    */

@@ -19,6 +19,7 @@ import {
   ServerConfiguration,
   stringify,
   applySecurityAuthentication,
+  
 } from "@datadog/datadog-api-client";
 
 import { TypingInfo } from "./models/TypingInfo";
@@ -52,15 +53,8 @@ export class LogsPipelinesApiRequestFactory extends BaseAPIRequestFactory {
     const localVarPath = "/api/v1/logs/config/pipelines";
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "LogsPipelinesApi.v1.createLogsPipeline",
-      LogsPipelinesApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.POST,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("LogsPipelinesApi.v1.createLogsPipeline", LogsPipelinesApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.POST, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -70,7 +64,9 @@ export class LogsPipelinesApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Body Params
-    const contentType = getPreferredMediaType(["application/json"]);
+    const contentType = getPreferredMediaType([
+      "application/json",
+    ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = stringify(
       serialize(body, TypingInfo, "LogsPipeline", ""),
@@ -105,15 +101,8 @@ export class LogsPipelinesApiRequestFactory extends BaseAPIRequestFactory {
     );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "LogsPipelinesApi.v1.deleteLogsPipeline",
-      LogsPipelinesApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.DELETE,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("LogsPipelinesApi.v1.deleteLogsPipeline", LogsPipelinesApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.DELETE, overrides);
     requestContext.setHeaderParam("Accept", "*/*");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -149,15 +138,8 @@ export class LogsPipelinesApiRequestFactory extends BaseAPIRequestFactory {
     );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "LogsPipelinesApi.v1.getLogsPipeline",
-      LogsPipelinesApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.GET,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("LogsPipelinesApi.v1.getLogsPipeline", LogsPipelinesApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.GET, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -184,15 +166,8 @@ export class LogsPipelinesApiRequestFactory extends BaseAPIRequestFactory {
     const localVarPath = "/api/v1/logs/config/pipeline-order";
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "LogsPipelinesApi.v1.getLogsPipelineOrder",
-      LogsPipelinesApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.GET,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("LogsPipelinesApi.v1.getLogsPipelineOrder", LogsPipelinesApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.GET, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -219,15 +194,8 @@ export class LogsPipelinesApiRequestFactory extends BaseAPIRequestFactory {
     const localVarPath = "/api/v1/logs/config/pipelines";
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "LogsPipelinesApi.v1.listLogsPipelines",
-      LogsPipelinesApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.GET,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("LogsPipelinesApi.v1.listLogsPipelines", LogsPipelinesApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.GET, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -269,15 +237,8 @@ export class LogsPipelinesApiRequestFactory extends BaseAPIRequestFactory {
     );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "LogsPipelinesApi.v1.updateLogsPipeline",
-      LogsPipelinesApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.PUT,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("LogsPipelinesApi.v1.updateLogsPipeline", LogsPipelinesApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.PUT, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -287,7 +248,9 @@ export class LogsPipelinesApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Body Params
-    const contentType = getPreferredMediaType(["application/json"]);
+    const contentType = getPreferredMediaType([
+      "application/json",
+    ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = stringify(
       serialize(body, TypingInfo, "LogsPipeline", ""),
@@ -319,15 +282,8 @@ export class LogsPipelinesApiRequestFactory extends BaseAPIRequestFactory {
     const localVarPath = "/api/v1/logs/config/pipeline-order";
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "LogsPipelinesApi.v1.updateLogsPipelineOrder",
-      LogsPipelinesApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.PUT,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("LogsPipelinesApi.v1.updateLogsPipelineOrder", LogsPipelinesApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.PUT, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -337,7 +293,9 @@ export class LogsPipelinesApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Body Params
-    const contentType = getPreferredMediaType(["application/json"]);
+    const contentType = getPreferredMediaType([
+      "application/json",
+    ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = stringify(
       serialize(body, TypingInfo, "LogsPipelinesOrder", ""),
@@ -366,7 +324,9 @@ export class LogsPipelinesApiResponseProcessor {
   public async createLogsPipeline(
     response: ResponseContext,
   ): Promise<LogsPipeline> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: LogsPipeline = deserialize(
         parse(await response.body.text(), contentType),
@@ -376,7 +336,10 @@ export class LogsPipelinesApiResponseProcessor {
       return body;
     }
     if (response.httpStatusCode === 400) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: LogsAPIErrorResponse;
       try {
         body = deserialize(
@@ -396,8 +359,14 @@ export class LogsPipelinesApiResponseProcessor {
         body,
       );
     }
-    if (response.httpStatusCode === 403 || response.httpStatusCode === 429) {
-      const bodyText = parse(await response.body.text(), contentType);
+    if (
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 429
+    ) {
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -412,7 +381,10 @@ export class LogsPipelinesApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -440,13 +412,20 @@ export class LogsPipelinesApiResponseProcessor {
    * @params response Response returned by the server for a request to deleteLogsPipeline
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async deleteLogsPipeline(response: ResponseContext): Promise<void> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+  public async deleteLogsPipeline(
+    response: ResponseContext,
+  ): Promise<void> {
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       return;
     }
     if (response.httpStatusCode === 400) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: LogsAPIErrorResponse;
       try {
         body = deserialize(
@@ -466,8 +445,14 @@ export class LogsPipelinesApiResponseProcessor {
         body,
       );
     }
-    if (response.httpStatusCode === 403 || response.httpStatusCode === 429) {
-      const bodyText = parse(await response.body.text(), contentType);
+    if (
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 429
+    ) {
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -482,7 +467,10 @@ export class LogsPipelinesApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -507,7 +495,9 @@ export class LogsPipelinesApiResponseProcessor {
   public async getLogsPipeline(
     response: ResponseContext,
   ): Promise<LogsPipeline> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: LogsPipeline = deserialize(
         parse(await response.body.text(), contentType),
@@ -517,7 +507,10 @@ export class LogsPipelinesApiResponseProcessor {
       return body;
     }
     if (response.httpStatusCode === 400) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: LogsAPIErrorResponse;
       try {
         body = deserialize(
@@ -537,8 +530,14 @@ export class LogsPipelinesApiResponseProcessor {
         body,
       );
     }
-    if (response.httpStatusCode === 403 || response.httpStatusCode === 429) {
-      const bodyText = parse(await response.body.text(), contentType);
+    if (
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 429
+    ) {
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -553,7 +552,10 @@ export class LogsPipelinesApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -584,7 +586,9 @@ export class LogsPipelinesApiResponseProcessor {
   public async getLogsPipelineOrder(
     response: ResponseContext,
   ): Promise<LogsPipelinesOrder> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: LogsPipelinesOrder = deserialize(
         parse(await response.body.text(), contentType),
@@ -593,8 +597,14 @@ export class LogsPipelinesApiResponseProcessor {
       ) as LogsPipelinesOrder;
       return body;
     }
-    if (response.httpStatusCode === 403 || response.httpStatusCode === 429) {
-      const bodyText = parse(await response.body.text(), contentType);
+    if (
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 429
+    ) {
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -609,7 +619,10 @@ export class LogsPipelinesApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -640,7 +653,9 @@ export class LogsPipelinesApiResponseProcessor {
   public async listLogsPipelines(
     response: ResponseContext,
   ): Promise<Array<LogsPipeline>> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: Array<LogsPipeline> = deserialize(
         parse(await response.body.text(), contentType),
@@ -649,8 +664,14 @@ export class LogsPipelinesApiResponseProcessor {
       ) as Array<LogsPipeline>;
       return body;
     }
-    if (response.httpStatusCode === 403 || response.httpStatusCode === 429) {
-      const bodyText = parse(await response.body.text(), contentType);
+    if (
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 429
+    ) {
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -665,7 +686,10 @@ export class LogsPipelinesApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -696,7 +720,9 @@ export class LogsPipelinesApiResponseProcessor {
   public async updateLogsPipeline(
     response: ResponseContext,
   ): Promise<LogsPipeline> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: LogsPipeline = deserialize(
         parse(await response.body.text(), contentType),
@@ -706,7 +732,10 @@ export class LogsPipelinesApiResponseProcessor {
       return body;
     }
     if (response.httpStatusCode === 400) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: LogsAPIErrorResponse;
       try {
         body = deserialize(
@@ -726,8 +755,14 @@ export class LogsPipelinesApiResponseProcessor {
         body,
       );
     }
-    if (response.httpStatusCode === 403 || response.httpStatusCode === 429) {
-      const bodyText = parse(await response.body.text(), contentType);
+    if (
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 429
+    ) {
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -742,7 +777,10 @@ export class LogsPipelinesApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -773,7 +811,9 @@ export class LogsPipelinesApiResponseProcessor {
   public async updateLogsPipelineOrder(
     response: ResponseContext,
   ): Promise<LogsPipelinesOrder> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: LogsPipelinesOrder = deserialize(
         parse(await response.body.text(), contentType),
@@ -782,8 +822,14 @@ export class LogsPipelinesApiResponseProcessor {
       ) as LogsPipelinesOrder;
       return body;
     }
-    if (response.httpStatusCode === 400 || response.httpStatusCode === 422) {
-      const bodyText = parse(await response.body.text(), contentType);
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 422
+    ) {
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: LogsAPIErrorResponse;
       try {
         body = deserialize(
@@ -803,8 +849,14 @@ export class LogsPipelinesApiResponseProcessor {
         body,
       );
     }
-    if (response.httpStatusCode === 403 || response.httpStatusCode === 429) {
-      const bodyText = parse(await response.body.text(), contentType);
+    if (
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 429
+    ) {
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -819,7 +871,10 @@ export class LogsPipelinesApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -891,7 +946,8 @@ export class LogsPipelinesApi {
   private responseProcessor: LogsPipelinesApiResponseProcessor;
   private configuration: Configuration;
 
-  static operationServers: { [key: string]: BaseServerConfiguration[] } = {};
+  static operationServers: { [key: string]: BaseServerConfiguration[] } = {
+  };
 
   public constructor(
     configuration?: Configuration,
@@ -900,7 +956,8 @@ export class LogsPipelinesApi {
   ) {
     this.configuration = configuration || createConfiguration();
     this.requestFactory =
-      requestFactory || new LogsPipelinesApiRequestFactory(this.configuration);
+      requestFactory ||
+      new LogsPipelinesApiRequestFactory(this.configuration);
     this.responseProcessor =
       responseProcessor || new LogsPipelinesApiResponseProcessor();
   }
@@ -975,11 +1032,11 @@ export class LogsPipelinesApi {
    * This endpoint takes no JSON arguments.
    * @param param The request object
    */
-  public getLogsPipelineOrder(
-    options?: Configuration,
+  public getLogsPipelineOrder(options?: Configuration,
   ): Promise<LogsPipelinesOrder> {
-    const requestContextPromise =
-      this.requestFactory.getLogsPipelineOrder(options);
+    const requestContextPromise = this.requestFactory.getLogsPipelineOrder(
+      options,
+    );
     return requestContextPromise.then((requestContext) => {
       return this.configuration.httpApi
         .send(requestContext)
@@ -994,11 +1051,11 @@ export class LogsPipelinesApi {
    * This endpoint takes no JSON arguments.
    * @param param The request object
    */
-  public listLogsPipelines(
-    options?: Configuration,
+  public listLogsPipelines(options?: Configuration,
   ): Promise<Array<LogsPipeline>> {
-    const requestContextPromise =
-      this.requestFactory.listLogsPipelines(options);
+    const requestContextPromise = this.requestFactory.listLogsPipelines(
+      options,
+    );
     return requestContextPromise.then((requestContext) => {
       return this.configuration.httpApi
         .send(requestContext)
@@ -1010,7 +1067,7 @@ export class LogsPipelinesApi {
 
   /**
    * Update a given pipeline configuration to change it’s processors or their order.
-   *
+   * 
    * **Note**: Using this method updates your pipeline configuration by **replacing**
    * your current configuration with the new one sent to your Datadog organization.
    * @param param The request object
@@ -1036,7 +1093,7 @@ export class LogsPipelinesApi {
   /**
    * Update the order of your pipelines. Since logs are processed sequentially, reordering a pipeline may change
    * the structure and content of the data processed by other pipelines and their processors.
-   *
+   * 
    * **Note**: Using the `PUT` method updates your pipeline order by replacing your current order
    * with the new one sent to your Datadog organization.
    * @param param The request object
@@ -1053,9 +1110,7 @@ export class LogsPipelinesApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.updateLogsPipelineOrder(
-            responseContext,
-          );
+          return this.responseProcessor.updateLogsPipelineOrder(responseContext);
         });
     });
   }

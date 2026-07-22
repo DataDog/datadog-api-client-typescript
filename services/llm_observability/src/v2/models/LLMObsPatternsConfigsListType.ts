@@ -6,5 +6,4 @@ import { UnparsedObject } from "@datadog/datadog-api-client";
 export type LLMObsPatternsConfigsListType =
   | typeof LIST_TOPIC_DISCOVERY_CONFIGS_RESPONSE
   | UnparsedObject;
-export const LIST_TOPIC_DISCOVERY_CONFIGS_RESPONSE =
-  "list_topic_discovery_configs_response";
+export const LIST_TOPIC_DISCOVERY_CONFIGS_RESPONSE = "list_topic_discovery_configs_response";

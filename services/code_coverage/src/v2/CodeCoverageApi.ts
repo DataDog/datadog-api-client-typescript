@@ -19,6 +19,7 @@ import {
   ServerConfiguration,
   stringify,
   applySecurityAuthentication,
+  
 } from "@datadog/datadog-api-client";
 
 import { TypingInfo } from "./models/TypingInfo";
@@ -43,14 +44,8 @@ export class CodeCoverageApiRequestFactory extends BaseAPIRequestFactory {
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
-    if (
-      !_config.unstableOperations[
-        "CodeCoverageApi.v2.getCodeCoverageBranchSummary"
-      ]
-    ) {
-      throw new Error(
-        "Unstable operation 'getCodeCoverageBranchSummary' is disabled. Enable it by setting `configuration.unstableOperations['CodeCoverageApi.v2.getCodeCoverageBranchSummary'] = true`",
-      );
+    if (!_config.unstableOperations["CodeCoverageApi.v2.getCodeCoverageBranchSummary"]) {
+      throw new Error("Unstable operation 'getCodeCoverageBranchSummary' is disabled. Enable it by setting `configuration.unstableOperations['CodeCoverageApi.v2.getCodeCoverageBranchSummary'] = true`");
     }
 
     // verify required parameter 'body' is not null or undefined
@@ -62,15 +57,8 @@ export class CodeCoverageApiRequestFactory extends BaseAPIRequestFactory {
     const localVarPath = "/api/v2/code-coverage/branch/summary";
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "CodeCoverageApi.v2.getCodeCoverageBranchSummary",
-      CodeCoverageApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.POST,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("CodeCoverageApi.v2.getCodeCoverageBranchSummary", CodeCoverageApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.POST, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -80,7 +68,9 @@ export class CodeCoverageApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Body Params
-    const contentType = getPreferredMediaType(["application/json"]);
+    const contentType = getPreferredMediaType([
+      "application/json",
+    ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = stringify(
       serialize(body, TypingInfo, "BranchCoverageSummaryRequest", ""),
@@ -104,14 +94,8 @@ export class CodeCoverageApiRequestFactory extends BaseAPIRequestFactory {
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
-    if (
-      !_config.unstableOperations[
-        "CodeCoverageApi.v2.getCodeCoverageCommitSummary"
-      ]
-    ) {
-      throw new Error(
-        "Unstable operation 'getCodeCoverageCommitSummary' is disabled. Enable it by setting `configuration.unstableOperations['CodeCoverageApi.v2.getCodeCoverageCommitSummary'] = true`",
-      );
+    if (!_config.unstableOperations["CodeCoverageApi.v2.getCodeCoverageCommitSummary"]) {
+      throw new Error("Unstable operation 'getCodeCoverageCommitSummary' is disabled. Enable it by setting `configuration.unstableOperations['CodeCoverageApi.v2.getCodeCoverageCommitSummary'] = true`");
     }
 
     // verify required parameter 'body' is not null or undefined
@@ -123,15 +107,8 @@ export class CodeCoverageApiRequestFactory extends BaseAPIRequestFactory {
     const localVarPath = "/api/v2/code-coverage/commit/summary";
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "CodeCoverageApi.v2.getCodeCoverageCommitSummary",
-      CodeCoverageApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.POST,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("CodeCoverageApi.v2.getCodeCoverageCommitSummary", CodeCoverageApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.POST, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -141,7 +118,9 @@ export class CodeCoverageApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Body Params
-    const contentType = getPreferredMediaType(["application/json"]);
+    const contentType = getPreferredMediaType([
+      "application/json",
+    ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = stringify(
       serialize(body, TypingInfo, "CommitCoverageSummaryRequest", ""),
@@ -171,7 +150,9 @@ export class CodeCoverageApiResponseProcessor {
   public async getCodeCoverageBranchSummary(
     response: ResponseContext,
   ): Promise<CoverageSummaryResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: CoverageSummaryResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -187,7 +168,10 @@ export class CodeCoverageApiResponseProcessor {
       response.httpStatusCode === 429 ||
       response.httpStatusCode === 500
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -202,7 +186,10 @@ export class CodeCoverageApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -233,7 +220,9 @@ export class CodeCoverageApiResponseProcessor {
   public async getCodeCoverageCommitSummary(
     response: ResponseContext,
   ): Promise<CoverageSummaryResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: CoverageSummaryResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -249,7 +238,10 @@ export class CodeCoverageApiResponseProcessor {
       response.httpStatusCode === 429 ||
       response.httpStatusCode === 500
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -264,7 +256,10 @@ export class CodeCoverageApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -305,7 +300,8 @@ export class CodeCoverageApi {
   private responseProcessor: CodeCoverageApiResponseProcessor;
   private configuration: Configuration;
 
-  static operationServers: { [key: string]: BaseServerConfiguration[] } = {};
+  static operationServers: { [key: string]: BaseServerConfiguration[] } = {
+  };
 
   public constructor(
     configuration?: Configuration,
@@ -314,7 +310,8 @@ export class CodeCoverageApi {
   ) {
     this.configuration = configuration || createConfiguration();
     this.requestFactory =
-      requestFactory || new CodeCoverageApiRequestFactory(this.configuration);
+      requestFactory ||
+      new CodeCoverageApiRequestFactory(this.configuration);
     this.responseProcessor =
       responseProcessor || new CodeCoverageApiResponseProcessor();
   }
@@ -329,15 +326,15 @@ export class CodeCoverageApi {
     param: CodeCoverageApiGetCodeCoverageBranchSummaryRequest,
     options?: Configuration,
   ): Promise<CoverageSummaryResponse> {
-    const requestContextPromise =
-      this.requestFactory.getCodeCoverageBranchSummary(param.body, options);
+    const requestContextPromise = this.requestFactory.getCodeCoverageBranchSummary(
+      param.body,
+      options,
+    );
     return requestContextPromise.then((requestContext) => {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.getCodeCoverageBranchSummary(
-            responseContext,
-          );
+          return this.responseProcessor.getCodeCoverageBranchSummary(responseContext);
         });
     });
   }
@@ -346,7 +343,7 @@ export class CodeCoverageApi {
    * Retrieve aggregated code coverage statistics for a specific commit in a repository.
    * This endpoint provides overall coverage metrics as well as breakdowns by service
    * and code owner.
-   *
+   * 
    * The commit SHA must be a 40-character hexadecimal string (SHA-1 hash).
    * @param param The request object
    */
@@ -354,15 +351,15 @@ export class CodeCoverageApi {
     param: CodeCoverageApiGetCodeCoverageCommitSummaryRequest,
     options?: Configuration,
   ): Promise<CoverageSummaryResponse> {
-    const requestContextPromise =
-      this.requestFactory.getCodeCoverageCommitSummary(param.body, options);
+    const requestContextPromise = this.requestFactory.getCodeCoverageCommitSummary(
+      param.body,
+      options,
+    );
     return requestContextPromise.then((requestContext) => {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.getCodeCoverageCommitSummary(
-            responseContext,
-          );
+          return this.responseProcessor.getCodeCoverageCommitSummary(responseContext);
         });
     });
   }

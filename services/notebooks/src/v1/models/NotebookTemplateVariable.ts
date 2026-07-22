@@ -17,7 +17,7 @@ export class NotebookTemplateVariable {
   /**
    * Mapping of data source names to template variable values.
    */
-  "dataSourceMappings"?: { [key: string]: string };
+  "dataSourceMappings"?: { [key: string]: string; };
   /**
    * (deprecated) The default value for the template variable on notebook load.
    * Cannot be used in conjunction with `defaults`.
@@ -88,7 +88,7 @@ export class NotebookTemplateVariable {
     type: {
       baseName: "type",
       type: "string",
-    },
+    }
   };
 
   /**

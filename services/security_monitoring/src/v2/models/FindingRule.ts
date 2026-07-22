@@ -1,5 +1,6 @@
 import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
+
 /**
  * The rule that triggered this finding.
  */
@@ -28,7 +29,7 @@ export class FindingRule {
     name: {
       baseName: "name",
       type: "string",
-    },
+    }
   };
 
   /**

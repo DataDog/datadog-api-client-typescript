@@ -36,8 +36,7 @@ export const TypingInfo: ModelTypingInfo = {
     APIErrorResponse: APIErrorResponse,
     GetInvestigationResponse: GetInvestigationResponse,
     GetInvestigationResponseData: GetInvestigationResponseData,
-    GetInvestigationResponseDataAttributes:
-      GetInvestigationResponseDataAttributes,
+    GetInvestigationResponseDataAttributes: GetInvestigationResponseDataAttributes,
     GetInvestigationResponseLinks: GetInvestigationResponseLinks,
     InvestigationConclusion: InvestigationConclusion,
     JSONAPIErrorItem: JSONAPIErrorItem,
@@ -45,8 +44,7 @@ export const TypingInfo: ModelTypingInfo = {
     JSONAPIErrorResponse: JSONAPIErrorResponse,
     ListInvestigationsResponse: ListInvestigationsResponse,
     ListInvestigationsResponseData: ListInvestigationsResponseData,
-    ListInvestigationsResponseDataAttributes:
-      ListInvestigationsResponseDataAttributes,
+    ListInvestigationsResponseDataAttributes: ListInvestigationsResponseDataAttributes,
     ListInvestigationsResponseLinks: ListInvestigationsResponseLinks,
     ListInvestigationsResponseMeta: ListInvestigationsResponseMeta,
     ListInvestigationsResponseMetaPage: ListInvestigationsResponseMetaPage,
@@ -54,11 +52,9 @@ export const TypingInfo: ModelTypingInfo = {
     TriggerAttributes: TriggerAttributes,
     TriggerInvestigationRequest: TriggerInvestigationRequest,
     TriggerInvestigationRequestData: TriggerInvestigationRequestData,
-    TriggerInvestigationRequestDataAttributes:
-      TriggerInvestigationRequestDataAttributes,
+    TriggerInvestigationRequestDataAttributes: TriggerInvestigationRequestDataAttributes,
     TriggerInvestigationResponse: TriggerInvestigationResponse,
     TriggerInvestigationResponseData: TriggerInvestigationResponseData,
-    TriggerInvestigationResponseDataAttributes:
-      TriggerInvestigationResponseDataAttributes,
+    TriggerInvestigationResponseDataAttributes: TriggerInvestigationResponseDataAttributes,
   },
 };

@@ -9,7 +9,7 @@ export class SpansAggregateBucketAttributes {
   /**
    * The key, value pairs for each group by.
    */
-  "by"?: { [key: string]: any };
+  "by"?: { [key: string]: any; };
   /**
    * The compute data.
    */
@@ -17,13 +17,13 @@ export class SpansAggregateBucketAttributes {
   /**
    * A map of the metric name -> value for regular compute or list of values for a timeseries.
    */
-  "computes"?: { [key: string]: SpansAggregateBucketValue };
+  "computes"?: { [key: string]: SpansAggregateBucketValue; };
   /**
    * A container for additional, undeclared properties.
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
   /**
    * @ignore
    */

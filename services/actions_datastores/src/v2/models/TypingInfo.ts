@@ -46,11 +46,7 @@ import { UpdateAppsDatastoreRequestDataAttributes } from "./UpdateAppsDatastoreR
 export const TypingInfo: ModelTypingInfo = {
   enumsMap: {
     BulkDeleteAppsDatastoreItemsRequestDataType: ["items"],
-    CreateAppsDatastoreRequestDataAttributesOrgAccess: [
-      "contributor",
-      "viewer",
-      "manager",
-    ],
+    CreateAppsDatastoreRequestDataAttributesOrgAccess: ["contributor", "viewer", "manager"],
     DatastoreDataType: ["datastores"],
     DatastoreItemConflictMode: ["fail_on_conflict", "overwrite_on_conflict"],
     DatastoreItemsDataType: ["items"],
@@ -61,18 +57,14 @@ export const TypingInfo: ModelTypingInfo = {
   typeMap: {
     APIErrorResponse: APIErrorResponse,
     BulkDeleteAppsDatastoreItemsRequest: BulkDeleteAppsDatastoreItemsRequest,
-    BulkDeleteAppsDatastoreItemsRequestData:
-      BulkDeleteAppsDatastoreItemsRequestData,
-    BulkDeleteAppsDatastoreItemsRequestDataAttributes:
-      BulkDeleteAppsDatastoreItemsRequestDataAttributes,
+    BulkDeleteAppsDatastoreItemsRequestData: BulkDeleteAppsDatastoreItemsRequestData,
+    BulkDeleteAppsDatastoreItemsRequestDataAttributes: BulkDeleteAppsDatastoreItemsRequestDataAttributes,
     BulkPutAppsDatastoreItemsRequest: BulkPutAppsDatastoreItemsRequest,
     BulkPutAppsDatastoreItemsRequestData: BulkPutAppsDatastoreItemsRequestData,
-    BulkPutAppsDatastoreItemsRequestDataAttributes:
-      BulkPutAppsDatastoreItemsRequestDataAttributes,
+    BulkPutAppsDatastoreItemsRequestDataAttributes: BulkPutAppsDatastoreItemsRequestDataAttributes,
     CreateAppsDatastoreRequest: CreateAppsDatastoreRequest,
     CreateAppsDatastoreRequestData: CreateAppsDatastoreRequestData,
-    CreateAppsDatastoreRequestDataAttributes:
-      CreateAppsDatastoreRequestDataAttributes,
+    CreateAppsDatastoreRequestDataAttributes: CreateAppsDatastoreRequestDataAttributes,
     CreateAppsDatastoreResponse: CreateAppsDatastoreResponse,
     CreateAppsDatastoreResponseData: CreateAppsDatastoreResponseData,
     Datastore: Datastore,
@@ -81,8 +73,7 @@ export const TypingInfo: ModelTypingInfo = {
     DatastoreDataAttributes: DatastoreDataAttributes,
     DeleteAppsDatastoreItemRequest: DeleteAppsDatastoreItemRequest,
     DeleteAppsDatastoreItemRequestData: DeleteAppsDatastoreItemRequestData,
-    DeleteAppsDatastoreItemRequestDataAttributes:
-      DeleteAppsDatastoreItemRequestDataAttributes,
+    DeleteAppsDatastoreItemRequestDataAttributes: DeleteAppsDatastoreItemRequestDataAttributes,
     DeleteAppsDatastoreItemResponse: DeleteAppsDatastoreItemResponse,
     DeleteAppsDatastoreItemResponseArray: DeleteAppsDatastoreItemResponseArray,
     DeleteAppsDatastoreItemResponseData: DeleteAppsDatastoreItemResponseData,
@@ -101,13 +92,10 @@ export const TypingInfo: ModelTypingInfo = {
     PutAppsDatastoreItemResponseData: PutAppsDatastoreItemResponseData,
     UpdateAppsDatastoreItemRequest: UpdateAppsDatastoreItemRequest,
     UpdateAppsDatastoreItemRequestData: UpdateAppsDatastoreItemRequestData,
-    UpdateAppsDatastoreItemRequestDataAttributes:
-      UpdateAppsDatastoreItemRequestDataAttributes,
-    UpdateAppsDatastoreItemRequestDataAttributesItemChanges:
-      UpdateAppsDatastoreItemRequestDataAttributesItemChanges,
+    UpdateAppsDatastoreItemRequestDataAttributes: UpdateAppsDatastoreItemRequestDataAttributes,
+    UpdateAppsDatastoreItemRequestDataAttributesItemChanges: UpdateAppsDatastoreItemRequestDataAttributesItemChanges,
     UpdateAppsDatastoreRequest: UpdateAppsDatastoreRequest,
     UpdateAppsDatastoreRequestData: UpdateAppsDatastoreRequestData,
-    UpdateAppsDatastoreRequestDataAttributes:
-      UpdateAppsDatastoreRequestDataAttributes,
+    UpdateAppsDatastoreRequestDataAttributes: UpdateAppsDatastoreRequestDataAttributes,
   },
 };

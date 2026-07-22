@@ -5,7 +5,7 @@ import { ObservabilityPipelineOcsfMapperProcessorType } from "./ObservabilityPip
 
 /**
  * The `ocsf_mapper` processor transforms logs into the OCSF schema using a predefined mapping configuration.
- *
+ * 
  * **Supported pipeline types:** logs
  */
 export class ObservabilityPipelineOcsfMapperProcessor {
@@ -42,7 +42,7 @@ export class ObservabilityPipelineOcsfMapperProcessor {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
   /**
    * @ignore
    */

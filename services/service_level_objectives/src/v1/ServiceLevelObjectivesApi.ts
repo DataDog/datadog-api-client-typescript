@@ -19,6 +19,7 @@ import {
   ServerConfiguration,
   stringify,
   applySecurityAuthentication,
+  
 } from "@datadog/datadog-api-client";
 
 import { TypingInfo } from "./models/TypingInfo";
@@ -60,15 +61,8 @@ export class ServiceLevelObjectivesApiRequestFactory extends BaseAPIRequestFacto
     const localVarPath = "/api/v1/slo/can_delete";
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "ServiceLevelObjectivesApi.v1.checkCanDeleteSLO",
-      ServiceLevelObjectivesApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.GET,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("ServiceLevelObjectivesApi.v1.checkCanDeleteSLO", ServiceLevelObjectivesApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.GET, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -111,15 +105,8 @@ export class ServiceLevelObjectivesApiRequestFactory extends BaseAPIRequestFacto
     const localVarPath = "/api/v1/slo";
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "ServiceLevelObjectivesApi.v1.createSLO",
-      ServiceLevelObjectivesApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.POST,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("ServiceLevelObjectivesApi.v1.createSLO", ServiceLevelObjectivesApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.POST, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -129,7 +116,9 @@ export class ServiceLevelObjectivesApiRequestFactory extends BaseAPIRequestFacto
     }
 
     // Body Params
-    const contentType = getPreferredMediaType(["application/json"]);
+    const contentType = getPreferredMediaType([
+      "application/json",
+    ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = stringify(
       serialize(body, TypingInfo, "ServiceLevelObjectiveRequest", ""),
@@ -166,15 +155,8 @@ export class ServiceLevelObjectivesApiRequestFactory extends BaseAPIRequestFacto
     );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "ServiceLevelObjectivesApi.v1.deleteSLO",
-      ServiceLevelObjectivesApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.DELETE,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("ServiceLevelObjectivesApi.v1.deleteSLO", ServiceLevelObjectivesApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.DELETE, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -203,7 +185,7 @@ export class ServiceLevelObjectivesApiRequestFactory extends BaseAPIRequestFacto
   }
 
   public async deleteSLOTimeframeInBulk(
-    body: { [key: string]: Array<SLOTimeframe> },
+    body: { [key: string]: Array<SLOTimeframe>; },
     _options?: Configuration,
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
@@ -217,15 +199,8 @@ export class ServiceLevelObjectivesApiRequestFactory extends BaseAPIRequestFacto
     const localVarPath = "/api/v1/slo/bulk_delete";
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "ServiceLevelObjectivesApi.v1.deleteSLOTimeframeInBulk",
-      ServiceLevelObjectivesApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.POST,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("ServiceLevelObjectivesApi.v1.deleteSLOTimeframeInBulk", ServiceLevelObjectivesApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.POST, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -235,15 +210,12 @@ export class ServiceLevelObjectivesApiRequestFactory extends BaseAPIRequestFacto
     }
 
     // Body Params
-    const contentType = getPreferredMediaType(["application/json"]);
+    const contentType = getPreferredMediaType([
+      "application/json",
+    ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = stringify(
-      serialize(
-        body,
-        TypingInfo,
-        "{ [key: string]: Array<SLOTimeframe>; }",
-        "",
-      ),
+      serialize(body, TypingInfo, "{ [key: string]: Array<SLOTimeframe>; }", ""),
       contentType,
     );
     requestContext.setBody(serializedBody);
@@ -277,15 +249,8 @@ export class ServiceLevelObjectivesApiRequestFactory extends BaseAPIRequestFacto
     );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "ServiceLevelObjectivesApi.v1.getSLO",
-      ServiceLevelObjectivesApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.GET,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("ServiceLevelObjectivesApi.v1.getSLO", ServiceLevelObjectivesApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.GET, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -331,15 +296,8 @@ export class ServiceLevelObjectivesApiRequestFactory extends BaseAPIRequestFacto
     );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "ServiceLevelObjectivesApi.v1.getSLOCorrections",
-      ServiceLevelObjectivesApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.GET,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("ServiceLevelObjectivesApi.v1.getSLOCorrections", ServiceLevelObjectivesApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.GET, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -390,15 +348,8 @@ export class ServiceLevelObjectivesApiRequestFactory extends BaseAPIRequestFacto
     );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "ServiceLevelObjectivesApi.v1.getSLOHistory",
-      ServiceLevelObjectivesApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.GET,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("ServiceLevelObjectivesApi.v1.getSLOHistory", ServiceLevelObjectivesApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.GET, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -462,15 +413,8 @@ export class ServiceLevelObjectivesApiRequestFactory extends BaseAPIRequestFacto
     const localVarPath = "/api/v1/slo";
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "ServiceLevelObjectivesApi.v1.listSLOs",
-      ServiceLevelObjectivesApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.GET,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("ServiceLevelObjectivesApi.v1.listSLOs", ServiceLevelObjectivesApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.GET, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -546,15 +490,8 @@ export class ServiceLevelObjectivesApiRequestFactory extends BaseAPIRequestFacto
     const localVarPath = "/api/v1/slo/search";
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "ServiceLevelObjectivesApi.v1.searchSLO",
-      ServiceLevelObjectivesApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.GET,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("ServiceLevelObjectivesApi.v1.searchSLO", ServiceLevelObjectivesApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.GET, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -627,15 +564,8 @@ export class ServiceLevelObjectivesApiRequestFactory extends BaseAPIRequestFacto
     );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "ServiceLevelObjectivesApi.v1.updateSLO",
-      ServiceLevelObjectivesApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.PUT,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("ServiceLevelObjectivesApi.v1.updateSLO", ServiceLevelObjectivesApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.PUT, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -645,7 +575,9 @@ export class ServiceLevelObjectivesApiRequestFactory extends BaseAPIRequestFacto
     }
 
     // Body Params
-    const contentType = getPreferredMediaType(["application/json"]);
+    const contentType = getPreferredMediaType([
+      "application/json",
+    ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = stringify(
       serialize(body, TypingInfo, "ServiceLevelObjective", ""),
@@ -675,8 +607,13 @@ export class ServiceLevelObjectivesApiResponseProcessor {
   public async checkCanDeleteSLO(
     response: ResponseContext,
   ): Promise<CheckCanDeleteSLOResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
-    if (response.httpStatusCode === 200 || response.httpStatusCode === 409) {
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
+    if (
+      response.httpStatusCode === 200 ||
+      response.httpStatusCode === 409
+    ) {
       const body: CheckCanDeleteSLOResponse = deserialize(
         parse(await response.body.text(), contentType),
         TypingInfo,
@@ -689,7 +626,10 @@ export class ServiceLevelObjectivesApiResponseProcessor {
       response.httpStatusCode === 403 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -704,7 +644,10 @@ export class ServiceLevelObjectivesApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -732,8 +675,12 @@ export class ServiceLevelObjectivesApiResponseProcessor {
    * @params response Response returned by the server for a request to createSLO
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async createSLO(response: ResponseContext): Promise<SLOListResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+  public async createSLO(
+    response: ResponseContext,
+  ): Promise<SLOListResponse> {
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: SLOListResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -747,7 +694,10 @@ export class ServiceLevelObjectivesApiResponseProcessor {
       response.httpStatusCode === 403 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -762,7 +712,10 @@ export class ServiceLevelObjectivesApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -793,8 +746,13 @@ export class ServiceLevelObjectivesApiResponseProcessor {
   public async deleteSLO(
     response: ResponseContext,
   ): Promise<SLODeleteResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
-    if (response.httpStatusCode === 200 || response.httpStatusCode === 409) {
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
+    if (
+      response.httpStatusCode === 200 ||
+      response.httpStatusCode === 409
+    ) {
       const body: SLODeleteResponse = deserialize(
         parse(await response.body.text(), contentType),
         TypingInfo,
@@ -807,7 +765,10 @@ export class ServiceLevelObjectivesApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -822,7 +783,10 @@ export class ServiceLevelObjectivesApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -853,7 +817,9 @@ export class ServiceLevelObjectivesApiResponseProcessor {
   public async deleteSLOTimeframeInBulk(
     response: ResponseContext,
   ): Promise<SLOBulkDeleteResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: SLOBulkDeleteResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -867,7 +833,10 @@ export class ServiceLevelObjectivesApiResponseProcessor {
       response.httpStatusCode === 403 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -882,7 +851,10 @@ export class ServiceLevelObjectivesApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -910,8 +882,12 @@ export class ServiceLevelObjectivesApiResponseProcessor {
    * @params response Response returned by the server for a request to getSLO
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async getSLO(response: ResponseContext): Promise<SLOResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+  public async getSLO(
+    response: ResponseContext,
+  ): Promise<SLOResponse> {
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: SLOResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -925,7 +901,10 @@ export class ServiceLevelObjectivesApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -940,7 +919,10 @@ export class ServiceLevelObjectivesApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -971,7 +953,9 @@ export class ServiceLevelObjectivesApiResponseProcessor {
   public async getSLOCorrections(
     response: ResponseContext,
   ): Promise<SLOCorrectionListResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: SLOCorrectionListResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -986,7 +970,10 @@ export class ServiceLevelObjectivesApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -1001,7 +988,10 @@ export class ServiceLevelObjectivesApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -1032,7 +1022,9 @@ export class ServiceLevelObjectivesApiResponseProcessor {
   public async getSLOHistory(
     response: ResponseContext,
   ): Promise<SLOHistoryResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: SLOHistoryResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -1047,7 +1039,10 @@ export class ServiceLevelObjectivesApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -1062,7 +1057,10 @@ export class ServiceLevelObjectivesApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -1090,8 +1088,12 @@ export class ServiceLevelObjectivesApiResponseProcessor {
    * @params response Response returned by the server for a request to listSLOs
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async listSLOs(response: ResponseContext): Promise<SLOListResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+  public async listSLOs(
+    response: ResponseContext,
+  ): Promise<SLOListResponse> {
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: SLOListResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -1106,7 +1108,10 @@ export class ServiceLevelObjectivesApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -1121,7 +1126,10 @@ export class ServiceLevelObjectivesApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -1152,7 +1160,9 @@ export class ServiceLevelObjectivesApiResponseProcessor {
   public async searchSLO(
     response: ResponseContext,
   ): Promise<SearchSLOResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: SearchSLOResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -1166,7 +1176,10 @@ export class ServiceLevelObjectivesApiResponseProcessor {
       response.httpStatusCode === 403 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -1181,7 +1194,10 @@ export class ServiceLevelObjectivesApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -1209,8 +1225,12 @@ export class ServiceLevelObjectivesApiResponseProcessor {
    * @params response Response returned by the server for a request to updateSLO
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async updateSLO(response: ResponseContext): Promise<SLOListResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+  public async updateSLO(
+    response: ResponseContext,
+  ): Promise<SLOListResponse> {
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: SLOListResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -1225,7 +1245,10 @@ export class ServiceLevelObjectivesApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -1240,7 +1263,10 @@ export class ServiceLevelObjectivesApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -1296,7 +1322,7 @@ export interface ServiceLevelObjectivesApiDeleteSLOTimeframeInBulkRequest {
    * Delete multiple service level objective objects request body.
    * @type { [key: string]: Array<SLOTimeframe>; }
    */
-  body: { [key: string]: Array<SLOTimeframe> };
+  body: { [key: string]: Array<SLOTimeframe>; };
 }
 
 export interface ServiceLevelObjectivesApiGetSLORequest {
@@ -1425,7 +1451,8 @@ export class ServiceLevelObjectivesApi {
   private responseProcessor: ServiceLevelObjectivesApiResponseProcessor;
   private configuration: Configuration;
 
-  static operationServers: { [key: string]: BaseServerConfiguration[] } = {};
+  static operationServers: { [key: string]: BaseServerConfiguration[] } = {
+  };
 
   public constructor(
     configuration?: Configuration,
@@ -1485,7 +1512,7 @@ export class ServiceLevelObjectivesApi {
 
   /**
    * Permanently delete the specified service level objective object.
-   *
+   * 
    * If an SLO is used in a dashboard, the `DELETE /v1/slo/` endpoint returns
    * a 409 conflict error because the SLO is referenced in a dashboard.
    * @param param The request object
@@ -1510,7 +1537,7 @@ export class ServiceLevelObjectivesApi {
 
   /**
    * Delete (or partially delete) multiple service level objective objects.
-   *
+   * 
    * This endpoint facilitates deletion of one or more thresholds for one or more
    * service level objective objects. If all thresholds are deleted, the service level
    * objective object is deleted as well.
@@ -1528,9 +1555,7 @@ export class ServiceLevelObjectivesApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.deleteSLOTimeframeInBulk(
-            responseContext,
-          );
+          return this.responseProcessor.deleteSLOTimeframeInBulk(responseContext);
         });
     });
   }
@@ -1580,11 +1605,11 @@ export class ServiceLevelObjectivesApi {
 
   /**
    * Get a specific SLO’s history, regardless of its SLO type.
-   *
+   * 
    * The detailed history data is structured according to the source data type.
    * For example, metric data is included for event SLOs that use
    * the metric source, and monitor SLO types include the monitor transition history.
-   *
+   * 
    * **Note:** There are different response formats for event based and time based SLOs.
    * Examples of both are shown.
    * @param param The request object
@@ -1640,26 +1665,17 @@ export class ServiceLevelObjectivesApi {
    * Provide a paginated version of listSLOs returning a generator with all the items.
    */
   public async *listSLOsWithPagination(
-    param: ServiceLevelObjectivesApiListSLOsRequest = {},
-    options?: Configuration,
+    param: ServiceLevelObjectivesApiListSLOsRequest = {}, options?: Configuration,
   ): AsyncGenerator<ServiceLevelObjective> {
+
     let pageSize = 1000;
     if (param.limit !== undefined) {
       pageSize = param.limit;
     }
     param.limit = pageSize;
     while (true) {
-      const requestContext = await this.requestFactory.listSLOs(
-        param.ids,
-        param.query,
-        param.tagsQuery,
-        param.metricsQuery,
-        param.limit,
-        param.offset,
-        options,
-      );
-      const responseContext =
-        await this.configuration.httpApi.send(requestContext);
+      const requestContext = await this.requestFactory.listSLOs(param.ids,param.query,param.tagsQuery,param.metricsQuery,param.limit,param.offset,options);
+      const responseContext = await this.configuration.httpApi.send(requestContext);
 
       const response = await this.responseProcessor.listSLOs(responseContext);
       const responseData = response.data;

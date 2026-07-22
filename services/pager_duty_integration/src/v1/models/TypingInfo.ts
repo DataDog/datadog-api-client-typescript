@@ -6,7 +6,8 @@ import { PagerDutyServiceKey } from "./PagerDutyServiceKey";
 import { PagerDutyServiceName } from "./PagerDutyServiceName";
 
 export const TypingInfo: ModelTypingInfo = {
-  enumsMap: {},
+  enumsMap: {
+  },
   oneOfMap: {},
   typeMap: {
     APIErrorResponse: APIErrorResponse,

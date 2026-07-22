@@ -19,6 +19,7 @@ import {
   ServerConfiguration,
   stringify,
   applySecurityAuthentication,
+  
 } from "@datadog/datadog-api-client";
 
 import { TypingInfo } from "./models/TypingInfo";
@@ -58,22 +59,14 @@ export class LogsArchivesApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Path Params
-    const localVarPath =
-      "/api/v2/logs/config/archives/{archive_id}/readers".replace(
-        "{archive_id}",
-        encodeURIComponent(String(archiveId)),
-      );
+    const localVarPath = "/api/v2/logs/config/archives/{archive_id}/readers".replace(
+      "{archive_id}",
+      encodeURIComponent(String(archiveId)),
+    );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "LogsArchivesApi.v2.addReadRoleToArchive",
-      LogsArchivesApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.POST,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("LogsArchivesApi.v2.addReadRoleToArchive", LogsArchivesApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.POST, overrides);
     requestContext.setHeaderParam("Accept", "*/*");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -83,7 +76,9 @@ export class LogsArchivesApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Body Params
-    const contentType = getPreferredMediaType(["application/json"]);
+    const contentType = getPreferredMediaType([
+      "application/json",
+    ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = stringify(
       serialize(body, TypingInfo, "RelationshipToRole", ""),
@@ -115,15 +110,8 @@ export class LogsArchivesApiRequestFactory extends BaseAPIRequestFactory {
     const localVarPath = "/api/v2/logs/config/archives";
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "LogsArchivesApi.v2.createLogsArchive",
-      LogsArchivesApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.POST,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("LogsArchivesApi.v2.createLogsArchive", LogsArchivesApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.POST, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -133,7 +121,9 @@ export class LogsArchivesApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Body Params
-    const contentType = getPreferredMediaType(["application/json"]);
+    const contentType = getPreferredMediaType([
+      "application/json",
+    ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = stringify(
       serialize(body, TypingInfo, "LogsArchiveCreateRequest", ""),
@@ -168,15 +158,8 @@ export class LogsArchivesApiRequestFactory extends BaseAPIRequestFactory {
     );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "LogsArchivesApi.v2.deleteLogsArchive",
-      LogsArchivesApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.DELETE,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("LogsArchivesApi.v2.deleteLogsArchive", LogsArchivesApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.DELETE, overrides);
     requestContext.setHeaderParam("Accept", "*/*");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -212,15 +195,8 @@ export class LogsArchivesApiRequestFactory extends BaseAPIRequestFactory {
     );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "LogsArchivesApi.v2.getLogsArchive",
-      LogsArchivesApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.GET,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("LogsArchivesApi.v2.getLogsArchive", LogsArchivesApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.GET, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -247,15 +223,8 @@ export class LogsArchivesApiRequestFactory extends BaseAPIRequestFactory {
     const localVarPath = "/api/v2/logs/config/archive-order";
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "LogsArchivesApi.v2.getLogsArchiveOrder",
-      LogsArchivesApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.GET,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("LogsArchivesApi.v2.getLogsArchiveOrder", LogsArchivesApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.GET, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -285,22 +254,14 @@ export class LogsArchivesApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Path Params
-    const localVarPath =
-      "/api/v2/logs/config/archives/{archive_id}/readers".replace(
-        "{archive_id}",
-        encodeURIComponent(String(archiveId)),
-      );
+    const localVarPath = "/api/v2/logs/config/archives/{archive_id}/readers".replace(
+      "{archive_id}",
+      encodeURIComponent(String(archiveId)),
+    );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "LogsArchivesApi.v2.listArchiveReadRoles",
-      LogsArchivesApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.GET,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("LogsArchivesApi.v2.listArchiveReadRoles", LogsArchivesApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.GET, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -327,15 +288,8 @@ export class LogsArchivesApiRequestFactory extends BaseAPIRequestFactory {
     const localVarPath = "/api/v2/logs/config/archives";
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "LogsArchivesApi.v2.listLogsArchives",
-      LogsArchivesApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.GET,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("LogsArchivesApi.v2.listLogsArchives", LogsArchivesApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.GET, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -371,22 +325,14 @@ export class LogsArchivesApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Path Params
-    const localVarPath =
-      "/api/v2/logs/config/archives/{archive_id}/readers".replace(
-        "{archive_id}",
-        encodeURIComponent(String(archiveId)),
-      );
+    const localVarPath = "/api/v2/logs/config/archives/{archive_id}/readers".replace(
+      "{archive_id}",
+      encodeURIComponent(String(archiveId)),
+    );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "LogsArchivesApi.v2.removeRoleFromArchive",
-      LogsArchivesApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.DELETE,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("LogsArchivesApi.v2.removeRoleFromArchive", LogsArchivesApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.DELETE, overrides);
     requestContext.setHeaderParam("Accept", "*/*");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -396,7 +342,9 @@ export class LogsArchivesApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Body Params
-    const contentType = getPreferredMediaType(["application/json"]);
+    const contentType = getPreferredMediaType([
+      "application/json",
+    ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = stringify(
       serialize(body, TypingInfo, "RelationshipToRole", ""),
@@ -437,15 +385,8 @@ export class LogsArchivesApiRequestFactory extends BaseAPIRequestFactory {
     );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "LogsArchivesApi.v2.updateLogsArchive",
-      LogsArchivesApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.PUT,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("LogsArchivesApi.v2.updateLogsArchive", LogsArchivesApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.PUT, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -455,7 +396,9 @@ export class LogsArchivesApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Body Params
-    const contentType = getPreferredMediaType(["application/json"]);
+    const contentType = getPreferredMediaType([
+      "application/json",
+    ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = stringify(
       serialize(body, TypingInfo, "LogsArchiveCreateRequest", ""),
@@ -487,15 +430,8 @@ export class LogsArchivesApiRequestFactory extends BaseAPIRequestFactory {
     const localVarPath = "/api/v2/logs/config/archive-order";
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "LogsArchivesApi.v2.updateLogsArchiveOrder",
-      LogsArchivesApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.PUT,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("LogsArchivesApi.v2.updateLogsArchiveOrder", LogsArchivesApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.PUT, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -505,7 +441,9 @@ export class LogsArchivesApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Body Params
-    const contentType = getPreferredMediaType(["application/json"]);
+    const contentType = getPreferredMediaType([
+      "application/json",
+    ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = stringify(
       serialize(body, TypingInfo, "LogsArchiveOrder", ""),
@@ -531,8 +469,12 @@ export class LogsArchivesApiResponseProcessor {
    * @params response Response returned by the server for a request to addReadRoleToArchive
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async addReadRoleToArchive(response: ResponseContext): Promise<void> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+  public async addReadRoleToArchive(
+    response: ResponseContext,
+  ): Promise<void> {
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 204) {
       return;
     }
@@ -542,7 +484,10 @@ export class LogsArchivesApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -557,7 +502,10 @@ export class LogsArchivesApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -582,7 +530,9 @@ export class LogsArchivesApiResponseProcessor {
   public async createLogsArchive(
     response: ResponseContext,
   ): Promise<LogsArchive> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: LogsArchive = deserialize(
         parse(await response.body.text(), contentType),
@@ -596,7 +546,10 @@ export class LogsArchivesApiResponseProcessor {
       response.httpStatusCode === 403 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -611,7 +564,10 @@ export class LogsArchivesApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -639,8 +595,12 @@ export class LogsArchivesApiResponseProcessor {
    * @params response Response returned by the server for a request to deleteLogsArchive
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async deleteLogsArchive(response: ResponseContext): Promise<void> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+  public async deleteLogsArchive(
+    response: ResponseContext,
+  ): Promise<void> {
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 204) {
       return;
     }
@@ -650,7 +610,10 @@ export class LogsArchivesApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -665,7 +628,10 @@ export class LogsArchivesApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -687,8 +653,12 @@ export class LogsArchivesApiResponseProcessor {
    * @params response Response returned by the server for a request to getLogsArchive
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async getLogsArchive(response: ResponseContext): Promise<LogsArchive> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+  public async getLogsArchive(
+    response: ResponseContext,
+  ): Promise<LogsArchive> {
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: LogsArchive = deserialize(
         parse(await response.body.text(), contentType),
@@ -703,7 +673,10 @@ export class LogsArchivesApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -718,7 +691,10 @@ export class LogsArchivesApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -749,7 +725,9 @@ export class LogsArchivesApiResponseProcessor {
   public async getLogsArchiveOrder(
     response: ResponseContext,
   ): Promise<LogsArchiveOrder> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: LogsArchiveOrder = deserialize(
         parse(await response.body.text(), contentType),
@@ -758,8 +736,14 @@ export class LogsArchivesApiResponseProcessor {
       ) as LogsArchiveOrder;
       return body;
     }
-    if (response.httpStatusCode === 403 || response.httpStatusCode === 429) {
-      const bodyText = parse(await response.body.text(), contentType);
+    if (
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 429
+    ) {
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -774,7 +758,10 @@ export class LogsArchivesApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -805,7 +792,9 @@ export class LogsArchivesApiResponseProcessor {
   public async listArchiveReadRoles(
     response: ResponseContext,
   ): Promise<RolesResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: RolesResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -820,7 +809,10 @@ export class LogsArchivesApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -835,7 +827,10 @@ export class LogsArchivesApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -866,7 +861,9 @@ export class LogsArchivesApiResponseProcessor {
   public async listLogsArchives(
     response: ResponseContext,
   ): Promise<LogsArchives> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: LogsArchives = deserialize(
         parse(await response.body.text(), contentType),
@@ -875,8 +872,14 @@ export class LogsArchivesApiResponseProcessor {
       ) as LogsArchives;
       return body;
     }
-    if (response.httpStatusCode === 403 || response.httpStatusCode === 429) {
-      const bodyText = parse(await response.body.text(), contentType);
+    if (
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 429
+    ) {
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -891,7 +894,10 @@ export class LogsArchivesApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -919,8 +925,12 @@ export class LogsArchivesApiResponseProcessor {
    * @params response Response returned by the server for a request to removeRoleFromArchive
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async removeRoleFromArchive(response: ResponseContext): Promise<void> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+  public async removeRoleFromArchive(
+    response: ResponseContext,
+  ): Promise<void> {
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 204) {
       return;
     }
@@ -930,7 +940,10 @@ export class LogsArchivesApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -945,7 +958,10 @@ export class LogsArchivesApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -970,7 +986,9 @@ export class LogsArchivesApiResponseProcessor {
   public async updateLogsArchive(
     response: ResponseContext,
   ): Promise<LogsArchive> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: LogsArchive = deserialize(
         parse(await response.body.text(), contentType),
@@ -985,7 +1003,10 @@ export class LogsArchivesApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -1000,7 +1021,10 @@ export class LogsArchivesApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -1031,7 +1055,9 @@ export class LogsArchivesApiResponseProcessor {
   public async updateLogsArchiveOrder(
     response: ResponseContext,
   ): Promise<LogsArchiveOrder> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: LogsArchiveOrder = deserialize(
         parse(await response.body.text(), contentType),
@@ -1046,7 +1072,10 @@ export class LogsArchivesApiResponseProcessor {
       response.httpStatusCode === 422 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -1061,7 +1090,10 @@ export class LogsArchivesApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -1165,7 +1197,8 @@ export class LogsArchivesApi {
   private responseProcessor: LogsArchivesApiResponseProcessor;
   private configuration: Configuration;
 
-  static operationServers: { [key: string]: BaseServerConfiguration[] } = {};
+  static operationServers: { [key: string]: BaseServerConfiguration[] } = {
+  };
 
   public constructor(
     configuration?: Configuration,
@@ -1174,7 +1207,8 @@ export class LogsArchivesApi {
   ) {
     this.configuration = configuration || createConfiguration();
     this.requestFactory =
-      requestFactory || new LogsArchivesApiRequestFactory(this.configuration);
+      requestFactory ||
+      new LogsArchivesApiRequestFactory(this.configuration);
     this.responseProcessor =
       responseProcessor || new LogsArchivesApiResponseProcessor();
   }
@@ -1269,11 +1303,11 @@ export class LogsArchivesApi {
    * This endpoint takes no JSON arguments.
    * @param param The request object
    */
-  public getLogsArchiveOrder(
-    options?: Configuration,
+  public getLogsArchiveOrder(options?: Configuration,
   ): Promise<LogsArchiveOrder> {
-    const requestContextPromise =
-      this.requestFactory.getLogsArchiveOrder(options);
+    const requestContextPromise = this.requestFactory.getLogsArchiveOrder(
+      options,
+    );
     return requestContextPromise.then((requestContext) => {
       return this.configuration.httpApi
         .send(requestContext)
@@ -1308,8 +1342,11 @@ export class LogsArchivesApi {
    * Get the list of configured logs archives with their definitions.
    * @param param The request object
    */
-  public listLogsArchives(options?: Configuration): Promise<LogsArchives> {
-    const requestContextPromise = this.requestFactory.listLogsArchives(options);
+  public listLogsArchives(options?: Configuration,
+  ): Promise<LogsArchives> {
+    const requestContextPromise = this.requestFactory.listLogsArchives(
+      options,
+    );
     return requestContextPromise.then((requestContext) => {
       return this.configuration.httpApi
         .send(requestContext)
@@ -1343,7 +1380,7 @@ export class LogsArchivesApi {
 
   /**
    * Update a given archive configuration.
-   *
+   * 
    * **Note**: Using this method updates your archive configuration by **replacing**
    * your current configuration with the new one sent to your Datadog organization.
    * @param param The request object
@@ -1369,7 +1406,7 @@ export class LogsArchivesApi {
   /**
    * Update the order of your archives. Since logs are processed sequentially, reordering an archive may change
    * the structure and content of the data processed by other archives.
-   *
+   * 
    * **Note**: Using the `PUT` method updates your archive's order by replacing the current order
    * with the new one.
    * @param param The request object

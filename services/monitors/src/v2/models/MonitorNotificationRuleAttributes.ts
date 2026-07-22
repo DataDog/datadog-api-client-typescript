@@ -48,7 +48,7 @@ export class MonitorNotificationRuleAttributes {
     recipients: {
       baseName: "recipients",
       type: "Array<string>",
-    },
+    }
   };
 
   /**

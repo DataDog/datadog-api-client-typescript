@@ -24,8 +24,7 @@ export const TypingInfo: ModelTypingInfo = {
     APIErrorResponse: APIErrorResponse,
     GovernanceControlAttributes: GovernanceControlAttributes,
     GovernanceControlData: GovernanceControlData,
-    GovernanceControlMitigationDefinition:
-      GovernanceControlMitigationDefinition,
+    GovernanceControlMitigationDefinition: GovernanceControlMitigationDefinition,
     GovernanceControlParameterDefinition: GovernanceControlParameterDefinition,
     GovernanceControlResponse: GovernanceControlResponse,
     GovernanceControlSupportedValue: GovernanceControlSupportedValue,

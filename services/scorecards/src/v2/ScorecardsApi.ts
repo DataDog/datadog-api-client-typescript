@@ -19,6 +19,7 @@ import {
   ServerConfiguration,
   stringify,
   applySecurityAuthentication,
+  
 } from "@datadog/datadog-api-client";
 
 import { TypingInfo } from "./models/TypingInfo";
@@ -68,15 +69,8 @@ export class ScorecardsApiRequestFactory extends BaseAPIRequestFactory {
     const localVarPath = "/api/v2/scorecard/campaigns";
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "ScorecardsApi.v2.createScorecardCampaign",
-      ScorecardsApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.POST,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("ScorecardsApi.v2.createScorecardCampaign", ScorecardsApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.POST, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -86,7 +80,9 @@ export class ScorecardsApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Body Params
-    const contentType = getPreferredMediaType(["application/json"]);
+    const contentType = getPreferredMediaType([
+      "application/json",
+    ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = stringify(
       serialize(body, TypingInfo, "CreateCampaignRequest", ""),
@@ -110,14 +106,8 @@ export class ScorecardsApiRequestFactory extends BaseAPIRequestFactory {
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
-    if (
-      !_config.unstableOperations[
-        "ScorecardsApi.v2.createScorecardOutcomesBatch"
-      ]
-    ) {
-      throw new Error(
-        "Unstable operation 'createScorecardOutcomesBatch' is disabled. Enable it by setting `configuration.unstableOperations['ScorecardsApi.v2.createScorecardOutcomesBatch'] = true`",
-      );
+    if (!_config.unstableOperations["ScorecardsApi.v2.createScorecardOutcomesBatch"]) {
+      throw new Error("Unstable operation 'createScorecardOutcomesBatch' is disabled. Enable it by setting `configuration.unstableOperations['ScorecardsApi.v2.createScorecardOutcomesBatch'] = true`");
     }
 
     // verify required parameter 'body' is not null or undefined
@@ -129,15 +119,8 @@ export class ScorecardsApiRequestFactory extends BaseAPIRequestFactory {
     const localVarPath = "/api/v2/scorecard/outcomes/batch";
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "ScorecardsApi.v2.createScorecardOutcomesBatch",
-      ScorecardsApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.POST,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("ScorecardsApi.v2.createScorecardOutcomesBatch", ScorecardsApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.POST, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -147,7 +130,9 @@ export class ScorecardsApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Body Params
-    const contentType = getPreferredMediaType(["application/json"]);
+    const contentType = getPreferredMediaType([
+      "application/json",
+    ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = stringify(
       serialize(body, TypingInfo, "OutcomesBatchRequest", ""),
@@ -180,15 +165,8 @@ export class ScorecardsApiRequestFactory extends BaseAPIRequestFactory {
     const localVarPath = "/api/v2/scorecard/rules";
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "ScorecardsApi.v2.createScorecardRule",
-      ScorecardsApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.POST,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("ScorecardsApi.v2.createScorecardRule", ScorecardsApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.POST, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -198,7 +176,9 @@ export class ScorecardsApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Body Params
-    const contentType = getPreferredMediaType(["application/json"]);
+    const contentType = getPreferredMediaType([
+      "application/json",
+    ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = stringify(
       serialize(body, TypingInfo, "CreateRuleRequest", ""),
@@ -234,15 +214,8 @@ export class ScorecardsApiRequestFactory extends BaseAPIRequestFactory {
     );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "ScorecardsApi.v2.deleteScorecardCampaign",
-      ScorecardsApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.DELETE,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("ScorecardsApi.v2.deleteScorecardCampaign", ScorecardsApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.DELETE, overrides);
     requestContext.setHeaderParam("Accept", "*/*");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -279,15 +252,8 @@ export class ScorecardsApiRequestFactory extends BaseAPIRequestFactory {
     );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "ScorecardsApi.v2.deleteScorecardRule",
-      ScorecardsApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.DELETE,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("ScorecardsApi.v2.deleteScorecardRule", ScorecardsApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.DELETE, overrides);
     requestContext.setHeaderParam("Accept", "*/*");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -326,15 +292,8 @@ export class ScorecardsApiRequestFactory extends BaseAPIRequestFactory {
     );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "ScorecardsApi.v2.getScorecardCampaign",
-      ScorecardsApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.GET,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("ScorecardsApi.v2.getScorecardCampaign", ScorecardsApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.GET, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -383,15 +342,8 @@ export class ScorecardsApiRequestFactory extends BaseAPIRequestFactory {
     const localVarPath = "/api/v2/scorecard/campaigns";
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "ScorecardsApi.v2.listScorecardCampaigns",
-      ScorecardsApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.GET,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("ScorecardsApi.v2.listScorecardCampaigns", ScorecardsApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.GET, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -466,15 +418,8 @@ export class ScorecardsApiRequestFactory extends BaseAPIRequestFactory {
     const localVarPath = "/api/v2/scorecard/outcomes";
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "ScorecardsApi.v2.listScorecardOutcomes",
-      ScorecardsApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.GET,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("ScorecardsApi.v2.listScorecardOutcomes", ScorecardsApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.GET, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -584,15 +529,8 @@ export class ScorecardsApiRequestFactory extends BaseAPIRequestFactory {
     const localVarPath = "/api/v2/scorecard/rules";
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "ScorecardsApi.v2.listScorecardRules",
-      ScorecardsApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.GET,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("ScorecardsApi.v2.listScorecardRules", ScorecardsApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.GET, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -697,15 +635,8 @@ export class ScorecardsApiRequestFactory extends BaseAPIRequestFactory {
     const localVarPath = "/api/v2/scorecard/scorecards";
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "ScorecardsApi.v2.listScorecards",
-      ScorecardsApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.GET,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("ScorecardsApi.v2.listScorecards", ScorecardsApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.GET, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -788,15 +719,8 @@ export class ScorecardsApiRequestFactory extends BaseAPIRequestFactory {
     );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "ScorecardsApi.v2.listScorecardScores",
-      ScorecardsApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.GET,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("ScorecardsApi.v2.listScorecardScores", ScorecardsApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.GET, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -904,15 +828,8 @@ export class ScorecardsApiRequestFactory extends BaseAPIRequestFactory {
     );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "ScorecardsApi.v2.updateScorecardCampaign",
-      ScorecardsApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.PUT,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("ScorecardsApi.v2.updateScorecardCampaign", ScorecardsApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.PUT, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -922,7 +839,9 @@ export class ScorecardsApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Body Params
-    const contentType = getPreferredMediaType(["application/json"]);
+    const contentType = getPreferredMediaType([
+      "application/json",
+    ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = stringify(
       serialize(body, TypingInfo, "UpdateCampaignRequest", ""),
@@ -955,15 +874,8 @@ export class ScorecardsApiRequestFactory extends BaseAPIRequestFactory {
     const localVarPath = "/api/v2/scorecard/outcomes";
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "ScorecardsApi.v2.updateScorecardOutcomes",
-      ScorecardsApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.POST,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("ScorecardsApi.v2.updateScorecardOutcomes", ScorecardsApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.POST, overrides);
     requestContext.setHeaderParam("Accept", "*/*");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -973,7 +885,9 @@ export class ScorecardsApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Body Params
-    const contentType = getPreferredMediaType(["application/json"]);
+    const contentType = getPreferredMediaType([
+      "application/json",
+    ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = stringify(
       serialize(body, TypingInfo, "UpdateOutcomesAsyncRequest", ""),
@@ -1015,15 +929,8 @@ export class ScorecardsApiRequestFactory extends BaseAPIRequestFactory {
     );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "ScorecardsApi.v2.updateScorecardRule",
-      ScorecardsApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.PUT,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("ScorecardsApi.v2.updateScorecardRule", ScorecardsApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.PUT, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -1033,7 +940,9 @@ export class ScorecardsApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Body Params
-    const contentType = getPreferredMediaType(["application/json"]);
+    const contentType = getPreferredMediaType([
+      "application/json",
+    ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = stringify(
       serialize(body, TypingInfo, "UpdateRuleRequest", ""),
@@ -1063,7 +972,9 @@ export class ScorecardsApiResponseProcessor {
   public async createScorecardCampaign(
     response: ResponseContext,
   ): Promise<CampaignResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 201) {
       const body: CampaignResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -1072,8 +983,14 @@ export class ScorecardsApiResponseProcessor {
       ) as CampaignResponse;
       return body;
     }
-    if (response.httpStatusCode === 400 || response.httpStatusCode === 403) {
-      const bodyText = parse(await response.body.text(), contentType);
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 403
+    ) {
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: JSONAPIErrorResponse;
       try {
         body = deserialize(
@@ -1094,7 +1011,10 @@ export class ScorecardsApiResponseProcessor {
       );
     }
     if (response.httpStatusCode === 429) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -1109,7 +1029,10 @@ export class ScorecardsApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -1140,7 +1063,9 @@ export class ScorecardsApiResponseProcessor {
   public async createScorecardOutcomesBatch(
     response: ResponseContext,
   ): Promise<OutcomesBatchResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: OutcomesBatchResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -1154,7 +1079,10 @@ export class ScorecardsApiResponseProcessor {
       response.httpStatusCode === 403 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -1169,7 +1097,10 @@ export class ScorecardsApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -1200,7 +1131,9 @@ export class ScorecardsApiResponseProcessor {
   public async createScorecardRule(
     response: ResponseContext,
   ): Promise<CreateRuleResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 201) {
       const body: CreateRuleResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -1214,7 +1147,10 @@ export class ScorecardsApiResponseProcessor {
       response.httpStatusCode === 403 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -1229,7 +1165,10 @@ export class ScorecardsApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -1260,7 +1199,9 @@ export class ScorecardsApiResponseProcessor {
   public async deleteScorecardCampaign(
     response: ResponseContext,
   ): Promise<void> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 204) {
       return;
     }
@@ -1269,7 +1210,10 @@ export class ScorecardsApiResponseProcessor {
       response.httpStatusCode === 403 ||
       response.httpStatusCode === 404
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: JSONAPIErrorResponse;
       try {
         body = deserialize(
@@ -1290,7 +1234,10 @@ export class ScorecardsApiResponseProcessor {
       );
     }
     if (response.httpStatusCode === 429) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -1305,7 +1252,10 @@ export class ScorecardsApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -1327,8 +1277,12 @@ export class ScorecardsApiResponseProcessor {
    * @params response Response returned by the server for a request to deleteScorecardRule
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async deleteScorecardRule(response: ResponseContext): Promise<void> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+  public async deleteScorecardRule(
+    response: ResponseContext,
+  ): Promise<void> {
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 204) {
       return;
     }
@@ -1338,7 +1292,10 @@ export class ScorecardsApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -1353,7 +1310,10 @@ export class ScorecardsApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -1378,7 +1338,9 @@ export class ScorecardsApiResponseProcessor {
   public async getScorecardCampaign(
     response: ResponseContext,
   ): Promise<CampaignResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: CampaignResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -1392,7 +1354,10 @@ export class ScorecardsApiResponseProcessor {
       response.httpStatusCode === 403 ||
       response.httpStatusCode === 404
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: JSONAPIErrorResponse;
       try {
         body = deserialize(
@@ -1413,7 +1378,10 @@ export class ScorecardsApiResponseProcessor {
       );
     }
     if (response.httpStatusCode === 429) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -1428,7 +1396,10 @@ export class ScorecardsApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -1459,7 +1430,9 @@ export class ScorecardsApiResponseProcessor {
   public async listScorecardCampaigns(
     response: ResponseContext,
   ): Promise<ListCampaignsResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: ListCampaignsResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -1468,8 +1441,14 @@ export class ScorecardsApiResponseProcessor {
       ) as ListCampaignsResponse;
       return body;
     }
-    if (response.httpStatusCode === 400 || response.httpStatusCode === 403) {
-      const bodyText = parse(await response.body.text(), contentType);
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 403
+    ) {
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: JSONAPIErrorResponse;
       try {
         body = deserialize(
@@ -1490,7 +1469,10 @@ export class ScorecardsApiResponseProcessor {
       );
     }
     if (response.httpStatusCode === 429) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -1505,7 +1487,10 @@ export class ScorecardsApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -1536,7 +1521,9 @@ export class ScorecardsApiResponseProcessor {
   public async listScorecardOutcomes(
     response: ResponseContext,
   ): Promise<OutcomesResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: OutcomesResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -1550,7 +1537,10 @@ export class ScorecardsApiResponseProcessor {
       response.httpStatusCode === 403 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -1565,7 +1555,10 @@ export class ScorecardsApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -1596,7 +1589,9 @@ export class ScorecardsApiResponseProcessor {
   public async listScorecardRules(
     response: ResponseContext,
   ): Promise<ListRulesResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: ListRulesResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -1610,7 +1605,10 @@ export class ScorecardsApiResponseProcessor {
       response.httpStatusCode === 403 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -1625,7 +1623,10 @@ export class ScorecardsApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -1656,7 +1657,9 @@ export class ScorecardsApiResponseProcessor {
   public async listScorecards(
     response: ResponseContext,
   ): Promise<ListScorecardsResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: ListScorecardsResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -1666,7 +1669,10 @@ export class ScorecardsApiResponseProcessor {
       return body;
     }
     if (response.httpStatusCode === 403) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: JSONAPIErrorResponse;
       try {
         body = deserialize(
@@ -1687,7 +1693,10 @@ export class ScorecardsApiResponseProcessor {
       );
     }
     if (response.httpStatusCode === 429) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -1702,7 +1711,10 @@ export class ScorecardsApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -1733,7 +1745,9 @@ export class ScorecardsApiResponseProcessor {
   public async listScorecardScores(
     response: ResponseContext,
   ): Promise<ListScorecardScoresResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: ListScorecardScoresResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -1747,7 +1761,10 @@ export class ScorecardsApiResponseProcessor {
       response.httpStatusCode === 403 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -1762,7 +1779,10 @@ export class ScorecardsApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -1793,7 +1813,9 @@ export class ScorecardsApiResponseProcessor {
   public async updateScorecardCampaign(
     response: ResponseContext,
   ): Promise<CampaignResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: CampaignResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -1807,7 +1829,10 @@ export class ScorecardsApiResponseProcessor {
       response.httpStatusCode === 403 ||
       response.httpStatusCode === 404
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: JSONAPIErrorResponse;
       try {
         body = deserialize(
@@ -1828,7 +1853,10 @@ export class ScorecardsApiResponseProcessor {
       );
     }
     if (response.httpStatusCode === 429) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -1843,7 +1871,10 @@ export class ScorecardsApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -1874,7 +1905,9 @@ export class ScorecardsApiResponseProcessor {
   public async updateScorecardOutcomes(
     response: ResponseContext,
   ): Promise<void> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 202) {
       return;
     }
@@ -1884,7 +1917,10 @@ export class ScorecardsApiResponseProcessor {
       response.httpStatusCode === 409 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -1899,7 +1935,10 @@ export class ScorecardsApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -1924,7 +1963,9 @@ export class ScorecardsApiResponseProcessor {
   public async updateScorecardRule(
     response: ResponseContext,
   ): Promise<UpdateRuleResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: UpdateRuleResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -1938,7 +1979,10 @@ export class ScorecardsApiResponseProcessor {
       response.httpStatusCode === 403 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -1953,7 +1997,10 @@ export class ScorecardsApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -2287,7 +2334,8 @@ export class ScorecardsApi {
   private responseProcessor: ScorecardsApiResponseProcessor;
   private configuration: Configuration;
 
-  static operationServers: { [key: string]: BaseServerConfiguration[] } = {};
+  static operationServers: { [key: string]: BaseServerConfiguration[] } = {
+  };
 
   public constructor(
     configuration?: Configuration,
@@ -2296,7 +2344,8 @@ export class ScorecardsApi {
   ) {
     this.configuration = configuration || createConfiguration();
     this.requestFactory =
-      requestFactory || new ScorecardsApiRequestFactory(this.configuration);
+      requestFactory ||
+      new ScorecardsApiRequestFactory(this.configuration);
     this.responseProcessor =
       responseProcessor || new ScorecardsApiResponseProcessor();
   }
@@ -2317,9 +2366,7 @@ export class ScorecardsApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.createScorecardCampaign(
-            responseContext,
-          );
+          return this.responseProcessor.createScorecardCampaign(responseContext);
         });
     });
   }
@@ -2332,15 +2379,15 @@ export class ScorecardsApi {
     param: ScorecardsApiCreateScorecardOutcomesBatchRequest,
     options?: Configuration,
   ): Promise<OutcomesBatchResponse> {
-    const requestContextPromise =
-      this.requestFactory.createScorecardOutcomesBatch(param.body, options);
+    const requestContextPromise = this.requestFactory.createScorecardOutcomesBatch(
+      param.body,
+      options,
+    );
     return requestContextPromise.then((requestContext) => {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.createScorecardOutcomesBatch(
-            responseContext,
-          );
+          return this.responseProcessor.createScorecardOutcomesBatch(responseContext);
         });
     });
   }
@@ -2382,9 +2429,7 @@ export class ScorecardsApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.deleteScorecardCampaign(
-            responseContext,
-          );
+          return this.responseProcessor.deleteScorecardCampaign(responseContext);
         });
     });
   }
@@ -2492,33 +2537,19 @@ export class ScorecardsApi {
    * Provide a paginated version of listScorecardOutcomes returning a generator with all the items.
    */
   public async *listScorecardOutcomesWithPagination(
-    param: ScorecardsApiListScorecardOutcomesRequest = {},
-    options?: Configuration,
+    param: ScorecardsApiListScorecardOutcomesRequest = {}, options?: Configuration,
   ): AsyncGenerator<OutcomesResponseDataItem> {
+
     let pageSize = 10;
     if (param.pageSize !== undefined) {
       pageSize = param.pageSize;
     }
     param.pageSize = pageSize;
     while (true) {
-      const requestContext = await this.requestFactory.listScorecardOutcomes(
-        param.pageSize,
-        param.pageOffset,
-        param.include,
-        param.fieldsOutcome,
-        param.fieldsRule,
-        param.filterOutcomeServiceName,
-        param.filterOutcomeState,
-        param.filterRuleEnabled,
-        param.filterRuleId,
-        param.filterRuleName,
-        options,
-      );
-      const responseContext =
-        await this.configuration.httpApi.send(requestContext);
+      const requestContext = await this.requestFactory.listScorecardOutcomes(param.pageSize,param.pageOffset,param.include,param.fieldsOutcome,param.fieldsRule,param.filterOutcomeServiceName,param.filterOutcomeState,param.filterRuleEnabled,param.filterRuleId,param.filterRuleName,options);
+      const responseContext = await this.configuration.httpApi.send(requestContext);
 
-      const response =
-        await this.responseProcessor.listScorecardOutcomes(responseContext);
+      const response = await this.responseProcessor.listScorecardOutcomes(responseContext);
       const responseData = response.data;
       if (responseData === undefined) {
         break;
@@ -2572,33 +2603,19 @@ export class ScorecardsApi {
    * Provide a paginated version of listScorecardRules returning a generator with all the items.
    */
   public async *listScorecardRulesWithPagination(
-    param: ScorecardsApiListScorecardRulesRequest = {},
-    options?: Configuration,
+    param: ScorecardsApiListScorecardRulesRequest = {}, options?: Configuration,
   ): AsyncGenerator<ListRulesResponseDataItem> {
+
     let pageSize = 10;
     if (param.pageSize !== undefined) {
       pageSize = param.pageSize;
     }
     param.pageSize = pageSize;
     while (true) {
-      const requestContext = await this.requestFactory.listScorecardRules(
-        param.pageSize,
-        param.pageOffset,
-        param.include,
-        param.filterRuleId,
-        param.filterRuleEnabled,
-        param.filterRuleCustom,
-        param.filterRuleName,
-        param.filterRuleDescription,
-        param.fieldsRule,
-        param.fieldsScorecard,
-        options,
-      );
-      const responseContext =
-        await this.configuration.httpApi.send(requestContext);
+      const requestContext = await this.requestFactory.listScorecardRules(param.pageSize,param.pageOffset,param.include,param.filterRuleId,param.filterRuleEnabled,param.filterRuleCustom,param.filterRuleName,param.filterRuleDescription,param.fieldsRule,param.fieldsScorecard,options);
+      const responseContext = await this.configuration.httpApi.send(requestContext);
 
-      const response =
-        await this.responseProcessor.listScorecardRules(responseContext);
+      const response = await this.responseProcessor.listScorecardRules(responseContext);
       const responseData = response.data;
       if (responseData === undefined) {
         break;
@@ -2690,9 +2707,7 @@ export class ScorecardsApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.updateScorecardCampaign(
-            responseContext,
-          );
+          return this.responseProcessor.updateScorecardCampaign(responseContext);
         });
     });
   }
@@ -2713,9 +2728,7 @@ export class ScorecardsApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.updateScorecardOutcomes(
-            responseContext,
-          );
+          return this.responseProcessor.updateScorecardOutcomes(responseContext);
         });
     });
   }

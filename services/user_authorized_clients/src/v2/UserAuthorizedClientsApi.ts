@@ -19,6 +19,7 @@ import {
   ServerConfiguration,
   stringify,
   applySecurityAuthentication,
+  
 } from "@datadog/datadog-api-client";
 
 import { TypingInfo } from "./models/TypingInfo";
@@ -45,33 +46,19 @@ export class UserAuthorizedClientsApiRequestFactory extends BaseAPIRequestFactor
     const _config = _options || this.configuration;
 
     // verify required parameter 'userAuthorizedClientId' is not null or undefined
-    if (
-      userAuthorizedClientId === null ||
-      userAuthorizedClientId === undefined
-    ) {
-      throw new RequiredError(
-        "userAuthorizedClientId",
-        "deleteUserAuthorizedClient",
-      );
+    if (userAuthorizedClientId === null || userAuthorizedClientId === undefined) {
+      throw new RequiredError("userAuthorizedClientId", "deleteUserAuthorizedClient");
     }
 
     // Path Params
-    const localVarPath =
-      "/api/v2/user_authorized_clients/{user_authorized_client_id}".replace(
-        "{user_authorized_client_id}",
-        encodeURIComponent(String(userAuthorizedClientId)),
-      );
+    const localVarPath = "/api/v2/user_authorized_clients/{user_authorized_client_id}".replace(
+      "{user_authorized_client_id}",
+      encodeURIComponent(String(userAuthorizedClientId)),
+    );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "UserAuthorizedClientsApi.v2.deleteUserAuthorizedClient",
-      UserAuthorizedClientsApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.DELETE,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("UserAuthorizedClientsApi.v2.deleteUserAuthorizedClient", UserAuthorizedClientsApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.DELETE, overrides);
     requestContext.setHeaderParam("Accept", "*/*");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -98,29 +85,18 @@ export class UserAuthorizedClientsApiRequestFactory extends BaseAPIRequestFactor
 
     // verify required parameter 'clientId' is not null or undefined
     if (clientId === null || clientId === undefined) {
-      throw new RequiredError(
-        "clientId",
-        "deleteUserAuthorizedClientsByClient",
-      );
+      throw new RequiredError("clientId", "deleteUserAuthorizedClientsByClient");
     }
 
     // Path Params
-    const localVarPath =
-      "/api/v2/user_authorized_clients/client/{client_id}".replace(
-        "{client_id}",
-        encodeURIComponent(String(clientId)),
-      );
+    const localVarPath = "/api/v2/user_authorized_clients/client/{client_id}".replace(
+      "{client_id}",
+      encodeURIComponent(String(clientId)),
+    );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "UserAuthorizedClientsApi.v2.deleteUserAuthorizedClientsByClient",
-      UserAuthorizedClientsApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.DELETE,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("UserAuthorizedClientsApi.v2.deleteUserAuthorizedClientsByClient", UserAuthorizedClientsApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.DELETE, overrides);
     requestContext.setHeaderParam("Accept", "*/*");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -146,33 +122,19 @@ export class UserAuthorizedClientsApiRequestFactory extends BaseAPIRequestFactor
     const _config = _options || this.configuration;
 
     // verify required parameter 'userAuthorizedClientId' is not null or undefined
-    if (
-      userAuthorizedClientId === null ||
-      userAuthorizedClientId === undefined
-    ) {
-      throw new RequiredError(
-        "userAuthorizedClientId",
-        "getUserAuthorizedClient",
-      );
+    if (userAuthorizedClientId === null || userAuthorizedClientId === undefined) {
+      throw new RequiredError("userAuthorizedClientId", "getUserAuthorizedClient");
     }
 
     // Path Params
-    const localVarPath =
-      "/api/v2/user_authorized_clients/{user_authorized_client_id}".replace(
-        "{user_authorized_client_id}",
-        encodeURIComponent(String(userAuthorizedClientId)),
-      );
+    const localVarPath = "/api/v2/user_authorized_clients/{user_authorized_client_id}".replace(
+      "{user_authorized_client_id}",
+      encodeURIComponent(String(userAuthorizedClientId)),
+    );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "UserAuthorizedClientsApi.v2.getUserAuthorizedClient",
-      UserAuthorizedClientsApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.GET,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("UserAuthorizedClientsApi.v2.getUserAuthorizedClient", UserAuthorizedClientsApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.GET, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -205,15 +167,8 @@ export class UserAuthorizedClientsApiRequestFactory extends BaseAPIRequestFactor
     const localVarPath = "/api/v2/user_authorized_clients";
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "UserAuthorizedClientsApi.v2.listUserAuthorizedClients",
-      UserAuthorizedClientsApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.GET,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("UserAuthorizedClientsApi.v2.listUserAuthorizedClients", UserAuthorizedClientsApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.GET, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -281,12 +236,20 @@ export class UserAuthorizedClientsApiResponseProcessor {
   public async deleteUserAuthorizedClient(
     response: ResponseContext,
   ): Promise<void> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 204) {
       return;
     }
-    if (response.httpStatusCode === 403 || response.httpStatusCode === 404) {
-      const bodyText = parse(await response.body.text(), contentType);
+    if (
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 404
+    ) {
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: JSONAPIErrorResponse;
       try {
         body = deserialize(
@@ -307,7 +270,10 @@ export class UserAuthorizedClientsApiResponseProcessor {
       );
     }
     if (response.httpStatusCode === 429) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -322,7 +288,10 @@ export class UserAuthorizedClientsApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -347,12 +316,20 @@ export class UserAuthorizedClientsApiResponseProcessor {
   public async deleteUserAuthorizedClientsByClient(
     response: ResponseContext,
   ): Promise<void> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 204) {
       return;
     }
-    if (response.httpStatusCode === 403 || response.httpStatusCode === 404) {
-      const bodyText = parse(await response.body.text(), contentType);
+    if (
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 404
+    ) {
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: JSONAPIErrorResponse;
       try {
         body = deserialize(
@@ -373,7 +350,10 @@ export class UserAuthorizedClientsApiResponseProcessor {
       );
     }
     if (response.httpStatusCode === 429) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -388,7 +368,10 @@ export class UserAuthorizedClientsApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -413,7 +396,9 @@ export class UserAuthorizedClientsApiResponseProcessor {
   public async getUserAuthorizedClient(
     response: ResponseContext,
   ): Promise<UserAuthorizedClientResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: UserAuthorizedClientResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -422,8 +407,14 @@ export class UserAuthorizedClientsApiResponseProcessor {
       ) as UserAuthorizedClientResponse;
       return body;
     }
-    if (response.httpStatusCode === 403 || response.httpStatusCode === 404) {
-      const bodyText = parse(await response.body.text(), contentType);
+    if (
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 404
+    ) {
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: JSONAPIErrorResponse;
       try {
         body = deserialize(
@@ -444,7 +435,10 @@ export class UserAuthorizedClientsApiResponseProcessor {
       );
     }
     if (response.httpStatusCode === 429) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -459,7 +453,10 @@ export class UserAuthorizedClientsApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -490,7 +487,9 @@ export class UserAuthorizedClientsApiResponseProcessor {
   public async listUserAuthorizedClients(
     response: ResponseContext,
   ): Promise<UserAuthorizedClientsResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: UserAuthorizedClientsResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -500,7 +499,10 @@ export class UserAuthorizedClientsApiResponseProcessor {
       return body;
     }
     if (response.httpStatusCode === 403) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: JSONAPIErrorResponse;
       try {
         body = deserialize(
@@ -521,7 +523,10 @@ export class UserAuthorizedClientsApiResponseProcessor {
       );
     }
     if (response.httpStatusCode === 429) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -536,7 +541,10 @@ export class UserAuthorizedClientsApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -615,7 +623,8 @@ export class UserAuthorizedClientsApi {
   private responseProcessor: UserAuthorizedClientsApiResponseProcessor;
   private configuration: Configuration;
 
-  static operationServers: { [key: string]: BaseServerConfiguration[] } = {};
+  static operationServers: { [key: string]: BaseServerConfiguration[] } = {
+  };
 
   public constructor(
     configuration?: Configuration,
@@ -638,18 +647,15 @@ export class UserAuthorizedClientsApi {
     param: UserAuthorizedClientsApiDeleteUserAuthorizedClientRequest,
     options?: Configuration,
   ): Promise<void> {
-    const requestContextPromise =
-      this.requestFactory.deleteUserAuthorizedClient(
-        param.userAuthorizedClientId,
-        options,
-      );
+    const requestContextPromise = this.requestFactory.deleteUserAuthorizedClient(
+      param.userAuthorizedClientId,
+      options,
+    );
     return requestContextPromise.then((requestContext) => {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.deleteUserAuthorizedClient(
-            responseContext,
-          );
+          return this.responseProcessor.deleteUserAuthorizedClient(responseContext);
         });
     });
   }
@@ -662,18 +668,15 @@ export class UserAuthorizedClientsApi {
     param: UserAuthorizedClientsApiDeleteUserAuthorizedClientsByClientRequest,
     options?: Configuration,
   ): Promise<void> {
-    const requestContextPromise =
-      this.requestFactory.deleteUserAuthorizedClientsByClient(
-        param.clientId,
-        options,
-      );
+    const requestContextPromise = this.requestFactory.deleteUserAuthorizedClientsByClient(
+      param.clientId,
+      options,
+    );
     return requestContextPromise.then((requestContext) => {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.deleteUserAuthorizedClientsByClient(
-            responseContext,
-          );
+          return this.responseProcessor.deleteUserAuthorizedClientsByClient(responseContext);
         });
     });
   }
@@ -694,9 +697,7 @@ export class UserAuthorizedClientsApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.getUserAuthorizedClient(
-            responseContext,
-          );
+          return this.responseProcessor.getUserAuthorizedClient(responseContext);
         });
     });
   }
@@ -721,9 +722,7 @@ export class UserAuthorizedClientsApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.listUserAuthorizedClients(
-            responseContext,
-          );
+          return this.responseProcessor.listUserAuthorizedClients(responseContext);
         });
     });
   }
@@ -732,9 +731,9 @@ export class UserAuthorizedClientsApi {
    * Provide a paginated version of listUserAuthorizedClients returning a generator with all the items.
    */
   public async *listUserAuthorizedClientsWithPagination(
-    param: UserAuthorizedClientsApiListUserAuthorizedClientsRequest = {},
-    options?: Configuration,
+    param: UserAuthorizedClientsApiListUserAuthorizedClientsRequest = {}, options?: Configuration,
   ): AsyncGenerator<UserAuthorizedClientData> {
+
     let pageSize = 10;
     if (param.pageSize !== undefined) {
       pageSize = param.pageSize;
@@ -742,20 +741,10 @@ export class UserAuthorizedClientsApi {
     param.pageSize = pageSize;
     param.pageNumber = 0;
     while (true) {
-      const requestContext =
-        await this.requestFactory.listUserAuthorizedClients(
-          param.pageSize,
-          param.pageNumber,
-          param.filter,
-          param.filterDisabled,
-          param.include,
-          options,
-        );
-      const responseContext =
-        await this.configuration.httpApi.send(requestContext);
+      const requestContext = await this.requestFactory.listUserAuthorizedClients(param.pageSize,param.pageNumber,param.filter,param.filterDisabled,param.include,options);
+      const responseContext = await this.configuration.httpApi.send(requestContext);
 
-      const response =
-        await this.responseProcessor.listUserAuthorizedClients(responseContext);
+      const response = await this.responseProcessor.listUserAuthorizedClients(responseContext);
       const responseData = response.data;
       if (responseData === undefined) {
         break;

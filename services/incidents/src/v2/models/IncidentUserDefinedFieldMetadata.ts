@@ -1,5 +1,6 @@
 import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
+
 /**
  * Metadata for autocomplete-type user-defined fields, describing how to populate autocomplete options.
  */
@@ -15,7 +16,7 @@ export class IncidentUserDefinedFieldMetadata {
   /**
    * Additional query parameters to include in the search URL.
    */
-  "searchParams": { [key: string]: any };
+  "searchParams": { [key: string]: any; };
   /**
    * The query parameter used to pass typed input to the search URL.
    */
@@ -33,7 +34,7 @@ export class IncidentUserDefinedFieldMetadata {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
   /**
    * @ignore
    */

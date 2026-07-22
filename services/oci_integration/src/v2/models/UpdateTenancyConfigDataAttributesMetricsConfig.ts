@@ -1,5 +1,6 @@
 import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
+
 /**
  * Metrics collection configuration for updating an OCI tenancy, controlling which compartments and services are included or excluded.
  */
@@ -21,7 +22,7 @@ export class UpdateTenancyConfigDataAttributesMetricsConfig {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
   /**
    * @ignore
    */

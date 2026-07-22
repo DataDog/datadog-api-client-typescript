@@ -1,5 +1,6 @@
 import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
+
 /**
  * Pagination and findings count information.
  */
@@ -29,7 +30,7 @@ export class ListFindingsPage {
       baseName: "total_filtered_count",
       type: "number",
       format: "int64",
-    },
+    }
   };
 
   /**

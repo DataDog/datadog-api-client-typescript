@@ -19,6 +19,7 @@ import {
   ServerConfiguration,
   stringify,
   applySecurityAuthentication,
+  
 } from "@datadog/datadog-api-client";
 
 import { TypingInfo } from "./models/TypingInfo";
@@ -55,15 +56,8 @@ export class APMRetentionFiltersApiRequestFactory extends BaseAPIRequestFactory 
     const localVarPath = "/api/v2/apm/config/retention-filters";
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "APMRetentionFiltersApi.v2.createApmRetentionFilter",
-      APMRetentionFiltersApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.POST,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("APMRetentionFiltersApi.v2.createApmRetentionFilter", APMRetentionFiltersApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.POST, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -73,7 +67,9 @@ export class APMRetentionFiltersApiRequestFactory extends BaseAPIRequestFactory 
     }
 
     // Body Params
-    const contentType = getPreferredMediaType(["application/json"]);
+    const contentType = getPreferredMediaType([
+      "application/json",
+    ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = stringify(
       serialize(body, TypingInfo, "RetentionFilterCreateRequest", ""),
@@ -102,22 +98,14 @@ export class APMRetentionFiltersApiRequestFactory extends BaseAPIRequestFactory 
     }
 
     // Path Params
-    const localVarPath =
-      "/api/v2/apm/config/retention-filters/{filter_id}".replace(
-        "{filter_id}",
-        encodeURIComponent(String(filterId)),
-      );
+    const localVarPath = "/api/v2/apm/config/retention-filters/{filter_id}".replace(
+      "{filter_id}",
+      encodeURIComponent(String(filterId)),
+    );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "APMRetentionFiltersApi.v2.deleteApmRetentionFilter",
-      APMRetentionFiltersApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.DELETE,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("APMRetentionFiltersApi.v2.deleteApmRetentionFilter", APMRetentionFiltersApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.DELETE, overrides);
     requestContext.setHeaderParam("Accept", "*/*");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -147,22 +135,14 @@ export class APMRetentionFiltersApiRequestFactory extends BaseAPIRequestFactory 
     }
 
     // Path Params
-    const localVarPath =
-      "/api/v2/apm/config/retention-filters/{filter_id}".replace(
-        "{filter_id}",
-        encodeURIComponent(String(filterId)),
-      );
+    const localVarPath = "/api/v2/apm/config/retention-filters/{filter_id}".replace(
+      "{filter_id}",
+      encodeURIComponent(String(filterId)),
+    );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "APMRetentionFiltersApi.v2.getApmRetentionFilter",
-      APMRetentionFiltersApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.GET,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("APMRetentionFiltersApi.v2.getApmRetentionFilter", APMRetentionFiltersApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.GET, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -189,15 +169,8 @@ export class APMRetentionFiltersApiRequestFactory extends BaseAPIRequestFactory 
     const localVarPath = "/api/v2/apm/config/retention-filters";
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "APMRetentionFiltersApi.v2.listApmRetentionFilters",
-      APMRetentionFiltersApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.GET,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("APMRetentionFiltersApi.v2.listApmRetentionFilters", APMRetentionFiltersApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.GET, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -230,15 +203,8 @@ export class APMRetentionFiltersApiRequestFactory extends BaseAPIRequestFactory 
     const localVarPath = "/api/v2/apm/config/retention-filters-execution-order";
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "APMRetentionFiltersApi.v2.reorderApmRetentionFilters",
-      APMRetentionFiltersApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.PUT,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("APMRetentionFiltersApi.v2.reorderApmRetentionFilters", APMRetentionFiltersApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.PUT, overrides);
     requestContext.setHeaderParam("Accept", "*/*");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -248,7 +214,9 @@ export class APMRetentionFiltersApiRequestFactory extends BaseAPIRequestFactory 
     }
 
     // Body Params
-    const contentType = getPreferredMediaType(["application/json"]);
+    const contentType = getPreferredMediaType([
+      "application/json",
+    ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = stringify(
       serialize(body, TypingInfo, "ReorderRetentionFiltersRequest", ""),
@@ -283,22 +251,14 @@ export class APMRetentionFiltersApiRequestFactory extends BaseAPIRequestFactory 
     }
 
     // Path Params
-    const localVarPath =
-      "/api/v2/apm/config/retention-filters/{filter_id}".replace(
-        "{filter_id}",
-        encodeURIComponent(String(filterId)),
-      );
+    const localVarPath = "/api/v2/apm/config/retention-filters/{filter_id}".replace(
+      "{filter_id}",
+      encodeURIComponent(String(filterId)),
+    );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "APMRetentionFiltersApi.v2.updateApmRetentionFilter",
-      APMRetentionFiltersApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.PUT,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("APMRetentionFiltersApi.v2.updateApmRetentionFilter", APMRetentionFiltersApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.PUT, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -308,7 +268,9 @@ export class APMRetentionFiltersApiRequestFactory extends BaseAPIRequestFactory 
     }
 
     // Body Params
-    const contentType = getPreferredMediaType(["application/json"]);
+    const contentType = getPreferredMediaType([
+      "application/json",
+    ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = stringify(
       serialize(body, TypingInfo, "RetentionFilterUpdateRequest", ""),
@@ -337,7 +299,9 @@ export class APMRetentionFiltersApiResponseProcessor {
   public async createApmRetentionFilter(
     response: ResponseContext,
   ): Promise<RetentionFilterCreateResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: RetentionFilterCreateResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -352,7 +316,10 @@ export class APMRetentionFiltersApiResponseProcessor {
       response.httpStatusCode === 409 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -367,7 +334,10 @@ export class APMRetentionFiltersApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -398,7 +368,9 @@ export class APMRetentionFiltersApiResponseProcessor {
   public async deleteApmRetentionFilter(
     response: ResponseContext,
   ): Promise<void> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       return;
     }
@@ -407,7 +379,10 @@ export class APMRetentionFiltersApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -422,7 +397,10 @@ export class APMRetentionFiltersApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -447,7 +425,9 @@ export class APMRetentionFiltersApiResponseProcessor {
   public async getApmRetentionFilter(
     response: ResponseContext,
   ): Promise<RetentionFilterResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: RetentionFilterResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -461,7 +441,10 @@ export class APMRetentionFiltersApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -476,7 +459,10 @@ export class APMRetentionFiltersApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -507,7 +493,9 @@ export class APMRetentionFiltersApiResponseProcessor {
   public async listApmRetentionFilters(
     response: ResponseContext,
   ): Promise<RetentionFiltersResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: RetentionFiltersResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -516,8 +504,14 @@ export class APMRetentionFiltersApiResponseProcessor {
       ) as RetentionFiltersResponse;
       return body;
     }
-    if (response.httpStatusCode === 403 || response.httpStatusCode === 429) {
-      const bodyText = parse(await response.body.text(), contentType);
+    if (
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 429
+    ) {
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -532,7 +526,10 @@ export class APMRetentionFiltersApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -563,7 +560,9 @@ export class APMRetentionFiltersApiResponseProcessor {
   public async reorderApmRetentionFilters(
     response: ResponseContext,
   ): Promise<void> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       return;
     }
@@ -572,7 +571,10 @@ export class APMRetentionFiltersApiResponseProcessor {
       response.httpStatusCode === 403 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -587,7 +589,10 @@ export class APMRetentionFiltersApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -612,7 +617,9 @@ export class APMRetentionFiltersApiResponseProcessor {
   public async updateApmRetentionFilter(
     response: ResponseContext,
   ): Promise<RetentionFilterResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: RetentionFilterResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -627,7 +634,10 @@ export class APMRetentionFiltersApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -642,7 +652,10 @@ export class APMRetentionFiltersApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -714,7 +727,8 @@ export class APMRetentionFiltersApi {
   private responseProcessor: APMRetentionFiltersApiResponseProcessor;
   private configuration: Configuration;
 
-  static operationServers: { [key: string]: BaseServerConfiguration[] } = {};
+  static operationServers: { [key: string]: BaseServerConfiguration[] } = {
+  };
 
   public constructor(
     configuration?: Configuration,
@@ -732,7 +746,7 @@ export class APMRetentionFiltersApi {
   /**
    * Create a retention filter to index spans in your organization.
    * Returns the retention filter definition when the request is successful.
-   *
+   * 
    * Default filters with types spans-errors-sampling-processor and spans-appsec-sampling-processor cannot be created.
    * @param param The request object
    */
@@ -748,16 +762,14 @@ export class APMRetentionFiltersApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.createApmRetentionFilter(
-            responseContext,
-          );
+          return this.responseProcessor.createApmRetentionFilter(responseContext);
         });
     });
   }
 
   /**
    * Delete a specific retention filter from your organization.
-   *
+   * 
    * Default filters with types spans-errors-sampling-processor and spans-appsec-sampling-processor cannot be deleted.
    * @param param The request object
    */
@@ -773,9 +785,7 @@ export class APMRetentionFiltersApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.deleteApmRetentionFilter(
-            responseContext,
-          );
+          return this.responseProcessor.deleteApmRetentionFilter(responseContext);
         });
     });
   }
@@ -805,18 +815,16 @@ export class APMRetentionFiltersApi {
    * Get the list of APM retention filters.
    * @param param The request object
    */
-  public listApmRetentionFilters(
-    options?: Configuration,
+  public listApmRetentionFilters(options?: Configuration,
   ): Promise<RetentionFiltersResponse> {
-    const requestContextPromise =
-      this.requestFactory.listApmRetentionFilters(options);
+    const requestContextPromise = this.requestFactory.listApmRetentionFilters(
+      options,
+    );
     return requestContextPromise.then((requestContext) => {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.listApmRetentionFilters(
-            responseContext,
-          );
+          return this.responseProcessor.listApmRetentionFilters(responseContext);
         });
     });
   }
@@ -829,22 +837,22 @@ export class APMRetentionFiltersApi {
     param: APMRetentionFiltersApiReorderApmRetentionFiltersRequest,
     options?: Configuration,
   ): Promise<void> {
-    const requestContextPromise =
-      this.requestFactory.reorderApmRetentionFilters(param.body, options);
+    const requestContextPromise = this.requestFactory.reorderApmRetentionFilters(
+      param.body,
+      options,
+    );
     return requestContextPromise.then((requestContext) => {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.reorderApmRetentionFilters(
-            responseContext,
-          );
+          return this.responseProcessor.reorderApmRetentionFilters(responseContext);
         });
     });
   }
 
   /**
    * Update a retention filter from your organization.
-   *
+   * 
    * Default filters (filters with types spans-errors-sampling-processor and spans-appsec-sampling-processor) cannot be renamed or removed.
    * @param param The request object
    */
@@ -861,9 +869,7 @@ export class APMRetentionFiltersApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.updateApmRetentionFilter(
-            responseContext,
-          );
+          return this.responseProcessor.updateApmRetentionFilter(responseContext);
         });
     });
   }

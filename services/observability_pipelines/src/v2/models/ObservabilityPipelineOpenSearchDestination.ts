@@ -7,7 +7,7 @@ import { ObservabilityPipelineOpenSearchDestinationType } from "./ObservabilityP
 
 /**
  * The `opensearch` destination writes logs to an OpenSearch cluster.
- *
+ * 
  * **Supported pipeline types:** logs
  */
 export class ObservabilityPipelineOpenSearchDestination {
@@ -49,7 +49,7 @@ export class ObservabilityPipelineOpenSearchDestination {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
   /**
    * @ignore
    */

@@ -19,6 +19,7 @@ import {
   ServerConfiguration,
   stringify,
   applySecurityAuthentication,
+  
 } from "@datadog/datadog-api-client";
 
 import { TypingInfo } from "./models/TypingInfo";
@@ -63,14 +64,8 @@ export class OrgGroupsApiRequestFactory extends BaseAPIRequestFactory {
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
-    if (
-      !_config.unstableOperations[
-        "OrgGroupsApi.v2.bulkUpdateOrgGroupMemberships"
-      ]
-    ) {
-      throw new Error(
-        "Unstable operation 'bulkUpdateOrgGroupMemberships' is disabled. Enable it by setting `configuration.unstableOperations['OrgGroupsApi.v2.bulkUpdateOrgGroupMemberships'] = true`",
-      );
+    if (!_config.unstableOperations["OrgGroupsApi.v2.bulkUpdateOrgGroupMemberships"]) {
+      throw new Error("Unstable operation 'bulkUpdateOrgGroupMemberships' is disabled. Enable it by setting `configuration.unstableOperations['OrgGroupsApi.v2.bulkUpdateOrgGroupMemberships'] = true`");
     }
 
     // verify required parameter 'body' is not null or undefined
@@ -82,15 +77,8 @@ export class OrgGroupsApiRequestFactory extends BaseAPIRequestFactory {
     const localVarPath = "/api/v2/org_group_memberships/bulk";
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "OrgGroupsApi.v2.bulkUpdateOrgGroupMemberships",
-      OrgGroupsApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.PATCH,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("OrgGroupsApi.v2.bulkUpdateOrgGroupMemberships", OrgGroupsApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.PATCH, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -100,7 +88,9 @@ export class OrgGroupsApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Body Params
-    const contentType = getPreferredMediaType(["application/json"]);
+    const contentType = getPreferredMediaType([
+      "application/json",
+    ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = stringify(
       serialize(body, TypingInfo, "OrgGroupMembershipBulkUpdateRequest", ""),
@@ -124,9 +114,7 @@ export class OrgGroupsApiRequestFactory extends BaseAPIRequestFactory {
     const _config = _options || this.configuration;
 
     if (!_config.unstableOperations["OrgGroupsApi.v2.createOrgGroup"]) {
-      throw new Error(
-        "Unstable operation 'createOrgGroup' is disabled. Enable it by setting `configuration.unstableOperations['OrgGroupsApi.v2.createOrgGroup'] = true`",
-      );
+      throw new Error("Unstable operation 'createOrgGroup' is disabled. Enable it by setting `configuration.unstableOperations['OrgGroupsApi.v2.createOrgGroup'] = true`");
     }
 
     // verify required parameter 'body' is not null or undefined
@@ -138,15 +126,8 @@ export class OrgGroupsApiRequestFactory extends BaseAPIRequestFactory {
     const localVarPath = "/api/v2/org_groups";
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "OrgGroupsApi.v2.createOrgGroup",
-      OrgGroupsApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.POST,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("OrgGroupsApi.v2.createOrgGroup", OrgGroupsApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.POST, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -156,7 +137,9 @@ export class OrgGroupsApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Body Params
-    const contentType = getPreferredMediaType(["application/json"]);
+    const contentType = getPreferredMediaType([
+      "application/json",
+    ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = stringify(
       serialize(body, TypingInfo, "OrgGroupCreateRequest", ""),
@@ -180,9 +163,7 @@ export class OrgGroupsApiRequestFactory extends BaseAPIRequestFactory {
     const _config = _options || this.configuration;
 
     if (!_config.unstableOperations["OrgGroupsApi.v2.createOrgGroupPolicy"]) {
-      throw new Error(
-        "Unstable operation 'createOrgGroupPolicy' is disabled. Enable it by setting `configuration.unstableOperations['OrgGroupsApi.v2.createOrgGroupPolicy'] = true`",
-      );
+      throw new Error("Unstable operation 'createOrgGroupPolicy' is disabled. Enable it by setting `configuration.unstableOperations['OrgGroupsApi.v2.createOrgGroupPolicy'] = true`");
     }
 
     // verify required parameter 'body' is not null or undefined
@@ -194,15 +175,8 @@ export class OrgGroupsApiRequestFactory extends BaseAPIRequestFactory {
     const localVarPath = "/api/v2/org_group_policies";
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "OrgGroupsApi.v2.createOrgGroupPolicy",
-      OrgGroupsApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.POST,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("OrgGroupsApi.v2.createOrgGroupPolicy", OrgGroupsApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.POST, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -212,7 +186,9 @@ export class OrgGroupsApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Body Params
-    const contentType = getPreferredMediaType(["application/json"]);
+    const contentType = getPreferredMediaType([
+      "application/json",
+    ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = stringify(
       serialize(body, TypingInfo, "OrgGroupPolicyCreateRequest", ""),
@@ -235,14 +211,8 @@ export class OrgGroupsApiRequestFactory extends BaseAPIRequestFactory {
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
-    if (
-      !_config.unstableOperations[
-        "OrgGroupsApi.v2.createOrgGroupPolicyOverride"
-      ]
-    ) {
-      throw new Error(
-        "Unstable operation 'createOrgGroupPolicyOverride' is disabled. Enable it by setting `configuration.unstableOperations['OrgGroupsApi.v2.createOrgGroupPolicyOverride'] = true`",
-      );
+    if (!_config.unstableOperations["OrgGroupsApi.v2.createOrgGroupPolicyOverride"]) {
+      throw new Error("Unstable operation 'createOrgGroupPolicyOverride' is disabled. Enable it by setting `configuration.unstableOperations['OrgGroupsApi.v2.createOrgGroupPolicyOverride'] = true`");
     }
 
     // verify required parameter 'body' is not null or undefined
@@ -254,15 +224,8 @@ export class OrgGroupsApiRequestFactory extends BaseAPIRequestFactory {
     const localVarPath = "/api/v2/org_group_policy_overrides";
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "OrgGroupsApi.v2.createOrgGroupPolicyOverride",
-      OrgGroupsApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.POST,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("OrgGroupsApi.v2.createOrgGroupPolicyOverride", OrgGroupsApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.POST, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -272,7 +235,9 @@ export class OrgGroupsApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Body Params
-    const contentType = getPreferredMediaType(["application/json"]);
+    const contentType = getPreferredMediaType([
+      "application/json",
+    ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = stringify(
       serialize(body, TypingInfo, "OrgGroupPolicyOverrideCreateRequest", ""),
@@ -296,9 +261,7 @@ export class OrgGroupsApiRequestFactory extends BaseAPIRequestFactory {
     const _config = _options || this.configuration;
 
     if (!_config.unstableOperations["OrgGroupsApi.v2.deleteOrgGroup"]) {
-      throw new Error(
-        "Unstable operation 'deleteOrgGroup' is disabled. Enable it by setting `configuration.unstableOperations['OrgGroupsApi.v2.deleteOrgGroup'] = true`",
-      );
+      throw new Error("Unstable operation 'deleteOrgGroup' is disabled. Enable it by setting `configuration.unstableOperations['OrgGroupsApi.v2.deleteOrgGroup'] = true`");
     }
 
     // verify required parameter 'orgGroupId' is not null or undefined
@@ -313,15 +276,8 @@ export class OrgGroupsApiRequestFactory extends BaseAPIRequestFactory {
     );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "OrgGroupsApi.v2.deleteOrgGroup",
-      OrgGroupsApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.DELETE,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("OrgGroupsApi.v2.deleteOrgGroup", OrgGroupsApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.DELETE, overrides);
     requestContext.setHeaderParam("Accept", "*/*");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -346,9 +302,7 @@ export class OrgGroupsApiRequestFactory extends BaseAPIRequestFactory {
     const _config = _options || this.configuration;
 
     if (!_config.unstableOperations["OrgGroupsApi.v2.deleteOrgGroupPolicy"]) {
-      throw new Error(
-        "Unstable operation 'deleteOrgGroupPolicy' is disabled. Enable it by setting `configuration.unstableOperations['OrgGroupsApi.v2.deleteOrgGroupPolicy'] = true`",
-      );
+      throw new Error("Unstable operation 'deleteOrgGroupPolicy' is disabled. Enable it by setting `configuration.unstableOperations['OrgGroupsApi.v2.deleteOrgGroupPolicy'] = true`");
     }
 
     // verify required parameter 'orgGroupPolicyId' is not null or undefined
@@ -357,22 +311,14 @@ export class OrgGroupsApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Path Params
-    const localVarPath =
-      "/api/v2/org_group_policies/{org_group_policy_id}".replace(
-        "{org_group_policy_id}",
-        encodeURIComponent(String(orgGroupPolicyId)),
-      );
+    const localVarPath = "/api/v2/org_group_policies/{org_group_policy_id}".replace(
+      "{org_group_policy_id}",
+      encodeURIComponent(String(orgGroupPolicyId)),
+    );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "OrgGroupsApi.v2.deleteOrgGroupPolicy",
-      OrgGroupsApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.DELETE,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("OrgGroupsApi.v2.deleteOrgGroupPolicy", OrgGroupsApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.DELETE, overrides);
     requestContext.setHeaderParam("Accept", "*/*");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -396,44 +342,24 @@ export class OrgGroupsApiRequestFactory extends BaseAPIRequestFactory {
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
-    if (
-      !_config.unstableOperations[
-        "OrgGroupsApi.v2.deleteOrgGroupPolicyOverride"
-      ]
-    ) {
-      throw new Error(
-        "Unstable operation 'deleteOrgGroupPolicyOverride' is disabled. Enable it by setting `configuration.unstableOperations['OrgGroupsApi.v2.deleteOrgGroupPolicyOverride'] = true`",
-      );
+    if (!_config.unstableOperations["OrgGroupsApi.v2.deleteOrgGroupPolicyOverride"]) {
+      throw new Error("Unstable operation 'deleteOrgGroupPolicyOverride' is disabled. Enable it by setting `configuration.unstableOperations['OrgGroupsApi.v2.deleteOrgGroupPolicyOverride'] = true`");
     }
 
     // verify required parameter 'orgGroupPolicyOverrideId' is not null or undefined
-    if (
-      orgGroupPolicyOverrideId === null ||
-      orgGroupPolicyOverrideId === undefined
-    ) {
-      throw new RequiredError(
-        "orgGroupPolicyOverrideId",
-        "deleteOrgGroupPolicyOverride",
-      );
+    if (orgGroupPolicyOverrideId === null || orgGroupPolicyOverrideId === undefined) {
+      throw new RequiredError("orgGroupPolicyOverrideId", "deleteOrgGroupPolicyOverride");
     }
 
     // Path Params
-    const localVarPath =
-      "/api/v2/org_group_policy_overrides/{org_group_policy_override_id}".replace(
-        "{org_group_policy_override_id}",
-        encodeURIComponent(String(orgGroupPolicyOverrideId)),
-      );
+    const localVarPath = "/api/v2/org_group_policy_overrides/{org_group_policy_override_id}".replace(
+      "{org_group_policy_override_id}",
+      encodeURIComponent(String(orgGroupPolicyOverrideId)),
+    );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "OrgGroupsApi.v2.deleteOrgGroupPolicyOverride",
-      OrgGroupsApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.DELETE,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("OrgGroupsApi.v2.deleteOrgGroupPolicyOverride", OrgGroupsApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.DELETE, overrides);
     requestContext.setHeaderParam("Accept", "*/*");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -458,9 +384,7 @@ export class OrgGroupsApiRequestFactory extends BaseAPIRequestFactory {
     const _config = _options || this.configuration;
 
     if (!_config.unstableOperations["OrgGroupsApi.v2.getOrgGroup"]) {
-      throw new Error(
-        "Unstable operation 'getOrgGroup' is disabled. Enable it by setting `configuration.unstableOperations['OrgGroupsApi.v2.getOrgGroup'] = true`",
-      );
+      throw new Error("Unstable operation 'getOrgGroup' is disabled. Enable it by setting `configuration.unstableOperations['OrgGroupsApi.v2.getOrgGroup'] = true`");
     }
 
     // verify required parameter 'orgGroupId' is not null or undefined
@@ -475,15 +399,8 @@ export class OrgGroupsApiRequestFactory extends BaseAPIRequestFactory {
     );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "OrgGroupsApi.v2.getOrgGroup",
-      OrgGroupsApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.GET,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("OrgGroupsApi.v2.getOrgGroup", OrgGroupsApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.GET, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -508,9 +425,7 @@ export class OrgGroupsApiRequestFactory extends BaseAPIRequestFactory {
     const _config = _options || this.configuration;
 
     if (!_config.unstableOperations["OrgGroupsApi.v2.getOrgGroupMembership"]) {
-      throw new Error(
-        "Unstable operation 'getOrgGroupMembership' is disabled. Enable it by setting `configuration.unstableOperations['OrgGroupsApi.v2.getOrgGroupMembership'] = true`",
-      );
+      throw new Error("Unstable operation 'getOrgGroupMembership' is disabled. Enable it by setting `configuration.unstableOperations['OrgGroupsApi.v2.getOrgGroupMembership'] = true`");
     }
 
     // verify required parameter 'orgGroupMembershipId' is not null or undefined
@@ -519,22 +434,14 @@ export class OrgGroupsApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Path Params
-    const localVarPath =
-      "/api/v2/org_group_memberships/{org_group_membership_id}".replace(
-        "{org_group_membership_id}",
-        encodeURIComponent(String(orgGroupMembershipId)),
-      );
+    const localVarPath = "/api/v2/org_group_memberships/{org_group_membership_id}".replace(
+      "{org_group_membership_id}",
+      encodeURIComponent(String(orgGroupMembershipId)),
+    );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "OrgGroupsApi.v2.getOrgGroupMembership",
-      OrgGroupsApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.GET,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("OrgGroupsApi.v2.getOrgGroupMembership", OrgGroupsApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.GET, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -559,9 +466,7 @@ export class OrgGroupsApiRequestFactory extends BaseAPIRequestFactory {
     const _config = _options || this.configuration;
 
     if (!_config.unstableOperations["OrgGroupsApi.v2.getOrgGroupPolicy"]) {
-      throw new Error(
-        "Unstable operation 'getOrgGroupPolicy' is disabled. Enable it by setting `configuration.unstableOperations['OrgGroupsApi.v2.getOrgGroupPolicy'] = true`",
-      );
+      throw new Error("Unstable operation 'getOrgGroupPolicy' is disabled. Enable it by setting `configuration.unstableOperations['OrgGroupsApi.v2.getOrgGroupPolicy'] = true`");
     }
 
     // verify required parameter 'orgGroupPolicyId' is not null or undefined
@@ -570,22 +475,14 @@ export class OrgGroupsApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Path Params
-    const localVarPath =
-      "/api/v2/org_group_policies/{org_group_policy_id}".replace(
-        "{org_group_policy_id}",
-        encodeURIComponent(String(orgGroupPolicyId)),
-      );
+    const localVarPath = "/api/v2/org_group_policies/{org_group_policy_id}".replace(
+      "{org_group_policy_id}",
+      encodeURIComponent(String(orgGroupPolicyId)),
+    );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "OrgGroupsApi.v2.getOrgGroupPolicy",
-      OrgGroupsApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.GET,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("OrgGroupsApi.v2.getOrgGroupPolicy", OrgGroupsApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.GET, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -609,42 +506,24 @@ export class OrgGroupsApiRequestFactory extends BaseAPIRequestFactory {
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
-    if (
-      !_config.unstableOperations["OrgGroupsApi.v2.getOrgGroupPolicyOverride"]
-    ) {
-      throw new Error(
-        "Unstable operation 'getOrgGroupPolicyOverride' is disabled. Enable it by setting `configuration.unstableOperations['OrgGroupsApi.v2.getOrgGroupPolicyOverride'] = true`",
-      );
+    if (!_config.unstableOperations["OrgGroupsApi.v2.getOrgGroupPolicyOverride"]) {
+      throw new Error("Unstable operation 'getOrgGroupPolicyOverride' is disabled. Enable it by setting `configuration.unstableOperations['OrgGroupsApi.v2.getOrgGroupPolicyOverride'] = true`");
     }
 
     // verify required parameter 'orgGroupPolicyOverrideId' is not null or undefined
-    if (
-      orgGroupPolicyOverrideId === null ||
-      orgGroupPolicyOverrideId === undefined
-    ) {
-      throw new RequiredError(
-        "orgGroupPolicyOverrideId",
-        "getOrgGroupPolicyOverride",
-      );
+    if (orgGroupPolicyOverrideId === null || orgGroupPolicyOverrideId === undefined) {
+      throw new RequiredError("orgGroupPolicyOverrideId", "getOrgGroupPolicyOverride");
     }
 
     // Path Params
-    const localVarPath =
-      "/api/v2/org_group_policy_overrides/{org_group_policy_override_id}".replace(
-        "{org_group_policy_override_id}",
-        encodeURIComponent(String(orgGroupPolicyOverrideId)),
-      );
+    const localVarPath = "/api/v2/org_group_policy_overrides/{org_group_policy_override_id}".replace(
+      "{org_group_policy_override_id}",
+      encodeURIComponent(String(orgGroupPolicyOverrideId)),
+    );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "OrgGroupsApi.v2.getOrgGroupPolicyOverride",
-      OrgGroupsApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.GET,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("OrgGroupsApi.v2.getOrgGroupPolicyOverride", OrgGroupsApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.GET, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -672,27 +551,16 @@ export class OrgGroupsApiRequestFactory extends BaseAPIRequestFactory {
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
-    if (
-      !_config.unstableOperations["OrgGroupsApi.v2.listOrgGroupMemberships"]
-    ) {
-      throw new Error(
-        "Unstable operation 'listOrgGroupMemberships' is disabled. Enable it by setting `configuration.unstableOperations['OrgGroupsApi.v2.listOrgGroupMemberships'] = true`",
-      );
+    if (!_config.unstableOperations["OrgGroupsApi.v2.listOrgGroupMemberships"]) {
+      throw new Error("Unstable operation 'listOrgGroupMemberships' is disabled. Enable it by setting `configuration.unstableOperations['OrgGroupsApi.v2.listOrgGroupMemberships'] = true`");
     }
 
     // Path Params
     const localVarPath = "/api/v2/org_group_memberships";
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "OrgGroupsApi.v2.listOrgGroupMemberships",
-      OrgGroupsApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.GET,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("OrgGroupsApi.v2.listOrgGroupMemberships", OrgGroupsApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.GET, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -758,9 +626,7 @@ export class OrgGroupsApiRequestFactory extends BaseAPIRequestFactory {
     const _config = _options || this.configuration;
 
     if (!_config.unstableOperations["OrgGroupsApi.v2.listOrgGroupPolicies"]) {
-      throw new Error(
-        "Unstable operation 'listOrgGroupPolicies' is disabled. Enable it by setting `configuration.unstableOperations['OrgGroupsApi.v2.listOrgGroupPolicies'] = true`",
-      );
+      throw new Error("Unstable operation 'listOrgGroupPolicies' is disabled. Enable it by setting `configuration.unstableOperations['OrgGroupsApi.v2.listOrgGroupPolicies'] = true`");
     }
 
     // verify required parameter 'filterOrgGroupId' is not null or undefined
@@ -772,15 +638,8 @@ export class OrgGroupsApiRequestFactory extends BaseAPIRequestFactory {
     const localVarPath = "/api/v2/org_group_policies";
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "OrgGroupsApi.v2.listOrgGroupPolicies",
-      OrgGroupsApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.GET,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("OrgGroupsApi.v2.listOrgGroupPolicies", OrgGroupsApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.GET, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -840,27 +699,16 @@ export class OrgGroupsApiRequestFactory extends BaseAPIRequestFactory {
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
-    if (
-      !_config.unstableOperations["OrgGroupsApi.v2.listOrgGroupPolicyConfigs"]
-    ) {
-      throw new Error(
-        "Unstable operation 'listOrgGroupPolicyConfigs' is disabled. Enable it by setting `configuration.unstableOperations['OrgGroupsApi.v2.listOrgGroupPolicyConfigs'] = true`",
-      );
+    if (!_config.unstableOperations["OrgGroupsApi.v2.listOrgGroupPolicyConfigs"]) {
+      throw new Error("Unstable operation 'listOrgGroupPolicyConfigs' is disabled. Enable it by setting `configuration.unstableOperations['OrgGroupsApi.v2.listOrgGroupPolicyConfigs'] = true`");
     }
 
     // Path Params
     const localVarPath = "/api/v2/org_group_policy_configs";
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "OrgGroupsApi.v2.listOrgGroupPolicyConfigs",
-      OrgGroupsApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.GET,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("OrgGroupsApi.v2.listOrgGroupPolicyConfigs", OrgGroupsApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.GET, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -888,35 +736,21 @@ export class OrgGroupsApiRequestFactory extends BaseAPIRequestFactory {
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
-    if (
-      !_config.unstableOperations["OrgGroupsApi.v2.listOrgGroupPolicyOverrides"]
-    ) {
-      throw new Error(
-        "Unstable operation 'listOrgGroupPolicyOverrides' is disabled. Enable it by setting `configuration.unstableOperations['OrgGroupsApi.v2.listOrgGroupPolicyOverrides'] = true`",
-      );
+    if (!_config.unstableOperations["OrgGroupsApi.v2.listOrgGroupPolicyOverrides"]) {
+      throw new Error("Unstable operation 'listOrgGroupPolicyOverrides' is disabled. Enable it by setting `configuration.unstableOperations['OrgGroupsApi.v2.listOrgGroupPolicyOverrides'] = true`");
     }
 
     // verify required parameter 'filterOrgGroupId' is not null or undefined
     if (filterOrgGroupId === null || filterOrgGroupId === undefined) {
-      throw new RequiredError(
-        "filterOrgGroupId",
-        "listOrgGroupPolicyOverrides",
-      );
+      throw new RequiredError("filterOrgGroupId", "listOrgGroupPolicyOverrides");
     }
 
     // Path Params
     const localVarPath = "/api/v2/org_group_policy_overrides";
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "OrgGroupsApi.v2.listOrgGroupPolicyOverrides",
-      OrgGroupsApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.GET,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("OrgGroupsApi.v2.listOrgGroupPolicyOverrides", OrgGroupsApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.GET, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -977,37 +811,21 @@ export class OrgGroupsApiRequestFactory extends BaseAPIRequestFactory {
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
-    if (
-      !_config.unstableOperations[
-        "OrgGroupsApi.v2.listOrgGroupPolicySuggestions"
-      ]
-    ) {
-      throw new Error(
-        "Unstable operation 'listOrgGroupPolicySuggestions' is disabled. Enable it by setting `configuration.unstableOperations['OrgGroupsApi.v2.listOrgGroupPolicySuggestions'] = true`",
-      );
+    if (!_config.unstableOperations["OrgGroupsApi.v2.listOrgGroupPolicySuggestions"]) {
+      throw new Error("Unstable operation 'listOrgGroupPolicySuggestions' is disabled. Enable it by setting `configuration.unstableOperations['OrgGroupsApi.v2.listOrgGroupPolicySuggestions'] = true`");
     }
 
     // verify required parameter 'filterOrgGroupId' is not null or undefined
     if (filterOrgGroupId === null || filterOrgGroupId === undefined) {
-      throw new RequiredError(
-        "filterOrgGroupId",
-        "listOrgGroupPolicySuggestions",
-      );
+      throw new RequiredError("filterOrgGroupId", "listOrgGroupPolicySuggestions");
     }
 
     // Path Params
     const localVarPath = "/api/v2/org_group_policy_suggestions";
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "OrgGroupsApi.v2.listOrgGroupPolicySuggestions",
-      OrgGroupsApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.GET,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("OrgGroupsApi.v2.listOrgGroupPolicySuggestions", OrgGroupsApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.GET, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -1043,24 +861,15 @@ export class OrgGroupsApiRequestFactory extends BaseAPIRequestFactory {
     const _config = _options || this.configuration;
 
     if (!_config.unstableOperations["OrgGroupsApi.v2.listOrgGroups"]) {
-      throw new Error(
-        "Unstable operation 'listOrgGroups' is disabled. Enable it by setting `configuration.unstableOperations['OrgGroupsApi.v2.listOrgGroups'] = true`",
-      );
+      throw new Error("Unstable operation 'listOrgGroups' is disabled. Enable it by setting `configuration.unstableOperations['OrgGroupsApi.v2.listOrgGroups'] = true`");
     }
 
     // Path Params
     const localVarPath = "/api/v2/org_groups";
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "OrgGroupsApi.v2.listOrgGroups",
-      OrgGroupsApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.GET,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("OrgGroupsApi.v2.listOrgGroups", OrgGroupsApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.GET, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -1109,9 +918,7 @@ export class OrgGroupsApiRequestFactory extends BaseAPIRequestFactory {
     const _config = _options || this.configuration;
 
     if (!_config.unstableOperations["OrgGroupsApi.v2.updateOrgGroup"]) {
-      throw new Error(
-        "Unstable operation 'updateOrgGroup' is disabled. Enable it by setting `configuration.unstableOperations['OrgGroupsApi.v2.updateOrgGroup'] = true`",
-      );
+      throw new Error("Unstable operation 'updateOrgGroup' is disabled. Enable it by setting `configuration.unstableOperations['OrgGroupsApi.v2.updateOrgGroup'] = true`");
     }
 
     // verify required parameter 'orgGroupId' is not null or undefined
@@ -1131,15 +938,8 @@ export class OrgGroupsApiRequestFactory extends BaseAPIRequestFactory {
     );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "OrgGroupsApi.v2.updateOrgGroup",
-      OrgGroupsApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.PATCH,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("OrgGroupsApi.v2.updateOrgGroup", OrgGroupsApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.PATCH, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -1149,7 +949,9 @@ export class OrgGroupsApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Body Params
-    const contentType = getPreferredMediaType(["application/json"]);
+    const contentType = getPreferredMediaType([
+      "application/json",
+    ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = stringify(
       serialize(body, TypingInfo, "OrgGroupUpdateRequest", ""),
@@ -1173,20 +975,13 @@ export class OrgGroupsApiRequestFactory extends BaseAPIRequestFactory {
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
-    if (
-      !_config.unstableOperations["OrgGroupsApi.v2.updateOrgGroupMembership"]
-    ) {
-      throw new Error(
-        "Unstable operation 'updateOrgGroupMembership' is disabled. Enable it by setting `configuration.unstableOperations['OrgGroupsApi.v2.updateOrgGroupMembership'] = true`",
-      );
+    if (!_config.unstableOperations["OrgGroupsApi.v2.updateOrgGroupMembership"]) {
+      throw new Error("Unstable operation 'updateOrgGroupMembership' is disabled. Enable it by setting `configuration.unstableOperations['OrgGroupsApi.v2.updateOrgGroupMembership'] = true`");
     }
 
     // verify required parameter 'orgGroupMembershipId' is not null or undefined
     if (orgGroupMembershipId === null || orgGroupMembershipId === undefined) {
-      throw new RequiredError(
-        "orgGroupMembershipId",
-        "updateOrgGroupMembership",
-      );
+      throw new RequiredError("orgGroupMembershipId", "updateOrgGroupMembership");
     }
 
     // verify required parameter 'body' is not null or undefined
@@ -1195,22 +990,14 @@ export class OrgGroupsApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Path Params
-    const localVarPath =
-      "/api/v2/org_group_memberships/{org_group_membership_id}".replace(
-        "{org_group_membership_id}",
-        encodeURIComponent(String(orgGroupMembershipId)),
-      );
+    const localVarPath = "/api/v2/org_group_memberships/{org_group_membership_id}".replace(
+      "{org_group_membership_id}",
+      encodeURIComponent(String(orgGroupMembershipId)),
+    );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "OrgGroupsApi.v2.updateOrgGroupMembership",
-      OrgGroupsApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.PATCH,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("OrgGroupsApi.v2.updateOrgGroupMembership", OrgGroupsApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.PATCH, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -1220,7 +1007,9 @@ export class OrgGroupsApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Body Params
-    const contentType = getPreferredMediaType(["application/json"]);
+    const contentType = getPreferredMediaType([
+      "application/json",
+    ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = stringify(
       serialize(body, TypingInfo, "OrgGroupMembershipUpdateRequest", ""),
@@ -1245,9 +1034,7 @@ export class OrgGroupsApiRequestFactory extends BaseAPIRequestFactory {
     const _config = _options || this.configuration;
 
     if (!_config.unstableOperations["OrgGroupsApi.v2.updateOrgGroupPolicy"]) {
-      throw new Error(
-        "Unstable operation 'updateOrgGroupPolicy' is disabled. Enable it by setting `configuration.unstableOperations['OrgGroupsApi.v2.updateOrgGroupPolicy'] = true`",
-      );
+      throw new Error("Unstable operation 'updateOrgGroupPolicy' is disabled. Enable it by setting `configuration.unstableOperations['OrgGroupsApi.v2.updateOrgGroupPolicy'] = true`");
     }
 
     // verify required parameter 'orgGroupPolicyId' is not null or undefined
@@ -1261,22 +1048,14 @@ export class OrgGroupsApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Path Params
-    const localVarPath =
-      "/api/v2/org_group_policies/{org_group_policy_id}".replace(
-        "{org_group_policy_id}",
-        encodeURIComponent(String(orgGroupPolicyId)),
-      );
+    const localVarPath = "/api/v2/org_group_policies/{org_group_policy_id}".replace(
+      "{org_group_policy_id}",
+      encodeURIComponent(String(orgGroupPolicyId)),
+    );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "OrgGroupsApi.v2.updateOrgGroupPolicy",
-      OrgGroupsApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.PATCH,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("OrgGroupsApi.v2.updateOrgGroupPolicy", OrgGroupsApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.PATCH, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -1286,7 +1065,9 @@ export class OrgGroupsApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Body Params
-    const contentType = getPreferredMediaType(["application/json"]);
+    const contentType = getPreferredMediaType([
+      "application/json",
+    ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = stringify(
       serialize(body, TypingInfo, "OrgGroupPolicyUpdateRequest", ""),
@@ -1310,25 +1091,13 @@ export class OrgGroupsApiRequestFactory extends BaseAPIRequestFactory {
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
-    if (
-      !_config.unstableOperations[
-        "OrgGroupsApi.v2.updateOrgGroupPolicyOverride"
-      ]
-    ) {
-      throw new Error(
-        "Unstable operation 'updateOrgGroupPolicyOverride' is disabled. Enable it by setting `configuration.unstableOperations['OrgGroupsApi.v2.updateOrgGroupPolicyOverride'] = true`",
-      );
+    if (!_config.unstableOperations["OrgGroupsApi.v2.updateOrgGroupPolicyOverride"]) {
+      throw new Error("Unstable operation 'updateOrgGroupPolicyOverride' is disabled. Enable it by setting `configuration.unstableOperations['OrgGroupsApi.v2.updateOrgGroupPolicyOverride'] = true`");
     }
 
     // verify required parameter 'orgGroupPolicyOverrideId' is not null or undefined
-    if (
-      orgGroupPolicyOverrideId === null ||
-      orgGroupPolicyOverrideId === undefined
-    ) {
-      throw new RequiredError(
-        "orgGroupPolicyOverrideId",
-        "updateOrgGroupPolicyOverride",
-      );
+    if (orgGroupPolicyOverrideId === null || orgGroupPolicyOverrideId === undefined) {
+      throw new RequiredError("orgGroupPolicyOverrideId", "updateOrgGroupPolicyOverride");
     }
 
     // verify required parameter 'body' is not null or undefined
@@ -1337,22 +1106,14 @@ export class OrgGroupsApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Path Params
-    const localVarPath =
-      "/api/v2/org_group_policy_overrides/{org_group_policy_override_id}".replace(
-        "{org_group_policy_override_id}",
-        encodeURIComponent(String(orgGroupPolicyOverrideId)),
-      );
+    const localVarPath = "/api/v2/org_group_policy_overrides/{org_group_policy_override_id}".replace(
+      "{org_group_policy_override_id}",
+      encodeURIComponent(String(orgGroupPolicyOverrideId)),
+    );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "OrgGroupsApi.v2.updateOrgGroupPolicyOverride",
-      OrgGroupsApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.PATCH,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("OrgGroupsApi.v2.updateOrgGroupPolicyOverride", OrgGroupsApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.PATCH, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -1362,7 +1123,9 @@ export class OrgGroupsApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Body Params
-    const contentType = getPreferredMediaType(["application/json"]);
+    const contentType = getPreferredMediaType([
+      "application/json",
+    ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = stringify(
       serialize(body, TypingInfo, "OrgGroupPolicyOverrideUpdateRequest", ""),
@@ -1391,7 +1154,9 @@ export class OrgGroupsApiResponseProcessor {
   public async bulkUpdateOrgGroupMemberships(
     response: ResponseContext,
   ): Promise<OrgGroupMembershipListResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: OrgGroupMembershipListResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -1406,7 +1171,10 @@ export class OrgGroupsApiResponseProcessor {
       response.httpStatusCode === 403 ||
       response.httpStatusCode === 404
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: JSONAPIErrorResponse;
       try {
         body = deserialize(
@@ -1427,7 +1195,10 @@ export class OrgGroupsApiResponseProcessor {
       );
     }
     if (response.httpStatusCode === 429) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -1442,7 +1213,10 @@ export class OrgGroupsApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -1473,7 +1247,9 @@ export class OrgGroupsApiResponseProcessor {
   public async createOrgGroup(
     response: ResponseContext,
   ): Promise<OrgGroupResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 201) {
       const body: OrgGroupResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -1488,7 +1264,10 @@ export class OrgGroupsApiResponseProcessor {
       response.httpStatusCode === 403 ||
       response.httpStatusCode === 409
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: JSONAPIErrorResponse;
       try {
         body = deserialize(
@@ -1509,7 +1288,10 @@ export class OrgGroupsApiResponseProcessor {
       );
     }
     if (response.httpStatusCode === 429) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -1524,7 +1306,10 @@ export class OrgGroupsApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -1555,7 +1340,9 @@ export class OrgGroupsApiResponseProcessor {
   public async createOrgGroupPolicy(
     response: ResponseContext,
   ): Promise<OrgGroupPolicyResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 201) {
       const body: OrgGroupPolicyResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -1570,7 +1357,10 @@ export class OrgGroupsApiResponseProcessor {
       response.httpStatusCode === 403 ||
       response.httpStatusCode === 409
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: JSONAPIErrorResponse;
       try {
         body = deserialize(
@@ -1591,7 +1381,10 @@ export class OrgGroupsApiResponseProcessor {
       );
     }
     if (response.httpStatusCode === 429) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -1606,7 +1399,10 @@ export class OrgGroupsApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -1637,7 +1433,9 @@ export class OrgGroupsApiResponseProcessor {
   public async createOrgGroupPolicyOverride(
     response: ResponseContext,
   ): Promise<OrgGroupPolicyOverrideResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 201) {
       const body: OrgGroupPolicyOverrideResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -1652,7 +1450,10 @@ export class OrgGroupsApiResponseProcessor {
       response.httpStatusCode === 403 ||
       response.httpStatusCode === 409
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: JSONAPIErrorResponse;
       try {
         body = deserialize(
@@ -1673,7 +1474,10 @@ export class OrgGroupsApiResponseProcessor {
       );
     }
     if (response.httpStatusCode === 429) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -1688,7 +1492,10 @@ export class OrgGroupsApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -1716,8 +1523,12 @@ export class OrgGroupsApiResponseProcessor {
    * @params response Response returned by the server for a request to deleteOrgGroup
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async deleteOrgGroup(response: ResponseContext): Promise<void> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+  public async deleteOrgGroup(
+    response: ResponseContext,
+  ): Promise<void> {
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 204) {
       return;
     }
@@ -1727,7 +1538,10 @@ export class OrgGroupsApiResponseProcessor {
       response.httpStatusCode === 403 ||
       response.httpStatusCode === 404
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: JSONAPIErrorResponse;
       try {
         body = deserialize(
@@ -1748,7 +1562,10 @@ export class OrgGroupsApiResponseProcessor {
       );
     }
     if (response.httpStatusCode === 429) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -1763,7 +1580,10 @@ export class OrgGroupsApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -1785,8 +1605,12 @@ export class OrgGroupsApiResponseProcessor {
    * @params response Response returned by the server for a request to deleteOrgGroupPolicy
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async deleteOrgGroupPolicy(response: ResponseContext): Promise<void> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+  public async deleteOrgGroupPolicy(
+    response: ResponseContext,
+  ): Promise<void> {
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 204) {
       return;
     }
@@ -1796,7 +1620,10 @@ export class OrgGroupsApiResponseProcessor {
       response.httpStatusCode === 403 ||
       response.httpStatusCode === 404
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: JSONAPIErrorResponse;
       try {
         body = deserialize(
@@ -1817,7 +1644,10 @@ export class OrgGroupsApiResponseProcessor {
       );
     }
     if (response.httpStatusCode === 429) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -1832,7 +1662,10 @@ export class OrgGroupsApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -1857,7 +1690,9 @@ export class OrgGroupsApiResponseProcessor {
   public async deleteOrgGroupPolicyOverride(
     response: ResponseContext,
   ): Promise<void> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 204) {
       return;
     }
@@ -1867,7 +1702,10 @@ export class OrgGroupsApiResponseProcessor {
       response.httpStatusCode === 403 ||
       response.httpStatusCode === 404
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: JSONAPIErrorResponse;
       try {
         body = deserialize(
@@ -1888,7 +1726,10 @@ export class OrgGroupsApiResponseProcessor {
       );
     }
     if (response.httpStatusCode === 429) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -1903,7 +1744,10 @@ export class OrgGroupsApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -1928,7 +1772,9 @@ export class OrgGroupsApiResponseProcessor {
   public async getOrgGroup(
     response: ResponseContext,
   ): Promise<OrgGroupResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: OrgGroupResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -1943,7 +1789,10 @@ export class OrgGroupsApiResponseProcessor {
       response.httpStatusCode === 403 ||
       response.httpStatusCode === 404
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: JSONAPIErrorResponse;
       try {
         body = deserialize(
@@ -1964,7 +1813,10 @@ export class OrgGroupsApiResponseProcessor {
       );
     }
     if (response.httpStatusCode === 429) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -1979,7 +1831,10 @@ export class OrgGroupsApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -2010,7 +1865,9 @@ export class OrgGroupsApiResponseProcessor {
   public async getOrgGroupMembership(
     response: ResponseContext,
   ): Promise<OrgGroupMembershipResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: OrgGroupMembershipResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -2025,7 +1882,10 @@ export class OrgGroupsApiResponseProcessor {
       response.httpStatusCode === 403 ||
       response.httpStatusCode === 404
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: JSONAPIErrorResponse;
       try {
         body = deserialize(
@@ -2046,7 +1906,10 @@ export class OrgGroupsApiResponseProcessor {
       );
     }
     if (response.httpStatusCode === 429) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -2061,7 +1924,10 @@ export class OrgGroupsApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -2092,7 +1958,9 @@ export class OrgGroupsApiResponseProcessor {
   public async getOrgGroupPolicy(
     response: ResponseContext,
   ): Promise<OrgGroupPolicyResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: OrgGroupPolicyResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -2107,7 +1975,10 @@ export class OrgGroupsApiResponseProcessor {
       response.httpStatusCode === 403 ||
       response.httpStatusCode === 404
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: JSONAPIErrorResponse;
       try {
         body = deserialize(
@@ -2128,7 +1999,10 @@ export class OrgGroupsApiResponseProcessor {
       );
     }
     if (response.httpStatusCode === 429) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -2143,7 +2017,10 @@ export class OrgGroupsApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -2174,7 +2051,9 @@ export class OrgGroupsApiResponseProcessor {
   public async getOrgGroupPolicyOverride(
     response: ResponseContext,
   ): Promise<OrgGroupPolicyOverrideResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: OrgGroupPolicyOverrideResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -2189,7 +2068,10 @@ export class OrgGroupsApiResponseProcessor {
       response.httpStatusCode === 403 ||
       response.httpStatusCode === 404
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: JSONAPIErrorResponse;
       try {
         body = deserialize(
@@ -2210,7 +2092,10 @@ export class OrgGroupsApiResponseProcessor {
       );
     }
     if (response.httpStatusCode === 429) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -2225,7 +2110,10 @@ export class OrgGroupsApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -2256,7 +2144,9 @@ export class OrgGroupsApiResponseProcessor {
   public async listOrgGroupMemberships(
     response: ResponseContext,
   ): Promise<OrgGroupMembershipListResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: OrgGroupMembershipListResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -2270,7 +2160,10 @@ export class OrgGroupsApiResponseProcessor {
       response.httpStatusCode === 401 ||
       response.httpStatusCode === 403
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: JSONAPIErrorResponse;
       try {
         body = deserialize(
@@ -2291,7 +2184,10 @@ export class OrgGroupsApiResponseProcessor {
       );
     }
     if (response.httpStatusCode === 429) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -2306,7 +2202,10 @@ export class OrgGroupsApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -2337,7 +2236,9 @@ export class OrgGroupsApiResponseProcessor {
   public async listOrgGroupPolicies(
     response: ResponseContext,
   ): Promise<OrgGroupPolicyListResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: OrgGroupPolicyListResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -2351,7 +2252,10 @@ export class OrgGroupsApiResponseProcessor {
       response.httpStatusCode === 401 ||
       response.httpStatusCode === 403
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: JSONAPIErrorResponse;
       try {
         body = deserialize(
@@ -2372,7 +2276,10 @@ export class OrgGroupsApiResponseProcessor {
       );
     }
     if (response.httpStatusCode === 429) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -2387,7 +2294,10 @@ export class OrgGroupsApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -2418,7 +2328,9 @@ export class OrgGroupsApiResponseProcessor {
   public async listOrgGroupPolicyConfigs(
     response: ResponseContext,
   ): Promise<OrgGroupPolicyConfigListResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: OrgGroupPolicyConfigListResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -2427,8 +2339,14 @@ export class OrgGroupsApiResponseProcessor {
       ) as OrgGroupPolicyConfigListResponse;
       return body;
     }
-    if (response.httpStatusCode === 401 || response.httpStatusCode === 403) {
-      const bodyText = parse(await response.body.text(), contentType);
+    if (
+      response.httpStatusCode === 401 ||
+      response.httpStatusCode === 403
+    ) {
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: JSONAPIErrorResponse;
       try {
         body = deserialize(
@@ -2449,7 +2367,10 @@ export class OrgGroupsApiResponseProcessor {
       );
     }
     if (response.httpStatusCode === 429) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -2464,7 +2385,10 @@ export class OrgGroupsApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -2495,7 +2419,9 @@ export class OrgGroupsApiResponseProcessor {
   public async listOrgGroupPolicyOverrides(
     response: ResponseContext,
   ): Promise<OrgGroupPolicyOverrideListResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: OrgGroupPolicyOverrideListResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -2509,7 +2435,10 @@ export class OrgGroupsApiResponseProcessor {
       response.httpStatusCode === 401 ||
       response.httpStatusCode === 403
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: JSONAPIErrorResponse;
       try {
         body = deserialize(
@@ -2530,7 +2459,10 @@ export class OrgGroupsApiResponseProcessor {
       );
     }
     if (response.httpStatusCode === 429) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -2545,7 +2477,10 @@ export class OrgGroupsApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -2576,7 +2511,9 @@ export class OrgGroupsApiResponseProcessor {
   public async listOrgGroupPolicySuggestions(
     response: ResponseContext,
   ): Promise<OrgGroupPolicySuggestionListResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: OrgGroupPolicySuggestionListResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -2590,7 +2527,10 @@ export class OrgGroupsApiResponseProcessor {
       response.httpStatusCode === 401 ||
       response.httpStatusCode === 403
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: JSONAPIErrorResponse;
       try {
         body = deserialize(
@@ -2611,7 +2551,10 @@ export class OrgGroupsApiResponseProcessor {
       );
     }
     if (response.httpStatusCode === 429) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -2626,7 +2569,10 @@ export class OrgGroupsApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -2657,7 +2603,9 @@ export class OrgGroupsApiResponseProcessor {
   public async listOrgGroups(
     response: ResponseContext,
   ): Promise<OrgGroupListResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: OrgGroupListResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -2671,7 +2619,10 @@ export class OrgGroupsApiResponseProcessor {
       response.httpStatusCode === 401 ||
       response.httpStatusCode === 403
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: JSONAPIErrorResponse;
       try {
         body = deserialize(
@@ -2692,7 +2643,10 @@ export class OrgGroupsApiResponseProcessor {
       );
     }
     if (response.httpStatusCode === 429) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -2707,7 +2661,10 @@ export class OrgGroupsApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -2738,7 +2695,9 @@ export class OrgGroupsApiResponseProcessor {
   public async updateOrgGroup(
     response: ResponseContext,
   ): Promise<OrgGroupResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: OrgGroupResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -2753,7 +2712,10 @@ export class OrgGroupsApiResponseProcessor {
       response.httpStatusCode === 403 ||
       response.httpStatusCode === 404
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: JSONAPIErrorResponse;
       try {
         body = deserialize(
@@ -2774,7 +2736,10 @@ export class OrgGroupsApiResponseProcessor {
       );
     }
     if (response.httpStatusCode === 429) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -2789,7 +2754,10 @@ export class OrgGroupsApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -2820,7 +2788,9 @@ export class OrgGroupsApiResponseProcessor {
   public async updateOrgGroupMembership(
     response: ResponseContext,
   ): Promise<OrgGroupMembershipResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: OrgGroupMembershipResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -2835,7 +2805,10 @@ export class OrgGroupsApiResponseProcessor {
       response.httpStatusCode === 403 ||
       response.httpStatusCode === 404
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: JSONAPIErrorResponse;
       try {
         body = deserialize(
@@ -2856,7 +2829,10 @@ export class OrgGroupsApiResponseProcessor {
       );
     }
     if (response.httpStatusCode === 429) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -2871,7 +2847,10 @@ export class OrgGroupsApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -2902,7 +2881,9 @@ export class OrgGroupsApiResponseProcessor {
   public async updateOrgGroupPolicy(
     response: ResponseContext,
   ): Promise<OrgGroupPolicyResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: OrgGroupPolicyResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -2917,7 +2898,10 @@ export class OrgGroupsApiResponseProcessor {
       response.httpStatusCode === 403 ||
       response.httpStatusCode === 404
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: JSONAPIErrorResponse;
       try {
         body = deserialize(
@@ -2938,7 +2922,10 @@ export class OrgGroupsApiResponseProcessor {
       );
     }
     if (response.httpStatusCode === 429) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -2953,7 +2940,10 @@ export class OrgGroupsApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -2984,7 +2974,9 @@ export class OrgGroupsApiResponseProcessor {
   public async updateOrgGroupPolicyOverride(
     response: ResponseContext,
   ): Promise<OrgGroupPolicyOverrideResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: OrgGroupPolicyOverrideResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -2999,7 +2991,10 @@ export class OrgGroupsApiResponseProcessor {
       response.httpStatusCode === 403 ||
       response.httpStatusCode === 404
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: JSONAPIErrorResponse;
       try {
         body = deserialize(
@@ -3020,7 +3015,10 @@ export class OrgGroupsApiResponseProcessor {
       );
     }
     if (response.httpStatusCode === 429) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -3035,7 +3033,10 @@ export class OrgGroupsApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -3304,7 +3305,8 @@ export class OrgGroupsApi {
   private responseProcessor: OrgGroupsApiResponseProcessor;
   private configuration: Configuration;
 
-  static operationServers: { [key: string]: BaseServerConfiguration[] } = {};
+  static operationServers: { [key: string]: BaseServerConfiguration[] } = {
+  };
 
   public constructor(
     configuration?: Configuration,
@@ -3313,7 +3315,8 @@ export class OrgGroupsApi {
   ) {
     this.configuration = configuration || createConfiguration();
     this.requestFactory =
-      requestFactory || new OrgGroupsApiRequestFactory(this.configuration);
+      requestFactory ||
+      new OrgGroupsApiRequestFactory(this.configuration);
     this.responseProcessor =
       responseProcessor || new OrgGroupsApiResponseProcessor();
   }
@@ -3326,15 +3329,15 @@ export class OrgGroupsApi {
     param: OrgGroupsApiBulkUpdateOrgGroupMembershipsRequest,
     options?: Configuration,
   ): Promise<OrgGroupMembershipListResponse> {
-    const requestContextPromise =
-      this.requestFactory.bulkUpdateOrgGroupMemberships(param.body, options);
+    const requestContextPromise = this.requestFactory.bulkUpdateOrgGroupMemberships(
+      param.body,
+      options,
+    );
     return requestContextPromise.then((requestContext) => {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.bulkUpdateOrgGroupMemberships(
-            responseContext,
-          );
+          return this.responseProcessor.bulkUpdateOrgGroupMemberships(responseContext);
         });
     });
   }
@@ -3389,15 +3392,15 @@ export class OrgGroupsApi {
     param: OrgGroupsApiCreateOrgGroupPolicyOverrideRequest,
     options?: Configuration,
   ): Promise<OrgGroupPolicyOverrideResponse> {
-    const requestContextPromise =
-      this.requestFactory.createOrgGroupPolicyOverride(param.body, options);
+    const requestContextPromise = this.requestFactory.createOrgGroupPolicyOverride(
+      param.body,
+      options,
+    );
     return requestContextPromise.then((requestContext) => {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.createOrgGroupPolicyOverride(
-            responseContext,
-          );
+          return this.responseProcessor.createOrgGroupPolicyOverride(responseContext);
         });
     });
   }
@@ -3452,18 +3455,15 @@ export class OrgGroupsApi {
     param: OrgGroupsApiDeleteOrgGroupPolicyOverrideRequest,
     options?: Configuration,
   ): Promise<void> {
-    const requestContextPromise =
-      this.requestFactory.deleteOrgGroupPolicyOverride(
-        param.orgGroupPolicyOverrideId,
-        options,
-      );
+    const requestContextPromise = this.requestFactory.deleteOrgGroupPolicyOverride(
+      param.orgGroupPolicyOverrideId,
+      options,
+    );
     return requestContextPromise.then((requestContext) => {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.deleteOrgGroupPolicyOverride(
-            responseContext,
-          );
+          return this.responseProcessor.deleteOrgGroupPolicyOverride(responseContext);
         });
     });
   }
@@ -3547,9 +3547,7 @@ export class OrgGroupsApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.getOrgGroupPolicyOverride(
-            responseContext,
-          );
+          return this.responseProcessor.getOrgGroupPolicyOverride(responseContext);
         });
     });
   }
@@ -3574,9 +3572,7 @@ export class OrgGroupsApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.listOrgGroupMemberships(
-            responseContext,
-          );
+          return this.responseProcessor.listOrgGroupMemberships(responseContext);
         });
     });
   }
@@ -3610,18 +3606,16 @@ export class OrgGroupsApi {
    * List all org configs that are eligible to be used as organization group policies.
    * @param param The request object
    */
-  public listOrgGroupPolicyConfigs(
-    options?: Configuration,
+  public listOrgGroupPolicyConfigs(options?: Configuration,
   ): Promise<OrgGroupPolicyConfigListResponse> {
-    const requestContextPromise =
-      this.requestFactory.listOrgGroupPolicyConfigs(options);
+    const requestContextPromise = this.requestFactory.listOrgGroupPolicyConfigs(
+      options,
+    );
     return requestContextPromise.then((requestContext) => {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.listOrgGroupPolicyConfigs(
-            responseContext,
-          );
+          return this.responseProcessor.listOrgGroupPolicyConfigs(responseContext);
         });
     });
   }
@@ -3634,22 +3628,19 @@ export class OrgGroupsApi {
     param: OrgGroupsApiListOrgGroupPolicyOverridesRequest,
     options?: Configuration,
   ): Promise<OrgGroupPolicyOverrideListResponse> {
-    const requestContextPromise =
-      this.requestFactory.listOrgGroupPolicyOverrides(
-        param.filterOrgGroupId,
-        param.filterPolicyId,
-        param.pageNumber,
-        param.pageSize,
-        param.sort,
-        options,
-      );
+    const requestContextPromise = this.requestFactory.listOrgGroupPolicyOverrides(
+      param.filterOrgGroupId,
+      param.filterPolicyId,
+      param.pageNumber,
+      param.pageSize,
+      param.sort,
+      options,
+    );
     return requestContextPromise.then((requestContext) => {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.listOrgGroupPolicyOverrides(
-            responseContext,
-          );
+          return this.responseProcessor.listOrgGroupPolicyOverrides(responseContext);
         });
     });
   }
@@ -3662,18 +3653,15 @@ export class OrgGroupsApi {
     param: OrgGroupsApiListOrgGroupPolicySuggestionsRequest,
     options?: Configuration,
   ): Promise<OrgGroupPolicySuggestionListResponse> {
-    const requestContextPromise =
-      this.requestFactory.listOrgGroupPolicySuggestions(
-        param.filterOrgGroupId,
-        options,
-      );
+    const requestContextPromise = this.requestFactory.listOrgGroupPolicySuggestions(
+      param.filterOrgGroupId,
+      options,
+    );
     return requestContextPromise.then((requestContext) => {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.listOrgGroupPolicySuggestions(
-            responseContext,
-          );
+          return this.responseProcessor.listOrgGroupPolicySuggestions(responseContext);
         });
     });
   }
@@ -3740,9 +3728,7 @@ export class OrgGroupsApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.updateOrgGroupMembership(
-            responseContext,
-          );
+          return this.responseProcessor.updateOrgGroupMembership(responseContext);
         });
     });
   }
@@ -3777,19 +3763,16 @@ export class OrgGroupsApi {
     param: OrgGroupsApiUpdateOrgGroupPolicyOverrideRequest,
     options?: Configuration,
   ): Promise<OrgGroupPolicyOverrideResponse> {
-    const requestContextPromise =
-      this.requestFactory.updateOrgGroupPolicyOverride(
-        param.orgGroupPolicyOverrideId,
-        param.body,
-        options,
-      );
+    const requestContextPromise = this.requestFactory.updateOrgGroupPolicyOverride(
+      param.orgGroupPolicyOverrideId,
+      param.body,
+      options,
+    );
     return requestContextPromise.then((requestContext) => {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.updateOrgGroupPolicyOverride(
-            responseContext,
-          );
+          return this.responseProcessor.updateOrgGroupPolicyOverride(responseContext);
         });
     });
   }

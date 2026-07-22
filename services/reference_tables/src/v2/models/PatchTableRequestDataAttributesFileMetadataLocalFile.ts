@@ -1,5 +1,6 @@
 import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
+
 /**
  * Local file metadata for patch requests using upload ID.
  */
@@ -21,7 +22,7 @@ export class PatchTableRequestDataAttributesFileMetadataLocalFile {
       baseName: "upload_id",
       type: "string",
       required: true,
-    },
+    }
   };
 
   /**

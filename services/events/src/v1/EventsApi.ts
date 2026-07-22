@@ -19,6 +19,7 @@ import {
   ServerConfiguration,
   stringify,
   applySecurityAuthentication,
+  
 } from "@datadog/datadog-api-client";
 
 import { TypingInfo } from "./models/TypingInfo";
@@ -54,15 +55,8 @@ export class EventsApiRequestFactory extends BaseAPIRequestFactory {
     const localVarPath = "/api/v1/events";
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "EventsApi.v1.createEvent",
-      EventsApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.POST,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("EventsApi.v1.createEvent", EventsApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.POST, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -72,7 +66,9 @@ export class EventsApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Body Params
-    const contentType = getPreferredMediaType(["application/json"]);
+    const contentType = getPreferredMediaType([
+      "application/json",
+    ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = stringify(
       serialize(body, TypingInfo, "EventCreateRequest", ""),
@@ -81,7 +77,9 @@ export class EventsApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setBody(serializedBody);
 
     // Apply auth methods
-    applySecurityAuthentication(_config, requestContext, ["apiKeyAuth"]);
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+    ]);
 
     return requestContext;
   }
@@ -104,15 +102,8 @@ export class EventsApiRequestFactory extends BaseAPIRequestFactory {
     );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "EventsApi.v1.getEvent",
-      EventsApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.GET,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("EventsApi.v1.getEvent", EventsApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.GET, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -158,15 +149,8 @@ export class EventsApiRequestFactory extends BaseAPIRequestFactory {
     const localVarPath = "/api/v1/events";
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "EventsApi.v1.listEvents",
-      EventsApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.GET,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("EventsApi.v1.listEvents", EventsApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.GET, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -255,7 +239,9 @@ export class EventsApiResponseProcessor {
   public async createEvent(
     response: ResponseContext,
   ): Promise<EventCreateResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 202) {
       const body: EventCreateResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -264,8 +250,14 @@ export class EventsApiResponseProcessor {
       ) as EventCreateResponse;
       return body;
     }
-    if (response.httpStatusCode === 400 || response.httpStatusCode === 429) {
-      const bodyText = parse(await response.body.text(), contentType);
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 429
+    ) {
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -280,7 +272,10 @@ export class EventsApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -308,8 +303,12 @@ export class EventsApiResponseProcessor {
    * @params response Response returned by the server for a request to getEvent
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async getEvent(response: ResponseContext): Promise<EventResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+  public async getEvent(
+    response: ResponseContext,
+  ): Promise<EventResponse> {
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: EventResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -323,7 +322,10 @@ export class EventsApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -338,7 +340,10 @@ export class EventsApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -369,7 +374,9 @@ export class EventsApiResponseProcessor {
   public async listEvents(
     response: ResponseContext,
   ): Promise<EventListResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: EventListResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -383,7 +390,10 @@ export class EventsApiResponseProcessor {
       response.httpStatusCode === 403 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -398,7 +408,10 @@ export class EventsApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -488,7 +501,8 @@ export class EventsApi {
   private responseProcessor: EventsApiResponseProcessor;
   private configuration: Configuration;
 
-  static operationServers: { [key: string]: BaseServerConfiguration[] } = {};
+  static operationServers: { [key: string]: BaseServerConfiguration[] } = {
+  };
 
   public constructor(
     configuration?: Configuration,
@@ -497,7 +511,8 @@ export class EventsApi {
   ) {
     this.configuration = configuration || createConfiguration();
     this.requestFactory =
-      requestFactory || new EventsApiRequestFactory(this.configuration);
+      requestFactory ||
+      new EventsApiRequestFactory(this.configuration);
     this.responseProcessor =
       responseProcessor || new EventsApiResponseProcessor();
   }
@@ -526,7 +541,7 @@ export class EventsApi {
 
   /**
    * This endpoint allows you to query for event details.
-   *
+   * 
    * **Note**: If the event you’re querying contains markdown formatting of any kind,
    * you may see characters such as `%`,`\`,`n` in your output.
    * @param param The request object
@@ -550,11 +565,11 @@ export class EventsApi {
 
   /**
    * The event stream can be queried and filtered by time, priority, sources and tags.
-   *
+   * 
    * **Notes**:
    * - If the event you’re querying contains markdown formatting of any kind,
    * you may see characters such as `%`,`\`,`n` in your output.
-   *
+   * 
    * - This endpoint returns a maximum of `1000` most recent results. To return additional results,
    * identify the last timestamp of the last result and set that as the `end` query time to
    * paginate the results. You can also use the page parameter to specify which set of `1000` results to return.

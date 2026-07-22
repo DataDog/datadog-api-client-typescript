@@ -6,11 +6,7 @@ import { GCPMonitoredResourceConfig } from "./GCPMonitoredResourceConfig";
 
 export const TypingInfo: ModelTypingInfo = {
   enumsMap: {
-    GCPMonitoredResourceConfigType: [
-      "cloud_function",
-      "cloud_run_revision",
-      "gce_instance",
-    ],
+    GCPMonitoredResourceConfigType: ["cloud_function", "cloud_run_revision", "gce_instance"],
   },
   oneOfMap: {},
   typeMap: {

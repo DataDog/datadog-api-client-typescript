@@ -5,7 +5,8 @@ import { SlackIntegrationChannel } from "./SlackIntegrationChannel";
 import { SlackIntegrationChannelDisplay } from "./SlackIntegrationChannelDisplay";
 
 export const TypingInfo: ModelTypingInfo = {
-  enumsMap: {},
+  enumsMap: {
+  },
   oneOfMap: {},
   typeMap: {
     APIErrorResponse: APIErrorResponse,

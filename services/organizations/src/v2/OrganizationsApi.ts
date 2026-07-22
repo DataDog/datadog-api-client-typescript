@@ -22,7 +22,7 @@ import {
   HttpFile,
 } from "@datadog/datadog-api-client";
 
-import FormData from "form-data";
+import FormData from "form-data"
 
 import { TypingInfo } from "./models/TypingInfo";
 import { APIErrorResponse } from "./models/APIErrorResponse";
@@ -67,15 +67,8 @@ export class OrganizationsApiRequestFactory extends BaseAPIRequestFactory {
     );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "OrganizationsApi.v2.getOrgConfig",
-      OrganizationsApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.GET,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("OrganizationsApi.v2.getOrgConfig", OrganizationsApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.GET, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -105,22 +98,14 @@ export class OrganizationsApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Path Params
-    const localVarPath =
-      "/api/v2/saml_configurations/{saml_config_uuid}".replace(
-        "{saml_config_uuid}",
-        encodeURIComponent(String(samlConfigUuid)),
-      );
+    const localVarPath = "/api/v2/saml_configurations/{saml_config_uuid}".replace(
+      "{saml_config_uuid}",
+      encodeURIComponent(String(samlConfigUuid)),
+    );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "OrganizationsApi.v2.getSAMLConfiguration",
-      OrganizationsApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.GET,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("OrganizationsApi.v2.getSAMLConfiguration", OrganizationsApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.GET, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -155,15 +140,8 @@ export class OrganizationsApiRequestFactory extends BaseAPIRequestFactory {
     const localVarPath = "/api/v2/global_orgs";
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "OrganizationsApi.v2.listGlobalOrgs",
-      OrganizationsApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.GET,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("OrganizationsApi.v2.listGlobalOrgs", OrganizationsApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.GET, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -214,15 +192,8 @@ export class OrganizationsApiRequestFactory extends BaseAPIRequestFactory {
     const localVarPath = "/api/v2/org_configs";
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "OrganizationsApi.v2.listOrgConfigs",
-      OrganizationsApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.GET,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("OrganizationsApi.v2.listOrgConfigs", OrganizationsApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.GET, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -250,15 +221,8 @@ export class OrganizationsApiRequestFactory extends BaseAPIRequestFactory {
     const localVarPath = "/api/v2/org";
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "OrganizationsApi.v2.listOrgs",
-      OrganizationsApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.GET,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("OrganizationsApi.v2.listOrgs", OrganizationsApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.GET, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -295,15 +259,8 @@ export class OrganizationsApiRequestFactory extends BaseAPIRequestFactory {
     const localVarPath = "/api/v2/saml_configurations";
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "OrganizationsApi.v2.listSAMLConfigurations",
-      OrganizationsApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.GET,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("OrganizationsApi.v2.listSAMLConfigurations", OrganizationsApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.GET, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -329,25 +286,15 @@ export class OrganizationsApiRequestFactory extends BaseAPIRequestFactory {
 
     // verify required parameter 'body' is not null or undefined
     if (body === null || body === undefined) {
-      throw new RequiredError(
-        "body",
-        "updateLoginOrgConfigsMaxSessionDuration",
-      );
+      throw new RequiredError("body", "updateLoginOrgConfigsMaxSessionDuration");
     }
 
     // Path Params
     const localVarPath = "/api/v2/login/org_configs/max_session_duration";
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "OrganizationsApi.v2.updateLoginOrgConfigsMaxSessionDuration",
-      OrganizationsApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.PUT,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("OrganizationsApi.v2.updateLoginOrgConfigsMaxSessionDuration", OrganizationsApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.PUT, overrides);
     requestContext.setHeaderParam("Accept", "*/*");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -357,7 +304,9 @@ export class OrganizationsApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Body Params
-    const contentType = getPreferredMediaType(["application/json"]);
+    const contentType = getPreferredMediaType([
+      "application/json",
+    ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = stringify(
       serialize(body, TypingInfo, "MaxSessionDurationUpdateRequest", ""),
@@ -399,15 +348,8 @@ export class OrganizationsApiRequestFactory extends BaseAPIRequestFactory {
     );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "OrganizationsApi.v2.updateOrgConfig",
-      OrganizationsApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.PATCH,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("OrganizationsApi.v2.updateOrgConfig", OrganizationsApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.PATCH, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -417,7 +359,9 @@ export class OrganizationsApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Body Params
-    const contentType = getPreferredMediaType(["application/json"]);
+    const contentType = getPreferredMediaType([
+      "application/json",
+    ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = stringify(
       serialize(body, TypingInfo, "OrgConfigWriteRequest", ""),
@@ -440,14 +384,8 @@ export class OrganizationsApiRequestFactory extends BaseAPIRequestFactory {
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
-    if (
-      !_config.unstableOperations[
-        "OrganizationsApi.v2.updateOrgSamlConfigurations"
-      ]
-    ) {
-      throw new Error(
-        "Unstable operation 'updateOrgSamlConfigurations' is disabled. Enable it by setting `configuration.unstableOperations['OrganizationsApi.v2.updateOrgSamlConfigurations'] = true`",
-      );
+    if (!_config.unstableOperations["OrganizationsApi.v2.updateOrgSamlConfigurations"]) {
+      throw new Error("Unstable operation 'updateOrgSamlConfigurations' is disabled. Enable it by setting `configuration.unstableOperations['OrganizationsApi.v2.updateOrgSamlConfigurations'] = true`");
     }
 
     // verify required parameter 'body' is not null or undefined
@@ -459,15 +397,8 @@ export class OrganizationsApiRequestFactory extends BaseAPIRequestFactory {
     const localVarPath = "/api/v2/org/saml_configurations";
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "OrganizationsApi.v2.updateOrgSamlConfigurations",
-      OrganizationsApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.PATCH,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("OrganizationsApi.v2.updateOrgSamlConfigurations", OrganizationsApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.PATCH, overrides);
     requestContext.setHeaderParam("Accept", "*/*");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -477,7 +408,9 @@ export class OrganizationsApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Body Params
-    const contentType = getPreferredMediaType(["application/json"]);
+    const contentType = getPreferredMediaType([
+      "application/json",
+    ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = stringify(
       serialize(body, TypingInfo, "OrgSAMLPreferencesUpdateRequest", ""),
@@ -512,22 +445,14 @@ export class OrganizationsApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Path Params
-    const localVarPath =
-      "/api/v2/saml_configurations/{saml_config_uuid}".replace(
-        "{saml_config_uuid}",
-        encodeURIComponent(String(samlConfigUuid)),
-      );
+    const localVarPath = "/api/v2/saml_configurations/{saml_config_uuid}".replace(
+      "{saml_config_uuid}",
+      encodeURIComponent(String(samlConfigUuid)),
+    );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "OrganizationsApi.v2.updateSAMLConfiguration",
-      OrganizationsApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.PATCH,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("OrganizationsApi.v2.updateSAMLConfiguration", OrganizationsApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.PATCH, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -537,7 +462,9 @@ export class OrganizationsApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Body Params
-    const contentType = getPreferredMediaType(["application/json"]);
+    const contentType = getPreferredMediaType([
+      "application/json",
+    ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = stringify(
       serialize(body, TypingInfo, "SAMLConfigurationUpdateRequest", ""),
@@ -564,15 +491,8 @@ export class OrganizationsApiRequestFactory extends BaseAPIRequestFactory {
     const localVarPath = "/api/v2/saml_configurations/idp_metadata";
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "OrganizationsApi.v2.uploadIdPMetadata",
-      OrganizationsApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.POST,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("OrganizationsApi.v2.uploadIdPMetadata", OrganizationsApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.POST, overrides);
     requestContext.setHeaderParam("Accept", "*/*");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -610,7 +530,9 @@ export class OrganizationsApiResponseProcessor {
   public async getOrgConfig(
     response: ResponseContext,
   ): Promise<OrgConfigGetResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: OrgConfigGetResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -626,7 +548,10 @@ export class OrganizationsApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -641,7 +566,10 @@ export class OrganizationsApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -672,7 +600,9 @@ export class OrganizationsApiResponseProcessor {
   public async getSAMLConfiguration(
     response: ResponseContext,
   ): Promise<SAMLConfigurationResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: SAMLConfigurationResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -686,7 +616,10 @@ export class OrganizationsApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -701,7 +634,10 @@ export class OrganizationsApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -732,7 +668,9 @@ export class OrganizationsApiResponseProcessor {
   public async listGlobalOrgs(
     response: ResponseContext,
   ): Promise<GlobalOrgsResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: GlobalOrgsResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -747,7 +685,10 @@ export class OrganizationsApiResponseProcessor {
       response.httpStatusCode === 403 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -762,7 +703,10 @@ export class OrganizationsApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -793,7 +737,9 @@ export class OrganizationsApiResponseProcessor {
   public async listOrgConfigs(
     response: ResponseContext,
   ): Promise<OrgConfigListResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: OrgConfigListResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -808,7 +754,10 @@ export class OrganizationsApiResponseProcessor {
       response.httpStatusCode === 403 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -823,7 +772,10 @@ export class OrganizationsApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -854,7 +806,9 @@ export class OrganizationsApiResponseProcessor {
   public async listOrgs(
     response: ResponseContext,
   ): Promise<ManagedOrgsResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: ManagedOrgsResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -868,7 +822,10 @@ export class OrganizationsApiResponseProcessor {
       response.httpStatusCode === 403 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -883,7 +840,10 @@ export class OrganizationsApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -914,7 +874,9 @@ export class OrganizationsApiResponseProcessor {
   public async listSAMLConfigurations(
     response: ResponseContext,
   ): Promise<SAMLConfigurationsResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: SAMLConfigurationsResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -923,8 +885,14 @@ export class OrganizationsApiResponseProcessor {
       ) as SAMLConfigurationsResponse;
       return body;
     }
-    if (response.httpStatusCode === 403 || response.httpStatusCode === 429) {
-      const bodyText = parse(await response.body.text(), contentType);
+    if (
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 429
+    ) {
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -939,7 +907,10 @@ export class OrganizationsApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -970,7 +941,9 @@ export class OrganizationsApiResponseProcessor {
   public async updateLoginOrgConfigsMaxSessionDuration(
     response: ResponseContext,
   ): Promise<void> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 204) {
       return;
     }
@@ -980,7 +953,10 @@ export class OrganizationsApiResponseProcessor {
       response.httpStatusCode === 403 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -995,7 +971,10 @@ export class OrganizationsApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -1020,7 +999,9 @@ export class OrganizationsApiResponseProcessor {
   public async updateOrgConfig(
     response: ResponseContext,
   ): Promise<OrgConfigGetResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: OrgConfigGetResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -1036,7 +1017,10 @@ export class OrganizationsApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -1051,7 +1035,10 @@ export class OrganizationsApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -1082,7 +1069,9 @@ export class OrganizationsApiResponseProcessor {
   public async updateOrgSamlConfigurations(
     response: ResponseContext,
   ): Promise<void> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 204) {
       return;
     }
@@ -1091,7 +1080,10 @@ export class OrganizationsApiResponseProcessor {
       response.httpStatusCode === 403 ||
       response.httpStatusCode === 404
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: JSONAPIErrorResponse;
       try {
         body = deserialize(
@@ -1112,7 +1104,10 @@ export class OrganizationsApiResponseProcessor {
       );
     }
     if (response.httpStatusCode === 429) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -1127,7 +1122,10 @@ export class OrganizationsApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -1152,7 +1150,9 @@ export class OrganizationsApiResponseProcessor {
   public async updateSAMLConfiguration(
     response: ResponseContext,
   ): Promise<SAMLConfigurationResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: SAMLConfigurationResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -1168,7 +1168,10 @@ export class OrganizationsApiResponseProcessor {
       response.httpStatusCode === 422 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -1183,7 +1186,10 @@ export class OrganizationsApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -1211,8 +1217,12 @@ export class OrganizationsApiResponseProcessor {
    * @params response Response returned by the server for a request to uploadIdPMetadata
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async uploadIdPMetadata(response: ResponseContext): Promise<void> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+  public async uploadIdPMetadata(
+    response: ResponseContext,
+  ): Promise<void> {
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       return;
     }
@@ -1221,7 +1231,10 @@ export class OrganizationsApiResponseProcessor {
       response.httpStatusCode === 403 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -1236,7 +1249,10 @@ export class OrganizationsApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -1346,7 +1362,8 @@ export class OrganizationsApi {
   private responseProcessor: OrganizationsApiResponseProcessor;
   private configuration: Configuration;
 
-  static operationServers: { [key: string]: BaseServerConfiguration[] } = {};
+  static operationServers: { [key: string]: BaseServerConfiguration[] } = {
+  };
 
   public constructor(
     configuration?: Configuration,
@@ -1355,7 +1372,8 @@ export class OrganizationsApi {
   ) {
     this.configuration = configuration || createConfiguration();
     this.requestFactory =
-      requestFactory || new OrganizationsApiRequestFactory(this.configuration);
+      requestFactory ||
+      new OrganizationsApiRequestFactory(this.configuration);
     this.responseProcessor =
       responseProcessor || new OrganizationsApiResponseProcessor();
   }
@@ -1429,26 +1447,19 @@ export class OrganizationsApi {
    * Provide a paginated version of listGlobalOrgs returning a generator with all the items.
    */
   public async *listGlobalOrgsWithPagination(
-    param: OrganizationsApiListGlobalOrgsRequest,
-    options?: Configuration,
+    param: OrganizationsApiListGlobalOrgsRequest, options?: Configuration,
   ): AsyncGenerator<GlobalOrgData> {
+
     let pageSize = 100;
     if (param.pageLimit !== undefined) {
       pageSize = param.pageLimit;
     }
     param.pageLimit = pageSize;
     while (true) {
-      const requestContext = await this.requestFactory.listGlobalOrgs(
-        param.userHandle,
-        param.pageLimit,
-        param.pageCursor,
-        options,
-      );
-      const responseContext =
-        await this.configuration.httpApi.send(requestContext);
+      const requestContext = await this.requestFactory.listGlobalOrgs(param.userHandle,param.pageLimit,param.pageCursor,options);
+      const responseContext = await this.configuration.httpApi.send(requestContext);
 
-      const response =
-        await this.responseProcessor.listGlobalOrgs(responseContext);
+      const response = await this.responseProcessor.listGlobalOrgs(responseContext);
       const responseData = response.data;
       if (responseData === undefined) {
         break;
@@ -1481,10 +1492,11 @@ export class OrganizationsApi {
    * Returns all Org Configs (name, description, and value).
    * @param param The request object
    */
-  public listOrgConfigs(
-    options?: Configuration,
+  public listOrgConfigs(options?: Configuration,
   ): Promise<OrgConfigListResponse> {
-    const requestContextPromise = this.requestFactory.listOrgConfigs(options);
+    const requestContextPromise = this.requestFactory.listOrgConfigs(
+      options,
+    );
     return requestContextPromise.then((requestContext) => {
       return this.configuration.httpApi
         .send(requestContext)
@@ -1519,11 +1531,11 @@ export class OrganizationsApi {
    * Get the list of SAML configurations for the current organization. An organization has at most one SAML configuration.
    * @param param The request object
    */
-  public listSAMLConfigurations(
-    options?: Configuration,
+  public listSAMLConfigurations(options?: Configuration,
   ): Promise<SAMLConfigurationsResponse> {
-    const requestContextPromise =
-      this.requestFactory.listSAMLConfigurations(options);
+    const requestContextPromise = this.requestFactory.listSAMLConfigurations(
+      options,
+    );
     return requestContextPromise.then((requestContext) => {
       return this.configuration.httpApi
         .send(requestContext)
@@ -1542,18 +1554,15 @@ export class OrganizationsApi {
     param: OrganizationsApiUpdateLoginOrgConfigsMaxSessionDurationRequest,
     options?: Configuration,
   ): Promise<void> {
-    const requestContextPromise =
-      this.requestFactory.updateLoginOrgConfigsMaxSessionDuration(
-        param.body,
-        options,
-      );
+    const requestContextPromise = this.requestFactory.updateLoginOrgConfigsMaxSessionDuration(
+      param.body,
+      options,
+    );
     return requestContextPromise.then((requestContext) => {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.updateLoginOrgConfigsMaxSessionDuration(
-            responseContext,
-          );
+          return this.responseProcessor.updateLoginOrgConfigsMaxSessionDuration(responseContext);
         });
     });
   }
@@ -1582,7 +1591,7 @@ export class OrganizationsApi {
 
   /**
    * Update the SAML preferences for the current organization.
-   *
+   * 
    * Use this endpoint to set the just-in-time (JIT) provisioning domains and the default role
    * assigned to just-in-time provisioned users.
    * @param param The request object
@@ -1591,22 +1600,22 @@ export class OrganizationsApi {
     param: OrganizationsApiUpdateOrgSamlConfigurationsRequest,
     options?: Configuration,
   ): Promise<void> {
-    const requestContextPromise =
-      this.requestFactory.updateOrgSamlConfigurations(param.body, options);
+    const requestContextPromise = this.requestFactory.updateOrgSamlConfigurations(
+      param.body,
+      options,
+    );
     return requestContextPromise.then((requestContext) => {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.updateOrgSamlConfigurations(
-            responseContext,
-          );
+          return this.responseProcessor.updateOrgSamlConfigurations(responseContext);
         });
     });
   }
 
   /**
    * Update a single SAML configuration for the current organization.
-   *
+   * 
    * Use this endpoint to enable or disable identity-provider-initiated login, set the
    * just-in-time provisioning domains, and set the default role assigned to
    * just-in-time provisioned users. A default role is required to enable just-in-time provisioning.
@@ -1625,16 +1634,14 @@ export class OrganizationsApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.updateSAMLConfiguration(
-            responseContext,
-          );
+          return this.responseProcessor.updateSAMLConfiguration(responseContext);
         });
     });
   }
 
   /**
    * Endpoint for uploading IdP metadata for SAML setup.
-   *
+   * 
    * Use this endpoint to upload or replace IdP metadata for SAML login configuration.
    * @param param The request object
    */

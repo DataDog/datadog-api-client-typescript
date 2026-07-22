@@ -30,7 +30,7 @@ export class ListConnectionsResponseDataAttributesConnectionsItems {
   /**
    * Additional key-value metadata associated with the connection.
    */
-  "metadata"?: { [key: string]: string };
+  "metadata"?: { [key: string]: string; };
   /**
    * The type of data source connection (for example, ref_table).
    */
@@ -48,7 +48,7 @@ export class ListConnectionsResponseDataAttributesConnectionsItems {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
   /**
    * @ignore
    */

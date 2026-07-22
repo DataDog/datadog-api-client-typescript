@@ -19,6 +19,7 @@ import {
   ServerConfiguration,
   stringify,
   applySecurityAuthentication,
+  
 } from "@datadog/datadog-api-client";
 
 import { TypingInfo } from "./models/TypingInfo";
@@ -53,22 +54,14 @@ export class ErrorTrackingApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Path Params
-    const localVarPath =
-      "/api/v2/error-tracking/issues/{issue_id}/assignee".replace(
-        "{issue_id}",
-        encodeURIComponent(String(issueId)),
-      );
+    const localVarPath = "/api/v2/error-tracking/issues/{issue_id}/assignee".replace(
+      "{issue_id}",
+      encodeURIComponent(String(issueId)),
+    );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "ErrorTrackingApi.v2.deleteIssueAssignee",
-      ErrorTrackingApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.DELETE,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("ErrorTrackingApi.v2.deleteIssueAssignee", ErrorTrackingApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.DELETE, overrides);
     requestContext.setHeaderParam("Accept", "*/*");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -106,15 +99,8 @@ export class ErrorTrackingApiRequestFactory extends BaseAPIRequestFactory {
     );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "ErrorTrackingApi.v2.getIssue",
-      ErrorTrackingApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.GET,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("ErrorTrackingApi.v2.getIssue", ErrorTrackingApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.GET, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -127,12 +113,7 @@ export class ErrorTrackingApiRequestFactory extends BaseAPIRequestFactory {
     if (include !== undefined) {
       requestContext.setQueryParam(
         "include",
-        serialize(
-          include,
-          TypingInfo,
-          "Array<GetIssueIncludeQueryParameterItem>",
-          "",
-        ),
+        serialize(include, TypingInfo, "Array<GetIssueIncludeQueryParameterItem>", ""),
         "csv",
       );
     }
@@ -163,15 +144,8 @@ export class ErrorTrackingApiRequestFactory extends BaseAPIRequestFactory {
     const localVarPath = "/api/v2/error-tracking/issues/search";
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "ErrorTrackingApi.v2.searchIssues",
-      ErrorTrackingApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.POST,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("ErrorTrackingApi.v2.searchIssues", ErrorTrackingApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.POST, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -184,18 +158,15 @@ export class ErrorTrackingApiRequestFactory extends BaseAPIRequestFactory {
     if (include !== undefined) {
       requestContext.setQueryParam(
         "include",
-        serialize(
-          include,
-          TypingInfo,
-          "Array<SearchIssuesIncludeQueryParameterItem>",
-          "",
-        ),
+        serialize(include, TypingInfo, "Array<SearchIssuesIncludeQueryParameterItem>", ""),
         "csv",
       );
     }
 
     // Body Params
-    const contentType = getPreferredMediaType(["application/json"]);
+    const contentType = getPreferredMediaType([
+      "application/json",
+    ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = stringify(
       serialize(body, TypingInfo, "IssuesSearchRequest", ""),
@@ -231,22 +202,14 @@ export class ErrorTrackingApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Path Params
-    const localVarPath =
-      "/api/v2/error-tracking/issues/{issue_id}/assignee".replace(
-        "{issue_id}",
-        encodeURIComponent(String(issueId)),
-      );
+    const localVarPath = "/api/v2/error-tracking/issues/{issue_id}/assignee".replace(
+      "{issue_id}",
+      encodeURIComponent(String(issueId)),
+    );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "ErrorTrackingApi.v2.updateIssueAssignee",
-      ErrorTrackingApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.PUT,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("ErrorTrackingApi.v2.updateIssueAssignee", ErrorTrackingApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.PUT, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -256,7 +219,9 @@ export class ErrorTrackingApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Body Params
-    const contentType = getPreferredMediaType(["application/json"]);
+    const contentType = getPreferredMediaType([
+      "application/json",
+    ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = stringify(
       serialize(body, TypingInfo, "IssueUpdateAssigneeRequest", ""),
@@ -292,22 +257,14 @@ export class ErrorTrackingApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Path Params
-    const localVarPath =
-      "/api/v2/error-tracking/issues/{issue_id}/state".replace(
-        "{issue_id}",
-        encodeURIComponent(String(issueId)),
-      );
+    const localVarPath = "/api/v2/error-tracking/issues/{issue_id}/state".replace(
+      "{issue_id}",
+      encodeURIComponent(String(issueId)),
+    );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "ErrorTrackingApi.v2.updateIssueState",
-      ErrorTrackingApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.PUT,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("ErrorTrackingApi.v2.updateIssueState", ErrorTrackingApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.PUT, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -317,7 +274,9 @@ export class ErrorTrackingApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Body Params
-    const contentType = getPreferredMediaType(["application/json"]);
+    const contentType = getPreferredMediaType([
+      "application/json",
+    ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = stringify(
       serialize(body, TypingInfo, "IssueUpdateStateRequest", ""),
@@ -344,8 +303,12 @@ export class ErrorTrackingApiResponseProcessor {
    * @params response Response returned by the server for a request to deleteIssueAssignee
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async deleteIssueAssignee(response: ResponseContext): Promise<void> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+  public async deleteIssueAssignee(
+    response: ResponseContext,
+  ): Promise<void> {
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 204) {
       return;
     }
@@ -356,7 +319,10 @@ export class ErrorTrackingApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -371,7 +337,10 @@ export class ErrorTrackingApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -393,8 +362,12 @@ export class ErrorTrackingApiResponseProcessor {
    * @params response Response returned by the server for a request to getIssue
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async getIssue(response: ResponseContext): Promise<IssueResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+  public async getIssue(
+    response: ResponseContext,
+  ): Promise<IssueResponse> {
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: IssueResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -410,7 +383,10 @@ export class ErrorTrackingApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -425,7 +401,10 @@ export class ErrorTrackingApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -456,7 +435,9 @@ export class ErrorTrackingApiResponseProcessor {
   public async searchIssues(
     response: ResponseContext,
   ): Promise<IssuesSearchResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: IssuesSearchResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -471,7 +452,10 @@ export class ErrorTrackingApiResponseProcessor {
       response.httpStatusCode === 403 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -486,7 +470,10 @@ export class ErrorTrackingApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -517,7 +504,9 @@ export class ErrorTrackingApiResponseProcessor {
   public async updateIssueAssignee(
     response: ResponseContext,
   ): Promise<IssueResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: IssueResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -533,7 +522,10 @@ export class ErrorTrackingApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -548,7 +540,10 @@ export class ErrorTrackingApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -579,7 +574,9 @@ export class ErrorTrackingApiResponseProcessor {
   public async updateIssueState(
     response: ResponseContext,
   ): Promise<IssueResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: IssueResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -595,7 +592,10 @@ export class ErrorTrackingApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -610,7 +610,10 @@ export class ErrorTrackingApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -697,7 +700,8 @@ export class ErrorTrackingApi {
   private responseProcessor: ErrorTrackingApiResponseProcessor;
   private configuration: Configuration;
 
-  static operationServers: { [key: string]: BaseServerConfiguration[] } = {};
+  static operationServers: { [key: string]: BaseServerConfiguration[] } = {
+  };
 
   public constructor(
     configuration?: Configuration,
@@ -706,7 +710,8 @@ export class ErrorTrackingApi {
   ) {
     this.configuration = configuration || createConfiguration();
     this.requestFactory =
-      requestFactory || new ErrorTrackingApiRequestFactory(this.configuration);
+      requestFactory ||
+      new ErrorTrackingApiRequestFactory(this.configuration);
     this.responseProcessor =
       responseProcessor || new ErrorTrackingApiResponseProcessor();
   }

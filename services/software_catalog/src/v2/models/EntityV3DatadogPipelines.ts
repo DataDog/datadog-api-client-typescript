@@ -1,5 +1,6 @@
 import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
+
 /**
  * CI Pipelines association.
  */
@@ -20,7 +21,7 @@ export class EntityV3DatadogPipelines {
     fingerprints: {
       baseName: "fingerprints",
       type: "Array<string>",
-    },
+    }
   };
 
   /**

@@ -19,6 +19,7 @@ import {
   ServerConfiguration,
   stringify,
   applySecurityAuthentication,
+  
 } from "@datadog/datadog-api-client";
 
 import { TypingInfo } from "./models/TypingInfo";
@@ -54,15 +55,8 @@ export class NotebooksApiRequestFactory extends BaseAPIRequestFactory {
     const localVarPath = "/api/v1/notebooks";
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "NotebooksApi.v1.createNotebook",
-      NotebooksApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.POST,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("NotebooksApi.v1.createNotebook", NotebooksApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.POST, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -72,7 +66,9 @@ export class NotebooksApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Body Params
-    const contentType = getPreferredMediaType(["application/json"]);
+    const contentType = getPreferredMediaType([
+      "application/json",
+    ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = stringify(
       serialize(body, TypingInfo, "NotebookCreateRequest", ""),
@@ -107,15 +103,8 @@ export class NotebooksApiRequestFactory extends BaseAPIRequestFactory {
     );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "NotebooksApi.v1.deleteNotebook",
-      NotebooksApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.DELETE,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("NotebooksApi.v1.deleteNotebook", NotebooksApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.DELETE, overrides);
     requestContext.setHeaderParam("Accept", "*/*");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -151,15 +140,8 @@ export class NotebooksApiRequestFactory extends BaseAPIRequestFactory {
     );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "NotebooksApi.v1.getNotebook",
-      NotebooksApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.GET,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("NotebooksApi.v1.getNotebook", NotebooksApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.GET, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -196,15 +178,8 @@ export class NotebooksApiRequestFactory extends BaseAPIRequestFactory {
     const localVarPath = "/api/v1/notebooks";
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "NotebooksApi.v1.listNotebooks",
-      NotebooksApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.GET,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("NotebooksApi.v1.listNotebooks", NotebooksApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.GET, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -318,15 +293,8 @@ export class NotebooksApiRequestFactory extends BaseAPIRequestFactory {
     );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "NotebooksApi.v1.updateNotebook",
-      NotebooksApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.PUT,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("NotebooksApi.v1.updateNotebook", NotebooksApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.PUT, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -336,7 +304,9 @@ export class NotebooksApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Body Params
-    const contentType = getPreferredMediaType(["application/json"]);
+    const contentType = getPreferredMediaType([
+      "application/json",
+    ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = stringify(
       serialize(body, TypingInfo, "NotebookUpdateRequest", ""),
@@ -365,7 +335,9 @@ export class NotebooksApiResponseProcessor {
   public async createNotebook(
     response: ResponseContext,
   ): Promise<NotebookResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: NotebookResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -379,7 +351,10 @@ export class NotebooksApiResponseProcessor {
       response.httpStatusCode === 403 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -394,7 +369,10 @@ export class NotebooksApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -422,8 +400,12 @@ export class NotebooksApiResponseProcessor {
    * @params response Response returned by the server for a request to deleteNotebook
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async deleteNotebook(response: ResponseContext): Promise<void> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+  public async deleteNotebook(
+    response: ResponseContext,
+  ): Promise<void> {
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 204) {
       return;
     }
@@ -433,7 +415,10 @@ export class NotebooksApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -448,7 +433,10 @@ export class NotebooksApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -473,7 +461,9 @@ export class NotebooksApiResponseProcessor {
   public async getNotebook(
     response: ResponseContext,
   ): Promise<NotebookResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: NotebookResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -488,7 +478,10 @@ export class NotebooksApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -503,7 +496,10 @@ export class NotebooksApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -534,7 +530,9 @@ export class NotebooksApiResponseProcessor {
   public async listNotebooks(
     response: ResponseContext,
   ): Promise<NotebooksResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: NotebooksResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -548,7 +546,10 @@ export class NotebooksApiResponseProcessor {
       response.httpStatusCode === 403 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -563,7 +564,10 @@ export class NotebooksApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -594,7 +598,9 @@ export class NotebooksApiResponseProcessor {
   public async updateNotebook(
     response: ResponseContext,
   ): Promise<NotebookResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: NotebookResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -610,7 +616,10 @@ export class NotebooksApiResponseProcessor {
       response.httpStatusCode === 409 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -625,7 +634,10 @@ export class NotebooksApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -742,7 +754,8 @@ export class NotebooksApi {
   private responseProcessor: NotebooksApiResponseProcessor;
   private configuration: Configuration;
 
-  static operationServers: { [key: string]: BaseServerConfiguration[] } = {};
+  static operationServers: { [key: string]: BaseServerConfiguration[] } = {
+  };
 
   public constructor(
     configuration?: Configuration,
@@ -751,7 +764,8 @@ export class NotebooksApi {
   ) {
     this.configuration = configuration || createConfiguration();
     this.requestFactory =
-      requestFactory || new NotebooksApiRequestFactory(this.configuration);
+      requestFactory ||
+      new NotebooksApiRequestFactory(this.configuration);
     this.responseProcessor =
       responseProcessor || new NotebooksApiResponseProcessor();
   }
@@ -854,33 +868,19 @@ export class NotebooksApi {
    * Provide a paginated version of listNotebooks returning a generator with all the items.
    */
   public async *listNotebooksWithPagination(
-    param: NotebooksApiListNotebooksRequest = {},
-    options?: Configuration,
+    param: NotebooksApiListNotebooksRequest = {}, options?: Configuration,
   ): AsyncGenerator<NotebooksResponseData> {
+
     let pageSize = 100;
     if (param.count !== undefined) {
       pageSize = param.count;
     }
     param.count = pageSize;
     while (true) {
-      const requestContext = await this.requestFactory.listNotebooks(
-        param.authorHandle,
-        param.excludeAuthorHandle,
-        param.start,
-        param.count,
-        param.sortField,
-        param.sortDir,
-        param.query,
-        param.includeCells,
-        param.isTemplate,
-        param.type,
-        options,
-      );
-      const responseContext =
-        await this.configuration.httpApi.send(requestContext);
+      const requestContext = await this.requestFactory.listNotebooks(param.authorHandle,param.excludeAuthorHandle,param.start,param.count,param.sortField,param.sortDir,param.query,param.includeCells,param.isTemplate,param.type,options);
+      const responseContext = await this.configuration.httpApi.send(requestContext);
 
-      const response =
-        await this.responseProcessor.listNotebooks(responseContext);
+      const response = await this.responseProcessor.listNotebooks(responseContext);
       const responseData = response.data;
       if (responseData === undefined) {
         break;

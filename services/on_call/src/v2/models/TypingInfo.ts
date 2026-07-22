@@ -192,9 +192,7 @@ export const TypingInfo: ModelTypingInfo = {
     ScheduleMemberType: ["members"],
     ScheduleOnCallResponderDataRelationshipsShiftsDataItemsType: ["shifts"],
     ScheduleOnCallResponderDataType: ["schedule_oncall_responder"],
-    ScheduleOnCallRespondersDataRelationshipsRespondersDataItemsType: [
-      "schedule_oncall_responder",
-    ],
+    ScheduleOnCallRespondersDataRelationshipsRespondersDataItemsType: ["schedule_oncall_responder"],
     ScheduleOnCallRespondersDataRelationshipsScheduleDataType: ["schedules"],
     ScheduleOnCallRespondersDataType: ["schedule_oncall_responders"],
     ScheduleTargetPosition: ["previous", "current", "next"],
@@ -205,9 +203,7 @@ export const TypingInfo: ModelTypingInfo = {
     SendTeamsMessageActionType: ["send_teams_message"],
     ShiftDataRelationshipsUserDataType: ["users"],
     ShiftDataType: ["shifts"],
-    TeamOnCallRespondersDataRelationshipsEscalationsDataItemsType: [
-      "escalation_policy_steps",
-    ],
+    TeamOnCallRespondersDataRelationshipsEscalationsDataItemsType: ["escalation_policy_steps"],
     TeamOnCallRespondersDataRelationshipsRespondersDataItemsType: ["users"],
     TeamOnCallRespondersDataType: ["team_oncall_responders"],
     TeamReferenceType: ["teams"],
@@ -220,15 +216,7 @@ export const TypingInfo: ModelTypingInfo = {
     UserAttributesStatus: ["active", "deactivated", "pending"],
     UserTargetType: ["users"],
     UsersType: ["users"],
-    Weekday: [
-      "monday",
-      "tuesday",
-      "wednesday",
-      "thursday",
-      "friday",
-      "saturday",
-      "sunday",
-    ],
+    Weekday: ["monday", "tuesday", "wednesday", "thursday", "friday", "saturday", "sunday"],
   },
   oneOfMap: {
     CreateNotificationChannelConfig: [
@@ -253,9 +241,7 @@ export const TypingInfo: ModelTypingInfo = {
       "NotificationChannelEmailConfig",
       "NotificationChannelPushConfig",
     ],
-    OnCallNotificationRuleChannelSettings: [
-      "OnCallPhoneNotificationRuleSettings",
-    ],
+    OnCallNotificationRuleChannelSettings: ["OnCallPhoneNotificationRuleSettings"],
     OnCallNotificationRulesIncluded: ["NotificationChannelData"],
     RoutingRuleAction: [
       "SendSlackMessageAction",
@@ -278,22 +264,19 @@ export const TypingInfo: ModelTypingInfo = {
     ShiftIncluded: ["ScheduleUser"],
     TeamOnCallRespondersIncluded: ["User", "Escalation"],
     TeamRoutingRulesIncluded: ["RoutingRule"],
-  },
+    },
   typeMap: {
     APIErrorResponse: APIErrorResponse,
     ConfiguredSchedule: ConfiguredSchedule,
     ConfiguredScheduleTarget: ConfiguredScheduleTarget,
     ConfiguredScheduleTargetAttributes: ConfiguredScheduleTargetAttributes,
-    ConfiguredScheduleTargetRelationships:
-      ConfiguredScheduleTargetRelationships,
-    ConfiguredScheduleTargetRelationshipsSchedule:
-      ConfiguredScheduleTargetRelationshipsSchedule,
+    ConfiguredScheduleTargetRelationships: ConfiguredScheduleTargetRelationships,
+    ConfiguredScheduleTargetRelationshipsSchedule: ConfiguredScheduleTargetRelationshipsSchedule,
     CreateEmailNotificationChannelConfig: CreateEmailNotificationChannelConfig,
     CreateNotificationChannelAttributes: CreateNotificationChannelAttributes,
     CreateNotificationChannelData: CreateNotificationChannelData,
     CreateOnCallNotificationRuleRequest: CreateOnCallNotificationRuleRequest,
-    CreateOnCallNotificationRuleRequestData:
-      CreateOnCallNotificationRuleRequestData,
+    CreateOnCallNotificationRuleRequestData: CreateOnCallNotificationRuleRequestData,
     CreatePhoneNotificationChannelConfig: CreatePhoneNotificationChannelConfig,
     CreateUserNotificationChannelRequest: CreateUserNotificationChannelRequest,
     DataRelationshipsTeams: DataRelationshipsTeams,
@@ -302,40 +285,30 @@ export const TypingInfo: ModelTypingInfo = {
     EscalationPolicy: EscalationPolicy,
     EscalationPolicyCreateRequest: EscalationPolicyCreateRequest,
     EscalationPolicyCreateRequestData: EscalationPolicyCreateRequestData,
-    EscalationPolicyCreateRequestDataAttributes:
-      EscalationPolicyCreateRequestDataAttributes,
-    EscalationPolicyCreateRequestDataAttributesStepsItems:
-      EscalationPolicyCreateRequestDataAttributesStepsItems,
-    EscalationPolicyCreateRequestDataRelationships:
-      EscalationPolicyCreateRequestDataRelationships,
+    EscalationPolicyCreateRequestDataAttributes: EscalationPolicyCreateRequestDataAttributes,
+    EscalationPolicyCreateRequestDataAttributesStepsItems: EscalationPolicyCreateRequestDataAttributesStepsItems,
+    EscalationPolicyCreateRequestDataRelationships: EscalationPolicyCreateRequestDataRelationships,
     EscalationPolicyData: EscalationPolicyData,
     EscalationPolicyDataAttributes: EscalationPolicyDataAttributes,
     EscalationPolicyDataRelationships: EscalationPolicyDataRelationships,
-    EscalationPolicyDataRelationshipsSteps:
-      EscalationPolicyDataRelationshipsSteps,
-    EscalationPolicyDataRelationshipsStepsDataItems:
-      EscalationPolicyDataRelationshipsStepsDataItems,
+    EscalationPolicyDataRelationshipsSteps: EscalationPolicyDataRelationshipsSteps,
+    EscalationPolicyDataRelationshipsStepsDataItems: EscalationPolicyDataRelationshipsStepsDataItems,
     EscalationPolicyStep: EscalationPolicyStep,
     EscalationPolicyStepAttributes: EscalationPolicyStepAttributes,
     EscalationPolicyStepRelationships: EscalationPolicyStepRelationships,
     EscalationPolicyStepTarget: EscalationPolicyStepTarget,
     EscalationPolicyStepTargetConfig: EscalationPolicyStepTargetConfig,
-    EscalationPolicyStepTargetConfigSchedule:
-      EscalationPolicyStepTargetConfigSchedule,
+    EscalationPolicyStepTargetConfigSchedule: EscalationPolicyStepTargetConfigSchedule,
     EscalationPolicyUpdateRequest: EscalationPolicyUpdateRequest,
     EscalationPolicyUpdateRequestData: EscalationPolicyUpdateRequestData,
-    EscalationPolicyUpdateRequestDataAttributes:
-      EscalationPolicyUpdateRequestDataAttributes,
-    EscalationPolicyUpdateRequestDataAttributesStepsItems:
-      EscalationPolicyUpdateRequestDataAttributesStepsItems,
-    EscalationPolicyUpdateRequestDataRelationships:
-      EscalationPolicyUpdateRequestDataRelationships,
+    EscalationPolicyUpdateRequestDataAttributes: EscalationPolicyUpdateRequestDataAttributes,
+    EscalationPolicyUpdateRequestDataAttributesStepsItems: EscalationPolicyUpdateRequestDataAttributesStepsItems,
+    EscalationPolicyUpdateRequestDataRelationships: EscalationPolicyUpdateRequestDataRelationships,
     EscalationPolicyUser: EscalationPolicyUser,
     EscalationPolicyUserAttributes: EscalationPolicyUserAttributes,
     EscalationRelationships: EscalationRelationships,
     EscalationRelationshipsResponders: EscalationRelationshipsResponders,
-    EscalationRelationshipsRespondersDataItems:
-      EscalationRelationshipsRespondersDataItems,
+    EscalationRelationshipsRespondersDataItems: EscalationRelationshipsRespondersDataItems,
     EscalationTargets: EscalationTargets,
     Layer: Layer,
     LayerAttributes: LayerAttributes,
@@ -353,14 +326,11 @@ export const TypingInfo: ModelTypingInfo = {
     NotificationChannelPushConfig: NotificationChannelPushConfig,
     OnCallNotificationRule: OnCallNotificationRule,
     OnCallNotificationRuleAttributes: OnCallNotificationRuleAttributes,
-    OnCallNotificationRuleChannelRelationship:
-      OnCallNotificationRuleChannelRelationship,
-    OnCallNotificationRuleChannelRelationshipData:
-      OnCallNotificationRuleChannelRelationshipData,
+    OnCallNotificationRuleChannelRelationship: OnCallNotificationRuleChannelRelationship,
+    OnCallNotificationRuleChannelRelationshipData: OnCallNotificationRuleChannelRelationshipData,
     OnCallNotificationRuleData: OnCallNotificationRuleData,
     OnCallNotificationRuleRelationships: OnCallNotificationRuleRelationships,
-    OnCallNotificationRuleRequestAttributes:
-      OnCallNotificationRuleRequestAttributes,
+    OnCallNotificationRuleRequestAttributes: OnCallNotificationRuleRequestAttributes,
     OnCallPhoneNotificationRuleSettings: OnCallPhoneNotificationRuleSettings,
     RelationshipToOrganization: RelationshipToOrganization,
     RelationshipToOrganizationData: RelationshipToOrganizationData,
@@ -372,8 +342,7 @@ export const TypingInfo: ModelTypingInfo = {
     RoutingRule: RoutingRule,
     RoutingRuleAttributes: RoutingRuleAttributes,
     RoutingRuleEscalationPolicyAction: RoutingRuleEscalationPolicyAction,
-    RoutingRuleEscalationPolicyActionSupportHours:
-      RoutingRuleEscalationPolicyActionSupportHours,
+    RoutingRuleEscalationPolicyActionSupportHours: RoutingRuleEscalationPolicyActionSupportHours,
     RoutingRuleRelationships: RoutingRuleRelationships,
     RoutingRuleRelationshipsPolicy: RoutingRuleRelationshipsPolicy,
     RoutingRuleRelationshipsPolicyData: RoutingRuleRelationshipsPolicyData,
@@ -381,55 +350,38 @@ export const TypingInfo: ModelTypingInfo = {
     ScheduleCreateRequest: ScheduleCreateRequest,
     ScheduleCreateRequestData: ScheduleCreateRequestData,
     ScheduleCreateRequestDataAttributes: ScheduleCreateRequestDataAttributes,
-    ScheduleCreateRequestDataAttributesLayersItems:
-      ScheduleCreateRequestDataAttributesLayersItems,
-    ScheduleCreateRequestDataRelationships:
-      ScheduleCreateRequestDataRelationships,
+    ScheduleCreateRequestDataAttributesLayersItems: ScheduleCreateRequestDataAttributesLayersItems,
+    ScheduleCreateRequestDataRelationships: ScheduleCreateRequestDataRelationships,
     ScheduleData: ScheduleData,
     ScheduleDataAttributes: ScheduleDataAttributes,
     ScheduleDataRelationships: ScheduleDataRelationships,
     ScheduleDataRelationshipsLayers: ScheduleDataRelationshipsLayers,
-    ScheduleDataRelationshipsLayersDataItems:
-      ScheduleDataRelationshipsLayersDataItems,
+    ScheduleDataRelationshipsLayersDataItems: ScheduleDataRelationshipsLayersDataItems,
     ScheduleMember: ScheduleMember,
     ScheduleMemberRelationships: ScheduleMemberRelationships,
     ScheduleMemberRelationshipsUser: ScheduleMemberRelationshipsUser,
     ScheduleMemberRelationshipsUserData: ScheduleMemberRelationshipsUserData,
     ScheduleOnCallResponderData: ScheduleOnCallResponderData,
-    ScheduleOnCallResponderDataAttributes:
-      ScheduleOnCallResponderDataAttributes,
-    ScheduleOnCallResponderDataRelationships:
-      ScheduleOnCallResponderDataRelationships,
-    ScheduleOnCallResponderDataRelationshipsShifts:
-      ScheduleOnCallResponderDataRelationshipsShifts,
-    ScheduleOnCallResponderDataRelationshipsShiftsDataItems:
-      ScheduleOnCallResponderDataRelationshipsShiftsDataItems,
+    ScheduleOnCallResponderDataAttributes: ScheduleOnCallResponderDataAttributes,
+    ScheduleOnCallResponderDataRelationships: ScheduleOnCallResponderDataRelationships,
+    ScheduleOnCallResponderDataRelationshipsShifts: ScheduleOnCallResponderDataRelationshipsShifts,
+    ScheduleOnCallResponderDataRelationshipsShiftsDataItems: ScheduleOnCallResponderDataRelationshipsShiftsDataItems,
     ScheduleOnCallResponders: ScheduleOnCallResponders,
     ScheduleOnCallRespondersData: ScheduleOnCallRespondersData,
-    ScheduleOnCallRespondersDataAttributes:
-      ScheduleOnCallRespondersDataAttributes,
-    ScheduleOnCallRespondersDataRelationships:
-      ScheduleOnCallRespondersDataRelationships,
-    ScheduleOnCallRespondersDataRelationshipsResponders:
-      ScheduleOnCallRespondersDataRelationshipsResponders,
-    ScheduleOnCallRespondersDataRelationshipsRespondersDataItems:
-      ScheduleOnCallRespondersDataRelationshipsRespondersDataItems,
-    ScheduleOnCallRespondersDataRelationshipsSchedule:
-      ScheduleOnCallRespondersDataRelationshipsSchedule,
-    ScheduleOnCallRespondersDataRelationshipsScheduleData:
-      ScheduleOnCallRespondersDataRelationshipsScheduleData,
-    ScheduleRequestDataAttributesLayersItemsMembersItems:
-      ScheduleRequestDataAttributesLayersItemsMembersItems,
-    ScheduleRequestDataAttributesLayersItemsMembersItemsUser:
-      ScheduleRequestDataAttributesLayersItemsMembersItemsUser,
+    ScheduleOnCallRespondersDataAttributes: ScheduleOnCallRespondersDataAttributes,
+    ScheduleOnCallRespondersDataRelationships: ScheduleOnCallRespondersDataRelationships,
+    ScheduleOnCallRespondersDataRelationshipsResponders: ScheduleOnCallRespondersDataRelationshipsResponders,
+    ScheduleOnCallRespondersDataRelationshipsRespondersDataItems: ScheduleOnCallRespondersDataRelationshipsRespondersDataItems,
+    ScheduleOnCallRespondersDataRelationshipsSchedule: ScheduleOnCallRespondersDataRelationshipsSchedule,
+    ScheduleOnCallRespondersDataRelationshipsScheduleData: ScheduleOnCallRespondersDataRelationshipsScheduleData,
+    ScheduleRequestDataAttributesLayersItemsMembersItems: ScheduleRequestDataAttributesLayersItemsMembersItems,
+    ScheduleRequestDataAttributesLayersItemsMembersItemsUser: ScheduleRequestDataAttributesLayersItemsMembersItemsUser,
     ScheduleTarget: ScheduleTarget,
     ScheduleUpdateRequest: ScheduleUpdateRequest,
     ScheduleUpdateRequestData: ScheduleUpdateRequestData,
     ScheduleUpdateRequestDataAttributes: ScheduleUpdateRequestDataAttributes,
-    ScheduleUpdateRequestDataAttributesLayersItems:
-      ScheduleUpdateRequestDataAttributesLayersItems,
-    ScheduleUpdateRequestDataRelationships:
-      ScheduleUpdateRequestDataRelationships,
+    ScheduleUpdateRequestDataAttributesLayersItems: ScheduleUpdateRequestDataAttributesLayersItems,
+    ScheduleUpdateRequestDataRelationships: ScheduleUpdateRequestDataRelationships,
     ScheduleUser: ScheduleUser,
     ScheduleUserAttributes: ScheduleUserAttributes,
     SendSlackMessageAction: SendSlackMessageAction,
@@ -442,39 +394,29 @@ export const TypingInfo: ModelTypingInfo = {
     ShiftDataRelationshipsUserData: ShiftDataRelationshipsUserData,
     TeamOnCallResponders: TeamOnCallResponders,
     TeamOnCallRespondersData: TeamOnCallRespondersData,
-    TeamOnCallRespondersDataRelationships:
-      TeamOnCallRespondersDataRelationships,
-    TeamOnCallRespondersDataRelationshipsEscalations:
-      TeamOnCallRespondersDataRelationshipsEscalations,
-    TeamOnCallRespondersDataRelationshipsEscalationsDataItems:
-      TeamOnCallRespondersDataRelationshipsEscalationsDataItems,
-    TeamOnCallRespondersDataRelationshipsResponders:
-      TeamOnCallRespondersDataRelationshipsResponders,
-    TeamOnCallRespondersDataRelationshipsRespondersDataItems:
-      TeamOnCallRespondersDataRelationshipsRespondersDataItems,
+    TeamOnCallRespondersDataRelationships: TeamOnCallRespondersDataRelationships,
+    TeamOnCallRespondersDataRelationshipsEscalations: TeamOnCallRespondersDataRelationshipsEscalations,
+    TeamOnCallRespondersDataRelationshipsEscalationsDataItems: TeamOnCallRespondersDataRelationshipsEscalationsDataItems,
+    TeamOnCallRespondersDataRelationshipsResponders: TeamOnCallRespondersDataRelationshipsResponders,
+    TeamOnCallRespondersDataRelationshipsRespondersDataItems: TeamOnCallRespondersDataRelationshipsRespondersDataItems,
     TeamReference: TeamReference,
     TeamReferenceAttributes: TeamReferenceAttributes,
     TeamRoutingRules: TeamRoutingRules,
     TeamRoutingRulesData: TeamRoutingRulesData,
     TeamRoutingRulesDataRelationships: TeamRoutingRulesDataRelationships,
-    TeamRoutingRulesDataRelationshipsRules:
-      TeamRoutingRulesDataRelationshipsRules,
-    TeamRoutingRulesDataRelationshipsRulesDataItems:
-      TeamRoutingRulesDataRelationshipsRulesDataItems,
+    TeamRoutingRulesDataRelationshipsRules: TeamRoutingRulesDataRelationshipsRules,
+    TeamRoutingRulesDataRelationshipsRulesDataItems: TeamRoutingRulesDataRelationshipsRulesDataItems,
     TeamRoutingRulesRequest: TeamRoutingRulesRequest,
     TeamRoutingRulesRequestData: TeamRoutingRulesRequestData,
-    TeamRoutingRulesRequestDataAttributes:
-      TeamRoutingRulesRequestDataAttributes,
+    TeamRoutingRulesRequestDataAttributes: TeamRoutingRulesRequestDataAttributes,
     TeamRoutingRulesRequestRule: TeamRoutingRulesRequestRule,
     TeamTarget: TeamTarget,
     TimeRestriction: TimeRestriction,
     TimeRestrictions: TimeRestrictions,
     TriggerWorkflowAutomationAction: TriggerWorkflowAutomationAction,
     UpdateOnCallNotificationRuleRequest: UpdateOnCallNotificationRuleRequest,
-    UpdateOnCallNotificationRuleRequestAttributes:
-      UpdateOnCallNotificationRuleRequestAttributes,
-    UpdateOnCallNotificationRuleRequestData:
-      UpdateOnCallNotificationRuleRequestData,
+    UpdateOnCallNotificationRuleRequestAttributes: UpdateOnCallNotificationRuleRequestAttributes,
+    UpdateOnCallNotificationRuleRequestData: UpdateOnCallNotificationRuleRequestData,
     User: User,
     UserAttributes: UserAttributes,
     UserResponseRelationships: UserResponseRelationships,

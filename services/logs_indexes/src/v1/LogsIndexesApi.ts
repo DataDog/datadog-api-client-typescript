@@ -19,6 +19,7 @@ import {
   ServerConfiguration,
   stringify,
   applySecurityAuthentication,
+  
 } from "@datadog/datadog-api-client";
 
 import { TypingInfo } from "./models/TypingInfo";
@@ -55,15 +56,8 @@ export class LogsIndexesApiRequestFactory extends BaseAPIRequestFactory {
     const localVarPath = "/api/v1/logs/config/indexes";
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "LogsIndexesApi.v1.createLogsIndex",
-      LogsIndexesApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.POST,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("LogsIndexesApi.v1.createLogsIndex", LogsIndexesApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.POST, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -73,7 +67,9 @@ export class LogsIndexesApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Body Params
-    const contentType = getPreferredMediaType(["application/json"]);
+    const contentType = getPreferredMediaType([
+      "application/json",
+    ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = stringify(
       serialize(body, TypingInfo, "LogsIndex", ""),
@@ -108,15 +104,8 @@ export class LogsIndexesApiRequestFactory extends BaseAPIRequestFactory {
     );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "LogsIndexesApi.v1.deleteLogsIndex",
-      LogsIndexesApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.DELETE,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("LogsIndexesApi.v1.deleteLogsIndex", LogsIndexesApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.DELETE, overrides);
     requestContext.setHeaderParam("Accept", "*/*");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -152,15 +141,8 @@ export class LogsIndexesApiRequestFactory extends BaseAPIRequestFactory {
     );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "LogsIndexesApi.v1.getLogsIndex",
-      LogsIndexesApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.GET,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("LogsIndexesApi.v1.getLogsIndex", LogsIndexesApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.GET, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -187,15 +169,8 @@ export class LogsIndexesApiRequestFactory extends BaseAPIRequestFactory {
     const localVarPath = "/api/v1/logs/config/index-order";
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "LogsIndexesApi.v1.getLogsIndexOrder",
-      LogsIndexesApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.GET,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("LogsIndexesApi.v1.getLogsIndexOrder", LogsIndexesApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.GET, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -222,15 +197,8 @@ export class LogsIndexesApiRequestFactory extends BaseAPIRequestFactory {
     const localVarPath = "/api/v1/logs/config/indexes";
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "LogsIndexesApi.v1.listLogIndexes",
-      LogsIndexesApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.GET,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("LogsIndexesApi.v1.listLogIndexes", LogsIndexesApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.GET, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -272,15 +240,8 @@ export class LogsIndexesApiRequestFactory extends BaseAPIRequestFactory {
     );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "LogsIndexesApi.v1.updateLogsIndex",
-      LogsIndexesApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.PUT,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("LogsIndexesApi.v1.updateLogsIndex", LogsIndexesApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.PUT, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -290,7 +251,9 @@ export class LogsIndexesApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Body Params
-    const contentType = getPreferredMediaType(["application/json"]);
+    const contentType = getPreferredMediaType([
+      "application/json",
+    ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = stringify(
       serialize(body, TypingInfo, "LogsIndexUpdateRequest", ""),
@@ -322,15 +285,8 @@ export class LogsIndexesApiRequestFactory extends BaseAPIRequestFactory {
     const localVarPath = "/api/v1/logs/config/index-order";
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "LogsIndexesApi.v1.updateLogsIndexOrder",
-      LogsIndexesApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.PUT,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("LogsIndexesApi.v1.updateLogsIndexOrder", LogsIndexesApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.PUT, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -340,7 +296,9 @@ export class LogsIndexesApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Body Params
-    const contentType = getPreferredMediaType(["application/json"]);
+    const contentType = getPreferredMediaType([
+      "application/json",
+    ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = stringify(
       serialize(body, TypingInfo, "LogsIndexesOrder", ""),
@@ -366,8 +324,12 @@ export class LogsIndexesApiResponseProcessor {
    * @params response Response returned by the server for a request to createLogsIndex
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async createLogsIndex(response: ResponseContext): Promise<LogsIndex> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+  public async createLogsIndex(
+    response: ResponseContext,
+  ): Promise<LogsIndex> {
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: LogsIndex = deserialize(
         parse(await response.body.text(), contentType),
@@ -377,7 +339,10 @@ export class LogsIndexesApiResponseProcessor {
       return body;
     }
     if (response.httpStatusCode === 400) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: LogsAPIErrorResponse;
       try {
         body = deserialize(
@@ -397,8 +362,14 @@ export class LogsIndexesApiResponseProcessor {
         body,
       );
     }
-    if (response.httpStatusCode === 403 || response.httpStatusCode === 429) {
-      const bodyText = parse(await response.body.text(), contentType);
+    if (
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 429
+    ) {
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -413,10 +384,16 @@ export class LogsIndexesApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
     if (response.httpStatusCode === 422) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: LogsAPILimitReachedResponse;
       try {
         body = deserialize(
@@ -462,13 +439,23 @@ export class LogsIndexesApiResponseProcessor {
    * @params response Response returned by the server for a request to deleteLogsIndex
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async deleteLogsIndex(response: ResponseContext): Promise<void> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+  public async deleteLogsIndex(
+    response: ResponseContext,
+  ): Promise<void> {
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       return;
     }
-    if (response.httpStatusCode === 403 || response.httpStatusCode === 429) {
-      const bodyText = parse(await response.body.text(), contentType);
+    if (
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 429
+    ) {
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -483,10 +470,16 @@ export class LogsIndexesApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
     if (response.httpStatusCode === 404) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: LogsAPIErrorResponse;
       try {
         body = deserialize(
@@ -526,8 +519,12 @@ export class LogsIndexesApiResponseProcessor {
    * @params response Response returned by the server for a request to getLogsIndex
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async getLogsIndex(response: ResponseContext): Promise<LogsIndex> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+  public async getLogsIndex(
+    response: ResponseContext,
+  ): Promise<LogsIndex> {
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: LogsIndex = deserialize(
         parse(await response.body.text(), contentType),
@@ -536,8 +533,14 @@ export class LogsIndexesApiResponseProcessor {
       ) as LogsIndex;
       return body;
     }
-    if (response.httpStatusCode === 403 || response.httpStatusCode === 429) {
-      const bodyText = parse(await response.body.text(), contentType);
+    if (
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 429
+    ) {
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -552,10 +555,16 @@ export class LogsIndexesApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
     if (response.httpStatusCode === 404) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: LogsAPIErrorResponse;
       try {
         body = deserialize(
@@ -604,7 +613,9 @@ export class LogsIndexesApiResponseProcessor {
   public async getLogsIndexOrder(
     response: ResponseContext,
   ): Promise<LogsIndexesOrder> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: LogsIndexesOrder = deserialize(
         parse(await response.body.text(), contentType),
@@ -613,8 +624,14 @@ export class LogsIndexesApiResponseProcessor {
       ) as LogsIndexesOrder;
       return body;
     }
-    if (response.httpStatusCode === 403 || response.httpStatusCode === 429) {
-      const bodyText = parse(await response.body.text(), contentType);
+    if (
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 429
+    ) {
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -629,7 +646,10 @@ export class LogsIndexesApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -660,7 +680,9 @@ export class LogsIndexesApiResponseProcessor {
   public async listLogIndexes(
     response: ResponseContext,
   ): Promise<LogsIndexListResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: LogsIndexListResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -669,8 +691,14 @@ export class LogsIndexesApiResponseProcessor {
       ) as LogsIndexListResponse;
       return body;
     }
-    if (response.httpStatusCode === 403 || response.httpStatusCode === 429) {
-      const bodyText = parse(await response.body.text(), contentType);
+    if (
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 429
+    ) {
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -685,7 +713,10 @@ export class LogsIndexesApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -713,8 +744,12 @@ export class LogsIndexesApiResponseProcessor {
    * @params response Response returned by the server for a request to updateLogsIndex
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async updateLogsIndex(response: ResponseContext): Promise<LogsIndex> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+  public async updateLogsIndex(
+    response: ResponseContext,
+  ): Promise<LogsIndex> {
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: LogsIndex = deserialize(
         parse(await response.body.text(), contentType),
@@ -723,8 +758,14 @@ export class LogsIndexesApiResponseProcessor {
       ) as LogsIndex;
       return body;
     }
-    if (response.httpStatusCode === 400 || response.httpStatusCode === 429) {
-      const bodyText = parse(await response.body.text(), contentType);
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 429
+    ) {
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: LogsAPIErrorResponse;
       try {
         body = deserialize(
@@ -745,7 +786,10 @@ export class LogsIndexesApiResponseProcessor {
       );
     }
     if (response.httpStatusCode === 403) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -760,7 +804,10 @@ export class LogsIndexesApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -791,7 +838,9 @@ export class LogsIndexesApiResponseProcessor {
   public async updateLogsIndexOrder(
     response: ResponseContext,
   ): Promise<LogsIndexesOrder> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: LogsIndexesOrder = deserialize(
         parse(await response.body.text(), contentType),
@@ -801,7 +850,10 @@ export class LogsIndexesApiResponseProcessor {
       return body;
     }
     if (response.httpStatusCode === 400) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: LogsAPIErrorResponse;
       try {
         body = deserialize(
@@ -821,8 +873,14 @@ export class LogsIndexesApiResponseProcessor {
         body,
       );
     }
-    if (response.httpStatusCode === 403 || response.httpStatusCode === 429) {
-      const bodyText = parse(await response.body.text(), contentType);
+    if (
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 429
+    ) {
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -837,7 +895,10 @@ export class LogsIndexesApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -909,7 +970,8 @@ export class LogsIndexesApi {
   private responseProcessor: LogsIndexesApiResponseProcessor;
   private configuration: Configuration;
 
-  static operationServers: { [key: string]: BaseServerConfiguration[] } = {};
+  static operationServers: { [key: string]: BaseServerConfiguration[] } = {
+  };
 
   public constructor(
     configuration?: Configuration,
@@ -918,7 +980,8 @@ export class LogsIndexesApi {
   ) {
     this.configuration = configuration || createConfiguration();
     this.requestFactory =
-      requestFactory || new LogsIndexesApiRequestFactory(this.configuration);
+      requestFactory ||
+      new LogsIndexesApiRequestFactory(this.configuration);
     this.responseProcessor =
       responseProcessor || new LogsIndexesApiResponseProcessor();
   }
@@ -991,9 +1054,11 @@ export class LogsIndexesApi {
    * Get the current order of your log indexes. This endpoint takes no JSON arguments.
    * @param param The request object
    */
-  public getLogsIndexOrder(options?: Configuration): Promise<LogsIndexesOrder> {
-    const requestContextPromise =
-      this.requestFactory.getLogsIndexOrder(options);
+  public getLogsIndexOrder(options?: Configuration,
+  ): Promise<LogsIndexesOrder> {
+    const requestContextPromise = this.requestFactory.getLogsIndexOrder(
+      options,
+    );
     return requestContextPromise.then((requestContext) => {
       return this.configuration.httpApi
         .send(requestContext)
@@ -1008,10 +1073,11 @@ export class LogsIndexesApi {
    * This endpoint returns an array of the `LogIndex` objects of your organization.
    * @param param The request object
    */
-  public listLogIndexes(
-    options?: Configuration,
+  public listLogIndexes(options?: Configuration,
   ): Promise<LogsIndexListResponse> {
-    const requestContextPromise = this.requestFactory.listLogIndexes(options);
+    const requestContextPromise = this.requestFactory.listLogIndexes(
+      options,
+    );
     return requestContextPromise.then((requestContext) => {
       return this.configuration.httpApi
         .send(requestContext)
@@ -1024,7 +1090,7 @@ export class LogsIndexesApi {
   /**
    * Update an index as identified by its name.
    * Returns the Index object passed in the request body when the request is successful.
-   *
+   * 
    * Using the `PUT` method updates your index's configuration by **replacing**
    * your current configuration with the new one sent to your Datadog organization.
    * @param param The request object

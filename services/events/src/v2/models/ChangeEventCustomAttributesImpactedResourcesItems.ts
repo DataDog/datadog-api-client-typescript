@@ -32,7 +32,7 @@ export class ChangeEventCustomAttributesImpactedResourcesItems {
       baseName: "type",
       type: "ChangeEventCustomAttributesImpactedResourcesItemsType",
       required: true,
-    },
+    }
   };
 
   /**

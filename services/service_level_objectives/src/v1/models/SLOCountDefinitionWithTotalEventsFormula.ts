@@ -39,7 +39,7 @@ export class SLOCountDefinitionWithTotalEventsFormula {
       baseName: "total_events_formula",
       type: "SLOFormula",
       required: true,
-    },
+    }
   };
 
   /**

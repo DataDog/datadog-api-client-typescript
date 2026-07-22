@@ -6,7 +6,7 @@ import { ObservabilityPipelineSplunkTcpSourceType } from "./ObservabilityPipelin
 /**
  * The `splunk_tcp` source receives logs from a Splunk Universal Forwarder over TCP.
  * TLS is supported for secure transmission.
- *
+ * 
  * **Supported pipeline types:** logs
  */
 export class ObservabilityPipelineSplunkTcpSource {
@@ -31,7 +31,7 @@ export class ObservabilityPipelineSplunkTcpSource {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
   /**
    * @ignore
    */

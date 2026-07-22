@@ -19,6 +19,7 @@ import {
   ServerConfiguration,
   stringify,
   applySecurityAuthentication,
+  
 } from "@datadog/datadog-api-client";
 
 import { TypingInfo } from "./models/TypingInfo";
@@ -50,12 +51,8 @@ export class ReportSchedulesApiRequestFactory extends BaseAPIRequestFactory {
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
-    if (
-      !_config.unstableOperations["ReportSchedulesApi.v2.createReportSchedule"]
-    ) {
-      throw new Error(
-        "Unstable operation 'createReportSchedule' is disabled. Enable it by setting `configuration.unstableOperations['ReportSchedulesApi.v2.createReportSchedule'] = true`",
-      );
+    if (!_config.unstableOperations["ReportSchedulesApi.v2.createReportSchedule"]) {
+      throw new Error("Unstable operation 'createReportSchedule' is disabled. Enable it by setting `configuration.unstableOperations['ReportSchedulesApi.v2.createReportSchedule'] = true`");
     }
 
     // verify required parameter 'body' is not null or undefined
@@ -67,15 +64,8 @@ export class ReportSchedulesApiRequestFactory extends BaseAPIRequestFactory {
     const localVarPath = "/api/v2/reporting/schedule";
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "ReportSchedulesApi.v2.createReportSchedule",
-      ReportSchedulesApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.POST,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("ReportSchedulesApi.v2.createReportSchedule", ReportSchedulesApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.POST, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -85,7 +75,9 @@ export class ReportSchedulesApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Body Params
-    const contentType = getPreferredMediaType(["application/json"]);
+    const contentType = getPreferredMediaType([
+      "application/json",
+    ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = stringify(
       serialize(body, TypingInfo, "ReportScheduleCreateRequest", ""),
@@ -120,15 +112,8 @@ export class ReportSchedulesApiRequestFactory extends BaseAPIRequestFactory {
     );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "ReportSchedulesApi.v2.deleteReportSchedule",
-      ReportSchedulesApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.DELETE,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("ReportSchedulesApi.v2.deleteReportSchedule", ReportSchedulesApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.DELETE, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -164,15 +149,8 @@ export class ReportSchedulesApiRequestFactory extends BaseAPIRequestFactory {
     );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "ReportSchedulesApi.v2.getReportSchedule",
-      ReportSchedulesApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.GET,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("ReportSchedulesApi.v2.getReportSchedule", ReportSchedulesApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.GET, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -208,21 +186,17 @@ export class ReportSchedulesApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Path Params
-    const localVarPath =
-      "/api/v2/reporting/schedule/{resource_type}/{resource_id}"
-        .replace("{resource_type}", encodeURIComponent(String(resourceType)))
-        .replace("{resource_id}", encodeURIComponent(String(resourceId)));
+    const localVarPath = "/api/v2/reporting/schedule/{resource_type}/{resource_id}".replace(
+      "{resource_type}",
+      encodeURIComponent(String(resourceType)),
+    ).replace(
+      "{resource_id}",
+      encodeURIComponent(String(resourceId)),
+    );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "ReportSchedulesApi.v2.getReportSchedulesForResource",
-      ReportSchedulesApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.GET,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("ReportSchedulesApi.v2.getReportSchedulesForResource", ReportSchedulesApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.GET, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -252,22 +226,14 @@ export class ReportSchedulesApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Path Params
-    const localVarPath =
-      "/api/v2/reporting/dataset/{dataset_id}/schedules".replace(
-        "{dataset_id}",
-        encodeURIComponent(String(datasetId)),
-      );
+    const localVarPath = "/api/v2/reporting/dataset/{dataset_id}/schedules".replace(
+      "{dataset_id}",
+      encodeURIComponent(String(datasetId)),
+    );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "ReportSchedulesApi.v2.listDatasetReportSchedules",
-      ReportSchedulesApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.GET,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("ReportSchedulesApi.v2.listDatasetReportSchedules", ReportSchedulesApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.GET, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -299,15 +265,8 @@ export class ReportSchedulesApiRequestFactory extends BaseAPIRequestFactory {
     const localVarPath = "/api/v2/reporting/schedule/list";
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "ReportSchedulesApi.v2.listReportSchedules",
-      ReportSchedulesApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.GET,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("ReportSchedulesApi.v2.listReportSchedules", ReportSchedulesApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.GET, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -369,12 +328,8 @@ export class ReportSchedulesApiRequestFactory extends BaseAPIRequestFactory {
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
-    if (
-      !_config.unstableOperations["ReportSchedulesApi.v2.patchReportSchedule"]
-    ) {
-      throw new Error(
-        "Unstable operation 'patchReportSchedule' is disabled. Enable it by setting `configuration.unstableOperations['ReportSchedulesApi.v2.patchReportSchedule'] = true`",
-      );
+    if (!_config.unstableOperations["ReportSchedulesApi.v2.patchReportSchedule"]) {
+      throw new Error("Unstable operation 'patchReportSchedule' is disabled. Enable it by setting `configuration.unstableOperations['ReportSchedulesApi.v2.patchReportSchedule'] = true`");
     }
 
     // verify required parameter 'scheduleUuid' is not null or undefined
@@ -394,15 +349,8 @@ export class ReportSchedulesApiRequestFactory extends BaseAPIRequestFactory {
     );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "ReportSchedulesApi.v2.patchReportSchedule",
-      ReportSchedulesApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.PATCH,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("ReportSchedulesApi.v2.patchReportSchedule", ReportSchedulesApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.PATCH, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -412,7 +360,9 @@ export class ReportSchedulesApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Body Params
-    const contentType = getPreferredMediaType(["application/json"]);
+    const contentType = getPreferredMediaType([
+      "application/json",
+    ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = stringify(
       serialize(body, TypingInfo, "ReportSchedulePatchRequest", ""),
@@ -444,15 +394,8 @@ export class ReportSchedulesApiRequestFactory extends BaseAPIRequestFactory {
     const localVarPath = "/api/v2/reporting/print";
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "ReportSchedulesApi.v2.printReport",
-      ReportSchedulesApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.POST,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("ReportSchedulesApi.v2.printReport", ReportSchedulesApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.POST, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -462,7 +405,9 @@ export class ReportSchedulesApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Body Params
-    const contentType = getPreferredMediaType(["application/json"]);
+    const contentType = getPreferredMediaType([
+      "application/json",
+    ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = stringify(
       serialize(body, TypingInfo, "PrintReportRequest", ""),
@@ -497,22 +442,14 @@ export class ReportSchedulesApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Path Params
-    const localVarPath =
-      "/api/v2/reporting/schedule/{schedule_uuid}/toggle".replace(
-        "{schedule_uuid}",
-        encodeURIComponent(String(scheduleUuid)),
-      );
+    const localVarPath = "/api/v2/reporting/schedule/{schedule_uuid}/toggle".replace(
+      "{schedule_uuid}",
+      encodeURIComponent(String(scheduleUuid)),
+    );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "ReportSchedulesApi.v2.toggleReportSchedule",
-      ReportSchedulesApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.PATCH,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("ReportSchedulesApi.v2.toggleReportSchedule", ReportSchedulesApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.PATCH, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -522,7 +459,9 @@ export class ReportSchedulesApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Body Params
-    const contentType = getPreferredMediaType(["application/json"]);
+    const contentType = getPreferredMediaType([
+      "application/json",
+    ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = stringify(
       serialize(body, TypingInfo, "ReportScheduleToggleRequest", ""),
@@ -551,7 +490,9 @@ export class ReportSchedulesApiResponseProcessor {
   public async createReportSchedule(
     response: ResponseContext,
   ): Promise<ReportScheduleResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 201) {
       const body: ReportScheduleResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -565,7 +506,10 @@ export class ReportSchedulesApiResponseProcessor {
       response.httpStatusCode === 403 ||
       response.httpStatusCode === 404
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: JSONAPIErrorResponse;
       try {
         body = deserialize(
@@ -586,7 +530,10 @@ export class ReportSchedulesApiResponseProcessor {
       );
     }
     if (response.httpStatusCode === 429) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -601,7 +548,10 @@ export class ReportSchedulesApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -632,7 +582,9 @@ export class ReportSchedulesApiResponseProcessor {
   public async deleteReportSchedule(
     response: ResponseContext,
   ): Promise<ReportScheduleResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: ReportScheduleResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -646,7 +598,10 @@ export class ReportSchedulesApiResponseProcessor {
       response.httpStatusCode === 403 ||
       response.httpStatusCode === 404
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: JSONAPIErrorResponse;
       try {
         body = deserialize(
@@ -667,7 +622,10 @@ export class ReportSchedulesApiResponseProcessor {
       );
     }
     if (response.httpStatusCode === 429) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -682,7 +640,10 @@ export class ReportSchedulesApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -713,7 +674,9 @@ export class ReportSchedulesApiResponseProcessor {
   public async getReportSchedule(
     response: ResponseContext,
   ): Promise<ReportScheduleResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: ReportScheduleResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -727,7 +690,10 @@ export class ReportSchedulesApiResponseProcessor {
       response.httpStatusCode === 403 ||
       response.httpStatusCode === 404
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: JSONAPIErrorResponse;
       try {
         body = deserialize(
@@ -748,7 +714,10 @@ export class ReportSchedulesApiResponseProcessor {
       );
     }
     if (response.httpStatusCode === 429) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -763,7 +732,10 @@ export class ReportSchedulesApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -794,7 +766,9 @@ export class ReportSchedulesApiResponseProcessor {
   public async getReportSchedulesForResource(
     response: ResponseContext,
   ): Promise<ReportScheduleListResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: ReportScheduleListResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -808,7 +782,10 @@ export class ReportSchedulesApiResponseProcessor {
       response.httpStatusCode === 403 ||
       response.httpStatusCode === 404
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: JSONAPIErrorResponse;
       try {
         body = deserialize(
@@ -829,7 +806,10 @@ export class ReportSchedulesApiResponseProcessor {
       );
     }
     if (response.httpStatusCode === 429) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -844,7 +824,10 @@ export class ReportSchedulesApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -875,7 +858,9 @@ export class ReportSchedulesApiResponseProcessor {
   public async listDatasetReportSchedules(
     response: ResponseContext,
   ): Promise<DatasetReportScheduleListResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: DatasetReportScheduleListResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -889,7 +874,10 @@ export class ReportSchedulesApiResponseProcessor {
       response.httpStatusCode === 403 ||
       response.httpStatusCode === 404
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: JSONAPIErrorResponse;
       try {
         body = deserialize(
@@ -910,7 +898,10 @@ export class ReportSchedulesApiResponseProcessor {
       );
     }
     if (response.httpStatusCode === 429) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -925,7 +916,10 @@ export class ReportSchedulesApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -956,7 +950,9 @@ export class ReportSchedulesApiResponseProcessor {
   public async listReportSchedules(
     response: ResponseContext,
   ): Promise<ReportScheduleListResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: ReportScheduleListResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -970,7 +966,10 @@ export class ReportSchedulesApiResponseProcessor {
       response.httpStatusCode === 403 ||
       response.httpStatusCode === 404
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: JSONAPIErrorResponse;
       try {
         body = deserialize(
@@ -991,7 +990,10 @@ export class ReportSchedulesApiResponseProcessor {
       );
     }
     if (response.httpStatusCode === 429) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -1006,7 +1008,10 @@ export class ReportSchedulesApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -1037,7 +1042,9 @@ export class ReportSchedulesApiResponseProcessor {
   public async patchReportSchedule(
     response: ResponseContext,
   ): Promise<ReportScheduleResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: ReportScheduleResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -1051,7 +1058,10 @@ export class ReportSchedulesApiResponseProcessor {
       response.httpStatusCode === 403 ||
       response.httpStatusCode === 404
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: JSONAPIErrorResponse;
       try {
         body = deserialize(
@@ -1072,7 +1082,10 @@ export class ReportSchedulesApiResponseProcessor {
       );
     }
     if (response.httpStatusCode === 429) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -1087,7 +1100,10 @@ export class ReportSchedulesApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -1118,7 +1134,9 @@ export class ReportSchedulesApiResponseProcessor {
   public async printReport(
     response: ResponseContext,
   ): Promise<PrintReportResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: PrintReportResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -1133,7 +1151,10 @@ export class ReportSchedulesApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 422
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: JSONAPIErrorResponse;
       try {
         body = deserialize(
@@ -1154,7 +1175,10 @@ export class ReportSchedulesApiResponseProcessor {
       );
     }
     if (response.httpStatusCode === 429) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -1169,7 +1193,10 @@ export class ReportSchedulesApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -1200,7 +1227,9 @@ export class ReportSchedulesApiResponseProcessor {
   public async toggleReportSchedule(
     response: ResponseContext,
   ): Promise<ReportScheduleResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: ReportScheduleResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -1214,7 +1243,10 @@ export class ReportSchedulesApiResponseProcessor {
       response.httpStatusCode === 403 ||
       response.httpStatusCode === 404
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: JSONAPIErrorResponse;
       try {
         body = deserialize(
@@ -1235,7 +1267,10 @@ export class ReportSchedulesApiResponseProcessor {
       );
     }
     if (response.httpStatusCode === 429) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -1250,7 +1285,10 @@ export class ReportSchedulesApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -1380,7 +1418,8 @@ export class ReportSchedulesApi {
   private responseProcessor: ReportSchedulesApiResponseProcessor;
   private configuration: Configuration;
 
-  static operationServers: { [key: string]: BaseServerConfiguration[] } = {};
+  static operationServers: { [key: string]: BaseServerConfiguration[] } = {
+  };
 
   public constructor(
     configuration?: Configuration,
@@ -1472,19 +1511,16 @@ export class ReportSchedulesApi {
     param: ReportSchedulesApiGetReportSchedulesForResourceRequest,
     options?: Configuration,
   ): Promise<ReportScheduleListResponse> {
-    const requestContextPromise =
-      this.requestFactory.getReportSchedulesForResource(
-        param.resourceType,
-        param.resourceId,
-        options,
-      );
+    const requestContextPromise = this.requestFactory.getReportSchedulesForResource(
+      param.resourceType,
+      param.resourceId,
+      options,
+    );
     return requestContextPromise.then((requestContext) => {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.getReportSchedulesForResource(
-            responseContext,
-          );
+          return this.responseProcessor.getReportSchedulesForResource(responseContext);
         });
     });
   }
@@ -1499,15 +1535,15 @@ export class ReportSchedulesApi {
     param: ReportSchedulesApiListDatasetReportSchedulesRequest,
     options?: Configuration,
   ): Promise<DatasetReportScheduleListResponse> {
-    const requestContextPromise =
-      this.requestFactory.listDatasetReportSchedules(param.datasetId, options);
+    const requestContextPromise = this.requestFactory.listDatasetReportSchedules(
+      param.datasetId,
+      options,
+    );
     return requestContextPromise.then((requestContext) => {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.listDatasetReportSchedules(
-            responseContext,
-          );
+          return this.responseProcessor.listDatasetReportSchedules(responseContext);
         });
     });
   }

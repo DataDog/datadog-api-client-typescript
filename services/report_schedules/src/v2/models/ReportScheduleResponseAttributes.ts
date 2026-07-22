@@ -20,7 +20,7 @@ export class ReportScheduleResponseAttributes {
   /**
    * The Unix timestamp, in milliseconds, of the next scheduled delivery, or `null` if none is scheduled.
    */
-  "nextRecurrence": number | null;
+  "nextRecurrence": number|null;
   /**
    * The recipients of the report (email addresses, Slack channel references, or Microsoft Teams channel references).
    */
@@ -44,7 +44,7 @@ export class ReportScheduleResponseAttributes {
   /**
    * The identifier of the dashboard tab rendered in the report, or `null` if not set.
    */
-  "tabId": string | null;
+  "tabId": string|null;
   /**
    * The dashboard template variables applied when rendering the report.
    */
@@ -52,7 +52,7 @@ export class ReportScheduleResponseAttributes {
   /**
    * The relative timeframe of data included in the report, or `null` if not set.
    */
-  "timeframe": string | null;
+  "timeframe": string|null;
   /**
    * The IANA time zone identifier the recurrence rule is evaluated in.
    */
@@ -66,7 +66,7 @@ export class ReportScheduleResponseAttributes {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
   /**
    * @ignore
    */

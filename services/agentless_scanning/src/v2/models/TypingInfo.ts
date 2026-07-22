@@ -68,15 +68,13 @@ export const TypingInfo: ModelTypingInfo = {
     AzureScanOptionsDataAttributes: AzureScanOptionsDataAttributes,
     AzureScanOptionsInputUpdate: AzureScanOptionsInputUpdate,
     AzureScanOptionsInputUpdateData: AzureScanOptionsInputUpdateData,
-    AzureScanOptionsInputUpdateDataAttributes:
-      AzureScanOptionsInputUpdateDataAttributes,
+    AzureScanOptionsInputUpdateDataAttributes: AzureScanOptionsInputUpdateDataAttributes,
     GcpScanOptions: GcpScanOptions,
     GcpScanOptionsArray: GcpScanOptionsArray,
     GcpScanOptionsData: GcpScanOptionsData,
     GcpScanOptionsDataAttributes: GcpScanOptionsDataAttributes,
     GcpScanOptionsInputUpdate: GcpScanOptionsInputUpdate,
     GcpScanOptionsInputUpdateData: GcpScanOptionsInputUpdateData,
-    GcpScanOptionsInputUpdateDataAttributes:
-      GcpScanOptionsInputUpdateDataAttributes,
+    GcpScanOptionsInputUpdateDataAttributes: GcpScanOptionsInputUpdateDataAttributes,
   },
 };

@@ -7,7 +7,7 @@ import { ObservabilityPipelineEnrichmentTableReferenceTable } from "./Observabil
 
 /**
  * The `enrichment_table` processor enriches logs using a static CSV file, GeoIP database, or reference table. Exactly one of `file`, `geoip`, or `reference_table` must be configured.
- *
+ * 
  * **Supported pipeline types:** logs
  */
 export class ObservabilityPipelineEnrichmentTableProcessor {
@@ -52,7 +52,7 @@ export class ObservabilityPipelineEnrichmentTableProcessor {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
   /**
    * @ignore
    */

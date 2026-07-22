@@ -53,9 +53,7 @@ export const TypingInfo: ModelTypingInfo = {
     GetMappingResponseDataType: ["get_mappings_response"],
     ListConnectionsResponseDataType: ["list_connections_response"],
     QueryAccountRequestDataType: ["query_account_request"],
-    QueryEventFilteredUsersRequestDataType: [
-      "query_event_filtered_users_request",
-    ],
+    QueryEventFilteredUsersRequestDataType: ["query_event_filtered_users_request"],
     QueryResponseDataType: ["query_response"],
     QueryUsersRequestDataType: ["query_users_request"],
     UpdateConnectionRequestDataType: ["connection_id"],
@@ -65,51 +63,37 @@ export const TypingInfo: ModelTypingInfo = {
     APIErrorResponse: APIErrorResponse,
     CreateConnectionRequest: CreateConnectionRequest,
     CreateConnectionRequestData: CreateConnectionRequestData,
-    CreateConnectionRequestDataAttributes:
-      CreateConnectionRequestDataAttributes,
-    CreateConnectionRequestDataAttributesFieldsItems:
-      CreateConnectionRequestDataAttributesFieldsItems,
+    CreateConnectionRequestDataAttributes: CreateConnectionRequestDataAttributes,
+    CreateConnectionRequestDataAttributesFieldsItems: CreateConnectionRequestDataAttributesFieldsItems,
     FacetInfoRequest: FacetInfoRequest,
     FacetInfoRequestData: FacetInfoRequestData,
     FacetInfoRequestDataAttributes: FacetInfoRequestDataAttributes,
     FacetInfoRequestDataAttributesSearch: FacetInfoRequestDataAttributesSearch,
-    FacetInfoRequestDataAttributesTermSearch:
-      FacetInfoRequestDataAttributesTermSearch,
+    FacetInfoRequestDataAttributesTermSearch: FacetInfoRequestDataAttributesTermSearch,
     FacetInfoResponse: FacetInfoResponse,
     FacetInfoResponseData: FacetInfoResponseData,
     FacetInfoResponseDataAttributes: FacetInfoResponseDataAttributes,
-    FacetInfoResponseDataAttributesResult:
-      FacetInfoResponseDataAttributesResult,
-    FacetInfoResponseDataAttributesResultRange:
-      FacetInfoResponseDataAttributesResultRange,
-    FacetInfoResponseDataAttributesResultValuesItems:
-      FacetInfoResponseDataAttributesResultValuesItems,
+    FacetInfoResponseDataAttributesResult: FacetInfoResponseDataAttributesResult,
+    FacetInfoResponseDataAttributesResultRange: FacetInfoResponseDataAttributesResultRange,
+    FacetInfoResponseDataAttributesResultValuesItems: FacetInfoResponseDataAttributesResultValuesItems,
     GetMappingResponse: GetMappingResponse,
     GetMappingResponseData: GetMappingResponseData,
     GetMappingResponseDataAttributes: GetMappingResponseDataAttributes,
-    GetMappingResponseDataAttributesAttributesItems:
-      GetMappingResponseDataAttributesAttributesItems,
+    GetMappingResponseDataAttributesAttributesItems: GetMappingResponseDataAttributesAttributesItems,
     ListConnectionsResponse: ListConnectionsResponse,
     ListConnectionsResponseData: ListConnectionsResponseData,
-    ListConnectionsResponseDataAttributes:
-      ListConnectionsResponseDataAttributes,
-    ListConnectionsResponseDataAttributesConnectionsItems:
-      ListConnectionsResponseDataAttributesConnectionsItems,
-    ListConnectionsResponseDataAttributesConnectionsItemsJoin:
-      ListConnectionsResponseDataAttributesConnectionsItemsJoin,
+    ListConnectionsResponseDataAttributes: ListConnectionsResponseDataAttributes,
+    ListConnectionsResponseDataAttributesConnectionsItems: ListConnectionsResponseDataAttributesConnectionsItems,
+    ListConnectionsResponseDataAttributesConnectionsItemsJoin: ListConnectionsResponseDataAttributesConnectionsItemsJoin,
     QueryAccountRequest: QueryAccountRequest,
     QueryAccountRequestData: QueryAccountRequestData,
     QueryAccountRequestDataAttributes: QueryAccountRequestDataAttributes,
-    QueryAccountRequestDataAttributesSort:
-      QueryAccountRequestDataAttributesSort,
+    QueryAccountRequestDataAttributesSort: QueryAccountRequestDataAttributesSort,
     QueryEventFilteredUsersRequest: QueryEventFilteredUsersRequest,
     QueryEventFilteredUsersRequestData: QueryEventFilteredUsersRequestData,
-    QueryEventFilteredUsersRequestDataAttributes:
-      QueryEventFilteredUsersRequestDataAttributes,
-    QueryEventFilteredUsersRequestDataAttributesEventQuery:
-      QueryEventFilteredUsersRequestDataAttributesEventQuery,
-    QueryEventFilteredUsersRequestDataAttributesEventQueryTimeFrame:
-      QueryEventFilteredUsersRequestDataAttributesEventQueryTimeFrame,
+    QueryEventFilteredUsersRequestDataAttributes: QueryEventFilteredUsersRequestDataAttributes,
+    QueryEventFilteredUsersRequestDataAttributesEventQuery: QueryEventFilteredUsersRequestDataAttributesEventQuery,
+    QueryEventFilteredUsersRequestDataAttributesEventQueryTimeFrame: QueryEventFilteredUsersRequestDataAttributesEventQueryTimeFrame,
     QueryResponse: QueryResponse,
     QueryResponseData: QueryResponseData,
     QueryResponseDataAttributes: QueryResponseDataAttributes,
@@ -119,9 +103,7 @@ export const TypingInfo: ModelTypingInfo = {
     QueryUsersRequestDataAttributesSort: QueryUsersRequestDataAttributesSort,
     UpdateConnectionRequest: UpdateConnectionRequest,
     UpdateConnectionRequestData: UpdateConnectionRequestData,
-    UpdateConnectionRequestDataAttributes:
-      UpdateConnectionRequestDataAttributes,
-    UpdateConnectionRequestDataAttributesFieldsToUpdateItems:
-      UpdateConnectionRequestDataAttributesFieldsToUpdateItems,
+    UpdateConnectionRequestDataAttributes: UpdateConnectionRequestDataAttributes,
+    UpdateConnectionRequestDataAttributesFieldsToUpdateItems: UpdateConnectionRequestDataAttributesFieldsToUpdateItems,
   },
 };

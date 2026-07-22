@@ -19,6 +19,7 @@ import {
   ServerConfiguration,
   stringify,
   applySecurityAuthentication,
+  
 } from "@datadog/datadog-api-client";
 
 import { TypingInfo } from "./models/TypingInfo";
@@ -54,15 +55,8 @@ export class AuditApiRequestFactory extends BaseAPIRequestFactory {
     const localVarPath = "/api/v2/audit/events";
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "AuditApi.v2.listAuditLogs",
-      AuditApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.GET,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("AuditApi.v2.listAuditLogs", AuditApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.GET, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -134,15 +128,8 @@ export class AuditApiRequestFactory extends BaseAPIRequestFactory {
     const localVarPath = "/api/v2/audit/events/search";
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "AuditApi.v2.searchAuditLogs",
-      AuditApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.POST,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("AuditApi.v2.searchAuditLogs", AuditApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.POST, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -152,7 +139,9 @@ export class AuditApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Body Params
-    const contentType = getPreferredMediaType(["application/json"]);
+    const contentType = getPreferredMediaType([
+      "application/json",
+    ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = stringify(
       serialize(body, TypingInfo, "AuditLogsSearchEventsRequest", ""),
@@ -181,7 +170,9 @@ export class AuditApiResponseProcessor {
   public async listAuditLogs(
     response: ResponseContext,
   ): Promise<AuditLogsEventsResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: AuditLogsEventsResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -195,7 +186,10 @@ export class AuditApiResponseProcessor {
       response.httpStatusCode === 403 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -210,7 +204,10 @@ export class AuditApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -241,7 +238,9 @@ export class AuditApiResponseProcessor {
   public async searchAuditLogs(
     response: ResponseContext,
   ): Promise<AuditLogsEventsResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: AuditLogsEventsResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -255,7 +254,10 @@ export class AuditApiResponseProcessor {
       response.httpStatusCode === 403 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -270,7 +272,10 @@ export class AuditApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -337,7 +342,8 @@ export class AuditApi {
   private responseProcessor: AuditApiResponseProcessor;
   private configuration: Configuration;
 
-  static operationServers: { [key: string]: BaseServerConfiguration[] } = {};
+  static operationServers: { [key: string]: BaseServerConfiguration[] } = {
+  };
 
   public constructor(
     configuration?: Configuration,
@@ -346,7 +352,8 @@ export class AuditApi {
   ) {
     this.configuration = configuration || createConfiguration();
     this.requestFactory =
-      requestFactory || new AuditApiRequestFactory(this.configuration);
+      requestFactory ||
+      new AuditApiRequestFactory(this.configuration);
     this.responseProcessor =
       responseProcessor || new AuditApiResponseProcessor();
   }
@@ -354,9 +361,9 @@ export class AuditApi {
   /**
    * List endpoint returns events that match a Audit Logs search query.
    * [Results are paginated][1].
-   *
+   * 
    * Use this endpoint to see your latest Audit Logs events.
-   *
+   * 
    * [1]: https://docs.datadoghq.com/logs/guide/collect-multiple-logs-with-pagination
    * @param param The request object
    */
@@ -386,29 +393,19 @@ export class AuditApi {
    * Provide a paginated version of listAuditLogs returning a generator with all the items.
    */
   public async *listAuditLogsWithPagination(
-    param: AuditApiListAuditLogsRequest = {},
-    options?: Configuration,
+    param: AuditApiListAuditLogsRequest = {}, options?: Configuration,
   ): AsyncGenerator<AuditLogsEvent> {
+
     let pageSize = 10;
     if (param.pageLimit !== undefined) {
       pageSize = param.pageLimit;
     }
     param.pageLimit = pageSize;
     while (true) {
-      const requestContext = await this.requestFactory.listAuditLogs(
-        param.filterQuery,
-        param.filterFrom,
-        param.filterTo,
-        param.sort,
-        param.pageCursor,
-        param.pageLimit,
-        options,
-      );
-      const responseContext =
-        await this.configuration.httpApi.send(requestContext);
+      const requestContext = await this.requestFactory.listAuditLogs(param.filterQuery,param.filterFrom,param.filterTo,param.sort,param.pageCursor,param.pageLimit,options);
+      const responseContext = await this.configuration.httpApi.send(requestContext);
 
-      const response =
-        await this.responseProcessor.listAuditLogs(responseContext);
+      const response = await this.responseProcessor.listAuditLogs(responseContext);
       const responseData = response.data;
       if (responseData === undefined) {
         break;
@@ -440,9 +437,9 @@ export class AuditApi {
   /**
    * List endpoint returns Audit Logs events that match an Audit search query.
    * [Results are paginated][1].
-   *
+   * 
    * Use this endpoint to build complex Audit Logs events filtering and search.
-   *
+   * 
    * [1]: https://docs.datadoghq.com/logs/guide/collect-multiple-logs-with-pagination
    * @param param The request object
    */
@@ -467,9 +464,9 @@ export class AuditApi {
    * Provide a paginated version of searchAuditLogs returning a generator with all the items.
    */
   public async *searchAuditLogsWithPagination(
-    param: AuditApiSearchAuditLogsRequest = {},
-    options?: Configuration,
+    param: AuditApiSearchAuditLogsRequest = {}, options?: Configuration,
   ): AsyncGenerator<AuditLogsEvent> {
+
     let pageSize = 10;
     if (param.body === undefined) {
       param.body = new AuditLogsSearchEventsRequest();
@@ -482,15 +479,10 @@ export class AuditApi {
     }
     param.body.page.limit = pageSize;
     while (true) {
-      const requestContext = await this.requestFactory.searchAuditLogs(
-        param.body,
-        options,
-      );
-      const responseContext =
-        await this.configuration.httpApi.send(requestContext);
+      const requestContext = await this.requestFactory.searchAuditLogs(param.body,options);
+      const responseContext = await this.configuration.httpApi.send(requestContext);
 
-      const response =
-        await this.responseProcessor.searchAuditLogs(responseContext);
+      const response = await this.responseProcessor.searchAuditLogs(responseContext);
       const responseData = response.data;
       if (responseData === undefined) {
         break;

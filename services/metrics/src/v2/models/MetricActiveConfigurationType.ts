@@ -6,5 +6,4 @@ import { UnparsedObject } from "@datadog/datadog-api-client";
 export type MetricActiveConfigurationType =
   | typeof ACTIVELY_QUERIED_CONFIGURATIONS
   | UnparsedObject;
-export const ACTIVELY_QUERIED_CONFIGURATIONS =
-  "actively_queried_configurations";
+export const ACTIVELY_QUERIED_CONFIGURATIONS = "actively_queried_configurations";

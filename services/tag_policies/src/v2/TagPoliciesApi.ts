@@ -19,6 +19,7 @@ import {
   ServerConfiguration,
   stringify,
   applySecurityAuthentication,
+  
 } from "@datadog/datadog-api-client";
 
 import { TypingInfo } from "./models/TypingInfo";
@@ -49,9 +50,7 @@ export class TagPoliciesApiRequestFactory extends BaseAPIRequestFactory {
     const _config = _options || this.configuration;
 
     if (!_config.unstableOperations["TagPoliciesApi.v2.createTagPolicy"]) {
-      throw new Error(
-        "Unstable operation 'createTagPolicy' is disabled. Enable it by setting `configuration.unstableOperations['TagPoliciesApi.v2.createTagPolicy'] = true`",
-      );
+      throw new Error("Unstable operation 'createTagPolicy' is disabled. Enable it by setting `configuration.unstableOperations['TagPoliciesApi.v2.createTagPolicy'] = true`");
     }
 
     // verify required parameter 'body' is not null or undefined
@@ -63,15 +62,8 @@ export class TagPoliciesApiRequestFactory extends BaseAPIRequestFactory {
     const localVarPath = "/api/v2/tag-policies";
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "TagPoliciesApi.v2.createTagPolicy",
-      TagPoliciesApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.POST,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("TagPoliciesApi.v2.createTagPolicy", TagPoliciesApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.POST, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -81,7 +73,9 @@ export class TagPoliciesApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Body Params
-    const contentType = getPreferredMediaType(["application/json"]);
+    const contentType = getPreferredMediaType([
+      "application/json",
+    ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = stringify(
       serialize(body, TypingInfo, "TagPolicyCreateRequest", ""),
@@ -106,9 +100,7 @@ export class TagPoliciesApiRequestFactory extends BaseAPIRequestFactory {
     const _config = _options || this.configuration;
 
     if (!_config.unstableOperations["TagPoliciesApi.v2.deleteTagPolicy"]) {
-      throw new Error(
-        "Unstable operation 'deleteTagPolicy' is disabled. Enable it by setting `configuration.unstableOperations['TagPoliciesApi.v2.deleteTagPolicy'] = true`",
-      );
+      throw new Error("Unstable operation 'deleteTagPolicy' is disabled. Enable it by setting `configuration.unstableOperations['TagPoliciesApi.v2.deleteTagPolicy'] = true`");
     }
 
     // verify required parameter 'policyId' is not null or undefined
@@ -123,15 +115,8 @@ export class TagPoliciesApiRequestFactory extends BaseAPIRequestFactory {
     );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "TagPoliciesApi.v2.deleteTagPolicy",
-      TagPoliciesApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.DELETE,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("TagPoliciesApi.v2.deleteTagPolicy", TagPoliciesApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.DELETE, overrides);
     requestContext.setHeaderParam("Accept", "*/*");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -168,9 +153,7 @@ export class TagPoliciesApiRequestFactory extends BaseAPIRequestFactory {
     const _config = _options || this.configuration;
 
     if (!_config.unstableOperations["TagPoliciesApi.v2.getTagPolicy"]) {
-      throw new Error(
-        "Unstable operation 'getTagPolicy' is disabled. Enable it by setting `configuration.unstableOperations['TagPoliciesApi.v2.getTagPolicy'] = true`",
-      );
+      throw new Error("Unstable operation 'getTagPolicy' is disabled. Enable it by setting `configuration.unstableOperations['TagPoliciesApi.v2.getTagPolicy'] = true`");
     }
 
     // verify required parameter 'policyId' is not null or undefined
@@ -185,15 +168,8 @@ export class TagPoliciesApiRequestFactory extends BaseAPIRequestFactory {
     );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "TagPoliciesApi.v2.getTagPolicy",
-      TagPoliciesApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.GET,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("TagPoliciesApi.v2.getTagPolicy", TagPoliciesApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.GET, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -243,9 +219,7 @@ export class TagPoliciesApiRequestFactory extends BaseAPIRequestFactory {
     const _config = _options || this.configuration;
 
     if (!_config.unstableOperations["TagPoliciesApi.v2.getTagPolicyScore"]) {
-      throw new Error(
-        "Unstable operation 'getTagPolicyScore' is disabled. Enable it by setting `configuration.unstableOperations['TagPoliciesApi.v2.getTagPolicyScore'] = true`",
-      );
+      throw new Error("Unstable operation 'getTagPolicyScore' is disabled. Enable it by setting `configuration.unstableOperations['TagPoliciesApi.v2.getTagPolicyScore'] = true`");
     }
 
     // verify required parameter 'policyId' is not null or undefined
@@ -260,15 +234,8 @@ export class TagPoliciesApiRequestFactory extends BaseAPIRequestFactory {
     );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "TagPoliciesApi.v2.getTagPolicyScore",
-      TagPoliciesApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.GET,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("TagPoliciesApi.v2.getTagPolicyScore", TagPoliciesApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.GET, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -314,24 +281,15 @@ export class TagPoliciesApiRequestFactory extends BaseAPIRequestFactory {
     const _config = _options || this.configuration;
 
     if (!_config.unstableOperations["TagPoliciesApi.v2.listTagPolicies"]) {
-      throw new Error(
-        "Unstable operation 'listTagPolicies' is disabled. Enable it by setting `configuration.unstableOperations['TagPoliciesApi.v2.listTagPolicies'] = true`",
-      );
+      throw new Error("Unstable operation 'listTagPolicies' is disabled. Enable it by setting `configuration.unstableOperations['TagPoliciesApi.v2.listTagPolicies'] = true`");
     }
 
     // Path Params
     const localVarPath = "/api/v2/tag-policies";
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "TagPoliciesApi.v2.listTagPolicies",
-      TagPoliciesApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.GET,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("TagPoliciesApi.v2.listTagPolicies", TagPoliciesApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.GET, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -401,9 +359,7 @@ export class TagPoliciesApiRequestFactory extends BaseAPIRequestFactory {
     const _config = _options || this.configuration;
 
     if (!_config.unstableOperations["TagPoliciesApi.v2.updateTagPolicy"]) {
-      throw new Error(
-        "Unstable operation 'updateTagPolicy' is disabled. Enable it by setting `configuration.unstableOperations['TagPoliciesApi.v2.updateTagPolicy'] = true`",
-      );
+      throw new Error("Unstable operation 'updateTagPolicy' is disabled. Enable it by setting `configuration.unstableOperations['TagPoliciesApi.v2.updateTagPolicy'] = true`");
     }
 
     // verify required parameter 'policyId' is not null or undefined
@@ -423,15 +379,8 @@ export class TagPoliciesApiRequestFactory extends BaseAPIRequestFactory {
     );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "TagPoliciesApi.v2.updateTagPolicy",
-      TagPoliciesApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.PATCH,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("TagPoliciesApi.v2.updateTagPolicy", TagPoliciesApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.PATCH, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -441,7 +390,9 @@ export class TagPoliciesApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Body Params
-    const contentType = getPreferredMediaType(["application/json"]);
+    const contentType = getPreferredMediaType([
+      "application/json",
+    ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = stringify(
       serialize(body, TypingInfo, "TagPolicyUpdateRequest", ""),
@@ -470,7 +421,9 @@ export class TagPoliciesApiResponseProcessor {
   public async createTagPolicy(
     response: ResponseContext,
   ): Promise<TagPolicyResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 201) {
       const body: TagPolicyResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -485,7 +438,10 @@ export class TagPoliciesApiResponseProcessor {
       response.httpStatusCode === 403 ||
       response.httpStatusCode === 409
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: JSONAPIErrorResponse;
       try {
         body = deserialize(
@@ -506,7 +462,10 @@ export class TagPoliciesApiResponseProcessor {
       );
     }
     if (response.httpStatusCode === 429) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -521,7 +480,10 @@ export class TagPoliciesApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -549,8 +511,12 @@ export class TagPoliciesApiResponseProcessor {
    * @params response Response returned by the server for a request to deleteTagPolicy
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async deleteTagPolicy(response: ResponseContext): Promise<void> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+  public async deleteTagPolicy(
+    response: ResponseContext,
+  ): Promise<void> {
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 204) {
       return;
     }
@@ -560,7 +526,10 @@ export class TagPoliciesApiResponseProcessor {
       response.httpStatusCode === 403 ||
       response.httpStatusCode === 404
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: JSONAPIErrorResponse;
       try {
         body = deserialize(
@@ -581,7 +550,10 @@ export class TagPoliciesApiResponseProcessor {
       );
     }
     if (response.httpStatusCode === 429) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -596,7 +568,10 @@ export class TagPoliciesApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -621,7 +596,9 @@ export class TagPoliciesApiResponseProcessor {
   public async getTagPolicy(
     response: ResponseContext,
   ): Promise<TagPolicyResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: TagPolicyResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -636,7 +613,10 @@ export class TagPoliciesApiResponseProcessor {
       response.httpStatusCode === 403 ||
       response.httpStatusCode === 404
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: JSONAPIErrorResponse;
       try {
         body = deserialize(
@@ -657,7 +637,10 @@ export class TagPoliciesApiResponseProcessor {
       );
     }
     if (response.httpStatusCode === 429) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -672,7 +655,10 @@ export class TagPoliciesApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -703,7 +689,9 @@ export class TagPoliciesApiResponseProcessor {
   public async getTagPolicyScore(
     response: ResponseContext,
   ): Promise<TagPolicyScoreResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: TagPolicyScoreResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -718,7 +706,10 @@ export class TagPoliciesApiResponseProcessor {
       response.httpStatusCode === 403 ||
       response.httpStatusCode === 404
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: JSONAPIErrorResponse;
       try {
         body = deserialize(
@@ -739,7 +730,10 @@ export class TagPoliciesApiResponseProcessor {
       );
     }
     if (response.httpStatusCode === 429) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -754,7 +748,10 @@ export class TagPoliciesApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -785,7 +782,9 @@ export class TagPoliciesApiResponseProcessor {
   public async listTagPolicies(
     response: ResponseContext,
   ): Promise<TagPoliciesListResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: TagPoliciesListResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -799,7 +798,10 @@ export class TagPoliciesApiResponseProcessor {
       response.httpStatusCode === 401 ||
       response.httpStatusCode === 403
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: JSONAPIErrorResponse;
       try {
         body = deserialize(
@@ -820,7 +822,10 @@ export class TagPoliciesApiResponseProcessor {
       );
     }
     if (response.httpStatusCode === 429) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -835,7 +840,10 @@ export class TagPoliciesApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -866,7 +874,9 @@ export class TagPoliciesApiResponseProcessor {
   public async updateTagPolicy(
     response: ResponseContext,
   ): Promise<TagPolicyResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: TagPolicyResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -881,7 +891,10 @@ export class TagPoliciesApiResponseProcessor {
       response.httpStatusCode === 403 ||
       response.httpStatusCode === 404
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: JSONAPIErrorResponse;
       try {
         body = deserialize(
@@ -902,7 +915,10 @@ export class TagPoliciesApiResponseProcessor {
       );
     }
     if (response.httpStatusCode === 429) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -917,7 +933,10 @@ export class TagPoliciesApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -1050,7 +1069,8 @@ export class TagPoliciesApi {
   private responseProcessor: TagPoliciesApiResponseProcessor;
   private configuration: Configuration;
 
-  static operationServers: { [key: string]: BaseServerConfiguration[] } = {};
+  static operationServers: { [key: string]: BaseServerConfiguration[] } = {
+  };
 
   public constructor(
     configuration?: Configuration,
@@ -1059,7 +1079,8 @@ export class TagPoliciesApi {
   ) {
     this.configuration = configuration || createConfiguration();
     this.requestFactory =
-      requestFactory || new TagPoliciesApiRequestFactory(this.configuration);
+      requestFactory ||
+      new TagPoliciesApiRequestFactory(this.configuration);
     this.responseProcessor =
       responseProcessor || new TagPoliciesApiResponseProcessor();
   }

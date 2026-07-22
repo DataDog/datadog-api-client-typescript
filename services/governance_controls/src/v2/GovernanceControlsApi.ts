@@ -19,6 +19,7 @@ import {
   ServerConfiguration,
   stringify,
   applySecurityAuthentication,
+  
 } from "@datadog/datadog-api-client";
 
 import { TypingInfo } from "./models/TypingInfo";
@@ -44,14 +45,8 @@ export class GovernanceControlsApiRequestFactory extends BaseAPIRequestFactory {
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
-    if (
-      !_config.unstableOperations[
-        "GovernanceControlsApi.v2.getGovernanceControl"
-      ]
-    ) {
-      throw new Error(
-        "Unstable operation 'getGovernanceControl' is disabled. Enable it by setting `configuration.unstableOperations['GovernanceControlsApi.v2.getGovernanceControl'] = true`",
-      );
+    if (!_config.unstableOperations["GovernanceControlsApi.v2.getGovernanceControl"]) {
+      throw new Error("Unstable operation 'getGovernanceControl' is disabled. Enable it by setting `configuration.unstableOperations['GovernanceControlsApi.v2.getGovernanceControl'] = true`");
     }
 
     // verify required parameter 'detectionType' is not null or undefined
@@ -66,15 +61,8 @@ export class GovernanceControlsApiRequestFactory extends BaseAPIRequestFactory {
     );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "GovernanceControlsApi.v2.getGovernanceControl",
-      GovernanceControlsApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.GET,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("GovernanceControlsApi.v2.getGovernanceControl", GovernanceControlsApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.GET, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -97,29 +85,16 @@ export class GovernanceControlsApiRequestFactory extends BaseAPIRequestFactory {
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
-    if (
-      !_config.unstableOperations[
-        "GovernanceControlsApi.v2.listGovernanceControls"
-      ]
-    ) {
-      throw new Error(
-        "Unstable operation 'listGovernanceControls' is disabled. Enable it by setting `configuration.unstableOperations['GovernanceControlsApi.v2.listGovernanceControls'] = true`",
-      );
+    if (!_config.unstableOperations["GovernanceControlsApi.v2.listGovernanceControls"]) {
+      throw new Error("Unstable operation 'listGovernanceControls' is disabled. Enable it by setting `configuration.unstableOperations['GovernanceControlsApi.v2.listGovernanceControls'] = true`");
     }
 
     // Path Params
     const localVarPath = "/api/v2/governance/control";
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "GovernanceControlsApi.v2.listGovernanceControls",
-      GovernanceControlsApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.GET,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("GovernanceControlsApi.v2.listGovernanceControls", GovernanceControlsApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.GET, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -144,14 +119,8 @@ export class GovernanceControlsApiRequestFactory extends BaseAPIRequestFactory {
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
-    if (
-      !_config.unstableOperations[
-        "GovernanceControlsApi.v2.updateGovernanceControl"
-      ]
-    ) {
-      throw new Error(
-        "Unstable operation 'updateGovernanceControl' is disabled. Enable it by setting `configuration.unstableOperations['GovernanceControlsApi.v2.updateGovernanceControl'] = true`",
-      );
+    if (!_config.unstableOperations["GovernanceControlsApi.v2.updateGovernanceControl"]) {
+      throw new Error("Unstable operation 'updateGovernanceControl' is disabled. Enable it by setting `configuration.unstableOperations['GovernanceControlsApi.v2.updateGovernanceControl'] = true`");
     }
 
     // verify required parameter 'detectionType' is not null or undefined
@@ -171,15 +140,8 @@ export class GovernanceControlsApiRequestFactory extends BaseAPIRequestFactory {
     );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "GovernanceControlsApi.v2.updateGovernanceControl",
-      GovernanceControlsApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.PATCH,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("GovernanceControlsApi.v2.updateGovernanceControl", GovernanceControlsApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.PATCH, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -189,7 +151,9 @@ export class GovernanceControlsApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Body Params
-    const contentType = getPreferredMediaType(["application/json"]);
+    const contentType = getPreferredMediaType([
+      "application/json",
+    ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = stringify(
       serialize(body, TypingInfo, "GovernanceControlUpdateRequest", ""),
@@ -218,7 +182,9 @@ export class GovernanceControlsApiResponseProcessor {
   public async getGovernanceControl(
     response: ResponseContext,
   ): Promise<GovernanceControlResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: GovernanceControlResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -233,7 +199,10 @@ export class GovernanceControlsApiResponseProcessor {
       response.httpStatusCode === 403 ||
       response.httpStatusCode === 404
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: JSONAPIErrorResponse;
       try {
         body = deserialize(
@@ -254,7 +223,10 @@ export class GovernanceControlsApiResponseProcessor {
       );
     }
     if (response.httpStatusCode === 429) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -269,7 +241,10 @@ export class GovernanceControlsApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -300,7 +275,9 @@ export class GovernanceControlsApiResponseProcessor {
   public async listGovernanceControls(
     response: ResponseContext,
   ): Promise<GovernanceControlsResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: GovernanceControlsResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -314,7 +291,10 @@ export class GovernanceControlsApiResponseProcessor {
       response.httpStatusCode === 401 ||
       response.httpStatusCode === 403
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: JSONAPIErrorResponse;
       try {
         body = deserialize(
@@ -335,7 +315,10 @@ export class GovernanceControlsApiResponseProcessor {
       );
     }
     if (response.httpStatusCode === 429) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -350,7 +333,10 @@ export class GovernanceControlsApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -381,7 +367,9 @@ export class GovernanceControlsApiResponseProcessor {
   public async updateGovernanceControl(
     response: ResponseContext,
   ): Promise<GovernanceControlResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: GovernanceControlResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -396,7 +384,10 @@ export class GovernanceControlsApiResponseProcessor {
       response.httpStatusCode === 403 ||
       response.httpStatusCode === 404
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: JSONAPIErrorResponse;
       try {
         body = deserialize(
@@ -417,7 +408,10 @@ export class GovernanceControlsApiResponseProcessor {
       );
     }
     if (response.httpStatusCode === 429) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -432,7 +426,10 @@ export class GovernanceControlsApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -479,7 +476,8 @@ export class GovernanceControlsApi {
   private responseProcessor: GovernanceControlsApiResponseProcessor;
   private configuration: Configuration;
 
-  static operationServers: { [key: string]: BaseServerConfiguration[] } = {};
+  static operationServers: { [key: string]: BaseServerConfiguration[] } = {
+  };
 
   public constructor(
     configuration?: Configuration,
@@ -522,11 +520,11 @@ export class GovernanceControlsApi {
    * configuration, along with counts of active and mitigated detections.
    * @param param The request object
    */
-  public listGovernanceControls(
-    options?: Configuration,
+  public listGovernanceControls(options?: Configuration,
   ): Promise<GovernanceControlsResponse> {
-    const requestContextPromise =
-      this.requestFactory.listGovernanceControls(options);
+    const requestContextPromise = this.requestFactory.listGovernanceControls(
+      options,
+    );
     return requestContextPromise.then((requestContext) => {
       return this.configuration.httpApi
         .send(requestContext)
@@ -555,9 +553,7 @@ export class GovernanceControlsApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.updateGovernanceControl(
-            responseContext,
-          );
+          return this.responseProcessor.updateGovernanceControl(responseContext);
         });
     });
   }

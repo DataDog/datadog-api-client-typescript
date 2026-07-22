@@ -29,16 +29,14 @@ export const TypingInfo: ModelTypingInfo = {
   typeMap: {
     APIErrorResponse: APIErrorResponse,
     ConfluentAccountCreateRequest: ConfluentAccountCreateRequest,
-    ConfluentAccountCreateRequestAttributes:
-      ConfluentAccountCreateRequestAttributes,
+    ConfluentAccountCreateRequestAttributes: ConfluentAccountCreateRequestAttributes,
     ConfluentAccountCreateRequestData: ConfluentAccountCreateRequestData,
     ConfluentAccountResourceAttributes: ConfluentAccountResourceAttributes,
     ConfluentAccountResponse: ConfluentAccountResponse,
     ConfluentAccountResponseAttributes: ConfluentAccountResponseAttributes,
     ConfluentAccountResponseData: ConfluentAccountResponseData,
     ConfluentAccountUpdateRequest: ConfluentAccountUpdateRequest,
-    ConfluentAccountUpdateRequestAttributes:
-      ConfluentAccountUpdateRequestAttributes,
+    ConfluentAccountUpdateRequestAttributes: ConfluentAccountUpdateRequestAttributes,
     ConfluentAccountUpdateRequestData: ConfluentAccountUpdateRequestData,
     ConfluentAccountsResponse: ConfluentAccountsResponse,
     ConfluentResourceRequest: ConfluentResourceRequest,

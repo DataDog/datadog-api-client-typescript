@@ -79,7 +79,7 @@ export class MonitorFormulaAndFunctionAggregateFilteredQueryDefinition {
     name: {
       baseName: "name",
       type: "string",
-    },
+    }
   };
 
   /**

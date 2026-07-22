@@ -25,12 +25,7 @@ export const TypingInfo: ModelTypingInfo = {
     RumSdkConfigDynamicOptionStrategy: ["js", "cookie", "dom", "localStorage"],
     RumSdkConfigMatchOptionSerializedType: ["string", "regex"],
     RumSdkConfigSerializedRegexType: ["regex"],
-    RumSdkConfigTracingUrlPropagatorType: [
-      "datadog",
-      "b3",
-      "b3multi",
-      "tracecontext",
-    ],
+    RumSdkConfigTracingUrlPropagatorType: ["datadog", "b3", "b3multi", "tracecontext"],
     RumSdkConfigType: ["rum_sdk_config"],
   },
   oneOfMap: {},

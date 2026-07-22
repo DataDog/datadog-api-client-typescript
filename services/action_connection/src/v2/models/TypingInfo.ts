@@ -282,7 +282,7 @@ export const TypingInfo: ModelTypingInfo = {
     StatsigCredentialsUpdate: ["StatsigAPIKeyUpdate"],
     VirusTotalCredentials: ["VirusTotalAPIKey"],
     VirusTotalCredentialsUpdate: ["VirusTotalAPIKeyUpdate"],
-  },
+    },
   typeMap: {
     AWSAssumeRole: AWSAssumeRole,
     AWSAssumeRoleUpdate: AWSAssumeRoleUpdate,

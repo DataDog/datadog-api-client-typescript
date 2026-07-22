@@ -55,27 +55,14 @@ import { UpdateDeploymentRuleParamsDataAttributes } from "./UpdateDeploymentRule
 export const TypingInfo: ModelTypingInfo = {
   enumsMap: {
     DeploymentGateDataType: ["deployment_gate"],
-    DeploymentGatesEvaluationRequestDataType: [
-      "deployment_gates_evaluation_request",
-    ],
-    DeploymentGatesEvaluationResponseDataType: [
-      "deployment_gates_evaluation_response",
-    ],
-    DeploymentGatesEvaluationResultResponseAttributesGateStatus: [
-      "in_progress",
-      "pass",
-      "fail",
-    ],
-    DeploymentGatesEvaluationResultResponseDataType: [
-      "deployment_gates_evaluation_result_response",
-    ],
+    DeploymentGatesEvaluationRequestDataType: ["deployment_gates_evaluation_request"],
+    DeploymentGatesEvaluationResponseDataType: ["deployment_gates_evaluation_response"],
+    DeploymentGatesEvaluationResultResponseAttributesGateStatus: ["in_progress", "pass", "fail"],
+    DeploymentGatesEvaluationResultResponseDataType: ["deployment_gates_evaluation_result_response"],
     DeploymentGatesFDDRuleType: ["faulty_deployment_detection"],
     DeploymentGatesMonitorRuleType: ["monitor"],
     DeploymentRuleDataType: ["deployment_rule"],
-    DeploymentRuleResponseDataAttributesType: [
-      "faulty_deployment_detection",
-      "monitor",
-    ],
+    DeploymentRuleResponseDataAttributesType: ["faulty_deployment_detection", "monitor"],
     ListDeploymentRulesDataType: ["list_deployment_rules"],
   },
   oneOfMap: {
@@ -87,42 +74,31 @@ export const TypingInfo: ModelTypingInfo = {
       "DeploymentRuleOptionsFaultyDeploymentDetection",
       "DeploymentRuleOptionsMonitor",
     ],
-  },
+    },
   typeMap: {
     APIErrorResponse: APIErrorResponse,
     CreateDeploymentGateParams: CreateDeploymentGateParams,
     CreateDeploymentGateParamsData: CreateDeploymentGateParamsData,
-    CreateDeploymentGateParamsDataAttributes:
-      CreateDeploymentGateParamsDataAttributes,
+    CreateDeploymentGateParamsDataAttributes: CreateDeploymentGateParamsDataAttributes,
     CreateDeploymentRuleParams: CreateDeploymentRuleParams,
     CreateDeploymentRuleParamsData: CreateDeploymentRuleParamsData,
-    CreateDeploymentRuleParamsDataAttributes:
-      CreateDeploymentRuleParamsDataAttributes,
+    CreateDeploymentRuleParamsDataAttributes: CreateDeploymentRuleParamsDataAttributes,
     DeploymentGateResponse: DeploymentGateResponse,
     DeploymentGateResponseData: DeploymentGateResponseData,
     DeploymentGateResponseDataAttributes: DeploymentGateResponseDataAttributes,
-    DeploymentGateResponseDataAttributesCreatedBy:
-      DeploymentGateResponseDataAttributesCreatedBy,
-    DeploymentGateResponseDataAttributesUpdatedBy:
-      DeploymentGateResponseDataAttributesUpdatedBy,
+    DeploymentGateResponseDataAttributesCreatedBy: DeploymentGateResponseDataAttributesCreatedBy,
+    DeploymentGateResponseDataAttributesUpdatedBy: DeploymentGateResponseDataAttributesUpdatedBy,
     DeploymentGateRulesResponse: DeploymentGateRulesResponse,
-    DeploymentGatesEvaluationConfiguration:
-      DeploymentGatesEvaluationConfiguration,
+    DeploymentGatesEvaluationConfiguration: DeploymentGatesEvaluationConfiguration,
     DeploymentGatesEvaluationRequest: DeploymentGatesEvaluationRequest,
-    DeploymentGatesEvaluationRequestAttributes:
-      DeploymentGatesEvaluationRequestAttributes,
+    DeploymentGatesEvaluationRequestAttributes: DeploymentGatesEvaluationRequestAttributes,
     DeploymentGatesEvaluationRequestData: DeploymentGatesEvaluationRequestData,
     DeploymentGatesEvaluationResponse: DeploymentGatesEvaluationResponse,
-    DeploymentGatesEvaluationResponseAttributes:
-      DeploymentGatesEvaluationResponseAttributes,
-    DeploymentGatesEvaluationResponseData:
-      DeploymentGatesEvaluationResponseData,
-    DeploymentGatesEvaluationResultResponse:
-      DeploymentGatesEvaluationResultResponse,
-    DeploymentGatesEvaluationResultResponseAttributes:
-      DeploymentGatesEvaluationResultResponseAttributes,
-    DeploymentGatesEvaluationResultResponseData:
-      DeploymentGatesEvaluationResultResponseData,
+    DeploymentGatesEvaluationResponseAttributes: DeploymentGatesEvaluationResponseAttributes,
+    DeploymentGatesEvaluationResponseData: DeploymentGatesEvaluationResponseData,
+    DeploymentGatesEvaluationResultResponse: DeploymentGatesEvaluationResultResponse,
+    DeploymentGatesEvaluationResultResponseAttributes: DeploymentGatesEvaluationResultResponseAttributes,
+    DeploymentGatesEvaluationResultResponseData: DeploymentGatesEvaluationResultResponseData,
     DeploymentGatesFDDRule: DeploymentGatesFDDRule,
     DeploymentGatesFDDRuleOptions: DeploymentGatesFDDRuleOptions,
     DeploymentGatesListResponse: DeploymentGatesListResponse,
@@ -131,31 +107,25 @@ export const TypingInfo: ModelTypingInfo = {
     DeploymentGatesMonitorRule: DeploymentGatesMonitorRule,
     DeploymentGatesMonitorRuleOptions: DeploymentGatesMonitorRuleOptions,
     DeploymentGatesRuleResponse: DeploymentGatesRuleResponse,
-    DeploymentRuleOptionsFaultyDeploymentDetection:
-      DeploymentRuleOptionsFaultyDeploymentDetection,
+    DeploymentRuleOptionsFaultyDeploymentDetection: DeploymentRuleOptionsFaultyDeploymentDetection,
     DeploymentRuleOptionsMonitor: DeploymentRuleOptionsMonitor,
     DeploymentRuleResponse: DeploymentRuleResponse,
     DeploymentRuleResponseData: DeploymentRuleResponseData,
     DeploymentRuleResponseDataAttributes: DeploymentRuleResponseDataAttributes,
-    DeploymentRuleResponseDataAttributesCreatedBy:
-      DeploymentRuleResponseDataAttributesCreatedBy,
-    DeploymentRuleResponseDataAttributesUpdatedBy:
-      DeploymentRuleResponseDataAttributesUpdatedBy,
+    DeploymentRuleResponseDataAttributesCreatedBy: DeploymentRuleResponseDataAttributesCreatedBy,
+    DeploymentRuleResponseDataAttributesUpdatedBy: DeploymentRuleResponseDataAttributesUpdatedBy,
     HTTPCDGatesBadRequestResponse: HTTPCDGatesBadRequestResponse,
     HTTPCDGatesNotFoundResponse: HTTPCDGatesNotFoundResponse,
     HTTPCDRulesNotFoundResponse: HTTPCDRulesNotFoundResponse,
     HTTPCIAppError: HTTPCIAppError,
     HTTPCIAppErrors: HTTPCIAppErrors,
     ListDeploymentRuleResponseData: ListDeploymentRuleResponseData,
-    ListDeploymentRulesResponseDataAttributes:
-      ListDeploymentRulesResponseDataAttributes,
+    ListDeploymentRulesResponseDataAttributes: ListDeploymentRulesResponseDataAttributes,
     UpdateDeploymentGateParams: UpdateDeploymentGateParams,
     UpdateDeploymentGateParamsData: UpdateDeploymentGateParamsData,
-    UpdateDeploymentGateParamsDataAttributes:
-      UpdateDeploymentGateParamsDataAttributes,
+    UpdateDeploymentGateParamsDataAttributes: UpdateDeploymentGateParamsDataAttributes,
     UpdateDeploymentRuleParams: UpdateDeploymentRuleParams,
     UpdateDeploymentRuleParamsData: UpdateDeploymentRuleParamsData,
-    UpdateDeploymentRuleParamsDataAttributes:
-      UpdateDeploymentRuleParamsDataAttributes,
+    UpdateDeploymentRuleParamsDataAttributes: UpdateDeploymentRuleParamsDataAttributes,
   },
 };

@@ -1,5 +1,6 @@
 import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
+
 /**
  * Returns the AWS account associated with this integration.
  */
@@ -19,7 +20,7 @@ export class AWSAccount {
    * internal defaults (all namespaces enabled by default, except `AWS/SQS`, `AWS/ElasticMapReduce`, and `AWS/Usage`).
    * For a complete view of all namespace statuses, use the V2 AWS Integration API instead.
    */
-  "accountSpecificNamespaceRules"?: { [key: string]: boolean };
+  "accountSpecificNamespaceRules"?: { [key: string]: boolean; };
   /**
    * Whether Datadog collects cloud security posture management resources from your AWS account. This includes additional resources not covered under the general `resource_collection`.
    */
@@ -68,7 +69,7 @@ export class AWSAccount {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
   /**
    * @ignore
    */

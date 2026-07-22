@@ -1,5 +1,6 @@
 import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
+
 /**
  * Attributes object for updating a web integration account.
  */
@@ -12,17 +13,17 @@ export class WebIntegrationAccountUpdateRequestAttributes {
    * Integration-specific secrets. The shape of this object varies by integration. Secrets
    * are write-only and never returned by the API.
    */
-  "secrets"?: { [key: string]: any };
+  "secrets"?: { [key: string]: any; };
   /**
    * Integration-specific settings. The shape of this object varies by integration.
    */
-  "settings"?: { [key: string]: any };
+  "settings"?: { [key: string]: any; };
   /**
    * A container for additional, undeclared properties.
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
   /**
    * @ignore
    */

@@ -19,6 +19,7 @@ import {
   ServerConfiguration,
   stringify,
   applySecurityAuthentication,
+  
 } from "@datadog/datadog-api-client";
 
 import { TypingInfo } from "./models/TypingInfo";
@@ -63,15 +64,8 @@ export class ServiceAccountsApiRequestFactory extends BaseAPIRequestFactory {
     const localVarPath = "/api/v2/service_accounts";
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "ServiceAccountsApi.v2.createServiceAccount",
-      ServiceAccountsApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.POST,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("ServiceAccountsApi.v2.createServiceAccount", ServiceAccountsApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.POST, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -81,7 +75,9 @@ export class ServiceAccountsApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Body Params
-    const contentType = getPreferredMediaType(["application/json"]);
+    const contentType = getPreferredMediaType([
+      "application/json",
+    ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = stringify(
       serialize(body, TypingInfo, "ServiceAccountCreateRequest", ""),
@@ -107,10 +103,7 @@ export class ServiceAccountsApiRequestFactory extends BaseAPIRequestFactory {
 
     // verify required parameter 'serviceAccountId' is not null or undefined
     if (serviceAccountId === null || serviceAccountId === undefined) {
-      throw new RequiredError(
-        "serviceAccountId",
-        "createServiceAccountAccessToken",
-      );
+      throw new RequiredError("serviceAccountId", "createServiceAccountAccessToken");
     }
 
     // verify required parameter 'body' is not null or undefined
@@ -119,22 +112,14 @@ export class ServiceAccountsApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Path Params
-    const localVarPath =
-      "/api/v2/service_accounts/{service_account_id}/access_tokens".replace(
-        "{service_account_id}",
-        encodeURIComponent(String(serviceAccountId)),
-      );
+    const localVarPath = "/api/v2/service_accounts/{service_account_id}/access_tokens".replace(
+      "{service_account_id}",
+      encodeURIComponent(String(serviceAccountId)),
+    );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "ServiceAccountsApi.v2.createServiceAccountAccessToken",
-      ServiceAccountsApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.POST,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("ServiceAccountsApi.v2.createServiceAccountAccessToken", ServiceAccountsApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.POST, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -144,7 +129,9 @@ export class ServiceAccountsApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Body Params
-    const contentType = getPreferredMediaType(["application/json"]);
+    const contentType = getPreferredMediaType([
+      "application/json",
+    ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = stringify(
       serialize(body, TypingInfo, "ServiceAccountAccessTokenCreateRequest", ""),
@@ -170,10 +157,7 @@ export class ServiceAccountsApiRequestFactory extends BaseAPIRequestFactory {
 
     // verify required parameter 'serviceAccountId' is not null or undefined
     if (serviceAccountId === null || serviceAccountId === undefined) {
-      throw new RequiredError(
-        "serviceAccountId",
-        "createServiceAccountApplicationKey",
-      );
+      throw new RequiredError("serviceAccountId", "createServiceAccountApplicationKey");
     }
 
     // verify required parameter 'body' is not null or undefined
@@ -182,22 +166,14 @@ export class ServiceAccountsApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Path Params
-    const localVarPath =
-      "/api/v2/service_accounts/{service_account_id}/application_keys".replace(
-        "{service_account_id}",
-        encodeURIComponent(String(serviceAccountId)),
-      );
+    const localVarPath = "/api/v2/service_accounts/{service_account_id}/application_keys".replace(
+      "{service_account_id}",
+      encodeURIComponent(String(serviceAccountId)),
+    );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "ServiceAccountsApi.v2.createServiceAccountApplicationKey",
-      ServiceAccountsApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.POST,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("ServiceAccountsApi.v2.createServiceAccountApplicationKey", ServiceAccountsApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.POST, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -207,7 +183,9 @@ export class ServiceAccountsApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Body Params
-    const contentType = getPreferredMediaType(["application/json"]);
+    const contentType = getPreferredMediaType([
+      "application/json",
+    ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = stringify(
       serialize(body, TypingInfo, "ApplicationKeyCreateRequest", ""),
@@ -233,10 +211,7 @@ export class ServiceAccountsApiRequestFactory extends BaseAPIRequestFactory {
 
     // verify required parameter 'serviceAccountId' is not null or undefined
     if (serviceAccountId === null || serviceAccountId === undefined) {
-      throw new RequiredError(
-        "serviceAccountId",
-        "deleteServiceAccountApplicationKey",
-      );
+      throw new RequiredError("serviceAccountId", "deleteServiceAccountApplicationKey");
     }
 
     // verify required parameter 'appKeyId' is not null or undefined
@@ -245,24 +220,17 @@ export class ServiceAccountsApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Path Params
-    const localVarPath =
-      "/api/v2/service_accounts/{service_account_id}/application_keys/{app_key_id}"
-        .replace(
-          "{service_account_id}",
-          encodeURIComponent(String(serviceAccountId)),
-        )
-        .replace("{app_key_id}", encodeURIComponent(String(appKeyId)));
+    const localVarPath = "/api/v2/service_accounts/{service_account_id}/application_keys/{app_key_id}".replace(
+      "{service_account_id}",
+      encodeURIComponent(String(serviceAccountId)),
+    ).replace(
+      "{app_key_id}",
+      encodeURIComponent(String(appKeyId)),
+    );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "ServiceAccountsApi.v2.deleteServiceAccountApplicationKey",
-      ServiceAccountsApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.DELETE,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("ServiceAccountsApi.v2.deleteServiceAccountApplicationKey", ServiceAccountsApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.DELETE, overrides);
     requestContext.setHeaderParam("Accept", "*/*");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -289,10 +257,7 @@ export class ServiceAccountsApiRequestFactory extends BaseAPIRequestFactory {
 
     // verify required parameter 'serviceAccountId' is not null or undefined
     if (serviceAccountId === null || serviceAccountId === undefined) {
-      throw new RequiredError(
-        "serviceAccountId",
-        "getServiceAccountAccessToken",
-      );
+      throw new RequiredError("serviceAccountId", "getServiceAccountAccessToken");
     }
 
     // verify required parameter 'tokenId' is not null or undefined
@@ -301,24 +266,17 @@ export class ServiceAccountsApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Path Params
-    const localVarPath =
-      "/api/v2/service_accounts/{service_account_id}/access_tokens/{token_id}"
-        .replace(
-          "{service_account_id}",
-          encodeURIComponent(String(serviceAccountId)),
-        )
-        .replace("{token_id}", encodeURIComponent(String(tokenId)));
+    const localVarPath = "/api/v2/service_accounts/{service_account_id}/access_tokens/{token_id}".replace(
+      "{service_account_id}",
+      encodeURIComponent(String(serviceAccountId)),
+    ).replace(
+      "{token_id}",
+      encodeURIComponent(String(tokenId)),
+    );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "ServiceAccountsApi.v2.getServiceAccountAccessToken",
-      ServiceAccountsApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.GET,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("ServiceAccountsApi.v2.getServiceAccountAccessToken", ServiceAccountsApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.GET, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -345,10 +303,7 @@ export class ServiceAccountsApiRequestFactory extends BaseAPIRequestFactory {
 
     // verify required parameter 'serviceAccountId' is not null or undefined
     if (serviceAccountId === null || serviceAccountId === undefined) {
-      throw new RequiredError(
-        "serviceAccountId",
-        "getServiceAccountApplicationKey",
-      );
+      throw new RequiredError("serviceAccountId", "getServiceAccountApplicationKey");
     }
 
     // verify required parameter 'appKeyId' is not null or undefined
@@ -357,24 +312,17 @@ export class ServiceAccountsApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Path Params
-    const localVarPath =
-      "/api/v2/service_accounts/{service_account_id}/application_keys/{app_key_id}"
-        .replace(
-          "{service_account_id}",
-          encodeURIComponent(String(serviceAccountId)),
-        )
-        .replace("{app_key_id}", encodeURIComponent(String(appKeyId)));
+    const localVarPath = "/api/v2/service_accounts/{service_account_id}/application_keys/{app_key_id}".replace(
+      "{service_account_id}",
+      encodeURIComponent(String(serviceAccountId)),
+    ).replace(
+      "{app_key_id}",
+      encodeURIComponent(String(appKeyId)),
+    );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "ServiceAccountsApi.v2.getServiceAccountApplicationKey",
-      ServiceAccountsApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.GET,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("ServiceAccountsApi.v2.getServiceAccountApplicationKey", ServiceAccountsApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.GET, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -404,29 +352,18 @@ export class ServiceAccountsApiRequestFactory extends BaseAPIRequestFactory {
 
     // verify required parameter 'serviceAccountId' is not null or undefined
     if (serviceAccountId === null || serviceAccountId === undefined) {
-      throw new RequiredError(
-        "serviceAccountId",
-        "listServiceAccountAccessTokens",
-      );
+      throw new RequiredError("serviceAccountId", "listServiceAccountAccessTokens");
     }
 
     // Path Params
-    const localVarPath =
-      "/api/v2/service_accounts/{service_account_id}/access_tokens".replace(
-        "{service_account_id}",
-        encodeURIComponent(String(serviceAccountId)),
-      );
+    const localVarPath = "/api/v2/service_accounts/{service_account_id}/access_tokens".replace(
+      "{service_account_id}",
+      encodeURIComponent(String(serviceAccountId)),
+    );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "ServiceAccountsApi.v2.listServiceAccountAccessTokens",
-      ServiceAccountsApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.GET,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("ServiceAccountsApi.v2.listServiceAccountAccessTokens", ServiceAccountsApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.GET, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -488,29 +425,18 @@ export class ServiceAccountsApiRequestFactory extends BaseAPIRequestFactory {
 
     // verify required parameter 'serviceAccountId' is not null or undefined
     if (serviceAccountId === null || serviceAccountId === undefined) {
-      throw new RequiredError(
-        "serviceAccountId",
-        "listServiceAccountApplicationKeys",
-      );
+      throw new RequiredError("serviceAccountId", "listServiceAccountApplicationKeys");
     }
 
     // Path Params
-    const localVarPath =
-      "/api/v2/service_accounts/{service_account_id}/application_keys".replace(
-        "{service_account_id}",
-        encodeURIComponent(String(serviceAccountId)),
-      );
+    const localVarPath = "/api/v2/service_accounts/{service_account_id}/application_keys".replace(
+      "{service_account_id}",
+      encodeURIComponent(String(serviceAccountId)),
+    );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "ServiceAccountsApi.v2.listServiceAccountApplicationKeys",
-      ServiceAccountsApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.GET,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("ServiceAccountsApi.v2.listServiceAccountApplicationKeys", ServiceAccountsApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.GET, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -581,10 +507,7 @@ export class ServiceAccountsApiRequestFactory extends BaseAPIRequestFactory {
 
     // verify required parameter 'serviceAccountId' is not null or undefined
     if (serviceAccountId === null || serviceAccountId === undefined) {
-      throw new RequiredError(
-        "serviceAccountId",
-        "revokeServiceAccountAccessToken",
-      );
+      throw new RequiredError("serviceAccountId", "revokeServiceAccountAccessToken");
     }
 
     // verify required parameter 'tokenId' is not null or undefined
@@ -593,24 +516,17 @@ export class ServiceAccountsApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Path Params
-    const localVarPath =
-      "/api/v2/service_accounts/{service_account_id}/access_tokens/{token_id}"
-        .replace(
-          "{service_account_id}",
-          encodeURIComponent(String(serviceAccountId)),
-        )
-        .replace("{token_id}", encodeURIComponent(String(tokenId)));
+    const localVarPath = "/api/v2/service_accounts/{service_account_id}/access_tokens/{token_id}".replace(
+      "{service_account_id}",
+      encodeURIComponent(String(serviceAccountId)),
+    ).replace(
+      "{token_id}",
+      encodeURIComponent(String(tokenId)),
+    );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "ServiceAccountsApi.v2.revokeServiceAccountAccessToken",
-      ServiceAccountsApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.DELETE,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("ServiceAccountsApi.v2.revokeServiceAccountAccessToken", ServiceAccountsApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.DELETE, overrides);
     requestContext.setHeaderParam("Accept", "*/*");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -638,10 +554,7 @@ export class ServiceAccountsApiRequestFactory extends BaseAPIRequestFactory {
 
     // verify required parameter 'serviceAccountId' is not null or undefined
     if (serviceAccountId === null || serviceAccountId === undefined) {
-      throw new RequiredError(
-        "serviceAccountId",
-        "updateServiceAccountAccessToken",
-      );
+      throw new RequiredError("serviceAccountId", "updateServiceAccountAccessToken");
     }
 
     // verify required parameter 'tokenId' is not null or undefined
@@ -655,24 +568,17 @@ export class ServiceAccountsApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Path Params
-    const localVarPath =
-      "/api/v2/service_accounts/{service_account_id}/access_tokens/{token_id}"
-        .replace(
-          "{service_account_id}",
-          encodeURIComponent(String(serviceAccountId)),
-        )
-        .replace("{token_id}", encodeURIComponent(String(tokenId)));
+    const localVarPath = "/api/v2/service_accounts/{service_account_id}/access_tokens/{token_id}".replace(
+      "{service_account_id}",
+      encodeURIComponent(String(serviceAccountId)),
+    ).replace(
+      "{token_id}",
+      encodeURIComponent(String(tokenId)),
+    );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "ServiceAccountsApi.v2.updateServiceAccountAccessToken",
-      ServiceAccountsApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.PATCH,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("ServiceAccountsApi.v2.updateServiceAccountAccessToken", ServiceAccountsApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.PATCH, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -682,7 +588,9 @@ export class ServiceAccountsApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Body Params
-    const contentType = getPreferredMediaType(["application/json"]);
+    const contentType = getPreferredMediaType([
+      "application/json",
+    ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = stringify(
       serialize(body, TypingInfo, "ServiceAccountAccessTokenUpdateRequest", ""),
@@ -709,10 +617,7 @@ export class ServiceAccountsApiRequestFactory extends BaseAPIRequestFactory {
 
     // verify required parameter 'serviceAccountId' is not null or undefined
     if (serviceAccountId === null || serviceAccountId === undefined) {
-      throw new RequiredError(
-        "serviceAccountId",
-        "updateServiceAccountApplicationKey",
-      );
+      throw new RequiredError("serviceAccountId", "updateServiceAccountApplicationKey");
     }
 
     // verify required parameter 'appKeyId' is not null or undefined
@@ -726,24 +631,17 @@ export class ServiceAccountsApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Path Params
-    const localVarPath =
-      "/api/v2/service_accounts/{service_account_id}/application_keys/{app_key_id}"
-        .replace(
-          "{service_account_id}",
-          encodeURIComponent(String(serviceAccountId)),
-        )
-        .replace("{app_key_id}", encodeURIComponent(String(appKeyId)));
+    const localVarPath = "/api/v2/service_accounts/{service_account_id}/application_keys/{app_key_id}".replace(
+      "{service_account_id}",
+      encodeURIComponent(String(serviceAccountId)),
+    ).replace(
+      "{app_key_id}",
+      encodeURIComponent(String(appKeyId)),
+    );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "ServiceAccountsApi.v2.updateServiceAccountApplicationKey",
-      ServiceAccountsApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.PATCH,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("ServiceAccountsApi.v2.updateServiceAccountApplicationKey", ServiceAccountsApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.PATCH, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -753,7 +651,9 @@ export class ServiceAccountsApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Body Params
-    const contentType = getPreferredMediaType(["application/json"]);
+    const contentType = getPreferredMediaType([
+      "application/json",
+    ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = stringify(
       serialize(body, TypingInfo, "ApplicationKeyUpdateRequest", ""),
@@ -782,7 +682,9 @@ export class ServiceAccountsApiResponseProcessor {
   public async createServiceAccount(
     response: ResponseContext,
   ): Promise<UserResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 201) {
       const body: UserResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -796,7 +698,10 @@ export class ServiceAccountsApiResponseProcessor {
       response.httpStatusCode === 403 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -811,7 +716,10 @@ export class ServiceAccountsApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -842,7 +750,9 @@ export class ServiceAccountsApiResponseProcessor {
   public async createServiceAccountAccessToken(
     response: ResponseContext,
   ): Promise<ServiceAccessTokenCreateResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 201) {
       const body: ServiceAccessTokenCreateResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -857,7 +767,10 @@ export class ServiceAccountsApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -872,7 +785,10 @@ export class ServiceAccountsApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -903,7 +819,9 @@ export class ServiceAccountsApiResponseProcessor {
   public async createServiceAccountApplicationKey(
     response: ResponseContext,
   ): Promise<ApplicationKeyResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 201) {
       const body: ApplicationKeyResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -917,7 +835,10 @@ export class ServiceAccountsApiResponseProcessor {
       response.httpStatusCode === 403 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -932,7 +853,10 @@ export class ServiceAccountsApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -963,7 +887,9 @@ export class ServiceAccountsApiResponseProcessor {
   public async deleteServiceAccountApplicationKey(
     response: ResponseContext,
   ): Promise<void> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 204) {
       return;
     }
@@ -972,7 +898,10 @@ export class ServiceAccountsApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -987,7 +916,10 @@ export class ServiceAccountsApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -1012,7 +944,9 @@ export class ServiceAccountsApiResponseProcessor {
   public async getServiceAccountAccessToken(
     response: ResponseContext,
   ): Promise<ServiceAccessTokenResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: ServiceAccessTokenResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -1026,7 +960,10 @@ export class ServiceAccountsApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -1041,7 +978,10 @@ export class ServiceAccountsApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -1072,7 +1012,9 @@ export class ServiceAccountsApiResponseProcessor {
   public async getServiceAccountApplicationKey(
     response: ResponseContext,
   ): Promise<PartialApplicationKeyResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: PartialApplicationKeyResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -1086,7 +1028,10 @@ export class ServiceAccountsApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -1101,7 +1046,10 @@ export class ServiceAccountsApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -1132,7 +1080,9 @@ export class ServiceAccountsApiResponseProcessor {
   public async listServiceAccountAccessTokens(
     response: ResponseContext,
   ): Promise<ListServiceAccessTokensResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: ListServiceAccessTokensResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -1147,7 +1097,10 @@ export class ServiceAccountsApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -1162,7 +1115,10 @@ export class ServiceAccountsApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -1193,7 +1149,9 @@ export class ServiceAccountsApiResponseProcessor {
   public async listServiceAccountApplicationKeys(
     response: ResponseContext,
   ): Promise<ListApplicationKeysResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: ListApplicationKeysResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -1208,7 +1166,10 @@ export class ServiceAccountsApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -1223,7 +1184,10 @@ export class ServiceAccountsApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -1254,7 +1218,9 @@ export class ServiceAccountsApiResponseProcessor {
   public async revokeServiceAccountAccessToken(
     response: ResponseContext,
   ): Promise<void> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 204) {
       return;
     }
@@ -1263,7 +1229,10 @@ export class ServiceAccountsApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -1278,7 +1247,10 @@ export class ServiceAccountsApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -1303,7 +1275,9 @@ export class ServiceAccountsApiResponseProcessor {
   public async updateServiceAccountAccessToken(
     response: ResponseContext,
   ): Promise<ServiceAccessTokenResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: ServiceAccessTokenResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -1318,7 +1292,10 @@ export class ServiceAccountsApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -1333,7 +1310,10 @@ export class ServiceAccountsApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -1364,7 +1344,9 @@ export class ServiceAccountsApiResponseProcessor {
   public async updateServiceAccountApplicationKey(
     response: ResponseContext,
   ): Promise<PartialApplicationKeyResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: PartialApplicationKeyResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -1379,7 +1361,10 @@ export class ServiceAccountsApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -1394,7 +1379,10 @@ export class ServiceAccountsApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -1608,7 +1596,8 @@ export class ServiceAccountsApi {
   private responseProcessor: ServiceAccountsApiResponseProcessor;
   private configuration: Configuration;
 
-  static operationServers: { [key: string]: BaseServerConfiguration[] } = {};
+  static operationServers: { [key: string]: BaseServerConfiguration[] } = {
+  };
 
   public constructor(
     configuration?: Configuration,
@@ -1652,19 +1641,16 @@ export class ServiceAccountsApi {
     param: ServiceAccountsApiCreateServiceAccountAccessTokenRequest,
     options?: Configuration,
   ): Promise<ServiceAccessTokenCreateResponse> {
-    const requestContextPromise =
-      this.requestFactory.createServiceAccountAccessToken(
-        param.serviceAccountId,
-        param.body,
-        options,
-      );
+    const requestContextPromise = this.requestFactory.createServiceAccountAccessToken(
+      param.serviceAccountId,
+      param.body,
+      options,
+    );
     return requestContextPromise.then((requestContext) => {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.createServiceAccountAccessToken(
-            responseContext,
-          );
+          return this.responseProcessor.createServiceAccountAccessToken(responseContext);
         });
     });
   }
@@ -1677,19 +1663,16 @@ export class ServiceAccountsApi {
     param: ServiceAccountsApiCreateServiceAccountApplicationKeyRequest,
     options?: Configuration,
   ): Promise<ApplicationKeyResponse> {
-    const requestContextPromise =
-      this.requestFactory.createServiceAccountApplicationKey(
-        param.serviceAccountId,
-        param.body,
-        options,
-      );
+    const requestContextPromise = this.requestFactory.createServiceAccountApplicationKey(
+      param.serviceAccountId,
+      param.body,
+      options,
+    );
     return requestContextPromise.then((requestContext) => {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.createServiceAccountApplicationKey(
-            responseContext,
-          );
+          return this.responseProcessor.createServiceAccountApplicationKey(responseContext);
         });
     });
   }
@@ -1702,19 +1685,16 @@ export class ServiceAccountsApi {
     param: ServiceAccountsApiDeleteServiceAccountApplicationKeyRequest,
     options?: Configuration,
   ): Promise<void> {
-    const requestContextPromise =
-      this.requestFactory.deleteServiceAccountApplicationKey(
-        param.serviceAccountId,
-        param.appKeyId,
-        options,
-      );
+    const requestContextPromise = this.requestFactory.deleteServiceAccountApplicationKey(
+      param.serviceAccountId,
+      param.appKeyId,
+      options,
+    );
     return requestContextPromise.then((requestContext) => {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.deleteServiceAccountApplicationKey(
-            responseContext,
-          );
+          return this.responseProcessor.deleteServiceAccountApplicationKey(responseContext);
         });
     });
   }
@@ -1727,19 +1707,16 @@ export class ServiceAccountsApi {
     param: ServiceAccountsApiGetServiceAccountAccessTokenRequest,
     options?: Configuration,
   ): Promise<ServiceAccessTokenResponse> {
-    const requestContextPromise =
-      this.requestFactory.getServiceAccountAccessToken(
-        param.serviceAccountId,
-        param.tokenId,
-        options,
-      );
+    const requestContextPromise = this.requestFactory.getServiceAccountAccessToken(
+      param.serviceAccountId,
+      param.tokenId,
+      options,
+    );
     return requestContextPromise.then((requestContext) => {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.getServiceAccountAccessToken(
-            responseContext,
-          );
+          return this.responseProcessor.getServiceAccountAccessToken(responseContext);
         });
     });
   }
@@ -1752,19 +1729,16 @@ export class ServiceAccountsApi {
     param: ServiceAccountsApiGetServiceAccountApplicationKeyRequest,
     options?: Configuration,
   ): Promise<PartialApplicationKeyResponse> {
-    const requestContextPromise =
-      this.requestFactory.getServiceAccountApplicationKey(
-        param.serviceAccountId,
-        param.appKeyId,
-        options,
-      );
+    const requestContextPromise = this.requestFactory.getServiceAccountApplicationKey(
+      param.serviceAccountId,
+      param.appKeyId,
+      options,
+    );
     return requestContextPromise.then((requestContext) => {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.getServiceAccountApplicationKey(
-            responseContext,
-          );
+          return this.responseProcessor.getServiceAccountApplicationKey(responseContext);
         });
     });
   }
@@ -1777,22 +1751,19 @@ export class ServiceAccountsApi {
     param: ServiceAccountsApiListServiceAccountAccessTokensRequest,
     options?: Configuration,
   ): Promise<ListServiceAccessTokensResponse> {
-    const requestContextPromise =
-      this.requestFactory.listServiceAccountAccessTokens(
-        param.serviceAccountId,
-        param.pageSize,
-        param.pageNumber,
-        param.sort,
-        param.filter,
-        options,
-      );
+    const requestContextPromise = this.requestFactory.listServiceAccountAccessTokens(
+      param.serviceAccountId,
+      param.pageSize,
+      param.pageNumber,
+      param.sort,
+      param.filter,
+      options,
+    );
     return requestContextPromise.then((requestContext) => {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.listServiceAccountAccessTokens(
-            responseContext,
-          );
+          return this.responseProcessor.listServiceAccountAccessTokens(responseContext);
         });
     });
   }
@@ -1805,24 +1776,21 @@ export class ServiceAccountsApi {
     param: ServiceAccountsApiListServiceAccountApplicationKeysRequest,
     options?: Configuration,
   ): Promise<ListApplicationKeysResponse> {
-    const requestContextPromise =
-      this.requestFactory.listServiceAccountApplicationKeys(
-        param.serviceAccountId,
-        param.pageSize,
-        param.pageNumber,
-        param.sort,
-        param.filter,
-        param.filterCreatedAtStart,
-        param.filterCreatedAtEnd,
-        options,
-      );
+    const requestContextPromise = this.requestFactory.listServiceAccountApplicationKeys(
+      param.serviceAccountId,
+      param.pageSize,
+      param.pageNumber,
+      param.sort,
+      param.filter,
+      param.filterCreatedAtStart,
+      param.filterCreatedAtEnd,
+      options,
+    );
     return requestContextPromise.then((requestContext) => {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.listServiceAccountApplicationKeys(
-            responseContext,
-          );
+          return this.responseProcessor.listServiceAccountApplicationKeys(responseContext);
         });
     });
   }
@@ -1835,19 +1803,16 @@ export class ServiceAccountsApi {
     param: ServiceAccountsApiRevokeServiceAccountAccessTokenRequest,
     options?: Configuration,
   ): Promise<void> {
-    const requestContextPromise =
-      this.requestFactory.revokeServiceAccountAccessToken(
-        param.serviceAccountId,
-        param.tokenId,
-        options,
-      );
+    const requestContextPromise = this.requestFactory.revokeServiceAccountAccessToken(
+      param.serviceAccountId,
+      param.tokenId,
+      options,
+    );
     return requestContextPromise.then((requestContext) => {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.revokeServiceAccountAccessToken(
-            responseContext,
-          );
+          return this.responseProcessor.revokeServiceAccountAccessToken(responseContext);
         });
     });
   }
@@ -1860,20 +1825,17 @@ export class ServiceAccountsApi {
     param: ServiceAccountsApiUpdateServiceAccountAccessTokenRequest,
     options?: Configuration,
   ): Promise<ServiceAccessTokenResponse> {
-    const requestContextPromise =
-      this.requestFactory.updateServiceAccountAccessToken(
-        param.serviceAccountId,
-        param.tokenId,
-        param.body,
-        options,
-      );
+    const requestContextPromise = this.requestFactory.updateServiceAccountAccessToken(
+      param.serviceAccountId,
+      param.tokenId,
+      param.body,
+      options,
+    );
     return requestContextPromise.then((requestContext) => {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.updateServiceAccountAccessToken(
-            responseContext,
-          );
+          return this.responseProcessor.updateServiceAccountAccessToken(responseContext);
         });
     });
   }
@@ -1886,20 +1848,17 @@ export class ServiceAccountsApi {
     param: ServiceAccountsApiUpdateServiceAccountApplicationKeyRequest,
     options?: Configuration,
   ): Promise<PartialApplicationKeyResponse> {
-    const requestContextPromise =
-      this.requestFactory.updateServiceAccountApplicationKey(
-        param.serviceAccountId,
-        param.appKeyId,
-        param.body,
-        options,
-      );
+    const requestContextPromise = this.requestFactory.updateServiceAccountApplicationKey(
+      param.serviceAccountId,
+      param.appKeyId,
+      param.body,
+      options,
+    );
     return requestContextPromise.then((requestContext) => {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.updateServiceAccountApplicationKey(
-            responseContext,
-          );
+          return this.responseProcessor.updateServiceAccountApplicationKey(responseContext);
         });
     });
   }

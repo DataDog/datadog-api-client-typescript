@@ -9,7 +9,7 @@ export class SyntheticsMobileTestConfig {
   /**
    * Initial application arguments for a mobile test.
    */
-  "initialApplicationArguments"?: { [key: string]: string };
+  "initialApplicationArguments"?: { [key: string]: string; };
   /**
    * Array of variables used for the test steps.
    */
@@ -19,7 +19,7 @@ export class SyntheticsMobileTestConfig {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
   /**
    * @ignore
    */

@@ -19,6 +19,7 @@ import {
   ServerConfiguration,
   stringify,
   applySecurityAuthentication,
+  
 } from "@datadog/datadog-api-client";
 
 import { TypingInfo } from "./models/TypingInfo";
@@ -53,15 +54,8 @@ export class OktaIntegrationApiRequestFactory extends BaseAPIRequestFactory {
     const localVarPath = "/api/v2/integrations/okta/accounts";
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "OktaIntegrationApi.v2.createOktaAccount",
-      OktaIntegrationApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.POST,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("OktaIntegrationApi.v2.createOktaAccount", OktaIntegrationApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.POST, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -71,7 +65,9 @@ export class OktaIntegrationApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Body Params
-    const contentType = getPreferredMediaType(["application/json"]);
+    const contentType = getPreferredMediaType([
+      "application/json",
+    ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = stringify(
       serialize(body, TypingInfo, "OktaAccountRequest", ""),
@@ -100,22 +96,14 @@ export class OktaIntegrationApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Path Params
-    const localVarPath =
-      "/api/v2/integrations/okta/accounts/{account_id}".replace(
-        "{account_id}",
-        encodeURIComponent(String(accountId)),
-      );
+    const localVarPath = "/api/v2/integrations/okta/accounts/{account_id}".replace(
+      "{account_id}",
+      encodeURIComponent(String(accountId)),
+    );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "OktaIntegrationApi.v2.deleteOktaAccount",
-      OktaIntegrationApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.DELETE,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("OktaIntegrationApi.v2.deleteOktaAccount", OktaIntegrationApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.DELETE, overrides);
     requestContext.setHeaderParam("Accept", "*/*");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -145,22 +133,14 @@ export class OktaIntegrationApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Path Params
-    const localVarPath =
-      "/api/v2/integrations/okta/accounts/{account_id}".replace(
-        "{account_id}",
-        encodeURIComponent(String(accountId)),
-      );
+    const localVarPath = "/api/v2/integrations/okta/accounts/{account_id}".replace(
+      "{account_id}",
+      encodeURIComponent(String(accountId)),
+    );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "OktaIntegrationApi.v2.getOktaAccount",
-      OktaIntegrationApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.GET,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("OktaIntegrationApi.v2.getOktaAccount", OktaIntegrationApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.GET, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -187,15 +167,8 @@ export class OktaIntegrationApiRequestFactory extends BaseAPIRequestFactory {
     const localVarPath = "/api/v2/integrations/okta/accounts";
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "OktaIntegrationApi.v2.listOktaAccounts",
-      OktaIntegrationApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.GET,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("OktaIntegrationApi.v2.listOktaAccounts", OktaIntegrationApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.GET, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -231,22 +204,14 @@ export class OktaIntegrationApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Path Params
-    const localVarPath =
-      "/api/v2/integrations/okta/accounts/{account_id}".replace(
-        "{account_id}",
-        encodeURIComponent(String(accountId)),
-      );
+    const localVarPath = "/api/v2/integrations/okta/accounts/{account_id}".replace(
+      "{account_id}",
+      encodeURIComponent(String(accountId)),
+    );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "OktaIntegrationApi.v2.updateOktaAccount",
-      OktaIntegrationApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.PATCH,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("OktaIntegrationApi.v2.updateOktaAccount", OktaIntegrationApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.PATCH, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -256,7 +221,9 @@ export class OktaIntegrationApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Body Params
-    const contentType = getPreferredMediaType(["application/json"]);
+    const contentType = getPreferredMediaType([
+      "application/json",
+    ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = stringify(
       serialize(body, TypingInfo, "OktaAccountUpdateRequest", ""),
@@ -285,7 +252,9 @@ export class OktaIntegrationApiResponseProcessor {
   public async createOktaAccount(
     response: ResponseContext,
   ): Promise<OktaAccountResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 201) {
       const body: OktaAccountResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -300,7 +269,10 @@ export class OktaIntegrationApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -315,7 +287,10 @@ export class OktaIntegrationApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -343,8 +318,12 @@ export class OktaIntegrationApiResponseProcessor {
    * @params response Response returned by the server for a request to deleteOktaAccount
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async deleteOktaAccount(response: ResponseContext): Promise<void> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+  public async deleteOktaAccount(
+    response: ResponseContext,
+  ): Promise<void> {
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 204) {
       return;
     }
@@ -354,7 +333,10 @@ export class OktaIntegrationApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -369,7 +351,10 @@ export class OktaIntegrationApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -394,7 +379,9 @@ export class OktaIntegrationApiResponseProcessor {
   public async getOktaAccount(
     response: ResponseContext,
   ): Promise<OktaAccountResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: OktaAccountResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -409,7 +396,10 @@ export class OktaIntegrationApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -424,7 +414,10 @@ export class OktaIntegrationApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -455,7 +448,9 @@ export class OktaIntegrationApiResponseProcessor {
   public async listOktaAccounts(
     response: ResponseContext,
   ): Promise<OktaAccountsResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: OktaAccountsResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -470,7 +465,10 @@ export class OktaIntegrationApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -485,7 +483,10 @@ export class OktaIntegrationApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -516,7 +517,9 @@ export class OktaIntegrationApiResponseProcessor {
   public async updateOktaAccount(
     response: ResponseContext,
   ): Promise<OktaAccountResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: OktaAccountResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -531,7 +534,10 @@ export class OktaIntegrationApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -546,7 +552,10 @@ export class OktaIntegrationApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -608,7 +617,8 @@ export class OktaIntegrationApi {
   private responseProcessor: OktaIntegrationApiResponseProcessor;
   private configuration: Configuration;
 
-  static operationServers: { [key: string]: BaseServerConfiguration[] } = {};
+  static operationServers: { [key: string]: BaseServerConfiguration[] } = {
+  };
 
   public constructor(
     configuration?: Configuration,
@@ -690,10 +700,11 @@ export class OktaIntegrationApi {
    * List Okta accounts.
    * @param param The request object
    */
-  public listOktaAccounts(
-    options?: Configuration,
+  public listOktaAccounts(options?: Configuration,
   ): Promise<OktaAccountsResponse> {
-    const requestContextPromise = this.requestFactory.listOktaAccounts(options);
+    const requestContextPromise = this.requestFactory.listOktaAccounts(
+      options,
+    );
     return requestContextPromise.then((requestContext) => {
       return this.configuration.httpApi
         .send(requestContext)

@@ -7,7 +7,7 @@ import { ObservabilityPipelineTagCardinalityLimitProcessorType } from "./Observa
 
 /**
  * The `tag_cardinality_limit` processor caps the number of distinct tag value combinations on metrics, dropping tags or events once the limit is exceeded.
- *
+ * 
  * **Supported pipeline types:** metrics
  */
 export class ObservabilityPipelineTagCardinalityLimitProcessor {
@@ -52,7 +52,7 @@ export class ObservabilityPipelineTagCardinalityLimitProcessor {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
   /**
    * @ignore
    */

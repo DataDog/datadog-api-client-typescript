@@ -19,6 +19,7 @@ import {
   ServerConfiguration,
   stringify,
   applySecurityAuthentication,
+  
 } from "@datadog/datadog-api-client";
 
 import { TypingInfo } from "./models/TypingInfo";
@@ -46,14 +47,8 @@ export class WebIntegrationsApiRequestFactory extends BaseAPIRequestFactory {
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
-    if (
-      !_config.unstableOperations[
-        "WebIntegrationsApi.v2.createWebIntegrationAccount"
-      ]
-    ) {
-      throw new Error(
-        "Unstable operation 'createWebIntegrationAccount' is disabled. Enable it by setting `configuration.unstableOperations['WebIntegrationsApi.v2.createWebIntegrationAccount'] = true`",
-      );
+    if (!_config.unstableOperations["WebIntegrationsApi.v2.createWebIntegrationAccount"]) {
+      throw new Error("Unstable operation 'createWebIntegrationAccount' is disabled. Enable it by setting `configuration.unstableOperations['WebIntegrationsApi.v2.createWebIntegrationAccount'] = true`");
     }
 
     // verify required parameter 'integrationName' is not null or undefined
@@ -67,22 +62,14 @@ export class WebIntegrationsApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Path Params
-    const localVarPath =
-      "/api/v2/web-integrations/{integration_name}/accounts".replace(
-        "{integration_name}",
-        encodeURIComponent(String(integrationName)),
-      );
+    const localVarPath = "/api/v2/web-integrations/{integration_name}/accounts".replace(
+      "{integration_name}",
+      encodeURIComponent(String(integrationName)),
+    );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "WebIntegrationsApi.v2.createWebIntegrationAccount",
-      WebIntegrationsApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.POST,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("WebIntegrationsApi.v2.createWebIntegrationAccount", WebIntegrationsApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.POST, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -92,7 +79,9 @@ export class WebIntegrationsApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Body Params
-    const contentType = getPreferredMediaType(["application/json"]);
+    const contentType = getPreferredMediaType([
+      "application/json",
+    ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = stringify(
       serialize(body, TypingInfo, "WebIntegrationAccountCreateRequest", ""),
@@ -116,14 +105,8 @@ export class WebIntegrationsApiRequestFactory extends BaseAPIRequestFactory {
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
-    if (
-      !_config.unstableOperations[
-        "WebIntegrationsApi.v2.deleteWebIntegrationAccount"
-      ]
-    ) {
-      throw new Error(
-        "Unstable operation 'deleteWebIntegrationAccount' is disabled. Enable it by setting `configuration.unstableOperations['WebIntegrationsApi.v2.deleteWebIntegrationAccount'] = true`",
-      );
+    if (!_config.unstableOperations["WebIntegrationsApi.v2.deleteWebIntegrationAccount"]) {
+      throw new Error("Unstable operation 'deleteWebIntegrationAccount' is disabled. Enable it by setting `configuration.unstableOperations['WebIntegrationsApi.v2.deleteWebIntegrationAccount'] = true`");
     }
 
     // verify required parameter 'integrationName' is not null or undefined
@@ -137,24 +120,17 @@ export class WebIntegrationsApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Path Params
-    const localVarPath =
-      "/api/v2/web-integrations/{integration_name}/accounts/{account_id}"
-        .replace(
-          "{integration_name}",
-          encodeURIComponent(String(integrationName)),
-        )
-        .replace("{account_id}", encodeURIComponent(String(accountId)));
+    const localVarPath = "/api/v2/web-integrations/{integration_name}/accounts/{account_id}".replace(
+      "{integration_name}",
+      encodeURIComponent(String(integrationName)),
+    ).replace(
+      "{account_id}",
+      encodeURIComponent(String(accountId)),
+    );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "WebIntegrationsApi.v2.deleteWebIntegrationAccount",
-      WebIntegrationsApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.DELETE,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("WebIntegrationsApi.v2.deleteWebIntegrationAccount", WebIntegrationsApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.DELETE, overrides);
     requestContext.setHeaderParam("Accept", "*/*");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -179,14 +155,8 @@ export class WebIntegrationsApiRequestFactory extends BaseAPIRequestFactory {
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
-    if (
-      !_config.unstableOperations[
-        "WebIntegrationsApi.v2.getWebIntegrationAccount"
-      ]
-    ) {
-      throw new Error(
-        "Unstable operation 'getWebIntegrationAccount' is disabled. Enable it by setting `configuration.unstableOperations['WebIntegrationsApi.v2.getWebIntegrationAccount'] = true`",
-      );
+    if (!_config.unstableOperations["WebIntegrationsApi.v2.getWebIntegrationAccount"]) {
+      throw new Error("Unstable operation 'getWebIntegrationAccount' is disabled. Enable it by setting `configuration.unstableOperations['WebIntegrationsApi.v2.getWebIntegrationAccount'] = true`");
     }
 
     // verify required parameter 'integrationName' is not null or undefined
@@ -200,24 +170,17 @@ export class WebIntegrationsApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Path Params
-    const localVarPath =
-      "/api/v2/web-integrations/{integration_name}/accounts/{account_id}"
-        .replace(
-          "{integration_name}",
-          encodeURIComponent(String(integrationName)),
-        )
-        .replace("{account_id}", encodeURIComponent(String(accountId)));
+    const localVarPath = "/api/v2/web-integrations/{integration_name}/accounts/{account_id}".replace(
+      "{integration_name}",
+      encodeURIComponent(String(integrationName)),
+    ).replace(
+      "{account_id}",
+      encodeURIComponent(String(accountId)),
+    );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "WebIntegrationsApi.v2.getWebIntegrationAccount",
-      WebIntegrationsApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.GET,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("WebIntegrationsApi.v2.getWebIntegrationAccount", WebIntegrationsApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.GET, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -241,14 +204,8 @@ export class WebIntegrationsApiRequestFactory extends BaseAPIRequestFactory {
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
-    if (
-      !_config.unstableOperations[
-        "WebIntegrationsApi.v2.listWebIntegrationAccounts"
-      ]
-    ) {
-      throw new Error(
-        "Unstable operation 'listWebIntegrationAccounts' is disabled. Enable it by setting `configuration.unstableOperations['WebIntegrationsApi.v2.listWebIntegrationAccounts'] = true`",
-      );
+    if (!_config.unstableOperations["WebIntegrationsApi.v2.listWebIntegrationAccounts"]) {
+      throw new Error("Unstable operation 'listWebIntegrationAccounts' is disabled. Enable it by setting `configuration.unstableOperations['WebIntegrationsApi.v2.listWebIntegrationAccounts'] = true`");
     }
 
     // verify required parameter 'integrationName' is not null or undefined
@@ -257,22 +214,14 @@ export class WebIntegrationsApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Path Params
-    const localVarPath =
-      "/api/v2/web-integrations/{integration_name}/accounts".replace(
-        "{integration_name}",
-        encodeURIComponent(String(integrationName)),
-      );
+    const localVarPath = "/api/v2/web-integrations/{integration_name}/accounts".replace(
+      "{integration_name}",
+      encodeURIComponent(String(integrationName)),
+    );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "WebIntegrationsApi.v2.listWebIntegrationAccounts",
-      WebIntegrationsApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.GET,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("WebIntegrationsApi.v2.listWebIntegrationAccounts", WebIntegrationsApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.GET, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -298,14 +247,8 @@ export class WebIntegrationsApiRequestFactory extends BaseAPIRequestFactory {
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
-    if (
-      !_config.unstableOperations[
-        "WebIntegrationsApi.v2.updateWebIntegrationAccount"
-      ]
-    ) {
-      throw new Error(
-        "Unstable operation 'updateWebIntegrationAccount' is disabled. Enable it by setting `configuration.unstableOperations['WebIntegrationsApi.v2.updateWebIntegrationAccount'] = true`",
-      );
+    if (!_config.unstableOperations["WebIntegrationsApi.v2.updateWebIntegrationAccount"]) {
+      throw new Error("Unstable operation 'updateWebIntegrationAccount' is disabled. Enable it by setting `configuration.unstableOperations['WebIntegrationsApi.v2.updateWebIntegrationAccount'] = true`");
     }
 
     // verify required parameter 'integrationName' is not null or undefined
@@ -324,24 +267,17 @@ export class WebIntegrationsApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Path Params
-    const localVarPath =
-      "/api/v2/web-integrations/{integration_name}/accounts/{account_id}"
-        .replace(
-          "{integration_name}",
-          encodeURIComponent(String(integrationName)),
-        )
-        .replace("{account_id}", encodeURIComponent(String(accountId)));
+    const localVarPath = "/api/v2/web-integrations/{integration_name}/accounts/{account_id}".replace(
+      "{integration_name}",
+      encodeURIComponent(String(integrationName)),
+    ).replace(
+      "{account_id}",
+      encodeURIComponent(String(accountId)),
+    );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "WebIntegrationsApi.v2.updateWebIntegrationAccount",
-      WebIntegrationsApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.PATCH,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("WebIntegrationsApi.v2.updateWebIntegrationAccount", WebIntegrationsApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.PATCH, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -351,7 +287,9 @@ export class WebIntegrationsApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Body Params
-    const contentType = getPreferredMediaType(["application/json"]);
+    const contentType = getPreferredMediaType([
+      "application/json",
+    ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = stringify(
       serialize(body, TypingInfo, "WebIntegrationAccountUpdateRequest", ""),
@@ -380,7 +318,9 @@ export class WebIntegrationsApiResponseProcessor {
   public async createWebIntegrationAccount(
     response: ResponseContext,
   ): Promise<WebIntegrationAccountResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 201) {
       const body: WebIntegrationAccountResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -395,7 +335,10 @@ export class WebIntegrationsApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -410,10 +353,16 @@ export class WebIntegrationsApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
     if (response.httpStatusCode === 422) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: JSONAPIErrorResponse;
       try {
         body = deserialize(
@@ -462,7 +411,9 @@ export class WebIntegrationsApiResponseProcessor {
   public async deleteWebIntegrationAccount(
     response: ResponseContext,
   ): Promise<void> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 204) {
       return;
     }
@@ -472,7 +423,10 @@ export class WebIntegrationsApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -487,7 +441,10 @@ export class WebIntegrationsApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -512,7 +469,9 @@ export class WebIntegrationsApiResponseProcessor {
   public async getWebIntegrationAccount(
     response: ResponseContext,
   ): Promise<WebIntegrationAccountResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: WebIntegrationAccountResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -527,7 +486,10 @@ export class WebIntegrationsApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -542,7 +504,10 @@ export class WebIntegrationsApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -573,7 +538,9 @@ export class WebIntegrationsApiResponseProcessor {
   public async listWebIntegrationAccounts(
     response: ResponseContext,
   ): Promise<WebIntegrationAccountsResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: WebIntegrationAccountsResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -588,7 +555,10 @@ export class WebIntegrationsApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -603,7 +573,10 @@ export class WebIntegrationsApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -634,7 +607,9 @@ export class WebIntegrationsApiResponseProcessor {
   public async updateWebIntegrationAccount(
     response: ResponseContext,
   ): Promise<WebIntegrationAccountResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: WebIntegrationAccountResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -649,7 +624,10 @@ export class WebIntegrationsApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -664,10 +642,16 @@ export class WebIntegrationsApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
     if (response.httpStatusCode === 422) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: JSONAPIErrorResponse;
       try {
         body = deserialize(
@@ -775,7 +759,8 @@ export class WebIntegrationsApi {
   private responseProcessor: WebIntegrationsApiResponseProcessor;
   private configuration: Configuration;
 
-  static operationServers: { [key: string]: BaseServerConfiguration[] } = {};
+  static operationServers: { [key: string]: BaseServerConfiguration[] } = {
+  };
 
   public constructor(
     configuration?: Configuration,
@@ -798,19 +783,16 @@ export class WebIntegrationsApi {
     param: WebIntegrationsApiCreateWebIntegrationAccountRequest,
     options?: Configuration,
   ): Promise<WebIntegrationAccountResponse> {
-    const requestContextPromise =
-      this.requestFactory.createWebIntegrationAccount(
-        param.integrationName,
-        param.body,
-        options,
-      );
+    const requestContextPromise = this.requestFactory.createWebIntegrationAccount(
+      param.integrationName,
+      param.body,
+      options,
+    );
     return requestContextPromise.then((requestContext) => {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.createWebIntegrationAccount(
-            responseContext,
-          );
+          return this.responseProcessor.createWebIntegrationAccount(responseContext);
         });
     });
   }
@@ -823,19 +805,16 @@ export class WebIntegrationsApi {
     param: WebIntegrationsApiDeleteWebIntegrationAccountRequest,
     options?: Configuration,
   ): Promise<void> {
-    const requestContextPromise =
-      this.requestFactory.deleteWebIntegrationAccount(
-        param.integrationName,
-        param.accountId,
-        options,
-      );
+    const requestContextPromise = this.requestFactory.deleteWebIntegrationAccount(
+      param.integrationName,
+      param.accountId,
+      options,
+    );
     return requestContextPromise.then((requestContext) => {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.deleteWebIntegrationAccount(
-            responseContext,
-          );
+          return this.responseProcessor.deleteWebIntegrationAccount(responseContext);
         });
     });
   }
@@ -857,9 +836,7 @@ export class WebIntegrationsApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.getWebIntegrationAccount(
-            responseContext,
-          );
+          return this.responseProcessor.getWebIntegrationAccount(responseContext);
         });
     });
   }
@@ -872,18 +849,15 @@ export class WebIntegrationsApi {
     param: WebIntegrationsApiListWebIntegrationAccountsRequest,
     options?: Configuration,
   ): Promise<WebIntegrationAccountsResponse> {
-    const requestContextPromise =
-      this.requestFactory.listWebIntegrationAccounts(
-        param.integrationName,
-        options,
-      );
+    const requestContextPromise = this.requestFactory.listWebIntegrationAccounts(
+      param.integrationName,
+      options,
+    );
     return requestContextPromise.then((requestContext) => {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.listWebIntegrationAccounts(
-            responseContext,
-          );
+          return this.responseProcessor.listWebIntegrationAccounts(responseContext);
         });
     });
   }
@@ -896,20 +870,17 @@ export class WebIntegrationsApi {
     param: WebIntegrationsApiUpdateWebIntegrationAccountRequest,
     options?: Configuration,
   ): Promise<WebIntegrationAccountResponse> {
-    const requestContextPromise =
-      this.requestFactory.updateWebIntegrationAccount(
-        param.integrationName,
-        param.accountId,
-        param.body,
-        options,
-      );
+    const requestContextPromise = this.requestFactory.updateWebIntegrationAccount(
+      param.integrationName,
+      param.accountId,
+      param.body,
+      options,
+    );
     return requestContextPromise.then((requestContext) => {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.updateWebIntegrationAccount(
-            responseContext,
-          );
+          return this.responseProcessor.updateWebIntegrationAccount(responseContext);
         });
     });
   }

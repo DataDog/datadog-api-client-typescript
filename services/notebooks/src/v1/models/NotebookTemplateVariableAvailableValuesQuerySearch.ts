@@ -1,5 +1,6 @@
 import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
+
 /**
  * Search parameters for an available values query.
  */
@@ -21,7 +22,7 @@ export class NotebookTemplateVariableAvailableValuesQuerySearch {
       baseName: "query",
       type: "string",
       required: true,
-    },
+    }
   };
 
   /**

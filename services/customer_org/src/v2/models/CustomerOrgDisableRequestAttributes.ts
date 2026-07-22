@@ -1,5 +1,6 @@
 import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
+
 /**
  * Optional attributes for a customer org disable request. When supplied, `org_uuid`
  * must match the authenticated organization or the request is rejected.
@@ -15,7 +16,7 @@ export class CustomerOrgDisableRequestAttributes {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
   /**
    * @ignore
    */

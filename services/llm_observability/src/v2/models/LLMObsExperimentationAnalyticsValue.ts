@@ -1,5 +1,6 @@
 import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
+
 /**
  * A single analytics result bucket.
  */
@@ -7,17 +8,17 @@ export class LLMObsExperimentationAnalyticsValue {
   /**
    * The group-by field values for this bucket.
    */
-  "by"?: { [key: string]: any };
+  "by"?: { [key: string]: any; };
   /**
    * Computed metric values for this bucket.
    */
-  "metrics": { [key: string]: any };
+  "metrics": { [key: string]: any; };
   /**
    * A container for additional, undeclared properties.
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
   /**
    * @ignore
    */

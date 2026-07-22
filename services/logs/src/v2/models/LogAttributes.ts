@@ -1,5 +1,6 @@
 import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
+
 /**
  * JSON object containing all log attributes and their associated values.
  */
@@ -7,7 +8,7 @@ export class LogAttributes {
   /**
    * JSON object of attributes from your log.
    */
-  "attributes"?: { [key: string]: any };
+  "attributes"?: { [key: string]: any; };
   /**
    * Name of the machine from where the logs are being sent.
    */
@@ -41,7 +42,7 @@ export class LogAttributes {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
   /**
    * @ignore
    */

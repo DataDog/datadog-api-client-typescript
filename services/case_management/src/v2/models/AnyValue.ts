@@ -8,7 +8,7 @@ import { AnyValueItem } from "./AnyValueItem";
 export type AnyValue =
   | string
   | number
-  | { [key: string]: any }
+  | { [key: string]: any; }
   | Array<AnyValueItem>
   | boolean
   | UnparsedObject;

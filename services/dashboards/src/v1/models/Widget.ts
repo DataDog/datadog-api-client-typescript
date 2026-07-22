@@ -5,7 +5,7 @@ import { WidgetLayout } from "./WidgetLayout";
 
 /**
  * Information about widget.
- *
+ * 
  * **Note**: The `layout` property is required for widgets in dashboards with `free` `layout_type`.
  *       For the **new dashboard layout**, the `layout` property depends on the `reflow_type` of the dashboard.
  *       - If `reflow_type` is `fixed`, `layout` is required.
@@ -29,7 +29,7 @@ export class Widget {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
   /**
    * @ignore
    */

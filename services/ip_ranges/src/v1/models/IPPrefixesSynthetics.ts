@@ -1,5 +1,6 @@
 import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
+
 /**
  * Available prefix information for the Synthetics endpoints.
  */
@@ -11,7 +12,7 @@ export class IPPrefixesSynthetics {
   /**
    * List of IPv4 prefixes by location.
    */
-  "prefixesIpv4ByLocation"?: { [key: string]: Array<string> };
+  "prefixesIpv4ByLocation"?: { [key: string]: Array<string>; };
   /**
    * List of IPv6 prefixes.
    */
@@ -19,13 +20,13 @@ export class IPPrefixesSynthetics {
   /**
    * List of IPv6 prefixes by location.
    */
-  "prefixesIpv6ByLocation"?: { [key: string]: Array<string> };
+  "prefixesIpv6ByLocation"?: { [key: string]: Array<string>; };
   /**
    * A container for additional, undeclared properties.
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
   /**
    * @ignore
    */

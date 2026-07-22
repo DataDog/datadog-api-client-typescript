@@ -5,7 +5,7 @@ import { ObservabilityPipelineOpentelemetrySourceType } from "./ObservabilityPip
 
 /**
  * The `opentelemetry` source receives telemetry data using the OpenTelemetry Protocol (OTLP) over gRPC and HTTP.
- *
+ * 
  * **Supported pipeline types:** logs, metrics
  */
 export class ObservabilityPipelineOpentelemetrySource {
@@ -34,7 +34,7 @@ export class ObservabilityPipelineOpentelemetrySource {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
   /**
    * @ignore
    */

@@ -57,69 +57,21 @@ import { UpdateFlakyTestsResponseResult } from "./UpdateFlakyTestsResponseResult
 
 export const TypingInfo: ModelTypingInfo = {
   enumsMap: {
-    FlakyTestAttributesFlakyState: [
-      "active",
-      "fixed",
-      "quarantined",
-      "disabled",
-    ],
-    FlakyTestHistoryPolicyId: [
-      "ftm_policy.manual",
-      "ftm_policy.fixed",
-      "ftm_policy.disable.failure_rate",
-      "ftm_policy.disable.branch_flake",
-      "ftm_policy.disable.days_active",
-      "ftm_policy.quarantine.failure_rate",
-      "ftm_policy.quarantine.branch_flake",
-      "ftm_policy.quarantine.days_active",
-      "unknown",
-    ],
+    FlakyTestAttributesFlakyState: ["active", "fixed", "quarantined", "disabled"],
+    FlakyTestHistoryPolicyId: ["ftm_policy.manual", "ftm_policy.fixed", "ftm_policy.disable.failure_rate", "ftm_policy.disable.branch_flake", "ftm_policy.disable.days_active", "ftm_policy.quarantine.failure_rate", "ftm_policy.quarantine.branch_flake", "ftm_policy.quarantine.days_active", "unknown"],
     FlakyTestType: ["flaky_test"],
     FlakyTestsSearchRequestDataType: ["search_flaky_tests_request"],
-    FlakyTestsSearchSort: [
-      "fqn",
-      "-fqn",
-      "first_flaked",
-      "-first_flaked",
-      "last_flaked",
-      "-last_flaked",
-      "failure_rate",
-      "-failure_rate",
-      "pipelines_failed",
-      "-pipelines_failed",
-      "pipelines_duration_lost",
-      "-pipelines_duration_lost",
-    ],
-    TestOptimizationDeleteServiceSettingsRequestDataType: [
-      "test_optimization_delete_service_settings_request",
-    ],
-    TestOptimizationFlakyTestsManagementPoliciesDisabledStatus: [
-      "active",
-      "quarantined",
-    ],
-    TestOptimizationFlakyTestsManagementPoliciesType: [
-      "test_optimization_flaky_tests_management_policies",
-    ],
-    TestOptimizationGetFlakyTestsManagementPoliciesRequestDataType: [
-      "test_optimization_get_flaky_tests_management_policies_request",
-    ],
-    TestOptimizationGetServiceSettingsRequestDataType: [
-      "test_optimization_get_service_settings_request",
-    ],
+    FlakyTestsSearchSort: ["fqn", "-fqn", "first_flaked", "-first_flaked", "last_flaked", "-last_flaked", "failure_rate", "-failure_rate", "pipelines_failed", "-pipelines_failed", "pipelines_duration_lost", "-pipelines_duration_lost"],
+    TestOptimizationDeleteServiceSettingsRequestDataType: ["test_optimization_delete_service_settings_request"],
+    TestOptimizationFlakyTestsManagementPoliciesDisabledStatus: ["active", "quarantined"],
+    TestOptimizationFlakyTestsManagementPoliciesType: ["test_optimization_flaky_tests_management_policies"],
+    TestOptimizationGetFlakyTestsManagementPoliciesRequestDataType: ["test_optimization_get_flaky_tests_management_policies_request"],
+    TestOptimizationGetServiceSettingsRequestDataType: ["test_optimization_get_service_settings_request"],
     TestOptimizationServiceSettingsType: ["test_optimization_service_settings"],
-    TestOptimizationUpdateFlakyTestsManagementPoliciesRequestDataType: [
-      "test_optimization_update_flaky_tests_management_policies_request",
-    ],
-    TestOptimizationUpdateServiceSettingsRequestDataType: [
-      "test_optimization_update_service_settings_request",
-    ],
+    TestOptimizationUpdateFlakyTestsManagementPoliciesRequestDataType: ["test_optimization_update_flaky_tests_management_policies_request"],
+    TestOptimizationUpdateServiceSettingsRequestDataType: ["test_optimization_update_service_settings_request"],
     UpdateFlakyTestsRequestDataType: ["update_flaky_test_state_request"],
-    UpdateFlakyTestsRequestTestNewState: [
-      "active",
-      "quarantined",
-      "disabled",
-      "fixed",
-    ],
+    UpdateFlakyTestsRequestTestNewState: ["active", "quarantined", "disabled", "fixed"],
     UpdateFlakyTestsResponseDataType: ["update_flaky_test_state_response"],
   },
   oneOfMap: {},
@@ -141,63 +93,35 @@ export const TypingInfo: ModelTypingInfo = {
     FlakyTestsSearchRequestData: FlakyTestsSearchRequestData,
     FlakyTestsSearchResponse: FlakyTestsSearchResponse,
     FlakyTestsSearchResponseMeta: FlakyTestsSearchResponseMeta,
-    TestOptimizationDeleteServiceSettingsRequest:
-      TestOptimizationDeleteServiceSettingsRequest,
-    TestOptimizationDeleteServiceSettingsRequestAttributes:
-      TestOptimizationDeleteServiceSettingsRequestAttributes,
-    TestOptimizationDeleteServiceSettingsRequestData:
-      TestOptimizationDeleteServiceSettingsRequestData,
-    TestOptimizationFlakyTestsManagementPoliciesAttemptToFix:
-      TestOptimizationFlakyTestsManagementPoliciesAttemptToFix,
-    TestOptimizationFlakyTestsManagementPoliciesAttributes:
-      TestOptimizationFlakyTestsManagementPoliciesAttributes,
-    TestOptimizationFlakyTestsManagementPoliciesAutoDisableRule:
-      TestOptimizationFlakyTestsManagementPoliciesAutoDisableRule,
-    TestOptimizationFlakyTestsManagementPoliciesAutoQuarantineRule:
-      TestOptimizationFlakyTestsManagementPoliciesAutoQuarantineRule,
-    TestOptimizationFlakyTestsManagementPoliciesBranchRule:
-      TestOptimizationFlakyTestsManagementPoliciesBranchRule,
-    TestOptimizationFlakyTestsManagementPoliciesData:
-      TestOptimizationFlakyTestsManagementPoliciesData,
-    TestOptimizationFlakyTestsManagementPoliciesDisabled:
-      TestOptimizationFlakyTestsManagementPoliciesDisabled,
-    TestOptimizationFlakyTestsManagementPoliciesDisabledFailureRateRule:
-      TestOptimizationFlakyTestsManagementPoliciesDisabledFailureRateRule,
-    TestOptimizationFlakyTestsManagementPoliciesGetRequest:
-      TestOptimizationFlakyTestsManagementPoliciesGetRequest,
-    TestOptimizationFlakyTestsManagementPoliciesGetRequestAttributes:
-      TestOptimizationFlakyTestsManagementPoliciesGetRequestAttributes,
-    TestOptimizationFlakyTestsManagementPoliciesGetRequestData:
-      TestOptimizationFlakyTestsManagementPoliciesGetRequestData,
-    TestOptimizationFlakyTestsManagementPoliciesQuarantined:
-      TestOptimizationFlakyTestsManagementPoliciesQuarantined,
-    TestOptimizationFlakyTestsManagementPoliciesQuarantinedFailureRateRule:
-      TestOptimizationFlakyTestsManagementPoliciesQuarantinedFailureRateRule,
-    TestOptimizationFlakyTestsManagementPoliciesResponse:
-      TestOptimizationFlakyTestsManagementPoliciesResponse,
-    TestOptimizationFlakyTestsManagementPoliciesUpdateRequest:
-      TestOptimizationFlakyTestsManagementPoliciesUpdateRequest,
-    TestOptimizationFlakyTestsManagementPoliciesUpdateRequestAttributes:
-      TestOptimizationFlakyTestsManagementPoliciesUpdateRequestAttributes,
-    TestOptimizationFlakyTestsManagementPoliciesUpdateRequestData:
-      TestOptimizationFlakyTestsManagementPoliciesUpdateRequestData,
-    TestOptimizationGetServiceSettingsRequest:
-      TestOptimizationGetServiceSettingsRequest,
-    TestOptimizationGetServiceSettingsRequestAttributes:
-      TestOptimizationGetServiceSettingsRequestAttributes,
-    TestOptimizationGetServiceSettingsRequestData:
-      TestOptimizationGetServiceSettingsRequestData,
-    TestOptimizationServiceSettingsAttributes:
-      TestOptimizationServiceSettingsAttributes,
+    TestOptimizationDeleteServiceSettingsRequest: TestOptimizationDeleteServiceSettingsRequest,
+    TestOptimizationDeleteServiceSettingsRequestAttributes: TestOptimizationDeleteServiceSettingsRequestAttributes,
+    TestOptimizationDeleteServiceSettingsRequestData: TestOptimizationDeleteServiceSettingsRequestData,
+    TestOptimizationFlakyTestsManagementPoliciesAttemptToFix: TestOptimizationFlakyTestsManagementPoliciesAttemptToFix,
+    TestOptimizationFlakyTestsManagementPoliciesAttributes: TestOptimizationFlakyTestsManagementPoliciesAttributes,
+    TestOptimizationFlakyTestsManagementPoliciesAutoDisableRule: TestOptimizationFlakyTestsManagementPoliciesAutoDisableRule,
+    TestOptimizationFlakyTestsManagementPoliciesAutoQuarantineRule: TestOptimizationFlakyTestsManagementPoliciesAutoQuarantineRule,
+    TestOptimizationFlakyTestsManagementPoliciesBranchRule: TestOptimizationFlakyTestsManagementPoliciesBranchRule,
+    TestOptimizationFlakyTestsManagementPoliciesData: TestOptimizationFlakyTestsManagementPoliciesData,
+    TestOptimizationFlakyTestsManagementPoliciesDisabled: TestOptimizationFlakyTestsManagementPoliciesDisabled,
+    TestOptimizationFlakyTestsManagementPoliciesDisabledFailureRateRule: TestOptimizationFlakyTestsManagementPoliciesDisabledFailureRateRule,
+    TestOptimizationFlakyTestsManagementPoliciesGetRequest: TestOptimizationFlakyTestsManagementPoliciesGetRequest,
+    TestOptimizationFlakyTestsManagementPoliciesGetRequestAttributes: TestOptimizationFlakyTestsManagementPoliciesGetRequestAttributes,
+    TestOptimizationFlakyTestsManagementPoliciesGetRequestData: TestOptimizationFlakyTestsManagementPoliciesGetRequestData,
+    TestOptimizationFlakyTestsManagementPoliciesQuarantined: TestOptimizationFlakyTestsManagementPoliciesQuarantined,
+    TestOptimizationFlakyTestsManagementPoliciesQuarantinedFailureRateRule: TestOptimizationFlakyTestsManagementPoliciesQuarantinedFailureRateRule,
+    TestOptimizationFlakyTestsManagementPoliciesResponse: TestOptimizationFlakyTestsManagementPoliciesResponse,
+    TestOptimizationFlakyTestsManagementPoliciesUpdateRequest: TestOptimizationFlakyTestsManagementPoliciesUpdateRequest,
+    TestOptimizationFlakyTestsManagementPoliciesUpdateRequestAttributes: TestOptimizationFlakyTestsManagementPoliciesUpdateRequestAttributes,
+    TestOptimizationFlakyTestsManagementPoliciesUpdateRequestData: TestOptimizationFlakyTestsManagementPoliciesUpdateRequestData,
+    TestOptimizationGetServiceSettingsRequest: TestOptimizationGetServiceSettingsRequest,
+    TestOptimizationGetServiceSettingsRequestAttributes: TestOptimizationGetServiceSettingsRequestAttributes,
+    TestOptimizationGetServiceSettingsRequestData: TestOptimizationGetServiceSettingsRequestData,
+    TestOptimizationServiceSettingsAttributes: TestOptimizationServiceSettingsAttributes,
     TestOptimizationServiceSettingsData: TestOptimizationServiceSettingsData,
-    TestOptimizationServiceSettingsResponse:
-      TestOptimizationServiceSettingsResponse,
-    TestOptimizationUpdateServiceSettingsRequest:
-      TestOptimizationUpdateServiceSettingsRequest,
-    TestOptimizationUpdateServiceSettingsRequestAttributes:
-      TestOptimizationUpdateServiceSettingsRequestAttributes,
-    TestOptimizationUpdateServiceSettingsRequestData:
-      TestOptimizationUpdateServiceSettingsRequestData,
+    TestOptimizationServiceSettingsResponse: TestOptimizationServiceSettingsResponse,
+    TestOptimizationUpdateServiceSettingsRequest: TestOptimizationUpdateServiceSettingsRequest,
+    TestOptimizationUpdateServiceSettingsRequestAttributes: TestOptimizationUpdateServiceSettingsRequestAttributes,
+    TestOptimizationUpdateServiceSettingsRequestData: TestOptimizationUpdateServiceSettingsRequestData,
     UpdateFlakyTestsRequest: UpdateFlakyTestsRequest,
     UpdateFlakyTestsRequestAttributes: UpdateFlakyTestsRequestAttributes,
     UpdateFlakyTestsRequestData: UpdateFlakyTestsRequestData,

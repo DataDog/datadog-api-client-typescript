@@ -19,6 +19,7 @@ import {
   ServerConfiguration,
   stringify,
   applySecurityAuthentication,
+  
 } from "@datadog/datadog-api-client";
 
 import { TypingInfo } from "./models/TypingInfo";
@@ -57,15 +58,8 @@ export class ActionConnectionApiRequestFactory extends BaseAPIRequestFactory {
     const localVarPath = "/api/v2/actions/connections";
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "ActionConnectionApi.v2.createActionConnection",
-      ActionConnectionApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.POST,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("ActionConnectionApi.v2.createActionConnection", ActionConnectionApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.POST, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -75,7 +69,9 @@ export class ActionConnectionApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Body Params
-    const contentType = getPreferredMediaType(["application/json"]);
+    const contentType = getPreferredMediaType([
+      "application/json",
+    ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = stringify(
       serialize(body, TypingInfo, "CreateActionConnectionRequest", ""),
@@ -110,15 +106,8 @@ export class ActionConnectionApiRequestFactory extends BaseAPIRequestFactory {
     );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "ActionConnectionApi.v2.deleteActionConnection",
-      ActionConnectionApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.DELETE,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("ActionConnectionApi.v2.deleteActionConnection", ActionConnectionApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.DELETE, overrides);
     requestContext.setHeaderParam("Accept", "*/*");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -154,15 +143,8 @@ export class ActionConnectionApiRequestFactory extends BaseAPIRequestFactory {
     );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "ActionConnectionApi.v2.getActionConnection",
-      ActionConnectionApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.GET,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("ActionConnectionApi.v2.getActionConnection", ActionConnectionApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.GET, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -192,22 +174,14 @@ export class ActionConnectionApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Path Params
-    const localVarPath =
-      "/api/v2/actions/app_key_registrations/{app_key_id}".replace(
-        "{app_key_id}",
-        encodeURIComponent(String(appKeyId)),
-      );
+    const localVarPath = "/api/v2/actions/app_key_registrations/{app_key_id}".replace(
+      "{app_key_id}",
+      encodeURIComponent(String(appKeyId)),
+    );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "ActionConnectionApi.v2.getAppKeyRegistration",
-      ActionConnectionApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.GET,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("ActionConnectionApi.v2.getAppKeyRegistration", ActionConnectionApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.GET, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -236,15 +210,8 @@ export class ActionConnectionApiRequestFactory extends BaseAPIRequestFactory {
     const localVarPath = "/api/v2/actions/app_key_registrations";
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "ActionConnectionApi.v2.listAppKeyRegistrations",
-      ActionConnectionApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.GET,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("ActionConnectionApi.v2.listAppKeyRegistrations", ActionConnectionApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.GET, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -290,22 +257,14 @@ export class ActionConnectionApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Path Params
-    const localVarPath =
-      "/api/v2/actions/app_key_registrations/{app_key_id}".replace(
-        "{app_key_id}",
-        encodeURIComponent(String(appKeyId)),
-      );
+    const localVarPath = "/api/v2/actions/app_key_registrations/{app_key_id}".replace(
+      "{app_key_id}",
+      encodeURIComponent(String(appKeyId)),
+    );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "ActionConnectionApi.v2.registerAppKey",
-      ActionConnectionApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.PUT,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("ActionConnectionApi.v2.registerAppKey", ActionConnectionApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.PUT, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -335,22 +294,14 @@ export class ActionConnectionApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Path Params
-    const localVarPath =
-      "/api/v2/actions/app_key_registrations/{app_key_id}".replace(
-        "{app_key_id}",
-        encodeURIComponent(String(appKeyId)),
-      );
+    const localVarPath = "/api/v2/actions/app_key_registrations/{app_key_id}".replace(
+      "{app_key_id}",
+      encodeURIComponent(String(appKeyId)),
+    );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "ActionConnectionApi.v2.unregisterAppKey",
-      ActionConnectionApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.DELETE,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("ActionConnectionApi.v2.unregisterAppKey", ActionConnectionApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.DELETE, overrides);
     requestContext.setHeaderParam("Accept", "*/*");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -392,15 +343,8 @@ export class ActionConnectionApiRequestFactory extends BaseAPIRequestFactory {
     );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "ActionConnectionApi.v2.updateActionConnection",
-      ActionConnectionApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.PATCH,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("ActionConnectionApi.v2.updateActionConnection", ActionConnectionApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.PATCH, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -410,7 +354,9 @@ export class ActionConnectionApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Body Params
-    const contentType = getPreferredMediaType(["application/json"]);
+    const contentType = getPreferredMediaType([
+      "application/json",
+    ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = stringify(
       serialize(body, TypingInfo, "UpdateActionConnectionRequest", ""),
@@ -439,7 +385,9 @@ export class ActionConnectionApiResponseProcessor {
   public async createActionConnection(
     response: ResponseContext,
   ): Promise<CreateActionConnectionResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 201) {
       const body: CreateActionConnectionResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -453,7 +401,10 @@ export class ActionConnectionApiResponseProcessor {
       response.httpStatusCode === 403 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: JSONAPIErrorResponse;
       try {
         body = deserialize(
@@ -502,7 +453,9 @@ export class ActionConnectionApiResponseProcessor {
   public async deleteActionConnection(
     response: ResponseContext,
   ): Promise<void> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 204) {
       return;
     }
@@ -511,7 +464,10 @@ export class ActionConnectionApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: JSONAPIErrorResponse;
       try {
         body = deserialize(
@@ -554,7 +510,9 @@ export class ActionConnectionApiResponseProcessor {
   public async getActionConnection(
     response: ResponseContext,
   ): Promise<GetActionConnectionResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: GetActionConnectionResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -569,7 +527,10 @@ export class ActionConnectionApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: JSONAPIErrorResponse;
       try {
         body = deserialize(
@@ -618,7 +579,9 @@ export class ActionConnectionApiResponseProcessor {
   public async getAppKeyRegistration(
     response: ResponseContext,
   ): Promise<GetAppKeyRegistrationResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: GetAppKeyRegistrationResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -633,7 +596,10 @@ export class ActionConnectionApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: JSONAPIErrorResponse;
       try {
         body = deserialize(
@@ -682,7 +648,9 @@ export class ActionConnectionApiResponseProcessor {
   public async listAppKeyRegistrations(
     response: ResponseContext,
   ): Promise<ListAppKeyRegistrationsResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: ListAppKeyRegistrationsResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -696,7 +664,10 @@ export class ActionConnectionApiResponseProcessor {
       response.httpStatusCode === 403 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: JSONAPIErrorResponse;
       try {
         body = deserialize(
@@ -745,7 +716,9 @@ export class ActionConnectionApiResponseProcessor {
   public async registerAppKey(
     response: ResponseContext,
   ): Promise<RegisterAppKeyResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 201) {
       const body: RegisterAppKeyResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -759,7 +732,10 @@ export class ActionConnectionApiResponseProcessor {
       response.httpStatusCode === 403 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: JSONAPIErrorResponse;
       try {
         body = deserialize(
@@ -805,8 +781,12 @@ export class ActionConnectionApiResponseProcessor {
    * @params response Response returned by the server for a request to unregisterAppKey
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async unregisterAppKey(response: ResponseContext): Promise<void> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+  public async unregisterAppKey(
+    response: ResponseContext,
+  ): Promise<void> {
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 204) {
       return;
     }
@@ -816,7 +796,10 @@ export class ActionConnectionApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: JSONAPIErrorResponse;
       try {
         body = deserialize(
@@ -859,7 +842,9 @@ export class ActionConnectionApiResponseProcessor {
   public async updateActionConnection(
     response: ResponseContext,
   ): Promise<UpdateActionConnectionResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: UpdateActionConnectionResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -874,7 +859,10 @@ export class ActionConnectionApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: JSONAPIErrorResponse;
       try {
         body = deserialize(
@@ -992,7 +980,8 @@ export class ActionConnectionApi {
   private responseProcessor: ActionConnectionApiResponseProcessor;
   private configuration: Configuration;
 
-  static operationServers: { [key: string]: BaseServerConfiguration[] } = {};
+  static operationServers: { [key: string]: BaseServerConfiguration[] } = {
+  };
 
   public constructor(
     configuration?: Configuration,
@@ -1108,9 +1097,7 @@ export class ActionConnectionApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.listAppKeyRegistrations(
-            responseContext,
-          );
+          return this.responseProcessor.listAppKeyRegistrations(responseContext);
         });
     });
   }

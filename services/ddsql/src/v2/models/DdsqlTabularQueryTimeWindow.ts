@@ -1,5 +1,6 @@
 import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
+
 /**
  * Time window scoping the underlying data sources, expressed in Unix milliseconds
  * since the epoch. Inclusive on `from_timestamp`, exclusive on `to_timestamp`.
@@ -20,7 +21,7 @@ export class DdsqlTabularQueryTimeWindow {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
   /**
    * @ignore
    */

@@ -19,6 +19,7 @@ import {
   ServerConfiguration,
   stringify,
   applySecurityAuthentication,
+  
 } from "@datadog/datadog-api-client";
 
 import { TypingInfo } from "./models/TypingInfo";
@@ -53,15 +54,8 @@ export class PowerpackApiRequestFactory extends BaseAPIRequestFactory {
     const localVarPath = "/api/v2/powerpacks";
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "PowerpackApi.v2.createPowerpack",
-      PowerpackApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.POST,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("PowerpackApi.v2.createPowerpack", PowerpackApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.POST, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -71,7 +65,9 @@ export class PowerpackApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Body Params
-    const contentType = getPreferredMediaType(["application/json"]);
+    const contentType = getPreferredMediaType([
+      "application/json",
+    ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = stringify(
       serialize(body, TypingInfo, "Powerpack", ""),
@@ -107,15 +103,8 @@ export class PowerpackApiRequestFactory extends BaseAPIRequestFactory {
     );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "PowerpackApi.v2.deletePowerpack",
-      PowerpackApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.DELETE,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("PowerpackApi.v2.deletePowerpack", PowerpackApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.DELETE, overrides);
     requestContext.setHeaderParam("Accept", "*/*");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -152,15 +141,8 @@ export class PowerpackApiRequestFactory extends BaseAPIRequestFactory {
     );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "PowerpackApi.v2.getPowerpack",
-      PowerpackApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.GET,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("PowerpackApi.v2.getPowerpack", PowerpackApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.GET, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -190,15 +172,8 @@ export class PowerpackApiRequestFactory extends BaseAPIRequestFactory {
     const localVarPath = "/api/v2/powerpacks";
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "PowerpackApi.v2.listPowerpacks",
-      PowerpackApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.GET,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("PowerpackApi.v2.listPowerpacks", PowerpackApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.GET, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -257,15 +232,8 @@ export class PowerpackApiRequestFactory extends BaseAPIRequestFactory {
     );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "PowerpackApi.v2.updatePowerpack",
-      PowerpackApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.PATCH,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("PowerpackApi.v2.updatePowerpack", PowerpackApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.PATCH, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -275,7 +243,9 @@ export class PowerpackApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Body Params
-    const contentType = getPreferredMediaType(["application/json"]);
+    const contentType = getPreferredMediaType([
+      "application/json",
+    ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = stringify(
       serialize(body, TypingInfo, "Powerpack", ""),
@@ -305,7 +275,9 @@ export class PowerpackApiResponseProcessor {
   public async createPowerpack(
     response: ResponseContext,
   ): Promise<PowerpackResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: PowerpackResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -314,8 +286,14 @@ export class PowerpackApiResponseProcessor {
       ) as PowerpackResponse;
       return body;
     }
-    if (response.httpStatusCode === 400 || response.httpStatusCode === 429) {
-      const bodyText = parse(await response.body.text(), contentType);
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 429
+    ) {
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -330,7 +308,10 @@ export class PowerpackApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -358,13 +339,23 @@ export class PowerpackApiResponseProcessor {
    * @params response Response returned by the server for a request to deletePowerpack
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async deletePowerpack(response: ResponseContext): Promise<void> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+  public async deletePowerpack(
+    response: ResponseContext,
+  ): Promise<void> {
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 204) {
       return;
     }
-    if (response.httpStatusCode === 404 || response.httpStatusCode === 429) {
-      const bodyText = parse(await response.body.text(), contentType);
+    if (
+      response.httpStatusCode === 404 ||
+      response.httpStatusCode === 429
+    ) {
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -379,7 +370,10 @@ export class PowerpackApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -404,7 +398,9 @@ export class PowerpackApiResponseProcessor {
   public async getPowerpack(
     response: ResponseContext,
   ): Promise<PowerpackResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: PowerpackResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -413,8 +409,14 @@ export class PowerpackApiResponseProcessor {
       ) as PowerpackResponse;
       return body;
     }
-    if (response.httpStatusCode === 404 || response.httpStatusCode === 429) {
-      const bodyText = parse(await response.body.text(), contentType);
+    if (
+      response.httpStatusCode === 404 ||
+      response.httpStatusCode === 429
+    ) {
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -429,7 +431,10 @@ export class PowerpackApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -460,7 +465,9 @@ export class PowerpackApiResponseProcessor {
   public async listPowerpacks(
     response: ResponseContext,
   ): Promise<ListPowerpacksResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: ListPowerpacksResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -470,7 +477,10 @@ export class PowerpackApiResponseProcessor {
       return body;
     }
     if (response.httpStatusCode === 429) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -485,7 +495,10 @@ export class PowerpackApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -516,7 +529,9 @@ export class PowerpackApiResponseProcessor {
   public async updatePowerpack(
     response: ResponseContext,
   ): Promise<PowerpackResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: PowerpackResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -530,7 +545,10 @@ export class PowerpackApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -545,7 +563,10 @@ export class PowerpackApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -622,7 +643,8 @@ export class PowerpackApi {
   private responseProcessor: PowerpackApiResponseProcessor;
   private configuration: Configuration;
 
-  static operationServers: { [key: string]: BaseServerConfiguration[] } = {};
+  static operationServers: { [key: string]: BaseServerConfiguration[] } = {
+  };
 
   public constructor(
     configuration?: Configuration,
@@ -631,7 +653,8 @@ export class PowerpackApi {
   ) {
     this.configuration = configuration || createConfiguration();
     this.requestFactory =
-      requestFactory || new PowerpackApiRequestFactory(this.configuration);
+      requestFactory ||
+      new PowerpackApiRequestFactory(this.configuration);
     this.responseProcessor =
       responseProcessor || new PowerpackApiResponseProcessor();
   }
@@ -725,25 +748,19 @@ export class PowerpackApi {
    * Provide a paginated version of listPowerpacks returning a generator with all the items.
    */
   public async *listPowerpacksWithPagination(
-    param: PowerpackApiListPowerpacksRequest = {},
-    options?: Configuration,
+    param: PowerpackApiListPowerpacksRequest = {}, options?: Configuration,
   ): AsyncGenerator<PowerpackData> {
+
     let pageSize = 25;
     if (param.pageLimit !== undefined) {
       pageSize = param.pageLimit;
     }
     param.pageLimit = pageSize;
     while (true) {
-      const requestContext = await this.requestFactory.listPowerpacks(
-        param.pageLimit,
-        param.pageOffset,
-        options,
-      );
-      const responseContext =
-        await this.configuration.httpApi.send(requestContext);
+      const requestContext = await this.requestFactory.listPowerpacks(param.pageLimit,param.pageOffset,options);
+      const responseContext = await this.configuration.httpApi.send(requestContext);
 
-      const response =
-        await this.responseProcessor.listPowerpacks(responseContext);
+      const response = await this.responseProcessor.listPowerpacks(responseContext);
       const responseData = response.data;
       if (responseData === undefined) {
         break;

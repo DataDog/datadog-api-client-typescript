@@ -54,104 +54,69 @@ import { SensitiveDataScannerTextReplacement } from "./SensitiveDataScannerTextR
 
 export const TypingInfo: ModelTypingInfo = {
   enumsMap: {
-    SensitiveDataScannerConfigurationType: [
-      "sensitive_data_scanner_configuration",
-    ],
+    SensitiveDataScannerConfigurationType: ["sensitive_data_scanner_configuration"],
     SensitiveDataScannerGroupType: ["sensitive_data_scanner_group"],
     SensitiveDataScannerProduct: ["logs", "rum", "events", "apm"],
     SensitiveDataScannerRuleType: ["sensitive_data_scanner_rule"],
-    SensitiveDataScannerStandardPatternType: [
-      "sensitive_data_scanner_standard_pattern",
-    ],
-    SensitiveDataScannerTextReplacementType: [
-      "none",
-      "hash",
-      "replacement_string",
-      "partial_replacement_from_beginning",
-      "partial_replacement_from_end",
-    ],
+    SensitiveDataScannerStandardPatternType: ["sensitive_data_scanner_standard_pattern"],
+    SensitiveDataScannerTextReplacementType: ["none", "hash", "replacement_string", "partial_replacement_from_beginning", "partial_replacement_from_end"],
   },
   oneOfMap: {
     SensitiveDataScannerGetConfigIncludedItem: [
       "SensitiveDataScannerRuleIncludedItem",
       "SensitiveDataScannerGroupIncludedItem",
     ],
-  },
+    },
   typeMap: {
     APIErrorResponse: APIErrorResponse,
     SensitiveDataScannerConfigRequest: SensitiveDataScannerConfigRequest,
     SensitiveDataScannerConfiguration: SensitiveDataScannerConfiguration,
-    SensitiveDataScannerConfigurationData:
-      SensitiveDataScannerConfigurationData,
-    SensitiveDataScannerConfigurationRelationships:
-      SensitiveDataScannerConfigurationRelationships,
-    SensitiveDataScannerCreateGroupResponse:
-      SensitiveDataScannerCreateGroupResponse,
-    SensitiveDataScannerCreateRuleResponse:
-      SensitiveDataScannerCreateRuleResponse,
+    SensitiveDataScannerConfigurationData: SensitiveDataScannerConfigurationData,
+    SensitiveDataScannerConfigurationRelationships: SensitiveDataScannerConfigurationRelationships,
+    SensitiveDataScannerCreateGroupResponse: SensitiveDataScannerCreateGroupResponse,
+    SensitiveDataScannerCreateRuleResponse: SensitiveDataScannerCreateRuleResponse,
     SensitiveDataScannerFilter: SensitiveDataScannerFilter,
-    SensitiveDataScannerGetConfigResponse:
-      SensitiveDataScannerGetConfigResponse,
-    SensitiveDataScannerGetConfigResponseData:
-      SensitiveDataScannerGetConfigResponseData,
+    SensitiveDataScannerGetConfigResponse: SensitiveDataScannerGetConfigResponse,
+    SensitiveDataScannerGetConfigResponseData: SensitiveDataScannerGetConfigResponseData,
     SensitiveDataScannerGroup: SensitiveDataScannerGroup,
     SensitiveDataScannerGroupAttributes: SensitiveDataScannerGroupAttributes,
     SensitiveDataScannerGroupCreate: SensitiveDataScannerGroupCreate,
-    SensitiveDataScannerGroupCreateRequest:
-      SensitiveDataScannerGroupCreateRequest,
+    SensitiveDataScannerGroupCreateRequest: SensitiveDataScannerGroupCreateRequest,
     SensitiveDataScannerGroupData: SensitiveDataScannerGroupData,
-    SensitiveDataScannerGroupDeleteRequest:
-      SensitiveDataScannerGroupDeleteRequest,
-    SensitiveDataScannerGroupDeleteResponse:
-      SensitiveDataScannerGroupDeleteResponse,
-    SensitiveDataScannerGroupIncludedItem:
-      SensitiveDataScannerGroupIncludedItem,
+    SensitiveDataScannerGroupDeleteRequest: SensitiveDataScannerGroupDeleteRequest,
+    SensitiveDataScannerGroupDeleteResponse: SensitiveDataScannerGroupDeleteResponse,
+    SensitiveDataScannerGroupIncludedItem: SensitiveDataScannerGroupIncludedItem,
     SensitiveDataScannerGroupItem: SensitiveDataScannerGroupItem,
     SensitiveDataScannerGroupList: SensitiveDataScannerGroupList,
-    SensitiveDataScannerGroupRelationships:
-      SensitiveDataScannerGroupRelationships,
+    SensitiveDataScannerGroupRelationships: SensitiveDataScannerGroupRelationships,
     SensitiveDataScannerGroupResponse: SensitiveDataScannerGroupResponse,
     SensitiveDataScannerGroupUpdate: SensitiveDataScannerGroupUpdate,
-    SensitiveDataScannerGroupUpdateRequest:
-      SensitiveDataScannerGroupUpdateRequest,
-    SensitiveDataScannerGroupUpdateResponse:
-      SensitiveDataScannerGroupUpdateResponse,
-    SensitiveDataScannerIncludedKeywordConfiguration:
-      SensitiveDataScannerIncludedKeywordConfiguration,
+    SensitiveDataScannerGroupUpdateRequest: SensitiveDataScannerGroupUpdateRequest,
+    SensitiveDataScannerGroupUpdateResponse: SensitiveDataScannerGroupUpdateResponse,
+    SensitiveDataScannerIncludedKeywordConfiguration: SensitiveDataScannerIncludedKeywordConfiguration,
     SensitiveDataScannerMeta: SensitiveDataScannerMeta,
     SensitiveDataScannerMetaVersionOnly: SensitiveDataScannerMetaVersionOnly,
     SensitiveDataScannerReorderConfig: SensitiveDataScannerReorderConfig,
-    SensitiveDataScannerReorderGroupsResponse:
-      SensitiveDataScannerReorderGroupsResponse,
+    SensitiveDataScannerReorderGroupsResponse: SensitiveDataScannerReorderGroupsResponse,
     SensitiveDataScannerRule: SensitiveDataScannerRule,
     SensitiveDataScannerRuleAttributes: SensitiveDataScannerRuleAttributes,
     SensitiveDataScannerRuleCreate: SensitiveDataScannerRuleCreate,
-    SensitiveDataScannerRuleCreateRequest:
-      SensitiveDataScannerRuleCreateRequest,
+    SensitiveDataScannerRuleCreateRequest: SensitiveDataScannerRuleCreateRequest,
     SensitiveDataScannerRuleData: SensitiveDataScannerRuleData,
-    SensitiveDataScannerRuleDeleteRequest:
-      SensitiveDataScannerRuleDeleteRequest,
-    SensitiveDataScannerRuleDeleteResponse:
-      SensitiveDataScannerRuleDeleteResponse,
+    SensitiveDataScannerRuleDeleteRequest: SensitiveDataScannerRuleDeleteRequest,
+    SensitiveDataScannerRuleDeleteResponse: SensitiveDataScannerRuleDeleteResponse,
     SensitiveDataScannerRuleIncludedItem: SensitiveDataScannerRuleIncludedItem,
-    SensitiveDataScannerRuleRelationships:
-      SensitiveDataScannerRuleRelationships,
+    SensitiveDataScannerRuleRelationships: SensitiveDataScannerRuleRelationships,
     SensitiveDataScannerRuleResponse: SensitiveDataScannerRuleResponse,
     SensitiveDataScannerRuleUpdate: SensitiveDataScannerRuleUpdate,
-    SensitiveDataScannerRuleUpdateRequest:
-      SensitiveDataScannerRuleUpdateRequest,
-    SensitiveDataScannerRuleUpdateResponse:
-      SensitiveDataScannerRuleUpdateResponse,
+    SensitiveDataScannerRuleUpdateRequest: SensitiveDataScannerRuleUpdateRequest,
+    SensitiveDataScannerRuleUpdateResponse: SensitiveDataScannerRuleUpdateResponse,
     SensitiveDataScannerSamplings: SensitiveDataScannerSamplings,
     SensitiveDataScannerStandardPattern: SensitiveDataScannerStandardPattern,
-    SensitiveDataScannerStandardPatternAttributes:
-      SensitiveDataScannerStandardPatternAttributes,
-    SensitiveDataScannerStandardPatternData:
-      SensitiveDataScannerStandardPatternData,
-    SensitiveDataScannerStandardPatternsResponseData:
-      SensitiveDataScannerStandardPatternsResponseData,
-    SensitiveDataScannerStandardPatternsResponseItem:
-      SensitiveDataScannerStandardPatternsResponseItem,
+    SensitiveDataScannerStandardPatternAttributes: SensitiveDataScannerStandardPatternAttributes,
+    SensitiveDataScannerStandardPatternData: SensitiveDataScannerStandardPatternData,
+    SensitiveDataScannerStandardPatternsResponseData: SensitiveDataScannerStandardPatternsResponseData,
+    SensitiveDataScannerStandardPatternsResponseItem: SensitiveDataScannerStandardPatternsResponseItem,
     SensitiveDataScannerSuppressions: SensitiveDataScannerSuppressions,
     SensitiveDataScannerTextReplacement: SensitiveDataScannerTextReplacement,
   },

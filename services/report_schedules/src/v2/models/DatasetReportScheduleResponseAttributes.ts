@@ -10,11 +10,11 @@ export class DatasetReportScheduleResponseAttributes {
   /**
    * The identifier of the notebook cell that published the dataset, or `null` if not set.
    */
-  "cellId": string | null;
+  "cellId": string|null;
   /**
    * The identifier of the dataset, or `null` if not set.
    */
-  "datasetId": string | null;
+  "datasetId": string|null;
   /**
    * The description of the report.
    */
@@ -22,20 +22,20 @@ export class DatasetReportScheduleResponseAttributes {
   /**
    * The maximum number of rows included in the attached CSV file, or `null` if not set.
    */
-  "fileRowLimit": number | null;
+  "fileRowLimit": number|null;
   /**
    * The maximum number of rows included inline in the email body, or `null` if not set.
    */
-  "inlineRowLimit": number | null;
+  "inlineRowLimit": number|null;
   /**
    * The Unix timestamp, in milliseconds, of the next scheduled delivery, or
    * `null` if none is scheduled.
    */
-  "nextRecurrence": number | null;
+  "nextRecurrence": number|null;
   /**
    * The identifier of the notebook containing the dataset cell, or `null` if not set.
    */
-  "notebookId": number | null;
+  "notebookId": number|null;
   /**
    * The recipients of the report (email addresses, Slack channel references, or
    * Microsoft Teams channel references).
@@ -74,7 +74,7 @@ export class DatasetReportScheduleResponseAttributes {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
   /**
    * @ignore
    */

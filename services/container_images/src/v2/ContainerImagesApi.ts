@@ -19,6 +19,7 @@ import {
   ServerConfiguration,
   stringify,
   applySecurityAuthentication,
+  
 } from "@datadog/datadog-api-client";
 
 import { TypingInfo } from "./models/TypingInfo";
@@ -50,15 +51,8 @@ export class ContainerImagesApiRequestFactory extends BaseAPIRequestFactory {
     const localVarPath = "/api/v2/container_images";
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "ContainerImagesApi.v2.listContainerImages",
-      ContainerImagesApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.GET,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("ContainerImagesApi.v2.listContainerImages", ContainerImagesApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.GET, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -126,7 +120,9 @@ export class ContainerImagesApiResponseProcessor {
   public async listContainerImages(
     response: ResponseContext,
   ): Promise<ContainerImagesResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: ContainerImagesResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -140,7 +136,10 @@ export class ContainerImagesApiResponseProcessor {
       response.httpStatusCode === 403 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -155,7 +154,10 @@ export class ContainerImagesApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -211,7 +213,8 @@ export class ContainerImagesApi {
   private responseProcessor: ContainerImagesApiResponseProcessor;
   private configuration: Configuration;
 
-  static operationServers: { [key: string]: BaseServerConfiguration[] } = {};
+  static operationServers: { [key: string]: BaseServerConfiguration[] } = {
+  };
 
   public constructor(
     configuration?: Configuration,
@@ -256,28 +259,19 @@ export class ContainerImagesApi {
    * Provide a paginated version of listContainerImages returning a generator with all the items.
    */
   public async *listContainerImagesWithPagination(
-    param: ContainerImagesApiListContainerImagesRequest = {},
-    options?: Configuration,
+    param: ContainerImagesApiListContainerImagesRequest = {}, options?: Configuration,
   ): AsyncGenerator<ContainerImageItem> {
+
     let pageSize = 1000;
     if (param.pageSize !== undefined) {
       pageSize = param.pageSize;
     }
     param.pageSize = pageSize;
     while (true) {
-      const requestContext = await this.requestFactory.listContainerImages(
-        param.filterTags,
-        param.groupBy,
-        param.sort,
-        param.pageSize,
-        param.pageCursor,
-        options,
-      );
-      const responseContext =
-        await this.configuration.httpApi.send(requestContext);
+      const requestContext = await this.requestFactory.listContainerImages(param.filterTags,param.groupBy,param.sort,param.pageSize,param.pageCursor,options);
+      const responseContext = await this.configuration.httpApi.send(requestContext);
 
-      const response =
-        await this.responseProcessor.listContainerImages(responseContext);
+      const response = await this.responseProcessor.listContainerImages(responseContext);
       const responseData = response.data;
       if (responseData === undefined) {
         break;

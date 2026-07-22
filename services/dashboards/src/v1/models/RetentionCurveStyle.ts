@@ -1,5 +1,6 @@
 import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
+
 /**
  * Style configuration for retention curve.
  */
@@ -20,7 +21,7 @@ export class RetentionCurveStyle {
     palette: {
       baseName: "palette",
       type: "string",
-    },
+    }
   };
 
   /**

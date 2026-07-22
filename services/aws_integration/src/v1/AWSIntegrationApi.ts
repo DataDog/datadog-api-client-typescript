@@ -19,6 +19,7 @@ import {
   ServerConfiguration,
   stringify,
   applySecurityAuthentication,
+  
 } from "@datadog/datadog-api-client";
 
 import { TypingInfo } from "./models/TypingInfo";
@@ -61,15 +62,8 @@ export class AWSIntegrationApiRequestFactory extends BaseAPIRequestFactory {
     const localVarPath = "/api/v1/integration/aws";
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "AWSIntegrationApi.v1.createAWSAccount",
-      AWSIntegrationApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.POST,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("AWSIntegrationApi.v1.createAWSAccount", AWSIntegrationApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.POST, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -79,7 +73,9 @@ export class AWSIntegrationApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Body Params
-    const contentType = getPreferredMediaType(["application/json"]);
+    const contentType = getPreferredMediaType([
+      "application/json",
+    ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = stringify(
       serialize(body, TypingInfo, "AWSAccount", ""),
@@ -111,15 +107,8 @@ export class AWSIntegrationApiRequestFactory extends BaseAPIRequestFactory {
     const localVarPath = "/api/v1/integration/aws/event_bridge";
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "AWSIntegrationApi.v1.createAWSEventBridgeSource",
-      AWSIntegrationApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.POST,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("AWSIntegrationApi.v1.createAWSEventBridgeSource", AWSIntegrationApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.POST, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -129,7 +118,9 @@ export class AWSIntegrationApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Body Params
-    const contentType = getPreferredMediaType(["application/json"]);
+    const contentType = getPreferredMediaType([
+      "application/json",
+    ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = stringify(
       serialize(body, TypingInfo, "AWSEventBridgeCreateRequest", ""),
@@ -161,15 +152,8 @@ export class AWSIntegrationApiRequestFactory extends BaseAPIRequestFactory {
     const localVarPath = "/api/v1/integration/aws/filtering";
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "AWSIntegrationApi.v1.createAWSTagFilter",
-      AWSIntegrationApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.POST,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("AWSIntegrationApi.v1.createAWSTagFilter", AWSIntegrationApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.POST, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -179,7 +163,9 @@ export class AWSIntegrationApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Body Params
-    const contentType = getPreferredMediaType(["application/json"]);
+    const contentType = getPreferredMediaType([
+      "application/json",
+    ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = stringify(
       serialize(body, TypingInfo, "AWSTagFilterCreateRequest", ""),
@@ -211,15 +197,8 @@ export class AWSIntegrationApiRequestFactory extends BaseAPIRequestFactory {
     const localVarPath = "/api/v1/integration/aws/generate_new_external_id";
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "AWSIntegrationApi.v1.createNewAWSExternalID",
-      AWSIntegrationApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.PUT,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("AWSIntegrationApi.v1.createNewAWSExternalID", AWSIntegrationApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.PUT, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -229,7 +208,9 @@ export class AWSIntegrationApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Body Params
-    const contentType = getPreferredMediaType(["application/json"]);
+    const contentType = getPreferredMediaType([
+      "application/json",
+    ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = stringify(
       serialize(body, TypingInfo, "AWSAccount", ""),
@@ -261,15 +242,8 @@ export class AWSIntegrationApiRequestFactory extends BaseAPIRequestFactory {
     const localVarPath = "/api/v1/integration/aws";
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "AWSIntegrationApi.v1.deleteAWSAccount",
-      AWSIntegrationApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.DELETE,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("AWSIntegrationApi.v1.deleteAWSAccount", AWSIntegrationApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.DELETE, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -279,7 +253,9 @@ export class AWSIntegrationApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Body Params
-    const contentType = getPreferredMediaType(["application/json"]);
+    const contentType = getPreferredMediaType([
+      "application/json",
+    ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = stringify(
       serialize(body, TypingInfo, "AWSAccountDeleteRequest", ""),
@@ -311,15 +287,8 @@ export class AWSIntegrationApiRequestFactory extends BaseAPIRequestFactory {
     const localVarPath = "/api/v1/integration/aws/event_bridge";
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "AWSIntegrationApi.v1.deleteAWSEventBridgeSource",
-      AWSIntegrationApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.DELETE,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("AWSIntegrationApi.v1.deleteAWSEventBridgeSource", AWSIntegrationApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.DELETE, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -329,7 +298,9 @@ export class AWSIntegrationApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Body Params
-    const contentType = getPreferredMediaType(["application/json"]);
+    const contentType = getPreferredMediaType([
+      "application/json",
+    ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = stringify(
       serialize(body, TypingInfo, "AWSEventBridgeDeleteRequest", ""),
@@ -361,15 +332,8 @@ export class AWSIntegrationApiRequestFactory extends BaseAPIRequestFactory {
     const localVarPath = "/api/v1/integration/aws/filtering";
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "AWSIntegrationApi.v1.deleteAWSTagFilter",
-      AWSIntegrationApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.DELETE,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("AWSIntegrationApi.v1.deleteAWSTagFilter", AWSIntegrationApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.DELETE, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -379,7 +343,9 @@ export class AWSIntegrationApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Body Params
-    const contentType = getPreferredMediaType(["application/json"]);
+    const contentType = getPreferredMediaType([
+      "application/json",
+    ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = stringify(
       serialize(body, TypingInfo, "AWSTagFilterDeleteRequest", ""),
@@ -405,15 +371,8 @@ export class AWSIntegrationApiRequestFactory extends BaseAPIRequestFactory {
     const localVarPath = "/api/v1/integration/aws/available_namespace_rules";
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "AWSIntegrationApi.v1.listAvailableAWSNamespaces",
-      AWSIntegrationApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.GET,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("AWSIntegrationApi.v1.listAvailableAWSNamespaces", AWSIntegrationApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.GET, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -443,15 +402,8 @@ export class AWSIntegrationApiRequestFactory extends BaseAPIRequestFactory {
     const localVarPath = "/api/v1/integration/aws";
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "AWSIntegrationApi.v1.listAWSAccounts",
-      AWSIntegrationApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.GET,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("AWSIntegrationApi.v1.listAWSAccounts", AWSIntegrationApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.GET, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -501,15 +453,8 @@ export class AWSIntegrationApiRequestFactory extends BaseAPIRequestFactory {
     const localVarPath = "/api/v1/integration/aws/event_bridge";
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "AWSIntegrationApi.v1.listAWSEventBridgeSources",
-      AWSIntegrationApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.GET,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("AWSIntegrationApi.v1.listAWSEventBridgeSources", AWSIntegrationApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.GET, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -542,15 +487,8 @@ export class AWSIntegrationApiRequestFactory extends BaseAPIRequestFactory {
     const localVarPath = "/api/v1/integration/aws/filtering";
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "AWSIntegrationApi.v1.listAWSTagFilters",
-      AWSIntegrationApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.GET,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("AWSIntegrationApi.v1.listAWSTagFilters", AWSIntegrationApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.GET, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -595,15 +533,8 @@ export class AWSIntegrationApiRequestFactory extends BaseAPIRequestFactory {
     const localVarPath = "/api/v1/integration/aws";
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "AWSIntegrationApi.v1.updateAWSAccount",
-      AWSIntegrationApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.PUT,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("AWSIntegrationApi.v1.updateAWSAccount", AWSIntegrationApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.PUT, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -636,7 +567,9 @@ export class AWSIntegrationApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Body Params
-    const contentType = getPreferredMediaType(["application/json"]);
+    const contentType = getPreferredMediaType([
+      "application/json",
+    ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = stringify(
       serialize(body, TypingInfo, "AWSAccount", ""),
@@ -665,7 +598,9 @@ export class AWSIntegrationApiResponseProcessor {
   public async createAWSAccount(
     response: ResponseContext,
   ): Promise<AWSAccountCreateResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: AWSAccountCreateResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -680,7 +615,10 @@ export class AWSIntegrationApiResponseProcessor {
       response.httpStatusCode === 409 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -695,7 +633,10 @@ export class AWSIntegrationApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -726,7 +667,9 @@ export class AWSIntegrationApiResponseProcessor {
   public async createAWSEventBridgeSource(
     response: ResponseContext,
   ): Promise<AWSEventBridgeCreateResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: AWSEventBridgeCreateResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -740,7 +683,10 @@ export class AWSIntegrationApiResponseProcessor {
       response.httpStatusCode === 403 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -755,7 +701,10 @@ export class AWSIntegrationApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -783,8 +732,12 @@ export class AWSIntegrationApiResponseProcessor {
    * @params response Response returned by the server for a request to createAWSTagFilter
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async createAWSTagFilter(response: ResponseContext): Promise<any> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+  public async createAWSTagFilter(
+    response: ResponseContext,
+  ): Promise<any> {
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: any = deserialize(
         parse(await response.body.text(), contentType),
@@ -798,7 +751,10 @@ export class AWSIntegrationApiResponseProcessor {
       response.httpStatusCode === 403 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -813,7 +769,10 @@ export class AWSIntegrationApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -844,7 +803,9 @@ export class AWSIntegrationApiResponseProcessor {
   public async createNewAWSExternalID(
     response: ResponseContext,
   ): Promise<AWSAccountCreateResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: AWSAccountCreateResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -858,7 +819,10 @@ export class AWSIntegrationApiResponseProcessor {
       response.httpStatusCode === 403 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -873,7 +837,10 @@ export class AWSIntegrationApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -901,8 +868,12 @@ export class AWSIntegrationApiResponseProcessor {
    * @params response Response returned by the server for a request to deleteAWSAccount
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async deleteAWSAccount(response: ResponseContext): Promise<any> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+  public async deleteAWSAccount(
+    response: ResponseContext,
+  ): Promise<any> {
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: any = deserialize(
         parse(await response.body.text(), contentType),
@@ -917,7 +888,10 @@ export class AWSIntegrationApiResponseProcessor {
       response.httpStatusCode === 409 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -932,7 +906,10 @@ export class AWSIntegrationApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -963,7 +940,9 @@ export class AWSIntegrationApiResponseProcessor {
   public async deleteAWSEventBridgeSource(
     response: ResponseContext,
   ): Promise<AWSEventBridgeDeleteResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: AWSEventBridgeDeleteResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -977,7 +956,10 @@ export class AWSIntegrationApiResponseProcessor {
       response.httpStatusCode === 403 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -992,7 +974,10 @@ export class AWSIntegrationApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -1020,8 +1005,12 @@ export class AWSIntegrationApiResponseProcessor {
    * @params response Response returned by the server for a request to deleteAWSTagFilter
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async deleteAWSTagFilter(response: ResponseContext): Promise<any> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+  public async deleteAWSTagFilter(
+    response: ResponseContext,
+  ): Promise<any> {
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: any = deserialize(
         parse(await response.body.text(), contentType),
@@ -1035,7 +1024,10 @@ export class AWSIntegrationApiResponseProcessor {
       response.httpStatusCode === 403 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -1050,7 +1042,10 @@ export class AWSIntegrationApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -1081,7 +1076,9 @@ export class AWSIntegrationApiResponseProcessor {
   public async listAvailableAWSNamespaces(
     response: ResponseContext,
   ): Promise<Array<string>> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: Array<string> = deserialize(
         parse(await response.body.text(), contentType),
@@ -1090,8 +1087,14 @@ export class AWSIntegrationApiResponseProcessor {
       ) as Array<string>;
       return body;
     }
-    if (response.httpStatusCode === 403 || response.httpStatusCode === 429) {
-      const bodyText = parse(await response.body.text(), contentType);
+    if (
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 429
+    ) {
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -1106,7 +1109,10 @@ export class AWSIntegrationApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -1137,7 +1143,9 @@ export class AWSIntegrationApiResponseProcessor {
   public async listAWSAccounts(
     response: ResponseContext,
   ): Promise<AWSAccountListResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: AWSAccountListResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -1151,7 +1159,10 @@ export class AWSIntegrationApiResponseProcessor {
       response.httpStatusCode === 403 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -1166,7 +1177,10 @@ export class AWSIntegrationApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -1197,7 +1211,9 @@ export class AWSIntegrationApiResponseProcessor {
   public async listAWSEventBridgeSources(
     response: ResponseContext,
   ): Promise<AWSEventBridgeListResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: AWSEventBridgeListResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -1211,7 +1227,10 @@ export class AWSIntegrationApiResponseProcessor {
       response.httpStatusCode === 403 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -1226,7 +1245,10 @@ export class AWSIntegrationApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -1257,7 +1279,9 @@ export class AWSIntegrationApiResponseProcessor {
   public async listAWSTagFilters(
     response: ResponseContext,
   ): Promise<AWSTagFilterListResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: AWSTagFilterListResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -1271,7 +1295,10 @@ export class AWSIntegrationApiResponseProcessor {
       response.httpStatusCode === 403 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -1286,7 +1313,10 @@ export class AWSIntegrationApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -1314,8 +1344,12 @@ export class AWSIntegrationApiResponseProcessor {
    * @params response Response returned by the server for a request to updateAWSAccount
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async updateAWSAccount(response: ResponseContext): Promise<any> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+  public async updateAWSAccount(
+    response: ResponseContext,
+  ): Promise<any> {
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: any = deserialize(
         parse(await response.body.text(), contentType),
@@ -1330,7 +1364,10 @@ export class AWSIntegrationApiResponseProcessor {
       response.httpStatusCode === 409 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -1345,7 +1382,10 @@ export class AWSIntegrationApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -1482,7 +1522,8 @@ export class AWSIntegrationApi {
   private responseProcessor: AWSIntegrationApiResponseProcessor;
   private configuration: Configuration;
 
-  static operationServers: { [key: string]: BaseServerConfiguration[] } = {};
+  static operationServers: { [key: string]: BaseServerConfiguration[] } = {
+  };
 
   public constructor(
     configuration?: Configuration,
@@ -1491,7 +1532,8 @@ export class AWSIntegrationApi {
   ) {
     this.configuration = configuration || createConfiguration();
     this.requestFactory =
-      requestFactory || new AWSIntegrationApiRequestFactory(this.configuration);
+      requestFactory ||
+      new AWSIntegrationApiRequestFactory(this.configuration);
     this.responseProcessor =
       responseProcessor || new AWSIntegrationApiResponseProcessor();
   }
@@ -1528,15 +1570,15 @@ export class AWSIntegrationApi {
     param: AWSIntegrationApiCreateAWSEventBridgeSourceRequest,
     options?: Configuration,
   ): Promise<AWSEventBridgeCreateResponse> {
-    const requestContextPromise =
-      this.requestFactory.createAWSEventBridgeSource(param.body, options);
+    const requestContextPromise = this.requestFactory.createAWSEventBridgeSource(
+      param.body,
+      options,
+    );
     return requestContextPromise.then((requestContext) => {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.createAWSEventBridgeSource(
-            responseContext,
-          );
+          return this.responseProcessor.createAWSEventBridgeSource(responseContext);
         });
     });
   }
@@ -1612,15 +1654,15 @@ export class AWSIntegrationApi {
     param: AWSIntegrationApiDeleteAWSEventBridgeSourceRequest,
     options?: Configuration,
   ): Promise<AWSEventBridgeDeleteResponse> {
-    const requestContextPromise =
-      this.requestFactory.deleteAWSEventBridgeSource(param.body, options);
+    const requestContextPromise = this.requestFactory.deleteAWSEventBridgeSource(
+      param.body,
+      options,
+    );
     return requestContextPromise.then((requestContext) => {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.deleteAWSEventBridgeSource(
-            responseContext,
-          );
+          return this.responseProcessor.deleteAWSEventBridgeSource(responseContext);
         });
     });
   }
@@ -1650,18 +1692,16 @@ export class AWSIntegrationApi {
    * **This endpoint is deprecated - use the V2 endpoints instead.** List all namespace rules for a given Datadog-AWS integration. This endpoint takes no arguments.
    * @param param The request object
    */
-  public listAvailableAWSNamespaces(
-    options?: Configuration,
+  public listAvailableAWSNamespaces(options?: Configuration,
   ): Promise<Array<string>> {
-    const requestContextPromise =
-      this.requestFactory.listAvailableAWSNamespaces(options);
+    const requestContextPromise = this.requestFactory.listAvailableAWSNamespaces(
+      options,
+    );
     return requestContextPromise.then((requestContext) => {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.listAvailableAWSNamespaces(
-            responseContext,
-          );
+          return this.responseProcessor.listAvailableAWSNamespaces(responseContext);
         });
     });
   }
@@ -1693,18 +1733,16 @@ export class AWSIntegrationApi {
    * **This endpoint is deprecated - use the V2 endpoints instead.** Get all Amazon EventBridge sources.
    * @param param The request object
    */
-  public listAWSEventBridgeSources(
-    options?: Configuration,
+  public listAWSEventBridgeSources(options?: Configuration,
   ): Promise<AWSEventBridgeListResponse> {
-    const requestContextPromise =
-      this.requestFactory.listAWSEventBridgeSources(options);
+    const requestContextPromise = this.requestFactory.listAWSEventBridgeSources(
+      options,
+    );
     return requestContextPromise.then((requestContext) => {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.listAWSEventBridgeSources(
-            responseContext,
-          );
+          return this.responseProcessor.listAWSEventBridgeSources(responseContext);
         });
     });
   }

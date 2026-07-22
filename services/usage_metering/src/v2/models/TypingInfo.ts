@@ -43,18 +43,11 @@ import { UsageTimeSeriesObject } from "./UsageTimeSeriesObject";
 export const TypingInfo: ModelTypingInfo = {
   enumsMap: {
     ActiveBillingDimensionsType: ["billing_dimensions"],
-    BillingDimensionsMappingBodyItemAttributesEndpointsItemsStatus: [
-      "OK",
-      "NOT_FOUND",
-    ],
+    BillingDimensionsMappingBodyItemAttributesEndpointsItemsStatus: ["OK", "NOT_FOUND"],
     CostAggregationType: ["cumulative"],
     CostAttributionType: ["cost_by_tag"],
     CostByOrgType: ["cost_by_org"],
-    HourlyUsageType: [
-      "app_sec_host_count",
-      "observability_pipelines_bytes_processed",
-      "lambda_traced_invocations_count",
-    ],
+    HourlyUsageType: ["app_sec_host_count", "observability_pipelines_bytes_processed", "lambda_traced_invocations_count"],
     ProjectedCostType: ["projected_cost"],
     SortDirection: ["desc", "asc"],
     UsageAttributionTypesType: ["usage_attribution_types"],
@@ -68,10 +61,8 @@ export const TypingInfo: ModelTypingInfo = {
     ActiveBillingDimensionsBody: ActiveBillingDimensionsBody,
     ActiveBillingDimensionsResponse: ActiveBillingDimensionsResponse,
     BillingDimensionsMappingBodyItem: BillingDimensionsMappingBodyItem,
-    BillingDimensionsMappingBodyItemAttributes:
-      BillingDimensionsMappingBodyItemAttributes,
-    BillingDimensionsMappingBodyItemAttributesEndpointsItems:
-      BillingDimensionsMappingBodyItemAttributesEndpointsItems,
+    BillingDimensionsMappingBodyItemAttributes: BillingDimensionsMappingBodyItemAttributes,
+    BillingDimensionsMappingBodyItemAttributesEndpointsItems: BillingDimensionsMappingBodyItemAttributesEndpointsItems,
     BillingDimensionsMappingResponse: BillingDimensionsMappingResponse,
     ChargebackBreakdown: ChargebackBreakdown,
     CostAttributionAggregatesBody: CostAttributionAggregatesBody,
@@ -92,8 +83,7 @@ export const TypingInfo: ModelTypingInfo = {
     ProjectedCost: ProjectedCost,
     ProjectedCostAttributes: ProjectedCostAttributes,
     ProjectedCostResponse: ProjectedCostResponse,
-    UsageApplicationSecurityMonitoringResponse:
-      UsageApplicationSecurityMonitoringResponse,
+    UsageApplicationSecurityMonitoringResponse: UsageApplicationSecurityMonitoringResponse,
     UsageAttributesObject: UsageAttributesObject,
     UsageAttributionTypesAttributes: UsageAttributionTypesAttributes,
     UsageAttributionTypesBody: UsageAttributionTypesBody,
@@ -101,8 +91,7 @@ export const TypingInfo: ModelTypingInfo = {
     UsageDataObject: UsageDataObject,
     UsageLambdaTracedInvocationsResponse: UsageLambdaTracedInvocationsResponse,
     UsageObservabilityPipelinesResponse: UsageObservabilityPipelinesResponse,
-    UsageSummaryAvailableFieldsAttributes:
-      UsageSummaryAvailableFieldsAttributes,
+    UsageSummaryAvailableFieldsAttributes: UsageSummaryAvailableFieldsAttributes,
     UsageSummaryAvailableFieldsBody: UsageSummaryAvailableFieldsBody,
     UsageSummaryAvailableFieldsResponse: UsageSummaryAvailableFieldsResponse,
     UsageTimeSeriesObject: UsageTimeSeriesObject,

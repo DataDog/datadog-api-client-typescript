@@ -9,7 +9,7 @@ export class LLMObsPatternsClusteredPointsResponseAttributes {
   /**
    * Pagination token for the next page of points. Null if there are no more pages.
    */
-  "nextPageToken": string | null;
+  "nextPageToken": string|null;
   /**
    * List of clustered points.
    */
@@ -23,7 +23,7 @@ export class LLMObsPatternsClusteredPointsResponseAttributes {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
   /**
    * @ignore
    */

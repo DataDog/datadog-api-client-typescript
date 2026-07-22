@@ -33,7 +33,7 @@ export class RetentionCompute {
       baseName: "metric",
       type: "RetentionComputeMetric",
       required: true,
-    },
+    }
   };
 
   /**

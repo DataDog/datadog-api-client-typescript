@@ -10,7 +10,7 @@ export class SLOHistorySLIData {
   /**
    * A mapping of threshold `timeframe` to the remaining error budget.
    */
-  "errorBudgetRemaining"?: { [key: string]: number };
+  "errorBudgetRemaining"?: { [key: string]: number; };
   /**
    * An array of error objects returned while querying the history data for the service level objective.
    */
@@ -45,7 +45,7 @@ export class SLOHistorySLIData {
   /**
    * A mapping of threshold `timeframe` to number of accurate decimals, regardless of the from && to timestamp.
    */
-  "precision"?: { [key: string]: number };
+  "precision"?: { [key: string]: number; };
   /**
    * For `monitor` based SLOs, when `true` this indicates that a replay is in progress to give an accurate uptime
    * calculation.
@@ -68,7 +68,7 @@ export class SLOHistorySLIData {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
   /**
    * @ignore
    */

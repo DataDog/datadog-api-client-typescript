@@ -19,6 +19,7 @@ import {
   ServerConfiguration,
   stringify,
   applySecurityAuthentication,
+  
 } from "@datadog/datadog-api-client";
 
 import { TypingInfo } from "./models/TypingInfo";
@@ -53,15 +54,8 @@ export class UsersApiRequestFactory extends BaseAPIRequestFactory {
     const localVarPath = "/api/v1/user";
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "UsersApi.v1.createUser",
-      UsersApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.POST,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("UsersApi.v1.createUser", UsersApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.POST, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -71,7 +65,9 @@ export class UsersApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Body Params
-    const contentType = getPreferredMediaType(["application/json"]);
+    const contentType = getPreferredMediaType([
+      "application/json",
+    ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = stringify(
       serialize(body, TypingInfo, "User", ""),
@@ -106,15 +102,8 @@ export class UsersApiRequestFactory extends BaseAPIRequestFactory {
     );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "UsersApi.v1.disableUser",
-      UsersApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.DELETE,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("UsersApi.v1.disableUser", UsersApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.DELETE, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -150,15 +139,8 @@ export class UsersApiRequestFactory extends BaseAPIRequestFactory {
     );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "UsersApi.v1.getUser",
-      UsersApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.GET,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("UsersApi.v1.getUser", UsersApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.GET, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -176,22 +158,17 @@ export class UsersApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
-  public async listUsers(_options?: Configuration): Promise<RequestContext> {
+  public async listUsers(
+    _options?: Configuration,
+  ): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
     // Path Params
     const localVarPath = "/api/v1/user";
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "UsersApi.v1.listUsers",
-      UsersApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.GET,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("UsersApi.v1.listUsers", UsersApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.GET, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -234,15 +211,8 @@ export class UsersApiRequestFactory extends BaseAPIRequestFactory {
     );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "UsersApi.v1.updateUser",
-      UsersApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.PUT,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("UsersApi.v1.updateUser", UsersApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.PUT, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -252,7 +222,9 @@ export class UsersApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Body Params
-    const contentType = getPreferredMediaType(["application/json"]);
+    const contentType = getPreferredMediaType([
+      "application/json",
+    ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = stringify(
       serialize(body, TypingInfo, "User", ""),
@@ -278,8 +250,12 @@ export class UsersApiResponseProcessor {
    * @params response Response returned by the server for a request to createUser
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async createUser(response: ResponseContext): Promise<UserResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+  public async createUser(
+    response: ResponseContext,
+  ): Promise<UserResponse> {
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: UserResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -294,7 +270,10 @@ export class UsersApiResponseProcessor {
       response.httpStatusCode === 409 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -309,7 +288,10 @@ export class UsersApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -340,7 +322,9 @@ export class UsersApiResponseProcessor {
   public async disableUser(
     response: ResponseContext,
   ): Promise<UserDisableResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: UserDisableResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -355,7 +339,10 @@ export class UsersApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -370,7 +357,10 @@ export class UsersApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -398,8 +388,12 @@ export class UsersApiResponseProcessor {
    * @params response Response returned by the server for a request to getUser
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async getUser(response: ResponseContext): Promise<UserResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+  public async getUser(
+    response: ResponseContext,
+  ): Promise<UserResponse> {
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: UserResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -413,7 +407,10 @@ export class UsersApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -428,7 +425,10 @@ export class UsersApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -456,8 +456,12 @@ export class UsersApiResponseProcessor {
    * @params response Response returned by the server for a request to listUsers
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async listUsers(response: ResponseContext): Promise<UserListResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+  public async listUsers(
+    response: ResponseContext,
+  ): Promise<UserListResponse> {
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: UserListResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -466,8 +470,14 @@ export class UsersApiResponseProcessor {
       ) as UserListResponse;
       return body;
     }
-    if (response.httpStatusCode === 403 || response.httpStatusCode === 429) {
-      const bodyText = parse(await response.body.text(), contentType);
+    if (
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 429
+    ) {
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -482,7 +492,10 @@ export class UsersApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -510,8 +523,12 @@ export class UsersApiResponseProcessor {
    * @params response Response returned by the server for a request to updateUser
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async updateUser(response: ResponseContext): Promise<UserResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+  public async updateUser(
+    response: ResponseContext,
+  ): Promise<UserResponse> {
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: UserResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -526,7 +543,10 @@ export class UsersApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -541,7 +561,10 @@ export class UsersApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -605,7 +628,8 @@ export class UsersApi {
   private responseProcessor: UsersApiResponseProcessor;
   private configuration: Configuration;
 
-  static operationServers: { [key: string]: BaseServerConfiguration[] } = {};
+  static operationServers: { [key: string]: BaseServerConfiguration[] } = {
+  };
 
   public constructor(
     configuration?: Configuration,
@@ -614,14 +638,15 @@ export class UsersApi {
   ) {
     this.configuration = configuration || createConfiguration();
     this.requestFactory =
-      requestFactory || new UsersApiRequestFactory(this.configuration);
+      requestFactory ||
+      new UsersApiRequestFactory(this.configuration);
     this.responseProcessor =
       responseProcessor || new UsersApiResponseProcessor();
   }
 
   /**
    * Create a user for your organization.
-   *
+   * 
    * **Note**: Users can only be created with the admin access role
    * if application keys belong to administrators.
    * @param param The request object
@@ -645,7 +670,7 @@ export class UsersApi {
 
   /**
    * Delete a user from an organization.
-   *
+   * 
    * **Note**: This endpoint can only be used with application keys belonging to
    * administrators.
    * @param param The request object
@@ -692,8 +717,11 @@ export class UsersApi {
    * List all users for your organization.
    * @param param The request object
    */
-  public listUsers(options?: Configuration): Promise<UserListResponse> {
-    const requestContextPromise = this.requestFactory.listUsers(options);
+  public listUsers(options?: Configuration,
+  ): Promise<UserListResponse> {
+    const requestContextPromise = this.requestFactory.listUsers(
+      options,
+    );
     return requestContextPromise.then((requestContext) => {
       return this.configuration.httpApi
         .send(requestContext)
@@ -705,7 +733,7 @@ export class UsersApi {
 
   /**
    * Update a user information.
-   *
+   * 
    * **Note**: It can only be used with application keys belonging to administrators.
    * @param param The request object
    */

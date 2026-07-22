@@ -42,8 +42,7 @@ export const TypingInfo: ModelTypingInfo = {
     StatuspageUrlSettingCreateData: StatuspageUrlSettingCreateData,
     StatuspageUrlSettingCreateRequest: StatuspageUrlSettingCreateRequest,
     StatuspageUrlSettingResponse: StatuspageUrlSettingResponse,
-    StatuspageUrlSettingResponseAttributes:
-      StatuspageUrlSettingResponseAttributes,
+    StatuspageUrlSettingResponseAttributes: StatuspageUrlSettingResponseAttributes,
     StatuspageUrlSettingResponseData: StatuspageUrlSettingResponseData,
     StatuspageUrlSettingUpdateAttributes: StatuspageUrlSettingUpdateAttributes,
     StatuspageUrlSettingUpdateData: StatuspageUrlSettingUpdateData,

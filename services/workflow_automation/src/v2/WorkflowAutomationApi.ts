@@ -19,6 +19,7 @@ import {
   ServerConfiguration,
   stringify,
   applySecurityAuthentication,
+  
 } from "@datadog/datadog-api-client";
 
 import { TypingInfo } from "./models/TypingInfo";
@@ -65,21 +66,17 @@ export class WorkflowAutomationApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Path Params
-    const localVarPath =
-      "/api/v2/workflows/{workflow_id}/instances/{instance_id}/cancel"
-        .replace("{workflow_id}", encodeURIComponent(String(workflowId)))
-        .replace("{instance_id}", encodeURIComponent(String(instanceId)));
+    const localVarPath = "/api/v2/workflows/{workflow_id}/instances/{instance_id}/cancel".replace(
+      "{workflow_id}",
+      encodeURIComponent(String(workflowId)),
+    ).replace(
+      "{instance_id}",
+      encodeURIComponent(String(instanceId)),
+    );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "WorkflowAutomationApi.v2.cancelWorkflowInstance",
-      WorkflowAutomationApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.PUT,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("WorkflowAutomationApi.v2.cancelWorkflowInstance", WorkflowAutomationApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.PUT, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -112,15 +109,8 @@ export class WorkflowAutomationApiRequestFactory extends BaseAPIRequestFactory {
     const localVarPath = "/api/v2/workflows";
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "WorkflowAutomationApi.v2.createWorkflow",
-      WorkflowAutomationApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.POST,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("WorkflowAutomationApi.v2.createWorkflow", WorkflowAutomationApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.POST, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -130,7 +120,9 @@ export class WorkflowAutomationApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Body Params
-    const contentType = getPreferredMediaType(["application/json"]);
+    const contentType = getPreferredMediaType([
+      "application/json",
+    ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = stringify(
       serialize(body, TypingInfo, "CreateWorkflowRequest", ""),
@@ -171,15 +163,8 @@ export class WorkflowAutomationApiRequestFactory extends BaseAPIRequestFactory {
     );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "WorkflowAutomationApi.v2.createWorkflowInstance",
-      WorkflowAutomationApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.POST,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("WorkflowAutomationApi.v2.createWorkflowInstance", WorkflowAutomationApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.POST, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -189,7 +174,9 @@ export class WorkflowAutomationApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Body Params
-    const contentType = getPreferredMediaType(["application/json"]);
+    const contentType = getPreferredMediaType([
+      "application/json",
+    ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = stringify(
       serialize(body, TypingInfo, "WorkflowInstanceCreateRequest", ""),
@@ -225,15 +212,8 @@ export class WorkflowAutomationApiRequestFactory extends BaseAPIRequestFactory {
     );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "WorkflowAutomationApi.v2.deleteWorkflow",
-      WorkflowAutomationApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.DELETE,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("WorkflowAutomationApi.v2.deleteWorkflow", WorkflowAutomationApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.DELETE, overrides);
     requestContext.setHeaderParam("Accept", "*/*");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -269,15 +249,8 @@ export class WorkflowAutomationApiRequestFactory extends BaseAPIRequestFactory {
     );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "WorkflowAutomationApi.v2.getWorkflow",
-      WorkflowAutomationApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.GET,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("WorkflowAutomationApi.v2.getWorkflow", WorkflowAutomationApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.GET, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -313,21 +286,17 @@ export class WorkflowAutomationApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Path Params
-    const localVarPath =
-      "/api/v2/workflows/{workflow_id}/instances/{instance_id}"
-        .replace("{workflow_id}", encodeURIComponent(String(workflowId)))
-        .replace("{instance_id}", encodeURIComponent(String(instanceId)));
+    const localVarPath = "/api/v2/workflows/{workflow_id}/instances/{instance_id}".replace(
+      "{workflow_id}",
+      encodeURIComponent(String(workflowId)),
+    ).replace(
+      "{instance_id}",
+      encodeURIComponent(String(instanceId)),
+    );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "WorkflowAutomationApi.v2.getWorkflowInstance",
-      WorkflowAutomationApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.GET,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("WorkflowAutomationApi.v2.getWorkflowInstance", WorkflowAutomationApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.GET, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -366,15 +335,8 @@ export class WorkflowAutomationApiRequestFactory extends BaseAPIRequestFactory {
     );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "WorkflowAutomationApi.v2.listWorkflowInstances",
-      WorkflowAutomationApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.GET,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("WorkflowAutomationApi.v2.listWorkflowInstances", WorkflowAutomationApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.GET, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -425,15 +387,8 @@ export class WorkflowAutomationApiRequestFactory extends BaseAPIRequestFactory {
     const localVarPath = "/api/v2/workflows";
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "WorkflowAutomationApi.v2.listWorkflows",
-      WorkflowAutomationApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.GET,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("WorkflowAutomationApi.v2.listWorkflows", WorkflowAutomationApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.GET, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -526,15 +481,8 @@ export class WorkflowAutomationApiRequestFactory extends BaseAPIRequestFactory {
     );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "WorkflowAutomationApi.v2.updateWorkflow",
-      WorkflowAutomationApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.PATCH,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("WorkflowAutomationApi.v2.updateWorkflow", WorkflowAutomationApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.PATCH, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -544,7 +492,9 @@ export class WorkflowAutomationApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Body Params
-    const contentType = getPreferredMediaType(["application/json"]);
+    const contentType = getPreferredMediaType([
+      "application/json",
+    ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = stringify(
       serialize(body, TypingInfo, "UpdateWorkflowRequest", ""),
@@ -573,7 +523,9 @@ export class WorkflowAutomationApiResponseProcessor {
   public async cancelWorkflowInstance(
     response: ResponseContext,
   ): Promise<WorklflowCancelInstanceResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: WorklflowCancelInstanceResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -588,7 +540,10 @@ export class WorkflowAutomationApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -603,7 +558,10 @@ export class WorkflowAutomationApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -634,7 +592,9 @@ export class WorkflowAutomationApiResponseProcessor {
   public async createWorkflow(
     response: ResponseContext,
   ): Promise<CreateWorkflowResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 201) {
       const body: CreateWorkflowResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -648,7 +608,10 @@ export class WorkflowAutomationApiResponseProcessor {
       response.httpStatusCode === 403 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: JSONAPIErrorResponse;
       try {
         body = deserialize(
@@ -697,7 +660,9 @@ export class WorkflowAutomationApiResponseProcessor {
   public async createWorkflowInstance(
     response: ResponseContext,
   ): Promise<WorkflowInstanceCreateResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: WorkflowInstanceCreateResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -711,7 +676,10 @@ export class WorkflowAutomationApiResponseProcessor {
       response.httpStatusCode === 403 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -726,7 +694,10 @@ export class WorkflowAutomationApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -754,8 +725,12 @@ export class WorkflowAutomationApiResponseProcessor {
    * @params response Response returned by the server for a request to deleteWorkflow
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async deleteWorkflow(response: ResponseContext): Promise<void> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+  public async deleteWorkflow(
+    response: ResponseContext,
+  ): Promise<void> {
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 204) {
       return;
     }
@@ -764,7 +739,10 @@ export class WorkflowAutomationApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: JSONAPIErrorResponse;
       try {
         body = deserialize(
@@ -807,7 +785,9 @@ export class WorkflowAutomationApiResponseProcessor {
   public async getWorkflow(
     response: ResponseContext,
   ): Promise<GetWorkflowResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: GetWorkflowResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -822,7 +802,10 @@ export class WorkflowAutomationApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: JSONAPIErrorResponse;
       try {
         body = deserialize(
@@ -871,7 +854,9 @@ export class WorkflowAutomationApiResponseProcessor {
   public async getWorkflowInstance(
     response: ResponseContext,
   ): Promise<WorklflowGetInstanceResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: WorklflowGetInstanceResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -886,7 +871,10 @@ export class WorkflowAutomationApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -901,7 +889,10 @@ export class WorkflowAutomationApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -932,7 +923,9 @@ export class WorkflowAutomationApiResponseProcessor {
   public async listWorkflowInstances(
     response: ResponseContext,
   ): Promise<WorkflowListInstancesResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: WorkflowListInstancesResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -946,7 +939,10 @@ export class WorkflowAutomationApiResponseProcessor {
       response.httpStatusCode === 403 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -961,7 +957,10 @@ export class WorkflowAutomationApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -992,7 +991,9 @@ export class WorkflowAutomationApiResponseProcessor {
   public async listWorkflows(
     response: ResponseContext,
   ): Promise<ListWorkflowsResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: ListWorkflowsResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -1006,7 +1007,10 @@ export class WorkflowAutomationApiResponseProcessor {
       response.httpStatusCode === 403 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -1021,7 +1025,10 @@ export class WorkflowAutomationApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -1052,7 +1059,9 @@ export class WorkflowAutomationApiResponseProcessor {
   public async updateWorkflow(
     response: ResponseContext,
   ): Promise<UpdateWorkflowResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: UpdateWorkflowResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -1067,7 +1076,10 @@ export class WorkflowAutomationApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: JSONAPIErrorResponse;
       try {
         body = deserialize(
@@ -1241,7 +1253,8 @@ export class WorkflowAutomationApi {
   private responseProcessor: WorkflowAutomationApiResponseProcessor;
   private configuration: Configuration;
 
-  static operationServers: { [key: string]: BaseServerConfiguration[] } = {};
+  static operationServers: { [key: string]: BaseServerConfiguration[] } = {
+  };
 
   public constructor(
     configuration?: Configuration,
@@ -1439,9 +1452,9 @@ export class WorkflowAutomationApi {
    * Provide a paginated version of listWorkflows returning a generator with all the items.
    */
   public async *listWorkflowsWithPagination(
-    param: WorkflowAutomationApiListWorkflowsRequest = {},
-    options?: Configuration,
+    param: WorkflowAutomationApiListWorkflowsRequest = {}, options?: Configuration,
   ): AsyncGenerator<WorkflowListItem> {
+
     let pageSize = 50;
     if (param.limit !== undefined) {
       pageSize = param.limit;
@@ -1449,21 +1462,10 @@ export class WorkflowAutomationApi {
     param.limit = pageSize;
     param.page = 0;
     while (true) {
-      const requestContext = await this.requestFactory.listWorkflows(
-        param.limit,
-        param.page,
-        param.sort,
-        param.filterQuery,
-        param.filterTriggerIds,
-        param.filterIncludeUnpublished,
-        param.filterIncludeSpecs,
-        options,
-      );
-      const responseContext =
-        await this.configuration.httpApi.send(requestContext);
+      const requestContext = await this.requestFactory.listWorkflows(param.limit,param.page,param.sort,param.filterQuery,param.filterTriggerIds,param.filterIncludeUnpublished,param.filterIncludeSpecs,options);
+      const responseContext = await this.configuration.httpApi.send(requestContext);
 
-      const response =
-        await this.responseProcessor.listWorkflows(responseContext);
+      const response = await this.responseProcessor.listWorkflows(responseContext);
       const responseData = response.data;
       if (responseData === undefined) {
         break;

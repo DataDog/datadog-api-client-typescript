@@ -29,7 +29,7 @@ export class SyntheticsTestResultCertificate {
   /**
    * Certificate issuer details.
    */
-  "issuer"?: { [key: string]: string };
+  "issuer"?: { [key: string]: string; };
   /**
    * RSA modulus of the certificate.
    */
@@ -45,7 +45,7 @@ export class SyntheticsTestResultCertificate {
   /**
    * Certificate subject details.
    */
-  "subject"?: { [key: string]: string };
+  "subject"?: { [key: string]: string; };
   /**
    * TLS protocol version.
    */
@@ -59,7 +59,7 @@ export class SyntheticsTestResultCertificate {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
   /**
    * @ignore
    */

@@ -30,7 +30,7 @@ export class LLMObsExperimentEvalMetricEvent {
   /**
    * JSON value. Present when `metric_type` is `json`.
    */
-  "jsonValue"?: { [key: string]: any };
+  "jsonValue"?: { [key: string]: any; };
   /**
    * Label or name for the metric.
    */
@@ -38,7 +38,7 @@ export class LLMObsExperimentEvalMetricEvent {
   /**
    * Arbitrary metadata associated with the metric.
    */
-  "metadata"?: { [key: string]: any };
+  "metadata"?: { [key: string]: any; };
   /**
    * Source of the metric. Either `custom` (user-submitted) or `summary` (experiment-level aggregate).
    */
@@ -76,7 +76,7 @@ export class LLMObsExperimentEvalMetricEvent {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
   /**
    * @ignore
    */

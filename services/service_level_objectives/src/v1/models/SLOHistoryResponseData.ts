@@ -17,19 +17,19 @@ export class SLOHistoryResponseData {
   "fromTs"?: number;
   /**
    * For `metric` based SLOs where the query includes a group-by clause, this represents the list of grouping parameters.
-   *
+   * 
    * This is not included in responses for `monitor` based SLOs.
    */
   "groupBy"?: Array<string>;
   /**
    * For grouped SLOs, this represents SLI data for specific groups.
-   *
+   * 
    * This is not included in the responses for `metric` based SLOs.
    */
   "groups"?: Array<SLOHistoryMonitor>;
   /**
    * For multi-monitor SLOs, this represents SLI data for specific monitors.
-   *
+   * 
    * This is not included in the responses for `metric` based SLOs.
    */
   "monitors"?: Array<SLOHistoryMonitor>;
@@ -40,14 +40,14 @@ export class SLOHistoryResponseData {
   "overall"?: SLOHistorySLIData;
   /**
    * A `metric` based SLO history response.
-   *
+   * 
    * This is not included in responses for `monitor` based SLOs.
    */
   "series"?: SLOHistoryMetrics;
   /**
    * mapping of string timeframe to the SLO threshold.
    */
-  "thresholds"?: { [key: string]: SLOThreshold };
+  "thresholds"?: { [key: string]: SLOThreshold; };
   /**
    * The `to` timestamp in epoch seconds.
    */
@@ -67,7 +67,7 @@ export class SLOHistoryResponseData {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
   /**
    * @ignore
    */

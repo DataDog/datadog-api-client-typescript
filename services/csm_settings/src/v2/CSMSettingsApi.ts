@@ -19,6 +19,7 @@ import {
   ServerConfiguration,
   stringify,
   applySecurityAuthentication,
+  
 } from "@datadog/datadog-api-client";
 
 import { TypingInfo } from "./models/TypingInfo";
@@ -48,14 +49,8 @@ export class CSMSettingsApiRequestFactory extends BaseAPIRequestFactory {
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
-    if (
-      !_config.unstableOperations[
-        "CSMSettingsApi.v2.getCSMAgentlessHostFacetInfo"
-      ]
-    ) {
-      throw new Error(
-        "Unstable operation 'getCSMAgentlessHostFacetInfo' is disabled. Enable it by setting `configuration.unstableOperations['CSMSettingsApi.v2.getCSMAgentlessHostFacetInfo'] = true`",
-      );
+    if (!_config.unstableOperations["CSMSettingsApi.v2.getCSMAgentlessHostFacetInfo"]) {
+      throw new Error("Unstable operation 'getCSMAgentlessHostFacetInfo' is disabled. Enable it by setting `configuration.unstableOperations['CSMSettingsApi.v2.getCSMAgentlessHostFacetInfo'] = true`");
     }
 
     // verify required parameter 'facet' is not null or undefined
@@ -67,15 +62,8 @@ export class CSMSettingsApiRequestFactory extends BaseAPIRequestFactory {
     const localVarPath = "/api/v2/csm/settings/agentless_hosts/facet_info";
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "CSMSettingsApi.v2.getCSMAgentlessHostFacetInfo",
-      CSMSettingsApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.GET,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("CSMSettingsApi.v2.getCSMAgentlessHostFacetInfo", CSMSettingsApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.GET, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -124,14 +112,8 @@ export class CSMSettingsApiRequestFactory extends BaseAPIRequestFactory {
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
-    if (
-      !_config.unstableOperations[
-        "CSMSettingsApi.v2.getCSMUnifiedHostFacetInfo"
-      ]
-    ) {
-      throw new Error(
-        "Unstable operation 'getCSMUnifiedHostFacetInfo' is disabled. Enable it by setting `configuration.unstableOperations['CSMSettingsApi.v2.getCSMUnifiedHostFacetInfo'] = true`",
-      );
+    if (!_config.unstableOperations["CSMSettingsApi.v2.getCSMUnifiedHostFacetInfo"]) {
+      throw new Error("Unstable operation 'getCSMUnifiedHostFacetInfo' is disabled. Enable it by setting `configuration.unstableOperations['CSMSettingsApi.v2.getCSMUnifiedHostFacetInfo'] = true`");
     }
 
     // verify required parameter 'facet' is not null or undefined
@@ -143,15 +125,8 @@ export class CSMSettingsApiRequestFactory extends BaseAPIRequestFactory {
     const localVarPath = "/api/v2/csm/settings/hosts/facet_info";
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "CSMSettingsApi.v2.getCSMUnifiedHostFacetInfo",
-      CSMSettingsApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.GET,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("CSMSettingsApi.v2.getCSMUnifiedHostFacetInfo", CSMSettingsApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.GET, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -197,29 +172,16 @@ export class CSMSettingsApiRequestFactory extends BaseAPIRequestFactory {
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
-    if (
-      !_config.unstableOperations[
-        "CSMSettingsApi.v2.listCSMAgentlessHostFacets"
-      ]
-    ) {
-      throw new Error(
-        "Unstable operation 'listCSMAgentlessHostFacets' is disabled. Enable it by setting `configuration.unstableOperations['CSMSettingsApi.v2.listCSMAgentlessHostFacets'] = true`",
-      );
+    if (!_config.unstableOperations["CSMSettingsApi.v2.listCSMAgentlessHostFacets"]) {
+      throw new Error("Unstable operation 'listCSMAgentlessHostFacets' is disabled. Enable it by setting `configuration.unstableOperations['CSMSettingsApi.v2.listCSMAgentlessHostFacets'] = true`");
     }
 
     // Path Params
     const localVarPath = "/api/v2/csm/settings/agentless_hosts/facets";
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "CSMSettingsApi.v2.listCSMAgentlessHostFacets",
-      CSMSettingsApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.GET,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("CSMSettingsApi.v2.listCSMAgentlessHostFacets", CSMSettingsApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.GET, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -245,27 +207,16 @@ export class CSMSettingsApiRequestFactory extends BaseAPIRequestFactory {
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
-    if (
-      !_config.unstableOperations["CSMSettingsApi.v2.listCSMAgentlessHosts"]
-    ) {
-      throw new Error(
-        "Unstable operation 'listCSMAgentlessHosts' is disabled. Enable it by setting `configuration.unstableOperations['CSMSettingsApi.v2.listCSMAgentlessHosts'] = true`",
-      );
+    if (!_config.unstableOperations["CSMSettingsApi.v2.listCSMAgentlessHosts"]) {
+      throw new Error("Unstable operation 'listCSMAgentlessHosts' is disabled. Enable it by setting `configuration.unstableOperations['CSMSettingsApi.v2.listCSMAgentlessHosts'] = true`");
     }
 
     // Path Params
     const localVarPath = "/api/v2/csm/settings/agentless_hosts";
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "CSMSettingsApi.v2.listCSMAgentlessHosts",
-      CSMSettingsApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.GET,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("CSMSettingsApi.v2.listCSMAgentlessHosts", CSMSettingsApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.GET, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -311,27 +262,16 @@ export class CSMSettingsApiRequestFactory extends BaseAPIRequestFactory {
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
-    if (
-      !_config.unstableOperations["CSMSettingsApi.v2.listCSMUnifiedHostFacets"]
-    ) {
-      throw new Error(
-        "Unstable operation 'listCSMUnifiedHostFacets' is disabled. Enable it by setting `configuration.unstableOperations['CSMSettingsApi.v2.listCSMUnifiedHostFacets'] = true`",
-      );
+    if (!_config.unstableOperations["CSMSettingsApi.v2.listCSMUnifiedHostFacets"]) {
+      throw new Error("Unstable operation 'listCSMUnifiedHostFacets' is disabled. Enable it by setting `configuration.unstableOperations['CSMSettingsApi.v2.listCSMUnifiedHostFacets'] = true`");
     }
 
     // Path Params
     const localVarPath = "/api/v2/csm/settings/hosts/facets";
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "CSMSettingsApi.v2.listCSMUnifiedHostFacets",
-      CSMSettingsApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.GET,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("CSMSettingsApi.v2.listCSMUnifiedHostFacets", CSMSettingsApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.GET, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -358,24 +298,15 @@ export class CSMSettingsApiRequestFactory extends BaseAPIRequestFactory {
     const _config = _options || this.configuration;
 
     if (!_config.unstableOperations["CSMSettingsApi.v2.listCSMUnifiedHosts"]) {
-      throw new Error(
-        "Unstable operation 'listCSMUnifiedHosts' is disabled. Enable it by setting `configuration.unstableOperations['CSMSettingsApi.v2.listCSMUnifiedHosts'] = true`",
-      );
+      throw new Error("Unstable operation 'listCSMUnifiedHosts' is disabled. Enable it by setting `configuration.unstableOperations['CSMSettingsApi.v2.listCSMUnifiedHosts'] = true`");
     }
 
     // Path Params
     const localVarPath = "/api/v2/csm/settings/hosts";
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "CSMSettingsApi.v2.listCSMUnifiedHosts",
-      CSMSettingsApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.GET,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("CSMSettingsApi.v2.listCSMUnifiedHosts", CSMSettingsApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.GET, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -428,7 +359,9 @@ export class CSMSettingsApiResponseProcessor {
   public async getCSMAgentlessHostFacetInfo(
     response: ResponseContext,
   ): Promise<CsmHostFacetInfoResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: CsmHostFacetInfoResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -438,7 +371,10 @@ export class CSMSettingsApiResponseProcessor {
       return body;
     }
     if (response.httpStatusCode === 400) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: JSONAPIErrorResponse;
       try {
         body = deserialize(
@@ -458,8 +394,14 @@ export class CSMSettingsApiResponseProcessor {
         body,
       );
     }
-    if (response.httpStatusCode === 403 || response.httpStatusCode === 429) {
-      const bodyText = parse(await response.body.text(), contentType);
+    if (
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 429
+    ) {
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -474,7 +416,10 @@ export class CSMSettingsApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -505,7 +450,9 @@ export class CSMSettingsApiResponseProcessor {
   public async getCSMUnifiedHostFacetInfo(
     response: ResponseContext,
   ): Promise<CsmHostFacetInfoResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: CsmHostFacetInfoResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -515,7 +462,10 @@ export class CSMSettingsApiResponseProcessor {
       return body;
     }
     if (response.httpStatusCode === 400) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: JSONAPIErrorResponse;
       try {
         body = deserialize(
@@ -535,8 +485,14 @@ export class CSMSettingsApiResponseProcessor {
         body,
       );
     }
-    if (response.httpStatusCode === 403 || response.httpStatusCode === 429) {
-      const bodyText = parse(await response.body.text(), contentType);
+    if (
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 429
+    ) {
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -551,7 +507,10 @@ export class CSMSettingsApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -582,7 +541,9 @@ export class CSMSettingsApiResponseProcessor {
   public async listCSMAgentlessHostFacets(
     response: ResponseContext,
   ): Promise<CsmAgentlessHostFacetsResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: CsmAgentlessHostFacetsResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -591,8 +552,14 @@ export class CSMSettingsApiResponseProcessor {
       ) as CsmAgentlessHostFacetsResponse;
       return body;
     }
-    if (response.httpStatusCode === 403 || response.httpStatusCode === 429) {
-      const bodyText = parse(await response.body.text(), contentType);
+    if (
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 429
+    ) {
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -607,7 +574,10 @@ export class CSMSettingsApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -638,7 +608,9 @@ export class CSMSettingsApiResponseProcessor {
   public async listCSMAgentlessHosts(
     response: ResponseContext,
   ): Promise<CsmAgentlessHostsResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: CsmAgentlessHostsResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -648,7 +620,10 @@ export class CSMSettingsApiResponseProcessor {
       return body;
     }
     if (response.httpStatusCode === 400) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: JSONAPIErrorResponse;
       try {
         body = deserialize(
@@ -668,8 +643,14 @@ export class CSMSettingsApiResponseProcessor {
         body,
       );
     }
-    if (response.httpStatusCode === 403 || response.httpStatusCode === 429) {
-      const bodyText = parse(await response.body.text(), contentType);
+    if (
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 429
+    ) {
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -684,7 +665,10 @@ export class CSMSettingsApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -715,7 +699,9 @@ export class CSMSettingsApiResponseProcessor {
   public async listCSMUnifiedHostFacets(
     response: ResponseContext,
   ): Promise<CsmUnifiedHostFacetsResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: CsmUnifiedHostFacetsResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -724,8 +710,14 @@ export class CSMSettingsApiResponseProcessor {
       ) as CsmUnifiedHostFacetsResponse;
       return body;
     }
-    if (response.httpStatusCode === 403 || response.httpStatusCode === 429) {
-      const bodyText = parse(await response.body.text(), contentType);
+    if (
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 429
+    ) {
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -740,7 +732,10 @@ export class CSMSettingsApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -771,7 +766,9 @@ export class CSMSettingsApiResponseProcessor {
   public async listCSMUnifiedHosts(
     response: ResponseContext,
   ): Promise<CsmUnifiedHostsResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: CsmUnifiedHostsResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -781,7 +778,10 @@ export class CSMSettingsApiResponseProcessor {
       return body;
     }
     if (response.httpStatusCode === 400) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: JSONAPIErrorResponse;
       try {
         body = deserialize(
@@ -801,8 +801,14 @@ export class CSMSettingsApiResponseProcessor {
         body,
       );
     }
-    if (response.httpStatusCode === 403 || response.httpStatusCode === 429) {
-      const bodyText = parse(await response.body.text(), contentType);
+    if (
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 429
+    ) {
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -817,7 +823,10 @@ export class CSMSettingsApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -916,7 +925,8 @@ export class CSMSettingsApi {
   private responseProcessor: CSMSettingsApiResponseProcessor;
   private configuration: Configuration;
 
-  static operationServers: { [key: string]: BaseServerConfiguration[] } = {};
+  static operationServers: { [key: string]: BaseServerConfiguration[] } = {
+  };
 
   public constructor(
     configuration?: Configuration,
@@ -925,7 +935,8 @@ export class CSMSettingsApi {
   ) {
     this.configuration = configuration || createConfiguration();
     this.requestFactory =
-      requestFactory || new CSMSettingsApiRequestFactory(this.configuration);
+      requestFactory ||
+      new CSMSettingsApiRequestFactory(this.configuration);
     this.responseProcessor =
       responseProcessor || new CSMSettingsApiResponseProcessor();
   }
@@ -938,20 +949,17 @@ export class CSMSettingsApi {
     param: CSMSettingsApiGetCSMAgentlessHostFacetInfoRequest,
     options?: Configuration,
   ): Promise<CsmHostFacetInfoResponse> {
-    const requestContextPromise =
-      this.requestFactory.getCSMAgentlessHostFacetInfo(
-        param.facet,
-        param.search,
-        param.query,
-        options,
-      );
+    const requestContextPromise = this.requestFactory.getCSMAgentlessHostFacetInfo(
+      param.facet,
+      param.search,
+      param.query,
+      options,
+    );
     return requestContextPromise.then((requestContext) => {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.getCSMAgentlessHostFacetInfo(
-            responseContext,
-          );
+          return this.responseProcessor.getCSMAgentlessHostFacetInfo(responseContext);
         });
     });
   }
@@ -964,20 +972,17 @@ export class CSMSettingsApi {
     param: CSMSettingsApiGetCSMUnifiedHostFacetInfoRequest,
     options?: Configuration,
   ): Promise<CsmHostFacetInfoResponse> {
-    const requestContextPromise =
-      this.requestFactory.getCSMUnifiedHostFacetInfo(
-        param.facet,
-        param.search,
-        param.query,
-        options,
-      );
+    const requestContextPromise = this.requestFactory.getCSMUnifiedHostFacetInfo(
+      param.facet,
+      param.search,
+      param.query,
+      options,
+    );
     return requestContextPromise.then((requestContext) => {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.getCSMUnifiedHostFacetInfo(
-            responseContext,
-          );
+          return this.responseProcessor.getCSMUnifiedHostFacetInfo(responseContext);
         });
     });
   }
@@ -986,18 +991,16 @@ export class CSMSettingsApi {
    * Get the list of available facets for filtering agentless hosts.
    * @param param The request object
    */
-  public listCSMAgentlessHostFacets(
-    options?: Configuration,
+  public listCSMAgentlessHostFacets(options?: Configuration,
   ): Promise<CsmAgentlessHostFacetsResponse> {
-    const requestContextPromise =
-      this.requestFactory.listCSMAgentlessHostFacets(options);
+    const requestContextPromise = this.requestFactory.listCSMAgentlessHostFacets(
+      options,
+    );
     return requestContextPromise.then((requestContext) => {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.listCSMAgentlessHostFacets(
-            responseContext,
-          );
+          return this.responseProcessor.listCSMAgentlessHostFacets(responseContext);
         });
     });
   }
@@ -1029,18 +1032,16 @@ export class CSMSettingsApi {
    * Get the list of available facets for filtering unified hosts.
    * @param param The request object
    */
-  public listCSMUnifiedHostFacets(
-    options?: Configuration,
+  public listCSMUnifiedHostFacets(options?: Configuration,
   ): Promise<CsmUnifiedHostFacetsResponse> {
-    const requestContextPromise =
-      this.requestFactory.listCSMUnifiedHostFacets(options);
+    const requestContextPromise = this.requestFactory.listCSMUnifiedHostFacets(
+      options,
+    );
     return requestContextPromise.then((requestContext) => {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.listCSMUnifiedHostFacets(
-            responseContext,
-          );
+          return this.responseProcessor.listCSMUnifiedHostFacets(responseContext);
         });
     });
   }

@@ -86,7 +86,7 @@ export class SankeyNetworkQuery {
     sort: {
       baseName: "sort",
       type: "SankeyNetworkQuerySort",
-    },
+    }
   };
 
   /**

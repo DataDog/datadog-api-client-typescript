@@ -19,6 +19,7 @@ import {
   ServerConfiguration,
   stringify,
   applySecurityAuthentication,
+  
 } from "@datadog/datadog-api-client";
 
 import { TypingInfo } from "./models/TypingInfo";
@@ -53,15 +54,8 @@ export class LogsCustomDestinationsApiRequestFactory extends BaseAPIRequestFacto
     const localVarPath = "/api/v2/logs/config/custom-destinations";
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "LogsCustomDestinationsApi.v2.createLogsCustomDestination",
-      LogsCustomDestinationsApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.POST,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("LogsCustomDestinationsApi.v2.createLogsCustomDestination", LogsCustomDestinationsApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.POST, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -71,7 +65,9 @@ export class LogsCustomDestinationsApiRequestFactory extends BaseAPIRequestFacto
     }
 
     // Body Params
-    const contentType = getPreferredMediaType(["application/json"]);
+    const contentType = getPreferredMediaType([
+      "application/json",
+    ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = stringify(
       serialize(body, TypingInfo, "CustomDestinationCreateRequest", ""),
@@ -96,29 +92,18 @@ export class LogsCustomDestinationsApiRequestFactory extends BaseAPIRequestFacto
 
     // verify required parameter 'customDestinationId' is not null or undefined
     if (customDestinationId === null || customDestinationId === undefined) {
-      throw new RequiredError(
-        "customDestinationId",
-        "deleteLogsCustomDestination",
-      );
+      throw new RequiredError("customDestinationId", "deleteLogsCustomDestination");
     }
 
     // Path Params
-    const localVarPath =
-      "/api/v2/logs/config/custom-destinations/{custom_destination_id}".replace(
-        "{custom_destination_id}",
-        encodeURIComponent(String(customDestinationId)),
-      );
+    const localVarPath = "/api/v2/logs/config/custom-destinations/{custom_destination_id}".replace(
+      "{custom_destination_id}",
+      encodeURIComponent(String(customDestinationId)),
+    );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "LogsCustomDestinationsApi.v2.deleteLogsCustomDestination",
-      LogsCustomDestinationsApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.DELETE,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("LogsCustomDestinationsApi.v2.deleteLogsCustomDestination", LogsCustomDestinationsApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.DELETE, overrides);
     requestContext.setHeaderParam("Accept", "*/*");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -144,29 +129,18 @@ export class LogsCustomDestinationsApiRequestFactory extends BaseAPIRequestFacto
 
     // verify required parameter 'customDestinationId' is not null or undefined
     if (customDestinationId === null || customDestinationId === undefined) {
-      throw new RequiredError(
-        "customDestinationId",
-        "getLogsCustomDestination",
-      );
+      throw new RequiredError("customDestinationId", "getLogsCustomDestination");
     }
 
     // Path Params
-    const localVarPath =
-      "/api/v2/logs/config/custom-destinations/{custom_destination_id}".replace(
-        "{custom_destination_id}",
-        encodeURIComponent(String(customDestinationId)),
-      );
+    const localVarPath = "/api/v2/logs/config/custom-destinations/{custom_destination_id}".replace(
+      "{custom_destination_id}",
+      encodeURIComponent(String(customDestinationId)),
+    );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "LogsCustomDestinationsApi.v2.getLogsCustomDestination",
-      LogsCustomDestinationsApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.GET,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("LogsCustomDestinationsApi.v2.getLogsCustomDestination", LogsCustomDestinationsApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.GET, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -193,15 +167,8 @@ export class LogsCustomDestinationsApiRequestFactory extends BaseAPIRequestFacto
     const localVarPath = "/api/v2/logs/config/custom-destinations";
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "LogsCustomDestinationsApi.v2.listLogsCustomDestinations",
-      LogsCustomDestinationsApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.GET,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("LogsCustomDestinationsApi.v2.listLogsCustomDestinations", LogsCustomDestinationsApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.GET, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -228,10 +195,7 @@ export class LogsCustomDestinationsApiRequestFactory extends BaseAPIRequestFacto
 
     // verify required parameter 'customDestinationId' is not null or undefined
     if (customDestinationId === null || customDestinationId === undefined) {
-      throw new RequiredError(
-        "customDestinationId",
-        "updateLogsCustomDestination",
-      );
+      throw new RequiredError("customDestinationId", "updateLogsCustomDestination");
     }
 
     // verify required parameter 'body' is not null or undefined
@@ -240,22 +204,14 @@ export class LogsCustomDestinationsApiRequestFactory extends BaseAPIRequestFacto
     }
 
     // Path Params
-    const localVarPath =
-      "/api/v2/logs/config/custom-destinations/{custom_destination_id}".replace(
-        "{custom_destination_id}",
-        encodeURIComponent(String(customDestinationId)),
-      );
+    const localVarPath = "/api/v2/logs/config/custom-destinations/{custom_destination_id}".replace(
+      "{custom_destination_id}",
+      encodeURIComponent(String(customDestinationId)),
+    );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "LogsCustomDestinationsApi.v2.updateLogsCustomDestination",
-      LogsCustomDestinationsApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.PATCH,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("LogsCustomDestinationsApi.v2.updateLogsCustomDestination", LogsCustomDestinationsApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.PATCH, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -265,7 +221,9 @@ export class LogsCustomDestinationsApiRequestFactory extends BaseAPIRequestFacto
     }
 
     // Body Params
-    const contentType = getPreferredMediaType(["application/json"]);
+    const contentType = getPreferredMediaType([
+      "application/json",
+    ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = stringify(
       serialize(body, TypingInfo, "CustomDestinationUpdateRequest", ""),
@@ -294,7 +252,9 @@ export class LogsCustomDestinationsApiResponseProcessor {
   public async createLogsCustomDestination(
     response: ResponseContext,
   ): Promise<CustomDestinationResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: CustomDestinationResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -309,7 +269,10 @@ export class LogsCustomDestinationsApiResponseProcessor {
       response.httpStatusCode === 409 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -324,7 +287,10 @@ export class LogsCustomDestinationsApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -355,7 +321,9 @@ export class LogsCustomDestinationsApiResponseProcessor {
   public async deleteLogsCustomDestination(
     response: ResponseContext,
   ): Promise<void> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 204) {
       return;
     }
@@ -365,7 +333,10 @@ export class LogsCustomDestinationsApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -380,7 +351,10 @@ export class LogsCustomDestinationsApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -405,7 +379,9 @@ export class LogsCustomDestinationsApiResponseProcessor {
   public async getLogsCustomDestination(
     response: ResponseContext,
   ): Promise<CustomDestinationResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: CustomDestinationResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -420,7 +396,10 @@ export class LogsCustomDestinationsApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -435,7 +414,10 @@ export class LogsCustomDestinationsApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -466,7 +448,9 @@ export class LogsCustomDestinationsApiResponseProcessor {
   public async listLogsCustomDestinations(
     response: ResponseContext,
   ): Promise<CustomDestinationsResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: CustomDestinationsResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -475,8 +459,14 @@ export class LogsCustomDestinationsApiResponseProcessor {
       ) as CustomDestinationsResponse;
       return body;
     }
-    if (response.httpStatusCode === 403 || response.httpStatusCode === 429) {
-      const bodyText = parse(await response.body.text(), contentType);
+    if (
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 429
+    ) {
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -491,7 +481,10 @@ export class LogsCustomDestinationsApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -522,7 +515,9 @@ export class LogsCustomDestinationsApiResponseProcessor {
   public async updateLogsCustomDestination(
     response: ResponseContext,
   ): Promise<CustomDestinationResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: CustomDestinationResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -538,7 +533,10 @@ export class LogsCustomDestinationsApiResponseProcessor {
       response.httpStatusCode === 409 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -553,7 +551,10 @@ export class LogsCustomDestinationsApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -617,7 +618,8 @@ export class LogsCustomDestinationsApi {
   private responseProcessor: LogsCustomDestinationsApiResponseProcessor;
   private configuration: Configuration;
 
-  static operationServers: { [key: string]: BaseServerConfiguration[] } = {};
+  static operationServers: { [key: string]: BaseServerConfiguration[] } = {
+  };
 
   public constructor(
     configuration?: Configuration,
@@ -640,15 +642,15 @@ export class LogsCustomDestinationsApi {
     param: LogsCustomDestinationsApiCreateLogsCustomDestinationRequest,
     options?: Configuration,
   ): Promise<CustomDestinationResponse> {
-    const requestContextPromise =
-      this.requestFactory.createLogsCustomDestination(param.body, options);
+    const requestContextPromise = this.requestFactory.createLogsCustomDestination(
+      param.body,
+      options,
+    );
     return requestContextPromise.then((requestContext) => {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.createLogsCustomDestination(
-            responseContext,
-          );
+          return this.responseProcessor.createLogsCustomDestination(responseContext);
         });
     });
   }
@@ -661,18 +663,15 @@ export class LogsCustomDestinationsApi {
     param: LogsCustomDestinationsApiDeleteLogsCustomDestinationRequest,
     options?: Configuration,
   ): Promise<void> {
-    const requestContextPromise =
-      this.requestFactory.deleteLogsCustomDestination(
-        param.customDestinationId,
-        options,
-      );
+    const requestContextPromise = this.requestFactory.deleteLogsCustomDestination(
+      param.customDestinationId,
+      options,
+    );
     return requestContextPromise.then((requestContext) => {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.deleteLogsCustomDestination(
-            responseContext,
-          );
+          return this.responseProcessor.deleteLogsCustomDestination(responseContext);
         });
     });
   }
@@ -693,9 +692,7 @@ export class LogsCustomDestinationsApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.getLogsCustomDestination(
-            responseContext,
-          );
+          return this.responseProcessor.getLogsCustomDestination(responseContext);
         });
     });
   }
@@ -704,18 +701,16 @@ export class LogsCustomDestinationsApi {
    * Get the list of configured custom destinations in your organization with their definitions.
    * @param param The request object
    */
-  public listLogsCustomDestinations(
-    options?: Configuration,
+  public listLogsCustomDestinations(options?: Configuration,
   ): Promise<CustomDestinationsResponse> {
-    const requestContextPromise =
-      this.requestFactory.listLogsCustomDestinations(options);
+    const requestContextPromise = this.requestFactory.listLogsCustomDestinations(
+      options,
+    );
     return requestContextPromise.then((requestContext) => {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.listLogsCustomDestinations(
-            responseContext,
-          );
+          return this.responseProcessor.listLogsCustomDestinations(responseContext);
         });
     });
   }
@@ -728,19 +723,16 @@ export class LogsCustomDestinationsApi {
     param: LogsCustomDestinationsApiUpdateLogsCustomDestinationRequest,
     options?: Configuration,
   ): Promise<CustomDestinationResponse> {
-    const requestContextPromise =
-      this.requestFactory.updateLogsCustomDestination(
-        param.customDestinationId,
-        param.body,
-        options,
-      );
+    const requestContextPromise = this.requestFactory.updateLogsCustomDestination(
+      param.customDestinationId,
+      param.body,
+      options,
+    );
     return requestContextPromise.then((requestContext) => {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.updateLogsCustomDestination(
-            responseContext,
-          );
+          return this.responseProcessor.updateLogsCustomDestination(responseContext);
         });
     });
   }

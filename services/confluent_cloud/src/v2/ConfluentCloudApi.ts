@@ -19,6 +19,7 @@ import {
   ServerConfiguration,
   stringify,
   applySecurityAuthentication,
+  
 } from "@datadog/datadog-api-client";
 
 import { TypingInfo } from "./models/TypingInfo";
@@ -56,15 +57,8 @@ export class ConfluentCloudApiRequestFactory extends BaseAPIRequestFactory {
     const localVarPath = "/api/v2/integrations/confluent-cloud/accounts";
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "ConfluentCloudApi.v2.createConfluentAccount",
-      ConfluentCloudApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.POST,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("ConfluentCloudApi.v2.createConfluentAccount", ConfluentCloudApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.POST, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -74,7 +68,9 @@ export class ConfluentCloudApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Body Params
-    const contentType = getPreferredMediaType(["application/json"]);
+    const contentType = getPreferredMediaType([
+      "application/json",
+    ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = stringify(
       serialize(body, TypingInfo, "ConfluentAccountCreateRequest", ""),
@@ -109,22 +105,14 @@ export class ConfluentCloudApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Path Params
-    const localVarPath =
-      "/api/v2/integrations/confluent-cloud/accounts/{account_id}/resources".replace(
-        "{account_id}",
-        encodeURIComponent(String(accountId)),
-      );
+    const localVarPath = "/api/v2/integrations/confluent-cloud/accounts/{account_id}/resources".replace(
+      "{account_id}",
+      encodeURIComponent(String(accountId)),
+    );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "ConfluentCloudApi.v2.createConfluentResource",
-      ConfluentCloudApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.POST,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("ConfluentCloudApi.v2.createConfluentResource", ConfluentCloudApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.POST, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -134,7 +122,9 @@ export class ConfluentCloudApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Body Params
-    const contentType = getPreferredMediaType(["application/json"]);
+    const contentType = getPreferredMediaType([
+      "application/json",
+    ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = stringify(
       serialize(body, TypingInfo, "ConfluentResourceRequest", ""),
@@ -163,22 +153,14 @@ export class ConfluentCloudApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Path Params
-    const localVarPath =
-      "/api/v2/integrations/confluent-cloud/accounts/{account_id}".replace(
-        "{account_id}",
-        encodeURIComponent(String(accountId)),
-      );
+    const localVarPath = "/api/v2/integrations/confluent-cloud/accounts/{account_id}".replace(
+      "{account_id}",
+      encodeURIComponent(String(accountId)),
+    );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "ConfluentCloudApi.v2.deleteConfluentAccount",
-      ConfluentCloudApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.DELETE,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("ConfluentCloudApi.v2.deleteConfluentAccount", ConfluentCloudApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.DELETE, overrides);
     requestContext.setHeaderParam("Accept", "*/*");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -214,21 +196,17 @@ export class ConfluentCloudApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Path Params
-    const localVarPath =
-      "/api/v2/integrations/confluent-cloud/accounts/{account_id}/resources/{resource_id}"
-        .replace("{account_id}", encodeURIComponent(String(accountId)))
-        .replace("{resource_id}", encodeURIComponent(String(resourceId)));
+    const localVarPath = "/api/v2/integrations/confluent-cloud/accounts/{account_id}/resources/{resource_id}".replace(
+      "{account_id}",
+      encodeURIComponent(String(accountId)),
+    ).replace(
+      "{resource_id}",
+      encodeURIComponent(String(resourceId)),
+    );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "ConfluentCloudApi.v2.deleteConfluentResource",
-      ConfluentCloudApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.DELETE,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("ConfluentCloudApi.v2.deleteConfluentResource", ConfluentCloudApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.DELETE, overrides);
     requestContext.setHeaderParam("Accept", "*/*");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -258,22 +236,14 @@ export class ConfluentCloudApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Path Params
-    const localVarPath =
-      "/api/v2/integrations/confluent-cloud/accounts/{account_id}".replace(
-        "{account_id}",
-        encodeURIComponent(String(accountId)),
-      );
+    const localVarPath = "/api/v2/integrations/confluent-cloud/accounts/{account_id}".replace(
+      "{account_id}",
+      encodeURIComponent(String(accountId)),
+    );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "ConfluentCloudApi.v2.getConfluentAccount",
-      ConfluentCloudApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.GET,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("ConfluentCloudApi.v2.getConfluentAccount", ConfluentCloudApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.GET, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -309,21 +279,17 @@ export class ConfluentCloudApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Path Params
-    const localVarPath =
-      "/api/v2/integrations/confluent-cloud/accounts/{account_id}/resources/{resource_id}"
-        .replace("{account_id}", encodeURIComponent(String(accountId)))
-        .replace("{resource_id}", encodeURIComponent(String(resourceId)));
+    const localVarPath = "/api/v2/integrations/confluent-cloud/accounts/{account_id}/resources/{resource_id}".replace(
+      "{account_id}",
+      encodeURIComponent(String(accountId)),
+    ).replace(
+      "{resource_id}",
+      encodeURIComponent(String(resourceId)),
+    );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "ConfluentCloudApi.v2.getConfluentResource",
-      ConfluentCloudApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.GET,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("ConfluentCloudApi.v2.getConfluentResource", ConfluentCloudApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.GET, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -350,15 +316,8 @@ export class ConfluentCloudApiRequestFactory extends BaseAPIRequestFactory {
     const localVarPath = "/api/v2/integrations/confluent-cloud/accounts";
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "ConfluentCloudApi.v2.listConfluentAccount",
-      ConfluentCloudApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.GET,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("ConfluentCloudApi.v2.listConfluentAccount", ConfluentCloudApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.GET, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -388,22 +347,14 @@ export class ConfluentCloudApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Path Params
-    const localVarPath =
-      "/api/v2/integrations/confluent-cloud/accounts/{account_id}/resources".replace(
-        "{account_id}",
-        encodeURIComponent(String(accountId)),
-      );
+    const localVarPath = "/api/v2/integrations/confluent-cloud/accounts/{account_id}/resources".replace(
+      "{account_id}",
+      encodeURIComponent(String(accountId)),
+    );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "ConfluentCloudApi.v2.listConfluentResource",
-      ConfluentCloudApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.GET,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("ConfluentCloudApi.v2.listConfluentResource", ConfluentCloudApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.GET, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -439,22 +390,14 @@ export class ConfluentCloudApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Path Params
-    const localVarPath =
-      "/api/v2/integrations/confluent-cloud/accounts/{account_id}".replace(
-        "{account_id}",
-        encodeURIComponent(String(accountId)),
-      );
+    const localVarPath = "/api/v2/integrations/confluent-cloud/accounts/{account_id}".replace(
+      "{account_id}",
+      encodeURIComponent(String(accountId)),
+    );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "ConfluentCloudApi.v2.updateConfluentAccount",
-      ConfluentCloudApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.PATCH,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("ConfluentCloudApi.v2.updateConfluentAccount", ConfluentCloudApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.PATCH, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -464,7 +407,9 @@ export class ConfluentCloudApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Body Params
-    const contentType = getPreferredMediaType(["application/json"]);
+    const contentType = getPreferredMediaType([
+      "application/json",
+    ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = stringify(
       serialize(body, TypingInfo, "ConfluentAccountUpdateRequest", ""),
@@ -505,21 +450,17 @@ export class ConfluentCloudApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Path Params
-    const localVarPath =
-      "/api/v2/integrations/confluent-cloud/accounts/{account_id}/resources/{resource_id}"
-        .replace("{account_id}", encodeURIComponent(String(accountId)))
-        .replace("{resource_id}", encodeURIComponent(String(resourceId)));
+    const localVarPath = "/api/v2/integrations/confluent-cloud/accounts/{account_id}/resources/{resource_id}".replace(
+      "{account_id}",
+      encodeURIComponent(String(accountId)),
+    ).replace(
+      "{resource_id}",
+      encodeURIComponent(String(resourceId)),
+    );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "ConfluentCloudApi.v2.updateConfluentResource",
-      ConfluentCloudApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.PATCH,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("ConfluentCloudApi.v2.updateConfluentResource", ConfluentCloudApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.PATCH, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -529,7 +470,9 @@ export class ConfluentCloudApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Body Params
-    const contentType = getPreferredMediaType(["application/json"]);
+    const contentType = getPreferredMediaType([
+      "application/json",
+    ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = stringify(
       serialize(body, TypingInfo, "ConfluentResourceRequest", ""),
@@ -558,7 +501,9 @@ export class ConfluentCloudApiResponseProcessor {
   public async createConfluentAccount(
     response: ResponseContext,
   ): Promise<ConfluentAccountResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 201) {
       const body: ConfluentAccountResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -573,7 +518,10 @@ export class ConfluentCloudApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -588,7 +536,10 @@ export class ConfluentCloudApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -619,7 +570,9 @@ export class ConfluentCloudApiResponseProcessor {
   public async createConfluentResource(
     response: ResponseContext,
   ): Promise<ConfluentResourceResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 201) {
       const body: ConfluentResourceResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -634,7 +587,10 @@ export class ConfluentCloudApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -649,7 +605,10 @@ export class ConfluentCloudApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -680,7 +639,9 @@ export class ConfluentCloudApiResponseProcessor {
   public async deleteConfluentAccount(
     response: ResponseContext,
   ): Promise<void> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 204) {
       return;
     }
@@ -690,7 +651,10 @@ export class ConfluentCloudApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -705,7 +669,10 @@ export class ConfluentCloudApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -730,7 +697,9 @@ export class ConfluentCloudApiResponseProcessor {
   public async deleteConfluentResource(
     response: ResponseContext,
   ): Promise<void> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 204) {
       return;
     }
@@ -740,7 +709,10 @@ export class ConfluentCloudApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -755,7 +727,10 @@ export class ConfluentCloudApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -780,7 +755,9 @@ export class ConfluentCloudApiResponseProcessor {
   public async getConfluentAccount(
     response: ResponseContext,
   ): Promise<ConfluentAccountResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: ConfluentAccountResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -795,7 +772,10 @@ export class ConfluentCloudApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -810,7 +790,10 @@ export class ConfluentCloudApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -841,7 +824,9 @@ export class ConfluentCloudApiResponseProcessor {
   public async getConfluentResource(
     response: ResponseContext,
   ): Promise<ConfluentResourceResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: ConfluentResourceResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -856,7 +841,10 @@ export class ConfluentCloudApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -871,7 +859,10 @@ export class ConfluentCloudApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -902,7 +893,9 @@ export class ConfluentCloudApiResponseProcessor {
   public async listConfluentAccount(
     response: ResponseContext,
   ): Promise<ConfluentAccountsResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: ConfluentAccountsResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -917,7 +910,10 @@ export class ConfluentCloudApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -932,7 +928,10 @@ export class ConfluentCloudApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -963,7 +962,9 @@ export class ConfluentCloudApiResponseProcessor {
   public async listConfluentResource(
     response: ResponseContext,
   ): Promise<ConfluentResourcesResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: ConfluentResourcesResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -978,7 +979,10 @@ export class ConfluentCloudApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -993,7 +997,10 @@ export class ConfluentCloudApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -1024,7 +1031,9 @@ export class ConfluentCloudApiResponseProcessor {
   public async updateConfluentAccount(
     response: ResponseContext,
   ): Promise<ConfluentAccountResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: ConfluentAccountResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -1039,7 +1048,10 @@ export class ConfluentCloudApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -1054,7 +1066,10 @@ export class ConfluentCloudApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -1085,7 +1100,9 @@ export class ConfluentCloudApiResponseProcessor {
   public async updateConfluentResource(
     response: ResponseContext,
   ): Promise<ConfluentResourceResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: ConfluentResourceResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -1100,7 +1117,10 @@ export class ConfluentCloudApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -1115,7 +1135,10 @@ export class ConfluentCloudApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -1244,7 +1267,8 @@ export class ConfluentCloudApi {
   private responseProcessor: ConfluentCloudApiResponseProcessor;
   private configuration: Configuration;
 
-  static operationServers: { [key: string]: BaseServerConfiguration[] } = {};
+  static operationServers: { [key: string]: BaseServerConfiguration[] } = {
+  };
 
   public constructor(
     configuration?: Configuration,
@@ -1253,7 +1277,8 @@ export class ConfluentCloudApi {
   ) {
     this.configuration = configuration || createConfiguration();
     this.requestFactory =
-      requestFactory || new ConfluentCloudApiRequestFactory(this.configuration);
+      requestFactory ||
+      new ConfluentCloudApiRequestFactory(this.configuration);
     this.responseProcessor =
       responseProcessor || new ConfluentCloudApiResponseProcessor();
   }
@@ -1296,9 +1321,7 @@ export class ConfluentCloudApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.createConfluentResource(
-            responseContext,
-          );
+          return this.responseProcessor.createConfluentResource(responseContext);
         });
     });
   }
@@ -1341,9 +1364,7 @@ export class ConfluentCloudApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.deleteConfluentResource(
-            responseContext,
-          );
+          return this.responseProcessor.deleteConfluentResource(responseContext);
         });
     });
   }
@@ -1395,11 +1416,11 @@ export class ConfluentCloudApi {
    * List Confluent accounts.
    * @param param The request object
    */
-  public listConfluentAccount(
-    options?: Configuration,
+  public listConfluentAccount(options?: Configuration,
   ): Promise<ConfluentAccountsResponse> {
-    const requestContextPromise =
-      this.requestFactory.listConfluentAccount(options);
+    const requestContextPromise = this.requestFactory.listConfluentAccount(
+      options,
+    );
     return requestContextPromise.then((requestContext) => {
       return this.configuration.httpApi
         .send(requestContext)
@@ -1470,9 +1491,7 @@ export class ConfluentCloudApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.updateConfluentResource(
-            responseContext,
-          );
+          return this.responseProcessor.updateConfluentResource(responseContext);
         });
     });
   }

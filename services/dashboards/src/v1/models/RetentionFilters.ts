@@ -30,7 +30,7 @@ export class RetentionFilters {
     stringFilter: {
       baseName: "string_filter",
       type: "string",
-    },
+    }
   };
 
   /**

@@ -54,9 +54,7 @@ export class ModelLabAPIApiRequestFactory extends BaseAPIRequestFactory {
     const _config = _options || this.configuration;
 
     if (!_config.unstableOperations["ModelLabAPIApi.v2.deleteModelLabRun"]) {
-      throw new Error(
-        "Unstable operation 'deleteModelLabRun' is disabled. Enable it by setting `configuration.unstableOperations['ModelLabAPIApi.v2.deleteModelLabRun'] = true`",
-      );
+      throw new Error("Unstable operation 'deleteModelLabRun' is disabled. Enable it by setting `configuration.unstableOperations['ModelLabAPIApi.v2.deleteModelLabRun'] = true`");
     }
 
     // verify required parameter 'runId' is not null or undefined
@@ -71,15 +69,8 @@ export class ModelLabAPIApiRequestFactory extends BaseAPIRequestFactory {
     );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "ModelLabAPIApi.v2.deleteModelLabRun",
-      ModelLabAPIApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.DELETE,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("ModelLabAPIApi.v2.deleteModelLabRun", ModelLabAPIApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.DELETE, overrides);
     requestContext.setHeaderParam("Accept", "*/*");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -104,14 +95,8 @@ export class ModelLabAPIApiRequestFactory extends BaseAPIRequestFactory {
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
-    if (
-      !_config.unstableOperations[
-        "ModelLabAPIApi.v2.getModelLabArtifactContent"
-      ]
-    ) {
-      throw new Error(
-        "Unstable operation 'getModelLabArtifactContent' is disabled. Enable it by setting `configuration.unstableOperations['ModelLabAPIApi.v2.getModelLabArtifactContent'] = true`",
-      );
+    if (!_config.unstableOperations["ModelLabAPIApi.v2.getModelLabArtifactContent"]) {
+      throw new Error("Unstable operation 'getModelLabArtifactContent' is disabled. Enable it by setting `configuration.unstableOperations['ModelLabAPIApi.v2.getModelLabArtifactContent'] = true`");
     }
 
     // verify required parameter 'projectId' is not null or undefined
@@ -128,19 +113,9 @@ export class ModelLabAPIApiRequestFactory extends BaseAPIRequestFactory {
     const localVarPath = "/api/v2/model-lab-api/artifacts/content";
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "ModelLabAPIApi.v2.getModelLabArtifactContent",
-      ModelLabAPIApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.GET,
-      overrides,
-    );
-    requestContext.setHeaderParam(
-      "Accept",
-      "application/octet-stream, application/json",
-    );
+    const { server, overrides } = _config.getServerAndOverrides("ModelLabAPIApi.v2.getModelLabArtifactContent", ModelLabAPIApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.GET, overrides);
+    requestContext.setHeaderParam("Accept", "application/octet-stream, application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
     // Set User-Agent
@@ -180,9 +155,7 @@ export class ModelLabAPIApiRequestFactory extends BaseAPIRequestFactory {
     const _config = _options || this.configuration;
 
     if (!_config.unstableOperations["ModelLabAPIApi.v2.getModelLabProject"]) {
-      throw new Error(
-        "Unstable operation 'getModelLabProject' is disabled. Enable it by setting `configuration.unstableOperations['ModelLabAPIApi.v2.getModelLabProject'] = true`",
-      );
+      throw new Error("Unstable operation 'getModelLabProject' is disabled. Enable it by setting `configuration.unstableOperations['ModelLabAPIApi.v2.getModelLabProject'] = true`");
     }
 
     // verify required parameter 'projectId' is not null or undefined
@@ -197,15 +170,8 @@ export class ModelLabAPIApiRequestFactory extends BaseAPIRequestFactory {
     );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "ModelLabAPIApi.v2.getModelLabProject",
-      ModelLabAPIApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.GET,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("ModelLabAPIApi.v2.getModelLabProject", ModelLabAPIApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.GET, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -230,9 +196,7 @@ export class ModelLabAPIApiRequestFactory extends BaseAPIRequestFactory {
     const _config = _options || this.configuration;
 
     if (!_config.unstableOperations["ModelLabAPIApi.v2.getModelLabRun"]) {
-      throw new Error(
-        "Unstable operation 'getModelLabRun' is disabled. Enable it by setting `configuration.unstableOperations['ModelLabAPIApi.v2.getModelLabRun'] = true`",
-      );
+      throw new Error("Unstable operation 'getModelLabRun' is disabled. Enable it by setting `configuration.unstableOperations['ModelLabAPIApi.v2.getModelLabRun'] = true`");
     }
 
     // verify required parameter 'runId' is not null or undefined
@@ -247,15 +211,8 @@ export class ModelLabAPIApiRequestFactory extends BaseAPIRequestFactory {
     );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "ModelLabAPIApi.v2.getModelLabRun",
-      ModelLabAPIApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.GET,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("ModelLabAPIApi.v2.getModelLabRun", ModelLabAPIApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.GET, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -279,14 +236,8 @@ export class ModelLabAPIApiRequestFactory extends BaseAPIRequestFactory {
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
-    if (
-      !_config.unstableOperations[
-        "ModelLabAPIApi.v2.listModelLabProjectArtifacts"
-      ]
-    ) {
-      throw new Error(
-        "Unstable operation 'listModelLabProjectArtifacts' is disabled. Enable it by setting `configuration.unstableOperations['ModelLabAPIApi.v2.listModelLabProjectArtifacts'] = true`",
-      );
+    if (!_config.unstableOperations["ModelLabAPIApi.v2.listModelLabProjectArtifacts"]) {
+      throw new Error("Unstable operation 'listModelLabProjectArtifacts' is disabled. Enable it by setting `configuration.unstableOperations['ModelLabAPIApi.v2.listModelLabProjectArtifacts'] = true`");
     }
 
     // verify required parameter 'projectId' is not null or undefined
@@ -295,22 +246,14 @@ export class ModelLabAPIApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Path Params
-    const localVarPath =
-      "/api/v2/model-lab-api/projects/{project_id}/artifacts".replace(
-        "{project_id}",
-        encodeURIComponent(String(projectId)),
-      );
+    const localVarPath = "/api/v2/model-lab-api/projects/{project_id}/artifacts".replace(
+      "{project_id}",
+      encodeURIComponent(String(projectId)),
+    );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "ModelLabAPIApi.v2.listModelLabProjectArtifacts",
-      ModelLabAPIApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.GET,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("ModelLabAPIApi.v2.listModelLabProjectArtifacts", ModelLabAPIApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.GET, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -333,29 +276,16 @@ export class ModelLabAPIApiRequestFactory extends BaseAPIRequestFactory {
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
-    if (
-      !_config.unstableOperations[
-        "ModelLabAPIApi.v2.listModelLabProjectFacetKeys"
-      ]
-    ) {
-      throw new Error(
-        "Unstable operation 'listModelLabProjectFacetKeys' is disabled. Enable it by setting `configuration.unstableOperations['ModelLabAPIApi.v2.listModelLabProjectFacetKeys'] = true`",
-      );
+    if (!_config.unstableOperations["ModelLabAPIApi.v2.listModelLabProjectFacetKeys"]) {
+      throw new Error("Unstable operation 'listModelLabProjectFacetKeys' is disabled. Enable it by setting `configuration.unstableOperations['ModelLabAPIApi.v2.listModelLabProjectFacetKeys'] = true`");
     }
 
     // Path Params
     const localVarPath = "/api/v2/model-lab-api/project-facet-keys";
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "ModelLabAPIApi.v2.listModelLabProjectFacetKeys",
-      ModelLabAPIApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.GET,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("ModelLabAPIApi.v2.listModelLabProjectFacetKeys", ModelLabAPIApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.GET, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -380,14 +310,8 @@ export class ModelLabAPIApiRequestFactory extends BaseAPIRequestFactory {
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
-    if (
-      !_config.unstableOperations[
-        "ModelLabAPIApi.v2.listModelLabProjectFacetValues"
-      ]
-    ) {
-      throw new Error(
-        "Unstable operation 'listModelLabProjectFacetValues' is disabled. Enable it by setting `configuration.unstableOperations['ModelLabAPIApi.v2.listModelLabProjectFacetValues'] = true`",
-      );
+    if (!_config.unstableOperations["ModelLabAPIApi.v2.listModelLabProjectFacetValues"]) {
+      throw new Error("Unstable operation 'listModelLabProjectFacetValues' is disabled. Enable it by setting `configuration.unstableOperations['ModelLabAPIApi.v2.listModelLabProjectFacetValues'] = true`");
     }
 
     // verify required parameter 'facetType' is not null or undefined
@@ -404,15 +328,8 @@ export class ModelLabAPIApiRequestFactory extends BaseAPIRequestFactory {
     const localVarPath = "/api/v2/model-lab-api/project-facet-values";
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "ModelLabAPIApi.v2.listModelLabProjectFacetValues",
-      ModelLabAPIApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.GET,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("ModelLabAPIApi.v2.listModelLabProjectFacetValues", ModelLabAPIApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.GET, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -458,24 +375,15 @@ export class ModelLabAPIApiRequestFactory extends BaseAPIRequestFactory {
     const _config = _options || this.configuration;
 
     if (!_config.unstableOperations["ModelLabAPIApi.v2.listModelLabProjects"]) {
-      throw new Error(
-        "Unstable operation 'listModelLabProjects' is disabled. Enable it by setting `configuration.unstableOperations['ModelLabAPIApi.v2.listModelLabProjects'] = true`",
-      );
+      throw new Error("Unstable operation 'listModelLabProjects' is disabled. Enable it by setting `configuration.unstableOperations['ModelLabAPIApi.v2.listModelLabProjects'] = true`");
     }
 
     // Path Params
     const localVarPath = "/api/v2/model-lab-api/projects";
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "ModelLabAPIApi.v2.listModelLabProjects",
-      ModelLabAPIApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.GET,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("ModelLabAPIApi.v2.listModelLabProjects", ModelLabAPIApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.GET, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -544,12 +452,8 @@ export class ModelLabAPIApiRequestFactory extends BaseAPIRequestFactory {
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
-    if (
-      !_config.unstableOperations["ModelLabAPIApi.v2.listModelLabRunArtifacts"]
-    ) {
-      throw new Error(
-        "Unstable operation 'listModelLabRunArtifacts' is disabled. Enable it by setting `configuration.unstableOperations['ModelLabAPIApi.v2.listModelLabRunArtifacts'] = true`",
-      );
+    if (!_config.unstableOperations["ModelLabAPIApi.v2.listModelLabRunArtifacts"]) {
+      throw new Error("Unstable operation 'listModelLabRunArtifacts' is disabled. Enable it by setting `configuration.unstableOperations['ModelLabAPIApi.v2.listModelLabRunArtifacts'] = true`");
     }
 
     // verify required parameter 'runId' is not null or undefined
@@ -558,22 +462,14 @@ export class ModelLabAPIApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Path Params
-    const localVarPath =
-      "/api/v2/model-lab-api/runs/{run_id}/artifacts".replace(
-        "{run_id}",
-        encodeURIComponent(String(runId)),
-      );
+    const localVarPath = "/api/v2/model-lab-api/runs/{run_id}/artifacts".replace(
+      "{run_id}",
+      encodeURIComponent(String(runId)),
+    );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "ModelLabAPIApi.v2.listModelLabRunArtifacts",
-      ModelLabAPIApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.GET,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("ModelLabAPIApi.v2.listModelLabRunArtifacts", ModelLabAPIApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.GET, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -606,12 +502,8 @@ export class ModelLabAPIApiRequestFactory extends BaseAPIRequestFactory {
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
-    if (
-      !_config.unstableOperations["ModelLabAPIApi.v2.listModelLabRunFacetKeys"]
-    ) {
-      throw new Error(
-        "Unstable operation 'listModelLabRunFacetKeys' is disabled. Enable it by setting `configuration.unstableOperations['ModelLabAPIApi.v2.listModelLabRunFacetKeys'] = true`",
-      );
+    if (!_config.unstableOperations["ModelLabAPIApi.v2.listModelLabRunFacetKeys"]) {
+      throw new Error("Unstable operation 'listModelLabRunFacetKeys' is disabled. Enable it by setting `configuration.unstableOperations['ModelLabAPIApi.v2.listModelLabRunFacetKeys'] = true`");
     }
 
     // verify required parameter 'filterProjectId' is not null or undefined
@@ -623,15 +515,8 @@ export class ModelLabAPIApiRequestFactory extends BaseAPIRequestFactory {
     const localVarPath = "/api/v2/model-lab-api/facet-keys";
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "ModelLabAPIApi.v2.listModelLabRunFacetKeys",
-      ModelLabAPIApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.GET,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("ModelLabAPIApi.v2.listModelLabRunFacetKeys", ModelLabAPIApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.GET, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -666,14 +551,8 @@ export class ModelLabAPIApiRequestFactory extends BaseAPIRequestFactory {
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
-    if (
-      !_config.unstableOperations[
-        "ModelLabAPIApi.v2.listModelLabRunFacetValues"
-      ]
-    ) {
-      throw new Error(
-        "Unstable operation 'listModelLabRunFacetValues' is disabled. Enable it by setting `configuration.unstableOperations['ModelLabAPIApi.v2.listModelLabRunFacetValues'] = true`",
-      );
+    if (!_config.unstableOperations["ModelLabAPIApi.v2.listModelLabRunFacetValues"]) {
+      throw new Error("Unstable operation 'listModelLabRunFacetValues' is disabled. Enable it by setting `configuration.unstableOperations['ModelLabAPIApi.v2.listModelLabRunFacetValues'] = true`");
     }
 
     // verify required parameter 'filterProjectId' is not null or undefined
@@ -695,15 +574,8 @@ export class ModelLabAPIApiRequestFactory extends BaseAPIRequestFactory {
     const localVarPath = "/api/v2/model-lab-api/facet-values";
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "ModelLabAPIApi.v2.listModelLabRunFacetValues",
-      ModelLabAPIApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.GET,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("ModelLabAPIApi.v2.listModelLabRunFacetValues", ModelLabAPIApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.GET, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -764,24 +636,15 @@ export class ModelLabAPIApiRequestFactory extends BaseAPIRequestFactory {
     const _config = _options || this.configuration;
 
     if (!_config.unstableOperations["ModelLabAPIApi.v2.listModelLabRuns"]) {
-      throw new Error(
-        "Unstable operation 'listModelLabRuns' is disabled. Enable it by setting `configuration.unstableOperations['ModelLabAPIApi.v2.listModelLabRuns'] = true`",
-      );
+      throw new Error("Unstable operation 'listModelLabRuns' is disabled. Enable it by setting `configuration.unstableOperations['ModelLabAPIApi.v2.listModelLabRuns'] = true`");
     }
 
     // Path Params
     const localVarPath = "/api/v2/model-lab-api/runs";
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "ModelLabAPIApi.v2.listModelLabRuns",
-      ModelLabAPIApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.GET,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("ModelLabAPIApi.v2.listModelLabRuns", ModelLabAPIApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.GET, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -906,9 +769,7 @@ export class ModelLabAPIApiRequestFactory extends BaseAPIRequestFactory {
     const _config = _options || this.configuration;
 
     if (!_config.unstableOperations["ModelLabAPIApi.v2.pinModelLabRun"]) {
-      throw new Error(
-        "Unstable operation 'pinModelLabRun' is disabled. Enable it by setting `configuration.unstableOperations['ModelLabAPIApi.v2.pinModelLabRun'] = true`",
-      );
+      throw new Error("Unstable operation 'pinModelLabRun' is disabled. Enable it by setting `configuration.unstableOperations['ModelLabAPIApi.v2.pinModelLabRun'] = true`");
     }
 
     // verify required parameter 'runId' is not null or undefined
@@ -923,15 +784,8 @@ export class ModelLabAPIApiRequestFactory extends BaseAPIRequestFactory {
     );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "ModelLabAPIApi.v2.pinModelLabRun",
-      ModelLabAPIApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.POST,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("ModelLabAPIApi.v2.pinModelLabRun", ModelLabAPIApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.POST, overrides);
     requestContext.setHeaderParam("Accept", "*/*");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -956,9 +810,7 @@ export class ModelLabAPIApiRequestFactory extends BaseAPIRequestFactory {
     const _config = _options || this.configuration;
 
     if (!_config.unstableOperations["ModelLabAPIApi.v2.starModelLabProject"]) {
-      throw new Error(
-        "Unstable operation 'starModelLabProject' is disabled. Enable it by setting `configuration.unstableOperations['ModelLabAPIApi.v2.starModelLabProject'] = true`",
-      );
+      throw new Error("Unstable operation 'starModelLabProject' is disabled. Enable it by setting `configuration.unstableOperations['ModelLabAPIApi.v2.starModelLabProject'] = true`");
     }
 
     // verify required parameter 'projectId' is not null or undefined
@@ -967,22 +819,14 @@ export class ModelLabAPIApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Path Params
-    const localVarPath =
-      "/api/v2/model-lab-api/projects/{project_id}/star".replace(
-        "{project_id}",
-        encodeURIComponent(String(projectId)),
-      );
+    const localVarPath = "/api/v2/model-lab-api/projects/{project_id}/star".replace(
+      "{project_id}",
+      encodeURIComponent(String(projectId)),
+    );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "ModelLabAPIApi.v2.starModelLabProject",
-      ModelLabAPIApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.POST,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("ModelLabAPIApi.v2.starModelLabProject", ModelLabAPIApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.POST, overrides);
     requestContext.setHeaderParam("Accept", "*/*");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -1007,9 +851,7 @@ export class ModelLabAPIApiRequestFactory extends BaseAPIRequestFactory {
     const _config = _options || this.configuration;
 
     if (!_config.unstableOperations["ModelLabAPIApi.v2.unpinModelLabRun"]) {
-      throw new Error(
-        "Unstable operation 'unpinModelLabRun' is disabled. Enable it by setting `configuration.unstableOperations['ModelLabAPIApi.v2.unpinModelLabRun'] = true`",
-      );
+      throw new Error("Unstable operation 'unpinModelLabRun' is disabled. Enable it by setting `configuration.unstableOperations['ModelLabAPIApi.v2.unpinModelLabRun'] = true`");
     }
 
     // verify required parameter 'runId' is not null or undefined
@@ -1024,15 +866,8 @@ export class ModelLabAPIApiRequestFactory extends BaseAPIRequestFactory {
     );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "ModelLabAPIApi.v2.unpinModelLabRun",
-      ModelLabAPIApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.DELETE,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("ModelLabAPIApi.v2.unpinModelLabRun", ModelLabAPIApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.DELETE, overrides);
     requestContext.setHeaderParam("Accept", "*/*");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -1056,12 +891,8 @@ export class ModelLabAPIApiRequestFactory extends BaseAPIRequestFactory {
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
-    if (
-      !_config.unstableOperations["ModelLabAPIApi.v2.unstarModelLabProject"]
-    ) {
-      throw new Error(
-        "Unstable operation 'unstarModelLabProject' is disabled. Enable it by setting `configuration.unstableOperations['ModelLabAPIApi.v2.unstarModelLabProject'] = true`",
-      );
+    if (!_config.unstableOperations["ModelLabAPIApi.v2.unstarModelLabProject"]) {
+      throw new Error("Unstable operation 'unstarModelLabProject' is disabled. Enable it by setting `configuration.unstableOperations['ModelLabAPIApi.v2.unstarModelLabProject'] = true`");
     }
 
     // verify required parameter 'projectId' is not null or undefined
@@ -1070,22 +901,14 @@ export class ModelLabAPIApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Path Params
-    const localVarPath =
-      "/api/v2/model-lab-api/projects/{project_id}/star".replace(
-        "{project_id}",
-        encodeURIComponent(String(projectId)),
-      );
+    const localVarPath = "/api/v2/model-lab-api/projects/{project_id}/star".replace(
+      "{project_id}",
+      encodeURIComponent(String(projectId)),
+    );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "ModelLabAPIApi.v2.unstarModelLabProject",
-      ModelLabAPIApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.DELETE,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("ModelLabAPIApi.v2.unstarModelLabProject", ModelLabAPIApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.DELETE, overrides);
     requestContext.setHeaderParam("Accept", "*/*");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -1112,8 +935,12 @@ export class ModelLabAPIApiResponseProcessor {
    * @params response Response returned by the server for a request to deleteModelLabRun
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async deleteModelLabRun(response: ResponseContext): Promise<void> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+  public async deleteModelLabRun(
+    response: ResponseContext,
+  ): Promise<void> {
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 204) {
       return;
     }
@@ -1122,7 +949,10 @@ export class ModelLabAPIApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 500
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: JSONAPIErrorResponse;
       try {
         body = deserialize(
@@ -1143,7 +973,10 @@ export class ModelLabAPIApiResponseProcessor {
       );
     }
     if (response.httpStatusCode === 429) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -1158,7 +991,10 @@ export class ModelLabAPIApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -1183,13 +1019,21 @@ export class ModelLabAPIApiResponseProcessor {
   public async getModelLabArtifactContent(
     response: ResponseContext,
   ): Promise<HttpFile> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
-      const body: HttpFile = (await response.getBodyAsFile()) as HttpFile;
+      const body: HttpFile = await response.getBodyAsFile() as HttpFile;
       return body;
     }
-    if (response.httpStatusCode === 400 || response.httpStatusCode === 500) {
-      const bodyText = parse(await response.body.text(), contentType);
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 500
+    ) {
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: JSONAPIErrorResponse;
       try {
         body = deserialize(
@@ -1210,7 +1054,10 @@ export class ModelLabAPIApiResponseProcessor {
       );
     }
     if (response.httpStatusCode === 429) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -1225,13 +1072,15 @@ export class ModelLabAPIApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-      const body: HttpFile =
-        (await response.getBodyAsFile()) as any as HttpFile;
+      const body: HttpFile = await response.getBodyAsFile() as any as HttpFile;
       return body;
     }
 
@@ -1252,7 +1101,9 @@ export class ModelLabAPIApiResponseProcessor {
   public async getModelLabProject(
     response: ResponseContext,
   ): Promise<ModelLabProjectResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: ModelLabProjectResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -1266,7 +1117,10 @@ export class ModelLabAPIApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 500
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: JSONAPIErrorResponse;
       try {
         body = deserialize(
@@ -1287,7 +1141,10 @@ export class ModelLabAPIApiResponseProcessor {
       );
     }
     if (response.httpStatusCode === 429) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -1302,7 +1159,10 @@ export class ModelLabAPIApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -1333,7 +1193,9 @@ export class ModelLabAPIApiResponseProcessor {
   public async getModelLabRun(
     response: ResponseContext,
   ): Promise<ModelLabRunResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: ModelLabRunResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -1347,7 +1209,10 @@ export class ModelLabAPIApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 500
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: JSONAPIErrorResponse;
       try {
         body = deserialize(
@@ -1368,7 +1233,10 @@ export class ModelLabAPIApiResponseProcessor {
       );
     }
     if (response.httpStatusCode === 429) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -1383,7 +1251,10 @@ export class ModelLabAPIApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -1414,7 +1285,9 @@ export class ModelLabAPIApiResponseProcessor {
   public async listModelLabProjectArtifacts(
     response: ResponseContext,
   ): Promise<ModelLabProjectArtifactsResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: ModelLabProjectArtifactsResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -1423,8 +1296,14 @@ export class ModelLabAPIApiResponseProcessor {
       ) as ModelLabProjectArtifactsResponse;
       return body;
     }
-    if (response.httpStatusCode === 400 || response.httpStatusCode === 500) {
-      const bodyText = parse(await response.body.text(), contentType);
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 500
+    ) {
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: JSONAPIErrorResponse;
       try {
         body = deserialize(
@@ -1445,7 +1324,10 @@ export class ModelLabAPIApiResponseProcessor {
       );
     }
     if (response.httpStatusCode === 429) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -1460,7 +1342,10 @@ export class ModelLabAPIApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -1491,7 +1376,9 @@ export class ModelLabAPIApiResponseProcessor {
   public async listModelLabProjectFacetKeys(
     response: ResponseContext,
   ): Promise<ModelLabFacetKeysResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: ModelLabFacetKeysResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -1501,7 +1388,10 @@ export class ModelLabAPIApiResponseProcessor {
       return body;
     }
     if (response.httpStatusCode === 429) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -1516,10 +1406,16 @@ export class ModelLabAPIApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
     if (response.httpStatusCode === 500) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: JSONAPIErrorResponse;
       try {
         body = deserialize(
@@ -1568,7 +1464,9 @@ export class ModelLabAPIApiResponseProcessor {
   public async listModelLabProjectFacetValues(
     response: ResponseContext,
   ): Promise<ModelLabFacetValuesResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: ModelLabFacetValuesResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -1577,8 +1475,14 @@ export class ModelLabAPIApiResponseProcessor {
       ) as ModelLabFacetValuesResponse;
       return body;
     }
-    if (response.httpStatusCode === 400 || response.httpStatusCode === 500) {
-      const bodyText = parse(await response.body.text(), contentType);
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 500
+    ) {
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: JSONAPIErrorResponse;
       try {
         body = deserialize(
@@ -1599,7 +1503,10 @@ export class ModelLabAPIApiResponseProcessor {
       );
     }
     if (response.httpStatusCode === 429) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -1614,7 +1521,10 @@ export class ModelLabAPIApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -1645,7 +1555,9 @@ export class ModelLabAPIApiResponseProcessor {
   public async listModelLabProjects(
     response: ResponseContext,
   ): Promise<ModelLabProjectsResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: ModelLabProjectsResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -1654,8 +1566,14 @@ export class ModelLabAPIApiResponseProcessor {
       ) as ModelLabProjectsResponse;
       return body;
     }
-    if (response.httpStatusCode === 400 || response.httpStatusCode === 500) {
-      const bodyText = parse(await response.body.text(), contentType);
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 500
+    ) {
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: JSONAPIErrorResponse;
       try {
         body = deserialize(
@@ -1676,7 +1594,10 @@ export class ModelLabAPIApiResponseProcessor {
       );
     }
     if (response.httpStatusCode === 429) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -1691,7 +1612,10 @@ export class ModelLabAPIApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -1722,7 +1646,9 @@ export class ModelLabAPIApiResponseProcessor {
   public async listModelLabRunArtifacts(
     response: ResponseContext,
   ): Promise<ModelLabRunArtifactsResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: ModelLabRunArtifactsResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -1736,7 +1662,10 @@ export class ModelLabAPIApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 500
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: JSONAPIErrorResponse;
       try {
         body = deserialize(
@@ -1757,7 +1686,10 @@ export class ModelLabAPIApiResponseProcessor {
       );
     }
     if (response.httpStatusCode === 429) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -1772,7 +1704,10 @@ export class ModelLabAPIApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -1803,7 +1738,9 @@ export class ModelLabAPIApiResponseProcessor {
   public async listModelLabRunFacetKeys(
     response: ResponseContext,
   ): Promise<ModelLabFacetKeysResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: ModelLabFacetKeysResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -1817,7 +1754,10 @@ export class ModelLabAPIApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 500
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: JSONAPIErrorResponse;
       try {
         body = deserialize(
@@ -1838,7 +1778,10 @@ export class ModelLabAPIApiResponseProcessor {
       );
     }
     if (response.httpStatusCode === 429) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -1853,7 +1796,10 @@ export class ModelLabAPIApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -1884,7 +1830,9 @@ export class ModelLabAPIApiResponseProcessor {
   public async listModelLabRunFacetValues(
     response: ResponseContext,
   ): Promise<ModelLabFacetValuesResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: ModelLabFacetValuesResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -1898,7 +1846,10 @@ export class ModelLabAPIApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 500
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: JSONAPIErrorResponse;
       try {
         body = deserialize(
@@ -1919,7 +1870,10 @@ export class ModelLabAPIApiResponseProcessor {
       );
     }
     if (response.httpStatusCode === 429) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -1934,7 +1888,10 @@ export class ModelLabAPIApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -1965,7 +1922,9 @@ export class ModelLabAPIApiResponseProcessor {
   public async listModelLabRuns(
     response: ResponseContext,
   ): Promise<ModelLabRunsResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: ModelLabRunsResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -1974,8 +1933,14 @@ export class ModelLabAPIApiResponseProcessor {
       ) as ModelLabRunsResponse;
       return body;
     }
-    if (response.httpStatusCode === 400 || response.httpStatusCode === 500) {
-      const bodyText = parse(await response.body.text(), contentType);
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 500
+    ) {
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: JSONAPIErrorResponse;
       try {
         body = deserialize(
@@ -1996,7 +1961,10 @@ export class ModelLabAPIApiResponseProcessor {
       );
     }
     if (response.httpStatusCode === 429) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -2011,7 +1979,10 @@ export class ModelLabAPIApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -2039,8 +2010,12 @@ export class ModelLabAPIApiResponseProcessor {
    * @params response Response returned by the server for a request to pinModelLabRun
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async pinModelLabRun(response: ResponseContext): Promise<void> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+  public async pinModelLabRun(
+    response: ResponseContext,
+  ): Promise<void> {
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 204) {
       return;
     }
@@ -2050,7 +2025,10 @@ export class ModelLabAPIApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 500
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: JSONAPIErrorResponse;
       try {
         body = deserialize(
@@ -2071,7 +2049,10 @@ export class ModelLabAPIApiResponseProcessor {
       );
     }
     if (response.httpStatusCode === 429) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -2086,7 +2067,10 @@ export class ModelLabAPIApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -2108,8 +2092,12 @@ export class ModelLabAPIApiResponseProcessor {
    * @params response Response returned by the server for a request to starModelLabProject
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async starModelLabProject(response: ResponseContext): Promise<void> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+  public async starModelLabProject(
+    response: ResponseContext,
+  ): Promise<void> {
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 204) {
       return;
     }
@@ -2119,7 +2107,10 @@ export class ModelLabAPIApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 500
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: JSONAPIErrorResponse;
       try {
         body = deserialize(
@@ -2140,7 +2131,10 @@ export class ModelLabAPIApiResponseProcessor {
       );
     }
     if (response.httpStatusCode === 429) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -2155,7 +2149,10 @@ export class ModelLabAPIApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -2177,8 +2174,12 @@ export class ModelLabAPIApiResponseProcessor {
    * @params response Response returned by the server for a request to unpinModelLabRun
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async unpinModelLabRun(response: ResponseContext): Promise<void> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+  public async unpinModelLabRun(
+    response: ResponseContext,
+  ): Promise<void> {
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 204) {
       return;
     }
@@ -2188,7 +2189,10 @@ export class ModelLabAPIApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 500
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: JSONAPIErrorResponse;
       try {
         body = deserialize(
@@ -2209,7 +2213,10 @@ export class ModelLabAPIApiResponseProcessor {
       );
     }
     if (response.httpStatusCode === 429) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -2224,7 +2231,10 @@ export class ModelLabAPIApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -2246,8 +2256,12 @@ export class ModelLabAPIApiResponseProcessor {
    * @params response Response returned by the server for a request to unstarModelLabProject
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async unstarModelLabProject(response: ResponseContext): Promise<void> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+  public async unstarModelLabProject(
+    response: ResponseContext,
+  ): Promise<void> {
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 204) {
       return;
     }
@@ -2257,7 +2271,10 @@ export class ModelLabAPIApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 500
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: JSONAPIErrorResponse;
       try {
         body = deserialize(
@@ -2278,7 +2295,10 @@ export class ModelLabAPIApiResponseProcessor {
       );
     }
     if (response.httpStatusCode === 429) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -2293,7 +2313,10 @@ export class ModelLabAPIApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -2549,7 +2572,8 @@ export class ModelLabAPIApi {
   private responseProcessor: ModelLabAPIApiResponseProcessor;
   private configuration: Configuration;
 
-  static operationServers: { [key: string]: BaseServerConfiguration[] } = {};
+  static operationServers: { [key: string]: BaseServerConfiguration[] } = {
+  };
 
   public constructor(
     configuration?: Configuration,
@@ -2558,7 +2582,8 @@ export class ModelLabAPIApi {
   ) {
     this.configuration = configuration || createConfiguration();
     this.requestFactory =
-      requestFactory || new ModelLabAPIApiRequestFactory(this.configuration);
+      requestFactory ||
+      new ModelLabAPIApiRequestFactory(this.configuration);
     this.responseProcessor =
       responseProcessor || new ModelLabAPIApiResponseProcessor();
   }
@@ -2592,19 +2617,16 @@ export class ModelLabAPIApi {
     param: ModelLabAPIApiGetModelLabArtifactContentRequest,
     options?: Configuration,
   ): Promise<HttpFile> {
-    const requestContextPromise =
-      this.requestFactory.getModelLabArtifactContent(
-        param.projectId,
-        param.artifactPath,
-        options,
-      );
+    const requestContextPromise = this.requestFactory.getModelLabArtifactContent(
+      param.projectId,
+      param.artifactPath,
+      options,
+    );
     return requestContextPromise.then((requestContext) => {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.getModelLabArtifactContent(
-            responseContext,
-          );
+          return this.responseProcessor.getModelLabArtifactContent(responseContext);
         });
     });
   }
@@ -2659,18 +2681,15 @@ export class ModelLabAPIApi {
     param: ModelLabAPIApiListModelLabProjectArtifactsRequest,
     options?: Configuration,
   ): Promise<ModelLabProjectArtifactsResponse> {
-    const requestContextPromise =
-      this.requestFactory.listModelLabProjectArtifacts(
-        param.projectId,
-        options,
-      );
+    const requestContextPromise = this.requestFactory.listModelLabProjectArtifacts(
+      param.projectId,
+      options,
+    );
     return requestContextPromise.then((requestContext) => {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.listModelLabProjectArtifacts(
-            responseContext,
-          );
+          return this.responseProcessor.listModelLabProjectArtifacts(responseContext);
         });
     });
   }
@@ -2679,18 +2698,16 @@ export class ModelLabAPIApi {
    * List all available facet keys for filtering Model Lab projects.
    * @param param The request object
    */
-  public listModelLabProjectFacetKeys(
-    options?: Configuration,
+  public listModelLabProjectFacetKeys(options?: Configuration,
   ): Promise<ModelLabFacetKeysResponse> {
-    const requestContextPromise =
-      this.requestFactory.listModelLabProjectFacetKeys(options);
+    const requestContextPromise = this.requestFactory.listModelLabProjectFacetKeys(
+      options,
+    );
     return requestContextPromise.then((requestContext) => {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.listModelLabProjectFacetKeys(
-            responseContext,
-          );
+          return this.responseProcessor.listModelLabProjectFacetKeys(responseContext);
         });
     });
   }
@@ -2703,19 +2720,16 @@ export class ModelLabAPIApi {
     param: ModelLabAPIApiListModelLabProjectFacetValuesRequest,
     options?: Configuration,
   ): Promise<ModelLabFacetValuesResponse> {
-    const requestContextPromise =
-      this.requestFactory.listModelLabProjectFacetValues(
-        param.facetType,
-        param.facetName,
-        options,
-      );
+    const requestContextPromise = this.requestFactory.listModelLabProjectFacetValues(
+      param.facetType,
+      param.facetName,
+      options,
+    );
     return requestContextPromise.then((requestContext) => {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.listModelLabProjectFacetValues(
-            responseContext,
-          );
+          return this.responseProcessor.listModelLabProjectFacetValues(responseContext);
         });
     });
   }
@@ -2763,9 +2777,7 @@ export class ModelLabAPIApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.listModelLabRunArtifacts(
-            responseContext,
-          );
+          return this.responseProcessor.listModelLabRunArtifacts(responseContext);
         });
     });
   }
@@ -2786,9 +2798,7 @@ export class ModelLabAPIApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.listModelLabRunFacetKeys(
-            responseContext,
-          );
+          return this.responseProcessor.listModelLabRunFacetKeys(responseContext);
         });
     });
   }
@@ -2801,20 +2811,17 @@ export class ModelLabAPIApi {
     param: ModelLabAPIApiListModelLabRunFacetValuesRequest,
     options?: Configuration,
   ): Promise<ModelLabFacetValuesResponse> {
-    const requestContextPromise =
-      this.requestFactory.listModelLabRunFacetValues(
-        param.filterProjectId,
-        param.facetType,
-        param.facetName,
-        options,
-      );
+    const requestContextPromise = this.requestFactory.listModelLabRunFacetValues(
+      param.filterProjectId,
+      param.facetType,
+      param.facetName,
+      options,
+    );
     return requestContextPromise.then((requestContext) => {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.listModelLabRunFacetValues(
-            responseContext,
-          );
+          return this.responseProcessor.listModelLabRunFacetValues(responseContext);
         });
     });
   }

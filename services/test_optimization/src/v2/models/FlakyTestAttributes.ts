@@ -12,7 +12,7 @@ import { FlakyTestStats } from "./FlakyTestStats";
 export class FlakyTestAttributes {
   /**
    * Unique identifier for the attempt to fix this flaky test. Use this ID in the Git commit message in order to trigger the attempt to fix workflow.
-   *
+   * 
    * When the workflow is triggered the test is automatically retried by the tracer a certain number of configurable times. When all retries pass, the test is automatically marked as fixed in Flaky Test Management.
    * Test runs are tagged with @test.test_management.attempt_to_fix_passed and @test.test_management.is_attempt_to_fix when the attempt to fix workflow is triggered.
    */
@@ -82,7 +82,7 @@ export class FlakyTestAttributes {
   "pipelineStats"?: FlakyTestPipelineStats;
   /**
    * List of test service names where this test has been flaky.
-   *
+   * 
    * A test service is a group of tests associated with a project or repository. It contains all the individual tests for your code, optionally organized into test suites, which are like folders for your tests.
    */
   "services"?: Array<string>;
@@ -103,7 +103,7 @@ export class FlakyTestAttributes {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
   /**
    * @ignore
    */

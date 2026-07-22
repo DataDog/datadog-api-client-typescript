@@ -22,8 +22,7 @@ export const TypingInfo: ModelTypingInfo = {
     EntityIntegrationConfigAttributes: EntityIntegrationConfigAttributes,
     EntityIntegrationConfigData: EntityIntegrationConfigData,
     EntityIntegrationConfigRequest: EntityIntegrationConfigRequest,
-    EntityIntegrationConfigRequestAttributes:
-      EntityIntegrationConfigRequestAttributes,
+    EntityIntegrationConfigRequestAttributes: EntityIntegrationConfigRequestAttributes,
     EntityIntegrationConfigRequestData: EntityIntegrationConfigRequestData,
     EntityIntegrationConfigResponse: EntityIntegrationConfigResponse,
     JSONAPIErrorItem: JSONAPIErrorItem,

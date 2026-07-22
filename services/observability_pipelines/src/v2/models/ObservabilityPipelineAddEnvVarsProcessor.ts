@@ -5,7 +5,7 @@ import { ObservabilityPipelineAddEnvVarsProcessorVariable } from "./Observabilit
 
 /**
  * The `add_env_vars` processor adds environment variable values to log events.
- *
+ * 
  * **Supported pipeline types:** logs
  */
 export class ObservabilityPipelineAddEnvVarsProcessor {
@@ -38,7 +38,7 @@ export class ObservabilityPipelineAddEnvVarsProcessor {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
   /**
    * @ignore
    */

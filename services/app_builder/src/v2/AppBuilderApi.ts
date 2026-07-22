@@ -19,6 +19,7 @@ import {
   ServerConfiguration,
   stringify,
   applySecurityAuthentication,
+  
 } from "@datadog/datadog-api-client";
 
 import { TypingInfo } from "./models/TypingInfo";
@@ -73,15 +74,8 @@ export class AppBuilderApiRequestFactory extends BaseAPIRequestFactory {
     const localVarPath = "/api/v2/app-builder/apps";
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "AppBuilderApi.v2.createApp",
-      AppBuilderApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.POST,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("AppBuilderApi.v2.createApp", AppBuilderApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.POST, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -91,7 +85,9 @@ export class AppBuilderApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Body Params
-    const contentType = getPreferredMediaType(["application/json"]);
+    const contentType = getPreferredMediaType([
+      "application/json",
+    ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = stringify(
       serialize(body, TypingInfo, "CreateAppRequest", ""),
@@ -126,22 +122,14 @@ export class AppBuilderApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Path Params
-    const localVarPath =
-      "/api/v2/app-builder/apps/{app_id}/publish-request".replace(
-        "{app_id}",
-        encodeURIComponent(String(appId)),
-      );
+    const localVarPath = "/api/v2/app-builder/apps/{app_id}/publish-request".replace(
+      "{app_id}",
+      encodeURIComponent(String(appId)),
+    );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "AppBuilderApi.v2.createPublishRequest",
-      AppBuilderApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.POST,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("AppBuilderApi.v2.createPublishRequest", AppBuilderApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.POST, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -151,7 +139,9 @@ export class AppBuilderApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Body Params
-    const contentType = getPreferredMediaType(["application/json"]);
+    const contentType = getPreferredMediaType([
+      "application/json",
+    ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = stringify(
       serialize(body, TypingInfo, "CreatePublishRequestRequest", ""),
@@ -186,15 +176,8 @@ export class AppBuilderApiRequestFactory extends BaseAPIRequestFactory {
     );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "AppBuilderApi.v2.deleteApp",
-      AppBuilderApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.DELETE,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("AppBuilderApi.v2.deleteApp", AppBuilderApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.DELETE, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -227,15 +210,8 @@ export class AppBuilderApiRequestFactory extends BaseAPIRequestFactory {
     const localVarPath = "/api/v2/app-builder/apps";
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "AppBuilderApi.v2.deleteApps",
-      AppBuilderApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.DELETE,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("AppBuilderApi.v2.deleteApps", AppBuilderApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.DELETE, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -245,7 +221,9 @@ export class AppBuilderApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Body Params
-    const contentType = getPreferredMediaType(["application/json"]);
+    const contentType = getPreferredMediaType([
+      "application/json",
+    ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = stringify(
       serialize(body, TypingInfo, "DeleteAppsRequest", ""),
@@ -281,15 +259,8 @@ export class AppBuilderApiRequestFactory extends BaseAPIRequestFactory {
     );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "AppBuilderApi.v2.getApp",
-      AppBuilderApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.GET,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("AppBuilderApi.v2.getApp", AppBuilderApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.GET, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -334,15 +305,8 @@ export class AppBuilderApiRequestFactory extends BaseAPIRequestFactory {
     );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "AppBuilderApi.v2.getBlueprint",
-      AppBuilderApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.GET,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("AppBuilderApi.v2.getBlueprint", AppBuilderApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.GET, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -372,22 +336,14 @@ export class AppBuilderApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Path Params
-    const localVarPath =
-      "/api/v2/app-builder/blueprints/integration-id/{integration_id}".replace(
-        "{integration_id}",
-        encodeURIComponent(String(integrationId)),
-      );
+    const localVarPath = "/api/v2/app-builder/blueprints/integration-id/{integration_id}".replace(
+      "{integration_id}",
+      encodeURIComponent(String(integrationId)),
+    );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "AppBuilderApi.v2.getBlueprintsByIntegrationId",
-      AppBuilderApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.GET,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("AppBuilderApi.v2.getBlueprintsByIntegrationId", AppBuilderApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.GET, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -423,15 +379,8 @@ export class AppBuilderApiRequestFactory extends BaseAPIRequestFactory {
     );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "AppBuilderApi.v2.getBlueprintsBySlugs",
-      AppBuilderApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.GET,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("AppBuilderApi.v2.getBlueprintsBySlugs", AppBuilderApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.GET, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -469,15 +418,8 @@ export class AppBuilderApiRequestFactory extends BaseAPIRequestFactory {
     const localVarPath = "/api/v2/app-builder/apps";
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "AppBuilderApi.v2.listApps",
-      AppBuilderApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.GET,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("AppBuilderApi.v2.listApps", AppBuilderApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.GET, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -594,15 +536,8 @@ export class AppBuilderApiRequestFactory extends BaseAPIRequestFactory {
     );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "AppBuilderApi.v2.listAppVersions",
-      AppBuilderApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.GET,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("AppBuilderApi.v2.listAppVersions", AppBuilderApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.GET, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -647,15 +582,8 @@ export class AppBuilderApiRequestFactory extends BaseAPIRequestFactory {
     const localVarPath = "/api/v2/app-builder/blueprints";
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "AppBuilderApi.v2.listBlueprints",
-      AppBuilderApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.GET,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("AppBuilderApi.v2.listBlueprints", AppBuilderApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.GET, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -689,22 +617,17 @@ export class AppBuilderApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
-  public async listTags(_options?: Configuration): Promise<RequestContext> {
+  public async listTags(
+    _options?: Configuration,
+  ): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
     // Path Params
     const localVarPath = "/api/v2/app-builder/tags";
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "AppBuilderApi.v2.listTags",
-      AppBuilderApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.GET,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("AppBuilderApi.v2.listTags", AppBuilderApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.GET, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -740,15 +663,8 @@ export class AppBuilderApiRequestFactory extends BaseAPIRequestFactory {
     );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "AppBuilderApi.v2.publishApp",
-      AppBuilderApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.POST,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("AppBuilderApi.v2.publishApp", AppBuilderApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.POST, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -790,15 +706,8 @@ export class AppBuilderApiRequestFactory extends BaseAPIRequestFactory {
     );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "AppBuilderApi.v2.revertApp",
-      AppBuilderApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.POST,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("AppBuilderApi.v2.revertApp", AppBuilderApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.POST, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -843,15 +752,8 @@ export class AppBuilderApiRequestFactory extends BaseAPIRequestFactory {
     );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "AppBuilderApi.v2.unpublishApp",
-      AppBuilderApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.DELETE,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("AppBuilderApi.v2.unpublishApp", AppBuilderApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.DELETE, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -893,15 +795,8 @@ export class AppBuilderApiRequestFactory extends BaseAPIRequestFactory {
     );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "AppBuilderApi.v2.updateApp",
-      AppBuilderApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.PATCH,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("AppBuilderApi.v2.updateApp", AppBuilderApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.PATCH, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -911,7 +806,9 @@ export class AppBuilderApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Body Params
-    const contentType = getPreferredMediaType(["application/json"]);
+    const contentType = getPreferredMediaType([
+      "application/json",
+    ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = stringify(
       serialize(body, TypingInfo, "UpdateAppRequest", ""),
@@ -952,15 +849,8 @@ export class AppBuilderApiRequestFactory extends BaseAPIRequestFactory {
     );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "AppBuilderApi.v2.updateAppFavorite",
-      AppBuilderApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.PATCH,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("AppBuilderApi.v2.updateAppFavorite", AppBuilderApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.PATCH, overrides);
     requestContext.setHeaderParam("Accept", "*/*");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -970,7 +860,9 @@ export class AppBuilderApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Body Params
-    const contentType = getPreferredMediaType(["application/json"]);
+    const contentType = getPreferredMediaType([
+      "application/json",
+    ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = stringify(
       serialize(body, TypingInfo, "UpdateAppFavoriteRequest", ""),
@@ -1005,22 +897,14 @@ export class AppBuilderApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Path Params
-    const localVarPath =
-      "/api/v2/app-builder/apps/{app_id}/self-service".replace(
-        "{app_id}",
-        encodeURIComponent(String(appId)),
-      );
+    const localVarPath = "/api/v2/app-builder/apps/{app_id}/self-service".replace(
+      "{app_id}",
+      encodeURIComponent(String(appId)),
+    );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "AppBuilderApi.v2.updateAppSelfService",
-      AppBuilderApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.PATCH,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("AppBuilderApi.v2.updateAppSelfService", AppBuilderApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.PATCH, overrides);
     requestContext.setHeaderParam("Accept", "*/*");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -1030,7 +914,9 @@ export class AppBuilderApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Body Params
-    const contentType = getPreferredMediaType(["application/json"]);
+    const contentType = getPreferredMediaType([
+      "application/json",
+    ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = stringify(
       serialize(body, TypingInfo, "UpdateAppSelfServiceRequest", ""),
@@ -1071,15 +957,8 @@ export class AppBuilderApiRequestFactory extends BaseAPIRequestFactory {
     );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "AppBuilderApi.v2.updateAppTags",
-      AppBuilderApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.PATCH,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("AppBuilderApi.v2.updateAppTags", AppBuilderApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.PATCH, overrides);
     requestContext.setHeaderParam("Accept", "*/*");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -1089,7 +968,9 @@ export class AppBuilderApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Body Params
-    const contentType = getPreferredMediaType(["application/json"]);
+    const contentType = getPreferredMediaType([
+      "application/json",
+    ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = stringify(
       serialize(body, TypingInfo, "UpdateAppTagsRequest", ""),
@@ -1130,22 +1011,14 @@ export class AppBuilderApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Path Params
-    const localVarPath =
-      "/api/v2/app-builder/apps/{app_id}/version-name".replace(
-        "{app_id}",
-        encodeURIComponent(String(appId)),
-      );
+    const localVarPath = "/api/v2/app-builder/apps/{app_id}/version-name".replace(
+      "{app_id}",
+      encodeURIComponent(String(appId)),
+    );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "AppBuilderApi.v2.updateAppVersionName",
-      AppBuilderApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.PATCH,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("AppBuilderApi.v2.updateAppVersionName", AppBuilderApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.PATCH, overrides);
     requestContext.setHeaderParam("Accept", "*/*");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -1164,7 +1037,9 @@ export class AppBuilderApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Body Params
-    const contentType = getPreferredMediaType(["application/json"]);
+    const contentType = getPreferredMediaType([
+      "application/json",
+    ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = stringify(
       serialize(body, TypingInfo, "UpdateAppVersionNameRequest", ""),
@@ -1199,22 +1074,14 @@ export class AppBuilderApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Path Params
-    const localVarPath =
-      "/api/v2/app-builder/apps/{app_id}/protection-level".replace(
-        "{app_id}",
-        encodeURIComponent(String(appId)),
-      );
+    const localVarPath = "/api/v2/app-builder/apps/{app_id}/protection-level".replace(
+      "{app_id}",
+      encodeURIComponent(String(appId)),
+    );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "AppBuilderApi.v2.updateProtectionLevel",
-      AppBuilderApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.PATCH,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("AppBuilderApi.v2.updateProtectionLevel", AppBuilderApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.PATCH, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -1224,7 +1091,9 @@ export class AppBuilderApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Body Params
-    const contentType = getPreferredMediaType(["application/json"]);
+    const contentType = getPreferredMediaType([
+      "application/json",
+    ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = stringify(
       serialize(body, TypingInfo, "UpdateAppProtectionLevelRequest", ""),
@@ -1253,7 +1122,9 @@ export class AppBuilderApiResponseProcessor {
   public async createApp(
     response: ResponseContext,
   ): Promise<CreateAppResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 201) {
       const body: CreateAppResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -1262,8 +1133,14 @@ export class AppBuilderApiResponseProcessor {
       ) as CreateAppResponse;
       return body;
     }
-    if (response.httpStatusCode === 400 || response.httpStatusCode === 403) {
-      const bodyText = parse(await response.body.text(), contentType);
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 403
+    ) {
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: JSONAPIErrorResponse;
       try {
         body = deserialize(
@@ -1284,7 +1161,10 @@ export class AppBuilderApiResponseProcessor {
       );
     }
     if (response.httpStatusCode === 429) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -1299,7 +1179,10 @@ export class AppBuilderApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -1330,7 +1213,9 @@ export class AppBuilderApiResponseProcessor {
   public async createPublishRequest(
     response: ResponseContext,
   ): Promise<PublishAppResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 201) {
       const body: PublishAppResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -1344,7 +1229,10 @@ export class AppBuilderApiResponseProcessor {
       response.httpStatusCode === 403 ||
       response.httpStatusCode === 404
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: JSONAPIErrorResponse;
       try {
         body = deserialize(
@@ -1365,7 +1253,10 @@ export class AppBuilderApiResponseProcessor {
       );
     }
     if (response.httpStatusCode === 429) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -1380,7 +1271,10 @@ export class AppBuilderApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -1411,7 +1305,9 @@ export class AppBuilderApiResponseProcessor {
   public async deleteApp(
     response: ResponseContext,
   ): Promise<DeleteAppResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: DeleteAppResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -1426,7 +1322,10 @@ export class AppBuilderApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 410
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: JSONAPIErrorResponse;
       try {
         body = deserialize(
@@ -1447,7 +1346,10 @@ export class AppBuilderApiResponseProcessor {
       );
     }
     if (response.httpStatusCode === 429) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -1462,7 +1364,10 @@ export class AppBuilderApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -1493,7 +1398,9 @@ export class AppBuilderApiResponseProcessor {
   public async deleteApps(
     response: ResponseContext,
   ): Promise<DeleteAppsResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: DeleteAppsResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -1507,7 +1414,10 @@ export class AppBuilderApiResponseProcessor {
       response.httpStatusCode === 403 ||
       response.httpStatusCode === 404
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: JSONAPIErrorResponse;
       try {
         body = deserialize(
@@ -1528,7 +1438,10 @@ export class AppBuilderApiResponseProcessor {
       );
     }
     if (response.httpStatusCode === 429) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -1543,7 +1456,10 @@ export class AppBuilderApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -1571,8 +1487,12 @@ export class AppBuilderApiResponseProcessor {
    * @params response Response returned by the server for a request to getApp
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async getApp(response: ResponseContext): Promise<GetAppResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+  public async getApp(
+    response: ResponseContext,
+  ): Promise<GetAppResponse> {
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: GetAppResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -1587,7 +1507,10 @@ export class AppBuilderApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 410
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: JSONAPIErrorResponse;
       try {
         body = deserialize(
@@ -1608,7 +1531,10 @@ export class AppBuilderApiResponseProcessor {
       );
     }
     if (response.httpStatusCode === 429) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -1623,7 +1549,10 @@ export class AppBuilderApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -1654,7 +1583,9 @@ export class AppBuilderApiResponseProcessor {
   public async getBlueprint(
     response: ResponseContext,
   ): Promise<GetBlueprintResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: GetBlueprintResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -1663,8 +1594,14 @@ export class AppBuilderApiResponseProcessor {
       ) as GetBlueprintResponse;
       return body;
     }
-    if (response.httpStatusCode === 403 || response.httpStatusCode === 404) {
-      const bodyText = parse(await response.body.text(), contentType);
+    if (
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 404
+    ) {
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: JSONAPIErrorResponse;
       try {
         body = deserialize(
@@ -1685,7 +1622,10 @@ export class AppBuilderApiResponseProcessor {
       );
     }
     if (response.httpStatusCode === 429) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -1700,7 +1640,10 @@ export class AppBuilderApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -1731,7 +1674,9 @@ export class AppBuilderApiResponseProcessor {
   public async getBlueprintsByIntegrationId(
     response: ResponseContext,
   ): Promise<GetBlueprintsResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: GetBlueprintsResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -1741,7 +1686,10 @@ export class AppBuilderApiResponseProcessor {
       return body;
     }
     if (response.httpStatusCode === 403) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: JSONAPIErrorResponse;
       try {
         body = deserialize(
@@ -1762,7 +1710,10 @@ export class AppBuilderApiResponseProcessor {
       );
     }
     if (response.httpStatusCode === 429) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -1777,7 +1728,10 @@ export class AppBuilderApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -1808,7 +1762,9 @@ export class AppBuilderApiResponseProcessor {
   public async getBlueprintsBySlugs(
     response: ResponseContext,
   ): Promise<GetBlueprintsResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: GetBlueprintsResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -1818,7 +1774,10 @@ export class AppBuilderApiResponseProcessor {
       return body;
     }
     if (response.httpStatusCode === 403) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: JSONAPIErrorResponse;
       try {
         body = deserialize(
@@ -1839,7 +1798,10 @@ export class AppBuilderApiResponseProcessor {
       );
     }
     if (response.httpStatusCode === 429) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -1854,7 +1816,10 @@ export class AppBuilderApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -1882,8 +1847,12 @@ export class AppBuilderApiResponseProcessor {
    * @params response Response returned by the server for a request to listApps
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async listApps(response: ResponseContext): Promise<ListAppsResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+  public async listApps(
+    response: ResponseContext,
+  ): Promise<ListAppsResponse> {
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: ListAppsResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -1892,8 +1861,14 @@ export class AppBuilderApiResponseProcessor {
       ) as ListAppsResponse;
       return body;
     }
-    if (response.httpStatusCode === 400 || response.httpStatusCode === 403) {
-      const bodyText = parse(await response.body.text(), contentType);
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 403
+    ) {
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: JSONAPIErrorResponse;
       try {
         body = deserialize(
@@ -1914,7 +1889,10 @@ export class AppBuilderApiResponseProcessor {
       );
     }
     if (response.httpStatusCode === 429) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -1929,7 +1907,10 @@ export class AppBuilderApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -1960,7 +1941,9 @@ export class AppBuilderApiResponseProcessor {
   public async listAppVersions(
     response: ResponseContext,
   ): Promise<ListAppVersionsResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: ListAppVersionsResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -1974,7 +1957,10 @@ export class AppBuilderApiResponseProcessor {
       response.httpStatusCode === 403 ||
       response.httpStatusCode === 404
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: JSONAPIErrorResponse;
       try {
         body = deserialize(
@@ -1995,7 +1981,10 @@ export class AppBuilderApiResponseProcessor {
       );
     }
     if (response.httpStatusCode === 429) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -2010,7 +1999,10 @@ export class AppBuilderApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -2041,7 +2033,9 @@ export class AppBuilderApiResponseProcessor {
   public async listBlueprints(
     response: ResponseContext,
   ): Promise<ListBlueprintsResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: ListBlueprintsResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -2051,7 +2045,10 @@ export class AppBuilderApiResponseProcessor {
       return body;
     }
     if (response.httpStatusCode === 403) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: JSONAPIErrorResponse;
       try {
         body = deserialize(
@@ -2072,7 +2069,10 @@ export class AppBuilderApiResponseProcessor {
       );
     }
     if (response.httpStatusCode === 429) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -2087,7 +2087,10 @@ export class AppBuilderApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -2118,7 +2121,9 @@ export class AppBuilderApiResponseProcessor {
   public async listTags(
     response: ResponseContext,
   ): Promise<AppBuilderListTagsResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: AppBuilderListTagsResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -2128,7 +2133,10 @@ export class AppBuilderApiResponseProcessor {
       return body;
     }
     if (response.httpStatusCode === 403) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: JSONAPIErrorResponse;
       try {
         body = deserialize(
@@ -2149,7 +2157,10 @@ export class AppBuilderApiResponseProcessor {
       );
     }
     if (response.httpStatusCode === 429) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -2164,7 +2175,10 @@ export class AppBuilderApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -2195,7 +2209,9 @@ export class AppBuilderApiResponseProcessor {
   public async publishApp(
     response: ResponseContext,
   ): Promise<PublishAppResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 201) {
       const body: PublishAppResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -2209,7 +2225,10 @@ export class AppBuilderApiResponseProcessor {
       response.httpStatusCode === 403 ||
       response.httpStatusCode === 404
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: JSONAPIErrorResponse;
       try {
         body = deserialize(
@@ -2230,7 +2249,10 @@ export class AppBuilderApiResponseProcessor {
       );
     }
     if (response.httpStatusCode === 429) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -2245,7 +2267,10 @@ export class AppBuilderApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -2276,7 +2301,9 @@ export class AppBuilderApiResponseProcessor {
   public async revertApp(
     response: ResponseContext,
   ): Promise<UpdateAppResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: UpdateAppResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -2290,7 +2317,10 @@ export class AppBuilderApiResponseProcessor {
       response.httpStatusCode === 403 ||
       response.httpStatusCode === 404
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: JSONAPIErrorResponse;
       try {
         body = deserialize(
@@ -2311,7 +2341,10 @@ export class AppBuilderApiResponseProcessor {
       );
     }
     if (response.httpStatusCode === 429) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -2326,7 +2359,10 @@ export class AppBuilderApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -2357,7 +2393,9 @@ export class AppBuilderApiResponseProcessor {
   public async unpublishApp(
     response: ResponseContext,
   ): Promise<UnpublishAppResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: UnpublishAppResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -2371,7 +2409,10 @@ export class AppBuilderApiResponseProcessor {
       response.httpStatusCode === 403 ||
       response.httpStatusCode === 404
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: JSONAPIErrorResponse;
       try {
         body = deserialize(
@@ -2392,7 +2433,10 @@ export class AppBuilderApiResponseProcessor {
       );
     }
     if (response.httpStatusCode === 429) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -2407,7 +2451,10 @@ export class AppBuilderApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -2438,7 +2485,9 @@ export class AppBuilderApiResponseProcessor {
   public async updateApp(
     response: ResponseContext,
   ): Promise<UpdateAppResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: UpdateAppResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -2447,8 +2496,14 @@ export class AppBuilderApiResponseProcessor {
       ) as UpdateAppResponse;
       return body;
     }
-    if (response.httpStatusCode === 400 || response.httpStatusCode === 403) {
-      const bodyText = parse(await response.body.text(), contentType);
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 403
+    ) {
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: JSONAPIErrorResponse;
       try {
         body = deserialize(
@@ -2469,7 +2524,10 @@ export class AppBuilderApiResponseProcessor {
       );
     }
     if (response.httpStatusCode === 429) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -2484,7 +2542,10 @@ export class AppBuilderApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -2512,8 +2573,12 @@ export class AppBuilderApiResponseProcessor {
    * @params response Response returned by the server for a request to updateAppFavorite
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async updateAppFavorite(response: ResponseContext): Promise<void> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+  public async updateAppFavorite(
+    response: ResponseContext,
+  ): Promise<void> {
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 204) {
       return;
     }
@@ -2522,7 +2587,10 @@ export class AppBuilderApiResponseProcessor {
       response.httpStatusCode === 403 ||
       response.httpStatusCode === 404
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: JSONAPIErrorResponse;
       try {
         body = deserialize(
@@ -2543,7 +2611,10 @@ export class AppBuilderApiResponseProcessor {
       );
     }
     if (response.httpStatusCode === 429) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -2558,7 +2629,10 @@ export class AppBuilderApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -2580,8 +2654,12 @@ export class AppBuilderApiResponseProcessor {
    * @params response Response returned by the server for a request to updateAppSelfService
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async updateAppSelfService(response: ResponseContext): Promise<void> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+  public async updateAppSelfService(
+    response: ResponseContext,
+  ): Promise<void> {
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 204) {
       return;
     }
@@ -2590,7 +2668,10 @@ export class AppBuilderApiResponseProcessor {
       response.httpStatusCode === 403 ||
       response.httpStatusCode === 404
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: JSONAPIErrorResponse;
       try {
         body = deserialize(
@@ -2611,7 +2692,10 @@ export class AppBuilderApiResponseProcessor {
       );
     }
     if (response.httpStatusCode === 429) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -2626,7 +2710,10 @@ export class AppBuilderApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -2648,8 +2735,12 @@ export class AppBuilderApiResponseProcessor {
    * @params response Response returned by the server for a request to updateAppTags
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async updateAppTags(response: ResponseContext): Promise<void> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+  public async updateAppTags(
+    response: ResponseContext,
+  ): Promise<void> {
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 204) {
       return;
     }
@@ -2658,7 +2749,10 @@ export class AppBuilderApiResponseProcessor {
       response.httpStatusCode === 403 ||
       response.httpStatusCode === 404
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: JSONAPIErrorResponse;
       try {
         body = deserialize(
@@ -2679,7 +2773,10 @@ export class AppBuilderApiResponseProcessor {
       );
     }
     if (response.httpStatusCode === 429) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -2694,7 +2791,10 @@ export class AppBuilderApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -2716,8 +2816,12 @@ export class AppBuilderApiResponseProcessor {
    * @params response Response returned by the server for a request to updateAppVersionName
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async updateAppVersionName(response: ResponseContext): Promise<void> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+  public async updateAppVersionName(
+    response: ResponseContext,
+  ): Promise<void> {
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 204) {
       return;
     }
@@ -2726,7 +2830,10 @@ export class AppBuilderApiResponseProcessor {
       response.httpStatusCode === 403 ||
       response.httpStatusCode === 404
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: JSONAPIErrorResponse;
       try {
         body = deserialize(
@@ -2747,7 +2854,10 @@ export class AppBuilderApiResponseProcessor {
       );
     }
     if (response.httpStatusCode === 429) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -2762,7 +2872,10 @@ export class AppBuilderApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -2787,7 +2900,9 @@ export class AppBuilderApiResponseProcessor {
   public async updateProtectionLevel(
     response: ResponseContext,
   ): Promise<UpdateAppResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: UpdateAppResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -2801,7 +2916,10 @@ export class AppBuilderApiResponseProcessor {
       response.httpStatusCode === 403 ||
       response.httpStatusCode === 404
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: JSONAPIErrorResponse;
       try {
         body = deserialize(
@@ -2822,7 +2940,10 @@ export class AppBuilderApiResponseProcessor {
       );
     }
     if (response.httpStatusCode === 429) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -2837,7 +2958,10 @@ export class AppBuilderApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -3130,7 +3254,8 @@ export class AppBuilderApi {
   private responseProcessor: AppBuilderApiResponseProcessor;
   private configuration: Configuration;
 
-  static operationServers: { [key: string]: BaseServerConfiguration[] } = {};
+  static operationServers: { [key: string]: BaseServerConfiguration[] } = {
+  };
 
   public constructor(
     configuration?: Configuration,
@@ -3139,7 +3264,8 @@ export class AppBuilderApi {
   ) {
     this.configuration = configuration || createConfiguration();
     this.requestFactory =
-      requestFactory || new AppBuilderApiRequestFactory(this.configuration);
+      requestFactory ||
+      new AppBuilderApiRequestFactory(this.configuration);
     this.responseProcessor =
       responseProcessor || new AppBuilderApiResponseProcessor();
   }
@@ -3280,18 +3406,15 @@ export class AppBuilderApi {
     param: AppBuilderApiGetBlueprintsByIntegrationIdRequest,
     options?: Configuration,
   ): Promise<GetBlueprintsResponse> {
-    const requestContextPromise =
-      this.requestFactory.getBlueprintsByIntegrationId(
-        param.integrationId,
-        options,
-      );
+    const requestContextPromise = this.requestFactory.getBlueprintsByIntegrationId(
+      param.integrationId,
+      options,
+    );
     return requestContextPromise.then((requestContext) => {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.getBlueprintsByIntegrationId(
-            responseContext,
-          );
+          return this.responseProcessor.getBlueprintsByIntegrationId(responseContext);
         });
     });
   }
@@ -3397,10 +3520,11 @@ export class AppBuilderApi {
    * List all tags associated with the authenticated user's apps.
    * @param param The request object
    */
-  public listTags(
-    options?: Configuration,
+  public listTags(options?: Configuration,
   ): Promise<AppBuilderListTagsResponse> {
-    const requestContextPromise = this.requestFactory.listTags(options);
+    const requestContextPromise = this.requestFactory.listTags(
+      options,
+    );
     return requestContextPromise.then((requestContext) => {
       return this.configuration.httpApi
         .send(requestContext)

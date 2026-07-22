@@ -19,6 +19,7 @@ import {
   ServerConfiguration,
   stringify,
   applySecurityAuthentication,
+  
 } from "@datadog/datadog-api-client";
 
 import { TypingInfo } from "./models/TypingInfo";
@@ -53,15 +54,8 @@ export class OrgConnectionsApiRequestFactory extends BaseAPIRequestFactory {
     const localVarPath = "/api/v2/org_connections";
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "OrgConnectionsApi.v2.createOrgConnections",
-      OrgConnectionsApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.POST,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("OrgConnectionsApi.v2.createOrgConnections", OrgConnectionsApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.POST, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -71,7 +65,9 @@ export class OrgConnectionsApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Body Params
-    const contentType = getPreferredMediaType(["application/json"]);
+    const contentType = getPreferredMediaType([
+      "application/json",
+    ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = stringify(
       serialize(body, TypingInfo, "OrgConnectionCreateRequest", ""),
@@ -107,15 +103,8 @@ export class OrgConnectionsApiRequestFactory extends BaseAPIRequestFactory {
     );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "OrgConnectionsApi.v2.deleteOrgConnections",
-      OrgConnectionsApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.DELETE,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("OrgConnectionsApi.v2.deleteOrgConnections", OrgConnectionsApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.DELETE, overrides);
     requestContext.setHeaderParam("Accept", "*/*");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -147,15 +136,8 @@ export class OrgConnectionsApiRequestFactory extends BaseAPIRequestFactory {
     const localVarPath = "/api/v2/org_connections";
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "OrgConnectionsApi.v2.listOrgConnections",
-      OrgConnectionsApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.GET,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("OrgConnectionsApi.v2.listOrgConnections", OrgConnectionsApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.GET, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -228,15 +210,8 @@ export class OrgConnectionsApiRequestFactory extends BaseAPIRequestFactory {
     );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "OrgConnectionsApi.v2.updateOrgConnections",
-      OrgConnectionsApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.PATCH,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("OrgConnectionsApi.v2.updateOrgConnections", OrgConnectionsApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.PATCH, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -246,7 +221,9 @@ export class OrgConnectionsApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Body Params
-    const contentType = getPreferredMediaType(["application/json"]);
+    const contentType = getPreferredMediaType([
+      "application/json",
+    ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = stringify(
       serialize(body, TypingInfo, "OrgConnectionUpdateRequest", ""),
@@ -276,7 +253,9 @@ export class OrgConnectionsApiResponseProcessor {
   public async createOrgConnections(
     response: ResponseContext,
   ): Promise<OrgConnectionResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: OrgConnectionResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -293,7 +272,10 @@ export class OrgConnectionsApiResponseProcessor {
       response.httpStatusCode === 409 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -308,7 +290,10 @@ export class OrgConnectionsApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -336,8 +321,12 @@ export class OrgConnectionsApiResponseProcessor {
    * @params response Response returned by the server for a request to deleteOrgConnections
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async deleteOrgConnections(response: ResponseContext): Promise<void> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+  public async deleteOrgConnections(
+    response: ResponseContext,
+  ): Promise<void> {
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       return;
     }
@@ -348,7 +337,10 @@ export class OrgConnectionsApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -363,7 +355,10 @@ export class OrgConnectionsApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -388,7 +383,9 @@ export class OrgConnectionsApiResponseProcessor {
   public async listOrgConnections(
     response: ResponseContext,
   ): Promise<OrgConnectionListResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: OrgConnectionListResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -402,7 +399,10 @@ export class OrgConnectionsApiResponseProcessor {
       response.httpStatusCode === 403 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -417,7 +417,10 @@ export class OrgConnectionsApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -448,7 +451,9 @@ export class OrgConnectionsApiResponseProcessor {
   public async updateOrgConnections(
     response: ResponseContext,
   ): Promise<OrgConnectionResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: OrgConnectionResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -464,7 +469,10 @@ export class OrgConnectionsApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -479,7 +487,10 @@ export class OrgConnectionsApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -556,7 +567,8 @@ export class OrgConnectionsApi {
   private responseProcessor: OrgConnectionsApiResponseProcessor;
   private configuration: Configuration;
 
-  static operationServers: { [key: string]: BaseServerConfiguration[] } = {};
+  static operationServers: { [key: string]: BaseServerConfiguration[] } = {
+  };
 
   public constructor(
     configuration?: Configuration,
@@ -565,7 +577,8 @@ export class OrgConnectionsApi {
   ) {
     this.configuration = configuration || createConfiguration();
     this.requestFactory =
-      requestFactory || new OrgConnectionsApiRequestFactory(this.configuration);
+      requestFactory ||
+      new OrgConnectionsApiRequestFactory(this.configuration);
     this.responseProcessor =
       responseProcessor || new OrgConnectionsApiResponseProcessor();
   }

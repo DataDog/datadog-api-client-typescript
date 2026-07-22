@@ -19,6 +19,7 @@ import {
   ServerConfiguration,
   stringify,
   applySecurityAuthentication,
+  
 } from "@datadog/datadog-api-client";
 
 import { TypingInfo } from "./models/TypingInfo";
@@ -48,22 +49,13 @@ export class LogsRestrictionQueriesApiRequestFactory extends BaseAPIRequestFacto
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
-    if (
-      !_config.unstableOperations[
-        "LogsRestrictionQueriesApi.v2.addRoleToRestrictionQuery"
-      ]
-    ) {
-      throw new Error(
-        "Unstable operation 'addRoleToRestrictionQuery' is disabled. Enable it by setting `configuration.unstableOperations['LogsRestrictionQueriesApi.v2.addRoleToRestrictionQuery'] = true`",
-      );
+    if (!_config.unstableOperations["LogsRestrictionQueriesApi.v2.addRoleToRestrictionQuery"]) {
+      throw new Error("Unstable operation 'addRoleToRestrictionQuery' is disabled. Enable it by setting `configuration.unstableOperations['LogsRestrictionQueriesApi.v2.addRoleToRestrictionQuery'] = true`");
     }
 
     // verify required parameter 'restrictionQueryId' is not null or undefined
     if (restrictionQueryId === null || restrictionQueryId === undefined) {
-      throw new RequiredError(
-        "restrictionQueryId",
-        "addRoleToRestrictionQuery",
-      );
+      throw new RequiredError("restrictionQueryId", "addRoleToRestrictionQuery");
     }
 
     // verify required parameter 'body' is not null or undefined
@@ -72,22 +64,14 @@ export class LogsRestrictionQueriesApiRequestFactory extends BaseAPIRequestFacto
     }
 
     // Path Params
-    const localVarPath =
-      "/api/v2/logs/config/restriction_queries/{restriction_query_id}/roles".replace(
-        "{restriction_query_id}",
-        encodeURIComponent(String(restrictionQueryId)),
-      );
+    const localVarPath = "/api/v2/logs/config/restriction_queries/{restriction_query_id}/roles".replace(
+      "{restriction_query_id}",
+      encodeURIComponent(String(restrictionQueryId)),
+    );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "LogsRestrictionQueriesApi.v2.addRoleToRestrictionQuery",
-      LogsRestrictionQueriesApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.POST,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("LogsRestrictionQueriesApi.v2.addRoleToRestrictionQuery", LogsRestrictionQueriesApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.POST, overrides);
     requestContext.setHeaderParam("Accept", "*/*");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -97,7 +81,9 @@ export class LogsRestrictionQueriesApiRequestFactory extends BaseAPIRequestFacto
     }
 
     // Body Params
-    const contentType = getPreferredMediaType(["application/json"]);
+    const contentType = getPreferredMediaType([
+      "application/json",
+    ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = stringify(
       serialize(body, TypingInfo, "RelationshipToRole", ""),
@@ -120,14 +106,8 @@ export class LogsRestrictionQueriesApiRequestFactory extends BaseAPIRequestFacto
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
-    if (
-      !_config.unstableOperations[
-        "LogsRestrictionQueriesApi.v2.createRestrictionQuery"
-      ]
-    ) {
-      throw new Error(
-        "Unstable operation 'createRestrictionQuery' is disabled. Enable it by setting `configuration.unstableOperations['LogsRestrictionQueriesApi.v2.createRestrictionQuery'] = true`",
-      );
+    if (!_config.unstableOperations["LogsRestrictionQueriesApi.v2.createRestrictionQuery"]) {
+      throw new Error("Unstable operation 'createRestrictionQuery' is disabled. Enable it by setting `configuration.unstableOperations['LogsRestrictionQueriesApi.v2.createRestrictionQuery'] = true`");
     }
 
     // verify required parameter 'body' is not null or undefined
@@ -139,15 +119,8 @@ export class LogsRestrictionQueriesApiRequestFactory extends BaseAPIRequestFacto
     const localVarPath = "/api/v2/logs/config/restriction_queries";
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "LogsRestrictionQueriesApi.v2.createRestrictionQuery",
-      LogsRestrictionQueriesApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.POST,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("LogsRestrictionQueriesApi.v2.createRestrictionQuery", LogsRestrictionQueriesApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.POST, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -157,7 +130,9 @@ export class LogsRestrictionQueriesApiRequestFactory extends BaseAPIRequestFacto
     }
 
     // Body Params
-    const contentType = getPreferredMediaType(["application/json"]);
+    const contentType = getPreferredMediaType([
+      "application/json",
+    ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = stringify(
       serialize(body, TypingInfo, "RestrictionQueryCreatePayload", ""),
@@ -180,14 +155,8 @@ export class LogsRestrictionQueriesApiRequestFactory extends BaseAPIRequestFacto
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
-    if (
-      !_config.unstableOperations[
-        "LogsRestrictionQueriesApi.v2.deleteRestrictionQuery"
-      ]
-    ) {
-      throw new Error(
-        "Unstable operation 'deleteRestrictionQuery' is disabled. Enable it by setting `configuration.unstableOperations['LogsRestrictionQueriesApi.v2.deleteRestrictionQuery'] = true`",
-      );
+    if (!_config.unstableOperations["LogsRestrictionQueriesApi.v2.deleteRestrictionQuery"]) {
+      throw new Error("Unstable operation 'deleteRestrictionQuery' is disabled. Enable it by setting `configuration.unstableOperations['LogsRestrictionQueriesApi.v2.deleteRestrictionQuery'] = true`");
     }
 
     // verify required parameter 'restrictionQueryId' is not null or undefined
@@ -196,22 +165,14 @@ export class LogsRestrictionQueriesApiRequestFactory extends BaseAPIRequestFacto
     }
 
     // Path Params
-    const localVarPath =
-      "/api/v2/logs/config/restriction_queries/{restriction_query_id}".replace(
-        "{restriction_query_id}",
-        encodeURIComponent(String(restrictionQueryId)),
-      );
+    const localVarPath = "/api/v2/logs/config/restriction_queries/{restriction_query_id}".replace(
+      "{restriction_query_id}",
+      encodeURIComponent(String(restrictionQueryId)),
+    );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "LogsRestrictionQueriesApi.v2.deleteRestrictionQuery",
-      LogsRestrictionQueriesApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.DELETE,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("LogsRestrictionQueriesApi.v2.deleteRestrictionQuery", LogsRestrictionQueriesApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.DELETE, overrides);
     requestContext.setHeaderParam("Accept", "*/*");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -235,14 +196,8 @@ export class LogsRestrictionQueriesApiRequestFactory extends BaseAPIRequestFacto
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
-    if (
-      !_config.unstableOperations[
-        "LogsRestrictionQueriesApi.v2.getRestrictionQuery"
-      ]
-    ) {
-      throw new Error(
-        "Unstable operation 'getRestrictionQuery' is disabled. Enable it by setting `configuration.unstableOperations['LogsRestrictionQueriesApi.v2.getRestrictionQuery'] = true`",
-      );
+    if (!_config.unstableOperations["LogsRestrictionQueriesApi.v2.getRestrictionQuery"]) {
+      throw new Error("Unstable operation 'getRestrictionQuery' is disabled. Enable it by setting `configuration.unstableOperations['LogsRestrictionQueriesApi.v2.getRestrictionQuery'] = true`");
     }
 
     // verify required parameter 'restrictionQueryId' is not null or undefined
@@ -251,22 +206,14 @@ export class LogsRestrictionQueriesApiRequestFactory extends BaseAPIRequestFacto
     }
 
     // Path Params
-    const localVarPath =
-      "/api/v2/logs/config/restriction_queries/{restriction_query_id}".replace(
-        "{restriction_query_id}",
-        encodeURIComponent(String(restrictionQueryId)),
-      );
+    const localVarPath = "/api/v2/logs/config/restriction_queries/{restriction_query_id}".replace(
+      "{restriction_query_id}",
+      encodeURIComponent(String(restrictionQueryId)),
+    );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "LogsRestrictionQueriesApi.v2.getRestrictionQuery",
-      LogsRestrictionQueriesApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.GET,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("LogsRestrictionQueriesApi.v2.getRestrictionQuery", LogsRestrictionQueriesApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.GET, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -290,14 +237,8 @@ export class LogsRestrictionQueriesApiRequestFactory extends BaseAPIRequestFacto
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
-    if (
-      !_config.unstableOperations[
-        "LogsRestrictionQueriesApi.v2.getRoleRestrictionQuery"
-      ]
-    ) {
-      throw new Error(
-        "Unstable operation 'getRoleRestrictionQuery' is disabled. Enable it by setting `configuration.unstableOperations['LogsRestrictionQueriesApi.v2.getRoleRestrictionQuery'] = true`",
-      );
+    if (!_config.unstableOperations["LogsRestrictionQueriesApi.v2.getRoleRestrictionQuery"]) {
+      throw new Error("Unstable operation 'getRoleRestrictionQuery' is disabled. Enable it by setting `configuration.unstableOperations['LogsRestrictionQueriesApi.v2.getRoleRestrictionQuery'] = true`");
     }
 
     // verify required parameter 'roleId' is not null or undefined
@@ -306,22 +247,14 @@ export class LogsRestrictionQueriesApiRequestFactory extends BaseAPIRequestFacto
     }
 
     // Path Params
-    const localVarPath =
-      "/api/v2/logs/config/restriction_queries/role/{role_id}".replace(
-        "{role_id}",
-        encodeURIComponent(String(roleId)),
-      );
+    const localVarPath = "/api/v2/logs/config/restriction_queries/role/{role_id}".replace(
+      "{role_id}",
+      encodeURIComponent(String(roleId)),
+    );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "LogsRestrictionQueriesApi.v2.getRoleRestrictionQuery",
-      LogsRestrictionQueriesApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.GET,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("LogsRestrictionQueriesApi.v2.getRoleRestrictionQuery", LogsRestrictionQueriesApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.GET, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -346,29 +279,16 @@ export class LogsRestrictionQueriesApiRequestFactory extends BaseAPIRequestFacto
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
-    if (
-      !_config.unstableOperations[
-        "LogsRestrictionQueriesApi.v2.listRestrictionQueries"
-      ]
-    ) {
-      throw new Error(
-        "Unstable operation 'listRestrictionQueries' is disabled. Enable it by setting `configuration.unstableOperations['LogsRestrictionQueriesApi.v2.listRestrictionQueries'] = true`",
-      );
+    if (!_config.unstableOperations["LogsRestrictionQueriesApi.v2.listRestrictionQueries"]) {
+      throw new Error("Unstable operation 'listRestrictionQueries' is disabled. Enable it by setting `configuration.unstableOperations['LogsRestrictionQueriesApi.v2.listRestrictionQueries'] = true`");
     }
 
     // Path Params
     const localVarPath = "/api/v2/logs/config/restriction_queries";
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "LogsRestrictionQueriesApi.v2.listRestrictionQueries",
-      LogsRestrictionQueriesApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.GET,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("LogsRestrictionQueriesApi.v2.listRestrictionQueries", LogsRestrictionQueriesApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.GET, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -410,41 +330,24 @@ export class LogsRestrictionQueriesApiRequestFactory extends BaseAPIRequestFacto
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
-    if (
-      !_config.unstableOperations[
-        "LogsRestrictionQueriesApi.v2.listRestrictionQueryRoles"
-      ]
-    ) {
-      throw new Error(
-        "Unstable operation 'listRestrictionQueryRoles' is disabled. Enable it by setting `configuration.unstableOperations['LogsRestrictionQueriesApi.v2.listRestrictionQueryRoles'] = true`",
-      );
+    if (!_config.unstableOperations["LogsRestrictionQueriesApi.v2.listRestrictionQueryRoles"]) {
+      throw new Error("Unstable operation 'listRestrictionQueryRoles' is disabled. Enable it by setting `configuration.unstableOperations['LogsRestrictionQueriesApi.v2.listRestrictionQueryRoles'] = true`");
     }
 
     // verify required parameter 'restrictionQueryId' is not null or undefined
     if (restrictionQueryId === null || restrictionQueryId === undefined) {
-      throw new RequiredError(
-        "restrictionQueryId",
-        "listRestrictionQueryRoles",
-      );
+      throw new RequiredError("restrictionQueryId", "listRestrictionQueryRoles");
     }
 
     // Path Params
-    const localVarPath =
-      "/api/v2/logs/config/restriction_queries/{restriction_query_id}/roles".replace(
-        "{restriction_query_id}",
-        encodeURIComponent(String(restrictionQueryId)),
-      );
+    const localVarPath = "/api/v2/logs/config/restriction_queries/{restriction_query_id}/roles".replace(
+      "{restriction_query_id}",
+      encodeURIComponent(String(restrictionQueryId)),
+    );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "LogsRestrictionQueriesApi.v2.listRestrictionQueryRoles",
-      LogsRestrictionQueriesApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.GET,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("LogsRestrictionQueriesApi.v2.listRestrictionQueryRoles", LogsRestrictionQueriesApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.GET, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -484,14 +387,8 @@ export class LogsRestrictionQueriesApiRequestFactory extends BaseAPIRequestFacto
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
-    if (
-      !_config.unstableOperations[
-        "LogsRestrictionQueriesApi.v2.listUserRestrictionQueries"
-      ]
-    ) {
-      throw new Error(
-        "Unstable operation 'listUserRestrictionQueries' is disabled. Enable it by setting `configuration.unstableOperations['LogsRestrictionQueriesApi.v2.listUserRestrictionQueries'] = true`",
-      );
+    if (!_config.unstableOperations["LogsRestrictionQueriesApi.v2.listUserRestrictionQueries"]) {
+      throw new Error("Unstable operation 'listUserRestrictionQueries' is disabled. Enable it by setting `configuration.unstableOperations['LogsRestrictionQueriesApi.v2.listUserRestrictionQueries'] = true`");
     }
 
     // verify required parameter 'userId' is not null or undefined
@@ -500,22 +397,14 @@ export class LogsRestrictionQueriesApiRequestFactory extends BaseAPIRequestFacto
     }
 
     // Path Params
-    const localVarPath =
-      "/api/v2/logs/config/restriction_queries/user/{user_id}".replace(
-        "{user_id}",
-        encodeURIComponent(String(userId)),
-      );
+    const localVarPath = "/api/v2/logs/config/restriction_queries/user/{user_id}".replace(
+      "{user_id}",
+      encodeURIComponent(String(userId)),
+    );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "LogsRestrictionQueriesApi.v2.listUserRestrictionQueries",
-      LogsRestrictionQueriesApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.GET,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("LogsRestrictionQueriesApi.v2.listUserRestrictionQueries", LogsRestrictionQueriesApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.GET, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -540,22 +429,13 @@ export class LogsRestrictionQueriesApiRequestFactory extends BaseAPIRequestFacto
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
-    if (
-      !_config.unstableOperations[
-        "LogsRestrictionQueriesApi.v2.removeRoleFromRestrictionQuery"
-      ]
-    ) {
-      throw new Error(
-        "Unstable operation 'removeRoleFromRestrictionQuery' is disabled. Enable it by setting `configuration.unstableOperations['LogsRestrictionQueriesApi.v2.removeRoleFromRestrictionQuery'] = true`",
-      );
+    if (!_config.unstableOperations["LogsRestrictionQueriesApi.v2.removeRoleFromRestrictionQuery"]) {
+      throw new Error("Unstable operation 'removeRoleFromRestrictionQuery' is disabled. Enable it by setting `configuration.unstableOperations['LogsRestrictionQueriesApi.v2.removeRoleFromRestrictionQuery'] = true`");
     }
 
     // verify required parameter 'restrictionQueryId' is not null or undefined
     if (restrictionQueryId === null || restrictionQueryId === undefined) {
-      throw new RequiredError(
-        "restrictionQueryId",
-        "removeRoleFromRestrictionQuery",
-      );
+      throw new RequiredError("restrictionQueryId", "removeRoleFromRestrictionQuery");
     }
 
     // verify required parameter 'body' is not null or undefined
@@ -564,22 +444,14 @@ export class LogsRestrictionQueriesApiRequestFactory extends BaseAPIRequestFacto
     }
 
     // Path Params
-    const localVarPath =
-      "/api/v2/logs/config/restriction_queries/{restriction_query_id}/roles".replace(
-        "{restriction_query_id}",
-        encodeURIComponent(String(restrictionQueryId)),
-      );
+    const localVarPath = "/api/v2/logs/config/restriction_queries/{restriction_query_id}/roles".replace(
+      "{restriction_query_id}",
+      encodeURIComponent(String(restrictionQueryId)),
+    );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "LogsRestrictionQueriesApi.v2.removeRoleFromRestrictionQuery",
-      LogsRestrictionQueriesApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.DELETE,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("LogsRestrictionQueriesApi.v2.removeRoleFromRestrictionQuery", LogsRestrictionQueriesApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.DELETE, overrides);
     requestContext.setHeaderParam("Accept", "*/*");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -589,7 +461,9 @@ export class LogsRestrictionQueriesApiRequestFactory extends BaseAPIRequestFacto
     }
 
     // Body Params
-    const contentType = getPreferredMediaType(["application/json"]);
+    const contentType = getPreferredMediaType([
+      "application/json",
+    ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = stringify(
       serialize(body, TypingInfo, "RelationshipToRole", ""),
@@ -613,14 +487,8 @@ export class LogsRestrictionQueriesApiRequestFactory extends BaseAPIRequestFacto
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
-    if (
-      !_config.unstableOperations[
-        "LogsRestrictionQueriesApi.v2.replaceRestrictionQuery"
-      ]
-    ) {
-      throw new Error(
-        "Unstable operation 'replaceRestrictionQuery' is disabled. Enable it by setting `configuration.unstableOperations['LogsRestrictionQueriesApi.v2.replaceRestrictionQuery'] = true`",
-      );
+    if (!_config.unstableOperations["LogsRestrictionQueriesApi.v2.replaceRestrictionQuery"]) {
+      throw new Error("Unstable operation 'replaceRestrictionQuery' is disabled. Enable it by setting `configuration.unstableOperations['LogsRestrictionQueriesApi.v2.replaceRestrictionQuery'] = true`");
     }
 
     // verify required parameter 'restrictionQueryId' is not null or undefined
@@ -634,22 +502,14 @@ export class LogsRestrictionQueriesApiRequestFactory extends BaseAPIRequestFacto
     }
 
     // Path Params
-    const localVarPath =
-      "/api/v2/logs/config/restriction_queries/{restriction_query_id}".replace(
-        "{restriction_query_id}",
-        encodeURIComponent(String(restrictionQueryId)),
-      );
+    const localVarPath = "/api/v2/logs/config/restriction_queries/{restriction_query_id}".replace(
+      "{restriction_query_id}",
+      encodeURIComponent(String(restrictionQueryId)),
+    );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "LogsRestrictionQueriesApi.v2.replaceRestrictionQuery",
-      LogsRestrictionQueriesApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.PUT,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("LogsRestrictionQueriesApi.v2.replaceRestrictionQuery", LogsRestrictionQueriesApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.PUT, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -659,7 +519,9 @@ export class LogsRestrictionQueriesApiRequestFactory extends BaseAPIRequestFacto
     }
 
     // Body Params
-    const contentType = getPreferredMediaType(["application/json"]);
+    const contentType = getPreferredMediaType([
+      "application/json",
+    ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = stringify(
       serialize(body, TypingInfo, "RestrictionQueryUpdatePayload", ""),
@@ -683,14 +545,8 @@ export class LogsRestrictionQueriesApiRequestFactory extends BaseAPIRequestFacto
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
-    if (
-      !_config.unstableOperations[
-        "LogsRestrictionQueriesApi.v2.updateRestrictionQuery"
-      ]
-    ) {
-      throw new Error(
-        "Unstable operation 'updateRestrictionQuery' is disabled. Enable it by setting `configuration.unstableOperations['LogsRestrictionQueriesApi.v2.updateRestrictionQuery'] = true`",
-      );
+    if (!_config.unstableOperations["LogsRestrictionQueriesApi.v2.updateRestrictionQuery"]) {
+      throw new Error("Unstable operation 'updateRestrictionQuery' is disabled. Enable it by setting `configuration.unstableOperations['LogsRestrictionQueriesApi.v2.updateRestrictionQuery'] = true`");
     }
 
     // verify required parameter 'restrictionQueryId' is not null or undefined
@@ -704,22 +560,14 @@ export class LogsRestrictionQueriesApiRequestFactory extends BaseAPIRequestFacto
     }
 
     // Path Params
-    const localVarPath =
-      "/api/v2/logs/config/restriction_queries/{restriction_query_id}".replace(
-        "{restriction_query_id}",
-        encodeURIComponent(String(restrictionQueryId)),
-      );
+    const localVarPath = "/api/v2/logs/config/restriction_queries/{restriction_query_id}".replace(
+      "{restriction_query_id}",
+      encodeURIComponent(String(restrictionQueryId)),
+    );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "LogsRestrictionQueriesApi.v2.updateRestrictionQuery",
-      LogsRestrictionQueriesApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.PATCH,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("LogsRestrictionQueriesApi.v2.updateRestrictionQuery", LogsRestrictionQueriesApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.PATCH, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -729,7 +577,9 @@ export class LogsRestrictionQueriesApiRequestFactory extends BaseAPIRequestFacto
     }
 
     // Body Params
-    const contentType = getPreferredMediaType(["application/json"]);
+    const contentType = getPreferredMediaType([
+      "application/json",
+    ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = stringify(
       serialize(body, TypingInfo, "RestrictionQueryUpdatePayload", ""),
@@ -758,7 +608,9 @@ export class LogsRestrictionQueriesApiResponseProcessor {
   public async addRoleToRestrictionQuery(
     response: ResponseContext,
   ): Promise<void> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 204) {
       return;
     }
@@ -768,7 +620,10 @@ export class LogsRestrictionQueriesApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -783,7 +638,10 @@ export class LogsRestrictionQueriesApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -808,7 +666,9 @@ export class LogsRestrictionQueriesApiResponseProcessor {
   public async createRestrictionQuery(
     response: ResponseContext,
   ): Promise<RestrictionQueryWithoutRelationshipsResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: RestrictionQueryWithoutRelationshipsResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -822,7 +682,10 @@ export class LogsRestrictionQueriesApiResponseProcessor {
       response.httpStatusCode === 403 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -837,7 +700,10 @@ export class LogsRestrictionQueriesApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -868,7 +734,9 @@ export class LogsRestrictionQueriesApiResponseProcessor {
   public async deleteRestrictionQuery(
     response: ResponseContext,
   ): Promise<void> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 204) {
       return;
     }
@@ -878,7 +746,10 @@ export class LogsRestrictionQueriesApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -893,7 +764,10 @@ export class LogsRestrictionQueriesApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -918,7 +792,9 @@ export class LogsRestrictionQueriesApiResponseProcessor {
   public async getRestrictionQuery(
     response: ResponseContext,
   ): Promise<RestrictionQueryWithRelationshipsResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: RestrictionQueryWithRelationshipsResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -933,7 +809,10 @@ export class LogsRestrictionQueriesApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -948,7 +827,10 @@ export class LogsRestrictionQueriesApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -979,7 +861,9 @@ export class LogsRestrictionQueriesApiResponseProcessor {
   public async getRoleRestrictionQuery(
     response: ResponseContext,
   ): Promise<RestrictionQueryListResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: RestrictionQueryListResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -994,7 +878,10 @@ export class LogsRestrictionQueriesApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -1009,7 +896,10 @@ export class LogsRestrictionQueriesApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -1040,7 +930,9 @@ export class LogsRestrictionQueriesApiResponseProcessor {
   public async listRestrictionQueries(
     response: ResponseContext,
   ): Promise<RestrictionQueryListResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: RestrictionQueryListResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -1049,8 +941,14 @@ export class LogsRestrictionQueriesApiResponseProcessor {
       ) as RestrictionQueryListResponse;
       return body;
     }
-    if (response.httpStatusCode === 403 || response.httpStatusCode === 429) {
-      const bodyText = parse(await response.body.text(), contentType);
+    if (
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 429
+    ) {
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -1065,7 +963,10 @@ export class LogsRestrictionQueriesApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -1096,7 +997,9 @@ export class LogsRestrictionQueriesApiResponseProcessor {
   public async listRestrictionQueryRoles(
     response: ResponseContext,
   ): Promise<RestrictionQueryRolesResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: RestrictionQueryRolesResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -1111,7 +1014,10 @@ export class LogsRestrictionQueriesApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -1126,7 +1032,10 @@ export class LogsRestrictionQueriesApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -1157,7 +1066,9 @@ export class LogsRestrictionQueriesApiResponseProcessor {
   public async listUserRestrictionQueries(
     response: ResponseContext,
   ): Promise<RestrictionQueryListResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: RestrictionQueryListResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -1172,7 +1083,10 @@ export class LogsRestrictionQueriesApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -1187,7 +1101,10 @@ export class LogsRestrictionQueriesApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -1218,7 +1135,9 @@ export class LogsRestrictionQueriesApiResponseProcessor {
   public async removeRoleFromRestrictionQuery(
     response: ResponseContext,
   ): Promise<void> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 204) {
       return;
     }
@@ -1228,7 +1147,10 @@ export class LogsRestrictionQueriesApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -1243,7 +1165,10 @@ export class LogsRestrictionQueriesApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -1268,7 +1193,9 @@ export class LogsRestrictionQueriesApiResponseProcessor {
   public async replaceRestrictionQuery(
     response: ResponseContext,
   ): Promise<RestrictionQueryWithoutRelationshipsResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: RestrictionQueryWithoutRelationshipsResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -1283,7 +1210,10 @@ export class LogsRestrictionQueriesApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -1298,7 +1228,10 @@ export class LogsRestrictionQueriesApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -1329,7 +1262,9 @@ export class LogsRestrictionQueriesApiResponseProcessor {
   public async updateRestrictionQuery(
     response: ResponseContext,
   ): Promise<RestrictionQueryWithoutRelationshipsResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: RestrictionQueryWithoutRelationshipsResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -1344,7 +1279,10 @@ export class LogsRestrictionQueriesApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -1359,7 +1297,10 @@ export class LogsRestrictionQueriesApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -1504,7 +1445,8 @@ export class LogsRestrictionQueriesApi {
   private responseProcessor: LogsRestrictionQueriesApiResponseProcessor;
   private configuration: Configuration;
 
-  static operationServers: { [key: string]: BaseServerConfiguration[] } = {};
+  static operationServers: { [key: string]: BaseServerConfiguration[] } = {
+  };
 
   public constructor(
     configuration?: Configuration,
@@ -1521,7 +1463,7 @@ export class LogsRestrictionQueriesApi {
 
   /**
    * Adds a role to a restriction query.
-   *
+   * 
    * **Note**: This operation automatically grants the `logs_read_data` permission to the role if it doesn't already have it.
    * @param param The request object
    */
@@ -1538,9 +1480,7 @@ export class LogsRestrictionQueriesApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.addRoleToRestrictionQuery(
-            responseContext,
-          );
+          return this.responseProcessor.addRoleToRestrictionQuery(responseContext);
         });
     });
   }
@@ -1624,9 +1564,7 @@ export class LogsRestrictionQueriesApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.getRoleRestrictionQuery(
-            responseContext,
-          );
+          return this.responseProcessor.getRoleRestrictionQuery(responseContext);
         });
     });
   }
@@ -1671,9 +1609,7 @@ export class LogsRestrictionQueriesApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.listRestrictionQueryRoles(
-            responseContext,
-          );
+          return this.responseProcessor.listRestrictionQueryRoles(responseContext);
         });
     });
   }
@@ -1686,15 +1622,15 @@ export class LogsRestrictionQueriesApi {
     param: LogsRestrictionQueriesApiListUserRestrictionQueriesRequest,
     options?: Configuration,
   ): Promise<RestrictionQueryListResponse> {
-    const requestContextPromise =
-      this.requestFactory.listUserRestrictionQueries(param.userId, options);
+    const requestContextPromise = this.requestFactory.listUserRestrictionQueries(
+      param.userId,
+      options,
+    );
     return requestContextPromise.then((requestContext) => {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.listUserRestrictionQueries(
-            responseContext,
-          );
+          return this.responseProcessor.listUserRestrictionQueries(responseContext);
         });
     });
   }
@@ -1707,19 +1643,16 @@ export class LogsRestrictionQueriesApi {
     param: LogsRestrictionQueriesApiRemoveRoleFromRestrictionQueryRequest,
     options?: Configuration,
   ): Promise<void> {
-    const requestContextPromise =
-      this.requestFactory.removeRoleFromRestrictionQuery(
-        param.restrictionQueryId,
-        param.body,
-        options,
-      );
+    const requestContextPromise = this.requestFactory.removeRoleFromRestrictionQuery(
+      param.restrictionQueryId,
+      param.body,
+      options,
+    );
     return requestContextPromise.then((requestContext) => {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.removeRoleFromRestrictionQuery(
-            responseContext,
-          );
+          return this.responseProcessor.removeRoleFromRestrictionQuery(responseContext);
         });
     });
   }
@@ -1741,9 +1674,7 @@ export class LogsRestrictionQueriesApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.replaceRestrictionQuery(
-            responseContext,
-          );
+          return this.responseProcessor.replaceRestrictionQuery(responseContext);
         });
     });
   }

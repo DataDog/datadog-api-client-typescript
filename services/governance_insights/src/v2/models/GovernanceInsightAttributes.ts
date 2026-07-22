@@ -45,7 +45,7 @@ export class GovernanceInsightAttributes {
    * The value of the insight over the previous comparison window. `null` when values were
    * not requested or could not be computed.
    */
-  "oldValue": number | null;
+  "oldValue": number|null;
   /**
    * A percentage query that computes an insight value as a ratio of two metric queries.
    */
@@ -86,13 +86,13 @@ export class GovernanceInsightAttributes {
   /**
    * The current value of the insight. `null` when values were not requested or could not be computed.
    */
-  "value": number | null;
+  "value": number|null;
   /**
    * A container for additional, undeclared properties.
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
   /**
    * @ignore
    */

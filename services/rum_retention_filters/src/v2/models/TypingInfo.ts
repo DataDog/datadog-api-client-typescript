@@ -28,21 +28,9 @@ import { RumRetentionFiltersResponse } from "./RumRetentionFiltersResponse";
 
 export const TypingInfo: ModelTypingInfo = {
   enumsMap: {
-    RumPermanentRetentionFilterID: [
-      "rum_apm_flat_sampling",
-      "synthetics_sessions",
-      "forced_replay_sessions",
-    ],
+    RumPermanentRetentionFilterID: ["rum_apm_flat_sampling", "synthetics_sessions", "forced_replay_sessions"],
     RumPermanentRetentionFilterType: ["permanent_retention_filters"],
-    RumRetentionFilterEventType: [
-      "session",
-      "view",
-      "action",
-      "error",
-      "resource",
-      "long_task",
-      "vital",
-    ],
+    RumRetentionFilterEventType: ["session", "view", "action", "error", "resource", "long_task", "vital"],
     RumRetentionFilterType: ["retention_filters"],
   },
   oneOfMap: {},
@@ -51,18 +39,13 @@ export const TypingInfo: ModelTypingInfo = {
     RumCrossProductSampling: RumCrossProductSampling,
     RumCrossProductSamplingCreate: RumCrossProductSamplingCreate,
     RumCrossProductSamplingUpdate: RumCrossProductSamplingUpdate,
-    RumPermanentRetentionFilterAttributes:
-      RumPermanentRetentionFilterAttributes,
+    RumPermanentRetentionFilterAttributes: RumPermanentRetentionFilterAttributes,
     RumPermanentRetentionFilterData: RumPermanentRetentionFilterData,
-    RumPermanentRetentionFilterEditability:
-      RumPermanentRetentionFilterEditability,
+    RumPermanentRetentionFilterEditability: RumPermanentRetentionFilterEditability,
     RumPermanentRetentionFilterResponse: RumPermanentRetentionFilterResponse,
-    RumPermanentRetentionFilterUpdateAttributes:
-      RumPermanentRetentionFilterUpdateAttributes,
-    RumPermanentRetentionFilterUpdateData:
-      RumPermanentRetentionFilterUpdateData,
-    RumPermanentRetentionFilterUpdateRequest:
-      RumPermanentRetentionFilterUpdateRequest,
+    RumPermanentRetentionFilterUpdateAttributes: RumPermanentRetentionFilterUpdateAttributes,
+    RumPermanentRetentionFilterUpdateData: RumPermanentRetentionFilterUpdateData,
+    RumPermanentRetentionFilterUpdateRequest: RumPermanentRetentionFilterUpdateRequest,
     RumPermanentRetentionFiltersResponse: RumPermanentRetentionFiltersResponse,
     RumRetentionFilterAttributes: RumRetentionFilterAttributes,
     RumRetentionFilterCreateAttributes: RumRetentionFilterCreateAttributes,

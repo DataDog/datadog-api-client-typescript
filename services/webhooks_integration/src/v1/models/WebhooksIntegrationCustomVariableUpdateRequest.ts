@@ -1,8 +1,9 @@
 import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
+
 /**
  * Update request of a custom variable object.
- *
+ * 
  * *All properties are optional.*
  */
 export class WebhooksIntegrationCustomVariableUpdateRequest {
@@ -24,7 +25,7 @@ export class WebhooksIntegrationCustomVariableUpdateRequest {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
   /**
    * @ignore
    */

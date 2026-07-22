@@ -50,7 +50,7 @@ export class CIAppPipelineEventStage {
   /**
    * A map of key-value parameters or environment variables that were defined for the pipeline.
    */
-  "parameters"?: { [key: string]: string };
+  "parameters"?: { [key: string]: string; };
   /**
    * The parent pipeline name.
    */
@@ -80,7 +80,7 @@ export class CIAppPipelineEventStage {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
   /**
    * @ignore
    */

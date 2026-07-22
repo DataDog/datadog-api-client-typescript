@@ -33,7 +33,7 @@ export class SankeyRumRequest {
       baseName: "request_type",
       type: "SankeyWidgetDefinitionType",
       required: true,
-    },
+    }
   };
 
   /**

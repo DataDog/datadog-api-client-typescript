@@ -1,5 +1,6 @@
 import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
+
 /**
  * The definition of Entity V3 Service Spec object.
  */
@@ -60,7 +61,7 @@ export class EntityV3ServiceSpec {
     type: {
       baseName: "type",
       type: "string",
-    },
+    }
   };
 
   /**

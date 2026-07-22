@@ -19,6 +19,7 @@ import {
   ServerConfiguration,
   stringify,
   applySecurityAuthentication,
+  
 } from "@datadog/datadog-api-client";
 
 import { TypingInfo } from "./models/TypingInfo";
@@ -66,15 +67,8 @@ export class SoftwareCatalogApiRequestFactory extends BaseAPIRequestFactory {
     );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "SoftwareCatalogApi.v2.deleteCatalogEntity",
-      SoftwareCatalogApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.DELETE,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("SoftwareCatalogApi.v2.deleteCatalogEntity", SoftwareCatalogApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.DELETE, overrides);
     requestContext.setHeaderParam("Accept", "*/*");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -111,15 +105,8 @@ export class SoftwareCatalogApiRequestFactory extends BaseAPIRequestFactory {
     );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "SoftwareCatalogApi.v2.deleteCatalogKind",
-      SoftwareCatalogApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.DELETE,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("SoftwareCatalogApi.v2.deleteCatalogKind", SoftwareCatalogApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.DELETE, overrides);
     requestContext.setHeaderParam("Accept", "*/*");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -158,15 +145,8 @@ export class SoftwareCatalogApiRequestFactory extends BaseAPIRequestFactory {
     const localVarPath = "/api/v2/catalog/entity";
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "SoftwareCatalogApi.v2.listCatalogEntity",
-      SoftwareCatalogApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.GET,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("SoftwareCatalogApi.v2.listCatalogEntity", SoftwareCatalogApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.GET, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -277,15 +257,8 @@ export class SoftwareCatalogApiRequestFactory extends BaseAPIRequestFactory {
     const localVarPath = "/api/v2/catalog/kind";
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "SoftwareCatalogApi.v2.listCatalogKind",
-      SoftwareCatalogApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.GET,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("SoftwareCatalogApi.v2.listCatalogKind", SoftwareCatalogApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.GET, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -350,15 +323,8 @@ export class SoftwareCatalogApiRequestFactory extends BaseAPIRequestFactory {
     const localVarPath = "/api/v2/catalog/relation";
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "SoftwareCatalogApi.v2.listCatalogRelation",
-      SoftwareCatalogApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.GET,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("SoftwareCatalogApi.v2.listCatalogRelation", SoftwareCatalogApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.GET, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -437,15 +403,8 @@ export class SoftwareCatalogApiRequestFactory extends BaseAPIRequestFactory {
     const localVarPath = "/api/v2/catalog/entity/preview";
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "SoftwareCatalogApi.v2.previewCatalogEntities",
-      SoftwareCatalogApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.POST,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("SoftwareCatalogApi.v2.previewCatalogEntities", SoftwareCatalogApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.POST, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -479,15 +438,8 @@ export class SoftwareCatalogApiRequestFactory extends BaseAPIRequestFactory {
     const localVarPath = "/api/v2/catalog/entity";
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "SoftwareCatalogApi.v2.upsertCatalogEntity",
-      SoftwareCatalogApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.POST,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("SoftwareCatalogApi.v2.upsertCatalogEntity", SoftwareCatalogApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.POST, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -497,7 +449,9 @@ export class SoftwareCatalogApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Body Params
-    const contentType = getPreferredMediaType(["application/json"]);
+    const contentType = getPreferredMediaType([
+      "application/json",
+    ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = stringify(
       serialize(body, TypingInfo, "UpsertCatalogEntityRequest", ""),
@@ -530,15 +484,8 @@ export class SoftwareCatalogApiRequestFactory extends BaseAPIRequestFactory {
     const localVarPath = "/api/v2/catalog/kind";
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "SoftwareCatalogApi.v2.upsertCatalogKind",
-      SoftwareCatalogApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.POST,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("SoftwareCatalogApi.v2.upsertCatalogKind", SoftwareCatalogApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.POST, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -548,7 +495,9 @@ export class SoftwareCatalogApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Body Params
-    const contentType = getPreferredMediaType(["application/json"]);
+    const contentType = getPreferredMediaType([
+      "application/json",
+    ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = stringify(
       serialize(body, TypingInfo, "UpsertCatalogKindRequest", ""),
@@ -575,8 +524,12 @@ export class SoftwareCatalogApiResponseProcessor {
    * @params response Response returned by the server for a request to deleteCatalogEntity
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async deleteCatalogEntity(response: ResponseContext): Promise<void> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+  public async deleteCatalogEntity(
+    response: ResponseContext,
+  ): Promise<void> {
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 204) {
       return;
     }
@@ -586,7 +539,10 @@ export class SoftwareCatalogApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -601,7 +557,10 @@ export class SoftwareCatalogApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -623,8 +582,12 @@ export class SoftwareCatalogApiResponseProcessor {
    * @params response Response returned by the server for a request to deleteCatalogKind
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async deleteCatalogKind(response: ResponseContext): Promise<void> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+  public async deleteCatalogKind(
+    response: ResponseContext,
+  ): Promise<void> {
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 204) {
       return;
     }
@@ -634,7 +597,10 @@ export class SoftwareCatalogApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -649,7 +615,10 @@ export class SoftwareCatalogApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -674,7 +643,9 @@ export class SoftwareCatalogApiResponseProcessor {
   public async listCatalogEntity(
     response: ResponseContext,
   ): Promise<ListEntityCatalogResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: ListEntityCatalogResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -683,8 +654,14 @@ export class SoftwareCatalogApiResponseProcessor {
       ) as ListEntityCatalogResponse;
       return body;
     }
-    if (response.httpStatusCode === 403 || response.httpStatusCode === 429) {
-      const bodyText = parse(await response.body.text(), contentType);
+    if (
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 429
+    ) {
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -699,7 +676,10 @@ export class SoftwareCatalogApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -730,7 +710,9 @@ export class SoftwareCatalogApiResponseProcessor {
   public async listCatalogKind(
     response: ResponseContext,
   ): Promise<ListKindCatalogResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: ListKindCatalogResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -744,7 +726,10 @@ export class SoftwareCatalogApiResponseProcessor {
       response.httpStatusCode === 403 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -759,7 +744,10 @@ export class SoftwareCatalogApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -790,7 +778,9 @@ export class SoftwareCatalogApiResponseProcessor {
   public async listCatalogRelation(
     response: ResponseContext,
   ): Promise<ListRelationCatalogResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: ListRelationCatalogResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -799,8 +789,14 @@ export class SoftwareCatalogApiResponseProcessor {
       ) as ListRelationCatalogResponse;
       return body;
     }
-    if (response.httpStatusCode === 403 || response.httpStatusCode === 429) {
-      const bodyText = parse(await response.body.text(), contentType);
+    if (
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 429
+    ) {
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -815,7 +811,10 @@ export class SoftwareCatalogApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -846,7 +845,9 @@ export class SoftwareCatalogApiResponseProcessor {
   public async previewCatalogEntities(
     response: ResponseContext,
   ): Promise<EntityResponseArray> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 202) {
       const body: EntityResponseArray = deserialize(
         parse(await response.body.text(), contentType),
@@ -856,7 +857,10 @@ export class SoftwareCatalogApiResponseProcessor {
       return body;
     }
     if (response.httpStatusCode === 429) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -871,7 +875,10 @@ export class SoftwareCatalogApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -902,7 +909,9 @@ export class SoftwareCatalogApiResponseProcessor {
   public async upsertCatalogEntity(
     response: ResponseContext,
   ): Promise<UpsertCatalogEntityResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 202) {
       const body: UpsertCatalogEntityResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -916,7 +925,10 @@ export class SoftwareCatalogApiResponseProcessor {
       response.httpStatusCode === 403 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -931,7 +943,10 @@ export class SoftwareCatalogApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -962,7 +977,9 @@ export class SoftwareCatalogApiResponseProcessor {
   public async upsertCatalogKind(
     response: ResponseContext,
   ): Promise<UpsertCatalogKindResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 202) {
       const body: UpsertCatalogKindResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -976,7 +993,10 @@ export class SoftwareCatalogApiResponseProcessor {
       response.httpStatusCode === 403 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -991,7 +1011,10 @@ export class SoftwareCatalogApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -1169,7 +1192,8 @@ export class SoftwareCatalogApi {
   private responseProcessor: SoftwareCatalogApiResponseProcessor;
   private configuration: Configuration;
 
-  static operationServers: { [key: string]: BaseServerConfiguration[] } = {};
+  static operationServers: { [key: string]: BaseServerConfiguration[] } = {
+  };
 
   public constructor(
     configuration?: Configuration,
@@ -1261,34 +1285,19 @@ export class SoftwareCatalogApi {
    * Provide a paginated version of listCatalogEntity returning a generator with all the items.
    */
   public async *listCatalogEntityWithPagination(
-    param: SoftwareCatalogApiListCatalogEntityRequest = {},
-    options?: Configuration,
+    param: SoftwareCatalogApiListCatalogEntityRequest = {}, options?: Configuration,
   ): AsyncGenerator<EntityData> {
+
     let pageSize = 100;
     if (param.pageLimit !== undefined) {
       pageSize = param.pageLimit;
     }
     param.pageLimit = pageSize;
     while (true) {
-      const requestContext = await this.requestFactory.listCatalogEntity(
-        param.pageOffset,
-        param.pageLimit,
-        param.filterId,
-        param.filterRef,
-        param.filterName,
-        param.filterKind,
-        param.filterOwner,
-        param.filterRelationType,
-        param.filterExcludeSnapshot,
-        param.include,
-        param.includeDiscovered,
-        options,
-      );
-      const responseContext =
-        await this.configuration.httpApi.send(requestContext);
+      const requestContext = await this.requestFactory.listCatalogEntity(param.pageOffset,param.pageLimit,param.filterId,param.filterRef,param.filterName,param.filterKind,param.filterOwner,param.filterRelationType,param.filterExcludeSnapshot,param.include,param.includeDiscovered,options);
+      const responseContext = await this.configuration.httpApi.send(requestContext);
 
-      const response =
-        await this.responseProcessor.listCatalogEntity(responseContext);
+      const response = await this.responseProcessor.listCatalogEntity(responseContext);
       const responseData = response.data;
       if (responseData === undefined) {
         break;
@@ -1336,27 +1345,19 @@ export class SoftwareCatalogApi {
    * Provide a paginated version of listCatalogKind returning a generator with all the items.
    */
   public async *listCatalogKindWithPagination(
-    param: SoftwareCatalogApiListCatalogKindRequest = {},
-    options?: Configuration,
+    param: SoftwareCatalogApiListCatalogKindRequest = {}, options?: Configuration,
   ): AsyncGenerator<KindData> {
+
     let pageSize = 100;
     if (param.pageLimit !== undefined) {
       pageSize = param.pageLimit;
     }
     param.pageLimit = pageSize;
     while (true) {
-      const requestContext = await this.requestFactory.listCatalogKind(
-        param.pageOffset,
-        param.pageLimit,
-        param.filterId,
-        param.filterName,
-        options,
-      );
-      const responseContext =
-        await this.configuration.httpApi.send(requestContext);
+      const requestContext = await this.requestFactory.listCatalogKind(param.pageOffset,param.pageLimit,param.filterId,param.filterName,options);
+      const responseContext = await this.configuration.httpApi.send(requestContext);
 
-      const response =
-        await this.responseProcessor.listCatalogKind(responseContext);
+      const response = await this.responseProcessor.listCatalogKind(responseContext);
       const responseData = response.data;
       if (responseData === undefined) {
         break;
@@ -1407,30 +1408,19 @@ export class SoftwareCatalogApi {
    * Provide a paginated version of listCatalogRelation returning a generator with all the items.
    */
   public async *listCatalogRelationWithPagination(
-    param: SoftwareCatalogApiListCatalogRelationRequest = {},
-    options?: Configuration,
+    param: SoftwareCatalogApiListCatalogRelationRequest = {}, options?: Configuration,
   ): AsyncGenerator<RelationResponse> {
+
     let pageSize = 100;
     if (param.pageLimit !== undefined) {
       pageSize = param.pageLimit;
     }
     param.pageLimit = pageSize;
     while (true) {
-      const requestContext = await this.requestFactory.listCatalogRelation(
-        param.pageOffset,
-        param.pageLimit,
-        param.filterType,
-        param.filterFromRef,
-        param.filterToRef,
-        param.include,
-        param.includeDiscovered,
-        options,
-      );
-      const responseContext =
-        await this.configuration.httpApi.send(requestContext);
+      const requestContext = await this.requestFactory.listCatalogRelation(param.pageOffset,param.pageLimit,param.filterType,param.filterFromRef,param.filterToRef,param.include,param.includeDiscovered,options);
+      const responseContext = await this.configuration.httpApi.send(requestContext);
 
-      const response =
-        await this.responseProcessor.listCatalogRelation(responseContext);
+      const response = await this.responseProcessor.listCatalogRelation(responseContext);
       const responseData = response.data;
       if (responseData === undefined) {
         break;
@@ -1453,11 +1443,11 @@ export class SoftwareCatalogApi {
   /**
    * @param param The request object
    */
-  public previewCatalogEntities(
-    options?: Configuration,
+  public previewCatalogEntities(options?: Configuration,
   ): Promise<EntityResponseArray> {
-    const requestContextPromise =
-      this.requestFactory.previewCatalogEntities(options);
+    const requestContextPromise = this.requestFactory.previewCatalogEntities(
+      options,
+    );
     return requestContextPromise.then((requestContext) => {
       return this.configuration.httpApi
         .send(requestContext)

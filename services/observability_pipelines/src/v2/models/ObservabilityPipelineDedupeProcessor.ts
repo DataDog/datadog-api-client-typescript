@@ -6,7 +6,7 @@ import { ObservabilityPipelineDedupeProcessorType } from "./ObservabilityPipelin
 
 /**
  * The `dedupe` processor removes duplicate fields in log events.
- *
+ * 
  * **Supported pipeline types:** logs
  */
 export class ObservabilityPipelineDedupeProcessor {
@@ -47,7 +47,7 @@ export class ObservabilityPipelineDedupeProcessor {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
   /**
    * @ignore
    */

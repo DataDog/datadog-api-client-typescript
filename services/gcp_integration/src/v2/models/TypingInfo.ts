@@ -18,11 +18,7 @@ import { GCPServiceAccountMeta } from "./GCPServiceAccountMeta";
 
 export const TypingInfo: ModelTypingInfo = {
   enumsMap: {
-    GCPMonitoredResourceConfigType: [
-      "cloud_function",
-      "cloud_run_revision",
-      "gce_instance",
-    ],
+    GCPMonitoredResourceConfigType: ["cloud_function", "cloud_run_revision", "gce_instance"],
     GCPSTSDelegateAccountType: ["gcp_sts_delegate"],
     GCPServiceAccountType: ["gcp_service_account"],
   },
@@ -40,8 +36,7 @@ export const TypingInfo: ModelTypingInfo = {
     GCPSTSServiceAccountData: GCPSTSServiceAccountData,
     GCPSTSServiceAccountResponse: GCPSTSServiceAccountResponse,
     GCPSTSServiceAccountUpdateRequest: GCPSTSServiceAccountUpdateRequest,
-    GCPSTSServiceAccountUpdateRequestData:
-      GCPSTSServiceAccountUpdateRequestData,
+    GCPSTSServiceAccountUpdateRequestData: GCPSTSServiceAccountUpdateRequestData,
     GCPSTSServiceAccountsResponse: GCPSTSServiceAccountsResponse,
     GCPServiceAccountMeta: GCPServiceAccountMeta,
   },

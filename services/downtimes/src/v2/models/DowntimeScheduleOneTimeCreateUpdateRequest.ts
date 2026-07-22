@@ -1,5 +1,6 @@
 import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
+
 /**
  * A one-time downtime definition.
  */
@@ -32,7 +33,7 @@ export class DowntimeScheduleOneTimeCreateUpdateRequest {
       baseName: "start",
       type: "Date",
       format: "date-time",
-    },
+    }
   };
 
   /**

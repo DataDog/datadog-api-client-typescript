@@ -19,6 +19,7 @@ import {
   ServerConfiguration,
   stringify,
   applySecurityAuthentication,
+  
 } from "@datadog/datadog-api-client";
 
 import { TypingInfo } from "./models/TypingInfo";
@@ -45,15 +46,8 @@ export class IPAllowlistApiRequestFactory extends BaseAPIRequestFactory {
     const localVarPath = "/api/v2/ip_allowlist";
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "IPAllowlistApi.v2.getIPAllowlist",
-      IPAllowlistApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.GET,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("IPAllowlistApi.v2.getIPAllowlist", IPAllowlistApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.GET, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -87,15 +81,8 @@ export class IPAllowlistApiRequestFactory extends BaseAPIRequestFactory {
     const localVarPath = "/api/v2/ip_allowlist";
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "IPAllowlistApi.v2.updateIPAllowlist",
-      IPAllowlistApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.PATCH,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("IPAllowlistApi.v2.updateIPAllowlist", IPAllowlistApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.PATCH, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -105,7 +92,9 @@ export class IPAllowlistApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Body Params
-    const contentType = getPreferredMediaType(["application/json"]);
+    const contentType = getPreferredMediaType([
+      "application/json",
+    ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = stringify(
       serialize(body, TypingInfo, "IPAllowlistUpdateRequest", ""),
@@ -135,7 +124,9 @@ export class IPAllowlistApiResponseProcessor {
   public async getIPAllowlist(
     response: ResponseContext,
   ): Promise<IPAllowlistResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: IPAllowlistResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -149,7 +140,10 @@ export class IPAllowlistApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -164,7 +158,10 @@ export class IPAllowlistApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -195,7 +192,9 @@ export class IPAllowlistApiResponseProcessor {
   public async updateIPAllowlist(
     response: ResponseContext,
   ): Promise<IPAllowlistResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: IPAllowlistResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -210,7 +209,10 @@ export class IPAllowlistApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -225,7 +227,10 @@ export class IPAllowlistApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -259,7 +264,8 @@ export class IPAllowlistApi {
   private responseProcessor: IPAllowlistApiResponseProcessor;
   private configuration: Configuration;
 
-  static operationServers: { [key: string]: BaseServerConfiguration[] } = {};
+  static operationServers: { [key: string]: BaseServerConfiguration[] } = {
+  };
 
   public constructor(
     configuration?: Configuration,
@@ -268,7 +274,8 @@ export class IPAllowlistApi {
   ) {
     this.configuration = configuration || createConfiguration();
     this.requestFactory =
-      requestFactory || new IPAllowlistApiRequestFactory(this.configuration);
+      requestFactory ||
+      new IPAllowlistApiRequestFactory(this.configuration);
     this.responseProcessor =
       responseProcessor || new IPAllowlistApiResponseProcessor();
   }
@@ -277,8 +284,11 @@ export class IPAllowlistApi {
    * Returns the IP allowlist and its enabled or disabled state.
    * @param param The request object
    */
-  public getIPAllowlist(options?: Configuration): Promise<IPAllowlistResponse> {
-    const requestContextPromise = this.requestFactory.getIPAllowlist(options);
+  public getIPAllowlist(options?: Configuration,
+  ): Promise<IPAllowlistResponse> {
+    const requestContextPromise = this.requestFactory.getIPAllowlist(
+      options,
+    );
     return requestContextPromise.then((requestContext) => {
       return this.configuration.httpApi
         .send(requestContext)

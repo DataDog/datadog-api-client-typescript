@@ -75,7 +75,7 @@ export class CohortWidgetDefinition {
       baseName: "type",
       type: "CohortWidgetDefinitionType",
       required: true,
-    },
+    }
   };
 
   /**

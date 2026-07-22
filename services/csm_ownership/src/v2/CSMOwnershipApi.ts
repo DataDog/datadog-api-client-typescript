@@ -19,6 +19,7 @@ import {
   ServerConfiguration,
   stringify,
   applySecurityAuthentication,
+  
 } from "@datadog/datadog-api-client";
 
 import { TypingInfo } from "./models/TypingInfo";
@@ -50,12 +51,8 @@ export class CSMOwnershipApiRequestFactory extends BaseAPIRequestFactory {
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
-    if (
-      !_config.unstableOperations["CSMOwnershipApi.v2.createOwnershipFeedback"]
-    ) {
-      throw new Error(
-        "Unstable operation 'createOwnershipFeedback' is disabled. Enable it by setting `configuration.unstableOperations['CSMOwnershipApi.v2.createOwnershipFeedback'] = true`",
-      );
+    if (!_config.unstableOperations["CSMOwnershipApi.v2.createOwnershipFeedback"]) {
+      throw new Error("Unstable operation 'createOwnershipFeedback' is disabled. Enable it by setting `configuration.unstableOperations['CSMOwnershipApi.v2.createOwnershipFeedback'] = true`");
     }
 
     // verify required parameter 'resourceId' is not null or undefined
@@ -74,21 +71,17 @@ export class CSMOwnershipApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Path Params
-    const localVarPath =
-      "/api/v2/csm/ownership/{resource_id}/{owner_type}/feedback"
-        .replace("{resource_id}", encodeURIComponent(String(resourceId)))
-        .replace("{owner_type}", encodeURIComponent(String(ownerType)));
+    const localVarPath = "/api/v2/csm/ownership/{resource_id}/{owner_type}/feedback".replace(
+      "{resource_id}",
+      encodeURIComponent(String(resourceId)),
+    ).replace(
+      "{owner_type}",
+      encodeURIComponent(String(ownerType)),
+    );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "CSMOwnershipApi.v2.createOwnershipFeedback",
-      CSMOwnershipApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.POST,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("CSMOwnershipApi.v2.createOwnershipFeedback", CSMOwnershipApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.POST, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -98,7 +91,9 @@ export class CSMOwnershipApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Body Params
-    const contentType = getPreferredMediaType(["application/json"]);
+    const contentType = getPreferredMediaType([
+      "application/json",
+    ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = stringify(
       serialize(body, TypingInfo, "OwnershipFeedbackRequest", ""),
@@ -123,12 +118,8 @@ export class CSMOwnershipApiRequestFactory extends BaseAPIRequestFactory {
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
-    if (
-      !_config.unstableOperations["CSMOwnershipApi.v2.getOwnershipEvidence"]
-    ) {
-      throw new Error(
-        "Unstable operation 'getOwnershipEvidence' is disabled. Enable it by setting `configuration.unstableOperations['CSMOwnershipApi.v2.getOwnershipEvidence'] = true`",
-      );
+    if (!_config.unstableOperations["CSMOwnershipApi.v2.getOwnershipEvidence"]) {
+      throw new Error("Unstable operation 'getOwnershipEvidence' is disabled. Enable it by setting `configuration.unstableOperations['CSMOwnershipApi.v2.getOwnershipEvidence'] = true`");
     }
 
     // verify required parameter 'resourceId' is not null or undefined
@@ -142,21 +133,17 @@ export class CSMOwnershipApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Path Params
-    const localVarPath =
-      "/api/v2/csm/ownership/{resource_id}/{owner_type}/evidence"
-        .replace("{resource_id}", encodeURIComponent(String(resourceId)))
-        .replace("{owner_type}", encodeURIComponent(String(ownerType)));
+    const localVarPath = "/api/v2/csm/ownership/{resource_id}/{owner_type}/evidence".replace(
+      "{resource_id}",
+      encodeURIComponent(String(resourceId)),
+    ).replace(
+      "{owner_type}",
+      encodeURIComponent(String(ownerType)),
+    );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "CSMOwnershipApi.v2.getOwnershipEvidence",
-      CSMOwnershipApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.GET,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("CSMOwnershipApi.v2.getOwnershipEvidence", CSMOwnershipApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.GET, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -167,10 +154,7 @@ export class CSMOwnershipApiRequestFactory extends BaseAPIRequestFactory {
 
     // Header Params
     if (ifNoneMatch !== undefined) {
-      requestContext.setHeaderParam(
-        "If-None-Match",
-        serialize(ifNoneMatch, TypingInfo, "string", ""),
-      );
+      requestContext.setHeaderParam("If-None-Match", serialize(ifNoneMatch, TypingInfo, "string", ""));
     }
 
     // Apply auth methods
@@ -190,12 +174,8 @@ export class CSMOwnershipApiRequestFactory extends BaseAPIRequestFactory {
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
-    if (
-      !_config.unstableOperations["CSMOwnershipApi.v2.getOwnershipInference"]
-    ) {
-      throw new Error(
-        "Unstable operation 'getOwnershipInference' is disabled. Enable it by setting `configuration.unstableOperations['CSMOwnershipApi.v2.getOwnershipInference'] = true`",
-      );
+    if (!_config.unstableOperations["CSMOwnershipApi.v2.getOwnershipInference"]) {
+      throw new Error("Unstable operation 'getOwnershipInference' is disabled. Enable it by setting `configuration.unstableOperations['CSMOwnershipApi.v2.getOwnershipInference'] = true`");
     }
 
     // verify required parameter 'resourceId' is not null or undefined
@@ -209,20 +189,17 @@ export class CSMOwnershipApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Path Params
-    const localVarPath = "/api/v2/csm/ownership/{resource_id}/{owner_type}"
-      .replace("{resource_id}", encodeURIComponent(String(resourceId)))
-      .replace("{owner_type}", encodeURIComponent(String(ownerType)));
+    const localVarPath = "/api/v2/csm/ownership/{resource_id}/{owner_type}".replace(
+      "{resource_id}",
+      encodeURIComponent(String(resourceId)),
+    ).replace(
+      "{owner_type}",
+      encodeURIComponent(String(ownerType)),
+    );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "CSMOwnershipApi.v2.getOwnershipInference",
-      CSMOwnershipApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.GET,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("CSMOwnershipApi.v2.getOwnershipInference", CSMOwnershipApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.GET, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -233,10 +210,7 @@ export class CSMOwnershipApiRequestFactory extends BaseAPIRequestFactory {
 
     // Header Params
     if (ifNoneMatch !== undefined) {
-      requestContext.setHeaderParam(
-        "If-None-Match",
-        serialize(ifNoneMatch, TypingInfo, "string", ""),
-      );
+      requestContext.setHeaderParam("If-None-Match", serialize(ifNoneMatch, TypingInfo, "string", ""));
     }
 
     // Apply auth methods
@@ -256,12 +230,8 @@ export class CSMOwnershipApiRequestFactory extends BaseAPIRequestFactory {
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
-    if (
-      !_config.unstableOperations["CSMOwnershipApi.v2.listOwnershipHistory"]
-    ) {
-      throw new Error(
-        "Unstable operation 'listOwnershipHistory' is disabled. Enable it by setting `configuration.unstableOperations['CSMOwnershipApi.v2.listOwnershipHistory'] = true`",
-      );
+    if (!_config.unstableOperations["CSMOwnershipApi.v2.listOwnershipHistory"]) {
+      throw new Error("Unstable operation 'listOwnershipHistory' is disabled. Enable it by setting `configuration.unstableOperations['CSMOwnershipApi.v2.listOwnershipHistory'] = true`");
     }
 
     // verify required parameter 'resourceId' is not null or undefined
@@ -276,15 +246,8 @@ export class CSMOwnershipApiRequestFactory extends BaseAPIRequestFactory {
     );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "CSMOwnershipApi.v2.listOwnershipHistory",
-      CSMOwnershipApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.GET,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("CSMOwnershipApi.v2.listOwnershipHistory", CSMOwnershipApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.GET, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -327,14 +290,8 @@ export class CSMOwnershipApiRequestFactory extends BaseAPIRequestFactory {
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
-    if (
-      !_config.unstableOperations[
-        "CSMOwnershipApi.v2.listOwnershipHistoryByOwnerType"
-      ]
-    ) {
-      throw new Error(
-        "Unstable operation 'listOwnershipHistoryByOwnerType' is disabled. Enable it by setting `configuration.unstableOperations['CSMOwnershipApi.v2.listOwnershipHistoryByOwnerType'] = true`",
-      );
+    if (!_config.unstableOperations["CSMOwnershipApi.v2.listOwnershipHistoryByOwnerType"]) {
+      throw new Error("Unstable operation 'listOwnershipHistoryByOwnerType' is disabled. Enable it by setting `configuration.unstableOperations['CSMOwnershipApi.v2.listOwnershipHistoryByOwnerType'] = true`");
     }
 
     // verify required parameter 'resourceId' is not null or undefined
@@ -348,21 +305,17 @@ export class CSMOwnershipApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Path Params
-    const localVarPath =
-      "/api/v2/csm/ownership/{resource_id}/{owner_type}/history"
-        .replace("{resource_id}", encodeURIComponent(String(resourceId)))
-        .replace("{owner_type}", encodeURIComponent(String(ownerType)));
+    const localVarPath = "/api/v2/csm/ownership/{resource_id}/{owner_type}/history".replace(
+      "{resource_id}",
+      encodeURIComponent(String(resourceId)),
+    ).replace(
+      "{owner_type}",
+      encodeURIComponent(String(ownerType)),
+    );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "CSMOwnershipApi.v2.listOwnershipHistoryByOwnerType",
-      CSMOwnershipApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.GET,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("CSMOwnershipApi.v2.listOwnershipHistoryByOwnerType", CSMOwnershipApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.GET, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -402,12 +355,8 @@ export class CSMOwnershipApiRequestFactory extends BaseAPIRequestFactory {
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
-    if (
-      !_config.unstableOperations["CSMOwnershipApi.v2.listOwnershipInferences"]
-    ) {
-      throw new Error(
-        "Unstable operation 'listOwnershipInferences' is disabled. Enable it by setting `configuration.unstableOperations['CSMOwnershipApi.v2.listOwnershipInferences'] = true`",
-      );
+    if (!_config.unstableOperations["CSMOwnershipApi.v2.listOwnershipInferences"]) {
+      throw new Error("Unstable operation 'listOwnershipInferences' is disabled. Enable it by setting `configuration.unstableOperations['CSMOwnershipApi.v2.listOwnershipInferences'] = true`");
     }
 
     // verify required parameter 'resourceId' is not null or undefined
@@ -422,15 +371,8 @@ export class CSMOwnershipApiRequestFactory extends BaseAPIRequestFactory {
     );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "CSMOwnershipApi.v2.listOwnershipInferences",
-      CSMOwnershipApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.GET,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("CSMOwnershipApi.v2.listOwnershipInferences", CSMOwnershipApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.GET, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -460,7 +402,9 @@ export class CSMOwnershipApiResponseProcessor {
   public async createOwnershipFeedback(
     response: ResponseContext,
   ): Promise<OwnershipFeedbackResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 201) {
       const body: OwnershipFeedbackResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -474,7 +418,10 @@ export class CSMOwnershipApiResponseProcessor {
       response.httpStatusCode === 401 ||
       response.httpStatusCode === 404
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: JSONAPIErrorResponse;
       try {
         body = deserialize(
@@ -495,7 +442,10 @@ export class CSMOwnershipApiResponseProcessor {
       );
     }
     if (response.httpStatusCode === 409) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: OwnershipInferenceResponse;
       try {
         body = deserialize(
@@ -516,7 +466,10 @@ export class CSMOwnershipApiResponseProcessor {
       );
     }
     if (response.httpStatusCode === 429) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -531,7 +484,10 @@ export class CSMOwnershipApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -562,7 +518,9 @@ export class CSMOwnershipApiResponseProcessor {
   public async getOwnershipEvidence(
     response: ResponseContext,
   ): Promise<OwnershipEvidenceResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: OwnershipEvidenceResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -576,7 +534,10 @@ export class CSMOwnershipApiResponseProcessor {
       response.httpStatusCode === 401 ||
       response.httpStatusCode === 404
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: JSONAPIErrorResponse;
       try {
         body = deserialize(
@@ -597,7 +558,10 @@ export class CSMOwnershipApiResponseProcessor {
       );
     }
     if (response.httpStatusCode === 429) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -612,7 +576,10 @@ export class CSMOwnershipApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -643,7 +610,9 @@ export class CSMOwnershipApiResponseProcessor {
   public async getOwnershipInference(
     response: ResponseContext,
   ): Promise<OwnershipInferenceResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: OwnershipInferenceResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -657,7 +626,10 @@ export class CSMOwnershipApiResponseProcessor {
       response.httpStatusCode === 401 ||
       response.httpStatusCode === 404
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: JSONAPIErrorResponse;
       try {
         body = deserialize(
@@ -678,7 +650,10 @@ export class CSMOwnershipApiResponseProcessor {
       );
     }
     if (response.httpStatusCode === 429) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -693,7 +668,10 @@ export class CSMOwnershipApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -724,7 +702,9 @@ export class CSMOwnershipApiResponseProcessor {
   public async listOwnershipHistory(
     response: ResponseContext,
   ): Promise<OwnershipHistoryResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: OwnershipHistoryResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -733,8 +713,14 @@ export class CSMOwnershipApiResponseProcessor {
       ) as OwnershipHistoryResponse;
       return body;
     }
-    if (response.httpStatusCode === 400 || response.httpStatusCode === 401) {
-      const bodyText = parse(await response.body.text(), contentType);
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 401
+    ) {
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: JSONAPIErrorResponse;
       try {
         body = deserialize(
@@ -755,7 +741,10 @@ export class CSMOwnershipApiResponseProcessor {
       );
     }
     if (response.httpStatusCode === 429) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -770,7 +759,10 @@ export class CSMOwnershipApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -801,7 +793,9 @@ export class CSMOwnershipApiResponseProcessor {
   public async listOwnershipHistoryByOwnerType(
     response: ResponseContext,
   ): Promise<OwnershipHistoryResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: OwnershipHistoryResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -810,8 +804,14 @@ export class CSMOwnershipApiResponseProcessor {
       ) as OwnershipHistoryResponse;
       return body;
     }
-    if (response.httpStatusCode === 400 || response.httpStatusCode === 401) {
-      const bodyText = parse(await response.body.text(), contentType);
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 401
+    ) {
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: JSONAPIErrorResponse;
       try {
         body = deserialize(
@@ -832,7 +832,10 @@ export class CSMOwnershipApiResponseProcessor {
       );
     }
     if (response.httpStatusCode === 429) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -847,7 +850,10 @@ export class CSMOwnershipApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -878,7 +884,9 @@ export class CSMOwnershipApiResponseProcessor {
   public async listOwnershipInferences(
     response: ResponseContext,
   ): Promise<OwnershipInferenceListResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: OwnershipInferenceListResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -892,7 +900,10 @@ export class CSMOwnershipApiResponseProcessor {
       response.httpStatusCode === 401 ||
       response.httpStatusCode === 404
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: JSONAPIErrorResponse;
       try {
         body = deserialize(
@@ -913,7 +924,10 @@ export class CSMOwnershipApiResponseProcessor {
       );
     }
     if (response.httpStatusCode === 429) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -928,7 +942,10 @@ export class CSMOwnershipApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -1057,7 +1074,8 @@ export class CSMOwnershipApi {
   private responseProcessor: CSMOwnershipApiResponseProcessor;
   private configuration: Configuration;
 
-  static operationServers: { [key: string]: BaseServerConfiguration[] } = {};
+  static operationServers: { [key: string]: BaseServerConfiguration[] } = {
+  };
 
   public constructor(
     configuration?: Configuration,
@@ -1066,16 +1084,17 @@ export class CSMOwnershipApi {
   ) {
     this.configuration = configuration || createConfiguration();
     this.requestFactory =
-      requestFactory || new CSMOwnershipApiRequestFactory(this.configuration);
+      requestFactory ||
+      new CSMOwnershipApiRequestFactory(this.configuration);
     this.responseProcessor =
       responseProcessor || new CSMOwnershipApiResponseProcessor();
   }
 
   /**
    * Submit feedback on the current ownership inference for a resource and owner type. Valid actions are `confirm`, `reject`, `correct`, and `persist`.
-   *
+   * 
    * The request must include the current inference `checksum` in `inference_checksum`. If the checksum does not match the current inference state, the endpoint returns `409 Conflict`.
-   *
+   * 
    * When `action` is `correct`, `corrected_owner_handle` and `corrected_owner_type` are required.
    * @param param The request object
    */
@@ -1093,16 +1112,14 @@ export class CSMOwnershipApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.createOwnershipFeedback(
-            responseContext,
-          );
+          return this.responseProcessor.createOwnershipFeedback(responseContext);
         });
     });
   }
 
   /**
    * Get the evidence versions backing the current ownership inference for a resource and owner type.
-   *
+   * 
    * This endpoint supports weak ETag caching. Pass the previously returned `ETag` value in the `If-None-Match` request header to receive a `304 Not Modified` response when the evidence has not changed.
    * @param param The request object
    */
@@ -1127,7 +1144,7 @@ export class CSMOwnershipApi {
 
   /**
    * Get the current ownership inference for a resource for a specific owner type.
-   *
+   * 
    * This endpoint supports ETag-based caching. Pass the previously returned `ETag` value in the `If-None-Match` request header to receive a `304 Not Modified` response when the inference has not changed.
    * @param param The request object
    */
@@ -1181,21 +1198,18 @@ export class CSMOwnershipApi {
     param: CSMOwnershipApiListOwnershipHistoryByOwnerTypeRequest,
     options?: Configuration,
   ): Promise<OwnershipHistoryResponse> {
-    const requestContextPromise =
-      this.requestFactory.listOwnershipHistoryByOwnerType(
-        param.resourceId,
-        param.ownerType,
-        param.cursor,
-        param.limit,
-        options,
-      );
+    const requestContextPromise = this.requestFactory.listOwnershipHistoryByOwnerType(
+      param.resourceId,
+      param.ownerType,
+      param.cursor,
+      param.limit,
+      options,
+    );
     return requestContextPromise.then((requestContext) => {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.listOwnershipHistoryByOwnerType(
-            responseContext,
-          );
+          return this.responseProcessor.listOwnershipHistoryByOwnerType(responseContext);
         });
     });
   }
@@ -1216,9 +1230,7 @@ export class CSMOwnershipApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.listOwnershipInferences(
-            responseContext,
-          );
+          return this.responseProcessor.listOwnershipInferences(responseContext);
         });
     });
   }

@@ -19,6 +19,7 @@ import {
   ServerConfiguration,
   stringify,
   applySecurityAuthentication,
+  
 } from "@datadog/datadog-api-client";
 
 import { TypingInfo } from "./models/TypingInfo";
@@ -44,9 +45,7 @@ export class CustomerOrgApiRequestFactory extends BaseAPIRequestFactory {
     const _config = _options || this.configuration;
 
     if (!_config.unstableOperations["CustomerOrgApi.v2.disableCustomerOrg"]) {
-      throw new Error(
-        "Unstable operation 'disableCustomerOrg' is disabled. Enable it by setting `configuration.unstableOperations['CustomerOrgApi.v2.disableCustomerOrg'] = true`",
-      );
+      throw new Error("Unstable operation 'disableCustomerOrg' is disabled. Enable it by setting `configuration.unstableOperations['CustomerOrgApi.v2.disableCustomerOrg'] = true`");
     }
 
     // verify required parameter 'body' is not null or undefined
@@ -58,15 +57,8 @@ export class CustomerOrgApiRequestFactory extends BaseAPIRequestFactory {
     const localVarPath = "/api/v2/org/disable";
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "CustomerOrgApi.v2.disableCustomerOrg",
-      CustomerOrgApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.POST,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("CustomerOrgApi.v2.disableCustomerOrg", CustomerOrgApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.POST, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -76,7 +68,9 @@ export class CustomerOrgApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Body Params
-    const contentType = getPreferredMediaType(["application/json"]);
+    const contentType = getPreferredMediaType([
+      "application/json",
+    ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = stringify(
       serialize(body, TypingInfo, "CustomerOrgDisableRequest", ""),
@@ -106,7 +100,9 @@ export class CustomerOrgApiResponseProcessor {
   public async disableCustomerOrg(
     response: ResponseContext,
   ): Promise<CustomerOrgDisableResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: CustomerOrgDisableResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -121,7 +117,10 @@ export class CustomerOrgApiResponseProcessor {
       response.httpStatusCode === 403 ||
       response.httpStatusCode === 500
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: JSONAPIErrorResponse;
       try {
         body = deserialize(
@@ -142,7 +141,10 @@ export class CustomerOrgApiResponseProcessor {
       );
     }
     if (response.httpStatusCode === 429) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -157,7 +159,10 @@ export class CustomerOrgApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -191,7 +196,8 @@ export class CustomerOrgApi {
   private responseProcessor: CustomerOrgApiResponseProcessor;
   private configuration: Configuration;
 
-  static operationServers: { [key: string]: BaseServerConfiguration[] } = {};
+  static operationServers: { [key: string]: BaseServerConfiguration[] } = {
+  };
 
   public constructor(
     configuration?: Configuration,
@@ -200,7 +206,8 @@ export class CustomerOrgApi {
   ) {
     this.configuration = configuration || createConfiguration();
     this.requestFactory =
-      requestFactory || new CustomerOrgApiRequestFactory(this.configuration);
+      requestFactory ||
+      new CustomerOrgApiRequestFactory(this.configuration);
     this.responseProcessor =
       responseProcessor || new CustomerOrgApiResponseProcessor();
   }

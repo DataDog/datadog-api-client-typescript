@@ -1,5 +1,6 @@
 import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
+
 /**
  * Attributes of a suggested action for a security signal. The available fields depend on the action type.
  */
@@ -15,7 +16,7 @@ export class SecurityMonitoringSignalSuggestedActionAttributes {
   /**
    * Template variables applied to the investigation log query, mapping attribute paths to values extracted from the signal.
    */
-  "templateVariables"?: { [key: string]: Array<string> };
+  "templateVariables"?: { [key: string]: Array<string>; };
   /**
    * The title of the recommended blog post.
    */
@@ -29,7 +30,7 @@ export class SecurityMonitoringSignalSuggestedActionAttributes {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
   /**
    * @ignore
    */

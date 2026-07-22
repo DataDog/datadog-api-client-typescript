@@ -22,11 +22,7 @@ import { SpansFilterCreate } from "./SpansFilterCreate";
 export const TypingInfo: ModelTypingInfo = {
   enumsMap: {
     ApmRetentionFilterType: ["apm_retention_filter"],
-    RetentionFilterAllType: [
-      "spans-sampling-processor",
-      "spans-errors-sampling-processor",
-      "spans-appsec-sampling-processor",
-    ],
+    RetentionFilterAllType: ["spans-sampling-processor", "spans-errors-sampling-processor", "spans-appsec-sampling-processor"],
     RetentionFilterType: ["spans-sampling-processor"],
   },
   oneOfMap: {},

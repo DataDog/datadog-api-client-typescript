@@ -33,7 +33,7 @@ export class RetentionGridRequest {
       baseName: "request_type",
       type: "RetentionGridRequestType",
       required: true,
-    },
+    }
   };
 
   /**

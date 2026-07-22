@@ -19,6 +19,7 @@ import {
   ServerConfiguration,
   stringify,
   applySecurityAuthentication,
+  
 } from "@datadog/datadog-api-client";
 
 import { TypingInfo } from "./models/TypingInfo";
@@ -53,15 +54,8 @@ export class SeatsApiRequestFactory extends BaseAPIRequestFactory {
     const localVarPath = "/api/v2/seats/users";
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "SeatsApi.v2.assignSeatsUser",
-      SeatsApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.POST,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("SeatsApi.v2.assignSeatsUser", SeatsApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.POST, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -71,7 +65,9 @@ export class SeatsApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Body Params
-    const contentType = getPreferredMediaType(["application/json"]);
+    const contentType = getPreferredMediaType([
+      "application/json",
+    ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = stringify(
       serialize(body, TypingInfo, "AssignSeatsUserRequest", ""),
@@ -105,15 +101,8 @@ export class SeatsApiRequestFactory extends BaseAPIRequestFactory {
     const localVarPath = "/api/v2/seats/users";
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "SeatsApi.v2.getSeatsUsers",
-      SeatsApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.GET,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("SeatsApi.v2.getSeatsUsers", SeatsApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.GET, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -169,15 +158,8 @@ export class SeatsApiRequestFactory extends BaseAPIRequestFactory {
     const localVarPath = "/api/v2/seats/users";
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "SeatsApi.v2.unassignSeatsUser",
-      SeatsApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.DELETE,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("SeatsApi.v2.unassignSeatsUser", SeatsApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.DELETE, overrides);
     requestContext.setHeaderParam("Accept", "*/*");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -187,7 +169,9 @@ export class SeatsApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Body Params
-    const contentType = getPreferredMediaType(["application/json"]);
+    const contentType = getPreferredMediaType([
+      "application/json",
+    ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = stringify(
       serialize(body, TypingInfo, "UnassignSeatsUserRequest", ""),
@@ -216,7 +200,9 @@ export class SeatsApiResponseProcessor {
   public async assignSeatsUser(
     response: ResponseContext,
   ): Promise<AssignSeatsUserResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 201) {
       const body: AssignSeatsUserResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -230,7 +216,10 @@ export class SeatsApiResponseProcessor {
       response.httpStatusCode === 422 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -245,7 +234,10 @@ export class SeatsApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -276,7 +268,9 @@ export class SeatsApiResponseProcessor {
   public async getSeatsUsers(
     response: ResponseContext,
   ): Promise<SeatUserDataArray> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: SeatUserDataArray = deserialize(
         parse(await response.body.text(), contentType),
@@ -290,7 +284,10 @@ export class SeatsApiResponseProcessor {
       response.httpStatusCode === 422 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -305,7 +302,10 @@ export class SeatsApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -333,8 +333,12 @@ export class SeatsApiResponseProcessor {
    * @params response Response returned by the server for a request to unassignSeatsUser
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async unassignSeatsUser(response: ResponseContext): Promise<void> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+  public async unassignSeatsUser(
+    response: ResponseContext,
+  ): Promise<void> {
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 204) {
       return;
     }
@@ -343,7 +347,10 @@ export class SeatsApiResponseProcessor {
       response.httpStatusCode === 422 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -358,7 +365,10 @@ export class SeatsApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -411,7 +421,8 @@ export class SeatsApi {
   private responseProcessor: SeatsApiResponseProcessor;
   private configuration: Configuration;
 
-  static operationServers: { [key: string]: BaseServerConfiguration[] } = {};
+  static operationServers: { [key: string]: BaseServerConfiguration[] } = {
+  };
 
   public constructor(
     configuration?: Configuration,
@@ -420,7 +431,8 @@ export class SeatsApi {
   ) {
     this.configuration = configuration || createConfiguration();
     this.requestFactory =
-      requestFactory || new SeatsApiRequestFactory(this.configuration);
+      requestFactory ||
+      new SeatsApiRequestFactory(this.configuration);
     this.responseProcessor =
       responseProcessor || new SeatsApiResponseProcessor();
   }

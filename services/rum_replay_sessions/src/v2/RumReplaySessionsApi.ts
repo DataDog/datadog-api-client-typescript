@@ -19,6 +19,7 @@ import {
   ServerConfiguration,
   stringify,
   applySecurityAuthentication,
+  
 } from "@datadog/datadog-api-client";
 
 import { TypingInfo } from "./models/TypingInfo";
@@ -56,21 +57,17 @@ export class RumReplaySessionsApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Path Params
-    const localVarPath =
-      "/api/v2/rum/replay/sessions/{session_id}/views/{view_id}/segments"
-        .replace("{view_id}", encodeURIComponent(String(viewId)))
-        .replace("{session_id}", encodeURIComponent(String(sessionId)));
+    const localVarPath = "/api/v2/rum/replay/sessions/{session_id}/views/{view_id}/segments".replace(
+      "{view_id}",
+      encodeURIComponent(String(viewId)),
+    ).replace(
+      "{session_id}",
+      encodeURIComponent(String(sessionId)),
+    );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "RumReplaySessionsApi.v2.getSegments",
-      RumReplaySessionsApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.GET,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("RumReplaySessionsApi.v2.getSegments", RumReplaySessionsApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.GET, overrides);
     requestContext.setHeaderParam("Accept", "*/*");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -128,13 +125,20 @@ export class RumReplaySessionsApiResponseProcessor {
    * @params response Response returned by the server for a request to getSegments
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async getSegments(response: ResponseContext): Promise<void> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+  public async getSegments(
+    response: ResponseContext,
+  ): Promise<void> {
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       return;
     }
     if (response.httpStatusCode === 429) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -149,7 +153,10 @@ export class RumReplaySessionsApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -203,7 +210,8 @@ export class RumReplaySessionsApi {
   private responseProcessor: RumReplaySessionsApiResponseProcessor;
   private configuration: Configuration;
 
-  static operationServers: { [key: string]: BaseServerConfiguration[] } = {};
+  static operationServers: { [key: string]: BaseServerConfiguration[] } = {
+  };
 
   public constructor(
     configuration?: Configuration,

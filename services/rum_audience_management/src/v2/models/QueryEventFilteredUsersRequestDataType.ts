@@ -6,5 +6,4 @@ import { UnparsedObject } from "@datadog/datadog-api-client";
 export type QueryEventFilteredUsersRequestDataType =
   | typeof QUERY_EVENT_FILTERED_USERS_REQUEST
   | UnparsedObject;
-export const QUERY_EVENT_FILTERED_USERS_REQUEST =
-  "query_event_filtered_users_request";
+export const QUERY_EVENT_FILTERED_USERS_REQUEST = "query_event_filtered_users_request";

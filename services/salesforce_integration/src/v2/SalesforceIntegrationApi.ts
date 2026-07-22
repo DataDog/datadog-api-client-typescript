@@ -19,6 +19,7 @@ import {
   ServerConfiguration,
   stringify,
   applySecurityAuthentication,
+  
 } from "@datadog/datadog-api-client";
 
 import { TypingInfo } from "./models/TypingInfo";
@@ -51,19 +52,11 @@ export class SalesforceIntegrationApiRequestFactory extends BaseAPIRequestFactor
     }
 
     // Path Params
-    const localVarPath =
-      "/api/v2/integration/salesforce-incidents/incident-templates";
+    const localVarPath = "/api/v2/integration/salesforce-incidents/incident-templates";
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "SalesforceIntegrationApi.v2.createIncidentTemplate",
-      SalesforceIntegrationApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.POST,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("SalesforceIntegrationApi.v2.createIncidentTemplate", SalesforceIntegrationApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.POST, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -73,15 +66,12 @@ export class SalesforceIntegrationApiRequestFactory extends BaseAPIRequestFactor
     }
 
     // Body Params
-    const contentType = getPreferredMediaType(["application/json"]);
+    const contentType = getPreferredMediaType([
+      "application/json",
+    ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = stringify(
-      serialize(
-        body,
-        TypingInfo,
-        "SalesforceIncidentsTemplateCreateRequest",
-        "",
-      ),
+      serialize(body, TypingInfo, "SalesforceIncidentsTemplateCreateRequest", ""),
       contentType,
     );
     requestContext.setBody(serializedBody);
@@ -107,22 +97,14 @@ export class SalesforceIntegrationApiRequestFactory extends BaseAPIRequestFactor
     }
 
     // Path Params
-    const localVarPath =
-      "/api/v2/integration/salesforce-incidents/incident-templates/{incident_template_id}".replace(
-        "{incident_template_id}",
-        encodeURIComponent(String(incidentTemplateId)),
-      );
+    const localVarPath = "/api/v2/integration/salesforce-incidents/incident-templates/{incident_template_id}".replace(
+      "{incident_template_id}",
+      encodeURIComponent(String(incidentTemplateId)),
+    );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "SalesforceIntegrationApi.v2.deleteIncidentTemplate",
-      SalesforceIntegrationApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.DELETE,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("SalesforceIntegrationApi.v2.deleteIncidentTemplate", SalesforceIntegrationApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.DELETE, overrides);
     requestContext.setHeaderParam("Accept", "*/*");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -148,29 +130,18 @@ export class SalesforceIntegrationApiRequestFactory extends BaseAPIRequestFactor
 
     // verify required parameter 'salesforceOrgId' is not null or undefined
     if (salesforceOrgId === null || salesforceOrgId === undefined) {
-      throw new RequiredError(
-        "salesforceOrgId",
-        "deleteSalesforceOrganization",
-      );
+      throw new RequiredError("salesforceOrgId", "deleteSalesforceOrganization");
     }
 
     // Path Params
-    const localVarPath =
-      "/api/v2/integration/salesforce-incidents/organizations/{salesforce_org_id}".replace(
-        "{salesforce_org_id}",
-        encodeURIComponent(String(salesforceOrgId)),
-      );
+    const localVarPath = "/api/v2/integration/salesforce-incidents/organizations/{salesforce_org_id}".replace(
+      "{salesforce_org_id}",
+      encodeURIComponent(String(salesforceOrgId)),
+    );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "SalesforceIntegrationApi.v2.deleteSalesforceOrganization",
-      SalesforceIntegrationApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.DELETE,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("SalesforceIntegrationApi.v2.deleteSalesforceOrganization", SalesforceIntegrationApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.DELETE, overrides);
     requestContext.setHeaderParam("Accept", "*/*");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -194,19 +165,11 @@ export class SalesforceIntegrationApiRequestFactory extends BaseAPIRequestFactor
     const _config = _options || this.configuration;
 
     // Path Params
-    const localVarPath =
-      "/api/v2/integration/salesforce-incidents/incident-templates";
+    const localVarPath = "/api/v2/integration/salesforce-incidents/incident-templates";
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "SalesforceIntegrationApi.v2.getIncidentTemplates",
-      SalesforceIntegrationApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.GET,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("SalesforceIntegrationApi.v2.getIncidentTemplates", SalesforceIntegrationApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.GET, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -230,19 +193,11 @@ export class SalesforceIntegrationApiRequestFactory extends BaseAPIRequestFactor
     const _config = _options || this.configuration;
 
     // Path Params
-    const localVarPath =
-      "/api/v2/integration/salesforce-incidents/organizations";
+    const localVarPath = "/api/v2/integration/salesforce-incidents/organizations";
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "SalesforceIntegrationApi.v2.getSalesforceOrganizations",
-      SalesforceIntegrationApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.GET,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("SalesforceIntegrationApi.v2.getSalesforceOrganizations", SalesforceIntegrationApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.GET, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -278,22 +233,14 @@ export class SalesforceIntegrationApiRequestFactory extends BaseAPIRequestFactor
     }
 
     // Path Params
-    const localVarPath =
-      "/api/v2/integration/salesforce-incidents/incident-templates/{incident_template_id}".replace(
-        "{incident_template_id}",
-        encodeURIComponent(String(incidentTemplateId)),
-      );
+    const localVarPath = "/api/v2/integration/salesforce-incidents/incident-templates/{incident_template_id}".replace(
+      "{incident_template_id}",
+      encodeURIComponent(String(incidentTemplateId)),
+    );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "SalesforceIntegrationApi.v2.updateIncidentTemplate",
-      SalesforceIntegrationApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.PATCH,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("SalesforceIntegrationApi.v2.updateIncidentTemplate", SalesforceIntegrationApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.PATCH, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -303,15 +250,12 @@ export class SalesforceIntegrationApiRequestFactory extends BaseAPIRequestFactor
     }
 
     // Body Params
-    const contentType = getPreferredMediaType(["application/json"]);
+    const contentType = getPreferredMediaType([
+      "application/json",
+    ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = stringify(
-      serialize(
-        body,
-        TypingInfo,
-        "SalesforceIncidentsTemplateUpdateRequest",
-        "",
-      ),
+      serialize(body, TypingInfo, "SalesforceIncidentsTemplateUpdateRequest", ""),
       contentType,
     );
     requestContext.setBody(serializedBody);
@@ -337,7 +281,9 @@ export class SalesforceIntegrationApiResponseProcessor {
   public async createIncidentTemplate(
     response: ResponseContext,
   ): Promise<SalesforceIncidentsTemplateResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 201) {
       const body: SalesforceIncidentsTemplateResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -353,7 +299,10 @@ export class SalesforceIntegrationApiResponseProcessor {
       response.httpStatusCode === 409 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -368,7 +317,10 @@ export class SalesforceIntegrationApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -399,7 +351,9 @@ export class SalesforceIntegrationApiResponseProcessor {
   public async deleteIncidentTemplate(
     response: ResponseContext,
   ): Promise<void> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 204) {
       return;
     }
@@ -408,7 +362,10 @@ export class SalesforceIntegrationApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -423,7 +380,10 @@ export class SalesforceIntegrationApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -448,7 +408,9 @@ export class SalesforceIntegrationApiResponseProcessor {
   public async deleteSalesforceOrganization(
     response: ResponseContext,
   ): Promise<void> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 204) {
       return;
     }
@@ -458,7 +420,10 @@ export class SalesforceIntegrationApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -473,7 +438,10 @@ export class SalesforceIntegrationApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -498,7 +466,9 @@ export class SalesforceIntegrationApiResponseProcessor {
   public async getIncidentTemplates(
     response: ResponseContext,
   ): Promise<SalesforceIncidentsTemplatesResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: SalesforceIncidentsTemplatesResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -507,8 +477,14 @@ export class SalesforceIntegrationApiResponseProcessor {
       ) as SalesforceIncidentsTemplatesResponse;
       return body;
     }
-    if (response.httpStatusCode === 403 || response.httpStatusCode === 429) {
-      const bodyText = parse(await response.body.text(), contentType);
+    if (
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 429
+    ) {
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -523,7 +499,10 @@ export class SalesforceIntegrationApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -554,7 +533,9 @@ export class SalesforceIntegrationApiResponseProcessor {
   public async getSalesforceOrganizations(
     response: ResponseContext,
   ): Promise<SalesforceIncidentsOrganizationsResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: SalesforceIncidentsOrganizationsResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -569,7 +550,10 @@ export class SalesforceIntegrationApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -584,7 +568,10 @@ export class SalesforceIntegrationApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -615,7 +602,9 @@ export class SalesforceIntegrationApiResponseProcessor {
   public async updateIncidentTemplate(
     response: ResponseContext,
   ): Promise<SalesforceIncidentsTemplateResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: SalesforceIncidentsTemplateResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -631,7 +620,10 @@ export class SalesforceIntegrationApiResponseProcessor {
       response.httpStatusCode === 409 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -646,7 +638,10 @@ export class SalesforceIntegrationApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -710,7 +705,8 @@ export class SalesforceIntegrationApi {
   private responseProcessor: SalesforceIntegrationApiResponseProcessor;
   private configuration: Configuration;
 
-  static operationServers: { [key: string]: BaseServerConfiguration[] } = {};
+  static operationServers: { [key: string]: BaseServerConfiguration[] } = {
+  };
 
   public constructor(
     configuration?: Configuration,
@@ -777,18 +773,15 @@ export class SalesforceIntegrationApi {
     param: SalesforceIntegrationApiDeleteSalesforceOrganizationRequest,
     options?: Configuration,
   ): Promise<void> {
-    const requestContextPromise =
-      this.requestFactory.deleteSalesforceOrganization(
-        param.salesforceOrgId,
-        options,
-      );
+    const requestContextPromise = this.requestFactory.deleteSalesforceOrganization(
+      param.salesforceOrgId,
+      options,
+    );
     return requestContextPromise.then((requestContext) => {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.deleteSalesforceOrganization(
-            responseContext,
-          );
+          return this.responseProcessor.deleteSalesforceOrganization(responseContext);
         });
     });
   }
@@ -797,11 +790,11 @@ export class SalesforceIntegrationApi {
    * Get all Salesforce incident templates configured for your organization.
    * @param param The request object
    */
-  public getIncidentTemplates(
-    options?: Configuration,
+  public getIncidentTemplates(options?: Configuration,
   ): Promise<SalesforceIncidentsTemplatesResponse> {
-    const requestContextPromise =
-      this.requestFactory.getIncidentTemplates(options);
+    const requestContextPromise = this.requestFactory.getIncidentTemplates(
+      options,
+    );
     return requestContextPromise.then((requestContext) => {
       return this.configuration.httpApi
         .send(requestContext)
@@ -817,18 +810,16 @@ export class SalesforceIntegrationApi {
    * through the OAuth setup flow in the Datadog Salesforce integration page.
    * @param param The request object
    */
-  public getSalesforceOrganizations(
-    options?: Configuration,
+  public getSalesforceOrganizations(options?: Configuration,
   ): Promise<SalesforceIncidentsOrganizationsResponse> {
-    const requestContextPromise =
-      this.requestFactory.getSalesforceOrganizations(options);
+    const requestContextPromise = this.requestFactory.getSalesforceOrganizations(
+      options,
+    );
     return requestContextPromise.then((requestContext) => {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.getSalesforceOrganizations(
-            responseContext,
-          );
+          return this.responseProcessor.getSalesforceOrganizations(responseContext);
         });
     });
   }

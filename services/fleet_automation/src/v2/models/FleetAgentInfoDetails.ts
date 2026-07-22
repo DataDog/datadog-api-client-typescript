@@ -1,5 +1,6 @@
 import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
+
 /**
  * Detailed information about a Datadog Agent.
  */
@@ -87,7 +88,7 @@ export class FleetAgentInfoDetails {
   /**
    * OpenTelemetry collectors associated with the agent (if applicable).
    */
-  "otelCollectors"?: Array<{ [key: string]: any }>;
+  "otelCollectors"?: Array<{ [key: string]: any; }>;
   /**
    * Kubernetes pod name (if applicable).
    */
@@ -125,7 +126,7 @@ export class FleetAgentInfoDetails {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "additionalProperties"?: { [key: string]: any; };
   /**
    * @ignore
    */

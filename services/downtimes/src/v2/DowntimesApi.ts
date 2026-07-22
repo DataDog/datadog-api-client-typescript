@@ -19,6 +19,7 @@ import {
   ServerConfiguration,
   stringify,
   applySecurityAuthentication,
+  
 } from "@datadog/datadog-api-client";
 
 import { TypingInfo } from "./models/TypingInfo";
@@ -59,15 +60,8 @@ export class DowntimesApiRequestFactory extends BaseAPIRequestFactory {
     );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "DowntimesApi.v2.cancelDowntime",
-      DowntimesApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.DELETE,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("DowntimesApi.v2.cancelDowntime", DowntimesApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.DELETE, overrides);
     requestContext.setHeaderParam("Accept", "*/*");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -101,15 +95,8 @@ export class DowntimesApiRequestFactory extends BaseAPIRequestFactory {
     const localVarPath = "/api/v2/downtime";
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "DowntimesApi.v2.createDowntime",
-      DowntimesApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.POST,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("DowntimesApi.v2.createDowntime", DowntimesApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.POST, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -119,7 +106,9 @@ export class DowntimesApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Body Params
-    const contentType = getPreferredMediaType(["application/json"]);
+    const contentType = getPreferredMediaType([
+      "application/json",
+    ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = stringify(
       serialize(body, TypingInfo, "DowntimeCreateRequest", ""),
@@ -156,15 +145,8 @@ export class DowntimesApiRequestFactory extends BaseAPIRequestFactory {
     );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "DowntimesApi.v2.getDowntime",
-      DowntimesApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.GET,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("DowntimesApi.v2.getDowntime", DowntimesApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.GET, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -205,15 +187,8 @@ export class DowntimesApiRequestFactory extends BaseAPIRequestFactory {
     const localVarPath = "/api/v2/downtime";
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "DowntimesApi.v2.listDowntimes",
-      DowntimesApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.GET,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("DowntimesApi.v2.listDowntimes", DowntimesApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.GET, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -276,22 +251,14 @@ export class DowntimesApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Path Params
-    const localVarPath =
-      "/api/v2/monitor/{monitor_id}/downtime_matches".replace(
-        "{monitor_id}",
-        encodeURIComponent(String(monitorId)),
-      );
+    const localVarPath = "/api/v2/monitor/{monitor_id}/downtime_matches".replace(
+      "{monitor_id}",
+      encodeURIComponent(String(monitorId)),
+    );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "DowntimesApi.v2.listMonitorDowntimes",
-      DowntimesApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.GET,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("DowntimesApi.v2.listMonitorDowntimes", DowntimesApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.GET, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -350,15 +317,8 @@ export class DowntimesApiRequestFactory extends BaseAPIRequestFactory {
     );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "DowntimesApi.v2.updateDowntime",
-      DowntimesApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.PATCH,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("DowntimesApi.v2.updateDowntime", DowntimesApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.PATCH, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -368,7 +328,9 @@ export class DowntimesApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Body Params
-    const contentType = getPreferredMediaType(["application/json"]);
+    const contentType = getPreferredMediaType([
+      "application/json",
+    ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = stringify(
       serialize(body, TypingInfo, "DowntimeUpdateRequest", ""),
@@ -395,8 +357,12 @@ export class DowntimesApiResponseProcessor {
    * @params response Response returned by the server for a request to cancelDowntime
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async cancelDowntime(response: ResponseContext): Promise<void> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+  public async cancelDowntime(
+    response: ResponseContext,
+  ): Promise<void> {
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 204) {
       return;
     }
@@ -405,7 +371,10 @@ export class DowntimesApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -420,7 +389,10 @@ export class DowntimesApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -445,7 +417,9 @@ export class DowntimesApiResponseProcessor {
   public async createDowntime(
     response: ResponseContext,
   ): Promise<DowntimeResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: DowntimeResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -459,7 +433,10 @@ export class DowntimesApiResponseProcessor {
       response.httpStatusCode === 403 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -474,7 +451,10 @@ export class DowntimesApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -505,7 +485,9 @@ export class DowntimesApiResponseProcessor {
   public async getDowntime(
     response: ResponseContext,
   ): Promise<DowntimeResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: DowntimeResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -520,7 +502,10 @@ export class DowntimesApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -535,7 +520,10 @@ export class DowntimesApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -566,7 +554,9 @@ export class DowntimesApiResponseProcessor {
   public async listDowntimes(
     response: ResponseContext,
   ): Promise<ListDowntimesResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: ListDowntimesResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -575,8 +565,14 @@ export class DowntimesApiResponseProcessor {
       ) as ListDowntimesResponse;
       return body;
     }
-    if (response.httpStatusCode === 403 || response.httpStatusCode === 429) {
-      const bodyText = parse(await response.body.text(), contentType);
+    if (
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 429
+    ) {
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -591,7 +587,10 @@ export class DowntimesApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -622,7 +621,9 @@ export class DowntimesApiResponseProcessor {
   public async listMonitorDowntimes(
     response: ResponseContext,
   ): Promise<MonitorDowntimeMatchResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: MonitorDowntimeMatchResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -631,8 +632,14 @@ export class DowntimesApiResponseProcessor {
       ) as MonitorDowntimeMatchResponse;
       return body;
     }
-    if (response.httpStatusCode === 404 || response.httpStatusCode === 429) {
-      const bodyText = parse(await response.body.text(), contentType);
+    if (
+      response.httpStatusCode === 404 ||
+      response.httpStatusCode === 429
+    ) {
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -647,7 +654,10 @@ export class DowntimesApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -678,7 +688,9 @@ export class DowntimesApiResponseProcessor {
   public async updateDowntime(
     response: ResponseContext,
   ): Promise<DowntimeResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: DowntimeResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -693,7 +705,10 @@ export class DowntimesApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -708,7 +723,10 @@ export class DowntimesApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -820,7 +838,8 @@ export class DowntimesApi {
   private responseProcessor: DowntimesApiResponseProcessor;
   private configuration: Configuration;
 
-  static operationServers: { [key: string]: BaseServerConfiguration[] } = {};
+  static operationServers: { [key: string]: BaseServerConfiguration[] } = {
+  };
 
   public constructor(
     configuration?: Configuration,
@@ -829,14 +848,15 @@ export class DowntimesApi {
   ) {
     this.configuration = configuration || createConfiguration();
     this.requestFactory =
-      requestFactory || new DowntimesApiRequestFactory(this.configuration);
+      requestFactory ||
+      new DowntimesApiRequestFactory(this.configuration);
     this.responseProcessor =
       responseProcessor || new DowntimesApiResponseProcessor();
   }
 
   /**
    * Cancel a downtime.
-   *
+   * 
    * **Note**: Downtimes canceled through the API are no longer active, but are retained for approximately two days before being permanently removed. The downtime may still appear in search results until it is permanently removed.
    * @param param The request object
    */
@@ -928,27 +948,19 @@ export class DowntimesApi {
    * Provide a paginated version of listDowntimes returning a generator with all the items.
    */
   public async *listDowntimesWithPagination(
-    param: DowntimesApiListDowntimesRequest = {},
-    options?: Configuration,
+    param: DowntimesApiListDowntimesRequest = {}, options?: Configuration,
   ): AsyncGenerator<DowntimeResponseData> {
+
     let pageSize = 30;
     if (param.pageLimit !== undefined) {
       pageSize = param.pageLimit;
     }
     param.pageLimit = pageSize;
     while (true) {
-      const requestContext = await this.requestFactory.listDowntimes(
-        param.currentOnly,
-        param.include,
-        param.pageOffset,
-        param.pageLimit,
-        options,
-      );
-      const responseContext =
-        await this.configuration.httpApi.send(requestContext);
+      const requestContext = await this.requestFactory.listDowntimes(param.currentOnly,param.include,param.pageOffset,param.pageLimit,options);
+      const responseContext = await this.configuration.httpApi.send(requestContext);
 
-      const response =
-        await this.responseProcessor.listDowntimes(responseContext);
+      const response = await this.responseProcessor.listDowntimes(responseContext);
       const responseData = response.data;
       if (responseData === undefined) {
         break;
@@ -995,26 +1007,19 @@ export class DowntimesApi {
    * Provide a paginated version of listMonitorDowntimes returning a generator with all the items.
    */
   public async *listMonitorDowntimesWithPagination(
-    param: DowntimesApiListMonitorDowntimesRequest,
-    options?: Configuration,
+    param: DowntimesApiListMonitorDowntimesRequest, options?: Configuration,
   ): AsyncGenerator<MonitorDowntimeMatchResponseData> {
+
     let pageSize = 30;
     if (param.pageLimit !== undefined) {
       pageSize = param.pageLimit;
     }
     param.pageLimit = pageSize;
     while (true) {
-      const requestContext = await this.requestFactory.listMonitorDowntimes(
-        param.monitorId,
-        param.pageOffset,
-        param.pageLimit,
-        options,
-      );
-      const responseContext =
-        await this.configuration.httpApi.send(requestContext);
+      const requestContext = await this.requestFactory.listMonitorDowntimes(param.monitorId,param.pageOffset,param.pageLimit,options);
+      const responseContext = await this.configuration.httpApi.send(requestContext);
 
-      const response =
-        await this.responseProcessor.listMonitorDowntimes(responseContext);
+      const response = await this.responseProcessor.listMonitorDowntimes(responseContext);
       const responseData = response.data;
       if (responseData === undefined) {
         break;

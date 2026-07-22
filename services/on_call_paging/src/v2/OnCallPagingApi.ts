@@ -19,6 +19,7 @@ import {
   ServerConfiguration,
   stringify,
   applySecurityAuthentication,
+  
 } from "@datadog/datadog-api-client";
 
 import { TypingInfo } from "./models/TypingInfo";
@@ -54,15 +55,8 @@ export class OnCallPagingApiRequestFactory extends BaseAPIRequestFactory {
     );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "OnCallPagingApi.v2.acknowledgeOnCallPage",
-      OnCallPagingApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.POST,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("OnCallPagingApi.v2.acknowledgeOnCallPage", OnCallPagingApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.POST, overrides);
     requestContext.setHeaderParam("Accept", "*/*");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -96,15 +90,8 @@ export class OnCallPagingApiRequestFactory extends BaseAPIRequestFactory {
     const localVarPath = "/api/v2/on-call/pages";
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "OnCallPagingApi.v2.createOnCallPage",
-      OnCallPagingApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.POST,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("OnCallPagingApi.v2.createOnCallPage", OnCallPagingApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.POST, overrides);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -114,7 +101,9 @@ export class OnCallPagingApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Body Params
-    const contentType = getPreferredMediaType(["application/json"]);
+    const contentType = getPreferredMediaType([
+      "application/json",
+    ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = stringify(
       serialize(body, TypingInfo, "CreatePageRequest", ""),
@@ -150,15 +139,8 @@ export class OnCallPagingApiRequestFactory extends BaseAPIRequestFactory {
     );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "OnCallPagingApi.v2.escalateOnCallPage",
-      OnCallPagingApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.POST,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("OnCallPagingApi.v2.escalateOnCallPage", OnCallPagingApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.POST, overrides);
     requestContext.setHeaderParam("Accept", "*/*");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -195,15 +177,8 @@ export class OnCallPagingApiRequestFactory extends BaseAPIRequestFactory {
     );
 
     // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "OnCallPagingApi.v2.resolveOnCallPage",
-      OnCallPagingApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.POST,
-      overrides,
-    );
+    const { server, overrides } = _config.getServerAndOverrides("OnCallPagingApi.v2.resolveOnCallPage", OnCallPagingApi.operationServers);
+    const requestContext = server.makeRequestContext(localVarPath, HttpMethod.POST, overrides);
     requestContext.setHeaderParam("Accept", "*/*");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -231,13 +206,20 @@ export class OnCallPagingApiResponseProcessor {
    * @params response Response returned by the server for a request to acknowledgeOnCallPage
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async acknowledgeOnCallPage(response: ResponseContext): Promise<void> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+  public async acknowledgeOnCallPage(
+    response: ResponseContext,
+  ): Promise<void> {
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 202) {
       return;
     }
     if (response.httpStatusCode === 429) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -252,7 +234,10 @@ export class OnCallPagingApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -277,7 +262,9 @@ export class OnCallPagingApiResponseProcessor {
   public async createOnCallPage(
     response: ResponseContext,
   ): Promise<CreatePageResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 200) {
       const body: CreatePageResponse = deserialize(
         parse(await response.body.text(), contentType),
@@ -287,7 +274,10 @@ export class OnCallPagingApiResponseProcessor {
       return body;
     }
     if (response.httpStatusCode === 429) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -302,7 +292,10 @@ export class OnCallPagingApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -330,13 +323,20 @@ export class OnCallPagingApiResponseProcessor {
    * @params response Response returned by the server for a request to escalateOnCallPage
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async escalateOnCallPage(response: ResponseContext): Promise<void> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+  public async escalateOnCallPage(
+    response: ResponseContext,
+  ): Promise<void> {
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 202) {
       return;
     }
     if (response.httpStatusCode === 429) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -351,7 +351,10 @@ export class OnCallPagingApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -373,13 +376,20 @@ export class OnCallPagingApiResponseProcessor {
    * @params response Response returned by the server for a request to resolveOnCallPage
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async resolveOnCallPage(response: ResponseContext): Promise<void> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
+  public async resolveOnCallPage(
+    response: ResponseContext,
+  ): Promise<void> {
+    const contentType = normalizeMediaType(
+      response.headers["content-type"],
+    );
     if (response.httpStatusCode === 202) {
       return;
     }
     if (response.httpStatusCode === 429) {
-      const bodyText = parse(await response.body.text(), contentType);
+      const bodyText = parse(
+        await response.body.text(),
+        contentType,
+      );
       let body: APIErrorResponse;
       try {
         body = deserialize(
@@ -394,7 +404,10 @@ export class OnCallPagingApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<APIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -448,112 +461,76 @@ export class OnCallPagingApi {
 
   static operationServers: { [key: string]: BaseServerConfiguration[] } = {
     "OnCallPagingApi.v2.acknowledgeOnCallPage": [
-      new ServerConfiguration<{
-        site:
-          | "lava.oncall.datadoghq.com"
-          | "saffron.oncall.datadoghq.com"
-          | "navy.oncall.datadoghq.com"
-          | "coral.oncall.datadoghq.com"
-          | "teal.oncall.datadoghq.com"
-          | "beige.oncall.datadoghq.eu";
-      }>("https://{site}", {
-        site: "navy.oncall.datadoghq.com",
-      }),
-      new ServerConfiguration<{
-        name: string;
-        protocol: string;
-      }>("{protocol}://{name}", {
-        name: "api.datadoghq.com",
-        protocol: "https",
-      }),
-      new ServerConfiguration<{
-        site: string;
-        subdomain: string;
-      }>("https://{subdomain}.{site}", {
-        site: "datadoghq.com",
-        subdomain: "api",
-      }),
+        new ServerConfiguration<{
+          "site":"lava.oncall.datadoghq.com" | "saffron.oncall.datadoghq.com" | "navy.oncall.datadoghq.com" | "coral.oncall.datadoghq.com" | "teal.oncall.datadoghq.com" | "beige.oncall.datadoghq.eu" }>("https://{site}", {
+          "site": "navy.oncall.datadoghq.com"
+        }),
+        new ServerConfiguration<{
+          "name":string,
+          "protocol":string }>("{protocol}://{name}", {
+          "name": "api.datadoghq.com",
+          "protocol": "https"
+        }),
+        new ServerConfiguration<{
+          "site":string,
+          "subdomain":string }>("https://{subdomain}.{site}", {
+          "site": "datadoghq.com",
+          "subdomain": "api"
+        }),
     ],
     "OnCallPagingApi.v2.createOnCallPage": [
-      new ServerConfiguration<{
-        site:
-          | "lava.oncall.datadoghq.com"
-          | "saffron.oncall.datadoghq.com"
-          | "navy.oncall.datadoghq.com"
-          | "coral.oncall.datadoghq.com"
-          | "teal.oncall.datadoghq.com"
-          | "beige.oncall.datadoghq.eu";
-      }>("https://{site}", {
-        site: "navy.oncall.datadoghq.com",
-      }),
-      new ServerConfiguration<{
-        name: string;
-        protocol: string;
-      }>("{protocol}://{name}", {
-        name: "api.datadoghq.com",
-        protocol: "https",
-      }),
-      new ServerConfiguration<{
-        site: string;
-        subdomain: string;
-      }>("https://{subdomain}.{site}", {
-        site: "datadoghq.com",
-        subdomain: "api",
-      }),
+        new ServerConfiguration<{
+          "site":"lava.oncall.datadoghq.com" | "saffron.oncall.datadoghq.com" | "navy.oncall.datadoghq.com" | "coral.oncall.datadoghq.com" | "teal.oncall.datadoghq.com" | "beige.oncall.datadoghq.eu" }>("https://{site}", {
+          "site": "navy.oncall.datadoghq.com"
+        }),
+        new ServerConfiguration<{
+          "name":string,
+          "protocol":string }>("{protocol}://{name}", {
+          "name": "api.datadoghq.com",
+          "protocol": "https"
+        }),
+        new ServerConfiguration<{
+          "site":string,
+          "subdomain":string }>("https://{subdomain}.{site}", {
+          "site": "datadoghq.com",
+          "subdomain": "api"
+        }),
     ],
     "OnCallPagingApi.v2.escalateOnCallPage": [
-      new ServerConfiguration<{
-        site:
-          | "lava.oncall.datadoghq.com"
-          | "saffron.oncall.datadoghq.com"
-          | "navy.oncall.datadoghq.com"
-          | "coral.oncall.datadoghq.com"
-          | "teal.oncall.datadoghq.com"
-          | "beige.oncall.datadoghq.eu";
-      }>("https://{site}", {
-        site: "navy.oncall.datadoghq.com",
-      }),
-      new ServerConfiguration<{
-        name: string;
-        protocol: string;
-      }>("{protocol}://{name}", {
-        name: "api.datadoghq.com",
-        protocol: "https",
-      }),
-      new ServerConfiguration<{
-        site: string;
-        subdomain: string;
-      }>("https://{subdomain}.{site}", {
-        site: "datadoghq.com",
-        subdomain: "api",
-      }),
+        new ServerConfiguration<{
+          "site":"lava.oncall.datadoghq.com" | "saffron.oncall.datadoghq.com" | "navy.oncall.datadoghq.com" | "coral.oncall.datadoghq.com" | "teal.oncall.datadoghq.com" | "beige.oncall.datadoghq.eu" }>("https://{site}", {
+          "site": "navy.oncall.datadoghq.com"
+        }),
+        new ServerConfiguration<{
+          "name":string,
+          "protocol":string }>("{protocol}://{name}", {
+          "name": "api.datadoghq.com",
+          "protocol": "https"
+        }),
+        new ServerConfiguration<{
+          "site":string,
+          "subdomain":string }>("https://{subdomain}.{site}", {
+          "site": "datadoghq.com",
+          "subdomain": "api"
+        }),
     ],
     "OnCallPagingApi.v2.resolveOnCallPage": [
-      new ServerConfiguration<{
-        site:
-          | "lava.oncall.datadoghq.com"
-          | "saffron.oncall.datadoghq.com"
-          | "navy.oncall.datadoghq.com"
-          | "coral.oncall.datadoghq.com"
-          | "teal.oncall.datadoghq.com"
-          | "beige.oncall.datadoghq.eu";
-      }>("https://{site}", {
-        site: "navy.oncall.datadoghq.com",
-      }),
-      new ServerConfiguration<{
-        name: string;
-        protocol: string;
-      }>("{protocol}://{name}", {
-        name: "api.datadoghq.com",
-        protocol: "https",
-      }),
-      new ServerConfiguration<{
-        site: string;
-        subdomain: string;
-      }>("https://{subdomain}.{site}", {
-        site: "datadoghq.com",
-        subdomain: "api",
-      }),
+        new ServerConfiguration<{
+          "site":"lava.oncall.datadoghq.com" | "saffron.oncall.datadoghq.com" | "navy.oncall.datadoghq.com" | "coral.oncall.datadoghq.com" | "teal.oncall.datadoghq.com" | "beige.oncall.datadoghq.eu" }>("https://{site}", {
+          "site": "navy.oncall.datadoghq.com"
+        }),
+        new ServerConfiguration<{
+          "name":string,
+          "protocol":string }>("{protocol}://{name}", {
+          "name": "api.datadoghq.com",
+          "protocol": "https"
+        }),
+        new ServerConfiguration<{
+          "site":string,
+          "subdomain":string }>("https://{subdomain}.{site}", {
+          "site": "datadoghq.com",
+          "subdomain": "api"
+        }),
     ],
   };
 
@@ -564,7 +541,8 @@ export class OnCallPagingApi {
   ) {
     this.configuration = configuration || createConfiguration();
     this.requestFactory =
-      requestFactory || new OnCallPagingApiRequestFactory(this.configuration);
+      requestFactory ||
+      new OnCallPagingApiRequestFactory(this.configuration);
     this.responseProcessor =
       responseProcessor || new OnCallPagingApiResponseProcessor();
   }
