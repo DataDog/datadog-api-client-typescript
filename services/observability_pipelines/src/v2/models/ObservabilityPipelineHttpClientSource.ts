@@ -1,9 +1,9 @@
 import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
+import { ObservabilityPipelineClientTls } from "./ObservabilityPipelineClientTls";
 import { ObservabilityPipelineDecoding } from "./ObservabilityPipelineDecoding";
 import { ObservabilityPipelineHttpClientSourceAuthStrategy } from "./ObservabilityPipelineHttpClientSourceAuthStrategy";
 import { ObservabilityPipelineHttpClientSourceType } from "./ObservabilityPipelineHttpClientSourceType";
-import { ObservabilityPipelineTls } from "./ObservabilityPipelineTls";
 
 /**
  * The `http_client` source scrapes logs from HTTP endpoints at regular intervals.
@@ -46,7 +46,7 @@ export class ObservabilityPipelineHttpClientSource {
   /**
    * Configuration for enabling TLS encryption between the pipeline component and external services.
    */
-  "tls"?: ObservabilityPipelineTls;
+  "tls"?: ObservabilityPipelineClientTls;
   /**
    * Name of the environment variable or secret that holds the bearer token (used when `auth_strategy` is `bearer`).
    */
@@ -112,7 +112,7 @@ export class ObservabilityPipelineHttpClientSource {
     },
     tls: {
       baseName: "tls",
-      type: "ObservabilityPipelineTls",
+      type: "ObservabilityPipelineClientTls",
     },
     tokenKey: {
       baseName: "token_key",

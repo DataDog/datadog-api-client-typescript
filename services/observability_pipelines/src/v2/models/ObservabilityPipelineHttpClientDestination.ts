@@ -1,11 +1,11 @@
 import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
 import { ObservabilityPipelineBufferOptions } from "./ObservabilityPipelineBufferOptions";
+import { ObservabilityPipelineClientTls } from "./ObservabilityPipelineClientTls";
 import { ObservabilityPipelineHttpClientDestinationAuthStrategy } from "./ObservabilityPipelineHttpClientDestinationAuthStrategy";
 import { ObservabilityPipelineHttpClientDestinationCompression } from "./ObservabilityPipelineHttpClientDestinationCompression";
 import { ObservabilityPipelineHttpClientDestinationEncoding } from "./ObservabilityPipelineHttpClientDestinationEncoding";
 import { ObservabilityPipelineHttpClientDestinationType } from "./ObservabilityPipelineHttpClientDestinationType";
-import { ObservabilityPipelineTls } from "./ObservabilityPipelineTls";
 
 /**
  * The `http_client` destination sends data to an HTTP endpoint.
@@ -48,7 +48,7 @@ export class ObservabilityPipelineHttpClientDestination {
   /**
    * Configuration for enabling TLS encryption between the pipeline component and external services.
    */
-  "tls"?: ObservabilityPipelineTls;
+  "tls"?: ObservabilityPipelineClientTls;
   /**
    * Name of the environment variable or secret that holds the bearer token (used when `auth_strategy` is `bearer`).
    */
@@ -117,7 +117,7 @@ export class ObservabilityPipelineHttpClientDestination {
     },
     tls: {
       baseName: "tls",
-      type: "ObservabilityPipelineTls",
+      type: "ObservabilityPipelineClientTls",
     },
     tokenKey: {
       baseName: "token_key",
