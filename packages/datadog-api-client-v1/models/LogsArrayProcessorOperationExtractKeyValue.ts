@@ -3,45 +3,38 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
-import { LogsSchemaRemapperType } from "./LogsSchemaRemapperType";
-import { TargetFormatType } from "./TargetFormatType";
+import { LogsArrayProcessorOperationExtractKeyValueType } from "./LogsArrayProcessorOperationExtractKeyValueType";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * The schema remapper maps source log fields to their correct fields.
+ * Operation that extracts key-value pairs from a `source` array and stores the result in the `target` attribute.
  */
-export class LogsSchemaRemapper {
+export class LogsArrayProcessorOperationExtractKeyValue {
   /**
-   * Name of the logs schema remapper.
+   * Key of the attribute in each array element that holds the name to use for the extracted attribute.
    */
-  "name": string;
+  "keyToExtract": string;
   /**
    * Whether to override the target element if it's already set.
    */
   "overrideOnConflict"?: boolean;
   /**
-   * Remove or preserve the remapped source element.
+   * Attribute path of the array to extract key-value pairs from.
    */
-  "preserveSource"?: boolean;
+  "source": string;
   /**
-   * Array of source attributes.
+   * Attribute that receives the extracted key-value pairs. If not specified, the extracted attributes are added at the root level of the log.
    */
-  "sources": Array<string>;
+  "target"?: string;
   /**
-   * Target field to map log source field to.
+   * Operation type.
    */
-  "target": string;
+  "type": LogsArrayProcessorOperationExtractKeyValueType;
   /**
-   * If the `target_type` of the remapper is `attribute`, try to cast the value to a new specific type.
-   * If the cast is not possible, the original type is kept. `string`, `integer`, or `double` are the possible types.
-   * If the `target_type` is `tag`, this parameter may not be specified.
+   * Key of the attribute in each array element that holds the value to use for the extracted attribute.
    */
-  "targetFormat"?: TargetFormatType;
-  /**
-   * Type of logs schema remapper.
-   */
-  "type": LogsSchemaRemapperType;
+  "valueToExtract": string;
 
   /**
    * A container for additional, undeclared properties.
@@ -59,8 +52,8 @@ export class LogsSchemaRemapper {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    name: {
-      baseName: "name",
+    keyToExtract: {
+      baseName: "key_to_extract",
       type: "string",
       required: true,
     },
@@ -68,27 +61,23 @@ export class LogsSchemaRemapper {
       baseName: "override_on_conflict",
       type: "boolean",
     },
-    preserveSource: {
-      baseName: "preserve_source",
-      type: "boolean",
-    },
-    sources: {
-      baseName: "sources",
-      type: "Array<string>",
+    source: {
+      baseName: "source",
+      type: "string",
       required: true,
     },
     target: {
       baseName: "target",
       type: "string",
-      required: true,
-    },
-    targetFormat: {
-      baseName: "target_format",
-      type: "TargetFormatType",
     },
     type: {
       baseName: "type",
-      type: "LogsSchemaRemapperType",
+      type: "LogsArrayProcessorOperationExtractKeyValueType",
+      required: true,
+    },
+    valueToExtract: {
+      baseName: "value_to_extract",
+      type: "string",
       required: true,
     },
     additionalProperties: {
@@ -101,7 +90,7 @@ export class LogsSchemaRemapper {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-    return LogsSchemaRemapper.attributeTypeMap;
+    return LogsArrayProcessorOperationExtractKeyValue.attributeTypeMap;
   }
 
   public constructor() {}
