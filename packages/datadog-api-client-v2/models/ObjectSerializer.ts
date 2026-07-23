@@ -609,6 +609,8 @@ import { CaseInsightsAttributes } from "./CaseInsightsAttributes";
 import { CaseInsightsData } from "./CaseInsightsData";
 import { CaseInsightsItems } from "./CaseInsightsItems";
 import { CaseInsightsRequest } from "./CaseInsightsRequest";
+import { CaseInvestigationNotebookCreateData } from "./CaseInvestigationNotebookCreateData";
+import { CaseInvestigationNotebookCreateRequest } from "./CaseInvestigationNotebookCreateRequest";
 import { CaseLink } from "./CaseLink";
 import { CaseLinkAttributes } from "./CaseLinkAttributes";
 import { CaseLinkCreate } from "./CaseLinkCreate";
@@ -3038,8 +3040,6 @@ import { NetworkHealthInsightsResponse } from "./NetworkHealthInsightsResponse";
 import { NodeTypesResponse } from "./NodeTypesResponse";
 import { NodeTypesResponseData } from "./NodeTypesResponseData";
 import { NodeTypesResponseDataAttributes } from "./NodeTypesResponseDataAttributes";
-import { NotebookCreateData } from "./NotebookCreateData";
-import { NotebookCreateRequest } from "./NotebookCreateRequest";
 import { NotebookTriggerWrapper } from "./NotebookTriggerWrapper";
 import { NotificationChannel } from "./NotificationChannel";
 import { NotificationChannelAttributes } from "./NotificationChannelAttributes";
@@ -5829,6 +5829,7 @@ const enumsMap: { [key: string]: any[] } = {
     "SCM_URL",
     "PROFILING_DOWNSIZING_EXPERIMENT",
   ],
+  CaseInvestigationNotebookResourceType: ["notebook"],
   CaseLinkResourceType: ["link"],
   CaseManagementProjectDataType: ["projects"],
   CaseNotificationRuleResourceType: ["notification_rule"],
@@ -6779,7 +6780,6 @@ const enumsMap: { [key: string]: any[] } = {
   ],
   NetworkHealthInsightsType: ["network-health-insights"],
   NodeTypesResponseDataType: ["get_node_types_response"],
-  NotebookResourceType: ["notebook"],
   NotificationChannelEmailConfigType: ["email"],
   NotificationChannelEmailFormatType: ["html", "text"],
   NotificationChannelPhoneConfigType: ["phone"],
@@ -9091,6 +9091,9 @@ const typeMap: { [index: string]: any } = {
   CaseInsightsData: CaseInsightsData,
   CaseInsightsItems: CaseInsightsItems,
   CaseInsightsRequest: CaseInsightsRequest,
+  CaseInvestigationNotebookCreateData: CaseInvestigationNotebookCreateData,
+  CaseInvestigationNotebookCreateRequest:
+    CaseInvestigationNotebookCreateRequest,
   CaseLink: CaseLink,
   CaseLinkAttributes: CaseLinkAttributes,
   CaseLinkCreate: CaseLinkCreate,
@@ -11926,8 +11929,6 @@ const typeMap: { [index: string]: any } = {
   NodeTypesResponse: NodeTypesResponse,
   NodeTypesResponseData: NodeTypesResponseData,
   NodeTypesResponseDataAttributes: NodeTypesResponseDataAttributes,
-  NotebookCreateData: NotebookCreateData,
-  NotebookCreateRequest: NotebookCreateRequest,
   NotebookTriggerWrapper: NotebookTriggerWrapper,
   NotificationChannel: NotificationChannel,
   NotificationChannelAttributes: NotificationChannelAttributes,
