@@ -8619,6 +8619,19 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
     "v2.GetCSMServerlessCoverageAnalysis": {
         "operationResponseType": "CsmServerlessCoverageAnalysisResponse",
     },
+    "v2.GetOwnershipSettings": {
+        "operationResponseType": "OwnershipSettingsResponse",
+    },
+    "v2.PostOwnershipSettings": {
+        "body": {
+            "type": "OwnershipSettingsRequest",
+            "format": "",
+            },
+        "operationResponseType": "OwnershipSettingsResponse",
+    },
+    "v2.GetOwnershipUntaggedFindings": {
+        "operationResponseType": "OwnershipUntaggedFindingsResponse",
+    },
     "v2.ListOwnershipInferences": {
         "resourceId": {
             "type": "string",
