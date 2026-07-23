@@ -32,15 +32,14 @@ const configuration = createConfiguration();
 // Enable unstable operations
 const configurationOpts = {
     unstableOperations: {
-        "CSMOwnershipApi.v2.listOwnershipInferences": true
+        "CSMOwnershipApi.v2.getOwnershipSettings": true
     }
 }
 
 const configuration = createConfiguration(configurationOpts);
 const apiInstance = new CSMOwnershipApiV2(configuration);
-const params = {/* parameters */};
 
-apiInstance.listOwnershipInferences(params).then((data) => {
+apiInstance.getOwnershipSettings().then((data) => {
     console.log("API called successfully. Returned data: " + JSON.stringify(data));
 }).catch((error) => {
     console.error("Error calling API: " + error);
