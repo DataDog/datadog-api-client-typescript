@@ -6,6 +6,7 @@
 import { DegradationDataRelationshipsCreatedByUser } from "./DegradationDataRelationshipsCreatedByUser";
 import { DegradationDataRelationshipsLastModifiedByUser } from "./DegradationDataRelationshipsLastModifiedByUser";
 import { DegradationDataRelationshipsStatusPage } from "./DegradationDataRelationshipsStatusPage";
+import { DegradationDataRelationshipsTemplate } from "./DegradationDataRelationshipsTemplate";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
@@ -25,6 +26,10 @@ export class DegradationDataRelationships {
    * The status page the degradation belongs to.
    */
   "statusPage"?: DegradationDataRelationshipsStatusPage;
+  /**
+   * The template the degradation was created from.
+   */
+  "template"?: DegradationDataRelationshipsTemplate;
 
   /**
    * A container for additional, undeclared properties.
@@ -53,6 +58,10 @@ export class DegradationDataRelationships {
     statusPage: {
       baseName: "status_page",
       type: "DegradationDataRelationshipsStatusPage",
+    },
+    template: {
+      baseName: "template",
+      type: "DegradationDataRelationshipsTemplate",
     },
     additionalProperties: {
       baseName: "additionalProperties",
