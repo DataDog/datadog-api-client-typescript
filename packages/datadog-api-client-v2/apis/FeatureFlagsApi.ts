@@ -548,6 +548,7 @@ export class FeatureFlagsApiRequestFactory extends BaseAPIRequestFactory {
   public async listFeatureFlagsEnvironments(
     name?: string,
     key?: string,
+    ddEnv?: string,
     limit?: number,
     offset?: number,
     _options?: Configuration
@@ -576,6 +577,13 @@ export class FeatureFlagsApiRequestFactory extends BaseAPIRequestFactory {
       requestContext.setQueryParam(
         "key",
         ObjectSerializer.serialize(key, "string", ""),
+        ""
+      );
+    }
+    if (ddEnv !== undefined) {
+      requestContext.setQueryParam(
+        "dd_env",
+        ObjectSerializer.serialize(ddEnv, "string", ""),
         ""
       );
     }
@@ -2501,6 +2509,11 @@ export interface FeatureFlagsApiListFeatureFlagsEnvironmentsRequest {
    */
   key?: string;
   /**
+   * Filter environments by queries that contain the provided DD_ENV value.
+   * @type string
+   */
+  ddEnv?: string;
+  /**
    * Maximum number of results to return.
    * @type number
    */
@@ -2922,7 +2935,7 @@ export class FeatureFlagsApi {
 
   /**
    * Returns a list of environments for the organization.
-   * Supports filtering by name and key.
+   * Supports filtering by name, key, and DD_ENV.
    * @param param The request object
    */
   public listFeatureFlagsEnvironments(
@@ -2933,6 +2946,7 @@ export class FeatureFlagsApi {
       this.requestFactory.listFeatureFlagsEnvironments(
         param.name,
         param.key,
+        param.ddEnv,
         param.limit,
         param.offset,
         options
