@@ -386,11 +386,6 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
-    logger.warn("Using unstable operation 'attachLinearIssue'");
-    if (!_config.unstableOperations["v2.attachLinearIssue"]) {
-      throw new Error("Unstable operation 'attachLinearIssue' is disabled");
-    }
-
     // verify required parameter 'body' is not null or undefined
     if (body === null || body === undefined) {
       throw new RequiredError("body", "attachLinearIssue");
@@ -1405,11 +1400,6 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
     _options?: Configuration
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
-
-    logger.warn("Using unstable operation 'createLinearIssues'");
-    if (!_config.unstableOperations["v2.createLinearIssues"]) {
-      throw new Error("Unstable operation 'createLinearIssues' is disabled");
-    }
 
     // verify required parameter 'body' is not null or undefined
     if (body === null || body === undefined) {
