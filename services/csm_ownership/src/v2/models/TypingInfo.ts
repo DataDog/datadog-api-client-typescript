@@ -25,9 +25,19 @@ import { OwnershipInferenceListAttributes } from "./OwnershipInferenceListAttrib
 import { OwnershipInferenceListData } from "./OwnershipInferenceListData";
 import { OwnershipInferenceListResponse } from "./OwnershipInferenceListResponse";
 import { OwnershipInferenceResponse } from "./OwnershipInferenceResponse";
+import { OwnershipSettingsAttributes } from "./OwnershipSettingsAttributes";
+import { OwnershipSettingsData } from "./OwnershipSettingsData";
+import { OwnershipSettingsRequest } from "./OwnershipSettingsRequest";
+import { OwnershipSettingsRequestAttributes } from "./OwnershipSettingsRequestAttributes";
+import { OwnershipSettingsRequestData } from "./OwnershipSettingsRequestData";
+import { OwnershipSettingsResponse } from "./OwnershipSettingsResponse";
+import { OwnershipUntaggedFindingsAttributes } from "./OwnershipUntaggedFindingsAttributes";
+import { OwnershipUntaggedFindingsData } from "./OwnershipUntaggedFindingsData";
+import { OwnershipUntaggedFindingsResponse } from "./OwnershipUntaggedFindingsResponse";
 
 export const TypingInfo: ModelTypingInfo = {
   enumsMap: {
+    OwnershipConfidenceLevel: ["high", "medium", "low"],
     OwnershipEvidenceType: ["ownership_evidence"],
     OwnershipFeedbackAction: ["confirm", "reject", "correct", "persist"],
     OwnershipFeedbackResultType: ["ownership_feedback_result"],
@@ -43,6 +53,8 @@ export const TypingInfo: ModelTypingInfo = {
     OwnershipInferenceType: ["ownership_inference"],
     OwnershipInferencesType: ["ownership_inferences"],
     OwnershipOwnerType: ["user", "team", "service", "unknown"],
+    OwnershipSettingsType: ["ownership_settings"],
+    OwnershipUntaggedFindingsType: ["ownership_untagged_findings"],
   },
   oneOfMap: {},
   typeMap: {
@@ -71,5 +83,14 @@ export const TypingInfo: ModelTypingInfo = {
     OwnershipInferenceListData: OwnershipInferenceListData,
     OwnershipInferenceListResponse: OwnershipInferenceListResponse,
     OwnershipInferenceResponse: OwnershipInferenceResponse,
+    OwnershipSettingsAttributes: OwnershipSettingsAttributes,
+    OwnershipSettingsData: OwnershipSettingsData,
+    OwnershipSettingsRequest: OwnershipSettingsRequest,
+    OwnershipSettingsRequestAttributes: OwnershipSettingsRequestAttributes,
+    OwnershipSettingsRequestData: OwnershipSettingsRequestData,
+    OwnershipSettingsResponse: OwnershipSettingsResponse,
+    OwnershipUntaggedFindingsAttributes: OwnershipUntaggedFindingsAttributes,
+    OwnershipUntaggedFindingsData: OwnershipUntaggedFindingsData,
+    OwnershipUntaggedFindingsResponse: OwnershipUntaggedFindingsResponse,
   },
 };
