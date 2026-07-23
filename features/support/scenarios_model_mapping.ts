@@ -9409,6 +9409,10 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             "type": "string",
             "format": "",
             },
+        "ddEnv": {
+            "type": "string",
+            "format": "",
+            },
         "limit": {
             "type": "number",
             "format": "int64",
