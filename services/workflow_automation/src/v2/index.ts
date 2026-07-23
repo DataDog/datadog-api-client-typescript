@@ -68,6 +68,7 @@ export { RetryStrategy } from "./models/RetryStrategy";
 export { RetryStrategyKind } from "./models/RetryStrategyKind";
 export { RetryStrategyLinear } from "./models/RetryStrategyLinear";
 export { ScheduleTrigger } from "./models/ScheduleTrigger";
+export { ScheduleTriggerOverlapBehavior } from "./models/ScheduleTriggerOverlapBehavior";
 export { ScheduleTriggerWrapper } from "./models/ScheduleTriggerWrapper";
 export { SecurityTrigger } from "./models/SecurityTrigger";
 export { SecurityTriggerWrapper } from "./models/SecurityTriggerWrapper";

@@ -127,6 +127,7 @@ export const TypingInfo: ModelTypingInfo = {
     ],
     ReadinessGateThresholdType: ["ANY", "ALL"],
     RetryStrategyKind: ["RETRY_STRATEGY_LINEAR"],
+    ScheduleTriggerOverlapBehavior: ["EXCLUSIVE_RUN", "OVERLAP_ALLOWED"],
     WorkflowDataType: ["workflows"],
     WorkflowUserRelationshipType: ["users"],
   },
