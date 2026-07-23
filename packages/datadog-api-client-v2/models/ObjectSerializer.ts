@@ -3103,6 +3103,7 @@ import { ObservabilityPipelineClickhouseDestinationAuth } from "./ObservabilityP
 import { ObservabilityPipelineClickhouseDestinationBatch } from "./ObservabilityPipelineClickhouseDestinationBatch";
 import { ObservabilityPipelineClickhouseDestinationBatchEncoding } from "./ObservabilityPipelineClickhouseDestinationBatchEncoding";
 import { ObservabilityPipelineClickhouseDestinationCompressionObject } from "./ObservabilityPipelineClickhouseDestinationCompressionObject";
+import { ObservabilityPipelineClientTls } from "./ObservabilityPipelineClientTls";
 import { ObservabilityPipelineCloudPremDestination } from "./ObservabilityPipelineCloudPremDestination";
 import { ObservabilityPipelineConfig } from "./ObservabilityPipelineConfig";
 import { ObservabilityPipelineConfigProcessorGroup } from "./ObservabilityPipelineConfigProcessorGroup";
@@ -12014,6 +12015,7 @@ const typeMap: { [index: string]: any } = {
     ObservabilityPipelineClickhouseDestinationBatchEncoding,
   ObservabilityPipelineClickhouseDestinationCompressionObject:
     ObservabilityPipelineClickhouseDestinationCompressionObject,
+  ObservabilityPipelineClientTls: ObservabilityPipelineClientTls,
   ObservabilityPipelineCloudPremDestination:
     ObservabilityPipelineCloudPremDestination,
   ObservabilityPipelineConfig: ObservabilityPipelineConfig,
