@@ -189,6 +189,7 @@ export {
   CSMOwnershipApiListOwnershipHistoryRequest,
   CSMOwnershipApiListOwnershipHistoryByOwnerTypeRequest,
   CSMOwnershipApiListOwnershipInferencesRequest,
+  CSMOwnershipApiPostOwnershipSettingsRequest,
   CSMOwnershipApi,
 } from "./apis/CSMOwnershipApi";
 
@@ -6324,6 +6325,7 @@ export { OutputSchema } from "./models/OutputSchema";
 export { OutputSchemaParameters } from "./models/OutputSchemaParameters";
 export { OutputSchemaParametersType } from "./models/OutputSchemaParametersType";
 export { OverwriteAllocationsRequest } from "./models/OverwriteAllocationsRequest";
+export { OwnershipConfidenceLevel } from "./models/OwnershipConfidenceLevel";
 export { OwnershipEvidenceAttributes } from "./models/OwnershipEvidenceAttributes";
 export { OwnershipEvidenceData } from "./models/OwnershipEvidenceData";
 export { OwnershipEvidenceResponse } from "./models/OwnershipEvidenceResponse";
@@ -6354,6 +6356,17 @@ export { OwnershipInferenceStatus } from "./models/OwnershipInferenceStatus";
 export { OwnershipInferencesType } from "./models/OwnershipInferencesType";
 export { OwnershipInferenceType } from "./models/OwnershipInferenceType";
 export { OwnershipOwnerType } from "./models/OwnershipOwnerType";
+export { OwnershipSettingsAttributes } from "./models/OwnershipSettingsAttributes";
+export { OwnershipSettingsData } from "./models/OwnershipSettingsData";
+export { OwnershipSettingsRequest } from "./models/OwnershipSettingsRequest";
+export { OwnershipSettingsRequestAttributes } from "./models/OwnershipSettingsRequestAttributes";
+export { OwnershipSettingsRequestData } from "./models/OwnershipSettingsRequestData";
+export { OwnershipSettingsResponse } from "./models/OwnershipSettingsResponse";
+export { OwnershipSettingsType } from "./models/OwnershipSettingsType";
+export { OwnershipUntaggedFindingsAttributes } from "./models/OwnershipUntaggedFindingsAttributes";
+export { OwnershipUntaggedFindingsData } from "./models/OwnershipUntaggedFindingsData";
+export { OwnershipUntaggedFindingsResponse } from "./models/OwnershipUntaggedFindingsResponse";
+export { OwnershipUntaggedFindingsType } from "./models/OwnershipUntaggedFindingsType";
 export { PageAnnotationsAttributes } from "./models/PageAnnotationsAttributes";
 export { PageAnnotationsData } from "./models/PageAnnotationsData";
 export { PageAnnotationsResponse } from "./models/PageAnnotationsResponse";

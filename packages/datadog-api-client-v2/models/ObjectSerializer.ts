@@ -3443,6 +3443,15 @@ import { OwnershipInferenceListAttributes } from "./OwnershipInferenceListAttrib
 import { OwnershipInferenceListData } from "./OwnershipInferenceListData";
 import { OwnershipInferenceListResponse } from "./OwnershipInferenceListResponse";
 import { OwnershipInferenceResponse } from "./OwnershipInferenceResponse";
+import { OwnershipSettingsAttributes } from "./OwnershipSettingsAttributes";
+import { OwnershipSettingsData } from "./OwnershipSettingsData";
+import { OwnershipSettingsRequest } from "./OwnershipSettingsRequest";
+import { OwnershipSettingsRequestAttributes } from "./OwnershipSettingsRequestAttributes";
+import { OwnershipSettingsRequestData } from "./OwnershipSettingsRequestData";
+import { OwnershipSettingsResponse } from "./OwnershipSettingsResponse";
+import { OwnershipUntaggedFindingsAttributes } from "./OwnershipUntaggedFindingsAttributes";
+import { OwnershipUntaggedFindingsData } from "./OwnershipUntaggedFindingsData";
+import { OwnershipUntaggedFindingsResponse } from "./OwnershipUntaggedFindingsResponse";
 import { PageAnnotationsAttributes } from "./PageAnnotationsAttributes";
 import { PageAnnotationsData } from "./PageAnnotationsData";
 import { PageAnnotationsResponse } from "./PageAnnotationsResponse";
@@ -7203,6 +7212,7 @@ const enumsMap: { [key: string]: any[] } = {
     "ARRAY_BOOLEAN",
     "ARRAY_OBJECT",
   ],
+  OwnershipConfidenceLevel: ["high", "medium", "low"],
   OwnershipEvidenceType: ["ownership_evidence"],
   OwnershipFeedbackAction: ["confirm", "reject", "correct", "persist"],
   OwnershipFeedbackResultType: ["ownership_feedback_result"],
@@ -7218,6 +7228,8 @@ const enumsMap: { [key: string]: any[] } = {
   OwnershipInferenceType: ["ownership_inference"],
   OwnershipInferencesType: ["ownership_inferences"],
   OwnershipOwnerType: ["user", "team", "service", "unknown"],
+  OwnershipSettingsType: ["ownership_settings"],
+  OwnershipUntaggedFindingsType: ["ownership_untagged_findings"],
   PageAnnotationsType: ["page_annotations"],
   PageUrgency: ["low", "high"],
   PaginationMetaPageType: ["offset_limit"],
@@ -12470,6 +12482,15 @@ const typeMap: { [index: string]: any } = {
   OwnershipInferenceListData: OwnershipInferenceListData,
   OwnershipInferenceListResponse: OwnershipInferenceListResponse,
   OwnershipInferenceResponse: OwnershipInferenceResponse,
+  OwnershipSettingsAttributes: OwnershipSettingsAttributes,
+  OwnershipSettingsData: OwnershipSettingsData,
+  OwnershipSettingsRequest: OwnershipSettingsRequest,
+  OwnershipSettingsRequestAttributes: OwnershipSettingsRequestAttributes,
+  OwnershipSettingsRequestData: OwnershipSettingsRequestData,
+  OwnershipSettingsResponse: OwnershipSettingsResponse,
+  OwnershipUntaggedFindingsAttributes: OwnershipUntaggedFindingsAttributes,
+  OwnershipUntaggedFindingsData: OwnershipUntaggedFindingsData,
+  OwnershipUntaggedFindingsResponse: OwnershipUntaggedFindingsResponse,
   PageAnnotationsAttributes: PageAnnotationsAttributes,
   PageAnnotationsData: PageAnnotationsData,
   PageAnnotationsResponse: PageAnnotationsResponse,
