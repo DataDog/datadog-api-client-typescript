@@ -7549,6 +7549,7 @@ const enumsMap: { [key: string]: any[] } = {
   ScheduleOnCallRespondersDataType: ["schedule_oncall_responders"],
   ScheduleTargetPosition: ["previous", "current", "next"],
   ScheduleTargetType: ["schedules"],
+  ScheduleTriggerOverlapBehavior: ["EXCLUSIVE_RUN", "OVERLAP_ALLOWED"],
   ScheduleUpdateRequestDataType: ["schedules"],
   ScheduleUserType: ["users"],
   ScorecardListType: ["scorecard"],

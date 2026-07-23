@@ -3,6 +3,7 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
+import { ScheduleTriggerOverlapBehavior } from "./ScheduleTriggerOverlapBehavior";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
@@ -10,6 +11,10 @@ import { AttributeTypeMap } from "../../datadog-api-client-common/util";
  * Trigger a workflow from a Schedule. The workflow must be published.
  */
 export class ScheduleTrigger {
+  /**
+   * Controls whether a scheduled workflow run may start while another instance is still running.
+   */
+  "overlapBehavior"?: ScheduleTriggerOverlapBehavior;
   /**
    * Recurrence rule expression for scheduling.
    */
@@ -31,6 +36,10 @@ export class ScheduleTrigger {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
+    overlapBehavior: {
+      baseName: "overlapBehavior",
+      type: "ScheduleTriggerOverlapBehavior",
+    },
     rruleExpression: {
       baseName: "rruleExpression",
       type: "string",

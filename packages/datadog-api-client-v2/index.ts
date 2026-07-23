@@ -7165,6 +7165,7 @@ export { ScheduleTarget } from "./models/ScheduleTarget";
 export { ScheduleTargetPosition } from "./models/ScheduleTargetPosition";
 export { ScheduleTargetType } from "./models/ScheduleTargetType";
 export { ScheduleTrigger } from "./models/ScheduleTrigger";
+export { ScheduleTriggerOverlapBehavior } from "./models/ScheduleTriggerOverlapBehavior";
 export { ScheduleTriggerWrapper } from "./models/ScheduleTriggerWrapper";
 export { ScheduleUpdateRequest } from "./models/ScheduleUpdateRequest";
 export { ScheduleUpdateRequestData } from "./models/ScheduleUpdateRequestData";
