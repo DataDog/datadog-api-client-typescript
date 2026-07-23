@@ -3,18 +3,26 @@ export {
   StatusPagesApiCreateBackfilledMaintenanceRequest,
   StatusPagesApiCreateComponentRequest,
   StatusPagesApiCreateDegradationRequest,
+  StatusPagesApiCreateDegradationTemplateRequest,
   StatusPagesApiCreateMaintenanceRequest,
+  StatusPagesApiCreateMaintenanceTemplateRequest,
   StatusPagesApiCreateStatusPageRequest,
   StatusPagesApiDeleteComponentRequest,
   StatusPagesApiDeleteDegradationRequest,
+  StatusPagesApiDeleteDegradationTemplateRequest,
+  StatusPagesApiDeleteMaintenanceTemplateRequest,
   StatusPagesApiDeleteStatusPageRequest,
   StatusPagesApiEditDegradationUpdateRequest,
   StatusPagesApiGetComponentRequest,
   StatusPagesApiGetDegradationRequest,
+  StatusPagesApiGetDegradationTemplateRequest,
   StatusPagesApiGetMaintenanceRequest,
+  StatusPagesApiGetMaintenanceTemplateRequest,
   StatusPagesApiGetStatusPageRequest,
   StatusPagesApiListComponentsRequest,
+  StatusPagesApiListDegradationTemplatesRequest,
   StatusPagesApiListDegradationsRequest,
+  StatusPagesApiListMaintenanceTemplatesRequest,
   StatusPagesApiListMaintenancesRequest,
   StatusPagesApiListStatusPagesRequest,
   StatusPagesApiPublishStatusPageRequest,
@@ -22,7 +30,9 @@ export {
   StatusPagesApiUnpublishStatusPageRequest,
   StatusPagesApiUpdateComponentRequest,
   StatusPagesApiUpdateDegradationRequest,
+  StatusPagesApiUpdateDegradationTemplateRequest,
   StatusPagesApiUpdateMaintenanceRequest,
+  StatusPagesApiUpdateMaintenanceTemplateRequest,
   StatusPagesApiUpdateStatusPageRequest,
   StatusPagesApi,
 } from "./StatusPagesApi";
@@ -32,10 +42,16 @@ export { CreateBackfilledDegradationRequest } from "./models/CreateBackfilledDeg
 export { CreateBackfilledDegradationRequestData } from "./models/CreateBackfilledDegradationRequestData";
 export { CreateBackfilledDegradationRequestDataAttributes } from "./models/CreateBackfilledDegradationRequestDataAttributes";
 export { CreateBackfilledDegradationRequestDataAttributesUpdatesItems } from "./models/CreateBackfilledDegradationRequestDataAttributesUpdatesItems";
+export { CreateBackfilledDegradationRequestDataRelationships } from "./models/CreateBackfilledDegradationRequestDataRelationships";
+export { CreateBackfilledDegradationRequestDataRelationshipsTemplate } from "./models/CreateBackfilledDegradationRequestDataRelationshipsTemplate";
+export { CreateBackfilledDegradationRequestDataRelationshipsTemplateData } from "./models/CreateBackfilledDegradationRequestDataRelationshipsTemplateData";
 export { CreateBackfilledMaintenanceRequest } from "./models/CreateBackfilledMaintenanceRequest";
 export { CreateBackfilledMaintenanceRequestData } from "./models/CreateBackfilledMaintenanceRequestData";
 export { CreateBackfilledMaintenanceRequestDataAttributes } from "./models/CreateBackfilledMaintenanceRequestDataAttributes";
 export { CreateBackfilledMaintenanceRequestDataAttributesUpdatesItems } from "./models/CreateBackfilledMaintenanceRequestDataAttributesUpdatesItems";
+export { CreateBackfilledMaintenanceRequestDataRelationships } from "./models/CreateBackfilledMaintenanceRequestDataRelationships";
+export { CreateBackfilledMaintenanceRequestDataRelationshipsTemplate } from "./models/CreateBackfilledMaintenanceRequestDataRelationshipsTemplate";
+export { CreateBackfilledMaintenanceRequestDataRelationshipsTemplateData } from "./models/CreateBackfilledMaintenanceRequestDataRelationshipsTemplateData";
 export { CreateComponentRequest } from "./models/CreateComponentRequest";
 export { CreateComponentRequestData } from "./models/CreateComponentRequestData";
 export { CreateComponentRequestDataAttributes } from "./models/CreateComponentRequestDataAttributes";
@@ -49,11 +65,25 @@ export { CreateDegradationRequestData } from "./models/CreateDegradationRequestD
 export { CreateDegradationRequestDataAttributes } from "./models/CreateDegradationRequestDataAttributes";
 export { CreateDegradationRequestDataAttributesComponentsAffectedItems } from "./models/CreateDegradationRequestDataAttributesComponentsAffectedItems";
 export { CreateDegradationRequestDataAttributesStatus } from "./models/CreateDegradationRequestDataAttributesStatus";
+export { CreateDegradationRequestDataRelationships } from "./models/CreateDegradationRequestDataRelationships";
+export { CreateDegradationRequestDataRelationshipsTemplate } from "./models/CreateDegradationRequestDataRelationshipsTemplate";
+export { CreateDegradationRequestDataRelationshipsTemplateData } from "./models/CreateDegradationRequestDataRelationshipsTemplateData";
+export { CreateDegradationTemplateRequest } from "./models/CreateDegradationTemplateRequest";
+export { CreateDegradationTemplateRequestData } from "./models/CreateDegradationTemplateRequestData";
+export { CreateDegradationTemplateRequestDataAttributes } from "./models/CreateDegradationTemplateRequestDataAttributes";
+export { CreateDegradationTemplateRequestDataAttributesComponentsAffectedItems } from "./models/CreateDegradationTemplateRequestDataAttributesComponentsAffectedItems";
+export { CreateDegradationTemplateRequestDataAttributesUpdatesItems } from "./models/CreateDegradationTemplateRequestDataAttributesUpdatesItems";
 export { CreateMaintenanceRequest } from "./models/CreateMaintenanceRequest";
 export { CreateMaintenanceRequestData } from "./models/CreateMaintenanceRequestData";
 export { CreateMaintenanceRequestDataAttributes } from "./models/CreateMaintenanceRequestDataAttributes";
 export { CreateMaintenanceRequestDataAttributesComponentsAffectedItems } from "./models/CreateMaintenanceRequestDataAttributesComponentsAffectedItems";
 export { CreateMaintenanceRequestDataAttributesUpdatesItemsStatus } from "./models/CreateMaintenanceRequestDataAttributesUpdatesItemsStatus";
+export { CreateMaintenanceRequestDataRelationships } from "./models/CreateMaintenanceRequestDataRelationships";
+export { CreateMaintenanceRequestDataRelationshipsTemplate } from "./models/CreateMaintenanceRequestDataRelationshipsTemplate";
+export { CreateMaintenanceRequestDataRelationshipsTemplateData } from "./models/CreateMaintenanceRequestDataRelationshipsTemplateData";
+export { CreateMaintenanceTemplateRequest } from "./models/CreateMaintenanceTemplateRequest";
+export { CreateMaintenanceTemplateRequestData } from "./models/CreateMaintenanceTemplateRequestData";
+export { CreateMaintenanceTemplateRequestDataAttributes } from "./models/CreateMaintenanceTemplateRequestDataAttributes";
 export { CreateStatusPageRequest } from "./models/CreateStatusPageRequest";
 export { CreateStatusPageRequestData } from "./models/CreateStatusPageRequestData";
 export { CreateStatusPageRequestDataAttributes } from "./models/CreateStatusPageRequestDataAttributes";
@@ -77,7 +107,22 @@ export { DegradationDataRelationshipsLastModifiedByUser } from "./models/Degrada
 export { DegradationDataRelationshipsLastModifiedByUserData } from "./models/DegradationDataRelationshipsLastModifiedByUserData";
 export { DegradationDataRelationshipsStatusPage } from "./models/DegradationDataRelationshipsStatusPage";
 export { DegradationDataRelationshipsStatusPageData } from "./models/DegradationDataRelationshipsStatusPageData";
+export { DegradationDataRelationshipsTemplate } from "./models/DegradationDataRelationshipsTemplate";
+export { DegradationDataRelationshipsTemplateData } from "./models/DegradationDataRelationshipsTemplateData";
 export { DegradationIncluded } from "./models/DegradationIncluded";
+export { DegradationTemplate } from "./models/DegradationTemplate";
+export { DegradationTemplateArray } from "./models/DegradationTemplateArray";
+export { DegradationTemplateData } from "./models/DegradationTemplateData";
+export { DegradationTemplateDataAttributes } from "./models/DegradationTemplateDataAttributes";
+export { DegradationTemplateDataAttributesComponentsAffectedItems } from "./models/DegradationTemplateDataAttributesComponentsAffectedItems";
+export { DegradationTemplateDataAttributesUpdatesItems } from "./models/DegradationTemplateDataAttributesUpdatesItems";
+export { DegradationTemplateDataRelationships } from "./models/DegradationTemplateDataRelationships";
+export { DegradationTemplateDataRelationshipsCreatedByUser } from "./models/DegradationTemplateDataRelationshipsCreatedByUser";
+export { DegradationTemplateDataRelationshipsCreatedByUserData } from "./models/DegradationTemplateDataRelationshipsCreatedByUserData";
+export { DegradationTemplateDataRelationshipsLastModifiedByUser } from "./models/DegradationTemplateDataRelationshipsLastModifiedByUser";
+export { DegradationTemplateDataRelationshipsLastModifiedByUserData } from "./models/DegradationTemplateDataRelationshipsLastModifiedByUserData";
+export { DegradationTemplateDataRelationshipsStatusPage } from "./models/DegradationTemplateDataRelationshipsStatusPage";
+export { DegradationTemplateDataRelationshipsStatusPageData } from "./models/DegradationTemplateDataRelationshipsStatusPageData";
 export { DegradationUpdate } from "./models/DegradationUpdate";
 export { DegradationUpdateData } from "./models/DegradationUpdateData";
 export { DegradationUpdateDataAttributes } from "./models/DegradationUpdateDataAttributes";
@@ -105,6 +150,19 @@ export { MaintenanceDataRelationshipsLastModifiedByUser } from "./models/Mainten
 export { MaintenanceDataRelationshipsLastModifiedByUserData } from "./models/MaintenanceDataRelationshipsLastModifiedByUserData";
 export { MaintenanceDataRelationshipsStatusPage } from "./models/MaintenanceDataRelationshipsStatusPage";
 export { MaintenanceDataRelationshipsStatusPageData } from "./models/MaintenanceDataRelationshipsStatusPageData";
+export { MaintenanceDataRelationshipsTemplate } from "./models/MaintenanceDataRelationshipsTemplate";
+export { MaintenanceDataRelationshipsTemplateData } from "./models/MaintenanceDataRelationshipsTemplateData";
+export { MaintenanceTemplate } from "./models/MaintenanceTemplate";
+export { MaintenanceTemplateArray } from "./models/MaintenanceTemplateArray";
+export { MaintenanceTemplateData } from "./models/MaintenanceTemplateData";
+export { MaintenanceTemplateDataAttributes } from "./models/MaintenanceTemplateDataAttributes";
+export { MaintenanceTemplateDataRelationships } from "./models/MaintenanceTemplateDataRelationships";
+export { MaintenanceTemplateDataRelationshipsCreatedByUser } from "./models/MaintenanceTemplateDataRelationshipsCreatedByUser";
+export { MaintenanceTemplateDataRelationshipsCreatedByUserData } from "./models/MaintenanceTemplateDataRelationshipsCreatedByUserData";
+export { MaintenanceTemplateDataRelationshipsLastModifiedByUser } from "./models/MaintenanceTemplateDataRelationshipsLastModifiedByUser";
+export { MaintenanceTemplateDataRelationshipsLastModifiedByUserData } from "./models/MaintenanceTemplateDataRelationshipsLastModifiedByUserData";
+export { MaintenanceTemplateDataRelationshipsStatusPage } from "./models/MaintenanceTemplateDataRelationshipsStatusPage";
+export { MaintenanceTemplateDataRelationshipsStatusPageData } from "./models/MaintenanceTemplateDataRelationshipsStatusPageData";
 export { PaginationMeta } from "./models/PaginationMeta";
 export { PaginationMetaPage } from "./models/PaginationMetaPage";
 export { PaginationMetaPageType } from "./models/PaginationMetaPageType";
@@ -116,7 +174,17 @@ export { PatchDegradationRequestData } from "./models/PatchDegradationRequestDat
 export { PatchDegradationRequestDataAttributes } from "./models/PatchDegradationRequestDataAttributes";
 export { PatchDegradationRequestDataAttributesComponentsAffectedItems } from "./models/PatchDegradationRequestDataAttributesComponentsAffectedItems";
 export { PatchDegradationRequestDataAttributesStatus } from "./models/PatchDegradationRequestDataAttributesStatus";
+export { PatchDegradationRequestDataRelationships } from "./models/PatchDegradationRequestDataRelationships";
+export { PatchDegradationRequestDataRelationshipsTemplate } from "./models/PatchDegradationRequestDataRelationshipsTemplate";
+export { PatchDegradationRequestDataRelationshipsTemplateData } from "./models/PatchDegradationRequestDataRelationshipsTemplateData";
 export { PatchDegradationRequestDataType } from "./models/PatchDegradationRequestDataType";
+export { PatchDegradationTemplateRequest } from "./models/PatchDegradationTemplateRequest";
+export { PatchDegradationTemplateRequestData } from "./models/PatchDegradationTemplateRequestData";
+export { PatchDegradationTemplateRequestDataAttributes } from "./models/PatchDegradationTemplateRequestDataAttributes";
+export { PatchDegradationTemplateRequestDataAttributesComponentsAffectedItems } from "./models/PatchDegradationTemplateRequestDataAttributesComponentsAffectedItems";
+export { PatchDegradationTemplateRequestDataAttributesComponentsAffectedItemsStatus } from "./models/PatchDegradationTemplateRequestDataAttributesComponentsAffectedItemsStatus";
+export { PatchDegradationTemplateRequestDataAttributesUpdatesItems } from "./models/PatchDegradationTemplateRequestDataAttributesUpdatesItems";
+export { PatchDegradationTemplateRequestDataType } from "./models/PatchDegradationTemplateRequestDataType";
 export { PatchDegradationUpdateRequest } from "./models/PatchDegradationUpdateRequest";
 export { PatchDegradationUpdateRequestData } from "./models/PatchDegradationUpdateRequestData";
 export { PatchDegradationUpdateRequestDataAttributes } from "./models/PatchDegradationUpdateRequestDataAttributes";
@@ -127,7 +195,14 @@ export { PatchMaintenanceRequestData } from "./models/PatchMaintenanceRequestDat
 export { PatchMaintenanceRequestDataAttributes } from "./models/PatchMaintenanceRequestDataAttributes";
 export { PatchMaintenanceRequestDataAttributesComponentsAffectedItems } from "./models/PatchMaintenanceRequestDataAttributesComponentsAffectedItems";
 export { PatchMaintenanceRequestDataAttributesComponentsAffectedItemsStatus } from "./models/PatchMaintenanceRequestDataAttributesComponentsAffectedItemsStatus";
+export { PatchMaintenanceRequestDataRelationships } from "./models/PatchMaintenanceRequestDataRelationships";
+export { PatchMaintenanceRequestDataRelationshipsTemplate } from "./models/PatchMaintenanceRequestDataRelationshipsTemplate";
+export { PatchMaintenanceRequestDataRelationshipsTemplateData } from "./models/PatchMaintenanceRequestDataRelationshipsTemplateData";
 export { PatchMaintenanceRequestDataType } from "./models/PatchMaintenanceRequestDataType";
+export { PatchMaintenanceTemplateRequest } from "./models/PatchMaintenanceTemplateRequest";
+export { PatchMaintenanceTemplateRequestData } from "./models/PatchMaintenanceTemplateRequestData";
+export { PatchMaintenanceTemplateRequestDataAttributes } from "./models/PatchMaintenanceTemplateRequestDataAttributes";
+export { PatchMaintenanceTemplateRequestDataType } from "./models/PatchMaintenanceTemplateRequestDataType";
 export { PatchStatusPageRequest } from "./models/PatchStatusPageRequest";
 export { PatchStatusPageRequestData } from "./models/PatchStatusPageRequestData";
 export { PatchStatusPageRequestDataAttributes } from "./models/PatchStatusPageRequestDataAttributes";

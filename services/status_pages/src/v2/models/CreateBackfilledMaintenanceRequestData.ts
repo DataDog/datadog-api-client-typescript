@@ -1,6 +1,7 @@
 import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
 import { CreateBackfilledMaintenanceRequestDataAttributes } from "./CreateBackfilledMaintenanceRequestDataAttributes";
+import { CreateBackfilledMaintenanceRequestDataRelationships } from "./CreateBackfilledMaintenanceRequestDataRelationships";
 import { PatchMaintenanceRequestDataType } from "./PatchMaintenanceRequestDataType";
 
 /**
@@ -11,6 +12,10 @@ export class CreateBackfilledMaintenanceRequestData {
    * The supported attributes for creating a backfilled maintenance.
    */
   "attributes"?: CreateBackfilledMaintenanceRequestDataAttributes;
+  /**
+   * The supported relationships for creating a backfilled maintenance.
+   */
+  "relationships"?: CreateBackfilledMaintenanceRequestDataRelationships;
   /**
    * Maintenances resource type.
    */
@@ -33,6 +38,10 @@ export class CreateBackfilledMaintenanceRequestData {
     attributes: {
       baseName: "attributes",
       type: "CreateBackfilledMaintenanceRequestDataAttributes",
+    },
+    relationships: {
+      baseName: "relationships",
+      type: "CreateBackfilledMaintenanceRequestDataRelationships",
     },
     type: {
       baseName: "type",

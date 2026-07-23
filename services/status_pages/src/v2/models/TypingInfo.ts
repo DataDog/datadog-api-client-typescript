@@ -5,10 +5,16 @@ import { CreateBackfilledDegradationRequest } from "./CreateBackfilledDegradatio
 import { CreateBackfilledDegradationRequestData } from "./CreateBackfilledDegradationRequestData";
 import { CreateBackfilledDegradationRequestDataAttributes } from "./CreateBackfilledDegradationRequestDataAttributes";
 import { CreateBackfilledDegradationRequestDataAttributesUpdatesItems } from "./CreateBackfilledDegradationRequestDataAttributesUpdatesItems";
+import { CreateBackfilledDegradationRequestDataRelationships } from "./CreateBackfilledDegradationRequestDataRelationships";
+import { CreateBackfilledDegradationRequestDataRelationshipsTemplate } from "./CreateBackfilledDegradationRequestDataRelationshipsTemplate";
+import { CreateBackfilledDegradationRequestDataRelationshipsTemplateData } from "./CreateBackfilledDegradationRequestDataRelationshipsTemplateData";
 import { CreateBackfilledMaintenanceRequest } from "./CreateBackfilledMaintenanceRequest";
 import { CreateBackfilledMaintenanceRequestData } from "./CreateBackfilledMaintenanceRequestData";
 import { CreateBackfilledMaintenanceRequestDataAttributes } from "./CreateBackfilledMaintenanceRequestDataAttributes";
 import { CreateBackfilledMaintenanceRequestDataAttributesUpdatesItems } from "./CreateBackfilledMaintenanceRequestDataAttributesUpdatesItems";
+import { CreateBackfilledMaintenanceRequestDataRelationships } from "./CreateBackfilledMaintenanceRequestDataRelationships";
+import { CreateBackfilledMaintenanceRequestDataRelationshipsTemplate } from "./CreateBackfilledMaintenanceRequestDataRelationshipsTemplate";
+import { CreateBackfilledMaintenanceRequestDataRelationshipsTemplateData } from "./CreateBackfilledMaintenanceRequestDataRelationshipsTemplateData";
 import { CreateComponentRequest } from "./CreateComponentRequest";
 import { CreateComponentRequestData } from "./CreateComponentRequestData";
 import { CreateComponentRequestDataAttributes } from "./CreateComponentRequestDataAttributes";
@@ -20,10 +26,24 @@ import { CreateDegradationRequest } from "./CreateDegradationRequest";
 import { CreateDegradationRequestData } from "./CreateDegradationRequestData";
 import { CreateDegradationRequestDataAttributes } from "./CreateDegradationRequestDataAttributes";
 import { CreateDegradationRequestDataAttributesComponentsAffectedItems } from "./CreateDegradationRequestDataAttributesComponentsAffectedItems";
+import { CreateDegradationRequestDataRelationships } from "./CreateDegradationRequestDataRelationships";
+import { CreateDegradationRequestDataRelationshipsTemplate } from "./CreateDegradationRequestDataRelationshipsTemplate";
+import { CreateDegradationRequestDataRelationshipsTemplateData } from "./CreateDegradationRequestDataRelationshipsTemplateData";
+import { CreateDegradationTemplateRequest } from "./CreateDegradationTemplateRequest";
+import { CreateDegradationTemplateRequestData } from "./CreateDegradationTemplateRequestData";
+import { CreateDegradationTemplateRequestDataAttributes } from "./CreateDegradationTemplateRequestDataAttributes";
+import { CreateDegradationTemplateRequestDataAttributesComponentsAffectedItems } from "./CreateDegradationTemplateRequestDataAttributesComponentsAffectedItems";
+import { CreateDegradationTemplateRequestDataAttributesUpdatesItems } from "./CreateDegradationTemplateRequestDataAttributesUpdatesItems";
 import { CreateMaintenanceRequest } from "./CreateMaintenanceRequest";
 import { CreateMaintenanceRequestData } from "./CreateMaintenanceRequestData";
 import { CreateMaintenanceRequestDataAttributes } from "./CreateMaintenanceRequestDataAttributes";
 import { CreateMaintenanceRequestDataAttributesComponentsAffectedItems } from "./CreateMaintenanceRequestDataAttributesComponentsAffectedItems";
+import { CreateMaintenanceRequestDataRelationships } from "./CreateMaintenanceRequestDataRelationships";
+import { CreateMaintenanceRequestDataRelationshipsTemplate } from "./CreateMaintenanceRequestDataRelationshipsTemplate";
+import { CreateMaintenanceRequestDataRelationshipsTemplateData } from "./CreateMaintenanceRequestDataRelationshipsTemplateData";
+import { CreateMaintenanceTemplateRequest } from "./CreateMaintenanceTemplateRequest";
+import { CreateMaintenanceTemplateRequestData } from "./CreateMaintenanceTemplateRequestData";
+import { CreateMaintenanceTemplateRequestDataAttributes } from "./CreateMaintenanceTemplateRequestDataAttributes";
 import { CreateStatusPageRequest } from "./CreateStatusPageRequest";
 import { CreateStatusPageRequestData } from "./CreateStatusPageRequestData";
 import { CreateStatusPageRequestDataAttributes } from "./CreateStatusPageRequestDataAttributes";
@@ -44,6 +64,21 @@ import { DegradationDataRelationshipsLastModifiedByUser } from "./DegradationDat
 import { DegradationDataRelationshipsLastModifiedByUserData } from "./DegradationDataRelationshipsLastModifiedByUserData";
 import { DegradationDataRelationshipsStatusPage } from "./DegradationDataRelationshipsStatusPage";
 import { DegradationDataRelationshipsStatusPageData } from "./DegradationDataRelationshipsStatusPageData";
+import { DegradationDataRelationshipsTemplate } from "./DegradationDataRelationshipsTemplate";
+import { DegradationDataRelationshipsTemplateData } from "./DegradationDataRelationshipsTemplateData";
+import { DegradationTemplate } from "./DegradationTemplate";
+import { DegradationTemplateArray } from "./DegradationTemplateArray";
+import { DegradationTemplateData } from "./DegradationTemplateData";
+import { DegradationTemplateDataAttributes } from "./DegradationTemplateDataAttributes";
+import { DegradationTemplateDataAttributesComponentsAffectedItems } from "./DegradationTemplateDataAttributesComponentsAffectedItems";
+import { DegradationTemplateDataAttributesUpdatesItems } from "./DegradationTemplateDataAttributesUpdatesItems";
+import { DegradationTemplateDataRelationships } from "./DegradationTemplateDataRelationships";
+import { DegradationTemplateDataRelationshipsCreatedByUser } from "./DegradationTemplateDataRelationshipsCreatedByUser";
+import { DegradationTemplateDataRelationshipsCreatedByUserData } from "./DegradationTemplateDataRelationshipsCreatedByUserData";
+import { DegradationTemplateDataRelationshipsLastModifiedByUser } from "./DegradationTemplateDataRelationshipsLastModifiedByUser";
+import { DegradationTemplateDataRelationshipsLastModifiedByUserData } from "./DegradationTemplateDataRelationshipsLastModifiedByUserData";
+import { DegradationTemplateDataRelationshipsStatusPage } from "./DegradationTemplateDataRelationshipsStatusPage";
+import { DegradationTemplateDataRelationshipsStatusPageData } from "./DegradationTemplateDataRelationshipsStatusPageData";
 import { DegradationUpdate } from "./DegradationUpdate";
 import { DegradationUpdateData } from "./DegradationUpdateData";
 import { DegradationUpdateDataAttributes } from "./DegradationUpdateDataAttributes";
@@ -69,6 +104,19 @@ import { MaintenanceDataRelationshipsLastModifiedByUser } from "./MaintenanceDat
 import { MaintenanceDataRelationshipsLastModifiedByUserData } from "./MaintenanceDataRelationshipsLastModifiedByUserData";
 import { MaintenanceDataRelationshipsStatusPage } from "./MaintenanceDataRelationshipsStatusPage";
 import { MaintenanceDataRelationshipsStatusPageData } from "./MaintenanceDataRelationshipsStatusPageData";
+import { MaintenanceDataRelationshipsTemplate } from "./MaintenanceDataRelationshipsTemplate";
+import { MaintenanceDataRelationshipsTemplateData } from "./MaintenanceDataRelationshipsTemplateData";
+import { MaintenanceTemplate } from "./MaintenanceTemplate";
+import { MaintenanceTemplateArray } from "./MaintenanceTemplateArray";
+import { MaintenanceTemplateData } from "./MaintenanceTemplateData";
+import { MaintenanceTemplateDataAttributes } from "./MaintenanceTemplateDataAttributes";
+import { MaintenanceTemplateDataRelationships } from "./MaintenanceTemplateDataRelationships";
+import { MaintenanceTemplateDataRelationshipsCreatedByUser } from "./MaintenanceTemplateDataRelationshipsCreatedByUser";
+import { MaintenanceTemplateDataRelationshipsCreatedByUserData } from "./MaintenanceTemplateDataRelationshipsCreatedByUserData";
+import { MaintenanceTemplateDataRelationshipsLastModifiedByUser } from "./MaintenanceTemplateDataRelationshipsLastModifiedByUser";
+import { MaintenanceTemplateDataRelationshipsLastModifiedByUserData } from "./MaintenanceTemplateDataRelationshipsLastModifiedByUserData";
+import { MaintenanceTemplateDataRelationshipsStatusPage } from "./MaintenanceTemplateDataRelationshipsStatusPage";
+import { MaintenanceTemplateDataRelationshipsStatusPageData } from "./MaintenanceTemplateDataRelationshipsStatusPageData";
 import { PaginationMeta } from "./PaginationMeta";
 import { PaginationMetaPage } from "./PaginationMetaPage";
 import { PatchComponentRequest } from "./PatchComponentRequest";
@@ -78,6 +126,14 @@ import { PatchDegradationRequest } from "./PatchDegradationRequest";
 import { PatchDegradationRequestData } from "./PatchDegradationRequestData";
 import { PatchDegradationRequestDataAttributes } from "./PatchDegradationRequestDataAttributes";
 import { PatchDegradationRequestDataAttributesComponentsAffectedItems } from "./PatchDegradationRequestDataAttributesComponentsAffectedItems";
+import { PatchDegradationRequestDataRelationships } from "./PatchDegradationRequestDataRelationships";
+import { PatchDegradationRequestDataRelationshipsTemplate } from "./PatchDegradationRequestDataRelationshipsTemplate";
+import { PatchDegradationRequestDataRelationshipsTemplateData } from "./PatchDegradationRequestDataRelationshipsTemplateData";
+import { PatchDegradationTemplateRequest } from "./PatchDegradationTemplateRequest";
+import { PatchDegradationTemplateRequestData } from "./PatchDegradationTemplateRequestData";
+import { PatchDegradationTemplateRequestDataAttributes } from "./PatchDegradationTemplateRequestDataAttributes";
+import { PatchDegradationTemplateRequestDataAttributesComponentsAffectedItems } from "./PatchDegradationTemplateRequestDataAttributesComponentsAffectedItems";
+import { PatchDegradationTemplateRequestDataAttributesUpdatesItems } from "./PatchDegradationTemplateRequestDataAttributesUpdatesItems";
 import { PatchDegradationUpdateRequest } from "./PatchDegradationUpdateRequest";
 import { PatchDegradationUpdateRequestData } from "./PatchDegradationUpdateRequestData";
 import { PatchDegradationUpdateRequestDataAttributes } from "./PatchDegradationUpdateRequestDataAttributes";
@@ -85,6 +141,12 @@ import { PatchMaintenanceRequest } from "./PatchMaintenanceRequest";
 import { PatchMaintenanceRequestData } from "./PatchMaintenanceRequestData";
 import { PatchMaintenanceRequestDataAttributes } from "./PatchMaintenanceRequestDataAttributes";
 import { PatchMaintenanceRequestDataAttributesComponentsAffectedItems } from "./PatchMaintenanceRequestDataAttributesComponentsAffectedItems";
+import { PatchMaintenanceRequestDataRelationships } from "./PatchMaintenanceRequestDataRelationships";
+import { PatchMaintenanceRequestDataRelationshipsTemplate } from "./PatchMaintenanceRequestDataRelationshipsTemplate";
+import { PatchMaintenanceRequestDataRelationshipsTemplateData } from "./PatchMaintenanceRequestDataRelationshipsTemplateData";
+import { PatchMaintenanceTemplateRequest } from "./PatchMaintenanceTemplateRequest";
+import { PatchMaintenanceTemplateRequestData } from "./PatchMaintenanceTemplateRequestData";
+import { PatchMaintenanceTemplateRequestDataAttributes } from "./PatchMaintenanceTemplateRequestDataAttributes";
 import { PatchStatusPageRequest } from "./PatchStatusPageRequest";
 import { PatchStatusPageRequestData } from "./PatchStatusPageRequestData";
 import { PatchStatusPageRequestDataAttributes } from "./PatchStatusPageRequestDataAttributes";
@@ -166,6 +228,9 @@ export const TypingInfo: ModelTypingInfo = {
       "resolved",
     ],
     PatchDegradationRequestDataType: ["degradations"],
+    PatchDegradationTemplateRequestDataAttributesComponentsAffectedItemsStatus:
+      ["operational", "degraded", "partial_outage", "major_outage"],
+    PatchDegradationTemplateRequestDataType: ["degradation_templates"],
     PatchDegradationUpdateRequestDataAttributesStatus: [
       "investigating",
       "identified",
@@ -177,6 +242,7 @@ export const TypingInfo: ModelTypingInfo = {
       "maintenance",
     ],
     PatchMaintenanceRequestDataType: ["maintenances"],
+    PatchMaintenanceTemplateRequestDataType: ["maintenance_templates"],
     StatusPageDataType: ["status_pages"],
     StatusPagesComponentDataAttributesStatus: [
       "operational",
@@ -219,6 +285,12 @@ export const TypingInfo: ModelTypingInfo = {
       CreateBackfilledDegradationRequestDataAttributes,
     CreateBackfilledDegradationRequestDataAttributesUpdatesItems:
       CreateBackfilledDegradationRequestDataAttributesUpdatesItems,
+    CreateBackfilledDegradationRequestDataRelationships:
+      CreateBackfilledDegradationRequestDataRelationships,
+    CreateBackfilledDegradationRequestDataRelationshipsTemplate:
+      CreateBackfilledDegradationRequestDataRelationshipsTemplate,
+    CreateBackfilledDegradationRequestDataRelationshipsTemplateData:
+      CreateBackfilledDegradationRequestDataRelationshipsTemplateData,
     CreateBackfilledMaintenanceRequest: CreateBackfilledMaintenanceRequest,
     CreateBackfilledMaintenanceRequestData:
       CreateBackfilledMaintenanceRequestData,
@@ -226,6 +298,12 @@ export const TypingInfo: ModelTypingInfo = {
       CreateBackfilledMaintenanceRequestDataAttributes,
     CreateBackfilledMaintenanceRequestDataAttributesUpdatesItems:
       CreateBackfilledMaintenanceRequestDataAttributesUpdatesItems,
+    CreateBackfilledMaintenanceRequestDataRelationships:
+      CreateBackfilledMaintenanceRequestDataRelationships,
+    CreateBackfilledMaintenanceRequestDataRelationshipsTemplate:
+      CreateBackfilledMaintenanceRequestDataRelationshipsTemplate,
+    CreateBackfilledMaintenanceRequestDataRelationshipsTemplateData:
+      CreateBackfilledMaintenanceRequestDataRelationshipsTemplateData,
     CreateComponentRequest: CreateComponentRequest,
     CreateComponentRequestData: CreateComponentRequestData,
     CreateComponentRequestDataAttributes: CreateComponentRequestDataAttributes,
@@ -243,12 +321,36 @@ export const TypingInfo: ModelTypingInfo = {
       CreateDegradationRequestDataAttributes,
     CreateDegradationRequestDataAttributesComponentsAffectedItems:
       CreateDegradationRequestDataAttributesComponentsAffectedItems,
+    CreateDegradationRequestDataRelationships:
+      CreateDegradationRequestDataRelationships,
+    CreateDegradationRequestDataRelationshipsTemplate:
+      CreateDegradationRequestDataRelationshipsTemplate,
+    CreateDegradationRequestDataRelationshipsTemplateData:
+      CreateDegradationRequestDataRelationshipsTemplateData,
+    CreateDegradationTemplateRequest: CreateDegradationTemplateRequest,
+    CreateDegradationTemplateRequestData: CreateDegradationTemplateRequestData,
+    CreateDegradationTemplateRequestDataAttributes:
+      CreateDegradationTemplateRequestDataAttributes,
+    CreateDegradationTemplateRequestDataAttributesComponentsAffectedItems:
+      CreateDegradationTemplateRequestDataAttributesComponentsAffectedItems,
+    CreateDegradationTemplateRequestDataAttributesUpdatesItems:
+      CreateDegradationTemplateRequestDataAttributesUpdatesItems,
     CreateMaintenanceRequest: CreateMaintenanceRequest,
     CreateMaintenanceRequestData: CreateMaintenanceRequestData,
     CreateMaintenanceRequestDataAttributes:
       CreateMaintenanceRequestDataAttributes,
     CreateMaintenanceRequestDataAttributesComponentsAffectedItems:
       CreateMaintenanceRequestDataAttributesComponentsAffectedItems,
+    CreateMaintenanceRequestDataRelationships:
+      CreateMaintenanceRequestDataRelationships,
+    CreateMaintenanceRequestDataRelationshipsTemplate:
+      CreateMaintenanceRequestDataRelationshipsTemplate,
+    CreateMaintenanceRequestDataRelationshipsTemplateData:
+      CreateMaintenanceRequestDataRelationshipsTemplateData,
+    CreateMaintenanceTemplateRequest: CreateMaintenanceTemplateRequest,
+    CreateMaintenanceTemplateRequestData: CreateMaintenanceTemplateRequestData,
+    CreateMaintenanceTemplateRequestDataAttributes:
+      CreateMaintenanceTemplateRequestDataAttributes,
     CreateStatusPageRequest: CreateStatusPageRequest,
     CreateStatusPageRequestData: CreateStatusPageRequestData,
     CreateStatusPageRequestDataAttributes:
@@ -281,6 +383,30 @@ export const TypingInfo: ModelTypingInfo = {
       DegradationDataRelationshipsStatusPage,
     DegradationDataRelationshipsStatusPageData:
       DegradationDataRelationshipsStatusPageData,
+    DegradationDataRelationshipsTemplate: DegradationDataRelationshipsTemplate,
+    DegradationDataRelationshipsTemplateData:
+      DegradationDataRelationshipsTemplateData,
+    DegradationTemplate: DegradationTemplate,
+    DegradationTemplateArray: DegradationTemplateArray,
+    DegradationTemplateData: DegradationTemplateData,
+    DegradationTemplateDataAttributes: DegradationTemplateDataAttributes,
+    DegradationTemplateDataAttributesComponentsAffectedItems:
+      DegradationTemplateDataAttributesComponentsAffectedItems,
+    DegradationTemplateDataAttributesUpdatesItems:
+      DegradationTemplateDataAttributesUpdatesItems,
+    DegradationTemplateDataRelationships: DegradationTemplateDataRelationships,
+    DegradationTemplateDataRelationshipsCreatedByUser:
+      DegradationTemplateDataRelationshipsCreatedByUser,
+    DegradationTemplateDataRelationshipsCreatedByUserData:
+      DegradationTemplateDataRelationshipsCreatedByUserData,
+    DegradationTemplateDataRelationshipsLastModifiedByUser:
+      DegradationTemplateDataRelationshipsLastModifiedByUser,
+    DegradationTemplateDataRelationshipsLastModifiedByUserData:
+      DegradationTemplateDataRelationshipsLastModifiedByUserData,
+    DegradationTemplateDataRelationshipsStatusPage:
+      DegradationTemplateDataRelationshipsStatusPage,
+    DegradationTemplateDataRelationshipsStatusPageData:
+      DegradationTemplateDataRelationshipsStatusPageData,
     DegradationUpdate: DegradationUpdate,
     DegradationUpdateData: DegradationUpdateData,
     DegradationUpdateDataAttributes: DegradationUpdateDataAttributes,
@@ -322,6 +448,26 @@ export const TypingInfo: ModelTypingInfo = {
       MaintenanceDataRelationshipsStatusPage,
     MaintenanceDataRelationshipsStatusPageData:
       MaintenanceDataRelationshipsStatusPageData,
+    MaintenanceDataRelationshipsTemplate: MaintenanceDataRelationshipsTemplate,
+    MaintenanceDataRelationshipsTemplateData:
+      MaintenanceDataRelationshipsTemplateData,
+    MaintenanceTemplate: MaintenanceTemplate,
+    MaintenanceTemplateArray: MaintenanceTemplateArray,
+    MaintenanceTemplateData: MaintenanceTemplateData,
+    MaintenanceTemplateDataAttributes: MaintenanceTemplateDataAttributes,
+    MaintenanceTemplateDataRelationships: MaintenanceTemplateDataRelationships,
+    MaintenanceTemplateDataRelationshipsCreatedByUser:
+      MaintenanceTemplateDataRelationshipsCreatedByUser,
+    MaintenanceTemplateDataRelationshipsCreatedByUserData:
+      MaintenanceTemplateDataRelationshipsCreatedByUserData,
+    MaintenanceTemplateDataRelationshipsLastModifiedByUser:
+      MaintenanceTemplateDataRelationshipsLastModifiedByUser,
+    MaintenanceTemplateDataRelationshipsLastModifiedByUserData:
+      MaintenanceTemplateDataRelationshipsLastModifiedByUserData,
+    MaintenanceTemplateDataRelationshipsStatusPage:
+      MaintenanceTemplateDataRelationshipsStatusPage,
+    MaintenanceTemplateDataRelationshipsStatusPageData:
+      MaintenanceTemplateDataRelationshipsStatusPageData,
     PaginationMeta: PaginationMeta,
     PaginationMetaPage: PaginationMetaPage,
     PatchComponentRequest: PatchComponentRequest,
@@ -333,6 +479,20 @@ export const TypingInfo: ModelTypingInfo = {
       PatchDegradationRequestDataAttributes,
     PatchDegradationRequestDataAttributesComponentsAffectedItems:
       PatchDegradationRequestDataAttributesComponentsAffectedItems,
+    PatchDegradationRequestDataRelationships:
+      PatchDegradationRequestDataRelationships,
+    PatchDegradationRequestDataRelationshipsTemplate:
+      PatchDegradationRequestDataRelationshipsTemplate,
+    PatchDegradationRequestDataRelationshipsTemplateData:
+      PatchDegradationRequestDataRelationshipsTemplateData,
+    PatchDegradationTemplateRequest: PatchDegradationTemplateRequest,
+    PatchDegradationTemplateRequestData: PatchDegradationTemplateRequestData,
+    PatchDegradationTemplateRequestDataAttributes:
+      PatchDegradationTemplateRequestDataAttributes,
+    PatchDegradationTemplateRequestDataAttributesComponentsAffectedItems:
+      PatchDegradationTemplateRequestDataAttributesComponentsAffectedItems,
+    PatchDegradationTemplateRequestDataAttributesUpdatesItems:
+      PatchDegradationTemplateRequestDataAttributesUpdatesItems,
     PatchDegradationUpdateRequest: PatchDegradationUpdateRequest,
     PatchDegradationUpdateRequestData: PatchDegradationUpdateRequestData,
     PatchDegradationUpdateRequestDataAttributes:
@@ -343,6 +503,16 @@ export const TypingInfo: ModelTypingInfo = {
       PatchMaintenanceRequestDataAttributes,
     PatchMaintenanceRequestDataAttributesComponentsAffectedItems:
       PatchMaintenanceRequestDataAttributesComponentsAffectedItems,
+    PatchMaintenanceRequestDataRelationships:
+      PatchMaintenanceRequestDataRelationships,
+    PatchMaintenanceRequestDataRelationshipsTemplate:
+      PatchMaintenanceRequestDataRelationshipsTemplate,
+    PatchMaintenanceRequestDataRelationshipsTemplateData:
+      PatchMaintenanceRequestDataRelationshipsTemplateData,
+    PatchMaintenanceTemplateRequest: PatchMaintenanceTemplateRequest,
+    PatchMaintenanceTemplateRequestData: PatchMaintenanceTemplateRequestData,
+    PatchMaintenanceTemplateRequestDataAttributes:
+      PatchMaintenanceTemplateRequestDataAttributes,
     PatchStatusPageRequest: PatchStatusPageRequest,
     PatchStatusPageRequestData: PatchStatusPageRequestData,
     PatchStatusPageRequestDataAttributes: PatchStatusPageRequestDataAttributes,

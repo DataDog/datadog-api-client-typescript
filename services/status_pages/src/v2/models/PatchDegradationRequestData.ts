@@ -1,6 +1,7 @@
 import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
 import { PatchDegradationRequestDataAttributes } from "./PatchDegradationRequestDataAttributes";
+import { PatchDegradationRequestDataRelationships } from "./PatchDegradationRequestDataRelationships";
 import { PatchDegradationRequestDataType } from "./PatchDegradationRequestDataType";
 
 /**
@@ -15,6 +16,10 @@ export class PatchDegradationRequestData {
    * The ID of the degradation.
    */
   "id": string;
+  /**
+   * The supported relationships for updating a degradation.
+   */
+  "relationships"?: PatchDegradationRequestDataRelationships;
   /**
    * Degradations resource type.
    */
@@ -44,6 +49,10 @@ export class PatchDegradationRequestData {
       type: "string",
       required: true,
       format: "uuid",
+    },
+    relationships: {
+      baseName: "relationships",
+      type: "PatchDegradationRequestDataRelationships",
     },
     type: {
       baseName: "type",
