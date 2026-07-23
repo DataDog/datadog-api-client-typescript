@@ -627,7 +627,9 @@ export {
   FormsApiCreateFormRequest,
   FormsApiDeleteFormRequest,
   FormsApiGetFormRequest,
+  FormsApiListFormVersionsRequest,
   FormsApiPublishFormRequest,
+  FormsApiRevertFormVersionRequest,
   FormsApiUpdateFormRequest,
   FormsApiUpsertAndPublishFormVersionRequest,
   FormsApiUpsertFormVersionRequest,
@@ -4128,6 +4130,7 @@ export { FormulaLimit } from "./models/FormulaLimit";
 export { FormUpdateAttributes } from "./models/FormUpdateAttributes";
 export { FormVersionAttributes } from "./models/FormVersionAttributes";
 export { FormVersionData } from "./models/FormVersionData";
+export { FormVersionListType } from "./models/FormVersionListType";
 export { FormVersionResponse } from "./models/FormVersionResponse";
 export { FormVersionState } from "./models/FormVersionState";
 export { FormVersionType } from "./models/FormVersionType";
@@ -4884,6 +4887,9 @@ export { ListFeatureFlagsResponse } from "./models/ListFeatureFlagsResponse";
 export { ListFindingsMeta } from "./models/ListFindingsMeta";
 export { ListFindingsPage } from "./models/ListFindingsPage";
 export { ListFindingsResponse } from "./models/ListFindingsResponse";
+export { ListFormVersionsData } from "./models/ListFormVersionsData";
+export { ListFormVersionsDataAttributes } from "./models/ListFormVersionsDataAttributes";
+export { ListFormVersionsResponse } from "./models/ListFormVersionsResponse";
 export { ListHistoricalJobsResponse } from "./models/ListHistoricalJobsResponse";
 export { ListIntegrationsResponse } from "./models/ListIntegrationsResponse";
 export { ListInterfaceTagsResponse } from "./models/ListInterfaceTagsResponse";
