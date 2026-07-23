@@ -7,6 +7,7 @@ import { AttachmentData } from "./AttachmentData";
 import { AttachmentDataAttributes } from "./AttachmentDataAttributes";
 import { AttachmentDataAttributesAttachment } from "./AttachmentDataAttributesAttachment";
 import { AttachmentDataRelationships } from "./AttachmentDataRelationships";
+import { ConfluencePostmortemSettings } from "./ConfluencePostmortemSettings";
 import { CreateAttachmentRequest } from "./CreateAttachmentRequest";
 import { CreateAttachmentRequestData } from "./CreateAttachmentRequestData";
 import { CreateAttachmentRequestDataAttributes } from "./CreateAttachmentRequestDataAttributes";
@@ -19,6 +20,7 @@ import { GlobalIncidentSettingsDataRequest } from "./GlobalIncidentSettingsDataR
 import { GlobalIncidentSettingsDataResponse } from "./GlobalIncidentSettingsDataResponse";
 import { GlobalIncidentSettingsRequest } from "./GlobalIncidentSettingsRequest";
 import { GlobalIncidentSettingsResponse } from "./GlobalIncidentSettingsResponse";
+import { GoogleDocsPostmortemSettings } from "./GoogleDocsPostmortemSettings";
 import { GoogleMeetConfigurationReference } from "./GoogleMeetConfigurationReference";
 import { GoogleMeetConfigurationReferenceData } from "./GoogleMeetConfigurationReferenceData";
 import { IncidentCreateAttributes } from "./IncidentCreateAttributes";
@@ -194,10 +196,16 @@ import { PostmortemCellAttributes } from "./PostmortemCellAttributes";
 import { PostmortemCellDefinition } from "./PostmortemCellDefinition";
 import { PostmortemTemplateAttributesRequest } from "./PostmortemTemplateAttributesRequest";
 import { PostmortemTemplateAttributesResponse } from "./PostmortemTemplateAttributesResponse";
+import { PostmortemTemplateCreateRelationships } from "./PostmortemTemplateCreateRelationships";
 import { PostmortemTemplateDataRequest } from "./PostmortemTemplateDataRequest";
 import { PostmortemTemplateDataResponse } from "./PostmortemTemplateDataResponse";
+import { PostmortemTemplateIncidentTypeRelationship } from "./PostmortemTemplateIncidentTypeRelationship";
+import { PostmortemTemplateIncidentTypeRelationshipData } from "./PostmortemTemplateIncidentTypeRelationshipData";
 import { PostmortemTemplateRequest } from "./PostmortemTemplateRequest";
 import { PostmortemTemplateResponse } from "./PostmortemTemplateResponse";
+import { PostmortemTemplateResponseRelationships } from "./PostmortemTemplateResponseRelationships";
+import { PostmortemTemplateUserRelationship } from "./PostmortemTemplateUserRelationship";
+import { PostmortemTemplateUserRelationshipData } from "./PostmortemTemplateUserRelationshipData";
 import { PostmortemTemplatesResponse } from "./PostmortemTemplatesResponse";
 import { PutIncidentNotificationRuleRequest } from "./PutIncidentNotificationRuleRequest";
 import { RelationshipToIncident } from "./RelationshipToIncident";
@@ -307,7 +315,12 @@ export const TypingInfo: ModelTypingInfo = {
     IncidentUserDefinedRoleType: ["incident_user_defined_roles"],
     OrganizationsType: ["orgs"],
     PostmortemCellType: ["markdown"],
-    PostmortemTemplateType: ["postmortem_template"],
+    PostmortemTemplateLocation: [
+      "datadog_notebooks",
+      "confluence",
+      "google_docs",
+    ],
+    PostmortemTemplateType: ["postmortem_templates"],
     RolesType: ["roles"],
     UsersType: ["users"],
   },
@@ -360,6 +373,7 @@ export const TypingInfo: ModelTypingInfo = {
     AttachmentDataAttributes: AttachmentDataAttributes,
     AttachmentDataAttributesAttachment: AttachmentDataAttributesAttachment,
     AttachmentDataRelationships: AttachmentDataRelationships,
+    ConfluencePostmortemSettings: ConfluencePostmortemSettings,
     CreateAttachmentRequest: CreateAttachmentRequest,
     CreateAttachmentRequestData: CreateAttachmentRequestData,
     CreateAttachmentRequestDataAttributes:
@@ -378,6 +392,7 @@ export const TypingInfo: ModelTypingInfo = {
     GlobalIncidentSettingsDataResponse: GlobalIncidentSettingsDataResponse,
     GlobalIncidentSettingsRequest: GlobalIncidentSettingsRequest,
     GlobalIncidentSettingsResponse: GlobalIncidentSettingsResponse,
+    GoogleDocsPostmortemSettings: GoogleDocsPostmortemSettings,
     GoogleMeetConfigurationReference: GoogleMeetConfigurationReference,
     GoogleMeetConfigurationReferenceData: GoogleMeetConfigurationReferenceData,
     IncidentCreateAttributes: IncidentCreateAttributes,
@@ -600,10 +615,21 @@ export const TypingInfo: ModelTypingInfo = {
     PostmortemCellDefinition: PostmortemCellDefinition,
     PostmortemTemplateAttributesRequest: PostmortemTemplateAttributesRequest,
     PostmortemTemplateAttributesResponse: PostmortemTemplateAttributesResponse,
+    PostmortemTemplateCreateRelationships:
+      PostmortemTemplateCreateRelationships,
     PostmortemTemplateDataRequest: PostmortemTemplateDataRequest,
     PostmortemTemplateDataResponse: PostmortemTemplateDataResponse,
+    PostmortemTemplateIncidentTypeRelationship:
+      PostmortemTemplateIncidentTypeRelationship,
+    PostmortemTemplateIncidentTypeRelationshipData:
+      PostmortemTemplateIncidentTypeRelationshipData,
     PostmortemTemplateRequest: PostmortemTemplateRequest,
     PostmortemTemplateResponse: PostmortemTemplateResponse,
+    PostmortemTemplateResponseRelationships:
+      PostmortemTemplateResponseRelationships,
+    PostmortemTemplateUserRelationship: PostmortemTemplateUserRelationship,
+    PostmortemTemplateUserRelationshipData:
+      PostmortemTemplateUserRelationshipData,
     PostmortemTemplatesResponse: PostmortemTemplatesResponse,
     PutIncidentNotificationRuleRequest: PutIncidentNotificationRuleRequest,
     RelationshipToIncident: RelationshipToIncident,
