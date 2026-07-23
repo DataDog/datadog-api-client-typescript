@@ -4,6 +4,7 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 import { PatchDegradationRequestDataAttributes } from "./PatchDegradationRequestDataAttributes";
+import { PatchDegradationRequestDataRelationships } from "./PatchDegradationRequestDataRelationships";
 import { PatchDegradationRequestDataType } from "./PatchDegradationRequestDataType";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
@@ -20,6 +21,10 @@ export class PatchDegradationRequestData {
    * The ID of the degradation.
    */
   "id": string;
+  /**
+   * The supported relationships for updating a degradation.
+   */
+  "relationships"?: PatchDegradationRequestDataRelationships;
   /**
    * Degradations resource type.
    */
@@ -51,6 +56,10 @@ export class PatchDegradationRequestData {
       type: "string",
       required: true,
       format: "uuid",
+    },
+    relationships: {
+      baseName: "relationships",
+      type: "PatchDegradationRequestDataRelationships",
     },
     type: {
       baseName: "type",

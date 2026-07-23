@@ -16179,6 +16179,10 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             "type": "string",
             "format": "",
             },
+        "filterSourceId": {
+            "type": "string",
+            "format": "",
+            },
         "operationResponseType": "DegradationArray",
     },
     "v2.ListMaintenances": {
@@ -16316,6 +16320,77 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             },
         "operationResponseType": "StatusPagesComponent",
     },
+    "v2.ListDegradationTemplates": {
+        "include": {
+            "type": "string",
+            "format": "",
+            },
+        "pageId": {
+            "type": "string",
+            "format": "uuid",
+            },
+        "operationResponseType": "DegradationTemplateArray",
+    },
+    "v2.CreateDegradationTemplate": {
+        "pageId": {
+            "type": "string",
+            "format": "uuid",
+            },
+        "include": {
+            "type": "string",
+            "format": "",
+            },
+        "body": {
+            "type": "CreateDegradationTemplateRequest",
+            "format": "",
+            },
+        "operationResponseType": "DegradationTemplate",
+    },
+    "v2.GetDegradationTemplate": {
+        "pageId": {
+            "type": "string",
+            "format": "uuid",
+            },
+        "templateId": {
+            "type": "string",
+            "format": "uuid",
+            },
+        "include": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "DegradationTemplate",
+    },
+    "v2.DeleteDegradationTemplate": {
+        "pageId": {
+            "type": "string",
+            "format": "uuid",
+            },
+        "templateId": {
+            "type": "string",
+            "format": "uuid",
+            },
+        "operationResponseType": "{}",
+    },
+    "v2.UpdateDegradationTemplate": {
+        "templateId": {
+            "type": "string",
+            "format": "uuid",
+            },
+        "include": {
+            "type": "string",
+            "format": "",
+            },
+        "pageId": {
+            "type": "string",
+            "format": "uuid",
+            },
+        "body": {
+            "type": "PatchDegradationTemplateRequest",
+            "format": "",
+            },
+        "operationResponseType": "DegradationTemplate",
+    },
     "v2.CreateDegradation": {
         "pageId": {
             "type": "string",
@@ -16436,6 +16511,77 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             "format": "",
             },
         "operationResponseType": "DegradationUpdate",
+    },
+    "v2.ListMaintenanceTemplates": {
+        "pageId": {
+            "type": "string",
+            "format": "uuid",
+            },
+        "include": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "MaintenanceTemplateArray",
+    },
+    "v2.CreateMaintenanceTemplate": {
+        "pageId": {
+            "type": "string",
+            "format": "uuid",
+            },
+        "include": {
+            "type": "string",
+            "format": "",
+            },
+        "body": {
+            "type": "CreateMaintenanceTemplateRequest",
+            "format": "",
+            },
+        "operationResponseType": "MaintenanceTemplate",
+    },
+    "v2.GetMaintenanceTemplate": {
+        "pageId": {
+            "type": "string",
+            "format": "uuid",
+            },
+        "templateId": {
+            "type": "string",
+            "format": "uuid",
+            },
+        "include": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "MaintenanceTemplate",
+    },
+    "v2.DeleteMaintenanceTemplate": {
+        "pageId": {
+            "type": "string",
+            "format": "uuid",
+            },
+        "templateId": {
+            "type": "string",
+            "format": "uuid",
+            },
+        "operationResponseType": "{}",
+    },
+    "v2.UpdateMaintenanceTemplate": {
+        "pageId": {
+            "type": "string",
+            "format": "uuid",
+            },
+        "templateId": {
+            "type": "string",
+            "format": "uuid",
+            },
+        "include": {
+            "type": "string",
+            "format": "",
+            },
+        "body": {
+            "type": "PatchMaintenanceTemplateRequest",
+            "format": "",
+            },
+        "operationResponseType": "MaintenanceTemplate",
     },
     "v2.CreateMaintenance": {
         "pageId": {
