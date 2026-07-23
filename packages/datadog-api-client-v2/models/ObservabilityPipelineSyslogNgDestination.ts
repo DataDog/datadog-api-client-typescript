@@ -4,8 +4,8 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 import { ObservabilityPipelineBufferOptions } from "./ObservabilityPipelineBufferOptions";
+import { ObservabilityPipelineClientTls } from "./ObservabilityPipelineClientTls";
 import { ObservabilityPipelineSyslogNgDestinationType } from "./ObservabilityPipelineSyslogNgDestinationType";
-import { ObservabilityPipelineTls } from "./ObservabilityPipelineTls";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
@@ -38,7 +38,7 @@ export class ObservabilityPipelineSyslogNgDestination {
   /**
    * Configuration for enabling TLS encryption between the pipeline component and external services.
    */
-  "tls"?: ObservabilityPipelineTls;
+  "tls"?: ObservabilityPipelineClientTls;
   /**
    * The destination type. The value should always be `syslog_ng`.
    */
@@ -85,7 +85,7 @@ export class ObservabilityPipelineSyslogNgDestination {
     },
     tls: {
       baseName: "tls",
-      type: "ObservabilityPipelineTls",
+      type: "ObservabilityPipelineClientTls",
     },
     type: {
       baseName: "type",

@@ -4,8 +4,8 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 import { ObservabilityPipelineBufferOptions } from "./ObservabilityPipelineBufferOptions";
+import { ObservabilityPipelineClientTls } from "./ObservabilityPipelineClientTls";
 import { ObservabilityPipelineCloudPremDestinationType } from "./ObservabilityPipelineCloudPremDestinationType";
-import { ObservabilityPipelineTls } from "./ObservabilityPipelineTls";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
@@ -34,7 +34,7 @@ export class ObservabilityPipelineCloudPremDestination {
   /**
    * Configuration for enabling TLS encryption between the pipeline component and external services.
    */
-  "tls"?: ObservabilityPipelineTls;
+  "tls"?: ObservabilityPipelineClientTls;
   /**
    * The destination type. The value should always be `cloud_prem`.
    */
@@ -76,7 +76,7 @@ export class ObservabilityPipelineCloudPremDestination {
     },
     tls: {
       baseName: "tls",
-      type: "ObservabilityPipelineTls",
+      type: "ObservabilityPipelineClientTls",
     },
     type: {
       baseName: "type",

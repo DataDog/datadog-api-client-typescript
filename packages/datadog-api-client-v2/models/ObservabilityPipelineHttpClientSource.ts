@@ -3,10 +3,10 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
+import { ObservabilityPipelineClientTls } from "./ObservabilityPipelineClientTls";
 import { ObservabilityPipelineDecoding } from "./ObservabilityPipelineDecoding";
 import { ObservabilityPipelineHttpClientSourceAuthStrategy } from "./ObservabilityPipelineHttpClientSourceAuthStrategy";
 import { ObservabilityPipelineHttpClientSourceType } from "./ObservabilityPipelineHttpClientSourceType";
-import { ObservabilityPipelineTls } from "./ObservabilityPipelineTls";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
@@ -51,7 +51,7 @@ export class ObservabilityPipelineHttpClientSource {
   /**
    * Configuration for enabling TLS encryption between the pipeline component and external services.
    */
-  "tls"?: ObservabilityPipelineTls;
+  "tls"?: ObservabilityPipelineClientTls;
   /**
    * Name of the environment variable or secret that holds the bearer token (used when `auth_strategy` is `bearer`).
    */
@@ -119,7 +119,7 @@ export class ObservabilityPipelineHttpClientSource {
     },
     tls: {
       baseName: "tls",
-      type: "ObservabilityPipelineTls",
+      type: "ObservabilityPipelineClientTls",
     },
     tokenKey: {
       baseName: "token_key",
