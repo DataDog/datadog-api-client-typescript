@@ -3,7 +3,7 @@ repos:
     hooks:
       - id: generate
         name: Generate
-        language: node
+        language: system
         entry: bash -c "./generate.sh"
         pass_filenames: false
       - id: lint
@@ -13,6 +13,10 @@ repos:
         stages: [manual]
         pass_filenames: false
         language_version: "22.15.0"
+        # pre-commit 4.6.1+ requires a `language: node` local hook to install
+        # something; corepack (used by the entry) keeps node provisioned.
+        additional_dependencies:
+          - "corepack"
       - id: format
         name: Format code
         language: node
@@ -20,3 +24,5 @@ repos:
         stages: [manual]
         pass_filenames: false
         language_version: "22.15.0"
+        additional_dependencies:
+          - "corepack"
