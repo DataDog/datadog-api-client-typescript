@@ -9427,6 +9427,10 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
       type: "string",
       format: "",
     },
+    ddEnv: {
+      type: "string",
+      format: "",
+    },
     limit: {
       type: "number",
       format: "int64",
