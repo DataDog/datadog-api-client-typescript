@@ -3678,6 +3678,34 @@ import { RUMEventProcessingScale } from "./RUMEventProcessingScale";
 import { RUMEventsResponse } from "./RUMEventsResponse";
 import { RUMGroupBy } from "./RUMGroupBy";
 import { RUMGroupByHistogram } from "./RUMGroupByHistogram";
+import { RUMOperationCreateRequest } from "./RUMOperationCreateRequest";
+import { RUMOperationCreateRequestData } from "./RUMOperationCreateRequestData";
+import { RUMOperationJourneyCompositeRule } from "./RUMOperationJourneyCompositeRule";
+import { RUMOperationJourneyNode } from "./RUMOperationJourneyNode";
+import { RUMOperationJourneyPredicate } from "./RUMOperationJourneyPredicate";
+import { RUMOperationJourneyRum } from "./RUMOperationJourneyRum";
+import { RUMOperationJourneyStep } from "./RUMOperationJourneyStep";
+import { RUMOperationRequestAttributes } from "./RUMOperationRequestAttributes";
+import { RUMOperationResponse } from "./RUMOperationResponse";
+import { RUMOperationResponseAttributes } from "./RUMOperationResponseAttributes";
+import { RUMOperationResponseData } from "./RUMOperationResponseData";
+import { RUMOperationStrongLinkCreateRequest } from "./RUMOperationStrongLinkCreateRequest";
+import { RUMOperationStrongLinkCreateRequestAttributes } from "./RUMOperationStrongLinkCreateRequestAttributes";
+import { RUMOperationStrongLinkCreateRequestData } from "./RUMOperationStrongLinkCreateRequestData";
+import { RUMOperationStrongLinkResponse } from "./RUMOperationStrongLinkResponse";
+import { RUMOperationStrongLinkResponseAttributes } from "./RUMOperationStrongLinkResponseAttributes";
+import { RUMOperationStrongLinkResponseData } from "./RUMOperationStrongLinkResponseData";
+import { RUMOperationStrongLinkUpdateRequest } from "./RUMOperationStrongLinkUpdateRequest";
+import { RUMOperationStrongLinkUpdateRequestAttributes } from "./RUMOperationStrongLinkUpdateRequestAttributes";
+import { RUMOperationStrongLinkUpdateRequestData } from "./RUMOperationStrongLinkUpdateRequestData";
+import { RUMOperationStrongLinksListResponse } from "./RUMOperationStrongLinksListResponse";
+import { RUMOperationStrongLinksListResponseMeta } from "./RUMOperationStrongLinksListResponseMeta";
+import { RUMOperationUpdateRequest } from "./RUMOperationUpdateRequest";
+import { RUMOperationUpdateRequestData } from "./RUMOperationUpdateRequestData";
+import { RUMOperationUser } from "./RUMOperationUser";
+import { RUMOperationsListResponse } from "./RUMOperationsListResponse";
+import { RUMOperationsListResponseMeta } from "./RUMOperationsListResponseMeta";
+import { RUMOperationsListResponseMetaPage } from "./RUMOperationsListResponseMetaPage";
 import { RUMProductAnalyticsRetentionScale } from "./RUMProductAnalyticsRetentionScale";
 import { RUMProductScales } from "./RUMProductScales";
 import { RUMQueryFilter } from "./RUMQueryFilter";
@@ -7318,6 +7346,18 @@ const enumsMap: { [key: string]: any[] } = {
   RUMComputeType: ["timeseries", "total"],
   RUMEventProcessingState: ["ALL", "ERROR_FOCUSED_MODE", "NONE"],
   RUMEventType: ["rum"],
+  RUMOperationJourneyCompositeRuleKind: ["all_of", "in_order"],
+  RUMOperationJourneyStepType: [
+    "start",
+    "update",
+    "stop",
+    "error",
+    "abandoned",
+  ],
+  RUMOperationStrongLinkStatus: ["DRAFT", "CONFIRMED", "REJECTED"],
+  RUMOperationStrongLinkType: ["strong_links"],
+  RUMOperationStrongLinkUpdateStatus: ["CONFIRMED", "REJECTED"],
+  RUMOperationType: ["operations"],
   RUMProductAnalyticsRetentionState: ["MAX", "NONE"],
   RUMResponseStatus: ["done", "timeout"],
   RUMSort: ["timestamp", "-timestamp"],
@@ -12745,6 +12785,40 @@ const typeMap: { [index: string]: any } = {
   RUMEventsResponse: RUMEventsResponse,
   RUMGroupBy: RUMGroupBy,
   RUMGroupByHistogram: RUMGroupByHistogram,
+  RUMOperationCreateRequest: RUMOperationCreateRequest,
+  RUMOperationCreateRequestData: RUMOperationCreateRequestData,
+  RUMOperationJourneyCompositeRule: RUMOperationJourneyCompositeRule,
+  RUMOperationJourneyNode: RUMOperationJourneyNode,
+  RUMOperationJourneyPredicate: RUMOperationJourneyPredicate,
+  RUMOperationJourneyRum: RUMOperationJourneyRum,
+  RUMOperationJourneyStep: RUMOperationJourneyStep,
+  RUMOperationRequestAttributes: RUMOperationRequestAttributes,
+  RUMOperationResponse: RUMOperationResponse,
+  RUMOperationResponseAttributes: RUMOperationResponseAttributes,
+  RUMOperationResponseData: RUMOperationResponseData,
+  RUMOperationStrongLinkCreateRequest: RUMOperationStrongLinkCreateRequest,
+  RUMOperationStrongLinkCreateRequestAttributes:
+    RUMOperationStrongLinkCreateRequestAttributes,
+  RUMOperationStrongLinkCreateRequestData:
+    RUMOperationStrongLinkCreateRequestData,
+  RUMOperationStrongLinkResponse: RUMOperationStrongLinkResponse,
+  RUMOperationStrongLinkResponseAttributes:
+    RUMOperationStrongLinkResponseAttributes,
+  RUMOperationStrongLinkResponseData: RUMOperationStrongLinkResponseData,
+  RUMOperationStrongLinkUpdateRequest: RUMOperationStrongLinkUpdateRequest,
+  RUMOperationStrongLinkUpdateRequestAttributes:
+    RUMOperationStrongLinkUpdateRequestAttributes,
+  RUMOperationStrongLinkUpdateRequestData:
+    RUMOperationStrongLinkUpdateRequestData,
+  RUMOperationStrongLinksListResponse: RUMOperationStrongLinksListResponse,
+  RUMOperationStrongLinksListResponseMeta:
+    RUMOperationStrongLinksListResponseMeta,
+  RUMOperationUpdateRequest: RUMOperationUpdateRequest,
+  RUMOperationUpdateRequestData: RUMOperationUpdateRequestData,
+  RUMOperationUser: RUMOperationUser,
+  RUMOperationsListResponse: RUMOperationsListResponse,
+  RUMOperationsListResponseMeta: RUMOperationsListResponseMeta,
+  RUMOperationsListResponseMetaPage: RUMOperationsListResponseMetaPage,
   RUMProductAnalyticsRetentionScale: RUMProductAnalyticsRetentionScale,
   RUMProductScales: RUMProductScales,
   RUMQueryFilter: RUMQueryFilter,
