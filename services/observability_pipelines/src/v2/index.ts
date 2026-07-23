@@ -74,6 +74,7 @@ export { ObservabilityPipelineClickhouseDestinationCompressionAlgorithm } from "
 export { ObservabilityPipelineClickhouseDestinationCompressionObject } from "./models/ObservabilityPipelineClickhouseDestinationCompressionObject";
 export { ObservabilityPipelineClickhouseDestinationFormat } from "./models/ObservabilityPipelineClickhouseDestinationFormat";
 export { ObservabilityPipelineClickhouseDestinationType } from "./models/ObservabilityPipelineClickhouseDestinationType";
+export { ObservabilityPipelineClientTls } from "./models/ObservabilityPipelineClientTls";
 export { ObservabilityPipelineCloudPremDestination } from "./models/ObservabilityPipelineCloudPremDestination";
 export { ObservabilityPipelineCloudPremDestinationType } from "./models/ObservabilityPipelineCloudPremDestinationType";
 export { ObservabilityPipelineConfig } from "./models/ObservabilityPipelineConfig";
