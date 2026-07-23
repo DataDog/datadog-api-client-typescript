@@ -838,6 +838,7 @@ import { ConfiguredScheduleTarget } from "./ConfiguredScheduleTarget";
 import { ConfiguredScheduleTargetAttributes } from "./ConfiguredScheduleTargetAttributes";
 import { ConfiguredScheduleTargetRelationships } from "./ConfiguredScheduleTargetRelationships";
 import { ConfiguredScheduleTargetRelationshipsSchedule } from "./ConfiguredScheduleTargetRelationshipsSchedule";
+import { ConfluencePostmortemSettings } from "./ConfluencePostmortemSettings";
 import { ConfluentAccountCreateRequest } from "./ConfluentAccountCreateRequest";
 import { ConfluentAccountCreateRequestAttributes } from "./ConfluentAccountCreateRequestAttributes";
 import { ConfluentAccountCreateRequestData } from "./ConfluentAccountCreateRequestData";
@@ -1946,6 +1947,7 @@ import { GoogleChatTargetAudiencesResponse } from "./GoogleChatTargetAudiencesRe
 import { GoogleChatUpdateOrganizationHandleRequest } from "./GoogleChatUpdateOrganizationHandleRequest";
 import { GoogleChatUpdateOrganizationHandleRequestAttributes } from "./GoogleChatUpdateOrganizationHandleRequestAttributes";
 import { GoogleChatUpdateOrganizationHandleRequestData } from "./GoogleChatUpdateOrganizationHandleRequestData";
+import { GoogleDocsPostmortemSettings } from "./GoogleDocsPostmortemSettings";
 import { GoogleMeetConfigurationReference } from "./GoogleMeetConfigurationReference";
 import { GoogleMeetConfigurationReferenceData } from "./GoogleMeetConfigurationReferenceData";
 import { GovernanceBestPracticeDefinition } from "./GovernanceBestPracticeDefinition";
@@ -3535,10 +3537,16 @@ import { PostmortemCellAttributes } from "./PostmortemCellAttributes";
 import { PostmortemCellDefinition } from "./PostmortemCellDefinition";
 import { PostmortemTemplateAttributesRequest } from "./PostmortemTemplateAttributesRequest";
 import { PostmortemTemplateAttributesResponse } from "./PostmortemTemplateAttributesResponse";
+import { PostmortemTemplateCreateRelationships } from "./PostmortemTemplateCreateRelationships";
 import { PostmortemTemplateDataRequest } from "./PostmortemTemplateDataRequest";
 import { PostmortemTemplateDataResponse } from "./PostmortemTemplateDataResponse";
+import { PostmortemTemplateIncidentTypeRelationship } from "./PostmortemTemplateIncidentTypeRelationship";
+import { PostmortemTemplateIncidentTypeRelationshipData } from "./PostmortemTemplateIncidentTypeRelationshipData";
 import { PostmortemTemplateRequest } from "./PostmortemTemplateRequest";
 import { PostmortemTemplateResponse } from "./PostmortemTemplateResponse";
+import { PostmortemTemplateResponseRelationships } from "./PostmortemTemplateResponseRelationships";
+import { PostmortemTemplateUserRelationship } from "./PostmortemTemplateUserRelationship";
+import { PostmortemTemplateUserRelationshipData } from "./PostmortemTemplateUserRelationshipData";
 import { PostmortemTemplatesResponse } from "./PostmortemTemplatesResponse";
 import { Powerpack } from "./Powerpack";
 import { PowerpackAttributes } from "./PowerpackAttributes";
@@ -7267,7 +7275,12 @@ const enumsMap: { [key: string]: any[] } = {
   PersonalAccessTokensType: ["personal_access_tokens"],
   PlaylistDataType: ["rum_replay_playlist"],
   PostmortemCellType: ["markdown"],
-  PostmortemTemplateType: ["postmortem_template"],
+  PostmortemTemplateLocation: [
+    "datadog_notebooks",
+    "confluence",
+    "google_docs",
+  ],
+  PostmortemTemplateType: ["postmortem_templates"],
   PrintReportType: ["report"],
   ProcessDataSource: ["process"],
   ProcessSummaryType: ["process"],
@@ -9364,6 +9377,7 @@ const typeMap: { [index: string]: any } = {
   ConfiguredScheduleTargetRelationships: ConfiguredScheduleTargetRelationships,
   ConfiguredScheduleTargetRelationshipsSchedule:
     ConfiguredScheduleTargetRelationshipsSchedule,
+  ConfluencePostmortemSettings: ConfluencePostmortemSettings,
   ConfluentAccountCreateRequest: ConfluentAccountCreateRequest,
   ConfluentAccountCreateRequestAttributes:
     ConfluentAccountCreateRequestAttributes,
@@ -10656,6 +10670,7 @@ const typeMap: { [index: string]: any } = {
     GoogleChatUpdateOrganizationHandleRequestAttributes,
   GoogleChatUpdateOrganizationHandleRequestData:
     GoogleChatUpdateOrganizationHandleRequestData,
+  GoogleDocsPostmortemSettings: GoogleDocsPostmortemSettings,
   GoogleMeetConfigurationReference: GoogleMeetConfigurationReference,
   GoogleMeetConfigurationReferenceData: GoogleMeetConfigurationReferenceData,
   GovernanceBestPracticeDefinition: GovernanceBestPracticeDefinition,
@@ -12589,10 +12604,20 @@ const typeMap: { [index: string]: any } = {
   PostmortemCellDefinition: PostmortemCellDefinition,
   PostmortemTemplateAttributesRequest: PostmortemTemplateAttributesRequest,
   PostmortemTemplateAttributesResponse: PostmortemTemplateAttributesResponse,
+  PostmortemTemplateCreateRelationships: PostmortemTemplateCreateRelationships,
   PostmortemTemplateDataRequest: PostmortemTemplateDataRequest,
   PostmortemTemplateDataResponse: PostmortemTemplateDataResponse,
+  PostmortemTemplateIncidentTypeRelationship:
+    PostmortemTemplateIncidentTypeRelationship,
+  PostmortemTemplateIncidentTypeRelationshipData:
+    PostmortemTemplateIncidentTypeRelationshipData,
   PostmortemTemplateRequest: PostmortemTemplateRequest,
   PostmortemTemplateResponse: PostmortemTemplateResponse,
+  PostmortemTemplateResponseRelationships:
+    PostmortemTemplateResponseRelationships,
+  PostmortemTemplateUserRelationship: PostmortemTemplateUserRelationship,
+  PostmortemTemplateUserRelationshipData:
+    PostmortemTemplateUserRelationshipData,
   PostmortemTemplatesResponse: PostmortemTemplatesResponse,
   Powerpack: Powerpack,
   PowerpackAttributes: PowerpackAttributes,
