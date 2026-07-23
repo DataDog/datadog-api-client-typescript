@@ -1,6 +1,7 @@
 import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
 import { PostmortemTemplateAttributesResponse } from "./PostmortemTemplateAttributesResponse";
+import { PostmortemTemplateResponseRelationships } from "./PostmortemTemplateResponseRelationships";
 import { PostmortemTemplateType } from "./PostmortemTemplateType";
 
 /**
@@ -12,11 +13,15 @@ export class PostmortemTemplateDataResponse {
    */
   "attributes": PostmortemTemplateAttributesResponse;
   /**
-   * The ID of the template
+   * The ID of the template.
    */
   "id": string;
   /**
-   * Postmortem template resource type
+   * Relationships of a postmortem template returned in a response.
+   */
+  "relationships"?: PostmortemTemplateResponseRelationships;
+  /**
+   * Postmortem template resource type.
    */
   "type": PostmortemTemplateType;
   /**
@@ -43,6 +48,10 @@ export class PostmortemTemplateDataResponse {
       baseName: "id",
       type: "string",
       required: true,
+    },
+    relationships: {
+      baseName: "relationships",
+      type: "PostmortemTemplateResponseRelationships",
     },
     type: {
       baseName: "type",
