@@ -833,7 +833,7 @@ export class AWSLogsIntegrationApi {
   }
 
   /**
-   * Test if permissions are present to add a log-forwarding triggers for the given services and AWS account. The input
+   * **This endpoint is deprecated.** Test if permissions are present to add a log-forwarding triggers for the given services and AWS account. The input
    * is the same as for Enable an AWS service log collection. Subsequent requests will always repeat the above, so this
    * endpoint can be polled intermittently instead of blocking.
    *
@@ -863,7 +863,7 @@ export class AWSLogsIntegrationApi {
   }
 
   /**
-   * Test if permissions are present to add log-forwarding triggers for the
+   * **This endpoint is deprecated.** Test if permissions are present to add log-forwarding triggers for the
    * given services and AWS account. Input is the same as for `EnableAWSLogServices`.
    * Done async, so can be repeatedly polled in a non-blocking fashion until
    * the async request completes.
@@ -895,7 +895,7 @@ export class AWSLogsIntegrationApi {
   }
 
   /**
-   * Attach the Lambda ARN of the Lambda created for the Datadog-AWS log collection to your AWS account ID to enable log collection.
+   * **This endpoint is deprecated.** Attach the Lambda ARN of the Lambda created for the Datadog-AWS log collection to your AWS account ID to enable log collection.
    * @param param The request object
    */
   public createAWSLambdaARN(
@@ -916,7 +916,7 @@ export class AWSLogsIntegrationApi {
   }
 
   /**
-   * Delete a Datadog-AWS logs configuration by removing the specific Lambda ARN associated with a given AWS account.
+   * **This endpoint is deprecated.** Delete a Datadog-AWS logs configuration by removing the specific Lambda ARN associated with a given AWS account.
    * @param param The request object
    */
   public deleteAWSLambdaARN(
