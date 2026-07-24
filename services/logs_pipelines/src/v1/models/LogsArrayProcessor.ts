@@ -9,6 +9,7 @@ import { LogsArrayProcessorType } from "./LogsArrayProcessorType";
  * - Select value from matching element
  * - Compute array length
  * - Append a value to an array
+ * - Extract key-value pairs from an array
  */
 export class LogsArrayProcessor {
   /**
