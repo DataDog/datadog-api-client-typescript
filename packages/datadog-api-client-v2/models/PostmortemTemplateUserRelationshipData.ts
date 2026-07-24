@@ -3,32 +3,21 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
-import { PostmortemTemplateAttributesResponse } from "./PostmortemTemplateAttributesResponse";
-import { PostmortemTemplateResponseRelationships } from "./PostmortemTemplateResponseRelationships";
-import { PostmortemTemplateType } from "./PostmortemTemplateType";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * Data object for a postmortem template returned in a response.
+ * User relationship data.
  */
-export class PostmortemTemplateDataResponse {
+export class PostmortemTemplateUserRelationshipData {
   /**
-   * Attributes of a postmortem template returned in a response.
-   */
-  "attributes": PostmortemTemplateAttributesResponse;
-  /**
-   * The ID of the template.
+   * The user identifier.
    */
   "id": string;
   /**
-   * Relationships of a postmortem template returned in a response.
+   * The user resource type.
    */
-  "relationships"?: PostmortemTemplateResponseRelationships;
-  /**
-   * Postmortem template resource type.
-   */
-  "type": PostmortemTemplateType;
+  "type": string;
 
   /**
    * A container for additional, undeclared properties.
@@ -46,23 +35,15 @@ export class PostmortemTemplateDataResponse {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    attributes: {
-      baseName: "attributes",
-      type: "PostmortemTemplateAttributesResponse",
-      required: true,
-    },
     id: {
       baseName: "id",
       type: "string",
       required: true,
-    },
-    relationships: {
-      baseName: "relationships",
-      type: "PostmortemTemplateResponseRelationships",
+      format: "uuid",
     },
     type: {
       baseName: "type",
-      type: "PostmortemTemplateType",
+      type: "string",
       required: true,
     },
     additionalProperties: {
@@ -75,7 +56,7 @@ export class PostmortemTemplateDataResponse {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-    return PostmortemTemplateDataResponse.attributeTypeMap;
+    return PostmortemTemplateUserRelationshipData.attributeTypeMap;
   }
 
   public constructor() {}

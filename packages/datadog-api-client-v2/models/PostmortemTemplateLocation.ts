@@ -7,12 +7,14 @@
 import { UnparsedObject } from "../../datadog-api-client-common/util";
 
 /**
- * Postmortem template resource type.
+ * The location where the postmortem is created and stored.
  */
 
-export type PostmortemTemplateType =
-  | typeof POSTMORTEM_TEMPLATES
-  | typeof POSTMORTEM_TEMPLATE
+export type PostmortemTemplateLocation =
+  | typeof DATADOG_NOTEBOOKS
+  | typeof CONFLUENCE
+  | typeof GOOGLE_DOCS
   | UnparsedObject;
-export const POSTMORTEM_TEMPLATES = "postmortem_templates";
-export const POSTMORTEM_TEMPLATE = "postmortem_template";
+export const DATADOG_NOTEBOOKS = "datadog_notebooks";
+export const CONFLUENCE = "confluence";
+export const GOOGLE_DOCS = "google_docs";

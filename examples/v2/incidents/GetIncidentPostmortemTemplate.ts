@@ -9,7 +9,7 @@ configuration.unstableOperations["v2.getIncidentPostmortemTemplate"] = true;
 const apiInstance = new v2.IncidentsApi(configuration);
 
 const params: v2.IncidentsApiGetIncidentPostmortemTemplateRequest = {
-  templateId: "template-456",
+  templateId: "template_id",
 };
 
 apiInstance

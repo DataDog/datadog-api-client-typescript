@@ -10066,6 +10066,14 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
         "operationResponseType": "IncidentNotificationTemplate",
     },
     "v2.ListIncidentPostmortemTemplates": {
+        "filterIncidentType": {
+            "type": "string",
+            "format": "uuid",
+            },
+        "sort": {
+            "type": "string",
+            "format": "",
+            },
         "operationResponseType": "PostmortemTemplatesResponse",
     },
     "v2.CreateIncidentPostmortemTemplate": {

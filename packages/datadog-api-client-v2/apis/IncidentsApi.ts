@@ -2158,6 +2158,8 @@ export class IncidentsApiRequestFactory extends BaseAPIRequestFactory {
   }
 
   public async listIncidentPostmortemTemplates(
+    filterIncidentType?: string,
+    sort?: string,
     _options?: Configuration
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
@@ -2178,6 +2180,22 @@ export class IncidentsApiRequestFactory extends BaseAPIRequestFactory {
       .makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
+
+    // Query Params
+    if (filterIncidentType !== undefined) {
+      requestContext.setQueryParam(
+        "filter[incident-type]",
+        ObjectSerializer.serialize(filterIncidentType, "string", "uuid"),
+        ""
+      );
+    }
+    if (sort !== undefined) {
+      requestContext.setQueryParam(
+        "sort",
+        ObjectSerializer.serialize(sort, "string", ""),
+        ""
+      );
+    }
 
     // Apply auth methods
     applySecurityAuthentication(_config, requestContext, [
@@ -7737,7 +7755,7 @@ export interface IncidentsApiDeleteIncidentNotificationTemplateRequest {
 
 export interface IncidentsApiDeleteIncidentPostmortemTemplateRequest {
   /**
-   * The ID of the postmortem template
+   * The ID of the postmortem template.
    * @type string
    */
   templateId: string;
@@ -7834,7 +7852,7 @@ export interface IncidentsApiGetIncidentNotificationTemplateRequest {
 
 export interface IncidentsApiGetIncidentPostmortemTemplateRequest {
   /**
-   * The ID of the postmortem template
+   * The ID of the postmortem template.
    * @type string
    */
   templateId: string;
@@ -7966,6 +7984,19 @@ export interface IncidentsApiListIncidentNotificationTemplatesRequest {
    * @type string
    */
   include?: string;
+}
+
+export interface IncidentsApiListIncidentPostmortemTemplatesRequest {
+  /**
+   * Filter postmortem templates by the associated incident type ID.
+   * @type string
+   */
+  filterIncidentType?: string;
+  /**
+   * The attribute to sort results by. Prefix with `-` for descending order.
+   * @type string
+   */
+  sort?: string;
 }
 
 export interface IncidentsApiListIncidentsRequest {
@@ -8186,7 +8217,7 @@ export interface IncidentsApiUpdateIncidentNotificationTemplateRequest {
 
 export interface IncidentsApiUpdateIncidentPostmortemTemplateRequest {
   /**
-   * The ID of the postmortem template
+   * The ID of the postmortem template.
    * @type string
    */
   templateId: string;
@@ -9254,10 +9285,15 @@ export class IncidentsApi {
    * @param param The request object
    */
   public listIncidentPostmortemTemplates(
+    param: IncidentsApiListIncidentPostmortemTemplatesRequest = {},
     options?: Configuration
   ): Promise<PostmortemTemplatesResponse> {
     const requestContextPromise =
-      this.requestFactory.listIncidentPostmortemTemplates(options);
+      this.requestFactory.listIncidentPostmortemTemplates(
+        param.filterIncidentType,
+        param.sort,
+        options
+      );
     return requestContextPromise.then((requestContext) => {
       return this.configuration.httpApi
         .send(requestContext)
