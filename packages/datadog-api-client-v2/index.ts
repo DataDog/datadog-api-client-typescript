@@ -5468,6 +5468,7 @@ export { MetricBulkTagConfigStatus } from "./models/MetricBulkTagConfigStatus";
 export { MetricBulkTagConfigStatusAttributes } from "./models/MetricBulkTagConfigStatusAttributes";
 export { MetricContentEncoding } from "./models/MetricContentEncoding";
 export { MetricCustomAggregation } from "./models/MetricCustomAggregation";
+export { MetricCustomAggregations } from "./models/MetricCustomAggregations";
 export { MetricCustomSpaceAggregation } from "./models/MetricCustomSpaceAggregation";
 export { MetricCustomTimeAggregation } from "./models/MetricCustomTimeAggregation";
 export { MetricDashboardAsset } from "./models/MetricDashboardAsset";

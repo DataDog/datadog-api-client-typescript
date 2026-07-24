@@ -15284,6 +15284,10 @@ const oneOfMap: { [index: string]: string[] } = {
     "MetricNotebookAsset",
     "MetricSLOAsset",
   ],
+  MetricCustomAggregations: [
+    "Array<MetricCustomAggregation>",
+    "Array<MetricAvailableAggrFunctions>",
+  ],
   MetricVolumes: ["MetricDistinctVolume", "MetricIngestedIndexedVolume"],
   MetricsAndMetricTagConfigurations: ["Metric", "MetricTagConfiguration"],
   MonitorConfigPolicyPolicy: ["MonitorConfigPolicyTagPolicy"],
