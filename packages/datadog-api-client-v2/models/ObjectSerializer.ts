@@ -3444,15 +3444,6 @@ import { OwnershipInferenceListAttributes } from "./OwnershipInferenceListAttrib
 import { OwnershipInferenceListData } from "./OwnershipInferenceListData";
 import { OwnershipInferenceListResponse } from "./OwnershipInferenceListResponse";
 import { OwnershipInferenceResponse } from "./OwnershipInferenceResponse";
-import { OwnershipSettingsAttributes } from "./OwnershipSettingsAttributes";
-import { OwnershipSettingsData } from "./OwnershipSettingsData";
-import { OwnershipSettingsRequest } from "./OwnershipSettingsRequest";
-import { OwnershipSettingsRequestAttributes } from "./OwnershipSettingsRequestAttributes";
-import { OwnershipSettingsRequestData } from "./OwnershipSettingsRequestData";
-import { OwnershipSettingsResponse } from "./OwnershipSettingsResponse";
-import { OwnershipUntaggedFindingsAttributes } from "./OwnershipUntaggedFindingsAttributes";
-import { OwnershipUntaggedFindingsData } from "./OwnershipUntaggedFindingsData";
-import { OwnershipUntaggedFindingsResponse } from "./OwnershipUntaggedFindingsResponse";
 import { PageAnnotationsAttributes } from "./PageAnnotationsAttributes";
 import { PageAnnotationsData } from "./PageAnnotationsData";
 import { PageAnnotationsResponse } from "./PageAnnotationsResponse";
@@ -3634,6 +3625,9 @@ import { PublishAppResponse } from "./PublishAppResponse";
 import { PublishFormData } from "./PublishFormData";
 import { PublishFormDataAttributes } from "./PublishFormDataAttributes";
 import { PublishFormRequest } from "./PublishFormRequest";
+import { PupBumpTestData } from "./PupBumpTestData";
+import { PupBumpTestDataAttributes } from "./PupBumpTestDataAttributes";
+import { PupBumpTestResponse } from "./PupBumpTestResponse";
 import { PutAppsDatastoreItemResponseArray } from "./PutAppsDatastoreItemResponseArray";
 import { PutAppsDatastoreItemResponseData } from "./PutAppsDatastoreItemResponseData";
 import { PutIncidentNotificationRuleRequest } from "./PutIncidentNotificationRuleRequest";
@@ -7213,7 +7207,6 @@ const enumsMap: { [key: string]: any[] } = {
     "ARRAY_BOOLEAN",
     "ARRAY_OBJECT",
   ],
-  OwnershipConfidenceLevel: ["high", "medium", "low"],
   OwnershipEvidenceType: ["ownership_evidence"],
   OwnershipFeedbackAction: ["confirm", "reject", "correct", "persist"],
   OwnershipFeedbackResultType: ["ownership_feedback_result"],
@@ -7229,8 +7222,6 @@ const enumsMap: { [key: string]: any[] } = {
   OwnershipInferenceType: ["ownership_inference"],
   OwnershipInferencesType: ["ownership_inferences"],
   OwnershipOwnerType: ["user", "team", "service", "unknown"],
-  OwnershipSettingsType: ["ownership_settings"],
-  OwnershipUntaggedFindingsType: ["ownership_untagged_findings"],
   PageAnnotationsType: ["page_annotations"],
   PageUrgency: ["low", "high"],
   PaginationMetaPageType: ["offset_limit"],
@@ -7290,6 +7281,7 @@ const enumsMap: { [key: string]: any[] } = {
   ProjectedCostType: ["projected_cost"],
   PrunedTraceType: ["pruned_trace"],
   PublishRequestType: ["publishRequest"],
+  PupBumpTestType: ["pup_bump_test"],
   QueryAccountRequestDataType: ["query_account_request"],
   QueryEventFilteredUsersRequestDataType: [
     "query_event_filtered_users_request",
@@ -12485,15 +12477,6 @@ const typeMap: { [index: string]: any } = {
   OwnershipInferenceListData: OwnershipInferenceListData,
   OwnershipInferenceListResponse: OwnershipInferenceListResponse,
   OwnershipInferenceResponse: OwnershipInferenceResponse,
-  OwnershipSettingsAttributes: OwnershipSettingsAttributes,
-  OwnershipSettingsData: OwnershipSettingsData,
-  OwnershipSettingsRequest: OwnershipSettingsRequest,
-  OwnershipSettingsRequestAttributes: OwnershipSettingsRequestAttributes,
-  OwnershipSettingsRequestData: OwnershipSettingsRequestData,
-  OwnershipSettingsResponse: OwnershipSettingsResponse,
-  OwnershipUntaggedFindingsAttributes: OwnershipUntaggedFindingsAttributes,
-  OwnershipUntaggedFindingsData: OwnershipUntaggedFindingsData,
-  OwnershipUntaggedFindingsResponse: OwnershipUntaggedFindingsResponse,
   PageAnnotationsAttributes: PageAnnotationsAttributes,
   PageAnnotationsData: PageAnnotationsData,
   PageAnnotationsResponse: PageAnnotationsResponse,
@@ -12699,6 +12682,9 @@ const typeMap: { [index: string]: any } = {
   PublishFormData: PublishFormData,
   PublishFormDataAttributes: PublishFormDataAttributes,
   PublishFormRequest: PublishFormRequest,
+  PupBumpTestData: PupBumpTestData,
+  PupBumpTestDataAttributes: PupBumpTestDataAttributes,
+  PupBumpTestResponse: PupBumpTestResponse,
   PutAppsDatastoreItemResponseArray: PutAppsDatastoreItemResponseArray,
   PutAppsDatastoreItemResponseData: PutAppsDatastoreItemResponseData,
   PutIncidentNotificationRuleRequest: PutIncidentNotificationRuleRequest,
