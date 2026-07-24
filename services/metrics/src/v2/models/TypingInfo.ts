@@ -289,6 +289,10 @@ export const TypingInfo: ModelTypingInfo = {
       "MetricNotebookAsset",
       "MetricSLOAsset",
     ],
+    MetricCustomAggregations: [
+      "Array<MetricCustomAggregation>",
+      "Array<MetricAvailableAggrFunctions>",
+    ],
     MetricVolumes: ["MetricDistinctVolume", "MetricIngestedIndexedVolume"],
     MetricsAndMetricTagConfigurations: ["Metric", "MetricTagConfiguration"],
     ScalarColumn: ["GroupScalarColumn", "DataScalarColumn"],
