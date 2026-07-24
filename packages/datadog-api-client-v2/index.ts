@@ -729,6 +729,7 @@ export {
   IncidentsApiListIncidentIntegrationsRequest,
   IncidentsApiListIncidentNotificationRulesRequest,
   IncidentsApiListIncidentNotificationTemplatesRequest,
+  IncidentsApiListIncidentPostmortemTemplatesRequest,
   IncidentsApiListIncidentTodosRequest,
   IncidentsApiListIncidentTypesRequest,
   IncidentsApiListIncidentUserDefinedFieldsRequest,
@@ -2962,6 +2963,7 @@ export { ConfiguredScheduleTargetAttributes } from "./models/ConfiguredScheduleT
 export { ConfiguredScheduleTargetRelationships } from "./models/ConfiguredScheduleTargetRelationships";
 export { ConfiguredScheduleTargetRelationshipsSchedule } from "./models/ConfiguredScheduleTargetRelationshipsSchedule";
 export { ConfiguredScheduleTargetType } from "./models/ConfiguredScheduleTargetType";
+export { ConfluencePostmortemSettings } from "./models/ConfluencePostmortemSettings";
 export { ConfluentAccountCreateRequest } from "./models/ConfluentAccountCreateRequest";
 export { ConfluentAccountCreateRequestAttributes } from "./models/ConfluentAccountCreateRequestAttributes";
 export { ConfluentAccountCreateRequestData } from "./models/ConfluentAccountCreateRequestData";
@@ -4352,6 +4354,7 @@ export { GoogleChatTargetAudienceUpdateRequestData } from "./models/GoogleChatTa
 export { GoogleChatUpdateOrganizationHandleRequest } from "./models/GoogleChatUpdateOrganizationHandleRequest";
 export { GoogleChatUpdateOrganizationHandleRequestAttributes } from "./models/GoogleChatUpdateOrganizationHandleRequestAttributes";
 export { GoogleChatUpdateOrganizationHandleRequestData } from "./models/GoogleChatUpdateOrganizationHandleRequestData";
+export { GoogleDocsPostmortemSettings } from "./models/GoogleDocsPostmortemSettings";
 export { GoogleMeetConfigurationReference } from "./models/GoogleMeetConfigurationReference";
 export { GoogleMeetConfigurationReferenceData } from "./models/GoogleMeetConfigurationReferenceData";
 export { GovernanceBestPracticeDefinition } from "./models/GovernanceBestPracticeDefinition";
@@ -6466,12 +6469,19 @@ export { PostmortemCellDefinition } from "./models/PostmortemCellDefinition";
 export { PostmortemCellType } from "./models/PostmortemCellType";
 export { PostmortemTemplateAttributesRequest } from "./models/PostmortemTemplateAttributesRequest";
 export { PostmortemTemplateAttributesResponse } from "./models/PostmortemTemplateAttributesResponse";
+export { PostmortemTemplateCreateRelationships } from "./models/PostmortemTemplateCreateRelationships";
 export { PostmortemTemplateDataRequest } from "./models/PostmortemTemplateDataRequest";
 export { PostmortemTemplateDataResponse } from "./models/PostmortemTemplateDataResponse";
+export { PostmortemTemplateIncidentTypeRelationship } from "./models/PostmortemTemplateIncidentTypeRelationship";
+export { PostmortemTemplateIncidentTypeRelationshipData } from "./models/PostmortemTemplateIncidentTypeRelationshipData";
+export { PostmortemTemplateLocation } from "./models/PostmortemTemplateLocation";
 export { PostmortemTemplateRequest } from "./models/PostmortemTemplateRequest";
 export { PostmortemTemplateResponse } from "./models/PostmortemTemplateResponse";
+export { PostmortemTemplateResponseRelationships } from "./models/PostmortemTemplateResponseRelationships";
 export { PostmortemTemplatesResponse } from "./models/PostmortemTemplatesResponse";
 export { PostmortemTemplateType } from "./models/PostmortemTemplateType";
+export { PostmortemTemplateUserRelationship } from "./models/PostmortemTemplateUserRelationship";
+export { PostmortemTemplateUserRelationshipData } from "./models/PostmortemTemplateUserRelationshipData";
 export { Powerpack } from "./models/Powerpack";
 export { PowerpackAttributes } from "./models/PowerpackAttributes";
 export { PowerpackData } from "./models/PowerpackData";
