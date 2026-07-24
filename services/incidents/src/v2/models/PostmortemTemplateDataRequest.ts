@@ -1,6 +1,7 @@
 import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
 import { PostmortemTemplateAttributesRequest } from "./PostmortemTemplateAttributesRequest";
+import { PostmortemTemplateCreateRelationships } from "./PostmortemTemplateCreateRelationships";
 import { PostmortemTemplateType } from "./PostmortemTemplateType";
 
 /**
@@ -12,7 +13,15 @@ export class PostmortemTemplateDataRequest {
    */
   "attributes": PostmortemTemplateAttributesRequest;
   /**
-   * Postmortem template resource type
+   * The ID of the template. Required when updating.
+   */
+  "id"?: string;
+  /**
+   * Relationships for a postmortem template. `incident_type` is required when creating a template and is immutable afterwards.
+   */
+  "relationships"?: PostmortemTemplateCreateRelationships;
+  /**
+   * Postmortem template resource type.
    */
   "type": PostmortemTemplateType;
   /**
@@ -34,6 +43,14 @@ export class PostmortemTemplateDataRequest {
       baseName: "attributes",
       type: "PostmortemTemplateAttributesRequest",
       required: true,
+    },
+    id: {
+      baseName: "id",
+      type: "string",
+    },
+    relationships: {
+      baseName: "relationships",
+      type: "PostmortemTemplateCreateRelationships",
     },
     type: {
       baseName: "type",
