@@ -3,27 +3,27 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
-import { SecurityMonitoringRuleBulkDeleteAttributes } from "./SecurityMonitoringRuleBulkDeleteAttributes";
-import { SecurityMonitoringRuleBulkDeleteRequestDataType } from "./SecurityMonitoringRuleBulkDeleteRequestDataType";
+import { SecurityMonitoringRuleBulkDeleteResponseAttributes } from "./SecurityMonitoringRuleBulkDeleteResponseAttributes";
+import { SecurityMonitoringRuleBulkDeleteResponseDataType } from "./SecurityMonitoringRuleBulkDeleteResponseDataType";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * Data for bulk deleting security monitoring rules.
+ * Data for the bulk delete response.
  */
-export class SecurityMonitoringRuleBulkDeleteData {
+export class SecurityMonitoringRuleBulkDeleteResponseData {
   /**
-   * Attributes for bulk deleting security monitoring rules.
+   * Attributes for the bulk delete response.
    */
-  "attributes": SecurityMonitoringRuleBulkDeleteAttributes;
+  "attributes"?: SecurityMonitoringRuleBulkDeleteResponseAttributes;
   /**
-   * Request ID. This value is echoed back as the response's resource ID.
+   * The identifier of the bulk delete response.
    */
   "id"?: string;
   /**
-   * The resource type for a bulk delete request.
+   * The resource type for a bulk delete response.
    */
-  "type": SecurityMonitoringRuleBulkDeleteRequestDataType;
+  "type"?: SecurityMonitoringRuleBulkDeleteResponseDataType;
 
   /**
    * A container for additional, undeclared properties.
@@ -43,8 +43,7 @@ export class SecurityMonitoringRuleBulkDeleteData {
   static readonly attributeTypeMap: AttributeTypeMap = {
     attributes: {
       baseName: "attributes",
-      type: "SecurityMonitoringRuleBulkDeleteAttributes",
-      required: true,
+      type: "SecurityMonitoringRuleBulkDeleteResponseAttributes",
     },
     id: {
       baseName: "id",
@@ -52,8 +51,7 @@ export class SecurityMonitoringRuleBulkDeleteData {
     },
     type: {
       baseName: "type",
-      type: "SecurityMonitoringRuleBulkDeleteRequestDataType",
-      required: true,
+      type: "SecurityMonitoringRuleBulkDeleteResponseDataType",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -65,7 +63,7 @@ export class SecurityMonitoringRuleBulkDeleteData {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-    return SecurityMonitoringRuleBulkDeleteData.attributeTypeMap;
+    return SecurityMonitoringRuleBulkDeleteResponseData.attributeTypeMap;
   }
 
   public constructor() {}

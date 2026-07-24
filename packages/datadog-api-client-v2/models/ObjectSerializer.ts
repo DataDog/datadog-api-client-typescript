@@ -4265,6 +4265,8 @@ import { SecurityMonitoringRuleBulkDeleteAttributes } from "./SecurityMonitoring
 import { SecurityMonitoringRuleBulkDeleteData } from "./SecurityMonitoringRuleBulkDeleteData";
 import { SecurityMonitoringRuleBulkDeletePayload } from "./SecurityMonitoringRuleBulkDeletePayload";
 import { SecurityMonitoringRuleBulkDeleteResponse } from "./SecurityMonitoringRuleBulkDeleteResponse";
+import { SecurityMonitoringRuleBulkDeleteResponseAttributes } from "./SecurityMonitoringRuleBulkDeleteResponseAttributes";
+import { SecurityMonitoringRuleBulkDeleteResponseData } from "./SecurityMonitoringRuleBulkDeleteResponseData";
 import { SecurityMonitoringRuleBulkExportAttributes } from "./SecurityMonitoringRuleBulkExportAttributes";
 import { SecurityMonitoringRuleBulkExportData } from "./SecurityMonitoringRuleBulkExportData";
 import { SecurityMonitoringRuleBulkExportPayload } from "./SecurityMonitoringRuleBulkExportPayload";
@@ -7709,6 +7711,7 @@ const enumsMap: { [key: string]: any[] } = {
     1, 6, 12, 24, 48, 168, 336,
   ],
   SecurityMonitoringRuleBulkDeleteRequestDataType: ["bulk_delete_rules"],
+  SecurityMonitoringRuleBulkDeleteResponseDataType: ["bulk_delete_response"],
   SecurityMonitoringRuleBulkExportDataType: [
     "security_monitoring_rules_bulk_export",
   ],
@@ -13505,6 +13508,10 @@ const typeMap: { [index: string]: any } = {
     SecurityMonitoringRuleBulkDeletePayload,
   SecurityMonitoringRuleBulkDeleteResponse:
     SecurityMonitoringRuleBulkDeleteResponse,
+  SecurityMonitoringRuleBulkDeleteResponseAttributes:
+    SecurityMonitoringRuleBulkDeleteResponseAttributes,
+  SecurityMonitoringRuleBulkDeleteResponseData:
+    SecurityMonitoringRuleBulkDeleteResponseData,
   SecurityMonitoringRuleBulkExportAttributes:
     SecurityMonitoringRuleBulkExportAttributes,
   SecurityMonitoringRuleBulkExportData: SecurityMonitoringRuleBulkExportData,
