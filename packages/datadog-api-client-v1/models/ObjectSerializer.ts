@@ -195,6 +195,7 @@ import { LogsArrayMapProcessor } from "./LogsArrayMapProcessor";
 import { LogsArrayMapStringBuilderSubProcessor } from "./LogsArrayMapStringBuilderSubProcessor";
 import { LogsArrayProcessor } from "./LogsArrayProcessor";
 import { LogsArrayProcessorOperationAppend } from "./LogsArrayProcessorOperationAppend";
+import { LogsArrayProcessorOperationExtractKeyValue } from "./LogsArrayProcessorOperationExtractKeyValue";
 import { LogsArrayProcessorOperationLength } from "./LogsArrayProcessorOperationLength";
 import { LogsArrayProcessorOperationSelect } from "./LogsArrayProcessorOperationSelect";
 import { LogsAttributeRemapper } from "./LogsAttributeRemapper";
@@ -1163,6 +1164,7 @@ const enumsMap: { [key: string]: any[] } = {
   LogsArithmeticProcessorType: ["arithmetic-processor"],
   LogsArrayMapProcessorType: ["array-map-processor"],
   LogsArrayProcessorOperationAppendType: ["append"],
+  LogsArrayProcessorOperationExtractKeyValueType: ["key-value"],
   LogsArrayProcessorOperationLengthType: ["length"],
   LogsArrayProcessorOperationSelectType: ["select"],
   LogsArrayProcessorType: ["array-processor"],
@@ -2287,6 +2289,8 @@ const typeMap: { [index: string]: any } = {
   LogsArrayMapStringBuilderSubProcessor: LogsArrayMapStringBuilderSubProcessor,
   LogsArrayProcessor: LogsArrayProcessor,
   LogsArrayProcessorOperationAppend: LogsArrayProcessorOperationAppend,
+  LogsArrayProcessorOperationExtractKeyValue:
+    LogsArrayProcessorOperationExtractKeyValue,
   LogsArrayProcessorOperationLength: LogsArrayProcessorOperationLength,
   LogsArrayProcessorOperationSelect: LogsArrayProcessorOperationSelect,
   LogsAttributeRemapper: LogsAttributeRemapper,
@@ -2960,6 +2964,7 @@ const oneOfMap: { [index: string]: string[] } = {
     "LogsArrayProcessorOperationAppend",
     "LogsArrayProcessorOperationLength",
     "LogsArrayProcessorOperationSelect",
+    "LogsArrayProcessorOperationExtractKeyValue",
   ],
   LogsProcessor: [
     "LogsGrokParser",

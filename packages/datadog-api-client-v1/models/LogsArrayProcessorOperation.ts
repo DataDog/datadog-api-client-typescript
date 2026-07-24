@@ -4,6 +4,7 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 import { LogsArrayProcessorOperationAppend } from "./LogsArrayProcessorOperationAppend";
+import { LogsArrayProcessorOperationExtractKeyValue } from "./LogsArrayProcessorOperationExtractKeyValue";
 import { LogsArrayProcessorOperationLength } from "./LogsArrayProcessorOperationLength";
 import { LogsArrayProcessorOperationSelect } from "./LogsArrayProcessorOperationSelect";
 
@@ -17,4 +18,5 @@ export type LogsArrayProcessorOperation =
   | LogsArrayProcessorOperationAppend
   | LogsArrayProcessorOperationLength
   | LogsArrayProcessorOperationSelect
+  | LogsArrayProcessorOperationExtractKeyValue
   | UnparsedObject;
