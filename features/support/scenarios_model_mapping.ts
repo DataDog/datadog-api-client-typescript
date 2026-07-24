@@ -8263,6 +8263,10 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             "type": "string",
             "format": "",
             },
+        "filterEnabledMetricsOnly": {
+            "type": "boolean",
+            "format": "",
+            },
         "operationResponseType": "CostMetricsResponse",
     },
     "v2.ListCostTagMetadataMonths": {
