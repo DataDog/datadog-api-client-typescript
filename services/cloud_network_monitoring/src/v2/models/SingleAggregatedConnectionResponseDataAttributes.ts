@@ -45,11 +45,11 @@ export class SingleAggregatedConnectionResponseDataAttributes {
    */
   "tcpProbe0Count"?: number;
   /**
-   * The number of TCP packets received out of order. This indicates network-level packet reordering, which can degrade TCP performance by triggering spurious retransmissions and reducing throughput.
+   * The number of TCP packets received out of order. This indicates network-level packet reordering, which can degrade TCP performance by triggering spurious packet retries and reducing throughput.
    */
   "tcpRcvOooPack"?: number;
   /**
-   * The number of TCP fast recovery events. Fast recovery retransmits lost segments detected through duplicate ACKs or selective acknowledgment (SACK) without waiting for a retransmission timeout.
+   * The number of TCP fast recovery events. Fast recovery retransmits lost segments detected through duplicate ACKs or selective acknowledgment (SACK) before a timeout occurs.
    */
   "tcpRecoveryCount"?: number;
   /**
@@ -57,7 +57,7 @@ export class SingleAggregatedConnectionResponseDataAttributes {
    */
   "tcpRefusals"?: number;
   /**
-   * The number of times reordering of sent packets was detected. Reordering detection adjusts the duplicate ACK threshold, preventing spurious retransmissions caused by out-of-order delivery.
+   * The number of times reordering of sent packets was detected. Reordering detection adjusts the duplicate ACK threshold, preventing spurious packet retries caused by out-of-order delivery.
    */
   "tcpReordSeen"?: number;
   /**
@@ -69,7 +69,7 @@ export class SingleAggregatedConnectionResponseDataAttributes {
    */
   "tcpRetransmits"?: number;
   /**
-   * The number of TCP retransmission timeouts (RTOs). An RTO occurs when an ACK is not received within the estimated round-trip time, forcing the sender to retransmit and halve its congestion window.
+   * The number of TCP retry timeouts (RTOs). An RTO occurs when an ACK is not received within the estimated round-trip time, forcing the sender to resend the segment and halve its congestion window.
    */
   "tcpRtoCount"?: number;
   /**
