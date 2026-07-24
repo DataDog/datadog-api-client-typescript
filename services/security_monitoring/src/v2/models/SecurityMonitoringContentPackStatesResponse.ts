@@ -12,7 +12,7 @@ export class SecurityMonitoringContentPackStatesResponse {
    */
   "data": Array<SecurityMonitoringContentPackStateData>;
   /**
-   * Metadata for content pack states
+   * Metadata for content pack states.
    */
   "meta": SecurityMonitoringContentPackStateMeta;
   /**

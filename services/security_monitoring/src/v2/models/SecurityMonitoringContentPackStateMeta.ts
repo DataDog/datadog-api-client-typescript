@@ -3,13 +3,17 @@ import { AttributeTypeMap } from "@datadog/datadog-api-client";
 import { SecurityMonitoringSKU } from "./SecurityMonitoringSKU";
 
 /**
- * Metadata for content pack states
+ * Metadata for content pack states.
  */
 export class SecurityMonitoringContentPackStateMeta {
   /**
-   * Whether the cloud SIEM index configuration is incorrect at the organization level
+   * Whether the Cloud SIEM index configuration is incorrect for the organization.
    */
   "cloudSiemIndexIncorrect": boolean;
+  /**
+   * The number of months that standard logs are retained for organizations on the standalone_indexed` pricing model. This field is omitted for other pricing models.
+   */
+  "retentionMonths"?: number;
   /**
    * The Cloud SIEM pricing model (SKU) for the organization.
    */
@@ -33,6 +37,11 @@ export class SecurityMonitoringContentPackStateMeta {
       baseName: "cloud_siem_index_incorrect",
       type: "boolean",
       required: true,
+    },
+    retentionMonths: {
+      baseName: "retention_months",
+      type: "number",
+      format: "int32",
     },
     sku: {
       baseName: "sku",
