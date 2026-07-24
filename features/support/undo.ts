@@ -5,8 +5,9 @@ import log from "loglevel";
 import { getProperty, pathLookup } from "./templating";
 import { ScenariosModelMappings } from "./scenarios_model_mapping";
 import * as datadogApiClient from "../../index";
+import { testServerFetch } from "./test_runner";
 
-const logger = log.getLogger("testing")
+const logger = log.getLogger("testing");
 logger.setLevel(process.env.DEBUG ? logger.levels.DEBUG : logger.levels.INFO);
 
 interface iOperationParameter {
@@ -46,7 +47,8 @@ function buildUndoFor(
   operationOrig: string,
   response: any,
   request: any,
-  pathParameters: { [key: string]: any } = {}
+  pathParameters: { [key: string]: any } = {},
+  testServerSession?: string
 ): { (): void } {
   return async function () {
     let apiName = operationUndo.tag.replace(/[\s-]/g, "");
@@ -63,6 +65,7 @@ function buildUndoFor(
       },
       httpConfig: { compress: false },
       enableRetry: true,
+      fetch: testServerFetch(testServerSession),
     };
     if (process.env.DD_TEST_SITE) {
       const server = datadogApiClient.client.servers[2];
@@ -80,7 +83,15 @@ function buildUndoFor(
       } as typeof serverConf);
       (configurationOpts as any)["serverIndex"] = 1;
     }
-    const configuration = datadogApiClient.client.createConfiguration(configurationOpts);
+    if (process.env.DD_TEST_SERVER_URL) {
+      (configurationOpts as any)["baseServer"] =
+        new datadogApiClient.client.BaseServerConfiguration(
+          process.env.DD_TEST_SERVER_URL,
+          {}
+        );
+    }
+    const configuration =
+      datadogApiClient.client.createConfiguration(configurationOpts);
     if (`${apiVersion}.${operationName}` in configuration.unstableOperations) {
       configuration.unstableOperations[`${apiVersion}.${operationName}`] = true;
     }
@@ -122,13 +133,20 @@ function buildUndoFor(
       }
     }
 
-    const objectSerializer = getProperty(datadogApiClient, apiVersion).ObjectSerializer;
-    Object.keys(opts).forEach(key => {
+    const objectSerializer = getProperty(
+      datadogApiClient,
+      apiVersion
+    ).ObjectSerializer;
+    Object.keys(opts).forEach((key) => {
       opts[key] = objectSerializer.deserialize(
         opts[key],
-        ScenariosModelMappings[`${apiVersion}.${operationUndo.undo.operationId}`][key].type,
-        ScenariosModelMappings[`${apiVersion}.${operationUndo.undo.operationId}`][key].format
-      )
+        ScenariosModelMappings[
+          `${apiVersion}.${operationUndo.undo.operationId}`
+        ][key].type,
+        ScenariosModelMappings[
+          `${apiVersion}.${operationUndo.undo.operationId}`
+        ][key].format
+      );
     });
 
     try {

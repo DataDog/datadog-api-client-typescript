@@ -23,6 +23,9 @@ export class World {
   public fixtures: { [key: string]: any } = {};
   public opts: { [key: string]: any } = {};
   public pathParameters: { [key: string]: any } = {};
+  public testFeature = "";
+  public testScenario = "";
+  public testServerSession?: string;
 
   async cleanup() {
     const undo = this.undo;
@@ -37,7 +40,9 @@ export class World {
     if (RECORD_MODE === "false" || SLEEP_AFTER_REQUEST <= 0) {
       return Promise.resolve();
     }
-    return new Promise(resolve => setTimeout(resolve, SLEEP_AFTER_REQUEST * 1000));
+    return new Promise((resolve) =>
+      setTimeout(resolve, SLEEP_AFTER_REQUEST * 1000)
+    );
   }
 }
 

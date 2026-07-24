@@ -4,7 +4,11 @@ import chaiQuantifiers from "chai-quantifiers";
 use(chaiQuantifiers);
 import { World } from "../support/world";
 
-import { getProperty, pathLookup, getTypeForValue } from "../support/templating";
+import {
+  getProperty,
+  pathLookup,
+  getTypeForValue,
+} from "../support/templating";
 import { Store } from "../support/store";
 import { buildUndoFor, UndoActions } from "../support/undo";
 import * as datadogApiClient from "../../index";
@@ -14,7 +18,13 @@ import path from "path";
 import { compressSync } from "zstd.ts";
 import log from "loglevel";
 import { ScenariosModelMappings } from "../support/scenarios_model_mapping";
-const logger = log.getLogger("testing")
+import {
+  applyTestRunnerPlan,
+  markMainRequestComplete,
+  testRunnerEnabled,
+  testServerFetch,
+} from "../support/test_runner";
+const logger = log.getLogger("testing");
 logger.setLevel(process.env.DEBUG ? logger.levels.DEBUG : logger.levels.INFO);
 
 Given('a valid "apiKeyAuth" key in the system', function (this: World) {
@@ -38,10 +48,12 @@ Given(
 );
 
 Given(/body with value (.*)/, function (this: World, body: string) {
+  if (testRunnerEnabled()) return;
   this.opts["body"] = JSON.parse(body.templated(this.fixtures));
 });
 
 Given(/body from file "(.*)"/, function (this: World, filename: string) {
+  if (testRunnerEnabled()) return;
   const content = fs
     .readFileSync(path.join(__dirname, `../${this.apiVersion}`, filename))
     .toString();
@@ -51,6 +63,7 @@ Given(/body from file "(.*)"/, function (this: World, filename: string) {
 Given(
   "request contains {string} parameter from {string}",
   function (this: World, parameterName: string, fixturePath: string) {
+    if (testRunnerEnabled()) return;
     const value = pathLookup(this.fixtures, fixturePath);
     this.opts[parameterName.toAttributeName()] = value;
     // Store in pathParameters for undo operations with naming variants
@@ -62,6 +75,7 @@ Given(
 Given(
   /request contains "([^"]+)" parameter with value (.*)/,
   function (this: World, parameterName: string, value: string) {
+    if (testRunnerEnabled()) return;
     const parsedValue = JSON.parse(value.templated(this.fixtures));
     const attrName = parameterName.toAttributeName().toOperationName();
     this.opts[attrName] = parsedValue;
@@ -72,19 +86,23 @@ Given(
 );
 
 Given("new {string} request", function (this: World, operationId: string) {
+  if (testRunnerEnabled()) return;
   this.operationId = operationId;
   this.opts = {};
   this.pathParameters = {}; // Clear path parameters for new request
 });
 
 When("the request is sent", async function (this: World) {
+  applyTestRunnerPlan(this, false);
   // build request from scenario
   const api = (datadogApiClient as any)[this.apiVersion];
   const configurationOpts = {
     authMethods: this.authMethods,
     httpConfig: { compress: false },
-    zstdCompressorCallback: (body: string) => compressSync({input: Buffer.from(body, "utf8")}),
+    zstdCompressorCallback: (body: string) =>
+      compressSync({ input: Buffer.from(body, "utf8") }),
     enableRetry: true,
+    fetch: testServerFetch(this.testServerSession),
   };
   if (process.env.DD_TEST_SITE) {
     const serverConf = datadogApiClient.client.servers[2].getConfiguration();
@@ -101,10 +119,21 @@ When("the request is sent", async function (this: World) {
     } as typeof serverConf);
     (configurationOpts as any)["serverIndex"] = 1;
   }
-  const configuration = datadogApiClient.client.createConfiguration(configurationOpts);
+  if (process.env.DD_TEST_SERVER_URL) {
+    (configurationOpts as any)["baseServer"] =
+      new datadogApiClient.client.BaseServerConfiguration(
+        process.env.DD_TEST_SERVER_URL,
+        {}
+      );
+  }
+  const configuration =
+    datadogApiClient.client.createConfiguration(configurationOpts);
   for (const operationId in this.unstableOperations) {
-    if (`${this.apiVersion}.${operationId}` in configuration.unstableOperations) {
-      configuration.unstableOperations[`${this.apiVersion}.${operationId}`] = this.unstableOperations[operationId];
+    if (
+      `${this.apiVersion}.${operationId}` in configuration.unstableOperations
+    ) {
+      configuration.unstableOperations[`${this.apiVersion}.${operationId}`] =
+        this.unstableOperations[operationId];
     } else {
       // FIXME throw new Error(`Operation ${operationId} is not unstable`);
       logger.warn(`Operation ${operationId} is not unstable`);
@@ -120,14 +149,25 @@ When("the request is sent", async function (this: World) {
   }
 
   // Deserialize obejcts into correct model types
-  const objectSerializer = getProperty(datadogApiClient, this.apiVersion).ObjectSerializer;
-  Object.keys(this.opts).forEach(key => {
-    const type = ScenariosModelMappings[`${this.apiVersion}.${this.operationId}`][key].type
-    const format = ScenariosModelMappings[`${this.apiVersion}.${this.operationId}`][key].format
+  const objectSerializer = getProperty(
+    datadogApiClient,
+    this.apiVersion
+  ).ObjectSerializer;
+  Object.keys(this.opts).forEach((key) => {
+    const type =
+      ScenariosModelMappings[`${this.apiVersion}.${this.operationId}`][key]
+        .type;
+    const format =
+      ScenariosModelMappings[`${this.apiVersion}.${this.operationId}`][key]
+        .format;
 
     if (type === "HttpFile" && format === "binary") {
       this.opts[key] = {
-        data: Buffer.from(fs.readFileSync(path.join(__dirname, `../${this.apiVersion}`, this.opts[key]))),
+        data: Buffer.from(
+          fs.readFileSync(
+            path.join(__dirname, `../${this.apiVersion}`, this.opts[key])
+          )
+        ),
         name: this.opts[key],
       };
     } else {
@@ -135,7 +175,7 @@ When("the request is sent", async function (this: World) {
         this.opts[key],
         type,
         format
-        )
+      );
     }
   });
 
@@ -161,7 +201,8 @@ When("the request is sent", async function (this: World) {
           this.operationId,
           this.response,
           this.opts,
-          this.pathParameters
+          this.pathParameters,
+          this.testServerSession
         )
       );
     }
@@ -175,19 +216,27 @@ When("the request is sent", async function (this: World) {
     if (this.requestContext === undefined) {
       throw error;
     }
-    if (this.requestContext !== undefined && this.requestContext.headers["content-type"] == "application/problem+json" && this.requestContext.httpStatusCode == 500) {
+    if (
+      this.requestContext !== undefined &&
+      this.requestContext.headers["content-type"] ==
+        "application/problem+json" &&
+      this.requestContext.httpStatusCode == 500
+    ) {
       logger.debug(this.requestContext.body.text);
       throw error;
     }
   }
+  await markMainRequestComplete(this);
 });
 
 When("the request with pagination is sent", async function (this: World) {
+  applyTestRunnerPlan(this, true);
   const api = (datadogApiClient as any)[this.apiVersion];
   const configurationOpts = {
     authMethods: this.authMethods,
     httpConfig: { compress: false },
     enableRetry: true,
+    fetch: testServerFetch(this.testServerSession),
   };
   if (process.env.DD_TEST_SITE) {
     const serverConf = datadogApiClient.client.servers[2].getConfiguration();
@@ -204,10 +253,21 @@ When("the request with pagination is sent", async function (this: World) {
     } as typeof serverConf);
     (configurationOpts as any)["serverIndex"] = 1;
   }
-  const configuration = datadogApiClient.client.createConfiguration(configurationOpts);
+  if (process.env.DD_TEST_SERVER_URL) {
+    (configurationOpts as any)["baseServer"] =
+      new datadogApiClient.client.BaseServerConfiguration(
+        process.env.DD_TEST_SERVER_URL,
+        {}
+      );
+  }
+  const configuration =
+    datadogApiClient.client.createConfiguration(configurationOpts);
   for (const operationId in this.unstableOperations) {
-    if (`${this.apiVersion}.${operationId}` in configuration.unstableOperations) {
-      configuration.unstableOperations[`${this.apiVersion}.${operationId}`] = this.unstableOperations[operationId];
+    if (
+      `${this.apiVersion}.${operationId}` in configuration.unstableOperations
+    ) {
+      configuration.unstableOperations[`${this.apiVersion}.${operationId}`] =
+        this.unstableOperations[operationId];
     } else {
       // FIXME throw new Error(`Operation ${operationId} is not unstable`);
       logger.warn(`Operation ${operationId} is not unstable`);
@@ -216,13 +276,18 @@ When("the request with pagination is sent", async function (this: World) {
   const apiInstance = new api[`${this.apiName}Api`](configuration);
 
   // Deserialize obejcts into correct model types
-  const objectSerializer = getProperty(datadogApiClient, this.apiVersion).ObjectSerializer;
-  Object.keys(this.opts).forEach(key => {
+  const objectSerializer = getProperty(
+    datadogApiClient,
+    this.apiVersion
+  ).ObjectSerializer;
+  Object.keys(this.opts).forEach((key) => {
     this.opts[key] = objectSerializer.deserialize(
       this.opts[key],
-      ScenariosModelMappings[`${this.apiVersion}.${this.operationId}`][key].type,
-      ScenariosModelMappings[`${this.apiVersion}.${this.operationId}`][key].format
-      )
+      ScenariosModelMappings[`${this.apiVersion}.${this.operationId}`][key]
+        .type,
+      ScenariosModelMappings[`${this.apiVersion}.${this.operationId}`][key]
+        .format
+    );
   });
 
   // store request context from response processor
@@ -232,11 +297,15 @@ When("the request with pagination is sent", async function (this: World) {
   try {
     let response: any = [];
     if (Object.keys(this.opts).length) {
-      for await (const item of apiInstance[this.operationId.toOperationName() + "WithPagination"](this.opts)) {
+      for await (const item of apiInstance[
+        this.operationId.toOperationName() + "WithPagination"
+      ](this.opts)) {
         response.push(item);
       }
     } else {
-      for await (const item of apiInstance[this.operationId.toOperationName() + "WithPagination"]()) {
+      for await (const item of apiInstance[
+        this.operationId.toOperationName() + "WithPagination"
+      ]()) {
         response.push(item);
       }
     }
@@ -251,11 +320,17 @@ When("the request with pagination is sent", async function (this: World) {
     if (this.requestContext === undefined) {
       throw error;
     }
-    if (this.requestContext !== undefined && this.requestContext.headers["content-type"] == "application/problem+json" && this.requestContext.httpStatusCode == 500) {
+    if (
+      this.requestContext !== undefined &&
+      this.requestContext.headers["content-type"] ==
+        "application/problem+json" &&
+      this.requestContext.httpStatusCode == 500
+    ) {
       logger.debug(this.requestContext.body.text);
       throw error;
     }
   }
+  await markMainRequestComplete(this);
 });
 
 Then(
@@ -277,13 +352,20 @@ Then(
 Then(
   /the response "([^"]+)" is equal to (.*)/,
   function (this: World, responsePath: string, value: string) {
-    const pathResult = pathLookup(this.response, responsePath)
-    const _type = getTypeForValue(pathResult)
-    let templatedFixtureValue = JSON.parse(value.templated(this.fixtures))
+    const pathResult = pathLookup(this.response, responsePath);
+    const _type = getTypeForValue(pathResult);
+    let templatedFixtureValue = JSON.parse(value.templated(this.fixtures));
 
     if (_type) {
-      const objectSerializer = getProperty(datadogApiClient, this.apiVersion).ObjectSerializer;
-      templatedFixtureValue = objectSerializer.deserialize(templatedFixtureValue, _type, "")
+      const objectSerializer = getProperty(
+        datadogApiClient,
+        this.apiVersion
+      ).ObjectSerializer;
+      templatedFixtureValue = objectSerializer.deserialize(
+        templatedFixtureValue,
+        _type,
+        ""
+      );
     }
 
     expect(pathResult).to.deep.equal(templatedFixtureValue);
@@ -300,14 +382,17 @@ Then(
 Then(
   "the response {string} has field {string}",
   function (this: World, responsePath: string, field: string) {
-    expect(pathLookup(this.response, responsePath)).to.have.property(field.toAttributeName());
+    expect(pathLookup(this.response, responsePath)).to.have.property(
+      field.toAttributeName()
+    );
   }
 );
 
 Then(
   "the response {string} does not have field {string}",
   function (this: World, responsePath: string, field: string) {
-    expect(pathLookup(this.response, responsePath)[field.toAttributeName()]).to.be.undefined;
+    expect(pathLookup(this.response, responsePath)[field.toAttributeName()]).to
+      .be.undefined;
   }
 );
 
@@ -346,16 +431,22 @@ Then(
 Then(
   /the response "([^"]+)" array contains value (.*)/,
   function (this: World, responsePath: string, value: string) {
-    expect(pathLookup(this.response, responsePath)).to.contain(JSON.parse(value.templated(this.fixtures)));
+    expect(pathLookup(this.response, responsePath)).to.contain(
+      JSON.parse(value.templated(this.fixtures))
+    );
   }
 );
 
-AfterAll( function (this: World) {
+AfterAll(function (this: World) {
   let dd_service = process.env.DD_SERVICE;
   let ci_pipeline_id = process.env.GITHUB_RUN_ID;
   if (dd_service !== undefined && ci_pipeline_id !== undefined) {
-    console.log("\nTest reports:\n")
-    console.log("* View test APM traces and detailed time reports on Datadog (can take a few minutes to become available):")
-    console.log(`* https://app.datadoghq.com/ci/test-runs?query=%40test.service%3A${dd_service}%20%40ci.pipeline.id%3A${ci_pipeline_id}&index=citest\n`)
+    console.log("\nTest reports:\n");
+    console.log(
+      "* View test APM traces and detailed time reports on Datadog (can take a few minutes to become available):"
+    );
+    console.log(
+      `* https://app.datadoghq.com/ci/test-runs?query=%40test.service%3A${dd_service}%20%40ci.pipeline.id%3A${ci_pipeline_id}&index=citest\n`
+    );
   }
 });
