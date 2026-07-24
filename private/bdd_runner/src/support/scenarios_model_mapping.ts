@@ -11587,6 +11587,92 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
     },
     operationResponseType: "OktaAccountResponse",
   },
+  "IntegrationAccountsApi.V2.ListAmsIntegrationAccounts": {
+    integrationName: {
+      type: "string",
+      format: "",
+    },
+    interfaceId: {
+      type: "string",
+      format: "",
+    },
+    operationResponseType: "AmsIntegrationAccountsResponse",
+  },
+  "IntegrationAccountsApi.V2.CreateAmsIntegrationAccount": {
+    integrationName: {
+      type: "string",
+      format: "",
+    },
+    interfaceId: {
+      type: "string",
+      format: "",
+    },
+    body: {
+      type: "AmsIntegrationAccountCreateRequest",
+      format: "",
+    },
+    operationResponseType: "AmsIntegrationAccountResponse",
+  },
+  "IntegrationAccountsApi.V2.GetAmsIntegrationAccountSchema": {
+    integrationName: {
+      type: "string",
+      format: "",
+    },
+    interfaceId: {
+      type: "string",
+      format: "",
+    },
+    operationResponseType: "AmsIntegrationAccountSchemaResponse",
+  },
+  "IntegrationAccountsApi.V2.GetAmsIntegrationAccount": {
+    integrationName: {
+      type: "string",
+      format: "",
+    },
+    interfaceId: {
+      type: "string",
+      format: "",
+    },
+    accountId: {
+      type: "string",
+      format: "",
+    },
+    operationResponseType: "AmsIntegrationAccountResponse",
+  },
+  "IntegrationAccountsApi.V2.DeleteAmsIntegrationAccount": {
+    integrationName: {
+      type: "string",
+      format: "",
+    },
+    interfaceId: {
+      type: "string",
+      format: "",
+    },
+    accountId: {
+      type: "string",
+      format: "",
+    },
+    operationResponseType: "{}",
+  },
+  "IntegrationAccountsApi.V2.UpdateAmsIntegrationAccount": {
+    integrationName: {
+      type: "string",
+      format: "",
+    },
+    interfaceId: {
+      type: "string",
+      format: "",
+    },
+    accountId: {
+      type: "string",
+      format: "",
+    },
+    body: {
+      type: "AmsIntegrationAccountUpdateRequest",
+      format: "",
+    },
+    operationResponseType: "AmsIntegrationAccountResponse",
+  },
   "IPAllowlistApi.V2.GetIPAllowlist": {
     operationResponseType: "IPAllowlistResponse",
   },
