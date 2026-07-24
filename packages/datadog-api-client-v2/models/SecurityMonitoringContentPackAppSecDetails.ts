@@ -3,23 +3,18 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
-import { SecurityMonitoringContentPackStateData } from "./SecurityMonitoringContentPackStateData";
-import { SecurityMonitoringContentPackStateMeta } from "./SecurityMonitoringContentPackStateMeta";
+import { SecurityMonitoringContentPackAppSecDetailsType } from "./SecurityMonitoringContentPackAppSecDetailsType";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * Response containing content pack states.
+ * Details for an Application Security content pack.
  */
-export class SecurityMonitoringContentPackStatesResponse {
+export class SecurityMonitoringContentPackAppSecDetails {
   /**
-   * Array of content pack states.
+   * Type for Application Security content pack details.
    */
-  "data": Array<SecurityMonitoringContentPackStateData>;
-  /**
-   * Metadata for content pack states.
-   */
-  "meta": SecurityMonitoringContentPackStateMeta;
+  "type": SecurityMonitoringContentPackAppSecDetailsType;
 
   /**
    * A container for additional, undeclared properties.
@@ -37,14 +32,9 @@ export class SecurityMonitoringContentPackStatesResponse {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    data: {
-      baseName: "data",
-      type: "Array<SecurityMonitoringContentPackStateData>",
-      required: true,
-    },
-    meta: {
-      baseName: "meta",
-      type: "SecurityMonitoringContentPackStateMeta",
+    type: {
+      baseName: "type",
+      type: "SecurityMonitoringContentPackAppSecDetailsType",
       required: true,
     },
     additionalProperties: {
@@ -57,7 +47,7 @@ export class SecurityMonitoringContentPackStatesResponse {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-    return SecurityMonitoringContentPackStatesResponse.attributeTypeMap;
+    return SecurityMonitoringContentPackAppSecDetails.attributeTypeMap;
   }
 
   public constructor() {}

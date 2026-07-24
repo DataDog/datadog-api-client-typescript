@@ -3,23 +3,23 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
-import { SecurityMonitoringContentPackStateData } from "./SecurityMonitoringContentPackStateData";
-import { SecurityMonitoringContentPackStateMeta } from "./SecurityMonitoringContentPackStateMeta";
+import { SecurityMonitoringContentPackActivation } from "./SecurityMonitoringContentPackActivation";
+import { SecurityMonitoringContentPackEntityDetailsType } from "./SecurityMonitoringContentPackEntityDetailsType";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * Response containing content pack states.
+ * Details for an entity or identity content pack.
  */
-export class SecurityMonitoringContentPackStatesResponse {
+export class SecurityMonitoringContentPackEntityDetails {
   /**
-   * Array of content pack states.
+   * The activation status of a content pack.
    */
-  "data": Array<SecurityMonitoringContentPackStateData>;
+  "cpActivation": SecurityMonitoringContentPackActivation;
   /**
-   * Metadata for content pack states.
+   * Type for entity content pack details.
    */
-  "meta": SecurityMonitoringContentPackStateMeta;
+  "type": SecurityMonitoringContentPackEntityDetailsType;
 
   /**
    * A container for additional, undeclared properties.
@@ -37,14 +37,14 @@ export class SecurityMonitoringContentPackStatesResponse {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    data: {
-      baseName: "data",
-      type: "Array<SecurityMonitoringContentPackStateData>",
+    cpActivation: {
+      baseName: "cp_activation",
+      type: "SecurityMonitoringContentPackActivation",
       required: true,
     },
-    meta: {
-      baseName: "meta",
-      type: "SecurityMonitoringContentPackStateMeta",
+    type: {
+      baseName: "type",
+      type: "SecurityMonitoringContentPackEntityDetailsType",
       required: true,
     },
     additionalProperties: {
@@ -57,7 +57,7 @@ export class SecurityMonitoringContentPackStatesResponse {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-    return SecurityMonitoringContentPackStatesResponse.attributeTypeMap;
+    return SecurityMonitoringContentPackEntityDetails.attributeTypeMap;
   }
 
   public constructor() {}

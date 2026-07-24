@@ -17,6 +17,7 @@ export type SecurityMonitoringContentPackStatus =
   | typeof ACTIVE
   | typeof WARNING
   | typeof BROKEN
+  | typeof NOT_CONFIGURED
   | UnparsedObject;
 export const INSTALL = "install";
 export const ACTIVATE = "activate";
@@ -24,3 +25,4 @@ export const INITIALIZING = "initializing";
 export const ACTIVE = "active";
 export const WARNING = "warning";
 export const BROKEN = "broken";
+export const NOT_CONFIGURED = "not_configured";

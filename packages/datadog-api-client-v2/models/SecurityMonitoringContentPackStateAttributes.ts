@@ -3,46 +3,24 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
-import { SecurityMonitoringContentPackActivation } from "./SecurityMonitoringContentPackActivation";
-import { SecurityMonitoringContentPackIntegrationStatus } from "./SecurityMonitoringContentPackIntegrationStatus";
+import { SecurityMonitoringContentPackStateDetails } from "./SecurityMonitoringContentPackStateDetails";
 import { SecurityMonitoringContentPackStatus } from "./SecurityMonitoringContentPackStatus";
-import { SecurityMonitoringContentPackTimestampBucket } from "./SecurityMonitoringContentPackTimestampBucket";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * Attributes of a content pack state
+ * Attributes of a content pack state.
  */
 export class SecurityMonitoringContentPackStateAttributes {
   /**
-   * Whether the cloud SIEM index configuration is incorrect (only applies to certain pricing models)
+   * Type-specific details for a content pack state. The set of fields present depends
+   * on the content pack's `type`. When Cloud SIEM is inactive for the requesting organization, `onboarding` is returned instead of the content pack's usual type, such as `logs` or `vulnerability`.`
    */
-  "cloudSiemIndexIncorrect": boolean;
-  /**
-   * The activation status of a content pack.
-   */
-  "cpActivation": SecurityMonitoringContentPackActivation;
-  /**
-   * Whether filters (Security Filters or Index Query depending on the pricing model) are
-   * present and correctly configured to route logs into Cloud SIEM.
-   */
-  "filtersConfiguredForLogs": boolean;
-  /**
-   * The installation status of the related integration.
-   */
-  "integrationInstalledStatus"?: SecurityMonitoringContentPackIntegrationStatus;
-  /**
-   * Timestamp bucket indicating when logs were last collected.
-   */
-  "logsLastCollected": SecurityMonitoringContentPackTimestampBucket;
-  /**
-   * Whether logs for this content pack have been seen in any Datadog index within the last 72 hours.
-   */
-  "logsSeenFromAnyIndex": boolean;
+  "details": SecurityMonitoringContentPackStateDetails;
   /**
    * The current operational status of a content pack.
    */
-  "state": SecurityMonitoringContentPackStatus;
+  "status": SecurityMonitoringContentPackStatus;
 
   /**
    * A container for additional, undeclared properties.
@@ -60,37 +38,13 @@ export class SecurityMonitoringContentPackStateAttributes {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    cloudSiemIndexIncorrect: {
-      baseName: "cloud_siem_index_incorrect",
-      type: "boolean",
+    details: {
+      baseName: "details",
+      type: "SecurityMonitoringContentPackStateDetails",
       required: true,
     },
-    cpActivation: {
-      baseName: "cp_activation",
-      type: "SecurityMonitoringContentPackActivation",
-      required: true,
-    },
-    filtersConfiguredForLogs: {
-      baseName: "filters_configured_for_logs",
-      type: "boolean",
-      required: true,
-    },
-    integrationInstalledStatus: {
-      baseName: "integration_installed_status",
-      type: "SecurityMonitoringContentPackIntegrationStatus",
-    },
-    logsLastCollected: {
-      baseName: "logs_last_collected",
-      type: "SecurityMonitoringContentPackTimestampBucket",
-      required: true,
-    },
-    logsSeenFromAnyIndex: {
-      baseName: "logs_seen_from_any_index",
-      type: "boolean",
-      required: true,
-    },
-    state: {
-      baseName: "state",
+    status: {
+      baseName: "status",
       type: "SecurityMonitoringContentPackStatus",
       required: true,
     },
