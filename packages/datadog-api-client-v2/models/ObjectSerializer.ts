@@ -4175,10 +4175,17 @@ import { SecurityFindingsSearchRequestData } from "./SecurityFindingsSearchReque
 import { SecurityFindingsSearchRequestDataAttributes } from "./SecurityFindingsSearchRequestDataAttributes";
 import { SecurityFindingsSearchRequestPage } from "./SecurityFindingsSearchRequestPage";
 import { SecurityMonitoringAzureAppRegistration } from "./SecurityMonitoringAzureAppRegistration";
+import { SecurityMonitoringContentPackAppSecDetails } from "./SecurityMonitoringContentPackAppSecDetails";
+import { SecurityMonitoringContentPackAuditDetails } from "./SecurityMonitoringContentPackAuditDetails";
+import { SecurityMonitoringContentPackEntityDetails } from "./SecurityMonitoringContentPackEntityDetails";
+import { SecurityMonitoringContentPackLogsDetails } from "./SecurityMonitoringContentPackLogsDetails";
+import { SecurityMonitoringContentPackOnboardingDetails } from "./SecurityMonitoringContentPackOnboardingDetails";
 import { SecurityMonitoringContentPackStateAttributes } from "./SecurityMonitoringContentPackStateAttributes";
 import { SecurityMonitoringContentPackStateData } from "./SecurityMonitoringContentPackStateData";
 import { SecurityMonitoringContentPackStateMeta } from "./SecurityMonitoringContentPackStateMeta";
 import { SecurityMonitoringContentPackStatesResponse } from "./SecurityMonitoringContentPackStatesResponse";
+import { SecurityMonitoringContentPackThreatIntelDetails } from "./SecurityMonitoringContentPackThreatIntelDetails";
+import { SecurityMonitoringContentPackVulnerabilityDetails } from "./SecurityMonitoringContentPackVulnerabilityDetails";
 import { SecurityMonitoringCriticalAsset } from "./SecurityMonitoringCriticalAsset";
 import { SecurityMonitoringCriticalAssetAttributes } from "./SecurityMonitoringCriticalAssetAttributes";
 import { SecurityMonitoringCriticalAssetCreateAttributes } from "./SecurityMonitoringCriticalAssetCreateAttributes";
@@ -7621,6 +7628,9 @@ const enumsMap: { [key: string]: any[] } = {
     "activated",
     "deactivated",
   ],
+  SecurityMonitoringContentPackAppSecDetailsType: ["appsec"],
+  SecurityMonitoringContentPackAuditDetailsType: ["audit"],
+  SecurityMonitoringContentPackEntityDetailsType: ["entity"],
   SecurityMonitoringContentPackIntegrationStatus: [
     "installed",
     "available",
@@ -7628,6 +7638,7 @@ const enumsMap: { [key: string]: any[] } = {
     "detected",
     "error",
   ],
+  SecurityMonitoringContentPackOnboardingDetailsType: ["onboarding"],
   SecurityMonitoringContentPackStateType: ["content_pack_state"],
   SecurityMonitoringContentPackStatus: [
     "install",
@@ -7636,7 +7647,9 @@ const enumsMap: { [key: string]: any[] } = {
     "active",
     "warning",
     "broken",
+    "not_configured",
   ],
+  SecurityMonitoringContentPackThreatIntelDetailsType: ["threat_intel"],
   SecurityMonitoringContentPackTimestampBucket: [
     "not_seen",
     "within_24_hours",
@@ -7644,6 +7657,7 @@ const enumsMap: { [key: string]: any[] } = {
     "over_72h_to_30d",
     "over_30d",
   ],
+  SecurityMonitoringContentPackVulnerabilityDetailsType: ["vulnerability"],
   SecurityMonitoringCriticalAssetSeverity: [
     "info",
     "low",
@@ -7784,6 +7798,8 @@ const enumsMap: { [key: string]: any[] } = {
     "per_gb_analyzed",
     "per_event_in_siem_index_2023",
     "add_on_2024",
+    "standalone_indexed",
+    "unknown",
   ],
   SecurityMonitoringSignalArchiveReason: [
     "none",
@@ -13324,6 +13340,16 @@ const typeMap: { [index: string]: any } = {
   SecurityFindingsSearchRequestPage: SecurityFindingsSearchRequestPage,
   SecurityMonitoringAzureAppRegistration:
     SecurityMonitoringAzureAppRegistration,
+  SecurityMonitoringContentPackAppSecDetails:
+    SecurityMonitoringContentPackAppSecDetails,
+  SecurityMonitoringContentPackAuditDetails:
+    SecurityMonitoringContentPackAuditDetails,
+  SecurityMonitoringContentPackEntityDetails:
+    SecurityMonitoringContentPackEntityDetails,
+  SecurityMonitoringContentPackLogsDetails:
+    SecurityMonitoringContentPackLogsDetails,
+  SecurityMonitoringContentPackOnboardingDetails:
+    SecurityMonitoringContentPackOnboardingDetails,
   SecurityMonitoringContentPackStateAttributes:
     SecurityMonitoringContentPackStateAttributes,
   SecurityMonitoringContentPackStateData:
@@ -13332,6 +13358,10 @@ const typeMap: { [index: string]: any } = {
     SecurityMonitoringContentPackStateMeta,
   SecurityMonitoringContentPackStatesResponse:
     SecurityMonitoringContentPackStatesResponse,
+  SecurityMonitoringContentPackThreatIntelDetails:
+    SecurityMonitoringContentPackThreatIntelDetails,
+  SecurityMonitoringContentPackVulnerabilityDetails:
+    SecurityMonitoringContentPackVulnerabilityDetails,
   SecurityMonitoringCriticalAsset: SecurityMonitoringCriticalAsset,
   SecurityMonitoringCriticalAssetAttributes:
     SecurityMonitoringCriticalAssetAttributes,
@@ -15453,6 +15483,15 @@ const oneOfMap: { [index: string]: string[] } = {
     "ShiftData",
     "ScheduleData",
     "User",
+  ],
+  SecurityMonitoringContentPackStateDetails: [
+    "SecurityMonitoringContentPackLogsDetails",
+    "SecurityMonitoringContentPackThreatIntelDetails",
+    "SecurityMonitoringContentPackEntityDetails",
+    "SecurityMonitoringContentPackAuditDetails",
+    "SecurityMonitoringContentPackAppSecDetails",
+    "SecurityMonitoringContentPackVulnerabilityDetails",
+    "SecurityMonitoringContentPackOnboardingDetails",
   ],
   SecurityMonitoringIntegrationConfigCreateAttributes: [
     "SecurityMonitoringGoogleWorkspaceIntegrationConfigCreateAttributes",

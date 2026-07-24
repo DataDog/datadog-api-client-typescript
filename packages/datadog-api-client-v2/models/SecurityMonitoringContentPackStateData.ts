@@ -13,7 +13,7 @@ import { AttributeTypeMap } from "../../datadog-api-client-common/util";
  */
 export class SecurityMonitoringContentPackStateData {
   /**
-   * Attributes of a content pack state
+   * Attributes of a content pack state.
    */
   "attributes": SecurityMonitoringContentPackStateAttributes;
   /**
