@@ -1,15 +1,17 @@
 import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
-import { SecurityMonitoringRuleBulkDeleteResponseData } from "./SecurityMonitoringRuleBulkDeleteResponseData";
-
 /**
- * Response for bulk deleting security monitoring rules.
+ * Attributes for the bulk delete response.
  */
-export class SecurityMonitoringRuleBulkDeleteResponse {
+export class SecurityMonitoringRuleBulkDeleteResponseAttributes {
   /**
-   * Data for the bulk delete response.
+   * List of successfully deleted rule IDs.
    */
-  "data"?: SecurityMonitoringRuleBulkDeleteResponseData;
+  "deletedRules"?: Array<string>;
+  /**
+   * List of rule IDs that could not be deleted.
+   */
+  "failedRules"?: Array<string>;
   /**
    * A container for additional, undeclared properties.
    * This is a holder for any undeclared properties as specified with
@@ -25,9 +27,13 @@ export class SecurityMonitoringRuleBulkDeleteResponse {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    data: {
-      baseName: "data",
-      type: "SecurityMonitoringRuleBulkDeleteResponseData",
+    deletedRules: {
+      baseName: "deletedRules",
+      type: "Array<string>",
+    },
+    failedRules: {
+      baseName: "failedRules",
+      type: "Array<string>",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -39,7 +45,7 @@ export class SecurityMonitoringRuleBulkDeleteResponse {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-    return SecurityMonitoringRuleBulkDeleteResponse.attributeTypeMap;
+    return SecurityMonitoringRuleBulkDeleteResponseAttributes.attributeTypeMap;
   }
 
   public constructor() {}
