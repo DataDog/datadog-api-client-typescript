@@ -39,6 +39,7 @@ export {
   IncidentsApiListIncidentIntegrationsRequest,
   IncidentsApiListIncidentNotificationRulesRequest,
   IncidentsApiListIncidentNotificationTemplatesRequest,
+  IncidentsApiListIncidentPostmortemTemplatesRequest,
   IncidentsApiListIncidentTodosRequest,
   IncidentsApiListIncidentTypesRequest,
   IncidentsApiListIncidentUserDefinedFieldsRequest,
@@ -69,6 +70,7 @@ export { AttachmentDataAttributesAttachment } from "./models/AttachmentDataAttri
 export { AttachmentDataAttributesAttachmentType } from "./models/AttachmentDataAttributesAttachmentType";
 export { AttachmentDataRelationships } from "./models/AttachmentDataRelationships";
 export { AttachmentIncluded } from "./models/AttachmentIncluded";
+export { ConfluencePostmortemSettings } from "./models/ConfluencePostmortemSettings";
 export { CreateAttachmentRequest } from "./models/CreateAttachmentRequest";
 export { CreateAttachmentRequestData } from "./models/CreateAttachmentRequestData";
 export { CreateAttachmentRequestDataAttributes } from "./models/CreateAttachmentRequestDataAttributes";
@@ -82,6 +84,7 @@ export { GlobalIncidentSettingsDataResponse } from "./models/GlobalIncidentSetti
 export { GlobalIncidentSettingsRequest } from "./models/GlobalIncidentSettingsRequest";
 export { GlobalIncidentSettingsResponse } from "./models/GlobalIncidentSettingsResponse";
 export { GlobalIncidentSettingsType } from "./models/GlobalIncidentSettingsType";
+export { GoogleDocsPostmortemSettings } from "./models/GoogleDocsPostmortemSettings";
 export { GoogleMeetConfigurationReference } from "./models/GoogleMeetConfigurationReference";
 export { GoogleMeetConfigurationReferenceData } from "./models/GoogleMeetConfigurationReferenceData";
 export { IncidentAttachmentType } from "./models/IncidentAttachmentType";
@@ -303,12 +306,19 @@ export { PostmortemCellDefinition } from "./models/PostmortemCellDefinition";
 export { PostmortemCellType } from "./models/PostmortemCellType";
 export { PostmortemTemplateAttributesRequest } from "./models/PostmortemTemplateAttributesRequest";
 export { PostmortemTemplateAttributesResponse } from "./models/PostmortemTemplateAttributesResponse";
+export { PostmortemTemplateCreateRelationships } from "./models/PostmortemTemplateCreateRelationships";
 export { PostmortemTemplateDataRequest } from "./models/PostmortemTemplateDataRequest";
 export { PostmortemTemplateDataResponse } from "./models/PostmortemTemplateDataResponse";
+export { PostmortemTemplateIncidentTypeRelationship } from "./models/PostmortemTemplateIncidentTypeRelationship";
+export { PostmortemTemplateIncidentTypeRelationshipData } from "./models/PostmortemTemplateIncidentTypeRelationshipData";
+export { PostmortemTemplateLocation } from "./models/PostmortemTemplateLocation";
 export { PostmortemTemplateRequest } from "./models/PostmortemTemplateRequest";
 export { PostmortemTemplateResponse } from "./models/PostmortemTemplateResponse";
+export { PostmortemTemplateResponseRelationships } from "./models/PostmortemTemplateResponseRelationships";
 export { PostmortemTemplatesResponse } from "./models/PostmortemTemplatesResponse";
 export { PostmortemTemplateType } from "./models/PostmortemTemplateType";
+export { PostmortemTemplateUserRelationship } from "./models/PostmortemTemplateUserRelationship";
+export { PostmortemTemplateUserRelationshipData } from "./models/PostmortemTemplateUserRelationshipData";
 export { PutIncidentNotificationRuleRequest } from "./models/PutIncidentNotificationRuleRequest";
 export { RelationshipToIncident } from "./models/RelationshipToIncident";
 export { RelationshipToIncidentAttachment } from "./models/RelationshipToIncidentAttachment";
