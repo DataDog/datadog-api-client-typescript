@@ -8,7 +8,7 @@ import { SecurityMonitoringContentPackStateType } from "./SecurityMonitoringCont
  */
 export class SecurityMonitoringContentPackStateData {
   /**
-   * Attributes of a content pack state
+   * Attributes of a content pack state.
    */
   "attributes": SecurityMonitoringContentPackStateAttributes;
   /**

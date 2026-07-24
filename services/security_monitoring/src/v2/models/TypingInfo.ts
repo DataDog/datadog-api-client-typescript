@@ -338,10 +338,17 @@ import { SecurityFindingsSearchRequestData } from "./SecurityFindingsSearchReque
 import { SecurityFindingsSearchRequestDataAttributes } from "./SecurityFindingsSearchRequestDataAttributes";
 import { SecurityFindingsSearchRequestPage } from "./SecurityFindingsSearchRequestPage";
 import { SecurityMonitoringAzureAppRegistration } from "./SecurityMonitoringAzureAppRegistration";
+import { SecurityMonitoringContentPackAppSecDetails } from "./SecurityMonitoringContentPackAppSecDetails";
+import { SecurityMonitoringContentPackAuditDetails } from "./SecurityMonitoringContentPackAuditDetails";
+import { SecurityMonitoringContentPackEntityDetails } from "./SecurityMonitoringContentPackEntityDetails";
+import { SecurityMonitoringContentPackLogsDetails } from "./SecurityMonitoringContentPackLogsDetails";
+import { SecurityMonitoringContentPackOnboardingDetails } from "./SecurityMonitoringContentPackOnboardingDetails";
 import { SecurityMonitoringContentPackStateAttributes } from "./SecurityMonitoringContentPackStateAttributes";
 import { SecurityMonitoringContentPackStateData } from "./SecurityMonitoringContentPackStateData";
 import { SecurityMonitoringContentPackStateMeta } from "./SecurityMonitoringContentPackStateMeta";
 import { SecurityMonitoringContentPackStatesResponse } from "./SecurityMonitoringContentPackStatesResponse";
+import { SecurityMonitoringContentPackThreatIntelDetails } from "./SecurityMonitoringContentPackThreatIntelDetails";
+import { SecurityMonitoringContentPackVulnerabilityDetails } from "./SecurityMonitoringContentPackVulnerabilityDetails";
 import { SecurityMonitoringCriticalAsset } from "./SecurityMonitoringCriticalAsset";
 import { SecurityMonitoringCriticalAssetAttributes } from "./SecurityMonitoringCriticalAssetAttributes";
 import { SecurityMonitoringCriticalAssetCreateAttributes } from "./SecurityMonitoringCriticalAssetCreateAttributes";
@@ -750,6 +757,9 @@ export const TypingInfo: ModelTypingInfo = {
       "activated",
       "deactivated",
     ],
+    SecurityMonitoringContentPackAppSecDetailsType: ["appsec"],
+    SecurityMonitoringContentPackAuditDetailsType: ["audit"],
+    SecurityMonitoringContentPackEntityDetailsType: ["entity"],
     SecurityMonitoringContentPackIntegrationStatus: [
       "installed",
       "available",
@@ -757,6 +767,7 @@ export const TypingInfo: ModelTypingInfo = {
       "detected",
       "error",
     ],
+    SecurityMonitoringContentPackOnboardingDetailsType: ["onboarding"],
     SecurityMonitoringContentPackStateType: ["content_pack_state"],
     SecurityMonitoringContentPackStatus: [
       "install",
@@ -765,7 +776,9 @@ export const TypingInfo: ModelTypingInfo = {
       "active",
       "warning",
       "broken",
+      "not_configured",
     ],
+    SecurityMonitoringContentPackThreatIntelDetailsType: ["threat_intel"],
     SecurityMonitoringContentPackTimestampBucket: [
       "not_seen",
       "within_24_hours",
@@ -773,6 +786,7 @@ export const TypingInfo: ModelTypingInfo = {
       "over_72h_to_30d",
       "over_30d",
     ],
+    SecurityMonitoringContentPackVulnerabilityDetailsType: ["vulnerability"],
     SecurityMonitoringCriticalAssetSeverity: [
       "info",
       "low",
@@ -919,6 +933,8 @@ export const TypingInfo: ModelTypingInfo = {
       "per_gb_analyzed",
       "per_event_in_siem_index_2023",
       "add_on_2024",
+      "standalone_indexed",
+      "unknown",
     ],
     SecurityMonitoringSignalArchiveReason: [
       "none",
@@ -1058,6 +1074,15 @@ export const TypingInfo: ModelTypingInfo = {
     ],
   },
   oneOfMap: {
+    SecurityMonitoringContentPackStateDetails: [
+      "SecurityMonitoringContentPackLogsDetails",
+      "SecurityMonitoringContentPackThreatIntelDetails",
+      "SecurityMonitoringContentPackEntityDetails",
+      "SecurityMonitoringContentPackAuditDetails",
+      "SecurityMonitoringContentPackAppSecDetails",
+      "SecurityMonitoringContentPackVulnerabilityDetails",
+      "SecurityMonitoringContentPackOnboardingDetails",
+    ],
     SecurityMonitoringIntegrationConfigCreateAttributes: [
       "SecurityMonitoringGoogleWorkspaceIntegrationConfigCreateAttributes",
       "SecurityMonitoringOktaIntegrationConfigCreateAttributes",
@@ -1490,6 +1515,16 @@ export const TypingInfo: ModelTypingInfo = {
     SecurityFindingsSearchRequestPage: SecurityFindingsSearchRequestPage,
     SecurityMonitoringAzureAppRegistration:
       SecurityMonitoringAzureAppRegistration,
+    SecurityMonitoringContentPackAppSecDetails:
+      SecurityMonitoringContentPackAppSecDetails,
+    SecurityMonitoringContentPackAuditDetails:
+      SecurityMonitoringContentPackAuditDetails,
+    SecurityMonitoringContentPackEntityDetails:
+      SecurityMonitoringContentPackEntityDetails,
+    SecurityMonitoringContentPackLogsDetails:
+      SecurityMonitoringContentPackLogsDetails,
+    SecurityMonitoringContentPackOnboardingDetails:
+      SecurityMonitoringContentPackOnboardingDetails,
     SecurityMonitoringContentPackStateAttributes:
       SecurityMonitoringContentPackStateAttributes,
     SecurityMonitoringContentPackStateData:
@@ -1498,6 +1533,10 @@ export const TypingInfo: ModelTypingInfo = {
       SecurityMonitoringContentPackStateMeta,
     SecurityMonitoringContentPackStatesResponse:
       SecurityMonitoringContentPackStatesResponse,
+    SecurityMonitoringContentPackThreatIntelDetails:
+      SecurityMonitoringContentPackThreatIntelDetails,
+    SecurityMonitoringContentPackVulnerabilityDetails:
+      SecurityMonitoringContentPackVulnerabilityDetails,
     SecurityMonitoringCriticalAsset: SecurityMonitoringCriticalAsset,
     SecurityMonitoringCriticalAssetAttributes:
       SecurityMonitoringCriticalAssetAttributes,
