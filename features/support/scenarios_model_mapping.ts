@@ -11569,6 +11569,92 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             },
         "operationResponseType": "OktaAccountResponse",
     },
+    "v2.ListAmsIntegrationAccounts": {
+        "integrationName": {
+            "type": "string",
+            "format": "",
+            },
+        "interfaceId": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "AmsIntegrationAccountsResponse",
+    },
+    "v2.CreateAmsIntegrationAccount": {
+        "integrationName": {
+            "type": "string",
+            "format": "",
+            },
+        "interfaceId": {
+            "type": "string",
+            "format": "",
+            },
+        "body": {
+            "type": "AmsIntegrationAccountCreateRequest",
+            "format": "",
+            },
+        "operationResponseType": "AmsIntegrationAccountResponse",
+    },
+    "v2.GetAmsIntegrationAccountSchema": {
+        "integrationName": {
+            "type": "string",
+            "format": "",
+            },
+        "interfaceId": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "AmsIntegrationAccountSchemaResponse",
+    },
+    "v2.GetAmsIntegrationAccount": {
+        "integrationName": {
+            "type": "string",
+            "format": "",
+            },
+        "interfaceId": {
+            "type": "string",
+            "format": "",
+            },
+        "accountId": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "AmsIntegrationAccountResponse",
+    },
+    "v2.DeleteAmsIntegrationAccount": {
+        "integrationName": {
+            "type": "string",
+            "format": "",
+            },
+        "interfaceId": {
+            "type": "string",
+            "format": "",
+            },
+        "accountId": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "{}",
+    },
+    "v2.UpdateAmsIntegrationAccount": {
+        "integrationName": {
+            "type": "string",
+            "format": "",
+            },
+        "interfaceId": {
+            "type": "string",
+            "format": "",
+            },
+        "accountId": {
+            "type": "string",
+            "format": "",
+            },
+        "body": {
+            "type": "AmsIntegrationAccountUpdateRequest",
+            "format": "",
+            },
+        "operationResponseType": "AmsIntegrationAccountResponse",
+    },
     "v2.GetIPAllowlist": {
         "operationResponseType": "IPAllowlistResponse",
     },
