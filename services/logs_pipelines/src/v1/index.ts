@@ -23,6 +23,8 @@ export { LogsArrayProcessor } from "./models/LogsArrayProcessor";
 export { LogsArrayProcessorOperation } from "./models/LogsArrayProcessorOperation";
 export { LogsArrayProcessorOperationAppend } from "./models/LogsArrayProcessorOperationAppend";
 export { LogsArrayProcessorOperationAppendType } from "./models/LogsArrayProcessorOperationAppendType";
+export { LogsArrayProcessorOperationExtractKeyValue } from "./models/LogsArrayProcessorOperationExtractKeyValue";
+export { LogsArrayProcessorOperationExtractKeyValueType } from "./models/LogsArrayProcessorOperationExtractKeyValueType";
 export { LogsArrayProcessorOperationLength } from "./models/LogsArrayProcessorOperationLength";
 export { LogsArrayProcessorOperationLengthType } from "./models/LogsArrayProcessorOperationLengthType";
 export { LogsArrayProcessorOperationSelect } from "./models/LogsArrayProcessorOperationSelect";

@@ -11,6 +11,7 @@ import { LogsArrayMapProcessor } from "./LogsArrayMapProcessor";
 import { LogsArrayMapStringBuilderSubProcessor } from "./LogsArrayMapStringBuilderSubProcessor";
 import { LogsArrayProcessor } from "./LogsArrayProcessor";
 import { LogsArrayProcessorOperationAppend } from "./LogsArrayProcessorOperationAppend";
+import { LogsArrayProcessorOperationExtractKeyValue } from "./LogsArrayProcessorOperationExtractKeyValue";
 import { LogsArrayProcessorOperationLength } from "./LogsArrayProcessorOperationLength";
 import { LogsArrayProcessorOperationSelect } from "./LogsArrayProcessorOperationSelect";
 import { LogsAttributeRemapper } from "./LogsAttributeRemapper";
@@ -49,6 +50,7 @@ export const TypingInfo: ModelTypingInfo = {
     LogsArithmeticProcessorType: ["arithmetic-processor"],
     LogsArrayMapProcessorType: ["array-map-processor"],
     LogsArrayProcessorOperationAppendType: ["append"],
+    LogsArrayProcessorOperationExtractKeyValueType: ["key-value"],
     LogsArrayProcessorOperationLengthType: ["length"],
     LogsArrayProcessorOperationSelectType: ["select"],
     LogsArrayProcessorType: ["array-processor"],
@@ -87,6 +89,7 @@ export const TypingInfo: ModelTypingInfo = {
       "LogsArrayProcessorOperationAppend",
       "LogsArrayProcessorOperationLength",
       "LogsArrayProcessorOperationSelect",
+      "LogsArrayProcessorOperationExtractKeyValue",
     ],
     LogsProcessor: [
       "LogsGrokParser",
@@ -127,6 +130,8 @@ export const TypingInfo: ModelTypingInfo = {
       LogsArrayMapStringBuilderSubProcessor,
     LogsArrayProcessor: LogsArrayProcessor,
     LogsArrayProcessorOperationAppend: LogsArrayProcessorOperationAppend,
+    LogsArrayProcessorOperationExtractKeyValue:
+      LogsArrayProcessorOperationExtractKeyValue,
     LogsArrayProcessorOperationLength: LogsArrayProcessorOperationLength,
     LogsArrayProcessorOperationSelect: LogsArrayProcessorOperationSelect,
     LogsAttributeRemapper: LogsAttributeRemapper,
