@@ -31,9 +31,6 @@ import { OwnershipHistoryResponse } from "./models/OwnershipHistoryResponse";
 import { OwnershipInferenceListResponse } from "./models/OwnershipInferenceListResponse";
 import { OwnershipInferenceResponse } from "./models/OwnershipInferenceResponse";
 import { OwnershipOwnerType } from "./models/OwnershipOwnerType";
-import { OwnershipSettingsRequest } from "./models/OwnershipSettingsRequest";
-import { OwnershipSettingsResponse } from "./models/OwnershipSettingsResponse";
-import { OwnershipUntaggedFindingsResponse } from "./models/OwnershipUntaggedFindingsResponse";
 import { version } from "../version";
 
 export class CSMOwnershipApiRequestFactory extends BaseAPIRequestFactory {
@@ -251,94 +248,6 @@ export class CSMOwnershipApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
-  public async getOwnershipSettings(
-    _options?: Configuration,
-  ): Promise<RequestContext> {
-    const _config = _options || this.configuration;
-
-    if (
-      !_config.unstableOperations["CSMOwnershipApi.v2.getOwnershipSettings"]
-    ) {
-      throw new Error(
-        "Unstable operation 'getOwnershipSettings' is disabled. Enable it by setting `configuration.unstableOperations['CSMOwnershipApi.v2.getOwnershipSettings'] = true`",
-      );
-    }
-
-    // Path Params
-    const localVarPath = "/api/v2/csm/ownership/settings";
-
-    // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "CSMOwnershipApi.v2.getOwnershipSettings",
-      CSMOwnershipApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.GET,
-      overrides,
-    );
-    requestContext.setHeaderParam("Accept", "application/json");
-    requestContext.setHttpConfig(_config.httpConfig);
-
-    // Set User-Agent
-    if (this.userAgent) {
-      requestContext.setHeaderParam("User-Agent", this.userAgent);
-    }
-
-    // Apply auth methods
-    applySecurityAuthentication(_config, requestContext, [
-      "apiKeyAuth",
-      "appKeyAuth",
-    ]);
-
-    return requestContext;
-  }
-
-  public async getOwnershipUntaggedFindings(
-    _options?: Configuration,
-  ): Promise<RequestContext> {
-    const _config = _options || this.configuration;
-
-    if (
-      !_config.unstableOperations[
-        "CSMOwnershipApi.v2.getOwnershipUntaggedFindings"
-      ]
-    ) {
-      throw new Error(
-        "Unstable operation 'getOwnershipUntaggedFindings' is disabled. Enable it by setting `configuration.unstableOperations['CSMOwnershipApi.v2.getOwnershipUntaggedFindings'] = true`",
-      );
-    }
-
-    // Path Params
-    const localVarPath = "/api/v2/csm/ownership/settings/untagged";
-
-    // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "CSMOwnershipApi.v2.getOwnershipUntaggedFindings",
-      CSMOwnershipApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.GET,
-      overrides,
-    );
-    requestContext.setHeaderParam("Accept", "application/json");
-    requestContext.setHttpConfig(_config.httpConfig);
-
-    // Set User-Agent
-    if (this.userAgent) {
-      requestContext.setHeaderParam("User-Agent", this.userAgent);
-    }
-
-    // Apply auth methods
-    applySecurityAuthentication(_config, requestContext, [
-      "apiKeyAuth",
-      "appKeyAuth",
-    ]);
-
-    return requestContext;
-  }
-
   public async listOwnershipHistory(
     resourceId: string,
     cursor?: string,
@@ -529,64 +438,6 @@ export class CSMOwnershipApiRequestFactory extends BaseAPIRequestFactory {
     if (this.userAgent) {
       requestContext.setHeaderParam("User-Agent", this.userAgent);
     }
-
-    // Apply auth methods
-    applySecurityAuthentication(_config, requestContext, [
-      "apiKeyAuth",
-      "appKeyAuth",
-    ]);
-
-    return requestContext;
-  }
-
-  public async postOwnershipSettings(
-    body: OwnershipSettingsRequest,
-    _options?: Configuration,
-  ): Promise<RequestContext> {
-    const _config = _options || this.configuration;
-
-    if (
-      !_config.unstableOperations["CSMOwnershipApi.v2.postOwnershipSettings"]
-    ) {
-      throw new Error(
-        "Unstable operation 'postOwnershipSettings' is disabled. Enable it by setting `configuration.unstableOperations['CSMOwnershipApi.v2.postOwnershipSettings'] = true`",
-      );
-    }
-
-    // verify required parameter 'body' is not null or undefined
-    if (body === null || body === undefined) {
-      throw new RequiredError("body", "postOwnershipSettings");
-    }
-
-    // Path Params
-    const localVarPath = "/api/v2/csm/ownership/settings";
-
-    // Make Request Context
-    const { server, overrides } = _config.getServerAndOverrides(
-      "CSMOwnershipApi.v2.postOwnershipSettings",
-      CSMOwnershipApi.operationServers,
-    );
-    const requestContext = server.makeRequestContext(
-      localVarPath,
-      HttpMethod.POST,
-      overrides,
-    );
-    requestContext.setHeaderParam("Accept", "application/json");
-    requestContext.setHttpConfig(_config.httpConfig);
-
-    // Set User-Agent
-    if (this.userAgent) {
-      requestContext.setHeaderParam("User-Agent", this.userAgent);
-    }
-
-    // Body Params
-    const contentType = getPreferredMediaType(["application/json"]);
-    requestContext.setHeaderParam("Content-Type", contentType);
-    const serializedBody = stringify(
-      serialize(body, TypingInfo, "OwnershipSettingsRequest", ""),
-      contentType,
-    );
-    requestContext.setBody(serializedBody);
 
     // Apply auth methods
     applySecurityAuthentication(_config, requestContext, [
@@ -867,160 +718,6 @@ export class CSMOwnershipApiResponseProcessor {
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
    *
-   * @params response Response returned by the server for a request to getOwnershipSettings
-   * @throws ApiException if the response code was not in [200, 299]
-   */
-  public async getOwnershipSettings(
-    response: ResponseContext,
-  ): Promise<OwnershipSettingsResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
-    if (response.httpStatusCode === 200) {
-      const body: OwnershipSettingsResponse = deserialize(
-        parse(await response.body.text(), contentType),
-        TypingInfo,
-        "OwnershipSettingsResponse",
-      ) as OwnershipSettingsResponse;
-      return body;
-    }
-    if (response.httpStatusCode === 401) {
-      const bodyText = parse(await response.body.text(), contentType);
-      let body: JSONAPIErrorResponse;
-      try {
-        body = deserialize(
-          bodyText,
-          TypingInfo,
-          "JSONAPIErrorResponse",
-        ) as JSONAPIErrorResponse;
-      } catch (error) {
-        logger.debug(`Got error deserializing error: ${error}`);
-        throw new ApiException<JSONAPIErrorResponse>(
-          response.httpStatusCode,
-          bodyText,
-        );
-      }
-      throw new ApiException<JSONAPIErrorResponse>(
-        response.httpStatusCode,
-        body,
-      );
-    }
-    if (response.httpStatusCode === 429) {
-      const bodyText = parse(await response.body.text(), contentType);
-      let body: APIErrorResponse;
-      try {
-        body = deserialize(
-          bodyText,
-          TypingInfo,
-          "APIErrorResponse",
-        ) as APIErrorResponse;
-      } catch (error) {
-        logger.debug(`Got error deserializing error: ${error}`);
-        throw new ApiException<APIErrorResponse>(
-          response.httpStatusCode,
-          bodyText,
-        );
-      }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
-    }
-
-    // Work around for missing responses in specification, e.g. for petstore.yaml
-    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-      const body: OwnershipSettingsResponse = deserialize(
-        parse(await response.body.text(), contentType),
-        TypingInfo,
-        "OwnershipSettingsResponse",
-        "",
-      ) as OwnershipSettingsResponse;
-      return body;
-    }
-
-    const body = (await response.body.text()) || "";
-    throw new ApiException<string>(
-      response.httpStatusCode,
-      'Unknown API Status Code!\nBody: "' + body + '"',
-    );
-  }
-
-  /**
-   * Unwraps the actual response sent by the server from the response context and deserializes the response content
-   * to the expected objects
-   *
-   * @params response Response returned by the server for a request to getOwnershipUntaggedFindings
-   * @throws ApiException if the response code was not in [200, 299]
-   */
-  public async getOwnershipUntaggedFindings(
-    response: ResponseContext,
-  ): Promise<OwnershipUntaggedFindingsResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
-    if (response.httpStatusCode === 200) {
-      const body: OwnershipUntaggedFindingsResponse = deserialize(
-        parse(await response.body.text(), contentType),
-        TypingInfo,
-        "OwnershipUntaggedFindingsResponse",
-      ) as OwnershipUntaggedFindingsResponse;
-      return body;
-    }
-    if (response.httpStatusCode === 401) {
-      const bodyText = parse(await response.body.text(), contentType);
-      let body: JSONAPIErrorResponse;
-      try {
-        body = deserialize(
-          bodyText,
-          TypingInfo,
-          "JSONAPIErrorResponse",
-        ) as JSONAPIErrorResponse;
-      } catch (error) {
-        logger.debug(`Got error deserializing error: ${error}`);
-        throw new ApiException<JSONAPIErrorResponse>(
-          response.httpStatusCode,
-          bodyText,
-        );
-      }
-      throw new ApiException<JSONAPIErrorResponse>(
-        response.httpStatusCode,
-        body,
-      );
-    }
-    if (response.httpStatusCode === 429) {
-      const bodyText = parse(await response.body.text(), contentType);
-      let body: APIErrorResponse;
-      try {
-        body = deserialize(
-          bodyText,
-          TypingInfo,
-          "APIErrorResponse",
-        ) as APIErrorResponse;
-      } catch (error) {
-        logger.debug(`Got error deserializing error: ${error}`);
-        throw new ApiException<APIErrorResponse>(
-          response.httpStatusCode,
-          bodyText,
-        );
-      }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
-    }
-
-    // Work around for missing responses in specification, e.g. for petstore.yaml
-    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-      const body: OwnershipUntaggedFindingsResponse = deserialize(
-        parse(await response.body.text(), contentType),
-        TypingInfo,
-        "OwnershipUntaggedFindingsResponse",
-        "",
-      ) as OwnershipUntaggedFindingsResponse;
-      return body;
-    }
-
-    const body = (await response.body.text()) || "";
-    throw new ApiException<string>(
-      response.httpStatusCode,
-      'Unknown API Status Code!\nBody: "' + body + '"',
-    );
-  }
-
-  /**
-   * Unwraps the actual response sent by the server from the response context and deserializes the response content
-   * to the expected objects
-   *
    * @params response Response returned by the server for a request to listOwnershipHistory
    * @throws ApiException if the response code was not in [200, 299]
    */
@@ -1251,83 +948,6 @@ export class CSMOwnershipApiResponseProcessor {
       'Unknown API Status Code!\nBody: "' + body + '"',
     );
   }
-
-  /**
-   * Unwraps the actual response sent by the server from the response context and deserializes the response content
-   * to the expected objects
-   *
-   * @params response Response returned by the server for a request to postOwnershipSettings
-   * @throws ApiException if the response code was not in [200, 299]
-   */
-  public async postOwnershipSettings(
-    response: ResponseContext,
-  ): Promise<OwnershipSettingsResponse> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
-    if (response.httpStatusCode === 200) {
-      const body: OwnershipSettingsResponse = deserialize(
-        parse(await response.body.text(), contentType),
-        TypingInfo,
-        "OwnershipSettingsResponse",
-      ) as OwnershipSettingsResponse;
-      return body;
-    }
-    if (response.httpStatusCode === 400 || response.httpStatusCode === 401) {
-      const bodyText = parse(await response.body.text(), contentType);
-      let body: JSONAPIErrorResponse;
-      try {
-        body = deserialize(
-          bodyText,
-          TypingInfo,
-          "JSONAPIErrorResponse",
-        ) as JSONAPIErrorResponse;
-      } catch (error) {
-        logger.debug(`Got error deserializing error: ${error}`);
-        throw new ApiException<JSONAPIErrorResponse>(
-          response.httpStatusCode,
-          bodyText,
-        );
-      }
-      throw new ApiException<JSONAPIErrorResponse>(
-        response.httpStatusCode,
-        body,
-      );
-    }
-    if (response.httpStatusCode === 429) {
-      const bodyText = parse(await response.body.text(), contentType);
-      let body: APIErrorResponse;
-      try {
-        body = deserialize(
-          bodyText,
-          TypingInfo,
-          "APIErrorResponse",
-        ) as APIErrorResponse;
-      } catch (error) {
-        logger.debug(`Got error deserializing error: ${error}`);
-        throw new ApiException<APIErrorResponse>(
-          response.httpStatusCode,
-          bodyText,
-        );
-      }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
-    }
-
-    // Work around for missing responses in specification, e.g. for petstore.yaml
-    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-      const body: OwnershipSettingsResponse = deserialize(
-        parse(await response.body.text(), contentType),
-        TypingInfo,
-        "OwnershipSettingsResponse",
-        "",
-      ) as OwnershipSettingsResponse;
-      return body;
-    }
-
-    const body = (await response.body.text()) || "";
-    throw new ApiException<string>(
-      response.httpStatusCode,
-      'Unknown API Status Code!\nBody: "' + body + '"',
-    );
-  }
 }
 
 export interface CSMOwnershipApiCreateOwnershipFeedbackRequest {
@@ -1432,13 +1052,6 @@ export interface CSMOwnershipApiListOwnershipInferencesRequest {
   resourceId: string;
 }
 
-export interface CSMOwnershipApiPostOwnershipSettingsRequest {
-  /**
-   * @type OwnershipSettingsRequest
-   */
-  body: OwnershipSettingsRequest;
-}
-
 export class CSMOwnershipApi {
   private requestFactory: CSMOwnershipApiRequestFactory;
   private responseProcessor: CSMOwnershipApiResponseProcessor;
@@ -1538,44 +1151,6 @@ export class CSMOwnershipApi {
   }
 
   /**
-   * Get ownership settings for the org. When settings are unset, the API returns the default opt-out configuration with `auto_tag` set to `true` and `confidence_level` set to `high`.
-   * @param param The request object
-   */
-  public getOwnershipSettings(
-    options?: Configuration,
-  ): Promise<OwnershipSettingsResponse> {
-    const requestContextPromise =
-      this.requestFactory.getOwnershipSettings(options);
-    return requestContextPromise.then((requestContext) => {
-      return this.configuration.httpApi
-        .send(requestContext)
-        .then((responseContext) => {
-          return this.responseProcessor.getOwnershipSettings(responseContext);
-        });
-    });
-  }
-
-  /**
-   * Count findings with no team tag, grouped by ownership confidence level.
-   * @param param The request object
-   */
-  public getOwnershipUntaggedFindings(
-    options?: Configuration,
-  ): Promise<OwnershipUntaggedFindingsResponse> {
-    const requestContextPromise =
-      this.requestFactory.getOwnershipUntaggedFindings(options);
-    return requestContextPromise.then((requestContext) => {
-      return this.configuration.httpApi
-        .send(requestContext)
-        .then((responseContext) => {
-          return this.responseProcessor.getOwnershipUntaggedFindings(
-            responseContext,
-          );
-        });
-    });
-  }
-
-  /**
    * List inference history entries for a resource across all owner types, ordered from most recent to oldest. Uses cursor-based pagination.
    * @param param The request object
    */
@@ -1644,27 +1219,6 @@ export class CSMOwnershipApi {
           return this.responseProcessor.listOwnershipInferences(
             responseContext,
           );
-        });
-    });
-  }
-
-  /**
-   * Update ownership settings for the org.
-   * @param param The request object
-   */
-  public postOwnershipSettings(
-    param: CSMOwnershipApiPostOwnershipSettingsRequest,
-    options?: Configuration,
-  ): Promise<OwnershipSettingsResponse> {
-    const requestContextPromise = this.requestFactory.postOwnershipSettings(
-      param.body,
-      options,
-    );
-    return requestContextPromise.then((requestContext) => {
-      return this.configuration.httpApi
-        .send(requestContext)
-        .then((responseContext) => {
-          return this.responseProcessor.postOwnershipSettings(responseContext);
         });
     });
   }
