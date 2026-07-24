@@ -1,0 +1,16 @@
+import { UnparsedObject } from "@datadog/datadog-api-client";
+
+/**
+ * The status of the component.
+ */
+export type PatchDegradationTemplateRequestDataAttributesComponentsAffectedItemsStatus =
+
+    | typeof OPERATIONAL
+    | typeof DEGRADED
+    | typeof PARTIAL_OUTAGE
+    | typeof MAJOR_OUTAGE
+    | UnparsedObject;
+export const OPERATIONAL = "operational";
+export const DEGRADED = "degraded";
+export const PARTIAL_OUTAGE = "partial_outage";
+export const MAJOR_OUTAGE = "major_outage";

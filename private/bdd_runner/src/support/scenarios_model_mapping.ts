@@ -16201,6 +16201,10 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
       type: "string",
       format: "",
     },
+    filterSourceId: {
+      type: "string",
+      format: "",
+    },
     operationResponseType: "DegradationArray",
   },
   "StatusPagesApi.V2.ListMaintenances": {
@@ -16338,6 +16342,77 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
     },
     operationResponseType: "StatusPagesComponent",
   },
+  "StatusPagesApi.V2.ListDegradationTemplates": {
+    include: {
+      type: "string",
+      format: "",
+    },
+    pageId: {
+      type: "string",
+      format: "uuid",
+    },
+    operationResponseType: "DegradationTemplateArray",
+  },
+  "StatusPagesApi.V2.CreateDegradationTemplate": {
+    pageId: {
+      type: "string",
+      format: "uuid",
+    },
+    include: {
+      type: "string",
+      format: "",
+    },
+    body: {
+      type: "CreateDegradationTemplateRequest",
+      format: "",
+    },
+    operationResponseType: "DegradationTemplate",
+  },
+  "StatusPagesApi.V2.GetDegradationTemplate": {
+    pageId: {
+      type: "string",
+      format: "uuid",
+    },
+    templateId: {
+      type: "string",
+      format: "uuid",
+    },
+    include: {
+      type: "string",
+      format: "",
+    },
+    operationResponseType: "DegradationTemplate",
+  },
+  "StatusPagesApi.V2.DeleteDegradationTemplate": {
+    pageId: {
+      type: "string",
+      format: "uuid",
+    },
+    templateId: {
+      type: "string",
+      format: "uuid",
+    },
+    operationResponseType: "{}",
+  },
+  "StatusPagesApi.V2.UpdateDegradationTemplate": {
+    templateId: {
+      type: "string",
+      format: "uuid",
+    },
+    include: {
+      type: "string",
+      format: "",
+    },
+    pageId: {
+      type: "string",
+      format: "uuid",
+    },
+    body: {
+      type: "PatchDegradationTemplateRequest",
+      format: "",
+    },
+    operationResponseType: "DegradationTemplate",
+  },
   "StatusPagesApi.V2.CreateDegradation": {
     pageId: {
       type: "string",
@@ -16458,6 +16533,77 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
       format: "",
     },
     operationResponseType: "DegradationUpdate",
+  },
+  "StatusPagesApi.V2.ListMaintenanceTemplates": {
+    pageId: {
+      type: "string",
+      format: "uuid",
+    },
+    include: {
+      type: "string",
+      format: "",
+    },
+    operationResponseType: "MaintenanceTemplateArray",
+  },
+  "StatusPagesApi.V2.CreateMaintenanceTemplate": {
+    pageId: {
+      type: "string",
+      format: "uuid",
+    },
+    include: {
+      type: "string",
+      format: "",
+    },
+    body: {
+      type: "CreateMaintenanceTemplateRequest",
+      format: "",
+    },
+    operationResponseType: "MaintenanceTemplate",
+  },
+  "StatusPagesApi.V2.GetMaintenanceTemplate": {
+    pageId: {
+      type: "string",
+      format: "uuid",
+    },
+    templateId: {
+      type: "string",
+      format: "uuid",
+    },
+    include: {
+      type: "string",
+      format: "",
+    },
+    operationResponseType: "MaintenanceTemplate",
+  },
+  "StatusPagesApi.V2.DeleteMaintenanceTemplate": {
+    pageId: {
+      type: "string",
+      format: "uuid",
+    },
+    templateId: {
+      type: "string",
+      format: "uuid",
+    },
+    operationResponseType: "{}",
+  },
+  "StatusPagesApi.V2.UpdateMaintenanceTemplate": {
+    pageId: {
+      type: "string",
+      format: "uuid",
+    },
+    templateId: {
+      type: "string",
+      format: "uuid",
+    },
+    include: {
+      type: "string",
+      format: "",
+    },
+    body: {
+      type: "PatchMaintenanceTemplateRequest",
+      format: "",
+    },
+    operationResponseType: "MaintenanceTemplate",
   },
   "StatusPagesApi.V2.CreateMaintenance": {
     pageId: {
