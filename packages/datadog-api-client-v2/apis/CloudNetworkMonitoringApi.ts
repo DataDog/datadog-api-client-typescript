@@ -87,6 +87,7 @@ export class CloudNetworkMonitoringApiRequestFactory extends BaseAPIRequestFacto
     applySecurityAuthentication(_config, requestContext, [
       "apiKeyAuth",
       "appKeyAuth",
+      "AuthZ",
     ]);
 
     return requestContext;
@@ -161,6 +162,7 @@ export class CloudNetworkMonitoringApiRequestFactory extends BaseAPIRequestFacto
     applySecurityAuthentication(_config, requestContext, [
       "apiKeyAuth",
       "appKeyAuth",
+      "AuthZ",
     ]);
 
     return requestContext;
@@ -189,7 +191,11 @@ export class CloudNetworkMonitoringApiResponseProcessor {
         ) as SingleAggregatedConnectionResponseArray;
       return body;
     }
-    if (response.httpStatusCode === 400 || response.httpStatusCode === 429) {
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 429
+    ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
         contentType
@@ -249,7 +255,11 @@ export class CloudNetworkMonitoringApiResponseProcessor {
         ) as SingleAggregatedDnsResponseArray;
       return body;
     }
-    if (response.httpStatusCode === 400 || response.httpStatusCode === 429) {
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 429
+    ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
         contentType
