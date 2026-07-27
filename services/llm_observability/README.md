@@ -28,15 +28,14 @@ const configuration = createConfiguration();
 // Enable unstable operations
 const configurationOpts = {
     unstableOperations: {
-        "LLMObservabilityApi.v2.getLLMObsCustomEvalConfig": true
+        "LLMObservabilityApi.v2.listLLMObsCustomEvalConfigs": true
     }
 }
 
 const configuration = createConfiguration(configurationOpts);
 const apiInstance = new LLMObservabilityApiV2(configuration);
-const params = {/* parameters */};
 
-apiInstance.getLLMObsCustomEvalConfig(params).then((data) => {
+apiInstance.listLLMObsCustomEvalConfigs().then((data) => {
     console.log("API called successfully. Returned data: " + JSON.stringify(data));
 }).catch((error) => {
     console.error("Error calling API: " + error);

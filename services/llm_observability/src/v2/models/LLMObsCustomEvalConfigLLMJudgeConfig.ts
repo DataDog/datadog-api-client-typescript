@@ -14,6 +14,10 @@ export class LLMObsCustomEvalConfigLLMJudgeConfig {
    */
   "assessmentCriteria"?: LLMObsCustomEvalConfigAssessmentCriteria;
   /**
+   * Query used to extract additional context for the evaluation.
+   */
+  "contextQuery"?: string;
+  /**
    * LLM inference parameters for a custom evaluator.
    */
   "inferenceParams": LLMObsCustomEvalConfigInferenceParams;
@@ -38,6 +42,14 @@ export class LLMObsCustomEvalConfigLLMJudgeConfig {
    */
   "promptTemplate"?: Array<LLMObsCustomEvalConfigPromptMessage>;
   /**
+   * Query used to extract the target value to evaluate.
+   */
+  "targetQuery"?: string;
+  /**
+   * User-provided function applied to post-process the JSON output of the LLM judge.
+   */
+  "userSpecifiedJsonPostProcessingFunction"?: string;
+  /**
    * A container for additional, undeclared properties.
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
@@ -55,6 +67,10 @@ export class LLMObsCustomEvalConfigLLMJudgeConfig {
     assessmentCriteria: {
       baseName: "assessment_criteria",
       type: "LLMObsCustomEvalConfigAssessmentCriteria",
+    },
+    contextQuery: {
+      baseName: "context_query",
+      type: "string",
     },
     inferenceParams: {
       baseName: "inference_params",
@@ -80,6 +96,14 @@ export class LLMObsCustomEvalConfigLLMJudgeConfig {
     promptTemplate: {
       baseName: "prompt_template",
       type: "Array<LLMObsCustomEvalConfigPromptMessage>",
+    },
+    targetQuery: {
+      baseName: "target_query",
+      type: "string",
+    },
+    userSpecifiedJsonPostProcessingFunction: {
+      baseName: "user_specified_json_post_processing_function",
+      type: "string",
     },
     additionalProperties: {
       baseName: "additionalProperties",
