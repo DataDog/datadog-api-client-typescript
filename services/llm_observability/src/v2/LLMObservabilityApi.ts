@@ -41,6 +41,7 @@ import { LLMObsAnnotationsRequest } from "./models/LLMObsAnnotationsRequest";
 import { LLMObsAnnotationsResponse } from "./models/LLMObsAnnotationsResponse";
 import { LLMObsCreatePromptRequest } from "./models/LLMObsCreatePromptRequest";
 import { LLMObsCreatePromptVersionRequest } from "./models/LLMObsCreatePromptVersionRequest";
+import { LLMObsCustomEvalConfigListResponse } from "./models/LLMObsCustomEvalConfigListResponse";
 import { LLMObsCustomEvalConfigResponse } from "./models/LLMObsCustomEvalConfigResponse";
 import { LLMObsCustomEvalConfigUpdateRequest } from "./models/LLMObsCustomEvalConfigUpdateRequest";
 import { LLMObsDataDeletionRequest } from "./models/LLMObsDataDeletionRequest";
@@ -2348,6 +2349,51 @@ export class LLMObservabilityApiRequestFactory extends BaseAPIRequestFactory {
         serialize(queueIds, TypingInfo, "Array<string>", ""),
         "multi",
       );
+    }
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+    ]);
+
+    return requestContext;
+  }
+
+  public async listLLMObsCustomEvalConfigs(
+    _options?: Configuration,
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    if (
+      !_config.unstableOperations[
+        "LLMObservabilityApi.v2.listLLMObsCustomEvalConfigs"
+      ]
+    ) {
+      throw new Error(
+        "Unstable operation 'listLLMObsCustomEvalConfigs' is disabled. Enable it by setting `configuration.unstableOperations['LLMObservabilityApi.v2.listLLMObsCustomEvalConfigs'] = true`",
+      );
+    }
+
+    // Path Params
+    const localVarPath = "/api/unstable/llm-obs/config/evaluators/custom";
+
+    // Make Request Context
+    const { server, overrides } = _config.getServerAndOverrides(
+      "LLMObservabilityApi.v2.listLLMObsCustomEvalConfigs",
+      LLMObservabilityApi.operationServers,
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.GET,
+      overrides,
+    );
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Set User-Agent
+    if (this.userAgent) {
+      requestContext.setHeaderParam("User-Agent", this.userAgent);
     }
 
     // Apply auth methods
@@ -7769,6 +7815,83 @@ export class LLMObservabilityApiResponseProcessor {
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
    *
+   * @params response Response returned by the server for a request to listLLMObsCustomEvalConfigs
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async listLLMObsCustomEvalConfigs(
+    response: ResponseContext,
+  ): Promise<LLMObsCustomEvalConfigListResponse> {
+    const contentType = normalizeMediaType(response.headers["content-type"]);
+    if (response.httpStatusCode === 200) {
+      const body: LLMObsCustomEvalConfigListResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "LLMObsCustomEvalConfigListResponse",
+      ) as LLMObsCustomEvalConfigListResponse;
+      return body;
+    }
+    if (response.httpStatusCode === 401 || response.httpStatusCode === 403) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: JSONAPIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "JSONAPIErrorResponse",
+        ) as JSONAPIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<JSONAPIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<JSONAPIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
+    }
+    if (response.httpStatusCode === 429) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: APIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "APIErrorResponse",
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: LLMObsCustomEvalConfigListResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "LLMObsCustomEvalConfigListResponse",
+        "",
+      ) as LLMObsCustomEvalConfigListResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"',
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
    * @params response Response returned by the server for a request to listLLMObsDatasetRecords
    * @throws ApiException if the response code was not in [200, 299]
    */
@@ -12610,6 +12733,26 @@ export class LLMObservabilityApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.listLLMObsAnnotationQueues(
+            responseContext,
+          );
+        });
+    });
+  }
+
+  /**
+   * List all custom LLM Observability evaluator configurations for the organization.
+   * @param param The request object
+   */
+  public listLLMObsCustomEvalConfigs(
+    options?: Configuration,
+  ): Promise<LLMObsCustomEvalConfigListResponse> {
+    const requestContextPromise =
+      this.requestFactory.listLLMObsCustomEvalConfigs(options);
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.listLLMObsCustomEvalConfigs(
             responseContext,
           );
         });

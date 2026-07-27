@@ -19,6 +19,10 @@ export class LLMObsCustomEvalConfigTarget {
    */
   "evalScope"?: LLMObsCustomEvalConfigEvalScope;
   /**
+   * Experiment project IDs this evaluator is scoped to.
+   */
+  "experimentProjectIds"?: Array<string>;
+  /**
    * Filter expression to select which spans to evaluate.
    */
   "filter"?: string;
@@ -58,6 +62,11 @@ export class LLMObsCustomEvalConfigTarget {
     evalScope: {
       baseName: "eval_scope",
       type: "LLMObsCustomEvalConfigEvalScope",
+    },
+    experimentProjectIds: {
+      baseName: "experiment_project_ids",
+      type: "Array<string>",
+      format: "uuid",
     },
     filter: {
       baseName: "filter",
