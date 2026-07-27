@@ -643,9 +643,12 @@ import { ToplistWidgetFlat } from "./ToplistWidgetFlat";
 import { ToplistWidgetRequest } from "./ToplistWidgetRequest";
 import { ToplistWidgetStacked } from "./ToplistWidgetStacked";
 import { ToplistWidgetStyle } from "./ToplistWidgetStyle";
-import { TopologyMapWidgetDefinition } from "./TopologyMapWidgetDefinition";
-import { TopologyQuery } from "./TopologyQuery";
-import { TopologyRequest } from "./TopologyRequest";
+import { TopologyMapWidgetDefinitionDataStreams } from "./TopologyMapWidgetDefinitionDataStreams";
+import { TopologyMapWidgetDefinitionServiceMap } from "./TopologyMapWidgetDefinitionServiceMap";
+import { TopologyQueryDataStreams } from "./TopologyQueryDataStreams";
+import { TopologyQueryServiceMap } from "./TopologyQueryServiceMap";
+import { TopologyRequestDataStreams } from "./TopologyRequestDataStreams";
+import { TopologyRequestServiceMap } from "./TopologyRequestServiceMap";
 import { TreeMapWidgetDefinition } from "./TreeMapWidgetDefinition";
 import { TreeMapWidgetRequest } from "./TreeMapWidgetRequest";
 import { UsageAnalyzedLogsHour } from "./UsageAnalyzedLogsHour";
@@ -1938,7 +1941,8 @@ const enumsMap: { [key: string]: any[] } = {
   ToplistWidgetScaling: ["absolute", "relative"],
   ToplistWidgetStackedType: ["stacked"],
   TopologyMapWidgetDefinitionType: ["topology_map"],
-  TopologyQueryDataSource: ["data_streams", "service_map"],
+  TopologyQueryDataStreamsDataSource: ["data_streams"],
+  TopologyQueryServiceMapDataSource: ["service_map"],
   TopologyRequestType: ["topology"],
   TreeMapColorBy: ["user"],
   TreeMapGroupBy: ["user", "family", "process"],
@@ -2794,9 +2798,13 @@ const typeMap: { [index: string]: any } = {
   ToplistWidgetRequest: ToplistWidgetRequest,
   ToplistWidgetStacked: ToplistWidgetStacked,
   ToplistWidgetStyle: ToplistWidgetStyle,
-  TopologyMapWidgetDefinition: TopologyMapWidgetDefinition,
-  TopologyQuery: TopologyQuery,
-  TopologyRequest: TopologyRequest,
+  TopologyMapWidgetDefinitionDataStreams:
+    TopologyMapWidgetDefinitionDataStreams,
+  TopologyMapWidgetDefinitionServiceMap: TopologyMapWidgetDefinitionServiceMap,
+  TopologyQueryDataStreams: TopologyQueryDataStreams,
+  TopologyQueryServiceMap: TopologyQueryServiceMap,
+  TopologyRequestDataStreams: TopologyRequestDataStreams,
+  TopologyRequestServiceMap: TopologyRequestServiceMap,
   TreeMapWidgetDefinition: TreeMapWidgetDefinition,
   TreeMapWidgetRequest: TreeMapWidgetRequest,
   UsageAnalyzedLogsHour: UsageAnalyzedLogsHour,
@@ -3106,6 +3114,10 @@ const oneOfMap: { [index: string]: string[] } = {
     "TableWidgetTextFormatReplaceSubstring",
   ],
   ToplistWidgetDisplay: ["ToplistWidgetStacked", "ToplistWidgetFlat"],
+  TopologyMapWidgetDefinition: [
+    "TopologyMapWidgetDefinitionDataStreams",
+    "TopologyMapWidgetDefinitionServiceMap",
+  ],
   WidgetDefinition: [
     "AlertGraphWidgetDefinition",
     "AlertValueWidgetDefinition",
