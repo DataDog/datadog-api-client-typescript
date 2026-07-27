@@ -2378,6 +2378,7 @@ import { LLMObsCustomEvalConfigData } from "./LLMObsCustomEvalConfigData";
 import { LLMObsCustomEvalConfigInferenceParams } from "./LLMObsCustomEvalConfigInferenceParams";
 import { LLMObsCustomEvalConfigLLMJudgeConfig } from "./LLMObsCustomEvalConfigLLMJudgeConfig";
 import { LLMObsCustomEvalConfigLLMProvider } from "./LLMObsCustomEvalConfigLLMProvider";
+import { LLMObsCustomEvalConfigListResponse } from "./LLMObsCustomEvalConfigListResponse";
 import { LLMObsCustomEvalConfigPromptContent } from "./LLMObsCustomEvalConfigPromptContent";
 import { LLMObsCustomEvalConfigPromptContentValue } from "./LLMObsCustomEvalConfigPromptContentValue";
 import { LLMObsCustomEvalConfigPromptMessage } from "./LLMObsCustomEvalConfigPromptMessage";
@@ -6577,7 +6578,11 @@ const enumsMap: { [key: string]: any[] } = {
     "vertex-ai",
     "llm-proxy",
   ],
-  LLMObsCustomEvalConfigParsingType: ["structured_output", "json"],
+  LLMObsCustomEvalConfigParsingType: [
+    "structured_output",
+    "json",
+    "keyword_search",
+  ],
   LLMObsCustomEvalConfigType: ["evaluator_config"],
   LLMObsDataDeletionRequestType: ["create_deletion_req"],
   LLMObsDataDeletionResponseType: ["deletion_request"],
@@ -11184,6 +11189,7 @@ const typeMap: { [index: string]: any } = {
   LLMObsCustomEvalConfigInferenceParams: LLMObsCustomEvalConfigInferenceParams,
   LLMObsCustomEvalConfigLLMJudgeConfig: LLMObsCustomEvalConfigLLMJudgeConfig,
   LLMObsCustomEvalConfigLLMProvider: LLMObsCustomEvalConfigLLMProvider,
+  LLMObsCustomEvalConfigListResponse: LLMObsCustomEvalConfigListResponse,
   LLMObsCustomEvalConfigPromptContent: LLMObsCustomEvalConfigPromptContent,
   LLMObsCustomEvalConfigPromptContentValue:
     LLMObsCustomEvalConfigPromptContentValue,

@@ -21,6 +21,7 @@ const params: v2.LLMObservabilityApiUpdateLLMObsCustomEvalConfigRequest = {
             passValues: ["pass", "yes"],
             passWhen: true,
           },
+          contextQuery: "@input.context",
           inferenceParams: {
             frequencyPenalty: 0.0,
             maxTokens: 1024,
@@ -59,9 +60,13 @@ const params: v2.LLMObservabilityApiUpdateLLMObsCustomEvalConfigRequest = {
               role: "user",
             },
           ],
+          targetQuery: "@output.value",
+          userSpecifiedJsonPostProcessingFunction: undefined,
         },
         llmProvider: {
           bedrock: {
+            inferenceProfile:
+              "arn:aws:bedrock:us-east-1:123456789012:application-inference-profile/abc123",
             region: "us-east-1",
           },
           integrationAccountId: "my-account-id",
@@ -76,6 +81,7 @@ const params: v2.LLMObservabilityApiUpdateLLMObsCustomEvalConfigRequest = {
           applicationName: "my-llm-app",
           enabled: true,
           evalScope: "span",
+          experimentProjectIds: [],
           filter: "@service:my-service",
           rootSpansOnly: true,
           samplingPercentage: 50.0,

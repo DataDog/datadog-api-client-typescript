@@ -3,21 +3,18 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
+import { LLMObsCustomEvalConfigData } from "./LLMObsCustomEvalConfigData";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * AWS Bedrock-specific options for LLM provider configuration.
+ * Response containing a list of custom LLM Observability evaluator configurations.
  */
-export class LLMObsCustomEvalConfigBedrockOptions {
+export class LLMObsCustomEvalConfigListResponse {
   /**
-   * Bedrock inference profile identifier, such as an application inference profile ARN.
+   * List of custom evaluator configuration data objects.
    */
-  "inferenceProfile"?: string;
-  /**
-   * AWS region for Bedrock.
-   */
-  "region"?: string;
+  "data": Array<LLMObsCustomEvalConfigData>;
 
   /**
    * A container for additional, undeclared properties.
@@ -35,13 +32,10 @@ export class LLMObsCustomEvalConfigBedrockOptions {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    inferenceProfile: {
-      baseName: "inference_profile",
-      type: "string",
-    },
-    region: {
-      baseName: "region",
-      type: "string",
+    data: {
+      baseName: "data",
+      type: "Array<LLMObsCustomEvalConfigData>",
+      required: true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -53,7 +47,7 @@ export class LLMObsCustomEvalConfigBedrockOptions {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-    return LLMObsCustomEvalConfigBedrockOptions.attributeTypeMap;
+    return LLMObsCustomEvalConfigListResponse.attributeTypeMap;
   }
 
   public constructor() {}

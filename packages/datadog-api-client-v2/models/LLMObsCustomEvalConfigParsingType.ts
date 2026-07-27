@@ -13,6 +13,8 @@ import { UnparsedObject } from "../../datadog-api-client-common/util";
 export type LLMObsCustomEvalConfigParsingType =
   | typeof STRUCTURED_OUTPUT
   | typeof JSON
+  | typeof KEYWORD_SEARCH
   | UnparsedObject;
 export const STRUCTURED_OUTPUT = "structured_output";
 export const JSON = "json";
+export const KEYWORD_SEARCH = "keyword_search";
