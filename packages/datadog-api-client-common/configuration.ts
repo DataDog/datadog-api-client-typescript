@@ -273,6 +273,7 @@ export function createConfiguration(
       "v2.getLLMObsPrompt": false,
       "v2.getLLMObsPromptVersion": false,
       "v2.listLLMObsAnnotationQueues": false,
+      "v2.listLLMObsCustomEvalConfigs": false,
       "v2.listLLMObsDatasetRecords": false,
       "v2.listLLMObsDatasets": false,
       "v2.listLLMObsDatasetVersions": false,

@@ -2516,6 +2516,9 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             },
         "operationResponseType": "FleetTracersResponse",
     },
+    "v2.ListLLMObsCustomEvalConfigs": {
+        "operationResponseType": "LLMObsCustomEvalConfigListResponse",
+    },
     "v2.GetLLMObsCustomEvalConfig": {
         "evalName": {
             "type": "string",
