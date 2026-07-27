@@ -7411,6 +7411,9 @@ export { SecurityMonitoringRuleBulkDeleteData } from "./models/SecurityMonitorin
 export { SecurityMonitoringRuleBulkDeletePayload } from "./models/SecurityMonitoringRuleBulkDeletePayload";
 export { SecurityMonitoringRuleBulkDeleteRequestDataType } from "./models/SecurityMonitoringRuleBulkDeleteRequestDataType";
 export { SecurityMonitoringRuleBulkDeleteResponse } from "./models/SecurityMonitoringRuleBulkDeleteResponse";
+export { SecurityMonitoringRuleBulkDeleteResponseAttributes } from "./models/SecurityMonitoringRuleBulkDeleteResponseAttributes";
+export { SecurityMonitoringRuleBulkDeleteResponseData } from "./models/SecurityMonitoringRuleBulkDeleteResponseData";
+export { SecurityMonitoringRuleBulkDeleteResponseDataType } from "./models/SecurityMonitoringRuleBulkDeleteResponseDataType";
 export { SecurityMonitoringRuleBulkExportAttributes } from "./models/SecurityMonitoringRuleBulkExportAttributes";
 export { SecurityMonitoringRuleBulkExportData } from "./models/SecurityMonitoringRuleBulkExportData";
 export { SecurityMonitoringRuleBulkExportDataType } from "./models/SecurityMonitoringRuleBulkExportDataType";

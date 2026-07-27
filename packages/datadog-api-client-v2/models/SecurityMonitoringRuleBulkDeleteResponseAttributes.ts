@@ -3,18 +3,21 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
-import { SecurityMonitoringRuleBulkDeleteResponseData } from "./SecurityMonitoringRuleBulkDeleteResponseData";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * Response for bulk deleting security monitoring rules.
+ * Attributes for the bulk delete response.
  */
-export class SecurityMonitoringRuleBulkDeleteResponse {
+export class SecurityMonitoringRuleBulkDeleteResponseAttributes {
   /**
-   * Data for the bulk delete response.
+   * List of successfully deleted rule IDs.
    */
-  "data"?: SecurityMonitoringRuleBulkDeleteResponseData;
+  "deletedRules"?: Array<string>;
+  /**
+   * List of rule IDs that could not be deleted.
+   */
+  "failedRules"?: Array<string>;
 
   /**
    * A container for additional, undeclared properties.
@@ -32,9 +35,13 @@ export class SecurityMonitoringRuleBulkDeleteResponse {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    data: {
-      baseName: "data",
-      type: "SecurityMonitoringRuleBulkDeleteResponseData",
+    deletedRules: {
+      baseName: "deletedRules",
+      type: "Array<string>",
+    },
+    failedRules: {
+      baseName: "failedRules",
+      type: "Array<string>",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -46,7 +53,7 @@ export class SecurityMonitoringRuleBulkDeleteResponse {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-    return SecurityMonitoringRuleBulkDeleteResponse.attributeTypeMap;
+    return SecurityMonitoringRuleBulkDeleteResponseAttributes.attributeTypeMap;
   }
 
   public constructor() {}

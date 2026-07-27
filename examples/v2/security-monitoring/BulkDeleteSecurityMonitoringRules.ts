@@ -14,6 +14,7 @@ const params: v2.SecurityMonitoringApiBulkDeleteSecurityMonitoringRulesRequest =
         attributes: {
           ruleIds: ["abc-000-u7q", "abc-000-7dd"],
         },
+        id: "bulk_delete",
         type: "bulk_delete_rules",
       },
     },
