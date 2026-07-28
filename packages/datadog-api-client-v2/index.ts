@@ -1184,6 +1184,12 @@ export {
 } from "./apis/RUMApi";
 
 export {
+  RUMConfigApiCreateRumConfigRequest,
+  RUMConfigApiUpdateRumConfigRequest,
+  RUMConfigApi,
+} from "./apis/RUMConfigApi";
+
+export {
   RUMInsightsApiQueryAggregatedLongTasksRequest,
   RUMInsightsApiQueryAggregatedSignalsProblemsRequest,
   RUMInsightsApiQueryAggregatedWaterfallRequest,
@@ -6915,6 +6921,16 @@ export { RUMApplicationUpdateType } from "./models/RUMApplicationUpdateType";
 export { RUMBucketResponse } from "./models/RUMBucketResponse";
 export { RUMCompute } from "./models/RUMCompute";
 export { RUMComputeType } from "./models/RUMComputeType";
+export { RumConfigAttributes } from "./models/RumConfigAttributes";
+export { RumConfigCreateAttributes } from "./models/RumConfigCreateAttributes";
+export { RumConfigCreateData } from "./models/RumConfigCreateData";
+export { RumConfigCreateRequest } from "./models/RumConfigCreateRequest";
+export { RumConfigData } from "./models/RumConfigData";
+export { RumConfigResponse } from "./models/RumConfigResponse";
+export { RumConfigType } from "./models/RumConfigType";
+export { RumConfigUpdateAttributes } from "./models/RumConfigUpdateAttributes";
+export { RumConfigUpdateData } from "./models/RumConfigUpdateData";
+export { RumConfigUpdateRequest } from "./models/RumConfigUpdateRequest";
 export { RumCrossProductSampling } from "./models/RumCrossProductSampling";
 export { RumCrossProductSamplingCreate } from "./models/RumCrossProductSamplingCreate";
 export { RumCrossProductSamplingUpdate } from "./models/RumCrossProductSamplingUpdate";
