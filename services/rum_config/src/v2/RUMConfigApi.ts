@@ -23,39 +23,44 @@ import {
 
 import { TypingInfo } from "./models/TypingInfo";
 import { APIErrorResponse } from "./models/APIErrorResponse";
-import { DdsqlTabularQueryFetchRequest } from "./models/DdsqlTabularQueryFetchRequest";
-import { DdsqlTabularQueryRequest } from "./models/DdsqlTabularQueryRequest";
-import { DdsqlTabularQueryResponse } from "./models/DdsqlTabularQueryResponse";
-import { JSONAPIErrorResponse } from "./models/JSONAPIErrorResponse";
+import { RumConfigCreateRequest } from "./models/RumConfigCreateRequest";
+import { RumConfigResponse } from "./models/RumConfigResponse";
+import { RumConfigUpdateRequest } from "./models/RumConfigUpdateRequest";
 import { version } from "../version";
 
-export class DDSQLApiRequestFactory extends BaseAPIRequestFactory {
+export class RUMConfigApiRequestFactory extends BaseAPIRequestFactory {
   public userAgent: string | undefined;
 
   public constructor(configuration: Configuration) {
     super(configuration);
     if (!isBrowser) {
-      this.userAgent = buildUserAgent("ddsql", version);
+      this.userAgent = buildUserAgent("rum-config", version);
     }
   }
-  public async executeDdsqlTabularQuery(
-    body: DdsqlTabularQueryRequest,
+  public async createRumConfig(
+    body: RumConfigCreateRequest,
     _options?: Configuration,
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
+    if (!_config.unstableOperations["RUMConfigApi.v2.createRumConfig"]) {
+      throw new Error(
+        "Unstable operation 'createRumConfig' is disabled. Enable it by setting `configuration.unstableOperations['RUMConfigApi.v2.createRumConfig'] = true`",
+      );
+    }
+
     // verify required parameter 'body' is not null or undefined
     if (body === null || body === undefined) {
-      throw new RequiredError("body", "executeDdsqlTabularQuery");
+      throw new RequiredError("body", "createRumConfig");
     }
 
     // Path Params
-    const localVarPath = "/api/v2/ddsql/query/tabular";
+    const localVarPath = "/api/v2/rum/config";
 
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
-      "DDSQLApi.v2.executeDdsqlTabularQuery",
-      DDSQLApi.operationServers,
+      "RUMConfigApi.v2.createRumConfig",
+      RUMConfigApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -74,7 +79,7 @@ export class DDSQLApiRequestFactory extends BaseAPIRequestFactory {
     const contentType = getPreferredMediaType(["application/json"]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = stringify(
-      serialize(body, TypingInfo, "DdsqlTabularQueryRequest", ""),
+      serialize(body, TypingInfo, "RumConfigCreateRequest", ""),
       contentType,
     );
     requestContext.setBody(serializedBody);
@@ -88,28 +93,73 @@ export class DDSQLApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
-  public async fetchDdsqlTabularQuery(
-    body: DdsqlTabularQueryFetchRequest,
+  public async getRumConfig(_options?: Configuration): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    if (!_config.unstableOperations["RUMConfigApi.v2.getRumConfig"]) {
+      throw new Error(
+        "Unstable operation 'getRumConfig' is disabled. Enable it by setting `configuration.unstableOperations['RUMConfigApi.v2.getRumConfig'] = true`",
+      );
+    }
+
+    // Path Params
+    const localVarPath = "/api/v2/rum/config";
+
+    // Make Request Context
+    const { server, overrides } = _config.getServerAndOverrides(
+      "RUMConfigApi.v2.getRumConfig",
+      RUMConfigApi.operationServers,
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.GET,
+      overrides,
+    );
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Set User-Agent
+    if (this.userAgent) {
+      requestContext.setHeaderParam("User-Agent", this.userAgent);
+    }
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+    ]);
+
+    return requestContext;
+  }
+
+  public async updateRumConfig(
+    body: RumConfigUpdateRequest,
     _options?: Configuration,
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
+    if (!_config.unstableOperations["RUMConfigApi.v2.updateRumConfig"]) {
+      throw new Error(
+        "Unstable operation 'updateRumConfig' is disabled. Enable it by setting `configuration.unstableOperations['RUMConfigApi.v2.updateRumConfig'] = true`",
+      );
+    }
+
     // verify required parameter 'body' is not null or undefined
     if (body === null || body === undefined) {
-      throw new RequiredError("body", "fetchDdsqlTabularQuery");
+      throw new RequiredError("body", "updateRumConfig");
     }
 
     // Path Params
-    const localVarPath = "/api/v2/ddsql/query/tabular/fetch";
+    const localVarPath = "/api/v2/rum/config";
 
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
-      "DDSQLApi.v2.fetchDdsqlTabularQuery",
-      DDSQLApi.operationServers,
+      "RUMConfigApi.v2.updateRumConfig",
+      RUMConfigApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
-      HttpMethod.POST,
+      HttpMethod.PATCH,
       overrides,
     );
     requestContext.setHeaderParam("Accept", "application/json");
@@ -124,7 +174,7 @@ export class DDSQLApiRequestFactory extends BaseAPIRequestFactory {
     const contentType = getPreferredMediaType(["application/json"]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = stringify(
-      serialize(body, TypingInfo, "DdsqlTabularQueryFetchRequest", ""),
+      serialize(body, TypingInfo, "RumConfigUpdateRequest", ""),
       contentType,
     );
     requestContext.setBody(serializedBody);
@@ -139,52 +189,31 @@ export class DDSQLApiRequestFactory extends BaseAPIRequestFactory {
   }
 }
 
-export class DDSQLApiResponseProcessor {
+export class RUMConfigApiResponseProcessor {
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
    *
-   * @params response Response returned by the server for a request to executeDdsqlTabularQuery
+   * @params response Response returned by the server for a request to createRumConfig
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async executeDdsqlTabularQuery(
+  public async createRumConfig(
     response: ResponseContext,
-  ): Promise<DdsqlTabularQueryResponse> {
+  ): Promise<RumConfigResponse> {
     const contentType = normalizeMediaType(response.headers["content-type"]);
-    if (response.httpStatusCode === 200) {
-      const body: DdsqlTabularQueryResponse = deserialize(
+    if (response.httpStatusCode === 201) {
+      const body: RumConfigResponse = deserialize(
         parse(await response.body.text(), contentType),
         TypingInfo,
-        "DdsqlTabularQueryResponse",
-      ) as DdsqlTabularQueryResponse;
+        "RumConfigResponse",
+      ) as RumConfigResponse;
       return body;
     }
     if (
       response.httpStatusCode === 400 ||
       response.httpStatusCode === 403 ||
-      response.httpStatusCode === 500
+      response.httpStatusCode === 429
     ) {
-      const bodyText = parse(await response.body.text(), contentType);
-      let body: JSONAPIErrorResponse;
-      try {
-        body = deserialize(
-          bodyText,
-          TypingInfo,
-          "JSONAPIErrorResponse",
-        ) as JSONAPIErrorResponse;
-      } catch (error) {
-        logger.debug(`Got error deserializing error: ${error}`);
-        throw new ApiException<JSONAPIErrorResponse>(
-          response.httpStatusCode,
-          bodyText,
-        );
-      }
-      throw new ApiException<JSONAPIErrorResponse>(
-        response.httpStatusCode,
-        body,
-      );
-    }
-    if (response.httpStatusCode === 429) {
       const bodyText = parse(await response.body.text(), contentType);
       let body: APIErrorResponse;
       try {
@@ -205,12 +234,12 @@ export class DDSQLApiResponseProcessor {
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-      const body: DdsqlTabularQueryResponse = deserialize(
+      const body: RumConfigResponse = deserialize(
         parse(await response.body.text(), contentType),
         TypingInfo,
-        "DdsqlTabularQueryResponse",
+        "RumConfigResponse",
         "",
-      ) as DdsqlTabularQueryResponse;
+      ) as RumConfigResponse;
       return body;
     }
 
@@ -225,47 +254,22 @@ export class DDSQLApiResponseProcessor {
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
    *
-   * @params response Response returned by the server for a request to fetchDdsqlTabularQuery
+   * @params response Response returned by the server for a request to getRumConfig
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async fetchDdsqlTabularQuery(
+  public async getRumConfig(
     response: ResponseContext,
-  ): Promise<DdsqlTabularQueryResponse> {
+  ): Promise<RumConfigResponse> {
     const contentType = normalizeMediaType(response.headers["content-type"]);
     if (response.httpStatusCode === 200) {
-      const body: DdsqlTabularQueryResponse = deserialize(
+      const body: RumConfigResponse = deserialize(
         parse(await response.body.text(), contentType),
         TypingInfo,
-        "DdsqlTabularQueryResponse",
-      ) as DdsqlTabularQueryResponse;
+        "RumConfigResponse",
+      ) as RumConfigResponse;
       return body;
     }
-    if (
-      response.httpStatusCode === 400 ||
-      response.httpStatusCode === 403 ||
-      response.httpStatusCode === 500
-    ) {
-      const bodyText = parse(await response.body.text(), contentType);
-      let body: JSONAPIErrorResponse;
-      try {
-        body = deserialize(
-          bodyText,
-          TypingInfo,
-          "JSONAPIErrorResponse",
-        ) as JSONAPIErrorResponse;
-      } catch (error) {
-        logger.debug(`Got error deserializing error: ${error}`);
-        throw new ApiException<JSONAPIErrorResponse>(
-          response.httpStatusCode,
-          bodyText,
-        );
-      }
-      throw new ApiException<JSONAPIErrorResponse>(
-        response.httpStatusCode,
-        body,
-      );
-    }
-    if (response.httpStatusCode === 429) {
+    if (response.httpStatusCode === 403 || response.httpStatusCode === 429) {
       const bodyText = parse(await response.body.text(), contentType);
       let body: APIErrorResponse;
       try {
@@ -286,12 +290,72 @@ export class DDSQLApiResponseProcessor {
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-      const body: DdsqlTabularQueryResponse = deserialize(
+      const body: RumConfigResponse = deserialize(
         parse(await response.body.text(), contentType),
         TypingInfo,
-        "DdsqlTabularQueryResponse",
+        "RumConfigResponse",
         "",
-      ) as DdsqlTabularQueryResponse;
+      ) as RumConfigResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"',
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
+   * @params response Response returned by the server for a request to updateRumConfig
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async updateRumConfig(
+    response: ResponseContext,
+  ): Promise<RumConfigResponse> {
+    const contentType = normalizeMediaType(response.headers["content-type"]);
+    if (response.httpStatusCode === 200) {
+      const body: RumConfigResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "RumConfigResponse",
+      ) as RumConfigResponse;
+      return body;
+    }
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 429
+    ) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: APIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "APIErrorResponse",
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: RumConfigResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "RumConfigResponse",
+        "",
+      ) as RumConfigResponse;
       return body;
     }
 
@@ -303,50 +367,51 @@ export class DDSQLApiResponseProcessor {
   }
 }
 
-export interface DDSQLApiExecuteDdsqlTabularQueryRequest {
+export interface RUMConfigApiCreateRumConfigRequest {
   /**
-   * @type DdsqlTabularQueryRequest
+   * The definition of the RUM configuration to create.
+   * @type RumConfigCreateRequest
    */
-  body: DdsqlTabularQueryRequest;
+  body: RumConfigCreateRequest;
 }
 
-export interface DDSQLApiFetchDdsqlTabularQueryRequest {
+export interface RUMConfigApiUpdateRumConfigRequest {
   /**
-   * @type DdsqlTabularQueryFetchRequest
+   * New definition of the RUM configuration.
+   * @type RumConfigUpdateRequest
    */
-  body: DdsqlTabularQueryFetchRequest;
+  body: RumConfigUpdateRequest;
 }
 
-export class DDSQLApi {
-  private requestFactory: DDSQLApiRequestFactory;
-  private responseProcessor: DDSQLApiResponseProcessor;
+export class RUMConfigApi {
+  private requestFactory: RUMConfigApiRequestFactory;
+  private responseProcessor: RUMConfigApiResponseProcessor;
   private configuration: Configuration;
 
   static operationServers: { [key: string]: BaseServerConfiguration[] } = {};
 
   public constructor(
     configuration?: Configuration,
-    requestFactory?: DDSQLApiRequestFactory,
-    responseProcessor?: DDSQLApiResponseProcessor,
+    requestFactory?: RUMConfigApiRequestFactory,
+    responseProcessor?: RUMConfigApiResponseProcessor,
   ) {
     this.configuration = configuration || createConfiguration();
     this.requestFactory =
-      requestFactory || new DDSQLApiRequestFactory(this.configuration);
+      requestFactory || new RUMConfigApiRequestFactory(this.configuration);
     this.responseProcessor =
-      responseProcessor || new DDSQLApiResponseProcessor();
+      responseProcessor || new RUMConfigApiResponseProcessor();
   }
 
   /**
-   * Submit a DDSQL statement and return either a `running` state with an opaque `query_id`
-   * for the client to poll, or a `completed` state with the column-major result set inlined
-   * when the query finishes quickly enough to be served synchronously.
+   * Create the RUM configuration for your organization.
+   * Returns the RUM configuration object from the request body when the request is successful.
    * @param param The request object
    */
-  public executeDdsqlTabularQuery(
-    param: DDSQLApiExecuteDdsqlTabularQueryRequest,
+  public createRumConfig(
+    param: RUMConfigApiCreateRumConfigRequest,
     options?: Configuration,
-  ): Promise<DdsqlTabularQueryResponse> {
-    const requestContextPromise = this.requestFactory.executeDdsqlTabularQuery(
+  ): Promise<RumConfigResponse> {
+    const requestContextPromise = this.requestFactory.createRumConfig(
       param.body,
       options,
     );
@@ -354,25 +419,36 @@ export class DDSQLApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.executeDdsqlTabularQuery(
-            responseContext,
-          );
+          return this.responseProcessor.createRumConfig(responseContext);
         });
     });
   }
 
   /**
-   * Poll a previously submitted DDSQL query for results. Pass the opaque `query_id` returned
-   * by a prior `ExecuteDdsqlTabularQuery` (or by a prior `FetchDdsqlTabularQuery` that
-   * returned `state: running`) and the server returns either a `running` state to poll again
-   * or a `completed` state with the column-major result set inlined.
+   * Get the RUM configuration for your organization.
    * @param param The request object
    */
-  public fetchDdsqlTabularQuery(
-    param: DDSQLApiFetchDdsqlTabularQueryRequest,
+  public getRumConfig(options?: Configuration): Promise<RumConfigResponse> {
+    const requestContextPromise = this.requestFactory.getRumConfig(options);
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.getRumConfig(responseContext);
+        });
+    });
+  }
+
+  /**
+   * Update the RUM configuration for your organization.
+   * Returns the RUM configuration object from the request body when the request is successful.
+   * @param param The request object
+   */
+  public updateRumConfig(
+    param: RUMConfigApiUpdateRumConfigRequest,
     options?: Configuration,
-  ): Promise<DdsqlTabularQueryResponse> {
-    const requestContextPromise = this.requestFactory.fetchDdsqlTabularQuery(
+  ): Promise<RumConfigResponse> {
+    const requestContextPromise = this.requestFactory.updateRumConfig(
       param.body,
       options,
     );
@@ -380,7 +456,7 @@ export class DDSQLApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.fetchDdsqlTabularQuery(responseContext);
+          return this.responseProcessor.updateRumConfig(responseContext);
         });
     });
   }
