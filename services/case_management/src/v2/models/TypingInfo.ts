@@ -51,6 +51,8 @@ import { CaseInsight } from "./CaseInsight";
 import { CaseInsightsAttributes } from "./CaseInsightsAttributes";
 import { CaseInsightsData } from "./CaseInsightsData";
 import { CaseInsightsRequest } from "./CaseInsightsRequest";
+import { CaseInvestigationNotebookCreateData } from "./CaseInvestigationNotebookCreateData";
+import { CaseInvestigationNotebookCreateRequest } from "./CaseInvestigationNotebookCreateRequest";
 import { CaseLink } from "./CaseLink";
 import { CaseLinkAttributes } from "./CaseLinkAttributes";
 import { CaseLinkCreate } from "./CaseLinkCreate";
@@ -158,8 +160,6 @@ import { MaintenanceWindowUpdate } from "./MaintenanceWindowUpdate";
 import { MaintenanceWindowUpdateAttributes } from "./MaintenanceWindowUpdateAttributes";
 import { MaintenanceWindowUpdateRequest } from "./MaintenanceWindowUpdateRequest";
 import { MaintenanceWindowsResponse } from "./MaintenanceWindowsResponse";
-import { NotebookCreateData } from "./NotebookCreateData";
-import { NotebookCreateRequest } from "./NotebookCreateRequest";
 import { NullableUserRelationship } from "./NullableUserRelationship";
 import { NullableUserRelationshipData } from "./NullableUserRelationshipData";
 import { Project } from "./Project";
@@ -248,6 +248,7 @@ export const TypingInfo: ModelTypingInfo = {
       "SCM_URL",
       "PROFILING_DOWNSIZING_EXPERIMENT",
     ],
+    CaseInvestigationNotebookResourceType: ["notebook"],
     CaseLinkResourceType: ["link"],
     CaseNotificationRuleResourceType: ["notification_rule"],
     CasePriority: ["NOT_DEFINED", "P1", "P2", "P3", "P4", "P5"],
@@ -262,7 +263,6 @@ export const TypingInfo: ModelTypingInfo = {
     IncidentResourceType: ["incidents"],
     JiraIssueResourceType: ["issues"],
     MaintenanceWindowResourceType: ["maintenance_window"],
-    NotebookResourceType: ["notebook"],
     ProjectFavoriteResourceType: ["project_favorite"],
     ProjectResourceType: ["project"],
     ServiceNowTicketResourceType: ["tickets"],
@@ -342,6 +342,9 @@ export const TypingInfo: ModelTypingInfo = {
     CaseInsightsAttributes: CaseInsightsAttributes,
     CaseInsightsData: CaseInsightsData,
     CaseInsightsRequest: CaseInsightsRequest,
+    CaseInvestigationNotebookCreateData: CaseInvestigationNotebookCreateData,
+    CaseInvestigationNotebookCreateRequest:
+      CaseInvestigationNotebookCreateRequest,
     CaseLink: CaseLink,
     CaseLinkAttributes: CaseLinkAttributes,
     CaseLinkCreate: CaseLinkCreate,
@@ -455,8 +458,6 @@ export const TypingInfo: ModelTypingInfo = {
     MaintenanceWindowUpdateAttributes: MaintenanceWindowUpdateAttributes,
     MaintenanceWindowUpdateRequest: MaintenanceWindowUpdateRequest,
     MaintenanceWindowsResponse: MaintenanceWindowsResponse,
-    NotebookCreateData: NotebookCreateData,
-    NotebookCreateRequest: NotebookCreateRequest,
     NullableUserRelationship: NullableUserRelationship,
     NullableUserRelationshipData: NullableUserRelationshipData,
     Project: Project,
