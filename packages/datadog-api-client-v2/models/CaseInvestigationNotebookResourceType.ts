@@ -7,8 +7,10 @@
 import { UnparsedObject } from "../../datadog-api-client-common/util";
 
 /**
- * Notebook resource type
+ * Case investigation notebook resource type.
  */
 
-export type NotebookResourceType = typeof NOTEBOOK | UnparsedObject;
+export type CaseInvestigationNotebookResourceType =
+  | typeof NOTEBOOK
+  | UnparsedObject;
 export const NOTEBOOK = "notebook";
