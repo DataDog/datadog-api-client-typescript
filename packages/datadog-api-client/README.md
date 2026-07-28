@@ -447,6 +447,7 @@ apiInstance
 | Powerpack | @datadog/datadog-api-client-powerpack | [README.md](../../services/powerpack/README.md) |
 | Processes | @datadog/datadog-api-client-processes | [README.md](../../services/processes/README.md) |
 | Product Analytics | @datadog/datadog-api-client-product-analytics | [README.md](../../services/product-analytics/README.md) |
+| Pup Bump Test | @datadog/datadog-api-client-pup-bump-test | [README.md](../../services/pup-bump-test/README.md) |
 | Reference Tables | @datadog/datadog-api-client-reference-tables | [README.md](../../services/reference-tables/README.md) |
 | Report Schedules | @datadog/datadog-api-client-report-schedules | [README.md](../../services/report-schedules/README.md) |
 | Reporting And Sharing | @datadog/datadog-api-client-reporting-and-sharing | [README.md](../../services/reporting-and-sharing/README.md) |
