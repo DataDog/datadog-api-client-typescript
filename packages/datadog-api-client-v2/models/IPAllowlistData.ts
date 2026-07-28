@@ -17,7 +17,7 @@ export class IPAllowlistData {
    */
   "attributes"?: IPAllowlistAttributes;
   /**
-   * The unique identifier of the org.
+   * The unique identifier of the organization.
    */
   "id"?: string;
   /**
