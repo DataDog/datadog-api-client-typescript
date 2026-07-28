@@ -153,11 +153,11 @@ export {
 } from "./apis/AuthNMappingsApi";
 
 export {
-  BitsAIApiGetInvestigationRequest,
-  BitsAIApiListInvestigationsRequest,
-  BitsAIApiTriggerInvestigationRequest,
-  BitsAIApi,
-} from "./apis/BitsAIApi";
+  BitsAISREApiGetInvestigationRequest,
+  BitsAISREApiListInvestigationsRequest,
+  BitsAISREApiTriggerInvestigationRequest,
+  BitsAISREApi,
+} from "./apis/BitsAISREApi";
 
 export {
   CIVisibilityPipelinesApiAggregateCIAppPipelineEventsRequest,

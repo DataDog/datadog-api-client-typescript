@@ -24,7 +24,7 @@ import { ListInvestigationsResponseData } from "../models/ListInvestigationsResp
 import { TriggerInvestigationRequest } from "../models/TriggerInvestigationRequest";
 import { TriggerInvestigationResponse } from "../models/TriggerInvestigationResponse";
 
-export class BitsAIApiRequestFactory extends BaseAPIRequestFactory {
+export class BitsAISREApiRequestFactory extends BaseAPIRequestFactory {
   public async getInvestigation(
     id: string,
     _options?: Configuration
@@ -49,7 +49,7 @@ export class BitsAIApiRequestFactory extends BaseAPIRequestFactory {
 
     // Make Request Context
     const requestContext = _config
-      .getServer("v2.BitsAIApi.getInvestigation")
+      .getServer("v2.BitsAISREApi.getInvestigation")
       .makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -82,7 +82,7 @@ export class BitsAIApiRequestFactory extends BaseAPIRequestFactory {
 
     // Make Request Context
     const requestContext = _config
-      .getServer("v2.BitsAIApi.listInvestigations")
+      .getServer("v2.BitsAISREApi.listInvestigations")
       .makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -141,7 +141,7 @@ export class BitsAIApiRequestFactory extends BaseAPIRequestFactory {
 
     // Make Request Context
     const requestContext = _config
-      .getServer("v2.BitsAIApi.triggerInvestigation")
+      .getServer("v2.BitsAISREApi.triggerInvestigation")
       .makeRequestContext(localVarPath, HttpMethod.POST);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -168,7 +168,7 @@ export class BitsAIApiRequestFactory extends BaseAPIRequestFactory {
   }
 }
 
-export class BitsAIApiResponseProcessor {
+export class BitsAISREApiResponseProcessor {
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
@@ -413,7 +413,7 @@ export class BitsAIApiResponseProcessor {
   }
 }
 
-export interface BitsAIApiGetInvestigationRequest {
+export interface BitsAISREApiGetInvestigationRequest {
   /**
    * The ID of the investigation.
    * @type string
@@ -421,7 +421,7 @@ export interface BitsAIApiGetInvestigationRequest {
   id: string;
 }
 
-export interface BitsAIApiListInvestigationsRequest {
+export interface BitsAISREApiListInvestigationsRequest {
   /**
    * Offset for pagination.
    * @type number
@@ -439,7 +439,7 @@ export interface BitsAIApiListInvestigationsRequest {
   filterMonitorId?: number;
 }
 
-export interface BitsAIApiTriggerInvestigationRequest {
+export interface BitsAISREApiTriggerInvestigationRequest {
   /**
    * Trigger investigation request body.
    * @type TriggerInvestigationRequest
@@ -447,29 +447,29 @@ export interface BitsAIApiTriggerInvestigationRequest {
   body: TriggerInvestigationRequest;
 }
 
-export class BitsAIApi {
-  private requestFactory: BitsAIApiRequestFactory;
-  private responseProcessor: BitsAIApiResponseProcessor;
+export class BitsAISREApi {
+  private requestFactory: BitsAISREApiRequestFactory;
+  private responseProcessor: BitsAISREApiResponseProcessor;
   private configuration: Configuration;
 
   public constructor(
     configuration: Configuration,
-    requestFactory?: BitsAIApiRequestFactory,
-    responseProcessor?: BitsAIApiResponseProcessor
+    requestFactory?: BitsAISREApiRequestFactory,
+    responseProcessor?: BitsAISREApiResponseProcessor
   ) {
     this.configuration = configuration;
     this.requestFactory =
-      requestFactory || new BitsAIApiRequestFactory(configuration);
+      requestFactory || new BitsAISREApiRequestFactory(configuration);
     this.responseProcessor =
-      responseProcessor || new BitsAIApiResponseProcessor();
+      responseProcessor || new BitsAISREApiResponseProcessor();
   }
 
   /**
-   * Get a specific Bits AI investigation by ID.
+   * Get a specific Bits AI SRE investigation by ID.
    * @param param The request object
    */
   public getInvestigation(
-    param: BitsAIApiGetInvestigationRequest,
+    param: BitsAISREApiGetInvestigationRequest,
     options?: Configuration
   ): Promise<GetInvestigationResponse> {
     const requestContextPromise = this.requestFactory.getInvestigation(
@@ -486,11 +486,11 @@ export class BitsAIApi {
   }
 
   /**
-   * List all Bits AI investigations for the organization.
+   * List all Bits AI SRE investigations for the organization.
    * @param param The request object
    */
   public listInvestigations(
-    param: BitsAIApiListInvestigationsRequest = {},
+    param: BitsAISREApiListInvestigationsRequest = {},
     options?: Configuration
   ): Promise<ListInvestigationsResponse> {
     const requestContextPromise = this.requestFactory.listInvestigations(
@@ -512,7 +512,7 @@ export class BitsAIApi {
    * Provide a paginated version of listInvestigations returning a generator with all the items.
    */
   public async *listInvestigationsWithPagination(
-    param: BitsAIApiListInvestigationsRequest = {},
+    param: BitsAISREApiListInvestigationsRequest = {},
     options?: Configuration
   ): AsyncGenerator<ListInvestigationsResponseData> {
     let pageSize = 25;
@@ -554,11 +554,11 @@ export class BitsAIApi {
   }
 
   /**
-   * Trigger a new Bits AI investigation based on a monitor alert.
+   * Trigger a new Bits AI SRE investigation based on a monitor alert.
    * @param param The request object
    */
   public triggerInvestigation(
-    param: BitsAIApiTriggerInvestigationRequest,
+    param: BitsAISREApiTriggerInvestigationRequest,
     options?: Configuration
   ): Promise<TriggerInvestigationResponse> {
     const requestContextPromise = this.requestFactory.triggerInvestigation(

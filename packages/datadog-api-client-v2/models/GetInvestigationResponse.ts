@@ -9,7 +9,7 @@ import { GetInvestigationResponseLinks } from "./GetInvestigationResponseLinks";
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * Response for a single Bits AI investigation.
+ * Response for a single Bits AI SRE investigation.
  */
 export class GetInvestigationResponse {
   /**
