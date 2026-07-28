@@ -3681,6 +3681,13 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
     },
     operationResponseType: "AwsOnDemandResponse",
   },
+  "AIGuardApi.V2.EvaluateAIGuardRequest": {
+    body: {
+      type: "AIGuardEvaluateRequest",
+      format: "",
+    },
+    operationResponseType: "AIGuardEvaluateResponse",
+  },
   "AnnotationsApi.V2.ListAnnotations": {
     pageId: {
       type: "string",
