@@ -14,6 +14,7 @@ import { CalendarInterval } from "./CalendarInterval";
 import { ChangeWidgetDefinition } from "./ChangeWidgetDefinition";
 import { ChangeWidgetRequest } from "./ChangeWidgetRequest";
 import { CheckStatusWidgetDefinition } from "./CheckStatusWidgetDefinition";
+import { CloudcraftWidgetDefinition } from "./CloudcraftWidgetDefinition";
 import { CohortWidgetDefinition } from "./CohortWidgetDefinition";
 import { ComparisonCustomTimeframe } from "./ComparisonCustomTimeframe";
 import { ComparisonDuration } from "./ComparisonDuration";
@@ -264,6 +265,18 @@ export const TypingInfo: ModelTypingInfo = {
     ],
     ChangeWidgetDefinitionType: ["change"],
     CheckStatusWidgetDefinitionType: ["check_status"],
+    CloudcraftWidgetDefinitionOverlay: [
+      "Observability",
+      "CloudCost",
+      "Security",
+      "NDMReachability",
+      "Monitors",
+      "APM",
+      "Default",
+    ],
+    CloudcraftWidgetDefinitionProjection: ["isometric", "2d"],
+    CloudcraftWidgetDefinitionProvider: ["aws", "azure", "gcp", "ndm", "oci"],
+    CloudcraftWidgetDefinitionType: ["cloudcraft"],
     CohortWidgetDefinitionType: ["cohort"],
     ComparisonDurationType: [
       "previous_timeframe",
@@ -789,6 +802,7 @@ export const TypingInfo: ModelTypingInfo = {
       "BarChartWidgetDefinition",
       "ChangeWidgetDefinition",
       "CheckStatusWidgetDefinition",
+      "CloudcraftWidgetDefinition",
       "CohortWidgetDefinition",
       "DistributionWidgetDefinition",
       "EventStreamWidgetDefinition",
@@ -854,6 +868,7 @@ export const TypingInfo: ModelTypingInfo = {
     ChangeWidgetDefinition: ChangeWidgetDefinition,
     ChangeWidgetRequest: ChangeWidgetRequest,
     CheckStatusWidgetDefinition: CheckStatusWidgetDefinition,
+    CloudcraftWidgetDefinition: CloudcraftWidgetDefinition,
     CohortWidgetDefinition: CohortWidgetDefinition,
     ComparisonCustomTimeframe: ComparisonCustomTimeframe,
     ComparisonDuration: ComparisonDuration,
