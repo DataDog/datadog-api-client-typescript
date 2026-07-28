@@ -28,14 +28,6 @@ import { DDSQLApiV2 } from "@datadog/datadog-api-client-ddsql";
 import { v2 } from "@datadog/datadog-api-client-ddsql";
 
 const configuration = createConfiguration();
-// Enable unstable operations
-const configurationOpts = {
-    unstableOperations: {
-        "DDSQLApi.v2.executeDdsqlTabularQuery": true
-    }
-}
-
-const configuration = createConfiguration(configurationOpts);
 const apiInstance = new DDSQLApiV2(configuration);
 const params = {/* parameters */};
 
