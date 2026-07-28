@@ -1,5 +1,6 @@
 import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
+import { TimeseriesWidgetAnomalyDetection } from "./TimeseriesWidgetAnomalyDetection";
 import { TimeseriesWidgetDefinitionType } from "./TimeseriesWidgetDefinitionType";
 import { TimeseriesWidgetLegendColumn } from "./TimeseriesWidgetLegendColumn";
 import { TimeseriesWidgetLegendLayout } from "./TimeseriesWidgetLegendLayout";
@@ -15,6 +16,10 @@ import { WidgetTime } from "./WidgetTime";
  * The timeseries visualization allows you to display the evolution of one or more metrics, log events, or Indexed Spans over time.
  */
 export class TimeseriesWidgetDefinition {
+  /**
+   * Anomaly detection configuration for a timeseries widget.
+   */
+  "anomalyDetection"?: TimeseriesWidgetAnomalyDetection;
   /**
    * List of custom links.
    */
@@ -94,6 +99,10 @@ export class TimeseriesWidgetDefinition {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
+    anomalyDetection: {
+      baseName: "anomaly_detection",
+      type: "TimeseriesWidgetAnomalyDetection",
+    },
     customLinks: {
       baseName: "custom_links",
       type: "Array<WidgetCustomLink>",
