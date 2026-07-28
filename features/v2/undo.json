@@ -8505,6 +8505,12 @@
       "type": "safe"
     }
   },
+  "ListSpecs": {
+    "tag": "Specs",
+    "undo": {
+      "type": "safe"
+    }
+  },
   "CreateSCAResult": {
     "tag": "Static Analysis",
     "undo": {
