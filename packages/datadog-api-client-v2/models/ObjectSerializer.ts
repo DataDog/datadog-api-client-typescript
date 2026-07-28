@@ -4637,6 +4637,9 @@ import { SpansQueryOptions } from "./SpansQueryOptions";
 import { SpansResponseMetadataPage } from "./SpansResponseMetadataPage";
 import { SpansWarning } from "./SpansWarning";
 import { Spec } from "./Spec";
+import { SpecAttributes } from "./SpecAttributes";
+import { SpecData } from "./SpecData";
+import { SpecsListResponse } from "./SpecsListResponse";
 import { SplitAPIKey } from "./SplitAPIKey";
 import { SplitAPIKeyUpdate } from "./SplitAPIKeyUpdate";
 import { SplitIntegration } from "./SplitIntegration";
@@ -8018,6 +8021,8 @@ const enumsMap: { [key: string]: any[] } = {
   SpansSort: ["timestamp", "-timestamp"],
   SpansSortOrder: ["asc", "desc"],
   SpansType: ["spans"],
+  SpecAttributesStatus: ["published", "draft", "deprecated"],
+  SpecType: ["spec"],
   SpecVersion: ["1.0", "1.1", "1.2", "1.3", "1.4", "1.5"],
   SplitAPIKeyType: ["SplitAPIKey"],
   SplitIntegrationType: ["Split"],
@@ -14010,6 +14015,9 @@ const typeMap: { [index: string]: any } = {
   SpansResponseMetadataPage: SpansResponseMetadataPage,
   SpansWarning: SpansWarning,
   Spec: Spec,
+  SpecAttributes: SpecAttributes,
+  SpecData: SpecData,
+  SpecsListResponse: SpecsListResponse,
   SplitAPIKey: SplitAPIKey,
   SplitAPIKeyUpdate: SplitAPIKeyUpdate,
   SplitIntegration: SplitIntegration,
