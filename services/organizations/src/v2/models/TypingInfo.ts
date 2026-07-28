@@ -20,6 +20,9 @@ import { ManagedOrgsResponse } from "./ManagedOrgsResponse";
 import { MaxSessionDurationUpdateAttributes } from "./MaxSessionDurationUpdateAttributes";
 import { MaxSessionDurationUpdateData } from "./MaxSessionDurationUpdateData";
 import { MaxSessionDurationUpdateRequest } from "./MaxSessionDurationUpdateRequest";
+import { McpCrossAppAccessIssuerUrlUpdateAttributes } from "./McpCrossAppAccessIssuerUrlUpdateAttributes";
+import { McpCrossAppAccessIssuerUrlUpdateData } from "./McpCrossAppAccessIssuerUrlUpdateData";
+import { McpCrossAppAccessIssuerUrlUpdateRequest } from "./McpCrossAppAccessIssuerUrlUpdateRequest";
 import { OrgAttributes } from "./OrgAttributes";
 import { OrgConfigGetResponse } from "./OrgConfigGetResponse";
 import { OrgConfigListResponse } from "./OrgConfigListResponse";
@@ -55,6 +58,7 @@ export const TypingInfo: ModelTypingInfo = {
     GlobalOrgsMetaPageType: ["cursor"],
     ManagedOrgsType: ["managed_orgs"],
     MaxSessionDurationType: ["max_session_duration"],
+    McpCrossAppAccessIssuerUrlType: ["org_config"],
     OrgConfigType: ["org_configs"],
     OrgResourceType: ["orgs"],
     OrgSAMLPreferencesType: ["saml_preferences"],
@@ -84,6 +88,11 @@ export const TypingInfo: ModelTypingInfo = {
     MaxSessionDurationUpdateAttributes: MaxSessionDurationUpdateAttributes,
     MaxSessionDurationUpdateData: MaxSessionDurationUpdateData,
     MaxSessionDurationUpdateRequest: MaxSessionDurationUpdateRequest,
+    McpCrossAppAccessIssuerUrlUpdateAttributes:
+      McpCrossAppAccessIssuerUrlUpdateAttributes,
+    McpCrossAppAccessIssuerUrlUpdateData: McpCrossAppAccessIssuerUrlUpdateData,
+    McpCrossAppAccessIssuerUrlUpdateRequest:
+      McpCrossAppAccessIssuerUrlUpdateRequest,
     OrgAttributes: OrgAttributes,
     OrgConfigGetResponse: OrgConfigGetResponse,
     OrgConfigListResponse: OrgConfigListResponse,
