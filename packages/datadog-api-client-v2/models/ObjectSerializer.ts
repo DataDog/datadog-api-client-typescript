@@ -2008,6 +2008,11 @@ import { HistoricalJobQuery } from "./HistoricalJobQuery";
 import { HistoricalJobResponse } from "./HistoricalJobResponse";
 import { HistoricalJobResponseAttributes } from "./HistoricalJobResponseAttributes";
 import { HistoricalJobResponseData } from "./HistoricalJobResponseData";
+import { HistoricalMetricsConfigurationAttributes } from "./HistoricalMetricsConfigurationAttributes";
+import { HistoricalMetricsConfigurationCreateData } from "./HistoricalMetricsConfigurationCreateData";
+import { HistoricalMetricsConfigurationCreateRequest } from "./HistoricalMetricsConfigurationCreateRequest";
+import { HistoricalMetricsConfigurationData } from "./HistoricalMetricsConfigurationData";
+import { HistoricalMetricsConfigurationResponse } from "./HistoricalMetricsConfigurationResponse";
 import { HourlyUsage } from "./HourlyUsage";
 import { HourlyUsageAttributes } from "./HourlyUsageAttributes";
 import { HourlyUsageMeasurement } from "./HourlyUsageMeasurement";
@@ -6388,6 +6393,7 @@ const enumsMap: { [key: string]: any[] } = {
   HamrOrgConnectionStatus: [0, 1, 2, 3, 4, 5],
   HamrOrgConnectionType: ["hamr_org_connections"],
   HistoricalJobDataType: ["historicalDetectionsJob"],
+  HistoricalMetricsConfigurationType: ["historical_metrics_configurations"],
   HourlyUsageType: [
     "app_sec_host_count",
     "observability_pipelines_bytes_processed",
@@ -10755,6 +10761,15 @@ const typeMap: { [index: string]: any } = {
   HistoricalJobResponse: HistoricalJobResponse,
   HistoricalJobResponseAttributes: HistoricalJobResponseAttributes,
   HistoricalJobResponseData: HistoricalJobResponseData,
+  HistoricalMetricsConfigurationAttributes:
+    HistoricalMetricsConfigurationAttributes,
+  HistoricalMetricsConfigurationCreateData:
+    HistoricalMetricsConfigurationCreateData,
+  HistoricalMetricsConfigurationCreateRequest:
+    HistoricalMetricsConfigurationCreateRequest,
+  HistoricalMetricsConfigurationData: HistoricalMetricsConfigurationData,
+  HistoricalMetricsConfigurationResponse:
+    HistoricalMetricsConfigurationResponse,
   HourlyUsage: HourlyUsage,
   HourlyUsageAttributes: HourlyUsageAttributes,
   HourlyUsageMeasurement: HourlyUsageMeasurement,

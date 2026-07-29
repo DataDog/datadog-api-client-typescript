@@ -17,6 +17,8 @@ import { ObjectSerializer } from "../models/ObjectSerializer";
 import { ApiException } from "../../datadog-api-client-common/exception";
 
 import { APIErrorResponse } from "../models/APIErrorResponse";
+import { HistoricalMetricsConfigurationCreateRequest } from "../models/HistoricalMetricsConfigurationCreateRequest";
+import { HistoricalMetricsConfigurationResponse } from "../models/HistoricalMetricsConfigurationResponse";
 import { IntakePayloadAccepted } from "../models/IntakePayloadAccepted";
 import { JSONAPIErrorResponse } from "../models/JSONAPIErrorResponse";
 import { MetricAllTagsResponse } from "../models/MetricAllTagsResponse";
@@ -85,6 +87,63 @@ export class MetricsApiRequestFactory extends BaseAPIRequestFactory {
     applySecurityAuthentication(_config, requestContext, [
       "apiKeyAuth",
       "appKeyAuth",
+    ]);
+
+    return requestContext;
+  }
+
+  public async createHistoricalMetricsConfiguration(
+    body: HistoricalMetricsConfigurationCreateRequest,
+    _options?: Configuration
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    logger.warn(
+      "Using unstable operation 'createHistoricalMetricsConfiguration'"
+    );
+    if (
+      !_config.unstableOperations["v2.createHistoricalMetricsConfiguration"]
+    ) {
+      throw new Error(
+        "Unstable operation 'createHistoricalMetricsConfiguration' is disabled"
+      );
+    }
+
+    // verify required parameter 'body' is not null or undefined
+    if (body === null || body === undefined) {
+      throw new RequiredError("body", "createHistoricalMetricsConfiguration");
+    }
+
+    // Path Params
+    const localVarPath = "/api/v2/metrics/historical-metrics-configurations";
+
+    // Make Request Context
+    const requestContext = _config
+      .getServer("v2.MetricsApi.createHistoricalMetricsConfiguration")
+      .makeRequestContext(localVarPath, HttpMethod.POST);
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Body Params
+    const contentType = ObjectSerializer.getPreferredMediaType([
+      "application/json",
+    ]);
+    requestContext.setHeaderParam("Content-Type", contentType);
+    const serializedBody = ObjectSerializer.stringify(
+      ObjectSerializer.serialize(
+        body,
+        "HistoricalMetricsConfigurationCreateRequest",
+        ""
+      ),
+      contentType
+    );
+    requestContext.setBody(serializedBody);
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+      "AuthZ",
     ]);
 
     return requestContext;
@@ -295,6 +354,55 @@ export class MetricsApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
+  public async deleteHistoricalMetricsConfiguration(
+    metricName: string,
+    _options?: Configuration
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    logger.warn(
+      "Using unstable operation 'deleteHistoricalMetricsConfiguration'"
+    );
+    if (
+      !_config.unstableOperations["v2.deleteHistoricalMetricsConfiguration"]
+    ) {
+      throw new Error(
+        "Unstable operation 'deleteHistoricalMetricsConfiguration' is disabled"
+      );
+    }
+
+    // verify required parameter 'metricName' is not null or undefined
+    if (metricName === null || metricName === undefined) {
+      throw new RequiredError(
+        "metricName",
+        "deleteHistoricalMetricsConfiguration"
+      );
+    }
+
+    // Path Params
+    const localVarPath =
+      "/api/v2/metrics/historical-metrics-configurations/{metric_name}".replace(
+        "{metric_name}",
+        encodeURIComponent(String(metricName))
+      );
+
+    // Make Request Context
+    const requestContext = _config
+      .getServer("v2.MetricsApi.deleteHistoricalMetricsConfiguration")
+      .makeRequestContext(localVarPath, HttpMethod.DELETE);
+    requestContext.setHeaderParam("Accept", "*/*");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+      "AuthZ",
+    ]);
+
+    return requestContext;
+  }
+
   public async deleteTagConfiguration(
     metricName: string,
     _options?: Configuration
@@ -479,6 +587,51 @@ export class MetricsApiRequestFactory extends BaseAPIRequestFactory {
     applySecurityAuthentication(_config, requestContext, [
       "apiKeyAuth",
       "appKeyAuth",
+    ]);
+
+    return requestContext;
+  }
+
+  public async getHistoricalMetricsConfiguration(
+    metricName: string,
+    _options?: Configuration
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    logger.warn("Using unstable operation 'getHistoricalMetricsConfiguration'");
+    if (!_config.unstableOperations["v2.getHistoricalMetricsConfiguration"]) {
+      throw new Error(
+        "Unstable operation 'getHistoricalMetricsConfiguration' is disabled"
+      );
+    }
+
+    // verify required parameter 'metricName' is not null or undefined
+    if (metricName === null || metricName === undefined) {
+      throw new RequiredError(
+        "metricName",
+        "getHistoricalMetricsConfiguration"
+      );
+    }
+
+    // Path Params
+    const localVarPath =
+      "/api/v2/metrics/historical-metrics-configurations/{metric_name}".replace(
+        "{metric_name}",
+        encodeURIComponent(String(metricName))
+      );
+
+    // Make Request Context
+    const requestContext = _config
+      .getServer("v2.MetricsApi.getHistoricalMetricsConfiguration")
+      .makeRequestContext(localVarPath, HttpMethod.GET);
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+      "AuthZ",
     ]);
 
     return requestContext;
@@ -1442,6 +1595,93 @@ export class MetricsApiResponseProcessor {
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
    *
+   * @params response Response returned by the server for a request to createHistoricalMetricsConfiguration
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async createHistoricalMetricsConfiguration(
+    response: ResponseContext
+  ): Promise<HistoricalMetricsConfigurationResponse> {
+    const contentType = ObjectSerializer.normalizeMediaType(
+      response.headers["content-type"]
+    );
+    if (response.httpStatusCode === 200 || response.httpStatusCode === 201) {
+      const body: HistoricalMetricsConfigurationResponse =
+        ObjectSerializer.deserialize(
+          ObjectSerializer.parse(await response.body.text(), contentType),
+          "HistoricalMetricsConfigurationResponse"
+        ) as HistoricalMetricsConfigurationResponse;
+      return body;
+    }
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 404 ||
+      response.httpStatusCode === 422
+    ) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: JSONAPIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "JSONAPIErrorResponse"
+        ) as JSONAPIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<JSONAPIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<JSONAPIErrorResponse>(
+        response.httpStatusCode,
+        body
+      );
+    }
+    if (response.httpStatusCode === 429) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: APIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "APIErrorResponse"
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: HistoricalMetricsConfigurationResponse =
+        ObjectSerializer.deserialize(
+          ObjectSerializer.parse(await response.body.text(), contentType),
+          "HistoricalMetricsConfigurationResponse",
+          ""
+        ) as HistoricalMetricsConfigurationResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"'
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
    * @params response Response returned by the server for a request to createTagConfiguration
    * @throws ApiException if the response code was not in [200, 299]
    */
@@ -1700,6 +1940,78 @@ export class MetricsApiResponseProcessor {
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
    *
+   * @params response Response returned by the server for a request to deleteHistoricalMetricsConfiguration
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async deleteHistoricalMetricsConfiguration(
+    response: ResponseContext
+  ): Promise<void> {
+    const contentType = ObjectSerializer.normalizeMediaType(
+      response.headers["content-type"]
+    );
+    if (response.httpStatusCode === 204) {
+      return;
+    }
+    if (response.httpStatusCode === 400) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: JSONAPIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "JSONAPIErrorResponse"
+        ) as JSONAPIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<JSONAPIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<JSONAPIErrorResponse>(
+        response.httpStatusCode,
+        body
+      );
+    }
+    if (response.httpStatusCode === 429) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: APIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "APIErrorResponse"
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      return;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"'
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
    * @params response Response returned by the server for a request to deleteTagConfiguration
    * @throws ApiException if the response code was not in [200, 299]
    */
@@ -1912,6 +2224,89 @@ export class MetricsApiResponseProcessor {
         "MetricEstimateResponse",
         ""
       ) as MetricEstimateResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"'
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
+   * @params response Response returned by the server for a request to getHistoricalMetricsConfiguration
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async getHistoricalMetricsConfiguration(
+    response: ResponseContext
+  ): Promise<HistoricalMetricsConfigurationResponse> {
+    const contentType = ObjectSerializer.normalizeMediaType(
+      response.headers["content-type"]
+    );
+    if (response.httpStatusCode === 200) {
+      const body: HistoricalMetricsConfigurationResponse =
+        ObjectSerializer.deserialize(
+          ObjectSerializer.parse(await response.body.text(), contentType),
+          "HistoricalMetricsConfigurationResponse"
+        ) as HistoricalMetricsConfigurationResponse;
+      return body;
+    }
+    if (response.httpStatusCode === 400 || response.httpStatusCode === 404) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: JSONAPIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "JSONAPIErrorResponse"
+        ) as JSONAPIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<JSONAPIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<JSONAPIErrorResponse>(
+        response.httpStatusCode,
+        body
+      );
+    }
+    if (response.httpStatusCode === 429) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: APIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "APIErrorResponse"
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: HistoricalMetricsConfigurationResponse =
+        ObjectSerializer.deserialize(
+          ObjectSerializer.parse(await response.body.text(), contentType),
+          "HistoricalMetricsConfigurationResponse",
+          ""
+        ) as HistoricalMetricsConfigurationResponse;
       return body;
     }
 
@@ -3017,6 +3412,13 @@ export interface MetricsApiCreateBulkTagsMetricsConfigurationRequest {
   body: MetricBulkTagConfigCreateRequest;
 }
 
+export interface MetricsApiCreateHistoricalMetricsConfigurationRequest {
+  /**
+   * @type HistoricalMetricsConfigurationCreateRequest
+   */
+  body: HistoricalMetricsConfigurationCreateRequest;
+}
+
 export interface MetricsApiCreateTagConfigurationRequest {
   /**
    * The name of the metric.
@@ -3053,6 +3455,14 @@ export interface MetricsApiDeleteBulkTagsMetricsConfigurationRequest {
    * @type MetricBulkTagConfigDeleteRequest
    */
   body: MetricBulkTagConfigDeleteRequest;
+}
+
+export interface MetricsApiDeleteHistoricalMetricsConfigurationRequest {
+  /**
+   * The name of the metric.
+   * @type string
+   */
+  metricName: string;
 }
 
 export interface MetricsApiDeleteTagConfigurationRequest {
@@ -3110,6 +3520,14 @@ export interface MetricsApiEstimateMetricsOutputSeriesRequest {
    * @type number
    */
   filterTimespanH?: number;
+}
+
+export interface MetricsApiGetHistoricalMetricsConfigurationRequest {
+  /**
+   * The name of the metric.
+   * @type string
+   */
+  metricName: string;
 }
 
 export interface MetricsApiGetMetricTagCardinalityDetailsRequest {
@@ -3429,6 +3847,33 @@ export class MetricsApi {
   }
 
   /**
+   * Enable historical metrics ingestion (late data ingestion) for a metric. Idempotent:
+   * enabling an already-enabled metric returns 200 instead of 201. Not supported for
+   * distribution metrics, metrics with an existing tag configuration, or most standard
+   * (non-custom) metrics.
+   * @param param The request object
+   */
+  public createHistoricalMetricsConfiguration(
+    param: MetricsApiCreateHistoricalMetricsConfigurationRequest,
+    options?: Configuration
+  ): Promise<HistoricalMetricsConfigurationResponse> {
+    const requestContextPromise =
+      this.requestFactory.createHistoricalMetricsConfiguration(
+        param.body,
+        options
+      );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.createHistoricalMetricsConfiguration(
+            responseContext
+          );
+        });
+    });
+  }
+
+  /**
    * Create and define a list of queryable tag keys for an existing count/gauge/rate/distribution metric.
    * Optionally, include percentile aggregations on any distribution metric. By setting `exclude_tags_mode`
    * to true, the behavior is changed from an allow-list to a deny-list, and tags in the defined list are
@@ -3533,6 +3978,32 @@ export class MetricsApi {
   }
 
   /**
+   * Disable historical metrics ingestion for a metric. Idempotent: always returns 204,
+   * whether or not the configuration existed or the metric itself still exists, so that
+   * Terraform destroy succeeds for a metric removed out-of-band.
+   * @param param The request object
+   */
+  public deleteHistoricalMetricsConfiguration(
+    param: MetricsApiDeleteHistoricalMetricsConfigurationRequest,
+    options?: Configuration
+  ): Promise<void> {
+    const requestContextPromise =
+      this.requestFactory.deleteHistoricalMetricsConfiguration(
+        param.metricName,
+        options
+      );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.deleteHistoricalMetricsConfiguration(
+            responseContext
+          );
+        });
+    });
+  }
+
+  /**
    * Deletes a metric's tag configuration. Can only be used with application
    * keys from users with the `Manage Tags for Metrics` permission.
    * Note: This operation is irreversible.
@@ -3627,6 +4098,32 @@ export class MetricsApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.estimateMetricsOutputSeries(
+            responseContext
+          );
+        });
+    });
+  }
+
+  /**
+   * Get the historical metrics ingestion configuration for a metric. Existence of the
+   * resource means historical metrics ingestion is enabled; returns 404 when it is not
+   * enabled for the metric.
+   * @param param The request object
+   */
+  public getHistoricalMetricsConfiguration(
+    param: MetricsApiGetHistoricalMetricsConfigurationRequest,
+    options?: Configuration
+  ): Promise<HistoricalMetricsConfigurationResponse> {
+    const requestContextPromise =
+      this.requestFactory.getHistoricalMetricsConfiguration(
+        param.metricName,
+        options
+      );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.getHistoricalMetricsConfiguration(
             responseContext
           );
         });
