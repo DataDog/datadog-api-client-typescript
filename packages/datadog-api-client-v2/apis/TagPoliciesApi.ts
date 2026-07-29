@@ -44,7 +44,7 @@ export class TagPoliciesApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Path Params
-    const localVarPath = "/api/v2/tag-policies";
+    const localVarPath = "/api/v2/tag_policies";
 
     // Make Request Context
     const requestContext = _config
@@ -91,7 +91,7 @@ export class TagPoliciesApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Path Params
-    const localVarPath = "/api/v2/tag-policies/{policy_id}".replace(
+    const localVarPath = "/api/v2/tag_policies/{policy_id}".replace(
       "{policy_id}",
       encodeURIComponent(String(policyId))
     );
@@ -141,7 +141,7 @@ export class TagPoliciesApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Path Params
-    const localVarPath = "/api/v2/tag-policies/{policy_id}".replace(
+    const localVarPath = "/api/v2/tag_policies/{policy_id}".replace(
       "{policy_id}",
       encodeURIComponent(String(policyId))
     );
@@ -204,7 +204,7 @@ export class TagPoliciesApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Path Params
-    const localVarPath = "/api/v2/tag-policies/{policy_id}/score".replace(
+    const localVarPath = "/api/v2/tag_policies/{policy_id}/score".replace(
       "{policy_id}",
       encodeURIComponent(String(policyId))
     );
@@ -258,7 +258,7 @@ export class TagPoliciesApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Path Params
-    const localVarPath = "/api/v2/tag-policies";
+    const localVarPath = "/api/v2/tag_policies";
 
     // Make Request Context
     const requestContext = _config
@@ -343,7 +343,7 @@ export class TagPoliciesApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Path Params
-    const localVarPath = "/api/v2/tag-policies/{policy_id}".replace(
+    const localVarPath = "/api/v2/tag_policies/{policy_id}".replace(
       "{policy_id}",
       encodeURIComponent(String(policyId))
     );

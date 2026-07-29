@@ -29,13 +29,6 @@ export class DDSQLApiRequestFactory extends BaseAPIRequestFactory {
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
-    logger.warn("Using unstable operation 'executeDdsqlTabularQuery'");
-    if (!_config.unstableOperations["v2.executeDdsqlTabularQuery"]) {
-      throw new Error(
-        "Unstable operation 'executeDdsqlTabularQuery' is disabled"
-      );
-    }
-
     // verify required parameter 'body' is not null or undefined
     if (body === null || body === undefined) {
       throw new RequiredError("body", "executeDdsqlTabularQuery");
@@ -76,13 +69,6 @@ export class DDSQLApiRequestFactory extends BaseAPIRequestFactory {
     _options?: Configuration
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
-
-    logger.warn("Using unstable operation 'fetchDdsqlTabularQuery'");
-    if (!_config.unstableOperations["v2.fetchDdsqlTabularQuery"]) {
-      throw new Error(
-        "Unstable operation 'fetchDdsqlTabularQuery' is disabled"
-      );
-    }
 
     // verify required parameter 'body' is not null or undefined
     if (body === null || body === undefined) {
