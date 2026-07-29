@@ -15,6 +15,11 @@ import { EventsSearch } from "./EventsSearch";
 import { EventsTimeseriesQuery } from "./EventsTimeseriesQuery";
 import { FormulaLimit } from "./FormulaLimit";
 import { GroupScalarColumn } from "./GroupScalarColumn";
+import { HistoricalMetricsConfigurationAttributes } from "./HistoricalMetricsConfigurationAttributes";
+import { HistoricalMetricsConfigurationCreateData } from "./HistoricalMetricsConfigurationCreateData";
+import { HistoricalMetricsConfigurationCreateRequest } from "./HistoricalMetricsConfigurationCreateRequest";
+import { HistoricalMetricsConfigurationData } from "./HistoricalMetricsConfigurationData";
+import { HistoricalMetricsConfigurationResponse } from "./HistoricalMetricsConfigurationResponse";
 import { IntakePayloadAccepted } from "./IntakePayloadAccepted";
 import { JSONAPIErrorItem } from "./JSONAPIErrorItem";
 import { JSONAPIErrorItemSource } from "./JSONAPIErrorItemSource";
@@ -217,6 +222,7 @@ export const TypingInfo: ModelTypingInfo = {
       "dora",
     ],
     EventsSortType: ["alphabetical", "measure"],
+    HistoricalMetricsConfigurationType: ["historical_metrics_configurations"],
     MetricActiveConfigurationType: ["actively_queried_configurations"],
     MetricBulkConfigureTagsType: ["metric_bulk_configure_tags"],
     MetricContentEncoding: ["deflate", "zstd1", "gzip"],
@@ -329,6 +335,15 @@ export const TypingInfo: ModelTypingInfo = {
     EventsTimeseriesQuery: EventsTimeseriesQuery,
     FormulaLimit: FormulaLimit,
     GroupScalarColumn: GroupScalarColumn,
+    HistoricalMetricsConfigurationAttributes:
+      HistoricalMetricsConfigurationAttributes,
+    HistoricalMetricsConfigurationCreateData:
+      HistoricalMetricsConfigurationCreateData,
+    HistoricalMetricsConfigurationCreateRequest:
+      HistoricalMetricsConfigurationCreateRequest,
+    HistoricalMetricsConfigurationData: HistoricalMetricsConfigurationData,
+    HistoricalMetricsConfigurationResponse:
+      HistoricalMetricsConfigurationResponse,
     IntakePayloadAccepted: IntakePayloadAccepted,
     JSONAPIErrorItem: JSONAPIErrorItem,
     JSONAPIErrorItemSource: JSONAPIErrorItemSource,
