@@ -17,9 +17,17 @@ export class DdsqlTabularQueryColumn {
    */
   "type": string;
   /**
-   * Column values in row order. The element type matches the column's `type`;
-   * for example a `VARCHAR` column carries strings, a `TIMESTAMP` column carries
-   * Unix-millisecond integers. `null` is allowed for missing values.
+   * Column values in row order, one entry per result row. The element type
+   * follows the column's `type`. The following serialization rules should be
+   * taken into account:
+   *
+   * - `BIGINT` values are encoded as JSON numbers in the signed 64-bit integer range.
+   * - `DECIMAL` values are encoded as JSON numbers with 64-bit double precision.
+   * - `TIMESTAMP` and `DATE` values are encoded as Unix-millisecond integers; a
+   *   `DATE` resolves to midnight UTC.
+   * - `JSON` values are returned as a JSON-encoded string.
+   *
+   * `null` is allowed for any column type where a value is missing.
    */
   "values": Array<any>;
   /**
