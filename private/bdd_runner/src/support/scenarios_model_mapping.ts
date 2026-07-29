@@ -14872,6 +14872,23 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
     },
     operationResponseType: "RumRetentionFilterResponse",
   },
+  "RUMConfigApi.V2.GetRumConfig": {
+    operationResponseType: "RumConfigResponse",
+  },
+  "RUMConfigApi.V2.CreateRumConfig": {
+    body: {
+      type: "RumConfigCreateRequest",
+      format: "",
+    },
+    operationResponseType: "RumConfigResponse",
+  },
+  "RUMConfigApi.V2.UpdateRumConfig": {
+    body: {
+      type: "RumConfigUpdateRequest",
+      format: "",
+    },
+    operationResponseType: "RumConfigResponse",
+  },
   "RumMetricsApi.V2.ListRumMetrics": {
     operationResponseType: "RumMetricsResponse",
   },
