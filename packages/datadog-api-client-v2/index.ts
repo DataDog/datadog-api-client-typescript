@@ -912,14 +912,17 @@ export {
 
 export {
   MetricsApiCreateBulkTagsMetricsConfigurationRequest,
+  MetricsApiCreateHistoricalMetricsConfigurationRequest,
   MetricsApiCreateTagConfigurationRequest,
   MetricsApiCreateTagIndexingRuleRequest,
   MetricsApiCreateTagIndexingRuleExemptionRequest,
   MetricsApiDeleteBulkTagsMetricsConfigurationRequest,
+  MetricsApiDeleteHistoricalMetricsConfigurationRequest,
   MetricsApiDeleteTagConfigurationRequest,
   MetricsApiDeleteTagIndexingRuleRequest,
   MetricsApiDeleteTagIndexingRuleExemptionRequest,
   MetricsApiEstimateMetricsOutputSeriesRequest,
+  MetricsApiGetHistoricalMetricsConfigurationRequest,
   MetricsApiGetMetricTagCardinalityDetailsRequest,
   MetricsApiGetTagIndexingRuleRequest,
   MetricsApiGetTagIndexingRuleExemptionRequest,
@@ -4408,6 +4411,12 @@ export { HistoricalJobQuery } from "./models/HistoricalJobQuery";
 export { HistoricalJobResponse } from "./models/HistoricalJobResponse";
 export { HistoricalJobResponseAttributes } from "./models/HistoricalJobResponseAttributes";
 export { HistoricalJobResponseData } from "./models/HistoricalJobResponseData";
+export { HistoricalMetricsConfigurationAttributes } from "./models/HistoricalMetricsConfigurationAttributes";
+export { HistoricalMetricsConfigurationCreateData } from "./models/HistoricalMetricsConfigurationCreateData";
+export { HistoricalMetricsConfigurationCreateRequest } from "./models/HistoricalMetricsConfigurationCreateRequest";
+export { HistoricalMetricsConfigurationData } from "./models/HistoricalMetricsConfigurationData";
+export { HistoricalMetricsConfigurationResponse } from "./models/HistoricalMetricsConfigurationResponse";
+export { HistoricalMetricsConfigurationType } from "./models/HistoricalMetricsConfigurationType";
 export { HourlyUsage } from "./models/HourlyUsage";
 export { HourlyUsageAttributes } from "./models/HourlyUsageAttributes";
 export { HourlyUsageMeasurement } from "./models/HourlyUsageMeasurement";

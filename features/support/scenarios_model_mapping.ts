@@ -11976,6 +11976,27 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             },
         "operationResponseType": "MetricBulkTagConfigResponse",
     },
+    "v2.CreateHistoricalMetricsConfiguration": {
+        "body": {
+            "type": "HistoricalMetricsConfigurationCreateRequest",
+            "format": "",
+            },
+        "operationResponseType": "HistoricalMetricsConfigurationResponse",
+    },
+    "v2.GetHistoricalMetricsConfiguration": {
+        "metricName": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "HistoricalMetricsConfigurationResponse",
+    },
+    "v2.DeleteHistoricalMetricsConfiguration": {
+        "metricName": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "{}",
+    },
     "v2.ListTagIndexingRules": {
         "pageLimit": {
             "type": "number",
