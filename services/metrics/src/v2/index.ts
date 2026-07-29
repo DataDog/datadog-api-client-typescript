@@ -1,13 +1,16 @@
 export {
   MetricsApiCreateBulkTagsMetricsConfigurationRequest,
+  MetricsApiCreateHistoricalMetricsConfigurationRequest,
   MetricsApiCreateTagConfigurationRequest,
   MetricsApiCreateTagIndexingRuleRequest,
   MetricsApiCreateTagIndexingRuleExemptionRequest,
   MetricsApiDeleteBulkTagsMetricsConfigurationRequest,
+  MetricsApiDeleteHistoricalMetricsConfigurationRequest,
   MetricsApiDeleteTagConfigurationRequest,
   MetricsApiDeleteTagIndexingRuleRequest,
   MetricsApiDeleteTagIndexingRuleExemptionRequest,
   MetricsApiEstimateMetricsOutputSeriesRequest,
+  MetricsApiGetHistoricalMetricsConfigurationRequest,
   MetricsApiGetMetricTagCardinalityDetailsRequest,
   MetricsApiGetTagIndexingRuleRequest,
   MetricsApiGetTagIndexingRuleExemptionRequest,
@@ -54,6 +57,12 @@ export { EventsSortType } from "./models/EventsSortType";
 export { EventsTimeseriesQuery } from "./models/EventsTimeseriesQuery";
 export { FormulaLimit } from "./models/FormulaLimit";
 export { GroupScalarColumn } from "./models/GroupScalarColumn";
+export { HistoricalMetricsConfigurationAttributes } from "./models/HistoricalMetricsConfigurationAttributes";
+export { HistoricalMetricsConfigurationCreateData } from "./models/HistoricalMetricsConfigurationCreateData";
+export { HistoricalMetricsConfigurationCreateRequest } from "./models/HistoricalMetricsConfigurationCreateRequest";
+export { HistoricalMetricsConfigurationData } from "./models/HistoricalMetricsConfigurationData";
+export { HistoricalMetricsConfigurationResponse } from "./models/HistoricalMetricsConfigurationResponse";
+export { HistoricalMetricsConfigurationType } from "./models/HistoricalMetricsConfigurationType";
 export { IntakePayloadAccepted } from "./models/IntakePayloadAccepted";
 export { JSONAPIErrorItem } from "./models/JSONAPIErrorItem";
 export { JSONAPIErrorItemSource } from "./models/JSONAPIErrorItemSource";
