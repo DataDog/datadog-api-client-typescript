@@ -1,5 +1,6 @@
 import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
+import { ObservabilityPipelineAmazonS3DestinationServerSideEncryption } from "./ObservabilityPipelineAmazonS3DestinationServerSideEncryption";
 import { ObservabilityPipelineAmazonS3DestinationStorageClass } from "./ObservabilityPipelineAmazonS3DestinationStorageClass";
 import { ObservabilityPipelineAmazonS3DestinationType } from "./ObservabilityPipelineAmazonS3DestinationType";
 import { ObservabilityPipelineAwsAuth } from "./ObservabilityPipelineAwsAuth";
@@ -41,6 +42,15 @@ export class ObservabilityPipelineAmazonS3Destination {
    * AWS region of the S3 bucket.
    */
   "region": string;
+  /**
+   * Server-side encryption type for Amazon S3.
+   */
+  "serverSideEncryption"?: ObservabilityPipelineAmazonS3DestinationServerSideEncryption;
+  /**
+   * The AWS KMS key ID used for SSE-KMS encryption.
+   * Only applies when `server_side_encryption` is set to `aws:kms`.
+   */
+  "ssekmsKeyId"?: string;
   /**
    * S3 storage class.
    */
@@ -99,6 +109,14 @@ export class ObservabilityPipelineAmazonS3Destination {
       baseName: "region",
       type: "string",
       required: true,
+    },
+    serverSideEncryption: {
+      baseName: "server_side_encryption",
+      type: "ObservabilityPipelineAmazonS3DestinationServerSideEncryption",
+    },
+    ssekmsKeyId: {
+      baseName: "ssekms_key_id",
+      type: "string",
     },
     storageClass: {
       baseName: "storage_class",
