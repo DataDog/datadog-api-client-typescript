@@ -11473,6 +11473,64 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
     },
     operationResponseType: "ConfluentResourceResponse",
   },
+  "ElasticCloudIntegrationAccountsApi.V2.ListElasticCloudIntegrationAccounts": {
+    interfaceId: {
+      type: "ElasticCloudInterfaceId",
+      format: "",
+    },
+    operationResponseType: "ElasticCloudIntegrationAccountsResponse",
+  },
+  "ElasticCloudIntegrationAccountsApi.V2.CreateElasticCloudIntegrationAccount":
+    {
+      interfaceId: {
+        type: "ElasticCloudInterfaceId",
+        format: "",
+      },
+      body: {
+        type: "ElasticCloudIntegrationAccountRequest",
+        format: "",
+      },
+      operationResponseType: "ElasticCloudIntegrationAccountResponse",
+    },
+  "ElasticCloudIntegrationAccountsApi.V2.GetElasticCloudIntegrationAccount": {
+    interfaceId: {
+      type: "ElasticCloudInterfaceId",
+      format: "",
+    },
+    accountId: {
+      type: "string",
+      format: "",
+    },
+    operationResponseType: "ElasticCloudIntegrationAccountResponse",
+  },
+  "ElasticCloudIntegrationAccountsApi.V2.DeleteElasticCloudIntegrationAccount":
+    {
+      interfaceId: {
+        type: "ElasticCloudInterfaceId",
+        format: "",
+      },
+      accountId: {
+        type: "string",
+        format: "",
+      },
+      operationResponseType: "{}",
+    },
+  "ElasticCloudIntegrationAccountsApi.V2.UpdateElasticCloudIntegrationAccount":
+    {
+      interfaceId: {
+        type: "ElasticCloudInterfaceId",
+        format: "",
+      },
+      accountId: {
+        type: "string",
+        format: "",
+      },
+      body: {
+        type: "ElasticCloudIntegrationAccountUpdateRequest",
+        format: "",
+      },
+      operationResponseType: "ElasticCloudIntegrationAccountResponse",
+    },
   "FastlyIntegrationApi.V2.ListFastlyAccounts": {
     operationResponseType: "FastlyAccountsResponse",
   },
@@ -11597,6 +11655,61 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
       format: "",
     },
     operationResponseType: "OktaAccountResponse",
+  },
+  "TwilioIntegrationAccountsApi.V2.ListTwilioIntegrationAccounts": {
+    interfaceId: {
+      type: "TwilioInterfaceType",
+      format: "",
+    },
+    operationResponseType: "TwilioIntegrationAccountsResponse",
+  },
+  "TwilioIntegrationAccountsApi.V2.CreateTwilioIntegrationAccount": {
+    interfaceId: {
+      type: "TwilioInterfaceType",
+      format: "",
+    },
+    body: {
+      type: "TwilioIntegrationAccountRequest",
+      format: "",
+    },
+    operationResponseType: "TwilioIntegrationAccountResponse",
+  },
+  "TwilioIntegrationAccountsApi.V2.GetTwilioIntegrationAccount": {
+    interfaceId: {
+      type: "TwilioInterfaceType",
+      format: "",
+    },
+    accountId: {
+      type: "string",
+      format: "",
+    },
+    operationResponseType: "TwilioIntegrationAccountResponse",
+  },
+  "TwilioIntegrationAccountsApi.V2.DeleteTwilioIntegrationAccount": {
+    interfaceId: {
+      type: "TwilioInterfaceType",
+      format: "",
+    },
+    accountId: {
+      type: "string",
+      format: "",
+    },
+    operationResponseType: "{}",
+  },
+  "TwilioIntegrationAccountsApi.V2.UpdateTwilioIntegrationAccount": {
+    interfaceId: {
+      type: "TwilioInterfaceType",
+      format: "",
+    },
+    accountId: {
+      type: "string",
+      format: "",
+    },
+    body: {
+      type: "TwilioIntegrationAccountUpdateRequest",
+      format: "",
+    },
+    operationResponseType: "TwilioIntegrationAccountResponse",
   },
   "IPAllowlistApi.V2.GetIPAllowlist": {
     operationResponseType: "IPAllowlistResponse",

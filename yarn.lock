@@ -712,6 +712,15 @@ __metadata:
   languageName: unknown
   linkType: soft
 
+"@datadog/datadog-api-client-elastic-cloud-integration-accounts@workspace:services/elastic_cloud_integration_accounts":
+  version: 0.0.0-use.local
+  resolution: "@datadog/datadog-api-client-elastic-cloud-integration-accounts@workspace:services/elastic_cloud_integration_accounts"
+  dependencies:
+    "@datadog/datadog-api-client": "npm:^2.0.0-beta.2"
+    typescript: "npm:5.8.3"
+  languageName: unknown
+  linkType: soft
+
 "@datadog/datadog-api-client-email-transport@workspace:services/email_transport":
   version: 0.0.0-use.local
   resolution: "@datadog/datadog-api-client-email-transport@workspace:services/email_transport"
@@ -1624,6 +1633,15 @@ __metadata:
 "@datadog/datadog-api-client-test-optimization@workspace:services/test_optimization":
   version: 0.0.0-use.local
   resolution: "@datadog/datadog-api-client-test-optimization@workspace:services/test_optimization"
+  dependencies:
+    "@datadog/datadog-api-client": "npm:^2.0.0-beta.2"
+    typescript: "npm:5.8.3"
+  languageName: unknown
+  linkType: soft
+
+"@datadog/datadog-api-client-twilio-integration-accounts@workspace:services/twilio_integration_accounts":
+  version: 0.0.0-use.local
+  resolution: "@datadog/datadog-api-client-twilio-integration-accounts@workspace:services/twilio_integration_accounts"
   dependencies:
     "@datadog/datadog-api-client": "npm:^2.0.0-beta.2"
     typescript: "npm:5.8.3"
