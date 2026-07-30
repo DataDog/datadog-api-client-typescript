@@ -4057,6 +4057,11 @@ import { SLOReportPostResponseData } from "./SLOReportPostResponseData";
 import { SLOReportStatusGetResponse } from "./SLOReportStatusGetResponse";
 import { SLOReportStatusGetResponseAttributes } from "./SLOReportStatusGetResponseAttributes";
 import { SLOReportStatusGetResponseData } from "./SLOReportStatusGetResponseData";
+import { STIXBundleRequest } from "./STIXBundleRequest";
+import { STIXIndicatorObject } from "./STIXIndicatorObject";
+import { STIXIngestResponse } from "./STIXIngestResponse";
+import { STIXIngestResponseAttributes } from "./STIXIngestResponseAttributes";
+import { STIXIngestResponseData } from "./STIXIngestResponseData";
 import { SalesforceIncidentsOrganizationResponseAttributes } from "./SalesforceIncidentsOrganizationResponseAttributes";
 import { SalesforceIncidentsOrganizationResponseData } from "./SalesforceIncidentsOrganizationResponseData";
 import { SalesforceIncidentsOrganizationsResponse } from "./SalesforceIncidentsOrganizationsResponse";
@@ -7594,6 +7599,12 @@ const enumsMap: { [key: string]: any[] } = {
     "completed_with_errors",
     "failed",
   ],
+  STIXBundleType: ["bundle"],
+  STIXContentEncoding: ["gzip"],
+  STIXIndicatorType: ["indicator"],
+  STIXIngestResponseType: ["threat-intel-stix-ingest"],
+  STIXPatternType: ["stix"],
+  STIXSpecVersion: ["2.1"],
   SalesforceIncidentsOrganizationType: ["salesforce-incidents-org"],
   SalesforceIncidentsTemplatePriority: ["Critical", "High", "Moderate", "Low"],
   SalesforceIncidentsTemplateType: ["salesforce-incidents-incident-template"],
@@ -13262,6 +13273,11 @@ const typeMap: { [index: string]: any } = {
   SLOReportStatusGetResponse: SLOReportStatusGetResponse,
   SLOReportStatusGetResponseAttributes: SLOReportStatusGetResponseAttributes,
   SLOReportStatusGetResponseData: SLOReportStatusGetResponseData,
+  STIXBundleRequest: STIXBundleRequest,
+  STIXIndicatorObject: STIXIndicatorObject,
+  STIXIngestResponse: STIXIngestResponse,
+  STIXIngestResponseAttributes: STIXIngestResponseAttributes,
+  STIXIngestResponseData: STIXIngestResponseData,
   SalesforceIncidentsOrganizationResponseAttributes:
     SalesforceIncidentsOrganizationResponseAttributes,
   SalesforceIncidentsOrganizationResponseData:
