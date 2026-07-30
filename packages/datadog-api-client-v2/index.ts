@@ -535,6 +535,22 @@ export {
 } from "./apis/DowntimesApi";
 
 export {
+  ElasticCloudCloudCostManagementApiCreateElasticCloudCcmAccountRequest,
+  ElasticCloudCloudCostManagementApiDeleteElasticCloudCcmAccountRequest,
+  ElasticCloudCloudCostManagementApiGetElasticCloudCcmAccountRequest,
+  ElasticCloudCloudCostManagementApiUpdateElasticCloudCcmAccountRequest,
+  ElasticCloudCloudCostManagementApi,
+} from "./apis/ElasticCloudCloudCostManagementApi";
+
+export {
+  ElasticCloudMonitoringApiCreateElasticCloudMonitoringAccountRequest,
+  ElasticCloudMonitoringApiDeleteElasticCloudMonitoringAccountRequest,
+  ElasticCloudMonitoringApiGetElasticCloudMonitoringAccountRequest,
+  ElasticCloudMonitoringApiUpdateElasticCloudMonitoringAccountRequest,
+  ElasticCloudMonitoringApi,
+} from "./apis/ElasticCloudMonitoringApi";
+
+export {
   EntityIntegrationConfigsApiDeleteEntityIntegrationConfigRequest,
   EntityIntegrationConfigsApiGetEntityIntegrationConfigRequest,
   EntityIntegrationConfigsApiUpdateEntityIntegrationConfigRequest,
@@ -1803,6 +1819,14 @@ export {
   TestOptimizationApiUpdateTestOptimizationServiceSettingsRequest,
   TestOptimizationApi,
 } from "./apis/TestOptimizationApi";
+
+export {
+  TwilioIntegrationAccountsApiCreateTwilioAccountRequest,
+  TwilioIntegrationAccountsApiDeleteTwilioAccountRequest,
+  TwilioIntegrationAccountsApiGetTwilioAccountRequest,
+  TwilioIntegrationAccountsApiUpdateTwilioAccountRequest,
+  TwilioIntegrationAccountsApi,
+} from "./apis/TwilioIntegrationAccountsApi";
 
 export {
   UsageMeteringApiGetBillingDimensionMappingRequest,
@@ -3786,6 +3810,38 @@ export { DueDateRulesResponse } from "./models/DueDateRulesResponse";
 export { DueDateRuleType } from "./models/DueDateRuleType";
 export { DueDateRuleUpdateRequest } from "./models/DueDateRuleUpdateRequest";
 export { DueDateSeverity } from "./models/DueDateSeverity";
+export { ElasticCloudAuthentication } from "./models/ElasticCloudAuthentication";
+export { ElasticCloudBasicAuth } from "./models/ElasticCloudBasicAuth";
+export { ElasticCloudBasicAuthType } from "./models/ElasticCloudBasicAuthType";
+export { ElasticCloudCcmAccountAttributes } from "./models/ElasticCloudCcmAccountAttributes";
+export { ElasticCloudCcmAccountCreateData } from "./models/ElasticCloudCcmAccountCreateData";
+export { ElasticCloudCcmAccountData } from "./models/ElasticCloudCcmAccountData";
+export { ElasticCloudCcmAccountRequest } from "./models/ElasticCloudCcmAccountRequest";
+export { ElasticCloudCcmAccountResponse } from "./models/ElasticCloudCcmAccountResponse";
+export { ElasticCloudCcmAccountsResponse } from "./models/ElasticCloudCcmAccountsResponse";
+export { ElasticCloudCcmAccountUpdateAttributes } from "./models/ElasticCloudCcmAccountUpdateAttributes";
+export { ElasticCloudCcmAccountUpdateData } from "./models/ElasticCloudCcmAccountUpdateData";
+export { ElasticCloudCcmAccountUpdateRequest } from "./models/ElasticCloudCcmAccountUpdateRequest";
+export { ElasticCloudCcmAuthentication } from "./models/ElasticCloudCcmAuthentication";
+export { ElasticCloudCcmDataflow } from "./models/ElasticCloudCcmDataflow";
+export { ElasticCloudCcmDataflowId } from "./models/ElasticCloudCcmDataflowId";
+export { ElasticCloudCcmSettings } from "./models/ElasticCloudCcmSettings";
+export { ElasticCloudCcmSettingsUpdate } from "./models/ElasticCloudCcmSettingsUpdate";
+export { ElasticCloudCcmTokenAuth } from "./models/ElasticCloudCcmTokenAuth";
+export { ElasticCloudCcmTokenAuthType } from "./models/ElasticCloudCcmTokenAuthType";
+export { ElasticCloudDataflow } from "./models/ElasticCloudDataflow";
+export { ElasticCloudDataflowId } from "./models/ElasticCloudDataflowId";
+export { ElasticCloudMonitoringAccountAttributes } from "./models/ElasticCloudMonitoringAccountAttributes";
+export { ElasticCloudMonitoringAccountCreateData } from "./models/ElasticCloudMonitoringAccountCreateData";
+export { ElasticCloudMonitoringAccountData } from "./models/ElasticCloudMonitoringAccountData";
+export { ElasticCloudMonitoringAccountRequest } from "./models/ElasticCloudMonitoringAccountRequest";
+export { ElasticCloudMonitoringAccountResponse } from "./models/ElasticCloudMonitoringAccountResponse";
+export { ElasticCloudMonitoringAccountsResponse } from "./models/ElasticCloudMonitoringAccountsResponse";
+export { ElasticCloudMonitoringAccountUpdateAttributes } from "./models/ElasticCloudMonitoringAccountUpdateAttributes";
+export { ElasticCloudMonitoringAccountUpdateData } from "./models/ElasticCloudMonitoringAccountUpdateData";
+export { ElasticCloudMonitoringAccountUpdateRequest } from "./models/ElasticCloudMonitoringAccountUpdateRequest";
+export { ElasticCloudSettings } from "./models/ElasticCloudSettings";
+export { ElasticCloudSettingsUpdate } from "./models/ElasticCloudSettingsUpdate";
 export { ELFSourcemapAttributes } from "./models/ELFSourcemapAttributes";
 export { ELFSourcemapData } from "./models/ELFSourcemapData";
 export { EntityAttributes } from "./models/EntityAttributes";
@@ -4678,6 +4734,10 @@ export { InputSchemaParameters } from "./models/InputSchemaParameters";
 export { InputSchemaParametersType } from "./models/InputSchemaParametersType";
 export { IntakePayloadAccepted } from "./models/IntakePayloadAccepted";
 export { Integration } from "./models/Integration";
+export { IntegrationAccountDataflowHealth } from "./models/IntegrationAccountDataflowHealth";
+export { IntegrationAccountDataflowStatus } from "./models/IntegrationAccountDataflowStatus";
+export { IntegrationAccountPermissions } from "./models/IntegrationAccountPermissions";
+export { IntegrationAccountType } from "./models/IntegrationAccountType";
 export { IntegrationAttributes } from "./models/IntegrationAttributes";
 export { IntegrationIncident } from "./models/IntegrationIncident";
 export { IntegrationIncidentFieldMappingsItems } from "./models/IntegrationIncidentFieldMappingsItems";
@@ -8580,6 +8640,22 @@ export { TriggerSource } from "./models/TriggerSource";
 export { TriggerType } from "./models/TriggerType";
 export { TriggerWorkflowAutomationAction } from "./models/TriggerWorkflowAutomationAction";
 export { TriggerWorkflowAutomationActionType } from "./models/TriggerWorkflowAutomationActionType";
+export { TwilioAccountAttributes } from "./models/TwilioAccountAttributes";
+export { TwilioAccountCreateData } from "./models/TwilioAccountCreateData";
+export { TwilioAccountData } from "./models/TwilioAccountData";
+export { TwilioAccountRequest } from "./models/TwilioAccountRequest";
+export { TwilioAccountResponse } from "./models/TwilioAccountResponse";
+export { TwilioAccountsResponse } from "./models/TwilioAccountsResponse";
+export { TwilioAccountUpdateAttributes } from "./models/TwilioAccountUpdateAttributes";
+export { TwilioAccountUpdateData } from "./models/TwilioAccountUpdateData";
+export { TwilioAccountUpdateRequest } from "./models/TwilioAccountUpdateRequest";
+export { TwilioAuthentication } from "./models/TwilioAuthentication";
+export { TwilioBasicAuth } from "./models/TwilioBasicAuth";
+export { TwilioBasicAuthType } from "./models/TwilioBasicAuthType";
+export { TwilioDataflow } from "./models/TwilioDataflow";
+export { TwilioDataflowId } from "./models/TwilioDataflowId";
+export { TwilioSettings } from "./models/TwilioSettings";
+export { TwilioSettingsUpdate } from "./models/TwilioSettingsUpdate";
 export { UCConfigPair } from "./models/UCConfigPair";
 export { UCConfigPairData } from "./models/UCConfigPairData";
 export { UCConfigPairDataAttributes } from "./models/UCConfigPairDataAttributes";
