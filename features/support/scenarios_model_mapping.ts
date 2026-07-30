@@ -11455,6 +11455,61 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             },
         "operationResponseType": "ConfluentResourceResponse",
     },
+    "v2.ListElasticCloudIntegrationAccounts": {
+        "interfaceId": {
+            "type": "ElasticCloudInterfaceId",
+            "format": "",
+            },
+        "operationResponseType": "ElasticCloudIntegrationAccountsResponse",
+    },
+    "v2.CreateElasticCloudIntegrationAccount": {
+        "interfaceId": {
+            "type": "ElasticCloudInterfaceId",
+            "format": "",
+            },
+        "body": {
+            "type": "ElasticCloudIntegrationAccountRequest",
+            "format": "",
+            },
+        "operationResponseType": "ElasticCloudIntegrationAccountResponse",
+    },
+    "v2.GetElasticCloudIntegrationAccount": {
+        "interfaceId": {
+            "type": "ElasticCloudInterfaceId",
+            "format": "",
+            },
+        "accountId": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "ElasticCloudIntegrationAccountResponse",
+    },
+    "v2.DeleteElasticCloudIntegrationAccount": {
+        "interfaceId": {
+            "type": "ElasticCloudInterfaceId",
+            "format": "",
+            },
+        "accountId": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "{}",
+    },
+    "v2.UpdateElasticCloudIntegrationAccount": {
+        "interfaceId": {
+            "type": "ElasticCloudInterfaceId",
+            "format": "",
+            },
+        "accountId": {
+            "type": "string",
+            "format": "",
+            },
+        "body": {
+            "type": "ElasticCloudIntegrationAccountUpdateRequest",
+            "format": "",
+            },
+        "operationResponseType": "ElasticCloudIntegrationAccountResponse",
+    },
     "v2.ListFastlyAccounts": {
         "operationResponseType": "FastlyAccountsResponse",
     },
@@ -11579,6 +11634,61 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             "format": "",
             },
         "operationResponseType": "OktaAccountResponse",
+    },
+    "v2.ListTwilioIntegrationAccounts": {
+        "interfaceId": {
+            "type": "TwilioInterfaceType",
+            "format": "",
+            },
+        "operationResponseType": "TwilioIntegrationAccountsResponse",
+    },
+    "v2.CreateTwilioIntegrationAccount": {
+        "interfaceId": {
+            "type": "TwilioInterfaceType",
+            "format": "",
+            },
+        "body": {
+            "type": "TwilioIntegrationAccountRequest",
+            "format": "",
+            },
+        "operationResponseType": "TwilioIntegrationAccountResponse",
+    },
+    "v2.GetTwilioIntegrationAccount": {
+        "interfaceId": {
+            "type": "TwilioInterfaceType",
+            "format": "",
+            },
+        "accountId": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "TwilioIntegrationAccountResponse",
+    },
+    "v2.DeleteTwilioIntegrationAccount": {
+        "interfaceId": {
+            "type": "TwilioInterfaceType",
+            "format": "",
+            },
+        "accountId": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "{}",
+    },
+    "v2.UpdateTwilioIntegrationAccount": {
+        "interfaceId": {
+            "type": "TwilioInterfaceType",
+            "format": "",
+            },
+        "accountId": {
+            "type": "string",
+            "format": "",
+            },
+        "body": {
+            "type": "TwilioIntegrationAccountUpdateRequest",
+            "format": "",
+            },
+        "operationResponseType": "TwilioIntegrationAccountResponse",
     },
     "v2.GetIPAllowlist": {
         "operationResponseType": "IPAllowlistResponse",

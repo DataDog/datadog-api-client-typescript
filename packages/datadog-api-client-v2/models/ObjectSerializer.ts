@@ -1484,6 +1484,27 @@ import { DueDateRulesResponse } from "./DueDateRulesResponse";
 import { ELFSourcemapAttributes } from "./ELFSourcemapAttributes";
 import { ELFSourcemapData } from "./ELFSourcemapData";
 import { EPSS } from "./EPSS";
+import { ElasticCloudBasicAuth } from "./ElasticCloudBasicAuth";
+import { ElasticCloudCcmDataflow } from "./ElasticCloudCcmDataflow";
+import { ElasticCloudCcmInterface } from "./ElasticCloudCcmInterface";
+import { ElasticCloudCcmInterfaceUpdate } from "./ElasticCloudCcmInterfaceUpdate";
+import { ElasticCloudCcmSettings } from "./ElasticCloudCcmSettings";
+import { ElasticCloudCcmSettingsUpdate } from "./ElasticCloudCcmSettingsUpdate";
+import { ElasticCloudCcmTokenAuth } from "./ElasticCloudCcmTokenAuth";
+import { ElasticCloudDataflow } from "./ElasticCloudDataflow";
+import { ElasticCloudIntegrationAccountAttributes } from "./ElasticCloudIntegrationAccountAttributes";
+import { ElasticCloudIntegrationAccountCreateData } from "./ElasticCloudIntegrationAccountCreateData";
+import { ElasticCloudIntegrationAccountData } from "./ElasticCloudIntegrationAccountData";
+import { ElasticCloudIntegrationAccountRequest } from "./ElasticCloudIntegrationAccountRequest";
+import { ElasticCloudIntegrationAccountResponse } from "./ElasticCloudIntegrationAccountResponse";
+import { ElasticCloudIntegrationAccountUpdateAttributes } from "./ElasticCloudIntegrationAccountUpdateAttributes";
+import { ElasticCloudIntegrationAccountUpdateData } from "./ElasticCloudIntegrationAccountUpdateData";
+import { ElasticCloudIntegrationAccountUpdateRequest } from "./ElasticCloudIntegrationAccountUpdateRequest";
+import { ElasticCloudIntegrationAccountsResponse } from "./ElasticCloudIntegrationAccountsResponse";
+import { ElasticCloudMonitoringInterface } from "./ElasticCloudMonitoringInterface";
+import { ElasticCloudMonitoringInterfaceUpdate } from "./ElasticCloudMonitoringInterfaceUpdate";
+import { ElasticCloudSettings } from "./ElasticCloudSettings";
+import { ElasticCloudSettingsUpdate } from "./ElasticCloudSettingsUpdate";
 import { EntityAttributes } from "./EntityAttributes";
 import { EntityContextEntity } from "./EntityContextEntity";
 import { EntityContextEntityAttributes } from "./EntityContextEntityAttributes";
@@ -2193,6 +2214,8 @@ import { InputSchema } from "./InputSchema";
 import { InputSchemaParameters } from "./InputSchemaParameters";
 import { IntakePayloadAccepted } from "./IntakePayloadAccepted";
 import { Integration } from "./Integration";
+import { IntegrationAccountDataflowStatus } from "./IntegrationAccountDataflowStatus";
+import { IntegrationAccountPermissions } from "./IntegrationAccountPermissions";
 import { IntegrationAttributes } from "./IntegrationAttributes";
 import { IntegrationIncident } from "./IntegrationIncident";
 import { IntegrationIncidentFieldMappingsItems } from "./IntegrationIncidentFieldMappingsItems";
@@ -5155,6 +5178,21 @@ import { TriggerInvestigationResponseData } from "./TriggerInvestigationResponse
 import { TriggerInvestigationResponseDataAttributes } from "./TriggerInvestigationResponseDataAttributes";
 import { TriggerRateLimit } from "./TriggerRateLimit";
 import { TriggerWorkflowAutomationAction } from "./TriggerWorkflowAutomationAction";
+import { TwilioBasicAuth } from "./TwilioBasicAuth";
+import { TwilioDataflow } from "./TwilioDataflow";
+import { TwilioIntegrationAccountAttributes } from "./TwilioIntegrationAccountAttributes";
+import { TwilioIntegrationAccountCreateData } from "./TwilioIntegrationAccountCreateData";
+import { TwilioIntegrationAccountData } from "./TwilioIntegrationAccountData";
+import { TwilioIntegrationAccountRequest } from "./TwilioIntegrationAccountRequest";
+import { TwilioIntegrationAccountResponse } from "./TwilioIntegrationAccountResponse";
+import { TwilioIntegrationAccountUpdateAttributes } from "./TwilioIntegrationAccountUpdateAttributes";
+import { TwilioIntegrationAccountUpdateData } from "./TwilioIntegrationAccountUpdateData";
+import { TwilioIntegrationAccountUpdateRequest } from "./TwilioIntegrationAccountUpdateRequest";
+import { TwilioIntegrationAccountsResponse } from "./TwilioIntegrationAccountsResponse";
+import { TwilioInterface } from "./TwilioInterface";
+import { TwilioInterfaceUpdate } from "./TwilioInterfaceUpdate";
+import { TwilioSettings } from "./TwilioSettings";
+import { TwilioSettingsUpdate } from "./TwilioSettingsUpdate";
 import { UCConfigPair } from "./UCConfigPair";
 import { UCConfigPairData } from "./UCConfigPairData";
 import { UCConfigPairDataAttributes } from "./UCConfigPairDataAttributes";
@@ -6211,6 +6249,13 @@ const enumsMap: { [key: string]: any[] } = {
     "none",
     "unknown",
   ],
+  ElasticCloudBasicAuthType: ["basic"],
+  ElasticCloudCcmDataflowId: ["elastic-cloud-cost-data"],
+  ElasticCloudCcmInterfaceType: ["elastic-cloud-ccm"],
+  ElasticCloudCcmTokenAuthType: ["bearer_token"],
+  ElasticCloudDataflowId: ["elastic-cloud-metrics"],
+  ElasticCloudInterfaceId: ["elastic-cloud", "elastic-cloud-ccm"],
+  ElasticCloudMonitoringInterfaceType: ["elastic-cloud"],
   EntityIntegrationConfigRequestType: ["entity_integration_config_requests"],
   EntityIntegrationConfigType: ["entity_integration_configs"],
   EntityResponseDataRelationshipsIncidentsDataItemsType: ["incident"],
@@ -6518,6 +6563,12 @@ const enumsMap: { [key: string]: any[] } = {
     "ARRAY_BOOLEAN",
     "ARRAY_OBJECT",
   ],
+  IntegrationAccountDataflowHealth: [
+    "DATAFLOW_HEALTH_OK",
+    "DATAFLOW_HEALTH_BROKEN",
+    "DATAFLOW_HEALTH_UNKNOWN",
+  ],
+  IntegrationAccountType: ["integration-account"],
   IntegrationType: ["integration"],
   InterfaceAttributesStatus: ["up", "down", "warning", "off"],
   InvestigationType: ["investigation"],
@@ -8294,6 +8345,15 @@ const enumsMap: { [key: string]: any[] } = {
   TriggerSource: ["security_findings", "security_signals"],
   TriggerType: ["monitor_alert_trigger"],
   TriggerWorkflowAutomationActionType: ["workflow"],
+  TwilioBasicAuthType: ["basic"],
+  TwilioDataflowId: [
+    "twilio-cloud-cost-metrics",
+    "twilio-events-logs",
+    "twilio-messages-logs",
+    "twilio-alerts-logs",
+    "twilio-call-summaries-logs",
+  ],
+  TwilioInterfaceType: ["twilio"],
   UCConfigPairDataType: ["azure_uc_configs"],
   UpdateAppsDatastoreItemRequestDataType: ["items"],
   UpdateConnectionRequestDataType: ["connection_id"],
@@ -10218,6 +10278,34 @@ const typeMap: { [index: string]: any } = {
   ELFSourcemapAttributes: ELFSourcemapAttributes,
   ELFSourcemapData: ELFSourcemapData,
   EPSS: EPSS,
+  ElasticCloudBasicAuth: ElasticCloudBasicAuth,
+  ElasticCloudCcmDataflow: ElasticCloudCcmDataflow,
+  ElasticCloudCcmInterface: ElasticCloudCcmInterface,
+  ElasticCloudCcmInterfaceUpdate: ElasticCloudCcmInterfaceUpdate,
+  ElasticCloudCcmSettings: ElasticCloudCcmSettings,
+  ElasticCloudCcmSettingsUpdate: ElasticCloudCcmSettingsUpdate,
+  ElasticCloudCcmTokenAuth: ElasticCloudCcmTokenAuth,
+  ElasticCloudDataflow: ElasticCloudDataflow,
+  ElasticCloudIntegrationAccountAttributes:
+    ElasticCloudIntegrationAccountAttributes,
+  ElasticCloudIntegrationAccountCreateData:
+    ElasticCloudIntegrationAccountCreateData,
+  ElasticCloudIntegrationAccountData: ElasticCloudIntegrationAccountData,
+  ElasticCloudIntegrationAccountRequest: ElasticCloudIntegrationAccountRequest,
+  ElasticCloudIntegrationAccountResponse:
+    ElasticCloudIntegrationAccountResponse,
+  ElasticCloudIntegrationAccountUpdateAttributes:
+    ElasticCloudIntegrationAccountUpdateAttributes,
+  ElasticCloudIntegrationAccountUpdateData:
+    ElasticCloudIntegrationAccountUpdateData,
+  ElasticCloudIntegrationAccountUpdateRequest:
+    ElasticCloudIntegrationAccountUpdateRequest,
+  ElasticCloudIntegrationAccountsResponse:
+    ElasticCloudIntegrationAccountsResponse,
+  ElasticCloudMonitoringInterface: ElasticCloudMonitoringInterface,
+  ElasticCloudMonitoringInterfaceUpdate: ElasticCloudMonitoringInterfaceUpdate,
+  ElasticCloudSettings: ElasticCloudSettings,
+  ElasticCloudSettingsUpdate: ElasticCloudSettingsUpdate,
   EntityAttributes: EntityAttributes,
   EntityContextEntity: EntityContextEntity,
   EntityContextEntityAttributes: EntityContextEntityAttributes,
@@ -11035,6 +11123,8 @@ const typeMap: { [index: string]: any } = {
   InputSchemaParameters: InputSchemaParameters,
   IntakePayloadAccepted: IntakePayloadAccepted,
   Integration: Integration,
+  IntegrationAccountDataflowStatus: IntegrationAccountDataflowStatus,
+  IntegrationAccountPermissions: IntegrationAccountPermissions,
   IntegrationAttributes: IntegrationAttributes,
   IntegrationIncident: IntegrationIncident,
   IntegrationIncidentFieldMappingsItems: IntegrationIncidentFieldMappingsItems,
@@ -14701,6 +14791,22 @@ const typeMap: { [index: string]: any } = {
     TriggerInvestigationResponseDataAttributes,
   TriggerRateLimit: TriggerRateLimit,
   TriggerWorkflowAutomationAction: TriggerWorkflowAutomationAction,
+  TwilioBasicAuth: TwilioBasicAuth,
+  TwilioDataflow: TwilioDataflow,
+  TwilioIntegrationAccountAttributes: TwilioIntegrationAccountAttributes,
+  TwilioIntegrationAccountCreateData: TwilioIntegrationAccountCreateData,
+  TwilioIntegrationAccountData: TwilioIntegrationAccountData,
+  TwilioIntegrationAccountRequest: TwilioIntegrationAccountRequest,
+  TwilioIntegrationAccountResponse: TwilioIntegrationAccountResponse,
+  TwilioIntegrationAccountUpdateAttributes:
+    TwilioIntegrationAccountUpdateAttributes,
+  TwilioIntegrationAccountUpdateData: TwilioIntegrationAccountUpdateData,
+  TwilioIntegrationAccountUpdateRequest: TwilioIntegrationAccountUpdateRequest,
+  TwilioIntegrationAccountsResponse: TwilioIntegrationAccountsResponse,
+  TwilioInterface: TwilioInterface,
+  TwilioInterfaceUpdate: TwilioInterfaceUpdate,
+  TwilioSettings: TwilioSettings,
+  TwilioSettingsUpdate: TwilioSettingsUpdate,
   UCConfigPair: UCConfigPair,
   UCConfigPairData: UCConfigPairData,
   UCConfigPairDataAttributes: UCConfigPairDataAttributes,
@@ -15268,6 +15374,16 @@ const oneOfMap: { [index: string]: string[] } = {
     "DowntimeScheduleRecurrencesUpdateRequest",
     "DowntimeScheduleOneTimeCreateUpdateRequest",
   ],
+  ElasticCloudAuthentication: ["ElasticCloudBasicAuth"],
+  ElasticCloudCcmAuthentication: ["ElasticCloudCcmTokenAuth"],
+  ElasticCloudInterface: [
+    "ElasticCloudMonitoringInterface",
+    "ElasticCloudCcmInterface",
+  ],
+  ElasticCloudInterfaceUpdate: [
+    "ElasticCloudMonitoringInterfaceUpdate",
+    "ElasticCloudCcmInterfaceUpdate",
+  ],
   EntityV3: [
     "EntityV3Service",
     "EntityV3Datastore",
@@ -15787,6 +15903,7 @@ const oneOfMap: { [index: string]: string[] } = {
     "SoftwareCatalogTriggerWrapper",
     "WorkflowTriggerWrapper",
   ],
+  TwilioAuthentication: ["TwilioBasicAuth"],
   UpsertCatalogEntityRequest: ["EntityV3", "string"],
   UpsertCatalogEntityResponseIncludedItem: ["EntityResponseIncludedSchema"],
   UpsertCatalogKindRequest: ["KindObj", "string"],
