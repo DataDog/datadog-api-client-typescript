@@ -14943,6 +14943,128 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             },
         "operationResponseType": "{}",
     },
+    "v2.CreateRUMOperation": {
+        "body": {
+            "type": "RUMOperationCreateRequest",
+            "format": "",
+            },
+        "operationResponseType": "RUMOperationResponse",
+    },
+    "v2.GetRUMOperationByName": {
+        "name": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "RUMOperationResponse",
+    },
+    "v2.ListRUMOperations": {
+        "query": {
+            "type": "string",
+            "format": "",
+            },
+        "pageOffset": {
+            "type": "number",
+            "format": "int64",
+            },
+        "pageLimit": {
+            "type": "number",
+            "format": "int64",
+            },
+        "creator": {
+            "type": "string",
+            "format": "",
+            },
+        "team": {
+            "type": "string",
+            "format": "",
+            },
+        "featureId": {
+            "type": "string",
+            "format": "",
+            },
+        "applicationId": {
+            "type": "string",
+            "format": "uuid",
+            },
+        "operationResponseType": "RUMOperationsListResponse",
+    },
+    "v2.ListRUMOperationStrongLinks": {
+        "operationId": {
+            "type": "string",
+            "format": "",
+            },
+        "featureId": {
+            "type": "string",
+            "format": "",
+            },
+        "pageOffset": {
+            "type": "number",
+            "format": "int64",
+            },
+        "pageLimit": {
+            "type": "number",
+            "format": "int64",
+            },
+        "operationResponseType": "RUMOperationStrongLinksListResponse",
+    },
+    "v2.CreateRUMOperationStrongLink": {
+        "body": {
+            "type": "RUMOperationStrongLinkCreateRequest",
+            "format": "",
+            },
+        "operationResponseType": "RUMOperationStrongLinkResponse",
+    },
+    "v2.UpdateRUMOperationStrongLink": {
+        "rumOperationId": {
+            "type": "string",
+            "format": "",
+            },
+        "featureId": {
+            "type": "string",
+            "format": "",
+            },
+        "body": {
+            "type": "RUMOperationStrongLinkUpdateRequest",
+            "format": "",
+            },
+        "operationResponseType": "RUMOperationStrongLinkResponse",
+    },
+    "v2.DeleteRUMOperationStrongLink": {
+        "rumOperationId": {
+            "type": "string",
+            "format": "",
+            },
+        "featureId": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "{}",
+    },
+    "v2.GetRUMOperation": {
+        "rumOperationId": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "RUMOperationResponse",
+    },
+    "v2.UpdateRUMOperation": {
+        "rumOperationId": {
+            "type": "string",
+            "format": "",
+            },
+        "body": {
+            "type": "RUMOperationUpdateRequest",
+            "format": "",
+            },
+        "operationResponseType": "RUMOperationResponse",
+    },
+    "v2.DeleteRUMOperation": {
+        "rumOperationId": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "{}",
+    },
     "v2.QueryAggregatedLongTasks": {
         "body": {
             "type": "AggregatedLongTasksRequest",
