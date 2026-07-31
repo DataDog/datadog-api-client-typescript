@@ -27,6 +27,12 @@ export class MonitorFormulaAndFunctionDataQualityMonitorOptions {
    */
   "modelTypeOverride"?: MonitorFormulaAndFunctionDataQualityModelTypeOverride;
   /**
+   * Sensitivity of the anomaly detection model, expressed as a multiplier on the width
+   * of the predicted bounds. Higher values widen the bounds and produce fewer alerts;
+   * lower values tighten them and produce more alerts. Defaults to `3.0`.
+   */
+  "sensitivity"?: number;
+  /**
    * A container for additional, undeclared properties.
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
@@ -60,6 +66,11 @@ export class MonitorFormulaAndFunctionDataQualityMonitorOptions {
     modelTypeOverride: {
       baseName: "model_type_override",
       type: "MonitorFormulaAndFunctionDataQualityModelTypeOverride",
+    },
+    sensitivity: {
+      baseName: "sensitivity",
+      type: "number",
+      format: "double",
     },
     additionalProperties: {
       baseName: "additionalProperties",
