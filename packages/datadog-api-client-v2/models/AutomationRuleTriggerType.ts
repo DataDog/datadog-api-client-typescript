@@ -18,10 +18,10 @@ export type AutomationRuleTriggerType =
   | typeof CASE_REVIEW_APPROVED
   | typeof COMMENT_ADDED
   | UnparsedObject;
-export const CASE_CREATED = "case_created";
-export const STATUS_TRANSITIONED = "status_transitioned";
-export const ATTRIBUTE_VALUE_CHANGED = "attribute_value_changed";
+export const CASE_CREATED = "CASE_CREATED";
+export const STATUS_TRANSITIONED = "STATUS_TRANSITIONED";
+export const ATTRIBUTE_VALUE_CHANGED = "ATTRIBUTE_VALUE_CHANGED";
 export const EVENT_CORRELATION_SIGNAL_CORRELATED =
-  "event_correlation_signal_correlated";
-export const CASE_REVIEW_APPROVED = "case_review_approved";
-export const COMMENT_ADDED = "comment_added";
+  "EVENT_CORRELATION_SIGNAL_CORRELATED";
+export const CASE_REVIEW_APPROVED = "CASE_REVIEW_APPROVED";
+export const COMMENT_ADDED = "COMMENT_ADDED";

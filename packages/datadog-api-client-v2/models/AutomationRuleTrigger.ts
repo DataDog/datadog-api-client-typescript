@@ -13,7 +13,7 @@ import { AttributeTypeMap } from "../../datadog-api-client-common/util";
  */
 export class AutomationRuleTrigger {
   /**
-   * Additional configuration for the trigger, dependent on the trigger type. For `status_transitioned` triggers, specify `from_status_name` and `to_status_name`. For `attribute_value_changed` triggers, specify `field` and `change_type`.
+   * Additional configuration for the trigger, dependent on the trigger type. For `STATUS_TRANSITIONED` triggers, specify `from_status_name` and `to_status_name`. For `ATTRIBUTE_VALUE_CHANGED` triggers, specify `field` and `change_type`.
    */
   "data"?: AutomationRuleTriggerData;
   /**
