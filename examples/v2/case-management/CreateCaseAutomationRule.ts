@@ -15,13 +15,13 @@ const params: v2.CaseManagementApiCreateCaseAutomationRuleRequest = {
           data: {
             handle: "workflow-handle-123",
           },
-          type: "execute_workflow",
+          type: "EXECUTE_WORKFLOW",
         },
         name: "Auto-assign workflow",
         state: "ENABLED",
         trigger: {
           data: {},
-          type: "case_created",
+          type: "CASE_CREATED",
         },
       },
       type: "rule",

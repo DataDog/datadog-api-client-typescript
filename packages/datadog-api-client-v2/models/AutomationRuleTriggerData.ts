@@ -7,27 +7,27 @@
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * Additional configuration for the trigger, dependent on the trigger type. For `status_transitioned` triggers, specify `from_status_name` and `to_status_name`. For `attribute_value_changed` triggers, specify `field` and `change_type`.
+ * Additional configuration for the trigger, dependent on the trigger type. For `STATUS_TRANSITIONED` triggers, specify `from_status_name` and `to_status_name`. For `ATTRIBUTE_VALUE_CHANGED` triggers, specify `field` and `change_type`.
  */
 export class AutomationRuleTriggerData {
   /**
-   * The approval outcome to match. Used with `case_review_approved` triggers.
+   * The approval outcome to match. Used with `CASE_REVIEW_APPROVED` triggers.
    */
   "approvalType"?: string;
   /**
-   * The kind of attribute change to match. Allowed values: `VALUE_ADDED`, `VALUE_DELETED`, `ANY_CHANGES`. Used with `attribute_value_changed` triggers.
+   * The kind of attribute change to match. Allowed values: `VALUE_ADDED`, `VALUE_DELETED`, `ANY_CHANGES`. Used with `ATTRIBUTE_VALUE_CHANGED` triggers.
    */
   "changeType"?: string;
   /**
-   * The case attribute field name to monitor for changes. Used with `attribute_value_changed` triggers.
+   * The case attribute field name to monitor for changes. Used with `ATTRIBUTE_VALUE_CHANGED` triggers.
    */
   "field"?: string;
   /**
-   * The originating status name. Used with `status_transitioned` triggers to match transitions from this status.
+   * The originating status name. Used with `STATUS_TRANSITIONED` triggers to match transitions from this status.
    */
   "fromStatusName"?: string;
   /**
-   * The destination status name. Used with `status_transitioned` triggers to match transitions to this status.
+   * The destination status name. Used with `STATUS_TRANSITIONED` triggers to match transitions to this status.
    */
   "toStatusName"?: string;
 
