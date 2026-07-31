@@ -204,14 +204,14 @@ import { UsersRelationship } from "./UsersRelationship";
 
 export const TypingInfo: ModelTypingInfo = {
   enumsMap: {
-    AutomationRuleActionType: ["execute_workflow", "assign_agent"],
+    AutomationRuleActionType: ["EXECUTE_WORKFLOW", "ASSIGN_AGENT"],
     AutomationRuleTriggerType: [
-      "case_created",
-      "status_transitioned",
-      "attribute_value_changed",
-      "event_correlation_signal_correlated",
-      "case_review_approved",
-      "comment_added",
+      "CASE_CREATED",
+      "STATUS_TRANSITIONED",
+      "ATTRIBUTE_VALUE_CHANGED",
+      "EVENT_CORRELATION_SIGNAL_CORRELATED",
+      "CASE_REVIEW_APPROVED",
+      "COMMENT_ADDED",
     ],
     Case3rdPartyTicketStatus: ["IN_PROGRESS", "COMPLETED", "FAILED"],
     CaseAggregateResourceType: ["aggregate"],
