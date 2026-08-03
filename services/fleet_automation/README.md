@@ -39,14 +39,15 @@ const configuration = createConfiguration();
 // Enable unstable operations
 const configurationOpts = {
     unstableOperations: {
-        "FleetAutomationApi.v2.listFleetAgentVersions": true
+        "FleetAutomationApi.v2.listFleetAgentTracers": true
     }
 }
 
 const configuration = createConfiguration(configurationOpts);
 const apiInstance = new FleetAutomationApiV2(configuration);
+const params = {/* parameters */};
 
-apiInstance.listFleetAgentVersions().then((data) => {
+apiInstance.listFleetAgentTracers(params).then((data) => {
     console.log("API called successfully. Returned data: " + JSON.stringify(data));
 }).catch((error) => {
     console.error("Error calling API: " + error);
