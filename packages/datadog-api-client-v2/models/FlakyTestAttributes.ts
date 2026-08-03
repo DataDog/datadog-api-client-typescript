@@ -5,6 +5,7 @@
  */
 import { FlakyTestAttributesFlakyState } from "./FlakyTestAttributesFlakyState";
 import { FlakyTestHistory } from "./FlakyTestHistory";
+import { FlakyTestImpactLevel } from "./FlakyTestImpactLevel";
 import { FlakyTestPipelineStats } from "./FlakyTestPipelineStats";
 import { FlakyTestRunMetadata } from "./FlakyTestRunMetadata";
 import { FlakyTestStats } from "./FlakyTestStats";
@@ -55,6 +56,14 @@ export class FlakyTestAttributes {
    * Includes state transitions like new -> quarantined -> fixed, along with the associated commit SHA when available.
    */
   "history"?: Array<FlakyTestHistory>;
+  /**
+   * The impact level of the flaky test, derived from its impact score.
+   */
+  "impactLevel"?: FlakyTestImpactLevel;
+  /**
+   * A score from 0 to 1 indicating the impact of this flaky test, based on factors such as how often it fails and how many pipelines it affects.
+   */
+  "impactScore"?: number;
   /**
    * The branch name where the test exhibited flakiness for the last time.
    */
@@ -156,6 +165,15 @@ export class FlakyTestAttributes {
     history: {
       baseName: "history",
       type: "Array<FlakyTestHistory>",
+    },
+    impactLevel: {
+      baseName: "impact_level",
+      type: "FlakyTestImpactLevel",
+    },
+    impactScore: {
+      baseName: "impact_score",
+      type: "number",
+      format: "double",
     },
     lastFlakedBranch: {
       baseName: "last_flaked_branch",

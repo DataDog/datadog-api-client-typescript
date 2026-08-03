@@ -4088,6 +4088,7 @@ export { FlakyTestHistory } from "./models/FlakyTestHistory";
 export { FlakyTestHistoryPolicyId } from "./models/FlakyTestHistoryPolicyId";
 export { FlakyTestHistoryPolicyMeta } from "./models/FlakyTestHistoryPolicyMeta";
 export { FlakyTestHistoryPolicyMetaConfig } from "./models/FlakyTestHistoryPolicyMetaConfig";
+export { FlakyTestImpactLevel } from "./models/FlakyTestImpactLevel";
 export { FlakyTestPipelineStats } from "./models/FlakyTestPipelineStats";
 export { FlakyTestRunMetadata } from "./models/FlakyTestRunMetadata";
 export { FlakyTestsPagination } from "./models/FlakyTestsPagination";
