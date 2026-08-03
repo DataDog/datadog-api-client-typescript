@@ -2354,43 +2354,6 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
   "AuthenticationApi.V1.Validate": {
     operationResponseType: "AuthenticationValidationResponse",
   },
-  "FleetAutomationApi.V2.ListFleetAgentVersions": {
-    operationResponseType: "FleetAgentVersionsResponse",
-  },
-  "FleetAutomationApi.V2.ListFleetAgents": {
-    pageNumber: {
-      type: "number",
-      format: "int64",
-    },
-    pageSize: {
-      type: "number",
-      format: "int64",
-    },
-    sortAttribute: {
-      type: "string",
-      format: "",
-    },
-    sortDescending: {
-      type: "boolean",
-      format: "",
-    },
-    tags: {
-      type: "string",
-      format: "",
-    },
-    filter: {
-      type: "string",
-      format: "",
-    },
-    operationResponseType: "FleetAgentsResponse",
-  },
-  "FleetAutomationApi.V2.GetFleetAgentInfo": {
-    agentKey: {
-      type: "string",
-      format: "",
-    },
-    operationResponseType: "FleetAgentInfoResponse",
-  },
   "FleetAutomationApi.V2.ListFleetAgentTracers": {
     agentKey: {
       type: "string",
@@ -2414,66 +2377,9 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
     },
     operationResponseType: "FleetTracersResponse",
   },
-  "FleetAutomationApi.V2.ListFleetDeployments": {
-    pageSize: {
-      type: "number",
-      format: "int64",
-    },
-    pageOffset: {
-      type: "number",
-      format: "int64",
-    },
-    operationResponseType: "FleetDeploymentsResponse",
-  },
-  "FleetAutomationApi.V2.CreateFleetDeploymentConfigure": {
-    body: {
-      type: "FleetDeploymentConfigureCreateRequest",
-      format: "",
-    },
-    operationResponseType: "FleetDeploymentResponse",
-  },
-  "FleetAutomationApi.V2.CreateFleetDeploymentUpgrade": {
-    body: {
-      type: "FleetDeploymentPackageUpgradeCreateRequest",
-      format: "",
-    },
-    operationResponseType: "FleetDeploymentResponse",
-  },
-  "FleetAutomationApi.V2.GetFleetDeployment": {
-    deploymentId: {
-      type: "string",
-      format: "",
-    },
-    limit: {
-      type: "number",
-      format: "int64",
-    },
-    page: {
-      type: "number",
-      format: "int64",
-    },
-    operationResponseType: "FleetDeploymentResponse",
-  },
-  "FleetAutomationApi.V2.CancelFleetDeployment": {
-    deploymentId: {
-      type: "string",
-      format: "",
-    },
-    operationResponseType: "{}",
-  },
-  "FleetAutomationApi.V2.ListFleetSchedules": {
-    operationResponseType: "FleetSchedulesResponse",
-  },
   "FleetAutomationApi.V2.CreateFleetSchedule": {
     body: {
       type: "FleetScheduleCreateRequest",
-      format: "",
-    },
-    operationResponseType: "FleetScheduleResponse",
-  },
-  "FleetAutomationApi.V2.GetFleetSchedule": {
-    id: {
-      type: "string",
       format: "",
     },
     operationResponseType: "FleetScheduleResponse",
@@ -2525,6 +2431,108 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
       format: "",
     },
     operationResponseType: "FleetTracersResponse",
+  },
+  "FleetAutomationApi.V2.ListFleetAgentVersionsV2": {
+    operationResponseType: "FleetAgentVersionsV2Response",
+  },
+  "FleetAutomationApi.V2.ListFleetAgentsV2": {
+    pageNumber: {
+      type: "number",
+      format: "int64",
+    },
+    pageSize: {
+      type: "number",
+      format: "int64",
+    },
+    filter: {
+      type: "string",
+      format: "",
+    },
+    tags: {
+      type: "string",
+      format: "",
+    },
+    sortAttribute: {
+      type: "string",
+      format: "",
+    },
+    sortDescending: {
+      type: "boolean",
+      format: "",
+    },
+    operationResponseType: "FleetAgentsV2Response",
+  },
+  "FleetAutomationApi.V2.GetFleetAgentDetailV2": {
+    agentKey: {
+      type: "string",
+      format: "",
+    },
+    include: {
+      type: "string",
+      format: "",
+    },
+    operationResponseType: "FleetAgentDetailV2Response",
+  },
+  "FleetAutomationApi.V2.ListFleetDeploymentsV2": {
+    pageSize: {
+      type: "number",
+      format: "int64",
+    },
+    pageNumber: {
+      type: "number",
+      format: "int64",
+    },
+    sort: {
+      type: "string",
+      format: "",
+    },
+    ascending: {
+      type: "boolean",
+      format: "",
+    },
+    filter: {
+      type: "string",
+      format: "",
+    },
+    operationResponseType: "FleetDeploymentsV2Response",
+  },
+  "FleetAutomationApi.V2.CreateFleetDeploymentConfigureV2": {
+    body: {
+      type: "FleetDeploymentConfigureV2CreateRequest",
+      format: "",
+    },
+    operationResponseType: "FleetDeploymentConfigureV2DryRunResponse",
+  },
+  "FleetAutomationApi.V2.CreateFleetDeploymentUpgradeV2": {
+    body: {
+      type: "FleetDeploymentPackageUpgradeV2CreateRequest",
+      format: "",
+    },
+    operationResponseType: "FleetDeploymentV2CreateResponse",
+  },
+  "FleetAutomationApi.V2.GetFleetDeploymentV2": {
+    deploymentId: {
+      type: "string",
+      format: "",
+    },
+    operationResponseType: "FleetDeploymentV2DetailResponse",
+  },
+  "FleetAutomationApi.V2.CancelFleetDeploymentV2": {
+    deploymentId: {
+      type: "string",
+      format: "",
+    },
+    operationResponseType: "FleetDeploymentV2CancelResponse",
+  },
+  "FleetAutomationApi.V2.ListFleetSchedulesV2": {
+    operationResponseType: "FleetSchedulesV2Response",
+  },
+  "FleetAutomationApi.V2.GetFleetScheduleV2": {
+    id: {
+      type: "string",
+      format: "",
+    },
+    operationResponseType: "FleetScheduleV2Response",
   },
   "LLMObservabilityApi.V2.ListLLMObsCustomEvalConfigs": {
     operationResponseType: "LLMObsCustomEvalConfigListResponse",
