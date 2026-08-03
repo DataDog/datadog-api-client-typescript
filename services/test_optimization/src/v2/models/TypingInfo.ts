@@ -74,6 +74,7 @@ export const TypingInfo: ModelTypingInfo = {
       "ftm_policy.quarantine.days_active",
       "unknown",
     ],
+    FlakyTestImpactLevel: ["low", "medium", "high"],
     FlakyTestType: ["flaky_test"],
     FlakyTestsSearchRequestDataType: ["search_flaky_tests_request"],
     FlakyTestsSearchSort: [
