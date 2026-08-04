@@ -533,6 +533,18 @@ import { SecurityMonitoringThirdPartyRuleCaseCreate } from "./SecurityMonitoring
 import { SecurityMonitoringTriageUser } from "./SecurityMonitoringTriageUser";
 import { SecurityMonitoringUser } from "./SecurityMonitoringUser";
 import { Selectors } from "./Selectors";
+import { SeverityModifierRuleAttributesCreate } from "./SeverityModifierRuleAttributesCreate";
+import { SeverityModifierRuleAttributesResponse } from "./SeverityModifierRuleAttributesResponse";
+import { SeverityModifierRuleCreateRequest } from "./SeverityModifierRuleCreateRequest";
+import { SeverityModifierRuleDataCreate } from "./SeverityModifierRuleDataCreate";
+import { SeverityModifierRuleDataResponse } from "./SeverityModifierRuleDataResponse";
+import { SeverityModifierRuleReorderItem } from "./SeverityModifierRuleReorderItem";
+import { SeverityModifierRuleReorderRequest } from "./SeverityModifierRuleReorderRequest";
+import { SeverityModifierRuleResponse } from "./SeverityModifierRuleResponse";
+import { SeverityModifierRuleSetAction } from "./SeverityModifierRuleSetAction";
+import { SeverityModifierRuleShiftAction } from "./SeverityModifierRuleShiftAction";
+import { SeverityModifierRuleUpdateRequest } from "./SeverityModifierRuleUpdateRequest";
+import { SeverityModifierRulesResponse } from "./SeverityModifierRulesResponse";
 import { SignalEntitiesAttributes } from "./SignalEntitiesAttributes";
 import { SignalEntitiesData } from "./SignalEntitiesData";
 import { SignalEntitiesResponse } from "./SignalEntitiesResponse";
@@ -989,6 +1001,17 @@ export const TypingInfo: ModelTypingInfo = {
       "rules",
     ],
     ServiceNowTicketsDataType: ["servicenow_tickets"],
+    SeverityModifierRuleSetActionType: ["set"],
+    SeverityModifierRuleShiftActionType: ["shift"],
+    SeverityModifierRuleType: ["severity_modifier_rules"],
+    SeverityModifierSeverity: [
+      "info_none",
+      "low",
+      "medium",
+      "high",
+      "critical",
+    ],
+    SeverityModifierSeverityDelta: ["up_one", "down_one"],
     SignalEntitiesType: ["entities"],
     SpecVersion: ["1.0", "1.1", "1.2", "1.3", "1.4", "1.5"],
     TicketCreationRuleType: ["ticket_creation_rules"],
@@ -1131,6 +1154,10 @@ export const TypingInfo: ModelTypingInfo = {
       "SecurityMonitoringStandardRulePayload",
       "SecurityMonitoringSignalRulePayload",
       "CloudConfigurationRulePayload",
+    ],
+    SeverityModifierRuleAction: [
+      "SeverityModifierRuleSetAction",
+      "SeverityModifierRuleShiftAction",
     ],
   },
   typeMap: {
@@ -1869,6 +1896,19 @@ export const TypingInfo: ModelTypingInfo = {
     SecurityMonitoringTriageUser: SecurityMonitoringTriageUser,
     SecurityMonitoringUser: SecurityMonitoringUser,
     Selectors: Selectors,
+    SeverityModifierRuleAttributesCreate: SeverityModifierRuleAttributesCreate,
+    SeverityModifierRuleAttributesResponse:
+      SeverityModifierRuleAttributesResponse,
+    SeverityModifierRuleCreateRequest: SeverityModifierRuleCreateRequest,
+    SeverityModifierRuleDataCreate: SeverityModifierRuleDataCreate,
+    SeverityModifierRuleDataResponse: SeverityModifierRuleDataResponse,
+    SeverityModifierRuleReorderItem: SeverityModifierRuleReorderItem,
+    SeverityModifierRuleReorderRequest: SeverityModifierRuleReorderRequest,
+    SeverityModifierRuleResponse: SeverityModifierRuleResponse,
+    SeverityModifierRuleSetAction: SeverityModifierRuleSetAction,
+    SeverityModifierRuleShiftAction: SeverityModifierRuleShiftAction,
+    SeverityModifierRuleUpdateRequest: SeverityModifierRuleUpdateRequest,
+    SeverityModifierRulesResponse: SeverityModifierRulesResponse,
     SignalEntitiesAttributes: SignalEntitiesAttributes,
     SignalEntitiesData: SignalEntitiesData,
     SignalEntitiesResponse: SignalEntitiesResponse,
