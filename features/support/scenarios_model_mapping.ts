@@ -11905,6 +11905,81 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             },
         "operationResponseType": "OktaAccountResponse",
     },
+    "v2.ListIntegrationAccounts": {
+        "integrationId": {
+            "type": "IntegrationAccountIntegrationId",
+            "format": "",
+            },
+        "interfaceId": {
+            "type": "IntegrationAccountInterfaceId",
+            "format": "",
+            },
+        "operationResponseType": "IntegrationAccountsResponse",
+    },
+    "v2.CreateIntegrationAccount": {
+        "integrationId": {
+            "type": "IntegrationAccountIntegrationId",
+            "format": "",
+            },
+        "interfaceId": {
+            "type": "IntegrationAccountInterfaceId",
+            "format": "",
+            },
+        "body": {
+            "type": "IntegrationAccountRequest",
+            "format": "",
+            },
+        "operationResponseType": "IntegrationAccountResponse",
+    },
+    "v2.GetIntegrationAccount": {
+        "integrationId": {
+            "type": "IntegrationAccountIntegrationId",
+            "format": "",
+            },
+        "interfaceId": {
+            "type": "IntegrationAccountInterfaceId",
+            "format": "",
+            },
+        "accountId": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "IntegrationAccountResponse",
+    },
+    "v2.DeleteIntegrationAccount": {
+        "integrationId": {
+            "type": "IntegrationAccountIntegrationId",
+            "format": "",
+            },
+        "interfaceId": {
+            "type": "IntegrationAccountInterfaceId",
+            "format": "",
+            },
+        "accountId": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "{}",
+    },
+    "v2.UpdateIntegrationAccount": {
+        "integrationId": {
+            "type": "IntegrationAccountIntegrationId",
+            "format": "",
+            },
+        "interfaceId": {
+            "type": "IntegrationAccountInterfaceId",
+            "format": "",
+            },
+        "accountId": {
+            "type": "string",
+            "format": "",
+            },
+        "body": {
+            "type": "IntegrationAccountUpdateRequest",
+            "format": "",
+            },
+        "operationResponseType": "IntegrationAccountResponse",
+    },
     "v2.GetIPAllowlist": {
         "operationResponseType": "IPAllowlistResponse",
     },
