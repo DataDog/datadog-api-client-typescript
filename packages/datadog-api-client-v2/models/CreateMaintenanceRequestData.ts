@@ -4,6 +4,7 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 import { CreateMaintenanceRequestDataAttributes } from "./CreateMaintenanceRequestDataAttributes";
+import { CreateMaintenanceRequestDataRelationships } from "./CreateMaintenanceRequestDataRelationships";
 import { PatchMaintenanceRequestDataType } from "./PatchMaintenanceRequestDataType";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
@@ -16,6 +17,10 @@ export class CreateMaintenanceRequestData {
    * The supported attributes for creating a maintenance.
    */
   "attributes": CreateMaintenanceRequestDataAttributes;
+  /**
+   * The supported relationships for creating a maintenance.
+   */
+  "relationships"?: CreateMaintenanceRequestDataRelationships;
   /**
    * Maintenances resource type.
    */
@@ -41,6 +46,10 @@ export class CreateMaintenanceRequestData {
       baseName: "attributes",
       type: "CreateMaintenanceRequestDataAttributes",
       required: true,
+    },
+    relationships: {
+      baseName: "relationships",
+      type: "CreateMaintenanceRequestDataRelationships",
     },
     type: {
       baseName: "type",

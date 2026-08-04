@@ -6,6 +6,7 @@
 import { MaintenanceDataRelationshipsCreatedByUser } from "./MaintenanceDataRelationshipsCreatedByUser";
 import { MaintenanceDataRelationshipsLastModifiedByUser } from "./MaintenanceDataRelationshipsLastModifiedByUser";
 import { MaintenanceDataRelationshipsStatusPage } from "./MaintenanceDataRelationshipsStatusPage";
+import { MaintenanceDataRelationshipsTemplate } from "./MaintenanceDataRelationshipsTemplate";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
@@ -25,6 +26,10 @@ export class MaintenanceDataRelationships {
    * The status page the maintenance belongs to.
    */
   "statusPage"?: MaintenanceDataRelationshipsStatusPage;
+  /**
+   * The template the maintenance was created from.
+   */
+  "template"?: MaintenanceDataRelationshipsTemplate;
 
   /**
    * A container for additional, undeclared properties.
@@ -53,6 +58,10 @@ export class MaintenanceDataRelationships {
     statusPage: {
       baseName: "status_page",
       type: "MaintenanceDataRelationshipsStatusPage",
+    },
+    template: {
+      baseName: "template",
+      type: "MaintenanceDataRelationshipsTemplate",
     },
     additionalProperties: {
       baseName: "additionalProperties",
