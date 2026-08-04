@@ -5989,6 +5989,30 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
     },
     operationResponseType: "{}",
   },
+  "SecurityMonitoringApi.V2.CreateSecurityFindingsAutomationSeverityModifierRule":
+    {
+      body: {
+        type: "SeverityModifierRuleCreateRequest",
+        format: "",
+      },
+      operationResponseType: "SeverityModifierRuleResponse",
+    },
+  "SecurityMonitoringApi.V2.GetSecurityFindingsAutomationSeverityModifierRule":
+    {
+      ruleId: {
+        type: "string",
+        format: "uuid",
+      },
+      operationResponseType: "SeverityModifierRuleResponse",
+    },
+  "SecurityMonitoringApi.V2.DeleteSecurityFindingsAutomationSeverityModifierRule":
+    {
+      ruleId: {
+        type: "string",
+        format: "uuid",
+      },
+      operationResponseType: "{}",
+    },
   "SecurityMonitoringApi.V2.ListSecurityFindingsAutomationTicketCreationRules":
     {
       pageSize: {

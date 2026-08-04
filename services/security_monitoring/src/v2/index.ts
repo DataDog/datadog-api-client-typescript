@@ -28,6 +28,7 @@ export {
   SecurityMonitoringApiCreateSecurityFilterRequest,
   SecurityMonitoringApiCreateSecurityFindingsAutomationDueDateRuleRequest,
   SecurityMonitoringApiCreateSecurityFindingsAutomationMuteRuleRequest,
+  SecurityMonitoringApiCreateSecurityFindingsAutomationSeverityModifierRuleRequest,
   SecurityMonitoringApiCreateSecurityFindingsAutomationTicketCreationRuleRequest,
   SecurityMonitoringApiCreateSecurityMonitoringCriticalAssetRequest,
   SecurityMonitoringApiCreateSecurityMonitoringDatasetRequest,
@@ -47,6 +48,7 @@ export {
   SecurityMonitoringApiDeleteSecurityFilterRequest,
   SecurityMonitoringApiDeleteSecurityFindingsAutomationDueDateRuleRequest,
   SecurityMonitoringApiDeleteSecurityFindingsAutomationMuteRuleRequest,
+  SecurityMonitoringApiDeleteSecurityFindingsAutomationSeverityModifierRuleRequest,
   SecurityMonitoringApiDeleteSecurityFindingsAutomationTicketCreationRuleRequest,
   SecurityMonitoringApiDeleteSecurityMonitoringCriticalAssetRequest,
   SecurityMonitoringApiDeleteSecurityMonitoringDatasetRequest,
@@ -74,6 +76,7 @@ export {
   SecurityMonitoringApiGetSecurityFilterRequest,
   SecurityMonitoringApiGetSecurityFindingsAutomationDueDateRuleRequest,
   SecurityMonitoringApiGetSecurityFindingsAutomationMuteRuleRequest,
+  SecurityMonitoringApiGetSecurityFindingsAutomationSeverityModifierRuleRequest,
   SecurityMonitoringApiGetSecurityFindingsAutomationTicketCreationRuleRequest,
   SecurityMonitoringApiGetSecurityMonitoringCriticalAssetRequest,
   SecurityMonitoringApiGetSecurityMonitoringDatasetRequest,
@@ -827,6 +830,20 @@ export { SecurityMonitoringTriageUser } from "./models/SecurityMonitoringTriageU
 export { SecurityMonitoringUser } from "./models/SecurityMonitoringUser";
 export { Selectors } from "./models/Selectors";
 export { ServiceNowTicketsDataType } from "./models/ServiceNowTicketsDataType";
+export { SeverityModifierRuleAction } from "./models/SeverityModifierRuleAction";
+export { SeverityModifierRuleAttributesCreate } from "./models/SeverityModifierRuleAttributesCreate";
+export { SeverityModifierRuleAttributesResponse } from "./models/SeverityModifierRuleAttributesResponse";
+export { SeverityModifierRuleCreateRequest } from "./models/SeverityModifierRuleCreateRequest";
+export { SeverityModifierRuleDataCreate } from "./models/SeverityModifierRuleDataCreate";
+export { SeverityModifierRuleDataResponse } from "./models/SeverityModifierRuleDataResponse";
+export { SeverityModifierRuleResponse } from "./models/SeverityModifierRuleResponse";
+export { SeverityModifierRuleSetAction } from "./models/SeverityModifierRuleSetAction";
+export { SeverityModifierRuleSetActionType } from "./models/SeverityModifierRuleSetActionType";
+export { SeverityModifierRuleShiftAction } from "./models/SeverityModifierRuleShiftAction";
+export { SeverityModifierRuleShiftActionType } from "./models/SeverityModifierRuleShiftActionType";
+export { SeverityModifierRuleType } from "./models/SeverityModifierRuleType";
+export { SeverityModifierSeverity } from "./models/SeverityModifierSeverity";
+export { SeverityModifierSeverityDelta } from "./models/SeverityModifierSeverityDelta";
 export { SignalEntitiesAttributes } from "./models/SignalEntitiesAttributes";
 export { SignalEntitiesData } from "./models/SignalEntitiesData";
 export { SignalEntitiesResponse } from "./models/SignalEntitiesResponse";
