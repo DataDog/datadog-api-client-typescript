@@ -13,6 +13,10 @@ export class LLMObsPatternsConfigAttributes {
    */
   "createdAt": Date;
   /**
+   * Whether automatic dataset curation is enabled for this configuration.
+   */
+  "curationEnabled"?: boolean;
+  /**
    * Query that selects the spans the patterns run analyzes.
    */
   "evpQuery": string;
@@ -76,6 +80,10 @@ export class LLMObsPatternsConfigAttributes {
       type: "Date",
       required: true,
       format: "date-time",
+    },
+    curationEnabled: {
+      baseName: "curation_enabled",
+      type: "boolean",
     },
     evpQuery: {
       baseName: "evp_query",
