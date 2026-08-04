@@ -1,6 +1,7 @@
 import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
 import { CreateBackfilledDegradationRequestDataAttributes } from "./CreateBackfilledDegradationRequestDataAttributes";
+import { CreateBackfilledDegradationRequestDataRelationships } from "./CreateBackfilledDegradationRequestDataRelationships";
 import { PatchDegradationRequestDataType } from "./PatchDegradationRequestDataType";
 
 /**
@@ -11,6 +12,10 @@ export class CreateBackfilledDegradationRequestData {
    * The supported attributes for creating a backfilled degradation.
    */
   "attributes"?: CreateBackfilledDegradationRequestDataAttributes;
+  /**
+   * The supported relationships for creating a backfilled degradation.
+   */
+  "relationships"?: CreateBackfilledDegradationRequestDataRelationships;
   /**
    * Degradations resource type.
    */
@@ -33,6 +38,10 @@ export class CreateBackfilledDegradationRequestData {
     attributes: {
       baseName: "attributes",
       type: "CreateBackfilledDegradationRequestDataAttributes",
+    },
+    relationships: {
+      baseName: "relationships",
+      type: "CreateBackfilledDegradationRequestDataRelationships",
     },
     type: {
       baseName: "type",
