@@ -5977,6 +5977,27 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             },
         "operationResponseType": "{}",
     },
+    "v2.CreateSecurityFindingsAutomationSeverityModifierRule": {
+        "body": {
+            "type": "SeverityModifierRuleCreateRequest",
+            "format": "",
+            },
+        "operationResponseType": "SeverityModifierRuleResponse",
+    },
+    "v2.GetSecurityFindingsAutomationSeverityModifierRule": {
+        "ruleId": {
+            "type": "string",
+            "format": "uuid",
+            },
+        "operationResponseType": "SeverityModifierRuleResponse",
+    },
+    "v2.DeleteSecurityFindingsAutomationSeverityModifierRule": {
+        "ruleId": {
+            "type": "string",
+            "format": "uuid",
+            },
+        "operationResponseType": "{}",
+    },
     "v2.ListSecurityFindingsAutomationTicketCreationRules": {
         "pageSize": {
             "type": "number",

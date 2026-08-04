@@ -4702,6 +4702,14 @@ import { ServiceRepositoryInfoResponseAttributes } from "./ServiceRepositoryInfo
 import { ServiceRepositoryInfoResponseData } from "./ServiceRepositoryInfoResponseData";
 import { SessionIdArray } from "./SessionIdArray";
 import { SessionIdData } from "./SessionIdData";
+import { SeverityModifierRuleAttributesCreate } from "./SeverityModifierRuleAttributesCreate";
+import { SeverityModifierRuleAttributesResponse } from "./SeverityModifierRuleAttributesResponse";
+import { SeverityModifierRuleCreateRequest } from "./SeverityModifierRuleCreateRequest";
+import { SeverityModifierRuleDataCreate } from "./SeverityModifierRuleDataCreate";
+import { SeverityModifierRuleDataResponse } from "./SeverityModifierRuleDataResponse";
+import { SeverityModifierRuleResponse } from "./SeverityModifierRuleResponse";
+import { SeverityModifierRuleSetAction } from "./SeverityModifierRuleSetAction";
+import { SeverityModifierRuleShiftAction } from "./SeverityModifierRuleShiftAction";
 import { SharedDashboardIncludedDashboard } from "./SharedDashboardIncludedDashboard";
 import { SharedDashboardIncludedDashboardAttributes } from "./SharedDashboardIncludedDashboardAttributes";
 import { SharedDashboardIncludedUser } from "./SharedDashboardIncludedUser";
@@ -8190,6 +8198,11 @@ const enumsMap: { [key: string]: any[] } = {
     "internal_error",
     "unknown",
   ],
+  SeverityModifierRuleSetActionType: ["set"],
+  SeverityModifierRuleShiftActionType: ["shift"],
+  SeverityModifierRuleType: ["severity_modifier_rules"],
+  SeverityModifierSeverity: ["info_none", "low", "medium", "high", "critical"],
+  SeverityModifierSeverityDelta: ["up_one", "down_one"],
   SharedDashboardIncludedDashboardType: ["dashboard"],
   SharedDashboardShareType: ["open", "invite", "embed", "secure-embed"],
   SharedDashboardStatus: ["active", "paused"],
@@ -14361,6 +14374,15 @@ const typeMap: { [index: string]: any } = {
   ServiceRepositoryInfoResponseData: ServiceRepositoryInfoResponseData,
   SessionIdArray: SessionIdArray,
   SessionIdData: SessionIdData,
+  SeverityModifierRuleAttributesCreate: SeverityModifierRuleAttributesCreate,
+  SeverityModifierRuleAttributesResponse:
+    SeverityModifierRuleAttributesResponse,
+  SeverityModifierRuleCreateRequest: SeverityModifierRuleCreateRequest,
+  SeverityModifierRuleDataCreate: SeverityModifierRuleDataCreate,
+  SeverityModifierRuleDataResponse: SeverityModifierRuleDataResponse,
+  SeverityModifierRuleResponse: SeverityModifierRuleResponse,
+  SeverityModifierRuleSetAction: SeverityModifierRuleSetAction,
+  SeverityModifierRuleShiftAction: SeverityModifierRuleShiftAction,
   SharedDashboardIncludedDashboard: SharedDashboardIncludedDashboard,
   SharedDashboardIncludedDashboardAttributes:
     SharedDashboardIncludedDashboardAttributes,
@@ -16074,6 +16096,10 @@ const oneOfMap: { [index: string]: string[] } = {
   ],
   ServiceNowCredentials: ["ServiceNowBasicAuth"],
   ServiceNowCredentialsUpdate: ["ServiceNowBasicAuthUpdate"],
+  SeverityModifierRuleAction: [
+    "SeverityModifierRuleSetAction",
+    "SeverityModifierRuleShiftAction",
+  ],
   SharedDashboardIncluded: [
     "SharedDashboardIncludedDashboard",
     "SharedDashboardIncludedUser",

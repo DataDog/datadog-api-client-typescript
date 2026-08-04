@@ -1444,6 +1444,7 @@ export {
   SecurityMonitoringApiCreateSecurityFilterRequest,
   SecurityMonitoringApiCreateSecurityFindingsAutomationDueDateRuleRequest,
   SecurityMonitoringApiCreateSecurityFindingsAutomationMuteRuleRequest,
+  SecurityMonitoringApiCreateSecurityFindingsAutomationSeverityModifierRuleRequest,
   SecurityMonitoringApiCreateSecurityFindingsAutomationTicketCreationRuleRequest,
   SecurityMonitoringApiCreateSecurityMonitoringCriticalAssetRequest,
   SecurityMonitoringApiCreateSecurityMonitoringDatasetRequest,
@@ -1463,6 +1464,7 @@ export {
   SecurityMonitoringApiDeleteSecurityFilterRequest,
   SecurityMonitoringApiDeleteSecurityFindingsAutomationDueDateRuleRequest,
   SecurityMonitoringApiDeleteSecurityFindingsAutomationMuteRuleRequest,
+  SecurityMonitoringApiDeleteSecurityFindingsAutomationSeverityModifierRuleRequest,
   SecurityMonitoringApiDeleteSecurityFindingsAutomationTicketCreationRuleRequest,
   SecurityMonitoringApiDeleteSecurityMonitoringCriticalAssetRequest,
   SecurityMonitoringApiDeleteSecurityMonitoringDatasetRequest,
@@ -1490,6 +1492,7 @@ export {
   SecurityMonitoringApiGetSecurityFilterRequest,
   SecurityMonitoringApiGetSecurityFindingsAutomationDueDateRuleRequest,
   SecurityMonitoringApiGetSecurityFindingsAutomationMuteRuleRequest,
+  SecurityMonitoringApiGetSecurityFindingsAutomationSeverityModifierRuleRequest,
   SecurityMonitoringApiGetSecurityFindingsAutomationTicketCreationRuleRequest,
   SecurityMonitoringApiGetSecurityMonitoringCriticalAssetRequest,
   SecurityMonitoringApiGetSecurityMonitoringDatasetRequest,
@@ -8006,6 +8009,20 @@ export { ServiceRepositoryInfoResponseData } from "./models/ServiceRepositoryInf
 export { ServiceRepositoryInfoStatus } from "./models/ServiceRepositoryInfoStatus";
 export { SessionIdArray } from "./models/SessionIdArray";
 export { SessionIdData } from "./models/SessionIdData";
+export { SeverityModifierRuleAction } from "./models/SeverityModifierRuleAction";
+export { SeverityModifierRuleAttributesCreate } from "./models/SeverityModifierRuleAttributesCreate";
+export { SeverityModifierRuleAttributesResponse } from "./models/SeverityModifierRuleAttributesResponse";
+export { SeverityModifierRuleCreateRequest } from "./models/SeverityModifierRuleCreateRequest";
+export { SeverityModifierRuleDataCreate } from "./models/SeverityModifierRuleDataCreate";
+export { SeverityModifierRuleDataResponse } from "./models/SeverityModifierRuleDataResponse";
+export { SeverityModifierRuleResponse } from "./models/SeverityModifierRuleResponse";
+export { SeverityModifierRuleSetAction } from "./models/SeverityModifierRuleSetAction";
+export { SeverityModifierRuleSetActionType } from "./models/SeverityModifierRuleSetActionType";
+export { SeverityModifierRuleShiftAction } from "./models/SeverityModifierRuleShiftAction";
+export { SeverityModifierRuleShiftActionType } from "./models/SeverityModifierRuleShiftActionType";
+export { SeverityModifierRuleType } from "./models/SeverityModifierRuleType";
+export { SeverityModifierSeverity } from "./models/SeverityModifierSeverity";
+export { SeverityModifierSeverityDelta } from "./models/SeverityModifierSeverityDelta";
 export { SharedDashboardIncluded } from "./models/SharedDashboardIncluded";
 export { SharedDashboardIncludedDashboard } from "./models/SharedDashboardIncludedDashboard";
 export { SharedDashboardIncludedDashboardAttributes } from "./models/SharedDashboardIncludedDashboardAttributes";
