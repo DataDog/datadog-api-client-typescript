@@ -1799,6 +1799,10 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
       type: "number",
       format: "int64",
     },
+    isDeleted: {
+      type: "boolean",
+      format: "",
+    },
     operationResponseType: "SLOListResponse",
   },
   "ServiceLevelObjectivesApi.V1.CreateSLO": {

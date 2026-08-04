@@ -454,6 +454,7 @@ export class ServiceLevelObjectivesApiRequestFactory extends BaseAPIRequestFacto
     metricsQuery?: string,
     limit?: number,
     offset?: number,
+    isDeleted?: boolean,
     _options?: Configuration,
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
@@ -519,6 +520,13 @@ export class ServiceLevelObjectivesApiRequestFactory extends BaseAPIRequestFacto
       requestContext.setQueryParam(
         "offset",
         serialize(offset, TypingInfo, "number", "int64"),
+        "",
+      );
+    }
+    if (isDeleted !== undefined) {
+      requestContext.setQueryParam(
+        "is_deleted",
+        serialize(isDeleted, TypingInfo, "boolean", ""),
         "",
       );
     }
@@ -1380,6 +1388,11 @@ export interface ServiceLevelObjectivesApiListSLOsRequest {
    * @type number
    */
   offset?: number;
+  /**
+   * Whether to return only deleted service level objective objects.
+   * @type boolean
+   */
+  isDeleted?: boolean;
 }
 
 export interface ServiceLevelObjectivesApiSearchSLORequest {
@@ -1625,6 +1638,7 @@ export class ServiceLevelObjectivesApi {
       param.metricsQuery,
       param.limit,
       param.offset,
+      param.isDeleted,
       options,
     );
     return requestContextPromise.then((requestContext) => {
@@ -1656,6 +1670,7 @@ export class ServiceLevelObjectivesApi {
         param.metricsQuery,
         param.limit,
         param.offset,
+        param.isDeleted,
         options,
       );
       const responseContext =
