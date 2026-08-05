@@ -1,5 +1,10 @@
 # CHANGELOG
 
+## 0.0.1-beta.7/2026-08-05
+
+### Added
+* Add AWS integration metric name filters and preview endpoints [#4592](https://github.com/DataDog/datadog-api-client-typescript/pull/4592)
+
 ## 0.0.1-beta.6/2026-06-30
 
 ### Added

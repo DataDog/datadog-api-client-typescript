@@ -1,5 +1,13 @@
 # CHANGELOG
 
+## 0.0.1-beta.5/2026-08-05
+
+### Fixed
+* Fleet Automation v2 remove deprecated or redundant agent detail fields [#4770](https://github.com/DataDog/datadog-api-client-typescript/pull/4770)
+
+### Changed
+* Fleet Automation promote ready v2 endpoints to public [#4744](https://github.com/DataDog/datadog-api-client-typescript/pull/4744)
+
 ## 0.0.1-beta.4/2026-06-30
 
 ### Removed

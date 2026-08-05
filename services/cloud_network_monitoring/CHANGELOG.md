@@ -1,5 +1,10 @@
 # CHANGELOG
 
+## 0.0.1-beta.4/2026-08-05
+
+### Fixed
+* Document CNM API authorization requirements [#4701](https://github.com/DataDog/datadog-api-client-typescript/pull/4701)
+
 ## 0.0.1-beta.3/2026-06-30
 
 ### Added

@@ -1,5 +1,19 @@
 # CHANGELOG
 
+## 0.0.1-beta.8/2026-08-05
+
+### Added
+* Expand incidents postmortem-templates spec to full CRUD contract [#4678](https://github.com/DataDog/datadog-api-client-typescript/pull/4678)
+* Make incident user-defined-roles API public but keep it unstable [#4638](https://github.com/DataDog/datadog-api-client-typescript/pull/4638)
+* Add configuration attribute to incident type schema [#4577](https://github.com/DataDog/datadog-api-client-typescript/pull/4577)
+* Add OpenAPI specifications for incidents-rapid-api endpoints [#4322](https://github.com/DataDog/datadog-api-client-typescript/pull/4322)
+
+### Fixed
+* Fix incident user-defined role policy not required on create [#4674](https://github.com/DataDog/datadog-api-client-typescript/pull/4674)
+
+### Removed
+* Remove prerequisite, table_id, and attached_to fields from incident user-defined field API [#4595](https://github.com/DataDog/datadog-api-client-typescript/pull/4595)
+
 ## 0.0.1-beta.7/2026-05-15
 
 ### Added

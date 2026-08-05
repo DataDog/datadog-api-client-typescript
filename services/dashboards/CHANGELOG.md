@@ -1,5 +1,15 @@
 # CHANGELOG
 
+## 0.0.1-beta.11/2026-08-05
+
+### Changed
+* Change TopologyMapWidgetDefinition to oneOf with TopologyMapServiceMapDefinitionServiceMap [#4603](https://github.com/DataDog/datadog-api-client-typescript/pull/4603)
+
+### Added
+* Add OpenAPI spec for hostmap widgwet DDSQL request shape, deprecate legacy metric shape [#4601](https://github.com/DataDog/datadog-api-client-typescript/pull/4601)
+* Add OpenAPI spec `version` attribute for Logs Transactions V2 Preview [#4556](https://github.com/DataDog/datadog-api-client-typescript/pull/4556)
+* Add DashboardDefaultTimeframe schema and default_timeframe to Dashboard [#4375](https://github.com/DataDog/datadog-api-client-typescript/pull/4375)
+
 ## 0.0.1-beta.10/2026-06-17
 
 ### Added

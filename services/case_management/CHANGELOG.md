@@ -1,5 +1,13 @@
 # CHANGELOG
 
+## 0.0.1-beta.8/2026-08-05
+
+### Fixed
+* Uppercase automation rule trigger and action type enum values [#4756](https://github.com/DataDog/datadog-api-client-typescript/pull/4756)
+
+### Added
+* Remove unstable tags from Case Management APIs [#4676](https://github.com/DataDog/datadog-api-client-typescript/pull/4676)
+
 ## 0.0.1-beta.7/2026-06-30
 
 ### Added

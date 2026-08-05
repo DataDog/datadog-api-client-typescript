@@ -1,5 +1,10 @@
 # CHANGELOG
 
+## 0.0.1-beta.8/2026-08-05
+
+### Added
+* Add feature-flag type to restriction policies [#4654](https://github.com/DataDog/datadog-api-client-typescript/pull/4654)
+
 ## 0.0.1-beta.7/2026-06-30
 
 ### Added

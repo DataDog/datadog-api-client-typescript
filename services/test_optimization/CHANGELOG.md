@@ -1,5 +1,10 @@
 # CHANGELOG
 
+## 0.0.1-beta.7/2026-08-05
+
+### Added
+* Add impact_score and impact_level to Flaky Test Management API spec [#4716](https://github.com/DataDog/datadog-api-client-typescript/pull/4716)
+
 ## 0.0.1-beta.6/2026-06-30
 
 ### Changed

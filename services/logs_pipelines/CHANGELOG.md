@@ -1,5 +1,10 @@
 # CHANGELOG
 
+## 0.0.1-beta.5/2026-08-05
+
+### Added
+* Add `key-value` type in Logs Array processor [#4686](https://github.com/DataDog/datadog-api-client-typescript/pull/4686)
+
 ## 0.0.1-beta.4/2026-06-30
 
 ### Added

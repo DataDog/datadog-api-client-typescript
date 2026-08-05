@@ -1,5 +1,19 @@
 # CHANGELOG
 
+## 0.0.1-beta.13/2026-08-05
+
+### Added
+* Add SSE-KMS encryption fields to ObservabilityPipelineAmazonS3Destination for datadog_archives [#4738](https://github.com/DataDog/datadog-api-client-typescript/pull/4738)
+* Add TLS support and server_name SNI option to Observability Pipelines client components [#4684](https://github.com/DataDog/datadog-api-client-typescript/pull/4684)
+* Add GET endpoint for custom forecast [#4626](https://github.com/DataDog/datadog-api-client-typescript/pull/4626)
+* Add OpenAPI specs for ListDatasetReportSchedules and PrintReport [#4622](https://github.com/DataDog/datadog-api-client-typescript/pull/4622)
+* Add SSE-KMS encryption fields to ObservabilityPipelineAmazonS3GenericDestination [#4573](https://github.com/DataDog/datadog-api-client-typescript/pull/4573)
+* Add Obs Pipeline Grok processor updates to OpenAPI Spec [#4550](https://github.com/DataDog/datadog-api-client-typescript/pull/4550)
+* Add UK1 [#4527](https://github.com/DataDog/datadog-api-client-typescript/pull/4527)
+
+### Changed
+* Add saved filters endpoints to the Feature Flags API [#4430](https://github.com/DataDog/datadog-api-client-typescript/pull/4430)
+
 ## 0.0.1-beta.12/2026-06-30
 
 ### Added

@@ -1,5 +1,10 @@
 # CHANGELOG
 
+## 0.0.1-beta.4/2026-08-05
+
+### Added
+* Add function and cloud_function fields to Azure and GCP scan options [#4646](https://github.com/DataDog/datadog-api-client-typescript/pull/4646)
+
 ## 0.0.1-beta.3/2026-06-30
 
 ### Added

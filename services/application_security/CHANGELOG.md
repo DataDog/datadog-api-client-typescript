@@ -1,5 +1,10 @@
 # CHANGELOG
 
+## 0.0.1-beta.4/2026-08-05
+
+### Added
+* Add WAF custom rule file addresses [#4644](https://github.com/DataDog/datadog-api-client-typescript/pull/4644)
+
 ## 0.0.1-beta.3/2026-06-30
 
 ### Added

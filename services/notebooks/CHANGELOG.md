@@ -1,5 +1,10 @@
 # CHANGELOG
 
+## 0.0.1-beta.11/2026-08-05
+
+### Fixed
+* Add `template_variables` to Notebooks v1 API spec [#4584](https://github.com/DataDog/datadog-api-client-typescript/pull/4584)
+
 ## 0.0.1-beta.10/2026-06-17
 
 ### Added

@@ -1,5 +1,14 @@
 # CHANGELOG
 
+## 0.0.1-beta.8/2026-08-05
+
+### Changed
+* Mark custom forecast endpoints as generally available [#4658](https://github.com/DataDog/datadog-api-client-typescript/pull/4658)
+
+### Added
+* Add cloud-agnostic account filters endpoints to Cloud Cost Management [#4634](https://github.com/DataDog/datadog-api-client-typescript/pull/4634)
+* Add GET endpoint for custom forecast [#4626](https://github.com/DataDog/datadog-api-client-typescript/pull/4626)
+
 ## 0.0.1-beta.7/2026-06-30
 
 ### Added

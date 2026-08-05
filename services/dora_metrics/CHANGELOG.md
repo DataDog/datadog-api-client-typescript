@@ -1,5 +1,10 @@
 # CHANGELOG
 
+## 0.0.1-beta.6/2026-08-05
+
+### Changed
+* Fix DORA deployment and incident read responses to use date-time timestamps [#4586](https://github.com/DataDog/datadog-api-client-typescript/pull/4586)
+
 ## 0.0.1-beta.5/2026-04-01
 
 ### Changed

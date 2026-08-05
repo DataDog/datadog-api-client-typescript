@@ -1,5 +1,10 @@
 # CHANGELOG
 
+## 0.0.1-beta.3/2026-08-05
+
+### Fixed
+* Fix RUM casing in descriptions and summaries [#4367](https://github.com/DataDog/datadog-api-client-typescript/pull/4367)
+
 ## 0.0.1-beta.2/2025-12-17
 
 ### Security
