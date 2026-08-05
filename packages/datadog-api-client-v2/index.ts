@@ -662,15 +662,18 @@ export {
 } from "./apis/GoogleChatIntegrationApi";
 
 export {
-  GovernanceControlsApiGetGovernanceControlRequest,
-  GovernanceControlsApiUpdateGovernanceControlRequest,
-  GovernanceControlsApi,
-} from "./apis/GovernanceControlsApi";
-
-export {
-  GovernanceInsightsApiListGovernanceInsightsRequest,
-  GovernanceInsightsApi,
-} from "./apis/GovernanceInsightsApi";
+  GovernanceConsoleApiGetGovernanceControlRequest,
+  GovernanceConsoleApiGetGovernanceControlNotificationSettingsRequest,
+  GovernanceConsoleApiGetGovernanceDetectionRequest,
+  GovernanceConsoleApiListGovernanceControlDetectionsRequest,
+  GovernanceConsoleApiListGovernanceInsightsRequest,
+  GovernanceConsoleApiMitigateGovernanceDetectionsRequest,
+  GovernanceConsoleApiUpdateGovernanceControlRequest,
+  GovernanceConsoleApiUpdateGovernanceControlNotificationSettingsRequest,
+  GovernanceConsoleApiUpdateGovernanceDetectionRequest,
+  GovernanceConsoleApiUpdateGovernanceNotificationSettingsRequest,
+  GovernanceConsoleApi,
+} from "./apis/GovernanceConsoleApi";
 
 export {
   HighAvailabilityMultiRegionApiCreateHamrOrgConnectionRequest,
@@ -3082,6 +3085,16 @@ export { ContainersResponseLinks } from "./models/ContainersResponseLinks";
 export { ContainerTimeseriesQuery } from "./models/ContainerTimeseriesQuery";
 export { ContainerType } from "./models/ContainerType";
 export { ContentEncoding } from "./models/ContentEncoding";
+export { ControlNotificationEventSetting } from "./models/ControlNotificationEventSetting";
+export { ControlNotificationSettingsAttributes } from "./models/ControlNotificationSettingsAttributes";
+export { ControlNotificationSettingsData } from "./models/ControlNotificationSettingsData";
+export { ControlNotificationSettingsResourceType } from "./models/ControlNotificationSettingsResourceType";
+export { ControlNotificationSettingsResponse } from "./models/ControlNotificationSettingsResponse";
+export { ControlNotificationSettingsUpdateAttributes } from "./models/ControlNotificationSettingsUpdateAttributes";
+export { ControlNotificationSettingsUpdateData } from "./models/ControlNotificationSettingsUpdateData";
+export { ControlNotificationSettingsUpdateRequest } from "./models/ControlNotificationSettingsUpdateRequest";
+export { ControlNotificationTarget } from "./models/ControlNotificationTarget";
+export { ControlNotificationTargetType } from "./models/ControlNotificationTargetType";
 export { ConvertJobResultsToSignalsAttributes } from "./models/ConvertJobResultsToSignalsAttributes";
 export { ConvertJobResultsToSignalsData } from "./models/ConvertJobResultsToSignalsData";
 export { ConvertJobResultsToSignalsDataType } from "./models/ConvertJobResultsToSignalsDataType";
@@ -4438,9 +4451,23 @@ export { GoogleChatUpdateOrganizationHandleRequestData } from "./models/GoogleCh
 export { GoogleDocsPostmortemSettings } from "./models/GoogleDocsPostmortemSettings";
 export { GoogleMeetConfigurationReference } from "./models/GoogleMeetConfigurationReference";
 export { GoogleMeetConfigurationReferenceData } from "./models/GoogleMeetConfigurationReferenceData";
-export { GovernanceBestPracticeDefinition } from "./models/GovernanceBestPracticeDefinition";
+export { GovernanceConfigAttributes } from "./models/GovernanceConfigAttributes";
+export { GovernanceConfigData } from "./models/GovernanceConfigData";
+export { GovernanceConfigResponse } from "./models/GovernanceConfigResponse";
+export { GovernanceConsoleConfigResourceType } from "./models/GovernanceConsoleConfigResourceType";
 export { GovernanceControlAttributes } from "./models/GovernanceControlAttributes";
 export { GovernanceControlData } from "./models/GovernanceControlData";
+export { GovernanceControlDetectionAssignmentSource } from "./models/GovernanceControlDetectionAssignmentSource";
+export { GovernanceControlDetectionAttributes } from "./models/GovernanceControlDetectionAttributes";
+export { GovernanceControlDetectionData } from "./models/GovernanceControlDetectionData";
+export { GovernanceControlDetectionResourceType } from "./models/GovernanceControlDetectionResourceType";
+export { GovernanceControlDetectionResponse } from "./models/GovernanceControlDetectionResponse";
+export { GovernanceControlDetectionsResponse } from "./models/GovernanceControlDetectionsResponse";
+export { GovernanceControlDetectionState } from "./models/GovernanceControlDetectionState";
+export { GovernanceControlDetectionUpdateAttributes } from "./models/GovernanceControlDetectionUpdateAttributes";
+export { GovernanceControlDetectionUpdateData } from "./models/GovernanceControlDetectionUpdateData";
+export { GovernanceControlDetectionUpdateRequest } from "./models/GovernanceControlDetectionUpdateRequest";
+export { GovernanceControlDetectionUpdateState } from "./models/GovernanceControlDetectionUpdateState";
 export { GovernanceControlMitigationDefinition } from "./models/GovernanceControlMitigationDefinition";
 export { GovernanceControlParameterDefinition } from "./models/GovernanceControlParameterDefinition";
 export { GovernanceControlResourceType } from "./models/GovernanceControlResourceType";
@@ -4454,6 +4481,7 @@ export { GovernanceInsightAttributes } from "./models/GovernanceInsightAttribute
 export { GovernanceInsightAuditCompute } from "./models/GovernanceInsightAuditCompute";
 export { GovernanceInsightAuditQuery } from "./models/GovernanceInsightAuditQuery";
 export { GovernanceInsightData } from "./models/GovernanceInsightData";
+export { GovernanceInsightDirectionality } from "./models/GovernanceInsightDirectionality";
 export { GovernanceInsightEventCompute } from "./models/GovernanceInsightEventCompute";
 export { GovernanceInsightEventQuery } from "./models/GovernanceInsightEventQuery";
 export { GovernanceInsightMetricQuery } from "./models/GovernanceInsightMetricQuery";
@@ -4462,6 +4490,16 @@ export { GovernanceInsightQueryConfig } from "./models/GovernanceInsightQueryCon
 export { GovernanceInsightResourceType } from "./models/GovernanceInsightResourceType";
 export { GovernanceInsightsResponse } from "./models/GovernanceInsightsResponse";
 export { GovernanceInsightUsageQuery } from "./models/GovernanceInsightUsageQuery";
+export { GovernanceMitigationRequest } from "./models/GovernanceMitigationRequest";
+export { GovernanceMitigationRequestAttributes } from "./models/GovernanceMitigationRequestAttributes";
+export { GovernanceMitigationRequestData } from "./models/GovernanceMitigationRequestData";
+export { GovernanceNotificationSettingsAttributes } from "./models/GovernanceNotificationSettingsAttributes";
+export { GovernanceNotificationSettingsData } from "./models/GovernanceNotificationSettingsData";
+export { GovernanceNotificationSettingsResourceType } from "./models/GovernanceNotificationSettingsResourceType";
+export { GovernanceNotificationSettingsResponse } from "./models/GovernanceNotificationSettingsResponse";
+export { GovernanceNotificationSettingsUpdateAttributes } from "./models/GovernanceNotificationSettingsUpdateAttributes";
+export { GovernanceNotificationSettingsUpdateData } from "./models/GovernanceNotificationSettingsUpdateData";
+export { GovernanceNotificationSettingsUpdateRequest } from "./models/GovernanceNotificationSettingsUpdateRequest";
 export { GreyNoiseAPIKey } from "./models/GreyNoiseAPIKey";
 export { GreyNoiseAPIKeyType } from "./models/GreyNoiseAPIKeyType";
 export { GreyNoiseAPIKeyUpdate } from "./models/GreyNoiseAPIKeyUpdate";

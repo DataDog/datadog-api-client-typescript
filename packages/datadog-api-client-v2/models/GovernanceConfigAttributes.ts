@@ -3,29 +3,30 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
-import { GovernanceInsightAttributes } from "./GovernanceInsightAttributes";
-import { GovernanceInsightResourceType } from "./GovernanceInsightResourceType";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * A governance insight resource.
+ * The attributes of a Governance Console configuration.
  */
-export class GovernanceInsightData {
+export class GovernanceConfigAttributes {
   /**
-   * The attributes of a governance insight. Exactly one of `metric_query`, `event_query`,
-   * `usage_query`, `audit_query`, or `percentage_query` is populated, depending on the data
-   * source the insight is computed from; the rest are `null`.
+   * Whether notifications are sent to users when detections are assigned to them.
    */
-  "attributes": GovernanceInsightAttributes;
+  "assignmentNotificationsEnabled": boolean;
   /**
-   * The unique identifier of the insight.
+   * Whether the Governance Console is enabled for the organization.
    */
-  "id": string;
+  "enabled": boolean;
   /**
-   * JSON:API resource type for a governance insight.
+   * Whether usage attribution is configured for the organization.
    */
-  "type": GovernanceInsightResourceType;
+  "usageAttributionConfigured": boolean;
+  /**
+   * Whether the organization has opted in to sharing governance data with a managing org
+   * for cross-org insights.
+   */
+  "xorgInsightsEnabled": boolean;
 
   /**
    * A container for additional, undeclared properties.
@@ -43,19 +44,24 @@ export class GovernanceInsightData {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    attributes: {
-      baseName: "attributes",
-      type: "GovernanceInsightAttributes",
+    assignmentNotificationsEnabled: {
+      baseName: "assignment_notifications_enabled",
+      type: "boolean",
       required: true,
     },
-    id: {
-      baseName: "id",
-      type: "string",
+    enabled: {
+      baseName: "enabled",
+      type: "boolean",
       required: true,
     },
-    type: {
-      baseName: "type",
-      type: "GovernanceInsightResourceType",
+    usageAttributionConfigured: {
+      baseName: "usage_attribution_configured",
+      type: "boolean",
+      required: true,
+    },
+    xorgInsightsEnabled: {
+      baseName: "xorg_insights_enabled",
+      type: "boolean",
       required: true,
     },
     additionalProperties: {
@@ -68,7 +74,7 @@ export class GovernanceInsightData {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-    return GovernanceInsightData.attributeTypeMap;
+    return GovernanceConfigAttributes.attributeTypeMap;
   }
 
   public constructor() {}

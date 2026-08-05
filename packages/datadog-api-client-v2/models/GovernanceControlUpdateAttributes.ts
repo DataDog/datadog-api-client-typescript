@@ -26,22 +26,6 @@ export class GovernanceControlUpdateAttributes {
    * The mitigation type to configure for the control.
    */
   "mitigationType"?: string;
-  /**
-   * A new human-readable name for the control.
-   */
-  "name"?: string;
-  /**
-   * The notification frequency to configure for the control.
-   */
-  "notificationFrequency"?: string;
-  /**
-   * A free-form map of parameter names to their configured values.
-   */
-  "notificationParameters"?: { [key: string]: any };
-  /**
-   * The notification type to configure for the control.
-   */
-  "notificationType"?: string;
 
   /**
    * A container for additional, undeclared properties.
@@ -73,22 +57,6 @@ export class GovernanceControlUpdateAttributes {
     },
     mitigationType: {
       baseName: "mitigation_type",
-      type: "string",
-    },
-    name: {
-      baseName: "name",
-      type: "string",
-    },
-    notificationFrequency: {
-      baseName: "notification_frequency",
-      type: "string",
-    },
-    notificationParameters: {
-      baseName: "notification_parameters",
-      type: "{ [key: string]: any; }",
-    },
-    notificationType: {
-      baseName: "notification_type",
       type: "string",
     },
     additionalProperties: {
