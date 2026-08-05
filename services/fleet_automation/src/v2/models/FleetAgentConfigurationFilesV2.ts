@@ -16,10 +16,6 @@ export class FleetAgentConfigurationFilesV2 {
    */
   "applicationMonitoringConfiguration"?: FleetConfigurationLayer;
   /**
-   * The unique agent key identifier.
-   */
-  "datadogAgentKey"?: string;
-  /**
    * Configuration for OpenTelemetry collectors associated with the agent. Present only when the agent has associated OpenTelemetry collectors.
    */
   "otelCollectorsConfiguration"?: Array<FleetOtelCollectorConfigurationV2>;
@@ -31,10 +27,6 @@ export class FleetAgentConfigurationFilesV2 {
    * Configuration information organized by layers.
    */
   "systemProbeConfiguration"?: FleetConfigurationLayer;
-  /**
-   * The configuration version.
-   */
-  "version"?: string;
   /**
    * A container for additional, undeclared properties.
    * This is a holder for any undeclared properties as specified with
@@ -58,10 +50,6 @@ export class FleetAgentConfigurationFilesV2 {
       baseName: "application_monitoring_configuration",
       type: "FleetConfigurationLayer",
     },
-    datadogAgentKey: {
-      baseName: "datadog_agent_key",
-      type: "string",
-    },
     otelCollectorsConfiguration: {
       baseName: "otel_collectors_configuration",
       type: "Array<FleetOtelCollectorConfigurationV2>",
@@ -73,10 +61,6 @@ export class FleetAgentConfigurationFilesV2 {
     systemProbeConfiguration: {
       baseName: "system_probe_configuration",
       type: "FleetConfigurationLayer",
-    },
-    version: {
-      baseName: "version",
-      type: "string",
     },
     additionalProperties: {
       baseName: "additionalProperties",

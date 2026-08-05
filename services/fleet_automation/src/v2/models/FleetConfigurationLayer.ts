@@ -17,10 +17,6 @@ export class FleetConfigurationLayer {
    */
   "fileConfiguration"?: string;
   /**
-   * Parsed configuration output.
-   */
-  "parsedConfiguration"?: string;
-  /**
    * Remote configuration settings.
    */
   "remoteConfiguration"?: string;
@@ -53,10 +49,6 @@ export class FleetConfigurationLayer {
     },
     fileConfiguration: {
       baseName: "file_configuration",
-      type: "string",
-    },
-    parsedConfiguration: {
-      baseName: "parsed_configuration",
       type: "string",
     },
     remoteConfiguration: {
