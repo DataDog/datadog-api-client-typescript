@@ -4,6 +4,7 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 import { CreateDegradationRequestDataAttributes } from "./CreateDegradationRequestDataAttributes";
+import { CreateDegradationRequestDataRelationships } from "./CreateDegradationRequestDataRelationships";
 import { PatchDegradationRequestDataType } from "./PatchDegradationRequestDataType";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
@@ -16,6 +17,10 @@ export class CreateDegradationRequestData {
    * The supported attributes for creating a degradation.
    */
   "attributes": CreateDegradationRequestDataAttributes;
+  /**
+   * The supported relationships for creating a degradation.
+   */
+  "relationships"?: CreateDegradationRequestDataRelationships;
   /**
    * Degradations resource type.
    */
@@ -41,6 +46,10 @@ export class CreateDegradationRequestData {
       baseName: "attributes",
       type: "CreateDegradationRequestDataAttributes",
       required: true,
+    },
+    relationships: {
+      baseName: "relationships",
+      type: "CreateDegradationRequestDataRelationships",
     },
     type: {
       baseName: "type",

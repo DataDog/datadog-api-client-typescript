@@ -4,6 +4,7 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 import { PatchMaintenanceRequestDataAttributes } from "./PatchMaintenanceRequestDataAttributes";
+import { PatchMaintenanceRequestDataRelationships } from "./PatchMaintenanceRequestDataRelationships";
 import { PatchMaintenanceRequestDataType } from "./PatchMaintenanceRequestDataType";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
@@ -20,6 +21,10 @@ export class PatchMaintenanceRequestData {
    * The ID of the maintenance.
    */
   "id": string;
+  /**
+   * The supported relationships for updating a maintenance.
+   */
+  "relationships"?: PatchMaintenanceRequestDataRelationships;
   /**
    * Maintenances resource type.
    */
@@ -51,6 +56,10 @@ export class PatchMaintenanceRequestData {
       type: "string",
       required: true,
       format: "uuid",
+    },
+    relationships: {
+      baseName: "relationships",
+      type: "PatchMaintenanceRequestDataRelationships",
     },
     type: {
       baseName: "type",
