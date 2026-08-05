@@ -406,8 +406,7 @@ apiInstance
 | Forms | @datadog/datadog-api-client-forms | [README.md](../../services/forms/README.md) |
 | GCP Integration | @datadog/datadog-api-client-gcp-integration | [README.md](../../services/gcp-integration/README.md) |
 | Google Chat Integration | @datadog/datadog-api-client-google-chat-integration | [README.md](../../services/google-chat-integration/README.md) |
-| Governance Controls | @datadog/datadog-api-client-governance-controls | [README.md](../../services/governance-controls/README.md) |
-| Governance Insights | @datadog/datadog-api-client-governance-insights | [README.md](../../services/governance-insights/README.md) |
+| Governance Console | @datadog/datadog-api-client-governance-console | [README.md](../../services/governance-console/README.md) |
 | High Availability MultiRegion | @datadog/datadog-api-client-high-availability-multi-region | [README.md](../../services/high-availability-multi-region/README.md) |
 | Hosts | @datadog/datadog-api-client-hosts | [README.md](../../services/hosts/README.md) |
 | Identity Providers | @datadog/datadog-api-client-identity-providers | [README.md](../../services/identity-providers/README.md) |

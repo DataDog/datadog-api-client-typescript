@@ -1,0 +1,68 @@
+import { AttributeTypeMap } from "@datadog/datadog-api-client";
+
+/**
+ * The attributes of a governance control that can be updated. Only the attributes present in the request are modified.
+ */
+export class GovernanceControlUpdateAttributes {
+  /**
+   * How often detections should be evaluated for the control.
+   */
+  "detectionFrequency"?: string;
+  /**
+   * A free-form map of parameter names to their configured values.
+   */
+  "detectionParameters"?: { [key: string]: any };
+  /**
+   * A free-form map of parameter names to their configured values.
+   */
+  "mitigationParameters"?: { [key: string]: any };
+  /**
+   * The mitigation type to configure for the control.
+   */
+  "mitigationType"?: string;
+  /**
+   * A container for additional, undeclared properties.
+   * This is a holder for any undeclared properties as specified with
+   * the 'additionalProperties' keyword in the OAS document.
+   */
+  "additionalProperties"?: { [key: string]: any };
+  /**
+   * @ignore
+   */
+  "_unparsed"?: boolean;
+
+  /**
+   * @ignore
+   */
+  static readonly attributeTypeMap: AttributeTypeMap = {
+    detectionFrequency: {
+      baseName: "detection_frequency",
+      type: "string",
+    },
+    detectionParameters: {
+      baseName: "detection_parameters",
+      type: "{ [key: string]: any; }",
+    },
+    mitigationParameters: {
+      baseName: "mitigation_parameters",
+      type: "{ [key: string]: any; }",
+    },
+    mitigationType: {
+      baseName: "mitigation_type",
+      type: "string",
+    },
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "{ [key: string]: any; }",
+    },
+  };
+
+  /**
+   * @ignore
+   */
+  static getAttributeTypeMap(): AttributeTypeMap {
+    return GovernanceControlUpdateAttributes.attributeTypeMap;
+  }
+
+  public constructor() {}
+}
