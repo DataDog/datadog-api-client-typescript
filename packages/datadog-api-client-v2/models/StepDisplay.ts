@@ -8,7 +8,8 @@ import { StepDisplayBounds } from "./StepDisplayBounds";
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * The definition of `StepDisplay` object.
+ * The position of a step on the workflow canvas. Omit `display` from every step to use
+ * automatic layout, or provide it for every step to preserve a manual layout.
  */
 export class StepDisplay {
   /**

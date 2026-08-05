@@ -11,11 +11,11 @@ import { AttributeTypeMap } from "../../datadog-api-client-common/util";
  */
 export class WorkflowTriggerWrapper {
   /**
-   * A list of steps that run first after a trigger fires.
+   * Names of existing workflow steps that run first after a trigger fires.
    */
   "startStepNames"?: Array<string>;
   /**
-   * Trigger a workflow from the Datadog UI. Only required if no other trigger exists.
+   * Trigger a workflow from the Datadog UI. When present, this must be the workflow's only trigger.
    */
   "workflowTrigger": any;
 
