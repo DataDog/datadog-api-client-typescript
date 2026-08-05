@@ -339,7 +339,7 @@ export class DashboardsApi {
   }
 
   /**
-   * Get usage statistics for a single dashboard. The response includes view counts, the most recent view and edit times, widget counts, and the dashboard quality score. View-count fields depend on Real User Monitoring (RUM) and are `null` or `0` in orgs without RUM.
+   * Get usage statistics for a single dashboard. The response includes view counts, the most recent view and edit times, widget counts, and the dashboard quality score. View-count fields depend on Real User Monitoring (RUM) and are `null` or `0` in orgs without RUM. **View counts are refreshed once per day** and **only reflect views recorded starting January 2025**; views prior to that date are not included.
    * @param param The request object
    */
   public getDashboardUsage(
@@ -360,7 +360,7 @@ export class DashboardsApi {
   }
 
   /**
-   * Get paginated usage statistics for every dashboard in the caller's organization. Use `page[limit]` and `page[offset]` to walk the result set. Use `filter[edited_before]` or `filter[viewed_before]` to narrow results by recency. View-count fields depend on Real User Monitoring (RUM) and are `null` or `0` in orgs without RUM.
+   * Get paginated usage statistics for every dashboard in the caller's organization. Use `page[limit]` and `page[offset]` to walk the result set. Use `filter[edited_before]` or `filter[viewed_before]` to narrow results by edit or view date. View-count fields depend on Real User Monitoring (RUM) and are `null` or `0` in orgs without RUM. **View counts are refreshed once per day** and **only reflect views recorded starting January 2025**; views prior to that date are not included.
    * @param param The request object
    */
   public listDashboardsUsage(
