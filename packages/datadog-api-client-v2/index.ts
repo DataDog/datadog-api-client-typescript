@@ -1296,6 +1296,7 @@ export {
   RolesApiCreateRoleRequest,
   RolesApiDeleteRoleRequest,
   RolesApiGetRoleRequest,
+  RolesApiListPermissionsRequest,
   RolesApiListRolePermissionsRequest,
   RolesApiListRoleUsersRequest,
   RolesApiListRolesRequest,
