@@ -24,7 +24,8 @@ export class Step {
    */
   "connectionLabel"?: string;
   /**
-   * The definition of `StepDisplay` object.
+   * The position of a step on the workflow canvas. Omit `display` from every step to use
+   * automatic layout, or provide it for every step to preserve a manual layout.
    */
   "display"?: StepDisplay;
   /**
@@ -36,7 +37,7 @@ export class Step {
    */
   "name": string;
   /**
-   * A list of subsequent actions to run.
+   * A list of subsequent actions to run. This list is empty for a terminal step.
    */
   "outboundEdges"?: Array<OutboundEdge>;
   /**

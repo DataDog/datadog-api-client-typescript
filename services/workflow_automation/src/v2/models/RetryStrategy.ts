@@ -14,13 +14,7 @@ export class RetryStrategy {
   /**
    * The definition of `RetryStrategyLinear` object.
    */
-  "linear"?: RetryStrategyLinear;
-  /**
-   * A container for additional, undeclared properties.
-   * This is a holder for any undeclared properties as specified with
-   * the 'additionalProperties' keyword in the OAS document.
-   */
-  "additionalProperties"?: { [key: string]: any };
+  "linear": RetryStrategyLinear;
   /**
    * @ignore
    */
@@ -38,10 +32,7 @@ export class RetryStrategy {
     linear: {
       baseName: "linear",
       type: "RetryStrategyLinear",
-    },
-    additionalProperties: {
-      baseName: "additionalProperties",
-      type: "{ [key: string]: any; }",
+      required: true,
     },
   };
 
