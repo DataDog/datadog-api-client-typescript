@@ -9163,6 +9163,13 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             },
         "operationResponseType": "DORADeploymentsListResponse",
     },
+    "v2.PatchDORADeploymentByVersion": {
+        "body": {
+            "type": "DORADeploymentPatchByVersionRequest",
+            "format": "",
+            },
+        "operationResponseType": "{}",
+    },
     "v2.GetDORADeployment": {
         "deploymentId": {
             "type": "string",
