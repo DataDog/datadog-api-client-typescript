@@ -41,6 +41,9 @@ import { GuardrailMetricRequest } from "./GuardrailMetricRequest";
 import { ListAllocationsResponse } from "./ListAllocationsResponse";
 import { ListEnvironmentsResponse } from "./ListEnvironmentsResponse";
 import { ListFeatureFlagsResponse } from "./ListFeatureFlagsResponse";
+import { NotificationRuleTarget } from "./NotificationRuleTarget";
+import { NotificationRuleTargetConfiguration } from "./NotificationRuleTargetConfiguration";
+import { NotificationRuleTargetConfigurationRecipient } from "./NotificationRuleTargetConfigurationRecipient";
 import { OverwriteAllocationsRequest } from "./OverwriteAllocationsRequest";
 import { RolloutOptions } from "./RolloutOptions";
 import { RolloutOptionsRequest } from "./RolloutOptionsRequest";
@@ -79,6 +82,14 @@ export const TypingInfo: ModelTypingInfo = {
     CreateFeatureFlagDataType: ["feature-flags"],
     FeatureFlagStatus: ["ENABLED", "DISABLED"],
     GuardrailTriggerAction: ["PAUSE", "ABORT"],
+    NotificationRuleTargetType: [
+      "EMAIL",
+      "SLACK_CHANNEL",
+      "SLACK_USER",
+      "WEBHOOK",
+      "PAGERDUTY_SERVICE",
+      "MS_TEAMS_CHANNEL",
+    ],
     RolloutStrategy: ["UNIFORM_INTERVALS", "NO_ROLLOUT"],
     UpdateEnvironmentDataType: ["environments"],
     UpdateFeatureFlagDataType: ["feature-flags"],
@@ -127,6 +138,10 @@ export const TypingInfo: ModelTypingInfo = {
     ListAllocationsResponse: ListAllocationsResponse,
     ListEnvironmentsResponse: ListEnvironmentsResponse,
     ListFeatureFlagsResponse: ListFeatureFlagsResponse,
+    NotificationRuleTarget: NotificationRuleTarget,
+    NotificationRuleTargetConfiguration: NotificationRuleTargetConfiguration,
+    NotificationRuleTargetConfigurationRecipient:
+      NotificationRuleTargetConfigurationRecipient,
     OverwriteAllocationsRequest: OverwriteAllocationsRequest,
     RolloutOptions: RolloutOptions,
     RolloutOptionsRequest: RolloutOptionsRequest,
