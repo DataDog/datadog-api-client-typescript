@@ -14,25 +14,13 @@ import { AttributeTypeMap } from "../../datadog-api-client-common/util";
  */
 export class FleetIntegrationsByStatusV2 {
   /**
-   * The Kubernetes cluster name, if the agent runs in a cluster.
-   */
-  "clusterName"?: string;
-  /**
    * Configuration files for integrations.
    */
   "configurationFiles"?: Array<FleetConfigurationFileV2>;
   /**
-   * The unique agent key identifier.
-   */
-  "datadogAgentKey"?: string;
-  /**
    * Integrations with errors.
    */
   "errorIntegrations"?: Array<FleetIntegrationDetailsV2>;
-  /**
-   * The Kubernetes cluster key, if the agent runs in a cluster.
-   */
-  "k8sClusterKey"?: string;
   /**
    * Detected but not configured integrations.
    */
@@ -62,25 +50,13 @@ export class FleetIntegrationsByStatusV2 {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    clusterName: {
-      baseName: "cluster_name",
-      type: "string",
-    },
     configurationFiles: {
       baseName: "configuration_files",
       type: "Array<FleetConfigurationFileV2>",
     },
-    datadogAgentKey: {
-      baseName: "datadog_agent_key",
-      type: "string",
-    },
     errorIntegrations: {
       baseName: "error_integrations",
       type: "Array<FleetIntegrationDetailsV2>",
-    },
-    k8sClusterKey: {
-      baseName: "k8s_cluster_key",
-      type: "string",
     },
     missingIntegrations: {
       baseName: "missing_integrations",

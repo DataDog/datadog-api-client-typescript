@@ -26,10 +26,6 @@ export class FleetConfigurationFileV2 {
    * Name of the configuration file.
    */
   "filename"?: string;
-  /**
-   * Hash of the configuration file as applied by fleet management.
-   */
-  "fleetHash"?: string;
 
   /**
    * A container for additional, undeclared properties.
@@ -61,10 +57,6 @@ export class FleetConfigurationFileV2 {
     },
     filename: {
       baseName: "filename",
-      type: "string",
-    },
-    fleetHash: {
-      baseName: "fleet_hash",
       type: "string",
     },
     additionalProperties: {
