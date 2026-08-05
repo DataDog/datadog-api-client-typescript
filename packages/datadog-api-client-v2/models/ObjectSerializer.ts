@@ -1248,6 +1248,9 @@ import { CycloneDXVulnerabilityReferenceSource } from "./CycloneDXVulnerabilityR
 import { DORADeploymentFetchResponse } from "./DORADeploymentFetchResponse";
 import { DORADeploymentObject } from "./DORADeploymentObject";
 import { DORADeploymentObjectAttributes } from "./DORADeploymentObjectAttributes";
+import { DORADeploymentPatchByVersionRequest } from "./DORADeploymentPatchByVersionRequest";
+import { DORADeploymentPatchByVersionRequestAttributes } from "./DORADeploymentPatchByVersionRequestAttributes";
+import { DORADeploymentPatchByVersionRequestData } from "./DORADeploymentPatchByVersionRequestData";
 import { DORADeploymentPatchRemediation } from "./DORADeploymentPatchRemediation";
 import { DORADeploymentPatchRequest } from "./DORADeploymentPatchRequest";
 import { DORADeploymentPatchRequestAttributes } from "./DORADeploymentPatchRequestAttributes";
@@ -10129,6 +10132,11 @@ const typeMap: { [index: string]: any } = {
   DORADeploymentFetchResponse: DORADeploymentFetchResponse,
   DORADeploymentObject: DORADeploymentObject,
   DORADeploymentObjectAttributes: DORADeploymentObjectAttributes,
+  DORADeploymentPatchByVersionRequest: DORADeploymentPatchByVersionRequest,
+  DORADeploymentPatchByVersionRequestAttributes:
+    DORADeploymentPatchByVersionRequestAttributes,
+  DORADeploymentPatchByVersionRequestData:
+    DORADeploymentPatchByVersionRequestData,
   DORADeploymentPatchRemediation: DORADeploymentPatchRemediation,
   DORADeploymentPatchRequest: DORADeploymentPatchRequest,
   DORADeploymentPatchRequestAttributes: DORADeploymentPatchRequestAttributes,
