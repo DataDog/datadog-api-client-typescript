@@ -4,6 +4,7 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 import { CreateVariant } from "./CreateVariant";
+import { NotificationRuleTarget } from "./NotificationRuleTarget";
 import { ValueType } from "./ValueType";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
@@ -32,6 +33,16 @@ export class CreateFeatureFlagAttributes {
    * The name of the feature flag.
    */
   "name": string;
+  /**
+   * Query used to determine which change events on this feature flag trigger notifications to `rule_targets`. Uses Datadog's standard log search syntax (`AND`, `OR`, `NOT`, parentheses) to match against the `notification_type` facet.
+   *
+   * Supported `notification_type` values for a feature flag are: `flag_enabled_disabled`, `flag_archived`, `flag_approval_required`, `rollout_started`, `rollout_scheduled`, `rollout_step_started`, `rollout_paused_guardrail`, `rollout_paused_user`, `rollout_aborted_guardrail`, `rollout_aborted_user`, `targeting_rule_created`, `targeting_rule_updated`, `targeting_rule_updated_via_filter`, and `targeting_rule_deleted`.
+   */
+  "notificationRuleQuery"?: string;
+  /**
+   * Targets to notify about changes to this feature flag that match `notification_rule_query`.
+   */
+  "ruleTargets"?: Array<NotificationRuleTarget>;
   /**
    * The type of values for the feature flag variants.
    */
@@ -79,6 +90,14 @@ export class CreateFeatureFlagAttributes {
       baseName: "name",
       type: "string",
       required: true,
+    },
+    notificationRuleQuery: {
+      baseName: "notification_rule_query",
+      type: "string",
+    },
+    ruleTargets: {
+      baseName: "rule_targets",
+      type: "Array<NotificationRuleTarget>",
     },
     valueType: {
       baseName: "value_type",

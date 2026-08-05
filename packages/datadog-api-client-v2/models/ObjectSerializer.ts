@@ -3242,6 +3242,9 @@ import { NotificationRulePreviewResponseData } from "./NotificationRulePreviewRe
 import { NotificationRulePreviewResult } from "./NotificationRulePreviewResult";
 import { NotificationRuleResponse } from "./NotificationRuleResponse";
 import { NotificationRuleRouting } from "./NotificationRuleRouting";
+import { NotificationRuleTarget } from "./NotificationRuleTarget";
+import { NotificationRuleTargetConfiguration } from "./NotificationRuleTargetConfiguration";
+import { NotificationRuleTargetConfigurationRecipient } from "./NotificationRuleTargetConfigurationRecipient";
 import { NotificationRulesListResponse } from "./NotificationRulesListResponse";
 import { NotionAPIKey } from "./NotionAPIKey";
 import { NotionAPIKeyUpdate } from "./NotionAPIKeyUpdate";
@@ -7097,6 +7100,14 @@ const enumsMap: { [key: string]: any[] } = {
   NotificationRulePreviewNotificationStatus: ["SUCCESS", "DEFAULT", "ERROR"],
   NotificationRulePreviewResponseType: ["notification_preview_response"],
   NotificationRuleRoutingMode: ["manual"],
+  NotificationRuleTargetType: [
+    "EMAIL",
+    "SLACK_CHANNEL",
+    "SLACK_USER",
+    "WEBHOOK",
+    "PAGERDUTY_SERVICE",
+    "MS_TEAMS_CHANNEL",
+  ],
   NotificationRulesType: ["notification_rules"],
   NotionAPIKeyType: ["NotionAPIKey"],
   NotionIntegrationType: ["Notion"],
@@ -12560,6 +12571,10 @@ const typeMap: { [index: string]: any } = {
   NotificationRulePreviewResult: NotificationRulePreviewResult,
   NotificationRuleResponse: NotificationRuleResponse,
   NotificationRuleRouting: NotificationRuleRouting,
+  NotificationRuleTarget: NotificationRuleTarget,
+  NotificationRuleTargetConfiguration: NotificationRuleTargetConfiguration,
+  NotificationRuleTargetConfigurationRecipient:
+    NotificationRuleTargetConfigurationRecipient,
   NotificationRulesListResponse: NotificationRulesListResponse,
   NotionAPIKey: NotionAPIKey,
   NotionAPIKeyUpdate: NotionAPIKeyUpdate,
