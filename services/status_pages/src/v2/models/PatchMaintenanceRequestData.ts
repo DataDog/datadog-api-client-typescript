@@ -1,6 +1,7 @@
 import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
 import { PatchMaintenanceRequestDataAttributes } from "./PatchMaintenanceRequestDataAttributes";
+import { PatchMaintenanceRequestDataRelationships } from "./PatchMaintenanceRequestDataRelationships";
 import { PatchMaintenanceRequestDataType } from "./PatchMaintenanceRequestDataType";
 
 /**
@@ -15,6 +16,10 @@ export class PatchMaintenanceRequestData {
    * The ID of the maintenance.
    */
   "id": string;
+  /**
+   * The supported relationships for updating a maintenance.
+   */
+  "relationships"?: PatchMaintenanceRequestDataRelationships;
   /**
    * Maintenances resource type.
    */
@@ -44,6 +49,10 @@ export class PatchMaintenanceRequestData {
       type: "string",
       required: true,
       format: "uuid",
+    },
+    relationships: {
+      baseName: "relationships",
+      type: "PatchMaintenanceRequestDataRelationships",
     },
     type: {
       baseName: "type",
