@@ -41,14 +41,6 @@ export class GovernanceControlAttributes {
    */
   "detectionParameters": { [key: string]: any };
   /**
-   * The detection type that uniquely identifies the control.
-   */
-  "detectionType": string;
-  /**
-   * The feature flags that gate the control.
-   */
-  "featureFlags": Array<string>;
-  /**
    * The insight slugs associated with the control.
    */
   "insights": Array<string>;
@@ -77,22 +69,6 @@ export class GovernanceControlAttributes {
    */
   "name": string;
   /**
-   * Guidance on the next steps to remediate detections for the control.
-   */
-  "nextSteps": string;
-  /**
-   * The configured notification frequency for the control. Empty when not configured.
-   */
-  "notificationFrequency": string;
-  /**
-   * A free-form map of parameter names to their configured values.
-   */
-  "notificationParameters": { [key: string]: any };
-  /**
-   * The configured notification type for the control. Empty when not configured.
-   */
-  "notificationType": string;
-  /**
    * The priority of the control, such as `High`.
    */
   "priority": string;
@@ -100,10 +76,6 @@ export class GovernanceControlAttributes {
    * The product the control belongs to.
    */
   "product": string;
-  /**
-   * The release status of the control, such as `prod` or `beta`.
-   */
-  "releaseStatus": string;
   /**
    * The type of resource the control evaluates.
    */
@@ -117,21 +89,9 @@ export class GovernanceControlAttributes {
    */
   "supportedDetectionParameters": Array<GovernanceControlParameterDefinition>;
   /**
-   * An array of parameter definitions.
-   */
-  "supportedNotificationParameters": Array<GovernanceControlParameterDefinition>;
-  /**
-   * A short description of the remediation task for the control.
-   */
-  "task": string;
-  /**
    * The control type, such as `Proactive` or `Detection`.
    */
   "type": string;
-  /**
-   * The usage concern the control addresses, such as `Security` or `Cost Optimization`.
-   */
-  "usageConcern": string;
 
   /**
    * A container for additional, undeclared properties.
@@ -186,16 +146,6 @@ export class GovernanceControlAttributes {
       type: "{ [key: string]: any; }",
       required: true,
     },
-    detectionType: {
-      baseName: "detection_type",
-      type: "string",
-      required: true,
-    },
-    featureFlags: {
-      baseName: "feature_flags",
-      type: "Array<string>",
-      required: true,
-    },
     insights: {
       baseName: "insights",
       type: "Array<string>",
@@ -233,26 +183,6 @@ export class GovernanceControlAttributes {
       type: "string",
       required: true,
     },
-    nextSteps: {
-      baseName: "next_steps",
-      type: "string",
-      required: true,
-    },
-    notificationFrequency: {
-      baseName: "notification_frequency",
-      type: "string",
-      required: true,
-    },
-    notificationParameters: {
-      baseName: "notification_parameters",
-      type: "{ [key: string]: any; }",
-      required: true,
-    },
-    notificationType: {
-      baseName: "notification_type",
-      type: "string",
-      required: true,
-    },
     priority: {
       baseName: "priority",
       type: "string",
@@ -260,11 +190,6 @@ export class GovernanceControlAttributes {
     },
     product: {
       baseName: "product",
-      type: "string",
-      required: true,
-    },
-    releaseStatus: {
-      baseName: "release_status",
       type: "string",
       required: true,
     },
@@ -283,23 +208,8 @@ export class GovernanceControlAttributes {
       type: "Array<GovernanceControlParameterDefinition>",
       required: true,
     },
-    supportedNotificationParameters: {
-      baseName: "supported_notification_parameters",
-      type: "Array<GovernanceControlParameterDefinition>",
-      required: true,
-    },
-    task: {
-      baseName: "task",
-      type: "string",
-      required: true,
-    },
     type: {
       baseName: "type",
-      type: "string",
-      required: true,
-    },
-    usageConcern: {
-      baseName: "usage_concern",
       type: "string",
       required: true,
     },

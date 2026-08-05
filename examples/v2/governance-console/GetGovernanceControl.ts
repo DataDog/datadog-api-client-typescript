@@ -1,14 +1,14 @@
 /**
- * Get a governance control returns "OK" response
+ * Get a control returns "OK" response
  */
 
 import { client, v2 } from "@datadog/datadog-api-client";
 
 const configuration = client.createConfiguration();
 configuration.unstableOperations["v2.getGovernanceControl"] = true;
-const apiInstance = new v2.GovernanceControlsApi(configuration);
+const apiInstance = new v2.GovernanceConsoleApi(configuration);
 
-const params: v2.GovernanceControlsApiGetGovernanceControlRequest = {
+const params: v2.GovernanceConsoleApiGetGovernanceControlRequest = {
   detectionType: "detection_type",
 };
 

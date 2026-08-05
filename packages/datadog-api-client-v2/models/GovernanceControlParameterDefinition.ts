@@ -24,10 +24,6 @@ export class GovernanceControlParameterDefinition {
    */
   "displayName": string;
   /**
-   * Whether the parameter is hidden from the UI.
-   */
-  "hidden": boolean;
-  /**
    * The machine-readable name of the parameter.
    */
   "name": string;
@@ -73,11 +69,6 @@ export class GovernanceControlParameterDefinition {
     displayName: {
       baseName: "display_name",
       type: "string",
-      required: true,
-    },
-    hidden: {
-      baseName: "hidden",
-      type: "boolean",
       required: true,
     },
     name: {

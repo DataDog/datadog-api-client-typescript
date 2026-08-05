@@ -1,24 +1,20 @@
 /**
- * Update a governance control returns "OK" response
+ * Update a control returns "OK" response
  */
 
 import { client, v2 } from "@datadog/datadog-api-client";
 
 const configuration = client.createConfiguration();
 configuration.unstableOperations["v2.updateGovernanceControl"] = true;
-const apiInstance = new v2.GovernanceControlsApi(configuration);
+const apiInstance = new v2.GovernanceConsoleApi(configuration);
 
-const params: v2.GovernanceControlsApiUpdateGovernanceControlRequest = {
+const params: v2.GovernanceConsoleApiUpdateGovernanceControlRequest = {
   body: {
     data: {
       attributes: {
         detectionFrequency: "daily",
         mitigationType: "revoke_api_key",
-        name: "Unused API Keys",
-        notificationFrequency: "daily",
-        notificationType: "slack",
       },
-      id: "0d4e6f8a-1b2c-3d4e-5f6a-7b8c9d0e1f2a",
       type: "governance_control",
     },
   },

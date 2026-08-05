@@ -12,37 +12,21 @@ import { AttributeTypeMap } from "../../datadog-api-client-common/util";
  */
 export class GovernanceControlMitigationDefinition {
   /**
-   * The verb describing the mitigation action, such as `revoke` or `delete`.
-   */
-  "actionVerb": string;
-  /**
    * A human-readable description of the mitigation.
    */
   "description": string;
   /**
    * The execution modes the mitigation supports, such as `manual` or `automatic`.
    */
-  "executionModes"?: Array<string>;
-  /**
-   * The feature flags that gate the mitigation.
-   */
-  "featureFlags": Array<string>;
+  "executionModes": Array<string>;
   /**
    * The unique identifier of the mitigation.
    */
   "id": string;
   /**
-   * A warning shown to the user before applying the mitigation manually.
-   */
-  "manualMitigationWarning": string;
-  /**
    * The permissions required to apply the mitigation.
    */
   "permissions": Array<string>;
-  /**
-   * Whether the mitigation requires AI to be enabled.
-   */
-  "requiresAi": boolean;
   /**
    * An array of parameter definitions.
    */
@@ -68,11 +52,6 @@ export class GovernanceControlMitigationDefinition {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    actionVerb: {
-      baseName: "action_verb",
-      type: "string",
-      required: true,
-    },
     description: {
       baseName: "description",
       type: "string",
@@ -81,10 +60,6 @@ export class GovernanceControlMitigationDefinition {
     executionModes: {
       baseName: "execution_modes",
       type: "Array<string>",
-    },
-    featureFlags: {
-      baseName: "feature_flags",
-      type: "Array<string>",
       required: true,
     },
     id: {
@@ -92,19 +67,9 @@ export class GovernanceControlMitigationDefinition {
       type: "string",
       required: true,
     },
-    manualMitigationWarning: {
-      baseName: "manual_mitigation_warning",
-      type: "string",
-      required: true,
-    },
     permissions: {
       baseName: "permissions",
       type: "Array<string>",
-      required: true,
-    },
-    requiresAi: {
-      baseName: "requires_ai",
-      type: "boolean",
       required: true,
     },
     supportedParameters: {
