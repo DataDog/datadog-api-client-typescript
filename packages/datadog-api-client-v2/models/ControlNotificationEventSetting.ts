@@ -3,29 +3,26 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
-import { GovernanceInsightAttributes } from "./GovernanceInsightAttributes";
-import { GovernanceInsightResourceType } from "./GovernanceInsightResourceType";
+import { ControlNotificationTarget } from "./ControlNotificationTarget";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * A governance insight resource.
+ * The notification settings for a single event type on a control.
  */
-export class GovernanceInsightData {
+export class ControlNotificationEventSetting {
   /**
-   * The attributes of a governance insight. Exactly one of `metric_query`, `event_query`,
-   * `usage_query`, `audit_query`, or `percentage_query` is populated, depending on the data
-   * source the insight is computed from; the rest are `null`.
+   * Whether notifications are enabled for this event type.
    */
-  "attributes": GovernanceInsightAttributes;
+  "enabled": boolean;
   /**
-   * The unique identifier of the insight.
+   * The event type the notification settings apply to, such as `new_detection`.
    */
-  "id": string;
+  "eventType": string;
   /**
-   * JSON:API resource type for a governance insight.
+   * The destinations that receive notifications for an event type.
    */
-  "type": GovernanceInsightResourceType;
+  "targets": Array<ControlNotificationTarget>;
 
   /**
    * A container for additional, undeclared properties.
@@ -43,19 +40,19 @@ export class GovernanceInsightData {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    attributes: {
-      baseName: "attributes",
-      type: "GovernanceInsightAttributes",
+    enabled: {
+      baseName: "enabled",
+      type: "boolean",
       required: true,
     },
-    id: {
-      baseName: "id",
+    eventType: {
+      baseName: "event_type",
       type: "string",
       required: true,
     },
-    type: {
-      baseName: "type",
-      type: "GovernanceInsightResourceType",
+    targets: {
+      baseName: "targets",
+      type: "Array<ControlNotificationTarget>",
       required: true,
     },
     additionalProperties: {
@@ -68,7 +65,7 @@ export class GovernanceInsightData {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-    return GovernanceInsightData.attributeTypeMap;
+    return ControlNotificationEventSetting.attributeTypeMap;
   }
 
   public constructor() {}

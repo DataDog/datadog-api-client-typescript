@@ -3,27 +3,18 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
-import { GovernanceControlAttributes } from "./GovernanceControlAttributes";
-import { GovernanceControlResourceType } from "./GovernanceControlResourceType";
+import { GovernanceMitigationRequestData } from "./GovernanceMitigationRequestData";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * A governance control resource.
+ * A request to mitigate a set of governance detections.
  */
-export class GovernanceControlData {
+export class GovernanceMitigationRequest {
   /**
-   * The attributes of a governance control.
+   * The data of a governance mitigation request.
    */
-  "attributes": GovernanceControlAttributes;
-  /**
-   * The detection type that uniquely identifies the control.
-   */
-  "id": string;
-  /**
-   * JSON:API resource type for a governance control.
-   */
-  "type": GovernanceControlResourceType;
+  "data": GovernanceMitigationRequestData;
 
   /**
    * A container for additional, undeclared properties.
@@ -41,19 +32,9 @@ export class GovernanceControlData {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    attributes: {
-      baseName: "attributes",
-      type: "GovernanceControlAttributes",
-      required: true,
-    },
-    id: {
-      baseName: "id",
-      type: "string",
-      required: true,
-    },
-    type: {
-      baseName: "type",
-      type: "GovernanceControlResourceType",
+    data: {
+      baseName: "data",
+      type: "GovernanceMitigationRequestData",
       required: true,
     },
     additionalProperties: {
@@ -66,7 +47,7 @@ export class GovernanceControlData {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-    return GovernanceControlData.attributeTypeMap;
+    return GovernanceMitigationRequest.attributeTypeMap;
   }
 
   public constructor() {}

@@ -3,27 +3,18 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
-import { GovernanceControlAttributes } from "./GovernanceControlAttributes";
-import { GovernanceControlResourceType } from "./GovernanceControlResourceType";
+import { ControlNotificationEventSetting } from "./ControlNotificationEventSetting";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * A governance control resource.
+ * The attributes of a governance control's notification settings.
  */
-export class GovernanceControlData {
+export class ControlNotificationSettingsAttributes {
   /**
-   * The attributes of a governance control.
+   * The notification settings for each supported event type on the control.
    */
-  "attributes": GovernanceControlAttributes;
-  /**
-   * The detection type that uniquely identifies the control.
-   */
-  "id": string;
-  /**
-   * JSON:API resource type for a governance control.
-   */
-  "type": GovernanceControlResourceType;
+  "eventSettings": Array<ControlNotificationEventSetting>;
 
   /**
    * A container for additional, undeclared properties.
@@ -41,19 +32,9 @@ export class GovernanceControlData {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    attributes: {
-      baseName: "attributes",
-      type: "GovernanceControlAttributes",
-      required: true,
-    },
-    id: {
-      baseName: "id",
-      type: "string",
-      required: true,
-    },
-    type: {
-      baseName: "type",
-      type: "GovernanceControlResourceType",
+    eventSettings: {
+      baseName: "event_settings",
+      type: "Array<ControlNotificationEventSetting>",
       required: true,
     },
     additionalProperties: {
@@ -66,7 +47,7 @@ export class GovernanceControlData {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-    return GovernanceControlData.attributeTypeMap;
+    return ControlNotificationSettingsAttributes.attributeTypeMap;
   }
 
   public constructor() {}

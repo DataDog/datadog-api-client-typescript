@@ -3,27 +3,17 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
-import { GovernanceControlAttributes } from "./GovernanceControlAttributes";
-import { GovernanceControlResourceType } from "./GovernanceControlResourceType";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * A governance control resource.
+ * The attributes of the governance notification settings that can be updated. Only the attributes present in the request are modified.
  */
-export class GovernanceControlData {
+export class GovernanceNotificationSettingsUpdateAttributes {
   /**
-   * The attributes of a governance control.
+   * Whether notifications are sent to users when detections are assigned to them.
    */
-  "attributes": GovernanceControlAttributes;
-  /**
-   * The detection type that uniquely identifies the control.
-   */
-  "id": string;
-  /**
-   * JSON:API resource type for a governance control.
-   */
-  "type": GovernanceControlResourceType;
+  "assignmentNotificationsEnabled"?: boolean;
 
   /**
    * A container for additional, undeclared properties.
@@ -41,20 +31,9 @@ export class GovernanceControlData {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    attributes: {
-      baseName: "attributes",
-      type: "GovernanceControlAttributes",
-      required: true,
-    },
-    id: {
-      baseName: "id",
-      type: "string",
-      required: true,
-    },
-    type: {
-      baseName: "type",
-      type: "GovernanceControlResourceType",
-      required: true,
+    assignmentNotificationsEnabled: {
+      baseName: "assignment_notifications_enabled",
+      type: "boolean",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -66,7 +45,7 @@ export class GovernanceControlData {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-    return GovernanceControlData.attributeTypeMap;
+    return GovernanceNotificationSettingsUpdateAttributes.attributeTypeMap;
   }
 
   public constructor() {}
