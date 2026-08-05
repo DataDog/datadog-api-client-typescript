@@ -15,7 +15,7 @@ export class FleetDeploymentConfigureV2DryRunAttributes {
    */
   "query"?: string;
   /**
-   * Total number of hosts targeted by the dry run.
+   * Total number of hosts targeted by this deployment.
    */
   "totalHosts"?: number;
   /**

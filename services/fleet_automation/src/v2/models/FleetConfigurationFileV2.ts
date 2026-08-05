@@ -21,10 +21,6 @@ export class FleetConfigurationFileV2 {
    */
   "filename"?: string;
   /**
-   * Hash of the configuration file as applied by fleet management.
-   */
-  "fleetHash"?: string;
-  /**
    * A container for additional, undeclared properties.
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
@@ -53,10 +49,6 @@ export class FleetConfigurationFileV2 {
     },
     filename: {
       baseName: "filename",
-      type: "string",
-    },
-    fleetHash: {
-      baseName: "fleet_hash",
       type: "string",
     },
     additionalProperties: {

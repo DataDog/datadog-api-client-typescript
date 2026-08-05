@@ -96,10 +96,6 @@ export class FleetAgentV2Attributes {
    */
   "otelCollectorDistributions"?: Array<string>;
   /**
-   * The primary OpenTelemetry collector version, if applicable.
-   */
-  "otelCollectorVersion"?: string;
-  /**
    * All OpenTelemetry collector versions associated with the agent.
    */
   "otelCollectorVersions"?: Array<string>;
@@ -236,10 +232,6 @@ export class FleetAgentV2Attributes {
     otelCollectorDistributions: {
       baseName: "otel_collector_distributions",
       type: "Array<string>",
-    },
-    otelCollectorVersion: {
-      baseName: "otel_collector_version",
-      type: "string",
     },
     otelCollectorVersions: {
       baseName: "otel_collector_versions",

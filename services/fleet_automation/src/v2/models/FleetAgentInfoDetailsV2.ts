@@ -113,10 +113,6 @@ export class FleetAgentInfoDetailsV2 {
    */
   "otelCollectorDistributions"?: Array<string>;
   /**
-   * OpenTelemetry collector version (if applicable).
-   */
-  "otelCollectorVersion"?: string;
-  /**
    * List of OpenTelemetry collector versions (if applicable).
    */
   "otelCollectorVersions"?: Array<string>;
@@ -292,10 +288,6 @@ export class FleetAgentInfoDetailsV2 {
     otelCollectorDistributions: {
       baseName: "otel_collector_distributions",
       type: "Array<string>",
-    },
-    otelCollectorVersion: {
-      baseName: "otel_collector_version",
-      type: "string",
     },
     otelCollectorVersions: {
       baseName: "otel_collector_versions",
