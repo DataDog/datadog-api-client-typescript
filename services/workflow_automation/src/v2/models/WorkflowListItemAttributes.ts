@@ -23,7 +23,7 @@ export class WorkflowListItemAttributes {
    */
   "published"?: boolean;
   /**
-   * The spec defines what the workflow does.
+   * A complete Workflow Automation definition, including its triggers, steps, and connections.
    */
   "spec"?: Spec;
   /**
