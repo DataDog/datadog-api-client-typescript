@@ -1,5 +1,10 @@
 # CHANGELOG
 
+## 0.0.1-beta.7/2026-08-06
+
+### Added
+* Add notice templates to the Status Pages API spec [#4699](https://github.com/DataDog/datadog-api-client-typescript/pull/4699)
+
 ## 0.0.1-beta.6/2026-06-30
 
 ### Added

@@ -1,5 +1,10 @@
 # CHANGELOG
 
+## 0.0.1-beta.12/2026-08-06
+
+### Added
+* Remove unit conversion notes from usage metering descriptions [#4724](https://github.com/DataDog/datadog-api-client-typescript/pull/4724)
+
 ## 0.0.1-beta.11/2026-06-17
 
 ### Added

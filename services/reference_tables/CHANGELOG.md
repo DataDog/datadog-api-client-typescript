@@ -1,5 +1,14 @@
 # CHANGELOG
 
+## 0.0.1-beta.4/2026-08-06
+
+### Fixed
+* Document 409 and 412 error codes for UpsertRows/DeleteRows [#4640](https://github.com/DataDog/datadog-api-client-typescript/pull/4640)
+
+### Added
+* Add included rows to batchrowsquery and pagination meta to listrows for reference tables responses [#4567](https://github.com/DataDog/datadog-api-client-typescript/pull/4567)
+* Add ListReferenceTableRows endpoint to Reference Tables [#4166](https://github.com/DataDog/datadog-api-client-typescript/pull/4166)
+
 ## 0.0.1-beta.3/2026-04-01
 
 ### Added

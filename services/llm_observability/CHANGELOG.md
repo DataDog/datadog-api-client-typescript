@@ -1,5 +1,11 @@
 # CHANGELOG
 
+## 0.0.1-beta.7/2026-08-06
+
+### Added
+* Add list custom LLM Obs evaluator configs endpoint [#4712](https://github.com/DataDog/datadog-api-client-typescript/pull/4712)
+* Add public API spec for LLM Observability prompt registry CRUD endpoints [#4652](https://github.com/DataDog/datadog-api-client-typescript/pull/4652)
+
 ## 0.0.1-beta.6/2026-06-17
 
 ### Added

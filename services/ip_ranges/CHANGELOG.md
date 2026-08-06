@@ -1,5 +1,10 @@
 # CHANGELOG
 
+## 0.0.1-beta.4/2026-08-06
+
+### Added
+* Add UK1 [#4527](https://github.com/DataDog/datadog-api-client-typescript/pull/4527)
+
 ## 0.0.1-beta.3/2026-04-24
 
 ### Added
