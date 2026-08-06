@@ -3,29 +3,27 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
-import { GovernanceInsightAttributes } from "./GovernanceInsightAttributes";
-import { GovernanceInsightResourceType } from "./GovernanceInsightResourceType";
+import { GovernanceNotificationSettingsAttributes } from "./GovernanceNotificationSettingsAttributes";
+import { GovernanceNotificationSettingsResourceType } from "./GovernanceNotificationSettingsResourceType";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * A governance insight resource.
+ * A governance notification settings resource.
  */
-export class GovernanceInsightData {
+export class GovernanceNotificationSettingsData {
   /**
-   * The attributes of a governance insight. Exactly one of `metric_query`, `event_query`,
-   * `usage_query`, `audit_query`, or `percentage_query` is populated, depending on the data
-   * source the insight is computed from; the rest are `null`.
+   * The attributes of the organization-wide governance notification settings.
    */
-  "attributes": GovernanceInsightAttributes;
+  "attributes": GovernanceNotificationSettingsAttributes;
   /**
-   * The unique identifier of the insight.
+   * The unique identifier of the organization the notification settings apply to.
    */
   "id": string;
   /**
-   * JSON:API resource type for a governance insight.
+   * Governance notification settings resource type.
    */
-  "type": GovernanceInsightResourceType;
+  "type": GovernanceNotificationSettingsResourceType;
 
   /**
    * A container for additional, undeclared properties.
@@ -45,7 +43,7 @@ export class GovernanceInsightData {
   static readonly attributeTypeMap: AttributeTypeMap = {
     attributes: {
       baseName: "attributes",
-      type: "GovernanceInsightAttributes",
+      type: "GovernanceNotificationSettingsAttributes",
       required: true,
     },
     id: {
@@ -55,7 +53,7 @@ export class GovernanceInsightData {
     },
     type: {
       baseName: "type",
-      type: "GovernanceInsightResourceType",
+      type: "GovernanceNotificationSettingsResourceType",
       required: true,
     },
     additionalProperties: {
@@ -68,7 +66,7 @@ export class GovernanceInsightData {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-    return GovernanceInsightData.attributeTypeMap;
+    return GovernanceNotificationSettingsData.attributeTypeMap;
   }
 
   public constructor() {}

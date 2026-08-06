@@ -3,19 +3,20 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
+import { GovernanceInsightDirectionality } from "./GovernanceInsightDirectionality";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * Query execution context that allows the frontend to execute insight queries directly.
+ * Query execution context for running insight queries directly.
  */
 export class GovernanceInsightQueryConfig {
   /**
-   * The chart type the frontend should use to render the insight.
+   * The chart type used to render the insight.
    */
   "chartType"?: string;
   /**
-   * The window used for the previous value comparison, for example `week` or `month`.
+   * The window used for the previous value comparison; for example, `week` or `month`.
    */
   "comparisonShift": string;
   /**
@@ -23,10 +24,9 @@ export class GovernanceInsightQueryConfig {
    */
   "defaultValue"?: number;
   /**
-   * Whether an increase in the value is good, bad, or neutral. One of `neutral`,
-   * `increase_better`, or `decrease_better`.
+   * Whether an increase in the insight's value is good, bad, or neutral.
    */
-  "directionality"?: string;
+  "directionality"?: GovernanceInsightDirectionality;
   /**
    * The number of days the insight value is computed over.
    */
@@ -64,7 +64,7 @@ export class GovernanceInsightQueryConfig {
     },
     directionality: {
       baseName: "directionality",
-      type: "string",
+      type: "GovernanceInsightDirectionality",
     },
     effectiveTimeWindowDays: {
       baseName: "effective_time_window_days",

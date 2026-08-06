@@ -3,29 +3,29 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
-import { GovernanceInsightAttributes } from "./GovernanceInsightAttributes";
-import { GovernanceInsightResourceType } from "./GovernanceInsightResourceType";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * A governance insight resource.
+ * The attributes of a governance mitigation request.
  */
-export class GovernanceInsightData {
+export class GovernanceMitigationRequestAttributes {
   /**
-   * The attributes of a governance insight. Exactly one of `metric_query`, `event_query`,
-   * `usage_query`, `audit_query`, or `percentage_query` is populated, depending on the data
-   * source the insight is computed from; the rest are `null`.
+   * The identifiers of the detections to mitigate in this request.
    */
-  "attributes": GovernanceInsightAttributes;
+  "detectionIds": Array<string>;
   /**
-   * The unique identifier of the insight.
+   * The detection type whose detections should be mitigated.
    */
-  "id": string;
+  "detectionType": string;
   /**
-   * JSON:API resource type for a governance insight.
+   * A free-form map of parameter names to their configured values.
    */
-  "type": GovernanceInsightResourceType;
+  "mitigationParameters"?: { [key: string]: any };
+  /**
+   * The mitigation to apply to the selected detections. Defaults to the control's configured mitigation when omitted.
+   */
+  "mitigationType"?: string;
 
   /**
    * A container for additional, undeclared properties.
@@ -43,20 +43,23 @@ export class GovernanceInsightData {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    attributes: {
-      baseName: "attributes",
-      type: "GovernanceInsightAttributes",
+    detectionIds: {
+      baseName: "detection_ids",
+      type: "Array<string>",
       required: true,
     },
-    id: {
-      baseName: "id",
+    detectionType: {
+      baseName: "detection_type",
       type: "string",
       required: true,
     },
-    type: {
-      baseName: "type",
-      type: "GovernanceInsightResourceType",
-      required: true,
+    mitigationParameters: {
+      baseName: "mitigation_parameters",
+      type: "{ [key: string]: any; }",
+    },
+    mitigationType: {
+      baseName: "mitigation_type",
+      type: "string",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -68,7 +71,7 @@ export class GovernanceInsightData {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-    return GovernanceInsightData.attributeTypeMap;
+    return GovernanceMitigationRequestAttributes.attributeTypeMap;
   }
 
   public constructor() {}

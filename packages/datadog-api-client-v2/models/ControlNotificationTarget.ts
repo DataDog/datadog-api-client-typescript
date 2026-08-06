@@ -3,29 +3,22 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
-import { GovernanceInsightAttributes } from "./GovernanceInsightAttributes";
-import { GovernanceInsightResourceType } from "./GovernanceInsightResourceType";
+import { ControlNotificationTargetType } from "./ControlNotificationTargetType";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * A governance insight resource.
+ * A destination that receives notifications for an event type.
  */
-export class GovernanceInsightData {
+export class ControlNotificationTarget {
   /**
-   * The attributes of a governance insight. Exactly one of `metric_query`, `event_query`,
-   * `usage_query`, `audit_query`, or `percentage_query` is populated, depending on the data
-   * source the insight is computed from; the rest are `null`.
+   * The destination handle, such as an email address, Slack channel, or user handle.
    */
-  "attributes": GovernanceInsightAttributes;
+  "handle": string;
   /**
-   * The unique identifier of the insight.
+   * The type of notification destination.
    */
-  "id": string;
-  /**
-   * JSON:API resource type for a governance insight.
-   */
-  "type": GovernanceInsightResourceType;
+  "type": ControlNotificationTargetType;
 
   /**
    * A container for additional, undeclared properties.
@@ -43,19 +36,14 @@ export class GovernanceInsightData {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    attributes: {
-      baseName: "attributes",
-      type: "GovernanceInsightAttributes",
-      required: true,
-    },
-    id: {
-      baseName: "id",
+    handle: {
+      baseName: "handle",
       type: "string",
       required: true,
     },
     type: {
       baseName: "type",
-      type: "GovernanceInsightResourceType",
+      type: "ControlNotificationTargetType",
       required: true,
     },
     additionalProperties: {
@@ -68,7 +56,7 @@ export class GovernanceInsightData {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-    return GovernanceInsightData.attributeTypeMap;
+    return ControlNotificationTarget.attributeTypeMap;
   }
 
   public constructor() {}

@@ -3,29 +3,29 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
-import { GovernanceInsightAttributes } from "./GovernanceInsightAttributes";
-import { GovernanceInsightResourceType } from "./GovernanceInsightResourceType";
+import { GovernanceConfigAttributes } from "./GovernanceConfigAttributes";
+import { GovernanceConsoleConfigResourceType } from "./GovernanceConsoleConfigResourceType";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * A governance insight resource.
+ * A Governance Console configuration resource.
  */
-export class GovernanceInsightData {
+export class GovernanceConfigData {
   /**
-   * The attributes of a governance insight. Exactly one of `metric_query`, `event_query`,
-   * `usage_query`, `audit_query`, or `percentage_query` is populated, depending on the data
-   * source the insight is computed from; the rest are `null`.
+   * The attributes of a Governance Console configuration.
    */
-  "attributes": GovernanceInsightAttributes;
+  "attributes": GovernanceConfigAttributes;
   /**
-   * The unique identifier of the insight.
+   * The unique identifier of the organization the Governance Console configuration applies
+   * to. May be the nil UUID (`00000000-0000-0000-0000-000000000000`) when the configuration
+   * is not tied to a specific organization record.
    */
   "id": string;
   /**
-   * JSON:API resource type for a governance insight.
+   * Governance console config resource type.
    */
-  "type": GovernanceInsightResourceType;
+  "type": GovernanceConsoleConfigResourceType;
 
   /**
    * A container for additional, undeclared properties.
@@ -45,7 +45,7 @@ export class GovernanceInsightData {
   static readonly attributeTypeMap: AttributeTypeMap = {
     attributes: {
       baseName: "attributes",
-      type: "GovernanceInsightAttributes",
+      type: "GovernanceConfigAttributes",
       required: true,
     },
     id: {
@@ -55,7 +55,7 @@ export class GovernanceInsightData {
     },
     type: {
       baseName: "type",
-      type: "GovernanceInsightResourceType",
+      type: "GovernanceConsoleConfigResourceType",
       required: true,
     },
     additionalProperties: {
@@ -68,7 +68,7 @@ export class GovernanceInsightData {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-    return GovernanceInsightData.attributeTypeMap;
+    return GovernanceConfigData.attributeTypeMap;
   }
 
   public constructor() {}

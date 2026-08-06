@@ -9790,6 +9790,9 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             },
         "operationResponseType": "SAMLConfigurationResponse",
     },
+    "v2.GetGovernanceConfig": {
+        "operationResponseType": "GovernanceConfigResponse",
+    },
     "v2.ListGovernanceControls": {
         "operationResponseType": "GovernanceControlsResponse",
     },
@@ -9811,20 +9814,92 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             },
         "operationResponseType": "GovernanceControlResponse",
     },
-    "v2.ListGovernanceInsights": {
-        "withValues": {
-            "type": "boolean",
-            "format": "",
-            },
-        "orgUuid": {
+    "v2.ListGovernanceControlDetections": {
+        "detectionType": {
             "type": "string",
             "format": "",
             },
+        "filterState": {
+            "type": "string",
+            "format": "",
+            },
+        "filterQuery": {
+            "type": "string",
+            "format": "",
+            },
+        "sort": {
+            "type": "string",
+            "format": "",
+            },
+        "pageNumber": {
+            "type": "number",
+            "format": "int64",
+            },
+        "pageSize": {
+            "type": "number",
+            "format": "int64",
+            },
+        "operationResponseType": "GovernanceControlDetectionsResponse",
+    },
+    "v2.GetGovernanceControlNotificationSettings": {
+        "detectionType": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "ControlNotificationSettingsResponse",
+    },
+    "v2.UpdateGovernanceControlNotificationSettings": {
+        "detectionType": {
+            "type": "string",
+            "format": "",
+            },
+        "body": {
+            "type": "ControlNotificationSettingsUpdateRequest",
+            "format": "",
+            },
+        "operationResponseType": "ControlNotificationSettingsResponse",
+    },
+    "v2.MitigateGovernanceDetections": {
+        "body": {
+            "type": "GovernanceMitigationRequest",
+            "format": "",
+            },
+        "operationResponseType": "{}",
+    },
+    "v2.GetGovernanceDetection": {
+        "detectionId": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "GovernanceControlDetectionResponse",
+    },
+    "v2.UpdateGovernanceDetection": {
+        "detectionId": {
+            "type": "string",
+            "format": "",
+            },
+        "body": {
+            "type": "GovernanceControlDetectionUpdateRequest",
+            "format": "",
+            },
+        "operationResponseType": "GovernanceControlDetectionResponse",
+    },
+    "v2.ListGovernanceInsights": {
         "filterProduct": {
             "type": "Array<string>",
             "format": "",
             },
         "operationResponseType": "GovernanceInsightsResponse",
+    },
+    "v2.GetGovernanceNotificationSettings": {
+        "operationResponseType": "GovernanceNotificationSettingsResponse",
+    },
+    "v2.UpdateGovernanceNotificationSettings": {
+        "body": {
+            "type": "GovernanceNotificationSettingsUpdateRequest",
+            "format": "",
+            },
+        "operationResponseType": "GovernanceNotificationSettingsResponse",
     },
     "v2.GetHamrOrgConnection": {
         "operationResponseType": "HamrOrgConnectionResponse",

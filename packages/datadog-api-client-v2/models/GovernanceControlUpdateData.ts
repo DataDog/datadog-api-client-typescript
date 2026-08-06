@@ -17,10 +17,6 @@ export class GovernanceControlUpdateData {
    */
   "attributes"?: GovernanceControlUpdateAttributes;
   /**
-   * The unique identifier of the control.
-   */
-  "id"?: string;
-  /**
    * JSON:API resource type for a governance control.
    */
   "type": GovernanceControlResourceType;
@@ -44,10 +40,6 @@ export class GovernanceControlUpdateData {
     attributes: {
       baseName: "attributes",
       type: "GovernanceControlUpdateAttributes",
-    },
-    id: {
-      baseName: "id",
-      type: "string",
     },
     type: {
       baseName: "type",
