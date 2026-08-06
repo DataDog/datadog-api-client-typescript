@@ -1,5 +1,11 @@
 # CHANGELOG
 
+## 0.0.1-beta.10/2026-08-06
+
+### Added
+* data quality monitor sensitivity definition [#4760](https://github.com/DataDog/datadog-api-client-typescript/pull/4760)
+* Page related updates to synthetics  [#4555](https://github.com/DataDog/datadog-api-client-typescript/pull/4555)
+
 ## 0.0.1-beta.9/2026-06-30
 
 ### Added

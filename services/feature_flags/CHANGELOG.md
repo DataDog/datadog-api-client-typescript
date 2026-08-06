@@ -1,5 +1,13 @@
 # CHANGELOG
 
+## 0.0.1-beta.5/2026-08-06
+
+### Added
+* Add DD_ENV filter to Feature Flags environments API [#4668](https://github.com/DataDog/datadog-api-client-typescript/pull/4668)
+
+### Changed
+* Add saved filters endpoints to the Feature Flags API [#4430](https://github.com/DataDog/datadog-api-client-typescript/pull/4430)
+
 ## 0.0.1-beta.4/2026-06-30
 
 ### Added

@@ -1,5 +1,23 @@
 # CHANGELOG
 
+## 0.0.1-beta.15/2026-08-06
+
+### Fixed
+* Fix broken JSON API shape for security monitoring rules bulk delete [#4706](https://github.com/DataDog/datadog-api-client-typescript/pull/4706)
+
+### Changed
+* Update documentation according to new content pack states endpoint response shape [#4672](https://github.com/DataDog/datadog-api-client-typescript/pull/4672)
+* Mark Linear security findings endpoints as stable [#4660](https://github.com/DataDog/datadog-api-client-typescript/pull/4660)
+* Update ListAssetsSBOMs spec - require asset_type on first page, add ServerlessFunction asset type [#4587](https://github.com/DataDog/datadog-api-client-typescript/pull/4587)
+
+### Added
+* Add editable field to critical assets attributes [#4620](https://github.com/DataDog/datadog-api-client-typescript/pull/4620)
+* Document secmon-public-api Entra ID integration endpoints [#4597](https://github.com/DataDog/datadog-api-client-typescript/pull/4597)
+* Add public unstable spec for Security Findings Linear endpoints [#4582](https://github.com/DataDog/datadog-api-client-typescript/pull/4582)
+* Add workload activity rule type to notification rules [#4579](https://github.com/DataDog/datadog-api-client-typescript/pull/4579)
+* security-monitoring - add description field to critical assets API spec [#4565](https://github.com/DataDog/datadog-api-client-typescript/pull/4565)
+* Mark ServiceNow triage endpoints as stable [#4561](https://github.com/DataDog/datadog-api-client-typescript/pull/4561)
+
 ## 0.0.1-beta.14/2026-06-30
 
 ### Changed
