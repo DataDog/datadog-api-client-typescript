@@ -73,9 +73,6 @@
     "loglevel": "^1.8.1",
     "pako": "^2.0.4"
   },
-  "resolutions": {
-    "@pollyjs/adapter-node-http/nock": "^13.1.3"
-  },
   "devDependencies": {
     "@cucumber/cucumber": "^9.2.0",
     "@cucumber/messages": "^22.0.0",
@@ -88,7 +85,7 @@
     "@typescript-eslint/parser": "^5.54.0",
     "chai": "^4.3.7",
     "chai-quantifiers": "^1.0.17",
-    "dd-trace": "^4.3.0",
+    "dd-trace": "^6.8.0",
     "eslint": "^8.43.0",
     "eslint-plugin-import": "^2.27.5",
     "eslint-plugin-node": "^11.1.0",
@@ -106,5 +103,10 @@
     "node": ">=12.0.0"
   },
   "version": "1.60.0",
-  "packageManager": "yarn@1.22.22+sha512.a6b2f7906b721bba3d67d4aff083df04dad64c399707841b7acf00f6b133b7ac24255f2652fa22ae3534329dc6180534e98d17432037ff6fd140556e2bb3137e"
+  "packageManager": "yarn@1.22.22+sha512.a6b2f7906b721bba3d67d4aff083df04dad64c399707841b7acf00f6b133b7ac24255f2652fa22ae3534329dc6180534e98d17432037ff6fd140556e2bb3137e",
+  "resolutions": {
+    "import-in-the-middle": "^1.15.0",
+    "@datadog/native-iast-taint-tracking": "^1.7.0",
+    "cjs-module-lexer": "^1.4.3"
+  }
 }
