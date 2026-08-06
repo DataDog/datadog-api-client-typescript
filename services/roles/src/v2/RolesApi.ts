@@ -369,6 +369,7 @@ export class RolesApiRequestFactory extends BaseAPIRequestFactory {
   }
 
   public async listPermissions(
+    includeScopes?: boolean,
     _options?: Configuration,
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
@@ -392,6 +393,15 @@ export class RolesApiRequestFactory extends BaseAPIRequestFactory {
     // Set User-Agent
     if (this.userAgent) {
       requestContext.setHeaderParam("User-Agent", this.userAgent);
+    }
+
+    // Query Params
+    if (includeScopes !== undefined) {
+      requestContext.setQueryParam(
+        "include_scopes",
+        serialize(includeScopes, TypingInfo, "boolean", ""),
+        "",
+      );
     }
 
     // Apply auth methods
@@ -1711,6 +1721,18 @@ export interface RolesApiGetRoleRequest {
   roleId: string;
 }
 
+export interface RolesApiListPermissionsRequest {
+  /**
+   * Set to `true` to return all permissions, including both permissions
+   * that can be assigned to user roles and permissions that can only be
+   * used as scopes for OAuth clients and scoped credentials. When `false`
+   * (default), only permissions that can be assigned to user roles are
+   * returned.
+   * @type boolean
+   */
+  includeScopes?: boolean;
+}
+
 export interface RolesApiListRolePermissionsRequest {
   /**
    * The unique identifier of the role.
@@ -1981,9 +2003,13 @@ export class RolesApi {
    * @param param The request object
    */
   public listPermissions(
+    param: RolesApiListPermissionsRequest = {},
     options?: Configuration,
   ): Promise<PermissionsResponse> {
-    const requestContextPromise = this.requestFactory.listPermissions(options);
+    const requestContextPromise = this.requestFactory.listPermissions(
+      param.includeScopes,
+      options,
+    );
     return requestContextPromise.then((requestContext) => {
       return this.configuration.httpApi
         .send(requestContext)
