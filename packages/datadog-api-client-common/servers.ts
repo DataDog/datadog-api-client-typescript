@@ -235,23 +235,38 @@ export const operationServers: {
         | "navy.oncall.datadoghq.com"
         | "coral.oncall.datadoghq.com"
         | "teal.oncall.datadoghq.com"
-        | "beige.oncall.datadoghq.eu";
+        | "beige.oncall.datadoghq.eu"
+        | "scarlet.oncall.datadoghq.com";
     }>("https://{site}", {
       site: "navy.oncall.datadoghq.com",
     }),
     new ServerConfiguration<{
-      name: string;
+      name:
+        | "lava.oncall.datadoghq.com"
+        | "saffron.oncall.datadoghq.com"
+        | "navy.oncall.datadoghq.com"
+        | "coral.oncall.datadoghq.com"
+        | "teal.oncall.datadoghq.com"
+        | "beige.oncall.datadoghq.eu"
+        | "scarlet.oncall.datadoghq.com";
       protocol: string;
     }>("{protocol}://{name}", {
-      name: "api.datadoghq.com",
+      name: "navy.oncall.datadoghq.com",
       protocol: "https",
     }),
     new ServerConfiguration<{
-      site: string;
-      subdomain: string;
+      site: "datadoghq.com" | "datadoghq.eu";
+      subdomain:
+        | "lava.oncall"
+        | "saffron.oncall"
+        | "navy.oncall"
+        | "coral.oncall"
+        | "teal.oncall"
+        | "beige.oncall"
+        | "scarlet.oncall";
     }>("https://{subdomain}.{site}", {
       site: "datadoghq.com",
-      subdomain: "api",
+      subdomain: "navy.oncall",
     }),
   ],
   "v2.OnCallPagingApi.createOnCallPage": [
@@ -262,23 +277,38 @@ export const operationServers: {
         | "navy.oncall.datadoghq.com"
         | "coral.oncall.datadoghq.com"
         | "teal.oncall.datadoghq.com"
-        | "beige.oncall.datadoghq.eu";
+        | "beige.oncall.datadoghq.eu"
+        | "scarlet.oncall.datadoghq.com";
     }>("https://{site}", {
       site: "navy.oncall.datadoghq.com",
     }),
     new ServerConfiguration<{
-      name: string;
+      name:
+        | "lava.oncall.datadoghq.com"
+        | "saffron.oncall.datadoghq.com"
+        | "navy.oncall.datadoghq.com"
+        | "coral.oncall.datadoghq.com"
+        | "teal.oncall.datadoghq.com"
+        | "beige.oncall.datadoghq.eu"
+        | "scarlet.oncall.datadoghq.com";
       protocol: string;
     }>("{protocol}://{name}", {
-      name: "api.datadoghq.com",
+      name: "navy.oncall.datadoghq.com",
       protocol: "https",
     }),
     new ServerConfiguration<{
-      site: string;
-      subdomain: string;
+      site: "datadoghq.com" | "datadoghq.eu";
+      subdomain:
+        | "lava.oncall"
+        | "saffron.oncall"
+        | "navy.oncall"
+        | "coral.oncall"
+        | "teal.oncall"
+        | "beige.oncall"
+        | "scarlet.oncall";
     }>("https://{subdomain}.{site}", {
       site: "datadoghq.com",
-      subdomain: "api",
+      subdomain: "navy.oncall",
     }),
   ],
   "v2.OnCallPagingApi.escalateOnCallPage": [
@@ -289,23 +319,38 @@ export const operationServers: {
         | "navy.oncall.datadoghq.com"
         | "coral.oncall.datadoghq.com"
         | "teal.oncall.datadoghq.com"
-        | "beige.oncall.datadoghq.eu";
+        | "beige.oncall.datadoghq.eu"
+        | "scarlet.oncall.datadoghq.com";
     }>("https://{site}", {
       site: "navy.oncall.datadoghq.com",
     }),
     new ServerConfiguration<{
-      name: string;
+      name:
+        | "lava.oncall.datadoghq.com"
+        | "saffron.oncall.datadoghq.com"
+        | "navy.oncall.datadoghq.com"
+        | "coral.oncall.datadoghq.com"
+        | "teal.oncall.datadoghq.com"
+        | "beige.oncall.datadoghq.eu"
+        | "scarlet.oncall.datadoghq.com";
       protocol: string;
     }>("{protocol}://{name}", {
-      name: "api.datadoghq.com",
+      name: "navy.oncall.datadoghq.com",
       protocol: "https",
     }),
     new ServerConfiguration<{
-      site: string;
-      subdomain: string;
+      site: "datadoghq.com" | "datadoghq.eu";
+      subdomain:
+        | "lava.oncall"
+        | "saffron.oncall"
+        | "navy.oncall"
+        | "coral.oncall"
+        | "teal.oncall"
+        | "beige.oncall"
+        | "scarlet.oncall";
     }>("https://{subdomain}.{site}", {
       site: "datadoghq.com",
-      subdomain: "api",
+      subdomain: "navy.oncall",
     }),
   ],
   "v2.OnCallPagingApi.resolveOnCallPage": [
@@ -316,23 +361,38 @@ export const operationServers: {
         | "navy.oncall.datadoghq.com"
         | "coral.oncall.datadoghq.com"
         | "teal.oncall.datadoghq.com"
-        | "beige.oncall.datadoghq.eu";
+        | "beige.oncall.datadoghq.eu"
+        | "scarlet.oncall.datadoghq.com";
     }>("https://{site}", {
       site: "navy.oncall.datadoghq.com",
     }),
     new ServerConfiguration<{
-      name: string;
+      name:
+        | "lava.oncall.datadoghq.com"
+        | "saffron.oncall.datadoghq.com"
+        | "navy.oncall.datadoghq.com"
+        | "coral.oncall.datadoghq.com"
+        | "teal.oncall.datadoghq.com"
+        | "beige.oncall.datadoghq.eu"
+        | "scarlet.oncall.datadoghq.com";
       protocol: string;
     }>("{protocol}://{name}", {
-      name: "api.datadoghq.com",
+      name: "navy.oncall.datadoghq.com",
       protocol: "https",
     }),
     new ServerConfiguration<{
-      site: string;
-      subdomain: string;
+      site: "datadoghq.com" | "datadoghq.eu";
+      subdomain:
+        | "lava.oncall"
+        | "saffron.oncall"
+        | "navy.oncall"
+        | "coral.oncall"
+        | "teal.oncall"
+        | "beige.oncall"
+        | "scarlet.oncall";
     }>("https://{subdomain}.{site}", {
       site: "datadoghq.com",
-      subdomain: "api",
+      subdomain: "navy.oncall",
     }),
   ],
   "v2.ProductAnalyticsApi.submitProductAnalyticsEvent": [
