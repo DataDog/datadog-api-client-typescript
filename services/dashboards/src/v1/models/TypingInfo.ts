@@ -492,6 +492,7 @@ export const TypingInfo: ModelTypingInfo = {
       "security_runtime_stream",
       "security_signals_stream",
       "incidents_stream",
+      "apm_recommendations_stream",
     ],
     ListStreamWidgetDefinitionType: ["list_stream"],
     LogStreamWidgetDefinitionType: ["log_stream"],
