@@ -105,25 +105,9 @@ export class FleetAgentInfoDetailsV2 {
    */
   "osVersion"?: string;
   /**
-   * OpenTelemetry collector deployment types associated with the agent.
-   */
-  "otelCollectorDeploymentTypes"?: Array<string>;
-  /**
-   * OpenTelemetry collector distributions associated with the agent.
-   */
-  "otelCollectorDistributions"?: Array<string>;
-  /**
-   * List of OpenTelemetry collector versions (if applicable).
-   */
-  "otelCollectorVersions"?: Array<string>;
-  /**
    * OpenTelemetry collectors associated with the agent (if applicable).
    */
   "otelCollectors"?: Array<{ [key: string]: any }>;
-  /**
-   * OpenTelemetry resource attributes reported by the agent.
-   */
-  "otelResourceAttributes"?: Array<string>;
   /**
    * Kubernetes pod name (if applicable).
    */
@@ -281,25 +265,9 @@ export class FleetAgentInfoDetailsV2 {
       baseName: "os_version",
       type: "string",
     },
-    otelCollectorDeploymentTypes: {
-      baseName: "otel_collector_deployment_types",
-      type: "Array<string>",
-    },
-    otelCollectorDistributions: {
-      baseName: "otel_collector_distributions",
-      type: "Array<string>",
-    },
-    otelCollectorVersions: {
-      baseName: "otel_collector_versions",
-      type: "Array<string>",
-    },
     otelCollectors: {
       baseName: "otel_collectors",
       type: "Array<{ [key: string]: any; }>",
-    },
-    otelResourceAttributes: {
-      baseName: "otel_resource_attributes",
-      type: "Array<string>",
     },
     podName: {
       baseName: "pod_name",
