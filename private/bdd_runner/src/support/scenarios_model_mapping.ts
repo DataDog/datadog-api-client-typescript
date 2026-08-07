@@ -17666,7 +17666,7 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
     },
     operationResponseType: "GlobalVariableResponse",
   },
-  "TagPoliciesApi.V2.ListTagPolicies": {
+  "TagRulesApi.V2.ListTagRules": {
     includeDisabled: {
       type: "boolean",
       format: "",
@@ -17676,11 +17676,11 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
       format: "",
     },
     include: {
-      type: "TagPolicyInclude",
+      type: "TagRuleInclude",
       format: "",
     },
     filterSource: {
-      type: "TagPolicySource",
+      type: "TagRuleSource",
       format: "",
     },
     tsStart: {
@@ -17691,22 +17691,22 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
       type: "number",
       format: "int64",
     },
-    operationResponseType: "TagPoliciesListResponse",
+    operationResponseType: "TagRulesListResponse",
   },
-  "TagPoliciesApi.V2.CreateTagPolicy": {
+  "TagRulesApi.V2.CreateTagRule": {
     body: {
-      type: "TagPolicyCreateRequest",
+      type: "TagRuleCreateRequest",
       format: "",
     },
-    operationResponseType: "TagPolicyResponse",
+    operationResponseType: "TagRuleResponse",
   },
-  "TagPoliciesApi.V2.GetTagPolicy": {
+  "TagRulesApi.V2.GetTagRule": {
     policyId: {
       type: "string",
       format: "",
     },
     include: {
-      type: "TagPolicyInclude",
+      type: "TagRuleInclude",
       format: "",
     },
     tsStart: {
@@ -17717,9 +17717,9 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
       type: "number",
       format: "int64",
     },
-    operationResponseType: "TagPolicyResponse",
+    operationResponseType: "TagRuleResponse",
   },
-  "TagPoliciesApi.V2.DeleteTagPolicy": {
+  "TagRulesApi.V2.DeleteTagRule": {
     policyId: {
       type: "string",
       format: "",
@@ -17730,18 +17730,18 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
     },
     operationResponseType: "{}",
   },
-  "TagPoliciesApi.V2.UpdateTagPolicy": {
+  "TagRulesApi.V2.UpdateTagRule": {
     policyId: {
       type: "string",
       format: "",
     },
     body: {
-      type: "TagPolicyUpdateRequest",
+      type: "TagRuleUpdateRequest",
       format: "",
     },
-    operationResponseType: "TagPolicyResponse",
+    operationResponseType: "TagRuleResponse",
   },
-  "TagPoliciesApi.V2.GetTagPolicyScore": {
+  "TagRulesApi.V2.GetTagRuleScore": {
     policyId: {
       type: "string",
       format: "",
@@ -17754,7 +17754,7 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
       type: "number",
       format: "int64",
     },
-    operationResponseType: "TagPolicyScoreResponse",
+    operationResponseType: "TagRuleScoreResponse",
   },
   "TeamsApi.V2.ListTeams": {
     pageNumber: {
