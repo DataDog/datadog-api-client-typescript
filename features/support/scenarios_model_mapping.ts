@@ -5549,6 +5549,16 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             },
         "operationResponseType": "ChangeRequestResponse",
     },
+    "v2.ListCIAppGitHubAccounts": {
+        "operationResponseType": "CIAppGitHubAccountsResponse",
+    },
+    "v2.UpdateCIAppGitHubAccount": {
+        "body": {
+            "type": "CIAppGitHubAccountUpdateRequest",
+            "format": "",
+            },
+        "operationResponseType": "CIAppGitHubAccountResponse",
+    },
     "v2.CreateCIAppPipelineEvent": {
         "body": {
             "type": "CIAppCreatePipelineEventRequest",
