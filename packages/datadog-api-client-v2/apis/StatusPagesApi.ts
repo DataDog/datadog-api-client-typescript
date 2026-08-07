@@ -34,12 +34,14 @@ import { Maintenance } from "../models/Maintenance";
 import { MaintenanceArray } from "../models/MaintenanceArray";
 import { MaintenanceTemplate } from "../models/MaintenanceTemplate";
 import { MaintenanceTemplateArray } from "../models/MaintenanceTemplateArray";
+import { MaintenanceUpdate } from "../models/MaintenanceUpdate";
 import { PatchComponentRequest } from "../models/PatchComponentRequest";
 import { PatchDegradationRequest } from "../models/PatchDegradationRequest";
 import { PatchDegradationTemplateRequest } from "../models/PatchDegradationTemplateRequest";
 import { PatchDegradationUpdateRequest } from "../models/PatchDegradationUpdateRequest";
 import { PatchMaintenanceRequest } from "../models/PatchMaintenanceRequest";
 import { PatchMaintenanceTemplateRequest } from "../models/PatchMaintenanceTemplateRequest";
+import { PatchMaintenanceUpdateRequest } from "../models/PatchMaintenanceUpdateRequest";
 import { PatchStatusPageRequest } from "../models/PatchStatusPageRequest";
 import { StatusPage } from "../models/StatusPage";
 import { StatusPageArray } from "../models/StatusPageArray";
@@ -1456,6 +1458,70 @@ export class StatusPagesApiRequestFactory extends BaseAPIRequestFactory {
         ""
       );
     }
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+      "AuthZ",
+    ]);
+
+    return requestContext;
+  }
+
+  public async patchMaintenanceUpdate(
+    pageId: string,
+    maintenanceId: string,
+    updateId: string,
+    body: PatchMaintenanceUpdateRequest,
+    _options?: Configuration
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    // verify required parameter 'pageId' is not null or undefined
+    if (pageId === null || pageId === undefined) {
+      throw new RequiredError("pageId", "patchMaintenanceUpdate");
+    }
+
+    // verify required parameter 'maintenanceId' is not null or undefined
+    if (maintenanceId === null || maintenanceId === undefined) {
+      throw new RequiredError("maintenanceId", "patchMaintenanceUpdate");
+    }
+
+    // verify required parameter 'updateId' is not null or undefined
+    if (updateId === null || updateId === undefined) {
+      throw new RequiredError("updateId", "patchMaintenanceUpdate");
+    }
+
+    // verify required parameter 'body' is not null or undefined
+    if (body === null || body === undefined) {
+      throw new RequiredError("body", "patchMaintenanceUpdate");
+    }
+
+    // Path Params
+    const localVarPath =
+      "/api/v2/statuspages/{page_id}/maintenances/{maintenance_id}/updates/{update_id}"
+        .replace("{page_id}", encodeURIComponent(String(pageId)))
+        .replace("{maintenance_id}", encodeURIComponent(String(maintenanceId)))
+        .replace("{update_id}", encodeURIComponent(String(updateId)));
+
+    // Make Request Context
+    const requestContext = _config
+      .getServer("v2.StatusPagesApi.patchMaintenanceUpdate")
+      .makeRequestContext(localVarPath, HttpMethod.PATCH);
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Body Params
+    const contentType = ObjectSerializer.getPreferredMediaType([
+      "application/json",
+    ]);
+    requestContext.setHeaderParam("Content-Type", contentType);
+    const serializedBody = ObjectSerializer.stringify(
+      ObjectSerializer.serialize(body, "PatchMaintenanceUpdateRequest", ""),
+      contentType
+    );
+    requestContext.setBody(serializedBody);
 
     // Apply auth methods
     applySecurityAuthentication(_config, requestContext, [
@@ -3459,6 +3525,64 @@ export class StatusPagesApiResponseProcessor {
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
    *
+   * @params response Response returned by the server for a request to patchMaintenanceUpdate
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async patchMaintenanceUpdate(
+    response: ResponseContext
+  ): Promise<MaintenanceUpdate> {
+    const contentType = ObjectSerializer.normalizeMediaType(
+      response.headers["content-type"]
+    );
+    if (response.httpStatusCode === 200) {
+      const body: MaintenanceUpdate = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "MaintenanceUpdate"
+      ) as MaintenanceUpdate;
+      return body;
+    }
+    if (response.httpStatusCode === 429) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: APIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "APIErrorResponse"
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: MaintenanceUpdate = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "MaintenanceUpdate",
+        ""
+      ) as MaintenanceUpdate;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"'
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
    * @params response Response returned by the server for a request to publishStatusPage
    * @throws ApiException if the response code was not in [200, 299]
    */
@@ -4411,6 +4535,28 @@ export interface StatusPagesApiListStatusPagesRequest {
   include?: string;
 }
 
+export interface StatusPagesApiPatchMaintenanceUpdateRequest {
+  /**
+   * The ID of the status page.
+   * @type string
+   */
+  pageId: string;
+  /**
+   * The ID of the maintenance.
+   * @type string
+   */
+  maintenanceId: string;
+  /**
+   * The ID of the maintenance update.
+   * @type string
+   */
+  updateId: string;
+  /**
+   * @type PatchMaintenanceUpdateRequest
+   */
+  body: PatchMaintenanceUpdateRequest;
+}
+
 export interface StatusPagesApiPublishStatusPageRequest {
   /**
    * The ID of the status page.
@@ -5217,6 +5363,30 @@ export class StatusPagesApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.listStatusPages(responseContext);
+        });
+    });
+  }
+
+  /**
+   * Edits the message of a specific maintenance update. Editing is allowed regardless of the parent maintenance's status, including completed and canceled maintenances.
+   * @param param The request object
+   */
+  public patchMaintenanceUpdate(
+    param: StatusPagesApiPatchMaintenanceUpdateRequest,
+    options?: Configuration
+  ): Promise<MaintenanceUpdate> {
+    const requestContextPromise = this.requestFactory.patchMaintenanceUpdate(
+      param.pageId,
+      param.maintenanceId,
+      param.updateId,
+      param.body,
+      options
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.patchMaintenanceUpdate(responseContext);
         });
     });
   }
