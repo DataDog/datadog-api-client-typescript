@@ -1331,13 +1331,6 @@ export {
 } from "./apis/RumMetricsApi";
 
 export {
-  RumRateLimitApiDeleteRumRateLimitConfigRequest,
-  RumRateLimitApiGetRumRateLimitConfigRequest,
-  RumRateLimitApiUpdateRumRateLimitConfigRequest,
-  RumRateLimitApi,
-} from "./apis/RumRateLimitApi";
-
-export {
   RumReplayHeatmapsApiCreateReplayHeatmapSnapshotRequest,
   RumReplayHeatmapsApiDeleteReplayHeatmapSnapshotRequest,
   RumReplayHeatmapsApiListReplayHeatmapSnapshotsRequest,
@@ -7337,19 +7330,6 @@ export { RUMProductScales } from "./models/RUMProductScales";
 export { RUMQueryFilter } from "./models/RUMQueryFilter";
 export { RUMQueryOptions } from "./models/RUMQueryOptions";
 export { RUMQueryPageOptions } from "./models/RUMQueryPageOptions";
-export { RumRateLimitAdaptiveConfig } from "./models/RumRateLimitAdaptiveConfig";
-export { RumRateLimitConfigAttributes } from "./models/RumRateLimitConfigAttributes";
-export { RumRateLimitConfigData } from "./models/RumRateLimitConfigData";
-export { RumRateLimitConfigResponse } from "./models/RumRateLimitConfigResponse";
-export { RumRateLimitConfigType } from "./models/RumRateLimitConfigType";
-export { RumRateLimitConfigUpdateAttributes } from "./models/RumRateLimitConfigUpdateAttributes";
-export { RumRateLimitConfigUpdateData } from "./models/RumRateLimitConfigUpdateData";
-export { RumRateLimitConfigUpdateRequest } from "./models/RumRateLimitConfigUpdateRequest";
-export { RumRateLimitCustomConfig } from "./models/RumRateLimitCustomConfig";
-export { RumRateLimitMode } from "./models/RumRateLimitMode";
-export { RumRateLimitQuotaReachedAction } from "./models/RumRateLimitQuotaReachedAction";
-export { RumRateLimitScopeType } from "./models/RumRateLimitScopeType";
-export { RumRateLimitWindowType } from "./models/RumRateLimitWindowType";
 export { RUMResponseLinks } from "./models/RUMResponseLinks";
 export { RUMResponseMetadata } from "./models/RUMResponseMetadata";
 export { RUMResponsePage } from "./models/RUMResponsePage";
