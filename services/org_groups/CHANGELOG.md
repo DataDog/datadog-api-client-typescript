@@ -1,5 +1,10 @@
 # CHANGELOG
 
+## 0.0.1-beta.6/2026-08-06
+
+### Added
+* Add OpenAPI spec for GET /api/v2/org_group_policy_suggestions [#4636](https://github.com/DataDog/datadog-api-client-typescript/pull/4636)
+
 ## 0.0.1-beta.5/2026-06-17
 
 ### Changed

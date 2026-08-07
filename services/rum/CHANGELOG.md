@@ -1,5 +1,11 @@
 # CHANGELOG
 
+## 0.0.1-beta.6/2026-08-06
+
+### Added
+* Promote RUM Operations endpoints from private to public [#4697](https://github.com/DataDog/datadog-api-client-typescript/pull/4697)
+* Add OpenAPI spec for api v2 rum config [#4373](https://github.com/DataDog/datadog-api-client-typescript/pull/4373)
+
 ## 0.0.1-beta.5/2026-06-30
 
 ### Added

@@ -1,5 +1,10 @@
 # CHANGELOG
 
+## 0.0.1-beta.3/2026-08-06
+
+### Added
+* Remove unstable tags from Case Management APIs [#4676](https://github.com/DataDog/datadog-api-client-typescript/pull/4676)
+
 ## 0.0.1-beta.2/2026-01-08
 
 ### Added

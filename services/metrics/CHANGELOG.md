@@ -1,5 +1,11 @@
 # CHANGELOG
 
+## 0.0.1-beta.9/2026-08-06
+
+### Added
+* Adds documentation for historical metrics endpoints [#4734](https://github.com/DataDog/datadog-api-client-typescript/pull/4734)
+* Add Exclude-mode tag usage fields to tag indexing rules [#4655](https://github.com/DataDog/datadog-api-client-typescript/pull/4655)
+
 ## 0.0.1-beta.8/2026-06-30
 
 ### Added

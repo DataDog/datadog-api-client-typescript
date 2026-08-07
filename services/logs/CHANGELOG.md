@@ -1,5 +1,14 @@
 # CHANGELOG
 
+## 0.0.1-beta.11/2026-08-06
+
+### Added
+* Add `key-value` type in Logs Array processor [#4686](https://github.com/DataDog/datadog-api-client-typescript/pull/4686)
+* Add UK1 [#4527](https://github.com/DataDog/datadog-api-client-typescript/pull/4527)
+
+### Changed
+* Allow using access key to specify AWS s3 integration in create / update logs archives [#4468](https://github.com/DataDog/datadog-api-client-typescript/pull/4468)
+
 ## 0.0.1-beta.10/2026-06-30
 
 ### Added
