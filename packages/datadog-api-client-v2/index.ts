@@ -160,6 +160,11 @@ export {
 } from "./apis/BitsAIApi";
 
 export {
+  CIVisibilityGitHubAccountsApiUpdateCIAppGitHubAccountRequest,
+  CIVisibilityGitHubAccountsApi,
+} from "./apis/CIVisibilityGitHubAccountsApi";
+
+export {
   CIVisibilityPipelinesApiAggregateCIAppPipelineEventsRequest,
   CIVisibilityPipelinesApiCreateCIAppPipelineEventRequest,
   CIVisibilityPipelinesApiListCIAppPipelineEventsRequest,
@@ -2820,6 +2825,16 @@ export { CIAppCreatePipelineEventRequestData } from "./models/CIAppCreatePipelin
 export { CIAppCreatePipelineEventRequestDataSingleOrArray } from "./models/CIAppCreatePipelineEventRequestDataSingleOrArray";
 export { CIAppCreatePipelineEventRequestDataType } from "./models/CIAppCreatePipelineEventRequestDataType";
 export { CIAppEventAttributes } from "./models/CIAppEventAttributes";
+export { CIAppGitHubAccountAttributes } from "./models/CIAppGitHubAccountAttributes";
+export { CIAppGitHubAccountData } from "./models/CIAppGitHubAccountData";
+export { CIAppGitHubAccountRepository } from "./models/CIAppGitHubAccountRepository";
+export { CIAppGitHubAccountResponse } from "./models/CIAppGitHubAccountResponse";
+export { CIAppGitHubAccountsResponse } from "./models/CIAppGitHubAccountsResponse";
+export { CIAppGitHubAccountType } from "./models/CIAppGitHubAccountType";
+export { CIAppGitHubAccountUpdateRequest } from "./models/CIAppGitHubAccountUpdateRequest";
+export { CIAppGitHubAccountUpdateRequestAttributes } from "./models/CIAppGitHubAccountUpdateRequestAttributes";
+export { CIAppGitHubAccountUpdateRequestData } from "./models/CIAppGitHubAccountUpdateRequestData";
+export { CIAppGitHubAccountUpdateRequestRepository } from "./models/CIAppGitHubAccountUpdateRequestRepository";
 export { CIAppGitInfo } from "./models/CIAppGitInfo";
 export { CIAppGroupByHistogram } from "./models/CIAppGroupByHistogram";
 export { CIAppGroupByMissing } from "./models/CIAppGroupByMissing";
