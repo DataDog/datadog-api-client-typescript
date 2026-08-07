@@ -15324,43 +15324,6 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
     },
     operationResponseType: "RumMetricResponse",
   },
-  "RumRateLimitApi.V2.GetRumRateLimitConfig": {
-    scopeType: {
-      type: "RumRateLimitScopeType",
-      format: "",
-    },
-    scopeId: {
-      type: "string",
-      format: "",
-    },
-    operationResponseType: "RumRateLimitConfigResponse",
-  },
-  "RumRateLimitApi.V2.UpdateRumRateLimitConfig": {
-    scopeType: {
-      type: "RumRateLimitScopeType",
-      format: "",
-    },
-    scopeId: {
-      type: "string",
-      format: "",
-    },
-    body: {
-      type: "RumRateLimitConfigUpdateRequest",
-      format: "",
-    },
-    operationResponseType: "RumRateLimitConfigResponse",
-  },
-  "RumRateLimitApi.V2.DeleteRumRateLimitConfig": {
-    scopeType: {
-      type: "RumRateLimitScopeType",
-      format: "",
-    },
-    scopeId: {
-      type: "string",
-      format: "",
-    },
-    operationResponseType: "{}",
-  },
   "RUMOperationsApi.V2.CreateRUMOperation": {
     body: {
       type: "RUMOperationCreateRequest",
