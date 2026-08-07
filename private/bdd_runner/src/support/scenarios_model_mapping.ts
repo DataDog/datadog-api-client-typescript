@@ -5559,6 +5559,16 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
     },
     operationResponseType: "ChangeRequestResponse",
   },
+  "CIVisibilityGitHubAccountsApi.V2.ListCIAppGitHubAccounts": {
+    operationResponseType: "CIAppGitHubAccountsResponse",
+  },
+  "CIVisibilityGitHubAccountsApi.V2.UpdateCIAppGitHubAccount": {
+    body: {
+      type: "CIAppGitHubAccountUpdateRequest",
+      format: "",
+    },
+    operationResponseType: "CIAppGitHubAccountResponse",
+  },
   "CIVisibilityPipelinesApi.V2.CreateCIAppPipelineEvent": {
     body: {
       type: "CIAppCreatePipelineEventRequest",
