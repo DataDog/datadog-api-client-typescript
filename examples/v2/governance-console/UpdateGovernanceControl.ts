@@ -12,7 +12,6 @@ const params: v2.GovernanceConsoleApiUpdateGovernanceControlRequest = {
   body: {
     data: {
       attributes: {
-        detectionFrequency: "daily",
         mitigationType: "revoke_api_key",
       },
       type: "governance_control",

@@ -33,10 +33,6 @@ export class GovernanceControlAttributes {
    */
   "description": string;
   /**
-   * How often detections are evaluated for the control.
-   */
-  "detectionFrequency": string;
-  /**
    * A free-form map of parameter names to their configured values.
    */
   "detectionParameters": { [key: string]: any };
@@ -133,11 +129,6 @@ export class GovernanceControlAttributes {
     },
     description: {
       baseName: "description",
-      type: "string",
-      required: true,
-    },
-    detectionFrequency: {
-      baseName: "detection_frequency",
       type: "string",
       required: true,
     },
