@@ -5,6 +5,7 @@
  */
 import { CreateDegradationRequestDataAttributes } from "./CreateDegradationRequestDataAttributes";
 import { CreateDegradationRequestDataRelationships } from "./CreateDegradationRequestDataRelationships";
+import { DegradationRequestDataMeta } from "./DegradationRequestDataMeta";
 import { PatchDegradationRequestDataType } from "./PatchDegradationRequestDataType";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
@@ -17,6 +18,10 @@ export class CreateDegradationRequestData {
    * The supported attributes for creating a degradation.
    */
   "attributes": CreateDegradationRequestDataAttributes;
+  /**
+   * The supported metadata for a degradation request.
+   */
+  "meta"?: DegradationRequestDataMeta;
   /**
    * The supported relationships for creating a degradation.
    */
@@ -46,6 +51,10 @@ export class CreateDegradationRequestData {
       baseName: "attributes",
       type: "CreateDegradationRequestDataAttributes",
       required: true,
+    },
+    meta: {
+      baseName: "meta",
+      type: "DegradationRequestDataMeta",
     },
     relationships: {
       baseName: "relationships",

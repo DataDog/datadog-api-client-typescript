@@ -3,6 +3,7 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
+import { DegradationRequestDataMeta } from "./DegradationRequestDataMeta";
 import { PatchDegradationRequestDataAttributes } from "./PatchDegradationRequestDataAttributes";
 import { PatchDegradationRequestDataRelationships } from "./PatchDegradationRequestDataRelationships";
 import { PatchDegradationRequestDataType } from "./PatchDegradationRequestDataType";
@@ -21,6 +22,10 @@ export class PatchDegradationRequestData {
    * The ID of the degradation.
    */
   "id": string;
+  /**
+   * The supported metadata for a degradation request.
+   */
+  "meta"?: DegradationRequestDataMeta;
   /**
    * The supported relationships for updating a degradation.
    */
@@ -56,6 +61,10 @@ export class PatchDegradationRequestData {
       type: "string",
       required: true,
       format: "uuid",
+    },
+    meta: {
+      baseName: "meta",
+      type: "DegradationRequestDataMeta",
     },
     relationships: {
       baseName: "relationships",

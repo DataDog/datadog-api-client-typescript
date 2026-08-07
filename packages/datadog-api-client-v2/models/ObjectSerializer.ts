@@ -1382,6 +1382,7 @@ import { DegradationDataRelationshipsStatusPage } from "./DegradationDataRelatio
 import { DegradationDataRelationshipsStatusPageData } from "./DegradationDataRelationshipsStatusPageData";
 import { DegradationDataRelationshipsTemplate } from "./DegradationDataRelationshipsTemplate";
 import { DegradationDataRelationshipsTemplateData } from "./DegradationDataRelationshipsTemplateData";
+import { DegradationRequestDataMeta } from "./DegradationRequestDataMeta";
 import { DegradationTemplate } from "./DegradationTemplate";
 import { DegradationTemplateArray } from "./DegradationTemplateArray";
 import { DegradationTemplateData } from "./DegradationTemplateData";
@@ -10404,6 +10405,7 @@ const typeMap: { [index: string]: any } = {
   DegradationDataRelationshipsTemplate: DegradationDataRelationshipsTemplate,
   DegradationDataRelationshipsTemplateData:
     DegradationDataRelationshipsTemplateData,
+  DegradationRequestDataMeta: DegradationRequestDataMeta,
   DegradationTemplate: DegradationTemplate,
   DegradationTemplateArray: DegradationTemplateArray,
   DegradationTemplateData: DegradationTemplateData,
