@@ -5,10 +5,6 @@ import { AttributeTypeMap } from "@datadog/datadog-api-client";
  */
 export class GovernanceControlUpdateAttributes {
   /**
-   * How often detections should be evaluated for the control.
-   */
-  "detectionFrequency"?: string;
-  /**
    * A free-form map of parameter names to their configured values.
    */
   "detectionParameters"?: { [key: string]: any };
@@ -35,10 +31,6 @@ export class GovernanceControlUpdateAttributes {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    detectionFrequency: {
-      baseName: "detection_frequency",
-      type: "string",
-    },
     detectionParameters: {
       baseName: "detection_parameters",
       type: "{ [key: string]: any; }",
