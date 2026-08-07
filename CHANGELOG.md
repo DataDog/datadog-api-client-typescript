@@ -1,5 +1,80 @@
 # CHANGELOG
 
+## 1.61.0/2026-08-05
+
+### Fixed
+* Fleet Automation v2 remove deprecated or redundant agent detail fields [#4773](https://github.com/DataDog/datadog-api-client-typescript/pull/4773)
+* Uppercase automation rule trigger and action type enum values [#4757](https://github.com/DataDog/datadog-api-client-typescript/pull/4757)
+* Fix broken JSON API shape for security monitoring rules bulk delete [#4707](https://github.com/DataDog/datadog-api-client-typescript/pull/4707)
+* Document CNM API authorization requirements [#4702](https://github.com/DataDog/datadog-api-client-typescript/pull/4702)
+* Fix incident user-defined role policy not required on create [#4675](https://github.com/DataDog/datadog-api-client-typescript/pull/4675)
+* Document 409 and 412 error codes for UpsertRows/DeleteRows [#4641](https://github.com/DataDog/datadog-api-client-typescript/pull/4641)
+* Add `template_variables` to Notebooks v1 API spec [#4585](https://github.com/DataDog/datadog-api-client-typescript/pull/4585)
+
+### Added
+* data quality monitor sensitivity definition [#4761](https://github.com/DataDog/datadog-api-client-typescript/pull/4761)
+* Add SSE-KMS encryption fields to ObservabilityPipelineAmazonS3Destination for datadog_archives [#4739](https://github.com/DataDog/datadog-api-client-typescript/pull/4739)
+* Adds documentation for historical metrics endpoints [#4735](https://github.com/DataDog/datadog-api-client-typescript/pull/4735)
+* Add impact_score and impact_level to Flaky Test Management API spec [#4717](https://github.com/DataDog/datadog-api-client-typescript/pull/4717)
+* Add list custom LLM Obs evaluator configs endpoint [#4713](https://github.com/DataDog/datadog-api-client-typescript/pull/4713)
+* Add notice templates to the Status Pages API spec [#4700](https://github.com/DataDog/datadog-api-client-typescript/pull/4700)
+* Promote RUM Operations endpoints from private to public [#4698](https://github.com/DataDog/datadog-api-client-typescript/pull/4698)
+* Add workflow schedule overlap behavior [#4689](https://github.com/DataDog/datadog-api-client-typescript/pull/4689)
+* Add `key-value` type in Logs Array processor [#4688](https://github.com/DataDog/datadog-api-client-typescript/pull/4688)
+* Add TLS support and server_name SNI option to Observability Pipelines client components [#4685](https://github.com/DataDog/datadog-api-client-typescript/pull/4685)
+* Expand incidents postmortem-templates spec to full CRUD contract [#4679](https://github.com/DataDog/datadog-api-client-typescript/pull/4679)
+* Remove unstable tags from Case Management APIs [#4677](https://github.com/DataDog/datadog-api-client-typescript/pull/4677)
+* Add CSM Ownership settings endpoints [#4671](https://github.com/DataDog/datadog-api-client-typescript/pull/4671)
+* Add DD_ENV filter to Feature Flags environments API [#4669](https://github.com/DataDog/datadog-api-client-typescript/pull/4669)
+* Add feature-flag type to restriction policies [#4657](https://github.com/DataDog/datadog-api-client-typescript/pull/4657)
+* Add Exclude-mode tag usage fields to tag indexing rules [#4656](https://github.com/DataDog/datadog-api-client-typescript/pull/4656)
+* Add public API spec for LLM Observability prompt registry CRUD endpoints [#4653](https://github.com/DataDog/datadog-api-client-typescript/pull/4653)
+* Add public DDSQL tabular query endpoints [#4651](https://github.com/DataDog/datadog-api-client-typescript/pull/4651)
+* Add function and cloud_function fields to Azure and GCP scan options [#4647](https://github.com/DataDog/datadog-api-client-typescript/pull/4647)
+* Add WAF custom rule file addresses [#4645](https://github.com/DataDog/datadog-api-client-typescript/pull/4645)
+* Make incident user-defined-roles API public but keep it unstable [#4639](https://github.com/DataDog/datadog-api-client-typescript/pull/4639)
+* Add OpenAPI spec for GET /api/v2/org_group_policy_suggestions [#4637](https://github.com/DataDog/datadog-api-client-typescript/pull/4637)
+* Add cloud-agnostic account filters endpoints to Cloud Cost Management [#4635](https://github.com/DataDog/datadog-api-client-typescript/pull/4635)
+* Add GET endpoint for custom forecast [#4627](https://github.com/DataDog/datadog-api-client-typescript/pull/4627)
+* Add OpenAPI specs for ListDatasetReportSchedules and PrintReport [#4623](https://github.com/DataDog/datadog-api-client-typescript/pull/4623)
+* Add editable field to critical assets attributes [#4621](https://github.com/DataDog/datadog-api-client-typescript/pull/4621)
+* Add GET /api/v2/on-call/schedules/schedule_id/responders spec [#4618](https://github.com/DataDog/datadog-api-client-typescript/pull/4618)
+* Add OpenAPI spec for hostmap widgwet DDSQL request shape, deprecate legacy metric shape [#4602](https://github.com/DataDog/datadog-api-client-typescript/pull/4602)
+* Document secmon-public-api Entra ID integration endpoints [#4598](https://github.com/DataDog/datadog-api-client-typescript/pull/4598)
+* Add AWS integration metric name filters and preview endpoints [#4593](https://github.com/DataDog/datadog-api-client-typescript/pull/4593)
+* Add public unstable spec for Security Findings Linear endpoints [#4583](https://github.com/DataDog/datadog-api-client-typescript/pull/4583)
+* Add workload activity rule type to notification rules [#4580](https://github.com/DataDog/datadog-api-client-typescript/pull/4580)
+* Add configuration attribute to incident type schema [#4578](https://github.com/DataDog/datadog-api-client-typescript/pull/4578)
+* Add OpenAPI spec for POST /api/v2/snapshot [#4576](https://github.com/DataDog/datadog-api-client-typescript/pull/4576)
+* Add SSE-KMS encryption fields to ObservabilityPipelineAmazonS3GenericDestination [#4574](https://github.com/DataDog/datadog-api-client-typescript/pull/4574)
+* Add included rows to batchrowsquery and pagination meta to listrows for reference tables responses [#4568](https://github.com/DataDog/datadog-api-client-typescript/pull/4568)
+* security-monitoring - add description field to critical assets API spec [#4566](https://github.com/DataDog/datadog-api-client-typescript/pull/4566)
+* Mark ServiceNow triage endpoints as stable [#4562](https://github.com/DataDog/datadog-api-client-typescript/pull/4562)
+* Add OpenAPI spec `version` attribute for Logs Transactions V2 Preview [#4558](https://github.com/DataDog/datadog-api-client-typescript/pull/4558)
+* Page related updates to synthetics  [#4557](https://github.com/DataDog/datadog-api-client-typescript/pull/4557)
+* Add Obs Pipeline Grok processor updates to OpenAPI Spec [#4552](https://github.com/DataDog/datadog-api-client-typescript/pull/4552)
+* Add UK1 [#4528](https://github.com/DataDog/datadog-api-client-typescript/pull/4528)
+* Add OpenAPI spec for identity providers and Authorized client apis [#4456](https://github.com/DataDog/datadog-api-client-typescript/pull/4456)
+* Add DashboardDefaultTimeframe schema and default_timeframe to Dashboard [#4376](https://github.com/DataDog/datadog-api-client-typescript/pull/4376)
+* Add OpenAPI spec for api v2 rum config [#4374](https://github.com/DataDog/datadog-api-client-typescript/pull/4374)
+* Add OpenAPI specifications for incidents-rapid-api endpoints [#4323](https://github.com/DataDog/datadog-api-client-typescript/pull/4323)
+
+### Changed
+* Fleet Automation promote ready v2 endpoints to public [#4747](https://github.com/DataDog/datadog-api-client-typescript/pull/4747)
+* Migrate tag-policies routes to snake_case [#4715](https://github.com/DataDog/datadog-api-client-typescript/pull/4715)
+* Deprecate report-related endpoints from SLO documentation [#4709](https://github.com/DataDog/datadog-api-client-typescript/pull/4709)
+* Update documentation according to new content pack states endpoint response shape [#4673](https://github.com/DataDog/datadog-api-client-typescript/pull/4673)
+* Mark Linear security findings endpoints as stable [#4661](https://github.com/DataDog/datadog-api-client-typescript/pull/4661)
+* Mark custom forecast endpoints as generally available [#4659](https://github.com/DataDog/datadog-api-client-typescript/pull/4659)
+* Change TopologyMapWidgetDefinition to oneOf with TopologyMapServiceMapDefinitionServiceMap [#4604](https://github.com/DataDog/datadog-api-client-typescript/pull/4604)
+* Update ListAssetsSBOMs spec - require asset_type on first page, add ServerlessFunction asset type [#4589](https://github.com/DataDog/datadog-api-client-typescript/pull/4589)
+* Fix DORA deployment and incident read responses to use date-time timestamps [#4588](https://github.com/DataDog/datadog-api-client-typescript/pull/4588)
+* Allow using access key to specify AWS s3 integration in create / update logs archives [#4469](https://github.com/DataDog/datadog-api-client-typescript/pull/4469)
+* Add saved filters endpoints to the Feature Flags API [#4431](https://github.com/DataDog/datadog-api-client-typescript/pull/4431)
+
+### Removed
+* Remove prerequisite, table_id, and attached_to fields from incident user-defined field API [#4596](https://github.com/DataDog/datadog-api-client-typescript/pull/4596)
+
 ## 1.60.0/2026-06-30
 
 ### Added
