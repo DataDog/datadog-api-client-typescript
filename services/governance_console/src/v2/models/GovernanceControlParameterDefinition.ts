@@ -27,9 +27,9 @@ export class GovernanceControlParameterDefinition {
    */
   "required": boolean;
   /**
-   * The supported values for an enumerated parameter.
+   * The supported values for an enumerated parameter. `null` when the parameter is not an enumerated type.
    */
-  "supportedValues": Array<GovernanceControlSupportedValue>;
+  "supportedValues": Array<GovernanceControlSupportedValue> | null;
   /**
    * The type of the parameter, such as `integer`, `string`, `boolean`, `enum`, or `pattern_list`.
    */
