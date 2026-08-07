@@ -13,6 +13,10 @@ import { AttributeTypeMap } from "../../datadog-api-client-common/util";
  */
 export class PatchMaintenanceRequestDataAttributes {
   /**
+   * The description shown when the maintenance is canceled.
+   */
+  "canceledDescription"?: string;
+  /**
    * Timestamp of when the maintenance was completed.
    */
   "completedDate"?: Date;
@@ -61,6 +65,10 @@ export class PatchMaintenanceRequestDataAttributes {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
+    canceledDescription: {
+      baseName: "canceled_description",
+      type: "string",
+    },
     completedDate: {
       baseName: "completed_date",
       type: "Date",
