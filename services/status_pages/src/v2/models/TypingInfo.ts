@@ -117,6 +117,14 @@ import { MaintenanceTemplateDataRelationshipsLastModifiedByUser } from "./Mainte
 import { MaintenanceTemplateDataRelationshipsLastModifiedByUserData } from "./MaintenanceTemplateDataRelationshipsLastModifiedByUserData";
 import { MaintenanceTemplateDataRelationshipsStatusPage } from "./MaintenanceTemplateDataRelationshipsStatusPage";
 import { MaintenanceTemplateDataRelationshipsStatusPageData } from "./MaintenanceTemplateDataRelationshipsStatusPageData";
+import { MaintenanceUpdate } from "./MaintenanceUpdate";
+import { MaintenanceUpdateData } from "./MaintenanceUpdateData";
+import { MaintenanceUpdateDataAttributes } from "./MaintenanceUpdateDataAttributes";
+import { MaintenanceUpdateDataRelationships } from "./MaintenanceUpdateDataRelationships";
+import { MaintenanceUpdateDataRelationshipsMaintenance } from "./MaintenanceUpdateDataRelationshipsMaintenance";
+import { MaintenanceUpdateDataRelationshipsMaintenanceData } from "./MaintenanceUpdateDataRelationshipsMaintenanceData";
+import { MaintenanceUpdateDataRelationshipsUser } from "./MaintenanceUpdateDataRelationshipsUser";
+import { MaintenanceUpdateDataRelationshipsUserData } from "./MaintenanceUpdateDataRelationshipsUserData";
 import { PaginationMeta } from "./PaginationMeta";
 import { PaginationMetaPage } from "./PaginationMetaPage";
 import { PatchComponentRequest } from "./PatchComponentRequest";
@@ -147,6 +155,9 @@ import { PatchMaintenanceRequestDataRelationshipsTemplateData } from "./PatchMai
 import { PatchMaintenanceTemplateRequest } from "./PatchMaintenanceTemplateRequest";
 import { PatchMaintenanceTemplateRequestData } from "./PatchMaintenanceTemplateRequestData";
 import { PatchMaintenanceTemplateRequestDataAttributes } from "./PatchMaintenanceTemplateRequestDataAttributes";
+import { PatchMaintenanceUpdateRequest } from "./PatchMaintenanceUpdateRequest";
+import { PatchMaintenanceUpdateRequestData } from "./PatchMaintenanceUpdateRequestData";
+import { PatchMaintenanceUpdateRequestDataAttributes } from "./PatchMaintenanceUpdateRequestDataAttributes";
 import { PatchStatusPageRequest } from "./PatchStatusPageRequest";
 import { PatchStatusPageRequestData } from "./PatchStatusPageRequestData";
 import { PatchStatusPageRequestDataAttributes } from "./PatchStatusPageRequestDataAttributes";
@@ -220,6 +231,12 @@ export const TypingInfo: ModelTypingInfo = {
     ],
     DegradationDataAttributesSourceType: ["incident"],
     MaintenanceDataAttributesStatus: ["scheduled", "in_progress", "completed"],
+    MaintenanceUpdateDataAttributesStatus: [
+      "scheduled",
+      "in_progress",
+      "completed",
+      "canceled",
+    ],
     PaginationMetaPageType: ["offset_limit"],
     PatchDegradationRequestDataAttributesStatus: [
       "investigating",
@@ -243,6 +260,7 @@ export const TypingInfo: ModelTypingInfo = {
     ],
     PatchMaintenanceRequestDataType: ["maintenances"],
     PatchMaintenanceTemplateRequestDataType: ["maintenance_templates"],
+    PatchMaintenanceUpdateRequestDataType: ["maintenance_updates"],
     StatusPageDataType: ["status_pages"],
     StatusPagesComponentDataAttributesStatus: [
       "operational",
@@ -468,6 +486,18 @@ export const TypingInfo: ModelTypingInfo = {
       MaintenanceTemplateDataRelationshipsStatusPage,
     MaintenanceTemplateDataRelationshipsStatusPageData:
       MaintenanceTemplateDataRelationshipsStatusPageData,
+    MaintenanceUpdate: MaintenanceUpdate,
+    MaintenanceUpdateData: MaintenanceUpdateData,
+    MaintenanceUpdateDataAttributes: MaintenanceUpdateDataAttributes,
+    MaintenanceUpdateDataRelationships: MaintenanceUpdateDataRelationships,
+    MaintenanceUpdateDataRelationshipsMaintenance:
+      MaintenanceUpdateDataRelationshipsMaintenance,
+    MaintenanceUpdateDataRelationshipsMaintenanceData:
+      MaintenanceUpdateDataRelationshipsMaintenanceData,
+    MaintenanceUpdateDataRelationshipsUser:
+      MaintenanceUpdateDataRelationshipsUser,
+    MaintenanceUpdateDataRelationshipsUserData:
+      MaintenanceUpdateDataRelationshipsUserData,
     PaginationMeta: PaginationMeta,
     PaginationMetaPage: PaginationMetaPage,
     PatchComponentRequest: PatchComponentRequest,
@@ -513,6 +543,10 @@ export const TypingInfo: ModelTypingInfo = {
     PatchMaintenanceTemplateRequestData: PatchMaintenanceTemplateRequestData,
     PatchMaintenanceTemplateRequestDataAttributes:
       PatchMaintenanceTemplateRequestDataAttributes,
+    PatchMaintenanceUpdateRequest: PatchMaintenanceUpdateRequest,
+    PatchMaintenanceUpdateRequestData: PatchMaintenanceUpdateRequestData,
+    PatchMaintenanceUpdateRequestDataAttributes:
+      PatchMaintenanceUpdateRequestDataAttributes,
     PatchStatusPageRequest: PatchStatusPageRequest,
     PatchStatusPageRequestData: PatchStatusPageRequestData,
     PatchStatusPageRequestDataAttributes: PatchStatusPageRequestDataAttributes,
