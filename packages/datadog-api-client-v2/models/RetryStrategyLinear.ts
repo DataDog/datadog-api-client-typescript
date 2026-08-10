@@ -20,13 +20,6 @@ export class RetryStrategyLinear {
   "maxRetries": number;
 
   /**
-   * A container for additional, undeclared properties.
-   * This is a holder for any undeclared properties as specified with
-   * the 'additionalProperties' keyword in the OAS document.
-   */
-  "additionalProperties"?: { [key: string]: any };
-
-  /**
    * @ignore
    */
   "_unparsed"?: boolean;
@@ -44,11 +37,7 @@ export class RetryStrategyLinear {
       baseName: "maxRetries",
       type: "number",
       required: true,
-      format: "double",
-    },
-    additionalProperties: {
-      baseName: "additionalProperties",
-      type: "{ [key: string]: any; }",
+      format: "int32",
     },
   };
 
