@@ -3017,6 +3017,14 @@ import { MaintenanceTemplateDataRelationshipsLastModifiedByUser } from "./Mainte
 import { MaintenanceTemplateDataRelationshipsLastModifiedByUserData } from "./MaintenanceTemplateDataRelationshipsLastModifiedByUserData";
 import { MaintenanceTemplateDataRelationshipsStatusPage } from "./MaintenanceTemplateDataRelationshipsStatusPage";
 import { MaintenanceTemplateDataRelationshipsStatusPageData } from "./MaintenanceTemplateDataRelationshipsStatusPageData";
+import { MaintenanceUpdate } from "./MaintenanceUpdate";
+import { MaintenanceUpdateData } from "./MaintenanceUpdateData";
+import { MaintenanceUpdateDataAttributes } from "./MaintenanceUpdateDataAttributes";
+import { MaintenanceUpdateDataRelationships } from "./MaintenanceUpdateDataRelationships";
+import { MaintenanceUpdateDataRelationshipsMaintenance } from "./MaintenanceUpdateDataRelationshipsMaintenance";
+import { MaintenanceUpdateDataRelationshipsMaintenanceData } from "./MaintenanceUpdateDataRelationshipsMaintenanceData";
+import { MaintenanceUpdateDataRelationshipsUser } from "./MaintenanceUpdateDataRelationshipsUser";
+import { MaintenanceUpdateDataRelationshipsUserData } from "./MaintenanceUpdateDataRelationshipsUserData";
 import { MaintenanceWindow } from "./MaintenanceWindow";
 import { MaintenanceWindowAttributes } from "./MaintenanceWindowAttributes";
 import { MaintenanceWindowCreate } from "./MaintenanceWindowCreate";
@@ -3712,6 +3720,9 @@ import { PatchMaintenanceRequestDataRelationshipsTemplateData } from "./PatchMai
 import { PatchMaintenanceTemplateRequest } from "./PatchMaintenanceTemplateRequest";
 import { PatchMaintenanceTemplateRequestData } from "./PatchMaintenanceTemplateRequestData";
 import { PatchMaintenanceTemplateRequestDataAttributes } from "./PatchMaintenanceTemplateRequestDataAttributes";
+import { PatchMaintenanceUpdateRequest } from "./PatchMaintenanceUpdateRequest";
+import { PatchMaintenanceUpdateRequestData } from "./PatchMaintenanceUpdateRequestData";
+import { PatchMaintenanceUpdateRequestDataAttributes } from "./PatchMaintenanceUpdateRequestDataAttributes";
 import { PatchNotificationRuleParameters } from "./PatchNotificationRuleParameters";
 import { PatchNotificationRuleParametersData } from "./PatchNotificationRuleParametersData";
 import { PatchNotificationRuleParametersDataAttributes } from "./PatchNotificationRuleParametersDataAttributes";
@@ -7032,6 +7043,12 @@ const enumsMap: { [key: string]: any[] } = {
   LogsSortOrder: ["asc", "desc"],
   LogsStorageTier: ["indexes", "online-archives", "flex"],
   MaintenanceDataAttributesStatus: ["scheduled", "in_progress", "completed"],
+  MaintenanceUpdateDataAttributesStatus: [
+    "scheduled",
+    "in_progress",
+    "completed",
+    "canceled",
+  ],
   MaintenanceWindowResourceType: ["maintenance_window"],
   ManagedOrgsType: ["managed_orgs"],
   MaxSessionDurationType: ["max_session_duration"],
@@ -7615,6 +7632,7 @@ const enumsMap: { [key: string]: any[] } = {
   ],
   PatchMaintenanceRequestDataType: ["maintenances"],
   PatchMaintenanceTemplateRequestDataType: ["maintenance_templates"],
+  PatchMaintenanceUpdateRequestDataType: ["maintenance_updates"],
   PatchTableRequestDataType: ["reference_table"],
   PermissionsType: ["permissions"],
   PersonalAccessTokensSort: [
@@ -12343,6 +12361,18 @@ const typeMap: { [index: string]: any } = {
     MaintenanceTemplateDataRelationshipsStatusPage,
   MaintenanceTemplateDataRelationshipsStatusPageData:
     MaintenanceTemplateDataRelationshipsStatusPageData,
+  MaintenanceUpdate: MaintenanceUpdate,
+  MaintenanceUpdateData: MaintenanceUpdateData,
+  MaintenanceUpdateDataAttributes: MaintenanceUpdateDataAttributes,
+  MaintenanceUpdateDataRelationships: MaintenanceUpdateDataRelationships,
+  MaintenanceUpdateDataRelationshipsMaintenance:
+    MaintenanceUpdateDataRelationshipsMaintenance,
+  MaintenanceUpdateDataRelationshipsMaintenanceData:
+    MaintenanceUpdateDataRelationshipsMaintenanceData,
+  MaintenanceUpdateDataRelationshipsUser:
+    MaintenanceUpdateDataRelationshipsUser,
+  MaintenanceUpdateDataRelationshipsUserData:
+    MaintenanceUpdateDataRelationshipsUserData,
   MaintenanceWindow: MaintenanceWindow,
   MaintenanceWindowAttributes: MaintenanceWindowAttributes,
   MaintenanceWindowCreate: MaintenanceWindowCreate,
@@ -13247,6 +13277,10 @@ const typeMap: { [index: string]: any } = {
   PatchMaintenanceTemplateRequestData: PatchMaintenanceTemplateRequestData,
   PatchMaintenanceTemplateRequestDataAttributes:
     PatchMaintenanceTemplateRequestDataAttributes,
+  PatchMaintenanceUpdateRequest: PatchMaintenanceUpdateRequest,
+  PatchMaintenanceUpdateRequestData: PatchMaintenanceUpdateRequestData,
+  PatchMaintenanceUpdateRequestDataAttributes:
+    PatchMaintenanceUpdateRequestDataAttributes,
   PatchNotificationRuleParameters: PatchNotificationRuleParameters,
   PatchNotificationRuleParametersData: PatchNotificationRuleParametersData,
   PatchNotificationRuleParametersDataAttributes:

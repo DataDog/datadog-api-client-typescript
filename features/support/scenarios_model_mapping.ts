@@ -17193,6 +17193,25 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             },
         "operationResponseType": "Maintenance",
     },
+    "v2.PatchMaintenanceUpdate": {
+        "pageId": {
+            "type": "string",
+            "format": "uuid",
+            },
+        "maintenanceId": {
+            "type": "string",
+            "format": "uuid",
+            },
+        "updateId": {
+            "type": "string",
+            "format": "uuid",
+            },
+        "body": {
+            "type": "PatchMaintenanceUpdateRequest",
+            "format": "",
+            },
+        "operationResponseType": "MaintenanceUpdate",
+    },
     "v2.PublishStatusPage": {
         "pageId": {
             "type": "string",
