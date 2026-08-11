@@ -5,6 +5,10 @@ import { AttributeTypeMap } from "@datadog/datadog-api-client";
  */
 export class DeploymentRuleOptionsFaultyDeploymentDetection {
   /**
+   * Resources to include in faulty deployment detection. Mutually exclusive with `excluded_resources`.
+   */
+  "allowedResources"?: Array<string>;
+  /**
    * The duration for faulty deployment detection.
    */
   "duration"?: number;
@@ -21,6 +25,10 @@ export class DeploymentRuleOptionsFaultyDeploymentDetection {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
+    allowedResources: {
+      baseName: "allowed_resources",
+      type: "Array<string>",
+    },
     duration: {
       baseName: "duration",
       type: "number",
