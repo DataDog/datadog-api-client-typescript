@@ -3,23 +3,17 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
-import { CreateDegradationRequestData } from "./CreateDegradationRequestData";
-import { DegradationRequestMeta } from "./DegradationRequestMeta";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * Request object for creating a degradation.
+ * The supported metadata for a degradation request.
  */
-export class CreateDegradationRequest {
+export class DegradationRequestMeta {
   /**
-   * The data object for creating a degradation.
+   * A unique key used to ensure idempotent requests.
    */
-  "data"?: CreateDegradationRequestData;
-  /**
-   * The supported metadata for a degradation request.
-   */
-  "meta"?: DegradationRequestMeta;
+  "idempotencyKey"?: string;
 
   /**
    * A container for additional, undeclared properties.
@@ -37,13 +31,10 @@ export class CreateDegradationRequest {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    data: {
-      baseName: "data",
-      type: "CreateDegradationRequestData",
-    },
-    meta: {
-      baseName: "meta",
-      type: "DegradationRequestMeta",
+    idempotencyKey: {
+      baseName: "idempotency_key",
+      type: "string",
+      format: "uuid",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -55,7 +46,7 @@ export class CreateDegradationRequest {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-    return CreateDegradationRequest.attributeTypeMap;
+    return DegradationRequestMeta.attributeTypeMap;
   }
 
   public constructor() {}
