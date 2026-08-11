@@ -3674,6 +3674,7 @@ export { DegradationDataRelationshipsStatusPageData } from "./models/Degradation
 export { DegradationDataRelationshipsTemplate } from "./models/DegradationDataRelationshipsTemplate";
 export { DegradationDataRelationshipsTemplateData } from "./models/DegradationDataRelationshipsTemplateData";
 export { DegradationIncluded } from "./models/DegradationIncluded";
+export { DegradationRequestMeta } from "./models/DegradationRequestMeta";
 export { DegradationTemplate } from "./models/DegradationTemplate";
 export { DegradationTemplateArray } from "./models/DegradationTemplateArray";
 export { DegradationTemplateData } from "./models/DegradationTemplateData";

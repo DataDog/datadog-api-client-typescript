@@ -3,6 +3,7 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
+import { DegradationRequestMeta } from "./DegradationRequestMeta";
 import { PatchDegradationRequestData } from "./PatchDegradationRequestData";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
@@ -15,6 +16,10 @@ export class PatchDegradationRequest {
    * The data object for updating a degradation.
    */
   "data"?: PatchDegradationRequestData;
+  /**
+   * The supported metadata for a degradation request.
+   */
+  "meta"?: DegradationRequestMeta;
 
   /**
    * A container for additional, undeclared properties.
@@ -35,6 +40,10 @@ export class PatchDegradationRequest {
     data: {
       baseName: "data",
       type: "PatchDegradationRequestData",
+    },
+    meta: {
+      baseName: "meta",
+      type: "DegradationRequestMeta",
     },
     additionalProperties: {
       baseName: "additionalProperties",
