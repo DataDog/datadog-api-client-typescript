@@ -1,5 +1,6 @@
 import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
+import { DegradationRequestMeta } from "./DegradationRequestMeta";
 import { PatchDegradationRequestData } from "./PatchDegradationRequestData";
 
 /**
@@ -10,6 +11,10 @@ export class PatchDegradationRequest {
    * The data object for updating a degradation.
    */
   "data"?: PatchDegradationRequestData;
+  /**
+   * The supported metadata for a degradation request.
+   */
+  "meta"?: DegradationRequestMeta;
   /**
    * A container for additional, undeclared properties.
    * This is a holder for any undeclared properties as specified with
@@ -28,6 +33,10 @@ export class PatchDegradationRequest {
     data: {
       baseName: "data",
       type: "PatchDegradationRequestData",
+    },
+    meta: {
+      baseName: "meta",
+      type: "DegradationRequestMeta",
     },
     additionalProperties: {
       baseName: "additionalProperties",
