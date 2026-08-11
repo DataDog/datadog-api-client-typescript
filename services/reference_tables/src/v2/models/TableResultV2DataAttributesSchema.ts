@@ -7,7 +7,7 @@ import { TableResultV2DataAttributesSchemaFieldsItems } from "./TableResultV2Dat
  */
 export class TableResultV2DataAttributesSchema {
   /**
-   * The schema fields.
+   * The schema fields. Maximum of 200 columns.
    */
   "fields": Array<TableResultV2DataAttributesSchemaFieldsItems>;
   /**

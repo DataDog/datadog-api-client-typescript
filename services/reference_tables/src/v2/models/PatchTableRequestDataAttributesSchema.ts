@@ -7,7 +7,7 @@ import { PatchTableRequestDataAttributesSchemaFieldsItems } from "./PatchTableRe
  */
 export class PatchTableRequestDataAttributesSchema {
   /**
-   * The schema fields.
+   * The schema fields. Maximum of 200 columns.
    */
   "fields": Array<PatchTableRequestDataAttributesSchemaFieldsItems>;
   /**
