@@ -530,6 +530,15 @@ import { CIAppCreatePipelineEventRequest } from "./CIAppCreatePipelineEventReque
 import { CIAppCreatePipelineEventRequestAttributes } from "./CIAppCreatePipelineEventRequestAttributes";
 import { CIAppCreatePipelineEventRequestData } from "./CIAppCreatePipelineEventRequestData";
 import { CIAppEventAttributes } from "./CIAppEventAttributes";
+import { CIAppGitHubAccountAttributes } from "./CIAppGitHubAccountAttributes";
+import { CIAppGitHubAccountData } from "./CIAppGitHubAccountData";
+import { CIAppGitHubAccountRepository } from "./CIAppGitHubAccountRepository";
+import { CIAppGitHubAccountResponse } from "./CIAppGitHubAccountResponse";
+import { CIAppGitHubAccountUpdateRequest } from "./CIAppGitHubAccountUpdateRequest";
+import { CIAppGitHubAccountUpdateRequestAttributes } from "./CIAppGitHubAccountUpdateRequestAttributes";
+import { CIAppGitHubAccountUpdateRequestData } from "./CIAppGitHubAccountUpdateRequestData";
+import { CIAppGitHubAccountUpdateRequestRepository } from "./CIAppGitHubAccountUpdateRequestRepository";
+import { CIAppGitHubAccountsResponse } from "./CIAppGitHubAccountsResponse";
 import { CIAppGitInfo } from "./CIAppGitInfo";
 import { CIAppGroupByHistogram } from "./CIAppGroupByHistogram";
 import { CIAppHostInfo } from "./CIAppHostInfo";
@@ -6049,6 +6058,7 @@ const enumsMap: { [key: string]: any[] } = {
   CIAppCIErrorDomain: ["provider", "user", "unknown"],
   CIAppComputeType: ["timeseries", "total"],
   CIAppCreatePipelineEventRequestDataType: ["cipipeline_resource_request"],
+  CIAppGitHubAccountType: ["ci_github_account"],
   CIAppPipelineEventJobInProgressStatus: ["running"],
   CIAppPipelineEventJobLevel: ["job"],
   CIAppPipelineEventJobStatus: ["success", "error", "canceled", "skipped"],
@@ -9414,6 +9424,17 @@ const typeMap: { [index: string]: any } = {
     CIAppCreatePipelineEventRequestAttributes,
   CIAppCreatePipelineEventRequestData: CIAppCreatePipelineEventRequestData,
   CIAppEventAttributes: CIAppEventAttributes,
+  CIAppGitHubAccountAttributes: CIAppGitHubAccountAttributes,
+  CIAppGitHubAccountData: CIAppGitHubAccountData,
+  CIAppGitHubAccountRepository: CIAppGitHubAccountRepository,
+  CIAppGitHubAccountResponse: CIAppGitHubAccountResponse,
+  CIAppGitHubAccountUpdateRequest: CIAppGitHubAccountUpdateRequest,
+  CIAppGitHubAccountUpdateRequestAttributes:
+    CIAppGitHubAccountUpdateRequestAttributes,
+  CIAppGitHubAccountUpdateRequestData: CIAppGitHubAccountUpdateRequestData,
+  CIAppGitHubAccountUpdateRequestRepository:
+    CIAppGitHubAccountUpdateRequestRepository,
+  CIAppGitHubAccountsResponse: CIAppGitHubAccountsResponse,
   CIAppGitInfo: CIAppGitInfo,
   CIAppGroupByHistogram: CIAppGroupByHistogram,
   CIAppHostInfo: CIAppHostInfo,
