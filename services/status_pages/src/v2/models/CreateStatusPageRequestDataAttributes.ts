@@ -25,10 +25,6 @@ export class CreateStatusPageRequestDataAttributes {
    */
   "emailHeaderImage"?: string;
   /**
-   * Whether the status page is enabled.
-   */
-  "enabled"?: boolean;
-  /**
    * Base64-encoded image data displayed in the browser tab.
    */
   "favicon"?: string;
@@ -87,10 +83,6 @@ export class CreateStatusPageRequestDataAttributes {
     emailHeaderImage: {
       baseName: "email_header_image",
       type: "string",
-    },
-    enabled: {
-      baseName: "enabled",
-      type: "boolean",
     },
     favicon: {
       baseName: "favicon",
