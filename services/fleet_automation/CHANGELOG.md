@@ -1,5 +1,10 @@
 # CHANGELOG
 
+## 0.0.1-beta.6/2026-08-12
+
+### Fixed
+* Remove redundant otel fields from Fleet Automation v2 agent detail endpoint [#4798](https://github.com/DataDog/datadog-api-client-typescript/pull/4798)
+
 ## 0.0.1-beta.5/2026-08-06
 
 ### Fixed
