@@ -26,6 +26,7 @@ export type MonitorType =
   | typeof DATA_QUALITY_ALERT
   | typeof NETWORK_PATH_ALERT
   | typeof DATA_JOBS_ALERT
+  | typeof LLM_OBSERVABILITY_ALERT
   | UnparsedObject;
 export const COMPOSITE = "composite";
 export const EVENT_ALERT = "event alert";
@@ -49,3 +50,4 @@ export const COST_ALERT = "cost alert";
 export const DATA_QUALITY_ALERT = "data-quality alert";
 export const NETWORK_PATH_ALERT = "network-path alert";
 export const DATA_JOBS_ALERT = "data-jobs alert";
+export const LLM_OBSERVABILITY_ALERT = "llm-observability alert";
