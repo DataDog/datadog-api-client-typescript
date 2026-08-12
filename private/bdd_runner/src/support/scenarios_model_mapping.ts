@@ -12008,6 +12008,81 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
     },
     operationResponseType: "OktaAccountResponse",
   },
+  "IntegrationAccountsApi.V2.ListIntegrationAccounts": {
+    integrationId: {
+      type: "IntegrationAccountIntegrationId",
+      format: "",
+    },
+    interfaceId: {
+      type: "IntegrationAccountInterfaceId",
+      format: "",
+    },
+    operationResponseType: "IntegrationAccountsResponse",
+  },
+  "IntegrationAccountsApi.V2.CreateIntegrationAccount": {
+    integrationId: {
+      type: "IntegrationAccountIntegrationId",
+      format: "",
+    },
+    interfaceId: {
+      type: "IntegrationAccountInterfaceId",
+      format: "",
+    },
+    body: {
+      type: "IntegrationAccountRequest",
+      format: "",
+    },
+    operationResponseType: "IntegrationAccountResponse",
+  },
+  "IntegrationAccountsApi.V2.GetIntegrationAccount": {
+    integrationId: {
+      type: "IntegrationAccountIntegrationId",
+      format: "",
+    },
+    interfaceId: {
+      type: "IntegrationAccountInterfaceId",
+      format: "",
+    },
+    accountId: {
+      type: "string",
+      format: "",
+    },
+    operationResponseType: "IntegrationAccountResponse",
+  },
+  "IntegrationAccountsApi.V2.DeleteIntegrationAccount": {
+    integrationId: {
+      type: "IntegrationAccountIntegrationId",
+      format: "",
+    },
+    interfaceId: {
+      type: "IntegrationAccountInterfaceId",
+      format: "",
+    },
+    accountId: {
+      type: "string",
+      format: "",
+    },
+    operationResponseType: "{}",
+  },
+  "IntegrationAccountsApi.V2.UpdateIntegrationAccount": {
+    integrationId: {
+      type: "IntegrationAccountIntegrationId",
+      format: "",
+    },
+    interfaceId: {
+      type: "IntegrationAccountInterfaceId",
+      format: "",
+    },
+    accountId: {
+      type: "string",
+      format: "",
+    },
+    body: {
+      type: "IntegrationAccountUpdateRequest",
+      format: "",
+    },
+    operationResponseType: "IntegrationAccountResponse",
+  },
   "IPAllowlistApi.V2.GetIPAllowlist": {
     operationResponseType: "IPAllowlistResponse",
   },

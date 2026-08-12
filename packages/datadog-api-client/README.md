@@ -412,6 +412,7 @@ apiInstance
 | Hosts | @datadog/datadog-api-client-hosts | [README.md](../../services/hosts/README.md) |
 | Identity Providers | @datadog/datadog-api-client-identity-providers | [README.md](../../services/identity-providers/README.md) |
 | Incidents | @datadog/datadog-api-client-incidents | [README.md](../../services/incidents/README.md) |
+| Integration Accounts | @datadog/datadog-api-client-integration-accounts | [README.md](../../services/integration-accounts/README.md) |
 | Integrations | @datadog/datadog-api-client-integrations | [README.md](../../services/integrations/README.md) |
 | IP Allowlist | @datadog/datadog-api-client-ip-allowlist | [README.md](../../services/ip-allowlist/README.md) |
 | IP Ranges | @datadog/datadog-api-client-ip-ranges | [README.md](../../services/ip-ranges/README.md) |
