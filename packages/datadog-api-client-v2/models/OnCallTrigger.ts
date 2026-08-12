@@ -12,6 +12,10 @@ import { AttributeTypeMap } from "../../datadog-api-client-common/util";
  */
 export class OnCallTrigger {
   /**
+   * The handle used to reference this trigger from On-Call. Required for automatic triggering.
+   */
+  "handle"?: string;
+  /**
    * Defines a rate limit for a trigger.
    */
   "rateLimit"?: TriggerRateLimit;
@@ -32,6 +36,10 @@ export class OnCallTrigger {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
+    handle: {
+      baseName: "handle",
+      type: "string",
+    },
     rateLimit: {
       baseName: "rateLimit",
       type: "TriggerRateLimit",
