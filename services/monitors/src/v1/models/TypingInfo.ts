@@ -177,6 +177,7 @@ export const TypingInfo: ModelTypingInfo = {
       "data-quality alert",
       "network-path alert",
       "data-jobs alert",
+      "llm-observability alert",
     ],
     OnMissingDataOption: [
       "default",
