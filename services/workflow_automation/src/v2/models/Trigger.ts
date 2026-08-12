@@ -1,5 +1,6 @@
 import { UnparsedObject } from "@datadog/datadog-api-client";
 
+import { AgentTriggerWrapper } from "./AgentTriggerWrapper";
 import { APITriggerWrapper } from "./APITriggerWrapper";
 import { AppTriggerWrapper } from "./AppTriggerWrapper";
 import { CaseTriggerWrapper } from "./CaseTriggerWrapper";
@@ -24,6 +25,7 @@ import { WorkflowTriggerWrapper } from "./WorkflowTriggerWrapper";
  * One of the triggers that can start the execution of a workflow.
  */
 export type Trigger =
+  | AgentTriggerWrapper
   | APITriggerWrapper
   | AppTriggerWrapper
   | CaseTriggerWrapper

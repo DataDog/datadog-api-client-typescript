@@ -3,6 +3,8 @@ import { ModelTypingInfo } from "@datadog/datadog-api-client";
 import { APIErrorResponse } from "./APIErrorResponse";
 import { APITrigger } from "./APITrigger";
 import { APITriggerWrapper } from "./APITriggerWrapper";
+import { AgentTrigger } from "./AgentTrigger";
+import { AgentTriggerWrapper } from "./AgentTriggerWrapper";
 import { Annotation } from "./Annotation";
 import { AnnotationDisplay } from "./AnnotationDisplay";
 import { AnnotationDisplayBounds } from "./AnnotationDisplayBounds";
@@ -133,6 +135,7 @@ export const TypingInfo: ModelTypingInfo = {
   },
   oneOfMap: {
     Trigger: [
+      "AgentTriggerWrapper",
       "APITriggerWrapper",
       "AppTriggerWrapper",
       "CaseTriggerWrapper",
@@ -158,6 +161,8 @@ export const TypingInfo: ModelTypingInfo = {
     APIErrorResponse: APIErrorResponse,
     APITrigger: APITrigger,
     APITriggerWrapper: APITriggerWrapper,
+    AgentTrigger: AgentTrigger,
+    AgentTriggerWrapper: AgentTriggerWrapper,
     Annotation: Annotation,
     AnnotationDisplay: AnnotationDisplay,
     AnnotationDisplayBounds: AnnotationDisplayBounds,
