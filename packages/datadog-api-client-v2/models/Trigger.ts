@@ -3,6 +3,7 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
+import { AgentTriggerWrapper } from "./AgentTriggerWrapper";
 import { APITriggerWrapper } from "./APITriggerWrapper";
 import { AppTriggerWrapper } from "./AppTriggerWrapper";
 import { CaseTriggerWrapper } from "./CaseTriggerWrapper";
@@ -30,6 +31,7 @@ import { UnparsedObject } from "../../datadog-api-client-common/util";
  */
 
 export type Trigger =
+  | AgentTriggerWrapper
   | APITriggerWrapper
   | AppTriggerWrapper
   | CaseTriggerWrapper

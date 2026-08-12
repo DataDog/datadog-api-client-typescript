@@ -126,6 +126,8 @@ import { ActiveBillingDimensionsBody } from "./ActiveBillingDimensionsBody";
 import { ActiveBillingDimensionsResponse } from "./ActiveBillingDimensionsResponse";
 import { AddMemberTeamRequest } from "./AddMemberTeamRequest";
 import { Advisory } from "./Advisory";
+import { AgentTrigger } from "./AgentTrigger";
+import { AgentTriggerWrapper } from "./AgentTriggerWrapper";
 import { AggregatedHighFrozenFrameRate } from "./AggregatedHighFrozenFrameRate";
 import { AggregatedHighScriptEval } from "./AggregatedHighScriptEval";
 import { AggregatedLongTasksByInvokerType } from "./AggregatedLongTasksByInvokerType";
@@ -8948,6 +8950,8 @@ const typeMap: { [index: string]: any } = {
   ActiveBillingDimensionsResponse: ActiveBillingDimensionsResponse,
   AddMemberTeamRequest: AddMemberTeamRequest,
   Advisory: Advisory,
+  AgentTrigger: AgentTrigger,
+  AgentTriggerWrapper: AgentTriggerWrapper,
   AggregatedHighFrozenFrameRate: AggregatedHighFrozenFrameRate,
   AggregatedHighScriptEval: AggregatedHighScriptEval,
   AggregatedLongTasksByInvokerType: AggregatedLongTasksByInvokerType,
@@ -16445,6 +16449,7 @@ const oneOfMap: { [index: string]: string[] } = {
     "ContainerTimeseriesQuery",
   ],
   Trigger: [
+    "AgentTriggerWrapper",
     "APITriggerWrapper",
     "AppTriggerWrapper",
     "CaseTriggerWrapper",
