@@ -24,6 +24,10 @@ export class FlakyTestAttributes {
    */
   "attemptToFixId"?: string;
   /**
+   * Whether every non-skipped run of the test failed over the last 7 days.
+   */
+  "brokenTest"?: boolean;
+  /**
    * The name of the test's code owners as inferred from the repository configuration.
    */
   "codeowners"?: Array<string>;
@@ -132,6 +136,10 @@ export class FlakyTestAttributes {
     attemptToFixId: {
       baseName: "attempt_to_fix_id",
       type: "string",
+    },
+    brokenTest: {
+      baseName: "broken_test",
+      type: "boolean",
     },
     codeowners: {
       baseName: "codeowners",
