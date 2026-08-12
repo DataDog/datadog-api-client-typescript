@@ -1,5 +1,10 @@
 # CHANGELOG
 
+## 0.0.1-beta.11/2026-08-12
+
+### Added
+* Add llm-observability alert monitor type [#4820](https://github.com/DataDog/datadog-api-client-typescript/pull/4820)
+
 ## 0.0.1-beta.10/2026-08-06
 
 ### Added

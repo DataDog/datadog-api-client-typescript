@@ -1,5 +1,10 @@
 # CHANGELOG
 
+## 0.0.1-beta.5/2026-08-12
+
+### Changed
+* 200 col lim explicit in api docs [#4822](https://github.com/DataDog/datadog-api-client-typescript/pull/4822)
+
 ## 0.0.1-beta.4/2026-08-06
 
 ### Fixed

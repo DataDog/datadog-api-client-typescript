@@ -1,5 +1,14 @@
 # CHANGELOG
 
+## 0.0.1-beta.8/2026-08-12
+
+### Removed
+* Update Status Pages UpdateStatusPage documentation to reflect enabled attribute deprecation [#4814](https://github.com/DataDog/datadog-api-client-typescript/pull/4814)
+
+### Added
+* Document meta.idempotency_key in CreateDegradation and UpdateDegradation [#4805](https://github.com/DataDog/datadog-api-client-typescript/pull/4805)
+*  Add spec for maintenance update edit endpoint [#4787](https://github.com/DataDog/datadog-api-client-typescript/pull/4787)
+
 ## 0.0.1-beta.7/2026-08-06
 
 ### Added

@@ -1,5 +1,10 @@
 # CHANGELOG
 
+## 0.0.1-beta.7/2026-08-12
+
+### Added
+* Document PATCH /api/v2/dora/deployments [#4777](https://github.com/DataDog/datadog-api-client-typescript/pull/4777)
+
 ## 0.0.1-beta.6/2026-08-06
 
 ### Changed

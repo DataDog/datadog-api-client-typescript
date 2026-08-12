@@ -1,5 +1,10 @@
 # CHANGELOG
 
+## 0.0.1-beta.4/2026-08-12
+
+### Added
+* Add allowed_resources to Deployment Gates FDD rule options [#4818](https://github.com/DataDog/datadog-api-client-typescript/pull/4818)
+
 ## 0.0.1-beta.3/2026-06-30
 
 ### Added
