@@ -1969,6 +1969,8 @@ export { ActiveBillingDimensionsResponse } from "./models/ActiveBillingDimension
 export { ActiveBillingDimensionsType } from "./models/ActiveBillingDimensionsType";
 export { AddMemberTeamRequest } from "./models/AddMemberTeamRequest";
 export { Advisory } from "./models/Advisory";
+export { AgentTrigger } from "./models/AgentTrigger";
+export { AgentTriggerWrapper } from "./models/AgentTriggerWrapper";
 export { AggregatedHighFrozenFrameRate } from "./models/AggregatedHighFrozenFrameRate";
 export { AggregatedHighScriptEval } from "./models/AggregatedHighScriptEval";
 export { AggregatedLongTasksByInvokerType } from "./models/AggregatedLongTasksByInvokerType";
