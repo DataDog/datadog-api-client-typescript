@@ -1329,6 +1329,7 @@ const enumsMap: { [key: string]: any[] } = {
     "data-quality alert",
     "network-path alert",
     "data-jobs alert",
+    "llm-observability alert",
   ],
   MonthlyUsageAttributionSupportedMetrics: [
     "api_usage",
