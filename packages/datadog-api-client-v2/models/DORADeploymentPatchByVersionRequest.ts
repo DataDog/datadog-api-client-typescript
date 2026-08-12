@@ -3,22 +3,18 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
-import { DORADeploymentPatchRemediation } from "./DORADeploymentPatchRemediation";
+import { DORADeploymentPatchByVersionRequestData } from "./DORADeploymentPatchByVersionRequestData";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * Attributes for patching a DORA deployment event.
+ * Request to patch a DORA deployment event identified by service, environment, and version.
  */
-export class DORADeploymentPatchRequestAttributes {
+export class DORADeploymentPatchByVersionRequest {
   /**
-   * Indicates whether the deployment resulted in a change failure.
+   * The JSON:API data for patching a deployment identified by service, environment, and version.
    */
-  "changeFailure"?: boolean;
-  /**
-   * Remediation details for the deployment. Optional, but required to calculate failed deployment recovery time. Specify either `id` or `version` to identify the remediation deployment, but not both.
-   */
-  "remediation"?: DORADeploymentPatchRemediation;
+  "data": DORADeploymentPatchByVersionRequestData;
 
   /**
    * A container for additional, undeclared properties.
@@ -36,13 +32,10 @@ export class DORADeploymentPatchRequestAttributes {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    changeFailure: {
-      baseName: "change_failure",
-      type: "boolean",
-    },
-    remediation: {
-      baseName: "remediation",
-      type: "DORADeploymentPatchRemediation",
+    data: {
+      baseName: "data",
+      type: "DORADeploymentPatchByVersionRequestData",
+      required: true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -54,7 +47,7 @@ export class DORADeploymentPatchRequestAttributes {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-    return DORADeploymentPatchRequestAttributes.attributeTypeMap;
+    return DORADeploymentPatchByVersionRequest.attributeTypeMap;
   }
 
   public constructor() {}
