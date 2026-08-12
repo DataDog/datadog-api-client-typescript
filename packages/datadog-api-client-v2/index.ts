@@ -457,6 +457,7 @@ export {
   DORAMetricsApiListDORADeploymentsRequest,
   DORAMetricsApiListDORAFailuresRequest,
   DORAMetricsApiPatchDORADeploymentRequest,
+  DORAMetricsApiPatchDORADeploymentByVersionRequest,
   DORAMetricsApi,
 } from "./apis/DORAMetricsApi";
 
@@ -3798,6 +3799,12 @@ export { DomainAllowlistType } from "./models/DomainAllowlistType";
 export { DORADeploymentFetchResponse } from "./models/DORADeploymentFetchResponse";
 export { DORADeploymentObject } from "./models/DORADeploymentObject";
 export { DORADeploymentObjectAttributes } from "./models/DORADeploymentObjectAttributes";
+export { DORADeploymentPatchByVersionRemediation } from "./models/DORADeploymentPatchByVersionRemediation";
+export { DORADeploymentPatchByVersionRemediationByID } from "./models/DORADeploymentPatchByVersionRemediationByID";
+export { DORADeploymentPatchByVersionRemediationByVersion } from "./models/DORADeploymentPatchByVersionRemediationByVersion";
+export { DORADeploymentPatchByVersionRequest } from "./models/DORADeploymentPatchByVersionRequest";
+export { DORADeploymentPatchByVersionRequestAttributes } from "./models/DORADeploymentPatchByVersionRequestAttributes";
+export { DORADeploymentPatchByVersionRequestData } from "./models/DORADeploymentPatchByVersionRequestData";
 export { DORADeploymentPatchRemediation } from "./models/DORADeploymentPatchRemediation";
 export { DORADeploymentPatchRemediationType } from "./models/DORADeploymentPatchRemediationType";
 export { DORADeploymentPatchRequest } from "./models/DORADeploymentPatchRequest";

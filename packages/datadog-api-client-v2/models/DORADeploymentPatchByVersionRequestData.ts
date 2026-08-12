@@ -3,22 +3,23 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
-import { DORADeploymentPatchRemediation } from "./DORADeploymentPatchRemediation";
+import { DORADeploymentPatchByVersionRequestAttributes } from "./DORADeploymentPatchByVersionRequestAttributes";
+import { DORADeploymentPatchRequestDataType } from "./DORADeploymentPatchRequestDataType";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * Attributes for patching a DORA deployment event.
+ * The JSON:API data for patching a deployment identified by service, environment, and version.
  */
-export class DORADeploymentPatchRequestAttributes {
+export class DORADeploymentPatchByVersionRequestData {
   /**
-   * Indicates whether the deployment resulted in a change failure.
+   * Attributes for patching a DORA deployment event identified by service, environment, and version.
    */
-  "changeFailure"?: boolean;
+  "attributes": DORADeploymentPatchByVersionRequestAttributes;
   /**
-   * Remediation details for the deployment. Optional, but required to calculate failed deployment recovery time. Specify either `id` or `version` to identify the remediation deployment, but not both.
+   * JSON:API type for DORA deployment patch request.
    */
-  "remediation"?: DORADeploymentPatchRemediation;
+  "type": DORADeploymentPatchRequestDataType;
 
   /**
    * A container for additional, undeclared properties.
@@ -36,13 +37,15 @@ export class DORADeploymentPatchRequestAttributes {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    changeFailure: {
-      baseName: "change_failure",
-      type: "boolean",
+    attributes: {
+      baseName: "attributes",
+      type: "DORADeploymentPatchByVersionRequestAttributes",
+      required: true,
     },
-    remediation: {
-      baseName: "remediation",
-      type: "DORADeploymentPatchRemediation",
+    type: {
+      baseName: "type",
+      type: "DORADeploymentPatchRequestDataType",
+      required: true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -54,7 +57,7 @@ export class DORADeploymentPatchRequestAttributes {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-    return DORADeploymentPatchRequestAttributes.attributeTypeMap;
+    return DORADeploymentPatchByVersionRequestData.attributeTypeMap;
   }
 
   public constructor() {}

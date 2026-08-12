@@ -1285,6 +1285,11 @@ import { CycloneDXVulnerabilityReferenceSource } from "./CycloneDXVulnerabilityR
 import { DORADeploymentFetchResponse } from "./DORADeploymentFetchResponse";
 import { DORADeploymentObject } from "./DORADeploymentObject";
 import { DORADeploymentObjectAttributes } from "./DORADeploymentObjectAttributes";
+import { DORADeploymentPatchByVersionRemediationByID } from "./DORADeploymentPatchByVersionRemediationByID";
+import { DORADeploymentPatchByVersionRemediationByVersion } from "./DORADeploymentPatchByVersionRemediationByVersion";
+import { DORADeploymentPatchByVersionRequest } from "./DORADeploymentPatchByVersionRequest";
+import { DORADeploymentPatchByVersionRequestAttributes } from "./DORADeploymentPatchByVersionRequestAttributes";
+import { DORADeploymentPatchByVersionRequestData } from "./DORADeploymentPatchByVersionRequestData";
 import { DORADeploymentPatchRemediation } from "./DORADeploymentPatchRemediation";
 import { DORADeploymentPatchRequest } from "./DORADeploymentPatchRequest";
 import { DORADeploymentPatchRequestAttributes } from "./DORADeploymentPatchRequestAttributes";
@@ -10326,6 +10331,15 @@ const typeMap: { [index: string]: any } = {
   DORADeploymentFetchResponse: DORADeploymentFetchResponse,
   DORADeploymentObject: DORADeploymentObject,
   DORADeploymentObjectAttributes: DORADeploymentObjectAttributes,
+  DORADeploymentPatchByVersionRemediationByID:
+    DORADeploymentPatchByVersionRemediationByID,
+  DORADeploymentPatchByVersionRemediationByVersion:
+    DORADeploymentPatchByVersionRemediationByVersion,
+  DORADeploymentPatchByVersionRequest: DORADeploymentPatchByVersionRequest,
+  DORADeploymentPatchByVersionRequestAttributes:
+    DORADeploymentPatchByVersionRequestAttributes,
+  DORADeploymentPatchByVersionRequestData:
+    DORADeploymentPatchByVersionRequestData,
   DORADeploymentPatchRemediation: DORADeploymentPatchRemediation,
   DORADeploymentPatchRequest: DORADeploymentPatchRequest,
   DORADeploymentPatchRequestAttributes: DORADeploymentPatchRequestAttributes,
@@ -15894,6 +15908,10 @@ const oneOfMap: { [index: string]: string[] } = {
   CustomDestinationResponseHttpDestinationAuth: [
     "CustomDestinationResponseHttpDestinationAuthBasic",
     "CustomDestinationResponseHttpDestinationAuthCustomHeader",
+  ],
+  DORADeploymentPatchByVersionRemediation: [
+    "DORADeploymentPatchByVersionRemediationByID",
+    "DORADeploymentPatchByVersionRemediationByVersion",
   ],
   DatadogCredentials: ["DatadogAPIKey"],
   DatadogCredentialsUpdate: ["DatadogAPIKeyUpdate"],
