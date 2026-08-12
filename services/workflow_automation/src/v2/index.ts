@@ -11,6 +11,8 @@ export {
   WorkflowAutomationApi,
 } from "./WorkflowAutomationApi";
 
+export { AgentTrigger } from "./models/AgentTrigger";
+export { AgentTriggerWrapper } from "./models/AgentTriggerWrapper";
 export { Annotation } from "./models/Annotation";
 export { AnnotationDisplay } from "./models/AnnotationDisplay";
 export { AnnotationDisplayBounds } from "./models/AnnotationDisplayBounds";
