@@ -1,12 +1,12 @@
 /**
- * List Bits AI investigations returns "OK" response with pagination
+ * List Bits AI SRE investigations returns "OK" response with pagination
  */
 
 import { client, v2 } from "@datadog/datadog-api-client";
 
 const configuration = client.createConfiguration();
 configuration.unstableOperations["v2.listInvestigations"] = true;
-const apiInstance = new v2.BitsAIApi(configuration);
+const apiInstance = new v2.BitsAISREApi(configuration);
 
 (async () => {
   try {
