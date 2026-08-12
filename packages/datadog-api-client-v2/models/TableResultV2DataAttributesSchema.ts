@@ -12,7 +12,7 @@ import { AttributeTypeMap } from "../../datadog-api-client-common/util";
  */
 export class TableResultV2DataAttributesSchema {
   /**
-   * The schema fields.
+   * The schema fields. Maximum of 200 columns.
    */
   "fields": Array<TableResultV2DataAttributesSchemaFieldsItems>;
   /**
