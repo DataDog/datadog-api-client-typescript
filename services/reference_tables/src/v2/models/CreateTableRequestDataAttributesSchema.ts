@@ -7,7 +7,7 @@ import { CreateTableRequestDataAttributesSchemaFieldsItems } from "./CreateTable
  */
 export class CreateTableRequestDataAttributesSchema {
   /**
-   * The schema fields.
+   * The schema fields. Maximum of 200 columns.
    */
   "fields": Array<CreateTableRequestDataAttributesSchemaFieldsItems>;
   /**
