@@ -11,6 +11,10 @@ import { AttributeTypeMap } from "../../datadog-api-client-common/util";
  */
 export class DeploymentGatesFDDRuleOptions {
   /**
+   * APM resource names to include in analysis. Mutually exclusive with `excluded_resources`.
+   */
+  "allowedResources"?: Array<string>;
+  /**
    * Evaluation window in seconds. Maximum 7200 (2 hours).
    */
   "duration"?: number;
@@ -35,6 +39,10 @@ export class DeploymentGatesFDDRuleOptions {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
+    allowedResources: {
+      baseName: "allowed_resources",
+      type: "Array<string>",
+    },
     duration: {
       baseName: "duration",
       type: "number",
