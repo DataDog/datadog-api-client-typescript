@@ -4,6 +4,11 @@ import { APIErrorResponse } from "./APIErrorResponse";
 import { DORADeploymentFetchResponse } from "./DORADeploymentFetchResponse";
 import { DORADeploymentObject } from "./DORADeploymentObject";
 import { DORADeploymentObjectAttributes } from "./DORADeploymentObjectAttributes";
+import { DORADeploymentPatchByVersionRemediationByID } from "./DORADeploymentPatchByVersionRemediationByID";
+import { DORADeploymentPatchByVersionRemediationByVersion } from "./DORADeploymentPatchByVersionRemediationByVersion";
+import { DORADeploymentPatchByVersionRequest } from "./DORADeploymentPatchByVersionRequest";
+import { DORADeploymentPatchByVersionRequestAttributes } from "./DORADeploymentPatchByVersionRequestAttributes";
+import { DORADeploymentPatchByVersionRequestData } from "./DORADeploymentPatchByVersionRequestData";
 import { DORADeploymentPatchRemediation } from "./DORADeploymentPatchRemediation";
 import { DORADeploymentPatchRequest } from "./DORADeploymentPatchRequest";
 import { DORADeploymentPatchRequestAttributes } from "./DORADeploymentPatchRequestAttributes";
@@ -44,12 +49,26 @@ export const TypingInfo: ModelTypingInfo = {
     DORAListDeploymentsRequestDataType: ["dora_deployments_list_request"],
     DORAListFailuresRequestDataType: ["dora_failures_list_request"],
   },
-  oneOfMap: {},
+  oneOfMap: {
+    DORADeploymentPatchByVersionRemediation: [
+      "DORADeploymentPatchByVersionRemediationByID",
+      "DORADeploymentPatchByVersionRemediationByVersion",
+    ],
+  },
   typeMap: {
     APIErrorResponse: APIErrorResponse,
     DORADeploymentFetchResponse: DORADeploymentFetchResponse,
     DORADeploymentObject: DORADeploymentObject,
     DORADeploymentObjectAttributes: DORADeploymentObjectAttributes,
+    DORADeploymentPatchByVersionRemediationByID:
+      DORADeploymentPatchByVersionRemediationByID,
+    DORADeploymentPatchByVersionRemediationByVersion:
+      DORADeploymentPatchByVersionRemediationByVersion,
+    DORADeploymentPatchByVersionRequest: DORADeploymentPatchByVersionRequest,
+    DORADeploymentPatchByVersionRequestAttributes:
+      DORADeploymentPatchByVersionRequestAttributes,
+    DORADeploymentPatchByVersionRequestData:
+      DORADeploymentPatchByVersionRequestData,
     DORADeploymentPatchRemediation: DORADeploymentPatchRemediation,
     DORADeploymentPatchRequest: DORADeploymentPatchRequest,
     DORADeploymentPatchRequestAttributes: DORADeploymentPatchRequestAttributes,
