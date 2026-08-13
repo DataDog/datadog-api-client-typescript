@@ -1,6 +1,6 @@
 import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
-import { MetricCustomAggregation } from "./MetricCustomAggregation";
+import { MetricCustomAggregations } from "./MetricCustomAggregations";
 
 /**
  * Object containing the definition of a metric tag configuration to be updated.
@@ -9,7 +9,7 @@ export class MetricTagConfigurationUpdateAttributes {
   /**
    * Deprecated. You no longer need to configure specific time and space aggregations for Metrics Without Limits.
    */
-  "aggregations"?: Array<MetricCustomAggregation>;
+  "aggregations"?: MetricCustomAggregations;
   /**
    * When set to true, the configuration will exclude the configured tags and include any other submitted tags.
    * When set to false, the configuration will include the configured tags and exclude any other submitted tags.
@@ -42,7 +42,7 @@ export class MetricTagConfigurationUpdateAttributes {
   static readonly attributeTypeMap: AttributeTypeMap = {
     aggregations: {
       baseName: "aggregations",
-      type: "Array<MetricCustomAggregation>",
+      type: "MetricCustomAggregations",
     },
     excludeTagsMode: {
       baseName: "exclude_tags_mode",
