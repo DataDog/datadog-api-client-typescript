@@ -10819,6 +10819,7 @@ export class LLMObservabilityApiResponseProcessor {
       response.httpStatusCode === 401 ||
       response.httpStatusCode === 403 ||
       response.httpStatusCode === 404 ||
+      response.httpStatusCode === 409 ||
       response.httpStatusCode === 500
     ) {
       const bodyText = parse(await response.body.text(), contentType);

@@ -13,6 +13,12 @@ export class LLMObsPatternsConfigUpsertRequestAttributes {
    */
   "configId"?: string;
   /**
+   * When true, Datadog automatically provisions a managed project and dataset
+   * (`{pattern-name}-pattern-curated`) to receive suggested interactions after
+   * each run. Defaults to true for new patterns.
+   */
+  "curationEnabled"?: boolean;
+  /**
    * Query that selects the spans the patterns run analyzes.
    */
   "evpQuery": string;
@@ -70,6 +76,10 @@ export class LLMObsPatternsConfigUpsertRequestAttributes {
     configId: {
       baseName: "config_id",
       type: "string",
+    },
+    curationEnabled: {
+      baseName: "curation_enabled",
+      type: "boolean",
     },
     evpQuery: {
       baseName: "evp_query",
