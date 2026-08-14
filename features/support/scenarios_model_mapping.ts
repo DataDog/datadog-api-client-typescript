@@ -11872,6 +11872,76 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             },
         "operationResponseType": "ConfluentResourceResponse",
     },
+    "v2.ListElasticCloudCcmAccounts": {
+        "operationResponseType": "ElasticCloudCcmAccountsResponse",
+    },
+    "v2.CreateElasticCloudCcmAccount": {
+        "body": {
+            "type": "ElasticCloudCcmAccountRequest",
+            "format": "",
+            },
+        "operationResponseType": "ElasticCloudCcmAccountResponse",
+    },
+    "v2.GetElasticCloudCcmAccount": {
+        "accountId": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "ElasticCloudCcmAccountResponse",
+    },
+    "v2.DeleteElasticCloudCcmAccount": {
+        "accountId": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "{}",
+    },
+    "v2.UpdateElasticCloudCcmAccount": {
+        "accountId": {
+            "type": "string",
+            "format": "",
+            },
+        "body": {
+            "type": "ElasticCloudCcmAccountUpdateRequest",
+            "format": "",
+            },
+        "operationResponseType": "ElasticCloudCcmAccountResponse",
+    },
+    "v2.ListElasticCloudMonitoringAccounts": {
+        "operationResponseType": "ElasticCloudMonitoringAccountsResponse",
+    },
+    "v2.CreateElasticCloudMonitoringAccount": {
+        "body": {
+            "type": "ElasticCloudMonitoringAccountRequest",
+            "format": "",
+            },
+        "operationResponseType": "ElasticCloudMonitoringAccountResponse",
+    },
+    "v2.GetElasticCloudMonitoringAccount": {
+        "accountId": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "ElasticCloudMonitoringAccountResponse",
+    },
+    "v2.DeleteElasticCloudMonitoringAccount": {
+        "accountId": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "{}",
+    },
+    "v2.UpdateElasticCloudMonitoringAccount": {
+        "accountId": {
+            "type": "string",
+            "format": "",
+            },
+        "body": {
+            "type": "ElasticCloudMonitoringAccountUpdateRequest",
+            "format": "",
+            },
+        "operationResponseType": "ElasticCloudMonitoringAccountResponse",
+    },
     "v2.ListFastlyAccounts": {
         "operationResponseType": "FastlyAccountsResponse",
     },
@@ -11996,6 +12066,41 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             "format": "",
             },
         "operationResponseType": "OktaAccountResponse",
+    },
+    "v2.ListTwilioAccounts": {
+        "operationResponseType": "TwilioAccountsResponse",
+    },
+    "v2.CreateTwilioAccount": {
+        "body": {
+            "type": "TwilioAccountRequest",
+            "format": "",
+            },
+        "operationResponseType": "TwilioAccountResponse",
+    },
+    "v2.GetTwilioAccount": {
+        "accountId": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "TwilioAccountResponse",
+    },
+    "v2.DeleteTwilioAccount": {
+        "accountId": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "{}",
+    },
+    "v2.UpdateTwilioAccount": {
+        "accountId": {
+            "type": "string",
+            "format": "",
+            },
+        "body": {
+            "type": "TwilioAccountUpdateRequest",
+            "format": "",
+            },
+        "operationResponseType": "TwilioAccountResponse",
     },
     "v2.GetIPAllowlist": {
         "operationResponseType": "IPAllowlistResponse",
