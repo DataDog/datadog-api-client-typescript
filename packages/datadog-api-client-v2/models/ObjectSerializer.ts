@@ -2605,12 +2605,6 @@ import { LLMObsCustomEvalConfigUpdateData } from "./LLMObsCustomEvalConfigUpdate
 import { LLMObsCustomEvalConfigUpdateRequest } from "./LLMObsCustomEvalConfigUpdateRequest";
 import { LLMObsCustomEvalConfigUser } from "./LLMObsCustomEvalConfigUser";
 import { LLMObsCustomEvalConfigVertexAIOptions } from "./LLMObsCustomEvalConfigVertexAIOptions";
-import { LLMObsDataDeletionRequest } from "./LLMObsDataDeletionRequest";
-import { LLMObsDataDeletionRequestAttributes } from "./LLMObsDataDeletionRequestAttributes";
-import { LLMObsDataDeletionRequestData } from "./LLMObsDataDeletionRequestData";
-import { LLMObsDataDeletionResponse } from "./LLMObsDataDeletionResponse";
-import { LLMObsDataDeletionResponseAttributes } from "./LLMObsDataDeletionResponseAttributes";
-import { LLMObsDataDeletionResponseData } from "./LLMObsDataDeletionResponseData";
 import { LLMObsDatasetBatchUpdateDataAttributesRequest } from "./LLMObsDatasetBatchUpdateDataAttributesRequest";
 import { LLMObsDatasetBatchUpdateDataRequest } from "./LLMObsDatasetBatchUpdateDataRequest";
 import { LLMObsDatasetBatchUpdateInsertRecord } from "./LLMObsDatasetBatchUpdateInsertRecord";
@@ -6948,8 +6942,6 @@ const enumsMap: { [key: string]: any[] } = {
     "keyword_search",
   ],
   LLMObsCustomEvalConfigType: ["evaluator_config"],
-  LLMObsDataDeletionRequestType: ["create_deletion_req"],
-  LLMObsDataDeletionResponseType: ["deletion_request"],
   LLMObsDatasetDraftStateType: ["draft_state_data"],
   LLMObsDatasetExportFormat: ["csv"],
   LLMObsDatasetType: ["datasets"],
@@ -11899,12 +11891,6 @@ const typeMap: { [index: string]: any } = {
   LLMObsCustomEvalConfigUpdateRequest: LLMObsCustomEvalConfigUpdateRequest,
   LLMObsCustomEvalConfigUser: LLMObsCustomEvalConfigUser,
   LLMObsCustomEvalConfigVertexAIOptions: LLMObsCustomEvalConfigVertexAIOptions,
-  LLMObsDataDeletionRequest: LLMObsDataDeletionRequest,
-  LLMObsDataDeletionRequestAttributes: LLMObsDataDeletionRequestAttributes,
-  LLMObsDataDeletionRequestData: LLMObsDataDeletionRequestData,
-  LLMObsDataDeletionResponse: LLMObsDataDeletionResponse,
-  LLMObsDataDeletionResponseAttributes: LLMObsDataDeletionResponseAttributes,
-  LLMObsDataDeletionResponseData: LLMObsDataDeletionResponseData,
   LLMObsDatasetBatchUpdateDataAttributesRequest:
     LLMObsDatasetBatchUpdateDataAttributesRequest,
   LLMObsDatasetBatchUpdateDataRequest: LLMObsDatasetBatchUpdateDataRequest,
