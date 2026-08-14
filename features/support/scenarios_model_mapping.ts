@@ -1789,6 +1789,10 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             "type": "number",
             "format": "int64",
             },
+        "isDeleted": {
+            "type": "boolean",
+            "format": "",
+            },
         "operationResponseType": "SLOListResponse",
     },
     "v1.CreateSLO": {
