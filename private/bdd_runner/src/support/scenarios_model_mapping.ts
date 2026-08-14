@@ -2562,13 +2562,6 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
     },
     operationResponseType: "{}",
   },
-  "LLMObservabilityApi.V2.DeleteLLMObsData": {
-    body: {
-      type: "LLMObsDataDeletionRequest",
-      format: "",
-    },
-    operationResponseType: "LLMObsDataDeletionResponse",
-  },
   "LLMObservabilityApi.V2.GetLLMObsAnnotatedInteractionsByTraceIDs": {
     contentIds: {
       type: "Array<string>",
