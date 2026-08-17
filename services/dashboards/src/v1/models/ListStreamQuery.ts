@@ -26,9 +26,13 @@ export class ListStreamQuery {
    */
   "compute"?: Array<ListStreamComputeItems>;
   /**
-   * Source from which to query items to display in the stream. apm_issue_stream, rum_issue_stream, and logs_issue_stream are deprecated. Use issue_stream instead.
+   * Source from which to query items to display in the stream. apm_issue_stream, rum_issue_stream, and logs_issue_stream are deprecated. Use issue_stream instead. apm_recommendations_stream is used to query APM recommendations, and supports filtering by environment, services, teams, recommendation types, and status.
    */
   "dataSource": ListStreamSource;
+  /**
+   * Filter by APM environment. Usable only with `apm_recommendations_stream`.
+   */
+  "env"?: string;
   /**
    * Size to use to display an event.
    */
@@ -50,6 +54,14 @@ export class ListStreamQuery {
    */
   "queryString": string;
   /**
+   * Filter by recommendation types. Usable only with `apm_recommendations_stream`.
+   */
+  "recommendationTypes"?: Array<string>;
+  /**
+   * Filter by service names. Usable only with `apm_recommendations_stream`.
+   */
+  "services"?: Array<string>;
+  /**
    * Which column and order to sort by
    */
   "sort"?: WidgetFieldSort;
@@ -57,6 +69,10 @@ export class ListStreamQuery {
    * Filter by issue states. Usable only with `issue_stream`.
    */
   "states"?: Array<ListStreamIssueState>;
+  /**
+   * Filter by recommendation statuses. Usable only with `apm_recommendations_stream`.
+   */
+  "statuses"?: Array<string>;
   /**
    * Option for storage location. Feature in Private Beta.
    */
@@ -69,6 +85,10 @@ export class ListStreamQuery {
    * Filter by team handles. Usable only with `issue_stream`.
    */
   "teamHandles"?: Array<string>;
+  /**
+   * Filter by team handles. Usable only with `apm_recommendations_stream`.
+   */
+  "teams"?: Array<string>;
   /**
    * Version of the query for the logs transaction stream widget. When omitted, v1 query behavior is
    * preserved. Set to `sequential_query` to use v2 behavior. **This feature is in Preview.**
@@ -106,6 +126,10 @@ export class ListStreamQuery {
       type: "ListStreamSource",
       required: true,
     },
+    env: {
+      baseName: "env",
+      type: "string",
+    },
     eventSize: {
       baseName: "event_size",
       type: "WidgetEventSize",
@@ -127,6 +151,14 @@ export class ListStreamQuery {
       type: "string",
       required: true,
     },
+    recommendationTypes: {
+      baseName: "recommendation_types",
+      type: "Array<string>",
+    },
+    services: {
+      baseName: "services",
+      type: "Array<string>",
+    },
     sort: {
       baseName: "sort",
       type: "WidgetFieldSort",
@@ -134,6 +166,10 @@ export class ListStreamQuery {
     states: {
       baseName: "states",
       type: "Array<ListStreamIssueState>",
+    },
+    statuses: {
+      baseName: "statuses",
+      type: "Array<string>",
     },
     storage: {
       baseName: "storage",
@@ -145,6 +181,10 @@ export class ListStreamQuery {
     },
     teamHandles: {
       baseName: "team_handles",
+      type: "Array<string>",
+    },
+    teams: {
+      baseName: "teams",
       type: "Array<string>",
     },
     version: {
