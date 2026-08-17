@@ -1727,6 +1727,13 @@ import { FeatureFlagListItemAttributes } from "./FeatureFlagListItemAttributes";
 import { FeatureFlagResponse } from "./FeatureFlagResponse";
 import { FeatureFlagsPaginationMeta } from "./FeatureFlagsPaginationMeta";
 import { FeatureFlagsPaginationMetaPage } from "./FeatureFlagsPaginationMetaPage";
+import { FileCoverageLines } from "./FileCoverageLines";
+import { FilesCoverageAttributes } from "./FilesCoverageAttributes";
+import { FilesCoverageData } from "./FilesCoverageData";
+import { FilesCoverageRequest } from "./FilesCoverageRequest";
+import { FilesCoverageRequestAttributes } from "./FilesCoverageRequestAttributes";
+import { FilesCoverageRequestData } from "./FilesCoverageRequestData";
+import { FilesCoverageResponse } from "./FilesCoverageResponse";
 import { FiltersPerProduct } from "./FiltersPerProduct";
 import { Finding } from "./Finding";
 import { FindingAttributes } from "./FindingAttributes";
@@ -3691,6 +3698,9 @@ import { OwnershipSettingsResponse } from "./OwnershipSettingsResponse";
 import { OwnershipUntaggedFindingsAttributes } from "./OwnershipUntaggedFindingsAttributes";
 import { OwnershipUntaggedFindingsData } from "./OwnershipUntaggedFindingsData";
 import { OwnershipUntaggedFindingsResponse } from "./OwnershipUntaggedFindingsResponse";
+import { PRCoverageSummaryRequest } from "./PRCoverageSummaryRequest";
+import { PRCoverageSummaryRequestAttributes } from "./PRCoverageSummaryRequestAttributes";
+import { PRCoverageSummaryRequestData } from "./PRCoverageSummaryRequestData";
 import { PageAnnotationsAttributes } from "./PageAnnotationsAttributes";
 import { PageAnnotationsData } from "./PageAnnotationsData";
 import { PageAnnotationsResponse } from "./PageAnnotationsResponse";
@@ -6539,6 +6549,8 @@ const enumsMap: { [key: string]: any[] } = {
   FastlyIntegrationType: ["Fastly"],
   FastlyServiceType: ["fastly-services"],
   FeatureFlagStatus: ["ENABLED", "DISABLED"],
+  FilesCoverageRequestType: ["ci_app_coverage_files_request"],
+  FilesCoverageResponseType: ["ci_app_coverage_files"],
   FindingDataType: ["findings"],
   FindingEvaluation: ["pass", "fail"],
   FindingMuteReason: [
@@ -7621,6 +7633,7 @@ const enumsMap: { [key: string]: any[] } = {
   OwnershipOwnerType: ["user", "team", "service", "unknown"],
   OwnershipSettingsType: ["ownership_settings"],
   OwnershipUntaggedFindingsType: ["ownership_untagged_findings"],
+  PRCoverageSummaryRequestType: ["ci_app_coverage_pr_summary_request"],
   PageAnnotationsType: ["page_annotations"],
   PageUrgency: ["low", "high"],
   PaginationMetaPageType: ["offset_limit"],
@@ -10855,6 +10868,13 @@ const typeMap: { [index: string]: any } = {
   FeatureFlagResponse: FeatureFlagResponse,
   FeatureFlagsPaginationMeta: FeatureFlagsPaginationMeta,
   FeatureFlagsPaginationMetaPage: FeatureFlagsPaginationMetaPage,
+  FileCoverageLines: FileCoverageLines,
+  FilesCoverageAttributes: FilesCoverageAttributes,
+  FilesCoverageData: FilesCoverageData,
+  FilesCoverageRequest: FilesCoverageRequest,
+  FilesCoverageRequestAttributes: FilesCoverageRequestAttributes,
+  FilesCoverageRequestData: FilesCoverageRequestData,
+  FilesCoverageResponse: FilesCoverageResponse,
   FiltersPerProduct: FiltersPerProduct,
   Finding: Finding,
   FindingAttributes: FindingAttributes,
@@ -13257,6 +13277,9 @@ const typeMap: { [index: string]: any } = {
   OwnershipUntaggedFindingsAttributes: OwnershipUntaggedFindingsAttributes,
   OwnershipUntaggedFindingsData: OwnershipUntaggedFindingsData,
   OwnershipUntaggedFindingsResponse: OwnershipUntaggedFindingsResponse,
+  PRCoverageSummaryRequest: PRCoverageSummaryRequest,
+  PRCoverageSummaryRequestAttributes: PRCoverageSummaryRequestAttributes,
+  PRCoverageSummaryRequestData: PRCoverageSummaryRequestData,
   PageAnnotationsAttributes: PageAnnotationsAttributes,
   PageAnnotationsData: PageAnnotationsData,
   PageAnnotationsResponse: PageAnnotationsResponse,
