@@ -1,5 +1,5 @@
 /**
- * Get code coverage summary for a commit returns "OK" response
+ * Get code coverage summary for a pull request returns "OK" response
  */
 
 import { client, v2 } from "@datadog/datadog-api-client";
@@ -7,21 +7,20 @@ import { client, v2 } from "@datadog/datadog-api-client";
 const configuration = client.createConfiguration();
 const apiInstance = new v2.CodeCoverageApi(configuration);
 
-const params: v2.CodeCoverageApiGetCodeCoverageCommitSummaryRequest = {
+const params: v2.CodeCoverageApiGetCodeCoveragePRSummaryRequest = {
   body: {
     data: {
       attributes: {
-        commitSha: "66adc9350f2cc9b250b69abddab733dd55e1a588",
-        repositoryId: "github.com/datadog/shopist",
+        prNumber: 42,
         repositoryUrl: "https://github.com/datadog/shopist",
       },
-      type: "ci_app_coverage_commit_summary_request",
+      type: "ci_app_coverage_pr_summary_request",
     },
   },
 };
 
 apiInstance
-  .getCodeCoverageCommitSummary(params)
+  .getCodeCoveragePRSummary(params)
   .then((data: v2.CoverageSummaryResponse) => {
     console.log(
       "API called successfully. Returned data: " + JSON.stringify(data)

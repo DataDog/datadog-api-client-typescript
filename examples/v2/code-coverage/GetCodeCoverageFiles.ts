@@ -1,5 +1,5 @@
 /**
- * Get code coverage summary for a commit returns "OK" response
+ * Get per-file code coverage data returns "OK" response
  */
 
 import { client, v2 } from "@datadog/datadog-api-client";
@@ -7,22 +7,22 @@ import { client, v2 } from "@datadog/datadog-api-client";
 const configuration = client.createConfiguration();
 const apiInstance = new v2.CodeCoverageApi(configuration);
 
-const params: v2.CodeCoverageApiGetCodeCoverageCommitSummaryRequest = {
+const params: v2.CodeCoverageApiGetCodeCoverageFilesRequest = {
   body: {
     data: {
       attributes: {
+        changedOnly: true,
         commitSha: "66adc9350f2cc9b250b69abddab733dd55e1a588",
-        repositoryId: "github.com/datadog/shopist",
         repositoryUrl: "https://github.com/datadog/shopist",
       },
-      type: "ci_app_coverage_commit_summary_request",
+      type: "ci_app_coverage_files_request",
     },
   },
 };
 
 apiInstance
-  .getCodeCoverageCommitSummary(params)
-  .then((data: v2.CoverageSummaryResponse) => {
+  .getCodeCoverageFiles(params)
+  .then((data: v2.FilesCoverageResponse) => {
     console.log(
       "API called successfully. Returned data: " + JSON.stringify(data)
     );
