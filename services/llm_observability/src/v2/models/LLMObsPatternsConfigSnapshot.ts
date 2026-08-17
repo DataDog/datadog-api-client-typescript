@@ -9,6 +9,10 @@ export class LLMObsPatternsConfigSnapshot {
    */
   "accountId"?: string;
   /**
+   * Whether automatic dataset curation was enabled for the run.
+   */
+  "curationEnabled"?: boolean;
+  /**
    * Query that selected the spans for the run.
    */
   "evpQuery"?: string;
@@ -50,6 +54,10 @@ export class LLMObsPatternsConfigSnapshot {
     accountId: {
       baseName: "account_id",
       type: "string",
+    },
+    curationEnabled: {
+      baseName: "curation_enabled",
+      type: "boolean",
     },
     evpQuery: {
       baseName: "evp_query",
