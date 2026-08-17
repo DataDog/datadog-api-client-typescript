@@ -6401,6 +6401,7 @@ export { ObservabilityPipelineSplitArrayProcessorArrayConfig } from "./models/Ob
 export { ObservabilityPipelineSplitArrayProcessorType } from "./models/ObservabilityPipelineSplitArrayProcessorType";
 export { ObservabilityPipelineSplunkHecDestination } from "./models/ObservabilityPipelineSplunkHecDestination";
 export { ObservabilityPipelineSplunkHecDestinationEncoding } from "./models/ObservabilityPipelineSplunkHecDestinationEncoding";
+export { ObservabilityPipelineSplunkHecDestinationEndpointTarget } from "./models/ObservabilityPipelineSplunkHecDestinationEndpointTarget";
 export { ObservabilityPipelineSplunkHecDestinationTokenStrategy } from "./models/ObservabilityPipelineSplunkHecDestinationTokenStrategy";
 export { ObservabilityPipelineSplunkHecDestinationType } from "./models/ObservabilityPipelineSplunkHecDestinationType";
 export { ObservabilityPipelineSplunkHecMetricsDestination } from "./models/ObservabilityPipelineSplunkHecMetricsDestination";
