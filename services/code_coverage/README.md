@@ -25,14 +25,6 @@ import { CodeCoverageApiV2 } from "@datadog/datadog-api-client-code-coverage";
 import { v2 } from "@datadog/datadog-api-client-code-coverage";
 
 const configuration = createConfiguration();
-// Enable unstable operations
-const configurationOpts = {
-    unstableOperations: {
-        "CodeCoverageApi.v2.getCodeCoverageBranchSummary": true
-    }
-}
-
-const configuration = createConfiguration(configurationOpts);
 const apiInstance = new CodeCoverageApiV2(configuration);
 const params = {/* parameters */};
 
