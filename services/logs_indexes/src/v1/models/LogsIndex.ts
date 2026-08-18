@@ -21,6 +21,11 @@ export class LogsIndex {
    */
   "dailyLimitWarningThresholdPercentage"?: number;
   /**
+   * A description of the index, to help explain its purpose or configuration to other users.
+   * Maximum length of 250 characters.
+   */
+  "description"?: string;
+  /**
    * An array of exclusion objects. The logs are tested against the query of each filter,
    * following the order of the array. Only the first matching active exclusion matters,
    * others (if any) are ignored.
@@ -83,6 +88,10 @@ export class LogsIndex {
       baseName: "daily_limit_warning_threshold_percentage",
       type: "number",
       format: "double",
+    },
+    description: {
+      baseName: "description",
+      type: "string",
     },
     exclusionFilters: {
       baseName: "exclusion_filters",
