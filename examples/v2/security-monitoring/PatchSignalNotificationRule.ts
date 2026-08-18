@@ -16,7 +16,7 @@ const params: v2.SecurityMonitoringApiPatchSignalNotificationRuleRequest = {
     data: {
       attributes: {
         enabled: true,
-        name: "Rule 1",
+        name: "Rule 9b1deb4d-3b7d-4bad-9bdd-2b0d7b3dcb6d",
         selectors: {
           query: "(source:production_service OR env:prod)",
           ruleTypes: ["misconfiguration", "attack_path"],
