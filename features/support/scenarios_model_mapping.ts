@@ -16727,6 +16727,10 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             "type": "string",
             "format": "",
             },
+        "filterSourceId": {
+            "type": "string",
+            "format": "",
+            },
         "sort": {
             "type": "string",
             "format": "",
