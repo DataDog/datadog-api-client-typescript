@@ -16,7 +16,6 @@ export {
   LLMObservabilityApiDeleteLLMObsAnnotationQueueInteractionsRequest,
   LLMObservabilityApiDeleteLLMObsAnnotationsRequest,
   LLMObservabilityApiDeleteLLMObsCustomEvalConfigRequest,
-  LLMObservabilityApiDeleteLLMObsDataRequest,
   LLMObservabilityApiDeleteLLMObsDatasetRecordsRequest,
   LLMObservabilityApiDeleteLLMObsDatasetsRequest,
   LLMObservabilityApiDeleteLLMObsExperimentsRequest,
@@ -172,14 +171,6 @@ export { LLMObsCustomEvalConfigUpdateData } from "./models/LLMObsCustomEvalConfi
 export { LLMObsCustomEvalConfigUpdateRequest } from "./models/LLMObsCustomEvalConfigUpdateRequest";
 export { LLMObsCustomEvalConfigUser } from "./models/LLMObsCustomEvalConfigUser";
 export { LLMObsCustomEvalConfigVertexAIOptions } from "./models/LLMObsCustomEvalConfigVertexAIOptions";
-export { LLMObsDataDeletionRequest } from "./models/LLMObsDataDeletionRequest";
-export { LLMObsDataDeletionRequestAttributes } from "./models/LLMObsDataDeletionRequestAttributes";
-export { LLMObsDataDeletionRequestData } from "./models/LLMObsDataDeletionRequestData";
-export { LLMObsDataDeletionRequestType } from "./models/LLMObsDataDeletionRequestType";
-export { LLMObsDataDeletionResponse } from "./models/LLMObsDataDeletionResponse";
-export { LLMObsDataDeletionResponseAttributes } from "./models/LLMObsDataDeletionResponseAttributes";
-export { LLMObsDataDeletionResponseData } from "./models/LLMObsDataDeletionResponseData";
-export { LLMObsDataDeletionResponseType } from "./models/LLMObsDataDeletionResponseType";
 export { LLMObsDatasetBatchUpdateDataAttributesRequest } from "./models/LLMObsDatasetBatchUpdateDataAttributesRequest";
 export { LLMObsDatasetBatchUpdateDataRequest } from "./models/LLMObsDatasetBatchUpdateDataRequest";
 export { LLMObsDatasetBatchUpdateInsertRecord } from "./models/LLMObsDatasetBatchUpdateInsertRecord";
