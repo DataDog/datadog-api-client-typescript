@@ -2556,6 +2556,13 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             },
         "operationResponseType": "{}",
     },
+    "v2.DeleteLLMObsData": {
+        "body": {
+            "type": "LLMObsDataDeletionRequest",
+            "format": "",
+            },
+        "operationResponseType": "LLMObsDataDeletionResponse",
+    },
     "v2.GetLLMObsAnnotatedInteractionsByTraceIDs": {
         "contentIds": {
             "type": "Array<string>",

@@ -38,6 +38,8 @@ import { LLMObsCreatePromptVersionRequest } from "../models/LLMObsCreatePromptVe
 import { LLMObsCustomEvalConfigListResponse } from "../models/LLMObsCustomEvalConfigListResponse";
 import { LLMObsCustomEvalConfigResponse } from "../models/LLMObsCustomEvalConfigResponse";
 import { LLMObsCustomEvalConfigUpdateRequest } from "../models/LLMObsCustomEvalConfigUpdateRequest";
+import { LLMObsDataDeletionRequest } from "../models/LLMObsDataDeletionRequest";
+import { LLMObsDataDeletionResponse } from "../models/LLMObsDataDeletionResponse";
 import { LLMObsDatasetBatchUpdateRequest } from "../models/LLMObsDatasetBatchUpdateRequest";
 import { LLMObsDatasetCloneRequest } from "../models/LLMObsDatasetCloneRequest";
 import { LLMObsDatasetDraftStateResponse } from "../models/LLMObsDatasetDraftStateResponse";
@@ -1045,6 +1047,52 @@ export class LLMObservabilityApiRequestFactory extends BaseAPIRequestFactory {
       .makeRequestContext(localVarPath, HttpMethod.DELETE);
     requestContext.setHeaderParam("Accept", "*/*");
     requestContext.setHttpConfig(_config.httpConfig);
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+    ]);
+
+    return requestContext;
+  }
+
+  public async deleteLLMObsData(
+    body: LLMObsDataDeletionRequest,
+    _options?: Configuration
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    logger.warn("Using unstable operation 'deleteLLMObsData'");
+    if (!_config.unstableOperations["v2.deleteLLMObsData"]) {
+      throw new Error("Unstable operation 'deleteLLMObsData' is disabled");
+    }
+
+    // verify required parameter 'body' is not null or undefined
+    if (body === null || body === undefined) {
+      throw new RequiredError("body", "deleteLLMObsData");
+    }
+
+    // Path Params
+    const localVarPath = "/api/v2/llm-obs/deletion/data/llmobs";
+
+    // Make Request Context
+    const requestContext = _config
+      .getServer("v2.LLMObservabilityApi.deleteLLMObsData")
+      .makeRequestContext(localVarPath, HttpMethod.POST);
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Body Params
+    const contentType = ObjectSerializer.getPreferredMediaType([
+      "application/json",
+    ]);
+    requestContext.setHeaderParam("Content-Type", contentType);
+    const serializedBody = ObjectSerializer.stringify(
+      ObjectSerializer.serialize(body, "LLMObsDataDeletionRequest", ""),
+      contentType
+    );
+    requestContext.setBody(serializedBody);
 
     // Apply auth methods
     applySecurityAuthentication(_config, requestContext, [
@@ -5513,6 +5561,91 @@ export class LLMObservabilityApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       return;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"'
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
+   * @params response Response returned by the server for a request to deleteLLMObsData
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async deleteLLMObsData(
+    response: ResponseContext
+  ): Promise<LLMObsDataDeletionResponse> {
+    const contentType = ObjectSerializer.normalizeMediaType(
+      response.headers["content-type"]
+    );
+    if (response.httpStatusCode === 202) {
+      const body: LLMObsDataDeletionResponse = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "LLMObsDataDeletionResponse"
+      ) as LLMObsDataDeletionResponse;
+      return body;
+    }
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 401 ||
+      response.httpStatusCode === 403
+    ) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: JSONAPIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "JSONAPIErrorResponse"
+        ) as JSONAPIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<JSONAPIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<JSONAPIErrorResponse>(
+        response.httpStatusCode,
+        body
+      );
+    }
+    if (response.httpStatusCode === 429) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: APIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "APIErrorResponse"
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: LLMObsDataDeletionResponse = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "LLMObsDataDeletionResponse",
+        ""
+      ) as LLMObsDataDeletionResponse;
+      return body;
     }
 
     const body = (await response.body.text()) || "";
@@ -10401,6 +10534,14 @@ export interface LLMObservabilityApiDeleteLLMObsCustomEvalConfigRequest {
   evalName: string;
 }
 
+export interface LLMObservabilityApiDeleteLLMObsDataRequest {
+  /**
+   * Data deletion request payload.
+   * @type LLMObsDataDeletionRequest
+   */
+  body: LLMObsDataDeletionRequest;
+}
+
 export interface LLMObservabilityApiDeleteLLMObsDatasetRecordsRequest {
   /**
    * The ID of the LLM Observability project.
@@ -11626,6 +11767,27 @@ export class LLMObservabilityApi {
           return this.responseProcessor.deleteLLMObsCustomEvalConfig(
             responseContext
           );
+        });
+    });
+  }
+
+  /**
+   * Submit a request to delete LLM Observability span data matching a trace ID filter within a specified time range.
+   * @param param The request object
+   */
+  public deleteLLMObsData(
+    param: LLMObservabilityApiDeleteLLMObsDataRequest,
+    options?: Configuration
+  ): Promise<LLMObsDataDeletionResponse> {
+    const requestContextPromise = this.requestFactory.deleteLLMObsData(
+      param.body,
+      options
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.deleteLLMObsData(responseContext);
         });
     });
   }

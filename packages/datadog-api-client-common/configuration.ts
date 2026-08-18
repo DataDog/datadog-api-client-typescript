@@ -245,6 +245,7 @@ export function createConfiguration(
       "v2.deleteLLMObsAnnotationQueueInteractions": false,
       "v2.deleteLLMObsAnnotations": false,
       "v2.deleteLLMObsCustomEvalConfig": false,
+      "v2.deleteLLMObsData": false,
       "v2.deleteLLMObsDatasetRecords": false,
       "v2.deleteLLMObsDatasets": false,
       "v2.deleteLLMObsExperiments": false,
