@@ -2252,6 +2252,7 @@ export class FeatureFlagsApiResponseProcessor {
       response.httpStatusCode === 400 ||
       response.httpStatusCode === 403 ||
       response.httpStatusCode === 404 ||
+      response.httpStatusCode === 409 ||
       response.httpStatusCode === 429
     ) {
       const bodyText = parse(await response.body.text(), contentType);
