@@ -8849,6 +8849,39 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             },
         "operationResponseType": "DashboardListDeleteItemsResponse",
     },
+    "v2.ValidateDashboardWidgets": {
+        "body": {
+            "type": "DashboardWidgetValidationRequest",
+            "format": "",
+            },
+        "operationResponseType": "DashboardWidgetValidationResponse",
+    },
+    "v2.ListDashboardsUsage": {
+        "pageLimit": {
+            "type": "number",
+            "format": "int64",
+            },
+        "pageOffset": {
+            "type": "number",
+            "format": "int64",
+            },
+        "filterEditedBefore": {
+            "type": "string",
+            "format": "",
+            },
+        "filterViewedBefore": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "ListDashboardsUsageResponse",
+    },
+    "v2.GetDashboardUsage": {
+        "dashboardId": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "DashboardUsageResponse",
+    },
     "v2.ListSharedDashboardsByDashboardId": {
         "dashboardId": {
             "type": "string",
@@ -8903,32 +8936,6 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             "format": "",
             },
         "operationResponseType": "SecureEmbedUpdateResponse",
-    },
-    "v2.ListDashboardsUsage": {
-        "pageLimit": {
-            "type": "number",
-            "format": "int64",
-            },
-        "pageOffset": {
-            "type": "number",
-            "format": "int64",
-            },
-        "filterEditedBefore": {
-            "type": "string",
-            "format": "",
-            },
-        "filterViewedBefore": {
-            "type": "string",
-            "format": "",
-            },
-        "operationResponseType": "ListDashboardsUsageResponse",
-    },
-    "v2.GetDashboardUsage": {
-        "dashboardId": {
-            "type": "string",
-            "format": "",
-            },
-        "operationResponseType": "DashboardUsageResponse",
     },
     "v2.GetDataObservabilityMonitorRunStatus": {
         "runId": {

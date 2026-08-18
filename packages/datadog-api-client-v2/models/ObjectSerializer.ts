@@ -1334,6 +1334,9 @@ import { DashboardUsage } from "./DashboardUsage";
 import { DashboardUsageAttributes } from "./DashboardUsageAttributes";
 import { DashboardUsageResponse } from "./DashboardUsageResponse";
 import { DashboardUsageUser } from "./DashboardUsageUser";
+import { DashboardWidgetValidationRequest } from "./DashboardWidgetValidationRequest";
+import { DashboardWidgetValidationResponse } from "./DashboardWidgetValidationResponse";
+import { DashboardWidgetValidationResult } from "./DashboardWidgetValidationResult";
 import { DataAttributesRulesItemsMapping } from "./DataAttributesRulesItemsMapping";
 import { DataDeletionResponseItem } from "./DataDeletionResponseItem";
 import { DataDeletionResponseItemAttributes } from "./DataDeletionResponseItemAttributes";
@@ -6373,6 +6376,8 @@ const enumsMap: { [key: string]: any[] } = {
     "host_timeboard",
   ],
   DashboardUsageType: ["dashboards-usages"],
+  DashboardWidgetValidationLayoutType: ["ordered", "free"],
+  DashboardWidgetValidationReflowType: ["auto", "fixed"],
   DataAttributesRulesItemsIfTagExists: ["append", "do_not_apply", "replace"],
   DataObservabilityMonitorRunStatus: [
     "pending",
@@ -10386,6 +10391,9 @@ const typeMap: { [index: string]: any } = {
   DashboardUsageAttributes: DashboardUsageAttributes,
   DashboardUsageResponse: DashboardUsageResponse,
   DashboardUsageUser: DashboardUsageUser,
+  DashboardWidgetValidationRequest: DashboardWidgetValidationRequest,
+  DashboardWidgetValidationResponse: DashboardWidgetValidationResponse,
+  DashboardWidgetValidationResult: DashboardWidgetValidationResult,
   DataAttributesRulesItemsMapping: DataAttributesRulesItemsMapping,
   DataDeletionResponseItem: DataDeletionResponseItem,
   DataDeletionResponseItemAttributes: DataDeletionResponseItemAttributes,
