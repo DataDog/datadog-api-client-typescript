@@ -26,6 +26,11 @@ export class LogsIndexUpdateRequest {
    */
   "dailyLimitWarningThresholdPercentage"?: number;
   /**
+   * A description of the index, to help explain its purpose or configuration to other users.
+   * Maximum length of 250 characters.
+   */
+  "description"?: string;
+  /**
    * If true, sets the `daily_limit` value to null and the index is not limited on a daily basis (any
    * specified `daily_limit` value in the request is ignored). If false or omitted, the index's current
    * `daily_limit` is maintained.
@@ -91,6 +96,10 @@ export class LogsIndexUpdateRequest {
       baseName: "daily_limit_warning_threshold_percentage",
       type: "number",
       format: "double",
+    },
+    description: {
+      baseName: "description",
+      type: "string",
     },
     disableDailyLimit: {
       baseName: "disable_daily_limit",
