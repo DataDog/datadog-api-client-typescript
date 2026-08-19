@@ -4226,6 +4226,17 @@ import { RumConfigUpdateRequest } from "./RumConfigUpdateRequest";
 import { RumCrossProductSampling } from "./RumCrossProductSampling";
 import { RumCrossProductSamplingCreate } from "./RumCrossProductSamplingCreate";
 import { RumCrossProductSamplingUpdate } from "./RumCrossProductSamplingUpdate";
+import { RumExclusionFilterAttributes } from "./RumExclusionFilterAttributes";
+import { RumExclusionFilterCreateAttributes } from "./RumExclusionFilterCreateAttributes";
+import { RumExclusionFilterCreateData } from "./RumExclusionFilterCreateData";
+import { RumExclusionFilterCreateRequest } from "./RumExclusionFilterCreateRequest";
+import { RumExclusionFilterData } from "./RumExclusionFilterData";
+import { RumExclusionFilterMeta } from "./RumExclusionFilterMeta";
+import { RumExclusionFilterResponse } from "./RumExclusionFilterResponse";
+import { RumExclusionFilterUpdateAttributes } from "./RumExclusionFilterUpdateAttributes";
+import { RumExclusionFilterUpdateData } from "./RumExclusionFilterUpdateData";
+import { RumExclusionFilterUpdateRequest } from "./RumExclusionFilterUpdateRequest";
+import { RumExclusionFiltersResponse } from "./RumExclusionFiltersResponse";
 import { RumMetricCompute } from "./RumMetricCompute";
 import { RumMetricCreateAttributes } from "./RumMetricCreateAttributes";
 import { RumMetricCreateData } from "./RumMetricCreateData";
@@ -7869,6 +7880,16 @@ const enumsMap: { [key: string]: any[] } = {
   RulesetRespDataType: ["ruleset"],
   RulesetStatusRespDataType: ["ruleset_status"],
   RumConfigType: ["rum_config"],
+  RumExclusionFilterEventType: [
+    "session",
+    "view",
+    "action",
+    "error",
+    "resource",
+    "long_task",
+    "vital",
+  ],
+  RumExclusionFilterType: ["exclusion_filters"],
   RumMetricComputeAggregationType: ["count", "distribution"],
   RumMetricEventType: [
     "session",
@@ -13889,6 +13910,17 @@ const typeMap: { [index: string]: any } = {
   RumCrossProductSampling: RumCrossProductSampling,
   RumCrossProductSamplingCreate: RumCrossProductSamplingCreate,
   RumCrossProductSamplingUpdate: RumCrossProductSamplingUpdate,
+  RumExclusionFilterAttributes: RumExclusionFilterAttributes,
+  RumExclusionFilterCreateAttributes: RumExclusionFilterCreateAttributes,
+  RumExclusionFilterCreateData: RumExclusionFilterCreateData,
+  RumExclusionFilterCreateRequest: RumExclusionFilterCreateRequest,
+  RumExclusionFilterData: RumExclusionFilterData,
+  RumExclusionFilterMeta: RumExclusionFilterMeta,
+  RumExclusionFilterResponse: RumExclusionFilterResponse,
+  RumExclusionFilterUpdateAttributes: RumExclusionFilterUpdateAttributes,
+  RumExclusionFilterUpdateData: RumExclusionFilterUpdateData,
+  RumExclusionFilterUpdateRequest: RumExclusionFilterUpdateRequest,
+  RumExclusionFiltersResponse: RumExclusionFiltersResponse,
   RumMetricCompute: RumMetricCompute,
   RumMetricCreateAttributes: RumMetricCreateAttributes,
   RumMetricCreateData: RumMetricCreateData,
