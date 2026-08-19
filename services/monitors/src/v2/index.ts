@@ -35,6 +35,7 @@ export { MonitorConfigPolicyTagPolicy } from "./models/MonitorConfigPolicyTagPol
 export { MonitorConfigPolicyTagPolicyCreateRequest } from "./models/MonitorConfigPolicyTagPolicyCreateRequest";
 export { MonitorConfigPolicyType } from "./models/MonitorConfigPolicyType";
 export { MonitorNotificationRuleAttributes } from "./models/MonitorNotificationRuleAttributes";
+export { MonitorNotificationRuleBundleConfig } from "./models/MonitorNotificationRuleBundleConfig";
 export { MonitorNotificationRuleCondition } from "./models/MonitorNotificationRuleCondition";
 export { MonitorNotificationRuleConditionalRecipients } from "./models/MonitorNotificationRuleConditionalRecipients";
 export { MonitorNotificationRuleCreateRequest } from "./models/MonitorNotificationRuleCreateRequest";
