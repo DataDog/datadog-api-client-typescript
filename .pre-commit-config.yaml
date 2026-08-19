@@ -6,12 +6,12 @@ repos:
         language: system
         entry: bash -c "./generate.sh"
         files: '^(\.generator/.*|\.pre-commit-config\.yaml|package\.json|yarn\.lock|\.eslintrc\.js|Makefile|\features/.*|packages/.*)'
+        stages: [manual]
         pass_filenames: false
       - id: lint
         name: Lint
         language: node
         entry: yarn run lint:fix
-        stages: [manual]
         pass_filenames: false
         language_version: "21.7.3"
         # pre-commit 4.6.1+ requires a `language: node` local hook to install
@@ -22,7 +22,6 @@ repos:
         name: Lint examples
         language: node
         entry: yarn run lint:fix-examples
-        stages: [manual]
         pass_filenames: false
         language_version: "21.7.3"
         additional_dependencies:
