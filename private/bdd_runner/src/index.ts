@@ -268,6 +268,21 @@ async function main(): Promise<ICliRunResult> {
   if (options.workingDir) {
     cwd = options.workingDir;
   }
+  const generatedTestRoot = path.resolve(cwd, "features", "generated-test");
+  const generatedTestServer = path.resolve(generatedTestRoot, "test-server");
+  if (
+    (process.env.DD_USE_GENERATED_TESTS || "false").toLowerCase() === "true" &&
+    (process.env.RECORD || "false") === "false" &&
+    fs.existsSync(generatedTestServer)
+  ) {
+    const port = process.env.DD_TEST_SERVER_PORT || "18083";
+    process.env.DD_TEST_RUNNER_DATA ||= path.resolve(
+      generatedTestRoot,
+      "test-runner-data",
+    );
+    process.env.DD_TEST_SERVER_URL ||= `http://127.0.0.1:${port}`;
+    process.env.DD_TEST_SERVER_EXECUTABLE ||= generatedTestServer;
+  }
   let worldParameters = {};
   worldParameters["workingDir"] = cwd;
   worldParameters["cassettesDir"] =
@@ -288,16 +303,17 @@ async function main(): Promise<ICliRunResult> {
   // Handle additional givens and undo actions
   // These are special and need to be loaded in seperately outside of the
   // World constructor so we cannot rely on passing them in the worldParameters.
+  const featureDataRoot = path.resolve(cwd, "features");
   const additionalGivens =
     options.additionalGivens ||
     JSON.stringify({
-      v1: path.resolve(cwd, "features/v1/given.json"),
-      v2: path.resolve(cwd, "features/v2/given.json"),
+      v1: path.resolve(featureDataRoot, "v1/given.json"),
+      v2: path.resolve(featureDataRoot, "v2/given.json"),
     });
 
   const undoActions = JSON.stringify({
-    v1: path.resolve(cwd, "features/v1/undo.json"),
-    v2: path.resolve(cwd, "features/v2/undo.json"),
+    v1: path.resolve(featureDataRoot, "v1/undo.json"),
+    v2: path.resolve(featureDataRoot, "v2/undo.json"),
   });
 
   if (additionalGivens.length > 0) {

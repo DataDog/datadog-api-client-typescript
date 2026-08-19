@@ -9,6 +9,7 @@ import { UndoActions, buildUndoFor } from "./undo";
 import * as datadogCommon from "@datadog/datadog-api-client";
 import { deserializeOpts } from "./deserialize_opts";
 import { apiTypes } from "./api_info";
+import { testServerFetch } from "./test_runner";
 
 interface IOperationParameter {
   name: string;
@@ -48,6 +49,7 @@ for (const [apiVersion, givenFile] of Object.entries(
         zstdCompressorCallback: (body: string) =>
           compressSync({ input: Buffer.from(body, "utf8") }),
         enableRetry: true,
+        fetch: testServerFetch(this.testServerSession),
       };
       if (process.env.DD_TEST_SITE) {
         const server = datadogCommon.servers[2];
@@ -64,6 +66,13 @@ for (const [apiVersion, givenFile] of Object.entries(
           protocol: "http",
         } as typeof serverConf);
         (configurationOpts as any)["serverIndex"] = 1;
+      }
+      if (process.env.DD_TEST_SERVER_URL) {
+        (configurationOpts as any)["baseServer"] =
+          new datadogCommon.BaseServerConfiguration(
+            process.env.DD_TEST_SERVER_URL,
+            {},
+          );
       }
       const configuration =
         datadogCommon.createConfiguration(configurationOpts);
@@ -136,6 +145,7 @@ for (const [apiVersion, givenFile] of Object.entries(
             opts,
             this.servicesDir,
             this.pathParameters,
+            this.testServerSession,
           ),
         );
       }
