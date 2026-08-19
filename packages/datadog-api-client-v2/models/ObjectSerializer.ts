@@ -4266,6 +4266,14 @@ import { RumRetentionFiltersOrderData } from "./RumRetentionFiltersOrderData";
 import { RumRetentionFiltersOrderRequest } from "./RumRetentionFiltersOrderRequest";
 import { RumRetentionFiltersOrderResponse } from "./RumRetentionFiltersOrderResponse";
 import { RumRetentionFiltersResponse } from "./RumRetentionFiltersResponse";
+import { RumRetentionQuotaAdaptiveConfig } from "./RumRetentionQuotaAdaptiveConfig";
+import { RumRetentionQuotaConfigAttributes } from "./RumRetentionQuotaConfigAttributes";
+import { RumRetentionQuotaConfigData } from "./RumRetentionQuotaConfigData";
+import { RumRetentionQuotaConfigResponse } from "./RumRetentionQuotaConfigResponse";
+import { RumRetentionQuotaConfigUpdateAttributes } from "./RumRetentionQuotaConfigUpdateAttributes";
+import { RumRetentionQuotaConfigUpdateData } from "./RumRetentionQuotaConfigUpdateData";
+import { RumRetentionQuotaConfigUpdateRequest } from "./RumRetentionQuotaConfigUpdateRequest";
+import { RumRetentionQuotaCustomConfig } from "./RumRetentionQuotaCustomConfig";
 import { RumSdkConfigAttributes } from "./RumSdkConfigAttributes";
 import { RumSdkConfigData } from "./RumSdkConfigData";
 import { RumSdkConfigDynamicOption } from "./RumSdkConfigDynamicOption";
@@ -7897,6 +7905,11 @@ const enumsMap: { [key: string]: any[] } = {
     "vital",
   ],
   RumRetentionFilterType: ["retention_filters"],
+  RumRetentionQuotaConfigType: ["rum_quota_config"],
+  RumRetentionQuotaMode: ["custom", "adaptive"],
+  RumRetentionQuotaReachedAction: ["stop", "slowdown"],
+  RumRetentionQuotaScopeType: ["application"],
+  RumRetentionQuotaWindowType: ["daily"],
   RumSdkConfigDynamicOptionSerializedType: ["dynamic"],
   RumSdkConfigDynamicOptionStrategy: ["js", "cookie", "dom", "localStorage"],
   RumSdkConfigMatchOptionSerializedType: ["string", "regex"],
@@ -13932,6 +13945,15 @@ const typeMap: { [index: string]: any } = {
   RumRetentionFiltersOrderRequest: RumRetentionFiltersOrderRequest,
   RumRetentionFiltersOrderResponse: RumRetentionFiltersOrderResponse,
   RumRetentionFiltersResponse: RumRetentionFiltersResponse,
+  RumRetentionQuotaAdaptiveConfig: RumRetentionQuotaAdaptiveConfig,
+  RumRetentionQuotaConfigAttributes: RumRetentionQuotaConfigAttributes,
+  RumRetentionQuotaConfigData: RumRetentionQuotaConfigData,
+  RumRetentionQuotaConfigResponse: RumRetentionQuotaConfigResponse,
+  RumRetentionQuotaConfigUpdateAttributes:
+    RumRetentionQuotaConfigUpdateAttributes,
+  RumRetentionQuotaConfigUpdateData: RumRetentionQuotaConfigUpdateData,
+  RumRetentionQuotaConfigUpdateRequest: RumRetentionQuotaConfigUpdateRequest,
+  RumRetentionQuotaCustomConfig: RumRetentionQuotaCustomConfig,
   RumSdkConfigAttributes: RumSdkConfigAttributes,
   RumSdkConfigData: RumSdkConfigData,
   RumSdkConfigDynamicOption: RumSdkConfigDynamicOption,

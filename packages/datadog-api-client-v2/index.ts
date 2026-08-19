@@ -1267,6 +1267,13 @@ export {
 } from "./apis/RUMRemoteConfigApi";
 
 export {
+  RUMRetentionQuotaApiDeleteRumQuotaConfigRequest,
+  RUMRetentionQuotaApiGetRumQuotaConfigRequest,
+  RUMRetentionQuotaApiUpsertRumQuotaConfigRequest,
+  RUMRetentionQuotaApi,
+} from "./apis/RUMRetentionQuotaApi";
+
+export {
   ReferenceTablesApiBatchRowsQueryRequest,
   ReferenceTablesApiCreateReferenceTableRequest,
   ReferenceTablesApiCreateReferenceTableUploadRequest,
@@ -7413,6 +7420,19 @@ export { RumRetentionFilterType } from "./models/RumRetentionFilterType";
 export { RumRetentionFilterUpdateAttributes } from "./models/RumRetentionFilterUpdateAttributes";
 export { RumRetentionFilterUpdateData } from "./models/RumRetentionFilterUpdateData";
 export { RumRetentionFilterUpdateRequest } from "./models/RumRetentionFilterUpdateRequest";
+export { RumRetentionQuotaAdaptiveConfig } from "./models/RumRetentionQuotaAdaptiveConfig";
+export { RumRetentionQuotaConfigAttributes } from "./models/RumRetentionQuotaConfigAttributes";
+export { RumRetentionQuotaConfigData } from "./models/RumRetentionQuotaConfigData";
+export { RumRetentionQuotaConfigResponse } from "./models/RumRetentionQuotaConfigResponse";
+export { RumRetentionQuotaConfigType } from "./models/RumRetentionQuotaConfigType";
+export { RumRetentionQuotaConfigUpdateAttributes } from "./models/RumRetentionQuotaConfigUpdateAttributes";
+export { RumRetentionQuotaConfigUpdateData } from "./models/RumRetentionQuotaConfigUpdateData";
+export { RumRetentionQuotaConfigUpdateRequest } from "./models/RumRetentionQuotaConfigUpdateRequest";
+export { RumRetentionQuotaCustomConfig } from "./models/RumRetentionQuotaCustomConfig";
+export { RumRetentionQuotaMode } from "./models/RumRetentionQuotaMode";
+export { RumRetentionQuotaReachedAction } from "./models/RumRetentionQuotaReachedAction";
+export { RumRetentionQuotaScopeType } from "./models/RumRetentionQuotaScopeType";
+export { RumRetentionQuotaWindowType } from "./models/RumRetentionQuotaWindowType";
 export { RumSdkConfigAttributes } from "./models/RumSdkConfigAttributes";
 export { RumSdkConfigData } from "./models/RumSdkConfigData";
 export { RumSdkConfigDynamicOption } from "./models/RumSdkConfigDynamicOption";
