@@ -19,6 +19,11 @@ export class ActionConnectionAttributesUpdate {
    * Name of the connection
    */
   "name"?: string;
+  /**
+   * Tags associated with the connection. Each tag must follow the `key:value` format.
+   * The `default` tag key is reserved.
+   */
+  "tags"?: Array<string>;
 
   /**
    * A container for additional, undeclared properties.
@@ -43,6 +48,10 @@ export class ActionConnectionAttributesUpdate {
     name: {
       baseName: "name",
       type: "string",
+    },
+    tags: {
+      baseName: "tags",
+      type: "Array<string>",
     },
     additionalProperties: {
       baseName: "additionalProperties",

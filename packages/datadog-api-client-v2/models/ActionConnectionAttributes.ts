@@ -19,6 +19,11 @@ export class ActionConnectionAttributes {
    * Name of the connection
    */
   "name": string;
+  /**
+   * Tags associated with the connection. Each tag must follow the `key:value` format.
+   * The `default` tag key is reserved.
+   */
+  "tags"?: Array<string>;
 
   /**
    * A container for additional, undeclared properties.
@@ -45,6 +50,10 @@ export class ActionConnectionAttributes {
       baseName: "name",
       type: "string",
       required: true,
+    },
+    tags: {
+      baseName: "tags",
+      type: "Array<string>",
     },
     additionalProperties: {
       baseName: "additionalProperties",
