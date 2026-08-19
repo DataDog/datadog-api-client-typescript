@@ -401,6 +401,7 @@ apiInstance
 | Entity Risk Scores | @datadog/datadog-api-client-entity-risk-scores | [README.md](../../services/entity-risk-scores/README.md) |
 | Error Tracking | @datadog/datadog-api-client-error-tracking | [README.md](../../services/error-tracking/README.md) |
 | Events | @datadog/datadog-api-client-events | [README.md](../../services/events/README.md) |
+| Execution Policy | @datadog/datadog-api-client-execution-policy | [README.md](../../services/execution-policy/README.md) |
 | Fastly Integration | @datadog/datadog-api-client-fastly-integration | [README.md](../../services/fastly-integration/README.md) |
 | Feature Flags | @datadog/datadog-api-client-feature-flags | [README.md](../../services/feature-flags/README.md) |
 | Fleet Automation | @datadog/datadog-api-client-fleet-automation | [README.md](../../services/fleet-automation/README.md) |
