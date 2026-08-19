@@ -9982,6 +9982,96 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             },
         "operationResponseType": "GovernanceNotificationSettingsResponse",
     },
+    "v2.ListTagRules": {
+        "includeDisabled": {
+            "type": "boolean",
+            "format": "",
+            },
+        "includeDeleted": {
+            "type": "boolean",
+            "format": "",
+            },
+        "include": {
+            "type": "TagRuleInclude",
+            "format": "",
+            },
+        "filterSource": {
+            "type": "TagRuleSource",
+            "format": "",
+            },
+        "tsStart": {
+            "type": "number",
+            "format": "int64",
+            },
+        "tsEnd": {
+            "type": "number",
+            "format": "int64",
+            },
+        "operationResponseType": "TagRulesListResponse",
+    },
+    "v2.CreateTagRule": {
+        "body": {
+            "type": "TagRuleCreateRequest",
+            "format": "",
+            },
+        "operationResponseType": "TagRuleResponse",
+    },
+    "v2.GetTagRule": {
+        "ruleId": {
+            "type": "string",
+            "format": "",
+            },
+        "include": {
+            "type": "TagRuleInclude",
+            "format": "",
+            },
+        "tsStart": {
+            "type": "number",
+            "format": "int64",
+            },
+        "tsEnd": {
+            "type": "number",
+            "format": "int64",
+            },
+        "operationResponseType": "TagRuleResponse",
+    },
+    "v2.DeleteTagRule": {
+        "ruleId": {
+            "type": "string",
+            "format": "",
+            },
+        "hardDelete": {
+            "type": "boolean",
+            "format": "",
+            },
+        "operationResponseType": "{}",
+    },
+    "v2.UpdateTagRule": {
+        "ruleId": {
+            "type": "string",
+            "format": "",
+            },
+        "body": {
+            "type": "TagRuleUpdateRequest",
+            "format": "",
+            },
+        "operationResponseType": "TagRuleResponse",
+    },
+    "v2.GetTagRuleScore": {
+        "ruleId": {
+            "type": "string",
+            "format": "",
+            },
+        "tsStart": {
+            "type": "number",
+            "format": "int64",
+            },
+        "tsEnd": {
+            "type": "number",
+            "format": "int64",
+            },
+        "operationResponseType": "TagRuleScoreResponse",
+    },
     "v2.GetHamrOrgConnection": {
         "operationResponseType": "HamrOrgConnectionResponse",
     },
@@ -17710,96 +17800,6 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             "format": "",
             },
         "operationResponseType": "GlobalVariableResponse",
-    },
-    "v2.ListTagPolicies": {
-        "includeDisabled": {
-            "type": "boolean",
-            "format": "",
-            },
-        "includeDeleted": {
-            "type": "boolean",
-            "format": "",
-            },
-        "include": {
-            "type": "TagPolicyInclude",
-            "format": "",
-            },
-        "filterSource": {
-            "type": "TagPolicySource",
-            "format": "",
-            },
-        "tsStart": {
-            "type": "number",
-            "format": "int64",
-            },
-        "tsEnd": {
-            "type": "number",
-            "format": "int64",
-            },
-        "operationResponseType": "TagPoliciesListResponse",
-    },
-    "v2.CreateTagPolicy": {
-        "body": {
-            "type": "TagPolicyCreateRequest",
-            "format": "",
-            },
-        "operationResponseType": "TagPolicyResponse",
-    },
-    "v2.GetTagPolicy": {
-        "policyId": {
-            "type": "string",
-            "format": "",
-            },
-        "include": {
-            "type": "TagPolicyInclude",
-            "format": "",
-            },
-        "tsStart": {
-            "type": "number",
-            "format": "int64",
-            },
-        "tsEnd": {
-            "type": "number",
-            "format": "int64",
-            },
-        "operationResponseType": "TagPolicyResponse",
-    },
-    "v2.DeleteTagPolicy": {
-        "policyId": {
-            "type": "string",
-            "format": "",
-            },
-        "hardDelete": {
-            "type": "boolean",
-            "format": "",
-            },
-        "operationResponseType": "{}",
-    },
-    "v2.UpdateTagPolicy": {
-        "policyId": {
-            "type": "string",
-            "format": "",
-            },
-        "body": {
-            "type": "TagPolicyUpdateRequest",
-            "format": "",
-            },
-        "operationResponseType": "TagPolicyResponse",
-    },
-    "v2.GetTagPolicyScore": {
-        "policyId": {
-            "type": "string",
-            "format": "",
-            },
-        "tsStart": {
-            "type": "number",
-            "format": "int64",
-            },
-        "tsEnd": {
-            "type": "number",
-            "format": "int64",
-            },
-        "operationResponseType": "TagPolicyScoreResponse",
     },
     "v2.ListTeams": {
         "pageNumber": {

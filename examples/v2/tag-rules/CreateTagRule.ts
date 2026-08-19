@@ -1,0 +1,37 @@
+/**
+ * Create a tag rule returns "Created" response
+ */
+
+import { client, v2 } from "@datadog/datadog-api-client";
+
+const configuration = client.createConfiguration();
+configuration.unstableOperations["v2.createTagRule"] = true;
+const apiInstance = new v2.TagRulesApi(configuration);
+
+const params: v2.TagRulesApiCreateTagRuleRequest = {
+  body: {
+    data: {
+      attributes: {
+        enabled: true,
+        name: "Service tag must be one of api or web",
+        negated: false,
+        required: true,
+        ruleType: "surfacing",
+        scope: "env",
+        source: "logs",
+        tagKey: "service",
+        tagValuePatterns: ["api", "web"],
+      },
+      type: "tag_rule",
+    },
+  },
+};
+
+apiInstance
+  .createTagRule(params)
+  .then((data: v2.TagRuleResponse) => {
+    console.log(
+      "API called successfully. Returned data: " + JSON.stringify(data)
+    );
+  })
+  .catch((error: any) => console.error(error));
