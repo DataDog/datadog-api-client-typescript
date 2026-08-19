@@ -3,6 +3,7 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
+import { MonitorNotificationRuleBundleConfig } from "./MonitorNotificationRuleBundleConfig";
 import { MonitorNotificationRuleConditionalRecipients } from "./MonitorNotificationRuleConditionalRecipients";
 import { MonitorNotificationRuleFilter } from "./MonitorNotificationRuleFilter";
 
@@ -12,6 +13,11 @@ import { AttributeTypeMap } from "../../datadog-api-client-common/util";
  * Attributes of the monitor notification rule.
  */
 export class MonitorNotificationRuleResponseAttributes {
+  /**
+   * Use bundle config to enable alert bundling to reduce monitor signal noises. **Note**: This feature is in preview and is subject to change.
+   * If you have any feedback, contact [Datadog support](https://docs.datadoghq.com/help/).
+   */
+  "bundleConfig"?: MonitorNotificationRuleBundleConfig;
   /**
    * Use conditional recipients to define different recipients for different situations. Cannot be used with `recipients`.
    */
@@ -53,6 +59,10 @@ export class MonitorNotificationRuleResponseAttributes {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
+    bundleConfig: {
+      baseName: "bundle_config",
+      type: "MonitorNotificationRuleBundleConfig",
+    },
     conditionalRecipients: {
       baseName: "conditional_recipients",
       type: "MonitorNotificationRuleConditionalRecipients",

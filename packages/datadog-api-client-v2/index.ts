@@ -5954,6 +5954,7 @@ export { MonitorDowntimeMatchResponse } from "./models/MonitorDowntimeMatchRespo
 export { MonitorDowntimeMatchResponseAttributes } from "./models/MonitorDowntimeMatchResponseAttributes";
 export { MonitorDowntimeMatchResponseData } from "./models/MonitorDowntimeMatchResponseData";
 export { MonitorNotificationRuleAttributes } from "./models/MonitorNotificationRuleAttributes";
+export { MonitorNotificationRuleBundleConfig } from "./models/MonitorNotificationRuleBundleConfig";
 export { MonitorNotificationRuleCondition } from "./models/MonitorNotificationRuleCondition";
 export { MonitorNotificationRuleConditionalRecipients } from "./models/MonitorNotificationRuleConditionalRecipients";
 export { MonitorNotificationRuleCreateRequest } from "./models/MonitorNotificationRuleCreateRequest";

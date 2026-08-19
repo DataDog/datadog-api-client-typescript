@@ -3207,6 +3207,7 @@ import { MonitorDowntimeMatchResponse } from "./MonitorDowntimeMatchResponse";
 import { MonitorDowntimeMatchResponseAttributes } from "./MonitorDowntimeMatchResponseAttributes";
 import { MonitorDowntimeMatchResponseData } from "./MonitorDowntimeMatchResponseData";
 import { MonitorNotificationRuleAttributes } from "./MonitorNotificationRuleAttributes";
+import { MonitorNotificationRuleBundleConfig } from "./MonitorNotificationRuleBundleConfig";
 import { MonitorNotificationRuleCondition } from "./MonitorNotificationRuleCondition";
 import { MonitorNotificationRuleConditionalRecipients } from "./MonitorNotificationRuleConditionalRecipients";
 import { MonitorNotificationRuleCreateRequest } from "./MonitorNotificationRuleCreateRequest";
@@ -12604,6 +12605,7 @@ const typeMap: { [index: string]: any } = {
     MonitorDowntimeMatchResponseAttributes,
   MonitorDowntimeMatchResponseData: MonitorDowntimeMatchResponseData,
   MonitorNotificationRuleAttributes: MonitorNotificationRuleAttributes,
+  MonitorNotificationRuleBundleConfig: MonitorNotificationRuleBundleConfig,
   MonitorNotificationRuleCondition: MonitorNotificationRuleCondition,
   MonitorNotificationRuleConditionalRecipients:
     MonitorNotificationRuleConditionalRecipients,
