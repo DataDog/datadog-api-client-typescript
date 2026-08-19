@@ -498,6 +498,7 @@ export const TypingInfo: ModelTypingInfo = {
     ObservabilityPipelineSocketSourceType: ["socket"],
     ObservabilityPipelineSplitArrayProcessorType: ["split_array"],
     ObservabilityPipelineSplunkHecDestinationEncoding: ["json", "raw_message"],
+    ObservabilityPipelineSplunkHecDestinationEndpointTarget: ["event", "raw"],
     ObservabilityPipelineSplunkHecDestinationTokenStrategy: [
       "custom",
       "from_source",
