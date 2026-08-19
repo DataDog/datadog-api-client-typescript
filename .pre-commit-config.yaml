@@ -5,12 +5,12 @@ repos:
         name: Generate
         language: system
         entry: bash -c "./generate.sh"
+        stages: [manual]
         pass_filenames: false
       - id: lint
         name: Lint
         language: node
         entry: bash -c "COREPACK_ENABLE_DOWNLOAD_PROMPT=0 corepack enable && yarn install --no-immutable && yarn lint:fix"
-        stages: [manual]
         pass_filenames: false
         language_version: "22.15.0"
         # pre-commit 4.6.1+ requires a `language: node` local hook to install
@@ -21,7 +21,6 @@ repos:
         name: Format code
         language: node
         entry: bash -c "COREPACK_ENABLE_DOWNLOAD_PROMPT=0 corepack enable && yarn install --no-immutable && yarn format"
-        stages: [manual]
         pass_filenames: false
         language_version: "22.15.0"
         additional_dependencies:
