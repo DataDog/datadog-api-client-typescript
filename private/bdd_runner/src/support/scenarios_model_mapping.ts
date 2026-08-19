@@ -3564,6 +3564,73 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
     },
     operationResponseType: "UpdateActionConnectionResponse",
   },
+  "ExecutionPolicyApi.V2.ListExecutionPolicies": {
+    pageSize: {
+      type: "number",
+      format: "int32",
+    },
+    pageNumber: {
+      type: "number",
+      format: "int32",
+    },
+    filterName: {
+      type: "string",
+      format: "",
+    },
+    filterIds: {
+      type: "Array<string>",
+      format: "",
+    },
+    filterIntegration: {
+      type: "Array<ExecutionPolicyIntegration>",
+      format: "",
+    },
+    filterEffects: {
+      type: "Array<ExecutionPolicyEffect>",
+      format: "",
+    },
+    filterCreatorIds: {
+      type: "Array<string>",
+      format: "",
+    },
+    sort: {
+      type: "Array<string>",
+      format: "",
+    },
+    operationResponseType: "ExecutionPolicyListResponse",
+  },
+  "ExecutionPolicyApi.V2.CreateExecutionPolicy": {
+    body: {
+      type: "ExecutionPolicyCreateRequest",
+      format: "",
+    },
+    operationResponseType: "ExecutionPolicyResponse",
+  },
+  "ExecutionPolicyApi.V2.GetExecutionPolicy": {
+    policyId: {
+      type: "string",
+      format: "",
+    },
+    operationResponseType: "ExecutionPolicyResponse",
+  },
+  "ExecutionPolicyApi.V2.UpdateExecutionPolicy": {
+    policyId: {
+      type: "string",
+      format: "",
+    },
+    body: {
+      type: "ExecutionPolicyUpdateRequest",
+      format: "",
+    },
+    operationResponseType: "ExecutionPolicyResponse",
+  },
+  "ExecutionPolicyApi.V2.DeleteExecutionPolicy": {
+    policyId: {
+      type: "string",
+      format: "",
+    },
+    operationResponseType: "{}",
+  },
   "AgentlessScanningApi.V2.ListAwsScanOptions": {
     operationResponseType: "AwsScanOptionsListResponse",
   },
