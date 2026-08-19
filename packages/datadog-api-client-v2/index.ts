@@ -571,6 +571,15 @@ export {
 } from "./apis/EventsApi";
 
 export {
+  ExecutionPolicyApiCreateExecutionPolicyRequest,
+  ExecutionPolicyApiDeleteExecutionPolicyRequest,
+  ExecutionPolicyApiGetExecutionPolicyRequest,
+  ExecutionPolicyApiListExecutionPoliciesRequest,
+  ExecutionPolicyApiUpdateExecutionPolicyRequest,
+  ExecutionPolicyApi,
+} from "./apis/ExecutionPolicyApi";
+
+export {
   FastlyIntegrationApiCreateFastlyAccountRequest,
   FastlyIntegrationApiCreateFastlyServiceRequest,
   FastlyIntegrationApiDeleteFastlyAccountRequest,
@@ -4082,6 +4091,30 @@ export { EventSystemAttributes } from "./models/EventSystemAttributes";
 export { EventSystemAttributesCategory } from "./models/EventSystemAttributesCategory";
 export { EventSystemAttributesIntegrationId } from "./models/EventSystemAttributesIntegrationId";
 export { EventType } from "./models/EventType";
+export { ExecutionPolicyActionPattern } from "./models/ExecutionPolicyActionPattern";
+export { ExecutionPolicyAttributes } from "./models/ExecutionPolicyAttributes";
+export { ExecutionPolicyCreateRequest } from "./models/ExecutionPolicyCreateRequest";
+export { ExecutionPolicyCreateRequestData } from "./models/ExecutionPolicyCreateRequestData";
+export { ExecutionPolicyEffect } from "./models/ExecutionPolicyEffect";
+export { ExecutionPolicyIntegration } from "./models/ExecutionPolicyIntegration";
+export { ExecutionPolicyKubernetesScope } from "./models/ExecutionPolicyKubernetesScope";
+export { ExecutionPolicyKubernetesScopeRule } from "./models/ExecutionPolicyKubernetesScopeRule";
+export { ExecutionPolicyListResponse } from "./models/ExecutionPolicyListResponse";
+export { ExecutionPolicyListResponseMeta } from "./models/ExecutionPolicyListResponseMeta";
+export { ExecutionPolicyListResponsePage } from "./models/ExecutionPolicyListResponsePage";
+export { ExecutionPolicyRemoteActionRshellAccess } from "./models/ExecutionPolicyRemoteActionRshellAccess";
+export { ExecutionPolicyRemoteActionRshellScope } from "./models/ExecutionPolicyRemoteActionRshellScope";
+export { ExecutionPolicyRemoteActionRshellScopeRule } from "./models/ExecutionPolicyRemoteActionRshellScopeRule";
+export { ExecutionPolicyResponse } from "./models/ExecutionPolicyResponse";
+export { ExecutionPolicyResponseData } from "./models/ExecutionPolicyResponseData";
+export { ExecutionPolicyScope } from "./models/ExecutionPolicyScope";
+export { ExecutionPolicyScriptScope } from "./models/ExecutionPolicyScriptScope";
+export { ExecutionPolicyScriptScopeRule } from "./models/ExecutionPolicyScriptScopeRule";
+export { ExecutionPolicyTarget } from "./models/ExecutionPolicyTarget";
+export { ExecutionPolicyType } from "./models/ExecutionPolicyType";
+export { ExecutionPolicyUpdateRequest } from "./models/ExecutionPolicyUpdateRequest";
+export { ExecutionPolicyUpdateRequestData } from "./models/ExecutionPolicyUpdateRequestData";
+export { ExecutionPolicyWriteAttributes } from "./models/ExecutionPolicyWriteAttributes";
 export { ExposureRolloutStepRequest } from "./models/ExposureRolloutStepRequest";
 export { ExposureScheduleRequest } from "./models/ExposureScheduleRequest";
 export { FacetInfoRequest } from "./models/FacetInfoRequest";
