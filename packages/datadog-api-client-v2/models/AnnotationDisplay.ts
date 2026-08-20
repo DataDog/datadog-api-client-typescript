@@ -8,11 +8,11 @@ import { AnnotationDisplayBounds } from "./AnnotationDisplayBounds";
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * The definition of `AnnotationDisplay` object.
+ * The annotation's position and size on the workflow canvas.
  */
 export class AnnotationDisplay {
   /**
-   * The definition of `AnnotationDisplayBounds` object.
+   * Canvas coordinates and dimensions for an annotation on the workflow canvas.
    */
   "bounds"?: AnnotationDisplayBounds;
 
