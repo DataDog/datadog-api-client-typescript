@@ -7,7 +7,7 @@
 import { UnparsedObject } from "../../datadog-api-client-common/util";
 
 /**
- * Resource type of an LLM Observability dataset draft state.
+ * Resource type of an Agent Observability dataset draft state.
  */
 
 export type LLMObsDatasetDraftStateType =

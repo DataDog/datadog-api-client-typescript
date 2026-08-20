@@ -8,11 +8,11 @@ import { LLMObsAnnotationQueueUpdateDataRequest } from "./LLMObsAnnotationQueueU
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * Request to update an LLM Observability annotation queue.
+ * Request to update an Agent Observability annotation queue.
  */
 export class LLMObsAnnotationQueueUpdateRequest {
   /**
-   * Data object for updating an LLM Observability annotation queue.
+   * Data object for updating an Agent Observability annotation queue.
    */
   "data": LLMObsAnnotationQueueUpdateDataRequest;
 

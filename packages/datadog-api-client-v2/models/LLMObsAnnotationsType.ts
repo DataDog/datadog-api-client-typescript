@@ -7,7 +7,7 @@
 import { UnparsedObject } from "../../datadog-api-client-common/util";
 
 /**
- * Resource type for LLM Observability annotations.
+ * Resource type for Agent Observability annotations.
  */
 
 export type LLMObsAnnotationsType = typeof ANNOTATIONS | UnparsedObject;

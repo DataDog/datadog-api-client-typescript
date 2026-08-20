@@ -1,5 +1,5 @@
 /**
- * Create an LLM Observability project returns "OK" response
+ * Create an Agent Observability project returns "OK" response
  */
 
 import { client, v2 } from "@datadog/datadog-api-client";

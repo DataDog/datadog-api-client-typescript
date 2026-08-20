@@ -7,7 +7,7 @@
 import { UnparsedObject } from "../../datadog-api-client-common/util";
 
 /**
- * A label attached to an LLM Observability prompt version.
+ * A label attached to an Agent Observability prompt version.
  */
 
 export type LLMObsPromptVersionLabel =

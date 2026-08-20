@@ -8,11 +8,11 @@ import { LLMObsDeleteProjectsDataRequest } from "./LLMObsDeleteProjectsDataReque
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * Request to delete one or more LLM Observability projects.
+ * Request to delete one or more Agent Observability projects.
  */
 export class LLMObsDeleteProjectsRequest {
   /**
-   * Data object for deleting LLM Observability projects.
+   * Data object for deleting Agent Observability projects.
    */
   "data": LLMObsDeleteProjectsDataRequest;
 

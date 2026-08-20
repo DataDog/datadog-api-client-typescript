@@ -7,7 +7,7 @@
 import { UnparsedObject } from "../../datadog-api-client-common/util";
 
 /**
- * Resource type for an LLM Observability span.
+ * Resource type for an Agent Observability span.
  */
 
 export type LLMObsSpanType = typeof SPAN | UnparsedObject;

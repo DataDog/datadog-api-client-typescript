@@ -772,27 +772,27 @@ export class UsageSummaryResponse {
    */
   "liveIngestedBytesAggSum"?: number;
   /**
-   * Shows the sum of all LLM Observability 15-day retention spans over all hours in the current month for all organizations.
+   * Shows the sum of all Agent Observability 15-day retention spans over all hours in the current month for all organizations.
    */
   "llmObservability15dayRetentionSpansAggSum"?: number;
   /**
-   * Shows the sum of all LLM Observability 30-day retention spans over all hours in the current month for all organizations.
+   * Shows the sum of all Agent Observability 30-day retention spans over all hours in the current month for all organizations.
    */
   "llmObservability30dayRetentionSpansAggSum"?: number;
   /**
-   * Shows the sum of all LLM Observability 60-day retention spans over all hours in the current month for all organizations.
+   * Shows the sum of all Agent Observability 60-day retention spans over all hours in the current month for all organizations.
    */
   "llmObservability60dayRetentionSpansAggSum"?: number;
   /**
-   * Shows the sum of all LLM Observability 90-day retention spans over all hours in the current month for all organizations.
+   * Shows the sum of all Agent Observability 90-day retention spans over all hours in the current month for all organizations.
    */
   "llmObservability90dayRetentionSpansAggSum"?: number;
   /**
-   * Sum of all LLM observability sessions for all hours in the current month for all organizations.
+   * Sum of all Agent observability sessions for all hours in the current month for all organizations.
    */
   "llmObservabilityAggSum"?: number;
   /**
-   * Minimum spend for LLM observability sessions for all hours in the current month for all organizations.
+   * Minimum spend for Agent observability sessions for all hours in the current month for all organizations.
    */
   "llmObservabilityMinSpendAggSum"?: number;
   /**

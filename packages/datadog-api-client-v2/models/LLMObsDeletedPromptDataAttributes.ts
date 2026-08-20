@@ -7,7 +7,7 @@
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * Attributes confirming that an LLM Observability prompt was deleted.
+ * Attributes confirming that an Agent Observability prompt was deleted.
  */
 export class LLMObsDeletedPromptDataAttributes {
   /**

@@ -9,15 +9,15 @@ import { LLMObsPatternsConfigUpsertRequestAttributes } from "./LLMObsPatternsCon
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * Data object for creating or updating an LLM Observability patterns configuration.
+ * Data object for creating or updating an Agent Observability patterns configuration.
  */
 export class LLMObsPatternsConfigUpsertRequestData {
   /**
-   * Attributes for creating or updating an LLM Observability patterns configuration.
+   * Attributes for creating or updating an Agent Observability patterns configuration.
    */
   "attributes": LLMObsPatternsConfigUpsertRequestAttributes;
   /**
-   * Resource type of an LLM Observability patterns configuration.
+   * Resource type of an Agent Observability patterns configuration.
    */
   "type": LLMObsPatternsConfigType;
 

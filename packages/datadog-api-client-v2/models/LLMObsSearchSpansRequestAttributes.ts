@@ -10,11 +10,11 @@ import { LLMObsSpanSearchOptions } from "./LLMObsSpanSearchOptions";
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * Attributes of an LLM Observability spans search request.
+ * Attributes of an Agent Observability spans search request.
  */
 export class LLMObsSearchSpansRequestAttributes {
   /**
-   * Filter criteria for an LLM Observability span search.
+   * Filter criteria for an Agent Observability span search.
    */
   "filter"?: LLMObsSpanFilter;
   /**

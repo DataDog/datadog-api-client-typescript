@@ -8,11 +8,11 @@ import { LLMObsPromptSDKData } from "./LLMObsPromptSDKData";
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * Response containing a flattened LLM Observability prompt version for SDK consumption.
+ * Response containing a flattened Agent Observability prompt version for SDK consumption.
  */
 export class LLMObsPromptSDKResponse {
   /**
-   * Data object for a flattened LLM Observability prompt version returned for SDK consumption.
+   * Data object for a flattened Agent Observability prompt version returned for SDK consumption.
    */
   "data": LLMObsPromptSDKData;
 

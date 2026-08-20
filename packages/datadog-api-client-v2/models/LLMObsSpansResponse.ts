@@ -10,7 +10,7 @@ import { LLMObsSpansResponseMeta } from "./LLMObsSpansResponseMeta";
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * Response containing a list of LLM Observability spans.
+ * Response containing a list of Agent Observability spans.
  */
 export class LLMObsSpansResponse {
   /**

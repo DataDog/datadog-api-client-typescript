@@ -9,11 +9,11 @@ import { LLMObsDatasetType } from "./LLMObsDatasetType";
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * Data object for batch-updating records in an LLM Observability dataset.
+ * Data object for batch-updating records in an Agent Observability dataset.
  */
 export class LLMObsDatasetBatchUpdateDataRequest {
   /**
-   * Attributes for batch-updating records in an LLM Observability dataset.
+   * Attributes for batch-updating records in an Agent Observability dataset.
    */
   "attributes": LLMObsDatasetBatchUpdateDataAttributesRequest;
   /**
@@ -21,7 +21,7 @@ export class LLMObsDatasetBatchUpdateDataRequest {
    */
   "id": string;
   /**
-   * Resource type of an LLM Observability dataset.
+   * Resource type of an Agent Observability dataset.
    */
   "type": LLMObsDatasetType;
 

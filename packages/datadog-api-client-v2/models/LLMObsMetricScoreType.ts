@@ -7,7 +7,7 @@
 import { UnparsedObject } from "../../datadog-api-client-common/util";
 
 /**
- * Type of metric recorded for an LLM Observability experiment.
+ * Type of metric recorded for an Agent Observability experiment.
  */
 
 export type LLMObsMetricScoreType =

@@ -1,5 +1,5 @@
 /**
- * Search LLM Observability spans returns "OK" response
+ * Search Agent Observability spans returns "OK" response
  */
 
 import { client, v2 } from "@datadog/datadog-api-client";

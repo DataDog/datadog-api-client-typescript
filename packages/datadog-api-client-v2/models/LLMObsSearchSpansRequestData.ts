@@ -9,15 +9,15 @@ import { LLMObsSearchSpansRequestType } from "./LLMObsSearchSpansRequestType";
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * Data object for an LLM Observability spans search request.
+ * Data object for an Agent Observability spans search request.
  */
 export class LLMObsSearchSpansRequestData {
   /**
-   * Attributes of an LLM Observability spans search request.
+   * Attributes of an Agent Observability spans search request.
    */
   "attributes": LLMObsSearchSpansRequestAttributes;
   /**
-   * Resource type for an LLM Observability spans search request.
+   * Resource type for an Agent Observability spans search request.
    */
   "type": LLMObsSearchSpansRequestType;
 

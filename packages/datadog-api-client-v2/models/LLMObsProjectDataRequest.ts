@@ -9,15 +9,15 @@ import { LLMObsProjectType } from "./LLMObsProjectType";
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * Data object for creating an LLM Observability project.
+ * Data object for creating an Agent Observability project.
  */
 export class LLMObsProjectDataRequest {
   /**
-   * Attributes for creating an LLM Observability project.
+   * Attributes for creating an Agent Observability project.
    */
   "attributes": LLMObsProjectDataAttributesRequest;
   /**
-   * Resource type of an LLM Observability project.
+   * Resource type of an Agent Observability project.
    */
   "type": LLMObsProjectType;
 

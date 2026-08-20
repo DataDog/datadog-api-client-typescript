@@ -8,11 +8,11 @@ import { LLMObsCustomEvalConfigUpdateData } from "./LLMObsCustomEvalConfigUpdate
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * Request to create or update a custom LLM Observability evaluator configuration.
+ * Request to create or update a custom Agent Observability evaluator configuration.
  */
 export class LLMObsCustomEvalConfigUpdateRequest {
   /**
-   * Data object for creating or updating a custom LLM Observability evaluator configuration.
+   * Data object for creating or updating a custom Agent Observability evaluator configuration.
    */
   "data": LLMObsCustomEvalConfigUpdateData;
 

@@ -1,5 +1,5 @@
 /**
- * Aggregate LLM Observability experimentation returns "OK" response
+ * Aggregate Agent Observability experimentation returns "OK" response
  */
 
 import { client, v2 } from "@datadog/datadog-api-client";

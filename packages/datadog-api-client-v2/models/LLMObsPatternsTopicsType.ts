@@ -7,7 +7,7 @@
 import { UnparsedObject } from "../../datadog-api-client-common/util";
 
 /**
- * Resource type of an LLM Observability patterns topics response.
+ * Resource type of an Agent Observability patterns topics response.
  */
 
 export type LLMObsPatternsTopicsType =

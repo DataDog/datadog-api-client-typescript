@@ -1,5 +1,5 @@
 /**
- * List events for an LLM Observability experiment returns "OK" response
+ * List events for an Agent Observability experiment returns "OK" response
  */
 
 import { client, v2 } from "@datadog/datadog-api-client";

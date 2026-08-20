@@ -1,5 +1,5 @@
 /**
- * Delete an LLM Observability prompt returns "OK" response
+ * Delete an Agent Observability prompt returns "OK" response
  */
 
 import { client, v2 } from "@datadog/datadog-api-client";

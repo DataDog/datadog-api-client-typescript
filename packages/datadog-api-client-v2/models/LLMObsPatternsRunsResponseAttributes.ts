@@ -8,7 +8,7 @@ import { LLMObsPatternsRunSummary } from "./LLMObsPatternsRunSummary";
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * Attributes of an LLM Observability patterns runs response.
+ * Attributes of an Agent Observability patterns runs response.
  */
 export class LLMObsPatternsRunsResponseAttributes {
   /**

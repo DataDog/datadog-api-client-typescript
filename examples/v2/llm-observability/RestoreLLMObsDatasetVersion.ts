@@ -1,5 +1,5 @@
 /**
- * Restore an LLM Observability dataset version returns "OK" response
+ * Restore an Agent Observability dataset version returns "OK" response
  */
 
 import { client, v2 } from "@datadog/datadog-api-client";

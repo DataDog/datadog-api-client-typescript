@@ -7,7 +7,7 @@
 import { UnparsedObject } from "../../datadog-api-client-common/util";
 
 /**
- * Resource type of an LLM Observability patterns clustered points response.
+ * Resource type of an Agent Observability patterns clustered points response.
  */
 
 export type LLMObsPatternsClusteredPointsType =

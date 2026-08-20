@@ -8,7 +8,7 @@ import { LLMObsAnnotationQueueDataResponse } from "./LLMObsAnnotationQueueDataRe
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * Response containing a list of LLM Observability annotation queues.
+ * Response containing a list of Agent Observability annotation queues.
  */
 export class LLMObsAnnotationQueuesResponse {
   /**

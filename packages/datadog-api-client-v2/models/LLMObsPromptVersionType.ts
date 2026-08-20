@@ -7,7 +7,7 @@
 import { UnparsedObject } from "../../datadog-api-client-common/util";
 
 /**
- * Resource type of an LLM Observability prompt version.
+ * Resource type of an Agent Observability prompt version.
  */
 
 export type LLMObsPromptVersionType =

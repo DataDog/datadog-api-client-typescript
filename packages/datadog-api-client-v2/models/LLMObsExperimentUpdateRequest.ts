@@ -8,11 +8,11 @@ import { LLMObsExperimentUpdateDataRequest } from "./LLMObsExperimentUpdateDataR
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * Request to partially update an LLM Observability experiment.
+ * Request to partially update an Agent Observability experiment.
  */
 export class LLMObsExperimentUpdateRequest {
   /**
-   * Data object for updating an LLM Observability experiment.
+   * Data object for updating an Agent Observability experiment.
    */
   "data": LLMObsExperimentUpdateDataRequest;
 

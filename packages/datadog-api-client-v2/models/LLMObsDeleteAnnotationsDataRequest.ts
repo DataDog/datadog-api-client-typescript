@@ -17,7 +17,7 @@ export class LLMObsDeleteAnnotationsDataRequest {
    */
   "attributes": LLMObsDeleteAnnotationsDataAttributesRequest;
   /**
-   * Resource type for LLM Observability annotations.
+   * Resource type for Agent Observability annotations.
    */
   "type": LLMObsAnnotationsType;
 

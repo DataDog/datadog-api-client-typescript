@@ -1,5 +1,5 @@
 /**
- * List LLM Observability annotation queues returns "OK" response
+ * List Agent Observability annotation queues returns "OK" response
  */
 
 import { client, v2 } from "@datadog/datadog-api-client";

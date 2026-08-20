@@ -7,7 +7,7 @@
 import { UnparsedObject } from "../../datadog-api-client-common/util";
 
 /**
- * Assessment result for an LLM Observability experiment metric.
+ * Assessment result for an Agent Observability experiment metric.
  */
 
 export type LLMObsMetricAssessment = typeof PASS | typeof FAIL | UnparsedObject;
