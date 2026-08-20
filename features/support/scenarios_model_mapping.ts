@@ -6051,6 +6051,56 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             },
         "operationResponseType": "{}",
     },
+    "v2.ListSecurityFindingsAutomationSeverityModifierRules": {
+        "pageSize": {
+            "type": "number",
+            "format": "int64",
+            },
+        "pageNumber": {
+            "type": "number",
+            "format": "int64",
+            },
+        "operationResponseType": "SeverityModifierRulesResponse",
+    },
+    "v2.CreateSecurityFindingsAutomationSeverityModifierRule": {
+        "body": {
+            "type": "SeverityModifierRuleCreateRequest",
+            "format": "",
+            },
+        "operationResponseType": "SeverityModifierRuleResponse",
+    },
+    "v2.ReorderSecurityFindingsAutomationSeverityModifierRules": {
+        "body": {
+            "type": "SeverityModifierRuleReorderRequest",
+            "format": "",
+            },
+        "operationResponseType": "SeverityModifierRuleReorderResponse",
+    },
+    "v2.GetSecurityFindingsAutomationSeverityModifierRule": {
+        "ruleId": {
+            "type": "string",
+            "format": "uuid",
+            },
+        "operationResponseType": "SeverityModifierRuleResponse",
+    },
+    "v2.UpdateSecurityFindingsAutomationSeverityModifierRule": {
+        "ruleId": {
+            "type": "string",
+            "format": "uuid",
+            },
+        "body": {
+            "type": "SeverityModifierRuleUpdateRequest",
+            "format": "",
+            },
+        "operationResponseType": "SeverityModifierRuleResponse",
+    },
+    "v2.DeleteSecurityFindingsAutomationSeverityModifierRule": {
+        "ruleId": {
+            "type": "string",
+            "format": "uuid",
+            },
+        "operationResponseType": "{}",
+    },
     "v2.ListSecurityFindingsAutomationTicketCreationRules": {
         "pageSize": {
             "type": "number",
