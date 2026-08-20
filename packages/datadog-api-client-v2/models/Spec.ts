@@ -29,7 +29,7 @@ export class Spec {
    */
   "handle"?: string;
   /**
-   * A list of input parameters for the workflow. These can be used as dynamic runtime values in your workflow.
+   * A list of input parameters for the workflow. Input parameters are available under the `Trigger` object and can be referenced in workflow steps using `{{ Trigger.<parameter_name> }}`.
    */
   "inputSchema"?: InputSchema;
   /**
