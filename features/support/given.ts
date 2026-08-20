@@ -1,5 +1,5 @@
 import { Given } from "@cucumber/cucumber";
-import { compressSync } from 'zstd.ts'
+import { compressSync } from "zstd.ts";
 
 import fs from "fs";
 import path from "path";
@@ -9,6 +9,7 @@ import { getProperty, pathLookup } from "./templating";
 import { UndoActions, buildUndoFor } from "./undo";
 import * as datadogApiClient from "../../index";
 import { ScenariosModelMappings } from "./scenarios_model_mapping";
+import { testServerFetch } from "./test_runner";
 
 interface IOperationParameter {
   name: string;
@@ -46,8 +47,10 @@ for (const apiVersion of Versions) {
           appKeyAuth: process.env.DD_TEST_CLIENT_APP_KEY,
         },
         httpConfig: { compress: false },
-        zstdCompressorCallback: (body: string) => compressSync({ input: Buffer.from(body, "utf8") }),
+        zstdCompressorCallback: (body: string) =>
+          compressSync({ input: Buffer.from(body, "utf8") }),
         enableRetry: true,
+        fetch: testServerFetch(this.testServerSession),
       };
 
       if (process.env.DD_TEST_SITE) {
@@ -59,16 +62,28 @@ for (const apiVersion of Versions) {
         (configurationOpts as any)["baseServer"] = server;
       }
       if (process.env.DD_TEST_SITE_URL) {
-        const serverConf = datadogApiClient.client.servers[1].getConfiguration();
+        const serverConf =
+          datadogApiClient.client.servers[1].getConfiguration();
         datadogApiClient.client.servers[1].setVariables({
           name: process.env.DD_TEST_SITE_URL,
           protocol: "http",
         } as typeof serverConf);
         (configurationOpts as any)["serverIndex"] = 1;
       }
-      const configuration = datadogApiClient.client.createConfiguration(configurationOpts);
-      if (`${apiVersion}.${operationName}` in configuration.unstableOperations) {
-        configuration.unstableOperations[`${apiVersion}.${operationName}`] = true;
+      if (process.env.DD_TEST_SERVER_URL) {
+        (configurationOpts as any)["baseServer"] =
+          new datadogApiClient.client.BaseServerConfiguration(
+            process.env.DD_TEST_SERVER_URL,
+            {}
+          );
+      }
+      const configuration =
+        datadogApiClient.client.createConfiguration(configurationOpts);
+      if (
+        `${apiVersion}.${operationName}` in configuration.unstableOperations
+      ) {
+        configuration.unstableOperations[`${apiVersion}.${operationName}`] =
+          true;
       }
       const apiInstance = new (api as any)[`${apiName}Api`](configuration);
 
@@ -89,9 +104,7 @@ for (const apiVersion of Versions) {
       if (operation.parameters !== undefined) {
         for (const p of operation.parameters) {
           if (p.value !== undefined) {
-            const value = JSON.parse(
-              p.value?.templated(this.fixtures),
-            );
+            const value = JSON.parse(p.value?.templated(this.fixtures));
             opts[p.name.toAttributeName()] = value;
 
             // Store in pathParameters for undo operations with naming variants
@@ -99,10 +112,7 @@ for (const apiVersion of Versions) {
             this.pathParameters[p.name.toAttributeName()] = value;
           }
           if (p.source !== undefined) {
-            const value = pathLookup(
-              this.fixtures,
-              p.source
-            );
+            const value = pathLookup(this.fixtures, p.source);
             opts[p.name.toAttributeName()] = value;
 
             // Store in pathParameters for undo operations with naming variants
@@ -120,22 +130,29 @@ for (const apiVersion of Versions) {
       }
 
       // Deserialize obejcts into correct model types
-      const objectSerializer = getProperty(datadogApiClient, apiVersion).ObjectSerializer;
-      Object.keys(opts).forEach(key => {
-        const type = ScenariosModelMappings[`${apiVersion}.${operation.operationId}`][key].type
-        const format = ScenariosModelMappings[`${apiVersion}.${operation.operationId}`][key].format
+      const objectSerializer = getProperty(
+        datadogApiClient,
+        apiVersion
+      ).ObjectSerializer;
+      Object.keys(opts).forEach((key) => {
+        const type =
+          ScenariosModelMappings[`${apiVersion}.${operation.operationId}`][key]
+            .type;
+        const format =
+          ScenariosModelMappings[`${apiVersion}.${operation.operationId}`][key]
+            .format;
 
         if (type === "HttpFile" && format === "binary") {
           opts[key] = {
-            data: Buffer.from(fs.readFileSync(path.join(__dirname, `../${apiVersion}`, opts[key]))),
+            data: Buffer.from(
+              fs.readFileSync(
+                path.join(__dirname, `../${apiVersion}`, opts[key])
+              )
+            ),
             name: opts[key],
           };
         } else {
-          opts[key] = objectSerializer.deserialize(
-            opts[key],
-            type,
-            format
-          )
+          opts[key] = objectSerializer.deserialize(opts[key], type, format);
         }
       });
 
@@ -150,7 +167,15 @@ for (const apiVersion of Versions) {
       // register undo method
       if (undoAction.undo.type == "unsafe") {
         this.undo.push(
-          buildUndoFor(apiVersion, undoAction, operationName, result, opts, this.pathParameters)
+          buildUndoFor(
+            apiVersion,
+            undoAction,
+            operationName,
+            result,
+            opts,
+            this.pathParameters,
+            this.testServerSession
+          )
         );
       }
 
