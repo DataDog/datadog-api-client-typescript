@@ -1,12 +1,12 @@
-@endpoint(llm-observability) @endpoint(llm-observability-v2)
-Feature: LLM Observability
+@endpoint(agent-observability) @endpoint(agent-observability-v2)
+Feature: Agent Observability
   Manage Agent Observability spans, data, projects, datasets, dataset
   records, experiments, prompts, and annotations.
 
   Background:
     Given a valid "apiKeyAuth" key in the system
-    And an instance of "LLMObservability" API
     And a valid "appKeyAuth" key in the system
+    And an instance of "AgentObservability" API
 
   @skip @team:DataDog/ml-observability
   Scenario: Add a display_block interaction returns "Created" response
@@ -179,32 +179,30 @@ Feature: LLM Observability
     When the request is sent
     Then the response status is 200 OK
 
-  @team:DataDog/ml-observability
+  @generated @skip @team:DataDog/ml-observability
   Scenario: Create a new Agent Observability prompt version returns "Bad Request" response
-    Given there is a valid "prompt" in the system
-    And operation "CreateLLMObsPromptVersion" enabled
+    Given operation "CreateLLMObsPromptVersion" enabled
     And new "CreateLLMObsPromptVersion" request
-    And request contains "prompt_id" parameter from "prompt.data.attributes.prompt_id"
-    And body with value {"data": {"attributes": {"template": " "}, "type": "prompt-template-versions"}}
+    And request contains "prompt_id" parameter from "REPLACE.ME"
+    And body with value {"data": {"attributes": {"env_ids": [], "labels": ["production"], "template": "You are a helpful assistant for {{audience}}."}, "type": "prompt-template-versions"}}
     When the request is sent
     Then the response status is 400 Bad Request
 
-  @team:DataDog/ml-observability
+  @generated @skip @team:DataDog/ml-observability
   Scenario: Create a new Agent Observability prompt version returns "Not Found" response
     Given operation "CreateLLMObsPromptVersion" enabled
     And new "CreateLLMObsPromptVersion" request
-    And request contains "prompt_id" parameter with value "nonexistent-prompt"
-    And body with value {"data": {"attributes": {"env_ids": [], "labels": [], "template": [{"content": "Hello v2", "role": "user"}]}, "type": "prompt-template-versions"}}
+    And request contains "prompt_id" parameter from "REPLACE.ME"
+    And body with value {"data": {"attributes": {"env_ids": [], "labels": ["production"], "template": "You are a helpful assistant for {{audience}}."}, "type": "prompt-template-versions"}}
     When the request is sent
     Then the response status is 404 Not Found
 
-  @team:DataDog/ml-observability
+  @generated @skip @team:DataDog/ml-observability
   Scenario: Create a new Agent Observability prompt version returns "OK" response
-    Given there is a valid "prompt" in the system
-    And operation "CreateLLMObsPromptVersion" enabled
+    Given operation "CreateLLMObsPromptVersion" enabled
     And new "CreateLLMObsPromptVersion" request
-    And request contains "prompt_id" parameter from "prompt.data.attributes.prompt_id"
-    And body with value {"data": {"attributes": {"template": [{"content": "You are a concise customer support assistant for {{ '{{company_name}}' }}.", "role": "system"}, {"content": "Answer {{ '{{customer_name}}' }}'s question: {{ '{{question}}' }}", "role": "user"}]}, "type": "prompt-template-versions"}}
+    And request contains "prompt_id" parameter from "REPLACE.ME"
+    And body with value {"data": {"attributes": {"env_ids": [], "labels": ["production"], "template": "You are a helpful assistant for {{audience}}."}, "type": "prompt-template-versions"}}
     When the request is sent
     Then the response status is 200 OK
 
@@ -308,28 +306,27 @@ Feature: LLM Observability
     When the request is sent
     Then the response status is 200 OK
 
-  @team:DataDog/ml-observability
+  @generated @skip @team:DataDog/ml-observability
   Scenario: Create an Agent Observability prompt returns "Bad Request" response
     Given operation "CreateLLMObsPrompt" enabled
     And new "CreateLLMObsPrompt" request
-    And body with value {"data": {"attributes": {"prompt_id": "{{ unique }}", "template": " "}, "type": "prompt-templates"}}
+    And body with value {"data": {"attributes": {"env_ids": [], "labels": ["production"], "prompt_id": "customer-support-assistant", "template": "You are a helpful assistant for {{audience}}."}, "type": "prompt-templates"}}
     When the request is sent
     Then the response status is 400 Bad Request
 
-  @team:DataDog/ml-observability
+  @generated @skip @team:DataDog/ml-observability
   Scenario: Create an Agent Observability prompt returns "Conflict" response
-    Given there is a valid "prompt" in the system
-    And operation "CreateLLMObsPrompt" enabled
+    Given operation "CreateLLMObsPrompt" enabled
     And new "CreateLLMObsPrompt" request
-    And body with value {"data": {"attributes": {"env_ids": [], "labels": [], "prompt_id": "{{ prompt.data.attributes.prompt_id }}", "template": [{"content": "Hello", "role": "user"}]}, "type": "prompt-templates"}}
+    And body with value {"data": {"attributes": {"env_ids": [], "labels": ["production"], "prompt_id": "customer-support-assistant", "template": "You are a helpful assistant for {{audience}}."}, "type": "prompt-templates"}}
     When the request is sent
     Then the response status is 409 Conflict
 
-  @team:DataDog/ml-observability
+  @generated @skip @team:DataDog/ml-observability
   Scenario: Create an Agent Observability prompt returns "OK" response
     Given operation "CreateLLMObsPrompt" enabled
     And new "CreateLLMObsPrompt" request
-    And body with value {"data": {"attributes": {"prompt_id": "{{ unique }}", "title": "Customer Support Assistant", "template": [{"content": "You are a helpful customer support assistant for {{ '{{company_name}}' }}.", "role": "system"}, {"content": "Help {{ '{{customer_name}}' }} with this question: {{ '{{question}}' }}", "role": "user"}]}, "type": "prompt-templates"}}
+    And body with value {"data": {"attributes": {"env_ids": [], "labels": ["production"], "prompt_id": "customer-support-assistant", "template": "You are a helpful assistant for {{audience}}."}, "type": "prompt-templates"}}
     When the request is sent
     Then the response status is 200 OK
 
@@ -573,20 +570,19 @@ Feature: LLM Observability
     When the request is sent
     Then the response status is 404 Not Found
 
-  @team:DataDog/ml-observability
+  @generated @skip @team:DataDog/ml-observability
   Scenario: Delete an Agent Observability prompt returns "Not Found" response
     Given operation "DeleteLLMObsPrompt" enabled
     And new "DeleteLLMObsPrompt" request
-    And request contains "prompt_id" parameter with value "nonexistent-prompt"
+    And request contains "prompt_id" parameter from "REPLACE.ME"
     When the request is sent
     Then the response status is 404 Not Found
 
-  @team:DataDog/ml-observability
+  @generated @skip @team:DataDog/ml-observability
   Scenario: Delete an Agent Observability prompt returns "OK" response
-    Given there is a valid "prompt" in the system
-    And operation "DeleteLLMObsPrompt" enabled
+    Given operation "DeleteLLMObsPrompt" enabled
     And new "DeleteLLMObsPrompt" request
-    And request contains "prompt_id" parameter from "prompt.data.attributes.prompt_id"
+    And request contains "prompt_id" parameter from "REPLACE.ME"
     When the request is sent
     Then the response status is 200 OK
 
@@ -752,40 +748,37 @@ Feature: LLM Observability
     When the request is sent
     Then the response status is 400 Bad Request
 
-  @team:DataDog/ml-observability
+  @generated @skip @team:DataDog/ml-observability
   Scenario: Get a specific Agent Observability prompt version returns "Not Found" response
     Given operation "GetLLMObsPromptVersion" enabled
     And new "GetLLMObsPromptVersion" request
-    And request contains "prompt_id" parameter with value "nonexistent-prompt"
-    And request contains "version" parameter with value 1
+    And request contains "prompt_id" parameter from "REPLACE.ME"
+    And request contains "version" parameter from "REPLACE.ME"
     When the request is sent
     Then the response status is 404 Not Found
 
-  @team:DataDog/ml-observability
+  @generated @skip @team:DataDog/ml-observability
   Scenario: Get a specific Agent Observability prompt version returns "OK" response
-    Given there is a valid "prompt" in the system
-    And there is a valid "prompt_version" in the system
-    And operation "GetLLMObsPromptVersion" enabled
+    Given operation "GetLLMObsPromptVersion" enabled
     And new "GetLLMObsPromptVersion" request
-    And request contains "prompt_id" parameter from "prompt.data.attributes.prompt_id"
-    And request contains "version" parameter from "prompt_version.data.attributes.version"
+    And request contains "prompt_id" parameter from "REPLACE.ME"
+    And request contains "version" parameter from "REPLACE.ME"
     When the request is sent
     Then the response status is 200 OK
 
-  @team:DataDog/ml-observability
+  @generated @skip @team:DataDog/ml-observability
   Scenario: Get an Agent Observability prompt returns "Not Found" response
     Given operation "GetLLMObsPrompt" enabled
     And new "GetLLMObsPrompt" request
-    And request contains "prompt_id" parameter with value "nonexistent-prompt"
+    And request contains "prompt_id" parameter from "REPLACE.ME"
     When the request is sent
     Then the response status is 404 Not Found
 
-  @team:DataDog/ml-observability
+  @generated @skip @team:DataDog/ml-observability
   Scenario: Get an Agent Observability prompt returns "OK" response
-    Given there is a valid "prompt" in the system
-    And operation "GetLLMObsPrompt" enabled
+    Given operation "GetLLMObsPrompt" enabled
     And new "GetLLMObsPrompt" request
-    And request contains "prompt_id" parameter from "prompt.data.attributes.prompt_id"
+    And request contains "prompt_id" parameter from "REPLACE.ME"
     When the request is sent
     Then the response status is 200 OK
 
@@ -1037,12 +1030,10 @@ Feature: LLM Observability
     When the request is sent
     Then the response status is 200 OK
 
-  @team:DataDog/ml-observability
+  @generated @skip @team:DataDog/ml-observability
   Scenario: List Agent Observability prompts returns "OK" response
-    Given there is a valid "prompt" in the system
-    And operation "ListLLMObsPrompts" enabled
+    Given operation "ListLLMObsPrompts" enabled
     And new "ListLLMObsPrompts" request
-    And request contains "filter[prompt_id]" parameter from "prompt.data.attributes.prompt_id"
     When the request is sent
     Then the response status is 200 OK
 
@@ -1235,12 +1226,11 @@ Feature: LLM Observability
     When the request is sent
     Then the response status is 200 OK
 
-  @team:DataDog/ml-observability
+  @generated @skip @team:DataDog/ml-observability
   Scenario: List versions of an Agent Observability prompt returns "OK" response
-    Given there is a valid "prompt" in the system
-    And operation "ListLLMObsPromptVersions" enabled
+    Given operation "ListLLMObsPromptVersions" enabled
     And new "ListLLMObsPromptVersions" request
-    And request contains "prompt_id" parameter from "prompt.data.attributes.prompt_id"
+    And request contains "prompt_id" parameter from "REPLACE.ME"
     When the request is sent
     Then the response status is 200 OK
 
@@ -1596,32 +1586,30 @@ Feature: LLM Observability
     When the request is sent
     Then the response status is 200 OK
 
-  @team:DataDog/ml-observability
+  @generated @skip @team:DataDog/ml-observability
   Scenario: Update an Agent Observability prompt returns "Bad Request" response
-    Given there is a valid "prompt" in the system
-    And operation "UpdateLLMObsPrompt" enabled
+    Given operation "UpdateLLMObsPrompt" enabled
     And new "UpdateLLMObsPrompt" request
-    And request contains "prompt_id" parameter from "prompt.data.attributes.prompt_id"
+    And request contains "prompt_id" parameter from "REPLACE.ME"
     And body with value {"data": {"attributes": {}, "type": "prompt-templates"}}
     When the request is sent
     Then the response status is 400 Bad Request
 
-  @team:DataDog/ml-observability
+  @generated @skip @team:DataDog/ml-observability
   Scenario: Update an Agent Observability prompt returns "Not Found" response
     Given operation "UpdateLLMObsPrompt" enabled
     And new "UpdateLLMObsPrompt" request
-    And request contains "prompt_id" parameter with value "nonexistent-prompt"
-    And body with value {"data": {"attributes": {"title": "New title"}, "type": "prompt-templates"}}
+    And request contains "prompt_id" parameter from "REPLACE.ME"
+    And body with value {"data": {"attributes": {}, "type": "prompt-templates"}}
     When the request is sent
     Then the response status is 404 Not Found
 
-  @team:DataDog/ml-observability
+  @generated @skip @team:DataDog/ml-observability
   Scenario: Update an Agent Observability prompt returns "OK" response
-    Given there is a valid "prompt" in the system
-    And operation "UpdateLLMObsPrompt" enabled
+    Given operation "UpdateLLMObsPrompt" enabled
     And new "UpdateLLMObsPrompt" request
-    And request contains "prompt_id" parameter from "prompt.data.attributes.prompt_id"
-    And body with value {"data": {"attributes": {"title": "Customer Support Assistant"}, "type": "prompt-templates"}}
+    And request contains "prompt_id" parameter from "REPLACE.ME"
+    And body with value {"data": {"attributes": {}, "type": "prompt-templates"}}
     When the request is sent
     Then the response status is 200 OK
 
@@ -1635,25 +1623,23 @@ Feature: LLM Observability
     When the request is sent
     Then the response status is 400 Bad Request
 
-  @team:DataDog/ml-observability
+  @generated @skip @team:DataDog/ml-observability
   Scenario: Update an Agent Observability prompt version returns "Not Found" response
     Given operation "UpdateLLMObsPromptVersion" enabled
     And new "UpdateLLMObsPromptVersion" request
-    And request contains "prompt_id" parameter with value "nonexistent-prompt"
-    And request contains "version" parameter with value 1
-    And body with value {"data": {"attributes": {"env_ids": [], "labels": []}, "type": "prompt-template-versions"}}
+    And request contains "prompt_id" parameter from "REPLACE.ME"
+    And request contains "version" parameter from "REPLACE.ME"
+    And body with value {"data": {"attributes": {"env_ids": [], "labels": ["production"]}, "type": "prompt-template-versions"}}
     When the request is sent
     Then the response status is 404 Not Found
 
-  @team:DataDog/ml-observability
+  @generated @skip @team:DataDog/ml-observability
   Scenario: Update an Agent Observability prompt version returns "OK" response
-    Given there is a valid "prompt" in the system
-    And there is a valid "prompt_version" in the system
-    And operation "UpdateLLMObsPromptVersion" enabled
+    Given operation "UpdateLLMObsPromptVersion" enabled
     And new "UpdateLLMObsPromptVersion" request
-    And request contains "prompt_id" parameter from "prompt.data.attributes.prompt_id"
-    And request contains "version" parameter from "prompt_version.data.attributes.version"
-    And body with value {"data": {"attributes": {"description": "Give concise answers and cite relevant help-center articles."}, "type": "prompt-template-versions"}}
+    And request contains "prompt_id" parameter from "REPLACE.ME"
+    And request contains "version" parameter from "REPLACE.ME"
+    And body with value {"data": {"attributes": {"env_ids": [], "labels": ["production"]}, "type": "prompt-template-versions"}}
     When the request is sent
     Then the response status is 200 OK
 

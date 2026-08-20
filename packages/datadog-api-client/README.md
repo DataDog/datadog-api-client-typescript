@@ -348,6 +348,7 @@ apiInstance
 |---------|---------|--------|
 | Action Connection | @datadog/datadog-api-client-action-connection | [README.md](../../services/action-connection/README.md) |
 | Actions Datastores | @datadog/datadog-api-client-actions-datastores | [README.md](../../services/actions-datastores/README.md) |
+| Agent Observability | @datadog/datadog-api-client-agent-observability | [README.md](../../services/agent-observability/README.md) |
 | Agentless Scanning | @datadog/datadog-api-client-agentless-scanning | [README.md](../../services/agentless-scanning/README.md) |
 | Annotations | @datadog/datadog-api-client-annotations | [README.md](../../services/annotations/README.md) |
 | API Management | @datadog/datadog-api-client-api-management | [README.md](../../services/api-management/README.md) |
@@ -418,7 +419,6 @@ apiInstance
 | IP Ranges | @datadog/datadog-api-client-ip-ranges | [README.md](../../services/ip-ranges/README.md) |
 | Jira Integration | @datadog/datadog-api-client-jira-integration | [README.md](../../services/jira-integration/README.md) |
 | Key Management | @datadog/datadog-api-client-key-management | [README.md](../../services/key-management/README.md) |
-| LLM Observability | @datadog/datadog-api-client-llm-observability | [README.md](../../services/llm-observability/README.md) |
 | Logs | @datadog/datadog-api-client-logs | [README.md](../../services/logs/README.md) |
 | Logs Archives | @datadog/datadog-api-client-logs-archives | [README.md](../../services/logs-archives/README.md) |
 | Logs Custom Destinations | @datadog/datadog-api-client-logs-custom-destinations | [README.md](../../services/logs-custom-destinations/README.md) |
