@@ -1,5 +1,7 @@
 import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
+import { LLMObsAnnotationErrorCode } from "./LLMObsAnnotationErrorCode";
+
 /**
  * A partial error for a single annotation that could not be processed.
  */
@@ -8,6 +10,10 @@ export class LLMObsAnnotationError {
    * ID of the annotation that failed, if applicable.
    */
   "annotationId"?: string;
+  /**
+   * Stable error code. `permission_denied` indicates the item was rejected by queue access rules.
+   */
+  "code"?: LLMObsAnnotationErrorCode;
   /**
    * Error message.
    */
@@ -34,6 +40,10 @@ export class LLMObsAnnotationError {
     annotationId: {
       baseName: "annotation_id",
       type: "string",
+    },
+    code: {
+      baseName: "code",
+      type: "LLMObsAnnotationErrorCode",
     },
     error: {
       baseName: "error",
