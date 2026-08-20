@@ -23,6 +23,18 @@ export class LLMObsAnnotationQueueUpdateDataAttributesRequest {
    * Updated name of the annotation queue.
    */
   "name"?: string;
+  /**
+   * Whether annotation access is restricted to assigned users.
+   */
+  "restrictToAssignees"?: boolean;
+  /**
+   * Whether annotation access is restricted to queue reviewers.
+   */
+  "restrictToReviewers"?: boolean;
+  /**
+   * Updated email addresses of reviewers who can access the annotation queue.
+   */
+  "reviewerEmails"?: Array<string>;
 
   /**
    * A container for additional, undeclared properties.
@@ -51,6 +63,18 @@ export class LLMObsAnnotationQueueUpdateDataAttributesRequest {
     name: {
       baseName: "name",
       type: "string",
+    },
+    restrictToAssignees: {
+      baseName: "restrict_to_assignees",
+      type: "boolean",
+    },
+    restrictToReviewers: {
+      baseName: "restrict_to_reviewers",
+      type: "boolean",
+    },
+    reviewerEmails: {
+      baseName: "reviewer_emails",
+      type: "Array<string>",
     },
     additionalProperties: {
       baseName: "additionalProperties",
