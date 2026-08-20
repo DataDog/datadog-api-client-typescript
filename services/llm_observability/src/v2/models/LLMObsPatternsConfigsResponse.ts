@@ -3,11 +3,11 @@ import { AttributeTypeMap } from "@datadog/datadog-api-client";
 import { LLMObsPatternsConfigsResponseData } from "./LLMObsPatternsConfigsResponseData";
 
 /**
- * Response containing a list of LLM Observability patterns configurations.
+ * Response containing a list of Agent Observability patterns configurations.
  */
 export class LLMObsPatternsConfigsResponse {
   /**
-   * Data object of a list of LLM Observability patterns configurations.
+   * Data object of a list of Agent Observability patterns configurations.
    */
   "data": LLMObsPatternsConfigsResponseData;
   /**

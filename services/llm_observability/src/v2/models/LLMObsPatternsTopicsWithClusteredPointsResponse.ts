@@ -4,11 +4,11 @@ import { LLMObsPatternsTopicsWithClusteredPointsResponseData } from "./LLMObsPat
 
 /**
  * Response containing the topics, and the clustered points of their leaf topics,
- * discovered by an LLM Observability patterns run.
+ * discovered by an Agent Observability patterns run.
  */
 export class LLMObsPatternsTopicsWithClusteredPointsResponse {
   /**
-   * Data object of an LLM Observability patterns topics-with-clustered-points response.
+   * Data object of an Agent Observability patterns topics-with-clustered-points response.
    */
   "data": LLMObsPatternsTopicsWithClusteredPointsResponseData;
   /**

@@ -4,15 +4,15 @@ import { LLMObsDeleteExperimentsDataAttributesRequest } from "./LLMObsDeleteExpe
 import { LLMObsExperimentType } from "./LLMObsExperimentType";
 
 /**
- * Data object for deleting LLM Observability experiments.
+ * Data object for deleting Agent Observability experiments.
  */
 export class LLMObsDeleteExperimentsDataRequest {
   /**
-   * Attributes for deleting LLM Observability experiments.
+   * Attributes for deleting Agent Observability experiments.
    */
   "attributes": LLMObsDeleteExperimentsDataAttributesRequest;
   /**
-   * Resource type of an LLM Observability experiment.
+   * Resource type of an Agent Observability experiment.
    */
   "type": LLMObsExperimentType;
   /**

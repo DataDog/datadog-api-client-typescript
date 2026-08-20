@@ -4,7 +4,7 @@ import { LLMObsPromptTemplate } from "./LLMObsPromptTemplate";
 import { LLMObsPromptVersionLabel } from "./LLMObsPromptVersionLabel";
 
 /**
- * Attributes for creating an LLM Observability prompt and its first version. `prompt_id` and `template` are required; all other attributes are optional.
+ * Attributes for creating an Agent Observability prompt and its first version. `prompt_id` and `template` are required; all other attributes are optional.
  */
 export class LLMObsCreatePromptDataAttributes {
   /**

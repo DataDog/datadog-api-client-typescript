@@ -4,7 +4,7 @@ import { AnyValue } from "./AnyValue";
 import { LLMObsDatasetRecordTagOperations } from "./LLMObsDatasetRecordTagOperations";
 
 /**
- * A record to insert as part of a batch update on an LLM Observability dataset.
+ * A record to insert as part of a batch update on an Agent Observability dataset.
  */
 export class LLMObsDatasetBatchUpdateInsertRecord {
   /**

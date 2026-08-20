@@ -4,7 +4,7 @@ import { LLMObsDatasetBatchUpdateInsertRecord } from "./LLMObsDatasetBatchUpdate
 import { LLMObsDatasetBatchUpdateUpdateRecord } from "./LLMObsDatasetBatchUpdateUpdateRecord";
 
 /**
- * Attributes for batch-updating records in an LLM Observability dataset.
+ * Attributes for batch-updating records in an Agent Observability dataset.
  */
 export class LLMObsDatasetBatchUpdateDataAttributesRequest {
   /**

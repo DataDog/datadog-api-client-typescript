@@ -4,11 +4,11 @@ import { LLMObsDatasetDraftStateDataAttributes } from "./LLMObsDatasetDraftState
 import { LLMObsDatasetDraftStateType } from "./LLMObsDatasetDraftStateType";
 
 /**
- * Data object for an LLM Observability dataset draft state.
+ * Data object for an Agent Observability dataset draft state.
  */
 export class LLMObsDatasetDraftStateData {
   /**
-   * Attributes of an LLM Observability dataset draft state.
+   * Attributes of an Agent Observability dataset draft state.
    */
   "attributes": LLMObsDatasetDraftStateDataAttributes;
   /**
@@ -16,7 +16,7 @@ export class LLMObsDatasetDraftStateData {
    */
   "id": string;
   /**
-   * Resource type of an LLM Observability dataset draft state.
+   * Resource type of an Agent Observability dataset draft state.
    */
   "type": LLMObsDatasetDraftStateType;
   /**

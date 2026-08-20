@@ -3,7 +3,7 @@ import { AttributeTypeMap } from "@datadog/datadog-api-client";
 import { LLMObsDeleteAnnotationQueueInteractionsDataRequest } from "./LLMObsDeleteAnnotationQueueInteractionsDataRequest";
 
 /**
- * Request to delete interactions from an LLM Observability annotation queue.
+ * Request to delete interactions from an Agent Observability annotation queue.
  */
 export class LLMObsDeleteAnnotationQueueInteractionsRequest {
   /**

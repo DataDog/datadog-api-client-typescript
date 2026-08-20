@@ -2,7 +2,7 @@
 
 ## Description
 
-Manage LLM Observability spans, data, projects, datasets, dataset records, experiments, prompts, and annotations.
+Manage Agent Observability spans, data, projects, datasets, dataset records, experiments, prompts, and annotations.
 
 ## Navigation
 

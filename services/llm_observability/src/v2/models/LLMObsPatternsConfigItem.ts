@@ -1,7 +1,7 @@
 import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
 /**
- * A single LLM Observability patterns configuration in a list response.
+ * A single Agent Observability patterns configuration in a list response.
  */
 export class LLMObsPatternsConfigItem {
   /**

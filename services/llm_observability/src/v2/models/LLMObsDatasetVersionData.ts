@@ -4,11 +4,11 @@ import { LLMObsDatasetVersionDataAttributes } from "./LLMObsDatasetVersionDataAt
 import { LLMObsDatasetVersionType } from "./LLMObsDatasetVersionType";
 
 /**
- * Data object for an LLM Observability dataset version.
+ * Data object for an Agent Observability dataset version.
  */
 export class LLMObsDatasetVersionData {
   /**
-   * Attributes of an LLM Observability dataset version.
+   * Attributes of an Agent Observability dataset version.
    */
   "attributes": LLMObsDatasetVersionDataAttributes;
   /**
@@ -16,7 +16,7 @@ export class LLMObsDatasetVersionData {
    */
   "id": string;
   /**
-   * Resource type of an LLM Observability dataset version.
+   * Resource type of an Agent Observability dataset version.
    */
   "type": LLMObsDatasetVersionType;
   /**

@@ -4,15 +4,15 @@ import { LLMObsDatasetType } from "./LLMObsDatasetType";
 import { LLMObsDeleteDatasetsDataAttributesRequest } from "./LLMObsDeleteDatasetsDataAttributesRequest";
 
 /**
- * Data object for deleting LLM Observability datasets.
+ * Data object for deleting Agent Observability datasets.
  */
 export class LLMObsDeleteDatasetsDataRequest {
   /**
-   * Attributes for deleting LLM Observability datasets.
+   * Attributes for deleting Agent Observability datasets.
    */
   "attributes": LLMObsDeleteDatasetsDataAttributesRequest;
   /**
-   * Resource type of an LLM Observability dataset.
+   * Resource type of an Agent Observability dataset.
    */
   "type": LLMObsDatasetType;
   /**

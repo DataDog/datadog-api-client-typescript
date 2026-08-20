@@ -3,11 +3,11 @@ import { AttributeTypeMap } from "@datadog/datadog-api-client";
 import { LLMObsPatternsClusteredPointsResponseData } from "./LLMObsPatternsClusteredPointsResponseData";
 
 /**
- * Response containing the clustered points of an LLM Observability topic.
+ * Response containing the clustered points of an Agent Observability topic.
  */
 export class LLMObsPatternsClusteredPointsResponse {
   /**
-   * Data object of an LLM Observability patterns clustered points response.
+   * Data object of an Agent Observability patterns clustered points response.
    */
   "data": LLMObsPatternsClusteredPointsResponseData;
   /**

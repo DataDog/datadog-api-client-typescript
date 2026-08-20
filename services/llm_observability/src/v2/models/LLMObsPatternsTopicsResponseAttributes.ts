@@ -4,7 +4,7 @@ import { LLMObsPatternsConfigSnapshot } from "./LLMObsPatternsConfigSnapshot";
 import { LLMObsPatternsTopic } from "./LLMObsPatternsTopic";
 
 /**
- * Attributes of an LLM Observability patterns topics response.
+ * Attributes of an Agent Observability patterns topics response.
  */
 export class LLMObsPatternsTopicsResponseAttributes {
   /**

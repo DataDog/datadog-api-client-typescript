@@ -3,11 +3,11 @@ import { AttributeTypeMap } from "@datadog/datadog-api-client";
 import { LLMObsDeleteExperimentsDataRequest } from "./LLMObsDeleteExperimentsDataRequest";
 
 /**
- * Request to delete one or more LLM Observability experiments.
+ * Request to delete one or more Agent Observability experiments.
  */
 export class LLMObsDeleteExperimentsRequest {
   /**
-   * Data object for deleting LLM Observability experiments.
+   * Data object for deleting Agent Observability experiments.
    */
   "data": LLMObsDeleteExperimentsDataRequest;
   /**

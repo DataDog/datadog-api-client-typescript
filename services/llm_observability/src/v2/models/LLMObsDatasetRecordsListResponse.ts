@@ -4,7 +4,7 @@ import { LLMObsCursorMeta } from "./LLMObsCursorMeta";
 import { LLMObsDatasetRecordDataResponse } from "./LLMObsDatasetRecordDataResponse";
 
 /**
- * Response containing a paginated list of LLM Observability dataset records.
+ * Response containing a paginated list of Agent Observability dataset records.
  */
 export class LLMObsDatasetRecordsListResponse {
   /**

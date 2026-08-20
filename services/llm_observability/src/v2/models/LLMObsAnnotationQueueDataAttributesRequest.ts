@@ -3,7 +3,7 @@ import { AttributeTypeMap } from "@datadog/datadog-api-client";
 import { LLMObsAnnotationSchema } from "./LLMObsAnnotationSchema";
 
 /**
- * Attributes for creating an LLM Observability annotation queue.
+ * Attributes for creating an Agent Observability annotation queue.
  */
 export class LLMObsAnnotationQueueDataAttributesRequest {
   /**

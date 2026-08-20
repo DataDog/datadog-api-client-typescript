@@ -4,11 +4,11 @@ import { LLMObsPatternsRunStatusResponseAttributes } from "./LLMObsPatternsRunSt
 import { LLMObsPatternsRunStatusType } from "./LLMObsPatternsRunStatusType";
 
 /**
- * Data object of an LLM Observability patterns run status response.
+ * Data object of an Agent Observability patterns run status response.
  */
 export class LLMObsPatternsRunStatusResponseData {
   /**
-   * Attributes of an LLM Observability patterns run status.
+   * Attributes of an Agent Observability patterns run status.
    */
   "attributes": LLMObsPatternsRunStatusResponseAttributes;
   /**
@@ -16,7 +16,7 @@ export class LLMObsPatternsRunStatusResponseData {
    */
   "id": string;
   /**
-   * Resource type of an LLM Observability patterns run status.
+   * Resource type of an Agent Observability patterns run status.
    */
   "type": LLMObsPatternsRunStatusType;
   /**

@@ -1,7 +1,7 @@
 import { UnparsedObject } from "@datadog/datadog-api-client";
 
 /**
- * Resource type of a list of LLM Observability patterns configurations.
+ * Resource type of a list of Agent Observability patterns configurations.
  */
 export type LLMObsPatternsConfigsListType =
   | typeof LIST_TOPIC_DISCOVERY_CONFIGS_RESPONSE

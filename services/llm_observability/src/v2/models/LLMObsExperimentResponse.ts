@@ -3,11 +3,11 @@ import { AttributeTypeMap } from "@datadog/datadog-api-client";
 import { LLMObsExperimentDataResponse } from "./LLMObsExperimentDataResponse";
 
 /**
- * Response containing a single LLM Observability experiment.
+ * Response containing a single Agent Observability experiment.
  */
 export class LLMObsExperimentResponse {
   /**
-   * Data object for an LLM Observability experiment.
+   * Data object for an Agent Observability experiment.
    */
   "data": LLMObsExperimentDataResponse;
   /**

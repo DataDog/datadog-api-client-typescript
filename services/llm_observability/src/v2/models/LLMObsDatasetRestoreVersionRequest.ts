@@ -3,11 +3,11 @@ import { AttributeTypeMap } from "@datadog/datadog-api-client";
 import { LLMObsDatasetRestoreVersionDataRequest } from "./LLMObsDatasetRestoreVersionDataRequest";
 
 /**
- * Request to restore an LLM Observability dataset to a previous version.
+ * Request to restore an Agent Observability dataset to a previous version.
  */
 export class LLMObsDatasetRestoreVersionRequest {
   /**
-   * Data object for restoring an LLM Observability dataset to a previous version.
+   * Data object for restoring an Agent Observability dataset to a previous version.
    */
   "data": LLMObsDatasetRestoreVersionDataRequest;
   /**

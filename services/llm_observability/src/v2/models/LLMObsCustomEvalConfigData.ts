@@ -4,11 +4,11 @@ import { LLMObsCustomEvalConfigAttributes } from "./LLMObsCustomEvalConfigAttrib
 import { LLMObsCustomEvalConfigType } from "./LLMObsCustomEvalConfigType";
 
 /**
- * Data object for a custom LLM Observability evaluator configuration.
+ * Data object for a custom Agent Observability evaluator configuration.
  */
 export class LLMObsCustomEvalConfigData {
   /**
-   * Attributes of a custom LLM Observability evaluator configuration.
+   * Attributes of a custom Agent Observability evaluator configuration.
    */
   "attributes": LLMObsCustomEvalConfigAttributes;
   /**
@@ -16,7 +16,7 @@ export class LLMObsCustomEvalConfigData {
    */
   "id": string;
   /**
-   * Type of the custom LLM Observability evaluator configuration resource.
+   * Type of the custom Agent Observability evaluator configuration resource.
    */
   "type": LLMObsCustomEvalConfigType;
   /**

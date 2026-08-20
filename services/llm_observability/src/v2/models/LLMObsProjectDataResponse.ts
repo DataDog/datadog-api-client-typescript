@@ -4,11 +4,11 @@ import { LLMObsProjectDataAttributesResponse } from "./LLMObsProjectDataAttribut
 import { LLMObsProjectType } from "./LLMObsProjectType";
 
 /**
- * Data object for an LLM Observability project.
+ * Data object for an Agent Observability project.
  */
 export class LLMObsProjectDataResponse {
   /**
-   * Attributes of an LLM Observability project.
+   * Attributes of an Agent Observability project.
    */
   "attributes": LLMObsProjectDataAttributesResponse;
   /**
@@ -16,7 +16,7 @@ export class LLMObsProjectDataResponse {
    */
   "id": string;
   /**
-   * Resource type of an LLM Observability project.
+   * Resource type of an Agent Observability project.
    */
   "type": LLMObsProjectType;
   /**

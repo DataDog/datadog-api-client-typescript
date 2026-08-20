@@ -1,7 +1,7 @@
 import { UnparsedObject } from "@datadog/datadog-api-client";
 
 /**
- * Execution status of an LLM Observability experiment.
+ * Execution status of an Agent Observability experiment.
  */
 export type LLMObsExperimentStatus =
   | typeof RUNNING

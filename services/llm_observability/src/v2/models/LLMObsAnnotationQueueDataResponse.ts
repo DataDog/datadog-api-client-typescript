@@ -4,11 +4,11 @@ import { LLMObsAnnotationQueueDataAttributesResponse } from "./LLMObsAnnotationQ
 import { LLMObsAnnotationQueueType } from "./LLMObsAnnotationQueueType";
 
 /**
- * Data object for an LLM Observability annotation queue.
+ * Data object for an Agent Observability annotation queue.
  */
 export class LLMObsAnnotationQueueDataResponse {
   /**
-   * Attributes of an LLM Observability annotation queue.
+   * Attributes of an Agent Observability annotation queue.
    */
   "attributes": LLMObsAnnotationQueueDataAttributesResponse;
   /**
@@ -16,7 +16,7 @@ export class LLMObsAnnotationQueueDataResponse {
    */
   "id": string;
   /**
-   * Resource type of an LLM Observability annotation queue.
+   * Resource type of an Agent Observability annotation queue.
    */
   "type": LLMObsAnnotationQueueType;
   /**

@@ -4,7 +4,7 @@ import { LLMObsExperimentStatus } from "./LLMObsExperimentStatus";
 import { LLMObsExperimentUser } from "./LLMObsExperimentUser";
 
 /**
- * Attributes of an LLM Observability experiment.
+ * Attributes of an Agent Observability experiment.
  */
 export class LLMObsExperimentDataAttributesResponse {
   /**
@@ -73,7 +73,7 @@ export class LLMObsExperimentDataAttributesResponse {
    */
   "runCount"?: number;
   /**
-   * Execution status of an LLM Observability experiment.
+   * Execution status of an Agent Observability experiment.
    */
   "status"?: LLMObsExperimentStatus;
   /**

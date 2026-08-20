@@ -3,7 +3,7 @@ import { AttributeTypeMap } from "@datadog/datadog-api-client";
 import { LLMObsPatternsClusteredPointRef } from "./LLMObsPatternsClusteredPointRef";
 
 /**
- * A topic discovered by an LLM Observability patterns run, including the
+ * A topic discovered by an Agent Observability patterns run, including the
  * clustered points attached to leaf topics.
  */
 export class LLMObsPatternsTopicWithClusteredPoints {

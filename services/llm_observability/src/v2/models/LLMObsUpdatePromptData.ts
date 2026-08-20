@@ -4,15 +4,15 @@ import { LLMObsPromptType } from "./LLMObsPromptType";
 import { LLMObsUpdatePromptDataAttributes } from "./LLMObsUpdatePromptDataAttributes";
 
 /**
- * Data object for updating an LLM Observability prompt.
+ * Data object for updating an Agent Observability prompt.
  */
 export class LLMObsUpdatePromptData {
   /**
-   * Attributes for updating an LLM Observability prompt. At least one of `title` or `description` must be provided; both attributes are optional individually.
+   * Attributes for updating an Agent Observability prompt. At least one of `title` or `description` must be provided; both attributes are optional individually.
    */
   "attributes": LLMObsUpdatePromptDataAttributes;
   /**
-   * Resource type of an LLM Observability prompt.
+   * Resource type of an Agent Observability prompt.
    */
   "type": LLMObsPromptType;
   /**

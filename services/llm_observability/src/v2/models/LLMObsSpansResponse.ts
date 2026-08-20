@@ -5,7 +5,7 @@ import { LLMObsSpansResponseLinks } from "./LLMObsSpansResponseLinks";
 import { LLMObsSpansResponseMeta } from "./LLMObsSpansResponseMeta";
 
 /**
- * Response containing a list of LLM Observability spans.
+ * Response containing a list of Agent Observability spans.
  */
 export class LLMObsSpansResponse {
   /**

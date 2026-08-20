@@ -4,15 +4,15 @@ import { LLMObsPromptVersionType } from "./LLMObsPromptVersionType";
 import { LLMObsUpdatePromptVersionDataAttributes } from "./LLMObsUpdatePromptVersionDataAttributes";
 
 /**
- * Data object for updating an LLM Observability prompt version.
+ * Data object for updating an Agent Observability prompt version.
  */
 export class LLMObsUpdatePromptVersionData {
   /**
-   * Attributes for updating an LLM Observability prompt version. At least one of `description`, `labels`, or `env_ids` must be provided; all three attributes are optional individually.
+   * Attributes for updating an Agent Observability prompt version. At least one of `description`, `labels`, or `env_ids` must be provided; all three attributes are optional individually.
    */
   "attributes": LLMObsUpdatePromptVersionDataAttributes;
   /**
-   * Resource type of an LLM Observability prompt version.
+   * Resource type of an Agent Observability prompt version.
    */
   "type": LLMObsPromptVersionType;
   /**

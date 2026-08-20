@@ -4,7 +4,7 @@ import { LLMObsExperimentSpanMeta } from "./LLMObsExperimentSpanMeta";
 import { LLMObsExperimentSpanStatus } from "./LLMObsExperimentSpanStatus";
 
 /**
- * A span associated with an LLM Observability experiment.
+ * A span associated with an Agent Observability experiment.
  */
 export class LLMObsExperimentSpan {
   /**

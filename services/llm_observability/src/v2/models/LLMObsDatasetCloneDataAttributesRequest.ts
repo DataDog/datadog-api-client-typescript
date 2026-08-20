@@ -1,7 +1,7 @@
 import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
 /**
- * Attributes for cloning an LLM Observability dataset.
+ * Attributes for cloning an Agent Observability dataset.
  */
 export class LLMObsDatasetCloneDataAttributesRequest {
   /**

@@ -3,7 +3,7 @@ import { AttributeTypeMap } from "@datadog/datadog-api-client";
 import { AnyValue } from "./AnyValue";
 
 /**
- * A single record to append to an LLM Observability dataset.
+ * A single record to append to an Agent Observability dataset.
  */
 export class LLMObsDatasetRecordItem {
   /**

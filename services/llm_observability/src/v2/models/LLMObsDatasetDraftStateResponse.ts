@@ -3,11 +3,11 @@ import { AttributeTypeMap } from "@datadog/datadog-api-client";
 import { LLMObsDatasetDraftStateData } from "./LLMObsDatasetDraftStateData";
 
 /**
- * Response containing the draft state of an LLM Observability dataset.
+ * Response containing the draft state of an Agent Observability dataset.
  */
 export class LLMObsDatasetDraftStateResponse {
   /**
-   * Data object for an LLM Observability dataset draft state.
+   * Data object for an Agent Observability dataset draft state.
    */
   "data": LLMObsDatasetDraftStateData;
   /**
