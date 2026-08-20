@@ -1,0 +1,84 @@
+/**
+ * Unless explicitly stated otherwise all files in this repository are licensed under the Apache-2.0 License.
+ * This product includes software developed at Datadog (https://www.datadoghq.com/).
+ * Copyright 2020-Present Datadog, Inc.
+ */
+import { ProductAnalyticsJourneyTarget } from "./ProductAnalyticsJourneyTarget";
+
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+/**
+ * Defines the metric computed over the journey.
+ */
+export class ProductAnalyticsGraphQueryCompute {
+  /**
+   * Aggregation function: `count`, `cardinality`, `avg`, `median`, `min`, `max`, `sum`,
+   * or a percentile of the form `pc<N>` such as `pc95`. Defaults to `cardinality`.
+   */
+  "aggregation": string;
+  /**
+   * Time bucket interval in milliseconds, used by timeseries queries.
+   */
+  "interval"?: number;
+  /**
+   * Metric to aggregate on. Use a facet path such as `@view.time_spent`, or one of the
+   * journey metrics `__dd.conversion`, `__dd.conversion_rate`, `__dd.time_to_convert`,
+   * or `__dd.dropoff_rate`. Defaults to `__dd.conversion`.
+   */
+  "metric"?: string;
+  /**
+   * A reference to a step, or a range of steps, in the journey.
+   * Use a `node` target to name a single step, or a `path` target to name the range
+   * between two steps.
+   */
+  "target"?: ProductAnalyticsJourneyTarget;
+
+  /**
+   * A container for additional, undeclared properties.
+   * This is a holder for any undeclared properties as specified with
+   * the 'additionalProperties' keyword in the OAS document.
+   */
+  "additionalProperties"?: { [key: string]: any };
+
+  /**
+   * @ignore
+   */
+  "_unparsed"?: boolean;
+
+  /**
+   * @ignore
+   */
+  static readonly attributeTypeMap: AttributeTypeMap = {
+    aggregation: {
+      baseName: "aggregation",
+      type: "string",
+      required: true,
+    },
+    interval: {
+      baseName: "interval",
+      type: "number",
+      format: "int64",
+    },
+    metric: {
+      baseName: "metric",
+      type: "string",
+    },
+    target: {
+      baseName: "target",
+      type: "ProductAnalyticsJourneyTarget",
+    },
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "{ [key: string]: any; }",
+    },
+  };
+
+  /**
+   * @ignore
+   */
+  static getAttributeTypeMap(): AttributeTypeMap {
+    return ProductAnalyticsGraphQueryCompute.attributeTypeMap;
+  }
+
+  public constructor() {}
+}

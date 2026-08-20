@@ -9,7 +9,8 @@ import { ProductAnalyticsSerie } from "./ProductAnalyticsSerie";
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * Attributes of a timeseries analytics response, containing series data, timestamps, and interval definitions.
+ * Attributes of a timeseries analytics response, containing series data, timestamps, and
+ * interval definitions.
  */
 export class ProductAnalyticsTimeseriesResponseAttributes {
   /**

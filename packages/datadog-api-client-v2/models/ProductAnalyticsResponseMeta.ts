@@ -12,7 +12,7 @@ import { AttributeTypeMap } from "../../datadog-api-client-common/util";
  */
 export class ProductAnalyticsResponseMeta {
   /**
-   * Unique identifier for the request, used for multi-step query continuation.
+   * Unique identifier of the query.
    */
   "requestId"?: string;
   /**
