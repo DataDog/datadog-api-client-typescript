@@ -321,6 +321,7 @@ export const TypingInfo: ModelTypingInfo = {
     LLMObsAnnotatedInteractionsByTraceType: ["annotated_interactions_by_trace"],
     LLMObsAnnotatedInteractionsType: ["annotated_interactions"],
     LLMObsAnnotationAssessment: ["pass", "fail"],
+    LLMObsAnnotationErrorCode: ["permission_denied"],
     LLMObsAnnotationQueueInteractionsType: ["interactions"],
     LLMObsAnnotationQueueType: ["queues"],
     LLMObsAnnotationsType: ["annotations"],
