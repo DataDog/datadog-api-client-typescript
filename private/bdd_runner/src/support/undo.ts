@@ -4,6 +4,7 @@ import * as datadogCommon from "@datadog/datadog-api-client";
 
 import log from "loglevel";
 import { apiTypes } from "./api_info";
+import { testServerFetch } from "./test_runner";
 const logger = log.getLogger("testing");
 logger.setLevel(process.env.DEBUG ? logger.levels.DEBUG : logger.levels.INFO);
 
@@ -46,6 +47,7 @@ function buildUndoFor(
   request: any,
   servicesDir: string,
   pathParameters: { [key: string]: any } = {},
+  testServerSession?: string,
 ): { (): void } {
   return async function () {
     const apiName: string = tagToApiClassName(operationUndo.tag);
@@ -59,6 +61,7 @@ function buildUndoFor(
       },
       httpConfig: { compress: false },
       enableRetry: true,
+      fetch: testServerFetch(testServerSession),
     };
     if (process.env.DD_TEST_SITE) {
       const server = datadogCommon.servers[2];
@@ -75,6 +78,13 @@ function buildUndoFor(
         protocol: "http",
       } as typeof serverConf);
       (configurationOpts as any)["serverIndex"] = 1;
+    }
+    if (process.env.DD_TEST_SERVER_URL) {
+      (configurationOpts as any)["baseServer"] =
+        new datadogCommon.BaseServerConfiguration(
+          process.env.DD_TEST_SERVER_URL,
+          {},
+        );
     }
     const configuration = datadogCommon.createConfiguration(configurationOpts);
     configuration.unstableOperations[

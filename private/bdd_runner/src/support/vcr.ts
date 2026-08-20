@@ -10,6 +10,11 @@ import { World } from "./world";
 import { ITestCaseHookParameter } from "@cucumber/cucumber/lib/support_code_library_builder/types";
 import { MODES } from "@pollyjs/utils";
 import { createHash } from "crypto";
+import {
+  startTestServerSession,
+  stopTestServerSession,
+  testServerEnabled,
+} from "./test_runner";
 
 Polly.register(NodeHttpAdapter);
 Polly.register(FSPersister);
@@ -45,69 +50,76 @@ function generateUuid(data: any): any {
   );
 }
 
-Before(function (
+Before(async function (
   this: World,
   { gherkinDocument, pickle }: ITestCaseHookParameter,
 ) {
-  const recordingsDir = `${this.cassettesDir}/${this.apiVersion}`;
-  const recordingName = `${gherkinDocument.feature?.name as string}/${pickle.name}`;
-  this.polly = new Polly(recordingName, {
-    adapters: ["node-http"],
-    flushRequestsOnStop: true,
-    persister: "fs",
-    matchRequestsBy: {
-      headers: matchHeaders,
-    },
-    mode: RecordMode[process.env.RECORD || "false"],
-    recordIfMissing: process.env.RERECORD_FAILED_TESTS === "true", // make sure that we match body exactly
-    recordFailedRequests: true, // make sure we can replay responses with 4xx codes
-    logLevel: !!process.env.DEBUG ? "debug" : "warn",
-    persisterOptions: {
-      fs: {
-        recordingsDir: recordingsDir,
-      },
-    },
-  });
-  const { server } = this.polly;
-
-  // register used cassettes
-  cassettes.push(path.join(recordingsDir, this.polly?.recordingId));
-
   let date: Date;
-  const frozen = path.join(
-    recordingsDir,
-    this.polly?.recordingId,
-    "frozen.json",
-  );
-  const frozenExists = fs.existsSync(frozen);
-  if (frozenExists && this.polly?.mode == MODES.REPLAY) {
-    date = new Date(JSON.parse(fs.readFileSync(frozen).toString()));
+  let server: any;
+  if (testServerEnabled()) {
+    date = await startTestServerSession(
+      this,
+      gherkinDocument.feature?.name as string,
+      pickle.name,
+    );
   } else {
-    date = new Date();
-    if (
-      this.polly?.mode == MODES.RECORD ||
-      this.polly?.config?.recordIfMissing
-    ) {
-      fs.mkdirSync(path.dirname(frozen), { recursive: true });
-      fs.writeFileSync(frozen, JSON.stringify(date) + "\n");
-    } else if (this.polly?.mode == MODES.REPLAY) {
+    const recordingsDir = `${this.cassettesDir}/${this.apiVersion}`;
+    const recordingName = `${gherkinDocument.feature?.name as string}/${pickle.name}`;
+    this.polly = new Polly(recordingName, {
+      adapters: ["node-http"],
+      flushRequestsOnStop: true,
+      persister: "fs",
+      matchRequestsBy: {
+        headers: matchHeaders,
+      },
+      mode: RecordMode[process.env.RECORD || "false"],
+      recordIfMissing: process.env.RERECORD_FAILED_TESTS === "true",
+      recordFailedRequests: true,
+      logLevel: !!process.env.DEBUG ? "debug" : "warn",
+      persisterOptions: {
+        fs: {
+          recordingsDir: recordingsDir,
+        },
+      },
+    });
+    ({ server } = this.polly);
+
+    // register used cassettes
+    cassettes.push(path.join(recordingsDir, this.polly?.recordingId));
+
+    const frozen = path.join(
+      recordingsDir,
+      this.polly?.recordingId,
+      "frozen.json",
+    );
+    const frozenExists = fs.existsSync(frozen);
+    if (frozenExists && this.polly?.mode == MODES.REPLAY) {
+      date = new Date(JSON.parse(fs.readFileSync(frozen).toString()));
+    } else {
+      date = new Date();
+      if (
+        this.polly?.mode == MODES.RECORD ||
+        this.polly?.config?.recordIfMissing
+      ) {
+        fs.mkdirSync(path.dirname(frozen), { recursive: true });
+        fs.writeFileSync(frozen, JSON.stringify(date) + "\n");
+      } else if (this.polly?.mode == MODES.REPLAY) {
+        throw new Error(
+          `Time file '${frozen}' not found: create one setting \`RECORD=true\` or ignore it using \`RECORD=none\``,
+        );
+      }
+    }
+
+    const cassette = path.join(
+      recordingsDir,
+      this.polly?.recordingId,
+      "recording.har",
+    );
+    if (!fs.existsSync(cassette) && this.polly?.mode == MODES.REPLAY) {
       throw new Error(
-        `Time file '${frozen}' not found: create one setting \`RECORD=true\` or ignore it using \`RECORD=none\``,
+        `Cassette '${cassette}' not found: create one setting \`RECORD=true\` or ignore it using \`RECORD=none\``,
       );
     }
-  }
-
-  const cassette = path.join(
-    recordingsDir,
-    this.polly?.recordingId,
-    "recording.har",
-  );
-  const cassetteExists = fs.existsSync(cassette);
-
-  if (!cassetteExists && this.polly?.mode == MODES.REPLAY) {
-    throw new Error(
-      `Cassette '${cassette}' not found: create one setting \`RECORD=true\` or ignore it using \`RECORD=none\``,
-    );
   }
 
   const now = date.getTime() / 1000;
@@ -131,21 +143,24 @@ Before(function (
   this.fixtures["now"] = date;
   this.fixtures["uuid"] = generateUuid(now);
 
-  // make sure that we are not recording APM traces
-  if ((tracer as any)._tracer._url !== undefined) {
-    const url = (tracer as any)._tracer._url.href;
-    server.put(`${url}*`).passthrough();
+  if (server !== undefined) {
+    // make sure that we are not recording APM traces
+    if ((tracer as any)._tracer._url !== undefined) {
+      const url = (tracer as any)._tracer._url.href;
+      server.put(`${url}*`).passthrough();
+    }
+
+    // remove secrets from request headers before persisting
+    server.any().on("beforePersist", (_req: any, recording: any) => {
+      recording.request.headers =
+        recording.request.headers.filter(filterHeader);
+      recording.response.headers =
+        recording.response.headers.filter(filterHeader);
+
+      // remove timing information
+      delete recording.timings;
+    });
   }
-
-  // remove secrets from request headers before persisting
-  server.any().on("beforePersist", (req, recording) => {
-    recording.request.headers = recording.request.headers.filter(filterHeader);
-    recording.response.headers =
-      recording.response.headers.filter(filterHeader);
-
-    // remove timing information
-    delete recording.timings;
-  });
 });
 
 // Disable PollyJS request interception when tests are in integration mode
@@ -159,6 +174,10 @@ Before(async function (this: World) {
 // hence this.cleanup() must be defined after this.polly.stop().
 
 After(async function (this: World) {
+  if (testServerEnabled()) {
+    await stopTestServerSession(this);
+    return;
+  }
   if (this.polly !== undefined) {
     try {
       await this.polly.stop();

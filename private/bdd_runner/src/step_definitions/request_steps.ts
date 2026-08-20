@@ -20,6 +20,11 @@ import path from "path";
 import { compressSync } from "zstd.ts";
 import log from "loglevel";
 import { deserializeOpts } from "../support/deserialize_opts";
+import {
+  applyTestRunnerPlan,
+  testRunnerEnabled,
+  testServerFetch,
+} from "../support/test_runner";
 const logger = log.getLogger("testing");
 logger.setLevel(process.env.DEBUG ? logger.levels.DEBUG : logger.levels.INFO);
 
@@ -44,10 +49,12 @@ Given(
 );
 
 Given(/body with value (.*)/, function (this: World, body: string) {
+  if (testRunnerEnabled()) return;
   this.opts["body"] = JSON.parse(body.templated(this.fixtures));
 });
 
 Given(/body from file "(.*)"/, function (this: World, filename: string) {
+  if (testRunnerEnabled()) return;
   const content = fs
     .readFileSync(
       path.join(this.workingDir, "features", this.apiVersion, filename),
@@ -59,6 +66,7 @@ Given(/body from file "(.*)"/, function (this: World, filename: string) {
 Given(
   "request contains {string} parameter from {string}",
   function (this: World, parameterName: string, fixturePath: string) {
+    if (testRunnerEnabled()) return;
     const value = pathLookup(this.fixtures, fixturePath);
     this.opts[parameterName.toAttributeName()] = value;
 
@@ -71,6 +79,7 @@ Given(
 Given(
   /request contains "([^"]+)" parameter with value (.*)/,
   function (this: World, parameterName: string, value: string) {
+    if (testRunnerEnabled()) return;
     const parsedValue = JSON.parse(value.templated(this.fixtures));
     this.opts[parameterName.toAttributeName().toOperationName()] = parsedValue;
 
@@ -81,12 +90,14 @@ Given(
 );
 
 Given("new {string} request", function (this: World, operationId: string) {
+  if (testRunnerEnabled()) return;
   this.operationId = operationId;
   this.opts = {};
   this.pathParameters = {};
 });
 
 When("the request is sent", async function (this: World) {
+  applyTestRunnerPlan(this, false);
   // build request from scenario
   const apiNameWithVersion = `${this.apiName}${this.apiVersion.toUpperCase()}`;
   const api = apiTypes[apiNameWithVersion];
@@ -97,6 +108,7 @@ When("the request is sent", async function (this: World) {
     zstdCompressorCallback: (body: string) =>
       compressSync({ input: Buffer.from(body, "utf8") }),
     enableRetry: true,
+    fetch: testServerFetch(this.testServerSession),
   };
 
   if (process.env.DD_TEST_SITE) {
@@ -113,6 +125,13 @@ When("the request is sent", async function (this: World) {
       protocol: "http",
     } as typeof serverConf);
     (configurationOpts as any)["serverIndex"] = 1;
+  }
+  if (process.env.DD_TEST_SERVER_URL) {
+    (configurationOpts as any)["baseServer"] =
+      new datadogCommon.BaseServerConfiguration(
+        process.env.DD_TEST_SERVER_URL,
+        {},
+      );
   }
 
   const configuration = datadogCommon.createConfiguration(configurationOpts);
@@ -159,6 +178,7 @@ When("the request is sent", async function (this: World) {
           this.opts,
           this.servicesDir,
           this.pathParameters,
+          this.testServerSession,
         ),
       );
     }
@@ -185,12 +205,14 @@ When("the request is sent", async function (this: World) {
 });
 
 When("the request with pagination is sent", async function (this: World) {
+  applyTestRunnerPlan(this, true);
   const apiNameWithVersion = `${this.apiName}${this.apiVersion.toUpperCase()}`;
   const api = apiTypes[apiNameWithVersion];
   const configurationOpts = {
     authMethods: this.authMethods,
     httpConfig: { compress: false },
     enableRetry: true,
+    fetch: testServerFetch(this.testServerSession),
   };
   if (process.env.DD_TEST_SITE) {
     const serverConf = datadogCommon.servers[2].getConfiguration();
@@ -206,6 +228,13 @@ When("the request with pagination is sent", async function (this: World) {
       protocol: "http",
     } as typeof serverConf);
     (configurationOpts as any)["serverIndex"] = 1;
+  }
+  if (process.env.DD_TEST_SERVER_URL) {
+    (configurationOpts as any)["baseServer"] =
+      new datadogCommon.BaseServerConfiguration(
+        process.env.DD_TEST_SERVER_URL,
+        {},
+      );
   }
   const configuration = datadogCommon.createConfiguration(configurationOpts);
   for (const operationId in this.unstableOperations) {
