@@ -4,7 +4,8 @@ import { ProductAnalyticsInterval } from "./ProductAnalyticsInterval";
 import { ProductAnalyticsSerie } from "./ProductAnalyticsSerie";
 
 /**
- * Attributes of a timeseries analytics response, containing series data, timestamps, and interval definitions.
+ * Attributes of a timeseries analytics response, containing series data, timestamps, and
+ * interval definitions.
  */
 export class ProductAnalyticsTimeseriesResponseAttributes {
   /**

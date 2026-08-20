@@ -22,7 +22,8 @@ export class ProductAnalyticsAnalyticsQuery {
    */
   "groupBy"?: Array<ProductAnalyticsGroupBy>;
   /**
-   * Restrict the query to specific indexes. Max 1 entry.
+   * Deprecated. Index selection is a rollout detail and will be removed.
+   * Do not set this field.
    */
   "indexes"?: Array<string>;
   /**

@@ -8,7 +8,8 @@ import { ProductAnalyticsTimeseriesResponseType } from "./ProductAnalyticsTimese
  */
 export class ProductAnalyticsTimeseriesResponseData {
   /**
-   * Attributes of a timeseries analytics response, containing series data, timestamps, and interval definitions.
+   * Attributes of a timeseries analytics response, containing series data, timestamps, and
+   * interval definitions.
    */
   "attributes"?: ProductAnalyticsTimeseriesResponseAttributes;
   /**
