@@ -1,7 +1,7 @@
 import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
 /**
- * An evaluation metric associated with an LLM Observability span.
+ * An evaluation metric associated with an Agent Observability span.
  */
 export class LLMObsSpanEvaluationMetric {
   /**

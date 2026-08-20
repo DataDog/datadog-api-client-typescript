@@ -5,7 +5,7 @@ import { LLMObsCustomEvalConfigLLMProvider } from "./LLMObsCustomEvalConfigLLMPr
 import { LLMObsCustomEvalConfigTarget } from "./LLMObsCustomEvalConfigTarget";
 
 /**
- * Attributes for creating or updating a custom LLM Observability evaluator configuration.
+ * Attributes for creating or updating a custom Agent Observability evaluator configuration.
  */
 export class LLMObsCustomEvalConfigUpdateAttributes {
   /**

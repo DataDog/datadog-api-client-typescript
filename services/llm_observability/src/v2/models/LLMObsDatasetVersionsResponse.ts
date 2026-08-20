@@ -3,7 +3,7 @@ import { AttributeTypeMap } from "@datadog/datadog-api-client";
 import { LLMObsDatasetVersionData } from "./LLMObsDatasetVersionData";
 
 /**
- * Response containing the active versions of an LLM Observability dataset.
+ * Response containing the active versions of an Agent Observability dataset.
  */
 export class LLMObsDatasetVersionsResponse {
   /**

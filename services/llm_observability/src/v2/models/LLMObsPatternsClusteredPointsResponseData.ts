@@ -4,11 +4,11 @@ import { LLMObsPatternsClusteredPointsResponseAttributes } from "./LLMObsPattern
 import { LLMObsPatternsClusteredPointsType } from "./LLMObsPatternsClusteredPointsType";
 
 /**
- * Data object of an LLM Observability patterns clustered points response.
+ * Data object of an Agent Observability patterns clustered points response.
  */
 export class LLMObsPatternsClusteredPointsResponseData {
   /**
-   * Attributes of an LLM Observability patterns clustered points response.
+   * Attributes of an Agent Observability patterns clustered points response.
    */
   "attributes": LLMObsPatternsClusteredPointsResponseAttributes;
   /**
@@ -16,7 +16,7 @@ export class LLMObsPatternsClusteredPointsResponseData {
    */
   "id": string;
   /**
-   * Resource type of an LLM Observability patterns clustered points response.
+   * Resource type of an Agent Observability patterns clustered points response.
    */
   "type": LLMObsPatternsClusteredPointsType;
   /**

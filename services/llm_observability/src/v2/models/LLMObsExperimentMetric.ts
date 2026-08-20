@@ -5,11 +5,11 @@ import { LLMObsMetricAssessment } from "./LLMObsMetricAssessment";
 import { LLMObsMetricScoreType } from "./LLMObsMetricScoreType";
 
 /**
- * A metric associated with an LLM Observability experiment span.
+ * A metric associated with an Agent Observability experiment span.
  */
 export class LLMObsExperimentMetric {
   /**
-   * Assessment result for an LLM Observability experiment metric.
+   * Assessment result for an Agent Observability experiment metric.
    */
   "assessment"?: LLMObsMetricAssessment;
   /**
@@ -37,7 +37,7 @@ export class LLMObsExperimentMetric {
    */
   "metadata"?: { [key: string]: any };
   /**
-   * Type of metric recorded for an LLM Observability experiment.
+   * Type of metric recorded for an Agent Observability experiment.
    */
   "metricType": LLMObsMetricScoreType;
   /**

@@ -4,15 +4,15 @@ import { LLMObsProjectDataAttributesRequest } from "./LLMObsProjectDataAttribute
 import { LLMObsProjectType } from "./LLMObsProjectType";
 
 /**
- * Data object for creating an LLM Observability project.
+ * Data object for creating an Agent Observability project.
  */
 export class LLMObsProjectDataRequest {
   /**
-   * Attributes for creating an LLM Observability project.
+   * Attributes for creating an Agent Observability project.
    */
   "attributes": LLMObsProjectDataAttributesRequest;
   /**
-   * Resource type of an LLM Observability project.
+   * Resource type of an Agent Observability project.
    */
   "type": LLMObsProjectType;
   /**

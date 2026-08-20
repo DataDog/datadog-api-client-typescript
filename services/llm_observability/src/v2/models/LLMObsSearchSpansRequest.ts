@@ -3,11 +3,11 @@ import { AttributeTypeMap } from "@datadog/datadog-api-client";
 import { LLMObsSearchSpansRequestData } from "./LLMObsSearchSpansRequestData";
 
 /**
- * Request body for searching LLM Observability spans.
+ * Request body for searching Agent Observability spans.
  */
 export class LLMObsSearchSpansRequest {
   /**
-   * Data object for an LLM Observability spans search request.
+   * Data object for an Agent Observability spans search request.
    */
   "data": LLMObsSearchSpansRequestData;
   /**

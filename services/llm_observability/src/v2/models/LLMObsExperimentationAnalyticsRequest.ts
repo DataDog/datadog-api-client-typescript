@@ -3,7 +3,7 @@ import { AttributeTypeMap } from "@datadog/datadog-api-client";
 import { LLMObsExperimentationAnalyticsDataRequest } from "./LLMObsExperimentationAnalyticsDataRequest";
 
 /**
- * Request to run an analytics aggregation over LLM Observability experimentation data.
+ * Request to run an analytics aggregation over Agent Observability experimentation data.
  */
 export class LLMObsExperimentationAnalyticsRequest {
   /**

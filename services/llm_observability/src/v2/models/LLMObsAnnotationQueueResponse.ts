@@ -3,11 +3,11 @@ import { AttributeTypeMap } from "@datadog/datadog-api-client";
 import { LLMObsAnnotationQueueDataResponse } from "./LLMObsAnnotationQueueDataResponse";
 
 /**
- * Response containing a single LLM Observability annotation queue.
+ * Response containing a single Agent Observability annotation queue.
  */
 export class LLMObsAnnotationQueueResponse {
   /**
-   * Data object for an LLM Observability annotation queue.
+   * Data object for an Agent Observability annotation queue.
    */
   "data": LLMObsAnnotationQueueDataResponse;
   /**

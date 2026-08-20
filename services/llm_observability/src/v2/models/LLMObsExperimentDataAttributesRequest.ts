@@ -1,7 +1,7 @@
 import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
 /**
- * Attributes for creating an LLM Observability experiment.
+ * Attributes for creating an Agent Observability experiment.
  */
 export class LLMObsExperimentDataAttributesRequest {
   /**

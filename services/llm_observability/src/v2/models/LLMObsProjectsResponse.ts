@@ -4,7 +4,7 @@ import { LLMObsCursorMeta } from "./LLMObsCursorMeta";
 import { LLMObsProjectDataResponse } from "./LLMObsProjectDataResponse";
 
 /**
- * Response containing a list of LLM Observability projects.
+ * Response containing a list of Agent Observability projects.
  */
 export class LLMObsProjectsResponse {
   /**

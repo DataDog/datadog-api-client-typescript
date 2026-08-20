@@ -4,15 +4,15 @@ import { LLMObsCreatePromptVersionDataAttributes } from "./LLMObsCreatePromptVer
 import { LLMObsPromptVersionType } from "./LLMObsPromptVersionType";
 
 /**
- * Data object for creating an LLM Observability prompt version.
+ * Data object for creating an Agent Observability prompt version.
  */
 export class LLMObsCreatePromptVersionData {
   /**
-   * Attributes for creating a new version of an LLM Observability prompt. `template` is required; all other attributes are optional.
+   * Attributes for creating a new version of an Agent Observability prompt. `template` is required; all other attributes are optional.
    */
   "attributes": LLMObsCreatePromptVersionDataAttributes;
   /**
-   * Resource type of an LLM Observability prompt version.
+   * Resource type of an Agent Observability prompt version.
    */
   "type": LLMObsPromptVersionType;
   /**

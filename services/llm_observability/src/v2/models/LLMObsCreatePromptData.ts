@@ -4,15 +4,15 @@ import { LLMObsCreatePromptDataAttributes } from "./LLMObsCreatePromptDataAttrib
 import { LLMObsPromptType } from "./LLMObsPromptType";
 
 /**
- * Data object for creating an LLM Observability prompt.
+ * Data object for creating an Agent Observability prompt.
  */
 export class LLMObsCreatePromptData {
   /**
-   * Attributes for creating an LLM Observability prompt and its first version. `prompt_id` and `template` are required; all other attributes are optional.
+   * Attributes for creating an Agent Observability prompt and its first version. `prompt_id` and `template` are required; all other attributes are optional.
    */
   "attributes": LLMObsCreatePromptDataAttributes;
   /**
-   * Resource type of an LLM Observability prompt.
+   * Resource type of an Agent Observability prompt.
    */
   "type": LLMObsPromptType;
   /**

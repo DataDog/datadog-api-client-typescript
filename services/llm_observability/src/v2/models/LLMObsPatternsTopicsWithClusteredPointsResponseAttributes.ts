@@ -4,7 +4,7 @@ import { LLMObsPatternsConfigSnapshot } from "./LLMObsPatternsConfigSnapshot";
 import { LLMObsPatternsTopicWithClusteredPoints } from "./LLMObsPatternsTopicWithClusteredPoints";
 
 /**
- * Attributes of an LLM Observability patterns topics-with-clustered-points response.
+ * Attributes of an Agent Observability patterns topics-with-clustered-points response.
  */
 export class LLMObsPatternsTopicsWithClusteredPointsResponseAttributes {
   /**

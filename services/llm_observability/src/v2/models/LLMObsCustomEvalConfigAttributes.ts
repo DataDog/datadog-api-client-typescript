@@ -6,7 +6,7 @@ import { LLMObsCustomEvalConfigTarget } from "./LLMObsCustomEvalConfigTarget";
 import { LLMObsCustomEvalConfigUser } from "./LLMObsCustomEvalConfigUser";
 
 /**
- * Attributes of a custom LLM Observability evaluator configuration.
+ * Attributes of a custom Agent Observability evaluator configuration.
  */
 export class LLMObsCustomEvalConfigAttributes {
   /**

@@ -4,15 +4,15 @@ import { LLMObsAnnotationQueueDataAttributesRequest } from "./LLMObsAnnotationQu
 import { LLMObsAnnotationQueueType } from "./LLMObsAnnotationQueueType";
 
 /**
- * Data object for creating an LLM Observability annotation queue.
+ * Data object for creating an Agent Observability annotation queue.
  */
 export class LLMObsAnnotationQueueDataRequest {
   /**
-   * Attributes for creating an LLM Observability annotation queue.
+   * Attributes for creating an Agent Observability annotation queue.
    */
   "attributes": LLMObsAnnotationQueueDataAttributesRequest;
   /**
-   * Resource type of an LLM Observability annotation queue.
+   * Resource type of an Agent Observability annotation queue.
    */
   "type": LLMObsAnnotationQueueType;
   /**

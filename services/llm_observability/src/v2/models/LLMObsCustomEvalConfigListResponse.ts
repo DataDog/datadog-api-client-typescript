@@ -3,7 +3,7 @@ import { AttributeTypeMap } from "@datadog/datadog-api-client";
 import { LLMObsCustomEvalConfigData } from "./LLMObsCustomEvalConfigData";
 
 /**
- * Response containing a list of custom LLM Observability evaluator configurations.
+ * Response containing a list of custom Agent Observability evaluator configurations.
  */
 export class LLMObsCustomEvalConfigListResponse {
   /**

@@ -3,7 +3,7 @@ import { AttributeTypeMap } from "@datadog/datadog-api-client";
 import { LLMObsExperimentEventsDataRequest } from "./LLMObsExperimentEventsDataRequest";
 
 /**
- * Request to push spans and metrics for an LLM Observability experiment.
+ * Request to push spans and metrics for an Agent Observability experiment.
  */
 export class LLMObsExperimentEventsRequest {
   /**

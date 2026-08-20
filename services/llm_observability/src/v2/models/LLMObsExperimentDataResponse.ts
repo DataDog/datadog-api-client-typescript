@@ -4,11 +4,11 @@ import { LLMObsExperimentDataAttributesResponse } from "./LLMObsExperimentDataAt
 import { LLMObsExperimentType } from "./LLMObsExperimentType";
 
 /**
- * Data object for an LLM Observability experiment.
+ * Data object for an Agent Observability experiment.
  */
 export class LLMObsExperimentDataResponse {
   /**
-   * Attributes of an LLM Observability experiment.
+   * Attributes of an Agent Observability experiment.
    */
   "attributes": LLMObsExperimentDataAttributesResponse;
   /**
@@ -16,7 +16,7 @@ export class LLMObsExperimentDataResponse {
    */
   "id": string;
   /**
-   * Resource type of an LLM Observability experiment.
+   * Resource type of an Agent Observability experiment.
    */
   "type": LLMObsExperimentType;
   /**

@@ -4,7 +4,7 @@ import { LLMObsPromptDataset } from "./LLMObsPromptDataset";
 import { LLMObsPromptTemplate } from "./LLMObsPromptTemplate";
 
 /**
- * Attributes of a specific version of an LLM Observability prompt.
+ * Attributes of a specific version of an Agent Observability prompt.
  */
 export class LLMObsPromptVersionDataAttributes {
   /**

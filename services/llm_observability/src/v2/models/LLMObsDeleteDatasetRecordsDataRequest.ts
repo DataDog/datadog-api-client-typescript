@@ -4,15 +4,15 @@ import { LLMObsDeleteDatasetRecordsDataAttributesRequest } from "./LLMObsDeleteD
 import { LLMObsRecordType } from "./LLMObsRecordType";
 
 /**
- * Data object for deleting records from an LLM Observability dataset.
+ * Data object for deleting records from an Agent Observability dataset.
  */
 export class LLMObsDeleteDatasetRecordsDataRequest {
   /**
-   * Attributes for deleting records from an LLM Observability dataset.
+   * Attributes for deleting records from an Agent Observability dataset.
    */
   "attributes": LLMObsDeleteDatasetRecordsDataAttributesRequest;
   /**
-   * Resource type of LLM Observability dataset records.
+   * Resource type of Agent Observability dataset records.
    */
   "type": LLMObsRecordType;
   /**

@@ -4,11 +4,11 @@ import { LLMObsPatternsRunsListType } from "./LLMObsPatternsRunsListType";
 import { LLMObsPatternsRunsResponseAttributes } from "./LLMObsPatternsRunsResponseAttributes";
 
 /**
- * Data object of an LLM Observability patterns runs response.
+ * Data object of an Agent Observability patterns runs response.
  */
 export class LLMObsPatternsRunsResponseData {
   /**
-   * Attributes of an LLM Observability patterns runs response.
+   * Attributes of an Agent Observability patterns runs response.
    */
   "attributes": LLMObsPatternsRunsResponseAttributes;
   /**
@@ -16,7 +16,7 @@ export class LLMObsPatternsRunsResponseData {
    */
   "id": string;
   /**
-   * Resource type of a list of LLM Observability patterns runs.
+   * Resource type of a list of Agent Observability patterns runs.
    */
   "type": LLMObsPatternsRunsListType;
   /**

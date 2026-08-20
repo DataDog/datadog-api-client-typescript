@@ -3,7 +3,7 @@ import { AttributeTypeMap } from "@datadog/datadog-api-client";
 import { LLMObsExperimentationSearchDataRequest } from "./LLMObsExperimentationSearchDataRequest";
 
 /**
- * Request to search across LLM Observability experimentation entities using cursor-based pagination.
+ * Request to search across Agent Observability experimentation entities using cursor-based pagination.
  */
 export class LLMObsExperimentationSearchRequest {
   /**

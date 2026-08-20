@@ -4,11 +4,11 @@ import { LLMObsDatasetRestoreVersionDataAttributesRequest } from "./LLMObsDatase
 import { LLMObsDatasetType } from "./LLMObsDatasetType";
 
 /**
- * Data object for restoring an LLM Observability dataset to a previous version.
+ * Data object for restoring an Agent Observability dataset to a previous version.
  */
 export class LLMObsDatasetRestoreVersionDataRequest {
   /**
-   * Attributes for restoring an LLM Observability dataset to a previous version.
+   * Attributes for restoring an Agent Observability dataset to a previous version.
    */
   "attributes": LLMObsDatasetRestoreVersionDataAttributesRequest;
   /**
@@ -16,7 +16,7 @@ export class LLMObsDatasetRestoreVersionDataRequest {
    */
   "id": string;
   /**
-   * Resource type of an LLM Observability dataset.
+   * Resource type of an Agent Observability dataset.
    */
   "type": LLMObsDatasetType;
   /**

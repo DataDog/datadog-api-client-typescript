@@ -4,11 +4,11 @@ import { LLMObsSpanAttributes } from "./LLMObsSpanAttributes";
 import { LLMObsSpanType } from "./LLMObsSpanType";
 
 /**
- * A single LLM Observability span.
+ * A single Agent Observability span.
  */
 export class LLMObsSpanData {
   /**
-   * Attributes of an LLM Observability span.
+   * Attributes of an Agent Observability span.
    */
   "attributes": LLMObsSpanAttributes;
   /**
@@ -16,7 +16,7 @@ export class LLMObsSpanData {
    */
   "id": string;
   /**
-   * Resource type for an LLM Observability span.
+   * Resource type for an Agent Observability span.
    */
   "type": LLMObsSpanType;
   /**

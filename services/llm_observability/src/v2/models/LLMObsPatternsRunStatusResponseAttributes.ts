@@ -3,7 +3,7 @@ import { AttributeTypeMap } from "@datadog/datadog-api-client";
 import { LLMObsPatternsActivityProgress } from "./LLMObsPatternsActivityProgress";
 
 /**
- * Attributes of an LLM Observability patterns run status.
+ * Attributes of an Agent Observability patterns run status.
  */
 export class LLMObsPatternsRunStatusResponseAttributes {
   /**

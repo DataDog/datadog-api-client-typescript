@@ -349,11 +349,11 @@ export class MonthlyUsageAttributionValues {
    */
   "lambdaTracedInvocationsUsage"?: number;
   /**
-   * The percentage of LLM Observability usage by tag(s).
+   * The percentage of Agent Observability usage by tag(s).
    */
   "llmObservabilityPercentage"?: number;
   /**
-   * The LLM Observability usage by tag(s).
+   * The Agent Observability usage by tag(s).
    */
   "llmObservabilityUsage"?: number;
   /**

@@ -10748,12 +10748,12 @@ export interface LLMObservabilityApiAggregateLLMObsExperimentationRequest {
 
 export interface LLMObservabilityApiBatchUpdateLLMObsDatasetRequest {
   /**
-   * The ID of the LLM Observability project.
+   * The ID of the Agent Observability project.
    * @type string
    */
   projectId: string;
   /**
-   * The ID of the LLM Observability dataset.
+   * The ID of the Agent Observability dataset.
    * @type string
    */
   datasetId: string;
@@ -10766,12 +10766,12 @@ export interface LLMObservabilityApiBatchUpdateLLMObsDatasetRequest {
 
 export interface LLMObservabilityApiCloneLLMObsDatasetRequest {
   /**
-   * The ID of the LLM Observability project.
+   * The ID of the Agent Observability project.
    * @type string
    */
   projectId: string;
   /**
-   * The ID of the source LLM Observability dataset to clone.
+   * The ID of the source Agent Observability dataset to clone.
    * @type string
    */
   datasetId: string;
@@ -10792,7 +10792,7 @@ export interface LLMObservabilityApiCreateLLMObsAnnotationQueueRequest {
 
 export interface LLMObservabilityApiCreateLLMObsAnnotationQueueInteractionsRequest {
   /**
-   * The ID of the LLM Observability annotation queue.
+   * The ID of the Agent Observability annotation queue.
    * @type string
    */
   queueId: string;
@@ -10805,7 +10805,7 @@ export interface LLMObservabilityApiCreateLLMObsAnnotationQueueInteractionsReque
 
 export interface LLMObservabilityApiCreateLLMObsDatasetRequest {
   /**
-   * The ID of the LLM Observability project.
+   * The ID of the Agent Observability project.
    * @type string
    */
   projectId: string;
@@ -10818,12 +10818,12 @@ export interface LLMObservabilityApiCreateLLMObsDatasetRequest {
 
 export interface LLMObservabilityApiCreateLLMObsDatasetRecordsRequest {
   /**
-   * The ID of the LLM Observability project.
+   * The ID of the Agent Observability project.
    * @type string
    */
   projectId: string;
   /**
-   * The ID of the LLM Observability dataset.
+   * The ID of the Agent Observability dataset.
    * @type string
    */
   datasetId: string;
@@ -10844,7 +10844,7 @@ export interface LLMObservabilityApiCreateLLMObsExperimentRequest {
 
 export interface LLMObservabilityApiCreateLLMObsExperimentEventsRequest {
   /**
-   * The ID of the LLM Observability experiment.
+   * The ID of the Agent Observability experiment.
    * @type string
    */
   experimentId: string;
@@ -10891,7 +10891,7 @@ export interface LLMObservabilityApiCreateLLMObsPromptRequest {
 
 export interface LLMObservabilityApiCreateLLMObsPromptVersionRequest {
   /**
-   * The customer-provided identifier of the LLM Observability prompt.
+   * The customer-provided identifier of the Agent Observability prompt.
    * @type string
    */
   promptId: string;
@@ -10904,7 +10904,7 @@ export interface LLMObservabilityApiCreateLLMObsPromptVersionRequest {
 
 export interface LLMObservabilityApiDeleteLLMObsAnnotationQueueRequest {
   /**
-   * The ID of the LLM Observability annotation queue.
+   * The ID of the Agent Observability annotation queue.
    * @type string
    */
   queueId: string;
@@ -10912,7 +10912,7 @@ export interface LLMObservabilityApiDeleteLLMObsAnnotationQueueRequest {
 
 export interface LLMObservabilityApiDeleteLLMObsAnnotationQueueInteractionsRequest {
   /**
-   * The ID of the LLM Observability annotation queue.
+   * The ID of the Agent Observability annotation queue.
    * @type string
    */
   queueId: string;
@@ -10925,7 +10925,7 @@ export interface LLMObservabilityApiDeleteLLMObsAnnotationQueueInteractionsReque
 
 export interface LLMObservabilityApiDeleteLLMObsAnnotationsRequest {
   /**
-   * The ID of the LLM Observability annotation queue.
+   * The ID of the Agent Observability annotation queue.
    * @type string
    */
   queueId: string;
@@ -10938,7 +10938,7 @@ export interface LLMObservabilityApiDeleteLLMObsAnnotationsRequest {
 
 export interface LLMObservabilityApiDeleteLLMObsCustomEvalConfigRequest {
   /**
-   * The name of the custom LLM Observability evaluator configuration.
+   * The name of the custom Agent Observability evaluator configuration.
    * @type string
    */
   evalName: string;
@@ -10946,12 +10946,12 @@ export interface LLMObservabilityApiDeleteLLMObsCustomEvalConfigRequest {
 
 export interface LLMObservabilityApiDeleteLLMObsDatasetRecordsRequest {
   /**
-   * The ID of the LLM Observability project.
+   * The ID of the Agent Observability project.
    * @type string
    */
   projectId: string;
   /**
-   * The ID of the LLM Observability dataset.
+   * The ID of the Agent Observability dataset.
    * @type string
    */
   datasetId: string;
@@ -10964,7 +10964,7 @@ export interface LLMObservabilityApiDeleteLLMObsDatasetRecordsRequest {
 
 export interface LLMObservabilityApiDeleteLLMObsDatasetsRequest {
   /**
-   * The ID of the LLM Observability project.
+   * The ID of the Agent Observability project.
    * @type string
    */
   projectId: string;
@@ -11001,7 +11001,7 @@ export interface LLMObservabilityApiDeleteLLMObsProjectsRequest {
 
 export interface LLMObservabilityApiDeleteLLMObsPromptRequest {
   /**
-   * The customer-provided identifier of the LLM Observability prompt.
+   * The customer-provided identifier of the Agent Observability prompt.
    * @type string
    */
   promptId: string;
@@ -11009,12 +11009,12 @@ export interface LLMObservabilityApiDeleteLLMObsPromptRequest {
 
 export interface LLMObservabilityApiExportLLMObsDatasetRequest {
   /**
-   * The ID of the LLM Observability project.
+   * The ID of the Agent Observability project.
    * @type string
    */
   projectId: string;
   /**
-   * The ID of the LLM Observability dataset.
+   * The ID of the Agent Observability dataset.
    * @type string
    */
   datasetId: string;
@@ -11032,7 +11032,7 @@ export interface LLMObservabilityApiExportLLMObsDatasetRequest {
 
 export interface LLMObservabilityApiGetLLMObsAnnotatedInteractionsRequest {
   /**
-   * The ID of the LLM Observability annotation queue.
+   * The ID of the Agent Observability annotation queue.
    * @type string
    */
   queueId: string;
@@ -11058,7 +11058,7 @@ export interface LLMObservabilityApiGetLLMObsAnnotatedInteractionsByTraceIDsRequ
 
 export interface LLMObservabilityApiGetLLMObsAnnotationQueueLabelSchemaRequest {
   /**
-   * The ID of the LLM Observability annotation queue.
+   * The ID of the Agent Observability annotation queue.
    * @type string
    */
   queueId: string;
@@ -11066,7 +11066,7 @@ export interface LLMObservabilityApiGetLLMObsAnnotationQueueLabelSchemaRequest {
 
 export interface LLMObservabilityApiGetLLMObsCustomEvalConfigRequest {
   /**
-   * The name of the custom LLM Observability evaluator configuration.
+   * The name of the custom Agent Observability evaluator configuration.
    * @type string
    */
   evalName: string;
@@ -11074,12 +11074,12 @@ export interface LLMObservabilityApiGetLLMObsCustomEvalConfigRequest {
 
 export interface LLMObservabilityApiGetLLMObsDatasetDraftStateRequest {
   /**
-   * The ID of the LLM Observability project.
+   * The ID of the Agent Observability project.
    * @type string
    */
   projectId: string;
   /**
-   * The ID of the LLM Observability dataset.
+   * The ID of the Agent Observability dataset.
    * @type string
    */
   datasetId: string;
@@ -11095,7 +11095,7 @@ export interface LLMObservabilityApiGetLLMObsPatternsRunStatusRequest {
 
 export interface LLMObservabilityApiGetLLMObsPromptRequest {
   /**
-   * The customer-provided identifier of the LLM Observability prompt.
+   * The customer-provided identifier of the Agent Observability prompt.
    * @type string
    */
   promptId: string;
@@ -11108,12 +11108,12 @@ export interface LLMObservabilityApiGetLLMObsPromptRequest {
 
 export interface LLMObservabilityApiGetLLMObsPromptVersionRequest {
   /**
-   * The customer-provided identifier of the LLM Observability prompt.
+   * The customer-provided identifier of the Agent Observability prompt.
    * @type string
    */
   promptId: string;
   /**
-   * The version number of the LLM Observability prompt.
+   * The version number of the Agent Observability prompt.
    * @type number
    */
   version: number;
@@ -11134,12 +11134,12 @@ export interface LLMObservabilityApiListLLMObsAnnotationQueuesRequest {
 
 export interface LLMObservabilityApiListLLMObsDatasetRecordsRequest {
   /**
-   * The ID of the LLM Observability project.
+   * The ID of the Agent Observability project.
    * @type string
    */
   projectId: string;
   /**
-   * The ID of the LLM Observability dataset.
+   * The ID of the Agent Observability dataset.
    * @type string
    */
   datasetId: string;
@@ -11162,7 +11162,7 @@ export interface LLMObservabilityApiListLLMObsDatasetRecordsRequest {
 
 export interface LLMObservabilityApiListLLMObsDatasetsRequest {
   /**
-   * The ID of the LLM Observability project.
+   * The ID of the Agent Observability project.
    * @type string
    */
   projectId: string;
@@ -11190,12 +11190,12 @@ export interface LLMObservabilityApiListLLMObsDatasetsRequest {
 
 export interface LLMObservabilityApiListLLMObsDatasetVersionsRequest {
   /**
-   * The ID of the LLM Observability project.
+   * The ID of the Agent Observability project.
    * @type string
    */
   projectId: string;
   /**
-   * The ID of the LLM Observability dataset.
+   * The ID of the Agent Observability dataset.
    * @type string
    */
   datasetId: string;
@@ -11203,7 +11203,7 @@ export interface LLMObservabilityApiListLLMObsDatasetVersionsRequest {
 
 export interface LLMObservabilityApiListLLMObsExperimentEventsRequest {
   /**
-   * The ID of the LLM Observability experiment.
+   * The ID of the Agent Observability experiment.
    * @type string
    */
   experimentId: string;
@@ -11221,7 +11221,7 @@ export interface LLMObservabilityApiListLLMObsExperimentEventsRequest {
 
 export interface LLMObservabilityApiListLLMObsExperimentEventsV1Request {
   /**
-   * The ID of the LLM Observability experiment.
+   * The ID of the Agent Observability experiment.
    * @type string
    */
   experimentId: string;
@@ -11229,7 +11229,7 @@ export interface LLMObservabilityApiListLLMObsExperimentEventsV1Request {
 
 export interface LLMObservabilityApiListLLMObsExperimentEventsV2Request {
   /**
-   * The ID of the LLM Observability experiment.
+   * The ID of the Agent Observability experiment.
    * @type string
    */
   experimentId: string;
@@ -11413,7 +11413,7 @@ export interface LLMObservabilityApiListLLMObsPromptsRequest {
 
 export interface LLMObservabilityApiListLLMObsPromptVersionsRequest {
   /**
-   * The customer-provided identifier of the LLM Observability prompt.
+   * The customer-provided identifier of the Agent Observability prompt.
    * @type string
    */
   promptId: string;
@@ -11431,7 +11431,7 @@ export interface LLMObservabilityApiListLLMObsSpansRequest {
    */
   filterTo?: string;
   /**
-   * Search query using LLM Observability query syntax. Supports attribute filters using the field:value syntax (e.g. session_id, trace_id, ml_app, meta.span.kind). When provided, structured field filters (`filter[span_id]`, `filter[trace_id]`, etc.) are ignored.
+   * Search query using Agent Observability query syntax. Supports attribute filters using the field:value syntax (e.g. session_id, trace_id, ml_app, meta.span.kind). When provided, structured field filters (`filter[span_id]`, `filter[trace_id]`, etc.) are ignored.
    * @type string
    */
   filterQuery?: string;
@@ -11484,12 +11484,12 @@ export interface LLMObservabilityApiListLLMObsSpansRequest {
 
 export interface LLMObservabilityApiLockLLMObsDatasetDraftStateRequest {
   /**
-   * The ID of the LLM Observability project.
+   * The ID of the Agent Observability project.
    * @type string
    */
   projectId: string;
   /**
-   * The ID of the LLM Observability dataset.
+   * The ID of the Agent Observability dataset.
    * @type string
    */
   datasetId: string;
@@ -11497,12 +11497,12 @@ export interface LLMObservabilityApiLockLLMObsDatasetDraftStateRequest {
 
 export interface LLMObservabilityApiRestoreLLMObsDatasetVersionRequest {
   /**
-   * The ID of the LLM Observability project.
+   * The ID of the Agent Observability project.
    * @type string
    */
   projectId: string;
   /**
-   * The ID of the LLM Observability dataset.
+   * The ID of the Agent Observability dataset.
    * @type string
    */
   datasetId: string;
@@ -11547,12 +11547,12 @@ export interface LLMObservabilityApiTriggerLLMObsPatternsRequest {
 
 export interface LLMObservabilityApiUnlockLLMObsDatasetDraftStateRequest {
   /**
-   * The ID of the LLM Observability project.
+   * The ID of the Agent Observability project.
    * @type string
    */
   projectId: string;
   /**
-   * The ID of the LLM Observability dataset.
+   * The ID of the Agent Observability dataset.
    * @type string
    */
   datasetId: string;
@@ -11560,7 +11560,7 @@ export interface LLMObservabilityApiUnlockLLMObsDatasetDraftStateRequest {
 
 export interface LLMObservabilityApiUpdateLLMObsAnnotationQueueRequest {
   /**
-   * The ID of the LLM Observability annotation queue.
+   * The ID of the Agent Observability annotation queue.
    * @type string
    */
   queueId: string;
@@ -11573,7 +11573,7 @@ export interface LLMObservabilityApiUpdateLLMObsAnnotationQueueRequest {
 
 export interface LLMObservabilityApiUpdateLLMObsAnnotationQueueLabelSchemaRequest {
   /**
-   * The ID of the LLM Observability annotation queue.
+   * The ID of the Agent Observability annotation queue.
    * @type string
    */
   queueId: string;
@@ -11586,7 +11586,7 @@ export interface LLMObservabilityApiUpdateLLMObsAnnotationQueueLabelSchemaReques
 
 export interface LLMObservabilityApiUpdateLLMObsCustomEvalConfigRequest {
   /**
-   * The name of the custom LLM Observability evaluator configuration.
+   * The name of the custom Agent Observability evaluator configuration.
    * @type string
    */
   evalName: string;
@@ -11599,12 +11599,12 @@ export interface LLMObservabilityApiUpdateLLMObsCustomEvalConfigRequest {
 
 export interface LLMObservabilityApiUpdateLLMObsDatasetRequest {
   /**
-   * The ID of the LLM Observability project.
+   * The ID of the Agent Observability project.
    * @type string
    */
   projectId: string;
   /**
-   * The ID of the LLM Observability dataset.
+   * The ID of the Agent Observability dataset.
    * @type string
    */
   datasetId: string;
@@ -11617,12 +11617,12 @@ export interface LLMObservabilityApiUpdateLLMObsDatasetRequest {
 
 export interface LLMObservabilityApiUpdateLLMObsDatasetRecordsRequest {
   /**
-   * The ID of the LLM Observability project.
+   * The ID of the Agent Observability project.
    * @type string
    */
   projectId: string;
   /**
-   * The ID of the LLM Observability dataset.
+   * The ID of the Agent Observability dataset.
    * @type string
    */
   datasetId: string;
@@ -11635,7 +11635,7 @@ export interface LLMObservabilityApiUpdateLLMObsDatasetRecordsRequest {
 
 export interface LLMObservabilityApiUpdateLLMObsExperimentRequest {
   /**
-   * The ID of the LLM Observability experiment.
+   * The ID of the Agent Observability experiment.
    * @type string
    */
   experimentId: string;
@@ -11648,7 +11648,7 @@ export interface LLMObservabilityApiUpdateLLMObsExperimentRequest {
 
 export interface LLMObservabilityApiUpdateLLMObsProjectRequest {
   /**
-   * The ID of the LLM Observability project.
+   * The ID of the Agent Observability project.
    * @type string
    */
   projectId: string;
@@ -11661,7 +11661,7 @@ export interface LLMObservabilityApiUpdateLLMObsProjectRequest {
 
 export interface LLMObservabilityApiUpdateLLMObsPromptRequest {
   /**
-   * The customer-provided identifier of the LLM Observability prompt.
+   * The customer-provided identifier of the Agent Observability prompt.
    * @type string
    */
   promptId: string;
@@ -11674,12 +11674,12 @@ export interface LLMObservabilityApiUpdateLLMObsPromptRequest {
 
 export interface LLMObservabilityApiUpdateLLMObsPromptVersionRequest {
   /**
-   * The customer-provided identifier of the LLM Observability prompt.
+   * The customer-provided identifier of the Agent Observability prompt.
    * @type string
    */
   promptId: string;
   /**
-   * The version number of the LLM Observability prompt.
+   * The version number of the Agent Observability prompt.
    * @type number
    */
   version: number;
@@ -11692,12 +11692,12 @@ export interface LLMObservabilityApiUpdateLLMObsPromptVersionRequest {
 
 export interface LLMObservabilityApiUploadLLMObsDatasetRecordsFileRequest {
   /**
-   * The ID of the LLM Observability project.
+   * The ID of the Agent Observability project.
    * @type string
    */
   projectId: string;
   /**
-   * The ID of the LLM Observability dataset.
+   * The ID of the Agent Observability dataset.
    * @type string
    */
   datasetId: string;
@@ -11730,7 +11730,7 @@ export interface LLMObservabilityApiUploadLLMObsDatasetRecordsFileRequest {
 
 export interface LLMObservabilityApiUpsertLLMObsAnnotationsRequest {
   /**
-   * The ID of the LLM Observability annotation queue.
+   * The ID of the Agent Observability annotation queue.
    * @type string
    */
   queueId: string;
@@ -11770,7 +11770,7 @@ export class LLMObservabilityApi {
   }
 
   /**
-   * Execute an analytics aggregation over LLM Observability experimentation data.
+   * Execute an analytics aggregation over Agent Observability experimentation data.
    * Use this endpoint to compute metrics (for example average eval scores) grouped by fields such as `span_id` or `experiment_id`.
    *
    * At least one `compute` definition and one `index` must be provided.
@@ -11900,7 +11900,7 @@ export class LLMObservabilityApi {
   }
 
   /**
-   * Create a new LLM Observability dataset within the specified project.
+   * Create a new Agent Observability dataset within the specified project.
    * @param param The request object
    */
   public createLLMObsDataset(
@@ -11922,7 +11922,7 @@ export class LLMObservabilityApi {
   }
 
   /**
-   * Append one or more records to an LLM Observability dataset.
+   * Append one or more records to an Agent Observability dataset.
    * @param param The request object
    */
   public createLLMObsDatasetRecords(
@@ -11948,7 +11948,7 @@ export class LLMObservabilityApi {
   }
 
   /**
-   * Create a new LLM Observability experiment.
+   * Create a new Agent Observability experiment.
    * @param param The request object
    */
   public createLLMObsExperiment(
@@ -11969,7 +11969,7 @@ export class LLMObservabilityApi {
   }
 
   /**
-   * Push spans and metrics for an LLM Observability experiment.
+   * Push spans and metrics for an Agent Observability experiment.
    * @param param The request object
    */
   public createLLMObsExperimentEvents(
@@ -12020,7 +12020,7 @@ export class LLMObservabilityApi {
   }
 
   /**
-   * Create a new LLM Observability project. Returns the existing project if a name conflict occurs.
+   * Create a new Agent Observability project. Returns the existing project if a name conflict occurs.
    * @param param The request object
    */
   public createLLMObsProject(
@@ -12041,7 +12041,7 @@ export class LLMObservabilityApi {
   }
 
   /**
-   * Create a new prompt (and its first version) in the LLM Observability prompt registry.
+   * Create a new prompt (and its first version) in the Agent Observability prompt registry.
    * @param param The request object
    */
   public createLLMObsPrompt(
@@ -12062,7 +12062,7 @@ export class LLMObservabilityApi {
   }
 
   /**
-   * Create a new version of an existing LLM Observability prompt.
+   * Create a new version of an existing Agent Observability prompt.
    * @param param The request object
    */
   public createLLMObsPromptVersion(
@@ -12156,7 +12156,7 @@ export class LLMObservabilityApi {
   }
 
   /**
-   * Delete a custom LLM Observability evaluator configuration by its name.
+   * Delete a custom Agent Observability evaluator configuration by its name.
    * @param param The request object
    */
   public deleteLLMObsCustomEvalConfig(
@@ -12177,7 +12177,7 @@ export class LLMObservabilityApi {
   }
 
   /**
-   * Delete one or more records from an LLM Observability dataset.
+   * Delete one or more records from an Agent Observability dataset.
    * @param param The request object
    */
   public deleteLLMObsDatasetRecords(
@@ -12203,7 +12203,7 @@ export class LLMObservabilityApi {
   }
 
   /**
-   * Delete one or more LLM Observability datasets within the specified project.
+   * Delete one or more Agent Observability datasets within the specified project.
    * @param param The request object
    */
   public deleteLLMObsDatasets(
@@ -12225,7 +12225,7 @@ export class LLMObservabilityApi {
   }
 
   /**
-   * Delete one or more LLM Observability experiments.
+   * Delete one or more Agent Observability experiments.
    * @param param The request object
    */
   public deleteLLMObsExperiments(
@@ -12269,7 +12269,7 @@ export class LLMObservabilityApi {
   }
 
   /**
-   * Delete one or more LLM Observability projects.
+   * Delete one or more Agent Observability projects.
    * @param param The request object
    */
   public deleteLLMObsProjects(
@@ -12290,7 +12290,7 @@ export class LLMObservabilityApi {
   }
 
   /**
-   * Soft-delete an LLM Observability prompt. The prompt's version rows are retained, but they are no longer accessible through the public prompt registry endpoints.
+   * Soft-delete an Agent Observability prompt. The prompt's version rows are retained, but they are no longer accessible through the public prompt registry endpoints.
    * @param param The request object
    */
   public deleteLLMObsPrompt(
@@ -12410,7 +12410,7 @@ export class LLMObservabilityApi {
   }
 
   /**
-   * Retrieve a custom LLM Observability evaluator configuration by its name.
+   * Retrieve a custom Agent Observability evaluator configuration by its name.
    * @param param The request object
    */
   public getLLMObsCustomEvalConfig(
@@ -12500,7 +12500,7 @@ export class LLMObservabilityApi {
   }
 
   /**
-   * Get the latest version of an LLM Observability prompt by prompt ID.
+   * Get the latest version of an Agent Observability prompt by prompt ID.
    * @param param The request object
    */
   public getLLMObsPrompt(
@@ -12522,7 +12522,7 @@ export class LLMObservabilityApi {
   }
 
   /**
-   * Get the full template of a single, specific version of an LLM Observability prompt.
+   * Get the full template of a single, specific version of an Agent Observability prompt.
    * @param param The request object
    */
   public getLLMObsPromptVersion(
@@ -12570,7 +12570,7 @@ export class LLMObservabilityApi {
   }
 
   /**
-   * List all custom LLM Observability evaluator configurations for the organization.
+   * List all custom Agent Observability evaluator configurations for the organization.
    * @param param The request object
    */
   public listLLMObsCustomEvalConfigs(
@@ -12590,7 +12590,7 @@ export class LLMObservabilityApi {
   }
 
   /**
-   * List all records in an LLM Observability dataset, sorted by creation date, newest first.
+   * List all records in an Agent Observability dataset, sorted by creation date, newest first.
    * @param param The request object
    */
   public listLLMObsDatasetRecords(
@@ -12617,7 +12617,7 @@ export class LLMObservabilityApi {
   }
 
   /**
-   * List all LLM Observability datasets for a project, sorted by creation date, newest first.
+   * List all Agent Observability datasets for a project, sorted by creation date, newest first.
    * @param param The request object
    */
   public listLLMObsDatasets(
@@ -12740,7 +12740,7 @@ export class LLMObservabilityApi {
   }
 
   /**
-   * List all LLM Observability experiments sorted by creation date, newest first.
+   * List all Agent Observability experiments sorted by creation date, newest first.
    * @param param The request object
    */
   public listLLMObsExperiments(
@@ -12942,7 +12942,7 @@ export class LLMObservabilityApi {
   }
 
   /**
-   * List all LLM Observability projects sorted by creation date, newest first.
+   * List all Agent Observability projects sorted by creation date, newest first.
    * @param param The request object
    */
   public listLLMObsProjects(
@@ -12966,7 +12966,7 @@ export class LLMObservabilityApi {
   }
 
   /**
-   * List all LLM Observability prompts in the prompt registry for the organization.
+   * List all Agent Observability prompts in the prompt registry for the organization.
    * @param param The request object
    */
   public listLLMObsPrompts(
@@ -12987,7 +12987,7 @@ export class LLMObservabilityApi {
   }
 
   /**
-   * List all versions of an LLM Observability prompt, ordered newest to oldest. If the prompt does not exist, is not registered, or is archived, the response contains an empty list.
+   * List all versions of an Agent Observability prompt, ordered newest to oldest. If the prompt does not exist, is not registered, or is archived, the response contains an empty list.
    * @param param The request object
    */
   public listLLMObsPromptVersions(
@@ -13010,7 +13010,7 @@ export class LLMObservabilityApi {
   }
 
   /**
-   * List LLM Observability spans matching the specified filters.
+   * List Agent Observability spans matching the specified filters.
    * @param param The request object
    */
   public listLLMObsSpans(
@@ -13093,7 +13093,7 @@ export class LLMObservabilityApi {
   }
 
   /**
-   * Search across LLM Observability experimentation entities — projects, datasets, dataset records, experiments, and experiment runs — using cursor-based pagination.
+   * Search across Agent Observability experimentation entities — projects, datasets, dataset records, experiments, and experiment runs — using cursor-based pagination.
    *
    * The `filter.scope` field controls which entity types are returned. At least one valid scope must be provided.
    *
@@ -13118,7 +13118,7 @@ export class LLMObservabilityApi {
   }
 
   /**
-   * Search LLM Observability spans using structured filters in the request body.
+   * Search Agent Observability spans using structured filters in the request body.
    * @param param The request object
    */
   public searchLLMObsSpans(
@@ -13139,7 +13139,7 @@ export class LLMObservabilityApi {
   }
 
   /**
-   * Search across LLM Observability experimentation entities using offset-based (page-number) pagination.
+   * Search across Agent Observability experimentation entities using offset-based (page-number) pagination.
    * Use this endpoint when you need total page count or want to navigate to a specific page number.
    *
    * The `filter.scope` field controls which entity types are returned. At least one valid scope must be provided.
@@ -13265,7 +13265,7 @@ export class LLMObservabilityApi {
   }
 
   /**
-   * Create or update a custom LLM Observability evaluator configuration by its name.
+   * Create or update a custom Agent Observability evaluator configuration by its name.
    * @param param The request object
    */
   public updateLLMObsCustomEvalConfig(
@@ -13290,7 +13290,7 @@ export class LLMObservabilityApi {
   }
 
   /**
-   * Partially update an existing LLM Observability dataset within the specified project.
+   * Partially update an existing Agent Observability dataset within the specified project.
    * @param param The request object
    */
   public updateLLMObsDataset(
@@ -13313,7 +13313,7 @@ export class LLMObservabilityApi {
   }
 
   /**
-   * Update one or more existing records in an LLM Observability dataset.
+   * Update one or more existing records in an Agent Observability dataset.
    * @param param The request object
    */
   public updateLLMObsDatasetRecords(
@@ -13339,7 +13339,7 @@ export class LLMObservabilityApi {
   }
 
   /**
-   * Partially update an existing LLM Observability experiment.
+   * Partially update an existing Agent Observability experiment.
    * @param param The request object
    */
   public updateLLMObsExperiment(
@@ -13361,7 +13361,7 @@ export class LLMObservabilityApi {
   }
 
   /**
-   * Partially update an existing LLM Observability project.
+   * Partially update an existing Agent Observability project.
    * @param param The request object
    */
   public updateLLMObsProject(
@@ -13383,7 +13383,7 @@ export class LLMObservabilityApi {
   }
 
   /**
-   * Update the title, the description, or both, for an LLM Observability prompt.
+   * Update the title, the description, or both, for an Agent Observability prompt.
    * @param param The request object
    */
   public updateLLMObsPrompt(
@@ -13405,7 +13405,7 @@ export class LLMObservabilityApi {
   }
 
   /**
-   * Update the description, the feature-flag environments, or both, for a specific version of an LLM Observability prompt.
+   * Update the description, the feature-flag environments, or both, for a specific version of an Agent Observability prompt.
    * @param param The request object
    */
   public updateLLMObsPromptVersion(

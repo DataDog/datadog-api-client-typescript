@@ -3,11 +3,11 @@ import { AttributeTypeMap } from "@datadog/datadog-api-client";
 import { LLMObsDatasetBatchUpdateDataRequest } from "./LLMObsDatasetBatchUpdateDataRequest";
 
 /**
- * Request to batch-insert, update, and delete records in an LLM Observability dataset.
+ * Request to batch-insert, update, and delete records in an Agent Observability dataset.
  */
 export class LLMObsDatasetBatchUpdateRequest {
   /**
-   * Data object for batch-updating records in an LLM Observability dataset.
+   * Data object for batch-updating records in an Agent Observability dataset.
    */
   "data": LLMObsDatasetBatchUpdateDataRequest;
   /**

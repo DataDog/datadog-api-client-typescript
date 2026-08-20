@@ -4,11 +4,11 @@ import { LLMObsPromptVersionDataAttributes } from "./LLMObsPromptVersionDataAttr
 import { LLMObsPromptVersionType } from "./LLMObsPromptVersionType";
 
 /**
- * Data object for a specific version of an LLM Observability prompt.
+ * Data object for a specific version of an Agent Observability prompt.
  */
 export class LLMObsPromptVersionData {
   /**
-   * Attributes of a specific version of an LLM Observability prompt.
+   * Attributes of a specific version of an Agent Observability prompt.
    */
   "attributes": LLMObsPromptVersionDataAttributes;
   /**
@@ -16,7 +16,7 @@ export class LLMObsPromptVersionData {
    */
   "id": string;
   /**
-   * Resource type of an LLM Observability prompt version.
+   * Resource type of an Agent Observability prompt version.
    */
   "type": LLMObsPromptVersionType;
   /**
