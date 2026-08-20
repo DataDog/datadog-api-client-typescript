@@ -18,6 +18,10 @@ export class LLMObsDisplayBlockAnnotatedInteractionItem {
    */
   "annotations": Array<LLMObsAnnotationItem>;
   /**
+   * Whether the current caller can annotate this interaction.
+   */
+  "canAnnotate": boolean;
+  /**
    * Server-generated deterministic identifier derived from the block list.
    */
   "contentId": string;
@@ -54,6 +58,11 @@ export class LLMObsDisplayBlockAnnotatedInteractionItem {
     annotations: {
       baseName: "annotations",
       type: "Array<LLMObsAnnotationItem>",
+      required: true,
+    },
+    canAnnotate: {
+      baseName: "can_annotate",
+      type: "boolean",
       required: true,
     },
     contentId: {

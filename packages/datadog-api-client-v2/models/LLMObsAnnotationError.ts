@@ -3,6 +3,7 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
+import { LLMObsAnnotationErrorCode } from "./LLMObsAnnotationErrorCode";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
@@ -14,6 +15,10 @@ export class LLMObsAnnotationError {
    * ID of the annotation that failed, if applicable.
    */
   "annotationId"?: string;
+  /**
+   * Stable error code. `permission_denied` indicates the item was rejected by queue access rules.
+   */
+  "code"?: LLMObsAnnotationErrorCode;
   /**
    * Error message.
    */
@@ -42,6 +47,10 @@ export class LLMObsAnnotationError {
     annotationId: {
       baseName: "annotation_id",
       type: "string",
+    },
+    code: {
+      baseName: "code",
+      type: "LLMObsAnnotationErrorCode",
     },
     error: {
       baseName: "error",
