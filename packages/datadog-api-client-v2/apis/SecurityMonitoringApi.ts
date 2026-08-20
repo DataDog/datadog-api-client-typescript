@@ -173,6 +173,12 @@ import { SecurityMonitoringTerraformBulkExportRequest } from "../models/Security
 import { SecurityMonitoringTerraformConvertRequest } from "../models/SecurityMonitoringTerraformConvertRequest";
 import { SecurityMonitoringTerraformExportResponse } from "../models/SecurityMonitoringTerraformExportResponse";
 import { SecurityMonitoringTerraformResourceType } from "../models/SecurityMonitoringTerraformResourceType";
+import { SeverityModifierRuleCreateRequest } from "../models/SeverityModifierRuleCreateRequest";
+import { SeverityModifierRuleReorderRequest } from "../models/SeverityModifierRuleReorderRequest";
+import { SeverityModifierRuleReorderResponse } from "../models/SeverityModifierRuleReorderResponse";
+import { SeverityModifierRuleResponse } from "../models/SeverityModifierRuleResponse";
+import { SeverityModifierRulesResponse } from "../models/SeverityModifierRulesResponse";
+import { SeverityModifierRuleUpdateRequest } from "../models/SeverityModifierRuleUpdateRequest";
 import { SignalEntitiesResponse } from "../models/SignalEntitiesResponse";
 import { SingleEntityContextResponse } from "../models/SingleEntityContextResponse";
 import { TicketCreationRuleCreateRequest } from "../models/TicketCreationRuleCreateRequest";
@@ -1656,6 +1662,66 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
+  public async createSecurityFindingsAutomationSeverityModifierRule(
+    body: SeverityModifierRuleCreateRequest,
+    _options?: Configuration
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    logger.warn(
+      "Using unstable operation 'createSecurityFindingsAutomationSeverityModifierRule'"
+    );
+    if (
+      !_config.unstableOperations[
+        "v2.createSecurityFindingsAutomationSeverityModifierRule"
+      ]
+    ) {
+      throw new Error(
+        "Unstable operation 'createSecurityFindingsAutomationSeverityModifierRule' is disabled"
+      );
+    }
+
+    // verify required parameter 'body' is not null or undefined
+    if (body === null || body === undefined) {
+      throw new RequiredError(
+        "body",
+        "createSecurityFindingsAutomationSeverityModifierRule"
+      );
+    }
+
+    // Path Params
+    const localVarPath =
+      "/api/v2/security/findings/automation/severity_modifier_rules";
+
+    // Make Request Context
+    const requestContext = _config
+      .getServer(
+        "v2.SecurityMonitoringApi.createSecurityFindingsAutomationSeverityModifierRule"
+      )
+      .makeRequestContext(localVarPath, HttpMethod.POST);
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Body Params
+    const contentType = ObjectSerializer.getPreferredMediaType([
+      "application/json",
+    ]);
+    requestContext.setHeaderParam("Content-Type", contentType);
+    const serializedBody = ObjectSerializer.stringify(
+      ObjectSerializer.serialize(body, "SeverityModifierRuleCreateRequest", ""),
+      contentType
+    );
+    requestContext.setBody(serializedBody);
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+    ]);
+
+    return requestContext;
+  }
+
   public async createSecurityFindingsAutomationTicketCreationRule(
     body: TicketCreationRuleCreateRequest,
     _options?: Configuration
@@ -2540,6 +2606,58 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
     const requestContext = _config
       .getServer(
         "v2.SecurityMonitoringApi.deleteSecurityFindingsAutomationMuteRule"
+      )
+      .makeRequestContext(localVarPath, HttpMethod.DELETE);
+    requestContext.setHeaderParam("Accept", "*/*");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+    ]);
+
+    return requestContext;
+  }
+
+  public async deleteSecurityFindingsAutomationSeverityModifierRule(
+    ruleId: string,
+    _options?: Configuration
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    logger.warn(
+      "Using unstable operation 'deleteSecurityFindingsAutomationSeverityModifierRule'"
+    );
+    if (
+      !_config.unstableOperations[
+        "v2.deleteSecurityFindingsAutomationSeverityModifierRule"
+      ]
+    ) {
+      throw new Error(
+        "Unstable operation 'deleteSecurityFindingsAutomationSeverityModifierRule' is disabled"
+      );
+    }
+
+    // verify required parameter 'ruleId' is not null or undefined
+    if (ruleId === null || ruleId === undefined) {
+      throw new RequiredError(
+        "ruleId",
+        "deleteSecurityFindingsAutomationSeverityModifierRule"
+      );
+    }
+
+    // Path Params
+    const localVarPath =
+      "/api/v2/security/findings/automation/severity_modifier_rules/{rule_id}".replace(
+        "{rule_id}",
+        encodeURIComponent(String(ruleId))
+      );
+
+    // Make Request Context
+    const requestContext = _config
+      .getServer(
+        "v2.SecurityMonitoringApi.deleteSecurityFindingsAutomationSeverityModifierRule"
       )
       .makeRequestContext(localVarPath, HttpMethod.DELETE);
     requestContext.setHeaderParam("Accept", "*/*");
@@ -3968,6 +4086,58 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
     const requestContext = _config
       .getServer(
         "v2.SecurityMonitoringApi.getSecurityFindingsAutomationMuteRule"
+      )
+      .makeRequestContext(localVarPath, HttpMethod.GET);
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+    ]);
+
+    return requestContext;
+  }
+
+  public async getSecurityFindingsAutomationSeverityModifierRule(
+    ruleId: string,
+    _options?: Configuration
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    logger.warn(
+      "Using unstable operation 'getSecurityFindingsAutomationSeverityModifierRule'"
+    );
+    if (
+      !_config.unstableOperations[
+        "v2.getSecurityFindingsAutomationSeverityModifierRule"
+      ]
+    ) {
+      throw new Error(
+        "Unstable operation 'getSecurityFindingsAutomationSeverityModifierRule' is disabled"
+      );
+    }
+
+    // verify required parameter 'ruleId' is not null or undefined
+    if (ruleId === null || ruleId === undefined) {
+      throw new RequiredError(
+        "ruleId",
+        "getSecurityFindingsAutomationSeverityModifierRule"
+      );
+    }
+
+    // Path Params
+    const localVarPath =
+      "/api/v2/security/findings/automation/severity_modifier_rules/{rule_id}".replace(
+        "{rule_id}",
+        encodeURIComponent(String(ruleId))
+      );
+
+    // Make Request Context
+    const requestContext = _config
+      .getServer(
+        "v2.SecurityMonitoringApi.getSecurityFindingsAutomationSeverityModifierRule"
       )
       .makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam("Accept", "application/json");
@@ -6022,6 +6192,64 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
+  public async listSecurityFindingsAutomationSeverityModifierRules(
+    pageSize?: number,
+    pageNumber?: number,
+    _options?: Configuration
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    logger.warn(
+      "Using unstable operation 'listSecurityFindingsAutomationSeverityModifierRules'"
+    );
+    if (
+      !_config.unstableOperations[
+        "v2.listSecurityFindingsAutomationSeverityModifierRules"
+      ]
+    ) {
+      throw new Error(
+        "Unstable operation 'listSecurityFindingsAutomationSeverityModifierRules' is disabled"
+      );
+    }
+
+    // Path Params
+    const localVarPath =
+      "/api/v2/security/findings/automation/severity_modifier_rules";
+
+    // Make Request Context
+    const requestContext = _config
+      .getServer(
+        "v2.SecurityMonitoringApi.listSecurityFindingsAutomationSeverityModifierRules"
+      )
+      .makeRequestContext(localVarPath, HttpMethod.GET);
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Query Params
+    if (pageSize !== undefined) {
+      requestContext.setQueryParam(
+        "page[size]",
+        ObjectSerializer.serialize(pageSize, "number", "int64"),
+        ""
+      );
+    }
+    if (pageNumber !== undefined) {
+      requestContext.setQueryParam(
+        "page[number]",
+        ObjectSerializer.serialize(pageNumber, "number", "int64"),
+        ""
+      );
+    }
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+    ]);
+
+    return requestContext;
+  }
+
   public async listSecurityFindingsAutomationTicketCreationRules(
     pageSize?: number,
     pageNumber?: number,
@@ -7405,6 +7633,70 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
+  public async reorderSecurityFindingsAutomationSeverityModifierRules(
+    body: SeverityModifierRuleReorderRequest,
+    _options?: Configuration
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    logger.warn(
+      "Using unstable operation 'reorderSecurityFindingsAutomationSeverityModifierRules'"
+    );
+    if (
+      !_config.unstableOperations[
+        "v2.reorderSecurityFindingsAutomationSeverityModifierRules"
+      ]
+    ) {
+      throw new Error(
+        "Unstable operation 'reorderSecurityFindingsAutomationSeverityModifierRules' is disabled"
+      );
+    }
+
+    // verify required parameter 'body' is not null or undefined
+    if (body === null || body === undefined) {
+      throw new RequiredError(
+        "body",
+        "reorderSecurityFindingsAutomationSeverityModifierRules"
+      );
+    }
+
+    // Path Params
+    const localVarPath =
+      "/api/v2/security/findings/automation/severity_modifier_rules/reorder";
+
+    // Make Request Context
+    const requestContext = _config
+      .getServer(
+        "v2.SecurityMonitoringApi.reorderSecurityFindingsAutomationSeverityModifierRules"
+      )
+      .makeRequestContext(localVarPath, HttpMethod.POST);
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Body Params
+    const contentType = ObjectSerializer.getPreferredMediaType([
+      "application/json",
+    ]);
+    requestContext.setHeaderParam("Content-Type", contentType);
+    const serializedBody = ObjectSerializer.stringify(
+      ObjectSerializer.serialize(
+        body,
+        "SeverityModifierRuleReorderRequest",
+        ""
+      ),
+      contentType
+    );
+    requestContext.setBody(serializedBody);
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+    ]);
+
+    return requestContext;
+  }
+
   public async reorderSecurityFindingsAutomationTicketCreationRules(
     body: TicketCreationRuleReorderRequest,
     _options?: Configuration
@@ -8168,6 +8460,78 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
       ObjectSerializer.serialize(body, "MuteRuleUpdateRequest", ""),
+      contentType
+    );
+    requestContext.setBody(serializedBody);
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+    ]);
+
+    return requestContext;
+  }
+
+  public async updateSecurityFindingsAutomationSeverityModifierRule(
+    ruleId: string,
+    body: SeverityModifierRuleUpdateRequest,
+    _options?: Configuration
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    logger.warn(
+      "Using unstable operation 'updateSecurityFindingsAutomationSeverityModifierRule'"
+    );
+    if (
+      !_config.unstableOperations[
+        "v2.updateSecurityFindingsAutomationSeverityModifierRule"
+      ]
+    ) {
+      throw new Error(
+        "Unstable operation 'updateSecurityFindingsAutomationSeverityModifierRule' is disabled"
+      );
+    }
+
+    // verify required parameter 'ruleId' is not null or undefined
+    if (ruleId === null || ruleId === undefined) {
+      throw new RequiredError(
+        "ruleId",
+        "updateSecurityFindingsAutomationSeverityModifierRule"
+      );
+    }
+
+    // verify required parameter 'body' is not null or undefined
+    if (body === null || body === undefined) {
+      throw new RequiredError(
+        "body",
+        "updateSecurityFindingsAutomationSeverityModifierRule"
+      );
+    }
+
+    // Path Params
+    const localVarPath =
+      "/api/v2/security/findings/automation/severity_modifier_rules/{rule_id}".replace(
+        "{rule_id}",
+        encodeURIComponent(String(ruleId))
+      );
+
+    // Make Request Context
+    const requestContext = _config
+      .getServer(
+        "v2.SecurityMonitoringApi.updateSecurityFindingsAutomationSeverityModifierRule"
+      )
+      .makeRequestContext(localVarPath, HttpMethod.PUT);
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Body Params
+    const contentType = ObjectSerializer.getPreferredMediaType([
+      "application/json",
+    ]);
+    requestContext.setHeaderParam("Content-Type", contentType);
+    const serializedBody = ObjectSerializer.stringify(
+      ObjectSerializer.serialize(body, "SeverityModifierRuleUpdateRequest", ""),
       contentType
     );
     requestContext.setBody(serializedBody);
@@ -10706,6 +11070,87 @@ export class SecurityMonitoringApiResponseProcessor {
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
    *
+   * @params response Response returned by the server for a request to createSecurityFindingsAutomationSeverityModifierRule
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async createSecurityFindingsAutomationSeverityModifierRule(
+    response: ResponseContext
+  ): Promise<SeverityModifierRuleResponse> {
+    const contentType = ObjectSerializer.normalizeMediaType(
+      response.headers["content-type"]
+    );
+    if (response.httpStatusCode === 201) {
+      const body: SeverityModifierRuleResponse = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "SeverityModifierRuleResponse"
+      ) as SeverityModifierRuleResponse;
+      return body;
+    }
+    if (response.httpStatusCode === 400 || response.httpStatusCode === 422) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: JSONAPIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "JSONAPIErrorResponse"
+        ) as JSONAPIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<JSONAPIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<JSONAPIErrorResponse>(
+        response.httpStatusCode,
+        body
+      );
+    }
+    if (response.httpStatusCode === 403 || response.httpStatusCode === 429) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: APIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "APIErrorResponse"
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: SeverityModifierRuleResponse = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "SeverityModifierRuleResponse",
+        ""
+      ) as SeverityModifierRuleResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"'
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
    * @params response Response returned by the server for a request to createSecurityFindingsAutomationTicketCreationRule
    * @throws ApiException if the response code was not in [200, 299]
    */
@@ -11931,6 +12376,82 @@ export class SecurityMonitoringApiResponseProcessor {
         );
       }
       throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      return;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"'
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
+   * @params response Response returned by the server for a request to deleteSecurityFindingsAutomationSeverityModifierRule
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async deleteSecurityFindingsAutomationSeverityModifierRule(
+    response: ResponseContext
+  ): Promise<void> {
+    const contentType = ObjectSerializer.normalizeMediaType(
+      response.headers["content-type"]
+    );
+    if (response.httpStatusCode === 204) {
+      return;
+    }
+    if (
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 404 ||
+      response.httpStatusCode === 429
+    ) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: APIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "APIErrorResponse"
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+    if (response.httpStatusCode === 422) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: JSONAPIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "JSONAPIErrorResponse"
+        ) as JSONAPIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<JSONAPIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<JSONAPIErrorResponse>(
+        response.httpStatusCode,
+        body
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -13820,6 +14341,91 @@ export class SecurityMonitoringApiResponseProcessor {
         "MuteRuleResponse",
         ""
       ) as MuteRuleResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"'
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
+   * @params response Response returned by the server for a request to getSecurityFindingsAutomationSeverityModifierRule
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async getSecurityFindingsAutomationSeverityModifierRule(
+    response: ResponseContext
+  ): Promise<SeverityModifierRuleResponse> {
+    const contentType = ObjectSerializer.normalizeMediaType(
+      response.headers["content-type"]
+    );
+    if (response.httpStatusCode === 200) {
+      const body: SeverityModifierRuleResponse = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "SeverityModifierRuleResponse"
+      ) as SeverityModifierRuleResponse;
+      return body;
+    }
+    if (
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 404 ||
+      response.httpStatusCode === 429
+    ) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: APIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "APIErrorResponse"
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+    if (response.httpStatusCode === 422) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: JSONAPIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "JSONAPIErrorResponse"
+        ) as JSONAPIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<JSONAPIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<JSONAPIErrorResponse>(
+        response.httpStatusCode,
+        body
+      );
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: SeverityModifierRuleResponse = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "SeverityModifierRuleResponse",
+        ""
+      ) as SeverityModifierRuleResponse;
       return body;
     }
 
@@ -16375,6 +16981,68 @@ export class SecurityMonitoringApiResponseProcessor {
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
    *
+   * @params response Response returned by the server for a request to listSecurityFindingsAutomationSeverityModifierRules
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async listSecurityFindingsAutomationSeverityModifierRules(
+    response: ResponseContext
+  ): Promise<SeverityModifierRulesResponse> {
+    const contentType = ObjectSerializer.normalizeMediaType(
+      response.headers["content-type"]
+    );
+    if (response.httpStatusCode === 200) {
+      const body: SeverityModifierRulesResponse = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "SeverityModifierRulesResponse"
+      ) as SeverityModifierRulesResponse;
+      return body;
+    }
+    if (
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 404 ||
+      response.httpStatusCode === 429
+    ) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: APIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "APIErrorResponse"
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: SeverityModifierRulesResponse = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "SeverityModifierRulesResponse",
+        ""
+      ) as SeverityModifierRulesResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"'
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
    * @params response Response returned by the server for a request to listSecurityFindingsAutomationTicketCreationRules
    * @throws ApiException if the response code was not in [200, 299]
    */
@@ -17556,6 +18224,89 @@ export class SecurityMonitoringApiResponseProcessor {
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
    *
+   * @params response Response returned by the server for a request to reorderSecurityFindingsAutomationSeverityModifierRules
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async reorderSecurityFindingsAutomationSeverityModifierRules(
+    response: ResponseContext
+  ): Promise<SeverityModifierRuleReorderResponse> {
+    const contentType = ObjectSerializer.normalizeMediaType(
+      response.headers["content-type"]
+    );
+    if (response.httpStatusCode === 200) {
+      const body: SeverityModifierRuleReorderResponse =
+        ObjectSerializer.deserialize(
+          ObjectSerializer.parse(await response.body.text(), contentType),
+          "SeverityModifierRuleReorderResponse"
+        ) as SeverityModifierRuleReorderResponse;
+      return body;
+    }
+    if (response.httpStatusCode === 400 || response.httpStatusCode === 422) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: JSONAPIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "JSONAPIErrorResponse"
+        ) as JSONAPIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<JSONAPIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<JSONAPIErrorResponse>(
+        response.httpStatusCode,
+        body
+      );
+    }
+    if (response.httpStatusCode === 403 || response.httpStatusCode === 429) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: APIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "APIErrorResponse"
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: SeverityModifierRuleReorderResponse =
+        ObjectSerializer.deserialize(
+          ObjectSerializer.parse(await response.body.text(), contentType),
+          "SeverityModifierRuleReorderResponse",
+          ""
+        ) as SeverityModifierRuleReorderResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"'
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
    * @params response Response returned by the server for a request to reorderSecurityFindingsAutomationTicketCreationRules
    * @throws ApiException if the response code was not in [200, 299]
    */
@@ -18595,6 +19346,91 @@ export class SecurityMonitoringApiResponseProcessor {
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
    *
+   * @params response Response returned by the server for a request to updateSecurityFindingsAutomationSeverityModifierRule
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async updateSecurityFindingsAutomationSeverityModifierRule(
+    response: ResponseContext
+  ): Promise<SeverityModifierRuleResponse> {
+    const contentType = ObjectSerializer.normalizeMediaType(
+      response.headers["content-type"]
+    );
+    if (response.httpStatusCode === 200) {
+      const body: SeverityModifierRuleResponse = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "SeverityModifierRuleResponse"
+      ) as SeverityModifierRuleResponse;
+      return body;
+    }
+    if (response.httpStatusCode === 400 || response.httpStatusCode === 422) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: JSONAPIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "JSONAPIErrorResponse"
+        ) as JSONAPIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<JSONAPIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<JSONAPIErrorResponse>(
+        response.httpStatusCode,
+        body
+      );
+    }
+    if (
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 404 ||
+      response.httpStatusCode === 429
+    ) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: APIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "APIErrorResponse"
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: SeverityModifierRuleResponse = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "SeverityModifierRuleResponse",
+        ""
+      ) as SeverityModifierRuleResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"'
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
    * @params response Response returned by the server for a request to updateSecurityFindingsAutomationTicketCreationRule
    * @throws ApiException if the response code was not in [200, 299]
    */
@@ -19464,6 +20300,13 @@ export interface SecurityMonitoringApiCreateSecurityFindingsAutomationMuteRuleRe
   body: MuteRuleCreateRequest;
 }
 
+export interface SecurityMonitoringApiCreateSecurityFindingsAutomationSeverityModifierRuleRequest {
+  /**
+   * @type SeverityModifierRuleCreateRequest
+   */
+  body: SeverityModifierRuleCreateRequest;
+}
+
 export interface SecurityMonitoringApiCreateSecurityFindingsAutomationTicketCreationRuleRequest {
   /**
    * @type TicketCreationRuleCreateRequest
@@ -19612,6 +20455,14 @@ export interface SecurityMonitoringApiDeleteSecurityFindingsAutomationDueDateRul
 export interface SecurityMonitoringApiDeleteSecurityFindingsAutomationMuteRuleRequest {
   /**
    * The ID of the mute rule.
+   * @type string
+   */
+  ruleId: string;
+}
+
+export interface SecurityMonitoringApiDeleteSecurityFindingsAutomationSeverityModifierRuleRequest {
+  /**
+   * The ID of the severity modifier rule.
    * @type string
    */
   ruleId: string;
@@ -19946,6 +20797,14 @@ export interface SecurityMonitoringApiGetSecurityFindingsAutomationDueDateRuleRe
 export interface SecurityMonitoringApiGetSecurityFindingsAutomationMuteRuleRequest {
   /**
    * The ID of the mute rule.
+   * @type string
+   */
+  ruleId: string;
+}
+
+export interface SecurityMonitoringApiGetSecurityFindingsAutomationSeverityModifierRuleRequest {
+  /**
+   * The ID of the severity modifier rule.
    * @type string
    */
   ruleId: string;
@@ -20529,6 +21388,19 @@ export interface SecurityMonitoringApiListSecurityFindingsAutomationMuteRulesReq
   pageNumber?: number;
 }
 
+export interface SecurityMonitoringApiListSecurityFindingsAutomationSeverityModifierRulesRequest {
+  /**
+   * The number of rules per page. Maximum is 1000.
+   * @type number
+   */
+  pageSize?: number;
+  /**
+   * The page number to return.
+   * @type number
+   */
+  pageNumber?: number;
+}
+
 export interface SecurityMonitoringApiListSecurityFindingsAutomationTicketCreationRulesRequest {
   /**
    * The number of rules per page. Maximum is 1000.
@@ -21036,6 +21908,13 @@ export interface SecurityMonitoringApiReorderSecurityFindingsAutomationMuteRules
   body: MuteRuleReorderRequest;
 }
 
+export interface SecurityMonitoringApiReorderSecurityFindingsAutomationSeverityModifierRulesRequest {
+  /**
+   * @type SeverityModifierRuleReorderRequest
+   */
+  body: SeverityModifierRuleReorderRequest;
+}
+
 export interface SecurityMonitoringApiReorderSecurityFindingsAutomationTicketCreationRulesRequest {
   /**
    * @type TicketCreationRuleReorderRequest
@@ -21176,6 +22055,18 @@ export interface SecurityMonitoringApiUpdateSecurityFindingsAutomationMuteRuleRe
    * @type MuteRuleUpdateRequest
    */
   body: MuteRuleUpdateRequest;
+}
+
+export interface SecurityMonitoringApiUpdateSecurityFindingsAutomationSeverityModifierRuleRequest {
+  /**
+   * The ID of the severity modifier rule.
+   * @type string
+   */
+  ruleId: string;
+  /**
+   * @type SeverityModifierRuleUpdateRequest
+   */
+  body: SeverityModifierRuleUpdateRequest;
 }
 
 export interface SecurityMonitoringApiUpdateSecurityFindingsAutomationTicketCreationRuleRequest {
@@ -22017,6 +22908,30 @@ export class SecurityMonitoringApi {
   }
 
   /**
+   * Create a new severity modifier rule for the current organization.
+   * @param param The request object
+   */
+  public createSecurityFindingsAutomationSeverityModifierRule(
+    param: SecurityMonitoringApiCreateSecurityFindingsAutomationSeverityModifierRuleRequest,
+    options?: Configuration
+  ): Promise<SeverityModifierRuleResponse> {
+    const requestContextPromise =
+      this.requestFactory.createSecurityFindingsAutomationSeverityModifierRule(
+        param.body,
+        options
+      );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.createSecurityFindingsAutomationSeverityModifierRule(
+            responseContext
+          );
+        });
+    });
+  }
+
+  /**
    * Create a new ticket creation rule for the current organization.
    * @param param The request object
    */
@@ -22451,6 +23366,30 @@ export class SecurityMonitoringApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.deleteSecurityFindingsAutomationMuteRule(
+            responseContext
+          );
+        });
+    });
+  }
+
+  /**
+   * Delete an existing severity modifier rule by ID.
+   * @param param The request object
+   */
+  public deleteSecurityFindingsAutomationSeverityModifierRule(
+    param: SecurityMonitoringApiDeleteSecurityFindingsAutomationSeverityModifierRuleRequest,
+    options?: Configuration
+  ): Promise<void> {
+    const requestContextPromise =
+      this.requestFactory.deleteSecurityFindingsAutomationSeverityModifierRule(
+        param.ruleId,
+        options
+      );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.deleteSecurityFindingsAutomationSeverityModifierRule(
             responseContext
           );
         });
@@ -23155,6 +24094,30 @@ export class SecurityMonitoringApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.getSecurityFindingsAutomationMuteRule(
+            responseContext
+          );
+        });
+    });
+  }
+
+  /**
+   * Get the details of a severity modifier rule by ID.
+   * @param param The request object
+   */
+  public getSecurityFindingsAutomationSeverityModifierRule(
+    param: SecurityMonitoringApiGetSecurityFindingsAutomationSeverityModifierRuleRequest,
+    options?: Configuration
+  ): Promise<SeverityModifierRuleResponse> {
+    const requestContextPromise =
+      this.requestFactory.getSecurityFindingsAutomationSeverityModifierRule(
+        param.ruleId,
+        options
+      );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.getSecurityFindingsAutomationSeverityModifierRule(
             responseContext
           );
         });
@@ -24329,6 +25292,31 @@ export class SecurityMonitoringApi {
   }
 
   /**
+   * Get all severity modifier rules for the current organization.
+   * @param param The request object
+   */
+  public listSecurityFindingsAutomationSeverityModifierRules(
+    param: SecurityMonitoringApiListSecurityFindingsAutomationSeverityModifierRulesRequest = {},
+    options?: Configuration
+  ): Promise<SeverityModifierRulesResponse> {
+    const requestContextPromise =
+      this.requestFactory.listSecurityFindingsAutomationSeverityModifierRules(
+        param.pageSize,
+        param.pageNumber,
+        options
+      );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.listSecurityFindingsAutomationSeverityModifierRules(
+            responseContext
+          );
+        });
+    });
+  }
+
+  /**
    * Get all ticket creation rules for the current organization.
    * @param param The request object
    */
@@ -24943,6 +25931,30 @@ export class SecurityMonitoringApi {
   }
 
   /**
+   * Reorder the list of severity modifier rules for the current organization.
+   * @param param The request object
+   */
+  public reorderSecurityFindingsAutomationSeverityModifierRules(
+    param: SecurityMonitoringApiReorderSecurityFindingsAutomationSeverityModifierRulesRequest,
+    options?: Configuration
+  ): Promise<SeverityModifierRuleReorderResponse> {
+    const requestContextPromise =
+      this.requestFactory.reorderSecurityFindingsAutomationSeverityModifierRules(
+        param.body,
+        options
+      );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.reorderSecurityFindingsAutomationSeverityModifierRules(
+            responseContext
+          );
+        });
+    });
+  }
+
+  /**
    * Reorder the list of ticket creation rules for the current organization.
    * @param param The request object
    */
@@ -25414,6 +26426,31 @@ export class SecurityMonitoringApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.updateSecurityFindingsAutomationMuteRule(
+            responseContext
+          );
+        });
+    });
+  }
+
+  /**
+   * Update an existing severity modifier rule by ID.
+   * @param param The request object
+   */
+  public updateSecurityFindingsAutomationSeverityModifierRule(
+    param: SecurityMonitoringApiUpdateSecurityFindingsAutomationSeverityModifierRuleRequest,
+    options?: Configuration
+  ): Promise<SeverityModifierRuleResponse> {
+    const requestContextPromise =
+      this.requestFactory.updateSecurityFindingsAutomationSeverityModifierRule(
+        param.ruleId,
+        param.body,
+        options
+      );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.updateSecurityFindingsAutomationSeverityModifierRule(
             responseContext
           );
         });
