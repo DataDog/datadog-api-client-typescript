@@ -9,11 +9,11 @@ import { LLMObsDatasetType } from "./LLMObsDatasetType";
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * Data object for cloning an LLM Observability dataset.
+ * Data object for cloning an Agent Observability dataset.
  */
 export class LLMObsDatasetCloneDataRequest {
   /**
-   * Attributes for cloning an LLM Observability dataset.
+   * Attributes for cloning an Agent Observability dataset.
    */
   "attributes": LLMObsDatasetCloneDataAttributesRequest;
   /**
@@ -21,7 +21,7 @@ export class LLMObsDatasetCloneDataRequest {
    */
   "id": string;
   /**
-   * Resource type of an LLM Observability dataset.
+   * Resource type of an Agent Observability dataset.
    */
   "type": LLMObsDatasetType;
 

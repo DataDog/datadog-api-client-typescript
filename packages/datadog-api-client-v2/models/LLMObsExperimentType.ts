@@ -7,7 +7,7 @@
 import { UnparsedObject } from "../../datadog-api-client-common/util";
 
 /**
- * Resource type of an LLM Observability experiment.
+ * Resource type of an Agent Observability experiment.
  */
 
 export type LLMObsExperimentType = typeof EXPERIMENTS | UnparsedObject;

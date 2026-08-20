@@ -7,7 +7,7 @@
 import { UnparsedObject } from "../../datadog-api-client-common/util";
 
 /**
- * Type of the custom LLM Observability evaluator configuration resource.
+ * Type of the custom Agent Observability evaluator configuration resource.
  */
 
 export type LLMObsCustomEvalConfigType =

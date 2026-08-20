@@ -8,7 +8,7 @@ import { LLMObsSpanMessage } from "./LLMObsSpanMessage";
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * Input or output content of an LLM Observability span.
+ * Input or output content of an Agent Observability span.
  */
 export class LLMObsSpanIO {
   /**

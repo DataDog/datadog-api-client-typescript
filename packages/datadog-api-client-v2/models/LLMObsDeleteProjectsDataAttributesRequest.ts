@@ -7,7 +7,7 @@
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * Attributes for deleting LLM Observability projects.
+ * Attributes for deleting Agent Observability projects.
  */
 export class LLMObsDeleteProjectsDataAttributesRequest {
   /**

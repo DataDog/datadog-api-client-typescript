@@ -17,7 +17,7 @@ export class LLMObsAnnotationQueueLabelSchemaUpdateData {
    */
   "attributes": LLMObsAnnotationQueueLabelSchemaUpdateAttributes;
   /**
-   * Resource type of an LLM Observability annotation queue.
+   * Resource type of an Agent Observability annotation queue.
    */
   "type": LLMObsAnnotationQueueType;
 

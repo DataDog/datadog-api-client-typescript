@@ -1,5 +1,5 @@
 /**
- * Create an LLM Observability dataset returns "OK" response
+ * Create an Agent Observability dataset returns "OK" response
  */
 
 import { client, v2 } from "@datadog/datadog-api-client";

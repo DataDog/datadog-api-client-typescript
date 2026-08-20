@@ -13,7 +13,7 @@ import { AttributeTypeMap } from "../../datadog-api-client-common/util";
  */
 export class LLMObsExperimentEvalMetricEvent {
   /**
-   * Assessment result for an LLM Observability experiment metric.
+   * Assessment result for an Agent Observability experiment metric.
    */
   "assessment"?: LLMObsMetricAssessment;
   /**
@@ -49,7 +49,7 @@ export class LLMObsExperimentEvalMetricEvent {
    */
   "metricSource"?: string;
   /**
-   * Type of metric recorded for an LLM Observability experiment.
+   * Type of metric recorded for an Agent Observability experiment.
    */
   "metricType"?: LLMObsMetricScoreType;
   /**

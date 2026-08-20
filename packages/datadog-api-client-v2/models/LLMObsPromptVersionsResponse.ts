@@ -8,7 +8,7 @@ import { LLMObsPromptVersionListData } from "./LLMObsPromptVersionListData";
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * Response containing the versions of an LLM Observability prompt.
+ * Response containing the versions of an Agent Observability prompt.
  */
 export class LLMObsPromptVersionsResponse {
   /**

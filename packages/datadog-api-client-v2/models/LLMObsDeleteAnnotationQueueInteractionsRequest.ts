@@ -8,7 +8,7 @@ import { LLMObsDeleteAnnotationQueueInteractionsDataRequest } from "./LLMObsDele
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * Request to delete interactions from an LLM Observability annotation queue.
+ * Request to delete interactions from an Agent Observability annotation queue.
  */
 export class LLMObsDeleteAnnotationQueueInteractionsRequest {
   /**

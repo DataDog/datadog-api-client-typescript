@@ -7,7 +7,7 @@
 import { UnparsedObject } from "../../datadog-api-client-common/util";
 
 /**
- * Resource type of an LLM Observability dataset.
+ * Resource type of an Agent Observability dataset.
  */
 
 export type LLMObsDatasetType = typeof DATASETS | UnparsedObject;

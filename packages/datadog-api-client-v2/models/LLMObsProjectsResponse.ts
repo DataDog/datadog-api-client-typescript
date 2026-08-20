@@ -9,7 +9,7 @@ import { LLMObsProjectDataResponse } from "./LLMObsProjectDataResponse";
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * Response containing a list of LLM Observability projects.
+ * Response containing a list of Agent Observability projects.
  */
 export class LLMObsProjectsResponse {
   /**

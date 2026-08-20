@@ -1,5 +1,5 @@
 /**
- * Get a specific LLM Observability prompt version returns "OK" response
+ * Get a specific Agent Observability prompt version returns "OK" response
  */
 
 import { client, v2 } from "@datadog/datadog-api-client";

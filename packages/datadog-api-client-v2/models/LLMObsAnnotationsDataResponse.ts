@@ -21,7 +21,7 @@ export class LLMObsAnnotationsDataResponse {
    */
   "id": string;
   /**
-   * Resource type for LLM Observability annotations.
+   * Resource type for Agent Observability annotations.
    */
   "type": LLMObsAnnotationsType;
 

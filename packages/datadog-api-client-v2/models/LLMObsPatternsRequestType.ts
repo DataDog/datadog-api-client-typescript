@@ -7,7 +7,7 @@
 import { UnparsedObject } from "../../datadog-api-client-common/util";
 
 /**
- * Resource type for triggering an LLM Observability patterns run.
+ * Resource type for triggering an Agent Observability patterns run.
  */
 
 export type LLMObsPatternsRequestType = typeof TOPIC_DISCOVERY | UnparsedObject;

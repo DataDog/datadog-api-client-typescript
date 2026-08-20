@@ -7,7 +7,7 @@
 import { UnparsedObject } from "../../datadog-api-client-common/util";
 
 /**
- * Resource type for an LLM Observability spans search request.
+ * Resource type for an Agent Observability spans search request.
  */
 
 export type LLMObsSearchSpansRequestType = typeof SPANS | UnparsedObject;

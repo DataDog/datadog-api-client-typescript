@@ -8,11 +8,11 @@ import { LLMObsPatternsTopicsResponseData } from "./LLMObsPatternsTopicsResponse
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * Response containing the topics discovered by an LLM Observability patterns run.
+ * Response containing the topics discovered by an Agent Observability patterns run.
  */
 export class LLMObsPatternsTopicsResponse {
   /**
-   * Data object of an LLM Observability patterns topics response.
+   * Data object of an Agent Observability patterns topics response.
    */
   "data": LLMObsPatternsTopicsResponseData;
 

@@ -7,7 +7,7 @@
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * A topic discovered by an LLM Observability patterns run.
+ * A topic discovered by an Agent Observability patterns run.
  */
 export class LLMObsPatternsTopic {
   /**

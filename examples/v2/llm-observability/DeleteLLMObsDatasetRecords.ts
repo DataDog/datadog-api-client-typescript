@@ -1,5 +1,5 @@
 /**
- * Delete LLM Observability dataset records returns "No Content" response
+ * Delete Agent Observability dataset records returns "No Content" response
  */
 
 import { client, v2 } from "@datadog/datadog-api-client";

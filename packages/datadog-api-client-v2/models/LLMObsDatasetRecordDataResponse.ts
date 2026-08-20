@@ -8,7 +8,7 @@ import { AnyValue } from "./AnyValue";
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * A single LLM Observability dataset record.
+ * A single Agent Observability dataset record.
  */
 export class LLMObsDatasetRecordDataResponse {
   /**

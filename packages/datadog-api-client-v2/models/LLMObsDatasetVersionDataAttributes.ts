@@ -7,7 +7,7 @@
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * Attributes of an LLM Observability dataset version.
+ * Attributes of an Agent Observability dataset version.
  */
 export class LLMObsDatasetVersionDataAttributes {
   /**

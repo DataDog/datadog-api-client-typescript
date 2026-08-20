@@ -9,7 +9,7 @@ import { LLMObsPromptType } from "./LLMObsPromptType";
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * Data object for a flattened LLM Observability prompt version returned for SDK consumption.
+ * Data object for a flattened Agent Observability prompt version returned for SDK consumption.
  */
 export class LLMObsPromptSDKData {
   /**
@@ -21,7 +21,7 @@ export class LLMObsPromptSDKData {
    */
   "id": string;
   /**
-   * Resource type of an LLM Observability prompt.
+   * Resource type of an Agent Observability prompt.
    */
   "type": LLMObsPromptType;
 

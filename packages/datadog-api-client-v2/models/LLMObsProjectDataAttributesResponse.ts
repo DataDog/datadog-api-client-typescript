@@ -7,7 +7,7 @@
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * Attributes of an LLM Observability project.
+ * Attributes of an Agent Observability project.
  */
 export class LLMObsProjectDataAttributesResponse {
   /**

@@ -7,7 +7,7 @@
 import { UnparsedObject } from "../../datadog-api-client-common/util";
 
 /**
- * Supported export format for an LLM Observability dataset.
+ * Supported export format for an Agent Observability dataset.
  */
 
 export type LLMObsDatasetExportFormat = typeof CSV | UnparsedObject;

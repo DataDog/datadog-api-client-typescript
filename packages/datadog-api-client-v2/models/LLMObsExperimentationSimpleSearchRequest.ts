@@ -8,7 +8,7 @@ import { LLMObsExperimentationSimpleSearchDataRequest } from "./LLMObsExperiment
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * Request to search across LLM Observability experimentation entities using offset-based pagination.
+ * Request to search across Agent Observability experimentation entities using offset-based pagination.
  */
 export class LLMObsExperimentationSimpleSearchRequest {
   /**

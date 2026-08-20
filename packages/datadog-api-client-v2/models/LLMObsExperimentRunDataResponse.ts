@@ -7,7 +7,7 @@
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * Data object for an LLM Observability experiment run.
+ * Data object for an Agent Observability experiment run.
  */
 export class LLMObsExperimentRunDataResponse {
   /**

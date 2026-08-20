@@ -761,27 +761,27 @@ export class UsageSummaryDateOrg {
    */
   "iotDeviceTop99pSum"?: number;
   /**
-   * Shows the sum of all LLM Observability 15-day retention spans over all hours in the current date for the given org.
+   * Shows the sum of all Agent Observability 15-day retention spans over all hours in the current date for the given org.
    */
   "llmObservability15dayRetentionSpansSum"?: number;
   /**
-   * Shows the sum of all LLM Observability 30-day retention spans over all hours in the current date for the given org.
+   * Shows the sum of all Agent Observability 30-day retention spans over all hours in the current date for the given org.
    */
   "llmObservability30dayRetentionSpansSum"?: number;
   /**
-   * Shows the sum of all LLM Observability 60-day retention spans over all hours in the current date for the given org.
+   * Shows the sum of all Agent Observability 60-day retention spans over all hours in the current date for the given org.
    */
   "llmObservability60dayRetentionSpansSum"?: number;
   /**
-   * Shows the sum of all LLM Observability 90-day retention spans over all hours in the current date for the given org.
+   * Shows the sum of all Agent Observability 90-day retention spans over all hours in the current date for the given org.
    */
   "llmObservability90dayRetentionSpansSum"?: number;
   /**
-   * Shows the sum of all LLM Observability minimum spend over all hours in the current date for the given org.
+   * Shows the sum of all Agent Observability minimum spend over all hours in the current date for the given org.
    */
   "llmObservabilityMinSpendSum"?: number;
   /**
-   * Shows the sum of all LLM observability sessions over all hours in the current date for the given org.
+   * Shows the sum of all Agent observability sessions over all hours in the current date for the given org.
    */
   "llmObservabilitySum"?: number;
   /**

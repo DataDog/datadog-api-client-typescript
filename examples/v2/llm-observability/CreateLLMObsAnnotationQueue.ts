@@ -1,5 +1,5 @@
 /**
- * Create an LLM Observability annotation queue returns "Created" response
+ * Create an Agent Observability annotation queue returns "Created" response
  */
 
 import { client, v2 } from "@datadog/datadog-api-client";

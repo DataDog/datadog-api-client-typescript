@@ -9,15 +9,15 @@ import { LLMObsAnnotationQueueUpdateDataAttributesRequest } from "./LLMObsAnnota
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * Data object for updating an LLM Observability annotation queue.
+ * Data object for updating an Agent Observability annotation queue.
  */
 export class LLMObsAnnotationQueueUpdateDataRequest {
   /**
-   * Attributes for updating an LLM Observability annotation queue. All fields are optional.
+   * Attributes for updating an Agent Observability annotation queue. All fields are optional.
    */
   "attributes": LLMObsAnnotationQueueUpdateDataAttributesRequest;
   /**
-   * Resource type of an LLM Observability annotation queue.
+   * Resource type of an Agent Observability annotation queue.
    */
   "type": LLMObsAnnotationQueueType;
 

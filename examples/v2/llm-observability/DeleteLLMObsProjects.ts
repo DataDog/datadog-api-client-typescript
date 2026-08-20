@@ -1,5 +1,5 @@
 /**
- * Delete LLM Observability projects returns "No Content" response
+ * Delete Agent Observability projects returns "No Content" response
  */
 
 import { client, v2 } from "@datadog/datadog-api-client";

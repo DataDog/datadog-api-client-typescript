@@ -9,7 +9,7 @@ import { LLMObsDatasetRecordTagOperations } from "./LLMObsDatasetRecordTagOperat
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * A record update payload as part of a batch update on an LLM Observability dataset.
+ * A record update payload as part of a batch update on an Agent Observability dataset.
  */
 export class LLMObsDatasetBatchUpdateUpdateRecord {
   /**

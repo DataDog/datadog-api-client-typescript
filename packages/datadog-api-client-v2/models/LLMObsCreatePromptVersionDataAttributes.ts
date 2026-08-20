@@ -9,7 +9,7 @@ import { LLMObsPromptVersionLabel } from "./LLMObsPromptVersionLabel";
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * Attributes for creating a new version of an LLM Observability prompt. `template` is required; all other attributes are optional.
+ * Attributes for creating a new version of an Agent Observability prompt. `template` is required; all other attributes are optional.
  */
 export class LLMObsCreatePromptVersionDataAttributes {
   /**

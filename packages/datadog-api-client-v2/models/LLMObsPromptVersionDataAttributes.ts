@@ -9,7 +9,7 @@ import { LLMObsPromptTemplate } from "./LLMObsPromptTemplate";
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * Attributes of a specific version of an LLM Observability prompt.
+ * Attributes of a specific version of an Agent Observability prompt.
  */
 export class LLMObsPromptVersionDataAttributes {
   /**

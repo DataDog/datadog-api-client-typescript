@@ -9,7 +9,7 @@ import { LLMObsExperimentSpanStatus } from "./LLMObsExperimentSpanStatus";
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * A span associated with an LLM Observability experiment.
+ * A span associated with an Agent Observability experiment.
  */
 export class LLMObsExperimentSpan {
   /**

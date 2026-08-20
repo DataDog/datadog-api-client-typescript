@@ -1,5 +1,5 @@
 /**
- * Get LLM Observability dataset draft state returns "OK" response
+ * Get Agent Observability dataset draft state returns "OK" response
  */
 
 import { client, v2 } from "@datadog/datadog-api-client";
