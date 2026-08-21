@@ -2538,17 +2538,17 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
     },
     operationResponseType: "FleetScheduleV2Response",
   },
-  "LLMObservabilityApi.V2.ListLLMObsCustomEvalConfigs": {
+  "AgentObservabilityApi.V2.ListLLMObsCustomEvalConfigs": {
     operationResponseType: "LLMObsCustomEvalConfigListResponse",
   },
-  "LLMObservabilityApi.V2.GetLLMObsCustomEvalConfig": {
+  "AgentObservabilityApi.V2.GetLLMObsCustomEvalConfig": {
     evalName: {
       type: "string",
       format: "",
     },
     operationResponseType: "LLMObsCustomEvalConfigResponse",
   },
-  "LLMObservabilityApi.V2.UpdateLLMObsCustomEvalConfig": {
+  "AgentObservabilityApi.V2.UpdateLLMObsCustomEvalConfig": {
     evalName: {
       type: "string",
       format: "",
@@ -2559,14 +2559,14 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
     },
     operationResponseType: "{}",
   },
-  "LLMObservabilityApi.V2.DeleteLLMObsCustomEvalConfig": {
+  "AgentObservabilityApi.V2.DeleteLLMObsCustomEvalConfig": {
     evalName: {
       type: "string",
       format: "",
     },
     operationResponseType: "{}",
   },
-  "LLMObservabilityApi.V2.GetLLMObsAnnotatedInteractionsByTraceIDs": {
+  "AgentObservabilityApi.V2.GetLLMObsAnnotatedInteractionsByTraceIDs": {
     contentIds: {
       type: "Array<string>",
       format: "",
@@ -2581,7 +2581,7 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
     },
     operationResponseType: "LLMObsAnnotatedInteractionsByTraceResponse",
   },
-  "LLMObservabilityApi.V2.ListLLMObsAnnotationQueues": {
+  "AgentObservabilityApi.V2.ListLLMObsAnnotationQueues": {
     projectId: {
       type: "string",
       format: "",
@@ -2592,21 +2592,21 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
     },
     operationResponseType: "LLMObsAnnotationQueuesResponse",
   },
-  "LLMObservabilityApi.V2.CreateLLMObsAnnotationQueue": {
+  "AgentObservabilityApi.V2.CreateLLMObsAnnotationQueue": {
     body: {
       type: "LLMObsAnnotationQueueRequest",
       format: "",
     },
     operationResponseType: "LLMObsAnnotationQueueResponse",
   },
-  "LLMObservabilityApi.V2.DeleteLLMObsAnnotationQueue": {
+  "AgentObservabilityApi.V2.DeleteLLMObsAnnotationQueue": {
     queueId: {
       type: "string",
       format: "",
     },
     operationResponseType: "{}",
   },
-  "LLMObservabilityApi.V2.UpdateLLMObsAnnotationQueue": {
+  "AgentObservabilityApi.V2.UpdateLLMObsAnnotationQueue": {
     queueId: {
       type: "string",
       format: "",
@@ -2617,14 +2617,14 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
     },
     operationResponseType: "LLMObsAnnotationQueueResponse",
   },
-  "LLMObservabilityApi.V2.GetLLMObsAnnotatedInteractions": {
+  "AgentObservabilityApi.V2.GetLLMObsAnnotatedInteractions": {
     queueId: {
       type: "string",
       format: "",
     },
     operationResponseType: "LLMObsAnnotatedInteractionsResponse",
   },
-  "LLMObservabilityApi.V2.UpsertLLMObsAnnotations": {
+  "AgentObservabilityApi.V2.UpsertLLMObsAnnotations": {
     queueId: {
       type: "string",
       format: "",
@@ -2635,7 +2635,7 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
     },
     operationResponseType: "LLMObsAnnotationsResponse",
   },
-  "LLMObservabilityApi.V2.DeleteLLMObsAnnotations": {
+  "AgentObservabilityApi.V2.DeleteLLMObsAnnotations": {
     queueId: {
       type: "string",
       format: "",
@@ -2646,7 +2646,7 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
     },
     operationResponseType: "LLMObsDeleteAnnotationsResponse",
   },
-  "LLMObservabilityApi.V2.CreateLLMObsAnnotationQueueInteractions": {
+  "AgentObservabilityApi.V2.CreateLLMObsAnnotationQueueInteractions": {
     queueId: {
       type: "string",
       format: "",
@@ -2657,7 +2657,7 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
     },
     operationResponseType: "LLMObsAnnotationQueueInteractionsResponse",
   },
-  "LLMObservabilityApi.V2.DeleteLLMObsAnnotationQueueInteractions": {
+  "AgentObservabilityApi.V2.DeleteLLMObsAnnotationQueueInteractions": {
     queueId: {
       type: "string",
       format: "",
@@ -2668,14 +2668,14 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
     },
     operationResponseType: "{}",
   },
-  "LLMObservabilityApi.V2.GetLLMObsAnnotationQueueLabelSchema": {
+  "AgentObservabilityApi.V2.GetLLMObsAnnotationQueueLabelSchema": {
     queueId: {
       type: "string",
       format: "",
     },
     operationResponseType: "LLMObsAnnotationQueueLabelSchemaResponse",
   },
-  "LLMObservabilityApi.V2.UpdateLLMObsAnnotationQueueLabelSchema": {
+  "AgentObservabilityApi.V2.UpdateLLMObsAnnotationQueueLabelSchema": {
     queueId: {
       type: "string",
       format: "",
@@ -2686,28 +2686,28 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
     },
     operationResponseType: "LLMObsAnnotationQueueLabelSchemaResponse",
   },
-  "LLMObservabilityApi.V2.AggregateLLMObsExperimentation": {
+  "AgentObservabilityApi.V2.AggregateLLMObsExperimentation": {
     body: {
       type: "LLMObsExperimentationAnalyticsRequest",
       format: "",
     },
     operationResponseType: "LLMObsExperimentationAnalyticsResponse",
   },
-  "LLMObservabilityApi.V2.SearchLLMObsExperimentation": {
+  "AgentObservabilityApi.V2.SearchLLMObsExperimentation": {
     body: {
       type: "LLMObsExperimentationSearchRequest",
       format: "",
     },
     operationResponseType: "LLMObsExperimentationSearchResponse",
   },
-  "LLMObservabilityApi.V2.SimpleSearchLLMObsExperimentation": {
+  "AgentObservabilityApi.V2.SimpleSearchLLMObsExperimentation": {
     body: {
       type: "LLMObsExperimentationSimpleSearchRequest",
       format: "",
     },
     operationResponseType: "LLMObsExperimentationSimpleSearchResponse",
   },
-  "LLMObservabilityApi.V2.ListLLMObsExperiments": {
+  "AgentObservabilityApi.V2.ListLLMObsExperiments": {
     filterProjectId: {
       type: "string",
       format: "",
@@ -2758,21 +2758,21 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
     },
     operationResponseType: "LLMObsExperimentsResponse",
   },
-  "LLMObservabilityApi.V2.CreateLLMObsExperiment": {
+  "AgentObservabilityApi.V2.CreateLLMObsExperiment": {
     body: {
       type: "LLMObsExperimentRequest",
       format: "",
     },
     operationResponseType: "LLMObsExperimentResponse",
   },
-  "LLMObservabilityApi.V2.DeleteLLMObsExperiments": {
+  "AgentObservabilityApi.V2.DeleteLLMObsExperiments": {
     body: {
       type: "LLMObsDeleteExperimentsRequest",
       format: "",
     },
     operationResponseType: "{}",
   },
-  "LLMObservabilityApi.V2.UpdateLLMObsExperiment": {
+  "AgentObservabilityApi.V2.UpdateLLMObsExperiment": {
     experimentId: {
       type: "string",
       format: "",
@@ -2783,14 +2783,14 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
     },
     operationResponseType: "LLMObsExperimentResponse",
   },
-  "LLMObservabilityApi.V2.ListLLMObsExperimentEventsV1": {
+  "AgentObservabilityApi.V2.ListLLMObsExperimentEventsV1": {
     experimentId: {
       type: "string",
       format: "",
     },
     operationResponseType: "LLMObsExperimentSpansResponse",
   },
-  "LLMObservabilityApi.V2.CreateLLMObsExperimentEvents": {
+  "AgentObservabilityApi.V2.CreateLLMObsExperimentEvents": {
     experimentId: {
       type: "string",
       format: "",
@@ -2801,14 +2801,14 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
     },
     operationResponseType: "{}",
   },
-  "LLMObservabilityApi.V2.ListLLMObsIntegrationAccounts": {
+  "AgentObservabilityApi.V2.ListLLMObsIntegrationAccounts": {
     integration: {
       type: "LLMObsIntegrationName",
       format: "",
     },
     operationResponseType: "Array<LLMObsIntegrationAccount>",
   },
-  "LLMObservabilityApi.V2.CreateLLMObsIntegrationInference": {
+  "AgentObservabilityApi.V2.CreateLLMObsIntegrationInference": {
     integration: {
       type: "LLMObsIntegrationName",
       format: "",
@@ -2823,7 +2823,7 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
     },
     operationResponseType: "LLMObsIntegrationInferenceResponse",
   },
-  "LLMObservabilityApi.V2.ListLLMObsIntegrationModels": {
+  "AgentObservabilityApi.V2.ListLLMObsIntegrationModels": {
     integration: {
       type: "LLMObsIntegrationName",
       format: "",
@@ -2834,7 +2834,7 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
     },
     operationResponseType: "Array<LLMObsIntegrationModel>",
   },
-  "LLMObservabilityApi.V2.ListLLMObsProjects": {
+  "AgentObservabilityApi.V2.ListLLMObsProjects": {
     filterId: {
       type: "string",
       format: "",
@@ -2853,21 +2853,21 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
     },
     operationResponseType: "LLMObsProjectsResponse",
   },
-  "LLMObservabilityApi.V2.CreateLLMObsProject": {
+  "AgentObservabilityApi.V2.CreateLLMObsProject": {
     body: {
       type: "LLMObsProjectRequest",
       format: "",
     },
     operationResponseType: "LLMObsProjectResponse",
   },
-  "LLMObservabilityApi.V2.DeleteLLMObsProjects": {
+  "AgentObservabilityApi.V2.DeleteLLMObsProjects": {
     body: {
       type: "LLMObsDeleteProjectsRequest",
       format: "",
     },
     operationResponseType: "{}",
   },
-  "LLMObservabilityApi.V2.UpdateLLMObsProject": {
+  "AgentObservabilityApi.V2.UpdateLLMObsProject": {
     projectId: {
       type: "string",
       format: "",
@@ -2878,21 +2878,21 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
     },
     operationResponseType: "LLMObsProjectResponse",
   },
-  "LLMObservabilityApi.V2.ListLLMObsPrompts": {
+  "AgentObservabilityApi.V2.ListLLMObsPrompts": {
     filterPromptId: {
       type: "string",
       format: "",
     },
     operationResponseType: "LLMObsPromptsResponse",
   },
-  "LLMObservabilityApi.V2.CreateLLMObsPrompt": {
+  "AgentObservabilityApi.V2.CreateLLMObsPrompt": {
     body: {
       type: "LLMObsCreatePromptRequest",
       format: "",
     },
     operationResponseType: "LLMObsPromptResponse",
   },
-  "LLMObservabilityApi.V2.GetLLMObsPrompt": {
+  "AgentObservabilityApi.V2.GetLLMObsPrompt": {
     promptId: {
       type: "string",
       format: "",
@@ -2903,14 +2903,14 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
     },
     operationResponseType: "LLMObsPromptSDKResponse",
   },
-  "LLMObservabilityApi.V2.DeleteLLMObsPrompt": {
+  "AgentObservabilityApi.V2.DeleteLLMObsPrompt": {
     promptId: {
       type: "string",
       format: "",
     },
     operationResponseType: "LLMObsDeletedPromptResponse",
   },
-  "LLMObservabilityApi.V2.UpdateLLMObsPrompt": {
+  "AgentObservabilityApi.V2.UpdateLLMObsPrompt": {
     promptId: {
       type: "string",
       format: "",
@@ -2921,14 +2921,14 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
     },
     operationResponseType: "LLMObsPromptResponse",
   },
-  "LLMObservabilityApi.V2.ListLLMObsPromptVersions": {
+  "AgentObservabilityApi.V2.ListLLMObsPromptVersions": {
     promptId: {
       type: "string",
       format: "",
     },
     operationResponseType: "LLMObsPromptVersionsResponse",
   },
-  "LLMObservabilityApi.V2.CreateLLMObsPromptVersion": {
+  "AgentObservabilityApi.V2.CreateLLMObsPromptVersion": {
     promptId: {
       type: "string",
       format: "",
@@ -2939,7 +2939,7 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
     },
     operationResponseType: "LLMObsPromptVersionResponse",
   },
-  "LLMObservabilityApi.V2.GetLLMObsPromptVersion": {
+  "AgentObservabilityApi.V2.GetLLMObsPromptVersion": {
     promptId: {
       type: "string",
       format: "",
@@ -2950,7 +2950,7 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
     },
     operationResponseType: "LLMObsPromptVersionResponse",
   },
-  "LLMObservabilityApi.V2.UpdateLLMObsPromptVersion": {
+  "AgentObservabilityApi.V2.UpdateLLMObsPromptVersion": {
     promptId: {
       type: "string",
       format: "",
@@ -2965,7 +2965,7 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
     },
     operationResponseType: "LLMObsPromptVersionResponse",
   },
-  "LLMObservabilityApi.V2.ListLLMObsSpans": {
+  "AgentObservabilityApi.V2.ListLLMObsSpans": {
     filterFrom: {
       type: "string",
       format: "",
@@ -3016,14 +3016,14 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
     },
     operationResponseType: "LLMObsSpansResponse",
   },
-  "LLMObservabilityApi.V2.SearchLLMObsSpans": {
+  "AgentObservabilityApi.V2.SearchLLMObsSpans": {
     body: {
       type: "LLMObsSearchSpansRequest",
       format: "",
     },
     operationResponseType: "LLMObsSpansResponse",
   },
-  "LLMObservabilityApi.V2.ListLLMObsPatternsClusteredPoints": {
+  "AgentObservabilityApi.V2.ListLLMObsPatternsClusteredPoints": {
     topicId: {
       type: "string",
       format: "",
@@ -3038,48 +3038,48 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
     },
     operationResponseType: "LLMObsPatternsClusteredPointsResponse",
   },
-  "LLMObservabilityApi.V2.ListLLMObsPatternsConfigs": {
+  "AgentObservabilityApi.V2.ListLLMObsPatternsConfigs": {
     operationResponseType: "LLMObsPatternsConfigsResponse",
   },
-  "LLMObservabilityApi.V2.UpsertLLMObsPatternsConfig": {
+  "AgentObservabilityApi.V2.UpsertLLMObsPatternsConfig": {
     body: {
       type: "LLMObsPatternsConfigUpsertRequest",
       format: "",
     },
     operationResponseType: "LLMObsPatternsConfigResponse",
   },
-  "LLMObservabilityApi.V2.GetLLMObsPatternsConfig": {
+  "AgentObservabilityApi.V2.GetLLMObsPatternsConfig": {
     operationResponseType: "LLMObsPatternsConfigResponse",
   },
-  "LLMObservabilityApi.V2.DeleteLLMObsPatternsConfig": {
+  "AgentObservabilityApi.V2.DeleteLLMObsPatternsConfig": {
     configId: {
       type: "string",
       format: "",
     },
     operationResponseType: "{}",
   },
-  "LLMObservabilityApi.V2.ListLLMObsPatternsRuns": {
+  "AgentObservabilityApi.V2.ListLLMObsPatternsRuns": {
     configId: {
       type: "string",
       format: "",
     },
     operationResponseType: "LLMObsPatternsRunsResponse",
   },
-  "LLMObservabilityApi.V2.TriggerLLMObsPatterns": {
+  "AgentObservabilityApi.V2.TriggerLLMObsPatterns": {
     body: {
       type: "LLMObsPatternsTriggerRequest",
       format: "",
     },
     operationResponseType: "LLMObsPatternsTriggerResponse",
   },
-  "LLMObservabilityApi.V2.GetLLMObsPatternsRunStatus": {
+  "AgentObservabilityApi.V2.GetLLMObsPatternsRunStatus": {
     configId: {
       type: "string",
       format: "",
     },
     operationResponseType: "LLMObsPatternsRunStatusResponse",
   },
-  "LLMObservabilityApi.V2.ListLLMObsPatternsTopics": {
+  "AgentObservabilityApi.V2.ListLLMObsPatternsTopics": {
     configId: {
       type: "string",
       format: "",
@@ -3090,7 +3090,7 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
     },
     operationResponseType: "LLMObsPatternsTopicsResponse",
   },
-  "LLMObservabilityApi.V2.ListLLMObsPatternsTopicsWithClusteredPoints": {
+  "AgentObservabilityApi.V2.ListLLMObsPatternsTopicsWithClusteredPoints": {
     configId: {
       type: "string",
       format: "",
@@ -3105,7 +3105,7 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
     },
     operationResponseType: "LLMObsPatternsTopicsWithClusteredPointsResponse",
   },
-  "LLMObservabilityApi.V2.ListLLMObsDatasets": {
+  "AgentObservabilityApi.V2.ListLLMObsDatasets": {
     projectId: {
       type: "string",
       format: "",
@@ -3128,7 +3128,7 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
     },
     operationResponseType: "LLMObsDatasetsResponse",
   },
-  "LLMObservabilityApi.V2.CreateLLMObsDataset": {
+  "AgentObservabilityApi.V2.CreateLLMObsDataset": {
     projectId: {
       type: "string",
       format: "",
@@ -3139,7 +3139,7 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
     },
     operationResponseType: "LLMObsDatasetResponse",
   },
-  "LLMObservabilityApi.V2.DeleteLLMObsDatasets": {
+  "AgentObservabilityApi.V2.DeleteLLMObsDatasets": {
     projectId: {
       type: "string",
       format: "",
@@ -3150,7 +3150,7 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
     },
     operationResponseType: "{}",
   },
-  "LLMObservabilityApi.V2.UpdateLLMObsDataset": {
+  "AgentObservabilityApi.V2.UpdateLLMObsDataset": {
     projectId: {
       type: "string",
       format: "",
@@ -3165,7 +3165,7 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
     },
     operationResponseType: "LLMObsDatasetResponse",
   },
-  "LLMObservabilityApi.V2.BatchUpdateLLMObsDataset": {
+  "AgentObservabilityApi.V2.BatchUpdateLLMObsDataset": {
     projectId: {
       type: "string",
       format: "",
@@ -3180,7 +3180,7 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
     },
     operationResponseType: "LLMObsDatasetRecordsMutationResponse",
   },
-  "LLMObservabilityApi.V2.CloneLLMObsDataset": {
+  "AgentObservabilityApi.V2.CloneLLMObsDataset": {
     projectId: {
       type: "string",
       format: "",
@@ -3195,7 +3195,7 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
     },
     operationResponseType: "LLMObsDatasetResponse",
   },
-  "LLMObservabilityApi.V2.GetLLMObsDatasetDraftState": {
+  "AgentObservabilityApi.V2.GetLLMObsDatasetDraftState": {
     projectId: {
       type: "string",
       format: "",
@@ -3206,7 +3206,7 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
     },
     operationResponseType: "LLMObsDatasetDraftStateResponse",
   },
-  "LLMObservabilityApi.V2.LockLLMObsDatasetDraftState": {
+  "AgentObservabilityApi.V2.LockLLMObsDatasetDraftState": {
     projectId: {
       type: "string",
       format: "",
@@ -3217,7 +3217,7 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
     },
     operationResponseType: "LLMObsDatasetDraftStateResponse",
   },
-  "LLMObservabilityApi.V2.UnlockLLMObsDatasetDraftState": {
+  "AgentObservabilityApi.V2.UnlockLLMObsDatasetDraftState": {
     projectId: {
       type: "string",
       format: "",
@@ -3228,7 +3228,7 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
     },
     operationResponseType: "{}",
   },
-  "LLMObservabilityApi.V2.ExportLLMObsDataset": {
+  "AgentObservabilityApi.V2.ExportLLMObsDataset": {
     projectId: {
       type: "string",
       format: "",
@@ -3247,7 +3247,7 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
     },
     operationResponseType: "string",
   },
-  "LLMObservabilityApi.V2.ListLLMObsDatasetRecords": {
+  "AgentObservabilityApi.V2.ListLLMObsDatasetRecords": {
     projectId: {
       type: "string",
       format: "",
@@ -3270,7 +3270,7 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
     },
     operationResponseType: "LLMObsDatasetRecordsListResponse",
   },
-  "LLMObservabilityApi.V2.CreateLLMObsDatasetRecords": {
+  "AgentObservabilityApi.V2.CreateLLMObsDatasetRecords": {
     projectId: {
       type: "string",
       format: "",
@@ -3285,7 +3285,7 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
     },
     operationResponseType: "LLMObsDatasetRecordsMutationResponse",
   },
-  "LLMObservabilityApi.V2.UpdateLLMObsDatasetRecords": {
+  "AgentObservabilityApi.V2.UpdateLLMObsDatasetRecords": {
     projectId: {
       type: "string",
       format: "",
@@ -3300,7 +3300,7 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
     },
     operationResponseType: "LLMObsDatasetRecordsMutationResponse",
   },
-  "LLMObservabilityApi.V2.DeleteLLMObsDatasetRecords": {
+  "AgentObservabilityApi.V2.DeleteLLMObsDatasetRecords": {
     projectId: {
       type: "string",
       format: "",
@@ -3315,7 +3315,7 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
     },
     operationResponseType: "{}",
   },
-  "LLMObservabilityApi.V2.RestoreLLMObsDatasetVersion": {
+  "AgentObservabilityApi.V2.RestoreLLMObsDatasetVersion": {
     projectId: {
       type: "string",
       format: "",
@@ -3330,7 +3330,7 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
     },
     operationResponseType: "{}",
   },
-  "LLMObservabilityApi.V2.ListLLMObsDatasetVersions": {
+  "AgentObservabilityApi.V2.ListLLMObsDatasetVersions": {
     projectId: {
       type: "string",
       format: "",
@@ -3341,14 +3341,14 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
     },
     operationResponseType: "LLMObsDatasetVersionsResponse",
   },
-  "LLMObservabilityApi.V2.ListLLMObsExperimentEventsV2": {
+  "AgentObservabilityApi.V2.ListLLMObsExperimentEventsV2": {
     experimentId: {
       type: "string",
       format: "",
     },
     operationResponseType: "LLMObsExperimentEventsV2Response",
   },
-  "LLMObservabilityApi.V2.UploadLLMObsDatasetRecordsFile": {
+  "AgentObservabilityApi.V2.UploadLLMObsDatasetRecordsFile": {
     projectId: {
       type: "string",
       format: "",
@@ -3379,7 +3379,7 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
     },
     operationResponseType: "{}",
   },
-  "LLMObservabilityApi.V2.ListLLMObsExperimentEvents": {
+  "AgentObservabilityApi.V2.ListLLMObsExperimentEvents": {
     experimentId: {
       type: "string",
       format: "",
@@ -15460,6 +15460,43 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
       format: "",
     },
     operationResponseType: "RumMetricResponse",
+  },
+  "RUMRetentionQuotaApi.V2.GetRumQuotaConfig": {
+    scopeType: {
+      type: "RumRetentionQuotaScopeType",
+      format: "",
+    },
+    scopeId: {
+      type: "string",
+      format: "",
+    },
+    operationResponseType: "RumRetentionQuotaConfigResponse",
+  },
+  "RUMRetentionQuotaApi.V2.UpsertRumQuotaConfig": {
+    scopeType: {
+      type: "RumRetentionQuotaScopeType",
+      format: "",
+    },
+    scopeId: {
+      type: "string",
+      format: "",
+    },
+    body: {
+      type: "RumRetentionQuotaConfigUpdateRequest",
+      format: "",
+    },
+    operationResponseType: "RumRetentionQuotaConfigResponse",
+  },
+  "RUMRetentionQuotaApi.V2.DeleteRumQuotaConfig": {
+    scopeType: {
+      type: "RumRetentionQuotaScopeType",
+      format: "",
+    },
+    scopeId: {
+      type: "string",
+      format: "",
+    },
+    operationResponseType: "{}",
   },
   "RUMOperationsApi.V2.CreateRUMOperation": {
     body: {

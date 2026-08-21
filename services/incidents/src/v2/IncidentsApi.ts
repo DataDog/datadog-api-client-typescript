@@ -12637,7 +12637,7 @@ export interface IncidentsApiListIncidentsRequest {
    */
   include?: Array<IncidentRelatedObject>;
   /**
-   * Size for a given page. The maximum allowed value is 100.
+   * Number of items to return per page. The maximum allowed value is 100.
    * @type number
    */
   pageSize?: number;
@@ -12778,7 +12778,7 @@ export interface IncidentsApiSearchIncidentsRequest {
    */
   sort?: IncidentSearchSortOrder;
   /**
-   * Size for a given page. The maximum allowed value is 100.
+   * Number of items to return per page. The maximum allowed value is 100.
    * @type number
    */
   pageSize?: number;

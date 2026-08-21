@@ -4095,7 +4095,7 @@ export interface TeamsApiGetTeamMembershipsRequest {
    */
   teamId: string;
   /**
-   * Size for a given page. The maximum allowed value is 100.
+   * Number of items to return per page. The maximum allowed value is 100.
    * @type number
    */
   pageSize?: number;
@@ -4168,7 +4168,7 @@ export interface TeamsApiListMemberTeamsRequest {
    */
   superTeamId: string;
   /**
-   * Size for a given page. The maximum allowed value is 100.
+   * Number of items to return per page. The maximum allowed value is 100.
    * @type number
    */
   pageSize?: number;
@@ -4186,7 +4186,7 @@ export interface TeamsApiListMemberTeamsRequest {
 
 export interface TeamsApiListTeamConnectionsRequest {
   /**
-   * Size for a given page. The maximum allowed value is 100.
+   * Number of items to return per page. The maximum allowed value is 100.
    * @type number
    */
   pageSize?: number;
@@ -4224,7 +4224,7 @@ export interface TeamsApiListTeamHierarchyLinksRequest {
    */
   pageNumber?: number;
   /**
-   * Size for a given page. The maximum allowed value is 100.
+   * Number of items to return per page. The maximum allowed value is 100.
    * @type number
    */
   pageSize?: number;
@@ -4247,7 +4247,7 @@ export interface TeamsApiListTeamsRequest {
    */
   pageNumber?: number;
   /**
-   * Size for a given page. The maximum allowed value is 100.
+   * Number of items to return per page. The maximum allowed value is 100.
    * @type number
    */
   pageSize?: number;

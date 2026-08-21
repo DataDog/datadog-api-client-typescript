@@ -1,0 +1,157 @@
+import { AttributeTypeMap } from "@datadog/datadog-api-client";
+
+import { LLMObsPromptDataset } from "./LLMObsPromptDataset";
+
+/**
+ * Attributes of a prompt version returned in a list, excluding its template.
+ */
+export class LLMObsPromptVersionListDataAttributes {
+  /**
+   * UUID of the user who authored this version.
+   */
+  "author"?: string;
+  /**
+   * Timestamp stored on this prompt version.
+   */
+  "createdAt"?: Date;
+  /**
+   * Datasets observed in runs associated with this prompt version.
+   */
+  "datasets"?: Array<LLMObsPromptDataset>;
+  /**
+   * Description of this version.
+   */
+  "description"?: string;
+  /**
+   * Labels attached to this version (for example `development`, `staging`, `production`).
+   */
+  "labels"?: Array<string>;
+  /**
+   * Timestamp of the most recent observed run of this prompt version.
+   */
+  "lastSeenAt"?: Date;
+  /**
+   * The ML application this prompt is associated with.
+   */
+  "mlApp"?: string;
+  /**
+   * ML applications observed running this prompt version.
+   */
+  "mlApps"?: Array<string>;
+  /**
+   * Customer-provided identifier of the parent prompt.
+   */
+  "promptId": string;
+  /**
+   * Unique identifier of the parent prompt.
+   */
+  "promptUuid": string;
+  /**
+   * Tags observed on runs of this prompt version.
+   */
+  "tags"?: Array<string>;
+  /**
+   * User-supplied identifier for this version.
+   */
+  "userVersion"?: string;
+  /**
+   * Sequential version number.
+   */
+  "version": number;
+  /**
+   * Timestamp when this version was created.
+   */
+  "versionCreatedAt"?: Date;
+  /**
+   * A container for additional, undeclared properties.
+   * This is a holder for any undeclared properties as specified with
+   * the 'additionalProperties' keyword in the OAS document.
+   */
+  "additionalProperties"?: { [key: string]: any };
+  /**
+   * @ignore
+   */
+  "_unparsed"?: boolean;
+
+  /**
+   * @ignore
+   */
+  static readonly attributeTypeMap: AttributeTypeMap = {
+    author: {
+      baseName: "author",
+      type: "string",
+    },
+    createdAt: {
+      baseName: "created_at",
+      type: "Date",
+      format: "date-time",
+    },
+    datasets: {
+      baseName: "datasets",
+      type: "Array<LLMObsPromptDataset>",
+    },
+    description: {
+      baseName: "description",
+      type: "string",
+    },
+    labels: {
+      baseName: "labels",
+      type: "Array<string>",
+    },
+    lastSeenAt: {
+      baseName: "last_seen_at",
+      type: "Date",
+      format: "date-time",
+    },
+    mlApp: {
+      baseName: "ml_app",
+      type: "string",
+    },
+    mlApps: {
+      baseName: "ml_apps",
+      type: "Array<string>",
+    },
+    promptId: {
+      baseName: "prompt_id",
+      type: "string",
+      required: true,
+    },
+    promptUuid: {
+      baseName: "prompt_uuid",
+      type: "string",
+      required: true,
+    },
+    tags: {
+      baseName: "tags",
+      type: "Array<string>",
+    },
+    userVersion: {
+      baseName: "user_version",
+      type: "string",
+    },
+    version: {
+      baseName: "version",
+      type: "number",
+      required: true,
+      format: "int64",
+    },
+    versionCreatedAt: {
+      baseName: "version_created_at",
+      type: "Date",
+      format: "date-time",
+    },
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "{ [key: string]: any; }",
+    },
+  };
+
+  /**
+   * @ignore
+   */
+  static getAttributeTypeMap(): AttributeTypeMap {
+    return LLMObsPromptVersionListDataAttributes.attributeTypeMap;
+  }
+
+  public constructor() {}
+}

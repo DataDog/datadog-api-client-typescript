@@ -271,6 +271,15 @@ __metadata:
   languageName: unknown
   linkType: soft
 
+"@datadog/datadog-api-client-agent-observability@workspace:services/agent_observability":
+  version: 0.0.0-use.local
+  resolution: "@datadog/datadog-api-client-agent-observability@workspace:services/agent_observability"
+  dependencies:
+    "@datadog/datadog-api-client": "npm:^2.0.0-beta.2"
+    typescript: "npm:5.8.3"
+  languageName: unknown
+  linkType: soft
+
 "@datadog/datadog-api-client-agentless-scanning@workspace:services/agentless_scanning":
   version: 0.0.0-use.local
   resolution: "@datadog/datadog-api-client-agentless-scanning@workspace:services/agentless_scanning"
@@ -1363,6 +1372,15 @@ __metadata:
 "@datadog/datadog-api-client-rum-retention-filters@workspace:services/rum_retention_filters":
   version: 0.0.0-use.local
   resolution: "@datadog/datadog-api-client-rum-retention-filters@workspace:services/rum_retention_filters"
+  dependencies:
+    "@datadog/datadog-api-client": "npm:^2.0.0-beta.2"
+    typescript: "npm:5.8.3"
+  languageName: unknown
+  linkType: soft
+
+"@datadog/datadog-api-client-rum-retention-quota@workspace:services/rum_retention_quota":
+  version: 0.0.0-use.local
+  resolution: "@datadog/datadog-api-client-rum-retention-quota@workspace:services/rum_retention_quota"
   dependencies:
     "@datadog/datadog-api-client": "npm:^2.0.0-beta.2"
     typescript: "npm:5.8.3"

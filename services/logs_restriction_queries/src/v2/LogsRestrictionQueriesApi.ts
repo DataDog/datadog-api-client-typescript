@@ -1426,7 +1426,7 @@ export interface LogsRestrictionQueriesApiGetRoleRestrictionQueryRequest {
 
 export interface LogsRestrictionQueriesApiListRestrictionQueriesRequest {
   /**
-   * Size for a given page. The maximum allowed value is 100.
+   * Number of items to return per page. The maximum allowed value is 100.
    * @type number
    */
   pageSize?: number;
@@ -1444,7 +1444,7 @@ export interface LogsRestrictionQueriesApiListRestrictionQueryRolesRequest {
    */
   restrictionQueryId: string;
   /**
-   * Size for a given page. The maximum allowed value is 100.
+   * Number of items to return per page. The maximum allowed value is 100.
    * @type number
    */
   pageSize?: number;
