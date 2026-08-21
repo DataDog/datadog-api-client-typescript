@@ -466,6 +466,7 @@ apiInstance
 | Rum Replay Viewership | @datadog/datadog-api-client-rum-replay-viewership | [README.md](../../services/rum-replay-viewership/README.md) |
 | Rum Retention Filters | @datadog/datadog-api-client-rum-retention-filters | [README.md](../../services/rum-retention-filters/README.md) |
 | RUM Retention Quota | @datadog/datadog-api-client-rum-retention-quota | [README.md](../../services/rum-retention-quota/README.md) |
+| Rum Teams Ownership | @datadog/datadog-api-client-rum-teams-ownership | [README.md](../../services/rum-teams-ownership/README.md) |
 | Salesforce Integration | @datadog/datadog-api-client-salesforce-integration | [README.md](../../services/salesforce-integration/README.md) |
 | Scorecards | @datadog/datadog-api-client-scorecards | [README.md](../../services/scorecards/README.md) |
 | Seats | @datadog/datadog-api-client-seats | [README.md](../../services/seats/README.md) |
