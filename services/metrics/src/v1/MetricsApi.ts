@@ -1065,7 +1065,9 @@ export class MetricsApi {
   }
 
   /**
-   * Query timeseries points.
+   * Query timeseries points. Datadog recommends using the v2
+   * `/api/v2/query/timeseries` endpoint over this endpoint for
+   * querying timeseries data.
    * @param param The request object
    */
   public queryMetrics(
