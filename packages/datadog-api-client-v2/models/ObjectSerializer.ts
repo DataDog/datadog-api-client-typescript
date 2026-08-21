@@ -1544,6 +1544,36 @@ import { DueDateRulesResponse } from "./DueDateRulesResponse";
 import { ELFSourcemapAttributes } from "./ELFSourcemapAttributes";
 import { ELFSourcemapData } from "./ELFSourcemapData";
 import { EPSS } from "./EPSS";
+import { ElasticCloudDetailedIndexStatsIntegrationDataflowRequest } from "./ElasticCloudDetailedIndexStatsIntegrationDataflowRequest";
+import { ElasticCloudDetailedIndexStatsIntegrationDataflowResponse } from "./ElasticCloudDetailedIndexStatsIntegrationDataflowResponse";
+import { ElasticCloudIndexStatsIntegrationDataflowRequest } from "./ElasticCloudIndexStatsIntegrationDataflowRequest";
+import { ElasticCloudIndexStatsIntegrationDataflowResponse } from "./ElasticCloudIndexStatsIntegrationDataflowResponse";
+import { ElasticCloudIntegrationAccountCreateAttributes } from "./ElasticCloudIntegrationAccountCreateAttributes";
+import { ElasticCloudIntegrationAccountCreateData } from "./ElasticCloudIntegrationAccountCreateData";
+import { ElasticCloudIntegrationAccountCreateRequest } from "./ElasticCloudIntegrationAccountCreateRequest";
+import { ElasticCloudIntegrationAccountResponse } from "./ElasticCloudIntegrationAccountResponse";
+import { ElasticCloudIntegrationAccountResponseAttributes } from "./ElasticCloudIntegrationAccountResponseAttributes";
+import { ElasticCloudIntegrationAccountResponseData } from "./ElasticCloudIntegrationAccountResponseData";
+import { ElasticCloudIntegrationAccountSettingsRequest } from "./ElasticCloudIntegrationAccountSettingsRequest";
+import { ElasticCloudIntegrationAccountSettingsResponse } from "./ElasticCloudIntegrationAccountSettingsResponse";
+import { ElasticCloudIntegrationAccountSettingsUpdate } from "./ElasticCloudIntegrationAccountSettingsUpdate";
+import { ElasticCloudIntegrationAccountUpdateAttributes } from "./ElasticCloudIntegrationAccountUpdateAttributes";
+import { ElasticCloudIntegrationAccountUpdateData } from "./ElasticCloudIntegrationAccountUpdateData";
+import { ElasticCloudIntegrationAccountUpdateRequest } from "./ElasticCloudIntegrationAccountUpdateRequest";
+import { ElasticCloudIntegrationAccountsResponse } from "./ElasticCloudIntegrationAccountsResponse";
+import { ElasticCloudIntegrationDataflowsRequest } from "./ElasticCloudIntegrationDataflowsRequest";
+import { ElasticCloudIntegrationDataflowsResponse } from "./ElasticCloudIntegrationDataflowsResponse";
+import { ElasticCloudMetricsIntegrationDataflowResponse } from "./ElasticCloudMetricsIntegrationDataflowResponse";
+import { ElasticCloudPendingTaskStatsIntegrationDataflowRequest } from "./ElasticCloudPendingTaskStatsIntegrationDataflowRequest";
+import { ElasticCloudPendingTaskStatsIntegrationDataflowResponse } from "./ElasticCloudPendingTaskStatsIntegrationDataflowResponse";
+import { ElasticCloudPrimaryShardGracefulTimeoutIntegrationDataflowRequest } from "./ElasticCloudPrimaryShardGracefulTimeoutIntegrationDataflowRequest";
+import { ElasticCloudPrimaryShardGracefulTimeoutIntegrationDataflowResponse } from "./ElasticCloudPrimaryShardGracefulTimeoutIntegrationDataflowResponse";
+import { ElasticCloudPrimaryShardStatsIntegrationDataflowRequest } from "./ElasticCloudPrimaryShardStatsIntegrationDataflowRequest";
+import { ElasticCloudPrimaryShardStatsIntegrationDataflowResponse } from "./ElasticCloudPrimaryShardStatsIntegrationDataflowResponse";
+import { ElasticCloudShardAllocationStatsIntegrationDataflowRequest } from "./ElasticCloudShardAllocationStatsIntegrationDataflowRequest";
+import { ElasticCloudShardAllocationStatsIntegrationDataflowResponse } from "./ElasticCloudShardAllocationStatsIntegrationDataflowResponse";
+import { ElasticCloudSlmStatsIntegrationDataflowRequest } from "./ElasticCloudSlmStatsIntegrationDataflowRequest";
+import { ElasticCloudSlmStatsIntegrationDataflowResponse } from "./ElasticCloudSlmStatsIntegrationDataflowResponse";
 import { EntityAttributes } from "./EntityAttributes";
 import { EntityContextEntity } from "./EntityContextEntity";
 import { EntityContextEntityAttributes } from "./EntityContextEntityAttributes";
@@ -2422,6 +2452,10 @@ import { InputSchema } from "./InputSchema";
 import { InputSchemaParameters } from "./InputSchemaParameters";
 import { IntakePayloadAccepted } from "./IntakePayloadAccepted";
 import { Integration } from "./Integration";
+import { IntegrationAccountBasicAuthRequest } from "./IntegrationAccountBasicAuthRequest";
+import { IntegrationAccountBasicAuthResponse } from "./IntegrationAccountBasicAuthResponse";
+import { IntegrationAccountBasicAuthUpdate } from "./IntegrationAccountBasicAuthUpdate";
+import { IntegrationAccountDataflowStatus } from "./IntegrationAccountDataflowStatus";
 import { IntegrationAttributes } from "./IntegrationAttributes";
 import { IntegrationIncident } from "./IntegrationIncident";
 import { IntegrationIncidentFieldMappingsItems } from "./IntegrationIncidentFieldMappingsItems";
@@ -5430,6 +5464,31 @@ import { TriggerInvestigationResponseData } from "./TriggerInvestigationResponse
 import { TriggerInvestigationResponseDataAttributes } from "./TriggerInvestigationResponseDataAttributes";
 import { TriggerRateLimit } from "./TriggerRateLimit";
 import { TriggerWorkflowAutomationAction } from "./TriggerWorkflowAutomationAction";
+import { TwilioAlertsLogsIntegrationDataflowRequest } from "./TwilioAlertsLogsIntegrationDataflowRequest";
+import { TwilioAlertsLogsIntegrationDataflowResponse } from "./TwilioAlertsLogsIntegrationDataflowResponse";
+import { TwilioCallSummariesLogsIntegrationDataflowRequest } from "./TwilioCallSummariesLogsIntegrationDataflowRequest";
+import { TwilioCallSummariesLogsIntegrationDataflowResponse } from "./TwilioCallSummariesLogsIntegrationDataflowResponse";
+import { TwilioCloudCostMetricsIntegrationDataflowRequest } from "./TwilioCloudCostMetricsIntegrationDataflowRequest";
+import { TwilioCloudCostMetricsIntegrationDataflowResponse } from "./TwilioCloudCostMetricsIntegrationDataflowResponse";
+import { TwilioEventsLogsIntegrationDataflowRequest } from "./TwilioEventsLogsIntegrationDataflowRequest";
+import { TwilioEventsLogsIntegrationDataflowResponse } from "./TwilioEventsLogsIntegrationDataflowResponse";
+import { TwilioIntegrationAccountCreateAttributes } from "./TwilioIntegrationAccountCreateAttributes";
+import { TwilioIntegrationAccountCreateData } from "./TwilioIntegrationAccountCreateData";
+import { TwilioIntegrationAccountCreateRequest } from "./TwilioIntegrationAccountCreateRequest";
+import { TwilioIntegrationAccountResponse } from "./TwilioIntegrationAccountResponse";
+import { TwilioIntegrationAccountResponseAttributes } from "./TwilioIntegrationAccountResponseAttributes";
+import { TwilioIntegrationAccountResponseData } from "./TwilioIntegrationAccountResponseData";
+import { TwilioIntegrationAccountSettingsRequest } from "./TwilioIntegrationAccountSettingsRequest";
+import { TwilioIntegrationAccountSettingsResponse } from "./TwilioIntegrationAccountSettingsResponse";
+import { TwilioIntegrationAccountSettingsUpdate } from "./TwilioIntegrationAccountSettingsUpdate";
+import { TwilioIntegrationAccountUpdateAttributes } from "./TwilioIntegrationAccountUpdateAttributes";
+import { TwilioIntegrationAccountUpdateData } from "./TwilioIntegrationAccountUpdateData";
+import { TwilioIntegrationAccountUpdateRequest } from "./TwilioIntegrationAccountUpdateRequest";
+import { TwilioIntegrationAccountsResponse } from "./TwilioIntegrationAccountsResponse";
+import { TwilioIntegrationDataflowsRequest } from "./TwilioIntegrationDataflowsRequest";
+import { TwilioIntegrationDataflowsResponse } from "./TwilioIntegrationDataflowsResponse";
+import { TwilioMessagesLogsIntegrationDataflowRequest } from "./TwilioMessagesLogsIntegrationDataflowRequest";
+import { TwilioMessagesLogsIntegrationDataflowResponse } from "./TwilioMessagesLogsIntegrationDataflowResponse";
 import { UCConfigPair } from "./UCConfigPair";
 import { UCConfigPairData } from "./UCConfigPairData";
 import { UCConfigPairDataAttributes } from "./UCConfigPairDataAttributes";
@@ -6881,6 +6940,13 @@ const enumsMap: { [key: string]: any[] } = {
     "ARRAY_BOOLEAN",
     "ARRAY_OBJECT",
   ],
+  IntegrationAccountBasicAuthType: ["basic"],
+  IntegrationAccountDataflowHealth: [
+    "DATAFLOW_HEALTH_OK",
+    "DATAFLOW_HEALTH_BROKEN",
+    "DATAFLOW_HEALTH_UNKNOWN",
+  ],
+  IntegrationAccountType: ["integration-account"],
   IntegrationType: ["integration"],
   InterfaceAttributesStatus: ["up", "down", "warning", "off"],
   InvestigationType: ["investigation"],
@@ -10692,6 +10758,66 @@ const typeMap: { [index: string]: any } = {
   ELFSourcemapAttributes: ELFSourcemapAttributes,
   ELFSourcemapData: ELFSourcemapData,
   EPSS: EPSS,
+  ElasticCloudDetailedIndexStatsIntegrationDataflowRequest:
+    ElasticCloudDetailedIndexStatsIntegrationDataflowRequest,
+  ElasticCloudDetailedIndexStatsIntegrationDataflowResponse:
+    ElasticCloudDetailedIndexStatsIntegrationDataflowResponse,
+  ElasticCloudIndexStatsIntegrationDataflowRequest:
+    ElasticCloudIndexStatsIntegrationDataflowRequest,
+  ElasticCloudIndexStatsIntegrationDataflowResponse:
+    ElasticCloudIndexStatsIntegrationDataflowResponse,
+  ElasticCloudIntegrationAccountCreateAttributes:
+    ElasticCloudIntegrationAccountCreateAttributes,
+  ElasticCloudIntegrationAccountCreateData:
+    ElasticCloudIntegrationAccountCreateData,
+  ElasticCloudIntegrationAccountCreateRequest:
+    ElasticCloudIntegrationAccountCreateRequest,
+  ElasticCloudIntegrationAccountResponse:
+    ElasticCloudIntegrationAccountResponse,
+  ElasticCloudIntegrationAccountResponseAttributes:
+    ElasticCloudIntegrationAccountResponseAttributes,
+  ElasticCloudIntegrationAccountResponseData:
+    ElasticCloudIntegrationAccountResponseData,
+  ElasticCloudIntegrationAccountSettingsRequest:
+    ElasticCloudIntegrationAccountSettingsRequest,
+  ElasticCloudIntegrationAccountSettingsResponse:
+    ElasticCloudIntegrationAccountSettingsResponse,
+  ElasticCloudIntegrationAccountSettingsUpdate:
+    ElasticCloudIntegrationAccountSettingsUpdate,
+  ElasticCloudIntegrationAccountUpdateAttributes:
+    ElasticCloudIntegrationAccountUpdateAttributes,
+  ElasticCloudIntegrationAccountUpdateData:
+    ElasticCloudIntegrationAccountUpdateData,
+  ElasticCloudIntegrationAccountUpdateRequest:
+    ElasticCloudIntegrationAccountUpdateRequest,
+  ElasticCloudIntegrationAccountsResponse:
+    ElasticCloudIntegrationAccountsResponse,
+  ElasticCloudIntegrationDataflowsRequest:
+    ElasticCloudIntegrationDataflowsRequest,
+  ElasticCloudIntegrationDataflowsResponse:
+    ElasticCloudIntegrationDataflowsResponse,
+  ElasticCloudMetricsIntegrationDataflowResponse:
+    ElasticCloudMetricsIntegrationDataflowResponse,
+  ElasticCloudPendingTaskStatsIntegrationDataflowRequest:
+    ElasticCloudPendingTaskStatsIntegrationDataflowRequest,
+  ElasticCloudPendingTaskStatsIntegrationDataflowResponse:
+    ElasticCloudPendingTaskStatsIntegrationDataflowResponse,
+  ElasticCloudPrimaryShardGracefulTimeoutIntegrationDataflowRequest:
+    ElasticCloudPrimaryShardGracefulTimeoutIntegrationDataflowRequest,
+  ElasticCloudPrimaryShardGracefulTimeoutIntegrationDataflowResponse:
+    ElasticCloudPrimaryShardGracefulTimeoutIntegrationDataflowResponse,
+  ElasticCloudPrimaryShardStatsIntegrationDataflowRequest:
+    ElasticCloudPrimaryShardStatsIntegrationDataflowRequest,
+  ElasticCloudPrimaryShardStatsIntegrationDataflowResponse:
+    ElasticCloudPrimaryShardStatsIntegrationDataflowResponse,
+  ElasticCloudShardAllocationStatsIntegrationDataflowRequest:
+    ElasticCloudShardAllocationStatsIntegrationDataflowRequest,
+  ElasticCloudShardAllocationStatsIntegrationDataflowResponse:
+    ElasticCloudShardAllocationStatsIntegrationDataflowResponse,
+  ElasticCloudSlmStatsIntegrationDataflowRequest:
+    ElasticCloudSlmStatsIntegrationDataflowRequest,
+  ElasticCloudSlmStatsIntegrationDataflowResponse:
+    ElasticCloudSlmStatsIntegrationDataflowResponse,
   EntityAttributes: EntityAttributes,
   EntityContextEntity: EntityContextEntity,
   EntityContextEntityAttributes: EntityContextEntityAttributes,
@@ -11735,6 +11861,10 @@ const typeMap: { [index: string]: any } = {
   InputSchemaParameters: InputSchemaParameters,
   IntakePayloadAccepted: IntakePayloadAccepted,
   Integration: Integration,
+  IntegrationAccountBasicAuthRequest: IntegrationAccountBasicAuthRequest,
+  IntegrationAccountBasicAuthResponse: IntegrationAccountBasicAuthResponse,
+  IntegrationAccountBasicAuthUpdate: IntegrationAccountBasicAuthUpdate,
+  IntegrationAccountDataflowStatus: IntegrationAccountDataflowStatus,
   IntegrationAttributes: IntegrationAttributes,
   IntegrationIncident: IntegrationIncident,
   IntegrationIncidentFieldMappingsItems: IntegrationIncidentFieldMappingsItems,
@@ -15471,6 +15601,47 @@ const typeMap: { [index: string]: any } = {
     TriggerInvestigationResponseDataAttributes,
   TriggerRateLimit: TriggerRateLimit,
   TriggerWorkflowAutomationAction: TriggerWorkflowAutomationAction,
+  TwilioAlertsLogsIntegrationDataflowRequest:
+    TwilioAlertsLogsIntegrationDataflowRequest,
+  TwilioAlertsLogsIntegrationDataflowResponse:
+    TwilioAlertsLogsIntegrationDataflowResponse,
+  TwilioCallSummariesLogsIntegrationDataflowRequest:
+    TwilioCallSummariesLogsIntegrationDataflowRequest,
+  TwilioCallSummariesLogsIntegrationDataflowResponse:
+    TwilioCallSummariesLogsIntegrationDataflowResponse,
+  TwilioCloudCostMetricsIntegrationDataflowRequest:
+    TwilioCloudCostMetricsIntegrationDataflowRequest,
+  TwilioCloudCostMetricsIntegrationDataflowResponse:
+    TwilioCloudCostMetricsIntegrationDataflowResponse,
+  TwilioEventsLogsIntegrationDataflowRequest:
+    TwilioEventsLogsIntegrationDataflowRequest,
+  TwilioEventsLogsIntegrationDataflowResponse:
+    TwilioEventsLogsIntegrationDataflowResponse,
+  TwilioIntegrationAccountCreateAttributes:
+    TwilioIntegrationAccountCreateAttributes,
+  TwilioIntegrationAccountCreateData: TwilioIntegrationAccountCreateData,
+  TwilioIntegrationAccountCreateRequest: TwilioIntegrationAccountCreateRequest,
+  TwilioIntegrationAccountResponse: TwilioIntegrationAccountResponse,
+  TwilioIntegrationAccountResponseAttributes:
+    TwilioIntegrationAccountResponseAttributes,
+  TwilioIntegrationAccountResponseData: TwilioIntegrationAccountResponseData,
+  TwilioIntegrationAccountSettingsRequest:
+    TwilioIntegrationAccountSettingsRequest,
+  TwilioIntegrationAccountSettingsResponse:
+    TwilioIntegrationAccountSettingsResponse,
+  TwilioIntegrationAccountSettingsUpdate:
+    TwilioIntegrationAccountSettingsUpdate,
+  TwilioIntegrationAccountUpdateAttributes:
+    TwilioIntegrationAccountUpdateAttributes,
+  TwilioIntegrationAccountUpdateData: TwilioIntegrationAccountUpdateData,
+  TwilioIntegrationAccountUpdateRequest: TwilioIntegrationAccountUpdateRequest,
+  TwilioIntegrationAccountsResponse: TwilioIntegrationAccountsResponse,
+  TwilioIntegrationDataflowsRequest: TwilioIntegrationDataflowsRequest,
+  TwilioIntegrationDataflowsResponse: TwilioIntegrationDataflowsResponse,
+  TwilioMessagesLogsIntegrationDataflowRequest:
+    TwilioMessagesLogsIntegrationDataflowRequest,
+  TwilioMessagesLogsIntegrationDataflowResponse:
+    TwilioMessagesLogsIntegrationDataflowResponse,
   UCConfigPair: UCConfigPair,
   UCConfigPairData: UCConfigPairData,
   UCConfigPairDataAttributes: UCConfigPairDataAttributes,
@@ -16042,6 +16213,15 @@ const oneOfMap: { [index: string]: string[] } = {
     "DowntimeScheduleRecurrencesUpdateRequest",
     "DowntimeScheduleOneTimeCreateUpdateRequest",
   ],
+  ElasticCloudIntegrationAccountAuthenticationRequest: [
+    "IntegrationAccountBasicAuthRequest",
+  ],
+  ElasticCloudIntegrationAccountAuthenticationResponse: [
+    "IntegrationAccountBasicAuthResponse",
+  ],
+  ElasticCloudIntegrationAccountAuthenticationUpdate: [
+    "IntegrationAccountBasicAuthUpdate",
+  ],
   EntityV3: [
     "EntityV3Service",
     "EntityV3Datastore",
@@ -16565,6 +16745,15 @@ const oneOfMap: { [index: string]: string[] } = {
     "SlackTriggerWrapper",
     "SoftwareCatalogTriggerWrapper",
     "WorkflowTriggerWrapper",
+  ],
+  TwilioIntegrationAccountAuthenticationRequest: [
+    "IntegrationAccountBasicAuthRequest",
+  ],
+  TwilioIntegrationAccountAuthenticationResponse: [
+    "IntegrationAccountBasicAuthResponse",
+  ],
+  TwilioIntegrationAccountAuthenticationUpdate: [
+    "IntegrationAccountBasicAuthUpdate",
   ],
   UpsertCatalogEntityRequest: ["EntityV3", "string"],
   UpsertCatalogEntityResponseIncludedItem: ["EntityResponseIncludedSchema"],

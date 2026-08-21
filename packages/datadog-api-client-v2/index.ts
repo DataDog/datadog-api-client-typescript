@@ -614,6 +614,14 @@ export {
 } from "./apis/DowntimesApi";
 
 export {
+  ElasticCloudIntegrationAccountsApiCreateElasticCloudIntegrationAccountRequest,
+  ElasticCloudIntegrationAccountsApiDeleteElasticCloudIntegrationAccountRequest,
+  ElasticCloudIntegrationAccountsApiGetElasticCloudIntegrationAccountRequest,
+  ElasticCloudIntegrationAccountsApiUpdateElasticCloudIntegrationAccountRequest,
+  ElasticCloudIntegrationAccountsApi,
+} from "./apis/ElasticCloudIntegrationAccountsApi";
+
+export {
   EntityIntegrationConfigsApiDeleteEntityIntegrationConfigRequest,
   EntityIntegrationConfigsApiGetEntityIntegrationConfigRequest,
   EntityIntegrationConfigsApiUpdateEntityIntegrationConfigRequest,
@@ -1867,6 +1875,14 @@ export {
   TestOptimizationApiUpdateTestOptimizationServiceSettingsRequest,
   TestOptimizationApi,
 } from "./apis/TestOptimizationApi";
+
+export {
+  TwilioIntegrationAccountsApiCreateTwilioIntegrationAccountRequest,
+  TwilioIntegrationAccountsApiDeleteTwilioIntegrationAccountRequest,
+  TwilioIntegrationAccountsApiGetTwilioIntegrationAccountRequest,
+  TwilioIntegrationAccountsApiUpdateTwilioIntegrationAccountRequest,
+  TwilioIntegrationAccountsApi,
+} from "./apis/TwilioIntegrationAccountsApi";
 
 export {
   UsageMeteringApiGetBillingDimensionMappingRequest,
@@ -3914,6 +3930,39 @@ export { DueDateRulesResponse } from "./models/DueDateRulesResponse";
 export { DueDateRuleType } from "./models/DueDateRuleType";
 export { DueDateRuleUpdateRequest } from "./models/DueDateRuleUpdateRequest";
 export { DueDateSeverity } from "./models/DueDateSeverity";
+export { ElasticCloudDetailedIndexStatsIntegrationDataflowRequest } from "./models/ElasticCloudDetailedIndexStatsIntegrationDataflowRequest";
+export { ElasticCloudDetailedIndexStatsIntegrationDataflowResponse } from "./models/ElasticCloudDetailedIndexStatsIntegrationDataflowResponse";
+export { ElasticCloudIndexStatsIntegrationDataflowRequest } from "./models/ElasticCloudIndexStatsIntegrationDataflowRequest";
+export { ElasticCloudIndexStatsIntegrationDataflowResponse } from "./models/ElasticCloudIndexStatsIntegrationDataflowResponse";
+export { ElasticCloudIntegrationAccountAuthenticationRequest } from "./models/ElasticCloudIntegrationAccountAuthenticationRequest";
+export { ElasticCloudIntegrationAccountAuthenticationResponse } from "./models/ElasticCloudIntegrationAccountAuthenticationResponse";
+export { ElasticCloudIntegrationAccountAuthenticationUpdate } from "./models/ElasticCloudIntegrationAccountAuthenticationUpdate";
+export { ElasticCloudIntegrationAccountCreateAttributes } from "./models/ElasticCloudIntegrationAccountCreateAttributes";
+export { ElasticCloudIntegrationAccountCreateData } from "./models/ElasticCloudIntegrationAccountCreateData";
+export { ElasticCloudIntegrationAccountCreateRequest } from "./models/ElasticCloudIntegrationAccountCreateRequest";
+export { ElasticCloudIntegrationAccountResponse } from "./models/ElasticCloudIntegrationAccountResponse";
+export { ElasticCloudIntegrationAccountResponseAttributes } from "./models/ElasticCloudIntegrationAccountResponseAttributes";
+export { ElasticCloudIntegrationAccountResponseData } from "./models/ElasticCloudIntegrationAccountResponseData";
+export { ElasticCloudIntegrationAccountSettingsRequest } from "./models/ElasticCloudIntegrationAccountSettingsRequest";
+export { ElasticCloudIntegrationAccountSettingsResponse } from "./models/ElasticCloudIntegrationAccountSettingsResponse";
+export { ElasticCloudIntegrationAccountSettingsUpdate } from "./models/ElasticCloudIntegrationAccountSettingsUpdate";
+export { ElasticCloudIntegrationAccountsResponse } from "./models/ElasticCloudIntegrationAccountsResponse";
+export { ElasticCloudIntegrationAccountUpdateAttributes } from "./models/ElasticCloudIntegrationAccountUpdateAttributes";
+export { ElasticCloudIntegrationAccountUpdateData } from "./models/ElasticCloudIntegrationAccountUpdateData";
+export { ElasticCloudIntegrationAccountUpdateRequest } from "./models/ElasticCloudIntegrationAccountUpdateRequest";
+export { ElasticCloudIntegrationDataflowsRequest } from "./models/ElasticCloudIntegrationDataflowsRequest";
+export { ElasticCloudIntegrationDataflowsResponse } from "./models/ElasticCloudIntegrationDataflowsResponse";
+export { ElasticCloudMetricsIntegrationDataflowResponse } from "./models/ElasticCloudMetricsIntegrationDataflowResponse";
+export { ElasticCloudPendingTaskStatsIntegrationDataflowRequest } from "./models/ElasticCloudPendingTaskStatsIntegrationDataflowRequest";
+export { ElasticCloudPendingTaskStatsIntegrationDataflowResponse } from "./models/ElasticCloudPendingTaskStatsIntegrationDataflowResponse";
+export { ElasticCloudPrimaryShardGracefulTimeoutIntegrationDataflowRequest } from "./models/ElasticCloudPrimaryShardGracefulTimeoutIntegrationDataflowRequest";
+export { ElasticCloudPrimaryShardGracefulTimeoutIntegrationDataflowResponse } from "./models/ElasticCloudPrimaryShardGracefulTimeoutIntegrationDataflowResponse";
+export { ElasticCloudPrimaryShardStatsIntegrationDataflowRequest } from "./models/ElasticCloudPrimaryShardStatsIntegrationDataflowRequest";
+export { ElasticCloudPrimaryShardStatsIntegrationDataflowResponse } from "./models/ElasticCloudPrimaryShardStatsIntegrationDataflowResponse";
+export { ElasticCloudShardAllocationStatsIntegrationDataflowRequest } from "./models/ElasticCloudShardAllocationStatsIntegrationDataflowRequest";
+export { ElasticCloudShardAllocationStatsIntegrationDataflowResponse } from "./models/ElasticCloudShardAllocationStatsIntegrationDataflowResponse";
+export { ElasticCloudSlmStatsIntegrationDataflowRequest } from "./models/ElasticCloudSlmStatsIntegrationDataflowRequest";
+export { ElasticCloudSlmStatsIntegrationDataflowResponse } from "./models/ElasticCloudSlmStatsIntegrationDataflowResponse";
 export { ELFSourcemapAttributes } from "./models/ELFSourcemapAttributes";
 export { ELFSourcemapData } from "./models/ELFSourcemapData";
 export { EntityAttributes } from "./models/EntityAttributes";
@@ -5009,6 +5058,13 @@ export { InputSchemaParameters } from "./models/InputSchemaParameters";
 export { InputSchemaParametersType } from "./models/InputSchemaParametersType";
 export { IntakePayloadAccepted } from "./models/IntakePayloadAccepted";
 export { Integration } from "./models/Integration";
+export { IntegrationAccountBasicAuthRequest } from "./models/IntegrationAccountBasicAuthRequest";
+export { IntegrationAccountBasicAuthResponse } from "./models/IntegrationAccountBasicAuthResponse";
+export { IntegrationAccountBasicAuthType } from "./models/IntegrationAccountBasicAuthType";
+export { IntegrationAccountBasicAuthUpdate } from "./models/IntegrationAccountBasicAuthUpdate";
+export { IntegrationAccountDataflowHealth } from "./models/IntegrationAccountDataflowHealth";
+export { IntegrationAccountDataflowStatus } from "./models/IntegrationAccountDataflowStatus";
+export { IntegrationAccountType } from "./models/IntegrationAccountType";
 export { IntegrationAttributes } from "./models/IntegrationAttributes";
 export { IntegrationIncident } from "./models/IntegrationIncident";
 export { IntegrationIncidentFieldMappingsItems } from "./models/IntegrationIncidentFieldMappingsItems";
@@ -8966,6 +9022,34 @@ export { TriggerSource } from "./models/TriggerSource";
 export { TriggerType } from "./models/TriggerType";
 export { TriggerWorkflowAutomationAction } from "./models/TriggerWorkflowAutomationAction";
 export { TriggerWorkflowAutomationActionType } from "./models/TriggerWorkflowAutomationActionType";
+export { TwilioAlertsLogsIntegrationDataflowRequest } from "./models/TwilioAlertsLogsIntegrationDataflowRequest";
+export { TwilioAlertsLogsIntegrationDataflowResponse } from "./models/TwilioAlertsLogsIntegrationDataflowResponse";
+export { TwilioCallSummariesLogsIntegrationDataflowRequest } from "./models/TwilioCallSummariesLogsIntegrationDataflowRequest";
+export { TwilioCallSummariesLogsIntegrationDataflowResponse } from "./models/TwilioCallSummariesLogsIntegrationDataflowResponse";
+export { TwilioCloudCostMetricsIntegrationDataflowRequest } from "./models/TwilioCloudCostMetricsIntegrationDataflowRequest";
+export { TwilioCloudCostMetricsIntegrationDataflowResponse } from "./models/TwilioCloudCostMetricsIntegrationDataflowResponse";
+export { TwilioEventsLogsIntegrationDataflowRequest } from "./models/TwilioEventsLogsIntegrationDataflowRequest";
+export { TwilioEventsLogsIntegrationDataflowResponse } from "./models/TwilioEventsLogsIntegrationDataflowResponse";
+export { TwilioIntegrationAccountAuthenticationRequest } from "./models/TwilioIntegrationAccountAuthenticationRequest";
+export { TwilioIntegrationAccountAuthenticationResponse } from "./models/TwilioIntegrationAccountAuthenticationResponse";
+export { TwilioIntegrationAccountAuthenticationUpdate } from "./models/TwilioIntegrationAccountAuthenticationUpdate";
+export { TwilioIntegrationAccountCreateAttributes } from "./models/TwilioIntegrationAccountCreateAttributes";
+export { TwilioIntegrationAccountCreateData } from "./models/TwilioIntegrationAccountCreateData";
+export { TwilioIntegrationAccountCreateRequest } from "./models/TwilioIntegrationAccountCreateRequest";
+export { TwilioIntegrationAccountResponse } from "./models/TwilioIntegrationAccountResponse";
+export { TwilioIntegrationAccountResponseAttributes } from "./models/TwilioIntegrationAccountResponseAttributes";
+export { TwilioIntegrationAccountResponseData } from "./models/TwilioIntegrationAccountResponseData";
+export { TwilioIntegrationAccountSettingsRequest } from "./models/TwilioIntegrationAccountSettingsRequest";
+export { TwilioIntegrationAccountSettingsResponse } from "./models/TwilioIntegrationAccountSettingsResponse";
+export { TwilioIntegrationAccountSettingsUpdate } from "./models/TwilioIntegrationAccountSettingsUpdate";
+export { TwilioIntegrationAccountsResponse } from "./models/TwilioIntegrationAccountsResponse";
+export { TwilioIntegrationAccountUpdateAttributes } from "./models/TwilioIntegrationAccountUpdateAttributes";
+export { TwilioIntegrationAccountUpdateData } from "./models/TwilioIntegrationAccountUpdateData";
+export { TwilioIntegrationAccountUpdateRequest } from "./models/TwilioIntegrationAccountUpdateRequest";
+export { TwilioIntegrationDataflowsRequest } from "./models/TwilioIntegrationDataflowsRequest";
+export { TwilioIntegrationDataflowsResponse } from "./models/TwilioIntegrationDataflowsResponse";
+export { TwilioMessagesLogsIntegrationDataflowRequest } from "./models/TwilioMessagesLogsIntegrationDataflowRequest";
+export { TwilioMessagesLogsIntegrationDataflowResponse } from "./models/TwilioMessagesLogsIntegrationDataflowResponse";
 export { UCConfigPair } from "./models/UCConfigPair";
 export { UCConfigPairData } from "./models/UCConfigPairData";
 export { UCConfigPairDataAttributes } from "./models/UCConfigPairDataAttributes";
