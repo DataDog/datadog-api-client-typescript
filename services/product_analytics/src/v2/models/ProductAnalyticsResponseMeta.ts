@@ -7,7 +7,7 @@ import { ProductAnalyticsResponseMetaStatus } from "./ProductAnalyticsResponseMe
  */
 export class ProductAnalyticsResponseMeta {
   /**
-   * Unique identifier for the request, used for multi-step query continuation.
+   * Unique identifier of the query.
    */
   "requestId"?: string;
   /**

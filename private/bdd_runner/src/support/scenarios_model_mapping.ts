@@ -14275,6 +14275,13 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
     },
     operationResponseType: "any",
   },
+  "ProductAnalyticsApi.V2.QueryProductAnalyticsList": {
+    body: {
+      type: "ProductAnalyticsAnalyticsListRequest",
+      format: "",
+    },
+    operationResponseType: "ProductAnalyticsAnalyticsListResponse",
+  },
   "ProductAnalyticsApi.V2.QueryProductAnalyticsScalar": {
     body: {
       type: "ProductAnalyticsAnalyticsRequest",
@@ -14288,6 +14295,69 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
       format: "",
     },
     operationResponseType: "ProductAnalyticsTimeseriesResponse",
+  },
+  "ProductAnalyticsApi.V2.QueryProductAnalyticsJourneyFunnel": {
+    body: {
+      type: "ProductAnalyticsJourneyFunnelRequest",
+      format: "",
+    },
+    operationResponseType: "ProductAnalyticsJourneyFunnelResponse",
+  },
+  "ProductAnalyticsApi.V2.QueryProductAnalyticsJourneyList": {
+    body: {
+      type: "ProductAnalyticsJourneyListRequest",
+      format: "",
+    },
+    operationResponseType: "ProductAnalyticsJourneyListResponse",
+  },
+  "ProductAnalyticsApi.V2.QueryProductAnalyticsJourneyScalar": {
+    body: {
+      type: "ProductAnalyticsJourneyScalarRequest",
+      format: "",
+    },
+    operationResponseType: "ProductAnalyticsJourneyScalarResponse",
+  },
+  "ProductAnalyticsApi.V2.QueryProductAnalyticsJourneyTimeseries": {
+    body: {
+      type: "ProductAnalyticsFormulaJourneyRequest",
+      format: "",
+    },
+    operationResponseType: "ProductAnalyticsJourneyTimeseriesResponse",
+  },
+  "ProductAnalyticsApi.V2.QueryProductAnalyticsRetentionGrid": {
+    body: {
+      type: "ProductAnalyticsRetentionGridRequest",
+      format: "",
+    },
+    operationResponseType: "ProductAnalyticsRetentionGridResponse",
+  },
+  "ProductAnalyticsApi.V2.QueryProductAnalyticsRetentionList": {
+    body: {
+      type: "ProductAnalyticsRetentionListRequest",
+      format: "",
+    },
+    operationResponseType: "ProductAnalyticsRetentionListResponse",
+  },
+  "ProductAnalyticsApi.V2.QueryProductAnalyticsRetentionScalar": {
+    body: {
+      type: "ProductAnalyticsFormulaRetentionRequest",
+      format: "",
+    },
+    operationResponseType: "ProductAnalyticsScalarResponse",
+  },
+  "ProductAnalyticsApi.V2.QueryProductAnalyticsRetentionTimeseries": {
+    body: {
+      type: "ProductAnalyticsFormulaRetentionRequest",
+      format: "",
+    },
+    operationResponseType: "ProductAnalyticsTimeseriesResponse",
+  },
+  "ProductAnalyticsApi.V2.QueryProductAnalyticsSankey": {
+    body: {
+      type: "ProductAnalyticsSankeyRequest",
+      format: "",
+    },
+    operationResponseType: "ProductAnalyticsSankeyResponse",
   },
   "RumAudienceManagementApi.V2.GetAccountFacetInfo": {
     body: {
