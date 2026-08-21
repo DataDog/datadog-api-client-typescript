@@ -2,7 +2,7 @@
 
 ## Description
 
-The Data Deletion API allows the user to target and delete data from the allowed products. It's currently enabled for Logs and RUM and depends on `logs_delete_data` and `rum_delete_data` permissions respectively.
+The Data Deletion API allows the user to target and delete data from the allowed products. It's enabled for Logs and depends on the `logs_delete_data` permission.
 
 ## Navigation
 
@@ -25,14 +25,6 @@ import { DataDeletionApiV2 } from "@datadog/datadog-api-client-data-deletion";
 import { v2 } from "@datadog/datadog-api-client-data-deletion";
 
 const configuration = createConfiguration();
-// Enable unstable operations
-const configurationOpts = {
-    unstableOperations: {
-        "DataDeletionApi.v2.createDataDeletionRequest": true
-    }
-}
-
-const configuration = createConfiguration(configurationOpts);
 const apiInstance = new DataDeletionApiV2(configuration);
 const params = {/* parameters */};
 

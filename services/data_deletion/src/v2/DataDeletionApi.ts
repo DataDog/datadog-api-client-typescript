@@ -44,16 +44,6 @@ export class DataDeletionApiRequestFactory extends BaseAPIRequestFactory {
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
-    if (
-      !_config.unstableOperations[
-        "DataDeletionApi.v2.cancelDataDeletionRequest"
-      ]
-    ) {
-      throw new Error(
-        "Unstable operation 'cancelDataDeletionRequest' is disabled. Enable it by setting `configuration.unstableOperations['DataDeletionApi.v2.cancelDataDeletionRequest'] = true`",
-      );
-    }
-
     // verify required parameter 'id' is not null or undefined
     if (id === null || id === undefined) {
       throw new RequiredError("id", "cancelDataDeletionRequest");
@@ -98,16 +88,6 @@ export class DataDeletionApiRequestFactory extends BaseAPIRequestFactory {
     _options?: Configuration,
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
-
-    if (
-      !_config.unstableOperations[
-        "DataDeletionApi.v2.createDataDeletionRequest"
-      ]
-    ) {
-      throw new Error(
-        "Unstable operation 'createDataDeletionRequest' is disabled. Enable it by setting `configuration.unstableOperations['DataDeletionApi.v2.createDataDeletionRequest'] = true`",
-      );
-    }
 
     // verify required parameter 'product' is not null or undefined
     if (product === null || product === undefined) {
@@ -170,14 +150,6 @@ export class DataDeletionApiRequestFactory extends BaseAPIRequestFactory {
     _options?: Configuration,
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
-
-    if (
-      !_config.unstableOperations["DataDeletionApi.v2.getDataDeletionRequests"]
-    ) {
-      throw new Error(
-        "Unstable operation 'getDataDeletionRequests' is disabled. Enable it by setting `configuration.unstableOperations['DataDeletionApi.v2.getDataDeletionRequests'] = true`",
-      );
-    }
 
     // Path Params
     const localVarPath = "/api/v2/deletion/requests";
@@ -444,7 +416,7 @@ export interface DataDeletionApiCancelDataDeletionRequestRequest {
 
 export interface DataDeletionApiCreateDataDeletionRequestRequest {
   /**
-   * Name of the product to be deleted, either `logs` or `rum`.
+   * Name of the product to be deleted. Only `logs` is supported.
    * @type string
    */
   product: string;
