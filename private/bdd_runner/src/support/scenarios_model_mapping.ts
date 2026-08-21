@@ -9882,6 +9882,13 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
     },
     operationResponseType: "{}",
   },
+  "OrganizationsApi.V2.UpdateLoginOrgConfigsMcpCrossAppAccessIssuerUrl": {
+    body: {
+      type: "McpCrossAppAccessIssuerUrlUpdateRequest",
+      format: "",
+    },
+    operationResponseType: "{}",
+  },
   "OrganizationsApi.V2.ListOrgs": {
     filterName: {
       type: "string",
