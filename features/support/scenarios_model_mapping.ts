@@ -12640,6 +12640,10 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             "type": "string",
             "format": "",
             },
+        "filterExcludeTagsMode": {
+            "type": "boolean",
+            "format": "",
+            },
         "filterHoursAgo": {
             "type": "number",
             "format": "int32",
