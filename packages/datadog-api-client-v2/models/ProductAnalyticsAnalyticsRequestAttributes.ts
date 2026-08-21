@@ -25,7 +25,7 @@ export class ProductAnalyticsAnalyticsRequestAttributes {
    */
   "query": ProductAnalyticsAnalyticsQuery;
   /**
-   * Optional request ID for multi-step query continuation.
+   * Unique identifier of the query.
    */
   "requestId"?: string;
   /**
