@@ -6,6 +6,7 @@
 import { ObservabilityPipelineBufferOptions } from "./ObservabilityPipelineBufferOptions";
 import { ObservabilityPipelineGcpAuth } from "./ObservabilityPipelineGcpAuth";
 import { ObservabilityPipelineGoogleCloudStorageDestinationAcl } from "./ObservabilityPipelineGoogleCloudStorageDestinationAcl";
+import { ObservabilityPipelineGoogleCloudStorageDestinationCompression } from "./ObservabilityPipelineGoogleCloudStorageDestinationCompression";
 import { ObservabilityPipelineGoogleCloudStorageDestinationStorageClass } from "./ObservabilityPipelineGoogleCloudStorageDestinationStorageClass";
 import { ObservabilityPipelineGoogleCloudStorageDestinationType } from "./ObservabilityPipelineGoogleCloudStorageDestinationType";
 import { ObservabilityPipelineMetadataEntry } from "./ObservabilityPipelineMetadataEntry";
@@ -35,6 +36,11 @@ export class ObservabilityPipelineGoogleCloudStorageDestination {
    * Configuration for buffer settings on destination components.
    */
   "buffer"?: ObservabilityPipelineBufferOptions;
+  /**
+   * Compression configuration for archived logs. When omitted, logs are compressed with gzip
+   * for backward compatibility.
+   */
+  "compression"?: ObservabilityPipelineGoogleCloudStorageDestinationCompression;
   /**
    * Unique identifier for the destination component.
    */
@@ -92,6 +98,10 @@ export class ObservabilityPipelineGoogleCloudStorageDestination {
     buffer: {
       baseName: "buffer",
       type: "ObservabilityPipelineBufferOptions",
+    },
+    compression: {
+      baseName: "compression",
+      type: "ObservabilityPipelineGoogleCloudStorageDestinationCompression",
     },
     id: {
       baseName: "id",
