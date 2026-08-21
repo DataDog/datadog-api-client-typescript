@@ -520,6 +520,7 @@ export class MetricsApiRequestFactory extends BaseAPIRequestFactory {
   public async estimateMetricsOutputSeries(
     metricName: string,
     filterGroups?: string,
+    filterExcludeTagsMode?: boolean,
     filterHoursAgo?: number,
     filterNumAggregations?: number,
     filterPct?: boolean,
@@ -551,6 +552,13 @@ export class MetricsApiRequestFactory extends BaseAPIRequestFactory {
       requestContext.setQueryParam(
         "filter[groups]",
         ObjectSerializer.serialize(filterGroups, "string", ""),
+        ""
+      );
+    }
+    if (filterExcludeTagsMode !== undefined) {
+      requestContext.setQueryParam(
+        "filter[exclude_tags_mode]",
+        ObjectSerializer.serialize(filterExcludeTagsMode, "boolean", ""),
         ""
       );
     }
@@ -3501,6 +3509,11 @@ export interface MetricsApiEstimateMetricsOutputSeriesRequest {
    */
   filterGroups?: string;
   /**
+   * When `true`, `filter[groups]` is treated as an exclude list instead of an include list. Defaults to `false`.
+   * @type boolean
+   */
+  filterExcludeTagsMode?: boolean;
+  /**
    * The number of hours of look back (from now) to estimate cardinality with. If unspecified, it defaults to 0 hours.
    * @type number
    */
@@ -3511,7 +3524,7 @@ export interface MetricsApiEstimateMetricsOutputSeriesRequest {
    */
   filterNumAggregations?: number;
   /**
-   * A boolean, for distribution metrics only, to estimate cardinality if the metric includes additional percentile aggregators.
+   * Deprecated. This query parameter has no effect on the estimate.
    * @type boolean
    */
   filterPct?: boolean;
@@ -4087,6 +4100,7 @@ export class MetricsApi {
       this.requestFactory.estimateMetricsOutputSeries(
         param.metricName,
         param.filterGroups,
+        param.filterExcludeTagsMode,
         param.filterHoursAgo,
         param.filterNumAggregations,
         param.filterPct,
