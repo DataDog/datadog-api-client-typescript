@@ -2,7 +2,9 @@
 
 ## Description
 
-View and manage cases and projects within Case Management. See the [Case Management page](https://docs.datadoghq.com/service_management/case_management/) for more information.
+**Note**: Work Management is the UI name for Case Management. These API endpoints and permissions use `case` terminology.
+
+View and manage work items and projects within Work Management. For more information, see [Work Management](https://docs.datadoghq.com/incident_response/work_management/).
 
 ## Navigation
 
