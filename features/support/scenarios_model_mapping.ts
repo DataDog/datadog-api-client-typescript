@@ -15437,6 +15437,43 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             },
         "operationResponseType": "RumMetricResponse",
     },
+    "v2.GetRumQuotaConfig": {
+        "scopeType": {
+            "type": "RumRetentionQuotaScopeType",
+            "format": "",
+            },
+        "scopeId": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "RumRetentionQuotaConfigResponse",
+    },
+    "v2.UpsertRumQuotaConfig": {
+        "scopeType": {
+            "type": "RumRetentionQuotaScopeType",
+            "format": "",
+            },
+        "scopeId": {
+            "type": "string",
+            "format": "",
+            },
+        "body": {
+            "type": "RumRetentionQuotaConfigUpdateRequest",
+            "format": "",
+            },
+        "operationResponseType": "RumRetentionQuotaConfigResponse",
+    },
+    "v2.DeleteRumQuotaConfig": {
+        "scopeType": {
+            "type": "RumRetentionQuotaScopeType",
+            "format": "",
+            },
+        "scopeId": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "{}",
+    },
     "v2.CreateRUMOperation": {
         "body": {
             "type": "RUMOperationCreateRequest",

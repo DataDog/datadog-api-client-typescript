@@ -8,11 +8,11 @@ import { LLMObsCreatePromptVersionData } from "./LLMObsCreatePromptVersionData";
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * Request to create a new version of an LLM Observability prompt.
+ * Request to create a new version of an Agent Observability prompt.
  */
 export class LLMObsCreatePromptVersionRequest {
   /**
-   * Data object for creating an LLM Observability prompt version.
+   * Data object for creating an Agent Observability prompt version.
    */
   "data": LLMObsCreatePromptVersionData;
 

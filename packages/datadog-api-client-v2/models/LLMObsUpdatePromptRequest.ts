@@ -8,11 +8,11 @@ import { LLMObsUpdatePromptData } from "./LLMObsUpdatePromptData";
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * Request to update an LLM Observability prompt's metadata.
+ * Request to update an Agent Observability prompt's metadata.
  */
 export class LLMObsUpdatePromptRequest {
   /**
-   * Data object for updating an LLM Observability prompt.
+   * Data object for updating an Agent Observability prompt.
    */
   "data": LLMObsUpdatePromptData;
 

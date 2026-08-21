@@ -8,7 +8,7 @@ import { LLMObsExperimentStatus } from "./LLMObsExperimentStatus";
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * Attributes for updating an LLM Observability experiment.
+ * Attributes for updating an Agent Observability experiment.
  */
 export class LLMObsExperimentUpdateDataAttributesRequest {
   /**
@@ -32,7 +32,7 @@ export class LLMObsExperimentUpdateDataAttributesRequest {
    */
   "name"?: string;
   /**
-   * Execution status of an LLM Observability experiment.
+   * Execution status of an Agent Observability experiment.
    */
   "status"?: LLMObsExperimentStatus;
 

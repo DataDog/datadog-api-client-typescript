@@ -8,11 +8,11 @@ import { LLMObsDatasetUpdateDataRequest } from "./LLMObsDatasetUpdateDataRequest
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * Request to partially update an LLM Observability dataset.
+ * Request to partially update an Agent Observability dataset.
  */
 export class LLMObsDatasetUpdateRequest {
   /**
-   * Data object for updating an LLM Observability dataset.
+   * Data object for updating an Agent Observability dataset.
    */
   "data": LLMObsDatasetUpdateDataRequest;
 

@@ -8,7 +8,7 @@ import { LLMObsDatasetRecordUpdateItem } from "./LLMObsDatasetRecordUpdateItem";
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * Attributes for updating records in an LLM Observability dataset.
+ * Attributes for updating records in an Agent Observability dataset.
  */
 export class LLMObsDatasetRecordsUpdateDataAttributesRequest {
   /**

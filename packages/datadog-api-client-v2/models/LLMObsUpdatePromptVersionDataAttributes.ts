@@ -8,7 +8,7 @@ import { LLMObsPromptVersionLabel } from "./LLMObsPromptVersionLabel";
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * Attributes for updating an LLM Observability prompt version. At least one of `description`, `labels`, or `env_ids` must be provided; all three attributes are optional individually.
+ * Attributes for updating an Agent Observability prompt version. At least one of `description`, `labels`, or `env_ids` must be provided; all three attributes are optional individually.
  */
 export class LLMObsUpdatePromptVersionDataAttributes {
   /**

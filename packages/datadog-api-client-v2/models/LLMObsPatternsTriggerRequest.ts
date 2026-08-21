@@ -8,11 +8,11 @@ import { LLMObsPatternsTriggerRequestData } from "./LLMObsPatternsTriggerRequest
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * Request to trigger an LLM Observability patterns run.
+ * Request to trigger an Agent Observability patterns run.
  */
 export class LLMObsPatternsTriggerRequest {
   /**
-   * Data object for triggering an LLM Observability patterns run.
+   * Data object for triggering an Agent Observability patterns run.
    */
   "data": LLMObsPatternsTriggerRequestData;
 

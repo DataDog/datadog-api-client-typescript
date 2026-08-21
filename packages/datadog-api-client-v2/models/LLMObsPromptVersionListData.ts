@@ -21,7 +21,7 @@ export class LLMObsPromptVersionListData {
    */
   "id": string;
   /**
-   * Resource type of an LLM Observability prompt version.
+   * Resource type of an Agent Observability prompt version.
    */
   "type": LLMObsPromptVersionType;
 

@@ -70,6 +70,79 @@ export {
 } from "./apis/ActionsDatastoresApi";
 
 export {
+  AgentObservabilityApiAggregateLLMObsExperimentationRequest,
+  AgentObservabilityApiBatchUpdateLLMObsDatasetRequest,
+  AgentObservabilityApiCloneLLMObsDatasetRequest,
+  AgentObservabilityApiCreateLLMObsAnnotationQueueRequest,
+  AgentObservabilityApiCreateLLMObsAnnotationQueueInteractionsRequest,
+  AgentObservabilityApiCreateLLMObsDatasetRequest,
+  AgentObservabilityApiCreateLLMObsDatasetRecordsRequest,
+  AgentObservabilityApiCreateLLMObsExperimentRequest,
+  AgentObservabilityApiCreateLLMObsExperimentEventsRequest,
+  AgentObservabilityApiCreateLLMObsIntegrationInferenceRequest,
+  AgentObservabilityApiCreateLLMObsProjectRequest,
+  AgentObservabilityApiCreateLLMObsPromptRequest,
+  AgentObservabilityApiCreateLLMObsPromptVersionRequest,
+  AgentObservabilityApiDeleteLLMObsAnnotationQueueRequest,
+  AgentObservabilityApiDeleteLLMObsAnnotationQueueInteractionsRequest,
+  AgentObservabilityApiDeleteLLMObsAnnotationsRequest,
+  AgentObservabilityApiDeleteLLMObsCustomEvalConfigRequest,
+  AgentObservabilityApiDeleteLLMObsDatasetRecordsRequest,
+  AgentObservabilityApiDeleteLLMObsDatasetsRequest,
+  AgentObservabilityApiDeleteLLMObsExperimentsRequest,
+  AgentObservabilityApiDeleteLLMObsPatternsConfigRequest,
+  AgentObservabilityApiDeleteLLMObsProjectsRequest,
+  AgentObservabilityApiDeleteLLMObsPromptRequest,
+  AgentObservabilityApiExportLLMObsDatasetRequest,
+  AgentObservabilityApiGetLLMObsAnnotatedInteractionsRequest,
+  AgentObservabilityApiGetLLMObsAnnotatedInteractionsByTraceIDsRequest,
+  AgentObservabilityApiGetLLMObsAnnotationQueueLabelSchemaRequest,
+  AgentObservabilityApiGetLLMObsCustomEvalConfigRequest,
+  AgentObservabilityApiGetLLMObsDatasetDraftStateRequest,
+  AgentObservabilityApiGetLLMObsPatternsRunStatusRequest,
+  AgentObservabilityApiGetLLMObsPromptRequest,
+  AgentObservabilityApiGetLLMObsPromptVersionRequest,
+  AgentObservabilityApiListLLMObsAnnotationQueuesRequest,
+  AgentObservabilityApiListLLMObsDatasetRecordsRequest,
+  AgentObservabilityApiListLLMObsDatasetVersionsRequest,
+  AgentObservabilityApiListLLMObsDatasetsRequest,
+  AgentObservabilityApiListLLMObsExperimentEventsRequest,
+  AgentObservabilityApiListLLMObsExperimentEventsV1Request,
+  AgentObservabilityApiListLLMObsExperimentEventsV2Request,
+  AgentObservabilityApiListLLMObsExperimentsRequest,
+  AgentObservabilityApiListLLMObsIntegrationAccountsRequest,
+  AgentObservabilityApiListLLMObsIntegrationModelsRequest,
+  AgentObservabilityApiListLLMObsPatternsClusteredPointsRequest,
+  AgentObservabilityApiListLLMObsPatternsRunsRequest,
+  AgentObservabilityApiListLLMObsPatternsTopicsRequest,
+  AgentObservabilityApiListLLMObsPatternsTopicsWithClusteredPointsRequest,
+  AgentObservabilityApiListLLMObsProjectsRequest,
+  AgentObservabilityApiListLLMObsPromptVersionsRequest,
+  AgentObservabilityApiListLLMObsPromptsRequest,
+  AgentObservabilityApiListLLMObsSpansRequest,
+  AgentObservabilityApiLockLLMObsDatasetDraftStateRequest,
+  AgentObservabilityApiRestoreLLMObsDatasetVersionRequest,
+  AgentObservabilityApiSearchLLMObsExperimentationRequest,
+  AgentObservabilityApiSearchLLMObsSpansRequest,
+  AgentObservabilityApiSimpleSearchLLMObsExperimentationRequest,
+  AgentObservabilityApiTriggerLLMObsPatternsRequest,
+  AgentObservabilityApiUnlockLLMObsDatasetDraftStateRequest,
+  AgentObservabilityApiUpdateLLMObsAnnotationQueueRequest,
+  AgentObservabilityApiUpdateLLMObsAnnotationQueueLabelSchemaRequest,
+  AgentObservabilityApiUpdateLLMObsCustomEvalConfigRequest,
+  AgentObservabilityApiUpdateLLMObsDatasetRequest,
+  AgentObservabilityApiUpdateLLMObsDatasetRecordsRequest,
+  AgentObservabilityApiUpdateLLMObsExperimentRequest,
+  AgentObservabilityApiUpdateLLMObsProjectRequest,
+  AgentObservabilityApiUpdateLLMObsPromptRequest,
+  AgentObservabilityApiUpdateLLMObsPromptVersionRequest,
+  AgentObservabilityApiUploadLLMObsDatasetRecordsFileRequest,
+  AgentObservabilityApiUpsertLLMObsAnnotationsRequest,
+  AgentObservabilityApiUpsertLLMObsPatternsConfigRequest,
+  AgentObservabilityApi,
+} from "./apis/AgentObservabilityApi";
+
+export {
   AgentlessScanningApiCreateAwsOnDemandTaskRequest,
   AgentlessScanningApiCreateAwsScanOptionsRequest,
   AgentlessScanningApiCreateAzureScanOptionsRequest,
@@ -834,79 +907,6 @@ export {
 } from "./apis/KeyManagementApi";
 
 export {
-  LLMObservabilityApiAggregateLLMObsExperimentationRequest,
-  LLMObservabilityApiBatchUpdateLLMObsDatasetRequest,
-  LLMObservabilityApiCloneLLMObsDatasetRequest,
-  LLMObservabilityApiCreateLLMObsAnnotationQueueRequest,
-  LLMObservabilityApiCreateLLMObsAnnotationQueueInteractionsRequest,
-  LLMObservabilityApiCreateLLMObsDatasetRequest,
-  LLMObservabilityApiCreateLLMObsDatasetRecordsRequest,
-  LLMObservabilityApiCreateLLMObsExperimentRequest,
-  LLMObservabilityApiCreateLLMObsExperimentEventsRequest,
-  LLMObservabilityApiCreateLLMObsIntegrationInferenceRequest,
-  LLMObservabilityApiCreateLLMObsProjectRequest,
-  LLMObservabilityApiCreateLLMObsPromptRequest,
-  LLMObservabilityApiCreateLLMObsPromptVersionRequest,
-  LLMObservabilityApiDeleteLLMObsAnnotationQueueRequest,
-  LLMObservabilityApiDeleteLLMObsAnnotationQueueInteractionsRequest,
-  LLMObservabilityApiDeleteLLMObsAnnotationsRequest,
-  LLMObservabilityApiDeleteLLMObsCustomEvalConfigRequest,
-  LLMObservabilityApiDeleteLLMObsDatasetRecordsRequest,
-  LLMObservabilityApiDeleteLLMObsDatasetsRequest,
-  LLMObservabilityApiDeleteLLMObsExperimentsRequest,
-  LLMObservabilityApiDeleteLLMObsPatternsConfigRequest,
-  LLMObservabilityApiDeleteLLMObsProjectsRequest,
-  LLMObservabilityApiDeleteLLMObsPromptRequest,
-  LLMObservabilityApiExportLLMObsDatasetRequest,
-  LLMObservabilityApiGetLLMObsAnnotatedInteractionsRequest,
-  LLMObservabilityApiGetLLMObsAnnotatedInteractionsByTraceIDsRequest,
-  LLMObservabilityApiGetLLMObsAnnotationQueueLabelSchemaRequest,
-  LLMObservabilityApiGetLLMObsCustomEvalConfigRequest,
-  LLMObservabilityApiGetLLMObsDatasetDraftStateRequest,
-  LLMObservabilityApiGetLLMObsPatternsRunStatusRequest,
-  LLMObservabilityApiGetLLMObsPromptRequest,
-  LLMObservabilityApiGetLLMObsPromptVersionRequest,
-  LLMObservabilityApiListLLMObsAnnotationQueuesRequest,
-  LLMObservabilityApiListLLMObsDatasetRecordsRequest,
-  LLMObservabilityApiListLLMObsDatasetVersionsRequest,
-  LLMObservabilityApiListLLMObsDatasetsRequest,
-  LLMObservabilityApiListLLMObsExperimentEventsRequest,
-  LLMObservabilityApiListLLMObsExperimentEventsV1Request,
-  LLMObservabilityApiListLLMObsExperimentEventsV2Request,
-  LLMObservabilityApiListLLMObsExperimentsRequest,
-  LLMObservabilityApiListLLMObsIntegrationAccountsRequest,
-  LLMObservabilityApiListLLMObsIntegrationModelsRequest,
-  LLMObservabilityApiListLLMObsPatternsClusteredPointsRequest,
-  LLMObservabilityApiListLLMObsPatternsRunsRequest,
-  LLMObservabilityApiListLLMObsPatternsTopicsRequest,
-  LLMObservabilityApiListLLMObsPatternsTopicsWithClusteredPointsRequest,
-  LLMObservabilityApiListLLMObsProjectsRequest,
-  LLMObservabilityApiListLLMObsPromptVersionsRequest,
-  LLMObservabilityApiListLLMObsPromptsRequest,
-  LLMObservabilityApiListLLMObsSpansRequest,
-  LLMObservabilityApiLockLLMObsDatasetDraftStateRequest,
-  LLMObservabilityApiRestoreLLMObsDatasetVersionRequest,
-  LLMObservabilityApiSearchLLMObsExperimentationRequest,
-  LLMObservabilityApiSearchLLMObsSpansRequest,
-  LLMObservabilityApiSimpleSearchLLMObsExperimentationRequest,
-  LLMObservabilityApiTriggerLLMObsPatternsRequest,
-  LLMObservabilityApiUnlockLLMObsDatasetDraftStateRequest,
-  LLMObservabilityApiUpdateLLMObsAnnotationQueueRequest,
-  LLMObservabilityApiUpdateLLMObsAnnotationQueueLabelSchemaRequest,
-  LLMObservabilityApiUpdateLLMObsCustomEvalConfigRequest,
-  LLMObservabilityApiUpdateLLMObsDatasetRequest,
-  LLMObservabilityApiUpdateLLMObsDatasetRecordsRequest,
-  LLMObservabilityApiUpdateLLMObsExperimentRequest,
-  LLMObservabilityApiUpdateLLMObsProjectRequest,
-  LLMObservabilityApiUpdateLLMObsPromptRequest,
-  LLMObservabilityApiUpdateLLMObsPromptVersionRequest,
-  LLMObservabilityApiUploadLLMObsDatasetRecordsFileRequest,
-  LLMObservabilityApiUpsertLLMObsAnnotationsRequest,
-  LLMObservabilityApiUpsertLLMObsPatternsConfigRequest,
-  LLMObservabilityApi,
-} from "./apis/LLMObservabilityApi";
-
-export {
   LogsApiAggregateLogsRequest,
   LogsApiListLogsRequest,
   LogsApiListLogsGetRequest,
@@ -1265,6 +1265,13 @@ export {
   RUMRemoteConfigApiUpdateRumSdkConfigRequest,
   RUMRemoteConfigApi,
 } from "./apis/RUMRemoteConfigApi";
+
+export {
+  RUMRetentionQuotaApiDeleteRumQuotaConfigRequest,
+  RUMRetentionQuotaApiGetRumQuotaConfigRequest,
+  RUMRetentionQuotaApiUpsertRumQuotaConfigRequest,
+  RUMRetentionQuotaApi,
+} from "./apis/RUMRetentionQuotaApi";
 
 export {
   ReferenceTablesApiBatchRowsQueryRequest,
@@ -7419,6 +7426,19 @@ export { RumRetentionFilterType } from "./models/RumRetentionFilterType";
 export { RumRetentionFilterUpdateAttributes } from "./models/RumRetentionFilterUpdateAttributes";
 export { RumRetentionFilterUpdateData } from "./models/RumRetentionFilterUpdateData";
 export { RumRetentionFilterUpdateRequest } from "./models/RumRetentionFilterUpdateRequest";
+export { RumRetentionQuotaAdaptiveConfig } from "./models/RumRetentionQuotaAdaptiveConfig";
+export { RumRetentionQuotaConfigAttributes } from "./models/RumRetentionQuotaConfigAttributes";
+export { RumRetentionQuotaConfigData } from "./models/RumRetentionQuotaConfigData";
+export { RumRetentionQuotaConfigResponse } from "./models/RumRetentionQuotaConfigResponse";
+export { RumRetentionQuotaConfigType } from "./models/RumRetentionQuotaConfigType";
+export { RumRetentionQuotaConfigUpdateAttributes } from "./models/RumRetentionQuotaConfigUpdateAttributes";
+export { RumRetentionQuotaConfigUpdateData } from "./models/RumRetentionQuotaConfigUpdateData";
+export { RumRetentionQuotaConfigUpdateRequest } from "./models/RumRetentionQuotaConfigUpdateRequest";
+export { RumRetentionQuotaCustomConfig } from "./models/RumRetentionQuotaCustomConfig";
+export { RumRetentionQuotaMode } from "./models/RumRetentionQuotaMode";
+export { RumRetentionQuotaReachedAction } from "./models/RumRetentionQuotaReachedAction";
+export { RumRetentionQuotaScopeType } from "./models/RumRetentionQuotaScopeType";
+export { RumRetentionQuotaWindowType } from "./models/RumRetentionQuotaWindowType";
 export { RumSdkConfigAttributes } from "./models/RumSdkConfigAttributes";
 export { RumSdkConfigData } from "./models/RumSdkConfigData";
 export { RumSdkConfigDynamicOption } from "./models/RumSdkConfigDynamicOption";

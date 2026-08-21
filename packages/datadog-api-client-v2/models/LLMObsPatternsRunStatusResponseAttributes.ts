@@ -8,7 +8,7 @@ import { LLMObsPatternsActivityProgress } from "./LLMObsPatternsActivityProgress
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * Attributes of an LLM Observability patterns run status.
+ * Attributes of an Agent Observability patterns run status.
  */
 export class LLMObsPatternsRunStatusResponseAttributes {
   /**

@@ -8,11 +8,11 @@ import { LLMObsCreatePromptData } from "./LLMObsCreatePromptData";
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * Request to create an LLM Observability prompt.
+ * Request to create an Agent Observability prompt.
  */
 export class LLMObsCreatePromptRequest {
   /**
-   * Data object for creating an LLM Observability prompt.
+   * Data object for creating an Agent Observability prompt.
    */
   "data": LLMObsCreatePromptData;
 

@@ -8,11 +8,11 @@ import { LLMObsPatternsRunStatusResponseData } from "./LLMObsPatternsRunStatusRe
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * Response containing the status of an LLM Observability patterns run.
+ * Response containing the status of an Agent Observability patterns run.
  */
 export class LLMObsPatternsRunStatusResponse {
   /**
-   * Data object of an LLM Observability patterns run status response.
+   * Data object of an Agent Observability patterns run status response.
    */
   "data": LLMObsPatternsRunStatusResponseData;
 

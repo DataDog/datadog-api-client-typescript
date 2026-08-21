@@ -9,11 +9,11 @@ import { LLMObsPromptType } from "./LLMObsPromptType";
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * Data object confirming that an LLM Observability prompt was deleted.
+ * Data object confirming that an Agent Observability prompt was deleted.
  */
 export class LLMObsDeletedPromptData {
   /**
-   * Attributes confirming that an LLM Observability prompt was deleted.
+   * Attributes confirming that an Agent Observability prompt was deleted.
    */
   "attributes": LLMObsDeletedPromptDataAttributes;
   /**
@@ -21,7 +21,7 @@ export class LLMObsDeletedPromptData {
    */
   "id": string;
   /**
-   * Resource type of an LLM Observability prompt.
+   * Resource type of an Agent Observability prompt.
    */
   "type": LLMObsPromptType;
 

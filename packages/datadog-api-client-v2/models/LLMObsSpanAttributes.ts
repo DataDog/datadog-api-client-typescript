@@ -10,7 +10,7 @@ import { LLMObsSpanToolDefinition } from "./LLMObsSpanToolDefinition";
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * Attributes of an LLM Observability span.
+ * Attributes of an Agent Observability span.
  */
 export class LLMObsSpanAttributes {
   /**
@@ -22,7 +22,7 @@ export class LLMObsSpanAttributes {
    */
   "evaluation"?: { [key: string]: LLMObsSpanEvaluationMetric };
   /**
-   * Input or output content of an LLM Observability span.
+   * Input or output content of an Agent Observability span.
    */
   "input"?: LLMObsSpanIO;
   /**
@@ -54,7 +54,7 @@ export class LLMObsSpanAttributes {
    */
   "name": string;
   /**
-   * Input or output content of an LLM Observability span.
+   * Input or output content of an Agent Observability span.
    */
   "output"?: LLMObsSpanIO;
   /**

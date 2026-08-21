@@ -7,7 +7,7 @@
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * Filter criteria for an LLM Observability span search.
+ * Filter criteria for an Agent Observability span search.
  */
 export class LLMObsSpanFilter {
   /**
@@ -19,7 +19,7 @@ export class LLMObsSpanFilter {
    */
   "mlApp"?: string;
   /**
-   * Search query using LLM Observability query syntax. Supports attribute filters using the field:value syntax (e.g. session_id, trace_id, ml_app, meta.span.kind). When provided, structured field filters (`span_id`, `trace_id`, etc.) are ignored.
+   * Search query using Agent Observability query syntax. Supports attribute filters using the field:value syntax (e.g. session_id, trace_id, ml_app, meta.span.kind). When provided, structured field filters (`span_id`, `trace_id`, etc.) are ignored.
    */
   "query"?: string;
   /**

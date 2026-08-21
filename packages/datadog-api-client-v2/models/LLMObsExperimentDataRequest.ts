@@ -9,15 +9,15 @@ import { LLMObsExperimentType } from "./LLMObsExperimentType";
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * Data object for creating an LLM Observability experiment.
+ * Data object for creating an Agent Observability experiment.
  */
 export class LLMObsExperimentDataRequest {
   /**
-   * Attributes for creating an LLM Observability experiment.
+   * Attributes for creating an Agent Observability experiment.
    */
   "attributes": LLMObsExperimentDataAttributesRequest;
   /**
-   * Resource type of an LLM Observability experiment.
+   * Resource type of an Agent Observability experiment.
    */
   "type": LLMObsExperimentType;
 

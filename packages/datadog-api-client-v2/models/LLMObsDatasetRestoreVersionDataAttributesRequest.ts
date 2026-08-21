@@ -7,7 +7,7 @@
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * Attributes for restoring an LLM Observability dataset to a previous version.
+ * Attributes for restoring an Agent Observability dataset to a previous version.
  */
 export class LLMObsDatasetRestoreVersionDataAttributesRequest {
   /**
