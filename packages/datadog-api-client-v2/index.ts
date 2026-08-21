@@ -1277,11 +1277,11 @@ export {
 } from "./apis/RUMRemoteConfigApi";
 
 export {
-  RUMRetentionQuotaApiDeleteRumQuotaConfigRequest,
-  RUMRetentionQuotaApiGetRumQuotaConfigRequest,
-  RUMRetentionQuotaApiUpsertRumQuotaConfigRequest,
-  RUMRetentionQuotaApi,
-} from "./apis/RUMRetentionQuotaApi";
+  RUMRetentionQuotasApiDeleteRumQuotaConfigRequest,
+  RUMRetentionQuotasApiGetRumQuotaConfigRequest,
+  RUMRetentionQuotasApiUpsertRumQuotaConfigRequest,
+  RUMRetentionQuotasApi,
+} from "./apis/RUMRetentionQuotasApi";
 
 export {
   ReferenceTablesApiBatchRowsQueryRequest,
@@ -7583,7 +7583,6 @@ export { RumRetentionFilterType } from "./models/RumRetentionFilterType";
 export { RumRetentionFilterUpdateAttributes } from "./models/RumRetentionFilterUpdateAttributes";
 export { RumRetentionFilterUpdateData } from "./models/RumRetentionFilterUpdateData";
 export { RumRetentionFilterUpdateRequest } from "./models/RumRetentionFilterUpdateRequest";
-export { RumRetentionQuotaAdaptiveConfig } from "./models/RumRetentionQuotaAdaptiveConfig";
 export { RumRetentionQuotaConfigAttributes } from "./models/RumRetentionQuotaConfigAttributes";
 export { RumRetentionQuotaConfigData } from "./models/RumRetentionQuotaConfigData";
 export { RumRetentionQuotaConfigResponse } from "./models/RumRetentionQuotaConfigResponse";
