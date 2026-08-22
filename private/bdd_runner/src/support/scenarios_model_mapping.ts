@@ -10056,6 +10056,96 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
     },
     operationResponseType: "GovernanceNotificationSettingsResponse",
   },
+  "TagRulesApi.V2.ListTagRules": {
+    includeDisabled: {
+      type: "boolean",
+      format: "",
+    },
+    includeDeleted: {
+      type: "boolean",
+      format: "",
+    },
+    include: {
+      type: "TagRuleInclude",
+      format: "",
+    },
+    filterSource: {
+      type: "TagRuleSource",
+      format: "",
+    },
+    tsStart: {
+      type: "number",
+      format: "int64",
+    },
+    tsEnd: {
+      type: "number",
+      format: "int64",
+    },
+    operationResponseType: "TagRulesListResponse",
+  },
+  "TagRulesApi.V2.CreateTagRule": {
+    body: {
+      type: "TagRuleCreateRequest",
+      format: "",
+    },
+    operationResponseType: "TagRuleResponse",
+  },
+  "TagRulesApi.V2.GetTagRule": {
+    ruleId: {
+      type: "string",
+      format: "",
+    },
+    include: {
+      type: "TagRuleInclude",
+      format: "",
+    },
+    tsStart: {
+      type: "number",
+      format: "int64",
+    },
+    tsEnd: {
+      type: "number",
+      format: "int64",
+    },
+    operationResponseType: "TagRuleResponse",
+  },
+  "TagRulesApi.V2.DeleteTagRule": {
+    ruleId: {
+      type: "string",
+      format: "",
+    },
+    hardDelete: {
+      type: "boolean",
+      format: "",
+    },
+    operationResponseType: "{}",
+  },
+  "TagRulesApi.V2.UpdateTagRule": {
+    ruleId: {
+      type: "string",
+      format: "",
+    },
+    body: {
+      type: "TagRuleUpdateRequest",
+      format: "",
+    },
+    operationResponseType: "TagRuleResponse",
+  },
+  "TagRulesApi.V2.GetTagRuleScore": {
+    ruleId: {
+      type: "string",
+      format: "",
+    },
+    tsStart: {
+      type: "number",
+      format: "int64",
+    },
+    tsEnd: {
+      type: "number",
+      format: "int64",
+    },
+    operationResponseType: "TagRuleScoreResponse",
+  },
   "HighAvailabilityMultiRegionApi.V2.GetHamrOrgConnection": {
     operationResponseType: "HamrOrgConnectionResponse",
   },
@@ -17895,96 +17985,6 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
       format: "",
     },
     operationResponseType: "GlobalVariableResponse",
-  },
-  "TagPoliciesApi.V2.ListTagPolicies": {
-    includeDisabled: {
-      type: "boolean",
-      format: "",
-    },
-    includeDeleted: {
-      type: "boolean",
-      format: "",
-    },
-    include: {
-      type: "TagPolicyInclude",
-      format: "",
-    },
-    filterSource: {
-      type: "TagPolicySource",
-      format: "",
-    },
-    tsStart: {
-      type: "number",
-      format: "int64",
-    },
-    tsEnd: {
-      type: "number",
-      format: "int64",
-    },
-    operationResponseType: "TagPoliciesListResponse",
-  },
-  "TagPoliciesApi.V2.CreateTagPolicy": {
-    body: {
-      type: "TagPolicyCreateRequest",
-      format: "",
-    },
-    operationResponseType: "TagPolicyResponse",
-  },
-  "TagPoliciesApi.V2.GetTagPolicy": {
-    policyId: {
-      type: "string",
-      format: "",
-    },
-    include: {
-      type: "TagPolicyInclude",
-      format: "",
-    },
-    tsStart: {
-      type: "number",
-      format: "int64",
-    },
-    tsEnd: {
-      type: "number",
-      format: "int64",
-    },
-    operationResponseType: "TagPolicyResponse",
-  },
-  "TagPoliciesApi.V2.DeleteTagPolicy": {
-    policyId: {
-      type: "string",
-      format: "",
-    },
-    hardDelete: {
-      type: "boolean",
-      format: "",
-    },
-    operationResponseType: "{}",
-  },
-  "TagPoliciesApi.V2.UpdateTagPolicy": {
-    policyId: {
-      type: "string",
-      format: "",
-    },
-    body: {
-      type: "TagPolicyUpdateRequest",
-      format: "",
-    },
-    operationResponseType: "TagPolicyResponse",
-  },
-  "TagPoliciesApi.V2.GetTagPolicyScore": {
-    policyId: {
-      type: "string",
-      format: "",
-    },
-    tsStart: {
-      type: "number",
-      format: "int64",
-    },
-    tsEnd: {
-      type: "number",
-      format: "int64",
-    },
-    operationResponseType: "TagPolicyScoreResponse",
   },
   "TeamsApi.V2.ListTeams": {
     pageNumber: {
