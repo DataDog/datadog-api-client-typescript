@@ -25,6 +25,7 @@ import { FormResponse } from "../models/FormResponse";
 import { FormsResponse } from "../models/FormsResponse";
 import { FormVersionResponse } from "../models/FormVersionResponse";
 import { JSONAPIErrorResponse } from "../models/JSONAPIErrorResponse";
+import { ListFormVersionsResponse } from "../models/ListFormVersionsResponse";
 import { PublishFormRequest } from "../models/PublishFormRequest";
 import { UpdateFormRequest } from "../models/UpdateFormRequest";
 import { UpsertAndPublishFormVersionRequest } from "../models/UpsertAndPublishFormVersionRequest";
@@ -291,6 +292,44 @@ export class FormsApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
+  public async listFormVersions(
+    formId: string,
+    _options?: Configuration
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    logger.warn("Using unstable operation 'listFormVersions'");
+    if (!_config.unstableOperations["v2.listFormVersions"]) {
+      throw new Error("Unstable operation 'listFormVersions' is disabled");
+    }
+
+    // verify required parameter 'formId' is not null or undefined
+    if (formId === null || formId === undefined) {
+      throw new RequiredError("formId", "listFormVersions");
+    }
+
+    // Path Params
+    const localVarPath = "/api/v2/forms/{form_id}/versions".replace(
+      "{form_id}",
+      encodeURIComponent(String(formId))
+    );
+
+    // Make Request Context
+    const requestContext = _config
+      .getServer("v2.FormsApi.listFormVersions")
+      .makeRequestContext(localVarPath, HttpMethod.GET);
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+    ]);
+
+    return requestContext;
+  }
+
   public async publishForm(
     formId: string,
     body: PublishFormRequest,
@@ -336,6 +375,59 @@ export class FormsApiRequestFactory extends BaseAPIRequestFactory {
       contentType
     );
     requestContext.setBody(serializedBody);
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+    ]);
+
+    return requestContext;
+  }
+
+  public async revertFormVersion(
+    formId: string,
+    version: number,
+    _options?: Configuration
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    logger.warn("Using unstable operation 'revertFormVersion'");
+    if (!_config.unstableOperations["v2.revertFormVersion"]) {
+      throw new Error("Unstable operation 'revertFormVersion' is disabled");
+    }
+
+    // verify required parameter 'formId' is not null or undefined
+    if (formId === null || formId === undefined) {
+      throw new RequiredError("formId", "revertFormVersion");
+    }
+
+    // verify required parameter 'version' is not null or undefined
+    if (version === null || version === undefined) {
+      throw new RequiredError("version", "revertFormVersion");
+    }
+
+    // Path Params
+    const localVarPath = "/api/v2/forms/{form_id}/versions/revert".replace(
+      "{form_id}",
+      encodeURIComponent(String(formId))
+    );
+
+    // Make Request Context
+    const requestContext = _config
+      .getServer("v2.FormsApi.revertFormVersion")
+      .makeRequestContext(localVarPath, HttpMethod.POST);
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Query Params
+    if (version !== undefined) {
+      requestContext.setQueryParam(
+        "version",
+        ObjectSerializer.serialize(version, "number", "int64"),
+        ""
+      );
+    }
 
     // Apply auth methods
     applySecurityAuthentication(_config, requestContext, [
@@ -1010,6 +1102,91 @@ export class FormsApiResponseProcessor {
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
    *
+   * @params response Response returned by the server for a request to listFormVersions
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async listFormVersions(
+    response: ResponseContext
+  ): Promise<ListFormVersionsResponse> {
+    const contentType = ObjectSerializer.normalizeMediaType(
+      response.headers["content-type"]
+    );
+    if (response.httpStatusCode === 200) {
+      const body: ListFormVersionsResponse = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "ListFormVersionsResponse"
+      ) as ListFormVersionsResponse;
+      return body;
+    }
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 401 ||
+      response.httpStatusCode === 404
+    ) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: JSONAPIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "JSONAPIErrorResponse"
+        ) as JSONAPIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<JSONAPIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<JSONAPIErrorResponse>(
+        response.httpStatusCode,
+        body
+      );
+    }
+    if (response.httpStatusCode === 429) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: APIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "APIErrorResponse"
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: ListFormVersionsResponse = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "ListFormVersionsResponse",
+        ""
+      ) as ListFormVersionsResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"'
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
    * @params response Response returned by the server for a request to publishForm
    * @throws ApiException if the response code was not in [200, 299]
    */
@@ -1081,6 +1258,92 @@ export class FormsApiResponseProcessor {
         "FormPublicationResponse",
         ""
       ) as FormPublicationResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"'
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
+   * @params response Response returned by the server for a request to revertFormVersion
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async revertFormVersion(
+    response: ResponseContext
+  ): Promise<FormVersionResponse> {
+    const contentType = ObjectSerializer.normalizeMediaType(
+      response.headers["content-type"]
+    );
+    if (response.httpStatusCode === 200) {
+      const body: FormVersionResponse = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "FormVersionResponse"
+      ) as FormVersionResponse;
+      return body;
+    }
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 401 ||
+      response.httpStatusCode === 404 ||
+      response.httpStatusCode === 409
+    ) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: JSONAPIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "JSONAPIErrorResponse"
+        ) as JSONAPIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<JSONAPIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<JSONAPIErrorResponse>(
+        response.httpStatusCode,
+        body
+      );
+    }
+    if (response.httpStatusCode === 429) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: APIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "APIErrorResponse"
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: FormVersionResponse = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "FormVersionResponse",
+        ""
+      ) as FormVersionResponse;
       return body;
     }
 
@@ -1386,10 +1649,19 @@ export interface FormsApiGetFormRequest {
    */
   formId: string;
   /**
-   * The version of the form to retrieve. Use 'latest' for the most recent draft, 'published' for the last published version, or a specific version number.
+   * The version of the form to retrieve. Use 'latest' for the most recent draft, 'published' for the
+   * last published version, or a specific version number.
    * @type string
    */
   version?: string;
+}
+
+export interface FormsApiListFormVersionsRequest {
+  /**
+   * The ID of the form.
+   * @type string
+   */
+  formId: string;
 }
 
 export interface FormsApiPublishFormRequest {
@@ -1402,6 +1674,19 @@ export interface FormsApiPublishFormRequest {
    * @type PublishFormRequest
    */
   body: PublishFormRequest;
+}
+
+export interface FormsApiRevertFormVersionRequest {
+  /**
+   * The ID of the form.
+   * @type string
+   */
+  formId: string;
+  /**
+   * The version number to revert to.
+   * @type number
+   */
+  version: number;
 }
 
 export interface FormsApiUpdateFormRequest {
@@ -1480,7 +1765,8 @@ export class FormsApi {
   }
 
   /**
-   * Creates a new form and immediately publishes its initial version. This also creates a new datastore for form responses and links it to the form.
+   * Creates a new form and immediately publishes its initial version. This also creates a new datastore for
+   * form responses and links it to the form.
    * @param param The request object
    */
   public createAndPublishForm(
@@ -1501,7 +1787,8 @@ export class FormsApi {
   }
 
   /**
-   * Create a new form. The form is created in draft mode and must be published before it can be used. This also creates a new datastore for form responses and links it to the form.
+   * Create a new form. The form is created in draft mode and must be published before it can be used. This
+   * also creates a new datastore for form responses and links it to the form.
    * @param param The request object
    */
   public createForm(
@@ -1580,6 +1867,27 @@ export class FormsApi {
   }
 
   /**
+   * List all versions of a form.
+   * @param param The request object
+   */
+  public listFormVersions(
+    param: FormsApiListFormVersionsRequest,
+    options?: Configuration
+  ): Promise<ListFormVersionsResponse> {
+    const requestContextPromise = this.requestFactory.listFormVersions(
+      param.formId,
+      options
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.listFormVersions(responseContext);
+        });
+    });
+  }
+
+  /**
    * Publish a specific version of a form, making it available for submissions.
    * @param param The request object
    */
@@ -1597,6 +1905,28 @@ export class FormsApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.publishForm(responseContext);
+        });
+    });
+  }
+
+  /**
+   * Revert a form to a prior version by creating a new draft version copied from it.
+   * @param param The request object
+   */
+  public revertFormVersion(
+    param: FormsApiRevertFormVersionRequest,
+    options?: Configuration
+  ): Promise<FormVersionResponse> {
+    const requestContextPromise = this.requestFactory.revertFormVersion(
+      param.formId,
+      param.version,
+      options
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.revertFormVersion(responseContext);
         });
     });
   }
