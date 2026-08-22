@@ -19,6 +19,18 @@ export class DataDeletionResponseItemAttributes {
    */
   "createdBy": string;
   /**
+   * A message for the customer regarding the deletion request, if any.
+   */
+  "customerMessage"?: string;
+  /**
+   * Total number of elements to be deleted as displayed to the user.
+   */
+  "displayedTotal": number;
+  /**
+   * The category of the error for the deletion request, if any.
+   */
+  "errorCategory"?: string;
+  /**
    * Start of requested time window, milliseconds since Unix epoch.
    */
   "fromTime": number;
@@ -88,6 +100,20 @@ export class DataDeletionResponseItemAttributes {
       baseName: "created_by",
       type: "string",
       required: true,
+    },
+    customerMessage: {
+      baseName: "customer_message",
+      type: "string",
+    },
+    displayedTotal: {
+      baseName: "displayed_total",
+      type: "number",
+      required: true,
+      format: "int64",
+    },
+    errorCategory: {
+      baseName: "error_category",
+      type: "string",
     },
     fromTime: {
       baseName: "from_time",

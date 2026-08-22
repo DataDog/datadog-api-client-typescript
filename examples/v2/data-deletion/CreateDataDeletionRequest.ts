@@ -5,13 +5,13 @@
 import { client, v2 } from "@datadog/datadog-api-client";
 
 const configuration = client.createConfiguration();
-configuration.unstableOperations["v2.createDataDeletionRequest"] = true;
 const apiInstance = new v2.DataDeletionApi(configuration);
 
 const params: v2.DataDeletionApiCreateDataDeletionRequestRequest = {
   body: {
     data: {
       attributes: {
+        displayedTotal: 100,
         from: 1672527600000,
         indexes: ["test-index", "test-index-2"],
         query: {
