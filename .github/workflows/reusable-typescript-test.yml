@@ -48,3 +48,5 @@ jobs:
       - name: Test
         run: ${{ inputs.test-script }}
         shell: bash
+        env:
+          DD_USE_GENERATED_TESTS: "true"
