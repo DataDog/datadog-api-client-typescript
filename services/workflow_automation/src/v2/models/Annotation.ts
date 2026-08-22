@@ -4,19 +4,19 @@ import { AnnotationDisplay } from "./AnnotationDisplay";
 import { AnnotationMarkdownTextAnnotation } from "./AnnotationMarkdownTextAnnotation";
 
 /**
- * A list of annotations used in the workflow. These are like sticky notes for your workflow!
+ * A text annotation displayed on the workflow canvas.
  */
 export class Annotation {
   /**
-   * The definition of `AnnotationDisplay` object.
+   * The annotation's position and size on the workflow canvas.
    */
   "display": AnnotationDisplay;
   /**
-   * The `Annotation` `id`.
+   * The unique identifier of this annotation within the workflow.
    */
   "id": string;
   /**
-   * The definition of `AnnotationMarkdownTextAnnotation` object.
+   * Markdown content displayed in an annotation.
    */
   "markdownTextAnnotation": AnnotationMarkdownTextAnnotation;
   /**
