@@ -15548,6 +15548,72 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             },
         "operationResponseType": "{}",
     },
+    "v2.ListTeamsOwnershipMappings": {
+        "filterViewName": {
+            "type": "Array<string>",
+            "format": "",
+            },
+        "filterTeamHandle": {
+            "type": "Array<string>",
+            "format": "",
+            },
+        "filterApplicationId": {
+            "type": "Array<string>",
+            "format": "",
+            },
+        "filterService": {
+            "type": "Array<string>",
+            "format": "",
+            },
+        "operationResponseType": "TeamsOwnershipMappingsResponse",
+    },
+    "v2.CreateTeamsOwnershipMapping": {
+        "body": {
+            "type": "TeamsOwnershipMappingCreateRequest",
+            "format": "",
+            },
+        "operationResponseType": "TeamsOwnershipMappingResponse",
+    },
+    "v2.CreateTeamsOwnershipMappingsBatch": {
+        "body": {
+            "type": "TeamsOwnershipMappingBatchRequest",
+            "format": "",
+            },
+        "operationResponseType": "TeamsOwnershipMappingBatchResponse",
+    },
+    "v2.GetTeamsOwnershipMapping": {
+        "id": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "TeamsOwnershipMappingResponse",
+    },
+    "v2.DeleteTeamsOwnershipMapping": {
+        "id": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "{}",
+    },
+    "v2.ListTeamsOwnershipRules": {
+        "filterViewName": {
+            "type": "Array<string>",
+            "format": "",
+            },
+        "filterTeamHandle": {
+            "type": "Array<string>",
+            "format": "",
+            },
+        "filterApplicationId": {
+            "type": "Array<string>",
+            "format": "",
+            },
+        "filterService": {
+            "type": "Array<string>",
+            "format": "",
+            },
+        "operationResponseType": "TeamsOwnershipRulesResponse",
+    },
     "v2.CreateRUMOperation": {
         "body": {
             "type": "RUMOperationCreateRequest",
