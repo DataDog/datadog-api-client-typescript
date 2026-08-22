@@ -33,7 +33,8 @@ export class FormDataAttributes {
    */
   "endDate"?: Date;
   /**
-   * Whether the current user has already submitted this form. Only present for forms with `single_response` set to `true`.
+   * Whether the current user has already submitted this form. Only present for forms with
+   * `single_response` set to `true`.
    */
   "hasSubmitted"?: boolean;
   /**

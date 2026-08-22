@@ -4,7 +4,9 @@ export {
   FormsApiCreateFormRequest,
   FormsApiDeleteFormRequest,
   FormsApiGetFormRequest,
+  FormsApiListFormVersionsRequest,
   FormsApiPublishFormRequest,
+  FormsApiRevertFormVersionRequest,
   FormsApiUpdateFormRequest,
   FormsApiUpsertAndPublishFormVersionRequest,
   FormsApiUpsertFormVersionRequest,
@@ -38,6 +40,7 @@ export { FormUiDefinitionUiThemePrimaryColor } from "./models/FormUiDefinitionUi
 export { FormUpdateAttributes } from "./models/FormUpdateAttributes";
 export { FormVersionAttributes } from "./models/FormVersionAttributes";
 export { FormVersionData } from "./models/FormVersionData";
+export { FormVersionListType } from "./models/FormVersionListType";
 export { FormVersionResponse } from "./models/FormVersionResponse";
 export { FormVersionState } from "./models/FormVersionState";
 export { FormVersionType } from "./models/FormVersionType";
@@ -45,6 +48,9 @@ export { JSONAPIErrorItem } from "./models/JSONAPIErrorItem";
 export { JSONAPIErrorItemSource } from "./models/JSONAPIErrorItemSource";
 export { JSONAPIErrorResponse } from "./models/JSONAPIErrorResponse";
 export { LatestVersionMatchPolicy } from "./models/LatestVersionMatchPolicy";
+export { ListFormVersionsData } from "./models/ListFormVersionsData";
+export { ListFormVersionsDataAttributes } from "./models/ListFormVersionsDataAttributes";
+export { ListFormVersionsResponse } from "./models/ListFormVersionsResponse";
 export { PublishFormData } from "./models/PublishFormData";
 export { PublishFormDataAttributes } from "./models/PublishFormDataAttributes";
 export { PublishFormRequest } from "./models/PublishFormRequest";
