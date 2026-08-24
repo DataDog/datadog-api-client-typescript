@@ -1,11 +1,11 @@
 import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
 /**
- * The definition of `AnnotationMarkdownTextAnnotation` object.
+ * Markdown content displayed in an annotation.
  */
 export class AnnotationMarkdownTextAnnotation {
   /**
-   * The `markdownTextAnnotation` `text`.
+   * The annotation's Markdown content.
    */
   "text"?: string;
   /**
