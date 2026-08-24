@@ -1396,13 +1396,18 @@ export {
 } from "./apis/RumReplayViewershipApi";
 
 export {
+  RumRetentionFiltersApiCreateExclusionFilterRequest,
   RumRetentionFiltersApiCreateRetentionFilterRequest,
+  RumRetentionFiltersApiDeleteExclusionFilterRequest,
   RumRetentionFiltersApiDeleteRetentionFilterRequest,
+  RumRetentionFiltersApiGetExclusionFilterRequest,
   RumRetentionFiltersApiGetPermanentRetentionFilterRequest,
   RumRetentionFiltersApiGetRetentionFilterRequest,
+  RumRetentionFiltersApiListExclusionFiltersRequest,
   RumRetentionFiltersApiListPermanentRetentionFiltersRequest,
   RumRetentionFiltersApiListRetentionFiltersRequest,
   RumRetentionFiltersApiOrderRetentionFiltersRequest,
+  RumRetentionFiltersApiUpdateExclusionFilterRequest,
   RumRetentionFiltersApiUpdatePermanentRetentionFilterRequest,
   RumRetentionFiltersApiUpdateRetentionFilterRequest,
   RumRetentionFiltersApi,
@@ -7487,6 +7492,19 @@ export { RUMEventProcessingScale } from "./models/RUMEventProcessingScale";
 export { RUMEventProcessingState } from "./models/RUMEventProcessingState";
 export { RUMEventsResponse } from "./models/RUMEventsResponse";
 export { RUMEventType } from "./models/RUMEventType";
+export { RumExclusionFilterAttributes } from "./models/RumExclusionFilterAttributes";
+export { RumExclusionFilterCreateAttributes } from "./models/RumExclusionFilterCreateAttributes";
+export { RumExclusionFilterCreateData } from "./models/RumExclusionFilterCreateData";
+export { RumExclusionFilterCreateRequest } from "./models/RumExclusionFilterCreateRequest";
+export { RumExclusionFilterData } from "./models/RumExclusionFilterData";
+export { RumExclusionFilterEventType } from "./models/RumExclusionFilterEventType";
+export { RumExclusionFilterMeta } from "./models/RumExclusionFilterMeta";
+export { RumExclusionFilterResponse } from "./models/RumExclusionFilterResponse";
+export { RumExclusionFiltersResponse } from "./models/RumExclusionFiltersResponse";
+export { RumExclusionFilterType } from "./models/RumExclusionFilterType";
+export { RumExclusionFilterUpdateAttributes } from "./models/RumExclusionFilterUpdateAttributes";
+export { RumExclusionFilterUpdateData } from "./models/RumExclusionFilterUpdateData";
+export { RumExclusionFilterUpdateRequest } from "./models/RumExclusionFilterUpdateRequest";
 export { RUMGroupBy } from "./models/RUMGroupBy";
 export { RUMGroupByHistogram } from "./models/RUMGroupByHistogram";
 export { RUMGroupByMissing } from "./models/RUMGroupByMissing";
