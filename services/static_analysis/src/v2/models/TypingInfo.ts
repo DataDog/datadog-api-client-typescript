@@ -88,11 +88,13 @@ import { ScaRequestDataAttributesCommit } from "./ScaRequestDataAttributesCommit
 import { ScaRequestDataAttributesDependenciesItems } from "./ScaRequestDataAttributesDependenciesItems";
 import { ScaRequestDataAttributesDependenciesItemsLocationsItems } from "./ScaRequestDataAttributesDependenciesItemsLocationsItems";
 import { ScaRequestDataAttributesDependenciesItemsLocationsItemsFilePosition } from "./ScaRequestDataAttributesDependenciesItemsLocationsItemsFilePosition";
+import { ScaRequestDataAttributesDependenciesItemsLocationsItemsNullableFilePosition } from "./ScaRequestDataAttributesDependenciesItemsLocationsItemsNullableFilePosition";
 import { ScaRequestDataAttributesDependenciesItemsLocationsItemsPosition } from "./ScaRequestDataAttributesDependenciesItemsLocationsItemsPosition";
 import { ScaRequestDataAttributesDependenciesItemsReachableSymbolPropertiesItems } from "./ScaRequestDataAttributesDependenciesItemsReachableSymbolPropertiesItems";
 import { ScaRequestDataAttributesFilesItems } from "./ScaRequestDataAttributesFilesItems";
 import { ScaRequestDataAttributesRelationsItems } from "./ScaRequestDataAttributesRelationsItems";
 import { ScaRequestDataAttributesRepository } from "./ScaRequestDataAttributesRepository";
+import { ScaRequestDataAttributesScanStartTimestamp } from "./ScaRequestDataAttributesScanStartTimestamp";
 import { ScaRequestDataAttributesVulnerabilitiesItems } from "./ScaRequestDataAttributesVulnerabilitiesItems";
 import { ScaRequestDataAttributesVulnerabilitiesItemsAffectsItems } from "./ScaRequestDataAttributesVulnerabilitiesItemsAffectsItems";
 
@@ -248,6 +250,8 @@ export const TypingInfo: ModelTypingInfo = {
       ScaRequestDataAttributesDependenciesItemsLocationsItems,
     ScaRequestDataAttributesDependenciesItemsLocationsItemsFilePosition:
       ScaRequestDataAttributesDependenciesItemsLocationsItemsFilePosition,
+    ScaRequestDataAttributesDependenciesItemsLocationsItemsNullableFilePosition:
+      ScaRequestDataAttributesDependenciesItemsLocationsItemsNullableFilePosition,
     ScaRequestDataAttributesDependenciesItemsLocationsItemsPosition:
       ScaRequestDataAttributesDependenciesItemsLocationsItemsPosition,
     ScaRequestDataAttributesDependenciesItemsReachableSymbolPropertiesItems:
@@ -256,6 +260,8 @@ export const TypingInfo: ModelTypingInfo = {
     ScaRequestDataAttributesRelationsItems:
       ScaRequestDataAttributesRelationsItems,
     ScaRequestDataAttributesRepository: ScaRequestDataAttributesRepository,
+    ScaRequestDataAttributesScanStartTimestamp:
+      ScaRequestDataAttributesScanStartTimestamp,
     ScaRequestDataAttributesVulnerabilitiesItems:
       ScaRequestDataAttributesVulnerabilitiesItems,
     ScaRequestDataAttributesVulnerabilitiesItemsAffectsItems:

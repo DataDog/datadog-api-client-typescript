@@ -36,6 +36,10 @@ export class ScaRequestDataAttributesDependenciesItems {
    */
   "name"?: string;
   /**
+   * Indicates whether dependency details are intentionally opaque.
+   */
+  "opaque"?: boolean;
+  /**
    * The package manager responsible for this dependency (e.g., maven, pip, npm).
    */
   "packageManager"?: string;
@@ -48,9 +52,25 @@ export class ScaRequestDataAttributesDependenciesItems {
    */
   "reachableSymbolProperties"?: Array<ScaRequestDataAttributesDependenciesItemsReachableSymbolPropertiesItems>;
   /**
+   * Indicates whether this dependency requires transitive dependency enrichment.
+   */
+  "requiresTransitiveEnrichment"?: boolean;
+  /**
+   * The target framework identifiers associated with this dependency.
+   */
+  "targetFrameworks"?: Array<string>;
+  /**
    * The version of the dependency.
    */
   "version"?: string;
+  /**
+   * Indicates whether the version value represents a version constraint.
+   */
+  "versionConstraint"?: boolean;
+  /**
+   * The version range associated with this dependency when a manifest declares a range.
+   */
+  "versionRange"?: string;
   /**
    * A container for additional, undeclared properties.
    * This is a holder for any undeclared properties as specified with
@@ -94,6 +114,10 @@ export class ScaRequestDataAttributesDependenciesItems {
       baseName: "name",
       type: "string",
     },
+    opaque: {
+      baseName: "opaque",
+      type: "boolean",
+    },
     packageManager: {
       baseName: "package_manager",
       type: "string",
@@ -106,8 +130,24 @@ export class ScaRequestDataAttributesDependenciesItems {
       baseName: "reachable_symbol_properties",
       type: "Array<ScaRequestDataAttributesDependenciesItemsReachableSymbolPropertiesItems>",
     },
+    requiresTransitiveEnrichment: {
+      baseName: "requires_transitive_enrichment",
+      type: "boolean",
+    },
+    targetFrameworks: {
+      baseName: "target_frameworks",
+      type: "Array<string>",
+    },
     version: {
       baseName: "version",
+      type: "string",
+    },
+    versionConstraint: {
+      baseName: "version_constraint",
+      type: "boolean",
+    },
+    versionRange: {
+      baseName: "version_range",
       type: "string",
     },
     additionalProperties: {
