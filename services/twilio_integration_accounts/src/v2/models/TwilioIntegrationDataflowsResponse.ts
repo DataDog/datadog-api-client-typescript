@@ -1,0 +1,82 @@
+import { AttributeTypeMap } from "@datadog/datadog-api-client";
+
+import { TwilioAlertsLogsIntegrationDataflowResponse } from "./TwilioAlertsLogsIntegrationDataflowResponse";
+import { TwilioCallSummariesLogsIntegrationDataflowResponse } from "./TwilioCallSummariesLogsIntegrationDataflowResponse";
+import { TwilioCloudCostMetricsIntegrationDataflowResponse } from "./TwilioCloudCostMetricsIntegrationDataflowResponse";
+import { TwilioEventsLogsIntegrationDataflowResponse } from "./TwilioEventsLogsIntegrationDataflowResponse";
+import { TwilioMessagesLogsIntegrationDataflowResponse } from "./TwilioMessagesLogsIntegrationDataflowResponse";
+
+/**
+ * Dataflows configured on the Twilio integration account, keyed by dataflow id.
+ */
+export class TwilioIntegrationDataflowsResponse {
+  /**
+   * The Twilio alerts logs dataflow.
+   */
+  "twilioAlertsLogs"?: TwilioAlertsLogsIntegrationDataflowResponse;
+  /**
+   * The Twilio call summaries logs dataflow.
+   */
+  "twilioCallSummariesLogs"?: TwilioCallSummariesLogsIntegrationDataflowResponse;
+  /**
+   * The Twilio cloud cost metrics dataflow.
+   */
+  "twilioCloudCostMetrics"?: TwilioCloudCostMetricsIntegrationDataflowResponse;
+  /**
+   * The Twilio events logs dataflow.
+   */
+  "twilioEventsLogs"?: TwilioEventsLogsIntegrationDataflowResponse;
+  /**
+   * The Twilio messages logs dataflow.
+   */
+  "twilioMessagesLogs"?: TwilioMessagesLogsIntegrationDataflowResponse;
+  /**
+   * A container for additional, undeclared properties.
+   * This is a holder for any undeclared properties as specified with
+   * the 'additionalProperties' keyword in the OAS document.
+   */
+  "additionalProperties"?: { [key: string]: any };
+  /**
+   * @ignore
+   */
+  "_unparsed"?: boolean;
+
+  /**
+   * @ignore
+   */
+  static readonly attributeTypeMap: AttributeTypeMap = {
+    twilioAlertsLogs: {
+      baseName: "twilio-alerts-logs",
+      type: "TwilioAlertsLogsIntegrationDataflowResponse",
+    },
+    twilioCallSummariesLogs: {
+      baseName: "twilio-call-summaries-logs",
+      type: "TwilioCallSummariesLogsIntegrationDataflowResponse",
+    },
+    twilioCloudCostMetrics: {
+      baseName: "twilio-cloud-cost-metrics",
+      type: "TwilioCloudCostMetricsIntegrationDataflowResponse",
+    },
+    twilioEventsLogs: {
+      baseName: "twilio-events-logs",
+      type: "TwilioEventsLogsIntegrationDataflowResponse",
+    },
+    twilioMessagesLogs: {
+      baseName: "twilio-messages-logs",
+      type: "TwilioMessagesLogsIntegrationDataflowResponse",
+    },
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "{ [key: string]: any; }",
+    },
+  };
+
+  /**
+   * @ignore
+   */
+  static getAttributeTypeMap(): AttributeTypeMap {
+    return TwilioIntegrationDataflowsResponse.attributeTypeMap;
+  }
+
+  public constructor() {}
+}
