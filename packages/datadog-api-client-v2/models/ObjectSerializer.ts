@@ -4368,7 +4368,6 @@ import { RumRetentionFiltersOrderData } from "./RumRetentionFiltersOrderData";
 import { RumRetentionFiltersOrderRequest } from "./RumRetentionFiltersOrderRequest";
 import { RumRetentionFiltersOrderResponse } from "./RumRetentionFiltersOrderResponse";
 import { RumRetentionFiltersResponse } from "./RumRetentionFiltersResponse";
-import { RumRetentionQuotaAdaptiveConfig } from "./RumRetentionQuotaAdaptiveConfig";
 import { RumRetentionQuotaConfigAttributes } from "./RumRetentionQuotaConfigAttributes";
 import { RumRetentionQuotaConfigData } from "./RumRetentionQuotaConfigData";
 import { RumRetentionQuotaConfigResponse } from "./RumRetentionQuotaConfigResponse";
@@ -8108,7 +8107,7 @@ const enumsMap: { [key: string]: any[] } = {
   ],
   RumRetentionFilterType: ["retention_filters"],
   RumRetentionQuotaConfigType: ["rum_quota_config"],
-  RumRetentionQuotaMode: ["custom", "adaptive"],
+  RumRetentionQuotaMode: ["custom"],
   RumRetentionQuotaReachedAction: ["stop", "slowdown"],
   RumRetentionQuotaScopeType: ["application"],
   RumRetentionQuotaWindowType: ["daily"],
@@ -14304,7 +14303,6 @@ const typeMap: { [index: string]: any } = {
   RumRetentionFiltersOrderRequest: RumRetentionFiltersOrderRequest,
   RumRetentionFiltersOrderResponse: RumRetentionFiltersOrderResponse,
   RumRetentionFiltersResponse: RumRetentionFiltersResponse,
-  RumRetentionQuotaAdaptiveConfig: RumRetentionQuotaAdaptiveConfig,
   RumRetentionQuotaConfigAttributes: RumRetentionQuotaConfigAttributes,
   RumRetentionQuotaConfigData: RumRetentionQuotaConfigData,
   RumRetentionQuotaConfigResponse: RumRetentionQuotaConfigResponse,

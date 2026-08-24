@@ -3,7 +3,6 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
-import { RumRetentionQuotaAdaptiveConfig } from "./RumRetentionQuotaAdaptiveConfig";
 import { RumRetentionQuotaCustomConfig } from "./RumRetentionQuotaCustomConfig";
 import { RumRetentionQuotaMode } from "./RumRetentionQuotaMode";
 
@@ -14,16 +13,12 @@ import { AttributeTypeMap } from "../../datadog-api-client-common/util";
  */
 export class RumRetentionQuotaConfigAttributes {
   /**
-   * The configuration used when `mode` is `adaptive`.
-   */
-  "adaptive"?: RumRetentionQuotaAdaptiveConfig;
-  /**
    * The configuration used when `mode` is `custom`.
    */
   "custom"?: RumRetentionQuotaCustomConfig;
   /**
-   * The retention quota mode. `custom` enforces a fixed session limit, while
-   * `adaptive` dynamically adjusts retention.
+   * The retention quota mode. `custom` enforces a fixed session limit.
+   * `custom` is the only supported mode.
    */
   "mode": RumRetentionQuotaMode;
   /**
@@ -55,10 +50,6 @@ export class RumRetentionQuotaConfigAttributes {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    adaptive: {
-      baseName: "adaptive",
-      type: "RumRetentionQuotaAdaptiveConfig",
-    },
     custom: {
       baseName: "custom",
       type: "RumRetentionQuotaCustomConfig",

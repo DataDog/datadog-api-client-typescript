@@ -5,11 +5,11 @@
 import { client, v2 } from "@datadog/datadog-api-client";
 
 const configuration = client.createConfiguration();
-const apiInstance = new v2.RUMRetentionQuotaApi(configuration);
+const apiInstance = new v2.RUMRetentionQuotasApi(configuration);
 
-const params: v2.RUMRetentionQuotaApiDeleteRumQuotaConfigRequest = {
+const params: v2.RUMRetentionQuotasApiDeleteRumQuotaConfigRequest = {
   scopeType: "application",
-  scopeId: "ced16651-97b6-4e67-8590-8caec3af0695",
+  scopeId: "cd73a516-a481-4af5-8352-9b577465c77b",
 };
 
 apiInstance
