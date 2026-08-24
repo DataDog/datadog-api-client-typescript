@@ -1,6 +1,7 @@
 import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
 import { ScannedAssetMetadataAttributes } from "./ScannedAssetMetadataAttributes";
+import { ScannedAssetMetadataType } from "./ScannedAssetMetadataType";
 
 /**
  * The metadata of a scanned asset.
@@ -14,6 +15,10 @@ export class ScannedAssetMetadata {
    * The ID of the scanned asset metadata.
    */
   "id": string;
+  /**
+   * The JSON:API type.
+   */
+  "type": ScannedAssetMetadataType;
   /**
    * A container for additional, undeclared properties.
    * This is a holder for any undeclared properties as specified with
@@ -37,6 +42,11 @@ export class ScannedAssetMetadata {
     id: {
       baseName: "id",
       type: "string",
+      required: true,
+    },
+    type: {
+      baseName: "type",
+      type: "ScannedAssetMetadataType",
       required: true,
     },
     additionalProperties: {
