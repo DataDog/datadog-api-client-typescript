@@ -7726,7 +7726,7 @@ export interface CaseManagementApiRemoveCaseInsightsRequest {
 
 export interface CaseManagementApiSearchCasesRequest {
   /**
-   * Size for a given page. The maximum allowed value is 100.
+   * Number of items to return per page. The maximum allowed value is 100.
    * @type number
    */
   pageSize?: number;
