@@ -23,6 +23,10 @@ import {
 
 import { TypingInfo } from "./models/TypingInfo";
 import { APIErrorResponse } from "./models/APIErrorResponse";
+import { RumExclusionFilterCreateRequest } from "./models/RumExclusionFilterCreateRequest";
+import { RumExclusionFilterResponse } from "./models/RumExclusionFilterResponse";
+import { RumExclusionFiltersResponse } from "./models/RumExclusionFiltersResponse";
+import { RumExclusionFilterUpdateRequest } from "./models/RumExclusionFilterUpdateRequest";
 import { RumPermanentRetentionFilterID } from "./models/RumPermanentRetentionFilterID";
 import { RumPermanentRetentionFilterResponse } from "./models/RumPermanentRetentionFilterResponse";
 import { RumPermanentRetentionFiltersResponse } from "./models/RumPermanentRetentionFiltersResponse";
@@ -44,6 +48,76 @@ export class RumRetentionFiltersApiRequestFactory extends BaseAPIRequestFactory 
       this.userAgent = buildUserAgent("rum-retention-filters", version);
     }
   }
+  public async createExclusionFilter(
+    appId: string,
+    body: RumExclusionFilterCreateRequest,
+    _options?: Configuration,
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    if (
+      !_config.unstableOperations[
+        "RumRetentionFiltersApi.v2.createExclusionFilter"
+      ]
+    ) {
+      throw new Error(
+        "Unstable operation 'createExclusionFilter' is disabled. Enable it by setting `configuration.unstableOperations['RumRetentionFiltersApi.v2.createExclusionFilter'] = true`",
+      );
+    }
+
+    // verify required parameter 'appId' is not null or undefined
+    if (appId === null || appId === undefined) {
+      throw new RequiredError("appId", "createExclusionFilter");
+    }
+
+    // verify required parameter 'body' is not null or undefined
+    if (body === null || body === undefined) {
+      throw new RequiredError("body", "createExclusionFilter");
+    }
+
+    // Path Params
+    const localVarPath =
+      "/api/v2/rum/applications/{app_id}/retention_filters/exclusion".replace(
+        "{app_id}",
+        encodeURIComponent(String(appId)),
+      );
+
+    // Make Request Context
+    const { server, overrides } = _config.getServerAndOverrides(
+      "RumRetentionFiltersApi.v2.createExclusionFilter",
+      RumRetentionFiltersApi.operationServers,
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.POST,
+      overrides,
+    );
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Set User-Agent
+    if (this.userAgent) {
+      requestContext.setHeaderParam("User-Agent", this.userAgent);
+    }
+
+    // Body Params
+    const contentType = getPreferredMediaType(["application/json"]);
+    requestContext.setHeaderParam("Content-Type", contentType);
+    const serializedBody = stringify(
+      serialize(body, TypingInfo, "RumExclusionFilterCreateRequest", ""),
+      contentType,
+    );
+    requestContext.setBody(serializedBody);
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+    ]);
+
+    return requestContext;
+  }
+
   public async createRetentionFilter(
     appId: string,
     body: RumRetentionFilterCreateRequest,
@@ -104,6 +178,66 @@ export class RumRetentionFiltersApiRequestFactory extends BaseAPIRequestFactory 
     return requestContext;
   }
 
+  public async deleteExclusionFilter(
+    appId: string,
+    efId: string,
+    _options?: Configuration,
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    if (
+      !_config.unstableOperations[
+        "RumRetentionFiltersApi.v2.deleteExclusionFilter"
+      ]
+    ) {
+      throw new Error(
+        "Unstable operation 'deleteExclusionFilter' is disabled. Enable it by setting `configuration.unstableOperations['RumRetentionFiltersApi.v2.deleteExclusionFilter'] = true`",
+      );
+    }
+
+    // verify required parameter 'appId' is not null or undefined
+    if (appId === null || appId === undefined) {
+      throw new RequiredError("appId", "deleteExclusionFilter");
+    }
+
+    // verify required parameter 'efId' is not null or undefined
+    if (efId === null || efId === undefined) {
+      throw new RequiredError("efId", "deleteExclusionFilter");
+    }
+
+    // Path Params
+    const localVarPath =
+      "/api/v2/rum/applications/{app_id}/retention_filters/exclusion/{ef_id}"
+        .replace("{app_id}", encodeURIComponent(String(appId)))
+        .replace("{ef_id}", encodeURIComponent(String(efId)));
+
+    // Make Request Context
+    const { server, overrides } = _config.getServerAndOverrides(
+      "RumRetentionFiltersApi.v2.deleteExclusionFilter",
+      RumRetentionFiltersApi.operationServers,
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.DELETE,
+      overrides,
+    );
+    requestContext.setHeaderParam("Accept", "*/*");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Set User-Agent
+    if (this.userAgent) {
+      requestContext.setHeaderParam("User-Agent", this.userAgent);
+    }
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+    ]);
+
+    return requestContext;
+  }
+
   public async deleteRetentionFilter(
     appId: string,
     rfId: string,
@@ -138,6 +272,66 @@ export class RumRetentionFiltersApiRequestFactory extends BaseAPIRequestFactory 
       overrides,
     );
     requestContext.setHeaderParam("Accept", "*/*");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Set User-Agent
+    if (this.userAgent) {
+      requestContext.setHeaderParam("User-Agent", this.userAgent);
+    }
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+    ]);
+
+    return requestContext;
+  }
+
+  public async getExclusionFilter(
+    appId: string,
+    efId: string,
+    _options?: Configuration,
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    if (
+      !_config.unstableOperations[
+        "RumRetentionFiltersApi.v2.getExclusionFilter"
+      ]
+    ) {
+      throw new Error(
+        "Unstable operation 'getExclusionFilter' is disabled. Enable it by setting `configuration.unstableOperations['RumRetentionFiltersApi.v2.getExclusionFilter'] = true`",
+      );
+    }
+
+    // verify required parameter 'appId' is not null or undefined
+    if (appId === null || appId === undefined) {
+      throw new RequiredError("appId", "getExclusionFilter");
+    }
+
+    // verify required parameter 'efId' is not null or undefined
+    if (efId === null || efId === undefined) {
+      throw new RequiredError("efId", "getExclusionFilter");
+    }
+
+    // Path Params
+    const localVarPath =
+      "/api/v2/rum/applications/{app_id}/retention_filters/exclusion/{ef_id}"
+        .replace("{app_id}", encodeURIComponent(String(appId)))
+        .replace("{ef_id}", encodeURIComponent(String(efId)));
+
+    // Make Request Context
+    const { server, overrides } = _config.getServerAndOverrides(
+      "RumRetentionFiltersApi.v2.getExclusionFilter",
+      RumRetentionFiltersApi.operationServers,
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.GET,
+      overrides,
+    );
+    requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
     // Set User-Agent
@@ -233,6 +427,61 @@ export class RumRetentionFiltersApiRequestFactory extends BaseAPIRequestFactory 
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "RumRetentionFiltersApi.v2.getRetentionFilter",
+      RumRetentionFiltersApi.operationServers,
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.GET,
+      overrides,
+    );
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Set User-Agent
+    if (this.userAgent) {
+      requestContext.setHeaderParam("User-Agent", this.userAgent);
+    }
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+    ]);
+
+    return requestContext;
+  }
+
+  public async listExclusionFilters(
+    appId: string,
+    _options?: Configuration,
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    if (
+      !_config.unstableOperations[
+        "RumRetentionFiltersApi.v2.listExclusionFilters"
+      ]
+    ) {
+      throw new Error(
+        "Unstable operation 'listExclusionFilters' is disabled. Enable it by setting `configuration.unstableOperations['RumRetentionFiltersApi.v2.listExclusionFilters'] = true`",
+      );
+    }
+
+    // verify required parameter 'appId' is not null or undefined
+    if (appId === null || appId === undefined) {
+      throw new RequiredError("appId", "listExclusionFilters");
+    }
+
+    // Path Params
+    const localVarPath =
+      "/api/v2/rum/applications/{app_id}/retention_filters/exclusion".replace(
+        "{app_id}",
+        encodeURIComponent(String(appId)),
+      );
+
+    // Make Request Context
+    const { server, overrides } = _config.getServerAndOverrides(
+      "RumRetentionFiltersApi.v2.listExclusionFilters",
       RumRetentionFiltersApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
@@ -407,6 +656,81 @@ export class RumRetentionFiltersApiRequestFactory extends BaseAPIRequestFactory 
     return requestContext;
   }
 
+  public async updateExclusionFilter(
+    appId: string,
+    efId: string,
+    body: RumExclusionFilterUpdateRequest,
+    _options?: Configuration,
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    if (
+      !_config.unstableOperations[
+        "RumRetentionFiltersApi.v2.updateExclusionFilter"
+      ]
+    ) {
+      throw new Error(
+        "Unstable operation 'updateExclusionFilter' is disabled. Enable it by setting `configuration.unstableOperations['RumRetentionFiltersApi.v2.updateExclusionFilter'] = true`",
+      );
+    }
+
+    // verify required parameter 'appId' is not null or undefined
+    if (appId === null || appId === undefined) {
+      throw new RequiredError("appId", "updateExclusionFilter");
+    }
+
+    // verify required parameter 'efId' is not null or undefined
+    if (efId === null || efId === undefined) {
+      throw new RequiredError("efId", "updateExclusionFilter");
+    }
+
+    // verify required parameter 'body' is not null or undefined
+    if (body === null || body === undefined) {
+      throw new RequiredError("body", "updateExclusionFilter");
+    }
+
+    // Path Params
+    const localVarPath =
+      "/api/v2/rum/applications/{app_id}/retention_filters/exclusion/{ef_id}"
+        .replace("{app_id}", encodeURIComponent(String(appId)))
+        .replace("{ef_id}", encodeURIComponent(String(efId)));
+
+    // Make Request Context
+    const { server, overrides } = _config.getServerAndOverrides(
+      "RumRetentionFiltersApi.v2.updateExclusionFilter",
+      RumRetentionFiltersApi.operationServers,
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.PATCH,
+      overrides,
+    );
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Set User-Agent
+    if (this.userAgent) {
+      requestContext.setHeaderParam("User-Agent", this.userAgent);
+    }
+
+    // Body Params
+    const contentType = getPreferredMediaType(["application/json"]);
+    requestContext.setHeaderParam("Content-Type", contentType);
+    const serializedBody = stringify(
+      serialize(body, TypingInfo, "RumExclusionFilterUpdateRequest", ""),
+      contentType,
+    );
+    requestContext.setBody(serializedBody);
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+    ]);
+
+    return requestContext;
+  }
+
   public async updatePermanentRetentionFilter(
     appId: string,
     permanentRfId: RumPermanentRetentionFilterID,
@@ -554,6 +878,66 @@ export class RumRetentionFiltersApiResponseProcessor {
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
    *
+   * @params response Response returned by the server for a request to createExclusionFilter
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async createExclusionFilter(
+    response: ResponseContext,
+  ): Promise<RumExclusionFilterResponse> {
+    const contentType = normalizeMediaType(response.headers["content-type"]);
+    if (response.httpStatusCode === 201) {
+      const body: RumExclusionFilterResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "RumExclusionFilterResponse",
+      ) as RumExclusionFilterResponse;
+      return body;
+    }
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 429
+    ) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: APIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "APIErrorResponse",
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: RumExclusionFilterResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "RumExclusionFilterResponse",
+        "",
+      ) as RumExclusionFilterResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"',
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
    * @params response Response returned by the server for a request to createRetentionFilter
    * @throws ApiException if the response code was not in [200, 299]
    */
@@ -614,6 +998,54 @@ export class RumRetentionFiltersApiResponseProcessor {
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
    *
+   * @params response Response returned by the server for a request to deleteExclusionFilter
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async deleteExclusionFilter(response: ResponseContext): Promise<void> {
+    const contentType = normalizeMediaType(response.headers["content-type"]);
+    if (response.httpStatusCode === 204) {
+      return;
+    }
+    if (
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 404 ||
+      response.httpStatusCode === 405 ||
+      response.httpStatusCode === 429
+    ) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: APIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "APIErrorResponse",
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      return;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"',
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
    * @params response Response returned by the server for a request to deleteRetentionFilter
    * @throws ApiException if the response code was not in [200, 299]
    */
@@ -648,6 +1080,66 @@ export class RumRetentionFiltersApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       return;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"',
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
+   * @params response Response returned by the server for a request to getExclusionFilter
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async getExclusionFilter(
+    response: ResponseContext,
+  ): Promise<RumExclusionFilterResponse> {
+    const contentType = normalizeMediaType(response.headers["content-type"]);
+    if (response.httpStatusCode === 200) {
+      const body: RumExclusionFilterResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "RumExclusionFilterResponse",
+      ) as RumExclusionFilterResponse;
+      return body;
+    }
+    if (
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 404 ||
+      response.httpStatusCode === 429
+    ) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: APIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "APIErrorResponse",
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: RumExclusionFilterResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "RumExclusionFilterResponse",
+        "",
+      ) as RumExclusionFilterResponse;
+      return body;
     }
 
     const body = (await response.body.text()) || "";
@@ -767,6 +1259,62 @@ export class RumRetentionFiltersApiResponseProcessor {
         "RumRetentionFilterResponse",
         "",
       ) as RumRetentionFilterResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"',
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
+   * @params response Response returned by the server for a request to listExclusionFilters
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async listExclusionFilters(
+    response: ResponseContext,
+  ): Promise<RumExclusionFiltersResponse> {
+    const contentType = normalizeMediaType(response.headers["content-type"]);
+    if (response.httpStatusCode === 200) {
+      const body: RumExclusionFiltersResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "RumExclusionFiltersResponse",
+      ) as RumExclusionFiltersResponse;
+      return body;
+    }
+    if (response.httpStatusCode === 403 || response.httpStatusCode === 429) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: APIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "APIErrorResponse",
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: RumExclusionFiltersResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "RumExclusionFiltersResponse",
+        "",
+      ) as RumExclusionFiltersResponse;
       return body;
     }
 
@@ -953,6 +1501,68 @@ export class RumRetentionFiltersApiResponseProcessor {
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
    *
+   * @params response Response returned by the server for a request to updateExclusionFilter
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async updateExclusionFilter(
+    response: ResponseContext,
+  ): Promise<RumExclusionFilterResponse> {
+    const contentType = normalizeMediaType(response.headers["content-type"]);
+    if (response.httpStatusCode === 200) {
+      const body: RumExclusionFilterResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "RumExclusionFilterResponse",
+      ) as RumExclusionFilterResponse;
+      return body;
+    }
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 404 ||
+      response.httpStatusCode === 409 ||
+      response.httpStatusCode === 429
+    ) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: APIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "APIErrorResponse",
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: RumExclusionFilterResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "RumExclusionFilterResponse",
+        "",
+      ) as RumExclusionFilterResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"',
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
    * @params response Response returned by the server for a request to updatePermanentRetentionFilter
    * @throws ApiException if the response code was not in [200, 299]
    */
@@ -1072,6 +1682,19 @@ export class RumRetentionFiltersApiResponseProcessor {
   }
 }
 
+export interface RumRetentionFiltersApiCreateExclusionFilterRequest {
+  /**
+   * RUM application ID.
+   * @type string
+   */
+  appId: string;
+  /**
+   * The definition of the new RUM exclusion filter.
+   * @type RumExclusionFilterCreateRequest
+   */
+  body: RumExclusionFilterCreateRequest;
+}
+
 export interface RumRetentionFiltersApiCreateRetentionFilterRequest {
   /**
    * RUM application ID.
@@ -1085,6 +1708,19 @@ export interface RumRetentionFiltersApiCreateRetentionFilterRequest {
   body: RumRetentionFilterCreateRequest;
 }
 
+export interface RumRetentionFiltersApiDeleteExclusionFilterRequest {
+  /**
+   * RUM application ID.
+   * @type string
+   */
+  appId: string;
+  /**
+   * Exclusion filter ID.
+   * @type string
+   */
+  efId: string;
+}
+
 export interface RumRetentionFiltersApiDeleteRetentionFilterRequest {
   /**
    * RUM application ID.
@@ -1096,6 +1732,19 @@ export interface RumRetentionFiltersApiDeleteRetentionFilterRequest {
    * @type string
    */
   rfId: string;
+}
+
+export interface RumRetentionFiltersApiGetExclusionFilterRequest {
+  /**
+   * RUM application ID.
+   * @type string
+   */
+  appId: string;
+  /**
+   * Exclusion filter ID.
+   * @type string
+   */
+  efId: string;
 }
 
 export interface RumRetentionFiltersApiGetPermanentRetentionFilterRequest {
@@ -1122,6 +1771,14 @@ export interface RumRetentionFiltersApiGetRetentionFilterRequest {
    * @type string
    */
   rfId: string;
+}
+
+export interface RumRetentionFiltersApiListExclusionFiltersRequest {
+  /**
+   * RUM application ID.
+   * @type string
+   */
+  appId: string;
 }
 
 export interface RumRetentionFiltersApiListPermanentRetentionFiltersRequest {
@@ -1151,6 +1808,24 @@ export interface RumRetentionFiltersApiOrderRetentionFiltersRequest {
    * @type RumRetentionFiltersOrderRequest
    */
   body: RumRetentionFiltersOrderRequest;
+}
+
+export interface RumRetentionFiltersApiUpdateExclusionFilterRequest {
+  /**
+   * RUM application ID.
+   * @type string
+   */
+  appId: string;
+  /**
+   * Exclusion filter ID.
+   * @type string
+   */
+  efId: string;
+  /**
+   * New definition of the RUM exclusion filter.
+   * @type RumExclusionFilterUpdateRequest
+   */
+  body: RumExclusionFilterUpdateRequest;
 }
 
 export interface RumRetentionFiltersApiUpdatePermanentRetentionFilterRequest {
@@ -1210,6 +1885,29 @@ export class RumRetentionFiltersApi {
   }
 
   /**
+   * Create an exclusion filter for a RUM application.
+   * Returns the created exclusion filter when the request is successful.
+   * @param param The request object
+   */
+  public createExclusionFilter(
+    param: RumRetentionFiltersApiCreateExclusionFilterRequest,
+    options?: Configuration,
+  ): Promise<RumExclusionFilterResponse> {
+    const requestContextPromise = this.requestFactory.createExclusionFilter(
+      param.appId,
+      param.body,
+      options,
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.createExclusionFilter(responseContext);
+        });
+    });
+  }
+
+  /**
    * Create a RUM retention filter for a RUM application.
    * Returns RUM retention filter objects from the request body when the request is successful.
    * @param param The request object
@@ -1233,6 +1931,30 @@ export class RumRetentionFiltersApi {
   }
 
   /**
+   * Delete an exclusion filter for a RUM application.
+   * The built-in Error Tracking exclusion filter (`error_tracking_exclusion_filter`) cannot be deleted;
+   * attempting to do so returns a `405 Method Not Allowed` response.
+   * @param param The request object
+   */
+  public deleteExclusionFilter(
+    param: RumRetentionFiltersApiDeleteExclusionFilterRequest,
+    options?: Configuration,
+  ): Promise<void> {
+    const requestContextPromise = this.requestFactory.deleteExclusionFilter(
+      param.appId,
+      param.efId,
+      options,
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.deleteExclusionFilter(responseContext);
+        });
+    });
+  }
+
+  /**
    * Delete a RUM retention filter for a RUM application.
    * @param param The request object
    */
@@ -1250,6 +1972,28 @@ export class RumRetentionFiltersApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.deleteRetentionFilter(responseContext);
+        });
+    });
+  }
+
+  /**
+   * Get a single exclusion filter for a RUM application.
+   * @param param The request object
+   */
+  public getExclusionFilter(
+    param: RumRetentionFiltersApiGetExclusionFilterRequest,
+    options?: Configuration,
+  ): Promise<RumExclusionFilterResponse> {
+    const requestContextPromise = this.requestFactory.getExclusionFilter(
+      param.appId,
+      param.efId,
+      options,
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.getExclusionFilter(responseContext);
         });
     });
   }
@@ -1297,6 +2041,28 @@ export class RumRetentionFiltersApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.getRetentionFilter(responseContext);
+        });
+    });
+  }
+
+  /**
+   * Get the list of exclusion filters for a RUM application.
+   * The built-in Error Tracking exclusion filter (`error_tracking_exclusion_filter`) is always returned first.
+   * @param param The request object
+   */
+  public listExclusionFilters(
+    param: RumRetentionFiltersApiListExclusionFiltersRequest,
+    options?: Configuration,
+  ): Promise<RumExclusionFiltersResponse> {
+    const requestContextPromise = this.requestFactory.listExclusionFilters(
+      param.appId,
+      options,
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.listExclusionFilters(responseContext);
         });
     });
   }
@@ -1364,6 +2130,32 @@ export class RumRetentionFiltersApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.orderRetentionFilters(responseContext);
+        });
+    });
+  }
+
+  /**
+   * Update an exclusion filter for a RUM application.
+   * For the built-in Error Tracking exclusion filter (`error_tracking_exclusion_filter`), only `enabled` can be
+   * updated; `name`, `event_type`, and `query` must be omitted.
+   * Returns the updated exclusion filter when the request is successful.
+   * @param param The request object
+   */
+  public updateExclusionFilter(
+    param: RumRetentionFiltersApiUpdateExclusionFilterRequest,
+    options?: Configuration,
+  ): Promise<RumExclusionFilterResponse> {
+    const requestContextPromise = this.requestFactory.updateExclusionFilter(
+      param.appId,
+      param.efId,
+      param.body,
+      options,
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.updateExclusionFilter(responseContext);
         });
     });
   }
