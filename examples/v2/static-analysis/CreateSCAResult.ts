@@ -16,6 +16,8 @@ const params: v2.StaticAnalysisApiCreateSCAResultRequest = {
         dependencies: [
           {
             exclusions: [],
+            group: undefined,
+            isDirect: undefined,
             locations: [
               {
                 block: {
@@ -37,6 +39,8 @@ const params: v2.StaticAnalysisApiCreateSCAResultRequest = {
               },
             ],
             reachableSymbolProperties: [{}],
+            targetFrameworks: [],
+            version: undefined,
           },
         ],
         files: [{}],
@@ -46,6 +50,7 @@ const params: v2.StaticAnalysisApiCreateSCAResultRequest = {
           },
         ],
         repository: {},
+        scanStartTimestamp: {},
         vulnerabilities: [
           {
             affects: [{}],
