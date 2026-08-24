@@ -18,6 +18,10 @@ export class AssetOperatingSystem {
    * Operating system name.
    */
   "name": string;
+  /**
+   * Operating system version.
+   */
+  "version"?: string;
 
   /**
    * A container for additional, undeclared properties.
@@ -43,6 +47,10 @@ export class AssetOperatingSystem {
       baseName: "name",
       type: "string",
       required: true,
+    },
+    version: {
+      baseName: "version",
+      type: "string",
     },
     additionalProperties: {
       baseName: "additionalProperties",
