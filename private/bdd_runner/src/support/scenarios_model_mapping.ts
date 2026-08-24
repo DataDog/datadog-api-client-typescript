@@ -15535,7 +15535,7 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
     },
     operationResponseType: "RumMetricResponse",
   },
-  "RUMRetentionQuotaApi.V2.GetRumQuotaConfig": {
+  "RUMRetentionQuotasApi.V2.GetRumQuotaConfig": {
     scopeType: {
       type: "RumRetentionQuotaScopeType",
       format: "",
@@ -15546,7 +15546,7 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
     },
     operationResponseType: "RumRetentionQuotaConfigResponse",
   },
-  "RUMRetentionQuotaApi.V2.UpsertRumQuotaConfig": {
+  "RUMRetentionQuotasApi.V2.UpsertRumQuotaConfig": {
     scopeType: {
       type: "RumRetentionQuotaScopeType",
       format: "",
@@ -15561,7 +15561,7 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
     },
     operationResponseType: "RumRetentionQuotaConfigResponse",
   },
-  "RUMRetentionQuotaApi.V2.DeleteRumQuotaConfig": {
+  "RUMRetentionQuotasApi.V2.DeleteRumQuotaConfig": {
     scopeType: {
       type: "RumRetentionQuotaScopeType",
       format: "",
