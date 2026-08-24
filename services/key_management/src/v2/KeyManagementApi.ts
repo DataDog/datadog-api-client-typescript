@@ -2607,7 +2607,7 @@ export interface KeyManagementApiGetPersonalAccessTokenRequest {
 
 export interface KeyManagementApiListAPIKeysRequest {
   /**
-   * Size for a given page. The maximum allowed value is 100.
+   * Number of items to return per page. The maximum allowed value is 100.
    * @type number
    */
   pageSize?: number;
@@ -2667,7 +2667,7 @@ export interface KeyManagementApiListAPIKeysRequest {
 
 export interface KeyManagementApiListApplicationKeysRequest {
   /**
-   * Size for a given page. The maximum allowed value is 100.
+   * Number of items to return per page. The maximum allowed value is 100.
    * @type number
    */
   pageSize?: number;
@@ -2712,7 +2712,7 @@ export interface KeyManagementApiListApplicationKeysRequest {
 
 export interface KeyManagementApiListCurrentUserApplicationKeysRequest {
   /**
-   * Size for a given page. The maximum allowed value is 100.
+   * Number of items to return per page. The maximum allowed value is 100.
    * @type number
    */
   pageSize?: number;
@@ -2752,7 +2752,7 @@ export interface KeyManagementApiListCurrentUserApplicationKeysRequest {
 
 export interface KeyManagementApiListPersonalAccessTokensRequest {
   /**
-   * Size for a given page. The maximum allowed value is 100.
+   * Number of items to return per page. The maximum allowed value is 100.
    * @type number
    */
   pageSize?: number;
