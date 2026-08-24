@@ -138,11 +138,13 @@ export { ScaRequestDataAttributesCommit } from "./models/ScaRequestDataAttribute
 export { ScaRequestDataAttributesDependenciesItems } from "./models/ScaRequestDataAttributesDependenciesItems";
 export { ScaRequestDataAttributesDependenciesItemsLocationsItems } from "./models/ScaRequestDataAttributesDependenciesItemsLocationsItems";
 export { ScaRequestDataAttributesDependenciesItemsLocationsItemsFilePosition } from "./models/ScaRequestDataAttributesDependenciesItemsLocationsItemsFilePosition";
+export { ScaRequestDataAttributesDependenciesItemsLocationsItemsNullableFilePosition } from "./models/ScaRequestDataAttributesDependenciesItemsLocationsItemsNullableFilePosition";
 export { ScaRequestDataAttributesDependenciesItemsLocationsItemsPosition } from "./models/ScaRequestDataAttributesDependenciesItemsLocationsItemsPosition";
 export { ScaRequestDataAttributesDependenciesItemsReachableSymbolPropertiesItems } from "./models/ScaRequestDataAttributesDependenciesItemsReachableSymbolPropertiesItems";
 export { ScaRequestDataAttributesFilesItems } from "./models/ScaRequestDataAttributesFilesItems";
 export { ScaRequestDataAttributesRelationsItems } from "./models/ScaRequestDataAttributesRelationsItems";
 export { ScaRequestDataAttributesRepository } from "./models/ScaRequestDataAttributesRepository";
+export { ScaRequestDataAttributesScanStartTimestamp } from "./models/ScaRequestDataAttributesScanStartTimestamp";
 export { ScaRequestDataAttributesVulnerabilitiesItems } from "./models/ScaRequestDataAttributesVulnerabilitiesItems";
 export { ScaRequestDataAttributesVulnerabilitiesItemsAffectsItems } from "./models/ScaRequestDataAttributesVulnerabilitiesItemsAffectsItems";
 export { ScaRequestDataType } from "./models/ScaRequestDataType";

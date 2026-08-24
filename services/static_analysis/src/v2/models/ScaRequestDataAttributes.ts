@@ -5,6 +5,7 @@ import { ScaRequestDataAttributesDependenciesItems } from "./ScaRequestDataAttri
 import { ScaRequestDataAttributesFilesItems } from "./ScaRequestDataAttributesFilesItems";
 import { ScaRequestDataAttributesRelationsItems } from "./ScaRequestDataAttributesRelationsItems";
 import { ScaRequestDataAttributesRepository } from "./ScaRequestDataAttributesRepository";
+import { ScaRequestDataAttributesScanStartTimestamp } from "./ScaRequestDataAttributesScanStartTimestamp";
 import { ScaRequestDataAttributesVulnerabilitiesItems } from "./ScaRequestDataAttributesVulnerabilitiesItems";
 
 /**
@@ -35,6 +36,10 @@ export class ScaRequestDataAttributes {
    * Information about the source code repository being analyzed.
    */
   "repository"?: ScaRequestDataAttributesRepository;
+  /**
+   * The time when the SCA scan started.
+   */
+  "scanStartTimestamp"?: ScaRequestDataAttributesScanStartTimestamp;
   /**
    * The name of the service or application being analyzed.
    */
@@ -85,6 +90,10 @@ export class ScaRequestDataAttributes {
     repository: {
       baseName: "repository",
       type: "ScaRequestDataAttributesRepository",
+    },
+    scanStartTimestamp: {
+      baseName: "scan_start_timestamp",
+      type: "ScaRequestDataAttributesScanStartTimestamp",
     },
     service: {
       baseName: "service",
