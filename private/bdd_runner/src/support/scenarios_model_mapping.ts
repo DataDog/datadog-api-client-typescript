@@ -15572,6 +15572,72 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
     },
     operationResponseType: "{}",
   },
+  "RumTeamsOwnershipApi.V2.ListTeamsOwnershipMappings": {
+    filterViewName: {
+      type: "Array<string>",
+      format: "",
+    },
+    filterTeamHandle: {
+      type: "Array<string>",
+      format: "",
+    },
+    filterApplicationId: {
+      type: "Array<string>",
+      format: "",
+    },
+    filterService: {
+      type: "Array<string>",
+      format: "",
+    },
+    operationResponseType: "TeamsOwnershipMappingsResponse",
+  },
+  "RumTeamsOwnershipApi.V2.CreateTeamsOwnershipMapping": {
+    body: {
+      type: "TeamsOwnershipMappingCreateRequest",
+      format: "",
+    },
+    operationResponseType: "TeamsOwnershipMappingResponse",
+  },
+  "RumTeamsOwnershipApi.V2.CreateTeamsOwnershipMappingsBatch": {
+    body: {
+      type: "TeamsOwnershipMappingBatchRequest",
+      format: "",
+    },
+    operationResponseType: "TeamsOwnershipMappingBatchResponse",
+  },
+  "RumTeamsOwnershipApi.V2.GetTeamsOwnershipMapping": {
+    id: {
+      type: "string",
+      format: "",
+    },
+    operationResponseType: "TeamsOwnershipMappingResponse",
+  },
+  "RumTeamsOwnershipApi.V2.DeleteTeamsOwnershipMapping": {
+    id: {
+      type: "string",
+      format: "",
+    },
+    operationResponseType: "{}",
+  },
+  "RumTeamsOwnershipApi.V2.ListTeamsOwnershipRules": {
+    filterViewName: {
+      type: "Array<string>",
+      format: "",
+    },
+    filterTeamHandle: {
+      type: "Array<string>",
+      format: "",
+    },
+    filterApplicationId: {
+      type: "Array<string>",
+      format: "",
+    },
+    filterService: {
+      type: "Array<string>",
+      format: "",
+    },
+    operationResponseType: "TeamsOwnershipRulesResponse",
+  },
   "RUMOperationsApi.V2.CreateRUMOperation": {
     body: {
       type: "RUMOperationCreateRequest",
