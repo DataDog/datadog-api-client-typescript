@@ -5,15 +5,12 @@
 import { client, v2 } from "@datadog/datadog-api-client";
 
 const configuration = client.createConfiguration();
-const apiInstance = new v2.RUMRetentionQuotaApi(configuration);
+const apiInstance = new v2.RUMRetentionQuotasApi(configuration);
 
-const params: v2.RUMRetentionQuotaApiUpsertRumQuotaConfigRequest = {
+const params: v2.RUMRetentionQuotasApiUpsertRumQuotaConfigRequest = {
   body: {
     data: {
       attributes: {
-        adaptive: {
-          maxRetentionRate: 0.5,
-        },
         custom: {
           dailyResetTime: "08:00",
           dailyResetTimezone: "+09:00",
@@ -23,12 +20,12 @@ const params: v2.RUMRetentionQuotaApiUpsertRumQuotaConfigRequest = {
         },
         mode: "custom",
       },
-      id: "ced16651-97b6-4e67-8590-8caec3af0695",
+      id: "cd73a516-a481-4af5-8352-9b577465c77b",
       type: "rum_quota_config",
     },
   },
   scopeType: "application",
-  scopeId: "ced16651-97b6-4e67-8590-8caec3af0695",
+  scopeId: "cd73a516-a481-4af5-8352-9b577465c77b",
 };
 
 apiInstance

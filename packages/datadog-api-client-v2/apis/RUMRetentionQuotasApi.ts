@@ -22,7 +22,7 @@ import { RumRetentionQuotaConfigResponse } from "../models/RumRetentionQuotaConf
 import { RumRetentionQuotaConfigUpdateRequest } from "../models/RumRetentionQuotaConfigUpdateRequest";
 import { RumRetentionQuotaScopeType } from "../models/RumRetentionQuotaScopeType";
 
-export class RUMRetentionQuotaApiRequestFactory extends BaseAPIRequestFactory {
+export class RUMRetentionQuotasApiRequestFactory extends BaseAPIRequestFactory {
   public async deleteRumQuotaConfig(
     scopeType: RumRetentionQuotaScopeType,
     scopeId: string,
@@ -48,7 +48,7 @@ export class RUMRetentionQuotaApiRequestFactory extends BaseAPIRequestFactory {
 
     // Make Request Context
     const requestContext = _config
-      .getServer("v2.RUMRetentionQuotaApi.deleteRumQuotaConfig")
+      .getServer("v2.RUMRetentionQuotasApi.deleteRumQuotaConfig")
       .makeRequestContext(localVarPath, HttpMethod.DELETE);
     requestContext.setHeaderParam("Accept", "*/*");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -87,7 +87,7 @@ export class RUMRetentionQuotaApiRequestFactory extends BaseAPIRequestFactory {
 
     // Make Request Context
     const requestContext = _config
-      .getServer("v2.RUMRetentionQuotaApi.getRumQuotaConfig")
+      .getServer("v2.RUMRetentionQuotasApi.getRumQuotaConfig")
       .makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -132,7 +132,7 @@ export class RUMRetentionQuotaApiRequestFactory extends BaseAPIRequestFactory {
 
     // Make Request Context
     const requestContext = _config
-      .getServer("v2.RUMRetentionQuotaApi.upsertRumQuotaConfig")
+      .getServer("v2.RUMRetentionQuotasApi.upsertRumQuotaConfig")
       .makeRequestContext(localVarPath, HttpMethod.PUT);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -162,7 +162,7 @@ export class RUMRetentionQuotaApiRequestFactory extends BaseAPIRequestFactory {
   }
 }
 
-export class RUMRetentionQuotaApiResponseProcessor {
+export class RUMRetentionQuotasApiResponseProcessor {
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
@@ -415,9 +415,10 @@ export class RUMRetentionQuotaApiResponseProcessor {
   }
 }
 
-export interface RUMRetentionQuotaApiDeleteRumQuotaConfigRequest {
+export interface RUMRetentionQuotasApiDeleteRumQuotaConfigRequest {
   /**
    * The type of scope the retention quota configuration applies to.
+   * `application` is the only supported scope type.
    * @type RumRetentionQuotaScopeType
    */
   scopeType: RumRetentionQuotaScopeType;
@@ -429,9 +430,10 @@ export interface RUMRetentionQuotaApiDeleteRumQuotaConfigRequest {
   scopeId: string;
 }
 
-export interface RUMRetentionQuotaApiGetRumQuotaConfigRequest {
+export interface RUMRetentionQuotasApiGetRumQuotaConfigRequest {
   /**
    * The type of scope the retention quota configuration applies to.
+   * `application` is the only supported scope type.
    * @type RumRetentionQuotaScopeType
    */
   scopeType: RumRetentionQuotaScopeType;
@@ -443,9 +445,10 @@ export interface RUMRetentionQuotaApiGetRumQuotaConfigRequest {
   scopeId: string;
 }
 
-export interface RUMRetentionQuotaApiUpsertRumQuotaConfigRequest {
+export interface RUMRetentionQuotasApiUpsertRumQuotaConfigRequest {
   /**
    * The type of scope the retention quota configuration applies to.
+   * `application` is the only supported scope type.
    * @type RumRetentionQuotaScopeType
    */
   scopeType: RumRetentionQuotaScopeType;
@@ -462,21 +465,21 @@ export interface RUMRetentionQuotaApiUpsertRumQuotaConfigRequest {
   body: RumRetentionQuotaConfigUpdateRequest;
 }
 
-export class RUMRetentionQuotaApi {
-  private requestFactory: RUMRetentionQuotaApiRequestFactory;
-  private responseProcessor: RUMRetentionQuotaApiResponseProcessor;
+export class RUMRetentionQuotasApi {
+  private requestFactory: RUMRetentionQuotasApiRequestFactory;
+  private responseProcessor: RUMRetentionQuotasApiResponseProcessor;
   private configuration: Configuration;
 
   public constructor(
     configuration: Configuration,
-    requestFactory?: RUMRetentionQuotaApiRequestFactory,
-    responseProcessor?: RUMRetentionQuotaApiResponseProcessor
+    requestFactory?: RUMRetentionQuotasApiRequestFactory,
+    responseProcessor?: RUMRetentionQuotasApiResponseProcessor
   ) {
     this.configuration = configuration;
     this.requestFactory =
-      requestFactory || new RUMRetentionQuotaApiRequestFactory(configuration);
+      requestFactory || new RUMRetentionQuotasApiRequestFactory(configuration);
     this.responseProcessor =
-      responseProcessor || new RUMRetentionQuotaApiResponseProcessor();
+      responseProcessor || new RUMRetentionQuotasApiResponseProcessor();
   }
 
   /**
@@ -484,7 +487,7 @@ export class RUMRetentionQuotaApi {
    * @param param The request object
    */
   public deleteRumQuotaConfig(
-    param: RUMRetentionQuotaApiDeleteRumQuotaConfigRequest,
+    param: RUMRetentionQuotasApiDeleteRumQuotaConfigRequest,
     options?: Configuration
   ): Promise<void> {
     const requestContextPromise = this.requestFactory.deleteRumQuotaConfig(
@@ -506,7 +509,7 @@ export class RUMRetentionQuotaApi {
    * @param param The request object
    */
   public getRumQuotaConfig(
-    param: RUMRetentionQuotaApiGetRumQuotaConfigRequest,
+    param: RUMRetentionQuotasApiGetRumQuotaConfigRequest,
     options?: Configuration
   ): Promise<RumRetentionQuotaConfigResponse> {
     const requestContextPromise = this.requestFactory.getRumQuotaConfig(
@@ -529,7 +532,7 @@ export class RUMRetentionQuotaApi {
    * @param param The request object
    */
   public upsertRumQuotaConfig(
-    param: RUMRetentionQuotaApiUpsertRumQuotaConfigRequest,
+    param: RUMRetentionQuotasApiUpsertRumQuotaConfigRequest,
     options?: Configuration
   ): Promise<RumRetentionQuotaConfigResponse> {
     const requestContextPromise = this.requestFactory.upsertRumQuotaConfig(

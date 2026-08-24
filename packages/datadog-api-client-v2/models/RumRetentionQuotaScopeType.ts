@@ -8,6 +8,7 @@ import { UnparsedObject } from "../../datadog-api-client-common/util";
 
 /**
  * The type of scope the retention quota configuration applies to.
+ * `application` is the only supported scope type.
  */
 
 export type RumRetentionQuotaScopeType = typeof APPLICATION | UnparsedObject;
