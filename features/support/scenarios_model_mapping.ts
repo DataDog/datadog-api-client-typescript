@@ -11088,6 +11088,76 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             },
         "operationResponseType": "IncidentTimestampOverrideResponse",
     },
+    "v2.ListElasticCloudIntegrationAccounts": {
+        "operationResponseType": "ElasticCloudIntegrationAccountsResponse",
+    },
+    "v2.CreateElasticCloudIntegrationAccount": {
+        "body": {
+            "type": "ElasticCloudIntegrationAccountCreateRequest",
+            "format": "",
+            },
+        "operationResponseType": "ElasticCloudIntegrationAccountResponse",
+    },
+    "v2.GetElasticCloudIntegrationAccount": {
+        "accountId": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "ElasticCloudIntegrationAccountResponse",
+    },
+    "v2.DeleteElasticCloudIntegrationAccount": {
+        "accountId": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "{}",
+    },
+    "v2.UpdateElasticCloudIntegrationAccount": {
+        "accountId": {
+            "type": "string",
+            "format": "",
+            },
+        "body": {
+            "type": "ElasticCloudIntegrationAccountUpdateRequest",
+            "format": "",
+            },
+        "operationResponseType": "ElasticCloudIntegrationAccountResponse",
+    },
+    "v2.ListTwilioIntegrationAccounts": {
+        "operationResponseType": "TwilioIntegrationAccountsResponse",
+    },
+    "v2.CreateTwilioIntegrationAccount": {
+        "body": {
+            "type": "TwilioIntegrationAccountCreateRequest",
+            "format": "",
+            },
+        "operationResponseType": "TwilioIntegrationAccountResponse",
+    },
+    "v2.GetTwilioIntegrationAccount": {
+        "accountId": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "TwilioIntegrationAccountResponse",
+    },
+    "v2.DeleteTwilioIntegrationAccount": {
+        "accountId": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "{}",
+    },
+    "v2.UpdateTwilioIntegrationAccount": {
+        "accountId": {
+            "type": "string",
+            "format": "",
+            },
+        "body": {
+            "type": "TwilioIntegrationAccountUpdateRequest",
+            "format": "",
+            },
+        "operationResponseType": "TwilioIntegrationAccountResponse",
+    },
     "v2.ListAWSAccounts": {
         "awsAccountId": {
             "type": "string",
