@@ -4,6 +4,7 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 import { ScannedAssetMetadataAttributes } from "./ScannedAssetMetadataAttributes";
+import { ScannedAssetMetadataType } from "./ScannedAssetMetadataType";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
@@ -19,6 +20,10 @@ export class ScannedAssetMetadata {
    * The ID of the scanned asset metadata.
    */
   "id": string;
+  /**
+   * The JSON:API type.
+   */
+  "type": ScannedAssetMetadataType;
 
   /**
    * A container for additional, undeclared properties.
@@ -44,6 +49,11 @@ export class ScannedAssetMetadata {
     id: {
       baseName: "id",
       type: "string",
+      required: true,
+    },
+    type: {
+      baseName: "type",
+      type: "ScannedAssetMetadataType",
       required: true,
     },
     additionalProperties: {

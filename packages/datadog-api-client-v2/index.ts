@@ -7737,6 +7737,7 @@ export { ScannedAssetMetadata } from "./models/ScannedAssetMetadata";
 export { ScannedAssetMetadataAsset } from "./models/ScannedAssetMetadataAsset";
 export { ScannedAssetMetadataAttributes } from "./models/ScannedAssetMetadataAttributes";
 export { ScannedAssetMetadataLastSuccess } from "./models/ScannedAssetMetadataLastSuccess";
+export { ScannedAssetMetadataType } from "./models/ScannedAssetMetadataType";
 export { ScannedAssetsMetadata } from "./models/ScannedAssetsMetadata";
 export { ScanResultResponse } from "./models/ScanResultResponse";
 export { ScaRequest } from "./models/ScaRequest";
