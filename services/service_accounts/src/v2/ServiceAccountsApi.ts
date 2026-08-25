@@ -1493,7 +1493,7 @@ export interface ServiceAccountsApiListServiceAccountAccessTokensRequest {
    */
   serviceAccountId: string;
   /**
-   * Size for a given page. The maximum allowed value is 100.
+   * Number of items to return per page. The maximum allowed value is 100.
    * @type number
    */
   pageSize?: number;
@@ -1523,7 +1523,7 @@ export interface ServiceAccountsApiListServiceAccountApplicationKeysRequest {
    */
   serviceAccountId: string;
   /**
-   * Size for a given page. The maximum allowed value is 100.
+   * Number of items to return per page. The maximum allowed value is 100.
    * @type number
    */
   pageSize?: number;

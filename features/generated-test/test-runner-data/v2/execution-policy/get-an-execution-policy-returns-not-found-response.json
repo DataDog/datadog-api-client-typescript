@@ -1,19 +1,19 @@
 {
-  "api": "LLMObservability",
+  "api": "ExecutionPolicy",
   "expected_status": 404,
-  "feature": "LLM Observability",
-  "id": "v2/LLM Observability/Delete an LLM Observability prompt returns \"Not Found\" response",
-  "operation_id": "DeleteLLMObsPrompt",
+  "feature": "Execution Policy",
+  "id": "v2/Execution Policy/Get an execution policy returns \"Not Found\" response",
+  "operation_id": "GetExecutionPolicy",
   "request": {
     "body": null,
     "content_type": null,
-    "method": "DELETE",
+    "method": "GET",
     "pagination": false,
     "parameters": [
       {
         "explode": null,
         "in": "path",
-        "name": "prompt_id",
+        "name": "policy_id",
         "required": true,
         "schema": {
           "format": null,
@@ -22,14 +22,14 @@
         },
         "source": {
           "type": "literal",
-          "value": "nonexistent-prompt"
+          "value": "aaa11111-aa11-aa11-aaaa-aaaaaa111111"
         },
         "style": null
       }
     ],
-    "path": "/api/v2/llm-obs/v1/prompts/{prompt_id}"
+    "path": "/api/v2/actions/execution-policies/{policy_id}"
   },
-  "scenario": "Delete an LLM Observability prompt returns \"Not Found\" response",
+  "scenario": "Get an execution policy returns \"Not Found\" response",
   "schema_version": 1,
   "version": "v2"
 }

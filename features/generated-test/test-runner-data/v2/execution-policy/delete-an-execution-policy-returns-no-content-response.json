@@ -1,9 +1,9 @@
 {
-  "api": "LLMObservability",
-  "expected_status": 200,
-  "feature": "LLM Observability",
-  "id": "v2/LLM Observability/Delete an LLM Observability prompt returns \"OK\" response",
-  "operation_id": "DeleteLLMObsPrompt",
+  "api": "ExecutionPolicy",
+  "expected_status": 204,
+  "feature": "Execution Policy",
+  "id": "v2/Execution Policy/Delete an execution policy returns \"No Content\" response",
+  "operation_id": "DeleteExecutionPolicy",
   "request": {
     "body": null,
     "content_type": null,
@@ -13,7 +13,7 @@
       {
         "explode": null,
         "in": "path",
-        "name": "prompt_id",
+        "name": "policy_id",
         "required": true,
         "schema": {
           "format": null,
@@ -21,15 +21,15 @@
           "type": "string"
         },
         "source": {
-          "path": "prompt.data.attributes.prompt_id",
+          "path": "execution_policy.data.id",
           "type": "fixture"
         },
         "style": null
       }
     ],
-    "path": "/api/v2/llm-obs/v1/prompts/{prompt_id}"
+    "path": "/api/v2/actions/execution-policies/{policy_id}"
   },
-  "scenario": "Delete an LLM Observability prompt returns \"OK\" response",
+  "scenario": "Delete an execution policy returns \"No Content\" response",
   "schema_version": 1,
   "version": "v2"
 }
