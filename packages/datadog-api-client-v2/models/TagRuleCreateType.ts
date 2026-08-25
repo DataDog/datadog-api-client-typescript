@@ -7,9 +7,9 @@
 import { UnparsedObject } from "../../datadog-api-client-common/util";
 
 /**
- * The policy type allowed when creating a tag policy. Only `surfacing` is accepted at
+ * The rule type allowed when creating a tag rule. Only `surfacing` is accepted at
  * creation time.
  */
 
-export type TagPolicyCreateType = typeof SURFACING | UnparsedObject;
+export type TagRuleCreateType = typeof SURFACING | UnparsedObject;
 export const SURFACING = "surfacing";

@@ -18,37 +18,37 @@ import { ApiException } from "../../datadog-api-client-common/exception";
 
 import { APIErrorResponse } from "../models/APIErrorResponse";
 import { JSONAPIErrorResponse } from "../models/JSONAPIErrorResponse";
-import { TagPoliciesListResponse } from "../models/TagPoliciesListResponse";
-import { TagPolicyCreateRequest } from "../models/TagPolicyCreateRequest";
-import { TagPolicyInclude } from "../models/TagPolicyInclude";
-import { TagPolicyResponse } from "../models/TagPolicyResponse";
-import { TagPolicyScoreResponse } from "../models/TagPolicyScoreResponse";
-import { TagPolicySource } from "../models/TagPolicySource";
-import { TagPolicyUpdateRequest } from "../models/TagPolicyUpdateRequest";
+import { TagRuleCreateRequest } from "../models/TagRuleCreateRequest";
+import { TagRuleInclude } from "../models/TagRuleInclude";
+import { TagRuleResponse } from "../models/TagRuleResponse";
+import { TagRuleScoreResponse } from "../models/TagRuleScoreResponse";
+import { TagRulesListResponse } from "../models/TagRulesListResponse";
+import { TagRuleSource } from "../models/TagRuleSource";
+import { TagRuleUpdateRequest } from "../models/TagRuleUpdateRequest";
 
-export class TagPoliciesApiRequestFactory extends BaseAPIRequestFactory {
-  public async createTagPolicy(
-    body: TagPolicyCreateRequest,
+export class TagRulesApiRequestFactory extends BaseAPIRequestFactory {
+  public async createTagRule(
+    body: TagRuleCreateRequest,
     _options?: Configuration
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
-    logger.warn("Using unstable operation 'createTagPolicy'");
-    if (!_config.unstableOperations["v2.createTagPolicy"]) {
-      throw new Error("Unstable operation 'createTagPolicy' is disabled");
+    logger.warn("Using unstable operation 'createTagRule'");
+    if (!_config.unstableOperations["v2.createTagRule"]) {
+      throw new Error("Unstable operation 'createTagRule' is disabled");
     }
 
     // verify required parameter 'body' is not null or undefined
     if (body === null || body === undefined) {
-      throw new RequiredError("body", "createTagPolicy");
+      throw new RequiredError("body", "createTagRule");
     }
 
     // Path Params
-    const localVarPath = "/api/v2/tag_policies";
+    const localVarPath = "/api/v2/governance/tag_rules";
 
     // Make Request Context
     const requestContext = _config
-      .getServer("v2.TagPoliciesApi.createTagPolicy")
+      .getServer("v2.TagRulesApi.createTagRule")
       .makeRequestContext(localVarPath, HttpMethod.POST);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -59,7 +59,7 @@ export class TagPoliciesApiRequestFactory extends BaseAPIRequestFactory {
     ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
-      ObjectSerializer.serialize(body, "TagPolicyCreateRequest", ""),
+      ObjectSerializer.serialize(body, "TagRuleCreateRequest", ""),
       contentType
     );
     requestContext.setBody(serializedBody);
@@ -73,32 +73,32 @@ export class TagPoliciesApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
-  public async deleteTagPolicy(
-    policyId: string,
+  public async deleteTagRule(
+    ruleId: string,
     hardDelete?: boolean,
     _options?: Configuration
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
-    logger.warn("Using unstable operation 'deleteTagPolicy'");
-    if (!_config.unstableOperations["v2.deleteTagPolicy"]) {
-      throw new Error("Unstable operation 'deleteTagPolicy' is disabled");
+    logger.warn("Using unstable operation 'deleteTagRule'");
+    if (!_config.unstableOperations["v2.deleteTagRule"]) {
+      throw new Error("Unstable operation 'deleteTagRule' is disabled");
     }
 
-    // verify required parameter 'policyId' is not null or undefined
-    if (policyId === null || policyId === undefined) {
-      throw new RequiredError("policyId", "deleteTagPolicy");
+    // verify required parameter 'ruleId' is not null or undefined
+    if (ruleId === null || ruleId === undefined) {
+      throw new RequiredError("ruleId", "deleteTagRule");
     }
 
     // Path Params
-    const localVarPath = "/api/v2/tag_policies/{policy_id}".replace(
-      "{policy_id}",
-      encodeURIComponent(String(policyId))
+    const localVarPath = "/api/v2/governance/tag_rules/{rule_id}".replace(
+      "{rule_id}",
+      encodeURIComponent(String(ruleId))
     );
 
     // Make Request Context
     const requestContext = _config
-      .getServer("v2.TagPoliciesApi.deleteTagPolicy")
+      .getServer("v2.TagRulesApi.deleteTagRule")
       .makeRequestContext(localVarPath, HttpMethod.DELETE);
     requestContext.setHeaderParam("Accept", "*/*");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -121,34 +121,34 @@ export class TagPoliciesApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
-  public async getTagPolicy(
-    policyId: string,
-    include?: TagPolicyInclude,
+  public async getTagRule(
+    ruleId: string,
+    include?: TagRuleInclude,
     tsStart?: number,
     tsEnd?: number,
     _options?: Configuration
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
-    logger.warn("Using unstable operation 'getTagPolicy'");
-    if (!_config.unstableOperations["v2.getTagPolicy"]) {
-      throw new Error("Unstable operation 'getTagPolicy' is disabled");
+    logger.warn("Using unstable operation 'getTagRule'");
+    if (!_config.unstableOperations["v2.getTagRule"]) {
+      throw new Error("Unstable operation 'getTagRule' is disabled");
     }
 
-    // verify required parameter 'policyId' is not null or undefined
-    if (policyId === null || policyId === undefined) {
-      throw new RequiredError("policyId", "getTagPolicy");
+    // verify required parameter 'ruleId' is not null or undefined
+    if (ruleId === null || ruleId === undefined) {
+      throw new RequiredError("ruleId", "getTagRule");
     }
 
     // Path Params
-    const localVarPath = "/api/v2/tag_policies/{policy_id}".replace(
-      "{policy_id}",
-      encodeURIComponent(String(policyId))
+    const localVarPath = "/api/v2/governance/tag_rules/{rule_id}".replace(
+      "{rule_id}",
+      encodeURIComponent(String(ruleId))
     );
 
     // Make Request Context
     const requestContext = _config
-      .getServer("v2.TagPoliciesApi.getTagPolicy")
+      .getServer("v2.TagRulesApi.getTagRule")
       .makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -157,7 +157,7 @@ export class TagPoliciesApiRequestFactory extends BaseAPIRequestFactory {
     if (include !== undefined) {
       requestContext.setQueryParam(
         "include",
-        ObjectSerializer.serialize(include, "TagPolicyInclude", ""),
+        ObjectSerializer.serialize(include, "TagRuleInclude", ""),
         ""
       );
     }
@@ -185,33 +185,33 @@ export class TagPoliciesApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
-  public async getTagPolicyScore(
-    policyId: string,
+  public async getTagRuleScore(
+    ruleId: string,
     tsStart?: number,
     tsEnd?: number,
     _options?: Configuration
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
-    logger.warn("Using unstable operation 'getTagPolicyScore'");
-    if (!_config.unstableOperations["v2.getTagPolicyScore"]) {
-      throw new Error("Unstable operation 'getTagPolicyScore' is disabled");
+    logger.warn("Using unstable operation 'getTagRuleScore'");
+    if (!_config.unstableOperations["v2.getTagRuleScore"]) {
+      throw new Error("Unstable operation 'getTagRuleScore' is disabled");
     }
 
-    // verify required parameter 'policyId' is not null or undefined
-    if (policyId === null || policyId === undefined) {
-      throw new RequiredError("policyId", "getTagPolicyScore");
+    // verify required parameter 'ruleId' is not null or undefined
+    if (ruleId === null || ruleId === undefined) {
+      throw new RequiredError("ruleId", "getTagRuleScore");
     }
 
     // Path Params
-    const localVarPath = "/api/v2/tag_policies/{policy_id}/score".replace(
-      "{policy_id}",
-      encodeURIComponent(String(policyId))
+    const localVarPath = "/api/v2/governance/tag_rules/{rule_id}/score".replace(
+      "{rule_id}",
+      encodeURIComponent(String(ruleId))
     );
 
     // Make Request Context
     const requestContext = _config
-      .getServer("v2.TagPoliciesApi.getTagPolicyScore")
+      .getServer("v2.TagRulesApi.getTagRuleScore")
       .makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -241,28 +241,28 @@ export class TagPoliciesApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
-  public async listTagPolicies(
+  public async listTagRules(
     includeDisabled?: boolean,
     includeDeleted?: boolean,
-    include?: TagPolicyInclude,
-    filterSource?: TagPolicySource,
+    include?: TagRuleInclude,
+    filterSource?: TagRuleSource,
     tsStart?: number,
     tsEnd?: number,
     _options?: Configuration
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
-    logger.warn("Using unstable operation 'listTagPolicies'");
-    if (!_config.unstableOperations["v2.listTagPolicies"]) {
-      throw new Error("Unstable operation 'listTagPolicies' is disabled");
+    logger.warn("Using unstable operation 'listTagRules'");
+    if (!_config.unstableOperations["v2.listTagRules"]) {
+      throw new Error("Unstable operation 'listTagRules' is disabled");
     }
 
     // Path Params
-    const localVarPath = "/api/v2/tag_policies";
+    const localVarPath = "/api/v2/governance/tag_rules";
 
     // Make Request Context
     const requestContext = _config
-      .getServer("v2.TagPoliciesApi.listTagPolicies")
+      .getServer("v2.TagRulesApi.listTagRules")
       .makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -285,14 +285,14 @@ export class TagPoliciesApiRequestFactory extends BaseAPIRequestFactory {
     if (include !== undefined) {
       requestContext.setQueryParam(
         "include",
-        ObjectSerializer.serialize(include, "TagPolicyInclude", ""),
+        ObjectSerializer.serialize(include, "TagRuleInclude", ""),
         ""
       );
     }
     if (filterSource !== undefined) {
       requestContext.setQueryParam(
         "filter[source]",
-        ObjectSerializer.serialize(filterSource, "TagPolicySource", ""),
+        ObjectSerializer.serialize(filterSource, "TagRuleSource", ""),
         ""
       );
     }
@@ -320,37 +320,37 @@ export class TagPoliciesApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
-  public async updateTagPolicy(
-    policyId: string,
-    body: TagPolicyUpdateRequest,
+  public async updateTagRule(
+    ruleId: string,
+    body: TagRuleUpdateRequest,
     _options?: Configuration
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
-    logger.warn("Using unstable operation 'updateTagPolicy'");
-    if (!_config.unstableOperations["v2.updateTagPolicy"]) {
-      throw new Error("Unstable operation 'updateTagPolicy' is disabled");
+    logger.warn("Using unstable operation 'updateTagRule'");
+    if (!_config.unstableOperations["v2.updateTagRule"]) {
+      throw new Error("Unstable operation 'updateTagRule' is disabled");
     }
 
-    // verify required parameter 'policyId' is not null or undefined
-    if (policyId === null || policyId === undefined) {
-      throw new RequiredError("policyId", "updateTagPolicy");
+    // verify required parameter 'ruleId' is not null or undefined
+    if (ruleId === null || ruleId === undefined) {
+      throw new RequiredError("ruleId", "updateTagRule");
     }
 
     // verify required parameter 'body' is not null or undefined
     if (body === null || body === undefined) {
-      throw new RequiredError("body", "updateTagPolicy");
+      throw new RequiredError("body", "updateTagRule");
     }
 
     // Path Params
-    const localVarPath = "/api/v2/tag_policies/{policy_id}".replace(
-      "{policy_id}",
-      encodeURIComponent(String(policyId))
+    const localVarPath = "/api/v2/governance/tag_rules/{rule_id}".replace(
+      "{rule_id}",
+      encodeURIComponent(String(ruleId))
     );
 
     // Make Request Context
     const requestContext = _config
-      .getServer("v2.TagPoliciesApi.updateTagPolicy")
+      .getServer("v2.TagRulesApi.updateTagRule")
       .makeRequestContext(localVarPath, HttpMethod.PATCH);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -361,7 +361,7 @@ export class TagPoliciesApiRequestFactory extends BaseAPIRequestFactory {
     ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
-      ObjectSerializer.serialize(body, "TagPolicyUpdateRequest", ""),
+      ObjectSerializer.serialize(body, "TagRuleUpdateRequest", ""),
       contentType
     );
     requestContext.setBody(serializedBody);
@@ -376,25 +376,25 @@ export class TagPoliciesApiRequestFactory extends BaseAPIRequestFactory {
   }
 }
 
-export class TagPoliciesApiResponseProcessor {
+export class TagRulesApiResponseProcessor {
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
    *
-   * @params response Response returned by the server for a request to createTagPolicy
+   * @params response Response returned by the server for a request to createTagRule
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async createTagPolicy(
+  public async createTagRule(
     response: ResponseContext
-  ): Promise<TagPolicyResponse> {
+  ): Promise<TagRuleResponse> {
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 201) {
-      const body: TagPolicyResponse = ObjectSerializer.deserialize(
+      const body: TagRuleResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
-        "TagPolicyResponse"
-      ) as TagPolicyResponse;
+        "TagRuleResponse"
+      ) as TagRuleResponse;
       return body;
     }
     if (
@@ -448,11 +448,11 @@ export class TagPoliciesApiResponseProcessor {
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-      const body: TagPolicyResponse = ObjectSerializer.deserialize(
+      const body: TagRuleResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
-        "TagPolicyResponse",
+        "TagRuleResponse",
         ""
-      ) as TagPolicyResponse;
+      ) as TagRuleResponse;
       return body;
     }
 
@@ -467,10 +467,10 @@ export class TagPoliciesApiResponseProcessor {
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
    *
-   * @params response Response returned by the server for a request to deleteTagPolicy
+   * @params response Response returned by the server for a request to deleteTagRule
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async deleteTagPolicy(response: ResponseContext): Promise<void> {
+  public async deleteTagRule(response: ResponseContext): Promise<void> {
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
@@ -542,20 +542,18 @@ export class TagPoliciesApiResponseProcessor {
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
    *
-   * @params response Response returned by the server for a request to getTagPolicy
+   * @params response Response returned by the server for a request to getTagRule
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async getTagPolicy(
-    response: ResponseContext
-  ): Promise<TagPolicyResponse> {
+  public async getTagRule(response: ResponseContext): Promise<TagRuleResponse> {
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 200) {
-      const body: TagPolicyResponse = ObjectSerializer.deserialize(
+      const body: TagRuleResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
-        "TagPolicyResponse"
-      ) as TagPolicyResponse;
+        "TagRuleResponse"
+      ) as TagRuleResponse;
       return body;
     }
     if (
@@ -609,11 +607,11 @@ export class TagPoliciesApiResponseProcessor {
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-      const body: TagPolicyResponse = ObjectSerializer.deserialize(
+      const body: TagRuleResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
-        "TagPolicyResponse",
+        "TagRuleResponse",
         ""
-      ) as TagPolicyResponse;
+      ) as TagRuleResponse;
       return body;
     }
 
@@ -628,20 +626,20 @@ export class TagPoliciesApiResponseProcessor {
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
    *
-   * @params response Response returned by the server for a request to getTagPolicyScore
+   * @params response Response returned by the server for a request to getTagRuleScore
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async getTagPolicyScore(
+  public async getTagRuleScore(
     response: ResponseContext
-  ): Promise<TagPolicyScoreResponse> {
+  ): Promise<TagRuleScoreResponse> {
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 200) {
-      const body: TagPolicyScoreResponse = ObjectSerializer.deserialize(
+      const body: TagRuleScoreResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
-        "TagPolicyScoreResponse"
-      ) as TagPolicyScoreResponse;
+        "TagRuleScoreResponse"
+      ) as TagRuleScoreResponse;
       return body;
     }
     if (
@@ -695,11 +693,11 @@ export class TagPoliciesApiResponseProcessor {
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-      const body: TagPolicyScoreResponse = ObjectSerializer.deserialize(
+      const body: TagRuleScoreResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
-        "TagPolicyScoreResponse",
+        "TagRuleScoreResponse",
         ""
-      ) as TagPolicyScoreResponse;
+      ) as TagRuleScoreResponse;
       return body;
     }
 
@@ -714,20 +712,20 @@ export class TagPoliciesApiResponseProcessor {
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
    *
-   * @params response Response returned by the server for a request to listTagPolicies
+   * @params response Response returned by the server for a request to listTagRules
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async listTagPolicies(
+  public async listTagRules(
     response: ResponseContext
-  ): Promise<TagPoliciesListResponse> {
+  ): Promise<TagRulesListResponse> {
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 200) {
-      const body: TagPoliciesListResponse = ObjectSerializer.deserialize(
+      const body: TagRulesListResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
-        "TagPoliciesListResponse"
-      ) as TagPoliciesListResponse;
+        "TagRulesListResponse"
+      ) as TagRulesListResponse;
       return body;
     }
     if (
@@ -780,11 +778,11 @@ export class TagPoliciesApiResponseProcessor {
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-      const body: TagPoliciesListResponse = ObjectSerializer.deserialize(
+      const body: TagRulesListResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
-        "TagPoliciesListResponse",
+        "TagRulesListResponse",
         ""
-      ) as TagPoliciesListResponse;
+      ) as TagRulesListResponse;
       return body;
     }
 
@@ -799,20 +797,20 @@ export class TagPoliciesApiResponseProcessor {
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
    *
-   * @params response Response returned by the server for a request to updateTagPolicy
+   * @params response Response returned by the server for a request to updateTagRule
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async updateTagPolicy(
+  public async updateTagRule(
     response: ResponseContext
-  ): Promise<TagPolicyResponse> {
+  ): Promise<TagRuleResponse> {
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 200) {
-      const body: TagPolicyResponse = ObjectSerializer.deserialize(
+      const body: TagRuleResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
-        "TagPolicyResponse"
-      ) as TagPolicyResponse;
+        "TagRuleResponse"
+      ) as TagRuleResponse;
       return body;
     }
     if (
@@ -866,11 +864,11 @@ export class TagPoliciesApiResponseProcessor {
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-      const body: TagPolicyResponse = ObjectSerializer.deserialize(
+      const body: TagRuleResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
-        "TagPolicyResponse",
+        "TagRuleResponse",
         ""
-      ) as TagPolicyResponse;
+      ) as TagRuleResponse;
       return body;
     }
 
@@ -882,37 +880,37 @@ export class TagPoliciesApiResponseProcessor {
   }
 }
 
-export interface TagPoliciesApiCreateTagPolicyRequest {
+export interface TagRulesApiCreateTagRuleRequest {
   /**
-   * @type TagPolicyCreateRequest
+   * @type TagRuleCreateRequest
    */
-  body: TagPolicyCreateRequest;
+  body: TagRuleCreateRequest;
 }
 
-export interface TagPoliciesApiDeleteTagPolicyRequest {
+export interface TagRulesApiDeleteTagRuleRequest {
   /**
-   * The unique identifier of the tag policy to delete.
+   * The unique identifier of the tag rule to delete.
    * @type string
    */
-  policyId: string;
+  ruleId: string;
   /**
-   * Whether to permanently delete the policy instead of performing a soft delete. Defaults to `false`.
+   * Whether to permanently delete the rule instead of performing a soft delete. Defaults to `false`.
    * @type boolean
    */
   hardDelete?: boolean;
 }
 
-export interface TagPoliciesApiGetTagPolicyRequest {
+export interface TagRulesApiGetTagRuleRequest {
   /**
-   * The unique identifier of the tag policy.
+   * The unique identifier of the tag rule.
    * @type string
    */
-  policyId: string;
+  ruleId: string;
   /**
-   * Comma-separated list of related resources to include alongside the policy. Currently the only supported value is `score`.
-   * @type TagPolicyInclude
+   * Comma-separated list of related resources to include alongside the rule. Currently the only supported value is `score`.
+   * @type TagRuleInclude
    */
-  include?: TagPolicyInclude;
+  include?: TagRuleInclude;
   /**
    * Start of the time window used for compliance score computation, as a Unix timestamp in milliseconds.
    * @type number
@@ -925,12 +923,12 @@ export interface TagPoliciesApiGetTagPolicyRequest {
   tsEnd?: number;
 }
 
-export interface TagPoliciesApiGetTagPolicyScoreRequest {
+export interface TagRulesApiGetTagRuleScoreRequest {
   /**
-   * The unique identifier of the tag policy.
+   * The unique identifier of the tag rule.
    * @type string
    */
-  policyId: string;
+  ruleId: string;
   /**
    * Start of the time window used for compliance score computation, as a Unix timestamp in milliseconds.
    * @type number
@@ -943,27 +941,27 @@ export interface TagPoliciesApiGetTagPolicyScoreRequest {
   tsEnd?: number;
 }
 
-export interface TagPoliciesApiListTagPoliciesRequest {
+export interface TagRulesApiListTagRulesRequest {
   /**
-   * Whether to include policies that are currently disabled. Defaults to `false`.
+   * Whether to include rules that are currently disabled. Defaults to `false`.
    * @type boolean
    */
   includeDisabled?: boolean;
   /**
-   * Whether to include policies that have been soft-deleted. Defaults to `false`.
+   * Whether to include rules that have been soft-deleted. Defaults to `false`.
    * @type boolean
    */
   includeDeleted?: boolean;
   /**
-   * Comma-separated list of related resources to include alongside each policy in the response. Currently the only supported value is `score`.
-   * @type TagPolicyInclude
+   * Comma-separated list of related resources to include alongside each rule in the response. Currently the only supported value is `score`.
+   * @type TagRuleInclude
    */
-  include?: TagPolicyInclude;
+  include?: TagRuleInclude;
   /**
-   * Restrict the result set to policies whose source matches the given value.
-   * @type TagPolicySource
+   * Restrict the result set to rules whose source matches the given value.
+   * @type TagRuleSource
    */
-  filterSource?: TagPolicySource;
+  filterSource?: TagRuleSource;
   /**
    * Start of the time window used for compliance score computation, as a Unix timestamp in milliseconds. Defaults to a recent window appropriate for the source.
    * @type number
@@ -976,46 +974,46 @@ export interface TagPoliciesApiListTagPoliciesRequest {
   tsEnd?: number;
 }
 
-export interface TagPoliciesApiUpdateTagPolicyRequest {
+export interface TagRulesApiUpdateTagRuleRequest {
   /**
-   * The unique identifier of the tag policy to update.
+   * The unique identifier of the tag rule to update.
    * @type string
    */
-  policyId: string;
+  ruleId: string;
   /**
-   * @type TagPolicyUpdateRequest
+   * @type TagRuleUpdateRequest
    */
-  body: TagPolicyUpdateRequest;
+  body: TagRuleUpdateRequest;
 }
 
-export class TagPoliciesApi {
-  private requestFactory: TagPoliciesApiRequestFactory;
-  private responseProcessor: TagPoliciesApiResponseProcessor;
+export class TagRulesApi {
+  private requestFactory: TagRulesApiRequestFactory;
+  private responseProcessor: TagRulesApiResponseProcessor;
   private configuration: Configuration;
 
   public constructor(
     configuration: Configuration,
-    requestFactory?: TagPoliciesApiRequestFactory,
-    responseProcessor?: TagPoliciesApiResponseProcessor
+    requestFactory?: TagRulesApiRequestFactory,
+    responseProcessor?: TagRulesApiResponseProcessor
   ) {
     this.configuration = configuration;
     this.requestFactory =
-      requestFactory || new TagPoliciesApiRequestFactory(configuration);
+      requestFactory || new TagRulesApiRequestFactory(configuration);
     this.responseProcessor =
-      responseProcessor || new TagPoliciesApiResponseProcessor();
+      responseProcessor || new TagRulesApiResponseProcessor();
   }
 
   /**
-   * Create a new tag policy for the organization. The caller's organization is derived from
+   * Create a new tag rule for the organization. The caller's organization is derived from
    * the authenticated user; cross-organization creation is not supported. Fields such as
-   * `policy_id`, `version`, and the timestamp/audit fields are assigned by the server.
+   * `rule_id`, `version`, and the timestamp/audit fields are assigned by the server.
    * @param param The request object
    */
-  public createTagPolicy(
-    param: TagPoliciesApiCreateTagPolicyRequest,
+  public createTagRule(
+    param: TagRulesApiCreateTagRuleRequest,
     options?: Configuration
-  ): Promise<TagPolicyResponse> {
-    const requestContextPromise = this.requestFactory.createTagPolicy(
+  ): Promise<TagRuleResponse> {
+    const requestContextPromise = this.requestFactory.createTagRule(
       param.body,
       options
     );
@@ -1023,23 +1021,23 @@ export class TagPoliciesApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.createTagPolicy(responseContext);
+          return this.responseProcessor.createTagRule(responseContext);
         });
     });
   }
 
   /**
-   * Delete a tag policy. By default the policy is soft-deleted so it can be recovered later
+   * Delete a tag rule. By default the rule is soft-deleted so it can be recovered later
    * and so that historical score data remains queryable. Pass `hard_delete=true` to remove
-   * the policy permanently.
+   * the rule permanently.
    * @param param The request object
    */
-  public deleteTagPolicy(
-    param: TagPoliciesApiDeleteTagPolicyRequest,
+  public deleteTagRule(
+    param: TagRulesApiDeleteTagRuleRequest,
     options?: Configuration
   ): Promise<void> {
-    const requestContextPromise = this.requestFactory.deleteTagPolicy(
-      param.policyId,
+    const requestContextPromise = this.requestFactory.deleteTagRule(
+      param.ruleId,
       param.hardDelete,
       options
     );
@@ -1047,23 +1045,23 @@ export class TagPoliciesApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.deleteTagPolicy(responseContext);
+          return this.responseProcessor.deleteTagRule(responseContext);
         });
     });
   }
 
   /**
-   * Retrieve a single tag policy by ID. Optionally include the policy's current compliance
-   * score via the `include=score` query parameter. Policies belonging to other organizations
+   * Retrieve a single tag rule by ID. Optionally include the rule's current compliance
+   * score via the `include=score` query parameter. Rules belonging to other organizations
    * cannot be retrieved.
    * @param param The request object
    */
-  public getTagPolicy(
-    param: TagPoliciesApiGetTagPolicyRequest,
+  public getTagRule(
+    param: TagRulesApiGetTagRuleRequest,
     options?: Configuration
-  ): Promise<TagPolicyResponse> {
-    const requestContextPromise = this.requestFactory.getTagPolicy(
-      param.policyId,
+  ): Promise<TagRuleResponse> {
+    const requestContextPromise = this.requestFactory.getTagRule(
+      param.ruleId,
       param.include,
       param.tsStart,
       param.tsEnd,
@@ -1073,24 +1071,24 @@ export class TagPoliciesApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.getTagPolicy(responseContext);
+          return this.responseProcessor.getTagRule(responseContext);
         });
     });
   }
 
   /**
-   * Retrieve the compliance score for a single tag policy. The score is computed over the
+   * Retrieve the compliance score for a single tag rule. The score is computed over the
    * requested time window (or a source-appropriate default) and represents the percentage of
-   * telemetry within that window that conforms to the policy. A `null` score indicates that
+   * telemetry within that window that conforms to the rule. A `null` score indicates that
    * no relevant telemetry was found.
    * @param param The request object
    */
-  public getTagPolicyScore(
-    param: TagPoliciesApiGetTagPolicyScoreRequest,
+  public getTagRuleScore(
+    param: TagRulesApiGetTagRuleScoreRequest,
     options?: Configuration
-  ): Promise<TagPolicyScoreResponse> {
-    const requestContextPromise = this.requestFactory.getTagPolicyScore(
-      param.policyId,
+  ): Promise<TagRuleScoreResponse> {
+    const requestContextPromise = this.requestFactory.getTagRuleScore(
+      param.ruleId,
       param.tsStart,
       param.tsEnd,
       options
@@ -1099,22 +1097,22 @@ export class TagPoliciesApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.getTagPolicyScore(responseContext);
+          return this.responseProcessor.getTagRuleScore(responseContext);
         });
     });
   }
 
   /**
-   * Retrieve all tag policies for the organization. Optionally include disabled or deleted
-   * policies, filter by telemetry source, and include each policy's current compliance score
+   * Retrieve all tag rules for the organization. Optionally include disabled or deleted
+   * rules, filter by telemetry source, and include each rule's current compliance score
    * via the `include=score` query parameter.
    * @param param The request object
    */
-  public listTagPolicies(
-    param: TagPoliciesApiListTagPoliciesRequest = {},
+  public listTagRules(
+    param: TagRulesApiListTagRulesRequest = {},
     options?: Configuration
-  ): Promise<TagPoliciesListResponse> {
-    const requestContextPromise = this.requestFactory.listTagPolicies(
+  ): Promise<TagRulesListResponse> {
+    const requestContextPromise = this.requestFactory.listTagRules(
       param.includeDisabled,
       param.includeDeleted,
       param.include,
@@ -1127,23 +1125,23 @@ export class TagPoliciesApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.listTagPolicies(responseContext);
+          return this.responseProcessor.listTagRules(responseContext);
         });
     });
   }
 
   /**
-   * Update one or more attributes of an existing tag policy. Only the fields supplied in the
-   * request body are modified; omitted fields retain their current values. The policy's
+   * Update one or more attributes of an existing tag rule. Only the fields supplied in the
+   * request body are modified; omitted fields retain their current values. The rule's
    * `source` cannot be changed after creation.
    * @param param The request object
    */
-  public updateTagPolicy(
-    param: TagPoliciesApiUpdateTagPolicyRequest,
+  public updateTagRule(
+    param: TagRulesApiUpdateTagRuleRequest,
     options?: Configuration
-  ): Promise<TagPolicyResponse> {
-    const requestContextPromise = this.requestFactory.updateTagPolicy(
-      param.policyId,
+  ): Promise<TagRuleResponse> {
+    const requestContextPromise = this.requestFactory.updateTagRule(
+      param.ruleId,
       param.body,
       options
     );
@@ -1151,7 +1149,7 @@ export class TagPoliciesApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.updateTagPolicy(responseContext);
+          return this.responseProcessor.updateTagRule(responseContext);
         });
     });
   }

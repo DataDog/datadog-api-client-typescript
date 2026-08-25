@@ -3,32 +3,23 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
-import { TagPolicyAttributes } from "./TagPolicyAttributes";
-import { TagPolicyRelationships } from "./TagPolicyRelationships";
-import { TagPolicyResourceType } from "./TagPolicyResourceType";
+import { TagRuleCreateAttributes } from "./TagRuleCreateAttributes";
+import { TagRuleResourceType } from "./TagRuleResourceType";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * A tag policy resource.
+ * Data object for creating a tag rule.
  */
-export class TagPolicyData {
+export class TagRuleCreateData {
   /**
-   * The attributes of a tag policy resource.
+   * Attributes that can be supplied when creating a tag rule.
    */
-  "attributes": TagPolicyAttributes;
+  "attributes": TagRuleCreateAttributes;
   /**
-   * The unique identifier of the tag policy.
+   * JSON:API resource type for a tag rule.
    */
-  "id": string;
-  /**
-   * Related resources for a tag policy. Only present when the corresponding `include` query parameter is supplied.
-   */
-  "relationships"?: TagPolicyRelationships;
-  /**
-   * JSON:API resource type for a tag policy.
-   */
-  "type": TagPolicyResourceType;
+  "type": TagRuleResourceType;
 
   /**
    * A container for additional, undeclared properties.
@@ -48,21 +39,12 @@ export class TagPolicyData {
   static readonly attributeTypeMap: AttributeTypeMap = {
     attributes: {
       baseName: "attributes",
-      type: "TagPolicyAttributes",
+      type: "TagRuleCreateAttributes",
       required: true,
-    },
-    id: {
-      baseName: "id",
-      type: "string",
-      required: true,
-    },
-    relationships: {
-      baseName: "relationships",
-      type: "TagPolicyRelationships",
     },
     type: {
       baseName: "type",
-      type: "TagPolicyResourceType",
+      type: "TagRuleResourceType",
       required: true,
     },
     additionalProperties: {
@@ -75,7 +57,7 @@ export class TagPolicyData {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-    return TagPolicyData.attributeTypeMap;
+    return TagRuleCreateData.attributeTypeMap;
   }
 
   public constructor() {}

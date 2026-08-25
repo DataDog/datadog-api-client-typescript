@@ -3,30 +3,32 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
+import { TagRuleAttributes } from "./TagRuleAttributes";
+import { TagRuleRelationships } from "./TagRuleRelationships";
+import { TagRuleResourceType } from "./TagRuleResourceType";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * Attributes of a tag policy compliance score.
+ * A tag rule resource.
  */
-export class TagPolicyScoreAttributes {
+export class TagRuleData {
   /**
-   * The compliance score for the policy over the requested time window, as a percentage
-   * between 0 and 100. `null` indicates that no relevant telemetry was found.
+   * The attributes of a tag rule resource.
    */
-  "score": number | null;
+  "attributes": TagRuleAttributes;
   /**
-   * End of the time window the score was computed over, as a Unix timestamp in milliseconds.
+   * The unique identifier of the tag rule.
    */
-  "tsEnd": number;
+  "id": string;
   /**
-   * Start of the time window the score was computed over, as a Unix timestamp in milliseconds.
+   * Related resources for a tag rule. Only present when the corresponding `include` query parameter is supplied.
    */
-  "tsStart": number;
+  "relationships"?: TagRuleRelationships;
   /**
-   * The version of the tag policy that the score was computed against.
+   * JSON:API resource type for a tag rule.
    */
-  "version": number;
+  "type": TagRuleResourceType;
 
   /**
    * A container for additional, undeclared properties.
@@ -44,29 +46,24 @@ export class TagPolicyScoreAttributes {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    score: {
-      baseName: "score",
-      type: "number",
+    attributes: {
+      baseName: "attributes",
+      type: "TagRuleAttributes",
       required: true,
-      format: "double",
     },
-    tsEnd: {
-      baseName: "ts_end",
-      type: "number",
+    id: {
+      baseName: "id",
+      type: "string",
       required: true,
-      format: "int64",
     },
-    tsStart: {
-      baseName: "ts_start",
-      type: "number",
-      required: true,
-      format: "int64",
+    relationships: {
+      baseName: "relationships",
+      type: "TagRuleRelationships",
     },
-    version: {
-      baseName: "version",
-      type: "number",
+    type: {
+      baseName: "type",
+      type: "TagRuleResourceType",
       required: true,
-      format: "int64",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -78,7 +75,7 @@ export class TagPolicyScoreAttributes {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-    return TagPolicyScoreAttributes.attributeTypeMap;
+    return TagRuleData.attributeTypeMap;
   }
 
   public constructor() {}

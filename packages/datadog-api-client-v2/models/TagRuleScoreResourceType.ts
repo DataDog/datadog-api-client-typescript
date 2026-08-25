@@ -7,10 +7,8 @@
 import { UnparsedObject } from "../../datadog-api-client-common/util";
 
 /**
- * How the policy is enforced. `blocking` rejects telemetry that violates the policy.
- * `surfacing` only highlights non-compliant telemetry without blocking it.
+ * JSON:API resource type for a tag rule compliance score.
  */
 
-export type TagPolicyType = typeof BLOCKING | typeof SURFACING | UnparsedObject;
-export const BLOCKING = "blocking";
-export const SURFACING = "surfacing";
+export type TagRuleScoreResourceType = typeof TAG_RULE_SCORE | UnparsedObject;
+export const TAG_RULE_SCORE = "tag_rule_score";

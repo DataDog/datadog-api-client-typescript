@@ -3,27 +3,18 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
-import { TagPolicyScoreAttributes } from "./TagPolicyScoreAttributes";
-import { TagPolicyScoreResourceType } from "./TagPolicyScoreResourceType";
+import { TagRuleScoreRelationship } from "./TagRuleScoreRelationship";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * A compliance score resource for a tag policy.
+ * Related resources for a tag rule. Only present when the corresponding `include` query parameter is supplied.
  */
-export class TagPolicyScoreData {
+export class TagRuleRelationships {
   /**
-   * Attributes of a tag policy compliance score.
+   * A relationship to the compliance score resource for this rule.
    */
-  "attributes": TagPolicyScoreAttributes;
-  /**
-   * The unique identifier of the compliance score resource.
-   */
-  "id": string;
-  /**
-   * JSON:API resource type for a tag policy compliance score.
-   */
-  "type": TagPolicyScoreResourceType;
+  "score"?: TagRuleScoreRelationship;
 
   /**
    * A container for additional, undeclared properties.
@@ -41,20 +32,9 @@ export class TagPolicyScoreData {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    attributes: {
-      baseName: "attributes",
-      type: "TagPolicyScoreAttributes",
-      required: true,
-    },
-    id: {
-      baseName: "id",
-      type: "string",
-      required: true,
-    },
-    type: {
-      baseName: "type",
-      type: "TagPolicyScoreResourceType",
-      required: true,
+    score: {
+      baseName: "score",
+      type: "TagRuleScoreRelationship",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -66,7 +46,7 @@ export class TagPolicyScoreData {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-    return TagPolicyScoreData.attributeTypeMap;
+    return TagRuleRelationships.attributeTypeMap;
   }
 
   public constructor() {}

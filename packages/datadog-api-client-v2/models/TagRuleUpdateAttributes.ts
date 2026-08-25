@@ -3,42 +3,42 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
-import { TagPolicyType } from "./TagPolicyType";
+import { TagRuleType } from "./TagRuleType";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * Mutable attributes of a tag policy. Each field is optional; omitting a field leaves its
- * current value unchanged. The `source` of a policy cannot be changed.
+ * Mutable attributes of a tag rule. Each field is optional; omitting a field leaves its
+ * current value unchanged. The `source` of a rule cannot be changed.
  */
-export class TagPolicyUpdateAttributes {
+export class TagRuleUpdateAttributes {
   /**
-   * Whether the policy is currently enforced.
+   * Whether the rule is currently enforced.
    */
   "enabled"?: boolean;
   /**
-   * When `true`, the policy matches tag values that do NOT match any of the supplied patterns.
+   * Human-readable name for the tag rule.
+   */
+  "name"?: string;
+  /**
+   * When `true`, the rule matches tag values that do NOT match any of the supplied patterns.
    */
   "negated"?: boolean;
-  /**
-   * Human-readable name for the tag policy.
-   */
-  "policyName"?: string;
-  /**
-   * How the policy is enforced. `blocking` rejects telemetry that violates the policy.
-   * `surfacing` only highlights non-compliant telemetry without blocking it.
-   */
-  "policyType"?: TagPolicyType;
   /**
    * When `true`, telemetry without this tag is treated as a violation.
    */
   "required"?: boolean;
   /**
-   * The scope the policy applies within.
+   * How the rule is enforced. `blocking` rejects telemetry that violates the rule.
+   * `surfacing` only highlights non-compliant telemetry without blocking it.
+   */
+  "ruleType"?: TagRuleType;
+  /**
+   * The scope the rule applies within.
    */
   "scope"?: string;
   /**
-   * The tag key that the policy governs.
+   * The tag key that the rule governs.
    */
   "tagKey"?: string;
   /**
@@ -66,21 +66,21 @@ export class TagPolicyUpdateAttributes {
       baseName: "enabled",
       type: "boolean",
     },
+    name: {
+      baseName: "name",
+      type: "string",
+    },
     negated: {
       baseName: "negated",
       type: "boolean",
     },
-    policyName: {
-      baseName: "policy_name",
-      type: "string",
-    },
-    policyType: {
-      baseName: "policy_type",
-      type: "TagPolicyType",
-    },
     required: {
       baseName: "required",
       type: "boolean",
+    },
+    ruleType: {
+      baseName: "rule_type",
+      type: "TagRuleType",
     },
     scope: {
       baseName: "scope",
@@ -104,7 +104,7 @@ export class TagPolicyUpdateAttributes {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-    return TagPolicyUpdateAttributes.attributeTypeMap;
+    return TagRuleUpdateAttributes.attributeTypeMap;
   }
 
   public constructor() {}

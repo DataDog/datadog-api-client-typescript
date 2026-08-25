@@ -3,47 +3,47 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
-import { TagPolicyCreateType } from "./TagPolicyCreateType";
-import { TagPolicySource } from "./TagPolicySource";
+import { TagRuleCreateType } from "./TagRuleCreateType";
+import { TagRuleSource } from "./TagRuleSource";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * Attributes that can be supplied when creating a tag policy.
+ * Attributes that can be supplied when creating a tag rule.
  */
-export class TagPolicyCreateAttributes {
+export class TagRuleCreateAttributes {
   /**
-   * Whether the policy is currently enforced. Defaults to `true` for newly created policies.
+   * Whether the rule is currently enforced. Defaults to `true` for newly created rules.
    */
   "enabled"?: boolean;
   /**
-   * When `true`, the policy matches tag values that do NOT match any of the supplied patterns. Defaults to `false`.
+   * Human-readable name for the tag rule.
+   */
+  "name": string;
+  /**
+   * When `true`, the rule matches tag values that do NOT match any of the supplied patterns. Defaults to `false`.
    */
   "negated"?: boolean;
-  /**
-   * Human-readable name for the tag policy.
-   */
-  "policyName": string;
-  /**
-   * The policy type allowed when creating a tag policy. Only `surfacing` is accepted at
-   * creation time.
-   */
-  "policyType": TagPolicyCreateType;
   /**
    * When `true`, telemetry without this tag is treated as a violation. Defaults to `false`.
    */
   "required"?: boolean;
   /**
-   * The scope the policy applies within. Typically an environment, team, or
-   * organization-level identifier used to limit where the policy is enforced.
+   * The rule type allowed when creating a tag rule. Only `surfacing` is accepted at
+   * creation time.
+   */
+  "ruleType": TagRuleCreateType;
+  /**
+   * The scope the rule applies within. Typically an environment, team, or
+   * organization-level identifier used to limit where the rule is enforced.
    */
   "scope": string;
   /**
-   * The telemetry source that a tag policy applies to.
+   * The telemetry source that a tag rule applies to.
    */
-  "source": TagPolicySource;
+  "source": TagRuleSource;
   /**
-   * The tag key that the policy governs (for example, `service`).
+   * The tag key that the rule governs (for example, `service`).
    */
   "tagKey": string;
   /**
@@ -72,23 +72,23 @@ export class TagPolicyCreateAttributes {
       baseName: "enabled",
       type: "boolean",
     },
+    name: {
+      baseName: "name",
+      type: "string",
+      required: true,
+    },
     negated: {
       baseName: "negated",
       type: "boolean",
     },
-    policyName: {
-      baseName: "policy_name",
-      type: "string",
-      required: true,
-    },
-    policyType: {
-      baseName: "policy_type",
-      type: "TagPolicyCreateType",
-      required: true,
-    },
     required: {
       baseName: "required",
       type: "boolean",
+    },
+    ruleType: {
+      baseName: "rule_type",
+      type: "TagRuleCreateType",
+      required: true,
     },
     scope: {
       baseName: "scope",
@@ -97,7 +97,7 @@ export class TagPolicyCreateAttributes {
     },
     source: {
       baseName: "source",
-      type: "TagPolicySource",
+      type: "TagRuleSource",
       required: true,
     },
     tagKey: {
@@ -120,7 +120,7 @@ export class TagPolicyCreateAttributes {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-    return TagPolicyCreateAttributes.attributeTypeMap;
+    return TagRuleCreateAttributes.attributeTypeMap;
   }
 
   public constructor() {}

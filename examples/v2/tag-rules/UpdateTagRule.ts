@@ -1,30 +1,30 @@
 /**
- * Update a tag policy returns "OK" response
+ * Update a tag rule returns "OK" response
  */
 
 import { client, v2 } from "@datadog/datadog-api-client";
 
 const configuration = client.createConfiguration();
-configuration.unstableOperations["v2.updateTagPolicy"] = true;
-const apiInstance = new v2.TagPoliciesApi(configuration);
+configuration.unstableOperations["v2.updateTagRule"] = true;
+const apiInstance = new v2.TagRulesApi(configuration);
 
-const params: v2.TagPoliciesApiUpdateTagPolicyRequest = {
+const params: v2.TagRulesApiUpdateTagRuleRequest = {
   body: {
     data: {
       attributes: {
-        policyType: "surfacing",
+        ruleType: "surfacing",
         tagValuePatterns: [],
       },
       id: "123",
-      type: "tag_policy",
+      type: "tag_rule",
     },
   },
-  policyId: "policy_id",
+  ruleId: "rule_id",
 };
 
 apiInstance
-  .updateTagPolicy(params)
-  .then((data: v2.TagPolicyResponse) => {
+  .updateTagRule(params)
+  .then((data: v2.TagRuleResponse) => {
     console.log(
       "API called successfully. Returned data: " + JSON.stringify(data)
     );
