@@ -1639,9 +1639,9 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@datadog/datadog-api-client-tag-policies@workspace:services/tag_policies":
+"@datadog/datadog-api-client-tag-rules@workspace:services/tag_rules":
   version: 0.0.0-use.local
-  resolution: "@datadog/datadog-api-client-tag-policies@workspace:services/tag_policies"
+  resolution: "@datadog/datadog-api-client-tag-rules@workspace:services/tag_rules"
   dependencies:
     "@datadog/datadog-api-client": "npm:^2.0.0-beta.2"
     typescript: "npm:5.8.3"
