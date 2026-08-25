@@ -15413,6 +15413,61 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
     },
     operationResponseType: "RumRetentionFilterResponse",
   },
+  "RumRetentionFiltersApi.V2.ListExclusionFilters": {
+    appId: {
+      type: "string",
+      format: "",
+    },
+    operationResponseType: "RumExclusionFiltersResponse",
+  },
+  "RumRetentionFiltersApi.V2.CreateExclusionFilter": {
+    appId: {
+      type: "string",
+      format: "",
+    },
+    body: {
+      type: "RumExclusionFilterCreateRequest",
+      format: "",
+    },
+    operationResponseType: "RumExclusionFilterResponse",
+  },
+  "RumRetentionFiltersApi.V2.GetExclusionFilter": {
+    appId: {
+      type: "string",
+      format: "",
+    },
+    efId: {
+      type: "string",
+      format: "",
+    },
+    operationResponseType: "RumExclusionFilterResponse",
+  },
+  "RumRetentionFiltersApi.V2.DeleteExclusionFilter": {
+    appId: {
+      type: "string",
+      format: "",
+    },
+    efId: {
+      type: "string",
+      format: "",
+    },
+    operationResponseType: "{}",
+  },
+  "RumRetentionFiltersApi.V2.UpdateExclusionFilter": {
+    appId: {
+      type: "string",
+      format: "",
+    },
+    efId: {
+      type: "string",
+      format: "",
+    },
+    body: {
+      type: "RumExclusionFilterUpdateRequest",
+      format: "",
+    },
+    operationResponseType: "RumExclusionFilterResponse",
+  },
   "RumRetentionFiltersApi.V2.ListPermanentRetentionFilters": {
     appId: {
       type: "string",
