@@ -13,6 +13,10 @@ export class AssetOperatingSystem {
    */
   "name": string;
   /**
+   * Operating system version.
+   */
+  "version"?: string;
+  /**
    * A container for additional, undeclared properties.
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
@@ -35,6 +39,10 @@ export class AssetOperatingSystem {
       baseName: "name",
       type: "string",
       required: true,
+    },
+    version: {
+      baseName: "version",
+      type: "string",
     },
     additionalProperties: {
       baseName: "additionalProperties",
