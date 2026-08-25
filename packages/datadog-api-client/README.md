@@ -398,6 +398,7 @@ apiInstance
 | Domain Allowlist | @datadog/datadog-api-client-domain-allowlist | [README.md](../../services/domain-allowlist/README.md) |
 | DORA Metrics | @datadog/datadog-api-client-dora-metrics | [README.md](../../services/dora-metrics/README.md) |
 | Downtimes | @datadog/datadog-api-client-downtimes | [README.md](../../services/downtimes/README.md) |
+| Elastic Cloud Integration Accounts | @datadog/datadog-api-client-elastic-cloud-integration-accounts | [README.md](../../services/elastic-cloud-integration-accounts/README.md) |
 | Entity Integration Configs | @datadog/datadog-api-client-entity-integration-configs | [README.md](../../services/entity-integration-configs/README.md) |
 | Entity Risk Scores | @datadog/datadog-api-client-entity-risk-scores | [README.md](../../services/entity-risk-scores/README.md) |
 | Error Tracking | @datadog/datadog-api-client-error-tracking | [README.md](../../services/error-tracking/README.md) |
@@ -494,6 +495,7 @@ apiInstance
 | Tags | @datadog/datadog-api-client-tags | [README.md](../../services/tags/README.md) |
 | Teams | @datadog/datadog-api-client-teams | [README.md](../../services/teams/README.md) |
 | Test Optimization | @datadog/datadog-api-client-test-optimization | [README.md](../../services/test-optimization/README.md) |
+| Twilio Integration Accounts | @datadog/datadog-api-client-twilio-integration-accounts | [README.md](../../services/twilio-integration-accounts/README.md) |
 | Usage Metering | @datadog/datadog-api-client-usage-metering | [README.md](../../services/usage-metering/README.md) |
 | User Authorized Clients | @datadog/datadog-api-client-user-authorized-clients | [README.md](../../services/user-authorized-clients/README.md) |
 | Users | @datadog/datadog-api-client-users | [README.md](../../services/users/README.md) |
