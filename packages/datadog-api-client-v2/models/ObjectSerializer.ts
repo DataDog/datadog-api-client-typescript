@@ -5386,22 +5386,22 @@ import { TagIndexingRuleUpdateData } from "./TagIndexingRuleUpdateData";
 import { TagIndexingRuleUpdateRequest } from "./TagIndexingRuleUpdateRequest";
 import { TagIndexingRulesResponse } from "./TagIndexingRulesResponse";
 import { TagIndexingRulesResponseMeta } from "./TagIndexingRulesResponseMeta";
-import { TagPoliciesListResponse } from "./TagPoliciesListResponse";
-import { TagPolicyAttributes } from "./TagPolicyAttributes";
-import { TagPolicyCreateAttributes } from "./TagPolicyCreateAttributes";
-import { TagPolicyCreateData } from "./TagPolicyCreateData";
-import { TagPolicyCreateRequest } from "./TagPolicyCreateRequest";
-import { TagPolicyData } from "./TagPolicyData";
-import { TagPolicyRelationships } from "./TagPolicyRelationships";
-import { TagPolicyResponse } from "./TagPolicyResponse";
-import { TagPolicyScoreAttributes } from "./TagPolicyScoreAttributes";
-import { TagPolicyScoreData } from "./TagPolicyScoreData";
-import { TagPolicyScoreRelationship } from "./TagPolicyScoreRelationship";
-import { TagPolicyScoreRelationshipData } from "./TagPolicyScoreRelationshipData";
-import { TagPolicyScoreResponse } from "./TagPolicyScoreResponse";
-import { TagPolicyUpdateAttributes } from "./TagPolicyUpdateAttributes";
-import { TagPolicyUpdateData } from "./TagPolicyUpdateData";
-import { TagPolicyUpdateRequest } from "./TagPolicyUpdateRequest";
+import { TagRuleAttributes } from "./TagRuleAttributes";
+import { TagRuleCreateAttributes } from "./TagRuleCreateAttributes";
+import { TagRuleCreateData } from "./TagRuleCreateData";
+import { TagRuleCreateRequest } from "./TagRuleCreateRequest";
+import { TagRuleData } from "./TagRuleData";
+import { TagRuleRelationships } from "./TagRuleRelationships";
+import { TagRuleResponse } from "./TagRuleResponse";
+import { TagRuleScoreAttributes } from "./TagRuleScoreAttributes";
+import { TagRuleScoreData } from "./TagRuleScoreData";
+import { TagRuleScoreRelationship } from "./TagRuleScoreRelationship";
+import { TagRuleScoreRelationshipData } from "./TagRuleScoreRelationshipData";
+import { TagRuleScoreResponse } from "./TagRuleScoreResponse";
+import { TagRuleUpdateAttributes } from "./TagRuleUpdateAttributes";
+import { TagRuleUpdateData } from "./TagRuleUpdateData";
+import { TagRuleUpdateRequest } from "./TagRuleUpdateRequest";
+import { TagRulesListResponse } from "./TagRulesListResponse";
 import { TargetingRule } from "./TargetingRule";
 import { TargetingRuleRequest } from "./TargetingRuleRequest";
 import { Team } from "./Team";
@@ -8858,12 +8858,12 @@ const enumsMap: { [key: string]: any[] } = {
   TagDataType: ["tag"],
   TagIndexingRuleExemptionType: ["tag_indexing_rule_exemptions"],
   TagIndexingRuleType: ["tag_indexing_rules"],
-  TagPolicyCreateType: ["surfacing"],
-  TagPolicyInclude: ["score"],
-  TagPolicyResourceType: ["tag_policy"],
-  TagPolicyScoreResourceType: ["tag_policy_score"],
-  TagPolicySource: ["logs", "spans", "metrics", "rum", "feed"],
-  TagPolicyType: ["blocking", "surfacing"],
+  TagRuleCreateType: ["surfacing"],
+  TagRuleInclude: ["score"],
+  TagRuleResourceType: ["tag_rule"],
+  TagRuleScoreResourceType: ["tag_rule_score"],
+  TagRuleSource: ["logs", "spans", "metrics", "rum", "feed"],
+  TagRuleType: ["blocking", "surfacing"],
   TeamConnectionType: ["team_connection"],
   TeamHierarchyLinkType: ["team_hierarchy_links"],
   TeamLinkType: ["team_links"],
@@ -15744,22 +15744,22 @@ const typeMap: { [index: string]: any } = {
   TagIndexingRuleUpdateRequest: TagIndexingRuleUpdateRequest,
   TagIndexingRulesResponse: TagIndexingRulesResponse,
   TagIndexingRulesResponseMeta: TagIndexingRulesResponseMeta,
-  TagPoliciesListResponse: TagPoliciesListResponse,
-  TagPolicyAttributes: TagPolicyAttributes,
-  TagPolicyCreateAttributes: TagPolicyCreateAttributes,
-  TagPolicyCreateData: TagPolicyCreateData,
-  TagPolicyCreateRequest: TagPolicyCreateRequest,
-  TagPolicyData: TagPolicyData,
-  TagPolicyRelationships: TagPolicyRelationships,
-  TagPolicyResponse: TagPolicyResponse,
-  TagPolicyScoreAttributes: TagPolicyScoreAttributes,
-  TagPolicyScoreData: TagPolicyScoreData,
-  TagPolicyScoreRelationship: TagPolicyScoreRelationship,
-  TagPolicyScoreRelationshipData: TagPolicyScoreRelationshipData,
-  TagPolicyScoreResponse: TagPolicyScoreResponse,
-  TagPolicyUpdateAttributes: TagPolicyUpdateAttributes,
-  TagPolicyUpdateData: TagPolicyUpdateData,
-  TagPolicyUpdateRequest: TagPolicyUpdateRequest,
+  TagRuleAttributes: TagRuleAttributes,
+  TagRuleCreateAttributes: TagRuleCreateAttributes,
+  TagRuleCreateData: TagRuleCreateData,
+  TagRuleCreateRequest: TagRuleCreateRequest,
+  TagRuleData: TagRuleData,
+  TagRuleRelationships: TagRuleRelationships,
+  TagRuleResponse: TagRuleResponse,
+  TagRuleScoreAttributes: TagRuleScoreAttributes,
+  TagRuleScoreData: TagRuleScoreData,
+  TagRuleScoreRelationship: TagRuleScoreRelationship,
+  TagRuleScoreRelationshipData: TagRuleScoreRelationshipData,
+  TagRuleScoreResponse: TagRuleScoreResponse,
+  TagRuleUpdateAttributes: TagRuleUpdateAttributes,
+  TagRuleUpdateData: TagRuleUpdateData,
+  TagRuleUpdateRequest: TagRuleUpdateRequest,
+  TagRulesListResponse: TagRulesListResponse,
   TargetingRule: TargetingRule,
   TargetingRuleRequest: TargetingRuleRequest,
   Team: Team,

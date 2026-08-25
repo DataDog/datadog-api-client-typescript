@@ -7,10 +7,10 @@
 import { UnparsedObject } from "../../datadog-api-client-common/util";
 
 /**
- * The telemetry source that a tag policy applies to.
+ * The telemetry source that a tag rule applies to.
  */
 
-export type TagPolicySource =
+export type TagRuleSource =
   | typeof LOGS
   | typeof SPANS
   | typeof METRICS

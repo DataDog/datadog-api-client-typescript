@@ -3,18 +3,28 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
-import { TagPolicyCreateData } from "./TagPolicyCreateData";
+import { TagRuleResourceType } from "./TagRuleResourceType";
+import { TagRuleUpdateAttributes } from "./TagRuleUpdateAttributes";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * Payload for creating a new tag policy.
+ * Data object for updating a tag rule.
  */
-export class TagPolicyCreateRequest {
+export class TagRuleUpdateData {
   /**
-   * Data object for creating a tag policy.
+   * Mutable attributes of a tag rule. Each field is optional; omitting a field leaves its
+   * current value unchanged. The `source` of a rule cannot be changed.
    */
-  "data": TagPolicyCreateData;
+  "attributes"?: TagRuleUpdateAttributes;
+  /**
+   * The unique identifier of the tag rule being updated.
+   */
+  "id": string;
+  /**
+   * JSON:API resource type for a tag rule.
+   */
+  "type": TagRuleResourceType;
 
   /**
    * A container for additional, undeclared properties.
@@ -32,9 +42,18 @@ export class TagPolicyCreateRequest {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    data: {
-      baseName: "data",
-      type: "TagPolicyCreateData",
+    attributes: {
+      baseName: "attributes",
+      type: "TagRuleUpdateAttributes",
+    },
+    id: {
+      baseName: "id",
+      type: "string",
+      required: true,
+    },
+    type: {
+      baseName: "type",
+      type: "TagRuleResourceType",
       required: true,
     },
     additionalProperties: {
@@ -47,7 +66,7 @@ export class TagPolicyCreateRequest {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-    return TagPolicyCreateRequest.attributeTypeMap;
+    return TagRuleUpdateData.attributeTypeMap;
   }
 
   public constructor() {}

@@ -3,18 +3,18 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
-import { TagPolicyUpdateData } from "./TagPolicyUpdateData";
+import { TagRuleUpdateData } from "./TagRuleUpdateData";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * Payload for updating an existing tag policy. Only the supplied fields are modified.
+ * Payload for updating an existing tag rule. Only the supplied fields are modified.
  */
-export class TagPolicyUpdateRequest {
+export class TagRuleUpdateRequest {
   /**
-   * Data object for updating a tag policy.
+   * Data object for updating a tag rule.
    */
-  "data": TagPolicyUpdateData;
+  "data": TagRuleUpdateData;
 
   /**
    * A container for additional, undeclared properties.
@@ -34,7 +34,7 @@ export class TagPolicyUpdateRequest {
   static readonly attributeTypeMap: AttributeTypeMap = {
     data: {
       baseName: "data",
-      type: "TagPolicyUpdateData",
+      type: "TagRuleUpdateData",
       required: true,
     },
     additionalProperties: {
@@ -47,7 +47,7 @@ export class TagPolicyUpdateRequest {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-    return TagPolicyUpdateRequest.attributeTypeMap;
+    return TagRuleUpdateRequest.attributeTypeMap;
   }
 
   public constructor() {}

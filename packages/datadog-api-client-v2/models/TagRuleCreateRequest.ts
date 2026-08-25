@@ -3,23 +3,18 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
-import { TagPolicyData } from "./TagPolicyData";
-import { TagPolicyScoreData } from "./TagPolicyScoreData";
+import { TagRuleCreateData } from "./TagRuleCreateData";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * A page of tag policies.
+ * Payload for creating a new tag rule.
  */
-export class TagPoliciesListResponse {
+export class TagRuleCreateRequest {
   /**
-   * An array of tag policy data objects.
+   * Data object for creating a tag rule.
    */
-  "data": Array<TagPolicyData>;
-  /**
-   * Related resources fetched alongside the primary tag policies. Populated when an `include` query parameter is supplied.
-   */
-  "included"?: Array<TagPolicyScoreData>;
+  "data": TagRuleCreateData;
 
   /**
    * A container for additional, undeclared properties.
@@ -39,12 +34,8 @@ export class TagPoliciesListResponse {
   static readonly attributeTypeMap: AttributeTypeMap = {
     data: {
       baseName: "data",
-      type: "Array<TagPolicyData>",
+      type: "TagRuleCreateData",
       required: true,
-    },
-    included: {
-      baseName: "included",
-      type: "Array<TagPolicyScoreData>",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -56,7 +47,7 @@ export class TagPoliciesListResponse {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-    return TagPoliciesListResponse.attributeTypeMap;
+    return TagRuleCreateRequest.attributeTypeMap;
   }
 
   public constructor() {}

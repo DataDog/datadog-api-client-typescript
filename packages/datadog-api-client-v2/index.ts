@@ -1843,14 +1843,14 @@ export {
 } from "./apis/SyntheticsApi";
 
 export {
-  TagPoliciesApiCreateTagPolicyRequest,
-  TagPoliciesApiDeleteTagPolicyRequest,
-  TagPoliciesApiGetTagPolicyRequest,
-  TagPoliciesApiGetTagPolicyScoreRequest,
-  TagPoliciesApiListTagPoliciesRequest,
-  TagPoliciesApiUpdateTagPolicyRequest,
-  TagPoliciesApi,
-} from "./apis/TagPoliciesApi";
+  TagRulesApiCreateTagRuleRequest,
+  TagRulesApiDeleteTagRuleRequest,
+  TagRulesApiGetTagRuleRequest,
+  TagRulesApiGetTagRuleScoreRequest,
+  TagRulesApiListTagRulesRequest,
+  TagRulesApiUpdateTagRuleRequest,
+  TagRulesApi,
+} from "./apis/TagRulesApi";
 
 export {
   TeamsApiAddMemberTeamRequest,
@@ -8956,28 +8956,28 @@ export { TagIndexingRuleType } from "./models/TagIndexingRuleType";
 export { TagIndexingRuleUpdateAttributes } from "./models/TagIndexingRuleUpdateAttributes";
 export { TagIndexingRuleUpdateData } from "./models/TagIndexingRuleUpdateData";
 export { TagIndexingRuleUpdateRequest } from "./models/TagIndexingRuleUpdateRequest";
-export { TagPoliciesListResponse } from "./models/TagPoliciesListResponse";
-export { TagPolicyAttributes } from "./models/TagPolicyAttributes";
-export { TagPolicyCreateAttributes } from "./models/TagPolicyCreateAttributes";
-export { TagPolicyCreateData } from "./models/TagPolicyCreateData";
-export { TagPolicyCreateRequest } from "./models/TagPolicyCreateRequest";
-export { TagPolicyCreateType } from "./models/TagPolicyCreateType";
-export { TagPolicyData } from "./models/TagPolicyData";
-export { TagPolicyInclude } from "./models/TagPolicyInclude";
-export { TagPolicyRelationships } from "./models/TagPolicyRelationships";
-export { TagPolicyResourceType } from "./models/TagPolicyResourceType";
-export { TagPolicyResponse } from "./models/TagPolicyResponse";
-export { TagPolicyScoreAttributes } from "./models/TagPolicyScoreAttributes";
-export { TagPolicyScoreData } from "./models/TagPolicyScoreData";
-export { TagPolicyScoreRelationship } from "./models/TagPolicyScoreRelationship";
-export { TagPolicyScoreRelationshipData } from "./models/TagPolicyScoreRelationshipData";
-export { TagPolicyScoreResourceType } from "./models/TagPolicyScoreResourceType";
-export { TagPolicyScoreResponse } from "./models/TagPolicyScoreResponse";
-export { TagPolicySource } from "./models/TagPolicySource";
-export { TagPolicyType } from "./models/TagPolicyType";
-export { TagPolicyUpdateAttributes } from "./models/TagPolicyUpdateAttributes";
-export { TagPolicyUpdateData } from "./models/TagPolicyUpdateData";
-export { TagPolicyUpdateRequest } from "./models/TagPolicyUpdateRequest";
+export { TagRuleAttributes } from "./models/TagRuleAttributes";
+export { TagRuleCreateAttributes } from "./models/TagRuleCreateAttributes";
+export { TagRuleCreateData } from "./models/TagRuleCreateData";
+export { TagRuleCreateRequest } from "./models/TagRuleCreateRequest";
+export { TagRuleCreateType } from "./models/TagRuleCreateType";
+export { TagRuleData } from "./models/TagRuleData";
+export { TagRuleInclude } from "./models/TagRuleInclude";
+export { TagRuleRelationships } from "./models/TagRuleRelationships";
+export { TagRuleResourceType } from "./models/TagRuleResourceType";
+export { TagRuleResponse } from "./models/TagRuleResponse";
+export { TagRuleScoreAttributes } from "./models/TagRuleScoreAttributes";
+export { TagRuleScoreData } from "./models/TagRuleScoreData";
+export { TagRuleScoreRelationship } from "./models/TagRuleScoreRelationship";
+export { TagRuleScoreRelationshipData } from "./models/TagRuleScoreRelationshipData";
+export { TagRuleScoreResourceType } from "./models/TagRuleScoreResourceType";
+export { TagRuleScoreResponse } from "./models/TagRuleScoreResponse";
+export { TagRulesListResponse } from "./models/TagRulesListResponse";
+export { TagRuleSource } from "./models/TagRuleSource";
+export { TagRuleType } from "./models/TagRuleType";
+export { TagRuleUpdateAttributes } from "./models/TagRuleUpdateAttributes";
+export { TagRuleUpdateData } from "./models/TagRuleUpdateData";
+export { TagRuleUpdateRequest } from "./models/TagRuleUpdateRequest";
 export { TargetingRule } from "./models/TargetingRule";
 export { TargetingRuleRequest } from "./models/TargetingRuleRequest";
 export { Team } from "./models/Team";

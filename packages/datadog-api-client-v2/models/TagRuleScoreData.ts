@@ -3,18 +3,27 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
-import { TagPolicyScoreRelationship } from "./TagPolicyScoreRelationship";
+import { TagRuleScoreAttributes } from "./TagRuleScoreAttributes";
+import { TagRuleScoreResourceType } from "./TagRuleScoreResourceType";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * Related resources for a tag policy. Only present when the corresponding `include` query parameter is supplied.
+ * A compliance score resource for a tag rule.
  */
-export class TagPolicyRelationships {
+export class TagRuleScoreData {
   /**
-   * A relationship to the compliance score resource for this policy.
+   * Attributes of a tag rule compliance score.
    */
-  "score"?: TagPolicyScoreRelationship;
+  "attributes": TagRuleScoreAttributes;
+  /**
+   * The unique identifier of the compliance score resource.
+   */
+  "id": string;
+  /**
+   * JSON:API resource type for a tag rule compliance score.
+   */
+  "type": TagRuleScoreResourceType;
 
   /**
    * A container for additional, undeclared properties.
@@ -32,9 +41,20 @@ export class TagPolicyRelationships {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    score: {
-      baseName: "score",
-      type: "TagPolicyScoreRelationship",
+    attributes: {
+      baseName: "attributes",
+      type: "TagRuleScoreAttributes",
+      required: true,
+    },
+    id: {
+      baseName: "id",
+      type: "string",
+      required: true,
+    },
+    type: {
+      baseName: "type",
+      type: "TagRuleScoreResourceType",
+      required: true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -46,7 +66,7 @@ export class TagPolicyRelationships {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-    return TagPolicyRelationships.attributeTypeMap;
+    return TagRuleScoreData.attributeTypeMap;
   }
 
   public constructor() {}

@@ -3,28 +3,18 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
-import { TagPolicyResourceType } from "./TagPolicyResourceType";
-import { TagPolicyUpdateAttributes } from "./TagPolicyUpdateAttributes";
+import { TagRuleScoreData } from "./TagRuleScoreData";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * Data object for updating a tag policy.
+ * A tag rule compliance score.
  */
-export class TagPolicyUpdateData {
+export class TagRuleScoreResponse {
   /**
-   * Mutable attributes of a tag policy. Each field is optional; omitting a field leaves its
-   * current value unchanged. The `source` of a policy cannot be changed.
+   * A compliance score resource for a tag rule.
    */
-  "attributes"?: TagPolicyUpdateAttributes;
-  /**
-   * The unique identifier of the tag policy being updated.
-   */
-  "id": string;
-  /**
-   * JSON:API resource type for a tag policy.
-   */
-  "type": TagPolicyResourceType;
+  "data": TagRuleScoreData;
 
   /**
    * A container for additional, undeclared properties.
@@ -42,18 +32,9 @@ export class TagPolicyUpdateData {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    attributes: {
-      baseName: "attributes",
-      type: "TagPolicyUpdateAttributes",
-    },
-    id: {
-      baseName: "id",
-      type: "string",
-      required: true,
-    },
-    type: {
-      baseName: "type",
-      type: "TagPolicyResourceType",
+    data: {
+      baseName: "data",
+      type: "TagRuleScoreData",
       required: true,
     },
     additionalProperties: {
@@ -66,7 +47,7 @@ export class TagPolicyUpdateData {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-    return TagPolicyUpdateData.attributeTypeMap;
+    return TagRuleScoreResponse.attributeTypeMap;
   }
 
   public constructor() {}

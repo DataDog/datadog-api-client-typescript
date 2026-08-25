@@ -3,18 +3,23 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
-import { TagPolicyScoreRelationshipData } from "./TagPolicyScoreRelationshipData";
+import { TagRuleData } from "./TagRuleData";
+import { TagRuleScoreData } from "./TagRuleScoreData";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * A relationship to the compliance score resource for this policy.
+ * A single tag rule.
  */
-export class TagPolicyScoreRelationship {
+export class TagRuleResponse {
   /**
-   * Identifier of the related compliance score resource.
+   * A tag rule resource.
    */
-  "data": TagPolicyScoreRelationshipData;
+  "data": TagRuleData;
+  /**
+   * Related resources fetched alongside the primary tag rules. Populated when an `include` query parameter is supplied.
+   */
+  "included"?: Array<TagRuleScoreData>;
 
   /**
    * A container for additional, undeclared properties.
@@ -34,8 +39,12 @@ export class TagPolicyScoreRelationship {
   static readonly attributeTypeMap: AttributeTypeMap = {
     data: {
       baseName: "data",
-      type: "TagPolicyScoreRelationshipData",
+      type: "TagRuleData",
       required: true,
+    },
+    included: {
+      baseName: "included",
+      type: "Array<TagRuleScoreData>",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -47,7 +56,7 @@ export class TagPolicyScoreRelationship {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-    return TagPolicyScoreRelationship.attributeTypeMap;
+    return TagRuleResponse.attributeTypeMap;
   }
 
   public constructor() {}

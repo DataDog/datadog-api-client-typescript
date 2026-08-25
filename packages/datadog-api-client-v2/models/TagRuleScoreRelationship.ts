@@ -3,23 +3,18 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
-import { TagPolicyCreateAttributes } from "./TagPolicyCreateAttributes";
-import { TagPolicyResourceType } from "./TagPolicyResourceType";
+import { TagRuleScoreRelationshipData } from "./TagRuleScoreRelationshipData";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * Data object for creating a tag policy.
+ * A relationship to the compliance score resource for this rule.
  */
-export class TagPolicyCreateData {
+export class TagRuleScoreRelationship {
   /**
-   * Attributes that can be supplied when creating a tag policy.
+   * Identifier of the related compliance score resource.
    */
-  "attributes": TagPolicyCreateAttributes;
-  /**
-   * JSON:API resource type for a tag policy.
-   */
-  "type": TagPolicyResourceType;
+  "data": TagRuleScoreRelationshipData;
 
   /**
    * A container for additional, undeclared properties.
@@ -37,14 +32,9 @@ export class TagPolicyCreateData {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    attributes: {
-      baseName: "attributes",
-      type: "TagPolicyCreateAttributes",
-      required: true,
-    },
-    type: {
-      baseName: "type",
-      type: "TagPolicyResourceType",
+    data: {
+      baseName: "data",
+      type: "TagRuleScoreRelationshipData",
       required: true,
     },
     additionalProperties: {
@@ -57,7 +47,7 @@ export class TagPolicyCreateData {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-    return TagPolicyCreateData.attributeTypeMap;
+    return TagRuleScoreRelationship.attributeTypeMap;
   }
 
   public constructor() {}

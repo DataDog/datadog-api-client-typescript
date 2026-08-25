@@ -3,22 +3,22 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
-import { TagPolicyScoreResourceType } from "./TagPolicyScoreResourceType";
+import { TagRuleScoreResourceType } from "./TagRuleScoreResourceType";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * Identifier of the related compliance score resource.
  */
-export class TagPolicyScoreRelationshipData {
+export class TagRuleScoreRelationshipData {
   /**
    * The unique identifier of the related compliance score resource.
    */
   "id": string;
   /**
-   * JSON:API resource type for a tag policy compliance score.
+   * JSON:API resource type for a tag rule compliance score.
    */
-  "type": TagPolicyScoreResourceType;
+  "type": TagRuleScoreResourceType;
 
   /**
    * A container for additional, undeclared properties.
@@ -43,7 +43,7 @@ export class TagPolicyScoreRelationshipData {
     },
     type: {
       baseName: "type",
-      type: "TagPolicyScoreResourceType",
+      type: "TagRuleScoreResourceType",
       required: true,
     },
     additionalProperties: {
@@ -56,7 +56,7 @@ export class TagPolicyScoreRelationshipData {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-    return TagPolicyScoreRelationshipData.attributeTypeMap;
+    return TagRuleScoreRelationshipData.attributeTypeMap;
   }
 
   public constructor() {}

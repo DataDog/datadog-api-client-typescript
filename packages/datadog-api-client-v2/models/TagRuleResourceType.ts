@@ -7,8 +7,8 @@
 import { UnparsedObject } from "../../datadog-api-client-common/util";
 
 /**
- * A related resource to include alongside a tag policy in the response. Currently the only supported value is `score`.
+ * JSON:API resource type for a tag rule.
  */
 
-export type TagPolicyInclude = typeof SCORE | UnparsedObject;
-export const SCORE = "score";
+export type TagRuleResourceType = typeof TAG_RULE | UnparsedObject;
+export const TAG_RULE = "tag_rule";
