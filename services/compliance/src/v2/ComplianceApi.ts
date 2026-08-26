@@ -80,6 +80,11 @@ export class ComplianceApiRequestFactory extends BaseAPIRequestFactory {
       requestContext.setHeaderParam("User-Agent", this.userAgent);
     }
 
+    // Set IaC header
+    if (_config.isIaC) {
+      requestContext.setHeaderParam("X-Datadog-Managed-By", "iac");
+    }
+
     // Query Params
     if (to !== undefined) {
       requestContext.setQueryParam(
