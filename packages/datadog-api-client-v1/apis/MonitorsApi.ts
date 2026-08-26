@@ -46,6 +46,11 @@ export class MonitorsApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
+    // Set IaC header
+    if (_config.isIaC) {
+      requestContext.setHeaderParam("X-Datadog-Managed-By", "iac");
+    }
+
     // Query Params
     if (monitorIds !== undefined) {
       requestContext.setQueryParam(
@@ -85,6 +90,11 @@ export class MonitorsApiRequestFactory extends BaseAPIRequestFactory {
       .makeRequestContext(localVarPath, HttpMethod.POST);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
+
+    // Set IaC header
+    if (_config.isIaC) {
+      requestContext.setHeaderParam("X-Datadog-Managed-By", "iac");
+    }
 
     // Body Params
     const contentType = ObjectSerializer.getPreferredMediaType([
@@ -132,6 +142,11 @@ export class MonitorsApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
+    // Set IaC header
+    if (_config.isIaC) {
+      requestContext.setHeaderParam("X-Datadog-Managed-By", "iac");
+    }
+
     // Query Params
     if (force !== undefined) {
       requestContext.setQueryParam(
@@ -177,6 +192,11 @@ export class MonitorsApiRequestFactory extends BaseAPIRequestFactory {
       .makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
+
+    // Set IaC header
+    if (_config.isIaC) {
+      requestContext.setHeaderParam("X-Datadog-Managed-By", "iac");
+    }
 
     // Query Params
     if (groupStates !== undefined) {
@@ -233,6 +253,11 @@ export class MonitorsApiRequestFactory extends BaseAPIRequestFactory {
       .makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
+
+    // Set IaC header
+    if (_config.isIaC) {
+      requestContext.setHeaderParam("X-Datadog-Managed-By", "iac");
+    }
 
     // Query Params
     if (groupStates !== undefined) {
@@ -321,6 +346,11 @@ export class MonitorsApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
+    // Set IaC header
+    if (_config.isIaC) {
+      requestContext.setHeaderParam("X-Datadog-Managed-By", "iac");
+    }
+
     // Query Params
     if (query !== undefined) {
       requestContext.setQueryParam(
@@ -379,6 +409,11 @@ export class MonitorsApiRequestFactory extends BaseAPIRequestFactory {
       .makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
+
+    // Set IaC header
+    if (_config.isIaC) {
+      requestContext.setHeaderParam("X-Datadog-Managed-By", "iac");
+    }
 
     // Query Params
     if (query !== undefined) {
@@ -450,6 +485,11 @@ export class MonitorsApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
+    // Set IaC header
+    if (_config.isIaC) {
+      requestContext.setHeaderParam("X-Datadog-Managed-By", "iac");
+    }
+
     // Body Params
     const contentType = ObjectSerializer.getPreferredMediaType([
       "application/json",
@@ -501,6 +541,11 @@ export class MonitorsApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
+    // Set IaC header
+    if (_config.isIaC) {
+      requestContext.setHeaderParam("X-Datadog-Managed-By", "iac");
+    }
+
     // Body Params
     const contentType = ObjectSerializer.getPreferredMediaType([
       "application/json",
@@ -542,6 +587,11 @@ export class MonitorsApiRequestFactory extends BaseAPIRequestFactory {
       .makeRequestContext(localVarPath, HttpMethod.POST);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
+
+    // Set IaC header
+    if (_config.isIaC) {
+      requestContext.setHeaderParam("X-Datadog-Managed-By", "iac");
+    }
 
     // Body Params
     const contentType = ObjectSerializer.getPreferredMediaType([

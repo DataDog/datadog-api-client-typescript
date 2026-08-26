@@ -54,6 +54,11 @@ export class EntityIntegrationConfigsApiRequestFactory extends BaseAPIRequestFac
     requestContext.setHeaderParam("Accept", "*/*");
     requestContext.setHttpConfig(_config.httpConfig);
 
+    // Set IaC header
+    if (_config.isIaC) {
+      requestContext.setHeaderParam("X-Datadog-Managed-By", "iac");
+    }
+
     // Apply auth methods
     applySecurityAuthentication(_config, requestContext, [
       "apiKeyAuth",
@@ -94,6 +99,11 @@ export class EntityIntegrationConfigsApiRequestFactory extends BaseAPIRequestFac
       .makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
+
+    // Set IaC header
+    if (_config.isIaC) {
+      requestContext.setHeaderParam("X-Datadog-Managed-By", "iac");
+    }
 
     // Apply auth methods
     applySecurityAuthentication(_config, requestContext, [
@@ -141,6 +151,11 @@ export class EntityIntegrationConfigsApiRequestFactory extends BaseAPIRequestFac
       .makeRequestContext(localVarPath, HttpMethod.PUT);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
+
+    // Set IaC header
+    if (_config.isIaC) {
+      requestContext.setHeaderParam("X-Datadog-Managed-By", "iac");
+    }
 
     // Body Params
     const contentType = ObjectSerializer.getPreferredMediaType([
