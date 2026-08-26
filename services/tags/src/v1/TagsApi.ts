@@ -78,6 +78,11 @@ export class TagsApiRequestFactory extends BaseAPIRequestFactory {
       requestContext.setHeaderParam("User-Agent", this.userAgent);
     }
 
+    // Set IaC header
+    if (_config.isIaC) {
+      requestContext.setHeaderParam("X-Datadog-Managed-By", "iac");
+    }
+
     // Query Params
     if (source !== undefined) {
       requestContext.setQueryParam(
@@ -141,6 +146,11 @@ export class TagsApiRequestFactory extends BaseAPIRequestFactory {
       requestContext.setHeaderParam("User-Agent", this.userAgent);
     }
 
+    // Set IaC header
+    if (_config.isIaC) {
+      requestContext.setHeaderParam("X-Datadog-Managed-By", "iac");
+    }
+
     // Query Params
     if (source !== undefined) {
       requestContext.setQueryParam(
@@ -195,6 +205,11 @@ export class TagsApiRequestFactory extends BaseAPIRequestFactory {
       requestContext.setHeaderParam("User-Agent", this.userAgent);
     }
 
+    // Set IaC header
+    if (_config.isIaC) {
+      requestContext.setHeaderParam("X-Datadog-Managed-By", "iac");
+    }
+
     // Query Params
     if (source !== undefined) {
       requestContext.setQueryParam(
@@ -238,6 +253,11 @@ export class TagsApiRequestFactory extends BaseAPIRequestFactory {
     // Set User-Agent
     if (this.userAgent) {
       requestContext.setHeaderParam("User-Agent", this.userAgent);
+    }
+
+    // Set IaC header
+    if (_config.isIaC) {
+      requestContext.setHeaderParam("X-Datadog-Managed-By", "iac");
     }
 
     // Query Params
@@ -299,6 +319,11 @@ export class TagsApiRequestFactory extends BaseAPIRequestFactory {
     // Set User-Agent
     if (this.userAgent) {
       requestContext.setHeaderParam("User-Agent", this.userAgent);
+    }
+
+    // Set IaC header
+    if (_config.isIaC) {
+      requestContext.setHeaderParam("X-Datadog-Managed-By", "iac");
     }
 
     // Query Params

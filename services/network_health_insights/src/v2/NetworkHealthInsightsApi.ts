@@ -74,6 +74,11 @@ export class NetworkHealthInsightsApiRequestFactory extends BaseAPIRequestFactor
       requestContext.setHeaderParam("User-Agent", this.userAgent);
     }
 
+    // Set IaC header
+    if (_config.isIaC) {
+      requestContext.setHeaderParam("X-Datadog-Managed-By", "iac");
+    }
+
     // Query Params
     if (from !== undefined) {
       requestContext.setQueryParam(

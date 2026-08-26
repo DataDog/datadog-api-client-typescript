@@ -82,6 +82,11 @@ export class HighAvailabilityMultiRegionApiRequestFactory extends BaseAPIRequest
       requestContext.setHeaderParam("User-Agent", this.userAgent);
     }
 
+    // Set IaC header
+    if (_config.isIaC) {
+      requestContext.setHeaderParam("X-Datadog-Managed-By", "iac");
+    }
+
     // Body Params
     const contentType = getPreferredMediaType(["application/json"]);
     requestContext.setHeaderParam("Content-Type", contentType);
@@ -134,6 +139,11 @@ export class HighAvailabilityMultiRegionApiRequestFactory extends BaseAPIRequest
     // Set User-Agent
     if (this.userAgent) {
       requestContext.setHeaderParam("User-Agent", this.userAgent);
+    }
+
+    // Set IaC header
+    if (_config.isIaC) {
+      requestContext.setHeaderParam("X-Datadog-Managed-By", "iac");
     }
 
     // Apply auth methods
