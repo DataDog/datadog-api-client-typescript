@@ -53,6 +53,11 @@ export class TagRulesApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
+    // Set IaC header
+    if (_config.isIaC) {
+      requestContext.setHeaderParam("X-Datadog-Managed-By", "iac");
+    }
+
     // Body Params
     const contentType = ObjectSerializer.getPreferredMediaType([
       "application/json",
@@ -103,6 +108,11 @@ export class TagRulesApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setHeaderParam("Accept", "*/*");
     requestContext.setHttpConfig(_config.httpConfig);
 
+    // Set IaC header
+    if (_config.isIaC) {
+      requestContext.setHeaderParam("X-Datadog-Managed-By", "iac");
+    }
+
     // Query Params
     if (hardDelete !== undefined) {
       requestContext.setQueryParam(
@@ -152,6 +162,11 @@ export class TagRulesApiRequestFactory extends BaseAPIRequestFactory {
       .makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
+
+    // Set IaC header
+    if (_config.isIaC) {
+      requestContext.setHeaderParam("X-Datadog-Managed-By", "iac");
+    }
 
     // Query Params
     if (include !== undefined) {
@@ -216,6 +231,11 @@ export class TagRulesApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
+    // Set IaC header
+    if (_config.isIaC) {
+      requestContext.setHeaderParam("X-Datadog-Managed-By", "iac");
+    }
+
     // Query Params
     if (tsStart !== undefined) {
       requestContext.setQueryParam(
@@ -266,6 +286,11 @@ export class TagRulesApiRequestFactory extends BaseAPIRequestFactory {
       .makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
+
+    // Set IaC header
+    if (_config.isIaC) {
+      requestContext.setHeaderParam("X-Datadog-Managed-By", "iac");
+    }
 
     // Query Params
     if (includeDisabled !== undefined) {
@@ -354,6 +379,11 @@ export class TagRulesApiRequestFactory extends BaseAPIRequestFactory {
       .makeRequestContext(localVarPath, HttpMethod.PATCH);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
+
+    // Set IaC header
+    if (_config.isIaC) {
+      requestContext.setHeaderParam("X-Datadog-Managed-By", "iac");
+    }
 
     // Body Params
     const contentType = ObjectSerializer.getPreferredMediaType([
