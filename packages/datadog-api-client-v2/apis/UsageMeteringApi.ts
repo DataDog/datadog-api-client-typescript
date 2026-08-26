@@ -50,6 +50,11 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
     );
     requestContext.setHttpConfig(_config.httpConfig);
 
+    // Set IaC header
+    if (_config.isIaC) {
+      requestContext.setHeaderParam("X-Datadog-Managed-By", "iac");
+    }
+
     // Apply auth methods
     applySecurityAuthentication(_config, requestContext, [
       "apiKeyAuth",
@@ -79,6 +84,11 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
       "application/json;datetime-format=rfc3339"
     );
     requestContext.setHttpConfig(_config.httpConfig);
+
+    // Set IaC header
+    if (_config.isIaC) {
+      requestContext.setHeaderParam("X-Datadog-Managed-By", "iac");
+    }
 
     // Query Params
     if (filterMonth !== undefined) {
@@ -131,6 +141,11 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
     );
     requestContext.setHttpConfig(_config.httpConfig);
 
+    // Set IaC header
+    if (_config.isIaC) {
+      requestContext.setHeaderParam("X-Datadog-Managed-By", "iac");
+    }
+
     // Query Params
     if (startMonth !== undefined) {
       requestContext.setQueryParam(
@@ -181,6 +196,11 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
       "application/json;datetime-format=rfc3339"
     );
     requestContext.setHttpConfig(_config.httpConfig);
+
+    // Set IaC header
+    if (_config.isIaC) {
+      requestContext.setHeaderParam("X-Datadog-Managed-By", "iac");
+    }
 
     // Query Params
     if (view !== undefined) {
@@ -270,6 +290,11 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
     );
     requestContext.setHttpConfig(_config.httpConfig);
 
+    // Set IaC header
+    if (_config.isIaC) {
+      requestContext.setHeaderParam("X-Datadog-Managed-By", "iac");
+    }
+
     // Query Params
     if (startMonth !== undefined) {
       requestContext.setQueryParam(
@@ -346,6 +371,11 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
       "application/json;datetime-format=rfc3339"
     );
     requestContext.setHttpConfig(_config.httpConfig);
+
+    // Set IaC header
+    if (_config.isIaC) {
+      requestContext.setHeaderParam("X-Datadog-Managed-By", "iac");
+    }
 
     // Query Params
     if (filterTimestampStart !== undefined) {
@@ -462,6 +492,11 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
     );
     requestContext.setHttpConfig(_config.httpConfig);
 
+    // Set IaC header
+    if (_config.isIaC) {
+      requestContext.setHeaderParam("X-Datadog-Managed-By", "iac");
+    }
+
     // Query Params
     if (startMonth !== undefined) {
       requestContext.setQueryParam(
@@ -550,6 +585,11 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
     );
     requestContext.setHttpConfig(_config.httpConfig);
 
+    // Set IaC header
+    if (_config.isIaC) {
+      requestContext.setHeaderParam("X-Datadog-Managed-By", "iac");
+    }
+
     // Query Params
     if (view !== undefined) {
       requestContext.setQueryParam(
@@ -604,6 +644,11 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
     );
     requestContext.setHttpConfig(_config.httpConfig);
 
+    // Set IaC header
+    if (_config.isIaC) {
+      requestContext.setHeaderParam("X-Datadog-Managed-By", "iac");
+    }
+
     // Query Params
     if (startHr !== undefined) {
       requestContext.setQueryParam(
@@ -648,6 +693,11 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
     );
     requestContext.setHttpConfig(_config.httpConfig);
 
+    // Set IaC header
+    if (_config.isIaC) {
+      requestContext.setHeaderParam("X-Datadog-Managed-By", "iac");
+    }
+
     // Apply auth methods
     applySecurityAuthentication(_config, requestContext, [
       "apiKeyAuth",
@@ -682,6 +732,11 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
       "application/json;datetime-format=rfc3339"
     );
     requestContext.setHttpConfig(_config.httpConfig);
+
+    // Set IaC header
+    if (_config.isIaC) {
+      requestContext.setHeaderParam("X-Datadog-Managed-By", "iac");
+    }
 
     // Query Params
     if (startHr !== undefined) {
@@ -734,6 +789,11 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
     );
     requestContext.setHttpConfig(_config.httpConfig);
 
+    // Set IaC header
+    if (_config.isIaC) {
+      requestContext.setHeaderParam("X-Datadog-Managed-By", "iac");
+    }
+
     // Query Params
     if (startHr !== undefined) {
       requestContext.setQueryParam(
@@ -777,6 +837,11 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
       "application/json;datetime-format=rfc3339"
     );
     requestContext.setHttpConfig(_config.httpConfig);
+
+    // Set IaC header
+    if (_config.isIaC) {
+      requestContext.setHeaderParam("X-Datadog-Managed-By", "iac");
+    }
 
     // Apply auth methods
     applySecurityAuthentication(_config, requestContext, [
