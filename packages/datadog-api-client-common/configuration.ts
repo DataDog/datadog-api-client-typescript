@@ -30,6 +30,7 @@ export class Configuration {
   readonly maxRetries: number | undefined;
   readonly backoffBase: number | undefined;
   readonly backoffMultiplier: number | undefined;
+  readonly isIaC: boolean | undefined;
   unstableOperations: { [name: string]: boolean };
   servers: BaseServerConfiguration[];
   operationServers: { [endpoint: string]: BaseServerConfiguration[] };
@@ -46,7 +47,8 @@ export class Configuration {
     maxRetries: number | undefined,
     backoffBase: number | undefined,
     backoffMultiplier: number | undefined,
-    unstableOperations: { [name: string]: boolean }
+    unstableOperations: { [name: string]: boolean },
+    isIaC?: boolean
   ) {
     this.baseServer = baseServer;
     this.serverIndex = serverIndex;
@@ -60,6 +62,7 @@ export class Configuration {
     this.backoffBase = backoffBase;
     this.backoffMultiplier = backoffMultiplier;
     this.unstableOperations = unstableOperations;
+    this.isIaC = isIaC;
     this.servers = [];
     for (const server of servers) {
       this.servers.push(server.clone());
@@ -164,6 +167,11 @@ export interface ConfigurationParameters {
    * Enable retry on status code 429 or 5xx
    */
   enableRetry?: boolean;
+  /**
+   * Flag to indicate that requests made through this client are managed by IaC/automation tooling.
+   * When set, the client sends the `X-Datadog-Managed-By: iac` header on every request.
+   */
+  isIaC?: boolean;
 }
 
 /**
@@ -812,7 +820,8 @@ export function createConfiguration(
       "v2.getWebIntegrationAccount": false,
       "v2.listWebIntegrationAccounts": false,
       "v2.updateWebIntegrationAccount": false,
-    }
+    },
+    conf.isIaC || false
   );
   configuration.httpApi.zstdCompressorCallback = conf.zstdCompressorCallback;
   configuration.httpApi.debug = configuration.debug;
