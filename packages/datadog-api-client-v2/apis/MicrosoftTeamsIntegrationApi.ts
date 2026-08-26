@@ -50,6 +50,11 @@ export class MicrosoftTeamsIntegrationApiRequestFactory extends BaseAPIRequestFa
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
+    // Set IaC header
+    if (_config.isIaC) {
+      requestContext.setHeaderParam("X-Datadog-Managed-By", "iac");
+    }
+
     // Body Params
     const contentType = ObjectSerializer.getPreferredMediaType([
       "application/json",
@@ -95,6 +100,11 @@ export class MicrosoftTeamsIntegrationApiRequestFactory extends BaseAPIRequestFa
       .makeRequestContext(localVarPath, HttpMethod.POST);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
+
+    // Set IaC header
+    if (_config.isIaC) {
+      requestContext.setHeaderParam("X-Datadog-Managed-By", "iac");
+    }
 
     // Body Params
     const contentType = ObjectSerializer.getPreferredMediaType([
@@ -145,6 +155,11 @@ export class MicrosoftTeamsIntegrationApiRequestFactory extends BaseAPIRequestFa
     requestContext.setHeaderParam("Accept", "*/*");
     requestContext.setHttpConfig(_config.httpConfig);
 
+    // Set IaC header
+    if (_config.isIaC) {
+      requestContext.setHeaderParam("X-Datadog-Managed-By", "iac");
+    }
+
     // Apply auth methods
     applySecurityAuthentication(_config, requestContext, [
       "apiKeyAuth",
@@ -179,6 +194,11 @@ export class MicrosoftTeamsIntegrationApiRequestFactory extends BaseAPIRequestFa
     requestContext.setHeaderParam("Accept", "*/*");
     requestContext.setHttpConfig(_config.httpConfig);
 
+    // Set IaC header
+    if (_config.isIaC) {
+      requestContext.setHeaderParam("X-Datadog-Managed-By", "iac");
+    }
+
     // Apply auth methods
     applySecurityAuthentication(_config, requestContext, [
       "apiKeyAuth",
@@ -212,6 +232,11 @@ export class MicrosoftTeamsIntegrationApiRequestFactory extends BaseAPIRequestFa
       .makeRequestContext(localVarPath, HttpMethod.DELETE);
     requestContext.setHeaderParam("Accept", "*/*");
     requestContext.setHttpConfig(_config.httpConfig);
+
+    // Set IaC header
+    if (_config.isIaC) {
+      requestContext.setHeaderParam("X-Datadog-Managed-By", "iac");
+    }
 
     // Apply auth methods
     applySecurityAuthentication(_config, requestContext, [
@@ -259,6 +284,11 @@ export class MicrosoftTeamsIntegrationApiRequestFactory extends BaseAPIRequestFa
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
+    // Set IaC header
+    if (_config.isIaC) {
+      requestContext.setHeaderParam("X-Datadog-Managed-By", "iac");
+    }
+
     // Apply auth methods
     applySecurityAuthentication(_config, requestContext, [
       "apiKeyAuth",
@@ -292,6 +322,11 @@ export class MicrosoftTeamsIntegrationApiRequestFactory extends BaseAPIRequestFa
       .makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
+
+    // Set IaC header
+    if (_config.isIaC) {
+      requestContext.setHeaderParam("X-Datadog-Managed-By", "iac");
+    }
 
     // Apply auth methods
     applySecurityAuthentication(_config, requestContext, [
@@ -327,6 +362,11 @@ export class MicrosoftTeamsIntegrationApiRequestFactory extends BaseAPIRequestFa
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
+    // Set IaC header
+    if (_config.isIaC) {
+      requestContext.setHeaderParam("X-Datadog-Managed-By", "iac");
+    }
+
     // Apply auth methods
     applySecurityAuthentication(_config, requestContext, [
       "apiKeyAuth",
@@ -353,6 +393,11 @@ export class MicrosoftTeamsIntegrationApiRequestFactory extends BaseAPIRequestFa
       .makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
+
+    // Set IaC header
+    if (_config.isIaC) {
+      requestContext.setHeaderParam("X-Datadog-Managed-By", "iac");
+    }
 
     // Query Params
     if (tenantId !== undefined) {
@@ -395,6 +440,11 @@ export class MicrosoftTeamsIntegrationApiRequestFactory extends BaseAPIRequestFa
       .makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
+
+    // Set IaC header
+    if (_config.isIaC) {
+      requestContext.setHeaderParam("X-Datadog-Managed-By", "iac");
+    }
 
     // Query Params
     if (name !== undefined) {
@@ -444,6 +494,11 @@ export class MicrosoftTeamsIntegrationApiRequestFactory extends BaseAPIRequestFa
       .makeRequestContext(localVarPath, HttpMethod.PATCH);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
+
+    // Set IaC header
+    if (_config.isIaC) {
+      requestContext.setHeaderParam("X-Datadog-Managed-By", "iac");
+    }
 
     // Body Params
     const contentType = ObjectSerializer.getPreferredMediaType([
@@ -499,6 +554,11 @@ export class MicrosoftTeamsIntegrationApiRequestFactory extends BaseAPIRequestFa
       .makeRequestContext(localVarPath, HttpMethod.PATCH);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
+
+    // Set IaC header
+    if (_config.isIaC) {
+      requestContext.setHeaderParam("X-Datadog-Managed-By", "iac");
+    }
 
     // Body Params
     const contentType = ObjectSerializer.getPreferredMediaType([

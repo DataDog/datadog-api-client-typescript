@@ -39,6 +39,11 @@ export class CloudNetworkMonitoringApiRequestFactory extends BaseAPIRequestFacto
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
+    // Set IaC header
+    if (_config.isIaC) {
+      requestContext.setHeaderParam("X-Datadog-Managed-By", "iac");
+    }
+
     // Query Params
     if (from !== undefined) {
       requestContext.setQueryParam(
@@ -113,6 +118,11 @@ export class CloudNetworkMonitoringApiRequestFactory extends BaseAPIRequestFacto
       .makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
+
+    // Set IaC header
+    if (_config.isIaC) {
+      requestContext.setHeaderParam("X-Datadog-Managed-By", "iac");
+    }
 
     // Query Params
     if (from !== undefined) {
