@@ -74,6 +74,11 @@ export class APIManagementApiRequestFactory extends BaseAPIRequestFactory {
       requestContext.setHeaderParam("User-Agent", this.userAgent);
     }
 
+    // Set IaC header
+    if (_config.isIaC) {
+      requestContext.setHeaderParam("X-Datadog-Managed-By", "iac");
+    }
+
     // Form Params
     const localVarFormParams = new FormData();
     if (openapiSpecFile !== undefined) {
@@ -133,6 +138,11 @@ export class APIManagementApiRequestFactory extends BaseAPIRequestFactory {
       requestContext.setHeaderParam("User-Agent", this.userAgent);
     }
 
+    // Set IaC header
+    if (_config.isIaC) {
+      requestContext.setHeaderParam("X-Datadog-Managed-By", "iac");
+    }
+
     // Apply auth methods
     applySecurityAuthentication(_config, requestContext, [
       "apiKeyAuth",
@@ -187,6 +197,11 @@ export class APIManagementApiRequestFactory extends BaseAPIRequestFactory {
       requestContext.setHeaderParam("User-Agent", this.userAgent);
     }
 
+    // Set IaC header
+    if (_config.isIaC) {
+      requestContext.setHeaderParam("X-Datadog-Managed-By", "iac");
+    }
+
     // Apply auth methods
     applySecurityAuthentication(_config, requestContext, [
       "apiKeyAuth",
@@ -230,6 +245,11 @@ export class APIManagementApiRequestFactory extends BaseAPIRequestFactory {
     // Set User-Agent
     if (this.userAgent) {
       requestContext.setHeaderParam("User-Agent", this.userAgent);
+    }
+
+    // Set IaC header
+    if (_config.isIaC) {
+      requestContext.setHeaderParam("X-Datadog-Managed-By", "iac");
     }
 
     // Query Params
@@ -305,6 +325,11 @@ export class APIManagementApiRequestFactory extends BaseAPIRequestFactory {
     // Set User-Agent
     if (this.userAgent) {
       requestContext.setHeaderParam("User-Agent", this.userAgent);
+    }
+
+    // Set IaC header
+    if (_config.isIaC) {
+      requestContext.setHeaderParam("X-Datadog-Managed-By", "iac");
     }
 
     // Form Params

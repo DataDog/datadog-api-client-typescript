@@ -258,6 +258,11 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
       requestContext.setHeaderParam("User-Agent", this.userAgent);
     }
 
+    // Set IaC header
+    if (_config.isIaC) {
+      requestContext.setHeaderParam("X-Datadog-Managed-By", "iac");
+    }
+
     // Apply auth methods
     applySecurityAuthentication(_config, requestContext, [
       "apiKeyAuth",
@@ -313,6 +318,11 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
     // Set User-Agent
     if (this.userAgent) {
       requestContext.setHeaderParam("User-Agent", this.userAgent);
+    }
+
+    // Set IaC header
+    if (_config.isIaC) {
+      requestContext.setHeaderParam("X-Datadog-Managed-By", "iac");
     }
 
     // Body Params
@@ -380,6 +390,11 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
       requestContext.setHeaderParam("User-Agent", this.userAgent);
     }
 
+    // Set IaC header
+    if (_config.isIaC) {
+      requestContext.setHeaderParam("X-Datadog-Managed-By", "iac");
+    }
+
     // Body Params
     const contentType = getPreferredMediaType(["application/json"]);
     requestContext.setHeaderParam("Content-Type", contentType);
@@ -429,6 +444,11 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
     // Set User-Agent
     if (this.userAgent) {
       requestContext.setHeaderParam("User-Agent", this.userAgent);
+    }
+
+    // Set IaC header
+    if (_config.isIaC) {
+      requestContext.setHeaderParam("X-Datadog-Managed-By", "iac");
     }
 
     // Body Params
@@ -482,6 +502,11 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
       requestContext.setHeaderParam("User-Agent", this.userAgent);
     }
 
+    // Set IaC header
+    if (_config.isIaC) {
+      requestContext.setHeaderParam("X-Datadog-Managed-By", "iac");
+    }
+
     // Body Params
     const contentType = getPreferredMediaType(["application/json"]);
     requestContext.setHeaderParam("Content-Type", contentType);
@@ -531,6 +556,11 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
     // Set User-Agent
     if (this.userAgent) {
       requestContext.setHeaderParam("User-Agent", this.userAgent);
+    }
+
+    // Set IaC header
+    if (_config.isIaC) {
+      requestContext.setHeaderParam("X-Datadog-Managed-By", "iac");
     }
 
     // Body Params
@@ -597,6 +627,11 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
       requestContext.setHeaderParam("User-Agent", this.userAgent);
     }
 
+    // Set IaC header
+    if (_config.isIaC) {
+      requestContext.setHeaderParam("X-Datadog-Managed-By", "iac");
+    }
+
     // Body Params
     const contentType = getPreferredMediaType(["application/json"]);
     requestContext.setHeaderParam("Content-Type", contentType);
@@ -657,6 +692,11 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
     // Set User-Agent
     if (this.userAgent) {
       requestContext.setHeaderParam("User-Agent", this.userAgent);
+    }
+
+    // Set IaC header
+    if (_config.isIaC) {
+      requestContext.setHeaderParam("X-Datadog-Managed-By", "iac");
     }
 
     // Body Params
@@ -729,6 +769,11 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
       requestContext.setHeaderParam("User-Agent", this.userAgent);
     }
 
+    // Set IaC header
+    if (_config.isIaC) {
+      requestContext.setHeaderParam("X-Datadog-Managed-By", "iac");
+    }
+
     // Body Params
     const contentType = getPreferredMediaType(["application/json"]);
     requestContext.setHeaderParam("Content-Type", contentType);
@@ -785,6 +830,11 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
       requestContext.setHeaderParam("User-Agent", this.userAgent);
     }
 
+    // Set IaC header
+    if (_config.isIaC) {
+      requestContext.setHeaderParam("X-Datadog-Managed-By", "iac");
+    }
+
     // Body Params
     const contentType = getPreferredMediaType(["application/json"]);
     requestContext.setHeaderParam("Content-Type", contentType);
@@ -839,6 +889,11 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
     // Set User-Agent
     if (this.userAgent) {
       requestContext.setHeaderParam("User-Agent", this.userAgent);
+    }
+
+    // Set IaC header
+    if (_config.isIaC) {
+      requestContext.setHeaderParam("X-Datadog-Managed-By", "iac");
     }
 
     // Body Params
@@ -900,6 +955,11 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
       requestContext.setHeaderParam("User-Agent", this.userAgent);
     }
 
+    // Set IaC header
+    if (_config.isIaC) {
+      requestContext.setHeaderParam("X-Datadog-Managed-By", "iac");
+    }
+
     // Body Params
     const contentType = getPreferredMediaType(["application/json"]);
     requestContext.setHeaderParam("Content-Type", contentType);
@@ -953,6 +1013,11 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
     // Set User-Agent
     if (this.userAgent) {
       requestContext.setHeaderParam("User-Agent", this.userAgent);
+    }
+
+    // Set IaC header
+    if (_config.isIaC) {
+      requestContext.setHeaderParam("X-Datadog-Managed-By", "iac");
     }
 
     // Body Params
@@ -1011,6 +1076,11 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
     // Set User-Agent
     if (this.userAgent) {
       requestContext.setHeaderParam("User-Agent", this.userAgent);
+    }
+
+    // Set IaC header
+    if (_config.isIaC) {
+      requestContext.setHeaderParam("X-Datadog-Managed-By", "iac");
     }
 
     // Body Params
@@ -1098,6 +1168,11 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
       requestContext.setHeaderParam("User-Agent", this.userAgent);
     }
 
+    // Set IaC header
+    if (_config.isIaC) {
+      requestContext.setHeaderParam("X-Datadog-Managed-By", "iac");
+    }
+
     // Body Params
     const contentType = getPreferredMediaType(["application/json"]);
     requestContext.setHeaderParam("Content-Type", contentType);
@@ -1168,6 +1243,11 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
       requestContext.setHeaderParam("User-Agent", this.userAgent);
     }
 
+    // Set IaC header
+    if (_config.isIaC) {
+      requestContext.setHeaderParam("X-Datadog-Managed-By", "iac");
+    }
+
     // Apply auth methods
     applySecurityAuthentication(_config, requestContext, [
       "apiKeyAuth",
@@ -1215,6 +1295,11 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
     // Set User-Agent
     if (this.userAgent) {
       requestContext.setHeaderParam("User-Agent", this.userAgent);
+    }
+
+    // Set IaC header
+    if (_config.isIaC) {
+      requestContext.setHeaderParam("X-Datadog-Managed-By", "iac");
     }
 
     // Apply auth methods
@@ -1270,6 +1355,11 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
       requestContext.setHeaderParam("User-Agent", this.userAgent);
     }
 
+    // Set IaC header
+    if (_config.isIaC) {
+      requestContext.setHeaderParam("X-Datadog-Managed-By", "iac");
+    }
+
     // Body Params
     const contentType = getPreferredMediaType(["application/json"]);
     requestContext.setHeaderParam("Content-Type", contentType);
@@ -1321,6 +1411,11 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
     // Set User-Agent
     if (this.userAgent) {
       requestContext.setHeaderParam("User-Agent", this.userAgent);
+    }
+
+    // Set IaC header
+    if (_config.isIaC) {
+      requestContext.setHeaderParam("X-Datadog-Managed-By", "iac");
     }
 
     // Body Params
@@ -1400,6 +1495,11 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
       requestContext.setHeaderParam("User-Agent", this.userAgent);
     }
 
+    // Set IaC header
+    if (_config.isIaC) {
+      requestContext.setHeaderParam("X-Datadog-Managed-By", "iac");
+    }
+
     // Body Params
     const contentType = getPreferredMediaType(["application/json"]);
     requestContext.setHeaderParam("Content-Type", contentType);
@@ -1456,6 +1556,11 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
       requestContext.setHeaderParam("User-Agent", this.userAgent);
     }
 
+    // Set IaC header
+    if (_config.isIaC) {
+      requestContext.setHeaderParam("X-Datadog-Managed-By", "iac");
+    }
+
     // Body Params
     const contentType = getPreferredMediaType(["application/json"]);
     requestContext.setHeaderParam("Content-Type", contentType);
@@ -1505,6 +1610,11 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
     // Set User-Agent
     if (this.userAgent) {
       requestContext.setHeaderParam("User-Agent", this.userAgent);
+    }
+
+    // Set IaC header
+    if (_config.isIaC) {
+      requestContext.setHeaderParam("X-Datadog-Managed-By", "iac");
     }
 
     // Body Params
@@ -1568,6 +1678,11 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
       requestContext.setHeaderParam("User-Agent", this.userAgent);
     }
 
+    // Set IaC header
+    if (_config.isIaC) {
+      requestContext.setHeaderParam("X-Datadog-Managed-By", "iac");
+    }
+
     // Body Params
     const contentType = getPreferredMediaType(["application/json"]);
     requestContext.setHeaderParam("Content-Type", contentType);
@@ -1619,6 +1734,11 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
       requestContext.setHeaderParam("User-Agent", this.userAgent);
     }
 
+    // Set IaC header
+    if (_config.isIaC) {
+      requestContext.setHeaderParam("X-Datadog-Managed-By", "iac");
+    }
+
     // Body Params
     const contentType = getPreferredMediaType(["application/json"]);
     requestContext.setHeaderParam("Content-Type", contentType);
@@ -1668,6 +1788,11 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
     // Set User-Agent
     if (this.userAgent) {
       requestContext.setHeaderParam("User-Agent", this.userAgent);
+    }
+
+    // Set IaC header
+    if (_config.isIaC) {
+      requestContext.setHeaderParam("X-Datadog-Managed-By", "iac");
     }
 
     // Body Params
@@ -1732,6 +1857,11 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
       requestContext.setHeaderParam("User-Agent", this.userAgent);
     }
 
+    // Set IaC header
+    if (_config.isIaC) {
+      requestContext.setHeaderParam("X-Datadog-Managed-By", "iac");
+    }
+
     // Body Params
     const contentType = getPreferredMediaType(["application/json"]);
     requestContext.setHeaderParam("Content-Type", contentType);
@@ -1787,6 +1917,11 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
     // Set User-Agent
     if (this.userAgent) {
       requestContext.setHeaderParam("User-Agent", this.userAgent);
+    }
+
+    // Set IaC header
+    if (_config.isIaC) {
+      requestContext.setHeaderParam("X-Datadog-Managed-By", "iac");
     }
 
     // Body Params
@@ -1853,6 +1988,11 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
       requestContext.setHeaderParam("User-Agent", this.userAgent);
     }
 
+    // Set IaC header
+    if (_config.isIaC) {
+      requestContext.setHeaderParam("X-Datadog-Managed-By", "iac");
+    }
+
     // Body Params
     const contentType = getPreferredMediaType(["application/json"]);
     requestContext.setHeaderParam("Content-Type", contentType);
@@ -1914,6 +2054,11 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
     // Set User-Agent
     if (this.userAgent) {
       requestContext.setHeaderParam("User-Agent", this.userAgent);
+    }
+
+    // Set IaC header
+    if (_config.isIaC) {
+      requestContext.setHeaderParam("X-Datadog-Managed-By", "iac");
     }
 
     // Body Params
@@ -1980,6 +2125,11 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
       requestContext.setHeaderParam("User-Agent", this.userAgent);
     }
 
+    // Set IaC header
+    if (_config.isIaC) {
+      requestContext.setHeaderParam("X-Datadog-Managed-By", "iac");
+    }
+
     // Body Params
     const contentType = getPreferredMediaType(["application/json"]);
     requestContext.setHeaderParam("Content-Type", contentType);
@@ -2044,6 +2194,11 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
       requestContext.setHeaderParam("User-Agent", this.userAgent);
     }
 
+    // Set IaC header
+    if (_config.isIaC) {
+      requestContext.setHeaderParam("X-Datadog-Managed-By", "iac");
+    }
+
     // Body Params
     const contentType = getPreferredMediaType(["application/json"]);
     requestContext.setHeaderParam("Content-Type", contentType);
@@ -2093,6 +2248,11 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
     // Set User-Agent
     if (this.userAgent) {
       requestContext.setHeaderParam("User-Agent", this.userAgent);
+    }
+
+    // Set IaC header
+    if (_config.isIaC) {
+      requestContext.setHeaderParam("X-Datadog-Managed-By", "iac");
     }
 
     // Body Params
@@ -2161,6 +2321,11 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
       requestContext.setHeaderParam("User-Agent", this.userAgent);
     }
 
+    // Set IaC header
+    if (_config.isIaC) {
+      requestContext.setHeaderParam("X-Datadog-Managed-By", "iac");
+    }
+
     // Body Params
     const contentType = getPreferredMediaType(["application/json"]);
     requestContext.setHeaderParam("Content-Type", contentType);
@@ -2226,6 +2391,11 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
       requestContext.setHeaderParam("User-Agent", this.userAgent);
     }
 
+    // Set IaC header
+    if (_config.isIaC) {
+      requestContext.setHeaderParam("X-Datadog-Managed-By", "iac");
+    }
+
     // Body Params
     const contentType = getPreferredMediaType(["application/json"]);
     requestContext.setHeaderParam("Content-Type", contentType);
@@ -2282,6 +2452,11 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
       requestContext.setHeaderParam("User-Agent", this.userAgent);
     }
 
+    // Set IaC header
+    if (_config.isIaC) {
+      requestContext.setHeaderParam("X-Datadog-Managed-By", "iac");
+    }
+
     // Body Params
     const contentType = getPreferredMediaType(["application/json"]);
     requestContext.setHeaderParam("Content-Type", contentType);
@@ -2332,6 +2507,11 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
     // Set User-Agent
     if (this.userAgent) {
       requestContext.setHeaderParam("User-Agent", this.userAgent);
+    }
+
+    // Set IaC header
+    if (_config.isIaC) {
+      requestContext.setHeaderParam("X-Datadog-Managed-By", "iac");
     }
 
     // Body Params
@@ -2390,6 +2570,11 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
       requestContext.setHeaderParam("User-Agent", this.userAgent);
     }
 
+    // Set IaC header
+    if (_config.isIaC) {
+      requestContext.setHeaderParam("X-Datadog-Managed-By", "iac");
+    }
+
     // Body Params
     const contentType = getPreferredMediaType(["application/json"]);
     requestContext.setHeaderParam("Content-Type", contentType);
@@ -2439,6 +2624,11 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
     // Set User-Agent
     if (this.userAgent) {
       requestContext.setHeaderParam("User-Agent", this.userAgent);
+    }
+
+    // Set IaC header
+    if (_config.isIaC) {
+      requestContext.setHeaderParam("X-Datadog-Managed-By", "iac");
     }
 
     // Body Params
@@ -2500,6 +2690,11 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
     // Set User-Agent
     if (this.userAgent) {
       requestContext.setHeaderParam("User-Agent", this.userAgent);
+    }
+
+    // Set IaC header
+    if (_config.isIaC) {
+      requestContext.setHeaderParam("X-Datadog-Managed-By", "iac");
     }
 
     // Body Params
@@ -2564,6 +2759,11 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
       requestContext.setHeaderParam("User-Agent", this.userAgent);
     }
 
+    // Set IaC header
+    if (_config.isIaC) {
+      requestContext.setHeaderParam("X-Datadog-Managed-By", "iac");
+    }
+
     // Body Params
     const contentType = getPreferredMediaType(["application/json"]);
     requestContext.setHeaderParam("Content-Type", contentType);
@@ -2613,6 +2813,11 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
     // Set User-Agent
     if (this.userAgent) {
       requestContext.setHeaderParam("User-Agent", this.userAgent);
+    }
+
+    // Set IaC header
+    if (_config.isIaC) {
+      requestContext.setHeaderParam("X-Datadog-Managed-By", "iac");
     }
 
     // Body Params
@@ -2679,6 +2884,11 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
       requestContext.setHeaderParam("User-Agent", this.userAgent);
     }
 
+    // Set IaC header
+    if (_config.isIaC) {
+      requestContext.setHeaderParam("X-Datadog-Managed-By", "iac");
+    }
+
     // Apply auth methods
     applySecurityAuthentication(_config, requestContext, [
       "apiKeyAuth",
@@ -2735,6 +2945,11 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
       requestContext.setHeaderParam("User-Agent", this.userAgent);
     }
 
+    // Set IaC header
+    if (_config.isIaC) {
+      requestContext.setHeaderParam("X-Datadog-Managed-By", "iac");
+    }
+
     // Apply auth methods
     applySecurityAuthentication(_config, requestContext, [
       "apiKeyAuth",
@@ -2784,6 +2999,11 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
     // Set User-Agent
     if (this.userAgent) {
       requestContext.setHeaderParam("User-Agent", this.userAgent);
+    }
+
+    // Set IaC header
+    if (_config.isIaC) {
+      requestContext.setHeaderParam("X-Datadog-Managed-By", "iac");
     }
 
     // Apply auth methods
@@ -2840,6 +3060,11 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
     // Set User-Agent
     if (this.userAgent) {
       requestContext.setHeaderParam("User-Agent", this.userAgent);
+    }
+
+    // Set IaC header
+    if (_config.isIaC) {
+      requestContext.setHeaderParam("X-Datadog-Managed-By", "iac");
     }
 
     // Apply auth methods
@@ -2901,6 +3126,11 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
       requestContext.setHeaderParam("User-Agent", this.userAgent);
     }
 
+    // Set IaC header
+    if (_config.isIaC) {
+      requestContext.setHeaderParam("X-Datadog-Managed-By", "iac");
+    }
+
     // Apply auth methods
     applySecurityAuthentication(_config, requestContext, [
       "apiKeyAuth",
@@ -2945,6 +3175,11 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
     // Set User-Agent
     if (this.userAgent) {
       requestContext.setHeaderParam("User-Agent", this.userAgent);
+    }
+
+    // Set IaC header
+    if (_config.isIaC) {
+      requestContext.setHeaderParam("X-Datadog-Managed-By", "iac");
     }
 
     // Apply auth methods
@@ -3006,6 +3241,11 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
       requestContext.setHeaderParam("User-Agent", this.userAgent);
     }
 
+    // Set IaC header
+    if (_config.isIaC) {
+      requestContext.setHeaderParam("X-Datadog-Managed-By", "iac");
+    }
+
     // Apply auth methods
     applySecurityAuthentication(_config, requestContext, [
       "apiKeyAuth",
@@ -3062,6 +3302,11 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
     // Set User-Agent
     if (this.userAgent) {
       requestContext.setHeaderParam("User-Agent", this.userAgent);
+    }
+
+    // Set IaC header
+    if (_config.isIaC) {
+      requestContext.setHeaderParam("X-Datadog-Managed-By", "iac");
     }
 
     // Apply auth methods
@@ -3122,6 +3367,11 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
       requestContext.setHeaderParam("User-Agent", this.userAgent);
     }
 
+    // Set IaC header
+    if (_config.isIaC) {
+      requestContext.setHeaderParam("X-Datadog-Managed-By", "iac");
+    }
+
     // Apply auth methods
     applySecurityAuthentication(_config, requestContext, [
       "apiKeyAuth",
@@ -3180,6 +3430,11 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
       requestContext.setHeaderParam("User-Agent", this.userAgent);
     }
 
+    // Set IaC header
+    if (_config.isIaC) {
+      requestContext.setHeaderParam("X-Datadog-Managed-By", "iac");
+    }
+
     // Apply auth methods
     applySecurityAuthentication(_config, requestContext, [
       "apiKeyAuth",
@@ -3226,6 +3481,11 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
     // Set User-Agent
     if (this.userAgent) {
       requestContext.setHeaderParam("User-Agent", this.userAgent);
+    }
+
+    // Set IaC header
+    if (_config.isIaC) {
+      requestContext.setHeaderParam("X-Datadog-Managed-By", "iac");
     }
 
     // Apply auth methods
@@ -3282,6 +3542,11 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
     // Set User-Agent
     if (this.userAgent) {
       requestContext.setHeaderParam("User-Agent", this.userAgent);
+    }
+
+    // Set IaC header
+    if (_config.isIaC) {
+      requestContext.setHeaderParam("X-Datadog-Managed-By", "iac");
     }
 
     // Apply auth methods
@@ -3343,6 +3608,11 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
       requestContext.setHeaderParam("User-Agent", this.userAgent);
     }
 
+    // Set IaC header
+    if (_config.isIaC) {
+      requestContext.setHeaderParam("X-Datadog-Managed-By", "iac");
+    }
+
     // Apply auth methods
     applySecurityAuthentication(_config, requestContext, [
       "apiKeyAuth",
@@ -3386,6 +3656,11 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
     // Set User-Agent
     if (this.userAgent) {
       requestContext.setHeaderParam("User-Agent", this.userAgent);
+    }
+
+    // Set IaC header
+    if (_config.isIaC) {
+      requestContext.setHeaderParam("X-Datadog-Managed-By", "iac");
     }
 
     // Apply auth methods
@@ -3437,6 +3712,11 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
       requestContext.setHeaderParam("User-Agent", this.userAgent);
     }
 
+    // Set IaC header
+    if (_config.isIaC) {
+      requestContext.setHeaderParam("X-Datadog-Managed-By", "iac");
+    }
+
     // Apply auth methods
     applySecurityAuthentication(_config, requestContext, [
       "apiKeyAuth",
@@ -3481,6 +3761,11 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
     // Set User-Agent
     if (this.userAgent) {
       requestContext.setHeaderParam("User-Agent", this.userAgent);
+    }
+
+    // Set IaC header
+    if (_config.isIaC) {
+      requestContext.setHeaderParam("X-Datadog-Managed-By", "iac");
     }
 
     // Apply auth methods
@@ -3528,6 +3813,11 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
       requestContext.setHeaderParam("User-Agent", this.userAgent);
     }
 
+    // Set IaC header
+    if (_config.isIaC) {
+      requestContext.setHeaderParam("X-Datadog-Managed-By", "iac");
+    }
+
     // Apply auth methods
     applySecurityAuthentication(_config, requestContext, [
       "apiKeyAuth",
@@ -3567,6 +3857,11 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
     // Set User-Agent
     if (this.userAgent) {
       requestContext.setHeaderParam("User-Agent", this.userAgent);
+    }
+
+    // Set IaC header
+    if (_config.isIaC) {
+      requestContext.setHeaderParam("X-Datadog-Managed-By", "iac");
     }
 
     // Body Params
@@ -3628,6 +3923,11 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
     // Set User-Agent
     if (this.userAgent) {
       requestContext.setHeaderParam("User-Agent", this.userAgent);
+    }
+
+    // Set IaC header
+    if (_config.isIaC) {
+      requestContext.setHeaderParam("X-Datadog-Managed-By", "iac");
     }
 
     // Body Params
@@ -3692,6 +3992,11 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
     // Set User-Agent
     if (this.userAgent) {
       requestContext.setHeaderParam("User-Agent", this.userAgent);
+    }
+
+    // Set IaC header
+    if (_config.isIaC) {
+      requestContext.setHeaderParam("X-Datadog-Managed-By", "iac");
     }
 
     // Body Params
@@ -3763,6 +4068,11 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
       requestContext.setHeaderParam("User-Agent", this.userAgent);
     }
 
+    // Set IaC header
+    if (_config.isIaC) {
+      requestContext.setHeaderParam("X-Datadog-Managed-By", "iac");
+    }
+
     // Body Params
     const contentType = getPreferredMediaType(["application/json"]);
     requestContext.setHeaderParam("Content-Type", contentType);
@@ -3827,6 +4137,11 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
     // Set User-Agent
     if (this.userAgent) {
       requestContext.setHeaderParam("User-Agent", this.userAgent);
+    }
+
+    // Set IaC header
+    if (_config.isIaC) {
+      requestContext.setHeaderParam("X-Datadog-Managed-By", "iac");
     }
 
     // Body Params
@@ -3910,6 +4225,11 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
       requestContext.setHeaderParam("User-Agent", this.userAgent);
     }
 
+    // Set IaC header
+    if (_config.isIaC) {
+      requestContext.setHeaderParam("X-Datadog-Managed-By", "iac");
+    }
+
     // Apply auth methods
     applySecurityAuthentication(_config, requestContext, [
       "apiKeyAuth",
@@ -3956,6 +4276,11 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
       requestContext.setHeaderParam("User-Agent", this.userAgent);
     }
 
+    // Set IaC header
+    if (_config.isIaC) {
+      requestContext.setHeaderParam("X-Datadog-Managed-By", "iac");
+    }
+
     // Apply auth methods
     applySecurityAuthentication(_config, requestContext, [
       "apiKeyAuth",
@@ -4000,6 +4325,11 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
     // Set User-Agent
     if (this.userAgent) {
       requestContext.setHeaderParam("User-Agent", this.userAgent);
+    }
+
+    // Set IaC header
+    if (_config.isIaC) {
+      requestContext.setHeaderParam("X-Datadog-Managed-By", "iac");
     }
 
     // Apply auth methods
@@ -4053,6 +4383,11 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
       requestContext.setHeaderParam("User-Agent", this.userAgent);
     }
 
+    // Set IaC header
+    if (_config.isIaC) {
+      requestContext.setHeaderParam("X-Datadog-Managed-By", "iac");
+    }
+
     // Apply auth methods
     applySecurityAuthentication(_config, requestContext, [
       "apiKeyAuth",
@@ -4101,6 +4436,11 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
     // Set User-Agent
     if (this.userAgent) {
       requestContext.setHeaderParam("User-Agent", this.userAgent);
+    }
+
+    // Set IaC header
+    if (_config.isIaC) {
+      requestContext.setHeaderParam("X-Datadog-Managed-By", "iac");
     }
 
     // Query Params
@@ -4194,6 +4534,11 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
       requestContext.setHeaderParam("User-Agent", this.userAgent);
     }
 
+    // Set IaC header
+    if (_config.isIaC) {
+      requestContext.setHeaderParam("X-Datadog-Managed-By", "iac");
+    }
+
     // Apply auth methods
     applySecurityAuthentication(_config, requestContext, [
       "apiKeyAuth",
@@ -4245,6 +4590,11 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
     // Set User-Agent
     if (this.userAgent) {
       requestContext.setHeaderParam("User-Agent", this.userAgent);
+    }
+
+    // Set IaC header
+    if (_config.isIaC) {
+      requestContext.setHeaderParam("X-Datadog-Managed-By", "iac");
     }
 
     // Query Params
@@ -4310,6 +4660,11 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
       requestContext.setHeaderParam("User-Agent", this.userAgent);
     }
 
+    // Set IaC header
+    if (_config.isIaC) {
+      requestContext.setHeaderParam("X-Datadog-Managed-By", "iac");
+    }
+
     // Apply auth methods
     applySecurityAuthentication(_config, requestContext, [
       "apiKeyAuth",
@@ -4364,6 +4719,11 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
     // Set User-Agent
     if (this.userAgent) {
       requestContext.setHeaderParam("User-Agent", this.userAgent);
+    }
+
+    // Set IaC header
+    if (_config.isIaC) {
+      requestContext.setHeaderParam("X-Datadog-Managed-By", "iac");
     }
 
     // Query Params
@@ -4452,6 +4812,11 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
       requestContext.setHeaderParam("User-Agent", this.userAgent);
     }
 
+    // Set IaC header
+    if (_config.isIaC) {
+      requestContext.setHeaderParam("X-Datadog-Managed-By", "iac");
+    }
+
     // Apply auth methods
     applySecurityAuthentication(_config, requestContext, [
       "apiKeyAuth",
@@ -4489,6 +4854,11 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
     // Set User-Agent
     if (this.userAgent) {
       requestContext.setHeaderParam("User-Agent", this.userAgent);
+    }
+
+    // Set IaC header
+    if (_config.isIaC) {
+      requestContext.setHeaderParam("X-Datadog-Managed-By", "iac");
     }
 
     // Query Params
@@ -4572,6 +4942,11 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
       requestContext.setHeaderParam("User-Agent", this.userAgent);
     }
 
+    // Set IaC header
+    if (_config.isIaC) {
+      requestContext.setHeaderParam("X-Datadog-Managed-By", "iac");
+    }
+
     // Query Params
     if (pageSize !== undefined) {
       requestContext.setQueryParam(
@@ -4640,6 +5015,11 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
       requestContext.setHeaderParam("User-Agent", this.userAgent);
     }
 
+    // Set IaC header
+    if (_config.isIaC) {
+      requestContext.setHeaderParam("X-Datadog-Managed-By", "iac");
+    }
+
     // Query Params
     if (filterAssetName !== undefined) {
       requestContext.setQueryParam(
@@ -4706,6 +5086,11 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
       requestContext.setHeaderParam("User-Agent", this.userAgent);
     }
 
+    // Set IaC header
+    if (_config.isIaC) {
+      requestContext.setHeaderParam("X-Datadog-Managed-By", "iac");
+    }
+
     // Apply auth methods
     applySecurityAuthentication(_config, requestContext, [
       "apiKeyAuth",
@@ -4750,6 +5135,11 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
     // Set User-Agent
     if (this.userAgent) {
       requestContext.setHeaderParam("User-Agent", this.userAgent);
+    }
+
+    // Set IaC header
+    if (_config.isIaC) {
+      requestContext.setHeaderParam("X-Datadog-Managed-By", "iac");
     }
 
     // Apply auth methods
@@ -4811,6 +5201,11 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
       requestContext.setHeaderParam("User-Agent", this.userAgent);
     }
 
+    // Set IaC header
+    if (_config.isIaC) {
+      requestContext.setHeaderParam("X-Datadog-Managed-By", "iac");
+    }
+
     // Apply auth methods
     applySecurityAuthentication(_config, requestContext, [
       "apiKeyAuth",
@@ -4867,6 +5262,11 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
     // Set User-Agent
     if (this.userAgent) {
       requestContext.setHeaderParam("User-Agent", this.userAgent);
+    }
+
+    // Set IaC header
+    if (_config.isIaC) {
+      requestContext.setHeaderParam("X-Datadog-Managed-By", "iac");
     }
 
     // Apply auth methods
@@ -4927,6 +5327,11 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
       requestContext.setHeaderParam("User-Agent", this.userAgent);
     }
 
+    // Set IaC header
+    if (_config.isIaC) {
+      requestContext.setHeaderParam("X-Datadog-Managed-By", "iac");
+    }
+
     // Apply auth methods
     applySecurityAuthentication(_config, requestContext, [
       "apiKeyAuth",
@@ -4985,6 +5390,11 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
       requestContext.setHeaderParam("User-Agent", this.userAgent);
     }
 
+    // Set IaC header
+    if (_config.isIaC) {
+      requestContext.setHeaderParam("X-Datadog-Managed-By", "iac");
+    }
+
     // Apply auth methods
     applySecurityAuthentication(_config, requestContext, [
       "apiKeyAuth",
@@ -5031,6 +5441,11 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
     // Set User-Agent
     if (this.userAgent) {
       requestContext.setHeaderParam("User-Agent", this.userAgent);
+    }
+
+    // Set IaC header
+    if (_config.isIaC) {
+      requestContext.setHeaderParam("X-Datadog-Managed-By", "iac");
     }
 
     // Apply auth methods
@@ -5087,6 +5502,11 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
     // Set User-Agent
     if (this.userAgent) {
       requestContext.setHeaderParam("User-Agent", this.userAgent);
+    }
+
+    // Set IaC header
+    if (_config.isIaC) {
+      requestContext.setHeaderParam("X-Datadog-Managed-By", "iac");
     }
 
     // Apply auth methods
@@ -5156,6 +5576,11 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
       requestContext.setHeaderParam("User-Agent", this.userAgent);
     }
 
+    // Set IaC header
+    if (_config.isIaC) {
+      requestContext.setHeaderParam("X-Datadog-Managed-By", "iac");
+    }
+
     // Apply auth methods
     applySecurityAuthentication(_config, requestContext, [
       "apiKeyAuth",
@@ -5215,6 +5640,11 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
     // Set User-Agent
     if (this.userAgent) {
       requestContext.setHeaderParam("User-Agent", this.userAgent);
+    }
+
+    // Set IaC header
+    if (_config.isIaC) {
+      requestContext.setHeaderParam("X-Datadog-Managed-By", "iac");
     }
 
     // Query Params
@@ -5292,6 +5722,11 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
       requestContext.setHeaderParam("User-Agent", this.userAgent);
     }
 
+    // Set IaC header
+    if (_config.isIaC) {
+      requestContext.setHeaderParam("X-Datadog-Managed-By", "iac");
+    }
+
     // Apply auth methods
     applySecurityAuthentication(_config, requestContext, [
       "apiKeyAuth",
@@ -5355,6 +5790,11 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
     // Set User-Agent
     if (this.userAgent) {
       requestContext.setHeaderParam("User-Agent", this.userAgent);
+    }
+
+    // Set IaC header
+    if (_config.isIaC) {
+      requestContext.setHeaderParam("X-Datadog-Managed-By", "iac");
     }
 
     // Query Params
@@ -5460,6 +5900,11 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
       requestContext.setHeaderParam("User-Agent", this.userAgent);
     }
 
+    // Set IaC header
+    if (_config.isIaC) {
+      requestContext.setHeaderParam("X-Datadog-Managed-By", "iac");
+    }
+
     // Apply auth methods
     applySecurityAuthentication(_config, requestContext, [
       "apiKeyAuth",
@@ -5503,6 +5948,11 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
     // Set User-Agent
     if (this.userAgent) {
       requestContext.setHeaderParam("User-Agent", this.userAgent);
+    }
+
+    // Set IaC header
+    if (_config.isIaC) {
+      requestContext.setHeaderParam("X-Datadog-Managed-By", "iac");
     }
 
     // Apply auth methods
@@ -5549,6 +5999,11 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
     // Set User-Agent
     if (this.userAgent) {
       requestContext.setHeaderParam("User-Agent", this.userAgent);
+    }
+
+    // Set IaC header
+    if (_config.isIaC) {
+      requestContext.setHeaderParam("X-Datadog-Managed-By", "iac");
     }
 
     // Apply auth methods
@@ -5598,6 +6053,11 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
     // Set User-Agent
     if (this.userAgent) {
       requestContext.setHeaderParam("User-Agent", this.userAgent);
+    }
+
+    // Set IaC header
+    if (_config.isIaC) {
+      requestContext.setHeaderParam("X-Datadog-Managed-By", "iac");
     }
 
     // Apply auth methods
@@ -5655,6 +6115,11 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
       requestContext.setHeaderParam("User-Agent", this.userAgent);
     }
 
+    // Set IaC header
+    if (_config.isIaC) {
+      requestContext.setHeaderParam("X-Datadog-Managed-By", "iac");
+    }
+
     // Query Params
     if (limit !== undefined) {
       requestContext.setQueryParam(
@@ -5710,6 +6175,11 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
       requestContext.setHeaderParam("User-Agent", this.userAgent);
     }
 
+    // Set IaC header
+    if (_config.isIaC) {
+      requestContext.setHeaderParam("X-Datadog-Managed-By", "iac");
+    }
+
     // Apply auth methods
     applySecurityAuthentication(_config, requestContext, [
       "apiKeyAuth",
@@ -5743,6 +6213,11 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
     // Set User-Agent
     if (this.userAgent) {
       requestContext.setHeaderParam("User-Agent", this.userAgent);
+    }
+
+    // Set IaC header
+    if (_config.isIaC) {
+      requestContext.setHeaderParam("X-Datadog-Managed-By", "iac");
     }
 
     // Apply auth methods
@@ -5801,6 +6276,11 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
     // Set User-Agent
     if (this.userAgent) {
       requestContext.setHeaderParam("User-Agent", this.userAgent);
+    }
+
+    // Set IaC header
+    if (_config.isIaC) {
+      requestContext.setHeaderParam("X-Datadog-Managed-By", "iac");
     }
 
     // Query Params
@@ -5882,6 +6362,11 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
       requestContext.setHeaderParam("User-Agent", this.userAgent);
     }
 
+    // Set IaC header
+    if (_config.isIaC) {
+      requestContext.setHeaderParam("X-Datadog-Managed-By", "iac");
+    }
+
     // Apply auth methods
     applySecurityAuthentication(_config, requestContext, [
       "apiKeyAuth",
@@ -5936,6 +6421,11 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
     // Set User-Agent
     if (this.userAgent) {
       requestContext.setHeaderParam("User-Agent", this.userAgent);
+    }
+
+    // Set IaC header
+    if (_config.isIaC) {
+      requestContext.setHeaderParam("X-Datadog-Managed-By", "iac");
     }
 
     // Apply auth methods
@@ -5994,6 +6484,11 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
     // Set User-Agent
     if (this.userAgent) {
       requestContext.setHeaderParam("User-Agent", this.userAgent);
+    }
+
+    // Set IaC header
+    if (_config.isIaC) {
+      requestContext.setHeaderParam("X-Datadog-Managed-By", "iac");
     }
 
     // Query Params
@@ -6071,6 +6566,11 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
       requestContext.setHeaderParam("User-Agent", this.userAgent);
     }
 
+    // Set IaC header
+    if (_config.isIaC) {
+      requestContext.setHeaderParam("X-Datadog-Managed-By", "iac");
+    }
+
     // Apply auth methods
     applySecurityAuthentication(_config, requestContext, [
       "apiKeyAuth",
@@ -6117,6 +6617,11 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
       requestContext.setHeaderParam("User-Agent", this.userAgent);
     }
 
+    // Set IaC header
+    if (_config.isIaC) {
+      requestContext.setHeaderParam("X-Datadog-Managed-By", "iac");
+    }
+
     // Apply auth methods
     applySecurityAuthentication(_config, requestContext, [
       "apiKeyAuth",
@@ -6158,6 +6663,11 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
     // Set User-Agent
     if (this.userAgent) {
       requestContext.setHeaderParam("User-Agent", this.userAgent);
+    }
+
+    // Set IaC header
+    if (_config.isIaC) {
+      requestContext.setHeaderParam("X-Datadog-Managed-By", "iac");
     }
 
     // Body Params
@@ -6215,6 +6725,11 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
       requestContext.setHeaderParam("User-Agent", this.userAgent);
     }
 
+    // Set IaC header
+    if (_config.isIaC) {
+      requestContext.setHeaderParam("X-Datadog-Managed-By", "iac");
+    }
+
     // Apply auth methods
     applySecurityAuthentication(_config, requestContext, [
       "apiKeyAuth",
@@ -6261,6 +6776,11 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
     // Set User-Agent
     if (this.userAgent) {
       requestContext.setHeaderParam("User-Agent", this.userAgent);
+    }
+
+    // Set IaC header
+    if (_config.isIaC) {
+      requestContext.setHeaderParam("X-Datadog-Managed-By", "iac");
     }
 
     // Query Params
@@ -6325,6 +6845,11 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
       requestContext.setHeaderParam("User-Agent", this.userAgent);
     }
 
+    // Set IaC header
+    if (_config.isIaC) {
+      requestContext.setHeaderParam("X-Datadog-Managed-By", "iac");
+    }
+
     // Apply auth methods
     applySecurityAuthentication(_config, requestContext, [
       "apiKeyAuth",
@@ -6358,6 +6883,11 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
     // Set User-Agent
     if (this.userAgent) {
       requestContext.setHeaderParam("User-Agent", this.userAgent);
+    }
+
+    // Set IaC header
+    if (_config.isIaC) {
+      requestContext.setHeaderParam("X-Datadog-Managed-By", "iac");
     }
 
     // Apply auth methods
@@ -6411,6 +6941,11 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
       requestContext.setHeaderParam("User-Agent", this.userAgent);
     }
 
+    // Set IaC header
+    if (_config.isIaC) {
+      requestContext.setHeaderParam("X-Datadog-Managed-By", "iac");
+    }
+
     // Body Params
     const contentType = getPreferredMediaType(["application/json"]);
     requestContext.setHeaderParam("Content-Type", contentType);
@@ -6462,6 +6997,11 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
     // Set User-Agent
     if (this.userAgent) {
       requestContext.setHeaderParam("User-Agent", this.userAgent);
+    }
+
+    // Set IaC header
+    if (_config.isIaC) {
+      requestContext.setHeaderParam("X-Datadog-Managed-By", "iac");
     }
 
     // Query Params
@@ -6581,6 +7121,11 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
     // Set User-Agent
     if (this.userAgent) {
       requestContext.setHeaderParam("User-Agent", this.userAgent);
+    }
+
+    // Set IaC header
+    if (_config.isIaC) {
+      requestContext.setHeaderParam("X-Datadog-Managed-By", "iac");
     }
 
     // Query Params
@@ -6743,6 +7288,11 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
       requestContext.setHeaderParam("User-Agent", this.userAgent);
     }
 
+    // Set IaC header
+    if (_config.isIaC) {
+      requestContext.setHeaderParam("X-Datadog-Managed-By", "iac");
+    }
+
     // Query Params
     if (pageSize !== undefined) {
       requestContext.setQueryParam(
@@ -6825,6 +7375,11 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
     // Set User-Agent
     if (this.userAgent) {
       requestContext.setHeaderParam("User-Agent", this.userAgent);
+    }
+
+    // Set IaC header
+    if (_config.isIaC) {
+      requestContext.setHeaderParam("X-Datadog-Managed-By", "iac");
     }
 
     // Query Params
@@ -6937,6 +7492,11 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
       requestContext.setHeaderParam("User-Agent", this.userAgent);
     }
 
+    // Set IaC header
+    if (_config.isIaC) {
+      requestContext.setHeaderParam("X-Datadog-Managed-By", "iac");
+    }
+
     // Body Params
     const contentType = getPreferredMediaType(["application/json"]);
     requestContext.setHeaderParam("Content-Type", contentType);
@@ -6994,6 +7554,11 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
     // Set User-Agent
     if (this.userAgent) {
       requestContext.setHeaderParam("User-Agent", this.userAgent);
+    }
+
+    // Set IaC header
+    if (_config.isIaC) {
+      requestContext.setHeaderParam("X-Datadog-Managed-By", "iac");
     }
 
     // Query Params
@@ -7076,6 +7641,11 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
       requestContext.setHeaderParam("User-Agent", this.userAgent);
     }
 
+    // Set IaC header
+    if (_config.isIaC) {
+      requestContext.setHeaderParam("X-Datadog-Managed-By", "iac");
+    }
+
     // Query Params
     if (pageToken !== undefined) {
       requestContext.setQueryParam(
@@ -7156,6 +7726,11 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
       requestContext.setHeaderParam("User-Agent", this.userAgent);
     }
 
+    // Set IaC header
+    if (_config.isIaC) {
+      requestContext.setHeaderParam("X-Datadog-Managed-By", "iac");
+    }
+
     // Apply auth methods
     applySecurityAuthentication(_config, requestContext, [
       "apiKeyAuth",
@@ -7191,6 +7766,11 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
     // Set User-Agent
     if (this.userAgent) {
       requestContext.setHeaderParam("User-Agent", this.userAgent);
+    }
+
+    // Set IaC header
+    if (_config.isIaC) {
+      requestContext.setHeaderParam("X-Datadog-Managed-By", "iac");
     }
 
     // Apply auth methods
@@ -7231,6 +7811,11 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
     // Set User-Agent
     if (this.userAgent) {
       requestContext.setHeaderParam("User-Agent", this.userAgent);
+    }
+
+    // Set IaC header
+    if (_config.isIaC) {
+      requestContext.setHeaderParam("X-Datadog-Managed-By", "iac");
     }
 
     // Query Params
@@ -7311,6 +7896,11 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
       requestContext.setHeaderParam("User-Agent", this.userAgent);
     }
 
+    // Set IaC header
+    if (_config.isIaC) {
+      requestContext.setHeaderParam("X-Datadog-Managed-By", "iac");
+    }
+
     // Query Params
     if (pageSize !== undefined) {
       requestContext.setQueryParam(
@@ -7372,6 +7962,11 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
     // Set User-Agent
     if (this.userAgent) {
       requestContext.setHeaderParam("User-Agent", this.userAgent);
+    }
+
+    // Set IaC header
+    if (_config.isIaC) {
+      requestContext.setHeaderParam("X-Datadog-Managed-By", "iac");
     }
 
     // Query Params
@@ -7438,6 +8033,11 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
       requestContext.setHeaderParam("User-Agent", this.userAgent);
     }
 
+    // Set IaC header
+    if (_config.isIaC) {
+      requestContext.setHeaderParam("X-Datadog-Managed-By", "iac");
+    }
+
     // Query Params
     if (pageSize !== undefined) {
       requestContext.setQueryParam(
@@ -7502,6 +8102,11 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
       requestContext.setHeaderParam("User-Agent", this.userAgent);
     }
 
+    // Set IaC header
+    if (_config.isIaC) {
+      requestContext.setHeaderParam("X-Datadog-Managed-By", "iac");
+    }
+
     // Query Params
     if (pageSize !== undefined) {
       requestContext.setQueryParam(
@@ -7554,6 +8159,11 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
       requestContext.setHeaderParam("User-Agent", this.userAgent);
     }
 
+    // Set IaC header
+    if (_config.isIaC) {
+      requestContext.setHeaderParam("X-Datadog-Managed-By", "iac");
+    }
+
     // Apply auth methods
     applySecurityAuthentication(_config, requestContext, [
       "apiKeyAuth",
@@ -7602,6 +8212,11 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
     // Set User-Agent
     if (this.userAgent) {
       requestContext.setHeaderParam("User-Agent", this.userAgent);
+    }
+
+    // Set IaC header
+    if (_config.isIaC) {
+      requestContext.setHeaderParam("X-Datadog-Managed-By", "iac");
     }
 
     // Query Params
@@ -7684,6 +8299,11 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
     // Set User-Agent
     if (this.userAgent) {
       requestContext.setHeaderParam("User-Agent", this.userAgent);
+    }
+
+    // Set IaC header
+    if (_config.isIaC) {
+      requestContext.setHeaderParam("X-Datadog-Managed-By", "iac");
     }
 
     // Query Params
@@ -7778,6 +8398,11 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
       requestContext.setHeaderParam("User-Agent", this.userAgent);
     }
 
+    // Set IaC header
+    if (_config.isIaC) {
+      requestContext.setHeaderParam("X-Datadog-Managed-By", "iac");
+    }
+
     // Query Params
     if (filterIntegrationType !== undefined) {
       requestContext.setQueryParam(
@@ -7830,6 +8455,11 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
     // Set User-Agent
     if (this.userAgent) {
       requestContext.setHeaderParam("User-Agent", this.userAgent);
+    }
+
+    // Set IaC header
+    if (_config.isIaC) {
+      requestContext.setHeaderParam("X-Datadog-Managed-By", "iac");
     }
 
     // Query Params
@@ -7902,6 +8532,11 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
     // Set User-Agent
     if (this.userAgent) {
       requestContext.setHeaderParam("User-Agent", this.userAgent);
+    }
+
+    // Set IaC header
+    if (_config.isIaC) {
+      requestContext.setHeaderParam("X-Datadog-Managed-By", "iac");
     }
 
     // Query Params
@@ -7989,6 +8624,11 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
       requestContext.setHeaderParam("User-Agent", this.userAgent);
     }
 
+    // Set IaC header
+    if (_config.isIaC) {
+      requestContext.setHeaderParam("X-Datadog-Managed-By", "iac");
+    }
+
     // Query Params
     if (query !== undefined) {
       requestContext.setQueryParam(
@@ -8063,6 +8703,11 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
     // Set User-Agent
     if (this.userAgent) {
       requestContext.setHeaderParam("User-Agent", this.userAgent);
+    }
+
+    // Set IaC header
+    if (_config.isIaC) {
+      requestContext.setHeaderParam("X-Datadog-Managed-By", "iac");
     }
 
     // Apply auth methods
@@ -8152,6 +8797,11 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
     // Set User-Agent
     if (this.userAgent) {
       requestContext.setHeaderParam("User-Agent", this.userAgent);
+    }
+
+    // Set IaC header
+    if (_config.isIaC) {
+      requestContext.setHeaderParam("X-Datadog-Managed-By", "iac");
     }
 
     // Query Params
@@ -8554,6 +9204,11 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
       requestContext.setHeaderParam("User-Agent", this.userAgent);
     }
 
+    // Set IaC header
+    if (_config.isIaC) {
+      requestContext.setHeaderParam("X-Datadog-Managed-By", "iac");
+    }
+
     // Query Params
     if (pageToken !== undefined) {
       requestContext.setQueryParam(
@@ -8721,6 +9376,11 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
       requestContext.setHeaderParam("User-Agent", this.userAgent);
     }
 
+    // Set IaC header
+    if (_config.isIaC) {
+      requestContext.setHeaderParam("X-Datadog-Managed-By", "iac");
+    }
+
     // Body Params
     const contentType = getPreferredMediaType(["application/json"]);
     requestContext.setHeaderParam("Content-Type", contentType);
@@ -8782,6 +9442,11 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
       requestContext.setHeaderParam("User-Agent", this.userAgent);
     }
 
+    // Set IaC header
+    if (_config.isIaC) {
+      requestContext.setHeaderParam("X-Datadog-Managed-By", "iac");
+    }
+
     // Body Params
     const contentType = getPreferredMediaType(["application/json"]);
     requestContext.setHeaderParam("Content-Type", contentType);
@@ -8840,6 +9505,11 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
     // Set User-Agent
     if (this.userAgent) {
       requestContext.setHeaderParam("User-Agent", this.userAgent);
+    }
+
+    // Set IaC header
+    if (_config.isIaC) {
+      requestContext.setHeaderParam("X-Datadog-Managed-By", "iac");
     }
 
     // Body Params
@@ -8906,6 +9576,11 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
       requestContext.setHeaderParam("User-Agent", this.userAgent);
     }
 
+    // Set IaC header
+    if (_config.isIaC) {
+      requestContext.setHeaderParam("X-Datadog-Managed-By", "iac");
+    }
+
     // Body Params
     const contentType = getPreferredMediaType(["application/json"]);
     requestContext.setHeaderParam("Content-Type", contentType);
@@ -8968,6 +9643,11 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
     // Set User-Agent
     if (this.userAgent) {
       requestContext.setHeaderParam("User-Agent", this.userAgent);
+    }
+
+    // Set IaC header
+    if (_config.isIaC) {
+      requestContext.setHeaderParam("X-Datadog-Managed-By", "iac");
     }
 
     // Body Params
@@ -9034,6 +9714,11 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
       requestContext.setHeaderParam("User-Agent", this.userAgent);
     }
 
+    // Set IaC header
+    if (_config.isIaC) {
+      requestContext.setHeaderParam("X-Datadog-Managed-By", "iac");
+    }
+
     // Body Params
     const contentType = getPreferredMediaType(["application/json"]);
     requestContext.setHeaderParam("Content-Type", contentType);
@@ -9096,6 +9781,11 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
     // Set User-Agent
     if (this.userAgent) {
       requestContext.setHeaderParam("User-Agent", this.userAgent);
+    }
+
+    // Set IaC header
+    if (_config.isIaC) {
+      requestContext.setHeaderParam("X-Datadog-Managed-By", "iac");
     }
 
     // Body Params
@@ -9167,6 +9857,11 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
       requestContext.setHeaderParam("User-Agent", this.userAgent);
     }
 
+    // Set IaC header
+    if (_config.isIaC) {
+      requestContext.setHeaderParam("X-Datadog-Managed-By", "iac");
+    }
+
     // Apply auth methods
     applySecurityAuthentication(_config, requestContext, [
       "apiKeyAuth",
@@ -9215,6 +9910,11 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
     // Set User-Agent
     if (this.userAgent) {
       requestContext.setHeaderParam("User-Agent", this.userAgent);
+    }
+
+    // Set IaC header
+    if (_config.isIaC) {
+      requestContext.setHeaderParam("X-Datadog-Managed-By", "iac");
     }
 
     // Body Params
@@ -9266,6 +9966,11 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
     // Set User-Agent
     if (this.userAgent) {
       requestContext.setHeaderParam("User-Agent", this.userAgent);
+    }
+
+    // Set IaC header
+    if (_config.isIaC) {
+      requestContext.setHeaderParam("X-Datadog-Managed-By", "iac");
     }
 
     // Body Params
@@ -9325,6 +10030,11 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
       requestContext.setHeaderParam("User-Agent", this.userAgent);
     }
 
+    // Set IaC header
+    if (_config.isIaC) {
+      requestContext.setHeaderParam("X-Datadog-Managed-By", "iac");
+    }
+
     // Body Params
     const contentType = getPreferredMediaType(["application/json"]);
     requestContext.setHeaderParam("Content-Type", contentType);
@@ -9369,6 +10079,11 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
     // Set User-Agent
     if (this.userAgent) {
       requestContext.setHeaderParam("User-Agent", this.userAgent);
+    }
+
+    // Set IaC header
+    if (_config.isIaC) {
+      requestContext.setHeaderParam("X-Datadog-Managed-By", "iac");
     }
 
     // Body Params
@@ -9424,6 +10139,11 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
     // Set User-Agent
     if (this.userAgent) {
       requestContext.setHeaderParam("User-Agent", this.userAgent);
+    }
+
+    // Set IaC header
+    if (_config.isIaC) {
+      requestContext.setHeaderParam("X-Datadog-Managed-By", "iac");
     }
 
     // Body Params
@@ -9487,6 +10207,11 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
       requestContext.setHeaderParam("User-Agent", this.userAgent);
     }
 
+    // Set IaC header
+    if (_config.isIaC) {
+      requestContext.setHeaderParam("X-Datadog-Managed-By", "iac");
+    }
+
     // Body Params
     const contentType = getPreferredMediaType(["application/json"]);
     requestContext.setHeaderParam("Content-Type", contentType);
@@ -9536,6 +10261,11 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
     // Set User-Agent
     if (this.userAgent) {
       requestContext.setHeaderParam("User-Agent", this.userAgent);
+    }
+
+    // Set IaC header
+    if (_config.isIaC) {
+      requestContext.setHeaderParam("X-Datadog-Managed-By", "iac");
     }
 
     // Body Params
@@ -9604,6 +10334,11 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
       requestContext.setHeaderParam("User-Agent", this.userAgent);
     }
 
+    // Set IaC header
+    if (_config.isIaC) {
+      requestContext.setHeaderParam("X-Datadog-Managed-By", "iac");
+    }
+
     // Body Params
     const contentType = getPreferredMediaType(["application/json"]);
     requestContext.setHeaderParam("Content-Type", contentType);
@@ -9665,6 +10400,11 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
       requestContext.setHeaderParam("User-Agent", this.userAgent);
     }
 
+    // Set IaC header
+    if (_config.isIaC) {
+      requestContext.setHeaderParam("X-Datadog-Managed-By", "iac");
+    }
+
     // Body Params
     const contentType = getPreferredMediaType(["application/json"]);
     requestContext.setHeaderParam("Content-Type", contentType);
@@ -9714,6 +10454,11 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
     // Set User-Agent
     if (this.userAgent) {
       requestContext.setHeaderParam("User-Agent", this.userAgent);
+    }
+
+    // Set IaC header
+    if (_config.isIaC) {
+      requestContext.setHeaderParam("X-Datadog-Managed-By", "iac");
     }
 
     // Body Params
@@ -9775,6 +10520,11 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
     // Set User-Agent
     if (this.userAgent) {
       requestContext.setHeaderParam("User-Agent", this.userAgent);
+    }
+
+    // Set IaC header
+    if (_config.isIaC) {
+      requestContext.setHeaderParam("X-Datadog-Managed-By", "iac");
     }
 
     // Body Params
@@ -9854,6 +10604,11 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
       requestContext.setHeaderParam("User-Agent", this.userAgent);
     }
 
+    // Set IaC header
+    if (_config.isIaC) {
+      requestContext.setHeaderParam("X-Datadog-Managed-By", "iac");
+    }
+
     // Body Params
     const contentType = getPreferredMediaType(["application/json"]);
     requestContext.setHeaderParam("Content-Type", contentType);
@@ -9928,6 +10683,11 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
     // Set User-Agent
     if (this.userAgent) {
       requestContext.setHeaderParam("User-Agent", this.userAgent);
+    }
+
+    // Set IaC header
+    if (_config.isIaC) {
+      requestContext.setHeaderParam("X-Datadog-Managed-By", "iac");
     }
 
     // Body Params
@@ -10006,6 +10766,11 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
       requestContext.setHeaderParam("User-Agent", this.userAgent);
     }
 
+    // Set IaC header
+    if (_config.isIaC) {
+      requestContext.setHeaderParam("X-Datadog-Managed-By", "iac");
+    }
+
     // Body Params
     const contentType = getPreferredMediaType(["application/json"]);
     requestContext.setHeaderParam("Content-Type", contentType);
@@ -10082,6 +10847,11 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
       requestContext.setHeaderParam("User-Agent", this.userAgent);
     }
 
+    // Set IaC header
+    if (_config.isIaC) {
+      requestContext.setHeaderParam("X-Datadog-Managed-By", "iac");
+    }
+
     // Body Params
     const contentType = getPreferredMediaType(["application/json"]);
     requestContext.setHeaderParam("Content-Type", contentType);
@@ -10143,6 +10913,11 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
     // Set User-Agent
     if (this.userAgent) {
       requestContext.setHeaderParam("User-Agent", this.userAgent);
+    }
+
+    // Set IaC header
+    if (_config.isIaC) {
+      requestContext.setHeaderParam("X-Datadog-Managed-By", "iac");
     }
 
     // Body Params
@@ -10219,6 +10994,11 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
     // Set User-Agent
     if (this.userAgent) {
       requestContext.setHeaderParam("User-Agent", this.userAgent);
+    }
+
+    // Set IaC header
+    if (_config.isIaC) {
+      requestContext.setHeaderParam("X-Datadog-Managed-By", "iac");
     }
 
     // Body Params
@@ -10298,6 +11078,11 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
       requestContext.setHeaderParam("User-Agent", this.userAgent);
     }
 
+    // Set IaC header
+    if (_config.isIaC) {
+      requestContext.setHeaderParam("X-Datadog-Managed-By", "iac");
+    }
+
     // Body Params
     const contentType = getPreferredMediaType(["application/json"]);
     requestContext.setHeaderParam("Content-Type", contentType);
@@ -10363,6 +11148,11 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
       requestContext.setHeaderParam("User-Agent", this.userAgent);
     }
 
+    // Set IaC header
+    if (_config.isIaC) {
+      requestContext.setHeaderParam("X-Datadog-Managed-By", "iac");
+    }
+
     // Body Params
     const contentType = getPreferredMediaType(["application/json"]);
     requestContext.setHeaderParam("Content-Type", contentType);
@@ -10425,6 +11215,11 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
     // Set User-Agent
     if (this.userAgent) {
       requestContext.setHeaderParam("User-Agent", this.userAgent);
+    }
+
+    // Set IaC header
+    if (_config.isIaC) {
+      requestContext.setHeaderParam("X-Datadog-Managed-By", "iac");
     }
 
     // Body Params
@@ -10500,6 +11295,11 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
       requestContext.setHeaderParam("User-Agent", this.userAgent);
     }
 
+    // Set IaC header
+    if (_config.isIaC) {
+      requestContext.setHeaderParam("X-Datadog-Managed-By", "iac");
+    }
+
     // Apply auth methods
     applySecurityAuthentication(_config, requestContext, [
       "apiKeyAuth",
@@ -10554,6 +11354,11 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
     // Set User-Agent
     if (this.userAgent) {
       requestContext.setHeaderParam("User-Agent", this.userAgent);
+    }
+
+    // Set IaC header
+    if (_config.isIaC) {
+      requestContext.setHeaderParam("X-Datadog-Managed-By", "iac");
     }
 
     // Body Params
@@ -10612,6 +11417,11 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
       requestContext.setHeaderParam("User-Agent", this.userAgent);
     }
 
+    // Set IaC header
+    if (_config.isIaC) {
+      requestContext.setHeaderParam("X-Datadog-Managed-By", "iac");
+    }
+
     // Body Params
     const contentType = getPreferredMediaType(["application/json"]);
     requestContext.setHeaderParam("Content-Type", contentType);
@@ -10662,6 +11472,11 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
     // Set User-Agent
     if (this.userAgent) {
       requestContext.setHeaderParam("User-Agent", this.userAgent);
+    }
+
+    // Set IaC header
+    if (_config.isIaC) {
+      requestContext.setHeaderParam("X-Datadog-Managed-By", "iac");
     }
 
     // Body Params
