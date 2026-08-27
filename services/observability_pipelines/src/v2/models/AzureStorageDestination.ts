@@ -1,6 +1,7 @@
 import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
 import { AzureStorageDestinationType } from "./AzureStorageDestinationType";
+import { ObservabilityPipelineAzureStorageDestinationCompression } from "./ObservabilityPipelineAzureStorageDestinationCompression";
 import { ObservabilityPipelineBufferOptions } from "./ObservabilityPipelineBufferOptions";
 
 /**
@@ -17,6 +18,11 @@ export class AzureStorageDestination {
    * Configuration for buffer settings on destination components.
    */
   "buffer"?: ObservabilityPipelineBufferOptions;
+  /**
+   * Compression configuration for archived logs. When omitted, logs are compressed with gzip
+   * for backward compatibility.
+   */
+  "compression"?: ObservabilityPipelineAzureStorageDestinationCompression;
   /**
    * Name of the environment variable or secret that holds the Azure Storage connection string.
    */
@@ -59,6 +65,10 @@ export class AzureStorageDestination {
     buffer: {
       baseName: "buffer",
       type: "ObservabilityPipelineBufferOptions",
+    },
+    compression: {
+      baseName: "compression",
+      type: "ObservabilityPipelineAzureStorageDestinationCompression",
     },
     connectionStringKey: {
       baseName: "connection_string_key",
