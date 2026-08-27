@@ -15,9 +15,21 @@ export class DeploymentRuleOptionsMonitor {
    */
   "duration"?: number;
   /**
+   * Whether the rule should fail if a matching monitor group is in a NO DATA state.
+   */
+  "failOnNoData"?: boolean;
+  /**
+   * Whether the rule should fail if no monitor groups are found for the query.
+   */
+  "failOnNoGroupsFound"?: boolean;
+  /**
    * Monitors that match this query are evaluated.
    */
   "query": string;
+  /**
+   * Seconds to wait after a deployment starts before evaluating the monitor's status.
+   */
+  "warmup"?: number;
 
   /**
    * @ignore
@@ -33,10 +45,23 @@ export class DeploymentRuleOptionsMonitor {
       type: "number",
       format: "int64",
     },
+    failOnNoData: {
+      baseName: "fail_on_no_data",
+      type: "boolean",
+    },
+    failOnNoGroupsFound: {
+      baseName: "fail_on_no_groups_found",
+      type: "boolean",
+    },
     query: {
       baseName: "query",
       type: "string",
       required: true,
+    },
+    warmup: {
+      baseName: "warmup",
+      type: "number",
+      format: "int64",
     },
   };
 
