@@ -3375,6 +3375,8 @@ import { ObservabilityPipelineAmazonDataFirehoseSource } from "./ObservabilityPi
 import { ObservabilityPipelineAmazonOpenSearchDestination } from "./ObservabilityPipelineAmazonOpenSearchDestination";
 import { ObservabilityPipelineAmazonOpenSearchDestinationAuth } from "./ObservabilityPipelineAmazonOpenSearchDestinationAuth";
 import { ObservabilityPipelineAmazonS3Destination } from "./ObservabilityPipelineAmazonS3Destination";
+import { ObservabilityPipelineAmazonS3DestinationCompressionGzip } from "./ObservabilityPipelineAmazonS3DestinationCompressionGzip";
+import { ObservabilityPipelineAmazonS3DestinationCompressionZstd } from "./ObservabilityPipelineAmazonS3DestinationCompressionZstd";
 import { ObservabilityPipelineAmazonS3GenericBatchSettings } from "./ObservabilityPipelineAmazonS3GenericBatchSettings";
 import { ObservabilityPipelineAmazonS3GenericCompressionGzip } from "./ObservabilityPipelineAmazonS3GenericCompressionGzip";
 import { ObservabilityPipelineAmazonS3GenericCompressionSnappy } from "./ObservabilityPipelineAmazonS3GenericCompressionSnappy";
@@ -3385,6 +3387,8 @@ import { ObservabilityPipelineAmazonS3GenericEncodingParquet } from "./Observabi
 import { ObservabilityPipelineAmazonS3Source } from "./ObservabilityPipelineAmazonS3Source";
 import { ObservabilityPipelineAmazonSecurityLakeDestination } from "./ObservabilityPipelineAmazonSecurityLakeDestination";
 import { ObservabilityPipelineAwsAuth } from "./ObservabilityPipelineAwsAuth";
+import { ObservabilityPipelineAzureStorageDestinationCompressionGzip } from "./ObservabilityPipelineAzureStorageDestinationCompressionGzip";
+import { ObservabilityPipelineAzureStorageDestinationCompressionZstd } from "./ObservabilityPipelineAzureStorageDestinationCompressionZstd";
 import { ObservabilityPipelineClickhouseDestination } from "./ObservabilityPipelineClickhouseDestination";
 import { ObservabilityPipelineClickhouseDestinationAuth } from "./ObservabilityPipelineClickhouseDestinationAuth";
 import { ObservabilityPipelineClickhouseDestinationBatch } from "./ObservabilityPipelineClickhouseDestinationBatch";
@@ -3436,6 +3440,8 @@ import { ObservabilityPipelineGeneratedMetricIncrementByField } from "./Observab
 import { ObservabilityPipelineGeneratedMetricIncrementByOne } from "./ObservabilityPipelineGeneratedMetricIncrementByOne";
 import { ObservabilityPipelineGoogleChronicleDestination } from "./ObservabilityPipelineGoogleChronicleDestination";
 import { ObservabilityPipelineGoogleCloudStorageDestination } from "./ObservabilityPipelineGoogleCloudStorageDestination";
+import { ObservabilityPipelineGoogleCloudStorageDestinationCompressionGzip } from "./ObservabilityPipelineGoogleCloudStorageDestinationCompressionGzip";
+import { ObservabilityPipelineGoogleCloudStorageDestinationCompressionZstd } from "./ObservabilityPipelineGoogleCloudStorageDestinationCompressionZstd";
 import { ObservabilityPipelineGooglePubSubDestination } from "./ObservabilityPipelineGooglePubSubDestination";
 import { ObservabilityPipelineGooglePubSubSource } from "./ObservabilityPipelineGooglePubSubSource";
 import { ObservabilityPipelineHttpClientDestination } from "./ObservabilityPipelineHttpClientDestination";
@@ -7448,6 +7454,8 @@ const enumsMap: { [key: string]: any[] } = {
     "aws",
   ],
   ObservabilityPipelineAmazonOpenSearchDestinationType: ["amazon_opensearch"],
+  ObservabilityPipelineAmazonS3DestinationCompressionGzipType: ["gzip"],
+  ObservabilityPipelineAmazonS3DestinationCompressionZstdType: ["zstd"],
   ObservabilityPipelineAmazonS3DestinationServerSideEncryption: [
     "aws:kms",
     "AES256",
@@ -7480,6 +7488,8 @@ const enumsMap: { [key: string]: any[] } = {
   ObservabilityPipelineAmazonSecurityLakeDestinationType: [
     "amazon_security_lake",
   ],
+  ObservabilityPipelineAzureStorageDestinationCompressionGzipType: ["gzip"],
+  ObservabilityPipelineAzureStorageDestinationCompressionZstdType: ["zstd"],
   ObservabilityPipelineBufferOptionsDiskType: ["disk"],
   ObservabilityPipelineBufferOptionsMemoryType: ["memory"],
   ObservabilityPipelineBufferOptionsWhenFull: ["block", "drop_newest"],
@@ -7577,6 +7587,12 @@ const enumsMap: { [key: string]: any[] } = {
     "authenticated-read",
     "bucket-owner-read",
     "bucket-owner-full-control",
+  ],
+  ObservabilityPipelineGoogleCloudStorageDestinationCompressionGzipType: [
+    "gzip",
+  ],
+  ObservabilityPipelineGoogleCloudStorageDestinationCompressionZstdType: [
+    "zstd",
   ],
   ObservabilityPipelineGoogleCloudStorageDestinationStorageClass: [
     "STANDARD",
@@ -13166,6 +13182,10 @@ const typeMap: { [index: string]: any } = {
     ObservabilityPipelineAmazonOpenSearchDestinationAuth,
   ObservabilityPipelineAmazonS3Destination:
     ObservabilityPipelineAmazonS3Destination,
+  ObservabilityPipelineAmazonS3DestinationCompressionGzip:
+    ObservabilityPipelineAmazonS3DestinationCompressionGzip,
+  ObservabilityPipelineAmazonS3DestinationCompressionZstd:
+    ObservabilityPipelineAmazonS3DestinationCompressionZstd,
   ObservabilityPipelineAmazonS3GenericBatchSettings:
     ObservabilityPipelineAmazonS3GenericBatchSettings,
   ObservabilityPipelineAmazonS3GenericCompressionGzip:
@@ -13184,6 +13204,10 @@ const typeMap: { [index: string]: any } = {
   ObservabilityPipelineAmazonSecurityLakeDestination:
     ObservabilityPipelineAmazonSecurityLakeDestination,
   ObservabilityPipelineAwsAuth: ObservabilityPipelineAwsAuth,
+  ObservabilityPipelineAzureStorageDestinationCompressionGzip:
+    ObservabilityPipelineAzureStorageDestinationCompressionGzip,
+  ObservabilityPipelineAzureStorageDestinationCompressionZstd:
+    ObservabilityPipelineAzureStorageDestinationCompressionZstd,
   ObservabilityPipelineClickhouseDestination:
     ObservabilityPipelineClickhouseDestination,
   ObservabilityPipelineClickhouseDestinationAuth:
@@ -13274,6 +13298,10 @@ const typeMap: { [index: string]: any } = {
     ObservabilityPipelineGoogleChronicleDestination,
   ObservabilityPipelineGoogleCloudStorageDestination:
     ObservabilityPipelineGoogleCloudStorageDestination,
+  ObservabilityPipelineGoogleCloudStorageDestinationCompressionGzip:
+    ObservabilityPipelineGoogleCloudStorageDestinationCompressionGzip,
+  ObservabilityPipelineGoogleCloudStorageDestinationCompressionZstd:
+    ObservabilityPipelineGoogleCloudStorageDestinationCompressionZstd,
   ObservabilityPipelineGooglePubSubDestination:
     ObservabilityPipelineGooglePubSubDestination,
   ObservabilityPipelineGooglePubSubSource:
@@ -16778,6 +16806,10 @@ const oneOfMap: { [index: string]: string[] } = {
   ],
   NotionCredentials: ["NotionAPIKey"],
   NotionCredentialsUpdate: ["NotionAPIKeyUpdate"],
+  ObservabilityPipelineAmazonS3DestinationCompression: [
+    "ObservabilityPipelineAmazonS3DestinationCompressionZstd",
+    "ObservabilityPipelineAmazonS3DestinationCompressionGzip",
+  ],
   ObservabilityPipelineAmazonS3GenericCompression: [
     "ObservabilityPipelineAmazonS3GenericCompressionZstd",
     "ObservabilityPipelineAmazonS3GenericCompressionGzip",
@@ -16786,6 +16818,10 @@ const oneOfMap: { [index: string]: string[] } = {
   ObservabilityPipelineAmazonS3GenericEncoding: [
     "ObservabilityPipelineAmazonS3GenericEncodingJson",
     "ObservabilityPipelineAmazonS3GenericEncodingParquet",
+  ],
+  ObservabilityPipelineAzureStorageDestinationCompression: [
+    "ObservabilityPipelineAzureStorageDestinationCompressionZstd",
+    "ObservabilityPipelineAzureStorageDestinationCompressionGzip",
   ],
   ObservabilityPipelineBufferOptions: [
     "ObservabilityPipelineDiskBufferOptions",
@@ -16879,6 +16915,10 @@ const oneOfMap: { [index: string]: string[] } = {
     "ObservabilityPipelineEnrichmentTableFieldEventLookup",
     "ObservabilityPipelineEnrichmentTableFieldVrlLookup",
     "ObservabilityPipelineEnrichmentTableFieldSecretLookup",
+  ],
+  ObservabilityPipelineGoogleCloudStorageDestinationCompression: [
+    "ObservabilityPipelineGoogleCloudStorageDestinationCompressionZstd",
+    "ObservabilityPipelineGoogleCloudStorageDestinationCompressionGzip",
   ],
   ObservabilityPipelineHttpServerSourceValidTokenPathToToken: [
     "ObservabilityPipelineHttpServerSourceValidTokenPathToTokenLocation",

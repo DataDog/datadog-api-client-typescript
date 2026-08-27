@@ -6235,6 +6235,11 @@ export { ObservabilityPipelineAmazonOpenSearchDestinationAuth } from "./models/O
 export { ObservabilityPipelineAmazonOpenSearchDestinationAuthStrategy } from "./models/ObservabilityPipelineAmazonOpenSearchDestinationAuthStrategy";
 export { ObservabilityPipelineAmazonOpenSearchDestinationType } from "./models/ObservabilityPipelineAmazonOpenSearchDestinationType";
 export { ObservabilityPipelineAmazonS3Destination } from "./models/ObservabilityPipelineAmazonS3Destination";
+export { ObservabilityPipelineAmazonS3DestinationCompression } from "./models/ObservabilityPipelineAmazonS3DestinationCompression";
+export { ObservabilityPipelineAmazonS3DestinationCompressionGzip } from "./models/ObservabilityPipelineAmazonS3DestinationCompressionGzip";
+export { ObservabilityPipelineAmazonS3DestinationCompressionGzipType } from "./models/ObservabilityPipelineAmazonS3DestinationCompressionGzipType";
+export { ObservabilityPipelineAmazonS3DestinationCompressionZstd } from "./models/ObservabilityPipelineAmazonS3DestinationCompressionZstd";
+export { ObservabilityPipelineAmazonS3DestinationCompressionZstdType } from "./models/ObservabilityPipelineAmazonS3DestinationCompressionZstdType";
 export { ObservabilityPipelineAmazonS3DestinationServerSideEncryption } from "./models/ObservabilityPipelineAmazonS3DestinationServerSideEncryption";
 export { ObservabilityPipelineAmazonS3DestinationStorageClass } from "./models/ObservabilityPipelineAmazonS3DestinationStorageClass";
 export { ObservabilityPipelineAmazonS3DestinationType } from "./models/ObservabilityPipelineAmazonS3DestinationType";
@@ -6259,6 +6264,11 @@ export { ObservabilityPipelineAmazonS3SourceType } from "./models/ObservabilityP
 export { ObservabilityPipelineAmazonSecurityLakeDestination } from "./models/ObservabilityPipelineAmazonSecurityLakeDestination";
 export { ObservabilityPipelineAmazonSecurityLakeDestinationType } from "./models/ObservabilityPipelineAmazonSecurityLakeDestinationType";
 export { ObservabilityPipelineAwsAuth } from "./models/ObservabilityPipelineAwsAuth";
+export { ObservabilityPipelineAzureStorageDestinationCompression } from "./models/ObservabilityPipelineAzureStorageDestinationCompression";
+export { ObservabilityPipelineAzureStorageDestinationCompressionGzip } from "./models/ObservabilityPipelineAzureStorageDestinationCompressionGzip";
+export { ObservabilityPipelineAzureStorageDestinationCompressionGzipType } from "./models/ObservabilityPipelineAzureStorageDestinationCompressionGzipType";
+export { ObservabilityPipelineAzureStorageDestinationCompressionZstd } from "./models/ObservabilityPipelineAzureStorageDestinationCompressionZstd";
+export { ObservabilityPipelineAzureStorageDestinationCompressionZstdType } from "./models/ObservabilityPipelineAzureStorageDestinationCompressionZstdType";
 export { ObservabilityPipelineBufferOptions } from "./models/ObservabilityPipelineBufferOptions";
 export { ObservabilityPipelineBufferOptionsDiskType } from "./models/ObservabilityPipelineBufferOptionsDiskType";
 export { ObservabilityPipelineBufferOptionsMemoryType } from "./models/ObservabilityPipelineBufferOptionsMemoryType";
@@ -6358,6 +6368,11 @@ export { ObservabilityPipelineGoogleChronicleDestinationEncoding } from "./model
 export { ObservabilityPipelineGoogleChronicleDestinationType } from "./models/ObservabilityPipelineGoogleChronicleDestinationType";
 export { ObservabilityPipelineGoogleCloudStorageDestination } from "./models/ObservabilityPipelineGoogleCloudStorageDestination";
 export { ObservabilityPipelineGoogleCloudStorageDestinationAcl } from "./models/ObservabilityPipelineGoogleCloudStorageDestinationAcl";
+export { ObservabilityPipelineGoogleCloudStorageDestinationCompression } from "./models/ObservabilityPipelineGoogleCloudStorageDestinationCompression";
+export { ObservabilityPipelineGoogleCloudStorageDestinationCompressionGzip } from "./models/ObservabilityPipelineGoogleCloudStorageDestinationCompressionGzip";
+export { ObservabilityPipelineGoogleCloudStorageDestinationCompressionGzipType } from "./models/ObservabilityPipelineGoogleCloudStorageDestinationCompressionGzipType";
+export { ObservabilityPipelineGoogleCloudStorageDestinationCompressionZstd } from "./models/ObservabilityPipelineGoogleCloudStorageDestinationCompressionZstd";
+export { ObservabilityPipelineGoogleCloudStorageDestinationCompressionZstdType } from "./models/ObservabilityPipelineGoogleCloudStorageDestinationCompressionZstdType";
 export { ObservabilityPipelineGoogleCloudStorageDestinationStorageClass } from "./models/ObservabilityPipelineGoogleCloudStorageDestinationStorageClass";
 export { ObservabilityPipelineGoogleCloudStorageDestinationType } from "./models/ObservabilityPipelineGoogleCloudStorageDestinationType";
 export { ObservabilityPipelineGooglePubSubDestination } from "./models/ObservabilityPipelineGooglePubSubDestination";

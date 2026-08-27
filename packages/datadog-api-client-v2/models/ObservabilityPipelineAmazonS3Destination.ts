@@ -3,6 +3,7 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
+import { ObservabilityPipelineAmazonS3DestinationCompression } from "./ObservabilityPipelineAmazonS3DestinationCompression";
 import { ObservabilityPipelineAmazonS3DestinationServerSideEncryption } from "./ObservabilityPipelineAmazonS3DestinationServerSideEncryption";
 import { ObservabilityPipelineAmazonS3DestinationStorageClass } from "./ObservabilityPipelineAmazonS3DestinationStorageClass";
 import { ObservabilityPipelineAmazonS3DestinationType } from "./ObservabilityPipelineAmazonS3DestinationType";
@@ -31,6 +32,11 @@ export class ObservabilityPipelineAmazonS3Destination {
    * Configuration for buffer settings on destination components.
    */
   "buffer"?: ObservabilityPipelineBufferOptions;
+  /**
+   * Compression configuration for archived logs. When omitted, logs are compressed with gzip
+   * for backward compatibility.
+   */
+  "compression"?: ObservabilityPipelineAmazonS3DestinationCompression;
   /**
    * Unique identifier for the destination component.
    */
@@ -97,6 +103,10 @@ export class ObservabilityPipelineAmazonS3Destination {
     buffer: {
       baseName: "buffer",
       type: "ObservabilityPipelineBufferOptions",
+    },
+    compression: {
+      baseName: "compression",
+      type: "ObservabilityPipelineAmazonS3DestinationCompression",
     },
     id: {
       baseName: "id",
