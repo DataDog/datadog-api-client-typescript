@@ -2,6 +2,7 @@ import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
 import { ObservabilityPipelineBufferOptions } from "./ObservabilityPipelineBufferOptions";
 import { ObservabilityPipelineSplunkHecDestinationEncoding } from "./ObservabilityPipelineSplunkHecDestinationEncoding";
+import { ObservabilityPipelineSplunkHecDestinationEndpointTarget } from "./ObservabilityPipelineSplunkHecDestinationEndpointTarget";
 import { ObservabilityPipelineSplunkHecDestinationTokenStrategy } from "./ObservabilityPipelineSplunkHecDestinationTokenStrategy";
 import { ObservabilityPipelineSplunkHecDestinationType } from "./ObservabilityPipelineSplunkHecDestinationType";
 
@@ -14,6 +15,7 @@ export class ObservabilityPipelineSplunkHecDestination {
   /**
    * If `true`, Splunk tries to extract timestamps from incoming log events.
    * If `false`, Splunk assigns the time the event was received.
+   * Only applies when `endpoint_target` is `event`; cannot be `true` when `endpoint_target` is `raw`.
    */
   "autoExtractTimestamp"?: boolean;
   /**
@@ -24,6 +26,10 @@ export class ObservabilityPipelineSplunkHecDestination {
    * Encoding format for log events.
    */
   "encoding"?: ObservabilityPipelineSplunkHecDestinationEncoding;
+  /**
+   * The Splunk HEC endpoint to send events to. Use `event` to send structured events to the `/event` endpoint, or `raw` to send the raw message to the `/raw` endpoint.
+   */
+  "endpointTarget"?: ObservabilityPipelineSplunkHecDestinationEndpointTarget;
   /**
    * Name of the environment variable or secret that holds the Splunk HEC endpoint URL.
    */
@@ -86,6 +92,10 @@ export class ObservabilityPipelineSplunkHecDestination {
     encoding: {
       baseName: "encoding",
       type: "ObservabilityPipelineSplunkHecDestinationEncoding",
+    },
+    endpointTarget: {
+      baseName: "endpoint_target",
+      type: "ObservabilityPipelineSplunkHecDestinationEndpointTarget",
     },
     endpointUrlKey: {
       baseName: "endpoint_url_key",
