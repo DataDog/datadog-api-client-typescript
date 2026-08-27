@@ -8,6 +8,8 @@ import { ScaRequestDataAttributesDependenciesItems } from "./ScaRequestDataAttri
 import { ScaRequestDataAttributesFilesItems } from "./ScaRequestDataAttributesFilesItems";
 import { ScaRequestDataAttributesRelationsItems } from "./ScaRequestDataAttributesRelationsItems";
 import { ScaRequestDataAttributesRepository } from "./ScaRequestDataAttributesRepository";
+import { ScaRequestDataAttributesScanStartTimestamp } from "./ScaRequestDataAttributesScanStartTimestamp";
+import { ScaRequestDataAttributesTags } from "./ScaRequestDataAttributesTags";
 import { ScaRequestDataAttributesVulnerabilitiesItems } from "./ScaRequestDataAttributesVulnerabilitiesItems";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
@@ -41,13 +43,17 @@ export class ScaRequestDataAttributes {
    */
   "repository"?: ScaRequestDataAttributesRepository;
   /**
+   * The time when the SCA scan started.
+   */
+  "scanStartTimestamp"?: ScaRequestDataAttributesScanStartTimestamp;
+  /**
    * The name of the service or application being analyzed.
    */
   "service"?: string;
   /**
-   * A map of key-value tags providing additional metadata for the SCA scan.
+   * A map of tags providing additional metadata for the SCA scan.
    */
-  "tags"?: { [key: string]: string };
+  "tags"?: ScaRequestDataAttributesTags;
   /**
    * The list of vulnerabilities identified in the dependency graph.
    */
@@ -93,13 +99,17 @@ export class ScaRequestDataAttributes {
       baseName: "repository",
       type: "ScaRequestDataAttributesRepository",
     },
+    scanStartTimestamp: {
+      baseName: "scan_start_timestamp",
+      type: "ScaRequestDataAttributesScanStartTimestamp",
+    },
     service: {
       baseName: "service",
       type: "string",
     },
     tags: {
       baseName: "tags",
-      type: "{ [key: string]: string; }",
+      type: "ScaRequestDataAttributesTags",
     },
     vulnerabilities: {
       baseName: "vulnerabilities",
