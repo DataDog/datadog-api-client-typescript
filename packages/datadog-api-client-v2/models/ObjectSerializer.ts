@@ -7752,6 +7752,7 @@ const enumsMap: { [key: string]: any[] } = {
   ObservabilityPipelineSocketSourceType: ["socket"],
   ObservabilityPipelineSplitArrayProcessorType: ["split_array"],
   ObservabilityPipelineSplunkHecDestinationEncoding: ["json", "raw_message"],
+  ObservabilityPipelineSplunkHecDestinationEndpointTarget: ["event", "raw"],
   ObservabilityPipelineSplunkHecDestinationTokenStrategy: [
     "custom",
     "from_source",
