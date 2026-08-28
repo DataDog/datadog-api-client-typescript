@@ -3471,6 +3471,7 @@ import { ObservabilityPipelineOcsfMappingCustomLookupTableEntry } from "./Observ
 import { ObservabilityPipelineOcsfMappingCustomMetadata } from "./ObservabilityPipelineOcsfMappingCustomMetadata";
 import { ObservabilityPipelineOpenSearchDestination } from "./ObservabilityPipelineOpenSearchDestination";
 import { ObservabilityPipelineOpenSearchDestinationDataStream } from "./ObservabilityPipelineOpenSearchDestinationDataStream";
+import { ObservabilityPipelineOpentelemetryMetricsDestination } from "./ObservabilityPipelineOpentelemetryMetricsDestination";
 import { ObservabilityPipelineOpentelemetrySource } from "./ObservabilityPipelineOpentelemetrySource";
 import { ObservabilityPipelineParseGrokProcessor } from "./ObservabilityPipelineParseGrokProcessor";
 import { ObservabilityPipelineParseGrokProcessorIncludeRule } from "./ObservabilityPipelineParseGrokProcessorIncludeRule";
@@ -7670,6 +7671,7 @@ const enumsMap: { [key: string]: any[] } = {
     "Palo Alto Networks Firewall Traffic",
   ],
   ObservabilityPipelineOpenSearchDestinationType: ["opensearch"],
+  ObservabilityPipelineOpentelemetryMetricsDestinationType: ["opentelemetry"],
   ObservabilityPipelineOpentelemetrySourceType: ["opentelemetry"],
   ObservabilityPipelineParseGrokProcessorType: ["parse_grok"],
   ObservabilityPipelineParseJSONProcessorType: ["parse_json"],
@@ -13360,6 +13362,8 @@ const typeMap: { [index: string]: any } = {
     ObservabilityPipelineOpenSearchDestination,
   ObservabilityPipelineOpenSearchDestinationDataStream:
     ObservabilityPipelineOpenSearchDestinationDataStream,
+  ObservabilityPipelineOpentelemetryMetricsDestination:
+    ObservabilityPipelineOpentelemetryMetricsDestination,
   ObservabilityPipelineOpentelemetrySource:
     ObservabilityPipelineOpentelemetrySource,
   ObservabilityPipelineParseGrokProcessor:
@@ -16875,6 +16879,7 @@ const oneOfMap: { [index: string]: string[] } = {
     "ObservabilityPipelineSyslogNgDestination",
     "ObservabilityPipelineDatabricksZerobusDestination",
     "ObservabilityPipelineDatadogMetricsDestination",
+    "ObservabilityPipelineOpentelemetryMetricsDestination",
     "ObservabilityPipelineSplunkHecMetricsDestination",
   ],
   ObservabilityPipelineConfigProcessorItem: [
