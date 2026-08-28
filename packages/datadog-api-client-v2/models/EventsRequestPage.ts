@@ -15,7 +15,7 @@ export class EventsRequestPage {
    */
   "cursor"?: string;
   /**
-   * The maximum number of logs in the response.
+   * The maximum number of events in the response.
    */
   "limit"?: number;
 
