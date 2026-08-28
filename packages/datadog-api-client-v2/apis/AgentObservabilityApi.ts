@@ -11658,6 +11658,7 @@ export class AgentObservabilityApi {
   /**
    * Create an annotation queue. The `name` and `project_id` fields are required.
    * An optional `annotation_schema` can be provided to define the labels for the queue.
+   * Optional access-control fields can restrict annotation access to reviewers or assignees.
    * Fields such as `created_by`, `owned_by`, `created_at`, `modified_by`,
    * and `modified_at` are inferred by the backend.
    * @param param The request object
@@ -13026,7 +13027,9 @@ export class AgentObservabilityApi {
   }
 
   /**
-   * Partially update an annotation queue. The `name`, `description`, and `annotation_schema` fields can be updated.
+   * Partially update an annotation queue. The `name`, `description`,
+   * `annotation_schema`, `reviewer_emails`, `restrict_to_reviewers`, and
+   * `restrict_to_assignees` fields can be updated.
    * @param param The request object
    */
   public updateLLMObsAnnotationQueue(
@@ -13284,6 +13287,7 @@ export class AgentObservabilityApi {
    * by `interaction_id` and the requesting user's identity.
    * Results and errors in the response are linked to request items by `interaction_id`.
    * Errors for individual items are returned in the `errors` field without blocking the rest of the batch.
+   * Requests where every item is denied by queue access rules return `403`.
    * @param param The request object
    */
   public upsertLLMObsAnnotations(
