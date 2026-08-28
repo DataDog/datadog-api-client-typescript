@@ -1,6 +1,7 @@
 import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
 import { ScaRequestDataAttributesDependenciesItemsLocationsItemsFilePosition } from "./ScaRequestDataAttributesDependenciesItemsLocationsItemsFilePosition";
+import { ScaRequestDataAttributesDependenciesItemsLocationsItemsNullableFilePosition } from "./ScaRequestDataAttributesDependenciesItemsLocationsItemsNullableFilePosition";
 
 /**
  * The source code location where a dependency is declared, including block, name, namespace, and version positions within the file.
@@ -11,17 +12,17 @@ export class ScaRequestDataAttributesDependenciesItemsLocationsItems {
    */
   "block"?: ScaRequestDataAttributesDependenciesItemsLocationsItemsFilePosition;
   /**
-   * A range within a file defined by a start and end position, along with the file name.
+   * A nullable range within a file defined by a start and end position, along with the file name.
    */
-  "name"?: ScaRequestDataAttributesDependenciesItemsLocationsItemsFilePosition;
+  "name"?: ScaRequestDataAttributesDependenciesItemsLocationsItemsNullableFilePosition;
   /**
-   * A range within a file defined by a start and end position, along with the file name.
+   * A nullable range within a file defined by a start and end position, along with the file name.
    */
-  "namespace"?: ScaRequestDataAttributesDependenciesItemsLocationsItemsFilePosition;
+  "namespace"?: ScaRequestDataAttributesDependenciesItemsLocationsItemsNullableFilePosition;
   /**
-   * A range within a file defined by a start and end position, along with the file name.
+   * A nullable range within a file defined by a start and end position, along with the file name.
    */
-  "version"?: ScaRequestDataAttributesDependenciesItemsLocationsItemsFilePosition;
+  "version"?: ScaRequestDataAttributesDependenciesItemsLocationsItemsNullableFilePosition;
   /**
    * A container for additional, undeclared properties.
    * This is a holder for any undeclared properties as specified with
@@ -43,15 +44,15 @@ export class ScaRequestDataAttributesDependenciesItemsLocationsItems {
     },
     name: {
       baseName: "name",
-      type: "ScaRequestDataAttributesDependenciesItemsLocationsItemsFilePosition",
+      type: "ScaRequestDataAttributesDependenciesItemsLocationsItemsNullableFilePosition",
     },
     namespace: {
       baseName: "namespace",
-      type: "ScaRequestDataAttributesDependenciesItemsLocationsItemsFilePosition",
+      type: "ScaRequestDataAttributesDependenciesItemsLocationsItemsNullableFilePosition",
     },
     version: {
       baseName: "version",
-      type: "ScaRequestDataAttributesDependenciesItemsLocationsItemsFilePosition",
+      type: "ScaRequestDataAttributesDependenciesItemsLocationsItemsNullableFilePosition",
     },
     additionalProperties: {
       baseName: "additionalProperties",
