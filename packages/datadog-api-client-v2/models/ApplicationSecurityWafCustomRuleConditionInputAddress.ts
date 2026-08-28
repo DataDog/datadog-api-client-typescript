@@ -32,6 +32,7 @@ export type ApplicationSecurityWafCustomRuleConditionInputAddress =
   | typeof SERVER_RESPONSE_HEADERS_NO_COOKIES
   | typeof SERVER_RESPONSE_TRAILERS
   | typeof SERVER_RESPONSE_BODY
+  | typeof SERVER_RESPONSE_BODY_RAW
   | typeof GRPC_SERVER_REQUEST_METADATA
   | typeof GRPC_SERVER_REQUEST_MESSAGE
   | typeof GRPC_SERVER_METHOD
@@ -69,6 +70,7 @@ export const SERVER_RESPONSE_HEADERS_NO_COOKIES =
   "server.response.headers.no_cookies";
 export const SERVER_RESPONSE_TRAILERS = "server.response.trailers";
 export const SERVER_RESPONSE_BODY = "server.response.body";
+export const SERVER_RESPONSE_BODY_RAW = "server.response.body.raw";
 export const GRPC_SERVER_REQUEST_METADATA = "grpc.server.request.metadata";
 export const GRPC_SERVER_REQUEST_MESSAGE = "grpc.server.request.message";
 export const GRPC_SERVER_METHOD = "grpc.server.method";

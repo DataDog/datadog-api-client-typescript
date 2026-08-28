@@ -6154,6 +6154,7 @@ const enumsMap: { [key: string]: any[] } = {
     "server.response.headers.no_cookies",
     "server.response.trailers",
     "server.response.body",
+    "server.response.body.raw",
     "grpc.server.request.metadata",
     "grpc.server.request.message",
     "grpc.server.method",
