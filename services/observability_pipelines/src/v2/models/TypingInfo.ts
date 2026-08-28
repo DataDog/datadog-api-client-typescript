@@ -112,6 +112,7 @@ import { ObservabilityPipelineOcsfMappingCustomLookupTableEntry } from "./Observ
 import { ObservabilityPipelineOcsfMappingCustomMetadata } from "./ObservabilityPipelineOcsfMappingCustomMetadata";
 import { ObservabilityPipelineOpenSearchDestination } from "./ObservabilityPipelineOpenSearchDestination";
 import { ObservabilityPipelineOpenSearchDestinationDataStream } from "./ObservabilityPipelineOpenSearchDestinationDataStream";
+import { ObservabilityPipelineOpentelemetryMetricsDestination } from "./ObservabilityPipelineOpentelemetryMetricsDestination";
 import { ObservabilityPipelineOpentelemetrySource } from "./ObservabilityPipelineOpentelemetrySource";
 import { ObservabilityPipelineParseGrokProcessor } from "./ObservabilityPipelineParseGrokProcessor";
 import { ObservabilityPipelineParseGrokProcessorIncludeRule } from "./ObservabilityPipelineParseGrokProcessorIncludeRule";
@@ -424,6 +425,7 @@ export const TypingInfo: ModelTypingInfo = {
       "Palo Alto Networks Firewall Traffic",
     ],
     ObservabilityPipelineOpenSearchDestinationType: ["opensearch"],
+    ObservabilityPipelineOpentelemetryMetricsDestinationType: ["opentelemetry"],
     ObservabilityPipelineOpentelemetrySourceType: ["opentelemetry"],
     ObservabilityPipelineParseGrokProcessorType: ["parse_grok"],
     ObservabilityPipelineParseJSONProcessorType: ["parse_json"],
@@ -621,6 +623,7 @@ export const TypingInfo: ModelTypingInfo = {
       "ObservabilityPipelineSyslogNgDestination",
       "ObservabilityPipelineDatabricksZerobusDestination",
       "ObservabilityPipelineDatadogMetricsDestination",
+      "ObservabilityPipelineOpentelemetryMetricsDestination",
       "ObservabilityPipelineSplunkHecMetricsDestination",
     ],
     ObservabilityPipelineConfigProcessorItem: [
@@ -929,6 +932,8 @@ export const TypingInfo: ModelTypingInfo = {
       ObservabilityPipelineOpenSearchDestination,
     ObservabilityPipelineOpenSearchDestinationDataStream:
       ObservabilityPipelineOpenSearchDestinationDataStream,
+    ObservabilityPipelineOpentelemetryMetricsDestination:
+      ObservabilityPipelineOpentelemetryMetricsDestination,
     ObservabilityPipelineOpentelemetrySource:
       ObservabilityPipelineOpentelemetrySource,
     ObservabilityPipelineParseGrokProcessor:
