@@ -27,6 +27,18 @@ export class LLMObsAnnotationQueueDataAttributesRequest {
    * Identifier of the project this queue belongs to.
    */
   "projectId": string;
+  /**
+   * Whether annotation access is restricted to assigned users.
+   */
+  "restrictToAssignees"?: boolean;
+  /**
+   * Whether annotation access is restricted to queue reviewers.
+   */
+  "restrictToReviewers"?: boolean;
+  /**
+   * Email addresses of reviewers who can access the annotation queue.
+   */
+  "reviewerEmails"?: Array<string>;
 
   /**
    * A container for additional, undeclared properties.
@@ -61,6 +73,18 @@ export class LLMObsAnnotationQueueDataAttributesRequest {
       baseName: "project_id",
       type: "string",
       required: true,
+    },
+    restrictToAssignees: {
+      baseName: "restrict_to_assignees",
+      type: "boolean",
+    },
+    restrictToReviewers: {
+      baseName: "restrict_to_reviewers",
+      type: "boolean",
+    },
+    reviewerEmails: {
+      baseName: "reviewer_emails",
+      type: "Array<string>",
     },
     additionalProperties: {
       baseName: "additionalProperties",

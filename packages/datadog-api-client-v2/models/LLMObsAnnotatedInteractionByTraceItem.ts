@@ -18,6 +18,10 @@ export class LLMObsAnnotatedInteractionByTraceItem {
    */
   "annotations": Array<LLMObsAnnotationItem>;
   /**
+   * Whether the current caller can annotate this interaction.
+   */
+  "canAnnotate": boolean;
+  /**
    * Upstream entity identifier (trace ID, session ID, or deterministic display_block ID).
    */
   "contentId": string;
@@ -70,6 +74,11 @@ export class LLMObsAnnotatedInteractionByTraceItem {
     annotations: {
       baseName: "annotations",
       type: "Array<LLMObsAnnotationItem>",
+      required: true,
+    },
+    canAnnotate: {
+      baseName: "can_annotate",
+      type: "boolean",
       required: true,
     },
     contentId: {
