@@ -16495,6 +16495,21 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             },
         "operationResponseType": "SecurityEntityRiskScoreResponse",
     },
+    "v2.AddSTIXThreatIntel": {
+        "tiVendor": {
+            "type": "string",
+            "format": "",
+            },
+        "contentEncoding": {
+            "type": "STIXContentEncoding",
+            "format": "",
+            },
+        "body": {
+            "type": "STIXBundleRequest",
+            "format": "",
+            },
+        "operationResponseType": "STIXIngestResponse",
+    },
     "v2.ListScanningGroups": {
         "operationResponseType": "SensitiveDataScannerGetConfigResponse",
     },

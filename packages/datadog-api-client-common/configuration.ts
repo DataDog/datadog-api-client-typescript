@@ -773,6 +773,7 @@ export function createConfiguration(
       "v2.createScorecardOutcomesBatch": false,
       "v2.getEntityRiskScore": false,
       "v2.listEntityRiskScores": false,
+      "v2.addSTIXThreatIntel": false,
       "v2.createSLOReportJob": false,
       "v2.getSLOReport": false,
       "v2.getSLOReportJobStatus": false,
