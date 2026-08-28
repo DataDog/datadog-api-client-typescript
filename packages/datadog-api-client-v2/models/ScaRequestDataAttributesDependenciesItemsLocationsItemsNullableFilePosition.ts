@@ -8,9 +8,9 @@ import { ScaRequestDataAttributesDependenciesItemsLocationsItemsPosition } from 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * A range within a file defined by a start and end position, along with the file name.
+ * A nullable range within a file defined by a start and end position, along with the file name.
  */
-export class ScaRequestDataAttributesDependenciesItemsLocationsItemsFilePosition {
+export class ScaRequestDataAttributesDependenciesItemsLocationsItemsNullableFilePosition {
   /**
    * A specific position (line and column) within a source file.
    */
@@ -70,7 +70,7 @@ export class ScaRequestDataAttributesDependenciesItemsLocationsItemsFilePosition
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-    return ScaRequestDataAttributesDependenciesItemsLocationsItemsFilePosition.attributeTypeMap;
+    return ScaRequestDataAttributesDependenciesItemsLocationsItemsNullableFilePosition.attributeTypeMap;
   }
 
   public constructor() {}

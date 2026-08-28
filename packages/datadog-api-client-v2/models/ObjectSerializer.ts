@@ -4509,11 +4509,16 @@ import { ScaRequestDataAttributesCommit } from "./ScaRequestDataAttributesCommit
 import { ScaRequestDataAttributesDependenciesItems } from "./ScaRequestDataAttributesDependenciesItems";
 import { ScaRequestDataAttributesDependenciesItemsLocationsItems } from "./ScaRequestDataAttributesDependenciesItemsLocationsItems";
 import { ScaRequestDataAttributesDependenciesItemsLocationsItemsFilePosition } from "./ScaRequestDataAttributesDependenciesItemsLocationsItemsFilePosition";
+import { ScaRequestDataAttributesDependenciesItemsLocationsItemsNullableFilePosition } from "./ScaRequestDataAttributesDependenciesItemsLocationsItemsNullableFilePosition";
 import { ScaRequestDataAttributesDependenciesItemsLocationsItemsPosition } from "./ScaRequestDataAttributesDependenciesItemsLocationsItemsPosition";
 import { ScaRequestDataAttributesDependenciesItemsReachableSymbolPropertiesItems } from "./ScaRequestDataAttributesDependenciesItemsReachableSymbolPropertiesItems";
 import { ScaRequestDataAttributesFilesItems } from "./ScaRequestDataAttributesFilesItems";
 import { ScaRequestDataAttributesRelationsItems } from "./ScaRequestDataAttributesRelationsItems";
 import { ScaRequestDataAttributesRepository } from "./ScaRequestDataAttributesRepository";
+import { ScaRequestDataAttributesScanStartTimestamp } from "./ScaRequestDataAttributesScanStartTimestamp";
+import { ScaRequestDataAttributesTags } from "./ScaRequestDataAttributesTags";
+import { ScaRequestDataAttributesTagsTool } from "./ScaRequestDataAttributesTagsTool";
+import { ScaRequestDataAttributesTagsToolGenerator } from "./ScaRequestDataAttributesTagsToolGenerator";
 import { ScaRequestDataAttributesVulnerabilitiesItems } from "./ScaRequestDataAttributesVulnerabilitiesItems";
 import { ScaRequestDataAttributesVulnerabilitiesItemsAffectsItems } from "./ScaRequestDataAttributesVulnerabilitiesItemsAffectsItems";
 import { ScalarFormulaQueryRequest } from "./ScalarFormulaQueryRequest";
@@ -14616,6 +14621,8 @@ const typeMap: { [index: string]: any } = {
     ScaRequestDataAttributesDependenciesItemsLocationsItems,
   ScaRequestDataAttributesDependenciesItemsLocationsItemsFilePosition:
     ScaRequestDataAttributesDependenciesItemsLocationsItemsFilePosition,
+  ScaRequestDataAttributesDependenciesItemsLocationsItemsNullableFilePosition:
+    ScaRequestDataAttributesDependenciesItemsLocationsItemsNullableFilePosition,
   ScaRequestDataAttributesDependenciesItemsLocationsItemsPosition:
     ScaRequestDataAttributesDependenciesItemsLocationsItemsPosition,
   ScaRequestDataAttributesDependenciesItemsReachableSymbolPropertiesItems:
@@ -14624,6 +14631,12 @@ const typeMap: { [index: string]: any } = {
   ScaRequestDataAttributesRelationsItems:
     ScaRequestDataAttributesRelationsItems,
   ScaRequestDataAttributesRepository: ScaRequestDataAttributesRepository,
+  ScaRequestDataAttributesScanStartTimestamp:
+    ScaRequestDataAttributesScanStartTimestamp,
+  ScaRequestDataAttributesTags: ScaRequestDataAttributesTags,
+  ScaRequestDataAttributesTagsTool: ScaRequestDataAttributesTagsTool,
+  ScaRequestDataAttributesTagsToolGenerator:
+    ScaRequestDataAttributesTagsToolGenerator,
   ScaRequestDataAttributesVulnerabilitiesItems:
     ScaRequestDataAttributesVulnerabilitiesItems,
   ScaRequestDataAttributesVulnerabilitiesItemsAffectsItems:
