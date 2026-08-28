@@ -1886,6 +1886,7 @@ export class AgentObservabilityApiRequestFactory extends BaseAPIRequestFactory {
   public async getLLMObsPrompt(
     promptId: string,
     label?: string,
+    environment?: string,
     _options?: Configuration
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
@@ -1923,6 +1924,13 @@ export class AgentObservabilityApiRequestFactory extends BaseAPIRequestFactory {
       requestContext.setQueryParam(
         "label",
         ObjectSerializer.serialize(label, "string", ""),
+        ""
+      );
+    }
+    if (environment !== undefined) {
+      requestContext.setQueryParam(
+        "environment",
+        ObjectSerializer.serialize(environment, "string", ""),
         ""
       );
     }
@@ -7068,9 +7076,11 @@ export class AgentObservabilityApiResponseProcessor {
       return body;
     }
     if (
+      response.httpStatusCode === 400 ||
       response.httpStatusCode === 401 ||
       response.httpStatusCode === 403 ||
-      response.httpStatusCode === 404
+      response.httpStatusCode === 404 ||
+      response.httpStatusCode === 500
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
@@ -10917,10 +10927,15 @@ export interface AgentObservabilityApiGetLLMObsPromptRequest {
    */
   promptId: string;
   /**
-   * **Deprecated.** Optional label of the prompt version to return. Do not use this parameter for new integrations. If omitted, the latest version is returned. If the prompt has no labels, the latest version is returned even when a label is requested. If the prompt has labels but none match the requested label, a 404 response is returned.
+   * **Deprecated.** Optional label of the prompt version to return. Do not use this parameter for new integrations. If omitted, the latest version is returned. If the prompt has no labels, the latest version is returned even when a label is requested. If the prompt has labels but none match the requested label, a 404 response is returned. This parameter cannot be used with `environment`.
    * @type string
    */
   label?: string;
+  /**
+   * Optional `DD_ENV` value used to resolve the prompt version deployed to the matching Feature Flags environment. This value is not a Feature Flags environment UUID. Using this parameter additionally requires the `feature_flag_config_read` and `feature_flag_environment_config_read` permissions. This parameter cannot be used with `label`.
+   * @type string
+   */
+  environment?: string;
 }
 
 export interface AgentObservabilityApiGetLLMObsPromptVersionRequest {
@@ -12314,7 +12329,7 @@ export class AgentObservabilityApi {
   }
 
   /**
-   * Get the latest version of an Agent Observability prompt by prompt ID.
+   * Get an Agent Observability prompt by prompt ID. When `environment` is omitted, this returns the latest version or uses the deprecated `label` behavior and requires `llm_observability_read`. When `environment` is supplied, it must be a nonempty `DD_ENV` value, cannot be combined with `label`, and additionally requires `feature_flag_config_read` and `feature_flag_environment_config_read`. An empty environment or combining it with `label` returns 400, and missing either additional permission returns 403. A missing prompt or deployment returns 404 without falling back to the latest version. An environment resolution failure returns 500.
    * @param param The request object
    */
   public getLLMObsPrompt(
@@ -12324,6 +12339,7 @@ export class AgentObservabilityApi {
     const requestContextPromise = this.requestFactory.getLLMObsPrompt(
       param.promptId,
       param.label,
+      param.environment,
       options
     );
     return requestContextPromise.then((requestContext) => {

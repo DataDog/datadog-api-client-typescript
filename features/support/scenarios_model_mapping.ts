@@ -2891,6 +2891,10 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             "type": "string",
             "format": "",
             },
+        "environment": {
+            "type": "string",
+            "format": "",
+            },
         "operationResponseType": "LLMObsPromptSDKResponse",
     },
     "v2.DeleteLLMObsPrompt": {
