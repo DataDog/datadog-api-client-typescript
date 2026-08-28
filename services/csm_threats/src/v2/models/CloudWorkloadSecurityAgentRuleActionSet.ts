@@ -35,6 +35,10 @@ export class CloudWorkloadSecurityAgentRuleActionSet {
    */
   "scope"?: string;
   /**
+   * The scope field of the set action.
+   */
+  "scopeField"?: string;
+  /**
    * The size of the set action.
    */
   "size"?: number;
@@ -87,6 +91,10 @@ export class CloudWorkloadSecurityAgentRuleActionSet {
     },
     scope: {
       baseName: "scope",
+      type: "string",
+    },
+    scopeField: {
+      baseName: "scope_field",
       type: "string",
     },
     size: {
