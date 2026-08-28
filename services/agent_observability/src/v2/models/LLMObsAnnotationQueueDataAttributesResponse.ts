@@ -11,6 +11,10 @@ export class LLMObsAnnotationQueueDataAttributesResponse {
    */
   "annotationSchema"?: LLMObsAnnotationSchema;
   /**
+   * Whether the current caller can manage access for the annotation queue.
+   */
+  "canManageAccess": boolean;
+  /**
    * Timestamp when the queue was created.
    */
   "createdAt": Date;
@@ -43,6 +47,19 @@ export class LLMObsAnnotationQueueDataAttributesResponse {
    */
   "projectId": string;
   /**
+   * Whether annotation access is restricted to assigned users.
+   */
+  "restrictToAssignees": boolean;
+  /**
+   * Whether annotation access is restricted to queue reviewers.
+   */
+  "restrictToReviewers": boolean;
+  /**
+   * Email addresses of reviewers for the annotation queue. Returned only
+   * when the caller can manage queue access.
+   */
+  "reviewerEmails"?: Array<string>;
+  /**
    * A container for additional, undeclared properties.
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
@@ -60,6 +77,11 @@ export class LLMObsAnnotationQueueDataAttributesResponse {
     annotationSchema: {
       baseName: "annotation_schema",
       type: "LLMObsAnnotationSchema",
+    },
+    canManageAccess: {
+      baseName: "can_manage_access",
+      type: "boolean",
+      required: true,
     },
     createdAt: {
       baseName: "created_at",
@@ -102,6 +124,20 @@ export class LLMObsAnnotationQueueDataAttributesResponse {
       baseName: "project_id",
       type: "string",
       required: true,
+    },
+    restrictToAssignees: {
+      baseName: "restrict_to_assignees",
+      type: "boolean",
+      required: true,
+    },
+    restrictToReviewers: {
+      baseName: "restrict_to_reviewers",
+      type: "boolean",
+      required: true,
+    },
+    reviewerEmails: {
+      baseName: "reviewer_emails",
+      type: "Array<string>",
     },
     additionalProperties: {
       baseName: "additionalProperties",

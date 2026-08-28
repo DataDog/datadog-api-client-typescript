@@ -89,6 +89,7 @@ export { LLMObsAnnotatedInteractionsResponse } from "./models/LLMObsAnnotatedInt
 export { LLMObsAnnotatedInteractionsType } from "./models/LLMObsAnnotatedInteractionsType";
 export { LLMObsAnnotationAssessment } from "./models/LLMObsAnnotationAssessment";
 export { LLMObsAnnotationError } from "./models/LLMObsAnnotationError";
+export { LLMObsAnnotationErrorCode } from "./models/LLMObsAnnotationErrorCode";
 export { LLMObsAnnotationItem } from "./models/LLMObsAnnotationItem";
 export { LLMObsAnnotationItemResponse } from "./models/LLMObsAnnotationItemResponse";
 export { LLMObsAnnotationLabelValue } from "./models/LLMObsAnnotationLabelValue";
