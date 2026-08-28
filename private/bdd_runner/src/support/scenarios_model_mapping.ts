@@ -2901,6 +2901,10 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
       type: "string",
       format: "",
     },
+    environment: {
+      type: "string",
+      format: "",
+    },
     operationResponseType: "LLMObsPromptSDKResponse",
   },
   "AgentObservabilityApi.V2.DeleteLLMObsPrompt": {
