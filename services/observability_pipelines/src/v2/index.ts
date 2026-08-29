@@ -233,6 +233,8 @@ export { ObservabilityPipelineOcsfMappingLibrary } from "./models/ObservabilityP
 export { ObservabilityPipelineOpenSearchDestination } from "./models/ObservabilityPipelineOpenSearchDestination";
 export { ObservabilityPipelineOpenSearchDestinationDataStream } from "./models/ObservabilityPipelineOpenSearchDestinationDataStream";
 export { ObservabilityPipelineOpenSearchDestinationType } from "./models/ObservabilityPipelineOpenSearchDestinationType";
+export { ObservabilityPipelineOpentelemetryMetricsDestination } from "./models/ObservabilityPipelineOpentelemetryMetricsDestination";
+export { ObservabilityPipelineOpentelemetryMetricsDestinationType } from "./models/ObservabilityPipelineOpentelemetryMetricsDestinationType";
 export { ObservabilityPipelineOpentelemetrySource } from "./models/ObservabilityPipelineOpentelemetrySource";
 export { ObservabilityPipelineOpentelemetrySourceType } from "./models/ObservabilityPipelineOpentelemetrySourceType";
 export { ObservabilityPipelineParseGrokProcessor } from "./models/ObservabilityPipelineParseGrokProcessor";
