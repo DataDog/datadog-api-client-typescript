@@ -3,22 +3,26 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
-import { IncidentTrigger } from "./IncidentTrigger";
+import { IncidentCondition } from "./IncidentCondition";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * Schema for an incident-based trigger.
+ * Trigger a workflow on a schedule for an incident.
  */
-export class IncidentTriggerWrapper {
+export class IncidentScheduleTrigger {
   /**
-   * Trigger a workflow from an incident. For automatic triggering a handle must be configured and the workflow must be published.
+   * The type of incident that triggers the workflow.
    */
-  "incidentTrigger": IncidentTrigger;
+  "incidentType"?: string;
   /**
-   * Names of existing workflow steps that run first after a trigger fires.
+   * The recurrence rule for the schedule, expressed as an iCalendar `RRULE` string.
    */
-  "startStepNames"?: Array<string>;
+  "rrule": string;
+  /**
+   * Conditions that determine which incidents trigger the workflow.
+   */
+  "tagCondition"?: IncidentCondition;
 
   /**
    * A container for additional, undeclared properties.
@@ -36,14 +40,18 @@ export class IncidentTriggerWrapper {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    incidentTrigger: {
-      baseName: "incidentTrigger",
-      type: "IncidentTrigger",
+    incidentType: {
+      baseName: "incidentType",
+      type: "string",
+    },
+    rrule: {
+      baseName: "rrule",
+      type: "string",
       required: true,
     },
-    startStepNames: {
-      baseName: "startStepNames",
-      type: "Array<string>",
+    tagCondition: {
+      baseName: "tagCondition",
+      type: "IncidentCondition",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -55,7 +63,7 @@ export class IncidentTriggerWrapper {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-    return IncidentTriggerWrapper.attributeTypeMap;
+    return IncidentScheduleTrigger.attributeTypeMap;
   }
 
   public constructor() {}

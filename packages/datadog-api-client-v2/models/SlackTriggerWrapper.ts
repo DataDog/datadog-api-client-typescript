@@ -3,6 +3,7 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
+import { SlackTrigger } from "./SlackTrigger";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
@@ -13,7 +14,7 @@ export class SlackTriggerWrapper {
   /**
    * Trigger a workflow from Slack. The workflow must be published.
    */
-  "slackTrigger": any;
+  "slackTrigger": SlackTrigger;
   /**
    * Names of existing workflow steps that run first after a trigger fires.
    */
@@ -37,7 +38,7 @@ export class SlackTriggerWrapper {
   static readonly attributeTypeMap: AttributeTypeMap = {
     slackTrigger: {
       baseName: "slackTrigger",
-      type: "any",
+      type: "SlackTrigger",
       required: true,
     },
     startStepNames: {

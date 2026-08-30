@@ -8,13 +8,17 @@ import { TriggerRateLimit } from "./TriggerRateLimit";
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * Trigger a workflow from an Incident. For automatic triggering a handle must be configured and the workflow must be published.
+ * Trigger a workflow from an incident. For automatic triggering a handle must be configured and the workflow must be published.
  */
 export class IncidentTrigger {
   /**
    * Defines a rate limit for a trigger.
    */
   "rateLimit"?: TriggerRateLimit;
+  /**
+   * Version of the incident manual trigger.
+   */
+  "version"?: string;
 
   /**
    * A container for additional, undeclared properties.
@@ -35,6 +39,10 @@ export class IncidentTrigger {
     rateLimit: {
       baseName: "rateLimit",
       type: "TriggerRateLimit",
+    },
+    version: {
+      baseName: "version",
+      type: "string",
     },
     additionalProperties: {
       baseName: "additionalProperties",

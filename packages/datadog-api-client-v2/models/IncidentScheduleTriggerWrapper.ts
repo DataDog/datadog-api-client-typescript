@@ -3,18 +3,18 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
-import { IncidentTrigger } from "./IncidentTrigger";
+import { IncidentScheduleTrigger } from "./IncidentScheduleTrigger";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * Schema for an incident-based trigger.
+ * Schema for an incident schedule trigger.
  */
-export class IncidentTriggerWrapper {
+export class IncidentScheduleTriggerWrapper {
   /**
-   * Trigger a workflow from an incident. For automatic triggering a handle must be configured and the workflow must be published.
+   * Trigger a workflow on a schedule for an incident.
    */
-  "incidentTrigger": IncidentTrigger;
+  "incidentScheduleTrigger": IncidentScheduleTrigger;
   /**
    * Names of existing workflow steps that run first after a trigger fires.
    */
@@ -36,9 +36,9 @@ export class IncidentTriggerWrapper {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    incidentTrigger: {
-      baseName: "incidentTrigger",
-      type: "IncidentTrigger",
+    incidentScheduleTrigger: {
+      baseName: "incidentScheduleTrigger",
+      type: "IncidentScheduleTrigger",
       required: true,
     },
     startStepNames: {
@@ -55,7 +55,7 @@ export class IncidentTriggerWrapper {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-    return IncidentTriggerWrapper.attributeTypeMap;
+    return IncidentScheduleTriggerWrapper.attributeTypeMap;
   }
 
   public constructor() {}
