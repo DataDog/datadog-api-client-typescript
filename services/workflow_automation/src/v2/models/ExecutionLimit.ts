@@ -1,19 +1,13 @@
 import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
-import { TriggerRateLimit } from "./TriggerRateLimit";
-
 /**
- * Trigger a workflow from an incident. For automatic triggering a handle must be configured and the workflow must be published.
+ * The maximum number of times to execute a workflow for an incident.
  */
-export class IncidentTrigger {
+export class ExecutionLimit {
   /**
-   * Defines a rate limit for a trigger.
+   * The maximum number of workflow executions.
    */
-  "rateLimit"?: TriggerRateLimit;
-  /**
-   * Version of the incident manual trigger.
-   */
-  "version"?: string;
+  "count": number;
   /**
    * A container for additional, undeclared properties.
    * This is a holder for any undeclared properties as specified with
@@ -29,13 +23,11 @@ export class IncidentTrigger {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    rateLimit: {
-      baseName: "rateLimit",
-      type: "TriggerRateLimit",
-    },
-    version: {
-      baseName: "version",
-      type: "string",
+    count: {
+      baseName: "count",
+      type: "number",
+      required: true,
+      format: "int32",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -47,7 +39,7 @@ export class IncidentTrigger {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-    return IncidentTrigger.attributeTypeMap;
+    return ExecutionLimit.attributeTypeMap;
   }
 
   public constructor() {}
