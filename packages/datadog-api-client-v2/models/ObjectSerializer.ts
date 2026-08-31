@@ -4472,6 +4472,11 @@ import { SLOReportPostResponseData } from "./SLOReportPostResponseData";
 import { SLOReportStatusGetResponse } from "./SLOReportStatusGetResponse";
 import { SLOReportStatusGetResponseAttributes } from "./SLOReportStatusGetResponseAttributes";
 import { SLOReportStatusGetResponseData } from "./SLOReportStatusGetResponseData";
+import { STIXBundleRequest } from "./STIXBundleRequest";
+import { STIXIngestResponse } from "./STIXIngestResponse";
+import { STIXIngestResponseAttributes } from "./STIXIngestResponseAttributes";
+import { STIXIngestResponseData } from "./STIXIngestResponseData";
+import { STIXObject } from "./STIXObject";
 import { SalesforceIncidentsOrganizationResponseAttributes } from "./SalesforceIncidentsOrganizationResponseAttributes";
 import { SalesforceIncidentsOrganizationResponseData } from "./SalesforceIncidentsOrganizationResponseData";
 import { SalesforceIncidentsOrganizationsResponse } from "./SalesforceIncidentsOrganizationsResponse";
@@ -8271,6 +8276,11 @@ const enumsMap: { [key: string]: any[] } = {
     "completed_with_errors",
     "failed",
   ],
+  STIXBundleType: ["bundle"],
+  STIXContentEncoding: ["gzip"],
+  STIXIngestResponseType: ["threat-intel-stix-ingest"],
+  STIXPatternType: ["stix"],
+  STIXSpecVersion: ["2.1"],
   SalesforceIncidentsOrganizationType: ["salesforce-incidents-org"],
   SalesforceIncidentsTemplatePriority: ["Critical", "High", "Moderate", "Low"],
   SalesforceIncidentsTemplateType: ["salesforce-incidents-incident-template"],
@@ -14562,6 +14572,11 @@ const typeMap: { [index: string]: any } = {
   SLOReportStatusGetResponse: SLOReportStatusGetResponse,
   SLOReportStatusGetResponseAttributes: SLOReportStatusGetResponseAttributes,
   SLOReportStatusGetResponseData: SLOReportStatusGetResponseData,
+  STIXBundleRequest: STIXBundleRequest,
+  STIXIngestResponse: STIXIngestResponse,
+  STIXIngestResponseAttributes: STIXIngestResponseAttributes,
+  STIXIngestResponseData: STIXIngestResponseData,
+  STIXObject: STIXObject,
   SalesforceIncidentsOrganizationResponseAttributes:
     SalesforceIncidentsOrganizationResponseAttributes,
   SalesforceIncidentsOrganizationResponseData:
