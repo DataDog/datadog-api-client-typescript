@@ -1,7 +1,7 @@
 import { UnparsedObject } from "@datadog/datadog-api-client";
 
-import { Case } from "./Case";
 import { Issue } from "./Issue";
+import { IssueCase } from "./IssueCase";
 import { IssueTeam } from "./IssueTeam";
 import { IssueUser } from "./IssueUser";
 
@@ -10,7 +10,7 @@ import { IssueUser } from "./IssueUser";
  */
 export type IssuesSearchResultIncluded =
   | Issue
-  | Case
+  | IssueCase
   | IssueUser
   | IssueTeam
   | UnparsedObject;

@@ -1,10 +1,6 @@
 import { ModelTypingInfo } from "@datadog/datadog-api-client";
 
 import { APIErrorResponse } from "./APIErrorResponse";
-import { Case } from "./Case";
-import { CaseAttributes } from "./CaseAttributes";
-import { CaseRelationships } from "./CaseRelationships";
-import { CustomAttributeValue } from "./CustomAttributeValue";
 import { Issue } from "./Issue";
 import { IssueAssigneeRelationship } from "./IssueAssigneeRelationship";
 import { IssueAttributes } from "./IssueAttributes";
@@ -42,24 +38,15 @@ import { IssuesSearchResult } from "./IssuesSearchResult";
 import { IssuesSearchResultAttributes } from "./IssuesSearchResultAttributes";
 import { IssuesSearchResultIssueRelationship } from "./IssuesSearchResultIssueRelationship";
 import { IssuesSearchResultRelationships } from "./IssuesSearchResultRelationships";
-import { JiraIssue } from "./JiraIssue";
-import { JiraIssueResult } from "./JiraIssueResult";
 import { NullableUserRelationship } from "./NullableUserRelationship";
 import { NullableUserRelationshipData } from "./NullableUserRelationshipData";
 import { ProjectRelationship } from "./ProjectRelationship";
 import { ProjectRelationshipData } from "./ProjectRelationshipData";
-import { ServiceNowTicket } from "./ServiceNowTicket";
-import { ServiceNowTicketResult } from "./ServiceNowTicketResult";
 
 export const TypingInfo: ModelTypingInfo = {
   enumsMap: {
-    Case3rdPartyTicketStatus: ["IN_PROGRESS", "COMPLETED", "FAILED"],
     CasePriority: ["NOT_DEFINED", "P1", "P2", "P3", "P4", "P5"],
-    CaseResourceType: ["case"],
     CaseStatus: ["OPEN", "IN_PROGRESS", "CLOSED"],
-    CaseStatusGroup: ["SG_OPEN", "SG_IN_PROGRESS", "SG_CLOSED"],
-    CaseType: ["STANDARD"],
-    CustomAttributeType: ["URL", "TEXT", "NUMBER", "SELECT"],
     GetIssueIncludeQueryParameterItem: ["assignee", "case", "team_owners"],
     IssueCaseResourceType: ["case"],
     IssueLanguage: [
@@ -132,21 +119,16 @@ export const TypingInfo: ModelTypingInfo = {
     UserResourceType: ["user"],
   },
   oneOfMap: {
-    CustomAttributeValuesUnion: [
-      "string",
-      "Array<string>",
-      "number",
-      "Array<number>",
-    ],
     IssueIncluded: ["IssueCase", "IssueUser", "IssueTeam"],
-    IssuesSearchResultIncluded: ["Issue", "Case", "IssueUser", "IssueTeam"],
+    IssuesSearchResultIncluded: [
+      "Issue",
+      "IssueCase",
+      "IssueUser",
+      "IssueTeam",
+    ],
   },
   typeMap: {
     APIErrorResponse: APIErrorResponse,
-    Case: Case,
-    CaseAttributes: CaseAttributes,
-    CaseRelationships: CaseRelationships,
-    CustomAttributeValue: CustomAttributeValue,
     Issue: Issue,
     IssueAssigneeRelationship: IssueAssigneeRelationship,
     IssueAttributes: IssueAttributes,
@@ -185,13 +167,9 @@ export const TypingInfo: ModelTypingInfo = {
     IssuesSearchResultAttributes: IssuesSearchResultAttributes,
     IssuesSearchResultIssueRelationship: IssuesSearchResultIssueRelationship,
     IssuesSearchResultRelationships: IssuesSearchResultRelationships,
-    JiraIssue: JiraIssue,
-    JiraIssueResult: JiraIssueResult,
     NullableUserRelationship: NullableUserRelationship,
     NullableUserRelationshipData: NullableUserRelationshipData,
     ProjectRelationship: ProjectRelationship,
     ProjectRelationshipData: ProjectRelationshipData,
-    ServiceNowTicket: ServiceNowTicket,
-    ServiceNowTicketResult: ServiceNowTicketResult,
   },
 };
