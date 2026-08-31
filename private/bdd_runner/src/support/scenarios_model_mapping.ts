@@ -8725,6 +8725,66 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
     },
     operationResponseType: "ProjectedCostResponse",
   },
+  "UsageMeteringApi.V2.ListQuotas": {
+    quotaNamespace: {
+      type: "string",
+      format: "",
+    },
+    includeDescendants: {
+      type: "boolean",
+      format: "",
+    },
+    pageCursor: {
+      type: "string",
+      format: "",
+    },
+    pageLimit: {
+      type: "number",
+      format: "int64",
+    },
+    operationResponseType: "UsageQuotasListResponse",
+  },
+  "UsageMeteringApi.V2.CreateQuotas": {
+    quotaNamespace: {
+      type: "string",
+      format: "",
+    },
+    includeDescendants: {
+      type: "boolean",
+      format: "",
+    },
+    body: {
+      type: "UsageQuotasCreateRequest",
+      format: "",
+    },
+    operationResponseType: "UsageQuotasBulkResponse",
+  },
+  "UsageMeteringApi.V2.DeleteQuota": {
+    quotaNamespace: {
+      type: "string",
+      format: "",
+    },
+    id: {
+      type: "string",
+      format: "",
+    },
+    operationResponseType: "{}",
+  },
+  "UsageMeteringApi.V2.UpdateQuota": {
+    quotaNamespace: {
+      type: "string",
+      format: "",
+    },
+    id: {
+      type: "string",
+      format: "",
+    },
+    body: {
+      type: "UsageQuotaUpdateRequest",
+      format: "",
+    },
+    operationResponseType: "UsageQuotaResponse",
+  },
   "UsageMeteringApi.V2.GetUsageSummaryAvailableFields": {
     operationResponseType: "UsageSummaryAvailableFieldsResponse",
   },
