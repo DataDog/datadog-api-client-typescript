@@ -5774,6 +5774,21 @@ import { UsageAttributionTypesResponse } from "./UsageAttributionTypesResponse";
 import { UsageDataObject } from "./UsageDataObject";
 import { UsageLambdaTracedInvocationsResponse } from "./UsageLambdaTracedInvocationsResponse";
 import { UsageObservabilityPipelinesResponse } from "./UsageObservabilityPipelinesResponse";
+import { UsageQuotaBulkResultAttributes } from "./UsageQuotaBulkResultAttributes";
+import { UsageQuotaBulkResultData } from "./UsageQuotaBulkResultData";
+import { UsageQuotaCreateAttributes } from "./UsageQuotaCreateAttributes";
+import { UsageQuotaCreateData } from "./UsageQuotaCreateData";
+import { UsageQuotaResponse } from "./UsageQuotaResponse";
+import { UsageQuotaResponseAttributes } from "./UsageQuotaResponseAttributes";
+import { UsageQuotaResponseData } from "./UsageQuotaResponseData";
+import { UsageQuotaUpdateAttributes } from "./UsageQuotaUpdateAttributes";
+import { UsageQuotaUpdateData } from "./UsageQuotaUpdateData";
+import { UsageQuotaUpdateRequest } from "./UsageQuotaUpdateRequest";
+import { UsageQuotasBulkResponse } from "./UsageQuotasBulkResponse";
+import { UsageQuotasCreateRequest } from "./UsageQuotasCreateRequest";
+import { UsageQuotasListResponse } from "./UsageQuotasListResponse";
+import { UsageQuotasResponseMeta } from "./UsageQuotasResponseMeta";
+import { UsageQuotasResponseMetaPage } from "./UsageQuotasResponseMetaPage";
 import { UsageSummaryAvailableFieldsAttributes } from "./UsageSummaryAvailableFieldsAttributes";
 import { UsageSummaryAvailableFieldsBody } from "./UsageSummaryAvailableFieldsBody";
 import { UsageSummaryAvailableFieldsResponse } from "./UsageSummaryAvailableFieldsResponse";
@@ -9010,6 +9025,7 @@ const enumsMap: { [key: string]: any[] } = {
   UpsertOAuthScopesRestrictionType: ["upsert_scopes_restriction"],
   Urgency: ["low", "high", "dynamic"],
   UsageAttributionTypesType: ["usage_attribution_types"],
+  UsageQuotaType: ["quotas"],
   UsageSummaryAvailableFieldsType: ["usage_summary_available_fields"],
   UsageTimeSeriesType: ["usage_timeseries"],
   UserAttributesStatus: ["active", "deactivated", "pending"],
@@ -16274,6 +16290,21 @@ const typeMap: { [index: string]: any } = {
   UsageDataObject: UsageDataObject,
   UsageLambdaTracedInvocationsResponse: UsageLambdaTracedInvocationsResponse,
   UsageObservabilityPipelinesResponse: UsageObservabilityPipelinesResponse,
+  UsageQuotaBulkResultAttributes: UsageQuotaBulkResultAttributes,
+  UsageQuotaBulkResultData: UsageQuotaBulkResultData,
+  UsageQuotaCreateAttributes: UsageQuotaCreateAttributes,
+  UsageQuotaCreateData: UsageQuotaCreateData,
+  UsageQuotaResponse: UsageQuotaResponse,
+  UsageQuotaResponseAttributes: UsageQuotaResponseAttributes,
+  UsageQuotaResponseData: UsageQuotaResponseData,
+  UsageQuotaUpdateAttributes: UsageQuotaUpdateAttributes,
+  UsageQuotaUpdateData: UsageQuotaUpdateData,
+  UsageQuotaUpdateRequest: UsageQuotaUpdateRequest,
+  UsageQuotasBulkResponse: UsageQuotasBulkResponse,
+  UsageQuotasCreateRequest: UsageQuotasCreateRequest,
+  UsageQuotasListResponse: UsageQuotasListResponse,
+  UsageQuotasResponseMeta: UsageQuotasResponseMeta,
+  UsageQuotasResponseMetaPage: UsageQuotasResponseMetaPage,
   UsageSummaryAvailableFieldsAttributes: UsageSummaryAvailableFieldsAttributes,
   UsageSummaryAvailableFieldsBody: UsageSummaryAvailableFieldsBody,
   UsageSummaryAvailableFieldsResponse: UsageSummaryAvailableFieldsResponse,
