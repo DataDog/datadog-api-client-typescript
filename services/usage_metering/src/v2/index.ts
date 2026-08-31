@@ -1,4 +1,6 @@
 export {
+  UsageMeteringApiCreateQuotasRequest,
+  UsageMeteringApiDeleteQuotaRequest,
   UsageMeteringApiGetBillingDimensionMappingRequest,
   UsageMeteringApiGetCostByOrgRequest,
   UsageMeteringApiGetEstimatedCostByOrgRequest,
@@ -9,6 +11,8 @@ export {
   UsageMeteringApiGetUsageApplicationSecurityMonitoringRequest,
   UsageMeteringApiGetUsageLambdaTracedInvocationsRequest,
   UsageMeteringApiGetUsageObservabilityPipelinesRequest,
+  UsageMeteringApiListQuotasRequest,
+  UsageMeteringApiUpdateQuotaRequest,
   UsageMeteringApi,
 } from "./UsageMeteringApi";
 
@@ -37,6 +41,9 @@ export { HourlyUsageMetadata } from "./models/HourlyUsageMetadata";
 export { HourlyUsagePagination } from "./models/HourlyUsagePagination";
 export { HourlyUsageResponse } from "./models/HourlyUsageResponse";
 export { HourlyUsageType } from "./models/HourlyUsageType";
+export { JSONAPIErrorItem } from "./models/JSONAPIErrorItem";
+export { JSONAPIErrorItemSource } from "./models/JSONAPIErrorItemSource";
+export { JSONAPIErrorResponse } from "./models/JSONAPIErrorResponse";
 export { MonthlyCostAttributionAttributes } from "./models/MonthlyCostAttributionAttributes";
 export { MonthlyCostAttributionBody } from "./models/MonthlyCostAttributionBody";
 export { MonthlyCostAttributionMeta } from "./models/MonthlyCostAttributionMeta";
@@ -56,6 +63,22 @@ export { UsageAttributionTypesType } from "./models/UsageAttributionTypesType";
 export { UsageDataObject } from "./models/UsageDataObject";
 export { UsageLambdaTracedInvocationsResponse } from "./models/UsageLambdaTracedInvocationsResponse";
 export { UsageObservabilityPipelinesResponse } from "./models/UsageObservabilityPipelinesResponse";
+export { UsageQuotaBulkResultAttributes } from "./models/UsageQuotaBulkResultAttributes";
+export { UsageQuotaBulkResultData } from "./models/UsageQuotaBulkResultData";
+export { UsageQuotaCreateAttributes } from "./models/UsageQuotaCreateAttributes";
+export { UsageQuotaCreateData } from "./models/UsageQuotaCreateData";
+export { UsageQuotaResponse } from "./models/UsageQuotaResponse";
+export { UsageQuotaResponseAttributes } from "./models/UsageQuotaResponseAttributes";
+export { UsageQuotaResponseData } from "./models/UsageQuotaResponseData";
+export { UsageQuotasBulkResponse } from "./models/UsageQuotasBulkResponse";
+export { UsageQuotasCreateRequest } from "./models/UsageQuotasCreateRequest";
+export { UsageQuotasListResponse } from "./models/UsageQuotasListResponse";
+export { UsageQuotasResponseMeta } from "./models/UsageQuotasResponseMeta";
+export { UsageQuotasResponseMetaPage } from "./models/UsageQuotasResponseMetaPage";
+export { UsageQuotaType } from "./models/UsageQuotaType";
+export { UsageQuotaUpdateAttributes } from "./models/UsageQuotaUpdateAttributes";
+export { UsageQuotaUpdateData } from "./models/UsageQuotaUpdateData";
+export { UsageQuotaUpdateRequest } from "./models/UsageQuotaUpdateRequest";
 export { UsageSummaryAvailableFieldsAttributes } from "./models/UsageSummaryAvailableFieldsAttributes";
 export { UsageSummaryAvailableFieldsBody } from "./models/UsageSummaryAvailableFieldsBody";
 export { UsageSummaryAvailableFieldsResponse } from "./models/UsageSummaryAvailableFieldsResponse";
