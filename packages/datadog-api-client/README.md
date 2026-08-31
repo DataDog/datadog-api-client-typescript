@@ -495,6 +495,7 @@ apiInstance
 | Tags | @datadog/datadog-api-client-tags | [README.md](../../services/tags/README.md) |
 | Teams | @datadog/datadog-api-client-teams | [README.md](../../services/teams/README.md) |
 | Test Optimization | @datadog/datadog-api-client-test-optimization | [README.md](../../services/test-optimization/README.md) |
+| Threat Intelligence | @datadog/datadog-api-client-threat-intelligence | [README.md](../../services/threat-intelligence/README.md) |
 | Twilio Integration Accounts | @datadog/datadog-api-client-twilio-integration-accounts | [README.md](../../services/twilio-integration-accounts/README.md) |
 | Usage Metering | @datadog/datadog-api-client-usage-metering | [README.md](../../services/usage-metering/README.md) |
 | User Authorized Clients | @datadog/datadog-api-client-user-authorized-clients | [README.md](../../services/user-authorized-clients/README.md) |
