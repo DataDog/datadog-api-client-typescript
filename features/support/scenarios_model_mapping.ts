@@ -8701,6 +8701,66 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             },
         "operationResponseType": "ProjectedCostResponse",
     },
+    "v2.ListQuotas": {
+        "quotaNamespace": {
+            "type": "string",
+            "format": "",
+            },
+        "includeDescendants": {
+            "type": "boolean",
+            "format": "",
+            },
+        "pageCursor": {
+            "type": "string",
+            "format": "",
+            },
+        "pageLimit": {
+            "type": "number",
+            "format": "int64",
+            },
+        "operationResponseType": "UsageQuotasListResponse",
+    },
+    "v2.CreateQuotas": {
+        "quotaNamespace": {
+            "type": "string",
+            "format": "",
+            },
+        "includeDescendants": {
+            "type": "boolean",
+            "format": "",
+            },
+        "body": {
+            "type": "UsageQuotasCreateRequest",
+            "format": "",
+            },
+        "operationResponseType": "UsageQuotasBulkResponse",
+    },
+    "v2.DeleteQuota": {
+        "quotaNamespace": {
+            "type": "string",
+            "format": "",
+            },
+        "id": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "{}",
+    },
+    "v2.UpdateQuota": {
+        "quotaNamespace": {
+            "type": "string",
+            "format": "",
+            },
+        "id": {
+            "type": "string",
+            "format": "",
+            },
+        "body": {
+            "type": "UsageQuotaUpdateRequest",
+            "format": "",
+            },
+        "operationResponseType": "UsageQuotaResponse",
+    },
     "v2.GetUsageSummaryAvailableFields": {
         "operationResponseType": "UsageSummaryAvailableFieldsResponse",
     },

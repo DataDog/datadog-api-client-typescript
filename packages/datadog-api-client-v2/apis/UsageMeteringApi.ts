@@ -22,6 +22,7 @@ import { BillingDimensionsMappingResponse } from "../models/BillingDimensionsMap
 import { CostAggregationType } from "../models/CostAggregationType";
 import { CostByOrgResponse } from "../models/CostByOrgResponse";
 import { HourlyUsageResponse } from "../models/HourlyUsageResponse";
+import { JSONAPIErrorResponse } from "../models/JSONAPIErrorResponse";
 import { MonthlyCostAttributionResponse } from "../models/MonthlyCostAttributionResponse";
 import { ProjectedCostResponse } from "../models/ProjectedCostResponse";
 import { SortDirection } from "../models/SortDirection";
@@ -29,9 +30,135 @@ import { UsageApplicationSecurityMonitoringResponse } from "../models/UsageAppli
 import { UsageAttributionTypesResponse } from "../models/UsageAttributionTypesResponse";
 import { UsageLambdaTracedInvocationsResponse } from "../models/UsageLambdaTracedInvocationsResponse";
 import { UsageObservabilityPipelinesResponse } from "../models/UsageObservabilityPipelinesResponse";
+import { UsageQuotaResponse } from "../models/UsageQuotaResponse";
+import { UsageQuotaResponseData } from "../models/UsageQuotaResponseData";
+import { UsageQuotasBulkResponse } from "../models/UsageQuotasBulkResponse";
+import { UsageQuotasCreateRequest } from "../models/UsageQuotasCreateRequest";
+import { UsageQuotasListResponse } from "../models/UsageQuotasListResponse";
+import { UsageQuotaUpdateRequest } from "../models/UsageQuotaUpdateRequest";
 import { UsageSummaryAvailableFieldsResponse } from "../models/UsageSummaryAvailableFieldsResponse";
 
 export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
+  public async createQuotas(
+    quotaNamespace: string,
+    body: UsageQuotasCreateRequest,
+    includeDescendants?: boolean,
+    _options?: Configuration
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    logger.warn("Using unstable operation 'createQuotas'");
+    if (!_config.unstableOperations["v2.createQuotas"]) {
+      throw new Error("Unstable operation 'createQuotas' is disabled");
+    }
+
+    // verify required parameter 'quotaNamespace' is not null or undefined
+    if (quotaNamespace === null || quotaNamespace === undefined) {
+      throw new RequiredError("quotaNamespace", "createQuotas");
+    }
+
+    // verify required parameter 'body' is not null or undefined
+    if (body === null || body === undefined) {
+      throw new RequiredError("body", "createQuotas");
+    }
+
+    // Path Params
+    const localVarPath = "/api/v2/usage/quotas/{quota_namespace}".replace(
+      "{quota_namespace}",
+      encodeURIComponent(String(quotaNamespace))
+    );
+
+    // Make Request Context
+    const requestContext = _config
+      .getServer("v2.UsageMeteringApi.createQuotas")
+      .makeRequestContext(localVarPath, HttpMethod.POST);
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Set IaC header
+    if (_config.isIaC) {
+      requestContext.setHeaderParam("X-Datadog-Managed-By", "iac");
+    }
+
+    // Query Params
+    if (includeDescendants !== undefined) {
+      requestContext.setQueryParam(
+        "include_descendants",
+        ObjectSerializer.serialize(includeDescendants, "boolean", ""),
+        ""
+      );
+    }
+
+    // Body Params
+    const contentType = ObjectSerializer.getPreferredMediaType([
+      "application/json",
+    ]);
+    requestContext.setHeaderParam("Content-Type", contentType);
+    const serializedBody = ObjectSerializer.stringify(
+      ObjectSerializer.serialize(body, "UsageQuotasCreateRequest", ""),
+      contentType
+    );
+    requestContext.setBody(serializedBody);
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+      "AuthZ",
+    ]);
+
+    return requestContext;
+  }
+
+  public async deleteQuota(
+    quotaNamespace: string,
+    id: string,
+    _options?: Configuration
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    logger.warn("Using unstable operation 'deleteQuota'");
+    if (!_config.unstableOperations["v2.deleteQuota"]) {
+      throw new Error("Unstable operation 'deleteQuota' is disabled");
+    }
+
+    // verify required parameter 'quotaNamespace' is not null or undefined
+    if (quotaNamespace === null || quotaNamespace === undefined) {
+      throw new RequiredError("quotaNamespace", "deleteQuota");
+    }
+
+    // verify required parameter 'id' is not null or undefined
+    if (id === null || id === undefined) {
+      throw new RequiredError("id", "deleteQuota");
+    }
+
+    // Path Params
+    const localVarPath = "/api/v2/usage/quotas/{quota_namespace}/{id}"
+      .replace("{quota_namespace}", encodeURIComponent(String(quotaNamespace)))
+      .replace("{id}", encodeURIComponent(String(id)));
+
+    // Make Request Context
+    const requestContext = _config
+      .getServer("v2.UsageMeteringApi.deleteQuota")
+      .makeRequestContext(localVarPath, HttpMethod.DELETE);
+    requestContext.setHeaderParam("Accept", "*/*");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Set IaC header
+    if (_config.isIaC) {
+      requestContext.setHeaderParam("X-Datadog-Managed-By", "iac");
+    }
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+      "AuthZ",
+    ]);
+
+    return requestContext;
+  }
+
   public async getActiveBillingDimensions(
     _options?: Configuration
   ): Promise<RequestContext> {
@@ -852,9 +979,300 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
 
     return requestContext;
   }
+
+  public async listQuotas(
+    quotaNamespace: string,
+    includeDescendants?: boolean,
+    pageCursor?: string,
+    pageLimit?: number,
+    _options?: Configuration
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    logger.warn("Using unstable operation 'listQuotas'");
+    if (!_config.unstableOperations["v2.listQuotas"]) {
+      throw new Error("Unstable operation 'listQuotas' is disabled");
+    }
+
+    // verify required parameter 'quotaNamespace' is not null or undefined
+    if (quotaNamespace === null || quotaNamespace === undefined) {
+      throw new RequiredError("quotaNamespace", "listQuotas");
+    }
+
+    // Path Params
+    const localVarPath = "/api/v2/usage/quotas/{quota_namespace}".replace(
+      "{quota_namespace}",
+      encodeURIComponent(String(quotaNamespace))
+    );
+
+    // Make Request Context
+    const requestContext = _config
+      .getServer("v2.UsageMeteringApi.listQuotas")
+      .makeRequestContext(localVarPath, HttpMethod.GET);
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Set IaC header
+    if (_config.isIaC) {
+      requestContext.setHeaderParam("X-Datadog-Managed-By", "iac");
+    }
+
+    // Query Params
+    if (includeDescendants !== undefined) {
+      requestContext.setQueryParam(
+        "include_descendants",
+        ObjectSerializer.serialize(includeDescendants, "boolean", ""),
+        ""
+      );
+    }
+    if (pageCursor !== undefined) {
+      requestContext.setQueryParam(
+        "page[cursor]",
+        ObjectSerializer.serialize(pageCursor, "string", ""),
+        ""
+      );
+    }
+    if (pageLimit !== undefined) {
+      requestContext.setQueryParam(
+        "page[limit]",
+        ObjectSerializer.serialize(pageLimit, "number", "int64"),
+        ""
+      );
+    }
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+      "AuthZ",
+    ]);
+
+    return requestContext;
+  }
+
+  public async updateQuota(
+    quotaNamespace: string,
+    id: string,
+    body: UsageQuotaUpdateRequest,
+    _options?: Configuration
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    logger.warn("Using unstable operation 'updateQuota'");
+    if (!_config.unstableOperations["v2.updateQuota"]) {
+      throw new Error("Unstable operation 'updateQuota' is disabled");
+    }
+
+    // verify required parameter 'quotaNamespace' is not null or undefined
+    if (quotaNamespace === null || quotaNamespace === undefined) {
+      throw new RequiredError("quotaNamespace", "updateQuota");
+    }
+
+    // verify required parameter 'id' is not null or undefined
+    if (id === null || id === undefined) {
+      throw new RequiredError("id", "updateQuota");
+    }
+
+    // verify required parameter 'body' is not null or undefined
+    if (body === null || body === undefined) {
+      throw new RequiredError("body", "updateQuota");
+    }
+
+    // Path Params
+    const localVarPath = "/api/v2/usage/quotas/{quota_namespace}/{id}"
+      .replace("{quota_namespace}", encodeURIComponent(String(quotaNamespace)))
+      .replace("{id}", encodeURIComponent(String(id)));
+
+    // Make Request Context
+    const requestContext = _config
+      .getServer("v2.UsageMeteringApi.updateQuota")
+      .makeRequestContext(localVarPath, HttpMethod.PATCH);
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Set IaC header
+    if (_config.isIaC) {
+      requestContext.setHeaderParam("X-Datadog-Managed-By", "iac");
+    }
+
+    // Body Params
+    const contentType = ObjectSerializer.getPreferredMediaType([
+      "application/json",
+    ]);
+    requestContext.setHeaderParam("Content-Type", contentType);
+    const serializedBody = ObjectSerializer.stringify(
+      ObjectSerializer.serialize(body, "UsageQuotaUpdateRequest", ""),
+      contentType
+    );
+    requestContext.setBody(serializedBody);
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+      "AuthZ",
+    ]);
+
+    return requestContext;
+  }
 }
 
 export class UsageMeteringApiResponseProcessor {
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
+   * @params response Response returned by the server for a request to createQuotas
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async createQuotas(
+    response: ResponseContext
+  ): Promise<UsageQuotasBulkResponse> {
+    const contentType = ObjectSerializer.normalizeMediaType(
+      response.headers["content-type"]
+    );
+    if (response.httpStatusCode === 200) {
+      const body: UsageQuotasBulkResponse = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "UsageQuotasBulkResponse"
+      ) as UsageQuotasBulkResponse;
+      return body;
+    }
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 500
+    ) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: JSONAPIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "JSONAPIErrorResponse"
+        ) as JSONAPIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<JSONAPIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<JSONAPIErrorResponse>(
+        response.httpStatusCode,
+        body
+      );
+    }
+    if (response.httpStatusCode === 429) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: APIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "APIErrorResponse"
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: UsageQuotasBulkResponse = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "UsageQuotasBulkResponse",
+        ""
+      ) as UsageQuotasBulkResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"'
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
+   * @params response Response returned by the server for a request to deleteQuota
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async deleteQuota(response: ResponseContext): Promise<void> {
+    const contentType = ObjectSerializer.normalizeMediaType(
+      response.headers["content-type"]
+    );
+    if (response.httpStatusCode === 204) {
+      return;
+    }
+    if (response.httpStatusCode === 403 || response.httpStatusCode === 404) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: JSONAPIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "JSONAPIErrorResponse"
+        ) as JSONAPIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<JSONAPIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<JSONAPIErrorResponse>(
+        response.httpStatusCode,
+        body
+      );
+    }
+    if (response.httpStatusCode === 429) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: APIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "APIErrorResponse"
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      return;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"'
+    );
+  }
+
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
@@ -1664,6 +2082,203 @@ export class UsageMeteringApiResponseProcessor {
       'Unknown API Status Code!\nBody: "' + body + '"'
     );
   }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
+   * @params response Response returned by the server for a request to listQuotas
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async listQuotas(
+    response: ResponseContext
+  ): Promise<UsageQuotasListResponse> {
+    const contentType = ObjectSerializer.normalizeMediaType(
+      response.headers["content-type"]
+    );
+    if (response.httpStatusCode === 200) {
+      const body: UsageQuotasListResponse = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "UsageQuotasListResponse"
+      ) as UsageQuotasListResponse;
+      return body;
+    }
+    if (response.httpStatusCode === 400 || response.httpStatusCode === 403) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: JSONAPIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "JSONAPIErrorResponse"
+        ) as JSONAPIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<JSONAPIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<JSONAPIErrorResponse>(
+        response.httpStatusCode,
+        body
+      );
+    }
+    if (response.httpStatusCode === 429) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: APIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "APIErrorResponse"
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: UsageQuotasListResponse = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "UsageQuotasListResponse",
+        ""
+      ) as UsageQuotasListResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"'
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
+   * @params response Response returned by the server for a request to updateQuota
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async updateQuota(
+    response: ResponseContext
+  ): Promise<UsageQuotaResponse> {
+    const contentType = ObjectSerializer.normalizeMediaType(
+      response.headers["content-type"]
+    );
+    if (response.httpStatusCode === 200) {
+      const body: UsageQuotaResponse = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "UsageQuotaResponse"
+      ) as UsageQuotaResponse;
+      return body;
+    }
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 404
+    ) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: JSONAPIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "JSONAPIErrorResponse"
+        ) as JSONAPIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<JSONAPIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<JSONAPIErrorResponse>(
+        response.httpStatusCode,
+        body
+      );
+    }
+    if (response.httpStatusCode === 429) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: APIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "APIErrorResponse"
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: UsageQuotaResponse = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "UsageQuotaResponse",
+        ""
+      ) as UsageQuotaResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"'
+    );
+  }
+}
+
+export interface UsageMeteringApiCreateQuotasRequest {
+  /**
+   * The product-specific namespace whose usage quotas are being managed.
+   * @type string
+   */
+  quotaNamespace: string;
+  /**
+   * The usage quotas to create or update.
+   * @type UsageQuotasCreateRequest
+   */
+  body: UsageQuotasCreateRequest;
+  /**
+   * Whether to write every item in the request to the caller's organization and all of its descendant organizations, instead of only the caller's organization. Only descendants in the same datacenter are supported. For a user-handle scope, the quota is applied only to the caller's organization and to descendant organizations where that user handle exists; the item fails only if the handle exists in none of them.
+   * @type boolean
+   */
+  includeDescendants?: boolean;
+}
+
+export interface UsageMeteringApiDeleteQuotaRequest {
+  /**
+   * The product-specific namespace whose usage quotas are being managed.
+   * @type string
+   */
+  quotaNamespace: string;
+  /**
+   * The opaque quota identifier returned by a previous list or create request. Clients must pass this value verbatim.
+   * @type string
+   */
+  id: string;
 }
 
 export interface UsageMeteringApiGetBillingDimensionMappingRequest {
@@ -1916,6 +2531,47 @@ export interface UsageMeteringApiGetUsageObservabilityPipelinesRequest {
   endHr?: Date;
 }
 
+export interface UsageMeteringApiListQuotasRequest {
+  /**
+   * The product-specific namespace whose usage quotas are being managed.
+   * @type string
+   */
+  quotaNamespace: string;
+  /**
+   * Whether to include quotas configured on descendant organizations in the caller's organization hierarchy. Only descendants in the same datacenter are supported.
+   * @type boolean
+   */
+  includeDescendants?: boolean;
+  /**
+   * An opaque cursor from a previous response's `meta.page.next_cursor` used to retrieve the next page.
+   * @type string
+   */
+  pageCursor?: string;
+  /**
+   * The number of usage quotas to return per page.
+   * @type number
+   */
+  pageLimit?: number;
+}
+
+export interface UsageMeteringApiUpdateQuotaRequest {
+  /**
+   * The product-specific namespace whose usage quotas are being managed.
+   * @type string
+   */
+  quotaNamespace: string;
+  /**
+   * The opaque quota identifier returned by a previous list or create request. Clients must pass this value verbatim.
+   * @type string
+   */
+  id: string;
+  /**
+   * The usage quota fields to update. Omitting an attribute leaves its current value unchanged.
+   * @type UsageQuotaUpdateRequest
+   */
+  body: UsageQuotaUpdateRequest;
+}
+
 export class UsageMeteringApi {
   private requestFactory: UsageMeteringApiRequestFactory;
   private responseProcessor: UsageMeteringApiResponseProcessor;
@@ -1931,6 +2587,51 @@ export class UsageMeteringApi {
       requestFactory || new UsageMeteringApiRequestFactory(configuration);
     this.responseProcessor =
       responseProcessor || new UsageMeteringApiResponseProcessor();
+  }
+
+  /**
+   * Creates or updates one or more usage quotas by scope. If a quota already exists for a supplied scope, it is updated; otherwise, a new quota is created. Requires the `user_access_manage`, `billing_edit`, and `org_management` permissions.
+   * @param param The request object
+   */
+  public createQuotas(
+    param: UsageMeteringApiCreateQuotasRequest,
+    options?: Configuration
+  ): Promise<UsageQuotasBulkResponse> {
+    const requestContextPromise = this.requestFactory.createQuotas(
+      param.quotaNamespace,
+      param.body,
+      param.includeDescendants,
+      options
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.createQuotas(responseContext);
+        });
+    });
+  }
+
+  /**
+   * Deletes a usage quota by its opaque identifier. The quota must belong to the caller's organization or one of its descendants, and its opaque identifier must belong to the requested quota namespace. Requires the `user_access_manage`, `billing_edit`, and `org_management` permissions.
+   * @param param The request object
+   */
+  public deleteQuota(
+    param: UsageMeteringApiDeleteQuotaRequest,
+    options?: Configuration
+  ): Promise<void> {
+    const requestContextPromise = this.requestFactory.deleteQuota(
+      param.quotaNamespace,
+      param.id,
+      options
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.deleteQuota(responseContext);
+        });
+    });
   }
 
   /**
@@ -2318,6 +3019,106 @@ export class UsageMeteringApi {
           return this.responseProcessor.getUsageSummaryAvailableFields(
             responseContext
           );
+        });
+    });
+  }
+
+  /**
+   * Lists usage quotas for the caller's organization in a quota namespace. You can optionally include descendant organizations in the same datacenter as the caller. Requires the `user_access_manage`, `billing_edit`, and `org_management` permissions.
+   * @param param The request object
+   */
+  public listQuotas(
+    param: UsageMeteringApiListQuotasRequest,
+    options?: Configuration
+  ): Promise<UsageQuotasListResponse> {
+    const requestContextPromise = this.requestFactory.listQuotas(
+      param.quotaNamespace,
+      param.includeDescendants,
+      param.pageCursor,
+      param.pageLimit,
+      options
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.listQuotas(responseContext);
+        });
+    });
+  }
+
+  /**
+   * Provide a paginated version of listQuotas returning a generator with all the items.
+   */
+  public async *listQuotasWithPagination(
+    param: UsageMeteringApiListQuotasRequest,
+    options?: Configuration
+  ): AsyncGenerator<UsageQuotaResponseData> {
+    let pageSize = 100;
+    if (param.pageLimit !== undefined) {
+      pageSize = param.pageLimit;
+    }
+    param.pageLimit = pageSize;
+    while (true) {
+      const requestContext = await this.requestFactory.listQuotas(
+        param.quotaNamespace,
+        param.includeDescendants,
+        param.pageCursor,
+        param.pageLimit,
+        options
+      );
+      const responseContext = await this.configuration.httpApi.send(
+        requestContext
+      );
+
+      const response = await this.responseProcessor.listQuotas(responseContext);
+      const responseData = response.data;
+      if (responseData === undefined) {
+        break;
+      }
+      const results = responseData;
+      for (const item of results) {
+        yield item;
+      }
+      if (results.length === 0) {
+        break;
+      }
+      const cursorMeta = response.meta;
+      if (cursorMeta === undefined) {
+        break;
+      }
+      const cursorMetaPage = cursorMeta.page;
+      if (cursorMetaPage === undefined) {
+        break;
+      }
+      const cursorMetaPageNextCursor = cursorMetaPage.nextCursor;
+      if (cursorMetaPageNextCursor === undefined) {
+        break;
+      }
+
+      param.pageCursor = cursorMetaPageNextCursor;
+    }
+  }
+
+  /**
+   * Updates the supplied fields on a usage quota and leaves omitted fields unchanged. The quota must belong to the caller's organization or one of its descendants, and its opaque identifier must belong to the requested quota namespace. Requires the `user_access_manage`, `billing_edit`, and `org_management` permissions.
+   * @param param The request object
+   */
+  public updateQuota(
+    param: UsageMeteringApiUpdateQuotaRequest,
+    options?: Configuration
+  ): Promise<UsageQuotaResponse> {
+    const requestContextPromise = this.requestFactory.updateQuota(
+      param.quotaNamespace,
+      param.id,
+      param.body,
+      options
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.updateQuota(responseContext);
         });
     });
   }
