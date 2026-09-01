@@ -91,10 +91,22 @@ Given("new {string} request", function (this: World, operationId: string) {
   this.pathParameters = {}; // Clear path parameters for new request
 });
 
+Given(
+  "new {string} with version {string} request",
+  function (this: World, operationId: string, version: string) {
+    this.operationVersion = `${this.apiVersion}_${version.replace(/-/g, "")}`;
+    if (testRunnerEnabled()) return;
+    this.operationId = operationId;
+    this.opts = {};
+    this.pathParameters = {};
+  }
+);
+
 When("the request is sent", async function (this: World) {
   applyTestRunnerPlan(this, false);
+  const operationApiVersion = this.operationApiVersion;
   // build request from scenario
-  const api = (datadogApiClient as any)[this.apiVersion];
+  const api = (datadogApiClient as any)[operationApiVersion];
   const configurationOpts = {
     authMethods: this.authMethods,
     httpConfig: { compress: false },
@@ -129,10 +141,12 @@ When("the request is sent", async function (this: World) {
     datadogApiClient.client.createConfiguration(configurationOpts);
   for (const operationId in this.unstableOperations) {
     if (
-      `${this.apiVersion}.${operationId}` in configuration.unstableOperations
+      `${operationApiVersion}.${operationId}` in
+      configuration.unstableOperations
     ) {
-      configuration.unstableOperations[`${this.apiVersion}.${operationId}`] =
-        this.unstableOperations[operationId];
+      configuration.unstableOperations[
+        `${operationApiVersion}.${operationId}`
+      ] = this.unstableOperations[operationId];
     } else {
       // FIXME throw new Error(`Operation ${operationId} is not unstable`);
       logger.warn(`Operation ${operationId} is not unstable`);
@@ -150,14 +164,14 @@ When("the request is sent", async function (this: World) {
   // Deserialize obejcts into correct model types
   const objectSerializer = getProperty(
     datadogApiClient,
-    this.apiVersion
+    operationApiVersion
   ).ObjectSerializer;
   Object.keys(this.opts).forEach((key) => {
     const type =
-      ScenariosModelMappings[`${this.apiVersion}.${this.operationId}`][key]
+      ScenariosModelMappings[`${operationApiVersion}.${this.operationId}`][key]
         .type;
     const format =
-      ScenariosModelMappings[`${this.apiVersion}.${this.operationId}`][key]
+      ScenariosModelMappings[`${operationApiVersion}.${this.operationId}`][key]
         .format;
 
     if (type === "HttpFile" && format === "binary") {
@@ -229,7 +243,8 @@ When("the request is sent", async function (this: World) {
 
 When("the request with pagination is sent", async function (this: World) {
   applyTestRunnerPlan(this, true);
-  const api = (datadogApiClient as any)[this.apiVersion];
+  const operationApiVersion = this.operationApiVersion;
+  const api = (datadogApiClient as any)[operationApiVersion];
   const configurationOpts = {
     authMethods: this.authMethods,
     httpConfig: { compress: false },
@@ -262,10 +277,12 @@ When("the request with pagination is sent", async function (this: World) {
     datadogApiClient.client.createConfiguration(configurationOpts);
   for (const operationId in this.unstableOperations) {
     if (
-      `${this.apiVersion}.${operationId}` in configuration.unstableOperations
+      `${operationApiVersion}.${operationId}` in
+      configuration.unstableOperations
     ) {
-      configuration.unstableOperations[`${this.apiVersion}.${operationId}`] =
-        this.unstableOperations[operationId];
+      configuration.unstableOperations[
+        `${operationApiVersion}.${operationId}`
+      ] = this.unstableOperations[operationId];
     } else {
       // FIXME throw new Error(`Operation ${operationId} is not unstable`);
       logger.warn(`Operation ${operationId} is not unstable`);
@@ -276,14 +293,14 @@ When("the request with pagination is sent", async function (this: World) {
   // Deserialize obejcts into correct model types
   const objectSerializer = getProperty(
     datadogApiClient,
-    this.apiVersion
+    operationApiVersion
   ).ObjectSerializer;
   Object.keys(this.opts).forEach((key) => {
     this.opts[key] = objectSerializer.deserialize(
       this.opts[key],
-      ScenariosModelMappings[`${this.apiVersion}.${this.operationId}`][key]
+      ScenariosModelMappings[`${operationApiVersion}.${this.operationId}`][key]
         .type,
-      ScenariosModelMappings[`${this.apiVersion}.${this.operationId}`][key]
+      ScenariosModelMappings[`${operationApiVersion}.${this.operationId}`][key]
         .format
     );
   });
@@ -356,7 +373,7 @@ Then(
     if (_type) {
       const objectSerializer = getProperty(
         datadogApiClient,
-        this.apiVersion
+        this.operationApiVersion
       ).ObjectSerializer;
       templatedFixtureValue = objectSerializer.deserialize(
         templatedFixtureValue,
