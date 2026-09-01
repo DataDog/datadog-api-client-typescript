@@ -3,22 +3,27 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
-import { IncidentTrigger } from "./IncidentTrigger";
+import { ExecutionLimit } from "./ExecutionLimit";
+import { IncidentCondition } from "./IncidentCondition";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * Schema for an incident-based trigger.
+ * Trigger a workflow when a postmortem is updated for an incident.
  */
-export class IncidentTriggerWrapper {
+export class IncidentPostmortemUpdatedTrigger {
   /**
-   * Trigger a workflow from an incident. For automatic triggering a handle must be configured and the workflow must be published.
+   * The maximum number of times to execute a workflow for an incident.
    */
-  "incidentTrigger": IncidentTrigger;
+  "executionLimit"?: ExecutionLimit;
   /**
-   * Names of existing workflow steps that run first after a trigger fires.
+   * The type of incident that triggers the workflow.
    */
-  "startStepNames"?: Array<string>;
+  "incidentType"?: string;
+  /**
+   * Conditions that determine which incidents trigger the workflow.
+   */
+  "tagCondition"?: IncidentCondition;
 
   /**
    * A container for additional, undeclared properties.
@@ -36,14 +41,17 @@ export class IncidentTriggerWrapper {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    incidentTrigger: {
-      baseName: "incidentTrigger",
-      type: "IncidentTrigger",
-      required: true,
+    executionLimit: {
+      baseName: "executionLimit",
+      type: "ExecutionLimit",
     },
-    startStepNames: {
-      baseName: "startStepNames",
-      type: "Array<string>",
+    incidentType: {
+      baseName: "incidentType",
+      type: "string",
+    },
+    tagCondition: {
+      baseName: "tagCondition",
+      type: "IncidentCondition",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -55,7 +63,7 @@ export class IncidentTriggerWrapper {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-    return IncidentTriggerWrapper.attributeTypeMap;
+    return IncidentPostmortemUpdatedTrigger.attributeTypeMap;
   }
 
   public constructor() {}

@@ -1715,6 +1715,7 @@ import { EventsScalarQuery } from "./EventsScalarQuery";
 import { EventsSearch } from "./EventsSearch";
 import { EventsTimeseriesQuery } from "./EventsTimeseriesQuery";
 import { EventsWarning } from "./EventsWarning";
+import { ExecutionLimit } from "./ExecutionLimit";
 import { ExecutionPolicyActionPattern } from "./ExecutionPolicyActionPattern";
 import { ExecutionPolicyAttributes } from "./ExecutionPolicyAttributes";
 import { ExecutionPolicyCreateRequest } from "./ExecutionPolicyCreateRequest";
@@ -2194,6 +2195,7 @@ import { IdentityProvidersResponse } from "./IdentityProvidersResponse";
 import { IncidentAIPostmortemDataAttributesResponse } from "./IncidentAIPostmortemDataAttributesResponse";
 import { IncidentAIPostmortemDataResponse } from "./IncidentAIPostmortemDataResponse";
 import { IncidentAIPostmortemResponse } from "./IncidentAIPostmortemResponse";
+import { IncidentCondition } from "./IncidentCondition";
 import { IncidentConfigurationDataAttributesRequest } from "./IncidentConfigurationDataAttributesRequest";
 import { IncidentConfigurationDataAttributesResponse } from "./IncidentConfigurationDataAttributesResponse";
 import { IncidentConfigurationDataRequest } from "./IncidentConfigurationDataRequest";
@@ -2214,6 +2216,8 @@ import { IncidentCreatePageFromIncidentDataRequest } from "./IncidentCreatePageF
 import { IncidentCreatePageFromIncidentRequest } from "./IncidentCreatePageFromIncidentRequest";
 import { IncidentCreateRelationships } from "./IncidentCreateRelationships";
 import { IncidentCreateRequest } from "./IncidentCreateRequest";
+import { IncidentCreatedTrigger } from "./IncidentCreatedTrigger";
+import { IncidentCreatedTriggerWrapper } from "./IncidentCreatedTriggerWrapper";
 import { IncidentFieldAttributesMultipleValue } from "./IncidentFieldAttributesMultipleValue";
 import { IncidentFieldAttributesSingleValue } from "./IncidentFieldAttributesSingleValue";
 import { IncidentGoogleChatConfigurationDataAttributesRequest } from "./IncidentGoogleChatConfigurationDataAttributesRequest";
@@ -2254,6 +2258,8 @@ import { IncidentImpactAttributes } from "./IncidentImpactAttributes";
 import { IncidentImpactCreateAttributes } from "./IncidentImpactCreateAttributes";
 import { IncidentImpactCreateData } from "./IncidentImpactCreateData";
 import { IncidentImpactCreateRequest } from "./IncidentImpactCreateRequest";
+import { IncidentImpactCreatedTrigger } from "./IncidentImpactCreatedTrigger";
+import { IncidentImpactCreatedTriggerWrapper } from "./IncidentImpactCreatedTriggerWrapper";
 import { IncidentImpactFieldChoice } from "./IncidentImpactFieldChoice";
 import { IncidentImpactFieldDataAttributesRequest } from "./IncidentImpactFieldDataAttributesRequest";
 import { IncidentImpactFieldDataAttributesResponse } from "./IncidentImpactFieldDataAttributesResponse";
@@ -2270,6 +2276,8 @@ import { IncidentImpactPatchRequest } from "./IncidentImpactPatchRequest";
 import { IncidentImpactRelationships } from "./IncidentImpactRelationships";
 import { IncidentImpactResponse } from "./IncidentImpactResponse";
 import { IncidentImpactResponseData } from "./IncidentImpactResponseData";
+import { IncidentImpactUpdatedTrigger } from "./IncidentImpactUpdatedTrigger";
+import { IncidentImpactUpdatedTriggerWrapper } from "./IncidentImpactUpdatedTriggerWrapper";
 import { IncidentImpactsResponse } from "./IncidentImpactsResponse";
 import { IncidentImportFieldAttributesMultipleValue } from "./IncidentImportFieldAttributesMultipleValue";
 import { IncidentImportFieldAttributesSingleValue } from "./IncidentImportFieldAttributesSingleValue";
@@ -2330,7 +2338,11 @@ import { IncidentPageRoleReference } from "./IncidentPageRoleReference";
 import { IncidentPageTarget } from "./IncidentPageTarget";
 import { IncidentPageUUIDDataResponse } from "./IncidentPageUUIDDataResponse";
 import { IncidentPageUUIDResponse } from "./IncidentPageUUIDResponse";
+import { IncidentPostmortemUpdatedTrigger } from "./IncidentPostmortemUpdatedTrigger";
+import { IncidentPostmortemUpdatedTriggerWrapper } from "./IncidentPostmortemUpdatedTriggerWrapper";
 import { IncidentRelationshipData } from "./IncidentRelationshipData";
+import { IncidentResponderCreatedTrigger } from "./IncidentResponderCreatedTrigger";
+import { IncidentResponderCreatedTriggerWrapper } from "./IncidentResponderCreatedTriggerWrapper";
 import { IncidentResponderDataAttributesResponse } from "./IncidentResponderDataAttributesResponse";
 import { IncidentResponderDataRequest } from "./IncidentResponderDataRequest";
 import { IncidentResponderDataResponse } from "./IncidentResponderDataResponse";
@@ -2361,6 +2373,10 @@ import { IncidentRuleQueryCondition } from "./IncidentRuleQueryCondition";
 import { IncidentRuleRequest } from "./IncidentRuleRequest";
 import { IncidentRuleResponse } from "./IncidentRuleResponse";
 import { IncidentRulesResponse } from "./IncidentRulesResponse";
+import { IncidentSavedTrigger } from "./IncidentSavedTrigger";
+import { IncidentSavedTriggerWrapper } from "./IncidentSavedTriggerWrapper";
+import { IncidentScheduleTrigger } from "./IncidentScheduleTrigger";
+import { IncidentScheduleTriggerWrapper } from "./IncidentScheduleTriggerWrapper";
 import { IncidentSearchResponse } from "./IncidentSearchResponse";
 import { IncidentSearchResponseAttributes } from "./IncidentSearchResponseAttributes";
 import { IncidentSearchResponseData } from "./IncidentSearchResponseData";
@@ -2375,6 +2391,7 @@ import { IncidentSearchResponseUserFacetData } from "./IncidentSearchResponseUse
 import { IncidentServiceNowRecordDataAttributesRequest } from "./IncidentServiceNowRecordDataAttributesRequest";
 import { IncidentServiceNowRecordDataRequest } from "./IncidentServiceNowRecordDataRequest";
 import { IncidentServiceNowRecordRequest } from "./IncidentServiceNowRecordRequest";
+import { IncidentTagValue } from "./IncidentTagValue";
 import { IncidentTimelineCellMarkdownCreateAttributes } from "./IncidentTimelineCellMarkdownCreateAttributes";
 import { IncidentTimelineCellMarkdownCreateAttributesContent } from "./IncidentTimelineCellMarkdownCreateAttributesContent";
 import { IncidentTimestampOverrideDataAttributesRequest } from "./IncidentTimestampOverrideDataAttributesRequest";
@@ -4901,6 +4918,7 @@ import { SensitiveDataScannerStandardPatternsResponseData } from "./SensitiveDat
 import { SensitiveDataScannerStandardPatternsResponseItem } from "./SensitiveDataScannerStandardPatternsResponseItem";
 import { SensitiveDataScannerSuppressions } from "./SensitiveDataScannerSuppressions";
 import { SensitiveDataScannerTextReplacement } from "./SensitiveDataScannerTextReplacement";
+import { SerialExecution } from "./SerialExecution";
 import { ServiceAccessToken } from "./ServiceAccessToken";
 import { ServiceAccessTokenAttributes } from "./ServiceAccessTokenAttributes";
 import { ServiceAccessTokenCreateResponse } from "./ServiceAccessTokenCreateResponse";
@@ -5045,6 +5063,8 @@ import { SingleAggregatedDnsResponseDataAttributesMetricsItems } from "./SingleA
 import { SingleEntityContextResponse } from "./SingleEntityContextResponse";
 import { SlackIntegrationMetadata } from "./SlackIntegrationMetadata";
 import { SlackIntegrationMetadataChannelItem } from "./SlackIntegrationMetadataChannelItem";
+import { SlackReactionConfig } from "./SlackReactionConfig";
+import { SlackTrigger } from "./SlackTrigger";
 import { SlackTriggerWrapper } from "./SlackTriggerWrapper";
 import { SlackUserBindingData } from "./SlackUserBindingData";
 import { SlackUserBindingsResponse } from "./SlackUserBindingsResponse";
@@ -11256,6 +11276,7 @@ const typeMap: { [index: string]: any } = {
   EventsSearch: EventsSearch,
   EventsTimeseriesQuery: EventsTimeseriesQuery,
   EventsWarning: EventsWarning,
+  ExecutionLimit: ExecutionLimit,
   ExecutionPolicyActionPattern: ExecutionPolicyActionPattern,
   ExecutionPolicyAttributes: ExecutionPolicyAttributes,
   ExecutionPolicyCreateRequest: ExecutionPolicyCreateRequest,
@@ -11793,6 +11814,7 @@ const typeMap: { [index: string]: any } = {
     IncidentAIPostmortemDataAttributesResponse,
   IncidentAIPostmortemDataResponse: IncidentAIPostmortemDataResponse,
   IncidentAIPostmortemResponse: IncidentAIPostmortemResponse,
+  IncidentCondition: IncidentCondition,
   IncidentConfigurationDataAttributesRequest:
     IncidentConfigurationDataAttributesRequest,
   IncidentConfigurationDataAttributesResponse:
@@ -11819,6 +11841,8 @@ const typeMap: { [index: string]: any } = {
   IncidentCreatePageFromIncidentRequest: IncidentCreatePageFromIncidentRequest,
   IncidentCreateRelationships: IncidentCreateRelationships,
   IncidentCreateRequest: IncidentCreateRequest,
+  IncidentCreatedTrigger: IncidentCreatedTrigger,
+  IncidentCreatedTriggerWrapper: IncidentCreatedTriggerWrapper,
   IncidentFieldAttributesMultipleValue: IncidentFieldAttributesMultipleValue,
   IncidentFieldAttributesSingleValue: IncidentFieldAttributesSingleValue,
   IncidentGoogleChatConfigurationDataAttributesRequest:
@@ -11881,6 +11905,8 @@ const typeMap: { [index: string]: any } = {
   IncidentImpactCreateAttributes: IncidentImpactCreateAttributes,
   IncidentImpactCreateData: IncidentImpactCreateData,
   IncidentImpactCreateRequest: IncidentImpactCreateRequest,
+  IncidentImpactCreatedTrigger: IncidentImpactCreatedTrigger,
+  IncidentImpactCreatedTriggerWrapper: IncidentImpactCreatedTriggerWrapper,
   IncidentImpactFieldChoice: IncidentImpactFieldChoice,
   IncidentImpactFieldDataAttributesRequest:
     IncidentImpactFieldDataAttributesRequest,
@@ -11900,6 +11926,8 @@ const typeMap: { [index: string]: any } = {
   IncidentImpactRelationships: IncidentImpactRelationships,
   IncidentImpactResponse: IncidentImpactResponse,
   IncidentImpactResponseData: IncidentImpactResponseData,
+  IncidentImpactUpdatedTrigger: IncidentImpactUpdatedTrigger,
+  IncidentImpactUpdatedTriggerWrapper: IncidentImpactUpdatedTriggerWrapper,
   IncidentImpactsResponse: IncidentImpactsResponse,
   IncidentImportFieldAttributesMultipleValue:
     IncidentImportFieldAttributesMultipleValue,
@@ -11980,7 +12008,13 @@ const typeMap: { [index: string]: any } = {
   IncidentPageTarget: IncidentPageTarget,
   IncidentPageUUIDDataResponse: IncidentPageUUIDDataResponse,
   IncidentPageUUIDResponse: IncidentPageUUIDResponse,
+  IncidentPostmortemUpdatedTrigger: IncidentPostmortemUpdatedTrigger,
+  IncidentPostmortemUpdatedTriggerWrapper:
+    IncidentPostmortemUpdatedTriggerWrapper,
   IncidentRelationshipData: IncidentRelationshipData,
+  IncidentResponderCreatedTrigger: IncidentResponderCreatedTrigger,
+  IncidentResponderCreatedTriggerWrapper:
+    IncidentResponderCreatedTriggerWrapper,
   IncidentResponderDataAttributesResponse:
     IncidentResponderDataAttributesResponse,
   IncidentResponderDataRequest: IncidentResponderDataRequest,
@@ -12015,6 +12049,10 @@ const typeMap: { [index: string]: any } = {
   IncidentRuleRequest: IncidentRuleRequest,
   IncidentRuleResponse: IncidentRuleResponse,
   IncidentRulesResponse: IncidentRulesResponse,
+  IncidentSavedTrigger: IncidentSavedTrigger,
+  IncidentSavedTriggerWrapper: IncidentSavedTriggerWrapper,
+  IncidentScheduleTrigger: IncidentScheduleTrigger,
+  IncidentScheduleTriggerWrapper: IncidentScheduleTriggerWrapper,
   IncidentSearchResponse: IncidentSearchResponse,
   IncidentSearchResponseAttributes: IncidentSearchResponseAttributes,
   IncidentSearchResponseData: IncidentSearchResponseData,
@@ -12033,6 +12071,7 @@ const typeMap: { [index: string]: any } = {
     IncidentServiceNowRecordDataAttributesRequest,
   IncidentServiceNowRecordDataRequest: IncidentServiceNowRecordDataRequest,
   IncidentServiceNowRecordRequest: IncidentServiceNowRecordRequest,
+  IncidentTagValue: IncidentTagValue,
   IncidentTimelineCellMarkdownCreateAttributes:
     IncidentTimelineCellMarkdownCreateAttributes,
   IncidentTimelineCellMarkdownCreateAttributesContent:
@@ -15235,6 +15274,7 @@ const typeMap: { [index: string]: any } = {
     SensitiveDataScannerStandardPatternsResponseItem,
   SensitiveDataScannerSuppressions: SensitiveDataScannerSuppressions,
   SensitiveDataScannerTextReplacement: SensitiveDataScannerTextReplacement,
+  SerialExecution: SerialExecution,
   ServiceAccessToken: ServiceAccessToken,
   ServiceAccessTokenAttributes: ServiceAccessTokenAttributes,
   ServiceAccessTokenCreateResponse: ServiceAccessTokenCreateResponse,
@@ -15398,6 +15438,8 @@ const typeMap: { [index: string]: any } = {
   SingleEntityContextResponse: SingleEntityContextResponse,
   SlackIntegrationMetadata: SlackIntegrationMetadata,
   SlackIntegrationMetadataChannelItem: SlackIntegrationMetadataChannelItem,
+  SlackReactionConfig: SlackReactionConfig,
+  SlackTrigger: SlackTrigger,
   SlackTriggerWrapper: SlackTriggerWrapper,
   SlackUserBindingData: SlackUserBindingData,
   SlackUserBindingsResponse: SlackUserBindingsResponse,
@@ -17260,6 +17302,13 @@ const oneOfMap: { [index: string]: string[] } = {
     "DashboardTriggerWrapper",
     "FormTriggerWrapper",
     "GithubWebhookTriggerWrapper",
+    "IncidentCreatedTriggerWrapper",
+    "IncidentImpactCreatedTriggerWrapper",
+    "IncidentImpactUpdatedTriggerWrapper",
+    "IncidentPostmortemUpdatedTriggerWrapper",
+    "IncidentResponderCreatedTriggerWrapper",
+    "IncidentSavedTriggerWrapper",
+    "IncidentScheduleTriggerWrapper",
     "IncidentTriggerWrapper",
     "MonitorTriggerWrapper",
     "NotebookTriggerWrapper",

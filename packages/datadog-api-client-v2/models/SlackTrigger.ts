@@ -3,22 +3,18 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
-import { IncidentTrigger } from "./IncidentTrigger";
+import { SlackReactionConfig } from "./SlackReactionConfig";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * Schema for an incident-based trigger.
+ * Trigger a workflow from Slack. The workflow must be published.
  */
-export class IncidentTriggerWrapper {
+export class SlackTrigger {
   /**
-   * Trigger a workflow from an incident. For automatic triggering a handle must be configured and the workflow must be published.
+   * Slack emoji reactions that trigger the workflow.
    */
-  "incidentTrigger": IncidentTrigger;
-  /**
-   * Names of existing workflow steps that run first after a trigger fires.
-   */
-  "startStepNames"?: Array<string>;
+  "reactionTriggers"?: Array<SlackReactionConfig>;
 
   /**
    * A container for additional, undeclared properties.
@@ -36,14 +32,9 @@ export class IncidentTriggerWrapper {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    incidentTrigger: {
-      baseName: "incidentTrigger",
-      type: "IncidentTrigger",
-      required: true,
-    },
-    startStepNames: {
-      baseName: "startStepNames",
-      type: "Array<string>",
+    reactionTriggers: {
+      baseName: "reactionTriggers",
+      type: "Array<SlackReactionConfig>",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -55,7 +46,7 @@ export class IncidentTriggerWrapper {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-    return IncidentTriggerWrapper.attributeTypeMap;
+    return SlackTrigger.attributeTypeMap;
   }
 
   public constructor() {}
