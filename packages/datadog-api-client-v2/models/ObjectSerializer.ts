@@ -16840,7 +16840,7 @@ const oneOfMap: { [index: string]: string[] } = {
     "IncidentTypeObject",
   ],
   IssueIncluded: ["IssueCase", "IssueUser", "IssueTeam"],
-  IssuesSearchResultIncluded: ["Issue", "Case", "IssueUser", "IssueTeam"],
+  IssuesSearchResultIncluded: ["Issue", "IssueCase", "IssueUser", "IssueTeam"],
   LLMObsAnnotatedInteractionItem: [
     "LLMObsTraceAnnotatedInteractionItem",
     "LLMObsDisplayBlockAnnotatedInteractionItem",

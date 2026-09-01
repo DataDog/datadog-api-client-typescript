@@ -3,8 +3,8 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
-import { Case } from "./Case";
 import { Issue } from "./Issue";
+import { IssueCase } from "./IssueCase";
 import { IssueTeam } from "./IssueTeam";
 import { IssueUser } from "./IssueUser";
 
@@ -16,7 +16,7 @@ import { UnparsedObject } from "../../datadog-api-client-common/util";
 
 export type IssuesSearchResultIncluded =
   | Issue
-  | Case
+  | IssueCase
   | IssueUser
   | IssueTeam
   | UnparsedObject;
