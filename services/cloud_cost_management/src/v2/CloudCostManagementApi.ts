@@ -10749,6 +10749,8 @@ export class CloudCostManagementApi {
   }
 
   /**
+   * **Note**: This endpoint is deprecated. View OCI accounts in Cloud Cost Settings in the Datadog web application instead.
+   *
    * List the OCI configs.
    * @param param The request object
    */
