@@ -10,6 +10,13 @@ import { DatabaseMonitoringTriggerWrapper } from "./DatabaseMonitoringTriggerWra
 import { DatastoreTriggerWrapper } from "./DatastoreTriggerWrapper";
 import { FormTriggerWrapper } from "./FormTriggerWrapper";
 import { GithubWebhookTriggerWrapper } from "./GithubWebhookTriggerWrapper";
+import { IncidentCreatedTriggerWrapper } from "./IncidentCreatedTriggerWrapper";
+import { IncidentImpactCreatedTriggerWrapper } from "./IncidentImpactCreatedTriggerWrapper";
+import { IncidentImpactUpdatedTriggerWrapper } from "./IncidentImpactUpdatedTriggerWrapper";
+import { IncidentPostmortemUpdatedTriggerWrapper } from "./IncidentPostmortemUpdatedTriggerWrapper";
+import { IncidentResponderCreatedTriggerWrapper } from "./IncidentResponderCreatedTriggerWrapper";
+import { IncidentSavedTriggerWrapper } from "./IncidentSavedTriggerWrapper";
+import { IncidentScheduleTriggerWrapper } from "./IncidentScheduleTriggerWrapper";
 import { IncidentTriggerWrapper } from "./IncidentTriggerWrapper";
 import { MonitorTriggerWrapper } from "./MonitorTriggerWrapper";
 import { NotebookTriggerWrapper } from "./NotebookTriggerWrapper";
@@ -35,6 +42,13 @@ export type Trigger =
   | DashboardTriggerWrapper
   | FormTriggerWrapper
   | GithubWebhookTriggerWrapper
+  | IncidentCreatedTriggerWrapper
+  | IncidentImpactCreatedTriggerWrapper
+  | IncidentImpactUpdatedTriggerWrapper
+  | IncidentPostmortemUpdatedTriggerWrapper
+  | IncidentResponderCreatedTriggerWrapper
+  | IncidentSavedTriggerWrapper
+  | IncidentScheduleTriggerWrapper
   | IncidentTriggerWrapper
   | MonitorTriggerWrapper
   | NotebookTriggerWrapper

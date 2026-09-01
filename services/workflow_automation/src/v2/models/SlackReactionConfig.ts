@@ -1,19 +1,17 @@
 import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
-import { TriggerRateLimit } from "./TriggerRateLimit";
-
 /**
- * Trigger a workflow from an incident. For automatic triggering a handle must be configured and the workflow must be published.
+ * Configuration for a Slack emoji reaction trigger.
  */
-export class IncidentTrigger {
+export class SlackReactionConfig {
   /**
-   * Defines a rate limit for a trigger.
+   * The Slack emoji reaction name.
    */
-  "rateLimit"?: TriggerRateLimit;
+  "reactionEmoji": string;
   /**
-   * Version of the incident manual trigger.
+   * The Slack workspace ID.
    */
-  "version"?: string;
+  "teamId": string;
   /**
    * A container for additional, undeclared properties.
    * This is a holder for any undeclared properties as specified with
@@ -29,13 +27,15 @@ export class IncidentTrigger {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    rateLimit: {
-      baseName: "rateLimit",
-      type: "TriggerRateLimit",
-    },
-    version: {
-      baseName: "version",
+    reactionEmoji: {
+      baseName: "reactionEmoji",
       type: "string",
+      required: true,
+    },
+    teamId: {
+      baseName: "teamId",
+      type: "string",
+      required: true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -47,7 +47,7 @@ export class IncidentTrigger {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-    return IncidentTrigger.attributeTypeMap;
+    return SlackReactionConfig.attributeTypeMap;
   }
 
   public constructor() {}

@@ -3,11 +3,11 @@ import { AttributeTypeMap } from "@datadog/datadog-api-client";
 import { IncidentTrigger } from "./IncidentTrigger";
 
 /**
- * Schema for an Incident-based trigger.
+ * Schema for an incident-based trigger.
  */
 export class IncidentTriggerWrapper {
   /**
-   * Trigger a workflow from an Incident. For automatic triggering a handle must be configured and the workflow must be published.
+   * Trigger a workflow from an incident. For automatic triggering a handle must be configured and the workflow must be published.
    */
   "incidentTrigger": IncidentTrigger;
   /**

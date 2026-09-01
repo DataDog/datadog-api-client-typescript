@@ -1,15 +1,15 @@
 import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
-import { SlackTrigger } from "./SlackTrigger";
+import { IncidentResponderCreatedTrigger } from "./IncidentResponderCreatedTrigger";
 
 /**
- * Schema for a Slack-based trigger.
+ * Schema for an incident responder created trigger.
  */
-export class SlackTriggerWrapper {
+export class IncidentResponderCreatedTriggerWrapper {
   /**
-   * Trigger a workflow from Slack. The workflow must be published.
+   * Trigger a workflow when a responder is created for an incident.
    */
-  "slackTrigger": SlackTrigger;
+  "incidentResponderCreatedTrigger": IncidentResponderCreatedTrigger;
   /**
    * Names of existing workflow steps that run first after a trigger fires.
    */
@@ -29,9 +29,9 @@ export class SlackTriggerWrapper {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    slackTrigger: {
-      baseName: "slackTrigger",
-      type: "SlackTrigger",
+    incidentResponderCreatedTrigger: {
+      baseName: "incidentResponderCreatedTrigger",
+      type: "IncidentResponderCreatedTrigger",
       required: true,
     },
     startStepNames: {
@@ -48,7 +48,7 @@ export class SlackTriggerWrapper {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-    return SlackTriggerWrapper.attributeTypeMap;
+    return IncidentResponderCreatedTriggerWrapper.attributeTypeMap;
   }
 
   public constructor() {}

@@ -25,11 +25,28 @@ import { DatabaseMonitoringTriggerWrapper } from "./DatabaseMonitoringTriggerWra
 import { DatastoreTrigger } from "./DatastoreTrigger";
 import { DatastoreTriggerWrapper } from "./DatastoreTriggerWrapper";
 import { ErrorHandler } from "./ErrorHandler";
+import { ExecutionLimit } from "./ExecutionLimit";
 import { FormTrigger } from "./FormTrigger";
 import { FormTriggerWrapper } from "./FormTriggerWrapper";
 import { GetWorkflowResponse } from "./GetWorkflowResponse";
 import { GithubWebhookTrigger } from "./GithubWebhookTrigger";
 import { GithubWebhookTriggerWrapper } from "./GithubWebhookTriggerWrapper";
+import { IncidentCondition } from "./IncidentCondition";
+import { IncidentCreatedTrigger } from "./IncidentCreatedTrigger";
+import { IncidentCreatedTriggerWrapper } from "./IncidentCreatedTriggerWrapper";
+import { IncidentImpactCreatedTrigger } from "./IncidentImpactCreatedTrigger";
+import { IncidentImpactCreatedTriggerWrapper } from "./IncidentImpactCreatedTriggerWrapper";
+import { IncidentImpactUpdatedTrigger } from "./IncidentImpactUpdatedTrigger";
+import { IncidentImpactUpdatedTriggerWrapper } from "./IncidentImpactUpdatedTriggerWrapper";
+import { IncidentPostmortemUpdatedTrigger } from "./IncidentPostmortemUpdatedTrigger";
+import { IncidentPostmortemUpdatedTriggerWrapper } from "./IncidentPostmortemUpdatedTriggerWrapper";
+import { IncidentResponderCreatedTrigger } from "./IncidentResponderCreatedTrigger";
+import { IncidentResponderCreatedTriggerWrapper } from "./IncidentResponderCreatedTriggerWrapper";
+import { IncidentSavedTrigger } from "./IncidentSavedTrigger";
+import { IncidentSavedTriggerWrapper } from "./IncidentSavedTriggerWrapper";
+import { IncidentScheduleTrigger } from "./IncidentScheduleTrigger";
+import { IncidentScheduleTriggerWrapper } from "./IncidentScheduleTriggerWrapper";
+import { IncidentTagValue } from "./IncidentTagValue";
 import { IncidentTrigger } from "./IncidentTrigger";
 import { IncidentTriggerWrapper } from "./IncidentTriggerWrapper";
 import { InputSchema } from "./InputSchema";
@@ -57,6 +74,9 @@ import { ScheduleTriggerWrapper } from "./ScheduleTriggerWrapper";
 import { SecurityTrigger } from "./SecurityTrigger";
 import { SecurityTriggerWrapper } from "./SecurityTriggerWrapper";
 import { SelfServiceTriggerWrapper } from "./SelfServiceTriggerWrapper";
+import { SerialExecution } from "./SerialExecution";
+import { SlackReactionConfig } from "./SlackReactionConfig";
+import { SlackTrigger } from "./SlackTrigger";
 import { SlackTriggerWrapper } from "./SlackTriggerWrapper";
 import { SoftwareCatalogTriggerWrapper } from "./SoftwareCatalogTriggerWrapper";
 import { Spec } from "./Spec";
@@ -145,6 +165,13 @@ export const TypingInfo: ModelTypingInfo = {
       "DashboardTriggerWrapper",
       "FormTriggerWrapper",
       "GithubWebhookTriggerWrapper",
+      "IncidentCreatedTriggerWrapper",
+      "IncidentImpactCreatedTriggerWrapper",
+      "IncidentImpactUpdatedTriggerWrapper",
+      "IncidentPostmortemUpdatedTriggerWrapper",
+      "IncidentResponderCreatedTriggerWrapper",
+      "IncidentSavedTriggerWrapper",
+      "IncidentScheduleTriggerWrapper",
       "IncidentTriggerWrapper",
       "MonitorTriggerWrapper",
       "NotebookTriggerWrapper",
@@ -183,11 +210,30 @@ export const TypingInfo: ModelTypingInfo = {
     DatastoreTrigger: DatastoreTrigger,
     DatastoreTriggerWrapper: DatastoreTriggerWrapper,
     ErrorHandler: ErrorHandler,
+    ExecutionLimit: ExecutionLimit,
     FormTrigger: FormTrigger,
     FormTriggerWrapper: FormTriggerWrapper,
     GetWorkflowResponse: GetWorkflowResponse,
     GithubWebhookTrigger: GithubWebhookTrigger,
     GithubWebhookTriggerWrapper: GithubWebhookTriggerWrapper,
+    IncidentCondition: IncidentCondition,
+    IncidentCreatedTrigger: IncidentCreatedTrigger,
+    IncidentCreatedTriggerWrapper: IncidentCreatedTriggerWrapper,
+    IncidentImpactCreatedTrigger: IncidentImpactCreatedTrigger,
+    IncidentImpactCreatedTriggerWrapper: IncidentImpactCreatedTriggerWrapper,
+    IncidentImpactUpdatedTrigger: IncidentImpactUpdatedTrigger,
+    IncidentImpactUpdatedTriggerWrapper: IncidentImpactUpdatedTriggerWrapper,
+    IncidentPostmortemUpdatedTrigger: IncidentPostmortemUpdatedTrigger,
+    IncidentPostmortemUpdatedTriggerWrapper:
+      IncidentPostmortemUpdatedTriggerWrapper,
+    IncidentResponderCreatedTrigger: IncidentResponderCreatedTrigger,
+    IncidentResponderCreatedTriggerWrapper:
+      IncidentResponderCreatedTriggerWrapper,
+    IncidentSavedTrigger: IncidentSavedTrigger,
+    IncidentSavedTriggerWrapper: IncidentSavedTriggerWrapper,
+    IncidentScheduleTrigger: IncidentScheduleTrigger,
+    IncidentScheduleTriggerWrapper: IncidentScheduleTriggerWrapper,
+    IncidentTagValue: IncidentTagValue,
     IncidentTrigger: IncidentTrigger,
     IncidentTriggerWrapper: IncidentTriggerWrapper,
     InputSchema: InputSchema,
@@ -215,6 +261,9 @@ export const TypingInfo: ModelTypingInfo = {
     SecurityTrigger: SecurityTrigger,
     SecurityTriggerWrapper: SecurityTriggerWrapper,
     SelfServiceTriggerWrapper: SelfServiceTriggerWrapper,
+    SerialExecution: SerialExecution,
+    SlackReactionConfig: SlackReactionConfig,
+    SlackTrigger: SlackTrigger,
     SlackTriggerWrapper: SlackTriggerWrapper,
     SoftwareCatalogTriggerWrapper: SoftwareCatalogTriggerWrapper,
     Spec: Spec,
