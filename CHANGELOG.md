@@ -1,5 +1,52 @@
 # CHANGELOG
 
+## 1.63.0/2026-09-01
+
+### Added
+* Add opentelemetry metrics destination to observability pipelines public api spec [#4968](https://github.com/DataDog/datadog-api-client-typescript/pull/4968)
+* Add incident and Slack reaction triggers to Workflow Automation [#4966](https://github.com/DataDog/datadog-api-client-typescript/pull/4966)
+* Publish unstable STIX ingestion API [#4963](https://github.com/DataDog/datadog-api-client-typescript/pull/4963)
+* Add is_iac support to send X-Datadog-Managed-By header [#4946](https://github.com/DataDog/datadog-api-client-typescript/pull/4946)
+* Add warmup, fail_on_no_groups_found, and fail_on_no_data to Deployment Gates monitor rule options [#4944](https://github.com/DataDog/datadog-api-client-typescript/pull/4944)
+* Add server.response.body.raw WAF address [#4920](https://github.com/DataDog/datadog-api-client-typescript/pull/4920)
+* Fix estimate endpoint query params to match live schema [#4910](https://github.com/DataDog/datadog-api-client-typescript/pull/4910)
+* Add zstd/compression to archive destinations [#4906](https://github.com/DataDog/datadog-api-client-typescript/pull/4906)
+* Sync LLM Obs annotation access docs [#4896](https://github.com/DataDog/datadog-api-client-typescript/pull/4896)
+* RUM - Make exclusion filter operations public [#4892](https://github.com/DataDog/datadog-api-client-typescript/pull/4892)
+* Add OpenAPI docs for usage quotas admin [#4890](https://github.com/DataDog/datadog-api-client-typescript/pull/4890)
+* Add bundle_config to Monitor Notification Rule [#4882](https://github.com/DataDog/datadog-api-client-typescript/pull/4882)
+* API spec for severity modifiers automation pipelines [#4871](https://github.com/DataDog/datadog-api-client-typescript/pull/4871)
+* Document RUM retention quota config API [#4868](https://github.com/DataDog/datadog-api-client-typescript/pull/4868)
+* Add Integration Accounts v2 API for Twilio and Elastic Cloud [#4860](https://github.com/DataDog/datadog-api-client-typescript/pull/4860)
+* Add endpoint_target field to Splunk HEC destination [#4857](https://github.com/DataDog/datadog-api-client-typescript/pull/4857)
+* Add public Execution Policies endpoints [#4847](https://github.com/DataDog/datadog-api-client-typescript/pull/4847)
+* Add OpenAPI spec for RUM Teams Ownership public API [#4838](https://github.com/DataDog/datadog-api-client-typescript/pull/4838)
+* Add tags to Action Connection API spec [#4835](https://github.com/DataDog/datadog-api-client-typescript/pull/4835)
+* Add Work Management note to Case Management API tag description [#4831](https://github.com/DataDog/datadog-api-client-typescript/pull/4831)
+* Add OAuth support for v2 Logs queries [#4829](https://github.com/DataDog/datadog-api-client-typescript/pull/4829)
+* Declare OAuth support for Events Search [#4825](https://github.com/DataDog/datadog-api-client-typescript/pull/4825)
+* Add is_deleted query parameter to ListSLOs [#4763](https://github.com/DataDog/datadog-api-client-typescript/pull/4763)
+
+### Changed
+* Promote usage quotas admin endpoints to public unstable [#4956](https://github.com/DataDog/datadog-api-client-typescript/pull/4956)
+* AI Gateway - Fully type private beta control plane API [#4936](https://github.com/DataDog/datadog-api-client-typescript/pull/4936)
+* Fix SCA OpenAPI drift [#4928](https://github.com/DataDog/datadog-api-client-typescript/pull/4928)
+* Mark Data Deletion API as GA and update documentation [#4902](https://github.com/DataDog/datadog-api-client-typescript/pull/4902)
+* Update CODEOWNERS to IDP pack [#4866](https://github.com/DataDog/datadog-api-client-typescript/pull/4866)
+* Remove status_pages_settings_write as an accepted permission from Status Pages publishing APIs [#4851](https://github.com/DataDog/datadog-api-client-typescript/pull/4851)
+* Rename Tag Policies to Tag Rules and move to /api/v2/governance/tag_rules [#4797](https://github.com/DataDog/datadog-api-client-typescript/pull/4797)
+
+### Fixed
+* Fix CreateTeamConnections example missing required type fields [#4934](https://github.com/DataDog/datadog-api-client-typescript/pull/4934)
+* Fix ARM API security spec drift [#4916](https://github.com/DataDog/datadog-api-client-typescript/pull/4916)
+
+### Removed
+* Rename spec to RUM Retention Quotas and remove unsupported mode [#4908](https://github.com/DataDog/datadog-api-client-typescript/pull/4908)
+* Make LLM Observability data deletion endpoint private [#4845](https://github.com/DataDog/datadog-api-client-typescript/pull/4845)
+
+### Deprecated
+* Mark unused AWS logs v1 endpoints as deprecated [#4502](https://github.com/DataDog/datadog-api-client-typescript/pull/4502)
+
 ## 1.62.0/2026-08-12
 
 ### Changed
