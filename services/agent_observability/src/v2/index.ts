@@ -23,6 +23,7 @@ export {
   AgentObservabilityApiDeleteLLMObsProjectsRequest,
   AgentObservabilityApiDeleteLLMObsPromptRequest,
   AgentObservabilityApiExportLLMObsDatasetRequest,
+  AgentObservabilityApiGetLLMObsAnnotatedInteractionRequest,
   AgentObservabilityApiGetLLMObsAnnotatedInteractionsRequest,
   AgentObservabilityApiGetLLMObsAnnotatedInteractionsByTraceIDsRequest,
   AgentObservabilityApiGetLLMObsAnnotationQueueLabelSchemaRequest,
@@ -78,7 +79,10 @@ export { JSONAPIErrorItem } from "./models/JSONAPIErrorItem";
 export { JSONAPIErrorItemSource } from "./models/JSONAPIErrorItemSource";
 export { JSONAPIErrorResponse } from "./models/JSONAPIErrorResponse";
 export { LLMObsAnnotatedInteractionByTraceItem } from "./models/LLMObsAnnotatedInteractionByTraceItem";
+export { LLMObsAnnotatedInteractionDataAttributesResponse } from "./models/LLMObsAnnotatedInteractionDataAttributesResponse";
+export { LLMObsAnnotatedInteractionDataResponse } from "./models/LLMObsAnnotatedInteractionDataResponse";
 export { LLMObsAnnotatedInteractionItem } from "./models/LLMObsAnnotatedInteractionItem";
+export { LLMObsAnnotatedInteractionResponse } from "./models/LLMObsAnnotatedInteractionResponse";
 export { LLMObsAnnotatedInteractionsByTraceDataAttributesResponse } from "./models/LLMObsAnnotatedInteractionsByTraceDataAttributesResponse";
 export { LLMObsAnnotatedInteractionsByTraceDataResponse } from "./models/LLMObsAnnotatedInteractionsByTraceDataResponse";
 export { LLMObsAnnotatedInteractionsByTraceResponse } from "./models/LLMObsAnnotatedInteractionsByTraceResponse";
@@ -90,7 +94,6 @@ export { LLMObsAnnotatedInteractionsType } from "./models/LLMObsAnnotatedInterac
 export { LLMObsAnnotationAssessment } from "./models/LLMObsAnnotationAssessment";
 export { LLMObsAnnotationError } from "./models/LLMObsAnnotationError";
 export { LLMObsAnnotationErrorCode } from "./models/LLMObsAnnotationErrorCode";
-export { LLMObsAnnotationItem } from "./models/LLMObsAnnotationItem";
 export { LLMObsAnnotationItemResponse } from "./models/LLMObsAnnotationItemResponse";
 export { LLMObsAnnotationLabelValue } from "./models/LLMObsAnnotationLabelValue";
 export { LLMObsAnnotationLabelValueResponse } from "./models/LLMObsAnnotationLabelValueResponse";
@@ -313,6 +316,11 @@ export { LLMObsExperimentUpdateDataAttributesRequest } from "./models/LLMObsExpe
 export { LLMObsExperimentUpdateDataRequest } from "./models/LLMObsExperimentUpdateDataRequest";
 export { LLMObsExperimentUpdateRequest } from "./models/LLMObsExperimentUpdateRequest";
 export { LLMObsExperimentUser } from "./models/LLMObsExperimentUser";
+export { LLMObsFrontendAnnotatedInteractionItem } from "./models/LLMObsFrontendAnnotatedInteractionItem";
+export { LLMObsFrontendContent } from "./models/LLMObsFrontendContent";
+export { LLMObsFrontendInteractionItem } from "./models/LLMObsFrontendInteractionItem";
+export { LLMObsFrontendInteractionResponseItem } from "./models/LLMObsFrontendInteractionResponseItem";
+export { LLMObsFrontendInteractionType } from "./models/LLMObsFrontendInteractionType";
 export { LLMObsInferenceCode } from "./models/LLMObsInferenceCode";
 export { LLMObsInferenceContent } from "./models/LLMObsInferenceContent";
 export { LLMObsInferenceContentValue } from "./models/LLMObsInferenceContentValue";

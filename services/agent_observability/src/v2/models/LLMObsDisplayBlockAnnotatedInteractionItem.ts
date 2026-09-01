@@ -1,6 +1,6 @@
 import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
-import { LLMObsAnnotationItem } from "./LLMObsAnnotationItem";
+import { LLMObsAnnotationItemResponse } from "./LLMObsAnnotationItemResponse";
 import { LLMObsContentBlock } from "./LLMObsContentBlock";
 import { LLMObsDisplayBlockInteractionType } from "./LLMObsDisplayBlockInteractionType";
 
@@ -11,7 +11,7 @@ export class LLMObsDisplayBlockAnnotatedInteractionItem {
   /**
    * List of annotations for this interaction.
    */
-  "annotations": Array<LLMObsAnnotationItem>;
+  "annotations": Array<LLMObsAnnotationItemResponse>;
   /**
    * Whether the current caller can annotate this interaction.
    */
@@ -50,7 +50,7 @@ export class LLMObsDisplayBlockAnnotatedInteractionItem {
   static readonly attributeTypeMap: AttributeTypeMap = {
     annotations: {
       baseName: "annotations",
-      type: "Array<LLMObsAnnotationItem>",
+      type: "Array<LLMObsAnnotationItemResponse>",
       required: true,
     },
     canAnnotate: {

@@ -1,8 +1,9 @@
 import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
-import { LLMObsAnnotationItem } from "./LLMObsAnnotationItem";
+import { LLMObsAnnotationItemResponse } from "./LLMObsAnnotationItemResponse";
 import { LLMObsAnyInteractionType } from "./LLMObsAnyInteractionType";
 import { LLMObsContentBlock } from "./LLMObsContentBlock";
+import { LLMObsFrontendContent } from "./LLMObsFrontendContent";
 
 /**
  * An annotated interaction returned by the cross-queue lookup, including the source queue metadata.
@@ -11,13 +12,13 @@ export class LLMObsAnnotatedInteractionByTraceItem {
   /**
    * List of annotations for this interaction.
    */
-  "annotations": Array<LLMObsAnnotationItem>;
+  "annotations": Array<LLMObsAnnotationItemResponse>;
   /**
    * Whether the current caller can annotate this interaction.
    */
   "canAnnotate": boolean;
   /**
-   * Upstream entity identifier (trace ID, session ID, or deterministic display_block ID).
+   * Upstream entity identifier (trace ID, session ID, or deterministic display_block or frontend ID).
    */
   "contentId": string;
   /**
@@ -29,6 +30,10 @@ export class LLMObsAnnotatedInteractionByTraceItem {
    * Must contain at least one block.
    */
   "displayBlock"?: Array<LLMObsContentBlock>;
+  /**
+   * Web content that makes up a `frontend` interaction.
+   */
+  "frontend"?: LLMObsFrontendContent;
   /**
    * Unique identifier of the interaction.
    */
@@ -66,7 +71,7 @@ export class LLMObsAnnotatedInteractionByTraceItem {
   static readonly attributeTypeMap: AttributeTypeMap = {
     annotations: {
       baseName: "annotations",
-      type: "Array<LLMObsAnnotationItem>",
+      type: "Array<LLMObsAnnotationItemResponse>",
       required: true,
     },
     canAnnotate: {
@@ -88,6 +93,10 @@ export class LLMObsAnnotatedInteractionByTraceItem {
     displayBlock: {
       baseName: "display_block",
       type: "Array<LLMObsContentBlock>",
+    },
+    frontend: {
+      baseName: "frontend",
+      type: "LLMObsFrontendContent",
     },
     id: {
       baseName: "id",

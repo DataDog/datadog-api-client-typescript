@@ -1,12 +1,13 @@
 import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
 import { LLMObsAnnotationItemResponse } from "./LLMObsAnnotationItemResponse";
-import { LLMObsTraceInteractionType } from "./LLMObsTraceInteractionType";
+import { LLMObsFrontendContent } from "./LLMObsFrontendContent";
+import { LLMObsFrontendInteractionType } from "./LLMObsFrontendInteractionType";
 
 /**
- * A trace, experiment trace, or session interaction with its associated annotations.
+ * A frontend interaction with its associated annotations.
  */
-export class LLMObsTraceAnnotatedInteractionItem {
+export class LLMObsFrontendAnnotatedInteractionItem {
   /**
    * List of annotations for this interaction.
    */
@@ -16,25 +17,21 @@ export class LLMObsTraceAnnotatedInteractionItem {
    */
   "canAnnotate": boolean;
   /**
-   * Upstream entity identifier supplied by the caller.
+   * Server-generated deterministic identifier derived from the content.
    */
   "contentId": string;
   /**
-   * Timestamp when the interaction was added to the queue.
+   * Web content that makes up a `frontend` interaction.
    */
-  "createdAt": Date;
+  "frontend": LLMObsFrontendContent;
   /**
    * Unique identifier of the interaction.
    */
   "id": string;
   /**
-   * Timestamp when the interaction was last updated.
+   * Type discriminator for a `frontend` interaction.
    */
-  "modifiedAt": Date;
-  /**
-   * Type of an upstream-entity interaction.
-   */
-  "type": LLMObsTraceInteractionType;
+  "type": LLMObsFrontendInteractionType;
   /**
    * A container for additional, undeclared properties.
    * This is a holder for any undeclared properties as specified with
@@ -65,26 +62,19 @@ export class LLMObsTraceAnnotatedInteractionItem {
       type: "string",
       required: true,
     },
-    createdAt: {
-      baseName: "created_at",
-      type: "Date",
+    frontend: {
+      baseName: "frontend",
+      type: "LLMObsFrontendContent",
       required: true,
-      format: "date-time",
     },
     id: {
       baseName: "id",
       type: "string",
       required: true,
     },
-    modifiedAt: {
-      baseName: "modified_at",
-      type: "Date",
-      required: true,
-      format: "date-time",
-    },
     type: {
       baseName: "type",
-      type: "LLMObsTraceInteractionType",
+      type: "LLMObsFrontendInteractionType",
       required: true,
     },
     additionalProperties: {
@@ -97,7 +87,7 @@ export class LLMObsTraceAnnotatedInteractionItem {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-    return LLMObsTraceAnnotatedInteractionItem.attributeTypeMap;
+    return LLMObsFrontendAnnotatedInteractionItem.attributeTypeMap;
   }
 
   public constructor() {}
