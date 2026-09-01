@@ -4,7 +4,11 @@ import chaiQuantifiers from "chai-quantifiers";
 use(chaiQuantifiers);
 import { World } from "../support/world";
 
-import { apiTypes, apiNameToTypingInfoMapping } from "../support/api_info";
+import {
+  apiTypes,
+  apiNameToServiceNameMapping,
+  apiNameToTypingInfoMapping,
+} from "../support/api_info";
 
 import {
   pathLookup,
@@ -27,6 +31,27 @@ import {
 } from "../support/test_runner";
 const logger = log.getLogger("testing");
 logger.setLevel(process.env.DEBUG ? logger.levels.DEBUG : logger.levels.INFO);
+
+function getApiType(
+  apiName: string,
+  apiVersion: string,
+  servicesDir: string,
+): any {
+  const api = apiTypes[`${apiName}${apiVersion.toUpperCase()}`];
+  if (api !== undefined) return api;
+
+  const serviceName = apiNameToServiceNameMapping[apiName];
+  if (serviceName === undefined) {
+    throw new Error(`No service found for ${apiName}`);
+  }
+  const versionedApi = require(
+    path.join(servicesDir, serviceName, "src", apiVersion),
+  )[apiName];
+  if (versionedApi === undefined) {
+    throw new Error(`No API found for ${apiName} ${apiVersion}`);
+  }
+  return versionedApi;
+}
 
 Given('a valid "apiKeyAuth" key in the system', function (this: World) {
   this.authMethods["apiKeyAuth"] = process.env.DD_TEST_CLIENT_API_KEY;
@@ -111,8 +136,7 @@ When("the request is sent", async function (this: World) {
   applyTestRunnerPlan(this, false);
   const operationApiVersion = this.operationApiVersion;
   // build request from scenario
-  const apiNameWithVersion = `${this.apiName}${operationApiVersion.toUpperCase()}`;
-  const api = apiTypes[apiNameWithVersion];
+  const api = getApiType(this.apiName, operationApiVersion, this.servicesDir);
 
   const configurationOpts = {
     authMethods: this.authMethods,
@@ -219,8 +243,7 @@ When("the request is sent", async function (this: World) {
 When("the request with pagination is sent", async function (this: World) {
   applyTestRunnerPlan(this, true);
   const operationApiVersion = this.operationApiVersion;
-  const apiNameWithVersion = `${this.apiName}${operationApiVersion.toUpperCase()}`;
-  const api = apiTypes[apiNameWithVersion];
+  const api = getApiType(this.apiName, operationApiVersion, this.servicesDir);
   const configurationOpts = {
     authMethods: this.authMethods,
     httpConfig: { compress: false },
