@@ -4,11 +4,7 @@ import chaiQuantifiers from "chai-quantifiers";
 use(chaiQuantifiers);
 import { World } from "../support/world";
 
-import {
-  getProperty,
-  pathLookup,
-  getTypeForValue,
-} from "../support/templating";
+import { pathLookup, getTypeForValue } from "../support/templating";
 import { Store } from "../support/store";
 import { buildUndoFor, UndoActions } from "../support/undo";
 import * as datadogApiClient from "../../index";
@@ -25,6 +21,13 @@ import {
 } from "../support/test_runner";
 const logger = log.getLogger("testing");
 logger.setLevel(process.env.DEBUG ? logger.levels.DEBUG : logger.levels.INFO);
+
+function getApiVersion(apiVersion: string): any {
+  return (
+    (datadogApiClient as any)[apiVersion] ||
+    require(`../../packages/datadog-api-client-${apiVersion}`)
+  );
+}
 
 Given('a valid "apiKeyAuth" key in the system', function (this: World) {
   this.authMethods["apiKeyAuth"] = process.env.DD_TEST_CLIENT_API_KEY;
@@ -106,7 +109,7 @@ When("the request is sent", async function (this: World) {
   applyTestRunnerPlan(this, false);
   const operationApiVersion = this.operationApiVersion;
   // build request from scenario
-  const api = (datadogApiClient as any)[operationApiVersion];
+  const api = getApiVersion(operationApiVersion);
   const configurationOpts = {
     authMethods: this.authMethods,
     httpConfig: { compress: false },
@@ -162,10 +165,7 @@ When("the request is sent", async function (this: World) {
   }
 
   // Deserialize obejcts into correct model types
-  const objectSerializer = getProperty(
-    datadogApiClient,
-    operationApiVersion
-  ).ObjectSerializer;
+  const objectSerializer = api.ObjectSerializer;
   Object.keys(this.opts).forEach((key) => {
     const type =
       ScenariosModelMappings[`${operationApiVersion}.${this.operationId}`][key]
@@ -244,7 +244,7 @@ When("the request is sent", async function (this: World) {
 When("the request with pagination is sent", async function (this: World) {
   applyTestRunnerPlan(this, true);
   const operationApiVersion = this.operationApiVersion;
-  const api = (datadogApiClient as any)[operationApiVersion];
+  const api = getApiVersion(operationApiVersion);
   const configurationOpts = {
     authMethods: this.authMethods,
     httpConfig: { compress: false },
@@ -291,10 +291,7 @@ When("the request with pagination is sent", async function (this: World) {
   const apiInstance = new api[`${this.apiName}Api`](configuration);
 
   // Deserialize obejcts into correct model types
-  const objectSerializer = getProperty(
-    datadogApiClient,
-    operationApiVersion
-  ).ObjectSerializer;
+  const objectSerializer = api.ObjectSerializer;
   Object.keys(this.opts).forEach((key) => {
     this.opts[key] = objectSerializer.deserialize(
       this.opts[key],
@@ -371,8 +368,7 @@ Then(
     let templatedFixtureValue = JSON.parse(value.templated(this.fixtures));
 
     if (_type) {
-      const objectSerializer = getProperty(
-        datadogApiClient,
+      const objectSerializer = getApiVersion(
         this.operationApiVersion
       ).ObjectSerializer;
       templatedFixtureValue = objectSerializer.deserialize(
