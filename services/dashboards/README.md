@@ -31,7 +31,7 @@ const configuration = createConfiguration();
 // Enable unstable operations
 const configurationOpts = {
     unstableOperations: {
-        "DashboardsApi.v2.listDashboardsUsage": true
+        "DashboardsApi.v2.validateDashboardWidgets": true
     }
 }
 
@@ -39,7 +39,7 @@ const configuration = createConfiguration(configurationOpts);
 const apiInstance = new DashboardsApiV2(configuration);
 const params = {/* parameters */};
 
-apiInstance.listDashboardsUsage(params).then((data) => {
+apiInstance.validateDashboardWidgets(params).then((data) => {
     console.log("API called successfully. Returned data: " + JSON.stringify(data));
 }).catch((error) => {
     console.error("Error calling API: " + error);
