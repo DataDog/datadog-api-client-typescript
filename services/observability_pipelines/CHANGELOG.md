@@ -1,5 +1,12 @@
 # CHANGELOG
 
+## 0.0.1-beta.14/2026-09-01
+
+### Added
+* Add opentelemetry metrics destination to observability pipelines public api spec [#4967](https://github.com/DataDog/datadog-api-client-typescript/pull/4967)
+* Add zstd/compression to archive destinations [#4905](https://github.com/DataDog/datadog-api-client-typescript/pull/4905)
+* Add endpoint_target field to Splunk HEC destination [#4856](https://github.com/DataDog/datadog-api-client-typescript/pull/4856)
+
 ## 0.0.1-beta.13/2026-08-06
 
 ### Added

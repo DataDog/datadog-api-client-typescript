@@ -1,5 +1,10 @@
 # CHANGELOG
 
+## 0.0.1-beta.9/2026-09-01
+
+### Changed
+* Remove status_pages_settings_write as an accepted permission from Status Pages publishing APIs [#4850](https://github.com/DataDog/datadog-api-client-typescript/pull/4850)
+
 ## 0.0.1-beta.8/2026-08-12
 
 ### Removed
