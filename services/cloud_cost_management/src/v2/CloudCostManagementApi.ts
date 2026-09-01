@@ -3215,6 +3215,7 @@ export class CloudCostManagementApiRequestFactory extends BaseAPIRequestFactory 
   public async listCostTagMetadataMetrics(
     filterMonth: string,
     filterProvider?: string,
+    filterEnabledMetricsOnly?: boolean,
     _options?: Configuration,
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
@@ -3272,6 +3273,13 @@ export class CloudCostManagementApiRequestFactory extends BaseAPIRequestFactory 
       requestContext.setQueryParam(
         "filter[provider]",
         serialize(filterProvider, TypingInfo, "string", ""),
+        "",
+      );
+    }
+    if (filterEnabledMetricsOnly !== undefined) {
+      requestContext.setQueryParam(
+        "filter[enabled_metrics_only]",
+        serialize(filterEnabledMetricsOnly, TypingInfo, "boolean", ""),
         "",
       );
     }
@@ -9526,6 +9534,11 @@ export interface CloudCostManagementApiListCostTagMetadataMetricsRequest {
    * @type string
    */
   filterProvider?: string;
+  /**
+   * When `true`, only return metrics for currently enabled accounts. When omitted or `false`, return all metrics present in tag metadata. Metrics not recognized by Cloud Cost Management are always excluded.
+   * @type boolean
+   */
+  filterEnabledMetricsOnly?: boolean;
 }
 
 export interface CloudCostManagementApiListCostTagMetadataMonthsRequest {
@@ -10871,6 +10884,7 @@ export class CloudCostManagementApi {
       this.requestFactory.listCostTagMetadataMetrics(
         param.filterMonth,
         param.filterProvider,
+        param.filterEnabledMetricsOnly,
         options,
       );
     return requestContextPromise.then((requestContext) => {
