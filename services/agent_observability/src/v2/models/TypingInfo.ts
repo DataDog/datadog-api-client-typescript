@@ -5,6 +5,9 @@ import { JSONAPIErrorItem } from "./JSONAPIErrorItem";
 import { JSONAPIErrorItemSource } from "./JSONAPIErrorItemSource";
 import { JSONAPIErrorResponse } from "./JSONAPIErrorResponse";
 import { LLMObsAnnotatedInteractionByTraceItem } from "./LLMObsAnnotatedInteractionByTraceItem";
+import { LLMObsAnnotatedInteractionDataAttributesResponse } from "./LLMObsAnnotatedInteractionDataAttributesResponse";
+import { LLMObsAnnotatedInteractionDataResponse } from "./LLMObsAnnotatedInteractionDataResponse";
+import { LLMObsAnnotatedInteractionResponse } from "./LLMObsAnnotatedInteractionResponse";
 import { LLMObsAnnotatedInteractionsByTraceDataAttributesResponse } from "./LLMObsAnnotatedInteractionsByTraceDataAttributesResponse";
 import { LLMObsAnnotatedInteractionsByTraceDataResponse } from "./LLMObsAnnotatedInteractionsByTraceDataResponse";
 import { LLMObsAnnotatedInteractionsByTraceResponse } from "./LLMObsAnnotatedInteractionsByTraceResponse";
@@ -12,7 +15,6 @@ import { LLMObsAnnotatedInteractionsDataAttributesResponse } from "./LLMObsAnnot
 import { LLMObsAnnotatedInteractionsDataResponse } from "./LLMObsAnnotatedInteractionsDataResponse";
 import { LLMObsAnnotatedInteractionsResponse } from "./LLMObsAnnotatedInteractionsResponse";
 import { LLMObsAnnotationError } from "./LLMObsAnnotationError";
-import { LLMObsAnnotationItem } from "./LLMObsAnnotationItem";
 import { LLMObsAnnotationItemResponse } from "./LLMObsAnnotationItemResponse";
 import { LLMObsAnnotationLabelValue } from "./LLMObsAnnotationLabelValue";
 import { LLMObsAnnotationLabelValueResponse } from "./LLMObsAnnotationLabelValueResponse";
@@ -206,6 +208,10 @@ import { LLMObsExperimentationSimpleSearchRequest } from "./LLMObsExperimentatio
 import { LLMObsExperimentationSimpleSearchResponse } from "./LLMObsExperimentationSimpleSearchResponse";
 import { LLMObsExperimentationSortField } from "./LLMObsExperimentationSortField";
 import { LLMObsExperimentsResponse } from "./LLMObsExperimentsResponse";
+import { LLMObsFrontendAnnotatedInteractionItem } from "./LLMObsFrontendAnnotatedInteractionItem";
+import { LLMObsFrontendContent } from "./LLMObsFrontendContent";
+import { LLMObsFrontendInteractionItem } from "./LLMObsFrontendInteractionItem";
+import { LLMObsFrontendInteractionResponseItem } from "./LLMObsFrontendInteractionResponseItem";
 import { LLMObsInferenceCode } from "./LLMObsInferenceCode";
 import { LLMObsInferenceContent } from "./LLMObsInferenceContent";
 import { LLMObsInferenceContentValue } from "./LLMObsInferenceContentValue";
@@ -332,6 +338,7 @@ export const TypingInfo: ModelTypingInfo = {
       "experiment_trace",
       "session",
       "display_block",
+      "frontend",
     ],
     LLMObsContentBlockHeaderLevel: ["sm", "md", "lg", "xl"],
     LLMObsContentBlockLLMObsTraceInteractionType: ["trace", "experiment_trace"],
@@ -372,6 +379,7 @@ export const TypingInfo: ModelTypingInfo = {
     LLMObsExperimentType: ["experiments"],
     LLMObsExperimentationSortFieldDirection: ["asc", "desc"],
     LLMObsExperimentationType: ["experimentation"],
+    LLMObsFrontendInteractionType: ["frontend"],
     LLMObsIntegrationName: [
       "openai",
       "amazon_bedrock",
@@ -418,6 +426,7 @@ export const TypingInfo: ModelTypingInfo = {
     LLMObsAnnotatedInteractionItem: [
       "LLMObsTraceAnnotatedInteractionItem",
       "LLMObsDisplayBlockAnnotatedInteractionItem",
+      "LLMObsFrontendAnnotatedInteractionItem",
     ],
     LLMObsAnnotationLabelValueValue: [
       "number",
@@ -428,10 +437,12 @@ export const TypingInfo: ModelTypingInfo = {
     LLMObsAnnotationQueueInteractionItem: [
       "LLMObsTraceInteractionItem",
       "LLMObsDisplayBlockInteractionItem",
+      "LLMObsFrontendInteractionItem",
     ],
     LLMObsAnnotationQueueInteractionResponseItem: [
       "LLMObsTraceInteractionResponseItem",
       "LLMObsDisplayBlockInteractionResponseItem",
+      "LLMObsFrontendInteractionResponseItem",
     ],
     LLMObsPromptTemplate: ["string", "Array<LLMObsPromptChatMessage>"],
   },
@@ -442,6 +453,11 @@ export const TypingInfo: ModelTypingInfo = {
     JSONAPIErrorResponse: JSONAPIErrorResponse,
     LLMObsAnnotatedInteractionByTraceItem:
       LLMObsAnnotatedInteractionByTraceItem,
+    LLMObsAnnotatedInteractionDataAttributesResponse:
+      LLMObsAnnotatedInteractionDataAttributesResponse,
+    LLMObsAnnotatedInteractionDataResponse:
+      LLMObsAnnotatedInteractionDataResponse,
+    LLMObsAnnotatedInteractionResponse: LLMObsAnnotatedInteractionResponse,
     LLMObsAnnotatedInteractionsByTraceDataAttributesResponse:
       LLMObsAnnotatedInteractionsByTraceDataAttributesResponse,
     LLMObsAnnotatedInteractionsByTraceDataResponse:
@@ -454,7 +470,6 @@ export const TypingInfo: ModelTypingInfo = {
       LLMObsAnnotatedInteractionsDataResponse,
     LLMObsAnnotatedInteractionsResponse: LLMObsAnnotatedInteractionsResponse,
     LLMObsAnnotationError: LLMObsAnnotationError,
-    LLMObsAnnotationItem: LLMObsAnnotationItem,
     LLMObsAnnotationItemResponse: LLMObsAnnotationItemResponse,
     LLMObsAnnotationLabelValue: LLMObsAnnotationLabelValue,
     LLMObsAnnotationLabelValueResponse: LLMObsAnnotationLabelValueResponse,
@@ -718,6 +733,12 @@ export const TypingInfo: ModelTypingInfo = {
       LLMObsExperimentationSimpleSearchResponse,
     LLMObsExperimentationSortField: LLMObsExperimentationSortField,
     LLMObsExperimentsResponse: LLMObsExperimentsResponse,
+    LLMObsFrontendAnnotatedInteractionItem:
+      LLMObsFrontendAnnotatedInteractionItem,
+    LLMObsFrontendContent: LLMObsFrontendContent,
+    LLMObsFrontendInteractionItem: LLMObsFrontendInteractionItem,
+    LLMObsFrontendInteractionResponseItem:
+      LLMObsFrontendInteractionResponseItem,
     LLMObsInferenceCode: LLMObsInferenceCode,
     LLMObsInferenceContent: LLMObsInferenceContent,
     LLMObsInferenceContentValue: LLMObsInferenceContentValue,

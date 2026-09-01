@@ -1,6 +1,7 @@
 import { UnparsedObject } from "@datadog/datadog-api-client";
 
 import { LLMObsDisplayBlockInteractionResponseItem } from "./LLMObsDisplayBlockInteractionResponseItem";
+import { LLMObsFrontendInteractionResponseItem } from "./LLMObsFrontendInteractionResponseItem";
 import { LLMObsTraceInteractionResponseItem } from "./LLMObsTraceInteractionResponseItem";
 
 /**
@@ -9,4 +10,5 @@ import { LLMObsTraceInteractionResponseItem } from "./LLMObsTraceInteractionResp
 export type LLMObsAnnotationQueueInteractionResponseItem =
   | LLMObsTraceInteractionResponseItem
   | LLMObsDisplayBlockInteractionResponseItem
+  | LLMObsFrontendInteractionResponseItem
   | UnparsedObject;

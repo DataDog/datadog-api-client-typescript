@@ -8,8 +8,10 @@ export type LLMObsAnyInteractionType =
   | typeof EXPERIMENT_TRACE
   | typeof SESSION
   | typeof DISPLAY_BLOCK
+  | typeof FRONTEND
   | UnparsedObject;
 export const TRACE = "trace";
 export const EXPERIMENT_TRACE = "experiment_trace";
 export const SESSION = "session";
 export const DISPLAY_BLOCK = "display_block";
+export const FRONTEND = "frontend";

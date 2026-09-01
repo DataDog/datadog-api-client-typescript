@@ -2624,6 +2624,17 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
     },
     operationResponseType: "LLMObsAnnotatedInteractionsResponse",
   },
+  "AgentObservabilityApi.V2.GetLLMObsAnnotatedInteraction": {
+    queueId: {
+      type: "string",
+      format: "",
+    },
+    interactionId: {
+      type: "string",
+      format: "",
+    },
+    operationResponseType: "LLMObsAnnotatedInteractionResponse",
+  },
   "AgentObservabilityApi.V2.UpsertLLMObsAnnotations": {
     queueId: {
       type: "string",
