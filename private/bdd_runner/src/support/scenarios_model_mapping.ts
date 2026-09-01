@@ -7674,6 +7674,20 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
     },
     operationResponseType: "CoverageSummaryResponse",
   },
+  "CodeCoverageApi.V2.GetCodeCoverageFiles": {
+    body: {
+      type: "FilesCoverageRequest",
+      format: "",
+    },
+    operationResponseType: "FilesCoverageResponse",
+  },
+  "CodeCoverageApi.V2.GetCodeCoveragePRSummary": {
+    body: {
+      type: "PRCoverageSummaryRequest",
+      format: "",
+    },
+    operationResponseType: "CoverageSummaryResponse",
+  },
   "ComplianceApi.V2.GetRuleBasedView": {
     to: {
       type: "number",
