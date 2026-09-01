@@ -13,6 +13,10 @@ import { AttributeTypeMap } from "../../datadog-api-client-common/util";
  */
 export class DetachCaseRequestData {
   /**
+   * Unique identifier of the case.
+   */
+  "id"?: string;
+  /**
    * Relationships detaching security findings from their case.
    */
   "relationships"?: DetachCaseRequestDataRelationships;
@@ -37,6 +41,10 @@ export class DetachCaseRequestData {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
+    id: {
+      baseName: "id",
+      type: "string",
+    },
     relationships: {
       baseName: "relationships",
       type: "DetachCaseRequestDataRelationships",
