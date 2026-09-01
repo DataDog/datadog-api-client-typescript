@@ -21,7 +21,7 @@ export class LLMObsAnnotationQueueDataAttributesRequest {
   /**
    * Identifier of the project this queue belongs to.
    */
-  "projectId": string;
+  "projectId"?: string;
   /**
    * A container for additional, undeclared properties.
    * This is a holder for any undeclared properties as specified with
@@ -53,7 +53,6 @@ export class LLMObsAnnotationQueueDataAttributesRequest {
     projectId: {
       baseName: "project_id",
       type: "string",
-      required: true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
