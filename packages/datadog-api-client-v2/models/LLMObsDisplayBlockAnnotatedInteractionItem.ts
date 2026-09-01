@@ -3,7 +3,7 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
-import { LLMObsAnnotationItem } from "./LLMObsAnnotationItem";
+import { LLMObsAnnotationItemResponse } from "./LLMObsAnnotationItemResponse";
 import { LLMObsContentBlock } from "./LLMObsContentBlock";
 import { LLMObsDisplayBlockInteractionType } from "./LLMObsDisplayBlockInteractionType";
 
@@ -16,7 +16,7 @@ export class LLMObsDisplayBlockAnnotatedInteractionItem {
   /**
    * List of annotations for this interaction.
    */
-  "annotations": Array<LLMObsAnnotationItem>;
+  "annotations": Array<LLMObsAnnotationItemResponse>;
   /**
    * Whether the current caller can annotate this interaction.
    */
@@ -57,7 +57,7 @@ export class LLMObsDisplayBlockAnnotatedInteractionItem {
   static readonly attributeTypeMap: AttributeTypeMap = {
     annotations: {
       baseName: "annotations",
-      type: "Array<LLMObsAnnotationItem>",
+      type: "Array<LLMObsAnnotationItemResponse>",
       required: true,
     },
     canAnnotate: {
