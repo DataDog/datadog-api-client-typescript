@@ -4,6 +4,7 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 import { LLMObsDisplayBlockInteractionResponseItem } from "./LLMObsDisplayBlockInteractionResponseItem";
+import { LLMObsFrontendInteractionResponseItem } from "./LLMObsFrontendInteractionResponseItem";
 import { LLMObsTraceInteractionResponseItem } from "./LLMObsTraceInteractionResponseItem";
 
 import { UnparsedObject } from "../../datadog-api-client-common/util";
@@ -15,4 +16,5 @@ import { UnparsedObject } from "../../datadog-api-client-common/util";
 export type LLMObsAnnotationQueueInteractionResponseItem =
   | LLMObsTraceInteractionResponseItem
   | LLMObsDisplayBlockInteractionResponseItem
+  | LLMObsFrontendInteractionResponseItem
   | UnparsedObject;
