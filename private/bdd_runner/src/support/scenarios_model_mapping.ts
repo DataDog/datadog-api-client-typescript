@@ -5200,7 +5200,7 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
       format: "",
     },
     body: {
-      type: "NotebookCreateRequest",
+      type: "CaseInvestigationNotebookCreateRequest",
       format: "",
     },
     operationResponseType: "{}",
