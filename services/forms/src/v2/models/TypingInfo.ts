@@ -27,6 +27,9 @@ import { FormsResponse } from "./FormsResponse";
 import { JSONAPIErrorItem } from "./JSONAPIErrorItem";
 import { JSONAPIErrorItemSource } from "./JSONAPIErrorItemSource";
 import { JSONAPIErrorResponse } from "./JSONAPIErrorResponse";
+import { ListFormVersionsData } from "./ListFormVersionsData";
+import { ListFormVersionsDataAttributes } from "./ListFormVersionsDataAttributes";
+import { ListFormVersionsResponse } from "./ListFormVersionsResponse";
 import { PublishFormData } from "./PublishFormData";
 import { PublishFormDataAttributes } from "./PublishFormDataAttributes";
 import { PublishFormRequest } from "./PublishFormRequest";
@@ -58,6 +61,7 @@ export const TypingInfo: ModelTypingInfo = {
       "magenta",
       "indigo",
     ],
+    FormVersionListType: ["form_version_lists"],
     FormVersionState: ["draft", "frozen"],
     FormVersionType: ["form_versions"],
     LatestVersionMatchPolicy: ["none", "if_etag_match"],
@@ -91,6 +95,9 @@ export const TypingInfo: ModelTypingInfo = {
     JSONAPIErrorItem: JSONAPIErrorItem,
     JSONAPIErrorItemSource: JSONAPIErrorItemSource,
     JSONAPIErrorResponse: JSONAPIErrorResponse,
+    ListFormVersionsData: ListFormVersionsData,
+    ListFormVersionsDataAttributes: ListFormVersionsDataAttributes,
+    ListFormVersionsResponse: ListFormVersionsResponse,
     PublishFormData: PublishFormData,
     PublishFormDataAttributes: PublishFormDataAttributes,
     PublishFormRequest: PublishFormRequest,
