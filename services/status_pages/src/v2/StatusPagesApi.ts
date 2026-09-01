@@ -1493,6 +1493,7 @@ export class StatusPagesApiRequestFactory extends BaseAPIRequestFactory {
     pageLimit?: number,
     include?: string,
     filterStatus?: string,
+    filterSourceId?: string,
     sort?: string,
     filterSourceId?: string,
     _options?: Configuration,
@@ -1558,6 +1559,13 @@ export class StatusPagesApiRequestFactory extends BaseAPIRequestFactory {
       requestContext.setQueryParam(
         "filter[status]",
         serialize(filterStatus, TypingInfo, "string", ""),
+        "",
+      );
+    }
+    if (filterSourceId !== undefined) {
+      requestContext.setQueryParam(
+        "filter[source_id]",
+        serialize(filterSourceId, TypingInfo, "string", ""),
         "",
       );
     }
@@ -4905,6 +4913,11 @@ export interface StatusPagesApiListDegradationsRequest {
    */
   filterStatus?: string;
   /**
+   * Optional source ID filter. Returns only degradations whose source matches this ID (e.g. an incident ID).
+   * @type string
+   */
+  filterSourceId?: string;
+  /**
    * Sort order. Prefix with '-' for descending. Supported values: created_at, -created_at, modified_at, -modified_at.
    * @type string
    */
@@ -5708,7 +5721,7 @@ export class StatusPagesApi {
   }
 
   /**
-   * Lists all degradations for the organization. Optionally filter by status and page.
+   * Lists all degradations for the organization. Optionally filter by status, page, and source ID.
    * @param param The request object
    */
   public listDegradations(
@@ -5721,6 +5734,7 @@ export class StatusPagesApi {
       param.pageLimit,
       param.include,
       param.filterStatus,
+      param.filterSourceId,
       param.sort,
       param.filterSourceId,
       options,

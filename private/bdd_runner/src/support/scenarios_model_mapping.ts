@@ -17338,6 +17338,10 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
       type: "string",
       format: "",
     },
+    filterSourceId: {
+      type: "string",
+      format: "",
+    },
     sort: {
       type: "string",
       format: "",
