@@ -19,6 +19,10 @@ export class ObservabilityPipelineSplunkTcpSource {
    */
   "id": string;
   /**
+   * Maximum duration, in seconds, that a connection can remain open before it is closed. When unset, connections can remain open indefinitely.
+   */
+  "maxConnectionDurationSecs"?: number;
+  /**
    * Configuration for enabling TLS encryption between the pipeline component and external connecting clients.
    */
   "tls"?: ObservabilityPipelineMtlsServerTls;
@@ -49,6 +53,11 @@ export class ObservabilityPipelineSplunkTcpSource {
       baseName: "id",
       type: "string",
       required: true,
+    },
+    maxConnectionDurationSecs: {
+      baseName: "max_connection_duration_secs",
+      type: "number",
+      format: "int64",
     },
     tls: {
       baseName: "tls",
