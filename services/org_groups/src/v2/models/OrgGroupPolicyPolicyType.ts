@@ -1,7 +1,11 @@
 import { UnparsedObject } from "@datadog/datadog-api-client";
 
 /**
- * The type of the policy. Only `org_config` is supported, indicating a policy backed by an organization configuration setting.
+ * The type of the policy. `org_config` indicates a policy backed by an organization configuration setting. `role` indicates a policy backed by a Datadog custom role.
  */
-export type OrgGroupPolicyPolicyType = typeof ORG_CONFIG | UnparsedObject;
+export type OrgGroupPolicyPolicyType =
+  | typeof ORG_CONFIG
+  | typeof ROLE
+  | UnparsedObject;
 export const ORG_CONFIG = "org_config";
+export const ROLE = "role";

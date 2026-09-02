@@ -3,17 +3,21 @@ import { AttributeTypeMap } from "@datadog/datadog-api-client";
 import { OrgGroupPolicyEnforcementTier } from "./OrgGroupPolicyEnforcementTier";
 
 /**
- * Attributes for updating an org group policy.
+ * Attributes for updating an org group policy. `policy_name`, `content`, and `enforcement_tier` may be omitted individually to leave them unchanged.
  */
 export class OrgGroupPolicyUpdateAttributes {
   /**
-   * The policy content as key-value pairs.
+   * The policy content as key-value pairs. For `org_config` policies, an arbitrary key-value map (for example, `{"value": "UTC"}`). For `role` policies, a `permissions` key containing an array of permission UUIDs (for example, `{"permissions": ["<uuid>", ...]}`).
    */
   "content"?: { [key: string]: any };
   /**
-   * The enforcement tier of the policy. `OVERRIDE_ALLOWED` means the policy is set but member orgs may mutate it. `GROUP_MANAGED` means the policy is strictly controlled and mutations are blocked for affected orgs. `DELEGATE` means each member org controls its own value.
+   * The enforcement tier of the policy. `OVERRIDE_ALLOWED` means the policy is set but member orgs may mutate it. `GROUP_MANAGED` means the policy is strictly controlled and mutations are blocked for affected orgs. `DELEGATE` means each member org controls its own value. `role` policies only support `GROUP_MANAGED` and `DELEGATE` — `OVERRIDE_ALLOWED` is rejected for this policy type. Transitioning a `role` policy to `DELEGATE` (disabling it) is one-way — the policy cannot be transitioned back to `GROUP_MANAGED` afterward.
    */
   "enforcementTier"?: OrgGroupPolicyEnforcementTier;
+  /**
+   * The name of the policy. This becomes the name of the resource created across orgs in the group (for example, for `role` policies, the name of the created role). Omit to leave unchanged.
+   */
+  "policyName"?: string;
   /**
    * A container for additional, undeclared properties.
    * This is a holder for any undeclared properties as specified with
@@ -36,6 +40,10 @@ export class OrgGroupPolicyUpdateAttributes {
     enforcementTier: {
       baseName: "enforcement_tier",
       type: "OrgGroupPolicyEnforcementTier",
+    },
+    policyName: {
+      baseName: "policy_name",
+      type: "string",
     },
     additionalProperties: {
       baseName: "additionalProperties",
