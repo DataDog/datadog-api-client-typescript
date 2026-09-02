@@ -1,5 +1,10 @@
 # CHANGELOG
 
+## 0.0.1-beta.7/2026-09-02
+
+### Added
+* Add incident and Slack reaction triggers to Workflow Automation [#4965](https://github.com/DataDog/datadog-api-client-typescript/pull/4965)
+
 ## 0.0.1-beta.6/2026-08-06
 
 ### Added

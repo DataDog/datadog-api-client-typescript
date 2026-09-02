@@ -1,5 +1,11 @@
 # CHANGELOG
 
+## 0.0.1-beta.12/2026-09-02
+
+### Added
+* Add is_iac support to send X-Datadog-Managed-By header [#4945](https://github.com/DataDog/datadog-api-client-typescript/pull/4945)
+* Add OAuth support for v2 Logs queries [#4828](https://github.com/DataDog/datadog-api-client-typescript/pull/4828)
+
 ## 0.0.1-beta.11/2026-08-06
 
 ### Added

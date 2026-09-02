@@ -1,5 +1,10 @@
 # CHANGELOG
 
+## 0.0.1-beta.8/2026-09-02
+
+### Removed
+* Make LLM Observability data deletion endpoint private [#4844](https://github.com/DataDog/datadog-api-client-typescript/pull/4844)
+
 ## 0.0.1-beta.7/2026-08-06
 
 ### Added

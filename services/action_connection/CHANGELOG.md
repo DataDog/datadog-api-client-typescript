@@ -1,5 +1,11 @@
 # CHANGELOG
 
+## 0.0.1-beta.4/2026-09-02
+
+### Added
+* Add is_iac support to send X-Datadog-Managed-By header [#4945](https://github.com/DataDog/datadog-api-client-typescript/pull/4945)
+* Add tags to Action Connection API spec [#4834](https://github.com/DataDog/datadog-api-client-typescript/pull/4834)
+
 ## 0.0.1-beta.3/2025-12-17
 
 ### Security

@@ -1,5 +1,15 @@
 # CHANGELOG
 
+## 0.0.1-beta.7/2026-09-02
+
+### Removed
+* Rename spec to RUM Retention Quotas and remove unsupported mode [#4907](https://github.com/DataDog/datadog-api-client-typescript/pull/4907)
+
+### Added
+* RUM - Make exclusion filter operations public [#4891](https://github.com/DataDog/datadog-api-client-typescript/pull/4891)
+* Document RUM retention quota config API [#4867](https://github.com/DataDog/datadog-api-client-typescript/pull/4867)
+* Add OpenAPI spec for RUM Teams Ownership public API [#4837](https://github.com/DataDog/datadog-api-client-typescript/pull/4837)
+
 ## 0.0.1-beta.6/2026-08-06
 
 ### Added
