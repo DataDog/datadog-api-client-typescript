@@ -13,7 +13,7 @@ import { AttributeTypeMap } from "../../datadog-api-client-common/util";
  */
 export class OrgGroupPolicyUpdateData {
   /**
-   * Attributes for updating an org group policy.
+   * Attributes for updating an org group policy. `policy_name`, `content`, and `enforcement_tier` may be omitted individually to leave them unchanged.
    */
   "attributes": OrgGroupPolicyUpdateAttributes;
   /**
