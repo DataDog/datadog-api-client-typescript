@@ -17,6 +17,10 @@ export class CloudWorkloadSecurityAgentRuleAttributes {
    */
   "agentConstraint"?: string;
   /**
+   * The version constraint of the Datadog Agent the rule applies to
+   */
+  "agentVersion"?: string;
+  /**
    * The blocking policies that the rule belongs to
    */
   "blocking"?: Array<string>;
@@ -53,6 +57,10 @@ export class CloudWorkloadSecurityAgentRuleAttributes {
    */
   "enabled"?: boolean;
   /**
+   * The rate limiting duration of the Agent rule, in nanoseconds
+   */
+  "every"?: number;
+  /**
    * The SECL expression of the Agent rule
    */
   "expression"?: string;
@@ -60,6 +68,10 @@ export class CloudWorkloadSecurityAgentRuleAttributes {
    * The platforms the Agent rule is supported on
    */
   "filters"?: Array<string>;
+  /**
+   * The group of rules the Agent rule belongs to
+   */
+  "groupId"?: string;
   /**
    * The monitoring policies that the rule belongs to
    */
@@ -119,6 +131,10 @@ export class CloudWorkloadSecurityAgentRuleAttributes {
       baseName: "agentConstraint",
       type: "string",
     },
+    agentVersion: {
+      baseName: "agent_version",
+      type: "string",
+    },
     blocking: {
       baseName: "blocking",
       type: "Array<string>",
@@ -156,6 +172,11 @@ export class CloudWorkloadSecurityAgentRuleAttributes {
       baseName: "enabled",
       type: "boolean",
     },
+    every: {
+      baseName: "every",
+      type: "number",
+      format: "int64",
+    },
     expression: {
       baseName: "expression",
       type: "string",
@@ -163,6 +184,10 @@ export class CloudWorkloadSecurityAgentRuleAttributes {
     filters: {
       baseName: "filters",
       type: "Array<string>",
+    },
+    groupId: {
+      baseName: "group_id",
+      type: "string",
     },
     monitoring: {
       baseName: "monitoring",

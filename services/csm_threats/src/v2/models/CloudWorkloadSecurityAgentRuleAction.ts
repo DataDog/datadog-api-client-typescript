@@ -10,6 +10,10 @@ import { CloudWorkloadSecurityAgentRuleKill } from "./CloudWorkloadSecurityAgent
  */
 export class CloudWorkloadSecurityAgentRuleAction {
   /**
+   * Whether the action is disabled
+   */
+  "disabled"?: boolean;
+  /**
    * SECL expression used to target the container to apply the action on
    */
   "filter"?: string;
@@ -44,6 +48,10 @@ export class CloudWorkloadSecurityAgentRuleAction {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
+    disabled: {
+      baseName: "disabled",
+      type: "boolean",
+    },
     filter: {
       baseName: "filter",
       type: "string",
