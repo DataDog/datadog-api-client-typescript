@@ -15,6 +15,10 @@ export class Event {
    */
   "id"?: string;
   /**
+   * The integration ID of the event.
+   */
+  "integrationId"?: string;
+  /**
    * The event name.
    */
   "name"?: string;
@@ -26,6 +30,10 @@ export class Event {
    * Event type.
    */
   "type"?: string;
+  /**
+   * A unique identifier for the event. You can use this identifier to query or reference the event.
+   */
+  "uid"?: string;
 
   /**
    * A container for additional, undeclared properties.
@@ -47,6 +55,10 @@ export class Event {
       baseName: "id",
       type: "string",
     },
+    integrationId: {
+      baseName: "integration_id",
+      type: "string",
+    },
     name: {
       baseName: "name",
       type: "string",
@@ -58,6 +70,10 @@ export class Event {
     },
     type: {
       baseName: "type",
+      type: "string",
+    },
+    uid: {
+      baseName: "uid",
       type: "string",
     },
     additionalProperties: {
