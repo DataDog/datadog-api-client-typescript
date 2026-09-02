@@ -14641,6 +14641,17 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             },
         "operationResponseType": "ListConnectionsResponse",
     },
+    "v2.ListProductCatalogSKUs": {
+        "version": {
+            "type": "ProductCatalogSKUsAPIVersion",
+            "format": "",
+            },
+        "asOfDate": {
+            "type": "Date",
+            "format": "date",
+            },
+        "operationResponseType": "ProductCatalogSKUsResponse",
+    },
     "v2.GetPrunedTraceByID": {
         "traceId": {
             "type": "string",

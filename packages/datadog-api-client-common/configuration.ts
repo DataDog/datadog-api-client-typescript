@@ -736,6 +736,7 @@ export function createConfiguration(
       "v2.queryEventFilteredUsers": false,
       "v2.queryUsers": false,
       "v2.updateConnection": false,
+      "v2.listProductCatalogSKUs": false,
       "v2.getPrunedTraceByID": false,
       "v2.getTraceByID": false,
       "v2.getAsmServiceByName": false,
