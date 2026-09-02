@@ -1,6 +1,7 @@
 import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
 import { Spec } from "./Spec";
+import { WorkflowRunAsUserMode } from "./WorkflowRunAsUserMode";
 
 /**
  * Attributes of a workflow returned in a list response.
@@ -22,6 +23,10 @@ export class WorkflowListItemAttributes {
    * Whether the workflow is published. Unpublished workflows can only be run manually. Automatic triggers such as Schedule do not fire until the workflow is published.
    */
   "published"?: boolean;
+  /**
+   * The effective type of identity used to run the workflow.
+   */
+  "runAsUserMode"?: WorkflowRunAsUserMode;
   /**
    * A complete Workflow Automation definition, including its triggers, steps, and connections.
    */
@@ -66,6 +71,10 @@ export class WorkflowListItemAttributes {
     published: {
       baseName: "published",
       type: "boolean",
+    },
+    runAsUserMode: {
+      baseName: "runAsUserMode",
+      type: "WorkflowRunAsUserMode",
     },
     spec: {
       baseName: "spec",
