@@ -49,6 +49,7 @@ export { CreateFeatureFlagAttributes } from "./models/CreateFeatureFlagAttribute
 export { CreateFeatureFlagData } from "./models/CreateFeatureFlagData";
 export { CreateFeatureFlagDataType } from "./models/CreateFeatureFlagDataType";
 export { CreateFeatureFlagRequest } from "./models/CreateFeatureFlagRequest";
+export { CreateFeatureFlagStalenessStatus } from "./models/CreateFeatureFlagStalenessStatus";
 export { CreateVariant } from "./models/CreateVariant";
 export { Environment } from "./models/Environment";
 export { EnvironmentAttributes } from "./models/EnvironmentAttributes";
@@ -59,6 +60,7 @@ export { ExposureRolloutStepRequest } from "./models/ExposureRolloutStepRequest"
 export { ExposureScheduleRequest } from "./models/ExposureScheduleRequest";
 export { FeatureFlag } from "./models/FeatureFlag";
 export { FeatureFlagAttributes } from "./models/FeatureFlagAttributes";
+export { FeatureFlagDistributionChannel } from "./models/FeatureFlagDistributionChannel";
 export { FeatureFlagEnvironment } from "./models/FeatureFlagEnvironment";
 export { FeatureFlagEnvironmentListItem } from "./models/FeatureFlagEnvironmentListItem";
 export { FeatureFlagListItem } from "./models/FeatureFlagListItem";
