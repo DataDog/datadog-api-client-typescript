@@ -16,6 +16,7 @@ const params: v2.OrgGroupsApiUpdateOrgGroupPolicyRequest = {
           value: "UTC",
         },
         enforcementTier: "OVERRIDE_ALLOWED",
+        policyName: "monitor_timezone",
       },
       id: "1a2b3c4d-5e6f-7890-abcd-ef0123456789",
       type: "org_group_policies",

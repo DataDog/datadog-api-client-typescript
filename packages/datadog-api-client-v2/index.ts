@@ -6772,6 +6772,7 @@ export { OrgGroupPolicyCreateRelationships } from "./models/OrgGroupPolicyCreate
 export { OrgGroupPolicyCreateRequest } from "./models/OrgGroupPolicyCreateRequest";
 export { OrgGroupPolicyData } from "./models/OrgGroupPolicyData";
 export { OrgGroupPolicyEnforcementTier } from "./models/OrgGroupPolicyEnforcementTier";
+export { OrgGroupPolicyFilterPolicyTypeValue } from "./models/OrgGroupPolicyFilterPolicyTypeValue";
 export { OrgGroupPolicyListResponse } from "./models/OrgGroupPolicyListResponse";
 export { OrgGroupPolicyOverrideAttributes } from "./models/OrgGroupPolicyOverrideAttributes";
 export { OrgGroupPolicyOverrideCreateAttributes } from "./models/OrgGroupPolicyOverrideCreateAttributes";

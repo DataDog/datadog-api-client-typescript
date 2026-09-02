@@ -7,10 +7,10 @@
 import { UnparsedObject } from "../../datadog-api-client-common/util";
 
 /**
- * The type of the policy. `org_config` indicates a policy backed by an organization configuration setting. `role` indicates a policy backed by a Datadog custom role.
+ * The type of the policy to filter by. `org_config` indicates a policy backed by an organization configuration setting. `role` indicates a policy backed by a Datadog custom role.
  */
 
-export type OrgGroupPolicyPolicyType =
+export type OrgGroupPolicyFilterPolicyTypeValue =
   | typeof ORG_CONFIG
   | typeof ROLE
   | UnparsedObject;
