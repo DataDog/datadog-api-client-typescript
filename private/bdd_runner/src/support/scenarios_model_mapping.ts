@@ -14668,6 +14668,17 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
     },
     operationResponseType: "ListConnectionsResponse",
   },
+  "ProductCatalogApi.V2.ListProductCatalogSKUs": {
+    version: {
+      type: "ProductCatalogSKUsAPIVersion",
+      format: "",
+    },
+    asOfDate: {
+      type: "Date",
+      format: "date",
+    },
+    operationResponseType: "ProductCatalogSKUsResponse",
+  },
   "APMTraceApi.V2.GetPrunedTraceByID": {
     traceId: {
       type: "string",
