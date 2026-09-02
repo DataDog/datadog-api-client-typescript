@@ -39,9 +39,15 @@ export { MonitorFormulaAndFunctionCostDataSource } from "./models/MonitorFormula
 export { MonitorFormulaAndFunctionCostQueryDefinition } from "./models/MonitorFormulaAndFunctionCostQueryDefinition";
 export { MonitorFormulaAndFunctionDataJobsQueryDefinition } from "./models/MonitorFormulaAndFunctionDataJobsQueryDefinition";
 export { MonitorFormulaAndFunctionDataQualityDataSource } from "./models/MonitorFormulaAndFunctionDataQualityDataSource";
+export { MonitorFormulaAndFunctionDataQualityDiffFunction } from "./models/MonitorFormulaAndFunctionDataQualityDiffFunction";
+export { MonitorFormulaAndFunctionDataQualityDiffType } from "./models/MonitorFormulaAndFunctionDataQualityDiffType";
+export { MonitorFormulaAndFunctionDataQualityEntityMetricConfig } from "./models/MonitorFormulaAndFunctionDataQualityEntityMetricConfig";
+export { MonitorFormulaAndFunctionDataQualityModelBoundsOverride } from "./models/MonitorFormulaAndFunctionDataQualityModelBoundsOverride";
+export { MonitorFormulaAndFunctionDataQualityModelConfiguration } from "./models/MonitorFormulaAndFunctionDataQualityModelConfiguration";
 export { MonitorFormulaAndFunctionDataQualityModelTypeOverride } from "./models/MonitorFormulaAndFunctionDataQualityModelTypeOverride";
 export { MonitorFormulaAndFunctionDataQualityMonitorOptions } from "./models/MonitorFormulaAndFunctionDataQualityMonitorOptions";
 export { MonitorFormulaAndFunctionDataQualityQueryDefinition } from "./models/MonitorFormulaAndFunctionDataQualityQueryDefinition";
+export { MonitorFormulaAndFunctionDataQualitySourceToTargetConfig } from "./models/MonitorFormulaAndFunctionDataQualitySourceToTargetConfig";
 export { MonitorFormulaAndFunctionEventAggregation } from "./models/MonitorFormulaAndFunctionEventAggregation";
 export { MonitorFormulaAndFunctionEventQueryDefinition } from "./models/MonitorFormulaAndFunctionEventQueryDefinition";
 export { MonitorFormulaAndFunctionEventQueryDefinitionCompute } from "./models/MonitorFormulaAndFunctionEventQueryDefinitionCompute";
