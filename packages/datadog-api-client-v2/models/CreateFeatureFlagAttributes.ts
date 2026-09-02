@@ -3,7 +3,9 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
+import { CreateFeatureFlagStalenessStatus } from "./CreateFeatureFlagStalenessStatus";
 import { CreateVariant } from "./CreateVariant";
+import { FeatureFlagDistributionChannel } from "./FeatureFlagDistributionChannel";
 import { ValueType } from "./ValueType";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
@@ -19,7 +21,11 @@ export class CreateFeatureFlagAttributes {
   /**
    * The description of the feature flag.
    */
-  "description": string;
+  "description"?: string;
+  /**
+   * The distribution channel for the feature flag.
+   */
+  "distributionChannel"?: FeatureFlagDistributionChannel;
   /**
    * JSON schema for validation when value_type is JSON.
    */
@@ -32,6 +38,18 @@ export class CreateFeatureFlagAttributes {
    * The name of the feature flag.
    */
   "name": string;
+  /**
+   * Indicates whether this feature flag requires approval for changes.
+   */
+  "requireApproval"?: boolean;
+  /**
+   * The staleness status for the feature flag at creation.
+   */
+  "stalenessStatus"?: CreateFeatureFlagStalenessStatus;
+  /**
+   * Tags associated with the feature flag.
+   */
+  "tags"?: Array<string>;
   /**
    * The type of values for the feature flag variants.
    */
@@ -64,7 +82,10 @@ export class CreateFeatureFlagAttributes {
     description: {
       baseName: "description",
       type: "string",
-      required: true,
+    },
+    distributionChannel: {
+      baseName: "distribution_channel",
+      type: "FeatureFlagDistributionChannel",
     },
     jsonSchema: {
       baseName: "json_schema",
@@ -79,6 +100,18 @@ export class CreateFeatureFlagAttributes {
       baseName: "name",
       type: "string",
       required: true,
+    },
+    requireApproval: {
+      baseName: "require_approval",
+      type: "boolean",
+    },
+    stalenessStatus: {
+      baseName: "staleness_status",
+      type: "CreateFeatureFlagStalenessStatus",
+    },
+    tags: {
+      baseName: "tags",
+      type: "Array<string>",
     },
     valueType: {
       baseName: "value_type",
