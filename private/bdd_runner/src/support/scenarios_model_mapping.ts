@@ -14121,6 +14121,10 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
       type: "string",
       format: "",
     },
+    filterPolicyType: {
+      type: "OrgGroupPolicyFilterPolicyTypeValue",
+      format: "",
+    },
     pageNumber: {
       type: "number",
       format: "int64",

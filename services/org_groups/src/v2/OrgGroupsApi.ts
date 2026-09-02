@@ -33,6 +33,7 @@ import { OrgGroupMembershipSortOption } from "./models/OrgGroupMembershipSortOpt
 import { OrgGroupMembershipUpdateRequest } from "./models/OrgGroupMembershipUpdateRequest";
 import { OrgGroupPolicyConfigListResponse } from "./models/OrgGroupPolicyConfigListResponse";
 import { OrgGroupPolicyCreateRequest } from "./models/OrgGroupPolicyCreateRequest";
+import { OrgGroupPolicyFilterPolicyTypeValue } from "./models/OrgGroupPolicyFilterPolicyTypeValue";
 import { OrgGroupPolicyListResponse } from "./models/OrgGroupPolicyListResponse";
 import { OrgGroupPolicyOverrideCreateRequest } from "./models/OrgGroupPolicyOverrideCreateRequest";
 import { OrgGroupPolicyOverrideListResponse } from "./models/OrgGroupPolicyOverrideListResponse";
@@ -810,6 +811,7 @@ export class OrgGroupsApiRequestFactory extends BaseAPIRequestFactory {
   public async listOrgGroupPolicies(
     filterOrgGroupId: string,
     filterPolicyName?: string,
+    filterPolicyType?: OrgGroupPolicyFilterPolicyTypeValue,
     pageNumber?: number,
     pageSize?: number,
     sort?: OrgGroupPolicySortOption,
@@ -866,6 +868,18 @@ export class OrgGroupsApiRequestFactory extends BaseAPIRequestFactory {
       requestContext.setQueryParam(
         "filter[policy_name]",
         serialize(filterPolicyName, TypingInfo, "string", ""),
+        "",
+      );
+    }
+    if (filterPolicyType !== undefined) {
+      requestContext.setQueryParam(
+        "filter[policy_type]",
+        serialize(
+          filterPolicyType,
+          TypingInfo,
+          "OrgGroupPolicyFilterPolicyTypeValue",
+          "",
+        ),
         "",
       );
     }
@@ -3286,6 +3300,11 @@ export interface OrgGroupsApiListOrgGroupPoliciesRequest {
    */
   filterPolicyName?: string;
   /**
+   * Filter policies by policy type. Supported values are `org_config` and `role`.
+   * @type OrgGroupPolicyFilterPolicyTypeValue
+   */
+  filterPolicyType?: OrgGroupPolicyFilterPolicyTypeValue;
+  /**
    * The page number to return.
    * @type number
    */
@@ -3697,6 +3716,7 @@ export class OrgGroupsApi {
     const requestContextPromise = this.requestFactory.listOrgGroupPolicies(
       param.filterOrgGroupId,
       param.filterPolicyName,
+      param.filterPolicyType,
       param.pageNumber,
       param.pageSize,
       param.sort,
