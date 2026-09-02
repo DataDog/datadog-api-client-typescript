@@ -12,9 +12,22 @@ import { AttributeTypeMap } from "../../datadog-api-client-common/util";
  */
 export class RolloutOptionsRequest {
   /**
-   * Whether the schedule should begin automatically.
+   * Whether the schedule should begin automatically. Deprecated in favor of
+   * `scheduled_start`, which takes precedence when both are set.
    */
   "autostart"?: boolean;
+  /**
+   * Controls when the schedule starts. Supersedes `autostart`. One of:
+   *
+   * - `none`: create the schedule without starting it.
+   * - `now`: start the schedule immediately.
+   * - `relative:<duration>`: start after a duration (for example `relative:2h`).
+   * - `absolute:<RFC3339 timestamp>`: start at a specific time (for example `absolute:2025-06-13T12:00:00Z`).
+   *
+   * An `absolute` timestamp in the past or present is treated as `now`. A future start time
+   * is not supported for allocations linked to a standard experiment.
+   */
+  "scheduledStart"?: string;
   /**
    * Interval in milliseconds for uniform interval strategies.
    */
@@ -43,6 +56,10 @@ export class RolloutOptionsRequest {
     autostart: {
       baseName: "autostart",
       type: "boolean",
+    },
+    scheduledStart: {
+      baseName: "scheduled_start",
+      type: "string",
     },
     selectionIntervalMs: {
       baseName: "selection_interval_ms",

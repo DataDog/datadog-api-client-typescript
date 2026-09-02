@@ -4255,6 +4255,7 @@ export { FastlyServicesResponse } from "./models/FastlyServicesResponse";
 export { FastlyServiceType } from "./models/FastlyServiceType";
 export { FeatureFlag } from "./models/FeatureFlag";
 export { FeatureFlagAttributes } from "./models/FeatureFlagAttributes";
+export { FeatureFlagAttributesStalenessDetails } from "./models/FeatureFlagAttributesStalenessDetails";
 export { FeatureFlagEnvironment } from "./models/FeatureFlagEnvironment";
 export { FeatureFlagEnvironmentListItem } from "./models/FeatureFlagEnvironmentListItem";
 export { FeatureFlagListItem } from "./models/FeatureFlagListItem";

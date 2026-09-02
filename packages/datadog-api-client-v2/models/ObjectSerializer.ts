@@ -1771,6 +1771,7 @@ import { FastlyServiceResponse } from "./FastlyServiceResponse";
 import { FastlyServicesResponse } from "./FastlyServicesResponse";
 import { FeatureFlag } from "./FeatureFlag";
 import { FeatureFlagAttributes } from "./FeatureFlagAttributes";
+import { FeatureFlagAttributesStalenessDetails } from "./FeatureFlagAttributesStalenessDetails";
 import { FeatureFlagEnvironment } from "./FeatureFlagEnvironment";
 import { FeatureFlagEnvironmentListItem } from "./FeatureFlagEnvironmentListItem";
 import { FeatureFlagListItem } from "./FeatureFlagListItem";
@@ -11337,6 +11338,7 @@ const typeMap: { [index: string]: any } = {
   FastlyServicesResponse: FastlyServicesResponse,
   FeatureFlag: FeatureFlag,
   FeatureFlagAttributes: FeatureFlagAttributes,
+  FeatureFlagAttributesStalenessDetails: FeatureFlagAttributesStalenessDetails,
   FeatureFlagEnvironment: FeatureFlagEnvironment,
   FeatureFlagEnvironmentListItem: FeatureFlagEnvironmentListItem,
   FeatureFlagListItem: FeatureFlagListItem,
