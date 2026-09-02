@@ -77,6 +77,8 @@ export const TypingInfo: ModelTypingInfo = {
     ],
     CreateEnvironmentDataType: ["environments"],
     CreateFeatureFlagDataType: ["feature-flags"],
+    CreateFeatureFlagStalenessStatus: ["ACTIVE", "PERMANENT"],
+    FeatureFlagDistributionChannel: ["ALL", "CLIENT", "SERVER"],
     FeatureFlagStatus: ["ENABLED", "DISABLED"],
     GuardrailTriggerAction: ["PAUSE", "ABORT"],
     RolloutStrategy: ["UNIFORM_INTERVALS", "NO_ROLLOUT"],
