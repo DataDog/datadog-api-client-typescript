@@ -1,6 +1,8 @@
 import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
+import { MonitorFormulaAndFunctionDataQualityModelConfiguration } from "./MonitorFormulaAndFunctionDataQualityModelConfiguration";
 import { MonitorFormulaAndFunctionDataQualityModelTypeOverride } from "./MonitorFormulaAndFunctionDataQualityModelTypeOverride";
+import { MonitorFormulaAndFunctionDataQualitySourceToTargetConfig } from "./MonitorFormulaAndFunctionDataQualitySourceToTargetConfig";
 
 /**
  * Monitor configuration options for data quality queries.
@@ -23,6 +25,10 @@ export class MonitorFormulaAndFunctionDataQualityMonitorOptions {
    */
   "groupByColumns"?: Array<string>;
   /**
+   * Tuning options for the anomaly detection model used by the monitor.
+   */
+  "modelConfiguration"?: MonitorFormulaAndFunctionDataQualityModelConfiguration;
+  /**
    * Override for the model type used in anomaly detection.
    */
   "modelTypeOverride"?: MonitorFormulaAndFunctionDataQualityModelTypeOverride;
@@ -32,6 +38,11 @@ export class MonitorFormulaAndFunctionDataQualityMonitorOptions {
    * lower values tighten them and produce more alerts. Defaults to `3.0`.
    */
   "sensitivity"?: number;
+  /**
+   * Configuration for a source to target monitor, which compares the same measure
+   * across two data entities and alerts on the difference between them.
+   */
+  "sourceToTargetConfig"?: MonitorFormulaAndFunctionDataQualitySourceToTargetConfig;
   /**
    * A container for additional, undeclared properties.
    * This is a holder for any undeclared properties as specified with
@@ -63,6 +74,10 @@ export class MonitorFormulaAndFunctionDataQualityMonitorOptions {
       baseName: "group_by_columns",
       type: "Array<string>",
     },
+    modelConfiguration: {
+      baseName: "model_configuration",
+      type: "MonitorFormulaAndFunctionDataQualityModelConfiguration",
+    },
     modelTypeOverride: {
       baseName: "model_type_override",
       type: "MonitorFormulaAndFunctionDataQualityModelTypeOverride",
@@ -71,6 +86,10 @@ export class MonitorFormulaAndFunctionDataQualityMonitorOptions {
       baseName: "sensitivity",
       type: "number",
       format: "double",
+    },
+    sourceToTargetConfig: {
+      baseName: "source_to_target_config",
+      type: "MonitorFormulaAndFunctionDataQualitySourceToTargetConfig",
     },
     additionalProperties: {
       baseName: "additionalProperties",

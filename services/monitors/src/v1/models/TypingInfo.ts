@@ -14,8 +14,11 @@ import { MonitorFormulaAndFunctionAggregateQueryFilter } from "./MonitorFormulaA
 import { MonitorFormulaAndFunctionAggregateQueryJoinCondition } from "./MonitorFormulaAndFunctionAggregateQueryJoinCondition";
 import { MonitorFormulaAndFunctionCostQueryDefinition } from "./MonitorFormulaAndFunctionCostQueryDefinition";
 import { MonitorFormulaAndFunctionDataJobsQueryDefinition } from "./MonitorFormulaAndFunctionDataJobsQueryDefinition";
+import { MonitorFormulaAndFunctionDataQualityEntityMetricConfig } from "./MonitorFormulaAndFunctionDataQualityEntityMetricConfig";
+import { MonitorFormulaAndFunctionDataQualityModelConfiguration } from "./MonitorFormulaAndFunctionDataQualityModelConfiguration";
 import { MonitorFormulaAndFunctionDataQualityMonitorOptions } from "./MonitorFormulaAndFunctionDataQualityMonitorOptions";
 import { MonitorFormulaAndFunctionDataQualityQueryDefinition } from "./MonitorFormulaAndFunctionDataQualityQueryDefinition";
+import { MonitorFormulaAndFunctionDataQualitySourceToTargetConfig } from "./MonitorFormulaAndFunctionDataQualitySourceToTargetConfig";
 import { MonitorFormulaAndFunctionEventQueryDefinition } from "./MonitorFormulaAndFunctionEventQueryDefinition";
 import { MonitorFormulaAndFunctionEventQueryDefinitionCompute } from "./MonitorFormulaAndFunctionEventQueryDefinitionCompute";
 import { MonitorFormulaAndFunctionEventQueryDefinitionSearch } from "./MonitorFormulaAndFunctionEventQueryDefinitionSearch";
@@ -85,6 +88,12 @@ export const TypingInfo: ModelTypingInfo = {
       "datadog_usage",
     ],
     MonitorFormulaAndFunctionDataQualityDataSource: ["data_quality_metrics"],
+    MonitorFormulaAndFunctionDataQualityDiffFunction: ["DIFF", "DIFF_PERCENT"],
+    MonitorFormulaAndFunctionDataQualityDiffType: ["absolute", "diff_percent"],
+    MonitorFormulaAndFunctionDataQualityModelBoundsOverride: [
+      "UPPER_ONLY",
+      "LOWER_ONLY",
+    ],
     MonitorFormulaAndFunctionDataQualityModelTypeOverride: [
       "freshness",
       "percentage",
@@ -230,10 +239,16 @@ export const TypingInfo: ModelTypingInfo = {
       MonitorFormulaAndFunctionCostQueryDefinition,
     MonitorFormulaAndFunctionDataJobsQueryDefinition:
       MonitorFormulaAndFunctionDataJobsQueryDefinition,
+    MonitorFormulaAndFunctionDataQualityEntityMetricConfig:
+      MonitorFormulaAndFunctionDataQualityEntityMetricConfig,
+    MonitorFormulaAndFunctionDataQualityModelConfiguration:
+      MonitorFormulaAndFunctionDataQualityModelConfiguration,
     MonitorFormulaAndFunctionDataQualityMonitorOptions:
       MonitorFormulaAndFunctionDataQualityMonitorOptions,
     MonitorFormulaAndFunctionDataQualityQueryDefinition:
       MonitorFormulaAndFunctionDataQualityQueryDefinition,
+    MonitorFormulaAndFunctionDataQualitySourceToTargetConfig:
+      MonitorFormulaAndFunctionDataQualitySourceToTargetConfig,
     MonitorFormulaAndFunctionEventQueryDefinition:
       MonitorFormulaAndFunctionEventQueryDefinition,
     MonitorFormulaAndFunctionEventQueryDefinitionCompute:
