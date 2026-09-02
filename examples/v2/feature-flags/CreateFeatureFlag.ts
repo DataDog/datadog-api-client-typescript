@@ -13,9 +13,12 @@ const params: v2.FeatureFlagsApiCreateFeatureFlagRequest = {
       type: "feature-flags",
       attributes: {
         defaultVariantKey: "variant-Example-Feature-Flag-1",
-        description: "Test feature flag for BDD scenarios",
+        distributionChannel: "SERVER",
         key: "test-feature-flag-Example-Feature-Flag",
         name: "Test Feature Flag Example-Feature-Flag",
+        requireApproval: false,
+        stalenessStatus: "PERMANENT",
+        tags: ["env:api-client-test"],
         valueType: "BOOLEAN",
         variants: [
           {

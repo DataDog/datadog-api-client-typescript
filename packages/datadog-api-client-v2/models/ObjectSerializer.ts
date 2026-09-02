@@ -6572,6 +6572,7 @@ const enumsMap: { [key: string]: any[] } = {
   ],
   CreateEnvironmentDataType: ["environments"],
   CreateFeatureFlagDataType: ["feature-flags"],
+  CreateFeatureFlagStalenessStatus: ["ACTIVE", "PERMANENT"],
   CreateMaintenanceRequestDataAttributesUpdatesItemsStatus: [
     "in_progress",
     "completed",
@@ -6838,6 +6839,7 @@ const enumsMap: { [key: string]: any[] } = {
   FastlyAccountType: ["fastly-accounts"],
   FastlyIntegrationType: ["Fastly"],
   FastlyServiceType: ["fastly-services"],
+  FeatureFlagDistributionChannel: ["ALL", "CLIENT", "SERVER"],
   FeatureFlagStatus: ["ENABLED", "DISABLED"],
   FindingDataType: ["findings"],
   FindingEvaluation: ["pass", "fail"],

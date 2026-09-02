@@ -3350,6 +3350,7 @@ export { CreateFeatureFlagAttributes } from "./models/CreateFeatureFlagAttribute
 export { CreateFeatureFlagData } from "./models/CreateFeatureFlagData";
 export { CreateFeatureFlagDataType } from "./models/CreateFeatureFlagDataType";
 export { CreateFeatureFlagRequest } from "./models/CreateFeatureFlagRequest";
+export { CreateFeatureFlagStalenessStatus } from "./models/CreateFeatureFlagStalenessStatus";
 export { CreateFormData } from "./models/CreateFormData";
 export { CreateFormDataAttributes } from "./models/CreateFormDataAttributes";
 export { CreateFormRequest } from "./models/CreateFormRequest";
@@ -4260,6 +4261,7 @@ export { FastlyServicesResponse } from "./models/FastlyServicesResponse";
 export { FastlyServiceType } from "./models/FastlyServiceType";
 export { FeatureFlag } from "./models/FeatureFlag";
 export { FeatureFlagAttributes } from "./models/FeatureFlagAttributes";
+export { FeatureFlagDistributionChannel } from "./models/FeatureFlagDistributionChannel";
 export { FeatureFlagEnvironment } from "./models/FeatureFlagEnvironment";
 export { FeatureFlagEnvironmentListItem } from "./models/FeatureFlagEnvironmentListItem";
 export { FeatureFlagListItem } from "./models/FeatureFlagListItem";
