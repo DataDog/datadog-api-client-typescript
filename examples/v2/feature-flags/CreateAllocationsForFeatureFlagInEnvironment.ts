@@ -20,6 +20,7 @@ const params: v2.FeatureFlagsApiCreateAllocationsForFeatureFlagInEnvironmentRequ
             id: "550e8400-e29b-41d4-a716-446655440010",
             rolloutOptions: {
               autostart: false,
+              scheduledStart: "absolute:2025-06-13T12:00:00Z",
               selectionIntervalMs: 3600000,
               strategy: "UNIFORM_INTERVALS",
             },
