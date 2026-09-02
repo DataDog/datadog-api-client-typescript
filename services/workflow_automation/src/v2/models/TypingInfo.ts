@@ -101,6 +101,9 @@ import { WorkflowListInstancesResponseMeta } from "./WorkflowListInstancesRespon
 import { WorkflowListInstancesResponseMetaPage } from "./WorkflowListInstancesResponseMetaPage";
 import { WorkflowListItem } from "./WorkflowListItem";
 import { WorkflowListItemAttributes } from "./WorkflowListItemAttributes";
+import { WorkflowRunAsInitiator } from "./WorkflowRunAsInitiator";
+import { WorkflowRunAsOwner } from "./WorkflowRunAsOwner";
+import { WorkflowRunAsServiceAccount } from "./WorkflowRunAsServiceAccount";
 import { WorkflowTriggerWrapper } from "./WorkflowTriggerWrapper";
 import { WorkflowUserRelationship } from "./WorkflowUserRelationship";
 import { WorkflowUserRelationshipData } from "./WorkflowUserRelationshipData";
@@ -151,6 +154,10 @@ export const TypingInfo: ModelTypingInfo = {
     RetryStrategyKind: ["RETRY_STRATEGY_LINEAR"],
     ScheduleTriggerOverlapBehavior: ["EXCLUSIVE_RUN", "OVERLAP_ALLOWED"],
     WorkflowDataType: ["workflows"],
+    WorkflowRunAsInitiatorType: ["initiator"],
+    WorkflowRunAsOwnerType: ["owner"],
+    WorkflowRunAsServiceAccountType: ["service_account"],
+    WorkflowRunAsUserMode: ["owner", "service_account", "initiator"],
     WorkflowUserRelationshipType: ["users"],
   },
   oneOfMap: {
@@ -182,6 +189,11 @@ export const TypingInfo: ModelTypingInfo = {
       "SlackTriggerWrapper",
       "SoftwareCatalogTriggerWrapper",
       "WorkflowTriggerWrapper",
+    ],
+    WorkflowRunAs: [
+      "WorkflowRunAsOwner",
+      "WorkflowRunAsServiceAccount",
+      "WorkflowRunAsInitiator",
     ],
   },
   typeMap: {
@@ -289,6 +301,9 @@ export const TypingInfo: ModelTypingInfo = {
       WorkflowListInstancesResponseMetaPage,
     WorkflowListItem: WorkflowListItem,
     WorkflowListItemAttributes: WorkflowListItemAttributes,
+    WorkflowRunAsInitiator: WorkflowRunAsInitiator,
+    WorkflowRunAsOwner: WorkflowRunAsOwner,
+    WorkflowRunAsServiceAccount: WorkflowRunAsServiceAccount,
     WorkflowTriggerWrapper: WorkflowTriggerWrapper,
     WorkflowUserRelationship: WorkflowUserRelationship,
     WorkflowUserRelationshipData: WorkflowUserRelationshipData,

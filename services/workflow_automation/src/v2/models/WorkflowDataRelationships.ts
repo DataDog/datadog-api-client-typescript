@@ -15,6 +15,10 @@ export class WorkflowDataRelationships {
    */
   "owner"?: WorkflowUserRelationship;
   /**
+   * The definition of `WorkflowUserRelationship` object.
+   */
+  "runAs"?: WorkflowUserRelationship;
+  /**
    * A container for additional, undeclared properties.
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
@@ -35,6 +39,10 @@ export class WorkflowDataRelationships {
     },
     owner: {
       baseName: "owner",
+      type: "WorkflowUserRelationship",
+    },
+    runAs: {
+      baseName: "runAs",
       type: "WorkflowUserRelationship",
     },
     additionalProperties: {
