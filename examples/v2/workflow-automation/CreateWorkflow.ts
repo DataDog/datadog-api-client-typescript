@@ -14,6 +14,9 @@ const params: v2.WorkflowAutomationApiCreateWorkflowRequest = {
         description: "A sample workflow.",
         name: "Example Workflow",
         published: true,
+        runAs: {
+          type: "owner",
+        },
         spec: {
           connectionEnvs: [
             {

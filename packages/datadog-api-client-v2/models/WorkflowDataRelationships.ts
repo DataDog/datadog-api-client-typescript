@@ -19,6 +19,10 @@ export class WorkflowDataRelationships {
    * The definition of `WorkflowUserRelationship` object.
    */
   "owner"?: WorkflowUserRelationship;
+  /**
+   * The definition of `WorkflowUserRelationship` object.
+   */
+  "runAs"?: WorkflowUserRelationship;
 
   /**
    * A container for additional, undeclared properties.
@@ -42,6 +46,10 @@ export class WorkflowDataRelationships {
     },
     owner: {
       baseName: "owner",
+      type: "WorkflowUserRelationship",
+    },
+    runAs: {
+      baseName: "runAs",
       type: "WorkflowUserRelationship",
     },
     additionalProperties: {

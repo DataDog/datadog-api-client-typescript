@@ -5948,6 +5948,9 @@ import { WorkflowListInstancesResponseMeta } from "./WorkflowListInstancesRespon
 import { WorkflowListInstancesResponseMetaPage } from "./WorkflowListInstancesResponseMetaPage";
 import { WorkflowListItem } from "./WorkflowListItem";
 import { WorkflowListItemAttributes } from "./WorkflowListItemAttributes";
+import { WorkflowRunAsInitiator } from "./WorkflowRunAsInitiator";
+import { WorkflowRunAsOwner } from "./WorkflowRunAsOwner";
+import { WorkflowRunAsServiceAccount } from "./WorkflowRunAsServiceAccount";
 import { WorkflowTriggerWrapper } from "./WorkflowTriggerWrapper";
 import { WorkflowUserRelationship } from "./WorkflowUserRelationship";
 import { WorkflowUserRelationshipData } from "./WorkflowUserRelationshipData";
@@ -9212,6 +9215,10 @@ const enumsMap: { [key: string]: any[] } = {
     "treemap",
   ],
   WorkflowDataType: ["workflows"],
+  WorkflowRunAsInitiatorType: ["initiator"],
+  WorkflowRunAsOwnerType: ["owner"],
+  WorkflowRunAsServiceAccountType: ["service_account"],
+  WorkflowRunAsUserMode: ["owner", "service_account", "initiator"],
   WorkflowUserRelationshipType: ["users"],
 };
 
@@ -16511,6 +16518,9 @@ const typeMap: { [index: string]: any } = {
   WorkflowListInstancesResponseMetaPage: WorkflowListInstancesResponseMetaPage,
   WorkflowListItem: WorkflowListItem,
   WorkflowListItemAttributes: WorkflowListItemAttributes,
+  WorkflowRunAsInitiator: WorkflowRunAsInitiator,
+  WorkflowRunAsOwner: WorkflowRunAsOwner,
+  WorkflowRunAsServiceAccount: WorkflowRunAsServiceAccount,
   WorkflowTriggerWrapper: WorkflowTriggerWrapper,
   WorkflowUserRelationship: WorkflowUserRelationship,
   WorkflowUserRelationshipData: WorkflowUserRelationshipData,
@@ -17342,6 +17352,11 @@ const oneOfMap: { [index: string]: string[] } = {
   ],
   VirusTotalCredentials: ["VirusTotalAPIKey"],
   VirusTotalCredentialsUpdate: ["VirusTotalAPIKeyUpdate"],
+  WorkflowRunAs: [
+    "WorkflowRunAsOwner",
+    "WorkflowRunAsServiceAccount",
+    "WorkflowRunAsInitiator",
+  ],
   XRayServicesList: ["XRayServicesIncludeAll", "XRayServicesIncludeOnly"],
 };
 

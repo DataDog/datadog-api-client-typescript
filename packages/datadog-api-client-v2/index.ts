@@ -9677,6 +9677,14 @@ export { WorkflowListInstancesResponseMeta } from "./models/WorkflowListInstance
 export { WorkflowListInstancesResponseMetaPage } from "./models/WorkflowListInstancesResponseMetaPage";
 export { WorkflowListItem } from "./models/WorkflowListItem";
 export { WorkflowListItemAttributes } from "./models/WorkflowListItemAttributes";
+export { WorkflowRunAs } from "./models/WorkflowRunAs";
+export { WorkflowRunAsInitiator } from "./models/WorkflowRunAsInitiator";
+export { WorkflowRunAsInitiatorType } from "./models/WorkflowRunAsInitiatorType";
+export { WorkflowRunAsOwner } from "./models/WorkflowRunAsOwner";
+export { WorkflowRunAsOwnerType } from "./models/WorkflowRunAsOwnerType";
+export { WorkflowRunAsServiceAccount } from "./models/WorkflowRunAsServiceAccount";
+export { WorkflowRunAsServiceAccountType } from "./models/WorkflowRunAsServiceAccountType";
+export { WorkflowRunAsUserMode } from "./models/WorkflowRunAsUserMode";
 export { WorkflowTriggerWrapper } from "./models/WorkflowTriggerWrapper";
 export { WorkflowUserRelationship } from "./models/WorkflowUserRelationship";
 export { WorkflowUserRelationshipData } from "./models/WorkflowUserRelationshipData";
