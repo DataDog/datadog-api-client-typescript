@@ -45,6 +45,11 @@ export class AllocationExposureSchedule {
    */
   "rolloutSteps": Array<AllocationExposureRolloutStep>;
   /**
+   * The resolved UTC start time computed from `scheduled_start`. This field is
+   * read-only and cannot be set directly.
+   */
+  "scheduledStartTime"?: Date;
+  /**
    * The timestamp when the schedule was last updated.
    */
   "updatedAt": Date;
@@ -107,6 +112,11 @@ export class AllocationExposureSchedule {
       baseName: "rollout_steps",
       type: "Array<AllocationExposureRolloutStep>",
       required: true,
+    },
+    scheduledStartTime: {
+      baseName: "scheduled_start_time",
+      type: "Date",
+      format: "date-time",
     },
     updatedAt: {
       baseName: "updated_at",

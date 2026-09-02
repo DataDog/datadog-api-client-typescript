@@ -59,6 +59,7 @@ export { ExposureRolloutStepRequest } from "./models/ExposureRolloutStepRequest"
 export { ExposureScheduleRequest } from "./models/ExposureScheduleRequest";
 export { FeatureFlag } from "./models/FeatureFlag";
 export { FeatureFlagAttributes } from "./models/FeatureFlagAttributes";
+export { FeatureFlagAttributesStalenessDetails } from "./models/FeatureFlagAttributesStalenessDetails";
 export { FeatureFlagEnvironment } from "./models/FeatureFlagEnvironment";
 export { FeatureFlagEnvironmentListItem } from "./models/FeatureFlagEnvironmentListItem";
 export { FeatureFlagListItem } from "./models/FeatureFlagListItem";

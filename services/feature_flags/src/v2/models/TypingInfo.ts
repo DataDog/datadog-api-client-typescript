@@ -29,6 +29,7 @@ import { ExposureRolloutStepRequest } from "./ExposureRolloutStepRequest";
 import { ExposureScheduleRequest } from "./ExposureScheduleRequest";
 import { FeatureFlag } from "./FeatureFlag";
 import { FeatureFlagAttributes } from "./FeatureFlagAttributes";
+import { FeatureFlagAttributesStalenessDetails } from "./FeatureFlagAttributesStalenessDetails";
 import { FeatureFlagEnvironment } from "./FeatureFlagEnvironment";
 import { FeatureFlagEnvironmentListItem } from "./FeatureFlagEnvironmentListItem";
 import { FeatureFlagListItem } from "./FeatureFlagListItem";
@@ -115,6 +116,8 @@ export const TypingInfo: ModelTypingInfo = {
     ExposureScheduleRequest: ExposureScheduleRequest,
     FeatureFlag: FeatureFlag,
     FeatureFlagAttributes: FeatureFlagAttributes,
+    FeatureFlagAttributesStalenessDetails:
+      FeatureFlagAttributesStalenessDetails,
     FeatureFlagEnvironment: FeatureFlagEnvironment,
     FeatureFlagEnvironmentListItem: FeatureFlagEnvironmentListItem,
     FeatureFlagListItem: FeatureFlagListItem,
