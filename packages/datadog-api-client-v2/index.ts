@@ -1236,6 +1236,11 @@ export {
 } from "./apis/ProductAnalyticsApi";
 
 export {
+  ProductCatalogApiListProductCatalogSKUsRequest,
+  ProductCatalogApi,
+} from "./apis/ProductCatalogApi";
+
+export {
   RUMApiAggregateRUMEventsRequest,
   RUMApiCreateRUMApplicationRequest,
   RUMApiDeleteRUMApplicationRequest,
@@ -7229,6 +7234,17 @@ export { ProductAnalyticsTimeseriesResponseAttributes } from "./models/ProductAn
 export { ProductAnalyticsTimeseriesResponseData } from "./models/ProductAnalyticsTimeseriesResponseData";
 export { ProductAnalyticsTimeseriesResponseType } from "./models/ProductAnalyticsTimeseriesResponseType";
 export { ProductAnalyticsUnit } from "./models/ProductAnalyticsUnit";
+export { ProductCatalogSKUAllotment } from "./models/ProductCatalogSKUAllotment";
+export { ProductCatalogSKUDataAttributesResponse } from "./models/ProductCatalogSKUDataAttributesResponse";
+export { ProductCatalogSKUDataResponse } from "./models/ProductCatalogSKUDataResponse";
+export { ProductCatalogSKUOnDemandOption } from "./models/ProductCatalogSKUOnDemandOption";
+export { ProductCatalogSKUPricingTier } from "./models/ProductCatalogSKUPricingTier";
+export { ProductCatalogSKUPricingType } from "./models/ProductCatalogSKUPricingType";
+export { ProductCatalogSKUPricingUnitType } from "./models/ProductCatalogSKUPricingUnitType";
+export { ProductCatalogSKUsAPIVersion } from "./models/ProductCatalogSKUsAPIVersion";
+export { ProductCatalogSKUsResponse } from "./models/ProductCatalogSKUsResponse";
+export { ProductCatalogSKUTieredPricing } from "./models/ProductCatalogSKUTieredPricing";
+export { ProductCatalogSKUType } from "./models/ProductCatalogSKUType";
 export { Project } from "./models/Project";
 export { ProjectAttributes } from "./models/ProjectAttributes";
 export { ProjectColumnsConfig } from "./models/ProjectColumnsConfig";

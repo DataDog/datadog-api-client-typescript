@@ -4040,6 +4040,12 @@ import { ProductAnalyticsTimeseriesResponse } from "./ProductAnalyticsTimeseries
 import { ProductAnalyticsTimeseriesResponseAttributes } from "./ProductAnalyticsTimeseriesResponseAttributes";
 import { ProductAnalyticsTimeseriesResponseData } from "./ProductAnalyticsTimeseriesResponseData";
 import { ProductAnalyticsUnit } from "./ProductAnalyticsUnit";
+import { ProductCatalogSKUAllotment } from "./ProductCatalogSKUAllotment";
+import { ProductCatalogSKUDataAttributesResponse } from "./ProductCatalogSKUDataAttributesResponse";
+import { ProductCatalogSKUDataResponse } from "./ProductCatalogSKUDataResponse";
+import { ProductCatalogSKUPricingTier } from "./ProductCatalogSKUPricingTier";
+import { ProductCatalogSKUTieredPricing } from "./ProductCatalogSKUTieredPricing";
+import { ProductCatalogSKUsResponse } from "./ProductCatalogSKUsResponse";
 import { Project } from "./Project";
 import { ProjectAttributes } from "./ProjectAttributes";
 import { ProjectColumnsConfig } from "./ProjectColumnsConfig";
@@ -8067,6 +8073,11 @@ const enumsMap: { [key: string]: any[] } = {
   ProductAnalyticsScalarResponseType: ["scalar_response"],
   ProductAnalyticsServerSideEventItemType: ["server"],
   ProductAnalyticsTimeseriesResponseType: ["timeseries_response"],
+  ProductCatalogSKUOnDemandOption: ["hourly", "monthly"],
+  ProductCatalogSKUPricingType: ["usage", "percent"],
+  ProductCatalogSKUPricingUnitType: ["block", "unit"],
+  ProductCatalogSKUType: ["Sku"],
+  ProductCatalogSKUsAPIVersion: ["v1"],
   ProjectFavoriteResourceType: ["project_favorite"],
   ProjectResourceType: ["project"],
   ProjectedCostType: ["projected_cost"],
@@ -14147,6 +14158,13 @@ const typeMap: { [index: string]: any } = {
   ProductAnalyticsTimeseriesResponseData:
     ProductAnalyticsTimeseriesResponseData,
   ProductAnalyticsUnit: ProductAnalyticsUnit,
+  ProductCatalogSKUAllotment: ProductCatalogSKUAllotment,
+  ProductCatalogSKUDataAttributesResponse:
+    ProductCatalogSKUDataAttributesResponse,
+  ProductCatalogSKUDataResponse: ProductCatalogSKUDataResponse,
+  ProductCatalogSKUPricingTier: ProductCatalogSKUPricingTier,
+  ProductCatalogSKUTieredPricing: ProductCatalogSKUTieredPricing,
+  ProductCatalogSKUsResponse: ProductCatalogSKUsResponse,
   Project: Project,
   ProjectAttributes: ProjectAttributes,
   ProjectColumnsConfig: ProjectColumnsConfig,
