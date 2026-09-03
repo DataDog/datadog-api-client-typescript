@@ -2603,6 +2603,10 @@ import { KindMetadata } from "./KindMetadata";
 import { KindObj } from "./KindObj";
 import { KindResponseMeta } from "./KindResponseMeta";
 import { LLMObsAnnotatedInteractionByTraceItem } from "./LLMObsAnnotatedInteractionByTraceItem";
+import { LLMObsAnnotatedInteractionDataAttributesResponse } from "./LLMObsAnnotatedInteractionDataAttributesResponse";
+import { LLMObsAnnotatedInteractionDataResponse } from "./LLMObsAnnotatedInteractionDataResponse";
+import { LLMObsAnnotatedInteractionEvent } from "./LLMObsAnnotatedInteractionEvent";
+import { LLMObsAnnotatedInteractionResponse } from "./LLMObsAnnotatedInteractionResponse";
 import { LLMObsAnnotatedInteractionsByTraceDataAttributesResponse } from "./LLMObsAnnotatedInteractionsByTraceDataAttributesResponse";
 import { LLMObsAnnotatedInteractionsByTraceDataResponse } from "./LLMObsAnnotatedInteractionsByTraceDataResponse";
 import { LLMObsAnnotatedInteractionsByTraceResponse } from "./LLMObsAnnotatedInteractionsByTraceResponse";
@@ -12333,6 +12337,12 @@ const typeMap: { [index: string]: any } = {
   KindObj: KindObj,
   KindResponseMeta: KindResponseMeta,
   LLMObsAnnotatedInteractionByTraceItem: LLMObsAnnotatedInteractionByTraceItem,
+  LLMObsAnnotatedInteractionDataAttributesResponse:
+    LLMObsAnnotatedInteractionDataAttributesResponse,
+  LLMObsAnnotatedInteractionDataResponse:
+    LLMObsAnnotatedInteractionDataResponse,
+  LLMObsAnnotatedInteractionEvent: LLMObsAnnotatedInteractionEvent,
+  LLMObsAnnotatedInteractionResponse: LLMObsAnnotatedInteractionResponse,
   LLMObsAnnotatedInteractionsByTraceDataAttributesResponse:
     LLMObsAnnotatedInteractionsByTraceDataAttributesResponse,
   LLMObsAnnotatedInteractionsByTraceDataResponse:

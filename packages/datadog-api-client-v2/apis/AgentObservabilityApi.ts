@@ -21,6 +21,8 @@ import { ApiException } from "../../datadog-api-client-common/exception";
 
 import { APIErrorResponse } from "../models/APIErrorResponse";
 import { JSONAPIErrorResponse } from "../models/JSONAPIErrorResponse";
+import { LLMObsAnnotatedInteractionEvent } from "../models/LLMObsAnnotatedInteractionEvent";
+import { LLMObsAnnotatedInteractionResponse } from "../models/LLMObsAnnotatedInteractionResponse";
 import { LLMObsAnnotatedInteractionsByTraceResponse } from "../models/LLMObsAnnotatedInteractionsByTraceResponse";
 import { LLMObsAnnotatedInteractionsResponse } from "../models/LLMObsAnnotatedInteractionsResponse";
 import { LLMObsAnnotationQueueInteractionsRequest } from "../models/LLMObsAnnotationQueueInteractionsRequest";
@@ -1516,6 +1518,75 @@ export class AgentObservabilityApiRequestFactory extends BaseAPIRequestFactory {
       requestContext.setQueryParam(
         "version",
         ObjectSerializer.serialize(version, "number", "int64"),
+        ""
+      );
+    }
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+    ]);
+
+    return requestContext;
+  }
+
+  public async getLLMObsAnnotatedInteraction(
+    queueId: string,
+    interactionId: string,
+    limit?: number,
+    cursor?: string,
+    _options?: Configuration
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    logger.warn("Using unstable operation 'getLLMObsAnnotatedInteraction'");
+    if (!_config.unstableOperations["v2.getLLMObsAnnotatedInteraction"]) {
+      throw new Error(
+        "Unstable operation 'getLLMObsAnnotatedInteraction' is disabled"
+      );
+    }
+
+    // verify required parameter 'queueId' is not null or undefined
+    if (queueId === null || queueId === undefined) {
+      throw new RequiredError("queueId", "getLLMObsAnnotatedInteraction");
+    }
+
+    // verify required parameter 'interactionId' is not null or undefined
+    if (interactionId === null || interactionId === undefined) {
+      throw new RequiredError("interactionId", "getLLMObsAnnotatedInteraction");
+    }
+
+    // Path Params
+    const localVarPath =
+      "/api/v2/llm-obs/v1/annotation-queues/{queue_id}/annotated-interactions/{interaction_id}"
+        .replace("{queue_id}", encodeURIComponent(String(queueId)))
+        .replace("{interaction_id}", encodeURIComponent(String(interactionId)));
+
+    // Make Request Context
+    const requestContext = _config
+      .getServer("v2.AgentObservabilityApi.getLLMObsAnnotatedInteraction")
+      .makeRequestContext(localVarPath, HttpMethod.GET);
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Set IaC header
+    if (_config.isIaC) {
+      requestContext.setHeaderParam("X-Datadog-Managed-By", "iac");
+    }
+
+    // Query Params
+    if (limit !== undefined) {
+      requestContext.setQueryParam(
+        "limit",
+        ObjectSerializer.serialize(limit, "number", "int32"),
+        ""
+      );
+    }
+    if (cursor !== undefined) {
+      requestContext.setQueryParam(
+        "cursor",
+        ObjectSerializer.serialize(cursor, "string", ""),
         ""
       );
     }
@@ -6436,6 +6507,94 @@ export class AgentObservabilityApiResponseProcessor {
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
    *
+   * @params response Response returned by the server for a request to getLLMObsAnnotatedInteraction
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async getLLMObsAnnotatedInteraction(
+    response: ResponseContext
+  ): Promise<LLMObsAnnotatedInteractionResponse> {
+    const contentType = ObjectSerializer.normalizeMediaType(
+      response.headers["content-type"]
+    );
+    if (response.httpStatusCode === 200) {
+      const body: LLMObsAnnotatedInteractionResponse =
+        ObjectSerializer.deserialize(
+          ObjectSerializer.parse(await response.body.text(), contentType),
+          "LLMObsAnnotatedInteractionResponse"
+        ) as LLMObsAnnotatedInteractionResponse;
+      return body;
+    }
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 401 ||
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 404
+    ) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: JSONAPIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "JSONAPIErrorResponse"
+        ) as JSONAPIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<JSONAPIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<JSONAPIErrorResponse>(
+        response.httpStatusCode,
+        body
+      );
+    }
+    if (response.httpStatusCode === 429) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: APIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "APIErrorResponse"
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: LLMObsAnnotatedInteractionResponse =
+        ObjectSerializer.deserialize(
+          ObjectSerializer.parse(await response.body.text(), contentType),
+          "LLMObsAnnotatedInteractionResponse",
+          ""
+        ) as LLMObsAnnotatedInteractionResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"'
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
    * @params response Response returned by the server for a request to getLLMObsAnnotatedInteractions
    * @throws ApiException if the response code was not in [200, 299]
    */
@@ -10847,6 +11006,29 @@ export interface AgentObservabilityApiExportLLMObsDatasetRequest {
   version?: number;
 }
 
+export interface AgentObservabilityApiGetLLMObsAnnotatedInteractionRequest {
+  /**
+   * The ID of the Agent Observability annotation queue.
+   * @type string
+   */
+  queueId: string;
+  /**
+   * The ID of the interaction in the annotation queue.
+   * @type string
+   */
+  interactionId: string;
+  /**
+   * Maximum number of events to return. Defaults to 10.
+   * @type number
+   */
+  limit?: number;
+  /**
+   * Cursor from the previous response to retrieve the next page of events.
+   * @type string
+   */
+  cursor?: string;
+}
+
 export interface AgentObservabilityApiGetLLMObsAnnotatedInteractionsRequest {
   /**
    * The ID of the Agent Observability annotation queue.
@@ -12147,6 +12329,98 @@ export class AgentObservabilityApi {
           return this.responseProcessor.exportLLMObsDataset(responseContext);
         });
     });
+  }
+
+  /**
+   * Retrieve an interaction, its annotations, and a page of related events from an annotation queue.
+   * @param param The request object
+   */
+  public getLLMObsAnnotatedInteraction(
+    param: AgentObservabilityApiGetLLMObsAnnotatedInteractionRequest,
+    options?: Configuration
+  ): Promise<LLMObsAnnotatedInteractionResponse> {
+    const requestContextPromise =
+      this.requestFactory.getLLMObsAnnotatedInteraction(
+        param.queueId,
+        param.interactionId,
+        param.limit,
+        param.cursor,
+        options
+      );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.getLLMObsAnnotatedInteraction(
+            responseContext
+          );
+        });
+    });
+  }
+
+  /**
+   * Provide a paginated version of getLLMObsAnnotatedInteraction returning a generator with all the items.
+   */
+  public async *getLLMObsAnnotatedInteractionWithPagination(
+    param: AgentObservabilityApiGetLLMObsAnnotatedInteractionRequest,
+    options?: Configuration
+  ): AsyncGenerator<LLMObsAnnotatedInteractionEvent> {
+    let pageSize = 10;
+    if (param.limit !== undefined) {
+      pageSize = param.limit;
+    }
+    param.limit = pageSize;
+    while (true) {
+      const requestContext =
+        await this.requestFactory.getLLMObsAnnotatedInteraction(
+          param.queueId,
+          param.interactionId,
+          param.limit,
+          param.cursor,
+          options
+        );
+      const responseContext = await this.configuration.httpApi.send(
+        requestContext
+      );
+
+      const response =
+        await this.responseProcessor.getLLMObsAnnotatedInteraction(
+          responseContext
+        );
+      const responseData = response.data;
+      if (responseData === undefined) {
+        break;
+      }
+      const responseDataAttributes = responseData.attributes;
+      if (responseDataAttributes === undefined) {
+        break;
+      }
+      const responseDataAttributesEvents = responseDataAttributes.events;
+      if (responseDataAttributesEvents === undefined) {
+        break;
+      }
+      const results = responseDataAttributesEvents;
+      for (const item of results) {
+        yield item;
+      }
+      if (results.length === 0) {
+        break;
+      }
+      const cursorData = response.data;
+      if (cursorData === undefined) {
+        break;
+      }
+      const cursorDataAttributes = cursorData.attributes;
+      if (cursorDataAttributes === undefined) {
+        break;
+      }
+      const cursorDataAttributesNextCursor = cursorDataAttributes.nextCursor;
+      if (cursorDataAttributesNextCursor === undefined) {
+        break;
+      }
+
+      param.cursor = cursorDataAttributesNextCursor;
+    }
   }
 
   /**

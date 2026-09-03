@@ -2614,6 +2614,25 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             },
         "operationResponseType": "LLMObsAnnotatedInteractionsResponse",
     },
+    "v2.GetLLMObsAnnotatedInteraction": {
+        "queueId": {
+            "type": "string",
+            "format": "",
+            },
+        "interactionId": {
+            "type": "string",
+            "format": "",
+            },
+        "limit": {
+            "type": "number",
+            "format": "int32",
+            },
+        "cursor": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "LLMObsAnnotatedInteractionResponse",
+    },
     "v2.UpsertLLMObsAnnotations": {
         "queueId": {
             "type": "string",
