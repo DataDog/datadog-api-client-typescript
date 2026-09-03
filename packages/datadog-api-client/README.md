@@ -392,6 +392,7 @@ apiInstance
 | Dashboards | @datadog/datadog-api-client-dashboards | [README.md](../../services/dashboards/README.md) |
 | Data Deletion | @datadog/datadog-api-client-data-deletion | [README.md](../../services/data-deletion/README.md) |
 | Data Observability | @datadog/datadog-api-client-data-observability | [README.md](../../services/data-observability/README.md) |
+| Databricks Integration Accounts | @datadog/datadog-api-client-databricks-integration-accounts | [README.md](../../services/databricks-integration-accounts/README.md) |
 | Datasets | @datadog/datadog-api-client-datasets | [README.md](../../services/datasets/README.md) |
 | DDSQL | @datadog/datadog-api-client-ddsql | [README.md](../../services/ddsql/README.md) |
 | Deployment Gates | @datadog/datadog-api-client-deployment-gates | [README.md](../../services/deployment-gates/README.md) |
