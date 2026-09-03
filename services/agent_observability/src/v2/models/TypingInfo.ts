@@ -5,6 +5,10 @@ import { JSONAPIErrorItem } from "./JSONAPIErrorItem";
 import { JSONAPIErrorItemSource } from "./JSONAPIErrorItemSource";
 import { JSONAPIErrorResponse } from "./JSONAPIErrorResponse";
 import { LLMObsAnnotatedInteractionByTraceItem } from "./LLMObsAnnotatedInteractionByTraceItem";
+import { LLMObsAnnotatedInteractionDataAttributesResponse } from "./LLMObsAnnotatedInteractionDataAttributesResponse";
+import { LLMObsAnnotatedInteractionDataResponse } from "./LLMObsAnnotatedInteractionDataResponse";
+import { LLMObsAnnotatedInteractionEvent } from "./LLMObsAnnotatedInteractionEvent";
+import { LLMObsAnnotatedInteractionResponse } from "./LLMObsAnnotatedInteractionResponse";
 import { LLMObsAnnotatedInteractionsByTraceDataAttributesResponse } from "./LLMObsAnnotatedInteractionsByTraceDataAttributesResponse";
 import { LLMObsAnnotatedInteractionsByTraceDataResponse } from "./LLMObsAnnotatedInteractionsByTraceDataResponse";
 import { LLMObsAnnotatedInteractionsByTraceResponse } from "./LLMObsAnnotatedInteractionsByTraceResponse";
@@ -442,6 +446,12 @@ export const TypingInfo: ModelTypingInfo = {
     JSONAPIErrorResponse: JSONAPIErrorResponse,
     LLMObsAnnotatedInteractionByTraceItem:
       LLMObsAnnotatedInteractionByTraceItem,
+    LLMObsAnnotatedInteractionDataAttributesResponse:
+      LLMObsAnnotatedInteractionDataAttributesResponse,
+    LLMObsAnnotatedInteractionDataResponse:
+      LLMObsAnnotatedInteractionDataResponse,
+    LLMObsAnnotatedInteractionEvent: LLMObsAnnotatedInteractionEvent,
+    LLMObsAnnotatedInteractionResponse: LLMObsAnnotatedInteractionResponse,
     LLMObsAnnotatedInteractionsByTraceDataAttributesResponse:
       LLMObsAnnotatedInteractionsByTraceDataAttributesResponse,
     LLMObsAnnotatedInteractionsByTraceDataResponse:

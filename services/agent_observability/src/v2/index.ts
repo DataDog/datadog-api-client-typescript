@@ -23,6 +23,7 @@ export {
   AgentObservabilityApiDeleteLLMObsProjectsRequest,
   AgentObservabilityApiDeleteLLMObsPromptRequest,
   AgentObservabilityApiExportLLMObsDatasetRequest,
+  AgentObservabilityApiGetLLMObsAnnotatedInteractionRequest,
   AgentObservabilityApiGetLLMObsAnnotatedInteractionsRequest,
   AgentObservabilityApiGetLLMObsAnnotatedInteractionsByTraceIDsRequest,
   AgentObservabilityApiGetLLMObsAnnotationQueueLabelSchemaRequest,
@@ -78,7 +79,11 @@ export { JSONAPIErrorItem } from "./models/JSONAPIErrorItem";
 export { JSONAPIErrorItemSource } from "./models/JSONAPIErrorItemSource";
 export { JSONAPIErrorResponse } from "./models/JSONAPIErrorResponse";
 export { LLMObsAnnotatedInteractionByTraceItem } from "./models/LLMObsAnnotatedInteractionByTraceItem";
+export { LLMObsAnnotatedInteractionDataAttributesResponse } from "./models/LLMObsAnnotatedInteractionDataAttributesResponse";
+export { LLMObsAnnotatedInteractionDataResponse } from "./models/LLMObsAnnotatedInteractionDataResponse";
+export { LLMObsAnnotatedInteractionEvent } from "./models/LLMObsAnnotatedInteractionEvent";
 export { LLMObsAnnotatedInteractionItem } from "./models/LLMObsAnnotatedInteractionItem";
+export { LLMObsAnnotatedInteractionResponse } from "./models/LLMObsAnnotatedInteractionResponse";
 export { LLMObsAnnotatedInteractionsByTraceDataAttributesResponse } from "./models/LLMObsAnnotatedInteractionsByTraceDataAttributesResponse";
 export { LLMObsAnnotatedInteractionsByTraceDataResponse } from "./models/LLMObsAnnotatedInteractionsByTraceDataResponse";
 export { LLMObsAnnotatedInteractionsByTraceResponse } from "./models/LLMObsAnnotatedInteractionsByTraceResponse";
