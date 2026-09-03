@@ -31,6 +31,7 @@ import { CaseCountResponse } from "../models/CaseCountResponse";
 import { CaseCreateRequest } from "../models/CaseCreateRequest";
 import { CaseEmptyRequest } from "../models/CaseEmptyRequest";
 import { CaseInsightsRequest } from "../models/CaseInsightsRequest";
+import { CaseInvestigationNotebookCreateRequest } from "../models/CaseInvestigationNotebookCreateRequest";
 import { CaseLinkCreateRequest } from "../models/CaseLinkCreateRequest";
 import { CaseLinkResponse } from "../models/CaseLinkResponse";
 import { CaseLinksResponse } from "../models/CaseLinksResponse";
@@ -62,7 +63,6 @@ import { MaintenanceWindowCreateRequest } from "../models/MaintenanceWindowCreat
 import { MaintenanceWindowResponse } from "../models/MaintenanceWindowResponse";
 import { MaintenanceWindowsResponse } from "../models/MaintenanceWindowsResponse";
 import { MaintenanceWindowUpdateRequest } from "../models/MaintenanceWindowUpdateRequest";
-import { NotebookCreateRequest } from "../models/NotebookCreateRequest";
 import { ProjectCreateRequest } from "../models/ProjectCreateRequest";
 import { ProjectFavoritesResponse } from "../models/ProjectFavoritesResponse";
 import { ProjectRelationship } from "../models/ProjectRelationship";
@@ -656,7 +656,7 @@ export class CaseManagementApiRequestFactory extends BaseAPIRequestFactory {
 
   public async createCaseNotebook(
     caseId: string,
-    body: NotebookCreateRequest,
+    body: CaseInvestigationNotebookCreateRequest,
     _options?: Configuration
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
@@ -696,7 +696,11 @@ export class CaseManagementApiRequestFactory extends BaseAPIRequestFactory {
     ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
-      ObjectSerializer.serialize(body, "NotebookCreateRequest", ""),
+      ObjectSerializer.serialize(
+        body,
+        "CaseInvestigationNotebookCreateRequest",
+        ""
+      ),
       contentType
     );
     requestContext.setBody(serializedBody);
@@ -7718,10 +7722,10 @@ export interface CaseManagementApiCreateCaseNotebookRequest {
    */
   caseId: string;
   /**
-   * Notebook creation request
-   * @type NotebookCreateRequest
+   * Case investigation notebook creation request.
+   * @type CaseInvestigationNotebookCreateRequest
    */
-  body: NotebookCreateRequest;
+  body: CaseInvestigationNotebookCreateRequest;
 }
 
 export interface CaseManagementApiCreateCaseServiceNowTicketRequest {
@@ -8611,7 +8615,7 @@ export class CaseManagementApi {
   }
 
   /**
-   * Create a new investigation notebook and link it to a case
+   * Create a new investigation notebook and link it to a case.
    * @param param The request object
    */
   public createCaseNotebook(
