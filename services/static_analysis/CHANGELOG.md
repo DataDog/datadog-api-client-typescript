@@ -1,5 +1,10 @@
 # CHANGELOG
 
+## 0.0.1-beta.4/2026-09-02
+
+### Changed
+* Fix SCA OpenAPI drift [#4927](https://github.com/DataDog/datadog-api-client-typescript/pull/4927)
+
 ## 0.0.1-beta.3/2026-06-30
 
 ### Added

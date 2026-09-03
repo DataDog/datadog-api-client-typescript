@@ -1,5 +1,11 @@
 # CHANGELOG
 
+## 0.0.1-beta.5/2026-09-02
+
+### Added
+* Add is_iac support to send X-Datadog-Managed-By header [#4945](https://github.com/DataDog/datadog-api-client-typescript/pull/4945)
+* Add warmup, fail_on_no_groups_found, and fail_on_no_data to Deployment Gates monitor rule options [#4943](https://github.com/DataDog/datadog-api-client-typescript/pull/4943)
+
 ## 0.0.1-beta.4/2026-08-12
 
 ### Added

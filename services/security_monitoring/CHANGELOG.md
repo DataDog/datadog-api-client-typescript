@@ -1,5 +1,13 @@
 # CHANGELOG
 
+## 0.0.1-beta.16/2026-09-02
+
+### Fixed
+* Fix ARM API security spec drift [#4915](https://github.com/DataDog/datadog-api-client-typescript/pull/4915)
+
+### Added
+* API spec for severity modifiers automation pipelines [#4870](https://github.com/DataDog/datadog-api-client-typescript/pull/4870)
+
 ## 0.0.1-beta.15/2026-08-06
 
 ### Fixed

@@ -1,5 +1,10 @@
 # CHANGELOG
 
+## 0.0.1-beta.6/2026-09-02
+
+### Added
+* Add is_deleted query parameter to ListSLOs [#4762](https://github.com/DataDog/datadog-api-client-typescript/pull/4762)
+
 ## 0.0.1-beta.5/2026-06-30
 
 ### Added
