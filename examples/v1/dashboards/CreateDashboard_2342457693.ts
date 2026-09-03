@@ -71,6 +71,55 @@ const params: v1.DashboardsApiCreateDashboardRequest = {
           colorByGroups: [],
         },
       },
+      {
+        layout: {
+          x: 48,
+          y: 0,
+          width: 47,
+          height: 15,
+        },
+        definition: {
+          title: "Data Projection Scatterplot",
+          titleSize: "16",
+          titleAlign: "left",
+          type: "scatterplot",
+          requests: {
+            table: {
+              requestType: "data_projection",
+              query: {
+                queryString: "@service:web-store",
+                dataSource: "spans",
+              },
+              projection: {
+                type: "scatterplot",
+                dimensions: [
+                  {
+                    column: "duration",
+                    dimension: "x",
+                  },
+                  {
+                    column: "@resource_name",
+                    dimension: "y",
+                  },
+                ],
+              },
+              limit: 200,
+            },
+          },
+          xaxis: {
+            scale: "linear",
+            includeZero: true,
+            min: "auto",
+            max: "auto",
+          },
+          yaxis: {
+            scale: "linear",
+            includeZero: true,
+            min: "auto",
+            max: "auto",
+          },
+        },
+      },
     ],
     templateVariables: [],
     layoutType: "free",
