@@ -3,11 +3,11 @@ import { AttributeTypeMap } from "@datadog/datadog-api-client";
 import { RUMOperationStrongLinkResponseData } from "./RUMOperationStrongLinkResponseData";
 
 /**
- * The response for a single RUM operation strong link.
+ * The response for a single RUM operation link.
  */
 export class RUMOperationStrongLinkResponse {
   /**
-   * The data object in a RUM operation strong link response.
+   * The data object in a RUM operation link response.
    */
   "data": RUMOperationStrongLinkResponseData;
   /**

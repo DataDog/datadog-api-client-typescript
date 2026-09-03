@@ -4,15 +4,15 @@ import { RUMOperationStrongLinkType } from "./RUMOperationStrongLinkType";
 import { RUMOperationStrongLinkUpdateRequestAttributes } from "./RUMOperationStrongLinkUpdateRequestAttributes";
 
 /**
- * The data object for updating a RUM operation strong link.
+ * The data object for updating a RUM operation link.
  */
 export class RUMOperationStrongLinkUpdateRequestData {
   /**
-   * Attributes for updating a RUM operation strong link.
+   * Attributes for updating a RUM operation link.
    */
   "attributes": RUMOperationStrongLinkUpdateRequestAttributes;
   /**
-   * The JSON:API type for RUM operation strong link resources.
+   * The JSON:API type for RUM operation link resources.
    */
   "type": RUMOperationStrongLinkType;
   /**
