@@ -1284,6 +1284,7 @@ import { CycloneDXVulnerabilityAnalysis } from "./CycloneDXVulnerabilityAnalysis
 import { CycloneDXVulnerabilityRating } from "./CycloneDXVulnerabilityRating";
 import { CycloneDXVulnerabilityReference } from "./CycloneDXVulnerabilityReference";
 import { CycloneDXVulnerabilityReferenceSource } from "./CycloneDXVulnerabilityReferenceSource";
+import { DORADeploymentAveragedMetrics } from "./DORADeploymentAveragedMetrics";
 import { DORADeploymentFetchResponse } from "./DORADeploymentFetchResponse";
 import { DORADeploymentObject } from "./DORADeploymentObject";
 import { DORADeploymentObjectAttributes } from "./DORADeploymentObjectAttributes";
@@ -1296,6 +1297,7 @@ import { DORADeploymentPatchRemediation } from "./DORADeploymentPatchRemediation
 import { DORADeploymentPatchRequest } from "./DORADeploymentPatchRequest";
 import { DORADeploymentPatchRequestAttributes } from "./DORADeploymentPatchRequestAttributes";
 import { DORADeploymentPatchRequestData } from "./DORADeploymentPatchRequestData";
+import { DORADeploymentRemediation } from "./DORADeploymentRemediation";
 import { DORADeploymentRequest } from "./DORADeploymentRequest";
 import { DORADeploymentRequestAttributes } from "./DORADeploymentRequestAttributes";
 import { DORADeploymentRequestData } from "./DORADeploymentRequestData";
@@ -10761,6 +10763,7 @@ const typeMap: { [index: string]: any } = {
   CycloneDXVulnerabilityRating: CycloneDXVulnerabilityRating,
   CycloneDXVulnerabilityReference: CycloneDXVulnerabilityReference,
   CycloneDXVulnerabilityReferenceSource: CycloneDXVulnerabilityReferenceSource,
+  DORADeploymentAveragedMetrics: DORADeploymentAveragedMetrics,
   DORADeploymentFetchResponse: DORADeploymentFetchResponse,
   DORADeploymentObject: DORADeploymentObject,
   DORADeploymentObjectAttributes: DORADeploymentObjectAttributes,
@@ -10777,6 +10780,7 @@ const typeMap: { [index: string]: any } = {
   DORADeploymentPatchRequest: DORADeploymentPatchRequest,
   DORADeploymentPatchRequestAttributes: DORADeploymentPatchRequestAttributes,
   DORADeploymentPatchRequestData: DORADeploymentPatchRequestData,
+  DORADeploymentRemediation: DORADeploymentRemediation,
   DORADeploymentRequest: DORADeploymentRequest,
   DORADeploymentRequestAttributes: DORADeploymentRequestAttributes,
   DORADeploymentRequestData: DORADeploymentRequestData,
