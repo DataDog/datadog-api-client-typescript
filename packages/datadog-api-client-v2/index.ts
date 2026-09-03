@@ -477,6 +477,8 @@ export {
 export {
   CodeCoverageApiGetCodeCoverageBranchSummaryRequest,
   CodeCoverageApiGetCodeCoverageCommitSummaryRequest,
+  CodeCoverageApiGetCodeCoverageFilesRequest,
+  CodeCoverageApiGetCodeCoveragePRSummaryRequest,
   CodeCoverageApi,
 } from "./apis/CodeCoverageApi";
 
@@ -4270,6 +4272,15 @@ export { FeatureFlagResponse } from "./models/FeatureFlagResponse";
 export { FeatureFlagsPaginationMeta } from "./models/FeatureFlagsPaginationMeta";
 export { FeatureFlagsPaginationMetaPage } from "./models/FeatureFlagsPaginationMetaPage";
 export { FeatureFlagStatus } from "./models/FeatureFlagStatus";
+export { FileCoverageLines } from "./models/FileCoverageLines";
+export { FilesCoverageAttributes } from "./models/FilesCoverageAttributes";
+export { FilesCoverageData } from "./models/FilesCoverageData";
+export { FilesCoverageRequest } from "./models/FilesCoverageRequest";
+export { FilesCoverageRequestAttributes } from "./models/FilesCoverageRequestAttributes";
+export { FilesCoverageRequestData } from "./models/FilesCoverageRequestData";
+export { FilesCoverageRequestType } from "./models/FilesCoverageRequestType";
+export { FilesCoverageResponse } from "./models/FilesCoverageResponse";
+export { FilesCoverageResponseType } from "./models/FilesCoverageResponseType";
 export { FiltersPerProduct } from "./models/FiltersPerProduct";
 export { Finding } from "./models/Finding";
 export { FindingAttributes } from "./models/FindingAttributes";
@@ -7027,6 +7038,10 @@ export { PowerpackResponseLinks } from "./models/PowerpackResponseLinks";
 export { PowerpacksResponseMeta } from "./models/PowerpacksResponseMeta";
 export { PowerpacksResponseMetaPagination } from "./models/PowerpacksResponseMetaPagination";
 export { PowerpackTemplateVariable } from "./models/PowerpackTemplateVariable";
+export { PRCoverageSummaryRequest } from "./models/PRCoverageSummaryRequest";
+export { PRCoverageSummaryRequestAttributes } from "./models/PRCoverageSummaryRequestAttributes";
+export { PRCoverageSummaryRequestData } from "./models/PRCoverageSummaryRequestData";
+export { PRCoverageSummaryRequestType } from "./models/PRCoverageSummaryRequestType";
 export { PreviewEntityResponseData } from "./models/PreviewEntityResponseData";
 export { PrintReportRequest } from "./models/PrintReportRequest";
 export { PrintReportRequestAttributes } from "./models/PrintReportRequestAttributes";

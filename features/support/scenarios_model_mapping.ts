@@ -7650,6 +7650,20 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             },
         "operationResponseType": "CoverageSummaryResponse",
     },
+    "v2.GetCodeCoverageFiles": {
+        "body": {
+            "type": "FilesCoverageRequest",
+            "format": "",
+            },
+        "operationResponseType": "FilesCoverageResponse",
+    },
+    "v2.GetCodeCoveragePRSummary": {
+        "body": {
+            "type": "PRCoverageSummaryRequest",
+            "format": "",
+            },
+        "operationResponseType": "CoverageSummaryResponse",
+    },
     "v2.GetRuleBasedView": {
         "to": {
             "type": "number",
