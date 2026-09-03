@@ -1,5 +1,5 @@
 /**
- * Create a RUM operation strong link returns "Created" response
+ * Create a RUM operation link returns "Created" response
  */
 
 import { client, v2 } from "@datadog/datadog-api-client";
@@ -13,7 +13,7 @@ const params: v2.RUMOperationsApiCreateRUMOperationStrongLinkRequest = {
     data: {
       attributes: {
         description: undefined,
-        featureId: "feature-123",
+        featureId: "journey-123",
         operationId: "abc12345-1234-5678-abcd-ef1234567890",
         status: "CONFIRMED",
         tags: [],
