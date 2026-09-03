@@ -1,5 +1,5 @@
 /**
- * Delete a RUM operation strong link returns "No Content" response
+ * Delete a RUM operation link returns "No Content" response
  */
 
 import { client, v2 } from "@datadog/datadog-api-client";

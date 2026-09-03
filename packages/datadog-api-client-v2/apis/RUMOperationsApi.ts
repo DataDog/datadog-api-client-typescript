@@ -1441,7 +1441,7 @@ export interface RUMOperationsApiDeleteRUMOperationStrongLinkRequest {
    */
   rumOperationId: string;
   /**
-   * The unique identifier of the feature.
+   * The unique identifier of the journey.
    * @type string
    */
   featureId: string;
@@ -1490,7 +1490,7 @@ export interface RUMOperationsApiListRUMOperationsRequest {
    */
   team?: string;
   /**
-   * Filter operations by feature ID. Accepts a comma-separated list of feature IDs.
+   * Filter operations by journey ID. Accepts a comma-separated list of journey IDs.
    * @type string
    */
   featureId?: string;
@@ -1503,12 +1503,12 @@ export interface RUMOperationsApiListRUMOperationsRequest {
 
 export interface RUMOperationsApiListRUMOperationStrongLinksRequest {
   /**
-   * Filter strong links by RUM operation ID.
+   * Filter links by RUM operation ID.
    * @type string
    */
   operationId?: string;
   /**
-   * Filter strong links by feature ID.
+   * Filter links by journey (feature) ID.
    * @type string
    */
   featureId?: string;
@@ -1543,7 +1543,7 @@ export interface RUMOperationsApiUpdateRUMOperationStrongLinkRequest {
    */
   rumOperationId: string;
   /**
-   * The unique identifier of the feature.
+   * The unique identifier of the journey.
    * @type string
    */
   featureId: string;
@@ -1592,7 +1592,7 @@ export class RUMOperationsApi {
   }
 
   /**
-   * Create a strong link between a RUM operation and a feature, confirming that the feature
+   * Create a link between a RUM operation and a journey, confirming that the journey
    * belongs to the operation. The operation can be identified by `operation_id` or `operation_name`;
    * if `operation_name` does not match an existing operation, a stub operation is created.
    * @param param The request object
@@ -1636,7 +1636,7 @@ export class RUMOperationsApi {
   }
 
   /**
-   * Delete the strong link between a RUM operation and a feature.
+   * Delete the link between a RUM operation and a journey.
    * @param param The request object
    */
   public deleteRUMOperationStrongLink(
@@ -1703,7 +1703,8 @@ export class RUMOperationsApi {
   }
 
   /**
-   * Search RUM operations for your organization. Supports filtering by query, creator, team, feature, and application.
+   * Search RUM operations for your organization. Supports filtering by query, creator, team,
+   * journey, and application.
    * @param param The request object
    */
   public listRUMOperations(
@@ -1730,8 +1731,8 @@ export class RUMOperationsApi {
   }
 
   /**
-   * List strong links between RUM operations and features. A strong link confirms that a feature
-   * belongs to an operation. Provide `operation_id`, `feature_id`, or both to filter results;
+   * List links between RUM operations and journeys. A link confirms that a journey
+   * belongs to an operation. Provide `operation_id`, `feature_id` (journey ID), or both to filter results;
    * at least one is required.
    * @param param The request object
    */
@@ -1782,7 +1783,7 @@ export class RUMOperationsApi {
   }
 
   /**
-   * Update the status of a strong link between a RUM operation and a feature.
+   * Update the status of a link between a RUM operation and a journey.
    * @param param The request object
    */
   public updateRUMOperationStrongLink(
