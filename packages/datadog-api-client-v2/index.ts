@@ -558,6 +558,7 @@ export {
 export {
   DashboardsApiGetDashboardUsageRequest,
   DashboardsApiListDashboardsUsageRequest,
+  DashboardsApiValidateDashboardWidgetsRequest,
   DashboardsApi,
 } from "./apis/DashboardsApi";
 
@@ -3668,6 +3669,11 @@ export { DashboardUsageAttributes } from "./models/DashboardUsageAttributes";
 export { DashboardUsageResponse } from "./models/DashboardUsageResponse";
 export { DashboardUsageType } from "./models/DashboardUsageType";
 export { DashboardUsageUser } from "./models/DashboardUsageUser";
+export { DashboardWidgetValidationLayoutType } from "./models/DashboardWidgetValidationLayoutType";
+export { DashboardWidgetValidationReflowType } from "./models/DashboardWidgetValidationReflowType";
+export { DashboardWidgetValidationRequest } from "./models/DashboardWidgetValidationRequest";
+export { DashboardWidgetValidationResponse } from "./models/DashboardWidgetValidationResponse";
+export { DashboardWidgetValidationResult } from "./models/DashboardWidgetValidationResult";
 export { DataAttributesRulesItemsIfTagExists } from "./models/DataAttributesRulesItemsIfTagExists";
 export { DataAttributesRulesItemsMapping } from "./models/DataAttributesRulesItemsMapping";
 export { DatabaseMonitoringTriggerWrapper } from "./models/DatabaseMonitoringTriggerWrapper";
