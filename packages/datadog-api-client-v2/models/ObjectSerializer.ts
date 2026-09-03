@@ -1345,6 +1345,42 @@ import { DataScalarColumn } from "./DataScalarColumn";
 import { DataTransform } from "./DataTransform";
 import { DataTransformProperties } from "./DataTransformProperties";
 import { DatabaseMonitoringTriggerWrapper } from "./DatabaseMonitoringTriggerWrapper";
+import { DatabricksCloudCostMetricsIntegrationDataflowRequest } from "./DatabricksCloudCostMetricsIntegrationDataflowRequest";
+import { DatabricksCloudCostMetricsIntegrationDataflowResponse } from "./DatabricksCloudCostMetricsIntegrationDataflowResponse";
+import { DatabricksCloudCostMetricsIntegrationDataflowSettingsRequest } from "./DatabricksCloudCostMetricsIntegrationDataflowSettingsRequest";
+import { DatabricksCloudCostMetricsIntegrationDataflowSettingsResponse } from "./DatabricksCloudCostMetricsIntegrationDataflowSettingsResponse";
+import { DatabricksDataJobMonitoringIntegrationDataflowRequest } from "./DatabricksDataJobMonitoringIntegrationDataflowRequest";
+import { DatabricksDataJobMonitoringIntegrationDataflowResponse } from "./DatabricksDataJobMonitoringIntegrationDataflowResponse";
+import { DatabricksDataJobMonitoringIntegrationDataflowSettingsRequest } from "./DatabricksDataJobMonitoringIntegrationDataflowSettingsRequest";
+import { DatabricksDataJobMonitoringIntegrationDataflowSettingsResponse } from "./DatabricksDataJobMonitoringIntegrationDataflowSettingsResponse";
+import { DatabricksDataObservabilityIntegrationDataflowRequest } from "./DatabricksDataObservabilityIntegrationDataflowRequest";
+import { DatabricksDataObservabilityIntegrationDataflowResponse } from "./DatabricksDataObservabilityIntegrationDataflowResponse";
+import { DatabricksDataObservabilityIntegrationDataflowSettingsRequest } from "./DatabricksDataObservabilityIntegrationDataflowSettingsRequest";
+import { DatabricksDataObservabilityIntegrationDataflowSettingsResponse } from "./DatabricksDataObservabilityIntegrationDataflowSettingsResponse";
+import { DatabricksIntegrationAccountCreateAttributes } from "./DatabricksIntegrationAccountCreateAttributes";
+import { DatabricksIntegrationAccountCreateData } from "./DatabricksIntegrationAccountCreateData";
+import { DatabricksIntegrationAccountCreateRequest } from "./DatabricksIntegrationAccountCreateRequest";
+import { DatabricksIntegrationAccountOAuthAuthRequest } from "./DatabricksIntegrationAccountOAuthAuthRequest";
+import { DatabricksIntegrationAccountOAuthAuthResponse } from "./DatabricksIntegrationAccountOAuthAuthResponse";
+import { DatabricksIntegrationAccountOAuthAuthUpdate } from "./DatabricksIntegrationAccountOAuthAuthUpdate";
+import { DatabricksIntegrationAccountPatAuthResponse } from "./DatabricksIntegrationAccountPatAuthResponse";
+import { DatabricksIntegrationAccountPatAuthUpdate } from "./DatabricksIntegrationAccountPatAuthUpdate";
+import { DatabricksIntegrationAccountResponse } from "./DatabricksIntegrationAccountResponse";
+import { DatabricksIntegrationAccountResponseAttributes } from "./DatabricksIntegrationAccountResponseAttributes";
+import { DatabricksIntegrationAccountResponseData } from "./DatabricksIntegrationAccountResponseData";
+import { DatabricksIntegrationAccountSettingsRequest } from "./DatabricksIntegrationAccountSettingsRequest";
+import { DatabricksIntegrationAccountSettingsResponse } from "./DatabricksIntegrationAccountSettingsResponse";
+import { DatabricksIntegrationAccountSettingsUpdate } from "./DatabricksIntegrationAccountSettingsUpdate";
+import { DatabricksIntegrationAccountUpdateAttributes } from "./DatabricksIntegrationAccountUpdateAttributes";
+import { DatabricksIntegrationAccountUpdateData } from "./DatabricksIntegrationAccountUpdateData";
+import { DatabricksIntegrationAccountUpdateRequest } from "./DatabricksIntegrationAccountUpdateRequest";
+import { DatabricksIntegrationAccountsResponse } from "./DatabricksIntegrationAccountsResponse";
+import { DatabricksIntegrationDataflowsRequest } from "./DatabricksIntegrationDataflowsRequest";
+import { DatabricksIntegrationDataflowsResponse } from "./DatabricksIntegrationDataflowsResponse";
+import { DatabricksModelServingMetricsIntegrationDataflowRequest } from "./DatabricksModelServingMetricsIntegrationDataflowRequest";
+import { DatabricksModelServingMetricsIntegrationDataflowResponse } from "./DatabricksModelServingMetricsIntegrationDataflowResponse";
+import { DatabricksServerlessJobsIntegrationDataflowRequest } from "./DatabricksServerlessJobsIntegrationDataflowRequest";
+import { DatabricksServerlessJobsIntegrationDataflowResponse } from "./DatabricksServerlessJobsIntegrationDataflowResponse";
 import { DatadogAPIKey } from "./DatadogAPIKey";
 import { DatadogAPIKeyUpdate } from "./DatadogAPIKeyUpdate";
 import { DatadogIntegration } from "./DatadogIntegration";
@@ -2473,6 +2509,8 @@ import { IntegrationAccountBasicAuthRequest } from "./IntegrationAccountBasicAut
 import { IntegrationAccountBasicAuthResponse } from "./IntegrationAccountBasicAuthResponse";
 import { IntegrationAccountBasicAuthUpdate } from "./IntegrationAccountBasicAuthUpdate";
 import { IntegrationAccountDataflowStatus } from "./IntegrationAccountDataflowStatus";
+import { IntegrationAccountPrivateActionRunnerAuthRequest } from "./IntegrationAccountPrivateActionRunnerAuthRequest";
+import { IntegrationAccountPrivateActionRunnerAuthResponse } from "./IntegrationAccountPrivateActionRunnerAuthResponse";
 import { IntegrationAttributes } from "./IntegrationAttributes";
 import { IntegrationIncident } from "./IntegrationIncident";
 import { IntegrationIncidentFieldMappingsItems } from "./IntegrationIncidentFieldMappingsItems";
@@ -6675,6 +6713,8 @@ const enumsMap: { [key: string]: any[] } = {
   DataObservabilityMonitorRunType: ["monitor_run"],
   DataRelationshipsTeamsDataItemsType: ["teams"],
   DataTransformType: ["dataTransform"],
+  DatabricksIntegrationAccountOAuthAuthType: ["databricks-oauth"],
+  DatabricksIntegrationAccountPatAuthType: ["pat"],
   DatadogAPIKeyType: ["DatadogAPIKey"],
   DatadogIntegrationType: ["Datadog"],
   DatasetReportScheduleResourceType: ["widget_dataset_list"],
@@ -7145,6 +7185,7 @@ const enumsMap: { [key: string]: any[] } = {
     "DATAFLOW_HEALTH_BROKEN",
     "DATAFLOW_HEALTH_UNKNOWN",
   ],
+  IntegrationAccountPrivateActionRunnerAuthType: ["private-action-runner"],
   IntegrationAccountType: ["integration-account"],
   IntegrationType: ["integration"],
   InterfaceAttributesStatus: ["up", "down", "warning", "off"],
@@ -10826,6 +10867,75 @@ const typeMap: { [index: string]: any } = {
   DataTransform: DataTransform,
   DataTransformProperties: DataTransformProperties,
   DatabaseMonitoringTriggerWrapper: DatabaseMonitoringTriggerWrapper,
+  DatabricksCloudCostMetricsIntegrationDataflowRequest:
+    DatabricksCloudCostMetricsIntegrationDataflowRequest,
+  DatabricksCloudCostMetricsIntegrationDataflowResponse:
+    DatabricksCloudCostMetricsIntegrationDataflowResponse,
+  DatabricksCloudCostMetricsIntegrationDataflowSettingsRequest:
+    DatabricksCloudCostMetricsIntegrationDataflowSettingsRequest,
+  DatabricksCloudCostMetricsIntegrationDataflowSettingsResponse:
+    DatabricksCloudCostMetricsIntegrationDataflowSettingsResponse,
+  DatabricksDataJobMonitoringIntegrationDataflowRequest:
+    DatabricksDataJobMonitoringIntegrationDataflowRequest,
+  DatabricksDataJobMonitoringIntegrationDataflowResponse:
+    DatabricksDataJobMonitoringIntegrationDataflowResponse,
+  DatabricksDataJobMonitoringIntegrationDataflowSettingsRequest:
+    DatabricksDataJobMonitoringIntegrationDataflowSettingsRequest,
+  DatabricksDataJobMonitoringIntegrationDataflowSettingsResponse:
+    DatabricksDataJobMonitoringIntegrationDataflowSettingsResponse,
+  DatabricksDataObservabilityIntegrationDataflowRequest:
+    DatabricksDataObservabilityIntegrationDataflowRequest,
+  DatabricksDataObservabilityIntegrationDataflowResponse:
+    DatabricksDataObservabilityIntegrationDataflowResponse,
+  DatabricksDataObservabilityIntegrationDataflowSettingsRequest:
+    DatabricksDataObservabilityIntegrationDataflowSettingsRequest,
+  DatabricksDataObservabilityIntegrationDataflowSettingsResponse:
+    DatabricksDataObservabilityIntegrationDataflowSettingsResponse,
+  DatabricksIntegrationAccountCreateAttributes:
+    DatabricksIntegrationAccountCreateAttributes,
+  DatabricksIntegrationAccountCreateData:
+    DatabricksIntegrationAccountCreateData,
+  DatabricksIntegrationAccountCreateRequest:
+    DatabricksIntegrationAccountCreateRequest,
+  DatabricksIntegrationAccountOAuthAuthRequest:
+    DatabricksIntegrationAccountOAuthAuthRequest,
+  DatabricksIntegrationAccountOAuthAuthResponse:
+    DatabricksIntegrationAccountOAuthAuthResponse,
+  DatabricksIntegrationAccountOAuthAuthUpdate:
+    DatabricksIntegrationAccountOAuthAuthUpdate,
+  DatabricksIntegrationAccountPatAuthResponse:
+    DatabricksIntegrationAccountPatAuthResponse,
+  DatabricksIntegrationAccountPatAuthUpdate:
+    DatabricksIntegrationAccountPatAuthUpdate,
+  DatabricksIntegrationAccountResponse: DatabricksIntegrationAccountResponse,
+  DatabricksIntegrationAccountResponseAttributes:
+    DatabricksIntegrationAccountResponseAttributes,
+  DatabricksIntegrationAccountResponseData:
+    DatabricksIntegrationAccountResponseData,
+  DatabricksIntegrationAccountSettingsRequest:
+    DatabricksIntegrationAccountSettingsRequest,
+  DatabricksIntegrationAccountSettingsResponse:
+    DatabricksIntegrationAccountSettingsResponse,
+  DatabricksIntegrationAccountSettingsUpdate:
+    DatabricksIntegrationAccountSettingsUpdate,
+  DatabricksIntegrationAccountUpdateAttributes:
+    DatabricksIntegrationAccountUpdateAttributes,
+  DatabricksIntegrationAccountUpdateData:
+    DatabricksIntegrationAccountUpdateData,
+  DatabricksIntegrationAccountUpdateRequest:
+    DatabricksIntegrationAccountUpdateRequest,
+  DatabricksIntegrationAccountsResponse: DatabricksIntegrationAccountsResponse,
+  DatabricksIntegrationDataflowsRequest: DatabricksIntegrationDataflowsRequest,
+  DatabricksIntegrationDataflowsResponse:
+    DatabricksIntegrationDataflowsResponse,
+  DatabricksModelServingMetricsIntegrationDataflowRequest:
+    DatabricksModelServingMetricsIntegrationDataflowRequest,
+  DatabricksModelServingMetricsIntegrationDataflowResponse:
+    DatabricksModelServingMetricsIntegrationDataflowResponse,
+  DatabricksServerlessJobsIntegrationDataflowRequest:
+    DatabricksServerlessJobsIntegrationDataflowRequest,
+  DatabricksServerlessJobsIntegrationDataflowResponse:
+    DatabricksServerlessJobsIntegrationDataflowResponse,
   DatadogAPIKey: DatadogAPIKey,
   DatadogAPIKeyUpdate: DatadogAPIKeyUpdate,
   DatadogIntegration: DatadogIntegration,
@@ -12195,6 +12305,10 @@ const typeMap: { [index: string]: any } = {
   IntegrationAccountBasicAuthResponse: IntegrationAccountBasicAuthResponse,
   IntegrationAccountBasicAuthUpdate: IntegrationAccountBasicAuthUpdate,
   IntegrationAccountDataflowStatus: IntegrationAccountDataflowStatus,
+  IntegrationAccountPrivateActionRunnerAuthRequest:
+    IntegrationAccountPrivateActionRunnerAuthRequest,
+  IntegrationAccountPrivateActionRunnerAuthResponse:
+    IntegrationAccountPrivateActionRunnerAuthResponse,
   IntegrationAttributes: IntegrationAttributes,
   IntegrationIncident: IntegrationIncident,
   IntegrationIncidentFieldMappingsItems: IntegrationIncidentFieldMappingsItems,
@@ -16749,6 +16863,20 @@ const oneOfMap: { [index: string]: string[] } = {
   DORADeploymentPatchByVersionRemediation: [
     "DORADeploymentPatchByVersionRemediationByID",
     "DORADeploymentPatchByVersionRemediationByVersion",
+  ],
+  DatabricksIntegrationAccountAuthenticationRequest: [
+    "DatabricksIntegrationAccountOAuthAuthRequest",
+    "IntegrationAccountPrivateActionRunnerAuthRequest",
+  ],
+  DatabricksIntegrationAccountAuthenticationResponse: [
+    "DatabricksIntegrationAccountOAuthAuthResponse",
+    "IntegrationAccountPrivateActionRunnerAuthResponse",
+    "DatabricksIntegrationAccountPatAuthResponse",
+  ],
+  DatabricksIntegrationAccountAuthenticationUpdate: [
+    "DatabricksIntegrationAccountOAuthAuthUpdate",
+    "IntegrationAccountPrivateActionRunnerAuthRequest",
+    "DatabricksIntegrationAccountPatAuthUpdate",
   ],
   DatadogCredentials: ["DatadogAPIKey"],
   DatadogCredentialsUpdate: ["DatadogAPIKeyUpdate"],

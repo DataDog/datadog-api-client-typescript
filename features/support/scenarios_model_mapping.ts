@@ -11238,6 +11238,41 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             },
         "operationResponseType": "IncidentTimestampOverrideResponse",
     },
+    "v2.ListDatabricksIntegrationAccounts": {
+        "operationResponseType": "DatabricksIntegrationAccountsResponse",
+    },
+    "v2.CreateDatabricksIntegrationAccount": {
+        "body": {
+            "type": "DatabricksIntegrationAccountCreateRequest",
+            "format": "",
+            },
+        "operationResponseType": "DatabricksIntegrationAccountResponse",
+    },
+    "v2.GetDatabricksIntegrationAccount": {
+        "accountId": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "DatabricksIntegrationAccountResponse",
+    },
+    "v2.DeleteDatabricksIntegrationAccount": {
+        "accountId": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "{}",
+    },
+    "v2.UpdateDatabricksIntegrationAccount": {
+        "accountId": {
+            "type": "string",
+            "format": "",
+            },
+        "body": {
+            "type": "DatabricksIntegrationAccountUpdateRequest",
+            "format": "",
+            },
+        "operationResponseType": "DatabricksIntegrationAccountResponse",
+    },
     "v2.ListElasticCloudIntegrationAccounts": {
         "operationResponseType": "ElasticCloudIntegrationAccountsResponse",
     },
