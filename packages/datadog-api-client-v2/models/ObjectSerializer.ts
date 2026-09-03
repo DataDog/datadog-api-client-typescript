@@ -1494,6 +1494,7 @@ import { DetailedFinding } from "./DetailedFinding";
 import { DetailedFindingAttributes } from "./DetailedFindingAttributes";
 import { DeviceAttributes } from "./DeviceAttributes";
 import { DeviceAttributesInterfaceStatuses } from "./DeviceAttributesInterfaceStatuses";
+import { DeviceTagsBySource } from "./DeviceTagsBySource";
 import { DevicesListData } from "./DevicesListData";
 import { DomainAllowlist } from "./DomainAllowlist";
 import { DomainAllowlistAttributes } from "./DomainAllowlistAttributes";
@@ -11014,6 +11015,7 @@ const typeMap: { [index: string]: any } = {
   DetailedFindingAttributes: DetailedFindingAttributes,
   DeviceAttributes: DeviceAttributes,
   DeviceAttributesInterfaceStatuses: DeviceAttributesInterfaceStatuses,
+  DeviceTagsBySource: DeviceTagsBySource,
   DevicesListData: DevicesListData,
   DomainAllowlist: DomainAllowlist,
   DomainAllowlistAttributes: DomainAllowlistAttributes,
