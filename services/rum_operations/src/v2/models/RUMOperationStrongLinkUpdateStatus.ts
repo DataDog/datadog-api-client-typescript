@@ -1,7 +1,7 @@
 import { UnparsedObject } from "@datadog/datadog-api-client";
 
 /**
- * The status of a RUM operation strong link. Can only be set to `CONFIRMED` or `REJECTED`.
+ * The status of a RUM operation link. Can only be set to `CONFIRMED` or `REJECTED`.
  */
 export type RUMOperationStrongLinkUpdateStatus =
   | typeof CONFIRMED
