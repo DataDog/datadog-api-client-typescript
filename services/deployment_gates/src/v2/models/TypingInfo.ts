@@ -33,6 +33,8 @@ import { DeploymentGatesMonitorRuleOptions } from "./DeploymentGatesMonitorRuleO
 import { DeploymentGatesRuleResponse } from "./DeploymentGatesRuleResponse";
 import { DeploymentRuleOptionsFaultyDeploymentDetection } from "./DeploymentRuleOptionsFaultyDeploymentDetection";
 import { DeploymentRuleOptionsMonitor } from "./DeploymentRuleOptionsMonitor";
+import { DeploymentRuleOptionsMonitorId } from "./DeploymentRuleOptionsMonitorId";
+import { DeploymentRuleOptionsMonitorIds } from "./DeploymentRuleOptionsMonitorIds";
 import { DeploymentRuleResponse } from "./DeploymentRuleResponse";
 import { DeploymentRuleResponseData } from "./DeploymentRuleResponseData";
 import { DeploymentRuleResponseDataAttributes } from "./DeploymentRuleResponseDataAttributes";
@@ -86,6 +88,7 @@ export const TypingInfo: ModelTypingInfo = {
     DeploymentRulesOptions: [
       "DeploymentRuleOptionsFaultyDeploymentDetection",
       "DeploymentRuleOptionsMonitor",
+      "DeploymentRuleOptionsMonitorIds",
     ],
   },
   typeMap: {
@@ -134,6 +137,8 @@ export const TypingInfo: ModelTypingInfo = {
     DeploymentRuleOptionsFaultyDeploymentDetection:
       DeploymentRuleOptionsFaultyDeploymentDetection,
     DeploymentRuleOptionsMonitor: DeploymentRuleOptionsMonitor,
+    DeploymentRuleOptionsMonitorId: DeploymentRuleOptionsMonitorId,
+    DeploymentRuleOptionsMonitorIds: DeploymentRuleOptionsMonitorIds,
     DeploymentRuleResponse: DeploymentRuleResponse,
     DeploymentRuleResponseData: DeploymentRuleResponseData,
     DeploymentRuleResponseDataAttributes: DeploymentRuleResponseDataAttributes,
