@@ -8499,6 +8499,41 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
     },
     operationResponseType: "CostTagsResponse",
   },
+  "CloudCostManagementApi.V2.ListUnitCosts": {
+    operationResponseType: "UnitCostsResponse",
+  },
+  "CloudCostManagementApi.V2.CreateUnitCost": {
+    body: {
+      type: "UnitCostCreateRequest",
+      format: "",
+    },
+    operationResponseType: "UnitCostResponse",
+  },
+  "CloudCostManagementApi.V2.GetUnitCost": {
+    unitCostId: {
+      type: "string",
+      format: "uuid",
+    },
+    operationResponseType: "UnitCostResponse",
+  },
+  "CloudCostManagementApi.V2.UpdateUnitCost": {
+    unitCostId: {
+      type: "string",
+      format: "uuid",
+    },
+    body: {
+      type: "UnitCostUpdateRequest",
+      format: "",
+    },
+    operationResponseType: "UnitCostResponse",
+  },
+  "CloudCostManagementApi.V2.DeleteUnitCost": {
+    unitCostId: {
+      type: "string",
+      format: "uuid",
+    },
+    operationResponseType: "{}",
+  },
   "CloudCostManagementApi.V2.ListTagPipelinesRulesets": {
     operationResponseType: "RulesetRespArray",
   },

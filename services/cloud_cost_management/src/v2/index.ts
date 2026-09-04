@@ -4,6 +4,7 @@ export {
   CloudCostManagementApiCreateCostGCPUsageCostConfigRequest,
   CloudCostManagementApiCreateCustomAllocationRuleRequest,
   CloudCostManagementApiCreateTagPipelinesRulesetRequest,
+  CloudCostManagementApiCreateUnitCostRequest,
   CloudCostManagementApiDeleteBudgetRequest,
   CloudCostManagementApiDeleteCostAWSCURConfigRequest,
   CloudCostManagementApiDeleteCostAzureUCConfigRequest,
@@ -13,6 +14,7 @@ export {
   CloudCostManagementApiDeleteCustomCostsFileRequest,
   CloudCostManagementApiDeleteCustomForecastRequest,
   CloudCostManagementApiDeleteTagPipelinesRulesetRequest,
+  CloudCostManagementApiDeleteUnitCostRequest,
   CloudCostManagementApiGenerateCostTagDescriptionByKeyRequest,
   CloudCostManagementApiGetBudgetRequest,
   CloudCostManagementApiGetCommitmentsCommitmentListRequest,
@@ -35,6 +37,7 @@ export {
   CloudCostManagementApiGetCustomCostsFileRequest,
   CloudCostManagementApiGetCustomForecastRequest,
   CloudCostManagementApiGetTagPipelinesRulesetRequest,
+  CloudCostManagementApiGetUnitCostRequest,
   CloudCostManagementApiListCostAnomaliesRequest,
   CloudCostManagementApiListCostTagDescriptionsRequest,
   CloudCostManagementApiListCostTagKeySourcesRequest,
@@ -54,6 +57,7 @@ export {
   CloudCostManagementApiUpdateCostGCPUsageCostConfigRequest,
   CloudCostManagementApiUpdateCustomAllocationRuleRequest,
   CloudCostManagementApiUpdateTagPipelinesRulesetRequest,
+  CloudCostManagementApiUpdateUnitCostRequest,
   CloudCostManagementApiUploadCustomCostsFileRequest,
   CloudCostManagementApiUpsertBudgetRequest,
   CloudCostManagementApiUpsertCostTagDescriptionByKeyRequest,
@@ -330,6 +334,17 @@ export { UCConfigPairData } from "./models/UCConfigPairData";
 export { UCConfigPairDataAttributes } from "./models/UCConfigPairDataAttributes";
 export { UCConfigPairDataAttributesConfigsItems } from "./models/UCConfigPairDataAttributesConfigsItems";
 export { UCConfigPairDataType } from "./models/UCConfigPairDataType";
+export { UnitCostCreateRequest } from "./models/UnitCostCreateRequest";
+export { UnitCostCreateRequestData } from "./models/UnitCostCreateRequestData";
+export { UnitCostDataAttributesResponse } from "./models/UnitCostDataAttributesResponse";
+export { UnitCostDataResponse } from "./models/UnitCostDataResponse";
+export { UnitCostQueryDefinition } from "./models/UnitCostQueryDefinition";
+export { UnitCostRequestAttributes } from "./models/UnitCostRequestAttributes";
+export { UnitCostResponse } from "./models/UnitCostResponse";
+export { UnitCostsResponse } from "./models/UnitCostsResponse";
+export { UnitCostType } from "./models/UnitCostType";
+export { UnitCostUpdateRequest } from "./models/UnitCostUpdateRequest";
+export { UnitCostUpdateRequestData } from "./models/UnitCostUpdateRequestData";
 export { UpdateRulesetRequest } from "./models/UpdateRulesetRequest";
 export { UpdateRulesetRequestData } from "./models/UpdateRulesetRequestData";
 export { UpdateRulesetRequestDataAttributes } from "./models/UpdateRulesetRequestDataAttributes";
