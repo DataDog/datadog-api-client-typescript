@@ -1482,6 +1482,8 @@ import { DeploymentRelationship } from "./DeploymentRelationship";
 import { DeploymentRelationshipData } from "./DeploymentRelationshipData";
 import { DeploymentRuleOptionsFaultyDeploymentDetection } from "./DeploymentRuleOptionsFaultyDeploymentDetection";
 import { DeploymentRuleOptionsMonitor } from "./DeploymentRuleOptionsMonitor";
+import { DeploymentRuleOptionsMonitorId } from "./DeploymentRuleOptionsMonitorId";
+import { DeploymentRuleOptionsMonitorIds } from "./DeploymentRuleOptionsMonitorIds";
 import { DeploymentRuleResponse } from "./DeploymentRuleResponse";
 import { DeploymentRuleResponseData } from "./DeploymentRuleResponseData";
 import { DeploymentRuleResponseDataAttributes } from "./DeploymentRuleResponseDataAttributes";
@@ -11006,6 +11008,8 @@ const typeMap: { [index: string]: any } = {
   DeploymentRuleOptionsFaultyDeploymentDetection:
     DeploymentRuleOptionsFaultyDeploymentDetection,
   DeploymentRuleOptionsMonitor: DeploymentRuleOptionsMonitor,
+  DeploymentRuleOptionsMonitorId: DeploymentRuleOptionsMonitorId,
+  DeploymentRuleOptionsMonitorIds: DeploymentRuleOptionsMonitorIds,
   DeploymentRuleResponse: DeploymentRuleResponse,
   DeploymentRuleResponseData: DeploymentRuleResponseData,
   DeploymentRuleResponseDataAttributes: DeploymentRuleResponseDataAttributes,
@@ -16777,6 +16781,7 @@ const oneOfMap: { [index: string]: string[] } = {
   DeploymentRulesOptions: [
     "DeploymentRuleOptionsFaultyDeploymentDetection",
     "DeploymentRuleOptionsMonitor",
+    "DeploymentRuleOptionsMonitorIds",
   ],
   DowntimeMonitorIdentifier: [
     "DowntimeMonitorIdentifierId",
