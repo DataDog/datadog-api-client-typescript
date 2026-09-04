@@ -12,6 +12,10 @@ export class CloudWorkloadSecurityAgentPolicyAttributes {
    */
   "blockingRulesCount"?: number;
   /**
+   * Whether an update is available for the content pack. Only set for activated content packs, `null` otherwise
+   */
+  "contentPackUpdateAvailable"?: boolean;
+  /**
    * Whether the policy is managed by Datadog
    */
   "datadogManaged"?: boolean;
@@ -64,6 +68,10 @@ export class CloudWorkloadSecurityAgentPolicyAttributes {
    */
   "ruleCount"?: number;
   /**
+   * The ID of the Datadog-managed default policy this policy is derived from
+   */
+  "sourceDefaultPolicyId"?: string;
+  /**
    * Timestamp in milliseconds when the policy was last updated
    */
   "updateDate"?: number;
@@ -98,6 +106,10 @@ export class CloudWorkloadSecurityAgentPolicyAttributes {
       baseName: "blockingRulesCount",
       type: "number",
       format: "int32",
+    },
+    contentPackUpdateAvailable: {
+      baseName: "contentPackUpdateAvailable",
+      type: "boolean",
     },
     datadogManaged: {
       baseName: "datadogManaged",
@@ -154,6 +166,10 @@ export class CloudWorkloadSecurityAgentPolicyAttributes {
       baseName: "ruleCount",
       type: "number",
       format: "int32",
+    },
+    sourceDefaultPolicyId: {
+      baseName: "sourceDefaultPolicyId",
+      type: "string",
     },
     updateDate: {
       baseName: "updateDate",
