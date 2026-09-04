@@ -5677,6 +5677,16 @@ import { UnassignSeatsUserRequest } from "./UnassignSeatsUserRequest";
 import { UnassignSeatsUserRequestData } from "./UnassignSeatsUserRequestData";
 import { UnassignSeatsUserRequestDataAttributes } from "./UnassignSeatsUserRequestDataAttributes";
 import { Unit } from "./Unit";
+import { UnitCostCreateRequest } from "./UnitCostCreateRequest";
+import { UnitCostCreateRequestData } from "./UnitCostCreateRequestData";
+import { UnitCostDataAttributesResponse } from "./UnitCostDataAttributesResponse";
+import { UnitCostDataResponse } from "./UnitCostDataResponse";
+import { UnitCostQueryDefinition } from "./UnitCostQueryDefinition";
+import { UnitCostRequestAttributes } from "./UnitCostRequestAttributes";
+import { UnitCostResponse } from "./UnitCostResponse";
+import { UnitCostUpdateRequest } from "./UnitCostUpdateRequest";
+import { UnitCostUpdateRequestData } from "./UnitCostUpdateRequestData";
+import { UnitCostsResponse } from "./UnitCostsResponse";
 import { UnpublishAppResponse } from "./UnpublishAppResponse";
 import { UpdateActionConnectionRequest } from "./UpdateActionConnectionRequest";
 import { UpdateActionConnectionResponse } from "./UpdateActionConnectionResponse";
@@ -9052,6 +9062,7 @@ const enumsMap: { [key: string]: any[] } = {
   TriggerType: ["monitor_alert_trigger"],
   TriggerWorkflowAutomationActionType: ["workflow"],
   UCConfigPairDataType: ["azure_uc_configs"],
+  UnitCostType: ["unit_cost"],
   UpdateAppsDatastoreItemRequestDataType: ["items"],
   UpdateConnectionRequestDataType: ["connection_id"],
   UpdateEnvironmentDataType: ["environments"],
@@ -16216,6 +16227,16 @@ const typeMap: { [index: string]: any } = {
   UnassignSeatsUserRequestDataAttributes:
     UnassignSeatsUserRequestDataAttributes,
   Unit: Unit,
+  UnitCostCreateRequest: UnitCostCreateRequest,
+  UnitCostCreateRequestData: UnitCostCreateRequestData,
+  UnitCostDataAttributesResponse: UnitCostDataAttributesResponse,
+  UnitCostDataResponse: UnitCostDataResponse,
+  UnitCostQueryDefinition: UnitCostQueryDefinition,
+  UnitCostRequestAttributes: UnitCostRequestAttributes,
+  UnitCostResponse: UnitCostResponse,
+  UnitCostUpdateRequest: UnitCostUpdateRequest,
+  UnitCostUpdateRequestData: UnitCostUpdateRequestData,
+  UnitCostsResponse: UnitCostsResponse,
   UnpublishAppResponse: UnpublishAppResponse,
   UpdateActionConnectionRequest: UpdateActionConnectionRequest,
   UpdateActionConnectionResponse: UpdateActionConnectionResponse,
