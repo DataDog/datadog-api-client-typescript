@@ -703,6 +703,8 @@ export const TypingInfo: ModelTypingInfo = {
       "sast_vulnerability",
       "secret_vulnerability",
       "workload_activity",
+      "sensitive_data",
+      "serverless_function_code_vulnerability",
     ],
     RunHistoricalJobRequestDataType: ["historicalDetectionsJobCreate"],
     SBOMComponentLicenseType: [
