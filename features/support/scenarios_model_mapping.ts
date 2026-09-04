@@ -18660,6 +18660,13 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             },
         "operationResponseType": "UserTeamsResponse",
     },
+    "v2.CreateTimeseriesAnomalyInvestigation": {
+        "body": {
+            "type": "TimeseriesAnomalyInvestigationRequest",
+            "format": "",
+            },
+        "operationResponseType": "TimeseriesAnomalyInvestigationResponse",
+    },
     "v2.ListUserAuthorizedClients": {
         "pageSize": {
             "type": "number",

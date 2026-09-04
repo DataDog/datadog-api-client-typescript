@@ -822,6 +822,7 @@ export function createConfiguration(
       "v2.addMemberTeam": false,
       "v2.listMemberTeams": false,
       "v2.removeMemberTeam": false,
+      "v2.createTimeseriesAnomalyInvestigation": false,
       "v2.createWebIntegrationAccount": false,
       "v2.deleteWebIntegrationAccount": false,
       "v2.getWebIntegrationAccount": false,
