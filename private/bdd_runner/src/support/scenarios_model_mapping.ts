@@ -18687,6 +18687,14 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
     },
     operationResponseType: "UserTeamsResponse",
   },
+  "TimeseriesAnomalyInvestigationsApi.V2.CreateTimeseriesAnomalyInvestigation":
+    {
+      body: {
+        type: "TimeseriesAnomalyInvestigationRequest",
+        format: "",
+      },
+      operationResponseType: "TimeseriesAnomalyInvestigationResponse",
+    },
   "UserAuthorizedClientsApi.V2.ListUserAuthorizedClients": {
     pageSize: {
       type: "number",
