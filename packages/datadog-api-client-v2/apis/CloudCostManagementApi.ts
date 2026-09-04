@@ -85,6 +85,10 @@ import { RulesetStatusRespArray } from "../models/RulesetStatusRespArray";
 import { RulesValidateQueryRequest } from "../models/RulesValidateQueryRequest";
 import { RulesValidateQueryResponse } from "../models/RulesValidateQueryResponse";
 import { UCConfigPair } from "../models/UCConfigPair";
+import { UnitCostCreateRequest } from "../models/UnitCostCreateRequest";
+import { UnitCostResponse } from "../models/UnitCostResponse";
+import { UnitCostsResponse } from "../models/UnitCostsResponse";
+import { UnitCostUpdateRequest } from "../models/UnitCostUpdateRequest";
 import { UpdateRulesetRequest } from "../models/UpdateRulesetRequest";
 import { ValidationResponse } from "../models/ValidationResponse";
 
@@ -319,6 +323,57 @@ export class CloudCostManagementApiRequestFactory extends BaseAPIRequestFactory 
       "apiKeyAuth",
       "appKeyAuth",
       "AuthZ",
+    ]);
+
+    return requestContext;
+  }
+
+  public async createUnitCost(
+    body: UnitCostCreateRequest,
+    _options?: Configuration
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    logger.warn("Using unstable operation 'createUnitCost'");
+    if (!_config.unstableOperations["v2.createUnitCost"]) {
+      throw new Error("Unstable operation 'createUnitCost' is disabled");
+    }
+
+    // verify required parameter 'body' is not null or undefined
+    if (body === null || body === undefined) {
+      throw new RequiredError("body", "createUnitCost");
+    }
+
+    // Path Params
+    const localVarPath = "/api/v2/cost/unit_costs";
+
+    // Make Request Context
+    const requestContext = _config
+      .getServer("v2.CloudCostManagementApi.createUnitCost")
+      .makeRequestContext(localVarPath, HttpMethod.POST);
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Set IaC header
+    if (_config.isIaC) {
+      requestContext.setHeaderParam("X-Datadog-Managed-By", "iac");
+    }
+
+    // Body Params
+    const contentType = ObjectSerializer.getPreferredMediaType([
+      "application/json",
+    ]);
+    requestContext.setHeaderParam("Content-Type", contentType);
+    const serializedBody = ObjectSerializer.stringify(
+      ObjectSerializer.serialize(body, "UnitCostCreateRequest", ""),
+      contentType
+    );
+    requestContext.setBody(serializedBody);
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
     ]);
 
     return requestContext;
@@ -682,6 +737,49 @@ export class CloudCostManagementApiRequestFactory extends BaseAPIRequestFactory 
       "apiKeyAuth",
       "appKeyAuth",
       "AuthZ",
+    ]);
+
+    return requestContext;
+  }
+
+  public async deleteUnitCost(
+    unitCostId: string,
+    _options?: Configuration
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    logger.warn("Using unstable operation 'deleteUnitCost'");
+    if (!_config.unstableOperations["v2.deleteUnitCost"]) {
+      throw new Error("Unstable operation 'deleteUnitCost' is disabled");
+    }
+
+    // verify required parameter 'unitCostId' is not null or undefined
+    if (unitCostId === null || unitCostId === undefined) {
+      throw new RequiredError("unitCostId", "deleteUnitCost");
+    }
+
+    // Path Params
+    const localVarPath = "/api/v2/cost/unit_costs/{unit_cost_id}".replace(
+      "{unit_cost_id}",
+      encodeURIComponent(String(unitCostId))
+    );
+
+    // Make Request Context
+    const requestContext = _config
+      .getServer("v2.CloudCostManagementApi.deleteUnitCost")
+      .makeRequestContext(localVarPath, HttpMethod.DELETE);
+    requestContext.setHeaderParam("Accept", "*/*");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Set IaC header
+    if (_config.isIaC) {
+      requestContext.setHeaderParam("X-Datadog-Managed-By", "iac");
+    }
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
     ]);
 
     return requestContext;
@@ -2172,6 +2270,49 @@ export class CloudCostManagementApiRequestFactory extends BaseAPIRequestFactory 
     return requestContext;
   }
 
+  public async getUnitCost(
+    unitCostId: string,
+    _options?: Configuration
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    logger.warn("Using unstable operation 'getUnitCost'");
+    if (!_config.unstableOperations["v2.getUnitCost"]) {
+      throw new Error("Unstable operation 'getUnitCost' is disabled");
+    }
+
+    // verify required parameter 'unitCostId' is not null or undefined
+    if (unitCostId === null || unitCostId === undefined) {
+      throw new RequiredError("unitCostId", "getUnitCost");
+    }
+
+    // Path Params
+    const localVarPath = "/api/v2/cost/unit_costs/{unit_cost_id}".replace(
+      "{unit_cost_id}",
+      encodeURIComponent(String(unitCostId))
+    );
+
+    // Make Request Context
+    const requestContext = _config
+      .getServer("v2.CloudCostManagementApi.getUnitCost")
+      .makeRequestContext(localVarPath, HttpMethod.GET);
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Set IaC header
+    if (_config.isIaC) {
+      requestContext.setHeaderParam("X-Datadog-Managed-By", "iac");
+    }
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+    ]);
+
+    return requestContext;
+  }
+
   public async listBudgets(_options?: Configuration): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
@@ -3131,6 +3272,40 @@ export class CloudCostManagementApiRequestFactory extends BaseAPIRequestFactory 
     return requestContext;
   }
 
+  public async listUnitCosts(
+    _options?: Configuration
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    logger.warn("Using unstable operation 'listUnitCosts'");
+    if (!_config.unstableOperations["v2.listUnitCosts"]) {
+      throw new Error("Unstable operation 'listUnitCosts' is disabled");
+    }
+
+    // Path Params
+    const localVarPath = "/api/v2/cost/unit_costs";
+
+    // Make Request Context
+    const requestContext = _config
+      .getServer("v2.CloudCostManagementApi.listUnitCosts")
+      .makeRequestContext(localVarPath, HttpMethod.GET);
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Set IaC header
+    if (_config.isIaC) {
+      requestContext.setHeaderParam("X-Datadog-Managed-By", "iac");
+    }
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+    ]);
+
+    return requestContext;
+  }
+
   public async reorderCustomAllocationRules(
     body: ReorderRuleResourceArray,
     _options?: Configuration
@@ -3632,6 +3807,66 @@ export class CloudCostManagementApiRequestFactory extends BaseAPIRequestFactory 
       "apiKeyAuth",
       "appKeyAuth",
       "AuthZ",
+    ]);
+
+    return requestContext;
+  }
+
+  public async updateUnitCost(
+    unitCostId: string,
+    body: UnitCostUpdateRequest,
+    _options?: Configuration
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    logger.warn("Using unstable operation 'updateUnitCost'");
+    if (!_config.unstableOperations["v2.updateUnitCost"]) {
+      throw new Error("Unstable operation 'updateUnitCost' is disabled");
+    }
+
+    // verify required parameter 'unitCostId' is not null or undefined
+    if (unitCostId === null || unitCostId === undefined) {
+      throw new RequiredError("unitCostId", "updateUnitCost");
+    }
+
+    // verify required parameter 'body' is not null or undefined
+    if (body === null || body === undefined) {
+      throw new RequiredError("body", "updateUnitCost");
+    }
+
+    // Path Params
+    const localVarPath = "/api/v2/cost/unit_costs/{unit_cost_id}".replace(
+      "{unit_cost_id}",
+      encodeURIComponent(String(unitCostId))
+    );
+
+    // Make Request Context
+    const requestContext = _config
+      .getServer("v2.CloudCostManagementApi.updateUnitCost")
+      .makeRequestContext(localVarPath, HttpMethod.PUT);
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Set IaC header
+    if (_config.isIaC) {
+      requestContext.setHeaderParam("X-Datadog-Managed-By", "iac");
+    }
+
+    // Body Params
+    const contentType = ObjectSerializer.getPreferredMediaType([
+      "application/json",
+    ]);
+    requestContext.setHeaderParam("Content-Type", contentType);
+    const serializedBody = ObjectSerializer.stringify(
+      ObjectSerializer.serialize(body, "UnitCostUpdateRequest", ""),
+      contentType
+    );
+    requestContext.setBody(serializedBody);
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
     ]);
 
     return requestContext;
@@ -4256,6 +4491,87 @@ export class CloudCostManagementApiResponseProcessor {
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
    *
+   * @params response Response returned by the server for a request to createUnitCost
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async createUnitCost(
+    response: ResponseContext
+  ): Promise<UnitCostResponse> {
+    const contentType = ObjectSerializer.normalizeMediaType(
+      response.headers["content-type"]
+    );
+    if (response.httpStatusCode === 201) {
+      const body: UnitCostResponse = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "UnitCostResponse"
+      ) as UnitCostResponse;
+      return body;
+    }
+    if (response.httpStatusCode === 400 || response.httpStatusCode === 403) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: JSONAPIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "JSONAPIErrorResponse"
+        ) as JSONAPIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<JSONAPIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<JSONAPIErrorResponse>(
+        response.httpStatusCode,
+        body
+      );
+    }
+    if (response.httpStatusCode === 429) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: APIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "APIErrorResponse"
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: UnitCostResponse = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "UnitCostResponse",
+        ""
+      ) as UnitCostResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"'
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
    * @params response Response returned by the server for a request to deleteBudget
    * @throws ApiException if the response code was not in [200, 299]
    */
@@ -4677,6 +4993,80 @@ export class CloudCostManagementApiResponseProcessor {
     );
     if (response.httpStatusCode === 204) {
       return;
+    }
+    if (response.httpStatusCode === 429) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: APIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "APIErrorResponse"
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      return;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"'
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
+   * @params response Response returned by the server for a request to deleteUnitCost
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async deleteUnitCost(response: ResponseContext): Promise<void> {
+    const contentType = ObjectSerializer.normalizeMediaType(
+      response.headers["content-type"]
+    );
+    if (response.httpStatusCode === 204) {
+      return;
+    }
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 404
+    ) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: JSONAPIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "JSONAPIErrorResponse"
+        ) as JSONAPIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<JSONAPIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<JSONAPIErrorResponse>(
+        response.httpStatusCode,
+        body
+      );
     }
     if (response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
@@ -6231,6 +6621,91 @@ export class CloudCostManagementApiResponseProcessor {
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
    *
+   * @params response Response returned by the server for a request to getUnitCost
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async getUnitCost(
+    response: ResponseContext
+  ): Promise<UnitCostResponse> {
+    const contentType = ObjectSerializer.normalizeMediaType(
+      response.headers["content-type"]
+    );
+    if (response.httpStatusCode === 200) {
+      const body: UnitCostResponse = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "UnitCostResponse"
+      ) as UnitCostResponse;
+      return body;
+    }
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 404
+    ) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: JSONAPIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "JSONAPIErrorResponse"
+        ) as JSONAPIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<JSONAPIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<JSONAPIErrorResponse>(
+        response.httpStatusCode,
+        body
+      );
+    }
+    if (response.httpStatusCode === 429) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: APIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "APIErrorResponse"
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: UnitCostResponse = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "UnitCostResponse",
+        ""
+      ) as UnitCostResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"'
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
    * @params response Response returned by the server for a request to listBudgets
    * @throws ApiException if the response code was not in [200, 299]
    */
@@ -7369,6 +7844,87 @@ export class CloudCostManagementApiResponseProcessor {
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
    *
+   * @params response Response returned by the server for a request to listUnitCosts
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async listUnitCosts(
+    response: ResponseContext
+  ): Promise<UnitCostsResponse> {
+    const contentType = ObjectSerializer.normalizeMediaType(
+      response.headers["content-type"]
+    );
+    if (response.httpStatusCode === 200) {
+      const body: UnitCostsResponse = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "UnitCostsResponse"
+      ) as UnitCostsResponse;
+      return body;
+    }
+    if (response.httpStatusCode === 403) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: JSONAPIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "JSONAPIErrorResponse"
+        ) as JSONAPIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<JSONAPIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<JSONAPIErrorResponse>(
+        response.httpStatusCode,
+        body
+      );
+    }
+    if (response.httpStatusCode === 429) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: APIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "APIErrorResponse"
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: UnitCostsResponse = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "UnitCostsResponse",
+        ""
+      ) as UnitCostsResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"'
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
    * @params response Response returned by the server for a request to reorderCustomAllocationRules
    * @throws ApiException if the response code was not in [200, 299]
    */
@@ -7892,6 +8448,91 @@ export class CloudCostManagementApiResponseProcessor {
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
    *
+   * @params response Response returned by the server for a request to updateUnitCost
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async updateUnitCost(
+    response: ResponseContext
+  ): Promise<UnitCostResponse> {
+    const contentType = ObjectSerializer.normalizeMediaType(
+      response.headers["content-type"]
+    );
+    if (response.httpStatusCode === 200) {
+      const body: UnitCostResponse = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "UnitCostResponse"
+      ) as UnitCostResponse;
+      return body;
+    }
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 404
+    ) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: JSONAPIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "JSONAPIErrorResponse"
+        ) as JSONAPIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<JSONAPIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<JSONAPIErrorResponse>(
+        response.httpStatusCode,
+        body
+      );
+    }
+    if (response.httpStatusCode === 429) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: APIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "APIErrorResponse"
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: UnitCostResponse = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "UnitCostResponse",
+        ""
+      ) as UnitCostResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"'
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
    * @params response Response returned by the server for a request to uploadCustomCostsFile
    * @throws ApiException if the response code was not in [200, 299]
    */
@@ -8337,6 +8978,13 @@ export interface CloudCostManagementApiCreateTagPipelinesRulesetRequest {
   body: CreateRulesetRequest;
 }
 
+export interface CloudCostManagementApiCreateUnitCostRequest {
+  /**
+   * @type UnitCostCreateRequest
+   */
+  body: UnitCostCreateRequest;
+}
+
 export interface CloudCostManagementApiDeleteBudgetRequest {
   /**
    * Budget id.
@@ -8412,6 +9060,14 @@ export interface CloudCostManagementApiDeleteTagPipelinesRulesetRequest {
    * @type string
    */
   rulesetId: string;
+}
+
+export interface CloudCostManagementApiDeleteUnitCostRequest {
+  /**
+   * The UUID of the unit cost.
+   * @type string
+   */
+  unitCostId: string;
 }
 
 export interface CloudCostManagementApiGenerateCostTagDescriptionByKeyRequest {
@@ -8805,6 +9461,14 @@ export interface CloudCostManagementApiGetTagPipelinesRulesetRequest {
   rulesetId: string;
 }
 
+export interface CloudCostManagementApiGetUnitCostRequest {
+  /**
+   * The UUID of the unit cost.
+   * @type string
+   */
+  unitCostId: string;
+}
+
 export interface CloudCostManagementApiListCostAnomaliesRequest {
   /**
    * Start time as Unix milliseconds. Defaults to the start of the latest stable seven-day window.
@@ -9131,6 +9795,18 @@ export interface CloudCostManagementApiUpdateTagPipelinesRulesetRequest {
   body: UpdateRulesetRequest;
 }
 
+export interface CloudCostManagementApiUpdateUnitCostRequest {
+  /**
+   * The UUID of the unit cost.
+   * @type string
+   */
+  unitCostId: string;
+  /**
+   * @type UnitCostUpdateRequest
+   */
+  body: UnitCostUpdateRequest;
+}
+
 export interface CloudCostManagementApiUploadCustomCostsFileRequest {
   /**
    * @type Array<CustomCostsFileLineItem>
@@ -9312,6 +9988,27 @@ export class CloudCostManagementApi {
           return this.responseProcessor.createTagPipelinesRuleset(
             responseContext
           );
+        });
+    });
+  }
+
+  /**
+   * Create an ROI metric (unit cost) using the given numerator and denominator queries.
+   * @param param The request object
+   */
+  public createUnitCost(
+    param: CloudCostManagementApiCreateUnitCostRequest,
+    options?: Configuration
+  ): Promise<UnitCostResponse> {
+    const requestContextPromise = this.requestFactory.createUnitCost(
+      param.body,
+      options
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.createUnitCost(responseContext);
         });
     });
   }
@@ -9512,6 +10209,27 @@ export class CloudCostManagementApi {
           return this.responseProcessor.deleteTagPipelinesRuleset(
             responseContext
           );
+        });
+    });
+  }
+
+  /**
+   * Delete an ROI metric (unit cost).
+   * @param param The request object
+   */
+  public deleteUnitCost(
+    param: CloudCostManagementApiDeleteUnitCostRequest,
+    options?: Configuration
+  ): Promise<void> {
+    const requestContextPromise = this.requestFactory.deleteUnitCost(
+      param.unitCostId,
+      options
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.deleteUnitCost(responseContext);
         });
     });
   }
@@ -10059,6 +10777,27 @@ export class CloudCostManagementApi {
   }
 
   /**
+   * Retrieve an ROI metric (unit cost) by UUID.
+   * @param param The request object
+   */
+  public getUnitCost(
+    param: CloudCostManagementApiGetUnitCostRequest,
+    options?: Configuration
+  ): Promise<UnitCostResponse> {
+    const requestContextPromise = this.requestFactory.getUnitCost(
+      param.unitCostId,
+      options
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.getUnitCost(responseContext);
+        });
+    });
+  }
+
+  /**
    * List budgets.
    * @param param The request object
    */
@@ -10477,6 +11216,21 @@ export class CloudCostManagementApi {
   }
 
   /**
+   * List the ROI metrics (unit costs) for the authenticated organization.
+   * @param param The request object
+   */
+  public listUnitCosts(options?: Configuration): Promise<UnitCostsResponse> {
+    const requestContextPromise = this.requestFactory.listUnitCosts(options);
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.listUnitCosts(responseContext);
+        });
+    });
+  }
+
+  /**
    * Reorder custom allocation rules - Change the execution order of custom allocation rules.
    *
    * **Important**: You must provide the **complete list** of all rule IDs in the desired execution order. The API will reorder ALL rules according to the provided sequence.
@@ -10702,6 +11456,28 @@ export class CloudCostManagementApi {
           return this.responseProcessor.updateTagPipelinesRuleset(
             responseContext
           );
+        });
+    });
+  }
+
+  /**
+   * Replace an ROI metric (unit cost) with a new set of attributes.
+   * @param param The request object
+   */
+  public updateUnitCost(
+    param: CloudCostManagementApiUpdateUnitCostRequest,
+    options?: Configuration
+  ): Promise<UnitCostResponse> {
+    const requestContextPromise = this.requestFactory.updateUnitCost(
+      param.unitCostId,
+      param.body,
+      options
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.updateUnitCost(responseContext);
         });
     });
   }

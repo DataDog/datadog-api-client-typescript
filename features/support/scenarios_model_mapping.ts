@@ -8475,6 +8475,41 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             },
         "operationResponseType": "CostTagsResponse",
     },
+    "v2.ListUnitCosts": {
+        "operationResponseType": "UnitCostsResponse",
+    },
+    "v2.CreateUnitCost": {
+        "body": {
+            "type": "UnitCostCreateRequest",
+            "format": "",
+            },
+        "operationResponseType": "UnitCostResponse",
+    },
+    "v2.GetUnitCost": {
+        "unitCostId": {
+            "type": "string",
+            "format": "uuid",
+            },
+        "operationResponseType": "UnitCostResponse",
+    },
+    "v2.UpdateUnitCost": {
+        "unitCostId": {
+            "type": "string",
+            "format": "uuid",
+            },
+        "body": {
+            "type": "UnitCostUpdateRequest",
+            "format": "",
+            },
+        "operationResponseType": "UnitCostResponse",
+    },
+    "v2.DeleteUnitCost": {
+        "unitCostId": {
+            "type": "string",
+            "format": "uuid",
+            },
+        "operationResponseType": "{}",
+    },
     "v2.ListTagPipelinesRulesets": {
         "operationResponseType": "RulesetRespArray",
     },
