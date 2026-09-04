@@ -16,14 +16,6 @@ export class OwnershipFeedbackRequestAttributes {
    */
   "action": OwnershipFeedbackAction;
   /**
-   * The handle of the actor submitting the feedback.
-   */
-  "actorHandle": string;
-  /**
-   * The type of actor submitting the feedback, for example `user` or `service`.
-   */
-  "actorType": string;
-  /**
    * The corrected owner handle. Required when `action` is `correct`.
    */
   "correctedOwnerHandle"?: string;
@@ -59,16 +51,6 @@ export class OwnershipFeedbackRequestAttributes {
     action: {
       baseName: "action",
       type: "OwnershipFeedbackAction",
-      required: true,
-    },
-    actorHandle: {
-      baseName: "actor_handle",
-      type: "string",
-      required: true,
-    },
-    actorType: {
-      baseName: "actor_type",
-      type: "string",
       required: true,
     },
     correctedOwnerHandle: {

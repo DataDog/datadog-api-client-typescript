@@ -13,8 +13,6 @@ const params: v2.CSMOwnershipApiCreateOwnershipFeedbackRequest = {
     data: {
       attributes: {
         action: "confirm",
-        actorHandle: "user@example.com",
-        actorType: "user",
         correctedOwnerHandle: "team-b",
         correctedOwnerType: "team",
         inferenceChecksum: "abc123",
