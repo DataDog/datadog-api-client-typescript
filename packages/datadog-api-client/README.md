@@ -394,6 +394,7 @@ apiInstance
 | Data Observability | @datadog/datadog-api-client-data-observability | [README.md](../../services/data-observability/README.md) |
 | Datasets | @datadog/datadog-api-client-datasets | [README.md](../../services/datasets/README.md) |
 | DDSQL | @datadog/datadog-api-client-ddsql | [README.md](../../services/ddsql/README.md) |
+| DEM | @datadog/datadog-api-client-dem | [README.md](../../services/dem/README.md) |
 | Deployment Gates | @datadog/datadog-api-client-deployment-gates | [README.md](../../services/deployment-gates/README.md) |
 | Domain Allowlist | @datadog/datadog-api-client-domain-allowlist | [README.md](../../services/domain-allowlist/README.md) |
 | DORA Metrics | @datadog/datadog-api-client-dora-metrics | [README.md](../../services/dora-metrics/README.md) |
