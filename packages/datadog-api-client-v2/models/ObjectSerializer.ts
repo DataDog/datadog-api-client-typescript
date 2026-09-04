@@ -8238,6 +8238,8 @@ const enumsMap: { [key: string]: any[] } = {
     "sast_vulnerability",
     "secret_vulnerability",
     "workload_activity",
+    "sensitive_data",
+    "serverless_function_code_vulnerability",
   ],
   RulesValidateQueryRequestDataType: ["validate_query"],
   RulesValidateQueryResponseDataType: ["validate_response"],
