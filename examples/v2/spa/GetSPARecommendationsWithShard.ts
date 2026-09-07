@@ -1,5 +1,5 @@
 /**
- * Get SPA Recommendations with a shard parameter returns "OK" response
+ * Get SPA recommendations using a shard parameter returns "OK" response
  */
 
 import { client, v2 } from "@datadog/datadog-api-client";
