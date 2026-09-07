@@ -5,7 +5,9 @@
  */
 import { SecurityMonitoringFilter } from "./SecurityMonitoringFilter";
 import { SecurityMonitoringRuleCase } from "./SecurityMonitoringRuleCase";
+import { SecurityMonitoringRuleMetadata } from "./SecurityMonitoringRuleMetadata";
 import { SecurityMonitoringRuleOptions } from "./SecurityMonitoringRuleOptions";
+import { SecurityMonitoringRuleUser } from "./SecurityMonitoringRuleUser";
 import { SecurityMonitoringSignalRuleResponseQuery } from "./SecurityMonitoringSignalRuleResponseQuery";
 import { SecurityMonitoringSignalRuleType } from "./SecurityMonitoringSignalRuleType";
 
@@ -15,6 +17,10 @@ import { AttributeTypeMap } from "../../datadog-api-client-common/util";
  * Rule.
  */
 export class SecurityMonitoringSignalRuleResponse {
+  /**
+   * Whether the rule blocks attackers.
+   */
+  "blocking"?: boolean;
   /**
    * Cases for generating signals.
    */
@@ -28,6 +34,10 @@ export class SecurityMonitoringSignalRuleResponse {
    */
   "creationAuthorId"?: number;
   /**
+   * The user who created or last updated the rule.
+   */
+  "creator"?: SecurityMonitoringRuleUser;
+  /**
    * Custom/Overridden message for generated signals (used in case of Default rule update).
    */
   "customMessage"?: string;
@@ -35,6 +45,14 @@ export class SecurityMonitoringSignalRuleResponse {
    * Custom/Overridden name of the rule (used in case of Default rule update).
    */
   "customName"?: string;
+  /**
+   * The ID of the corresponding default rule.
+   */
+  "defaultRuleId"?: string;
+  /**
+   * Default tags for default rules, included in tags.
+   */
+  "defaultTags"?: Array<string>;
   /**
    * When the rule will be deprecated, timestamp in milliseconds.
    */
@@ -52,6 +70,10 @@ export class SecurityMonitoringSignalRuleResponse {
    */
   "id"?: string;
   /**
+   * Whether the rule is in beta.
+   */
+  "isBeta"?: boolean;
+  /**
    * Whether the rule is included by default.
    */
   "isDefault"?: boolean;
@@ -60,13 +82,25 @@ export class SecurityMonitoringSignalRuleResponse {
    */
   "isDeleted"?: boolean;
   /**
+   * Whether the rule is deprecated.
+   */
+  "isDeprecated"?: boolean;
+  /**
    * Whether the rule is enabled.
    */
   "isEnabled"?: boolean;
   /**
+   * Whether the rule is provided by a partner.
+   */
+  "isPartner"?: boolean;
+  /**
    * Message for generated signals.
    */
   "message"?: string;
+  /**
+   * Metadata associated with the rule.
+   */
+  "metadata"?: SecurityMonitoringRuleMetadata;
   /**
    * The name of the rule.
    */
@@ -92,6 +126,14 @@ export class SecurityMonitoringSignalRuleResponse {
    */
   "updateAuthorId"?: number;
   /**
+   * The date the rule was last updated, in milliseconds.
+   */
+  "updatedAt"?: number;
+  /**
+   * The user who created or last updated the rule.
+   */
+  "updater"?: SecurityMonitoringRuleUser;
+  /**
    * The version of the rule.
    */
   "version"?: number;
@@ -112,6 +154,10 @@ export class SecurityMonitoringSignalRuleResponse {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
+    blocking: {
+      baseName: "blocking",
+      type: "boolean",
+    },
     cases: {
       baseName: "cases",
       type: "Array<SecurityMonitoringRuleCase>",
@@ -126,6 +172,10 @@ export class SecurityMonitoringSignalRuleResponse {
       type: "number",
       format: "int64",
     },
+    creator: {
+      baseName: "creator",
+      type: "SecurityMonitoringRuleUser",
+    },
     customMessage: {
       baseName: "customMessage",
       type: "string",
@@ -133,6 +183,14 @@ export class SecurityMonitoringSignalRuleResponse {
     customName: {
       baseName: "customName",
       type: "string",
+    },
+    defaultRuleId: {
+      baseName: "defaultRuleId",
+      type: "string",
+    },
+    defaultTags: {
+      baseName: "defaultTags",
+      type: "Array<string>",
     },
     deprecationDate: {
       baseName: "deprecationDate",
@@ -151,6 +209,10 @@ export class SecurityMonitoringSignalRuleResponse {
       baseName: "id",
       type: "string",
     },
+    isBeta: {
+      baseName: "isBeta",
+      type: "boolean",
+    },
     isDefault: {
       baseName: "isDefault",
       type: "boolean",
@@ -159,13 +221,25 @@ export class SecurityMonitoringSignalRuleResponse {
       baseName: "isDeleted",
       type: "boolean",
     },
+    isDeprecated: {
+      baseName: "isDeprecated",
+      type: "boolean",
+    },
     isEnabled: {
       baseName: "isEnabled",
+      type: "boolean",
+    },
+    isPartner: {
+      baseName: "isPartner",
       type: "boolean",
     },
     message: {
       baseName: "message",
       type: "string",
+    },
+    metadata: {
+      baseName: "metadata",
+      type: "SecurityMonitoringRuleMetadata",
     },
     name: {
       baseName: "name",
@@ -191,6 +265,15 @@ export class SecurityMonitoringSignalRuleResponse {
       baseName: "updateAuthorId",
       type: "number",
       format: "int64",
+    },
+    updatedAt: {
+      baseName: "updatedAt",
+      type: "number",
+      format: "int64",
+    },
+    updater: {
+      baseName: "updater",
+      type: "SecurityMonitoringRuleUser",
     },
     version: {
       baseName: "version",

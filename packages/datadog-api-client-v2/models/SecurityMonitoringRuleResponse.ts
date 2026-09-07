@@ -9,7 +9,7 @@ import { SecurityMonitoringStandardRuleResponse } from "./SecurityMonitoringStan
 import { UnparsedObject } from "../../datadog-api-client-common/util";
 
 /**
- * Create a new rule.
+ * A security monitoring rule.
  */
 
 export type SecurityMonitoringRuleResponse =
