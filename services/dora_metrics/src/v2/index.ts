@@ -14,6 +14,7 @@ export {
 } from "./DORAMetricsApi";
 
 export { APIErrorResponse } from "./models/APIErrorResponse";
+export { DORADeploymentAveragedMetrics } from "./models/DORADeploymentAveragedMetrics";
 export { DORADeploymentFetchResponse } from "./models/DORADeploymentFetchResponse";
 export { DORADeploymentObject } from "./models/DORADeploymentObject";
 export { DORADeploymentObjectAttributes } from "./models/DORADeploymentObjectAttributes";
@@ -29,6 +30,7 @@ export { DORADeploymentPatchRequest } from "./models/DORADeploymentPatchRequest"
 export { DORADeploymentPatchRequestAttributes } from "./models/DORADeploymentPatchRequestAttributes";
 export { DORADeploymentPatchRequestData } from "./models/DORADeploymentPatchRequestData";
 export { DORADeploymentPatchRequestDataType } from "./models/DORADeploymentPatchRequestDataType";
+export { DORADeploymentRemediation } from "./models/DORADeploymentRemediation";
 export { DORADeploymentRequest } from "./models/DORADeploymentRequest";
 export { DORADeploymentRequestAttributes } from "./models/DORADeploymentRequestAttributes";
 export { DORADeploymentRequestData } from "./models/DORADeploymentRequestData";

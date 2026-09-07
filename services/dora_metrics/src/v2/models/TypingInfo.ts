@@ -1,6 +1,7 @@
 import { ModelTypingInfo } from "@datadog/datadog-api-client";
 
 import { APIErrorResponse } from "./APIErrorResponse";
+import { DORADeploymentAveragedMetrics } from "./DORADeploymentAveragedMetrics";
 import { DORADeploymentFetchResponse } from "./DORADeploymentFetchResponse";
 import { DORADeploymentObject } from "./DORADeploymentObject";
 import { DORADeploymentObjectAttributes } from "./DORADeploymentObjectAttributes";
@@ -13,6 +14,7 @@ import { DORADeploymentPatchRemediation } from "./DORADeploymentPatchRemediation
 import { DORADeploymentPatchRequest } from "./DORADeploymentPatchRequest";
 import { DORADeploymentPatchRequestAttributes } from "./DORADeploymentPatchRequestAttributes";
 import { DORADeploymentPatchRequestData } from "./DORADeploymentPatchRequestData";
+import { DORADeploymentRemediation } from "./DORADeploymentRemediation";
 import { DORADeploymentRequest } from "./DORADeploymentRequest";
 import { DORADeploymentRequestAttributes } from "./DORADeploymentRequestAttributes";
 import { DORADeploymentRequestData } from "./DORADeploymentRequestData";
@@ -57,6 +59,7 @@ export const TypingInfo: ModelTypingInfo = {
   },
   typeMap: {
     APIErrorResponse: APIErrorResponse,
+    DORADeploymentAveragedMetrics: DORADeploymentAveragedMetrics,
     DORADeploymentFetchResponse: DORADeploymentFetchResponse,
     DORADeploymentObject: DORADeploymentObject,
     DORADeploymentObjectAttributes: DORADeploymentObjectAttributes,
@@ -73,6 +76,7 @@ export const TypingInfo: ModelTypingInfo = {
     DORADeploymentPatchRequest: DORADeploymentPatchRequest,
     DORADeploymentPatchRequestAttributes: DORADeploymentPatchRequestAttributes,
     DORADeploymentPatchRequestData: DORADeploymentPatchRequestData,
+    DORADeploymentRemediation: DORADeploymentRemediation,
     DORADeploymentRequest: DORADeploymentRequest,
     DORADeploymentRequestAttributes: DORADeploymentRequestAttributes,
     DORADeploymentRequestData: DORADeploymentRequestData,
