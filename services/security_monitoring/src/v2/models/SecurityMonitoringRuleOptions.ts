@@ -63,9 +63,17 @@ export class SecurityMonitoringRuleOptions {
    */
   "newValueOptions"?: SecurityMonitoringRuleNewValueOptions;
   /**
+   * Fields used to identify related signals.
+   */
+  "relatedSignalsFields"?: Array<string>;
+  /**
    * Options on sequence detection method.
    */
   "sequenceDetectionOptions"?: SecurityMonitoringRuleSequenceDetectionOptions;
+  /**
+   * A template for the signal title.
+   */
+  "signalTitleTemplate"?: string;
   /**
    * Options on third party detection method.
    */
@@ -128,9 +136,17 @@ export class SecurityMonitoringRuleOptions {
       baseName: "newValueOptions",
       type: "SecurityMonitoringRuleNewValueOptions",
     },
+    relatedSignalsFields: {
+      baseName: "relatedSignalsFields",
+      type: "Array<string>",
+    },
     sequenceDetectionOptions: {
       baseName: "sequenceDetectionOptions",
       type: "SecurityMonitoringRuleSequenceDetectionOptions",
+    },
+    signalTitleTemplate: {
+      baseName: "signalTitleTemplate",
+      type: "string",
     },
     thirdPartyRuleOptions: {
       baseName: "thirdPartyRuleOptions",

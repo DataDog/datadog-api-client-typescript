@@ -718,6 +718,7 @@ export { SecurityMonitoringRuleHardcodedEvaluatorType } from "./models/SecurityM
 export { SecurityMonitoringRuleImpossibleTravelOptions } from "./models/SecurityMonitoringRuleImpossibleTravelOptions";
 export { SecurityMonitoringRuleKeepAlive } from "./models/SecurityMonitoringRuleKeepAlive";
 export { SecurityMonitoringRuleMaxSignalDuration } from "./models/SecurityMonitoringRuleMaxSignalDuration";
+export { SecurityMonitoringRuleMetadata } from "./models/SecurityMonitoringRuleMetadata";
 export { SecurityMonitoringRuleNewValueOptions } from "./models/SecurityMonitoringRuleNewValueOptions";
 export { SecurityMonitoringRuleNewValueOptionsLearningMethod } from "./models/SecurityMonitoringRuleNewValueOptionsLearningMethod";
 export { SecurityMonitoringRuleNewValueOptionsLearningThreshold } from "./models/SecurityMonitoringRuleNewValueOptionsLearningThreshold";
@@ -740,6 +741,7 @@ export { SecurityMonitoringRuleTypeCreate } from "./models/SecurityMonitoringRul
 export { SecurityMonitoringRuleTypeRead } from "./models/SecurityMonitoringRuleTypeRead";
 export { SecurityMonitoringRuleTypeTest } from "./models/SecurityMonitoringRuleTypeTest";
 export { SecurityMonitoringRuleUpdatePayload } from "./models/SecurityMonitoringRuleUpdatePayload";
+export { SecurityMonitoringRuleUser } from "./models/SecurityMonitoringRuleUser";
 export { SecurityMonitoringRuleValidatePayload } from "./models/SecurityMonitoringRuleValidatePayload";
 export { SecurityMonitoringSchedulingOptions } from "./models/SecurityMonitoringSchedulingOptions";
 export { SecurityMonitoringSentinelOneIntegrationConfigCreateAttributes } from "./models/SecurityMonitoringSentinelOneIntegrationConfigCreateAttributes";
