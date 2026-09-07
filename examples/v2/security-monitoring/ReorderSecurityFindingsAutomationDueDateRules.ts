@@ -28,7 +28,7 @@ const params: v2.SecurityMonitoringApiReorderSecurityFindingsAutomationDueDateRu
 
 apiInstance
   .reorderSecurityFindingsAutomationDueDateRules(params)
-  .then((data: v2.DueDateRuleReorderRequest) => {
+  .then((data: v2.DueDateRuleReorderResponse) => {
     console.log(
       "API called successfully. Returned data: " + JSON.stringify(data)
     );

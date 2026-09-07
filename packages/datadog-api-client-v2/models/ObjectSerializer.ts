@@ -1538,6 +1538,7 @@ import { DueDateRuleDataCreate } from "./DueDateRuleDataCreate";
 import { DueDateRuleDataResponse } from "./DueDateRuleDataResponse";
 import { DueDateRuleReorderItem } from "./DueDateRuleReorderItem";
 import { DueDateRuleReorderRequest } from "./DueDateRuleReorderRequest";
+import { DueDateRuleReorderResponse } from "./DueDateRuleReorderResponse";
 import { DueDateRuleResponse } from "./DueDateRuleResponse";
 import { DueDateRuleUpdateRequest } from "./DueDateRuleUpdateRequest";
 import { DueDateRulesResponse } from "./DueDateRulesResponse";
@@ -3334,6 +3335,7 @@ import { MuteRuleDataCreate } from "./MuteRuleDataCreate";
 import { MuteRuleDataResponse } from "./MuteRuleDataResponse";
 import { MuteRuleReorderItem } from "./MuteRuleReorderItem";
 import { MuteRuleReorderRequest } from "./MuteRuleReorderRequest";
+import { MuteRuleReorderResponse } from "./MuteRuleReorderResponse";
 import { MuteRuleResponse } from "./MuteRuleResponse";
 import { MuteRuleUpdateRequest } from "./MuteRuleUpdateRequest";
 import { MuteRulesResponse } from "./MuteRulesResponse";
@@ -5613,6 +5615,7 @@ import { TicketCreationRuleDataCreate } from "./TicketCreationRuleDataCreate";
 import { TicketCreationRuleDataResponse } from "./TicketCreationRuleDataResponse";
 import { TicketCreationRuleReorderItem } from "./TicketCreationRuleReorderItem";
 import { TicketCreationRuleReorderRequest } from "./TicketCreationRuleReorderRequest";
+import { TicketCreationRuleReorderResponse } from "./TicketCreationRuleReorderResponse";
 import { TicketCreationRuleResponse } from "./TicketCreationRuleResponse";
 import { TicketCreationRuleUpdateRequest } from "./TicketCreationRuleUpdateRequest";
 import { TicketCreationRulesResponse } from "./TicketCreationRulesResponse";
@@ -11069,6 +11072,7 @@ const typeMap: { [index: string]: any } = {
   DueDateRuleDataResponse: DueDateRuleDataResponse,
   DueDateRuleReorderItem: DueDateRuleReorderItem,
   DueDateRuleReorderRequest: DueDateRuleReorderRequest,
+  DueDateRuleReorderResponse: DueDateRuleReorderResponse,
   DueDateRuleResponse: DueDateRuleResponse,
   DueDateRuleUpdateRequest: DueDateRuleUpdateRequest,
   DueDateRulesResponse: DueDateRulesResponse,
@@ -13218,6 +13222,7 @@ const typeMap: { [index: string]: any } = {
   MuteRuleDataResponse: MuteRuleDataResponse,
   MuteRuleReorderItem: MuteRuleReorderItem,
   MuteRuleReorderRequest: MuteRuleReorderRequest,
+  MuteRuleReorderResponse: MuteRuleReorderResponse,
   MuteRuleResponse: MuteRuleResponse,
   MuteRuleUpdateRequest: MuteRuleUpdateRequest,
   MuteRulesResponse: MuteRulesResponse,
@@ -16132,6 +16137,7 @@ const typeMap: { [index: string]: any } = {
   TicketCreationRuleDataResponse: TicketCreationRuleDataResponse,
   TicketCreationRuleReorderItem: TicketCreationRuleReorderItem,
   TicketCreationRuleReorderRequest: TicketCreationRuleReorderRequest,
+  TicketCreationRuleReorderResponse: TicketCreationRuleReorderResponse,
   TicketCreationRuleResponse: TicketCreationRuleResponse,
   TicketCreationRuleUpdateRequest: TicketCreationRuleUpdateRequest,
   TicketCreationRulesResponse: TicketCreationRulesResponse,
