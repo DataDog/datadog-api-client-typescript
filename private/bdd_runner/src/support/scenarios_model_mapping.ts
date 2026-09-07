@@ -9247,6 +9247,148 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
     },
     operationResponseType: "CancelDataDeletionResponseBody",
   },
+  "DEMApi.V2.CreateJourney": {
+    body: {
+      type: "DemJourneyCreateRequest",
+      format: "",
+    },
+    operationResponseType: "DemJourneyResponse",
+  },
+  "DEMApi.V2.DeleteIgnoredInferredJourney": {
+    journeyId: {
+      type: "string",
+      format: "",
+    },
+    operationResponseType: "{}",
+  },
+  "DEMApi.V2.SearchInferredJourneys": {
+    status: {
+      type: "DemInferredJourneyStatus",
+      format: "",
+    },
+    q: {
+      type: "string",
+      format: "",
+    },
+    appId: {
+      type: "string",
+      format: "",
+    },
+    operationResponseType: "DemSearchInferredJourneysResponse",
+  },
+  "DEMApi.V2.IgnoreInferredJourney": {
+    journeyId: {
+      type: "string",
+      format: "",
+    },
+    operationResponseType: "{}",
+  },
+  "DEMApi.V2.SearchJourneys": {
+    query: {
+      type: "string",
+      format: "",
+    },
+    pageOffset: {
+      type: "number",
+      format: "int64",
+    },
+    pageLimit: {
+      type: "number",
+      format: "int64",
+    },
+    creator: {
+      type: "string",
+      format: "",
+    },
+    team: {
+      type: "string",
+      format: "",
+    },
+    appId: {
+      type: "string",
+      format: "",
+    },
+    operationResponseType: "DemJourneysListResponse",
+  },
+  "DEMApi.V2.BatchGetJourneysByTestSuiteIDs": {
+    body: {
+      type: "DemBatchGetJourneysRequest",
+      format: "",
+    },
+    operationResponseType: "DemJourneysListResponse",
+  },
+  "DEMApi.V2.UpdateJourneyVariant": {
+    variantId: {
+      type: "string",
+      format: "",
+    },
+    body: {
+      type: "DemVariantRequest",
+      format: "",
+    },
+    operationResponseType: "DemVariantResponse",
+  },
+  "DEMApi.V2.DeleteJourneyVariant": {
+    variantId: {
+      type: "string",
+      format: "",
+    },
+    operationResponseType: "{}",
+  },
+  "DEMApi.V2.GetJourney": {
+    journeyId: {
+      type: "string",
+      format: "",
+    },
+    operationResponseType: "DemJourneyResponse",
+  },
+  "DEMApi.V2.UpdateJourney": {
+    journeyId: {
+      type: "string",
+      format: "",
+    },
+    body: {
+      type: "DemJourneyCreateRequest",
+      format: "",
+    },
+    operationResponseType: "DemJourneyResponse",
+  },
+  "DEMApi.V2.DeleteJourney": {
+    journeyId: {
+      type: "string",
+      format: "",
+    },
+    operationResponseType: "{}",
+  },
+  "DEMApi.V2.GetJourneyRecommendedTests": {
+    journeyId: {
+      type: "string",
+      format: "",
+    },
+    operationResponseType: "DemRecommendedTestsResponse",
+  },
+  "DEMApi.V2.CreateJourneyVariant": {
+    journeyId: {
+      type: "string",
+      format: "",
+    },
+    body: {
+      type: "DemVariantRequest",
+      format: "",
+    },
+    operationResponseType: "DemVariantResponse",
+  },
+  "DEMApi.V2.CreateTestSuiteForJourney": {
+    publicJourneyId: {
+      type: "string",
+      format: "",
+    },
+    body: {
+      type: "DemCreateJourneyTestSuiteRequest",
+      format: "",
+    },
+    operationResponseType: "DemJourneyTestSuiteResponse",
+  },
   "DeploymentGatesApi.V2.ListDeploymentGates": {
     pageCursor: {
       type: "string",
