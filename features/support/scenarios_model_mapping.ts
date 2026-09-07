@@ -9223,6 +9223,148 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             },
         "operationResponseType": "CancelDataDeletionResponseBody",
     },
+    "v2.CreateJourney": {
+        "body": {
+            "type": "DemJourneyCreateRequest",
+            "format": "",
+            },
+        "operationResponseType": "DemJourneyResponse",
+    },
+    "v2.DeleteIgnoredInferredJourney": {
+        "journeyId": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "{}",
+    },
+    "v2.SearchInferredJourneys": {
+        "status": {
+            "type": "DemInferredJourneyStatus",
+            "format": "",
+            },
+        "q": {
+            "type": "string",
+            "format": "",
+            },
+        "appId": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "DemSearchInferredJourneysResponse",
+    },
+    "v2.IgnoreInferredJourney": {
+        "journeyId": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "{}",
+    },
+    "v2.SearchJourneys": {
+        "query": {
+            "type": "string",
+            "format": "",
+            },
+        "pageOffset": {
+            "type": "number",
+            "format": "int64",
+            },
+        "pageLimit": {
+            "type": "number",
+            "format": "int64",
+            },
+        "creator": {
+            "type": "string",
+            "format": "",
+            },
+        "team": {
+            "type": "string",
+            "format": "",
+            },
+        "appId": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "DemJourneysListResponse",
+    },
+    "v2.BatchGetJourneysByTestSuiteIDs": {
+        "body": {
+            "type": "DemBatchGetJourneysRequest",
+            "format": "",
+            },
+        "operationResponseType": "DemJourneysListResponse",
+    },
+    "v2.UpdateJourneyVariant": {
+        "variantId": {
+            "type": "string",
+            "format": "",
+            },
+        "body": {
+            "type": "DemVariantRequest",
+            "format": "",
+            },
+        "operationResponseType": "DemVariantResponse",
+    },
+    "v2.DeleteJourneyVariant": {
+        "variantId": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "{}",
+    },
+    "v2.GetJourney": {
+        "journeyId": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "DemJourneyResponse",
+    },
+    "v2.UpdateJourney": {
+        "journeyId": {
+            "type": "string",
+            "format": "",
+            },
+        "body": {
+            "type": "DemJourneyCreateRequest",
+            "format": "",
+            },
+        "operationResponseType": "DemJourneyResponse",
+    },
+    "v2.DeleteJourney": {
+        "journeyId": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "{}",
+    },
+    "v2.GetJourneyRecommendedTests": {
+        "journeyId": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "DemRecommendedTestsResponse",
+    },
+    "v2.CreateJourneyVariant": {
+        "journeyId": {
+            "type": "string",
+            "format": "",
+            },
+        "body": {
+            "type": "DemVariantRequest",
+            "format": "",
+            },
+        "operationResponseType": "DemVariantResponse",
+    },
+    "v2.CreateTestSuiteForJourney": {
+        "publicJourneyId": {
+            "type": "string",
+            "format": "",
+            },
+        "body": {
+            "type": "DemCreateJourneyTestSuiteRequest",
+            "format": "",
+            },
+        "operationResponseType": "DemJourneyTestSuiteResponse",
+    },
     "v2.ListDeploymentGates": {
         "pageCursor": {
             "type": "string",
