@@ -1,5 +1,11 @@
 # CHANGELOG
 
+## 0.0.1-beta.10/2026-09-02
+
+### Added
+* Add is_iac support to send X-Datadog-Managed-By header [#4945](https://github.com/DataDog/datadog-api-client-typescript/pull/4945)
+* Fix estimate endpoint query params to match live schema [#4909](https://github.com/DataDog/datadog-api-client-typescript/pull/4909)
+
 ## 0.0.1-beta.9/2026-08-06
 
 ### Added

@@ -1,5 +1,10 @@
 # CHANGELOG
 
+## 0.0.1-beta.13/2026-09-02
+
+### Changed
+* Promote usage quotas admin endpoints to public unstable [#4955](https://github.com/DataDog/datadog-api-client-typescript/pull/4955)
+
 ## 0.0.1-beta.12/2026-08-06
 
 ### Added
