@@ -5715,6 +5715,8 @@ export { LLMObsExperimentUpdateDataAttributesRequest } from "./models/LLMObsExpe
 export { LLMObsExperimentUpdateDataRequest } from "./models/LLMObsExperimentUpdateDataRequest";
 export { LLMObsExperimentUpdateRequest } from "./models/LLMObsExperimentUpdateRequest";
 export { LLMObsExperimentUser } from "./models/LLMObsExperimentUser";
+export { LLMObsFrontendContentBlock } from "./models/LLMObsFrontendContentBlock";
+export { LLMObsFrontendContentBlockType } from "./models/LLMObsFrontendContentBlockType";
 export { LLMObsInferenceCode } from "./models/LLMObsInferenceCode";
 export { LLMObsInferenceContent } from "./models/LLMObsInferenceContent";
 export { LLMObsInferenceContentValue } from "./models/LLMObsInferenceContentValue";
@@ -5733,6 +5735,8 @@ export { LLMObsIntegrationName } from "./models/LLMObsIntegrationName";
 export { LLMObsInternalReasoning } from "./models/LLMObsInternalReasoning";
 export { LLMObsLabelSchema } from "./models/LLMObsLabelSchema";
 export { LLMObsLabelSchemaType } from "./models/LLMObsLabelSchemaType";
+export { LLMObsLegacyContentBlock } from "./models/LLMObsLegacyContentBlock";
+export { LLMObsLegacyContentBlockType } from "./models/LLMObsLegacyContentBlockType";
 export { LLMObsMetricAssessment } from "./models/LLMObsMetricAssessment";
 export { LLMObsMetricScoreType } from "./models/LLMObsMetricScoreType";
 export { LLMObsOpenAIMetadata } from "./models/LLMObsOpenAIMetadata";
