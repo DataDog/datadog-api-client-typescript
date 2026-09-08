@@ -27,7 +27,7 @@ const params: v2.SecurityMonitoringApiReorderSecurityFindingsAutomationMuteRules
 
 apiInstance
   .reorderSecurityFindingsAutomationMuteRules(params)
-  .then((data: v2.MuteRuleReorderRequest) => {
+  .then((data: v2.MuteRuleReorderResponse) => {
     console.log(
       "API called successfully. Returned data: " + JSON.stringify(data)
     );

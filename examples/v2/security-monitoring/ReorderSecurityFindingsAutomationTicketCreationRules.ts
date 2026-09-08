@@ -28,7 +28,7 @@ const params: v2.SecurityMonitoringApiReorderSecurityFindingsAutomationTicketCre
 
 apiInstance
   .reorderSecurityFindingsAutomationTicketCreationRules(params)
-  .then((data: v2.TicketCreationRuleReorderRequest) => {
+  .then((data: v2.TicketCreationRuleReorderResponse) => {
     console.log(
       "API called successfully. Returned data: " + JSON.stringify(data)
     );
