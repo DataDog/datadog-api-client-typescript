@@ -219,6 +219,16 @@ import { UCConfigPair } from "./UCConfigPair";
 import { UCConfigPairData } from "./UCConfigPairData";
 import { UCConfigPairDataAttributes } from "./UCConfigPairDataAttributes";
 import { UCConfigPairDataAttributesConfigsItems } from "./UCConfigPairDataAttributesConfigsItems";
+import { UnitCostCreateRequest } from "./UnitCostCreateRequest";
+import { UnitCostCreateRequestData } from "./UnitCostCreateRequestData";
+import { UnitCostDataAttributesResponse } from "./UnitCostDataAttributesResponse";
+import { UnitCostDataResponse } from "./UnitCostDataResponse";
+import { UnitCostQueryDefinition } from "./UnitCostQueryDefinition";
+import { UnitCostRequestAttributes } from "./UnitCostRequestAttributes";
+import { UnitCostResponse } from "./UnitCostResponse";
+import { UnitCostUpdateRequest } from "./UnitCostUpdateRequest";
+import { UnitCostUpdateRequestData } from "./UnitCostUpdateRequestData";
+import { UnitCostsResponse } from "./UnitCostsResponse";
 import { UpdateRulesetRequest } from "./UpdateRulesetRequest";
 import { UpdateRulesetRequestData } from "./UpdateRulesetRequestData";
 import { UpdateRulesetRequestDataAttributes } from "./UpdateRulesetRequestDataAttributes";
@@ -280,6 +290,7 @@ export const TypingInfo: ModelTypingInfo = {
     RulesetRespDataType: ["ruleset"],
     RulesetStatusRespDataType: ["ruleset_status"],
     UCConfigPairDataType: ["azure_uc_configs"],
+    UnitCostType: ["unit_cost"],
     UpdateRulesetRequestDataType: ["update_ruleset"],
   },
   oneOfMap: {
@@ -559,6 +570,16 @@ export const TypingInfo: ModelTypingInfo = {
     UCConfigPairDataAttributes: UCConfigPairDataAttributes,
     UCConfigPairDataAttributesConfigsItems:
       UCConfigPairDataAttributesConfigsItems,
+    UnitCostCreateRequest: UnitCostCreateRequest,
+    UnitCostCreateRequestData: UnitCostCreateRequestData,
+    UnitCostDataAttributesResponse: UnitCostDataAttributesResponse,
+    UnitCostDataResponse: UnitCostDataResponse,
+    UnitCostQueryDefinition: UnitCostQueryDefinition,
+    UnitCostRequestAttributes: UnitCostRequestAttributes,
+    UnitCostResponse: UnitCostResponse,
+    UnitCostUpdateRequest: UnitCostUpdateRequest,
+    UnitCostUpdateRequestData: UnitCostUpdateRequestData,
+    UnitCostsResponse: UnitCostsResponse,
     UpdateRulesetRequest: UpdateRulesetRequest,
     UpdateRulesetRequestData: UpdateRulesetRequestData,
     UpdateRulesetRequestDataAttributes: UpdateRulesetRequestDataAttributes,
