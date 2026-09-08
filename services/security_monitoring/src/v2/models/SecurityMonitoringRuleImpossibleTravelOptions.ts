@@ -14,6 +14,10 @@ export class SecurityMonitoringRuleImpossibleTravelOptions {
    */
   "baselineUserLocationsDuration"?: number;
   /**
+   * Whether to detect transitions between IP addresses.
+   */
+  "detectIpTransition"?: boolean;
+  /**
    * A container for additional, undeclared properties.
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
@@ -36,6 +40,10 @@ export class SecurityMonitoringRuleImpossibleTravelOptions {
       baseName: "baselineUserLocationsDuration",
       type: "number",
       format: "int32",
+    },
+    detectIpTransition: {
+      baseName: "detectIpTransition",
+      type: "boolean",
     },
     additionalProperties: {
       baseName: "additionalProperties",

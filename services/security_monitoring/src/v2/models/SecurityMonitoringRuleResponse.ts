@@ -4,7 +4,7 @@ import { SecurityMonitoringSignalRuleResponse } from "./SecurityMonitoringSignal
 import { SecurityMonitoringStandardRuleResponse } from "./SecurityMonitoringStandardRuleResponse";
 
 /**
- * Create a new rule.
+ * A security monitoring rule.
  */
 export type SecurityMonitoringRuleResponse =
   | SecurityMonitoringStandardRuleResponse

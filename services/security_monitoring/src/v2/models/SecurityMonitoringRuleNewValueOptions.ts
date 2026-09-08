@@ -16,6 +16,10 @@ export class SecurityMonitoringRuleNewValueOptions {
    */
   "instantaneousBaseline"?: boolean;
   /**
+   * Timeout in minutes for constructing the instantaneous baseline.
+   */
+  "instantaneousBaselineTimeoutMinutes"?: number;
+  /**
    * The duration in days during which values are learned, and after which signals will be generated for values that
    * weren't learned. If set to 0, a signal will be generated for all new values after the first value is learned.
    */
@@ -51,6 +55,11 @@ export class SecurityMonitoringRuleNewValueOptions {
     instantaneousBaseline: {
       baseName: "instantaneousBaseline",
       type: "boolean",
+    },
+    instantaneousBaselineTimeoutMinutes: {
+      baseName: "instantaneousBaselineTimeoutMinutes",
+      type: "number",
+      format: "int32",
     },
     learningDuration: {
       baseName: "learningDuration",
