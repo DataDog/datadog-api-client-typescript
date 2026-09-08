@@ -1,5 +1,7 @@
 import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
+import { DORADeploymentAveragedMetrics } from "./DORADeploymentAveragedMetrics";
+import { DORADeploymentRemediation } from "./DORADeploymentRemediation";
 import { DORAGitInfoResponse } from "./DORAGitInfoResponse";
 
 /**
@@ -7,9 +9,41 @@ import { DORAGitInfoResponse } from "./DORAGitInfoResponse";
  */
 export class DORADeploymentObjectAttributes {
   /**
+   * AI-assisted development metrics aggregated across the commits and pull requests included in the deployment.
+   */
+  "ai"?: { [key: string]: any };
+  /**
+   * Averaged DORA and delivery metrics computed across the commits and pull requests included in the deployment.
+   */
+  "averagedMetrics"?: DORADeploymentAveragedMetrics;
+  /**
+   * Whether the deployment is flagged as a change failure.
+   */
+  "changeFailure"?: boolean;
+  /**
+   * The list of commits included in the deployment.
+   */
+  "commits"?: Array<{ [key: string]: any }>;
+  /**
+   * The time when the deployment event was recorded.
+   */
+  "createdAt"?: Date;
+  /**
+   * A map of custom metadata associated with the deployment.
+   */
+  "custom"?: { [key: string]: any };
+  /**
    * A list of user-defined tags. The tags must follow the `key:value` pattern. Up to 100 may be added per event.
    */
   "customTags"?: Array<string>;
+  /**
+   * The type of the deployment.
+   */
+  "deploymentType"?: string;
+  /**
+   * The duration of the deployment.
+   */
+  "duration"?: number;
   /**
    * Environment name to where the service was deployed.
    */
@@ -23,9 +57,33 @@ export class DORADeploymentObjectAttributes {
    */
   "git"?: DORAGitInfoResponse;
   /**
+   * The number of commits associated with the deployment.
+   */
+  "numberOfCommits"?: number;
+  /**
+   * The number of pull requests associated with the deployment.
+   */
+  "numberOfPullRequests"?: number;
+  /**
+   * The list of pull requests included in the deployment.
+   */
+  "pullRequests"?: Array<{ [key: string]: any }>;
+  /**
+   * The recovery time, in seconds, for a deployment flagged as a change failure.
+   */
+  "recoveryTimeSec"?: number;
+  /**
+   * Remediation details for a deployment that was flagged as a change failure.
+   */
+  "remediation"?: DORADeploymentRemediation;
+  /**
    * Service name.
    */
   "service": string;
+  /**
+   * The source of the deployment event.
+   */
+  "source"?: string;
   /**
    * The time when the deployment started.
    */
@@ -53,9 +111,43 @@ export class DORADeploymentObjectAttributes {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
+    ai: {
+      baseName: "ai",
+      type: "{ [key: string]: any; }",
+    },
+    averagedMetrics: {
+      baseName: "averaged_metrics",
+      type: "DORADeploymentAveragedMetrics",
+    },
+    changeFailure: {
+      baseName: "change_failure",
+      type: "boolean",
+    },
+    commits: {
+      baseName: "commits",
+      type: "Array<{ [key: string]: any; }>",
+    },
+    createdAt: {
+      baseName: "created_at",
+      type: "Date",
+      format: "date-time",
+    },
+    custom: {
+      baseName: "custom",
+      type: "{ [key: string]: any; }",
+    },
     customTags: {
       baseName: "custom_tags",
       type: "Array<string>",
+    },
+    deploymentType: {
+      baseName: "deployment_type",
+      type: "string",
+    },
+    duration: {
+      baseName: "duration",
+      type: "number",
+      format: "int64",
     },
     env: {
       baseName: "env",
@@ -70,10 +162,37 @@ export class DORADeploymentObjectAttributes {
       baseName: "git",
       type: "DORAGitInfoResponse",
     },
+    numberOfCommits: {
+      baseName: "number_of_commits",
+      type: "number",
+      format: "int64",
+    },
+    numberOfPullRequests: {
+      baseName: "number_of_pull_requests",
+      type: "number",
+      format: "int64",
+    },
+    pullRequests: {
+      baseName: "pull_requests",
+      type: "Array<{ [key: string]: any; }>",
+    },
+    recoveryTimeSec: {
+      baseName: "recovery_time_sec",
+      type: "number",
+      format: "int64",
+    },
+    remediation: {
+      baseName: "remediation",
+      type: "DORADeploymentRemediation",
+    },
     service: {
       baseName: "service",
       type: "string",
       required: true,
+    },
+    source: {
+      baseName: "source",
+      type: "string",
     },
     startedAt: {
       baseName: "started_at",
