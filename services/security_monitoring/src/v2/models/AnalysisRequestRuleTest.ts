@@ -1,19 +1,21 @@
 import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
-import { GetMultipleRulesetsResponseDataAttributesRulesetsItemsDataType } from "./GetMultipleRulesetsResponseDataAttributesRulesetsItemsDataType";
-
 /**
- * The resource identifier and type for a ruleset.
+ * A test case of a forwarded static analysis rule.
  */
-export class GetMultipleRulesetsResponseDataAttributesRulesetsItemsData {
+export class AnalysisRequestRuleTest {
   /**
-   * The unique identifier of the ruleset resource.
+   * The expected number of findings the rule should produce against the test code.
    */
-  "id"?: string;
+  "annotationCount"?: number;
   /**
-   * Rulesets resource type.
+   * The source code snippet used as input for the rule test.
    */
-  "type": GetMultipleRulesetsResponseDataAttributesRulesetsItemsDataType;
+  "code"?: string;
+  /**
+   * The filename associated with the test code snippet.
+   */
+  "filename"?: string;
   /**
    * A container for additional, undeclared properties.
    * This is a holder for any undeclared properties as specified with
@@ -29,14 +31,18 @@ export class GetMultipleRulesetsResponseDataAttributesRulesetsItemsData {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    id: {
-      baseName: "id",
+    annotationCount: {
+      baseName: "annotation_count",
+      type: "number",
+      format: "int64",
+    },
+    code: {
+      baseName: "code",
       type: "string",
     },
-    type: {
-      baseName: "type",
-      type: "GetMultipleRulesetsResponseDataAttributesRulesetsItemsDataType",
-      required: true,
+    filename: {
+      baseName: "filename",
+      type: "string",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -48,7 +54,7 @@ export class GetMultipleRulesetsResponseDataAttributesRulesetsItemsData {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-    return GetMultipleRulesetsResponseDataAttributesRulesetsItemsData.attributeTypeMap;
+    return AnalysisRequestRuleTest.attributeTypeMap;
   }
 
   public constructor() {}

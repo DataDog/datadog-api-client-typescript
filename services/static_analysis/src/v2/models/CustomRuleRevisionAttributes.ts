@@ -13,7 +13,7 @@ export class CustomRuleRevisionAttributes {
   /**
    * Rule arguments
    */
-  "arguments": Array<Argument>;
+  "arguments": Array<Argument> | null;
   /**
    * Rule category
    */
@@ -41,11 +41,11 @@ export class CustomRuleRevisionAttributes {
   /**
    * Associated CVE
    */
-  "cve": string | null;
+  "cve"?: string;
   /**
    * Associated CWE
    */
-  "cwe": string | null;
+  "cwe"?: string;
   /**
    * Full description
    */
@@ -53,7 +53,7 @@ export class CustomRuleRevisionAttributes {
   /**
    * Documentation URL
    */
-  "documentationUrl": string | null;
+  "documentationUrl"?: string;
   /**
    * Whether the revision is published
    */
@@ -81,15 +81,19 @@ export class CustomRuleRevisionAttributes {
   /**
    * Rule tags
    */
-  "tags": Array<string>;
+  "tags": Array<string> | null;
   /**
    * Rule tests
    */
-  "tests": Array<CustomRuleRevisionTest>;
+  "tests": Array<CustomRuleRevisionTest> | null;
   /**
    * Tree-sitter query
    */
   "treeSitterQuery": string;
+  /**
+   * Monotonically increasing version number of the revision.
+   */
+  "versionId": number;
   /**
    * A container for additional, undeclared properties.
    * This is a holder for any undeclared properties as specified with
@@ -144,12 +148,10 @@ export class CustomRuleRevisionAttributes {
     cve: {
       baseName: "cve",
       type: "string",
-      required: true,
     },
     cwe: {
       baseName: "cwe",
       type: "string",
-      required: true,
     },
     description: {
       baseName: "description",
@@ -159,7 +161,6 @@ export class CustomRuleRevisionAttributes {
     documentationUrl: {
       baseName: "documentation_url",
       type: "string",
-      required: true,
     },
     isPublished: {
       baseName: "is_published",
@@ -205,6 +206,12 @@ export class CustomRuleRevisionAttributes {
       baseName: "tree_sitter_query",
       type: "string",
       required: true,
+    },
+    versionId: {
+      baseName: "version_id",
+      type: "number",
+      required: true,
+      format: "int64",
     },
     additionalProperties: {
       baseName: "additionalProperties",

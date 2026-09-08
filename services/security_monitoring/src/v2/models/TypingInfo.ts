@@ -9,6 +9,8 @@ import { AnalysisRequest } from "./AnalysisRequest";
 import { AnalysisRequestData } from "./AnalysisRequestData";
 import { AnalysisRequestDataAttributes } from "./AnalysisRequestDataAttributes";
 import { AnalysisRequestRule } from "./AnalysisRequestRule";
+import { AnalysisRequestRuleArgument } from "./AnalysisRequestRuleArgument";
+import { AnalysisRequestRuleTest } from "./AnalysisRequestRuleTest";
 import { AnalysisResponse } from "./AnalysisResponse";
 import { AnalysisResponseData } from "./AnalysisResponseData";
 import { AnalysisResponseDataAttributes } from "./AnalysisResponseDataAttributes";
@@ -28,6 +30,7 @@ import { AssigneeResponseData } from "./AssigneeResponseData";
 import { AssigneeResponseDataAttributes } from "./AssigneeResponseDataAttributes";
 import { AssigneeResponseMeta } from "./AssigneeResponseMeta";
 import { AssignmentResult } from "./AssignmentResult";
+import { AstNode } from "./AstNode";
 import { AttachCaseRequest } from "./AttachCaseRequest";
 import { AttachCaseRequestData } from "./AttachCaseRequestData";
 import { AttachCaseRequestDataRelationships } from "./AttachCaseRequestDataRelationships";
@@ -170,10 +173,8 @@ import { GetMultipleRulesetsResponse } from "./GetMultipleRulesetsResponse";
 import { GetMultipleRulesetsResponseData } from "./GetMultipleRulesetsResponseData";
 import { GetMultipleRulesetsResponseDataAttributes } from "./GetMultipleRulesetsResponseDataAttributes";
 import { GetMultipleRulesetsResponseDataAttributesRulesetsItems } from "./GetMultipleRulesetsResponseDataAttributesRulesetsItems";
-import { GetMultipleRulesetsResponseDataAttributesRulesetsItemsData } from "./GetMultipleRulesetsResponseDataAttributesRulesetsItemsData";
 import { GetMultipleRulesetsResponseDataAttributesRulesetsItemsRulesItems } from "./GetMultipleRulesetsResponseDataAttributesRulesetsItemsRulesItems";
 import { GetMultipleRulesetsResponseDataAttributesRulesetsItemsRulesItemsArgumentsItems } from "./GetMultipleRulesetsResponseDataAttributesRulesetsItemsRulesItemsArgumentsItems";
-import { GetMultipleRulesetsResponseDataAttributesRulesetsItemsRulesItemsData } from "./GetMultipleRulesetsResponseDataAttributesRulesetsItemsRulesItemsData";
 import { GetMultipleRulesetsResponseDataAttributesRulesetsItemsRulesItemsTestsItems } from "./GetMultipleRulesetsResponseDataAttributesRulesetsItemsRulesItemsTestsItems";
 import { GetResourceEvaluationFiltersResponse } from "./GetResourceEvaluationFiltersResponse";
 import { GetResourceEvaluationFiltersResponseData } from "./GetResourceEvaluationFiltersResponseData";
@@ -644,9 +645,6 @@ export const TypingInfo: ModelTypingInfo = {
     GetMultipleRulesetsRequestDataType: ["get_multiple_rulesets_request"],
     GetMultipleRulesetsResponseDataAttributesRulesetsItemsDataType: [
       "rulesets",
-    ],
-    GetMultipleRulesetsResponseDataAttributesRulesetsItemsRulesItemsDataType: [
-      "rules",
     ],
     GetMultipleRulesetsResponseDataType: ["get_multiple_rulesets_response"],
     GetRuleVersionHistoryDataType: ["GetRuleVersionHistoryResponse"],
@@ -1176,6 +1174,8 @@ export const TypingInfo: ModelTypingInfo = {
     AnalysisRequestData: AnalysisRequestData,
     AnalysisRequestDataAttributes: AnalysisRequestDataAttributes,
     AnalysisRequestRule: AnalysisRequestRule,
+    AnalysisRequestRuleArgument: AnalysisRequestRuleArgument,
+    AnalysisRequestRuleTest: AnalysisRequestRuleTest,
     AnalysisResponse: AnalysisResponse,
     AnalysisResponseData: AnalysisResponseData,
     AnalysisResponseDataAttributes: AnalysisResponseDataAttributes,
@@ -1195,6 +1195,7 @@ export const TypingInfo: ModelTypingInfo = {
     AssigneeResponseDataAttributes: AssigneeResponseDataAttributes,
     AssigneeResponseMeta: AssigneeResponseMeta,
     AssignmentResult: AssignmentResult,
+    AstNode: AstNode,
     AttachCaseRequest: AttachCaseRequest,
     AttachCaseRequestData: AttachCaseRequestData,
     AttachCaseRequestDataRelationships: AttachCaseRequestDataRelationships,
@@ -1356,14 +1357,10 @@ export const TypingInfo: ModelTypingInfo = {
       GetMultipleRulesetsResponseDataAttributes,
     GetMultipleRulesetsResponseDataAttributesRulesetsItems:
       GetMultipleRulesetsResponseDataAttributesRulesetsItems,
-    GetMultipleRulesetsResponseDataAttributesRulesetsItemsData:
-      GetMultipleRulesetsResponseDataAttributesRulesetsItemsData,
     GetMultipleRulesetsResponseDataAttributesRulesetsItemsRulesItems:
       GetMultipleRulesetsResponseDataAttributesRulesetsItemsRulesItems,
     GetMultipleRulesetsResponseDataAttributesRulesetsItemsRulesItemsArgumentsItems:
       GetMultipleRulesetsResponseDataAttributesRulesetsItemsRulesItemsArgumentsItems,
-    GetMultipleRulesetsResponseDataAttributesRulesetsItemsRulesItemsData:
-      GetMultipleRulesetsResponseDataAttributesRulesetsItemsRulesItemsData,
     GetMultipleRulesetsResponseDataAttributesRulesetsItemsRulesItemsTestsItems:
       GetMultipleRulesetsResponseDataAttributesRulesetsItemsRulesItemsTestsItems,
     GetResourceEvaluationFiltersResponse: GetResourceEvaluationFiltersResponse,

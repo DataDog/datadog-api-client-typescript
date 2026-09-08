@@ -1,11 +1,11 @@
 import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
-import { CustomRulesetRuleEmbedded } from "./CustomRulesetRuleEmbedded";
+import { CustomRuleRevisionEmbedded } from "./CustomRuleRevisionEmbedded";
 
 /**
- * Attributes of a custom ruleset, including its name, description, and rules.
+ * Attributes of a custom static analysis rule, including its most recent revision and revision history.
  */
-export class CustomRulesetAttributes {
+export class CustomRuleAttributes {
   /**
    * Creation timestamp
    */
@@ -15,21 +15,17 @@ export class CustomRulesetAttributes {
    */
   "createdBy": string;
   /**
-   * Base64-encoded full description
+   * A revision of a custom static analysis rule as embedded in a rule or ruleset response.
    */
-  "description": string;
+  "lastRevision": CustomRuleRevisionEmbedded;
   /**
-   * Ruleset name
+   * Rule name
    */
   "name": string;
   /**
-   * Rules in the ruleset
+   * Revision history of the rule.
    */
-  "rules": Array<CustomRulesetRuleEmbedded> | null;
-  /**
-   * Base64-encoded short description
-   */
-  "shortDescription": string;
+  "revisions": Array<CustomRuleRevisionEmbedded> | null;
   /**
    * A container for additional, undeclared properties.
    * This is a holder for any undeclared properties as specified with
@@ -56,9 +52,9 @@ export class CustomRulesetAttributes {
       type: "string",
       required: true,
     },
-    description: {
-      baseName: "description",
-      type: "string",
+    lastRevision: {
+      baseName: "last_revision",
+      type: "CustomRuleRevisionEmbedded",
       required: true,
     },
     name: {
@@ -66,14 +62,9 @@ export class CustomRulesetAttributes {
       type: "string",
       required: true,
     },
-    rules: {
-      baseName: "rules",
-      type: "Array<CustomRulesetRuleEmbedded>",
-      required: true,
-    },
-    shortDescription: {
-      baseName: "short_description",
-      type: "string",
+    revisions: {
+      baseName: "revisions",
+      type: "Array<CustomRuleRevisionEmbedded>",
       required: true,
     },
     additionalProperties: {
@@ -86,7 +77,7 @@ export class CustomRulesetAttributes {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-    return CustomRulesetAttributes.attributeTypeMap;
+    return CustomRuleAttributes.attributeTypeMap;
   }
 
   public constructor() {}

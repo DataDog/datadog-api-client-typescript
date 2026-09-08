@@ -35,6 +35,7 @@ import { AiPromptResponseData } from "./AiPromptResponseData";
 import { AiPromptsResponse } from "./AiPromptsResponse";
 import { Argument } from "./Argument";
 import { CustomRule } from "./CustomRule";
+import { CustomRuleAttributes } from "./CustomRuleAttributes";
 import { CustomRuleRequest } from "./CustomRuleRequest";
 import { CustomRuleRequestData } from "./CustomRuleRequestData";
 import { CustomRuleRequestDataAttributes } from "./CustomRuleRequestDataAttributes";
@@ -42,6 +43,8 @@ import { CustomRuleResponse } from "./CustomRuleResponse";
 import { CustomRuleResponseData } from "./CustomRuleResponseData";
 import { CustomRuleRevision } from "./CustomRuleRevision";
 import { CustomRuleRevisionAttributes } from "./CustomRuleRevisionAttributes";
+import { CustomRuleRevisionEmbedded } from "./CustomRuleRevisionEmbedded";
+import { CustomRuleRevisionInput } from "./CustomRuleRevisionInput";
 import { CustomRuleRevisionInputAttributes } from "./CustomRuleRevisionInputAttributes";
 import { CustomRuleRevisionRequest } from "./CustomRuleRevisionRequest";
 import { CustomRuleRevisionRequestData } from "./CustomRuleRevisionRequestData";
@@ -55,6 +58,7 @@ import { CustomRulesetRequest } from "./CustomRulesetRequest";
 import { CustomRulesetRequestData } from "./CustomRulesetRequestData";
 import { CustomRulesetRequestDataAttributes } from "./CustomRulesetRequestDataAttributes";
 import { CustomRulesetResponse } from "./CustomRulesetResponse";
+import { CustomRulesetRuleEmbedded } from "./CustomRulesetRuleEmbedded";
 import { JSONAPIErrorItem } from "./JSONAPIErrorItem";
 import { JSONAPIErrorItemSource } from "./JSONAPIErrorItemSource";
 import { JSONAPIErrorResponse } from "./JSONAPIErrorResponse";
@@ -189,6 +193,7 @@ export const TypingInfo: ModelTypingInfo = {
     AiPromptsResponse: AiPromptsResponse,
     Argument: Argument,
     CustomRule: CustomRule,
+    CustomRuleAttributes: CustomRuleAttributes,
     CustomRuleRequest: CustomRuleRequest,
     CustomRuleRequestData: CustomRuleRequestData,
     CustomRuleRequestDataAttributes: CustomRuleRequestDataAttributes,
@@ -196,6 +201,8 @@ export const TypingInfo: ModelTypingInfo = {
     CustomRuleResponseData: CustomRuleResponseData,
     CustomRuleRevision: CustomRuleRevision,
     CustomRuleRevisionAttributes: CustomRuleRevisionAttributes,
+    CustomRuleRevisionEmbedded: CustomRuleRevisionEmbedded,
+    CustomRuleRevisionInput: CustomRuleRevisionInput,
     CustomRuleRevisionInputAttributes: CustomRuleRevisionInputAttributes,
     CustomRuleRevisionRequest: CustomRuleRevisionRequest,
     CustomRuleRevisionRequestData: CustomRuleRevisionRequestData,
@@ -209,6 +216,7 @@ export const TypingInfo: ModelTypingInfo = {
     CustomRulesetRequestData: CustomRulesetRequestData,
     CustomRulesetRequestDataAttributes: CustomRulesetRequestDataAttributes,
     CustomRulesetResponse: CustomRulesetResponse,
+    CustomRulesetRuleEmbedded: CustomRulesetRuleEmbedded,
     JSONAPIErrorItem: JSONAPIErrorItem,
     JSONAPIErrorItemSource: JSONAPIErrorItemSource,
     JSONAPIErrorResponse: JSONAPIErrorResponse,

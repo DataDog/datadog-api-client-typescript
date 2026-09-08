@@ -7,9 +7,9 @@ import { CustomRuleRevisionTest } from "./CustomRuleRevisionTest";
 import { Language } from "./Language";
 
 /**
- * Input attributes for creating or updating a custom rule revision.
+ * A revision of a custom static analysis rule as embedded in a rule or ruleset response.
  */
-export class CustomRuleRevisionInputAttributes {
+export class CustomRuleRevisionEmbedded {
   /**
    * Rule arguments
    */
@@ -19,31 +19,31 @@ export class CustomRuleRevisionInputAttributes {
    */
   "category": CustomRuleRevisionAttributesCategory;
   /**
-   * Code checksum. Derived by the API from `code`; ignored on write.
+   * Code checksum
    */
-  "checksum"?: string;
+  "checksum": string;
   /**
    * Rule code
    */
   "code": string;
   /**
-   * Creation timestamp. Set by the API; ignored on write.
+   * Creation timestamp
    */
-  "createdAt"?: Date;
+  "createdAt": Date;
   /**
-   * Creator identifier. Set by the API from the caller; ignored on write.
+   * Creator identifier
    */
-  "createdBy"?: string;
+  "createdBy": string;
   /**
    * Revision creation message
    */
   "creationMessage": string;
   /**
-   * Associated CVE
+   * Associated CVE. Omitted when the revision has no associated CVE.
    */
   "cve"?: string;
   /**
-   * Associated CWE
+   * Associated CWE. Omitted when the revision has no associated CWE.
    */
   "cwe"?: string;
   /**
@@ -51,9 +51,13 @@ export class CustomRuleRevisionInputAttributes {
    */
   "description": string;
   /**
-   * Documentation URL
+   * Documentation URL. Omitted when the revision has no documentation URL.
    */
   "documentationUrl"?: string;
+  /**
+   * Revision identifier
+   */
+  "id": string;
   /**
    * Whether the revision is published
    */
@@ -91,9 +95,9 @@ export class CustomRuleRevisionInputAttributes {
    */
   "treeSitterQuery": string;
   /**
-   * Monotonically increasing version number of the revision. Assigned by the API; ignored on write.
+   * Monotonically increasing version number of the revision.
    */
-  "versionId"?: number;
+  "versionId": number;
   /**
    * A container for additional, undeclared properties.
    * This is a holder for any undeclared properties as specified with
@@ -122,6 +126,7 @@ export class CustomRuleRevisionInputAttributes {
     checksum: {
       baseName: "checksum",
       type: "string",
+      required: true,
     },
     code: {
       baseName: "code",
@@ -131,11 +136,13 @@ export class CustomRuleRevisionInputAttributes {
     createdAt: {
       baseName: "created_at",
       type: "Date",
+      required: true,
       format: "date-time",
     },
     createdBy: {
       baseName: "created_by",
       type: "string",
+      required: true,
     },
     creationMessage: {
       baseName: "creation_message",
@@ -158,6 +165,11 @@ export class CustomRuleRevisionInputAttributes {
     documentationUrl: {
       baseName: "documentation_url",
       type: "string",
+    },
+    id: {
+      baseName: "id",
+      type: "string",
+      required: true,
     },
     isPublished: {
       baseName: "is_published",
@@ -207,6 +219,7 @@ export class CustomRuleRevisionInputAttributes {
     versionId: {
       baseName: "version_id",
       type: "number",
+      required: true,
       format: "int64",
     },
     additionalProperties: {
@@ -219,7 +232,7 @@ export class CustomRuleRevisionInputAttributes {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-    return CustomRuleRevisionInputAttributes.attributeTypeMap;
+    return CustomRuleRevisionEmbedded.attributeTypeMap;
   }
 
   public constructor() {}
