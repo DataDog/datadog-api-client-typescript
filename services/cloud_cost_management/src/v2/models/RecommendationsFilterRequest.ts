@@ -1,5 +1,6 @@
 import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
+import { RecommendationsFilterRequestScope } from "./RecommendationsFilterRequestScope";
 import { RecommendationsFilterRequestSortItems } from "./RecommendationsFilterRequestSortItems";
 
 /**
@@ -10,6 +11,10 @@ export class RecommendationsFilterRequest {
    * Filter expression applied to the recommendations.
    */
   "filter"?: string;
+  /**
+   * Recommendations scope. Defaults to `ccm`; use `experiment` for experimental recommendations or `*` for both.
+   */
+  "scope"?: RecommendationsFilterRequestScope;
   /**
    * Ordered list of sort clauses applied to the result set.
    */
@@ -36,6 +41,10 @@ export class RecommendationsFilterRequest {
     filter: {
       baseName: "filter",
       type: "string",
+    },
+    scope: {
+      baseName: "scope",
+      type: "RecommendationsFilterRequestScope",
     },
     sort: {
       baseName: "sort",

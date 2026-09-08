@@ -283,6 +283,7 @@ export const TypingInfo: ModelTypingInfo = {
     GcpUcConfigResponseDataType: ["gcp_uc_config"],
     GeneratedCostTagDescriptionType: ["cost_generated_tag_description"],
     OCIConfigType: ["oci_config"],
+    RecommendationsFilterRequestScope: ["ccm", "experiment", "*"],
     ReorderRuleResourceDataType: ["arbitrary_rule"],
     ReorderRulesetResourceDataType: ["ruleset"],
     RulesValidateQueryRequestDataType: ["validate_query"],
