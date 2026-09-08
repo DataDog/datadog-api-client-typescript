@@ -1,10 +1,9 @@
 import { UnparsedObject } from "@datadog/datadog-api-client";
 
 /**
- * Discriminator for a single `display_block` content block. Adding a
- * variant requires coordinated changes in the frontend renderer.
+ * Type discriminator for an existing non-frontend display block.
  */
-export type LLMObsContentBlockType =
+export type LLMObsLegacyContentBlockType =
   | typeof MARKDOWN
   | typeof HEADER
   | typeof TEXT
@@ -12,7 +11,6 @@ export type LLMObsContentBlockType =
   | typeof IMAGE
   | typeof WIDGET
   | typeof LLMOBS_TRACE
-  | typeof FRONTEND
   | UnparsedObject;
 export const MARKDOWN = "markdown";
 export const HEADER = "header";
@@ -21,4 +19,3 @@ export const JSON = "json";
 export const IMAGE = "image";
 export const WIDGET = "widget";
 export const LLMOBS_TRACE = "llmobs_trace";
-export const FRONTEND = "frontend";

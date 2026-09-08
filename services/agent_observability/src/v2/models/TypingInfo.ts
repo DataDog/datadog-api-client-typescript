@@ -210,6 +210,7 @@ import { LLMObsExperimentationSimpleSearchRequest } from "./LLMObsExperimentatio
 import { LLMObsExperimentationSimpleSearchResponse } from "./LLMObsExperimentationSimpleSearchResponse";
 import { LLMObsExperimentationSortField } from "./LLMObsExperimentationSortField";
 import { LLMObsExperimentsResponse } from "./LLMObsExperimentsResponse";
+import { LLMObsFrontendContentBlock } from "./LLMObsFrontendContentBlock";
 import { LLMObsInferenceCode } from "./LLMObsInferenceCode";
 import { LLMObsInferenceContent } from "./LLMObsInferenceContent";
 import { LLMObsInferenceContentValue } from "./LLMObsInferenceContentValue";
@@ -226,6 +227,7 @@ import { LLMObsIntegrationInferenceResponse } from "./LLMObsIntegrationInference
 import { LLMObsIntegrationModel } from "./LLMObsIntegrationModel";
 import { LLMObsInternalReasoning } from "./LLMObsInternalReasoning";
 import { LLMObsLabelSchema } from "./LLMObsLabelSchema";
+import { LLMObsLegacyContentBlock } from "./LLMObsLegacyContentBlock";
 import { LLMObsOpenAIMetadata } from "./LLMObsOpenAIMetadata";
 import { LLMObsPatternsActivityProgress } from "./LLMObsPatternsActivityProgress";
 import { LLMObsPatternsClusteredPoint } from "./LLMObsPatternsClusteredPoint";
@@ -347,6 +349,7 @@ export const TypingInfo: ModelTypingInfo = {
       "image",
       "widget",
       "llmobs_trace",
+      "frontend",
     ],
     LLMObsCustomEvalConfigEvalScope: ["span", "trace", "session"],
     LLMObsCustomEvalConfigIntegrationProvider: [
@@ -376,6 +379,7 @@ export const TypingInfo: ModelTypingInfo = {
     LLMObsExperimentType: ["experiments"],
     LLMObsExperimentationSortFieldDirection: ["asc", "desc"],
     LLMObsExperimentationType: ["experimentation"],
+    LLMObsFrontendContentBlockType: ["frontend"],
     LLMObsIntegrationName: [
       "openai",
       "amazon_bedrock",
@@ -385,6 +389,15 @@ export const TypingInfo: ModelTypingInfo = {
       "llmproxy",
     ],
     LLMObsLabelSchemaType: ["score", "categorical", "boolean", "text"],
+    LLMObsLegacyContentBlockType: [
+      "markdown",
+      "header",
+      "text",
+      "json",
+      "image",
+      "widget",
+      "llmobs_trace",
+    ],
     LLMObsMetricAssessment: ["pass", "fail"],
     LLMObsMetricScoreType: ["score", "categorical", "boolean", "json"],
     LLMObsOpenAIReasoningEffort: ["none", "low", "medium", "high", "xhigh"],
@@ -728,6 +741,7 @@ export const TypingInfo: ModelTypingInfo = {
       LLMObsExperimentationSimpleSearchResponse,
     LLMObsExperimentationSortField: LLMObsExperimentationSortField,
     LLMObsExperimentsResponse: LLMObsExperimentsResponse,
+    LLMObsFrontendContentBlock: LLMObsFrontendContentBlock,
     LLMObsInferenceCode: LLMObsInferenceCode,
     LLMObsInferenceContent: LLMObsInferenceContent,
     LLMObsInferenceContentValue: LLMObsInferenceContentValue,
@@ -744,6 +758,7 @@ export const TypingInfo: ModelTypingInfo = {
     LLMObsIntegrationModel: LLMObsIntegrationModel,
     LLMObsInternalReasoning: LLMObsInternalReasoning,
     LLMObsLabelSchema: LLMObsLabelSchema,
+    LLMObsLegacyContentBlock: LLMObsLegacyContentBlock,
     LLMObsOpenAIMetadata: LLMObsOpenAIMetadata,
     LLMObsPatternsActivityProgress: LLMObsPatternsActivityProgress,
     LLMObsPatternsClusteredPoint: LLMObsPatternsClusteredPoint,
