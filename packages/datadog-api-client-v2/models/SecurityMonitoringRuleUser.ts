@@ -3,23 +3,21 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
-import { SecurityMonitoringRuleResponse } from "./SecurityMonitoringRuleResponse";
-import { VersionHistoryUpdate } from "./VersionHistoryUpdate";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * A rule version with a list of updates.
+ * The user who created or last updated the rule.
  */
-export class RuleVersions {
+export class SecurityMonitoringRuleUser {
   /**
-   * A list of changes.
+   * The user handle. Empty for a default rule with no user.
    */
-  "changes"?: Array<VersionHistoryUpdate>;
+  "handle"?: string;
   /**
-   * A security monitoring rule.
+   * The user name. Empty for a default rule with no user.
    */
-  "rule"?: SecurityMonitoringRuleResponse;
+  "name"?: string;
 
   /**
    * A container for additional, undeclared properties.
@@ -37,13 +35,13 @@ export class RuleVersions {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    changes: {
-      baseName: "changes",
-      type: "Array<VersionHistoryUpdate>",
+    handle: {
+      baseName: "handle",
+      type: "string",
     },
-    rule: {
-      baseName: "rule",
-      type: "SecurityMonitoringRuleResponse",
+    name: {
+      baseName: "name",
+      type: "string",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -55,7 +53,7 @@ export class RuleVersions {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-    return RuleVersions.attributeTypeMap;
+    return SecurityMonitoringRuleUser.attributeTypeMap;
   }
 
   public constructor() {}

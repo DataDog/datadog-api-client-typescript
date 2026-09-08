@@ -4817,6 +4817,7 @@ import { SecurityMonitoringRuleConvertBulkData } from "./SecurityMonitoringRuleC
 import { SecurityMonitoringRuleConvertBulkPayload } from "./SecurityMonitoringRuleConvertBulkPayload";
 import { SecurityMonitoringRuleConvertResponse } from "./SecurityMonitoringRuleConvertResponse";
 import { SecurityMonitoringRuleImpossibleTravelOptions } from "./SecurityMonitoringRuleImpossibleTravelOptions";
+import { SecurityMonitoringRuleMetadata } from "./SecurityMonitoringRuleMetadata";
 import { SecurityMonitoringRuleNewValueOptions } from "./SecurityMonitoringRuleNewValueOptions";
 import { SecurityMonitoringRuleOptions } from "./SecurityMonitoringRuleOptions";
 import { SecurityMonitoringRuleQueryPayload } from "./SecurityMonitoringRuleQueryPayload";
@@ -4828,6 +4829,7 @@ import { SecurityMonitoringRuleTestRequest } from "./SecurityMonitoringRuleTestR
 import { SecurityMonitoringRuleTestResponse } from "./SecurityMonitoringRuleTestResponse";
 import { SecurityMonitoringRuleThirdPartyOptions } from "./SecurityMonitoringRuleThirdPartyOptions";
 import { SecurityMonitoringRuleUpdatePayload } from "./SecurityMonitoringRuleUpdatePayload";
+import { SecurityMonitoringRuleUser } from "./SecurityMonitoringRuleUser";
 import { SecurityMonitoringSchedulingOptions } from "./SecurityMonitoringSchedulingOptions";
 import { SecurityMonitoringSentinelOneIntegrationConfigCreateAttributes } from "./SecurityMonitoringSentinelOneIntegrationConfigCreateAttributes";
 import { SecurityMonitoringSentinelOneIntegrationConfigUpdateAttributes } from "./SecurityMonitoringSentinelOneIntegrationConfigUpdateAttributes";
@@ -15182,6 +15184,7 @@ const typeMap: { [index: string]: any } = {
   SecurityMonitoringRuleConvertResponse: SecurityMonitoringRuleConvertResponse,
   SecurityMonitoringRuleImpossibleTravelOptions:
     SecurityMonitoringRuleImpossibleTravelOptions,
+  SecurityMonitoringRuleMetadata: SecurityMonitoringRuleMetadata,
   SecurityMonitoringRuleNewValueOptions: SecurityMonitoringRuleNewValueOptions,
   SecurityMonitoringRuleOptions: SecurityMonitoringRuleOptions,
   SecurityMonitoringRuleQueryPayload: SecurityMonitoringRuleQueryPayload,
@@ -15198,6 +15201,7 @@ const typeMap: { [index: string]: any } = {
   SecurityMonitoringRuleThirdPartyOptions:
     SecurityMonitoringRuleThirdPartyOptions,
   SecurityMonitoringRuleUpdatePayload: SecurityMonitoringRuleUpdatePayload,
+  SecurityMonitoringRuleUser: SecurityMonitoringRuleUser,
   SecurityMonitoringSchedulingOptions: SecurityMonitoringSchedulingOptions,
   SecurityMonitoringSentinelOneIntegrationConfigCreateAttributes:
     SecurityMonitoringSentinelOneIntegrationConfigCreateAttributes,

@@ -3,23 +3,21 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
-import { SecurityMonitoringRuleResponse } from "./SecurityMonitoringRuleResponse";
-import { VersionHistoryUpdate } from "./VersionHistoryUpdate";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * A rule version with a list of updates.
+ * Metadata associated with the rule.
  */
-export class RuleVersions {
+export class SecurityMonitoringRuleMetadata {
   /**
-   * A list of changes.
+   * Entities associated with the rule, or null when metadata is not requested.
    */
-  "changes"?: Array<VersionHistoryUpdate>;
+  "entities"?: Array<any>;
   /**
-   * A security monitoring rule.
+   * Sources associated with the rule, or null when metadata is not requested.
    */
-  "rule"?: SecurityMonitoringRuleResponse;
+  "sources"?: Array<string>;
 
   /**
    * A container for additional, undeclared properties.
@@ -37,13 +35,13 @@ export class RuleVersions {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    changes: {
-      baseName: "changes",
-      type: "Array<VersionHistoryUpdate>",
+    entities: {
+      baseName: "entities",
+      type: "Array<any>",
     },
-    rule: {
-      baseName: "rule",
-      type: "SecurityMonitoringRuleResponse",
+    sources: {
+      baseName: "sources",
+      type: "Array<string>",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -55,7 +53,7 @@ export class RuleVersions {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-    return RuleVersions.attributeTypeMap;
+    return SecurityMonitoringRuleMetadata.attributeTypeMap;
   }
 
   public constructor() {}

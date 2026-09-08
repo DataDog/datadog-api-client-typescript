@@ -19,6 +19,10 @@ export class SecurityMonitoringRuleImpossibleTravelOptions {
    * The duration in days during which Datadog learns the user's regular access locations. After this period, signals are generated for accesses from unknown locations.
    */
   "baselineUserLocationsDuration"?: number;
+  /**
+   * Whether to detect transitions between IP addresses.
+   */
+  "detectIpTransition"?: boolean;
 
   /**
    * A container for additional, undeclared properties.
@@ -43,6 +47,10 @@ export class SecurityMonitoringRuleImpossibleTravelOptions {
     baselineUserLocationsDuration: {
       baseName: "baselineUserLocationsDuration",
       type: "number",
+    },
+    detectIpTransition: {
+      baseName: "detectIpTransition",
+      type: "boolean",
     },
     additionalProperties: {
       baseName: "additionalProperties",
