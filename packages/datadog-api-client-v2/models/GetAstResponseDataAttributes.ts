@@ -3,6 +3,7 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
+import { AstNode } from "./AstNode";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
@@ -11,9 +12,9 @@ import { AttributeTypeMap } from "../../datadog-api-client-common/util";
  */
 export class GetAstResponseDataAttributes {
   /**
-   * The parsed abstract syntax tree as a JSON object.
+   * A node in the abstract syntax tree of the parsed source code.
    */
-  "ast": { [key: string]: any };
+  "result": AstNode;
 
   /**
    * A container for additional, undeclared properties.
@@ -31,9 +32,9 @@ export class GetAstResponseDataAttributes {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    ast: {
-      baseName: "ast",
-      type: "{ [key: string]: any; }",
+    result: {
+      baseName: "result",
+      type: "AstNode",
       required: true,
     },
     additionalProperties: {

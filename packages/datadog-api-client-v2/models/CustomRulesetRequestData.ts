@@ -9,21 +9,25 @@ import { CustomRulesetRequestDataAttributes } from "./CustomRulesetRequestDataAt
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * Data object for a custom ruleset create or update request.
+ * Data object for a custom ruleset create or update request. The resource `id` is
+ * required and must equal both `attributes.name` and, on update, the `ruleset_name`
+ * path parameter; a request that omits it or supplies a different value is rejected
+ * with a 412 response.
  */
 export class CustomRulesetRequestData {
   /**
-   * Attributes for creating or updating a custom ruleset.
+   * Attributes for creating or updating a custom ruleset. `name` is required and must
+   * equal the resource `id`; the server rejects a mismatch with a 412 response.
    */
-  "attributes"?: CustomRulesetRequestDataAttributes;
+  "attributes": CustomRulesetRequestDataAttributes;
   /**
-   * Ruleset identifier
+   * Ruleset identifier, which is the same as the ruleset name.
    */
-  "id"?: string;
+  "id": string;
   /**
    * Resource type
    */
-  "type"?: CustomRulesetDataType;
+  "type": CustomRulesetDataType;
 
   /**
    * A container for additional, undeclared properties.
@@ -44,14 +48,17 @@ export class CustomRulesetRequestData {
     attributes: {
       baseName: "attributes",
       type: "CustomRulesetRequestDataAttributes",
+      required: true,
     },
     id: {
       baseName: "id",
       type: "string",
+      required: true,
     },
     type: {
       baseName: "type",
       type: "CustomRulesetDataType",
+      required: true,
     },
     additionalProperties: {
       baseName: "additionalProperties",

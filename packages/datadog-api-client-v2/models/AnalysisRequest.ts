@@ -12,6 +12,10 @@ import { AttributeTypeMap } from "../../datadog-api-client-common/util";
  */
 export class AnalysisRequest {
   /**
+   * CSRF token for security, sent by browser-based clients. Ignored by the API when absent.
+   */
+  "authenticationToken"?: string;
+  /**
    * The primary data object in the analysis request.
    */
   "data": AnalysisRequestData;
@@ -32,6 +36,10 @@ export class AnalysisRequest {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
+    authenticationToken: {
+      baseName: "_authentication_token",
+      type: "string",
+    },
     data: {
       baseName: "data",
       type: "AnalysisRequestData",

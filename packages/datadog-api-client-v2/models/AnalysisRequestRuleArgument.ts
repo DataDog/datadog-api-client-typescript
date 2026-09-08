@@ -3,22 +3,21 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
-import { GetMultipleRulesetsResponseDataAttributesRulesetsItemsRulesItemsDataType } from "./GetMultipleRulesetsResponseDataAttributesRulesetsItemsRulesItemsDataType";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * The resource identifier and type for a static analysis rule.
+ * A configurable argument of a forwarded static analysis rule.
  */
-export class GetMultipleRulesetsResponseDataAttributesRulesetsItemsRulesItemsData {
+export class AnalysisRequestRuleArgument {
   /**
-   * The unique identifier of the rule resource.
+   * An explanation of the argument's purpose and accepted values.
    */
-  "id"?: string;
+  "description"?: string;
   /**
-   * Rules resource type.
+   * The name of the rule argument.
    */
-  "type": GetMultipleRulesetsResponseDataAttributesRulesetsItemsRulesItemsDataType;
+  "name"?: string;
 
   /**
    * A container for additional, undeclared properties.
@@ -36,14 +35,13 @@ export class GetMultipleRulesetsResponseDataAttributesRulesetsItemsRulesItemsDat
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    id: {
-      baseName: "id",
+    description: {
+      baseName: "description",
       type: "string",
     },
-    type: {
-      baseName: "type",
-      type: "GetMultipleRulesetsResponseDataAttributesRulesetsItemsRulesItemsDataType",
-      required: true,
+    name: {
+      baseName: "name",
+      type: "string",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -55,7 +53,7 @@ export class GetMultipleRulesetsResponseDataAttributesRulesetsItemsRulesItemsDat
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-    return GetMultipleRulesetsResponseDataAttributesRulesetsItemsRulesItemsData.attributeTypeMap;
+    return AnalysisRequestRuleArgument.attributeTypeMap;
   }
 
   public constructor() {}

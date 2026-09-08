@@ -3,7 +3,7 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
-import { CustomRule } from "./CustomRule";
+import { CustomRuleAttributes } from "./CustomRuleAttributes";
 import { CustomRuleDataType } from "./CustomRuleDataType";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
@@ -13,9 +13,9 @@ import { AttributeTypeMap } from "../../datadog-api-client-common/util";
  */
 export class CustomRuleResponseData {
   /**
-   * A custom static analysis rule within a ruleset.
+   * Attributes of a custom static analysis rule, including its most recent revision and revision history.
    */
-  "attributes": CustomRule;
+  "attributes": CustomRuleAttributes;
   /**
    * Rule identifier
    */
@@ -43,7 +43,7 @@ export class CustomRuleResponseData {
   static readonly attributeTypeMap: AttributeTypeMap = {
     attributes: {
       baseName: "attributes",
-      type: "CustomRule",
+      type: "CustomRuleAttributes",
       required: true,
     },
     id: {

@@ -20,14 +20,17 @@ const params: v2.SecurityMonitoringApiCreateStaticAnalysisServerAnalysisRequest 
           language: "python",
           rules: [
             {
+              arguments: [{}],
               category: "BEST_PRACTICES",
               checksum: "abc123def456",
               code: "ZnVuY3Rpb24gdmlzaXQobm9kZSkge30=",
               entityChecked: undefined,
               id: "python-best-practices/no-exit",
               language: "python",
+              name: "no-exit",
               regex: undefined,
               severity: "WARNING",
+              tests: [{}],
               treeSitterQuery: "KGNhbGwgbmFtZTogKGF0dHJpYnV0ZSkpQHZhbA==",
               type: "TREE_SITTER_QUERY",
             },

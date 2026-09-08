@@ -12,6 +12,10 @@ import { AttributeTypeMap } from "../../datadog-api-client-common/util";
  */
 export class GetMultipleRulesetsRequest {
   /**
+   * CSRF token for security, sent by browser-based clients. Ignored by the API when absent.
+   */
+  "authenticationToken"?: string;
+  /**
    * The primary data object in the get-multiple-rulesets request, containing request attributes and resource type.
    */
   "data"?: GetMultipleRulesetsRequestData;
@@ -32,6 +36,10 @@ export class GetMultipleRulesetsRequest {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
+    authenticationToken: {
+      baseName: "_authentication_token",
+      type: "string",
+    },
     data: {
       baseName: "data",
       type: "GetMultipleRulesetsRequestData",

@@ -3,37 +3,46 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
-import { CustomRuleRevision } from "./CustomRuleRevision";
+import { CustomRuleRevisionInput } from "./CustomRuleRevisionInput";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * A custom static analysis rule within a ruleset.
+ * A custom static analysis rule within a ruleset, as supplied in a create or update
+ * request. Nested rules are sent flat, without a `data`/`type`/`attributes` envelope.
+ * `id` and `name` are client-supplied and must match each other. The remaining members
+ * are server-assigned and read-only; they are declared so that a ruleset previously
+ * read back can be supplied unchanged.
  */
 export class CustomRule {
   /**
    * Creation timestamp
    */
-  "createdAt": Date;
+  "createdAt"?: Date;
   /**
    * Creator identifier
    */
-  "createdBy": string;
+  "createdBy"?: string;
   /**
-   * A specific revision of a custom static analysis rule.
+   * Rule identifier, which is the same as the rule name.
    */
-  "lastRevision": CustomRuleRevision;
+  "id": string;
+  /**
+   * A revision of a custom static analysis rule as embedded in a rule supplied by a create
+   * or update request. Nested revisions are sent flat, without a `data`/`type`/`attributes`
+   * envelope. `id`, `version_id`, `checksum`, `created_at` and `created_by` are server-assigned
+   * and read-only; they are declared so that a ruleset previously read back can be supplied
+   * unchanged.
+   */
+  "lastRevision"?: CustomRuleRevisionInput;
   /**
    * Rule name
    */
   "name": string;
-
   /**
-   * A container for additional, undeclared properties.
-   * This is a holder for any undeclared properties as specified with
-   * the 'additionalProperties' keyword in the OAS document.
+   * Revision history of the rule.
    */
-  "additionalProperties"?: { [key: string]: any };
+  "revisions"?: Array<CustomRuleRevisionInput>;
 
   /**
    * @ignore
@@ -47,27 +56,29 @@ export class CustomRule {
     createdAt: {
       baseName: "created_at",
       type: "Date",
-      required: true,
       format: "date-time",
     },
     createdBy: {
       baseName: "created_by",
       type: "string",
+    },
+    id: {
+      baseName: "id",
+      type: "string",
       required: true,
     },
     lastRevision: {
       baseName: "last_revision",
-      type: "CustomRuleRevision",
-      required: true,
+      type: "CustomRuleRevisionInput",
     },
     name: {
       baseName: "name",
       type: "string",
       required: true,
     },
-    additionalProperties: {
-      baseName: "additionalProperties",
-      type: "{ [key: string]: any; }",
+    revisions: {
+      baseName: "revisions",
+      type: "Array<CustomRuleRevisionInput>",
     },
   };
 

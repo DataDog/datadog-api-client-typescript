@@ -12,9 +12,9 @@ import { Language } from "./Language";
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * Attributes of a custom rule revision, including code, metadata, and test cases.
+ * A revision of a custom static analysis rule as embedded in a rule or ruleset response.
  */
-export class CustomRuleRevisionAttributes {
+export class CustomRuleRevisionEmbedded {
   /**
    * Rule arguments
    */
@@ -44,11 +44,11 @@ export class CustomRuleRevisionAttributes {
    */
   "creationMessage": string;
   /**
-   * Associated CVE
+   * Associated CVE. Omitted when the revision has no associated CVE.
    */
   "cve"?: string;
   /**
-   * Associated CWE
+   * Associated CWE. Omitted when the revision has no associated CWE.
    */
   "cwe"?: string;
   /**
@@ -56,9 +56,13 @@ export class CustomRuleRevisionAttributes {
    */
   "description": string;
   /**
-   * Documentation URL
+   * Documentation URL. Omitted when the revision has no documentation URL.
    */
   "documentationUrl"?: string;
+  /**
+   * Revision identifier
+   */
+  "id": string;
   /**
    * Whether the revision is published
    */
@@ -169,6 +173,11 @@ export class CustomRuleRevisionAttributes {
       baseName: "documentation_url",
       type: "string",
     },
+    id: {
+      baseName: "id",
+      type: "string",
+      required: true,
+    },
     isPublished: {
       baseName: "is_published",
       type: "boolean",
@@ -230,7 +239,7 @@ export class CustomRuleRevisionAttributes {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-    return CustomRuleRevisionAttributes.attributeTypeMap;
+    return CustomRuleRevisionEmbedded.attributeTypeMap;
   }
 
   public constructor() {}

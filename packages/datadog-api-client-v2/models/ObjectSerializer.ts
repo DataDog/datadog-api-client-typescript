@@ -209,6 +209,8 @@ import { AnalysisRequest } from "./AnalysisRequest";
 import { AnalysisRequestData } from "./AnalysisRequestData";
 import { AnalysisRequestDataAttributes } from "./AnalysisRequestDataAttributes";
 import { AnalysisRequestRule } from "./AnalysisRequestRule";
+import { AnalysisRequestRuleArgument } from "./AnalysisRequestRuleArgument";
+import { AnalysisRequestRuleTest } from "./AnalysisRequestRuleTest";
 import { AnalysisResponse } from "./AnalysisResponse";
 import { AnalysisResponseData } from "./AnalysisResponseData";
 import { AnalysisResponseDataAttributes } from "./AnalysisResponseDataAttributes";
@@ -360,6 +362,7 @@ import { AssigneeResponseData } from "./AssigneeResponseData";
 import { AssigneeResponseDataAttributes } from "./AssigneeResponseDataAttributes";
 import { AssigneeResponseMeta } from "./AssigneeResponseMeta";
 import { AssignmentResult } from "./AssignmentResult";
+import { AstNode } from "./AstNode";
 import { AttachCaseRequest } from "./AttachCaseRequest";
 import { AttachCaseRequestData } from "./AttachCaseRequestData";
 import { AttachCaseRequestDataRelationships } from "./AttachCaseRequestDataRelationships";
@@ -1245,6 +1248,7 @@ import { CustomFrameworkMetadata } from "./CustomFrameworkMetadata";
 import { CustomFrameworkRequirement } from "./CustomFrameworkRequirement";
 import { CustomFrameworkWithoutRequirements } from "./CustomFrameworkWithoutRequirements";
 import { CustomRule } from "./CustomRule";
+import { CustomRuleAttributes } from "./CustomRuleAttributes";
 import { CustomRuleRequest } from "./CustomRuleRequest";
 import { CustomRuleRequestData } from "./CustomRuleRequestData";
 import { CustomRuleRequestDataAttributes } from "./CustomRuleRequestDataAttributes";
@@ -1252,6 +1256,8 @@ import { CustomRuleResponse } from "./CustomRuleResponse";
 import { CustomRuleResponseData } from "./CustomRuleResponseData";
 import { CustomRuleRevision } from "./CustomRuleRevision";
 import { CustomRuleRevisionAttributes } from "./CustomRuleRevisionAttributes";
+import { CustomRuleRevisionEmbedded } from "./CustomRuleRevisionEmbedded";
+import { CustomRuleRevisionInput } from "./CustomRuleRevisionInput";
 import { CustomRuleRevisionInputAttributes } from "./CustomRuleRevisionInputAttributes";
 import { CustomRuleRevisionRequest } from "./CustomRuleRevisionRequest";
 import { CustomRuleRevisionRequestData } from "./CustomRuleRevisionRequestData";
@@ -1265,6 +1271,7 @@ import { CustomRulesetRequest } from "./CustomRulesetRequest";
 import { CustomRulesetRequestData } from "./CustomRulesetRequestData";
 import { CustomRulesetRequestDataAttributes } from "./CustomRulesetRequestDataAttributes";
 import { CustomRulesetResponse } from "./CustomRulesetResponse";
+import { CustomRulesetRuleEmbedded } from "./CustomRulesetRuleEmbedded";
 import { CustomerOrgDisableRequest } from "./CustomerOrgDisableRequest";
 import { CustomerOrgDisableRequestAttributes } from "./CustomerOrgDisableRequestAttributes";
 import { CustomerOrgDisableRequestData } from "./CustomerOrgDisableRequestData";
@@ -2047,10 +2054,8 @@ import { GetMultipleRulesetsResponse } from "./GetMultipleRulesetsResponse";
 import { GetMultipleRulesetsResponseData } from "./GetMultipleRulesetsResponseData";
 import { GetMultipleRulesetsResponseDataAttributes } from "./GetMultipleRulesetsResponseDataAttributes";
 import { GetMultipleRulesetsResponseDataAttributesRulesetsItems } from "./GetMultipleRulesetsResponseDataAttributesRulesetsItems";
-import { GetMultipleRulesetsResponseDataAttributesRulesetsItemsData } from "./GetMultipleRulesetsResponseDataAttributesRulesetsItemsData";
 import { GetMultipleRulesetsResponseDataAttributesRulesetsItemsRulesItems } from "./GetMultipleRulesetsResponseDataAttributesRulesetsItemsRulesItems";
 import { GetMultipleRulesetsResponseDataAttributesRulesetsItemsRulesItemsArgumentsItems } from "./GetMultipleRulesetsResponseDataAttributesRulesetsItemsRulesItemsArgumentsItems";
-import { GetMultipleRulesetsResponseDataAttributesRulesetsItemsRulesItemsData } from "./GetMultipleRulesetsResponseDataAttributesRulesetsItemsRulesItemsData";
 import { GetMultipleRulesetsResponseDataAttributesRulesetsItemsRulesItemsTestsItems } from "./GetMultipleRulesetsResponseDataAttributesRulesetsItemsRulesItemsTestsItems";
 import { GetResourceEvaluationFiltersResponse } from "./GetResourceEvaluationFiltersResponse";
 import { GetResourceEvaluationFiltersResponseData } from "./GetResourceEvaluationFiltersResponseData";
@@ -7023,9 +7028,6 @@ const enumsMap: { [key: string]: any[] } = {
   GetMappingResponseDataType: ["get_mappings_response"],
   GetMultipleRulesetsRequestDataType: ["get_multiple_rulesets_request"],
   GetMultipleRulesetsResponseDataAttributesRulesetsItemsDataType: ["rulesets"],
-  GetMultipleRulesetsResponseDataAttributesRulesetsItemsRulesItemsDataType: [
-    "rules",
-  ],
   GetMultipleRulesetsResponseDataType: ["get_multiple_rulesets_response"],
   GetRuleVersionHistoryDataType: ["GetRuleVersionHistoryResponse"],
   GetSuppressionVersionHistoryDataType: ["suppression_version_history"],
@@ -9576,6 +9578,8 @@ const typeMap: { [index: string]: any } = {
   AnalysisRequestData: AnalysisRequestData,
   AnalysisRequestDataAttributes: AnalysisRequestDataAttributes,
   AnalysisRequestRule: AnalysisRequestRule,
+  AnalysisRequestRuleArgument: AnalysisRequestRuleArgument,
+  AnalysisRequestRuleTest: AnalysisRequestRuleTest,
   AnalysisResponse: AnalysisResponse,
   AnalysisResponseData: AnalysisResponseData,
   AnalysisResponseDataAttributes: AnalysisResponseDataAttributes,
@@ -9778,6 +9782,7 @@ const typeMap: { [index: string]: any } = {
   AssigneeResponseDataAttributes: AssigneeResponseDataAttributes,
   AssigneeResponseMeta: AssigneeResponseMeta,
   AssignmentResult: AssignmentResult,
+  AstNode: AstNode,
   AttachCaseRequest: AttachCaseRequest,
   AttachCaseRequestData: AttachCaseRequestData,
   AttachCaseRequestDataRelationships: AttachCaseRequestDataRelationships,
@@ -10830,6 +10835,7 @@ const typeMap: { [index: string]: any } = {
   CustomFrameworkRequirement: CustomFrameworkRequirement,
   CustomFrameworkWithoutRequirements: CustomFrameworkWithoutRequirements,
   CustomRule: CustomRule,
+  CustomRuleAttributes: CustomRuleAttributes,
   CustomRuleRequest: CustomRuleRequest,
   CustomRuleRequestData: CustomRuleRequestData,
   CustomRuleRequestDataAttributes: CustomRuleRequestDataAttributes,
@@ -10837,6 +10843,8 @@ const typeMap: { [index: string]: any } = {
   CustomRuleResponseData: CustomRuleResponseData,
   CustomRuleRevision: CustomRuleRevision,
   CustomRuleRevisionAttributes: CustomRuleRevisionAttributes,
+  CustomRuleRevisionEmbedded: CustomRuleRevisionEmbedded,
+  CustomRuleRevisionInput: CustomRuleRevisionInput,
   CustomRuleRevisionInputAttributes: CustomRuleRevisionInputAttributes,
   CustomRuleRevisionRequest: CustomRuleRevisionRequest,
   CustomRuleRevisionRequestData: CustomRuleRevisionRequestData,
@@ -10850,6 +10858,7 @@ const typeMap: { [index: string]: any } = {
   CustomRulesetRequestData: CustomRulesetRequestData,
   CustomRulesetRequestDataAttributes: CustomRulesetRequestDataAttributes,
   CustomRulesetResponse: CustomRulesetResponse,
+  CustomRulesetRuleEmbedded: CustomRulesetRuleEmbedded,
   CustomerOrgDisableRequest: CustomerOrgDisableRequest,
   CustomerOrgDisableRequestAttributes: CustomerOrgDisableRequestAttributes,
   CustomerOrgDisableRequestData: CustomerOrgDisableRequestData,
@@ -11761,14 +11770,10 @@ const typeMap: { [index: string]: any } = {
     GetMultipleRulesetsResponseDataAttributes,
   GetMultipleRulesetsResponseDataAttributesRulesetsItems:
     GetMultipleRulesetsResponseDataAttributesRulesetsItems,
-  GetMultipleRulesetsResponseDataAttributesRulesetsItemsData:
-    GetMultipleRulesetsResponseDataAttributesRulesetsItemsData,
   GetMultipleRulesetsResponseDataAttributesRulesetsItemsRulesItems:
     GetMultipleRulesetsResponseDataAttributesRulesetsItemsRulesItems,
   GetMultipleRulesetsResponseDataAttributesRulesetsItemsRulesItemsArgumentsItems:
     GetMultipleRulesetsResponseDataAttributesRulesetsItemsRulesItemsArgumentsItems,
-  GetMultipleRulesetsResponseDataAttributesRulesetsItemsRulesItemsData:
-    GetMultipleRulesetsResponseDataAttributesRulesetsItemsRulesItemsData,
   GetMultipleRulesetsResponseDataAttributesRulesetsItemsRulesItemsTestsItems:
     GetMultipleRulesetsResponseDataAttributesRulesetsItemsRulesItemsTestsItems,
   GetResourceEvaluationFiltersResponse: GetResourceEvaluationFiltersResponse,

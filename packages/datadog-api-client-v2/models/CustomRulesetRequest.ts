@@ -12,7 +12,10 @@ import { AttributeTypeMap } from "../../datadog-api-client-common/util";
  */
 export class CustomRulesetRequest {
   /**
-   * Data object for a custom ruleset create or update request.
+   * Data object for a custom ruleset create or update request. The resource `id` is
+   * required and must equal both `attributes.name` and, on update, the `ruleset_name`
+   * path parameter; a request that omits it or supplies a different value is rejected
+   * with a 412 response.
    */
   "data"?: CustomRulesetRequestData;
 

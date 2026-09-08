@@ -14,7 +14,7 @@ export class GetMultipleRulesetsResponse {
   /**
    * The primary data object in the get-multiple-rulesets response, containing the response attributes and resource type.
    */
-  "data"?: GetMultipleRulesetsResponseData;
+  "data": GetMultipleRulesetsResponseData;
 
   /**
    * A container for additional, undeclared properties.
@@ -35,6 +35,7 @@ export class GetMultipleRulesetsResponse {
     data: {
       baseName: "data",
       type: "GetMultipleRulesetsResponseData",
+      required: true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
