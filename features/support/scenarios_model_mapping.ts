@@ -14453,6 +14453,10 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
         "operationResponseType": "OrgGroupResponse",
     },
     "v2.ListPermissions": {
+        "includeScopes": {
+            "type": "boolean",
+            "format": "",
+            },
         "operationResponseType": "PermissionsResponse",
     },
     "v2.ListRoles": {
