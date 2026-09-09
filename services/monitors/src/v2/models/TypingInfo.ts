@@ -6,6 +6,8 @@ import { MonitorConfigPolicyAttributeEditRequest } from "./MonitorConfigPolicyAt
 import { MonitorConfigPolicyAttributeResponse } from "./MonitorConfigPolicyAttributeResponse";
 import { MonitorConfigPolicyCreateData } from "./MonitorConfigPolicyCreateData";
 import { MonitorConfigPolicyCreateRequest } from "./MonitorConfigPolicyCreateRequest";
+import { MonitorConfigPolicyDowntimePolicy } from "./MonitorConfigPolicyDowntimePolicy";
+import { MonitorConfigPolicyDowntimePolicyCreateRequest } from "./MonitorConfigPolicyDowntimePolicyCreateRequest";
 import { MonitorConfigPolicyEditData } from "./MonitorConfigPolicyEditData";
 import { MonitorConfigPolicyEditRequest } from "./MonitorConfigPolicyEditRequest";
 import { MonitorConfigPolicyListResponse } from "./MonitorConfigPolicyListResponse";
@@ -58,7 +60,7 @@ import { UserResponseRelationships } from "./UserResponseRelationships";
 export const TypingInfo: ModelTypingInfo = {
   enumsMap: {
     MonitorConfigPolicyResourceType: ["monitor-config-policy"],
-    MonitorConfigPolicyType: ["tag"],
+    MonitorConfigPolicyType: ["tag", "downtime"],
     MonitorNotificationRuleResourceType: ["monitor-notification-rule"],
     MonitorUserTemplateResourceType: ["monitor-user-template"],
     OrganizationsType: ["orgs"],
@@ -66,9 +68,13 @@ export const TypingInfo: ModelTypingInfo = {
     UsersType: ["users"],
   },
   oneOfMap: {
-    MonitorConfigPolicyPolicy: ["MonitorConfigPolicyTagPolicy"],
+    MonitorConfigPolicyPolicy: [
+      "MonitorConfigPolicyTagPolicy",
+      "MonitorConfigPolicyDowntimePolicy",
+    ],
     MonitorConfigPolicyPolicyCreateRequest: [
       "MonitorConfigPolicyTagPolicyCreateRequest",
+      "MonitorConfigPolicyDowntimePolicyCreateRequest",
     ],
     MonitorNotificationRuleFilter: [
       "MonitorNotificationRuleFilterTags",
@@ -85,6 +91,9 @@ export const TypingInfo: ModelTypingInfo = {
     MonitorConfigPolicyAttributeResponse: MonitorConfigPolicyAttributeResponse,
     MonitorConfigPolicyCreateData: MonitorConfigPolicyCreateData,
     MonitorConfigPolicyCreateRequest: MonitorConfigPolicyCreateRequest,
+    MonitorConfigPolicyDowntimePolicy: MonitorConfigPolicyDowntimePolicy,
+    MonitorConfigPolicyDowntimePolicyCreateRequest:
+      MonitorConfigPolicyDowntimePolicyCreateRequest,
     MonitorConfigPolicyEditData: MonitorConfigPolicyEditData,
     MonitorConfigPolicyEditRequest: MonitorConfigPolicyEditRequest,
     MonitorConfigPolicyListResponse: MonitorConfigPolicyListResponse,
