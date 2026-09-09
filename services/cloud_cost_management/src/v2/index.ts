@@ -296,6 +296,7 @@ export { OCIConfigAttributes } from "./models/OCIConfigAttributes";
 export { OCIConfigsResponse } from "./models/OCIConfigsResponse";
 export { OCIConfigType } from "./models/OCIConfigType";
 export { RecommendationsFilterRequest } from "./models/RecommendationsFilterRequest";
+export { RecommendationsFilterRequestScope } from "./models/RecommendationsFilterRequestScope";
 export { RecommendationsFilterRequestSortItems } from "./models/RecommendationsFilterRequestSortItems";
 export { RecommendationsPageMeta } from "./models/RecommendationsPageMeta";
 export { RecommendationsPageMetaPage } from "./models/RecommendationsPageMetaPage";
