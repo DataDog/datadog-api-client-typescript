@@ -1,27 +1,29 @@
 import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
+import { DeploymentRuleOptionsMonitorId } from "./DeploymentRuleOptionsMonitorId";
+
 /**
- * Monitor query options for deployment rules.
+ * Specific monitor options for deployment rules.
  */
-export class DeploymentRuleOptionsMonitor {
+export class DeploymentRuleOptionsMonitorIds {
   /**
-   * Seconds the monitor needs to stay in OK status for the rule to pass.
+   * Seconds the monitors need to stay in OK status for the rule to pass.
    */
   "duration"?: number;
   /**
-   * Whether the rule should fail if a matching monitor group is in a NO DATA state.
+   * Whether the rule should fail if a selected monitor group is in a NO DATA state.
    */
   "failOnNoData"?: boolean;
   /**
-   * Whether the rule should fail if no monitor groups are found for the query.
+   * Whether the rule should fail if no monitor groups are found for the selected monitors.
    */
   "failOnNoGroupsFound"?: boolean;
   /**
-   * A query that selects the monitors to evaluate.
+   * A non-empty list of specific monitors to evaluate.
    */
-  "query": string;
+  "monitorIds": Array<DeploymentRuleOptionsMonitorId>;
   /**
-   * Seconds to wait after a deployment starts before evaluating the monitor's status.
+   * Seconds to wait after a deployment starts before evaluating the monitors' statuses.
    */
   "warmup"?: number;
   /**
@@ -46,9 +48,9 @@ export class DeploymentRuleOptionsMonitor {
       baseName: "fail_on_no_groups_found",
       type: "boolean",
     },
-    query: {
-      baseName: "query",
-      type: "string",
+    monitorIds: {
+      baseName: "monitor_ids",
+      type: "Array<DeploymentRuleOptionsMonitorId>",
       required: true,
     },
     warmup: {
@@ -62,7 +64,7 @@ export class DeploymentRuleOptionsMonitor {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-    return DeploymentRuleOptionsMonitor.attributeTypeMap;
+    return DeploymentRuleOptionsMonitorIds.attributeTypeMap;
   }
 
   public constructor() {}
