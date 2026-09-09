@@ -17488,6 +17488,10 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             "type": "string",
             "format": "",
             },
+        "filterName": {
+            "type": "string",
+            "format": "",
+            },
         "include": {
             "type": "string",
             "format": "",
