@@ -8220,6 +8220,7 @@ const enumsMap: { [key: string]: any[] } = {
   RUMSortOrder: ["asc", "desc"],
   ReadinessGateThresholdType: ["ANY", "ALL"],
   RecommendationType: ["recommendation"],
+  RecommendationsFilterRequestScope: ["ccm", "experiment", "*"],
   ReferenceTableCreateSourceType: ["LOCAL_FILE", "S3", "GCS", "AZURE"],
   ReferenceTableSchemaFieldType: ["STRING", "INT32"],
   ReferenceTableSortType: [

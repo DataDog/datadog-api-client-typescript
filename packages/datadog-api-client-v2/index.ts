@@ -7398,6 +7398,7 @@ export { RecommendationAttributes } from "./models/RecommendationAttributes";
 export { RecommendationData } from "./models/RecommendationData";
 export { RecommendationDocument } from "./models/RecommendationDocument";
 export { RecommendationsFilterRequest } from "./models/RecommendationsFilterRequest";
+export { RecommendationsFilterRequestScope } from "./models/RecommendationsFilterRequestScope";
 export { RecommendationsFilterRequestSortItems } from "./models/RecommendationsFilterRequestSortItems";
 export { RecommendationsPageMeta } from "./models/RecommendationsPageMeta";
 export { RecommendationsPageMetaPage } from "./models/RecommendationsPageMetaPage";
