@@ -6183,6 +6183,8 @@ export { MonitorConfigPolicyAttributeEditRequest } from "./models/MonitorConfigP
 export { MonitorConfigPolicyAttributeResponse } from "./models/MonitorConfigPolicyAttributeResponse";
 export { MonitorConfigPolicyCreateData } from "./models/MonitorConfigPolicyCreateData";
 export { MonitorConfigPolicyCreateRequest } from "./models/MonitorConfigPolicyCreateRequest";
+export { MonitorConfigPolicyDowntimePolicy } from "./models/MonitorConfigPolicyDowntimePolicy";
+export { MonitorConfigPolicyDowntimePolicyCreateRequest } from "./models/MonitorConfigPolicyDowntimePolicyCreateRequest";
 export { MonitorConfigPolicyEditData } from "./models/MonitorConfigPolicyEditData";
 export { MonitorConfigPolicyEditRequest } from "./models/MonitorConfigPolicyEditRequest";
 export { MonitorConfigPolicyListResponse } from "./models/MonitorConfigPolicyListResponse";

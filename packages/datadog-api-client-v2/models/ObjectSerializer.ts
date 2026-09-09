@@ -3313,6 +3313,8 @@ import { MonitorConfigPolicyAttributeEditRequest } from "./MonitorConfigPolicyAt
 import { MonitorConfigPolicyAttributeResponse } from "./MonitorConfigPolicyAttributeResponse";
 import { MonitorConfigPolicyCreateData } from "./MonitorConfigPolicyCreateData";
 import { MonitorConfigPolicyCreateRequest } from "./MonitorConfigPolicyCreateRequest";
+import { MonitorConfigPolicyDowntimePolicy } from "./MonitorConfigPolicyDowntimePolicy";
+import { MonitorConfigPolicyDowntimePolicyCreateRequest } from "./MonitorConfigPolicyDowntimePolicyCreateRequest";
 import { MonitorConfigPolicyEditData } from "./MonitorConfigPolicyEditData";
 import { MonitorConfigPolicyEditRequest } from "./MonitorConfigPolicyEditRequest";
 import { MonitorConfigPolicyListResponse } from "./MonitorConfigPolicyListResponse";
@@ -7540,7 +7542,7 @@ const enumsMap: { [key: string]: any[] } = {
   ],
   ModelLabRunType: ["runs"],
   MonitorConfigPolicyResourceType: ["monitor-config-policy"],
-  MonitorConfigPolicyType: ["tag"],
+  MonitorConfigPolicyType: ["tag", "downtime"],
   MonitorDowntimeMatchResourceType: ["downtime_match"],
   MonitorNotificationRuleResourceType: ["monitor-notification-rule"],
   MonitorUserTemplateResourceType: ["monitor-user-template"],
@@ -13303,6 +13305,9 @@ const typeMap: { [index: string]: any } = {
   MonitorConfigPolicyAttributeResponse: MonitorConfigPolicyAttributeResponse,
   MonitorConfigPolicyCreateData: MonitorConfigPolicyCreateData,
   MonitorConfigPolicyCreateRequest: MonitorConfigPolicyCreateRequest,
+  MonitorConfigPolicyDowntimePolicy: MonitorConfigPolicyDowntimePolicy,
+  MonitorConfigPolicyDowntimePolicyCreateRequest:
+    MonitorConfigPolicyDowntimePolicyCreateRequest,
   MonitorConfigPolicyEditData: MonitorConfigPolicyEditData,
   MonitorConfigPolicyEditRequest: MonitorConfigPolicyEditRequest,
   MonitorConfigPolicyListResponse: MonitorConfigPolicyListResponse,
@@ -17154,9 +17159,13 @@ const oneOfMap: { [index: string]: string[] } = {
   ],
   MetricVolumes: ["MetricDistinctVolume", "MetricIngestedIndexedVolume"],
   MetricsAndMetricTagConfigurations: ["Metric", "MetricTagConfiguration"],
-  MonitorConfigPolicyPolicy: ["MonitorConfigPolicyTagPolicy"],
+  MonitorConfigPolicyPolicy: [
+    "MonitorConfigPolicyTagPolicy",
+    "MonitorConfigPolicyDowntimePolicy",
+  ],
   MonitorConfigPolicyPolicyCreateRequest: [
     "MonitorConfigPolicyTagPolicyCreateRequest",
+    "MonitorConfigPolicyDowntimePolicyCreateRequest",
   ],
   MonitorNotificationRuleFilter: [
     "MonitorNotificationRuleFilterTags",
