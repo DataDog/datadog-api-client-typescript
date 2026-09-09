@@ -3,31 +3,34 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
-import { CustomRule } from "./CustomRule";
+import { CustomRuleRevisionEmbedded } from "./CustomRuleRevisionEmbedded";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * Attributes for creating or updating a custom ruleset. `name` is required and must
- * equal the resource `id`; the server rejects a mismatch with a 412 response.
+ * Attributes of a custom static analysis rule, including its most recent revision and revision history.
  */
-export class CustomRulesetRequestDataAttributes {
+export class CustomRuleAttributes {
   /**
-   * Base64-encoded full description
+   * Creation timestamp
    */
-  "description"?: string;
+  "createdAt": Date;
   /**
-   * Ruleset name, which must be the same as the resource identifier.
+   * Creator identifier
+   */
+  "createdBy": string;
+  /**
+   * A revision of a custom static analysis rule as embedded in a rule or ruleset response.
+   */
+  "lastRevision": CustomRuleRevisionEmbedded;
+  /**
+   * Rule name
    */
   "name": string;
   /**
-   * Rules in the ruleset
+   * Revision history of the rule.
    */
-  "rules"?: Array<CustomRule>;
-  /**
-   * Base64-encoded short description
-   */
-  "shortDescription"?: string;
+  "revisions": Array<CustomRuleRevisionEmbedded> | null;
 
   /**
    * A container for additional, undeclared properties.
@@ -45,22 +48,31 @@ export class CustomRulesetRequestDataAttributes {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    description: {
-      baseName: "description",
+    createdAt: {
+      baseName: "created_at",
+      type: "Date",
+      required: true,
+      format: "date-time",
+    },
+    createdBy: {
+      baseName: "created_by",
       type: "string",
+      required: true,
+    },
+    lastRevision: {
+      baseName: "last_revision",
+      type: "CustomRuleRevisionEmbedded",
+      required: true,
     },
     name: {
       baseName: "name",
       type: "string",
       required: true,
     },
-    rules: {
-      baseName: "rules",
-      type: "Array<CustomRule>",
-    },
-    shortDescription: {
-      baseName: "short_description",
-      type: "string",
+    revisions: {
+      baseName: "revisions",
+      type: "Array<CustomRuleRevisionEmbedded>",
+      required: true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -72,7 +84,7 @@ export class CustomRulesetRequestDataAttributes {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-    return CustomRulesetRequestDataAttributes.attributeTypeMap;
+    return CustomRuleAttributes.attributeTypeMap;
   }
 
   public constructor() {}

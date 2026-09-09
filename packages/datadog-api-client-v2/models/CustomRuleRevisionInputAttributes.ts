@@ -18,15 +18,27 @@ export class CustomRuleRevisionInputAttributes {
   /**
    * Rule arguments
    */
-  "arguments": Array<Argument>;
+  "arguments": Array<Argument> | null;
   /**
    * Rule category
    */
   "category": CustomRuleRevisionAttributesCategory;
   /**
+   * Code checksum. Derived by the API from `code`; ignored on write.
+   */
+  "checksum"?: string;
+  /**
    * Rule code
    */
   "code": string;
+  /**
+   * Creation timestamp. Set by the API; ignored on write.
+   */
+  "createdAt"?: Date;
+  /**
+   * Creator identifier. Set by the API from the caller; ignored on write.
+   */
+  "createdBy"?: string;
   /**
    * Revision creation message
    */
@@ -34,11 +46,11 @@ export class CustomRuleRevisionInputAttributes {
   /**
    * Associated CVE
    */
-  "cve": string | null;
+  "cve"?: string;
   /**
    * Associated CWE
    */
-  "cwe": string | null;
+  "cwe"?: string;
   /**
    * Full description
    */
@@ -46,7 +58,7 @@ export class CustomRuleRevisionInputAttributes {
   /**
    * Documentation URL
    */
-  "documentationUrl": string | null;
+  "documentationUrl"?: string;
   /**
    * Whether the revision is published
    */
@@ -74,15 +86,19 @@ export class CustomRuleRevisionInputAttributes {
   /**
    * Rule tags
    */
-  "tags": Array<string>;
+  "tags": Array<string> | null;
   /**
    * Rule tests
    */
-  "tests": Array<CustomRuleRevisionTest>;
+  "tests": Array<CustomRuleRevisionTest> | null;
   /**
    * Tree-sitter query
    */
   "treeSitterQuery": string;
+  /**
+   * Monotonically increasing version number of the revision. Assigned by the API; ignored on write.
+   */
+  "versionId"?: number;
 
   /**
    * A container for additional, undeclared properties.
@@ -110,10 +126,23 @@ export class CustomRuleRevisionInputAttributes {
       type: "CustomRuleRevisionAttributesCategory",
       required: true,
     },
+    checksum: {
+      baseName: "checksum",
+      type: "string",
+    },
     code: {
       baseName: "code",
       type: "string",
       required: true,
+    },
+    createdAt: {
+      baseName: "created_at",
+      type: "Date",
+      format: "date-time",
+    },
+    createdBy: {
+      baseName: "created_by",
+      type: "string",
     },
     creationMessage: {
       baseName: "creation_message",
@@ -123,12 +152,10 @@ export class CustomRuleRevisionInputAttributes {
     cve: {
       baseName: "cve",
       type: "string",
-      required: true,
     },
     cwe: {
       baseName: "cwe",
       type: "string",
-      required: true,
     },
     description: {
       baseName: "description",
@@ -138,7 +165,6 @@ export class CustomRuleRevisionInputAttributes {
     documentationUrl: {
       baseName: "documentation_url",
       type: "string",
-      required: true,
     },
     isPublished: {
       baseName: "is_published",
@@ -184,6 +210,11 @@ export class CustomRuleRevisionInputAttributes {
       baseName: "tree_sitter_query",
       type: "string",
       required: true,
+    },
+    versionId: {
+      baseName: "version_id",
+      type: "number",
+      format: "int64",
     },
     additionalProperties: {
       baseName: "additionalProperties",

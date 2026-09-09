@@ -12,6 +12,10 @@ import { AttributeTypeMap } from "../../datadog-api-client-common/util";
  */
 export class CustomRuleRequest {
   /**
+   * CSRF token for security, sent by browser-based clients. Ignored by the API when absent.
+   */
+  "authenticationToken"?: string;
+  /**
    * Data object for a custom rule create or update request.
    */
   "data"?: CustomRuleRequestData;
@@ -32,6 +36,10 @@ export class CustomRuleRequest {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
+    authenticationToken: {
+      baseName: "_authentication_token",
+      type: "string",
+    },
     data: {
       baseName: "data",
       type: "CustomRuleRequestData",

@@ -3,31 +3,34 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
-import { CustomRule } from "./CustomRule";
+import { AnalysisPosition } from "./AnalysisPosition";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * Attributes for creating or updating a custom ruleset. `name` is required and must
- * equal the resource `id`; the server rejects a mismatch with a 412 response.
+ * A node in the abstract syntax tree of the parsed source code.
  */
-export class CustomRulesetRequestDataAttributes {
+export class AstNode {
   /**
-   * Base64-encoded full description
+   * The tree-sitter node type of this AST node.
    */
-  "description"?: string;
+  "astType": string;
   /**
-   * Ruleset name, which must be the same as the resource identifier.
+   * The child nodes of this AST node, or null for a leaf node.
    */
-  "name": string;
+  "children": Array<AstNode> | null;
   /**
-   * Rules in the ruleset
+   * A position in source code, identified by line and column numbers.
    */
-  "rules"?: Array<CustomRule>;
+  "end": AnalysisPosition;
   /**
-   * Base64-encoded short description
+   * The name of the field this node occupies within its parent node, when the parent addresses it by name.
    */
-  "shortDescription"?: string;
+  "fieldName"?: string;
+  /**
+   * A position in source code, identified by line and column numbers.
+   */
+  "start": AnalysisPosition;
 
   /**
    * A container for additional, undeclared properties.
@@ -45,22 +48,29 @@ export class CustomRulesetRequestDataAttributes {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    description: {
-      baseName: "description",
-      type: "string",
-    },
-    name: {
-      baseName: "name",
+    astType: {
+      baseName: "ast_type",
       type: "string",
       required: true,
     },
-    rules: {
-      baseName: "rules",
-      type: "Array<CustomRule>",
+    children: {
+      baseName: "children",
+      type: "Array<AstNode>",
+      required: true,
     },
-    shortDescription: {
-      baseName: "short_description",
+    end: {
+      baseName: "end",
+      type: "AnalysisPosition",
+      required: true,
+    },
+    fieldName: {
+      baseName: "field_name",
       type: "string",
+    },
+    start: {
+      baseName: "start",
+      type: "AnalysisPosition",
+      required: true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -72,7 +82,7 @@ export class CustomRulesetRequestDataAttributes {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-    return CustomRulesetRequestDataAttributes.attributeTypeMap;
+    return AstNode.attributeTypeMap;
   }
 
   public constructor() {}
