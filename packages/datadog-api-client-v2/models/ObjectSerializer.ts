@@ -136,6 +136,7 @@ import { AggregatedLongTasksRequestAttributes } from "./AggregatedLongTasksReque
 import { AggregatedLongTasksRequestData } from "./AggregatedLongTasksRequestData";
 import { AggregatedLongTasksResponse } from "./AggregatedLongTasksResponse";
 import { AggregatedLongTasksResponseAttributes } from "./AggregatedLongTasksResponseAttributes";
+import { AggregatedLongTasksResponseAttributesCriteria } from "./AggregatedLongTasksResponseAttributesCriteria";
 import { AggregatedLongTasksResponseData } from "./AggregatedLongTasksResponseData";
 import { AggregatedLowCacheHitRate } from "./AggregatedLowCacheHitRate";
 import { AggregatedMobileScrollFriction } from "./AggregatedMobileScrollFriction";
@@ -9513,6 +9514,8 @@ const typeMap: { [index: string]: any } = {
   AggregatedLongTasksRequestData: AggregatedLongTasksRequestData,
   AggregatedLongTasksResponse: AggregatedLongTasksResponse,
   AggregatedLongTasksResponseAttributes: AggregatedLongTasksResponseAttributes,
+  AggregatedLongTasksResponseAttributesCriteria:
+    AggregatedLongTasksResponseAttributesCriteria,
   AggregatedLongTasksResponseData: AggregatedLongTasksResponseData,
   AggregatedLowCacheHitRate: AggregatedLowCacheHitRate,
   AggregatedMobileScrollFriction: AggregatedMobileScrollFriction,
