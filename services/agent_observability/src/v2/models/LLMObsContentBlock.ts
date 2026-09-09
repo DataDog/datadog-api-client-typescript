@@ -15,6 +15,7 @@ import { LLMObsContentBlockType } from "./LLMObsContentBlockType";
  * - `image`: `url` is required.
  * - `widget`: `tileDef` is required (any well-formed JSON; the frontend owns the renderable schema).
  * - `llmobs_trace`: `traceId` is required; `interactionType`, when set, must be `trace` or `experiment_trace`.
+ * - `frontend`: `code` is required and must be a non-empty string; `label` is optional.
  *
  * `height`, when set, must be positive.
  */
@@ -24,9 +25,13 @@ export class LLMObsContentBlock {
    */
   "alt"?: string;
   /**
+   * HTML code rendered by a `frontend` block. Required for `frontend` blocks.
+   */
+  "code"?: string;
+  /**
    * Block payload. A string for `markdown`, `header`, and `text`; an
    * arbitrary JSON value (object, array, or scalar) for `json`. Omitted
-   * for `image`, `widget`, and `llmobs_trace`.
+   * for `image`, `widget`, `llmobs_trace`, and `frontend`.
    */
   "content"?: any;
   /**
@@ -39,7 +44,7 @@ export class LLMObsContentBlock {
    */
   "interactionType"?: LLMObsContentBlockLLMObsTraceInteractionType;
   /**
-   * Optional label rendered alongside the block.
+   * Optional label rendered alongside a `frontend` block.
    */
   "label"?: string;
   /**
@@ -85,6 +90,10 @@ export class LLMObsContentBlock {
   static readonly attributeTypeMap: AttributeTypeMap = {
     alt: {
       baseName: "alt",
+      type: "string",
+    },
+    code: {
+      baseName: "code",
       type: "string",
     },
     content: {
