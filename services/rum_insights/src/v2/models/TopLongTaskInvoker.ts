@@ -13,7 +13,7 @@ export class TopLongTaskInvoker {
   /**
    * Cleaned source file path for the invoker script.
    */
-  "file": string | null;
+  "file"?: string;
   /**
    * Rank-product impact score combining view frequency and blocking time severity.
    */
@@ -53,7 +53,6 @@ export class TopLongTaskInvoker {
     file: {
       baseName: "file",
       type: "string",
-      required: true,
     },
     impactScore: {
       baseName: "impact_score",
