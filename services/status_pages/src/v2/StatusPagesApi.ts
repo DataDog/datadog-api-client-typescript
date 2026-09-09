@@ -1803,6 +1803,7 @@ export class StatusPagesApiRequestFactory extends BaseAPIRequestFactory {
     pageOffset?: number,
     pageLimit?: number,
     filterDomainPrefix?: string,
+    filterName?: string,
     include?: string,
     _options?: Configuration,
   ): Promise<RequestContext> {
@@ -1853,6 +1854,13 @@ export class StatusPagesApiRequestFactory extends BaseAPIRequestFactory {
       requestContext.setQueryParam(
         "filter[domain_prefix]",
         serialize(filterDomainPrefix, TypingInfo, "string", ""),
+        "",
+      );
+    }
+    if (filterName !== undefined) {
+      requestContext.setQueryParam(
+        "filter[name]",
+        serialize(filterName, TypingInfo, "string", ""),
         "",
       );
     }
@@ -4992,6 +5000,11 @@ export interface StatusPagesApiListStatusPagesRequest {
    */
   filterDomainPrefix?: string;
   /**
+   * Filter status pages by name with case-insensitive substring matching.
+   * @type string
+   */
+  filterName?: string;
+  /**
    * Comma-separated list of resources to include. Supported values: created_by_user, last_modified_by_user.
    * @type string
    */
@@ -5820,6 +5833,7 @@ export class StatusPagesApi {
       param.pageOffset,
       param.pageLimit,
       param.filterDomainPrefix,
+      param.filterName,
       param.include,
       options,
     );
