@@ -2848,6 +2848,7 @@ import { LLMObsExperimentationSimpleSearchRequest } from "./LLMObsExperimentatio
 import { LLMObsExperimentationSimpleSearchResponse } from "./LLMObsExperimentationSimpleSearchResponse";
 import { LLMObsExperimentationSortField } from "./LLMObsExperimentationSortField";
 import { LLMObsExperimentsResponse } from "./LLMObsExperimentsResponse";
+import { LLMObsFrontendContentBlock } from "./LLMObsFrontendContentBlock";
 import { LLMObsInferenceCode } from "./LLMObsInferenceCode";
 import { LLMObsInferenceContent } from "./LLMObsInferenceContent";
 import { LLMObsInferenceContentValue } from "./LLMObsInferenceContentValue";
@@ -2864,6 +2865,7 @@ import { LLMObsIntegrationInferenceResponse } from "./LLMObsIntegrationInference
 import { LLMObsIntegrationModel } from "./LLMObsIntegrationModel";
 import { LLMObsInternalReasoning } from "./LLMObsInternalReasoning";
 import { LLMObsLabelSchema } from "./LLMObsLabelSchema";
+import { LLMObsLegacyContentBlock } from "./LLMObsLegacyContentBlock";
 import { LLMObsOpenAIMetadata } from "./LLMObsOpenAIMetadata";
 import { LLMObsPatternsActivityProgress } from "./LLMObsPatternsActivityProgress";
 import { LLMObsPatternsClusteredPoint } from "./LLMObsPatternsClusteredPoint";
@@ -7329,6 +7331,7 @@ const enumsMap: { [key: string]: any[] } = {
     "image",
     "widget",
     "llmobs_trace",
+    "frontend",
   ],
   LLMObsCustomEvalConfigEvalScope: ["span", "trace", "session"],
   LLMObsCustomEvalConfigIntegrationProvider: [
@@ -7358,6 +7361,7 @@ const enumsMap: { [key: string]: any[] } = {
   LLMObsExperimentType: ["experiments"],
   LLMObsExperimentationSortFieldDirection: ["asc", "desc"],
   LLMObsExperimentationType: ["experimentation"],
+  LLMObsFrontendContentBlockType: ["frontend"],
   LLMObsIntegrationName: [
     "openai",
     "amazon_bedrock",
@@ -7367,6 +7371,15 @@ const enumsMap: { [key: string]: any[] } = {
     "llmproxy",
   ],
   LLMObsLabelSchemaType: ["score", "categorical", "boolean", "text"],
+  LLMObsLegacyContentBlockType: [
+    "markdown",
+    "header",
+    "text",
+    "json",
+    "image",
+    "widget",
+    "llmobs_trace",
+  ],
   LLMObsMetricAssessment: ["pass", "fail"],
   LLMObsMetricScoreType: ["score", "categorical", "boolean", "json"],
   LLMObsOpenAIReasoningEffort: ["none", "low", "medium", "high", "xhigh"],
@@ -12754,6 +12767,7 @@ const typeMap: { [index: string]: any } = {
     LLMObsExperimentationSimpleSearchResponse,
   LLMObsExperimentationSortField: LLMObsExperimentationSortField,
   LLMObsExperimentsResponse: LLMObsExperimentsResponse,
+  LLMObsFrontendContentBlock: LLMObsFrontendContentBlock,
   LLMObsInferenceCode: LLMObsInferenceCode,
   LLMObsInferenceContent: LLMObsInferenceContent,
   LLMObsInferenceContentValue: LLMObsInferenceContentValue,
@@ -12770,6 +12784,7 @@ const typeMap: { [index: string]: any } = {
   LLMObsIntegrationModel: LLMObsIntegrationModel,
   LLMObsInternalReasoning: LLMObsInternalReasoning,
   LLMObsLabelSchema: LLMObsLabelSchema,
+  LLMObsLegacyContentBlock: LLMObsLegacyContentBlock,
   LLMObsOpenAIMetadata: LLMObsOpenAIMetadata,
   LLMObsPatternsActivityProgress: LLMObsPatternsActivityProgress,
   LLMObsPatternsClusteredPoint: LLMObsPatternsClusteredPoint,
