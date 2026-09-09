@@ -3946,6 +3946,7 @@ export { DetailedFindingType } from "./models/DetailedFindingType";
 export { DeviceAttributes } from "./models/DeviceAttributes";
 export { DeviceAttributesInterfaceStatuses } from "./models/DeviceAttributesInterfaceStatuses";
 export { DevicesListData } from "./models/DevicesListData";
+export { DeviceTagsBySource } from "./models/DeviceTagsBySource";
 export { DnsMetricKey } from "./models/DnsMetricKey";
 export { DomainAllowlist } from "./models/DomainAllowlist";
 export { DomainAllowlistAttributes } from "./models/DomainAllowlistAttributes";
