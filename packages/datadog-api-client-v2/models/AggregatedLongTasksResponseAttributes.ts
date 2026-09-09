@@ -4,7 +4,7 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 import { AggregatedLongTasksByInvokerType } from "./AggregatedLongTasksByInvokerType";
-import { AggregatedWaterfallPerformanceCriteria } from "./AggregatedWaterfallPerformanceCriteria";
+import { AggregatedLongTasksResponseAttributesCriteria } from "./AggregatedLongTasksResponseAttributesCriteria";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
@@ -17,9 +17,9 @@ export class AggregatedLongTasksResponseAttributes {
    */
   "applicationId": string;
   /**
-   * Performance criteria to filter view instances by a metric threshold.
+   * Performance criteria used to filter view instances by a metric threshold, or null if no criteria were applied.
    */
-  "criteria"?: AggregatedWaterfallPerformanceCriteria;
+  "criteria": AggregatedLongTasksResponseAttributesCriteria | null;
   /**
    * Start of the analyzed time range as a Unix timestamp in seconds.
    */
@@ -68,7 +68,8 @@ export class AggregatedLongTasksResponseAttributes {
     },
     criteria: {
       baseName: "criteria",
-      type: "AggregatedWaterfallPerformanceCriteria",
+      type: "AggregatedLongTasksResponseAttributesCriteria",
+      required: true,
     },
     from: {
       baseName: "from",

@@ -2085,6 +2085,7 @@ export { AggregatedLongTasksRequestData } from "./models/AggregatedLongTasksRequ
 export { AggregatedLongTasksRequestType } from "./models/AggregatedLongTasksRequestType";
 export { AggregatedLongTasksResponse } from "./models/AggregatedLongTasksResponse";
 export { AggregatedLongTasksResponseAttributes } from "./models/AggregatedLongTasksResponseAttributes";
+export { AggregatedLongTasksResponseAttributesCriteria } from "./models/AggregatedLongTasksResponseAttributesCriteria";
 export { AggregatedLongTasksResponseData } from "./models/AggregatedLongTasksResponseData";
 export { AggregatedLowCacheHitRate } from "./models/AggregatedLowCacheHitRate";
 export { AggregatedMobileScrollFriction } from "./models/AggregatedMobileScrollFriction";
