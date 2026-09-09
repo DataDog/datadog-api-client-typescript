@@ -1,28 +1,17 @@
 import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
-import { CustomRule } from "./CustomRule";
-
 /**
- * Attributes for creating or updating a custom ruleset. `name` is required and must
- * equal the resource `id`; the server rejects a mismatch with a 412 response.
+ * A configurable argument of a forwarded static analysis rule.
  */
-export class CustomRulesetRequestDataAttributes {
+export class AnalysisRequestRuleArgument {
   /**
-   * Base64-encoded full description
+   * An explanation of the argument's purpose and accepted values.
    */
   "description"?: string;
   /**
-   * Ruleset name, which must be the same as the resource identifier.
+   * The name of the rule argument.
    */
-  "name": string;
-  /**
-   * Rules in the ruleset
-   */
-  "rules"?: Array<CustomRule>;
-  /**
-   * Base64-encoded short description
-   */
-  "shortDescription"?: string;
+  "name"?: string;
   /**
    * A container for additional, undeclared properties.
    * This is a holder for any undeclared properties as specified with
@@ -45,15 +34,6 @@ export class CustomRulesetRequestDataAttributes {
     name: {
       baseName: "name",
       type: "string",
-      required: true,
-    },
-    rules: {
-      baseName: "rules",
-      type: "Array<CustomRule>",
-    },
-    shortDescription: {
-      baseName: "short_description",
-      type: "string",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -65,7 +45,7 @@ export class CustomRulesetRequestDataAttributes {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-    return CustomRulesetRequestDataAttributes.attributeTypeMap;
+    return AnalysisRequestRuleArgument.attributeTypeMap;
   }
 
   public constructor() {}

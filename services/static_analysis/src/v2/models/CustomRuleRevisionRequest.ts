@@ -7,6 +7,10 @@ import { CustomRuleRevisionRequestData } from "./CustomRuleRevisionRequestData";
  */
 export class CustomRuleRevisionRequest {
   /**
+   * CSRF token for security, sent by browser-based clients. Ignored by the API when absent.
+   */
+  "authenticationToken"?: string;
+  /**
    * Data object for a custom rule revision create request.
    */
   "data"?: CustomRuleRevisionRequestData;
@@ -25,6 +29,10 @@ export class CustomRuleRevisionRequest {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
+    authenticationToken: {
+      baseName: "_authentication_token",
+      type: "string",
+    },
     data: {
       baseName: "data",
       type: "CustomRuleRevisionRequestData",

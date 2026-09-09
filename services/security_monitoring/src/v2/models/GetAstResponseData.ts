@@ -12,9 +12,9 @@ export class GetAstResponseData {
    */
   "attributes": GetAstResponseDataAttributes;
   /**
-   * The identifier of the get-AST response resource.
+   * The identifier of the get-AST response resource, echoed from the request.
    */
-  "id"?: string;
+  "id": string;
   /**
    * Get AST response resource type.
    */
@@ -42,6 +42,7 @@ export class GetAstResponseData {
     id: {
       baseName: "id",
       type: "string",
+      required: true,
     },
     type: {
       baseName: "type",

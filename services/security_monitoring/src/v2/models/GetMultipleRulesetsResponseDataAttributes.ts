@@ -9,7 +9,7 @@ export class GetMultipleRulesetsResponseDataAttributes {
   /**
    * The list of rulesets returned in response to the batch request.
    */
-  "rulesets"?: Array<GetMultipleRulesetsResponseDataAttributesRulesetsItems>;
+  "rulesets": Array<GetMultipleRulesetsResponseDataAttributesRulesetsItems>;
   /**
    * A container for additional, undeclared properties.
    * This is a holder for any undeclared properties as specified with
@@ -28,6 +28,7 @@ export class GetMultipleRulesetsResponseDataAttributes {
     rulesets: {
       baseName: "rulesets",
       type: "Array<GetMultipleRulesetsResponseDataAttributesRulesetsItems>",
+      required: true,
     },
     additionalProperties: {
       baseName: "additionalProperties",

@@ -1,11 +1,11 @@
 import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
-import { CustomRulesetRuleEmbedded } from "./CustomRulesetRuleEmbedded";
+import { CustomRuleRevisionEmbedded } from "./CustomRuleRevisionEmbedded";
 
 /**
- * Attributes of a custom ruleset, including its name, description, and rules.
+ * A custom static analysis rule as embedded in the rules list of a ruleset response.
  */
-export class CustomRulesetAttributes {
+export class CustomRulesetRuleEmbedded {
   /**
    * Creation timestamp
    */
@@ -15,21 +15,21 @@ export class CustomRulesetAttributes {
    */
   "createdBy": string;
   /**
-   * Base64-encoded full description
+   * Rule identifier, which is the same as the rule name.
    */
-  "description": string;
+  "id": string;
   /**
-   * Ruleset name
+   * A revision of a custom static analysis rule as embedded in a rule or ruleset response.
+   */
+  "lastRevision": CustomRuleRevisionEmbedded;
+  /**
+   * Rule name
    */
   "name": string;
   /**
-   * Rules in the ruleset
+   * Revision history of the rule.
    */
-  "rules": Array<CustomRulesetRuleEmbedded> | null;
-  /**
-   * Base64-encoded short description
-   */
-  "shortDescription": string;
+  "revisions": Array<CustomRuleRevisionEmbedded> | null;
   /**
    * A container for additional, undeclared properties.
    * This is a holder for any undeclared properties as specified with
@@ -56,9 +56,14 @@ export class CustomRulesetAttributes {
       type: "string",
       required: true,
     },
-    description: {
-      baseName: "description",
+    id: {
+      baseName: "id",
       type: "string",
+      required: true,
+    },
+    lastRevision: {
+      baseName: "last_revision",
+      type: "CustomRuleRevisionEmbedded",
       required: true,
     },
     name: {
@@ -66,14 +71,9 @@ export class CustomRulesetAttributes {
       type: "string",
       required: true,
     },
-    rules: {
-      baseName: "rules",
-      type: "Array<CustomRulesetRuleEmbedded>",
-      required: true,
-    },
-    shortDescription: {
-      baseName: "short_description",
-      type: "string",
+    revisions: {
+      baseName: "revisions",
+      type: "Array<CustomRuleRevisionEmbedded>",
       required: true,
     },
     additionalProperties: {
@@ -86,7 +86,7 @@ export class CustomRulesetAttributes {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-    return CustomRulesetAttributes.attributeTypeMap;
+    return CustomRulesetRuleEmbedded.attributeTypeMap;
   }
 
   public constructor() {}

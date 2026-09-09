@@ -7,37 +7,41 @@ import { CustomRuleRevisionTest } from "./CustomRuleRevisionTest";
 import { Language } from "./Language";
 
 /**
- * Input attributes for creating or updating a custom rule revision.
+ * A revision of a custom static analysis rule as embedded in a rule supplied by a create
+ * or update request. Nested revisions are sent flat, without a `data`/`type`/`attributes`
+ * envelope. `id`, `version_id`, `checksum`, `created_at` and `created_by` are server-assigned
+ * and read-only; they are declared so that a ruleset previously read back can be supplied
+ * unchanged.
  */
-export class CustomRuleRevisionInputAttributes {
+export class CustomRuleRevisionInput {
   /**
    * Rule arguments
    */
-  "arguments": Array<Argument> | null;
+  "arguments"?: Array<Argument>;
   /**
    * Rule category
    */
-  "category": CustomRuleRevisionAttributesCategory;
+  "category"?: CustomRuleRevisionAttributesCategory;
   /**
-   * Code checksum. Derived by the API from `code`; ignored on write.
+   * Code checksum
    */
   "checksum"?: string;
   /**
    * Rule code
    */
-  "code": string;
+  "code"?: string;
   /**
-   * Creation timestamp. Set by the API; ignored on write.
+   * Creation timestamp
    */
   "createdAt"?: Date;
   /**
-   * Creator identifier. Set by the API from the caller; ignored on write.
+   * Creator identifier
    */
   "createdBy"?: string;
   /**
    * Revision creation message
    */
-  "creationMessage": string;
+  "creationMessage"?: string;
   /**
    * Associated CVE
    */
@@ -47,59 +51,57 @@ export class CustomRuleRevisionInputAttributes {
    */
   "cwe"?: string;
   /**
-   * Full description
+   * Base64-encoded full description
    */
-  "description": string;
+  "description"?: string;
   /**
    * Documentation URL
    */
   "documentationUrl"?: string;
   /**
-   * Whether the revision is published
+   * Revision identifier
    */
-  "isPublished": boolean;
+  "id"?: string;
+  /**
+   * Whether the revision should be published
+   */
+  "isPublished"?: boolean;
   /**
    * Whether this is a testing revision
    */
-  "isTesting": boolean;
+  "isTesting"?: boolean;
   /**
    * Programming language
    */
-  "language": Language;
+  "language"?: Language;
   /**
    * Rule severity
    */
-  "severity": CustomRuleRevisionAttributesSeverity;
+  "severity"?: CustomRuleRevisionAttributesSeverity;
   /**
-   * Short description
+   * Base64-encoded short description
    */
-  "shortDescription": string;
+  "shortDescription"?: string;
   /**
    * Whether to use AI for fixes
    */
-  "shouldUseAiFix": boolean;
+  "shouldUseAiFix"?: boolean;
   /**
    * Rule tags
    */
-  "tags": Array<string> | null;
+  "tags"?: Array<string>;
   /**
    * Rule tests
    */
-  "tests": Array<CustomRuleRevisionTest> | null;
+  "tests"?: Array<CustomRuleRevisionTest>;
   /**
    * Tree-sitter query
    */
-  "treeSitterQuery": string;
+  "treeSitterQuery"?: string;
   /**
-   * Monotonically increasing version number of the revision. Assigned by the API; ignored on write.
+   * Monotonically increasing version number of the revision.
    */
   "versionId"?: number;
-  /**
-   * A container for additional, undeclared properties.
-   * This is a holder for any undeclared properties as specified with
-   * the 'additionalProperties' keyword in the OAS document.
-   */
-  "additionalProperties"?: { [key: string]: any };
   /**
    * @ignore
    */
@@ -112,12 +114,10 @@ export class CustomRuleRevisionInputAttributes {
     arguments: {
       baseName: "arguments",
       type: "Array<Argument>",
-      required: true,
     },
     category: {
       baseName: "category",
       type: "CustomRuleRevisionAttributesCategory",
-      required: true,
     },
     checksum: {
       baseName: "checksum",
@@ -126,7 +126,6 @@ export class CustomRuleRevisionInputAttributes {
     code: {
       baseName: "code",
       type: "string",
-      required: true,
     },
     createdAt: {
       baseName: "created_at",
@@ -140,7 +139,6 @@ export class CustomRuleRevisionInputAttributes {
     creationMessage: {
       baseName: "creation_message",
       type: "string",
-      required: true,
     },
     cve: {
       baseName: "cve",
@@ -153,65 +151,55 @@ export class CustomRuleRevisionInputAttributes {
     description: {
       baseName: "description",
       type: "string",
-      required: true,
     },
     documentationUrl: {
       baseName: "documentation_url",
       type: "string",
     },
+    id: {
+      baseName: "id",
+      type: "string",
+    },
     isPublished: {
       baseName: "is_published",
       type: "boolean",
-      required: true,
     },
     isTesting: {
       baseName: "is_testing",
       type: "boolean",
-      required: true,
     },
     language: {
       baseName: "language",
       type: "Language",
-      required: true,
     },
     severity: {
       baseName: "severity",
       type: "CustomRuleRevisionAttributesSeverity",
-      required: true,
     },
     shortDescription: {
       baseName: "short_description",
       type: "string",
-      required: true,
     },
     shouldUseAiFix: {
       baseName: "should_use_ai_fix",
       type: "boolean",
-      required: true,
     },
     tags: {
       baseName: "tags",
       type: "Array<string>",
-      required: true,
     },
     tests: {
       baseName: "tests",
       type: "Array<CustomRuleRevisionTest>",
-      required: true,
     },
     treeSitterQuery: {
       baseName: "tree_sitter_query",
       type: "string",
-      required: true,
     },
     versionId: {
       baseName: "version_id",
       type: "number",
       format: "int64",
-    },
-    additionalProperties: {
-      baseName: "additionalProperties",
-      type: "{ [key: string]: any; }",
     },
   };
 
@@ -219,7 +207,7 @@ export class CustomRuleRevisionInputAttributes {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-    return CustomRuleRevisionInputAttributes.attributeTypeMap;
+    return CustomRuleRevisionInput.attributeTypeMap;
   }
 
   public constructor() {}

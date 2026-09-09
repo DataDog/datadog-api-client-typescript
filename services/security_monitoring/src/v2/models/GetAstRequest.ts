@@ -7,6 +7,10 @@ import { GetAstRequestData } from "./GetAstRequestData";
  */
 export class GetAstRequest {
   /**
+   * CSRF token for security, sent by browser-based clients. Ignored by the API when absent.
+   */
+  "authenticationToken"?: string;
+  /**
    * The primary data object in the get-AST request.
    */
   "data": GetAstRequestData;
@@ -25,6 +29,10 @@ export class GetAstRequest {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
+    authenticationToken: {
+      baseName: "_authentication_token",
+      type: "string",
+    },
     data: {
       baseName: "data",
       type: "GetAstRequestData",

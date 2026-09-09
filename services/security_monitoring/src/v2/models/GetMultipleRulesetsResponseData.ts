@@ -10,11 +10,11 @@ export class GetMultipleRulesetsResponseData {
   /**
    * The attributes of the get-multiple-rulesets response, containing the list of requested rulesets.
    */
-  "attributes"?: GetMultipleRulesetsResponseDataAttributes;
+  "attributes": GetMultipleRulesetsResponseDataAttributes;
   /**
-   * The unique identifier of the get-multiple-rulesets response resource.
+   * The unique identifier of the get-multiple-rulesets response resource, echoed from the request.
    */
-  "id"?: string;
+  "id": string;
   /**
    * Get multiple rulesets response resource type.
    */
@@ -37,10 +37,12 @@ export class GetMultipleRulesetsResponseData {
     attributes: {
       baseName: "attributes",
       type: "GetMultipleRulesetsResponseDataAttributes",
+      required: true,
     },
     id: {
       baseName: "id",
       type: "string",
+      required: true,
     },
     type: {
       baseName: "type",
