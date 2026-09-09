@@ -17515,6 +17515,10 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
       type: "string",
       format: "",
     },
+    filterName: {
+      type: "string",
+      format: "",
+    },
     include: {
       type: "string",
       format: "",
