@@ -12,7 +12,7 @@ on:
         description: 'JSON array of Node.js versions to test against'
         required: false
         type: string
-        default: '["16", "18"]'
+        default: '["20", "22"]'
       platforms:
         description: 'JSON array of platforms to run tests on'
         required: false
@@ -32,7 +32,7 @@ on:
         description: 'Node.js version to use'
         required: false
         type: string
-        default: '16'
+        default: '20'
 
     secrets:
       # Integration test secrets
