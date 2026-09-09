@@ -12,7 +12,11 @@ import { AttributeTypeMap } from "../../datadog-api-client-common/util";
  */
 export class SecurityMonitoringSignalAttributes {
   /**
-   * A JSON object of attributes in the security signal.
+   * A JSON object of attributes in the security signal, returned when listing or searching signals.
+   */
+  "attributes"?: { [key: string]: any };
+  /**
+   * A JSON object of attributes in the security signal, returned when retrieving a single signal.
    */
   "custom"?: { [key: string]: any };
   /**
@@ -44,6 +48,10 @@ export class SecurityMonitoringSignalAttributes {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
+    attributes: {
+      baseName: "attributes",
+      type: "{ [key: string]: any; }",
+    },
     custom: {
       baseName: "custom",
       type: "{ [key: string]: any; }",
