@@ -12,6 +12,16 @@ import { CoverageSummaryCodeownerStats } from "./CoverageSummaryCodeownerStats";
 import { CoverageSummaryData } from "./CoverageSummaryData";
 import { CoverageSummaryResponse } from "./CoverageSummaryResponse";
 import { CoverageSummaryServiceStats } from "./CoverageSummaryServiceStats";
+import { FileCoverageLines } from "./FileCoverageLines";
+import { FilesCoverageAttributes } from "./FilesCoverageAttributes";
+import { FilesCoverageData } from "./FilesCoverageData";
+import { FilesCoverageRequest } from "./FilesCoverageRequest";
+import { FilesCoverageRequestAttributes } from "./FilesCoverageRequestAttributes";
+import { FilesCoverageRequestData } from "./FilesCoverageRequestData";
+import { FilesCoverageResponse } from "./FilesCoverageResponse";
+import { PRCoverageSummaryRequest } from "./PRCoverageSummaryRequest";
+import { PRCoverageSummaryRequestAttributes } from "./PRCoverageSummaryRequestAttributes";
+import { PRCoverageSummaryRequestData } from "./PRCoverageSummaryRequestData";
 
 export const TypingInfo: ModelTypingInfo = {
   enumsMap: {
@@ -22,6 +32,9 @@ export const TypingInfo: ModelTypingInfo = {
       "ci_app_coverage_commit_summary_request",
     ],
     CoverageSummaryType: ["ci_app_coverage_summary"],
+    FilesCoverageRequestType: ["ci_app_coverage_files_request"],
+    FilesCoverageResponseType: ["ci_app_coverage_files"],
+    PRCoverageSummaryRequestType: ["ci_app_coverage_pr_summary_request"],
   },
   oneOfMap: {},
   typeMap: {
@@ -39,5 +52,15 @@ export const TypingInfo: ModelTypingInfo = {
     CoverageSummaryData: CoverageSummaryData,
     CoverageSummaryResponse: CoverageSummaryResponse,
     CoverageSummaryServiceStats: CoverageSummaryServiceStats,
+    FileCoverageLines: FileCoverageLines,
+    FilesCoverageAttributes: FilesCoverageAttributes,
+    FilesCoverageData: FilesCoverageData,
+    FilesCoverageRequest: FilesCoverageRequest,
+    FilesCoverageRequestAttributes: FilesCoverageRequestAttributes,
+    FilesCoverageRequestData: FilesCoverageRequestData,
+    FilesCoverageResponse: FilesCoverageResponse,
+    PRCoverageSummaryRequest: PRCoverageSummaryRequest,
+    PRCoverageSummaryRequestAttributes: PRCoverageSummaryRequestAttributes,
+    PRCoverageSummaryRequestData: PRCoverageSummaryRequestData,
   },
 };
