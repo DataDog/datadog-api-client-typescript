@@ -28,7 +28,9 @@ import { NotificationChannel } from "../models/NotificationChannel";
 import { OnCallNotificationRule } from "../models/OnCallNotificationRule";
 import { Schedule } from "../models/Schedule";
 import { ScheduleCreateRequest } from "../models/ScheduleCreateRequest";
+import { ScheduleListItem } from "../models/ScheduleListItem";
 import { ScheduleOnCallResponders } from "../models/ScheduleOnCallResponders";
+import { Schedules } from "../models/Schedules";
 import { ScheduleUpdateRequest } from "../models/ScheduleUpdateRequest";
 import { Shift } from "../models/Shift";
 import { TeamOnCallResponders } from "../models/TeamOnCallResponders";
@@ -846,6 +848,70 @@ export class OnCallApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Query Params
+    if (include !== undefined) {
+      requestContext.setQueryParam(
+        "include",
+        ObjectSerializer.serialize(include, "string", ""),
+        ""
+      );
+    }
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+      "AuthZ",
+    ]);
+
+    return requestContext;
+  }
+
+  public async listOnCallSchedules(
+    pageSize?: number,
+    pageNumber?: number,
+    filterQuery?: string,
+    include?: string,
+    _options?: Configuration
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    // Path Params
+    const localVarPath = "/api/v2/on-call/schedules";
+
+    // Make Request Context
+    const requestContext = _config
+      .getServer("v2.OnCallApi.listOnCallSchedules")
+      .makeRequestContext(localVarPath, HttpMethod.GET);
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Set IaC header
+    if (_config.isIaC) {
+      requestContext.setHeaderParam("X-Datadog-Managed-By", "iac");
+    }
+
+    // Query Params
+    if (pageSize !== undefined) {
+      requestContext.setQueryParam(
+        "page[size]",
+        ObjectSerializer.serialize(pageSize, "number", "int64"),
+        ""
+      );
+    }
+    if (pageNumber !== undefined) {
+      requestContext.setQueryParam(
+        "page[number]",
+        ObjectSerializer.serialize(pageNumber, "number", "int64"),
+        ""
+      );
+    }
+    if (filterQuery !== undefined) {
+      requestContext.setQueryParam(
+        "filter[query]",
+        ObjectSerializer.serialize(filterQuery, "string", ""),
+        ""
+      );
+    }
     if (include !== undefined) {
       requestContext.setQueryParam(
         "include",
@@ -2209,6 +2275,69 @@ export class OnCallApiResponseProcessor {
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
    *
+   * @params response Response returned by the server for a request to listOnCallSchedules
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async listOnCallSchedules(
+    response: ResponseContext
+  ): Promise<Schedules> {
+    const contentType = ObjectSerializer.normalizeMediaType(
+      response.headers["content-type"]
+    );
+    if (response.httpStatusCode === 200) {
+      const body: Schedules = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "Schedules"
+      ) as Schedules;
+      return body;
+    }
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 401 ||
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 429
+    ) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: APIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "APIErrorResponse"
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: Schedules = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "Schedules",
+        ""
+      ) as Schedules;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"'
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
    * @params response Response returned by the server for a request to listUserNotificationChannels
    * @throws ApiException if the response code was not in [200, 299]
    */
@@ -2802,6 +2931,29 @@ export interface OnCallApiGetUserNotificationRuleRequest {
   include?: string;
 }
 
+export interface OnCallApiListOnCallSchedulesRequest {
+  /**
+   * Number of items to return per page. The maximum allowed value is 100.
+   * @type number
+   */
+  pageSize?: number;
+  /**
+   * Specific page number to return.
+   * @type number
+   */
+  pageNumber?: number;
+  /**
+   * Search query to filter schedules. Supports free-text search on schedule name (case-insensitive, `*` wildcards), and structured filters such as `team.id:<uuid>` and `user.id:<uuid>` (multiple values can be combined with `OR`, e.g. `user.id:(<uuid> OR <uuid>)`).
+   * @type string
+   */
+  filterQuery?: string;
+  /**
+   * Comma-separated list of included relationships to be returned. Allowed value: `teams`.
+   * @type string
+   */
+  include?: string;
+}
+
 export interface OnCallApiListUserNotificationChannelsRequest {
   /**
    * The user ID
@@ -3292,6 +3444,73 @@ export class OnCallApi {
           );
         });
     });
+  }
+
+  /**
+   * Retrieve a list of On-Call schedules.
+   * @param param The request object
+   */
+  public listOnCallSchedules(
+    param: OnCallApiListOnCallSchedulesRequest = {},
+    options?: Configuration
+  ): Promise<Schedules> {
+    const requestContextPromise = this.requestFactory.listOnCallSchedules(
+      param.pageSize,
+      param.pageNumber,
+      param.filterQuery,
+      param.include,
+      options
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.listOnCallSchedules(responseContext);
+        });
+    });
+  }
+
+  /**
+   * Provide a paginated version of listOnCallSchedules returning a generator with all the items.
+   */
+  public async *listOnCallSchedulesWithPagination(
+    param: OnCallApiListOnCallSchedulesRequest = {},
+    options?: Configuration
+  ): AsyncGenerator<ScheduleListItem> {
+    let pageSize = 10;
+    if (param.pageSize !== undefined) {
+      pageSize = param.pageSize;
+    }
+    param.pageSize = pageSize;
+    param.pageNumber = 0;
+    while (true) {
+      const requestContext = await this.requestFactory.listOnCallSchedules(
+        param.pageSize,
+        param.pageNumber,
+        param.filterQuery,
+        param.include,
+        options
+      );
+      const responseContext = await this.configuration.httpApi.send(
+        requestContext
+      );
+
+      const response = await this.responseProcessor.listOnCallSchedules(
+        responseContext
+      );
+      const responseData = response.data;
+      if (responseData === undefined) {
+        break;
+      }
+      const results = responseData;
+      for (const item of results) {
+        yield item;
+      }
+      if (results.length < pageSize) {
+        break;
+      }
+      param.pageNumber = param.pageNumber + 1;
+    }
   }
 
   /**

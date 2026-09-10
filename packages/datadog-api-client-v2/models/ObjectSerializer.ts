@@ -4620,6 +4620,8 @@ import { ScheduleDataAttributes } from "./ScheduleDataAttributes";
 import { ScheduleDataRelationships } from "./ScheduleDataRelationships";
 import { ScheduleDataRelationshipsLayers } from "./ScheduleDataRelationshipsLayers";
 import { ScheduleDataRelationshipsLayersDataItems } from "./ScheduleDataRelationshipsLayersDataItems";
+import { ScheduleListItem } from "./ScheduleListItem";
+import { ScheduleListItemRelationships } from "./ScheduleListItemRelationships";
 import { ScheduleMember } from "./ScheduleMember";
 import { ScheduleMemberRelationships } from "./ScheduleMemberRelationships";
 import { ScheduleMemberRelationshipsUser } from "./ScheduleMemberRelationshipsUser";
@@ -4649,6 +4651,9 @@ import { ScheduleUpdateRequestDataAttributesLayersItems } from "./ScheduleUpdate
 import { ScheduleUpdateRequestDataRelationships } from "./ScheduleUpdateRequestDataRelationships";
 import { ScheduleUser } from "./ScheduleUser";
 import { ScheduleUserAttributes } from "./ScheduleUserAttributes";
+import { Schedules } from "./Schedules";
+import { SchedulesResponseMeta } from "./SchedulesResponseMeta";
+import { SchedulesResponseMetaPage } from "./SchedulesResponseMetaPage";
 import { ScorecardListResponseAttributes } from "./ScorecardListResponseAttributes";
 import { ScorecardListResponseData } from "./ScorecardListResponseData";
 import { ScorecardScoreAttributes } from "./ScorecardScoreAttributes";
@@ -14944,6 +14949,8 @@ const typeMap: { [index: string]: any } = {
   ScheduleDataRelationshipsLayers: ScheduleDataRelationshipsLayers,
   ScheduleDataRelationshipsLayersDataItems:
     ScheduleDataRelationshipsLayersDataItems,
+  ScheduleListItem: ScheduleListItem,
+  ScheduleListItemRelationships: ScheduleListItemRelationships,
   ScheduleMember: ScheduleMember,
   ScheduleMemberRelationships: ScheduleMemberRelationships,
   ScheduleMemberRelationshipsUser: ScheduleMemberRelationshipsUser,
@@ -14986,6 +14993,9 @@ const typeMap: { [index: string]: any } = {
     ScheduleUpdateRequestDataRelationships,
   ScheduleUser: ScheduleUser,
   ScheduleUserAttributes: ScheduleUserAttributes,
+  Schedules: Schedules,
+  SchedulesResponseMeta: SchedulesResponseMeta,
+  SchedulesResponseMetaPage: SchedulesResponseMetaPage,
   ScorecardListResponseAttributes: ScorecardListResponseAttributes,
   ScorecardListResponseData: ScorecardListResponseData,
   ScorecardScoreAttributes: ScorecardScoreAttributes,
