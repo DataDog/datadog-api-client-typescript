@@ -7,9 +7,21 @@ import { SecurityMonitoringSignalsListResponseMetaPage } from "./SecurityMonitor
  */
 export class SecurityMonitoringSignalsListResponseMeta {
   /**
+   * The time elapsed in milliseconds.
+   */
+  "elapsed"?: number;
+  /**
    * Paging attributes.
    */
   "page"?: SecurityMonitoringSignalsListResponseMetaPage;
+  /**
+   * The unique identifier of the request.
+   */
+  "requestId"?: string;
+  /**
+   * The status of the response.
+   */
+  "status"?: string;
   /**
    * A container for additional, undeclared properties.
    * This is a holder for any undeclared properties as specified with
@@ -25,9 +37,22 @@ export class SecurityMonitoringSignalsListResponseMeta {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
+    elapsed: {
+      baseName: "elapsed",
+      type: "number",
+      format: "int64",
+    },
     page: {
       baseName: "page",
       type: "SecurityMonitoringSignalsListResponseMetaPage",
+    },
+    requestId: {
+      baseName: "request_id",
+      type: "string",
+    },
+    status: {
+      baseName: "status",
+      type: "string",
     },
     additionalProperties: {
       baseName: "additionalProperties",
