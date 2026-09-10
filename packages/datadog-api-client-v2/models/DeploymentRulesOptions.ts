@@ -5,6 +5,7 @@
  */
 import { DeploymentRuleOptionsFaultyDeploymentDetection } from "./DeploymentRuleOptionsFaultyDeploymentDetection";
 import { DeploymentRuleOptionsMonitor } from "./DeploymentRuleOptionsMonitor";
+import { DeploymentRuleOptionsMonitorIds } from "./DeploymentRuleOptionsMonitorIds";
 
 import { UnparsedObject } from "../../datadog-api-client-common/util";
 
@@ -15,4 +16,5 @@ import { UnparsedObject } from "../../datadog-api-client-common/util";
 export type DeploymentRulesOptions =
   | DeploymentRuleOptionsFaultyDeploymentDetection
   | DeploymentRuleOptionsMonitor
+  | DeploymentRuleOptionsMonitorIds
   | UnparsedObject;
