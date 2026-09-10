@@ -121,6 +121,9 @@ import { ObservabilityPipelineParseGrokProcessorRuleMatchRule } from "./Observab
 import { ObservabilityPipelineParseGrokProcessorRuleSupportRule } from "./ObservabilityPipelineParseGrokProcessorRuleSupportRule";
 import { ObservabilityPipelineParseJSONProcessor } from "./ObservabilityPipelineParseJSONProcessor";
 import { ObservabilityPipelineParseXMLProcessor } from "./ObservabilityPipelineParseXMLProcessor";
+import { ObservabilityPipelinePrometheusRemoteWriteDestination } from "./ObservabilityPipelinePrometheusRemoteWriteDestination";
+import { ObservabilityPipelinePrometheusRemoteWriteSource } from "./ObservabilityPipelinePrometheusRemoteWriteSource";
+import { ObservabilityPipelinePrometheusRemoteWriteSourceValidToken } from "./ObservabilityPipelinePrometheusRemoteWriteSourceValidToken";
 import { ObservabilityPipelineQuotaProcessor } from "./ObservabilityPipelineQuotaProcessor";
 import { ObservabilityPipelineQuotaProcessorLimit } from "./ObservabilityPipelineQuotaProcessorLimit";
 import { ObservabilityPipelineQuotaProcessorOverride } from "./ObservabilityPipelineQuotaProcessorOverride";
@@ -430,6 +433,21 @@ export const TypingInfo: ModelTypingInfo = {
     ObservabilityPipelineParseGrokProcessorType: ["parse_grok"],
     ObservabilityPipelineParseJSONProcessorType: ["parse_json"],
     ObservabilityPipelineParseXMLProcessorType: ["parse_xml"],
+    ObservabilityPipelinePrometheusRemoteWriteDestinationAuthStrategy: [
+      "none",
+      "basic",
+      "bearer",
+    ],
+    ObservabilityPipelinePrometheusRemoteWriteDestinationType: [
+      "prometheus_remote_write",
+    ],
+    ObservabilityPipelinePrometheusRemoteWriteSourceAuthStrategy: [
+      "none",
+      "plain",
+    ],
+    ObservabilityPipelinePrometheusRemoteWriteSourceType: [
+      "prometheus_remote_write",
+    ],
     ObservabilityPipelineQuotaProcessorLimitEnforceType: ["bytes", "events"],
     ObservabilityPipelineQuotaProcessorOverflowAction: [
       "drop",
@@ -624,6 +642,7 @@ export const TypingInfo: ModelTypingInfo = {
       "ObservabilityPipelineDatabricksZerobusDestination",
       "ObservabilityPipelineDatadogMetricsDestination",
       "ObservabilityPipelineOpentelemetryMetricsDestination",
+      "ObservabilityPipelinePrometheusRemoteWriteDestination",
       "ObservabilityPipelineSplunkHecMetricsDestination",
     ],
     ObservabilityPipelineConfigProcessorItem: [
@@ -674,6 +693,7 @@ export const TypingInfo: ModelTypingInfo = {
       "ObservabilityPipelineSyslogNgSource",
       "ObservabilityPipelineWebsocketSource",
       "ObservabilityPipelineOpentelemetrySource",
+      "ObservabilityPipelinePrometheusRemoteWriteSource",
     ],
     ObservabilityPipelineEnrichmentTableFileKeyItemField: [
       "string",
@@ -950,6 +970,12 @@ export const TypingInfo: ModelTypingInfo = {
       ObservabilityPipelineParseJSONProcessor,
     ObservabilityPipelineParseXMLProcessor:
       ObservabilityPipelineParseXMLProcessor,
+    ObservabilityPipelinePrometheusRemoteWriteDestination:
+      ObservabilityPipelinePrometheusRemoteWriteDestination,
+    ObservabilityPipelinePrometheusRemoteWriteSource:
+      ObservabilityPipelinePrometheusRemoteWriteSource,
+    ObservabilityPipelinePrometheusRemoteWriteSourceValidToken:
+      ObservabilityPipelinePrometheusRemoteWriteSourceValidToken,
     ObservabilityPipelineQuotaProcessor: ObservabilityPipelineQuotaProcessor,
     ObservabilityPipelineQuotaProcessorLimit:
       ObservabilityPipelineQuotaProcessorLimit,
