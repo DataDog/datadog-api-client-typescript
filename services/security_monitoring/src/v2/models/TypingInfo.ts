@@ -1017,7 +1017,7 @@ export const TypingInfo: ModelTypingInfo = {
     SignalEntitiesType: ["entities"],
     SpecVersion: ["1.0", "1.1", "1.2", "1.3", "1.4", "1.5", "1.6"],
     TicketCreationRuleType: ["ticket_creation_rules"],
-    TicketCreationTarget: ["jira", "case_management"],
+    TicketCreationTarget: ["jira", "case_management", "linear"],
     TriggerSource: ["security_findings", "security_signals"],
     UsersType: ["users"],
     VersionHistoryUpdateType: ["create", "update", "delete"],
