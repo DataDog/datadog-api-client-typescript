@@ -13834,6 +13834,25 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
     },
     operationResponseType: "{}",
   },
+  "OnCallApi.V2.ListOnCallSchedules": {
+    pageSize: {
+      type: "number",
+      format: "int64",
+    },
+    pageNumber: {
+      type: "number",
+      format: "int64",
+    },
+    filterQuery: {
+      type: "string",
+      format: "",
+    },
+    include: {
+      type: "string",
+      format: "",
+    },
+    operationResponseType: "Schedules",
+  },
   "OnCallApi.V2.CreateOnCallSchedule": {
     include: {
       type: "string",
