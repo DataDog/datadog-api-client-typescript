@@ -9154,7 +9154,7 @@ const enumsMap: { [key: string]: any[] } = {
     "test_optimization_update_service_settings_request",
   ],
   TicketCreationRuleType: ["ticket_creation_rules"],
-  TicketCreationTarget: ["jira", "case_management"],
+  TicketCreationTarget: ["jira", "case_management", "linear"],
   TimelineCellAuthorUserType: ["USER"],
   TimelineCellResourceType: ["timeline_cell"],
   TimelineCellType: ["COMMENT"],
