@@ -2109,6 +2109,7 @@ export { AggregatedWaterfallRequestData } from "./models/AggregatedWaterfallRequ
 export { AggregatedWaterfallRequestType } from "./models/AggregatedWaterfallRequestType";
 export { AggregatedWaterfallResponse } from "./models/AggregatedWaterfallResponse";
 export { AggregatedWaterfallResponseAttributes } from "./models/AggregatedWaterfallResponseAttributes";
+export { AggregatedWaterfallResponseAttributesCriteria } from "./models/AggregatedWaterfallResponseAttributesCriteria";
 export { AggregatedWaterfallResponseData } from "./models/AggregatedWaterfallResponseData";
 export { AiCustomRuleDataType } from "./models/AiCustomRuleDataType";
 export { AiCustomRuleItem } from "./models/AiCustomRuleItem";
