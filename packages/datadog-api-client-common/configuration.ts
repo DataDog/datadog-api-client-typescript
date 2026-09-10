@@ -425,8 +425,6 @@ export function createConfiguration(
       "v2.updateSecurityMonitoringIntegrationConfig": false,
       "v2.validateSecurityMonitoringIntegrationConfig": false,
       "v2.validateSecurityMonitoringIntegrationCredentials": false,
-      "v2.getCodeCoverageBranchSummary": false,
-      "v2.getCodeCoverageCommitSummary": false,
       "v2.getRuleBasedView": false,
       "v2.createUnitCost": false,
       "v2.deleteUnitCost": false,
