@@ -40,6 +40,8 @@ import { DistributionWidgetDefinition } from "./DistributionWidgetDefinition";
 import { DistributionWidgetRequest } from "./DistributionWidgetRequest";
 import { DistributionWidgetXAxis } from "./DistributionWidgetXAxis";
 import { DistributionWidgetYAxis } from "./DistributionWidgetYAxis";
+import { EmbeddedAppWidgetDefinition } from "./EmbeddedAppWidgetDefinition";
+import { EmbeddedAppWidgetInput } from "./EmbeddedAppWidgetInput";
 import { EventQueryDefinition } from "./EventQueryDefinition";
 import { EventStreamWidgetDefinition } from "./EventStreamWidgetDefinition";
 import { EventTimelineWidgetDefinition } from "./EventTimelineWidgetDefinition";
@@ -293,6 +295,7 @@ export const TypingInfo: ModelTypingInfo = {
     DataProjectionRequestType: ["data_projection"],
     DatasetListQueryDataSourceType: ["dataset"],
     DistributionWidgetDefinitionType: ["distribution"],
+    EmbeddedAppWidgetDefinitionType: ["embedded_app"],
     EventStreamWidgetDefinitionType: ["event_stream"],
     EventTimelineWidgetDefinitionType: ["event_timeline"],
     EventsAggregationValue: [
@@ -737,6 +740,16 @@ export const TypingInfo: ModelTypingInfo = {
       "FormulaAndFunctionApmResourceStatsQueryDefinition",
       "FormulaAndFunctionApmMetricsQueryDefinition",
     ],
+    EmbeddedAppWidgetInputValue: [
+      "string",
+      "number",
+      "boolean",
+      "{ [key: string]: any; }",
+      "Array<string>",
+      "Array<number>",
+      "Array<boolean>",
+      "Array<{ [key: string]: any; }>",
+    ],
     EventsAggregation: ["EventsAggregationValue", "string"],
     FormulaAndFunctionEventQueryGroupByConfig: [
       "Array<FormulaAndFunctionEventQueryGroupBy>",
@@ -794,6 +807,7 @@ export const TypingInfo: ModelTypingInfo = {
       "CheckStatusWidgetDefinition",
       "CohortWidgetDefinition",
       "DistributionWidgetDefinition",
+      "EmbeddedAppWidgetDefinition",
       "EventStreamWidgetDefinition",
       "EventTimelineWidgetDefinition",
       "FreeTextWidgetDefinition",
@@ -883,6 +897,8 @@ export const TypingInfo: ModelTypingInfo = {
     DistributionWidgetRequest: DistributionWidgetRequest,
     DistributionWidgetXAxis: DistributionWidgetXAxis,
     DistributionWidgetYAxis: DistributionWidgetYAxis,
+    EmbeddedAppWidgetDefinition: EmbeddedAppWidgetDefinition,
+    EmbeddedAppWidgetInput: EmbeddedAppWidgetInput,
     EventQueryDefinition: EventQueryDefinition,
     EventStreamWidgetDefinition: EventStreamWidgetDefinition,
     EventTimelineWidgetDefinition: EventTimelineWidgetDefinition,
