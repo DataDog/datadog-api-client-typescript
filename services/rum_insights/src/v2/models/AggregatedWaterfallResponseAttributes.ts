@@ -1,7 +1,7 @@
 import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
 import { AggregatedResource } from "./AggregatedResource";
-import { AggregatedWaterfallPerformanceCriteria } from "./AggregatedWaterfallPerformanceCriteria";
+import { AggregatedWaterfallResponseAttributesCriteria } from "./AggregatedWaterfallResponseAttributesCriteria";
 
 /**
  * Attributes of an aggregated waterfall response.
@@ -12,9 +12,9 @@ export class AggregatedWaterfallResponseAttributes {
    */
   "applicationId": string;
   /**
-   * Performance criteria to filter view instances by a metric threshold.
+   * Performance criteria used to filter view instances by a metric threshold, or null if no criteria were applied.
    */
-  "criteria"?: AggregatedWaterfallPerformanceCriteria;
+  "criteria": AggregatedWaterfallResponseAttributesCriteria | null;
   /**
    * Start of the analyzed time range as a Unix timestamp in seconds.
    */
@@ -65,7 +65,8 @@ export class AggregatedWaterfallResponseAttributes {
     },
     criteria: {
       baseName: "criteria",
-      type: "AggregatedWaterfallPerformanceCriteria",
+      type: "AggregatedWaterfallResponseAttributesCriteria",
+      required: true,
     },
     from: {
       baseName: "from",

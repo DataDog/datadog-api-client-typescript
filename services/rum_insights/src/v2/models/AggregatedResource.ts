@@ -47,6 +47,10 @@ export class AggregatedResource {
    */
   "loadFrequencyPct": number;
   /**
+   * Number of requests served from the local browser cache without a network round trip.
+   */
+  "localCacheCount": number;
+  /**
    * Maximum duration in milliseconds.
    */
   "maxDurationMs": number;
@@ -59,6 +63,10 @@ export class AggregatedResource {
    */
   "minDurationMs": number;
   /**
+   * Number of requests reported by the browser as non-render-blocking.
+   */
+  "nonBlockingCount": number;
+  /**
    * 75th percentile duration in milliseconds.
    */
   "p75DurationMs": number;
@@ -67,6 +75,14 @@ export class AggregatedResource {
    */
   "p95DurationMs": number;
   /**
+   * Number of requests reported by the browser as render-blocking.
+   */
+  "renderBlockingCount": number;
+  /**
+   * Percentage of render-blocking requests among those reporting a render-blocking status.
+   */
+  "renderBlockingPct": number;
+  /**
    * Resource type (JS, CSS, image, fetch, XHR, document, and so on).
    */
   "resourceType": string | null;
@@ -74,6 +90,10 @@ export class AggregatedResource {
    * URL path group used to aggregate similar resources.
    */
   "resourceUrlPathGroup": string;
+  /**
+   * Number of cached requests revalidated by the server with a 304 response.
+   */
+  "serverValidatedCacheCount": number;
   /**
    * Average timing breakdown per network phase for a resource.
    */
@@ -157,6 +177,12 @@ export class AggregatedResource {
       required: true,
       format: "double",
     },
+    localCacheCount: {
+      baseName: "local_cache_count",
+      type: "number",
+      required: true,
+      format: "int32",
+    },
     maxDurationMs: {
       baseName: "max_duration_ms",
       type: "number",
@@ -175,6 +201,12 @@ export class AggregatedResource {
       required: true,
       format: "double",
     },
+    nonBlockingCount: {
+      baseName: "non_blocking_count",
+      type: "number",
+      required: true,
+      format: "int32",
+    },
     p75DurationMs: {
       baseName: "p75_duration_ms",
       type: "number",
@@ -183,6 +215,18 @@ export class AggregatedResource {
     },
     p95DurationMs: {
       baseName: "p95_duration_ms",
+      type: "number",
+      required: true,
+      format: "double",
+    },
+    renderBlockingCount: {
+      baseName: "render_blocking_count",
+      type: "number",
+      required: true,
+      format: "int32",
+    },
+    renderBlockingPct: {
+      baseName: "render_blocking_pct",
       type: "number",
       required: true,
       format: "double",
@@ -196,6 +240,12 @@ export class AggregatedResource {
       baseName: "resource_url_path_group",
       type: "string",
       required: true,
+    },
+    serverValidatedCacheCount: {
+      baseName: "server_validated_cache_count",
+      type: "number",
+      required: true,
+      format: "int32",
     },
     timingBreakdown: {
       baseName: "timing_breakdown",

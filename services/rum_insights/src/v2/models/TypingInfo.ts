@@ -30,6 +30,7 @@ import { AggregatedWaterfallRequestAttributes } from "./AggregatedWaterfallReque
 import { AggregatedWaterfallRequestData } from "./AggregatedWaterfallRequestData";
 import { AggregatedWaterfallResponse } from "./AggregatedWaterfallResponse";
 import { AggregatedWaterfallResponseAttributes } from "./AggregatedWaterfallResponseAttributes";
+import { AggregatedWaterfallResponseAttributesCriteria } from "./AggregatedWaterfallResponseAttributesCriteria";
 import { AggregatedWaterfallResponseData } from "./AggregatedWaterfallResponseData";
 import { JSONAPIErrorItem } from "./JSONAPIErrorItem";
 import { JSONAPIErrorItemSource } from "./JSONAPIErrorItemSource";
@@ -91,6 +92,8 @@ export const TypingInfo: ModelTypingInfo = {
     AggregatedWaterfallResponse: AggregatedWaterfallResponse,
     AggregatedWaterfallResponseAttributes:
       AggregatedWaterfallResponseAttributes,
+    AggregatedWaterfallResponseAttributesCriteria:
+      AggregatedWaterfallResponseAttributesCriteria,
     AggregatedWaterfallResponseData: AggregatedWaterfallResponseData,
     JSONAPIErrorItem: JSONAPIErrorItem,
     JSONAPIErrorItemSource: JSONAPIErrorItemSource,
