@@ -56,6 +56,8 @@ export { DeploymentGatesRuleResponse } from "./models/DeploymentGatesRuleRespons
 export { DeploymentRuleDataType } from "./models/DeploymentRuleDataType";
 export { DeploymentRuleOptionsFaultyDeploymentDetection } from "./models/DeploymentRuleOptionsFaultyDeploymentDetection";
 export { DeploymentRuleOptionsMonitor } from "./models/DeploymentRuleOptionsMonitor";
+export { DeploymentRuleOptionsMonitorId } from "./models/DeploymentRuleOptionsMonitorId";
+export { DeploymentRuleOptionsMonitorIds } from "./models/DeploymentRuleOptionsMonitorIds";
 export { DeploymentRuleResponse } from "./models/DeploymentRuleResponse";
 export { DeploymentRuleResponseData } from "./models/DeploymentRuleResponseData";
 export { DeploymentRuleResponseDataAttributes } from "./models/DeploymentRuleResponseDataAttributes";
