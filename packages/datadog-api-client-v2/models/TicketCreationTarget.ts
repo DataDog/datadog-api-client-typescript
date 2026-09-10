@@ -13,6 +13,8 @@ import { UnparsedObject } from "../../datadog-api-client-common/util";
 export type TicketCreationTarget =
   | typeof JIRA
   | typeof CASE_MANAGEMENT
+  | typeof LINEAR
   | UnparsedObject;
 export const JIRA = "jira";
 export const CASE_MANAGEMENT = "case_management";
+export const LINEAR = "linear";
