@@ -14,6 +14,7 @@ import { OAuthScopesRestriction } from "./OAuthScopesRestriction";
 import { OAuthScopesRestrictionResponse } from "./OAuthScopesRestrictionResponse";
 import { OAuthScopesRestrictionResponseAttributes } from "./OAuthScopesRestrictionResponseAttributes";
 import { OAuthScopesRestrictionResponseData } from "./OAuthScopesRestrictionResponseData";
+import { OIDCDiscoveryDocument } from "./OIDCDiscoveryDocument";
 import { UpsertOAuthScopesRestrictionData } from "./UpsertOAuthScopesRestrictionData";
 import { UpsertOAuthScopesRestrictionDataAttributes } from "./UpsertOAuthScopesRestrictionDataAttributes";
 import { UpsertOAuthScopesRestrictionRequest } from "./UpsertOAuthScopesRestrictionRequest";
@@ -44,6 +45,7 @@ export const TypingInfo: ModelTypingInfo = {
     OAuthScopesRestrictionResponseAttributes:
       OAuthScopesRestrictionResponseAttributes,
     OAuthScopesRestrictionResponseData: OAuthScopesRestrictionResponseData,
+    OIDCDiscoveryDocument: OIDCDiscoveryDocument,
     UpsertOAuthScopesRestrictionData: UpsertOAuthScopesRestrictionData,
     UpsertOAuthScopesRestrictionDataAttributes:
       UpsertOAuthScopesRestrictionDataAttributes,
