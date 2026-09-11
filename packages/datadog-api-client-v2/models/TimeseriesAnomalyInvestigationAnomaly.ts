@@ -14,7 +14,7 @@ import { TimeseriesAnomalyInvestigationTagAnalysis } from "./TimeseriesAnomalyIn
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * Most significant anomaly detected in the request.
+ * One of the most significant anomalies detected in the request.
  */
 export class TimeseriesAnomalyInvestigationAnomaly {
   /**
