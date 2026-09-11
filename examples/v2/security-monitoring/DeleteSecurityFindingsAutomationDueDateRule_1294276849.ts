@@ -1,5 +1,5 @@
 /**
- * Delete a due date rule returns "Successfully deleted the due date rule" response
+ * Delete a due date rule returns "Rule successfully deleted." response
  */
 
 import { client, v2 } from "@datadog/datadog-api-client";
@@ -10,9 +10,13 @@ configuration.unstableOperations[
 ] = true;
 const apiInstance = new v2.SecurityMonitoringApi(configuration);
 
+// there is a valid "valid_due_date_rule" in the system
+const VALID_DUE_DATE_RULE_DATA_ID = process.env
+  .VALID_DUE_DATE_RULE_DATA_ID as string;
+
 const params: v2.SecurityMonitoringApiDeleteSecurityFindingsAutomationDueDateRuleRequest =
   {
-    ruleId: "00000000-0000-0000-0000-000000000000",
+    ruleId: VALID_DUE_DATE_RULE_DATA_ID,
   };
 
 apiInstance

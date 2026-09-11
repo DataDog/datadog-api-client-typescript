@@ -3,22 +3,31 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
-import { SeverityModifierRuleType } from "./SeverityModifierRuleType";
+import { AutomationRuleScope } from "./AutomationRuleScope";
+import { InboxRuleAction } from "./InboxRuleAction";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * A reference to a severity modifier rule used for reordering.
+ * Attributes for creating or updating an inbox rule.
  */
-export class SeverityModifierRuleReorderItem {
+export class InboxRuleAttributesCreate {
   /**
-   * The ID of the severity modifier rule.
+   * The action to take when the inbox rule matches a finding.
    */
-  "id": string;
+  "action": InboxRuleAction;
   /**
-   * The JSON:API type for severity modifier rules.
+   * Whether the inbox rule is enabled.
    */
-  "type": SeverityModifierRuleType;
+  "enabled"?: boolean;
+  /**
+   * The name of the inbox rule.
+   */
+  "name": string;
+  /**
+   * Defines the scope of findings to which the automation rule applies.
+   */
+  "rule": AutomationRuleScope;
 
   /**
    * A container for additional, undeclared properties.
@@ -36,15 +45,23 @@ export class SeverityModifierRuleReorderItem {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    id: {
-      baseName: "id",
+    action: {
+      baseName: "action",
+      type: "InboxRuleAction",
+      required: true,
+    },
+    enabled: {
+      baseName: "enabled",
+      type: "boolean",
+    },
+    name: {
+      baseName: "name",
       type: "string",
       required: true,
-      format: "uuid",
     },
-    type: {
-      baseName: "type",
-      type: "SeverityModifierRuleType",
+    rule: {
+      baseName: "rule",
+      type: "AutomationRuleScope",
       required: true,
     },
     additionalProperties: {
@@ -57,7 +74,7 @@ export class SeverityModifierRuleReorderItem {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-    return SeverityModifierRuleReorderItem.attributeTypeMap;
+    return InboxRuleAttributesCreate.attributeTypeMap;
   }
 
   public constructor() {}

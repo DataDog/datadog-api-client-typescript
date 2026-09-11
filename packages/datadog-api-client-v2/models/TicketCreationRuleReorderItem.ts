@@ -12,7 +12,7 @@ import { AttributeTypeMap } from "../../datadog-api-client-common/util";
  */
 export class TicketCreationRuleReorderItem {
   /**
-   * The ID of the automation rule.
+   * The ID of the ticket creation rule.
    */
   "id": string;
   /**

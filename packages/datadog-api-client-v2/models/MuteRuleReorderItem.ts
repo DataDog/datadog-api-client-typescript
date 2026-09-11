@@ -12,7 +12,7 @@ import { AttributeTypeMap } from "../../datadog-api-client-common/util";
  */
 export class MuteRuleReorderItem {
   /**
-   * The ID of the automation rule.
+   * The ID of the mute rule.
    */
   "id": string;
   /**

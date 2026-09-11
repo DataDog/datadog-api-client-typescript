@@ -1525,6 +1525,7 @@ export {
   SecurityMonitoringApiCreateSampleLogGenerationSubscriptionRequest,
   SecurityMonitoringApiCreateSecurityFilterRequest,
   SecurityMonitoringApiCreateSecurityFindingsAutomationDueDateRuleRequest,
+  SecurityMonitoringApiCreateSecurityFindingsAutomationInboxRuleRequest,
   SecurityMonitoringApiCreateSecurityFindingsAutomationMuteRuleRequest,
   SecurityMonitoringApiCreateSecurityFindingsAutomationSeverityModifierRuleRequest,
   SecurityMonitoringApiCreateSecurityFindingsAutomationTicketCreationRuleRequest,
@@ -1545,6 +1546,7 @@ export {
   SecurityMonitoringApiDeleteSampleLogGenerationSubscriptionRequest,
   SecurityMonitoringApiDeleteSecurityFilterRequest,
   SecurityMonitoringApiDeleteSecurityFindingsAutomationDueDateRuleRequest,
+  SecurityMonitoringApiDeleteSecurityFindingsAutomationInboxRuleRequest,
   SecurityMonitoringApiDeleteSecurityFindingsAutomationMuteRuleRequest,
   SecurityMonitoringApiDeleteSecurityFindingsAutomationSeverityModifierRuleRequest,
   SecurityMonitoringApiDeleteSecurityFindingsAutomationTicketCreationRuleRequest,
@@ -1556,10 +1558,12 @@ export {
   SecurityMonitoringApiDeleteSignalNotificationRuleRequest,
   SecurityMonitoringApiDeleteVulnerabilityNotificationRuleRequest,
   SecurityMonitoringApiDetachCaseRequest,
+  SecurityMonitoringApiDisableSecurityFindingsAutomationDefaultInboxRuleRequest,
   SecurityMonitoringApiEditSecurityMonitoringSignalRequest,
   SecurityMonitoringApiEditSecurityMonitoringSignalAssigneeRequest,
   SecurityMonitoringApiEditSecurityMonitoringSignalIncidentsRequest,
   SecurityMonitoringApiEditSecurityMonitoringSignalStateRequest,
+  SecurityMonitoringApiEnableSecurityFindingsAutomationDefaultInboxRuleRequest,
   SecurityMonitoringApiExportSecurityMonitoringTerraformResourceRequest,
   SecurityMonitoringApiGetCriticalAssetsAffectingRuleRequest,
   SecurityMonitoringApiGetCustomFrameworkRequest,
@@ -1572,7 +1576,9 @@ export {
   SecurityMonitoringApiGetRuleVersionHistoryRequest,
   SecurityMonitoringApiGetSBOMRequest,
   SecurityMonitoringApiGetSecurityFilterRequest,
+  SecurityMonitoringApiGetSecurityFindingsAutomationDefaultInboxRuleRequest,
   SecurityMonitoringApiGetSecurityFindingsAutomationDueDateRuleRequest,
+  SecurityMonitoringApiGetSecurityFindingsAutomationInboxRuleRequest,
   SecurityMonitoringApiGetSecurityFindingsAutomationMuteRuleRequest,
   SecurityMonitoringApiGetSecurityFindingsAutomationSeverityModifierRuleRequest,
   SecurityMonitoringApiGetSecurityFindingsAutomationTicketCreationRuleRequest,
@@ -1608,6 +1614,7 @@ export {
   SecurityMonitoringApiListScannedAssetsMetadataRequest,
   SecurityMonitoringApiListSecurityFindingsRequest,
   SecurityMonitoringApiListSecurityFindingsAutomationDueDateRulesRequest,
+  SecurityMonitoringApiListSecurityFindingsAutomationInboxRulesRequest,
   SecurityMonitoringApiListSecurityFindingsAutomationMuteRulesRequest,
   SecurityMonitoringApiListSecurityFindingsAutomationSeverityModifierRulesRequest,
   SecurityMonitoringApiListSecurityFindingsAutomationTicketCreationRulesRequest,
@@ -1623,6 +1630,7 @@ export {
   SecurityMonitoringApiPatchSignalNotificationRuleRequest,
   SecurityMonitoringApiPatchVulnerabilityNotificationRuleRequest,
   SecurityMonitoringApiReorderSecurityFindingsAutomationDueDateRulesRequest,
+  SecurityMonitoringApiReorderSecurityFindingsAutomationInboxRulesRequest,
   SecurityMonitoringApiReorderSecurityFindingsAutomationMuteRulesRequest,
   SecurityMonitoringApiReorderSecurityFindingsAutomationSeverityModifierRulesRequest,
   SecurityMonitoringApiReorderSecurityFindingsAutomationTicketCreationRulesRequest,
@@ -1639,6 +1647,7 @@ export {
   SecurityMonitoringApiUpdateResourceEvaluationFiltersRequest,
   SecurityMonitoringApiUpdateSecurityFilterRequest,
   SecurityMonitoringApiUpdateSecurityFindingsAutomationDueDateRuleRequest,
+  SecurityMonitoringApiUpdateSecurityFindingsAutomationInboxRuleRequest,
   SecurityMonitoringApiUpdateSecurityFindingsAutomationMuteRuleRequest,
   SecurityMonitoringApiUpdateSecurityFindingsAutomationSeverityModifierRuleRequest,
   SecurityMonitoringApiUpdateSecurityFindingsAutomationTicketCreationRuleRequest,
@@ -3771,6 +3780,11 @@ export { DdsqlTabularQueryResponseMeta } from "./models/DdsqlTabularQueryRespons
 export { DdsqlTabularQueryResponseType } from "./models/DdsqlTabularQueryResponseType";
 export { DdsqlTabularQueryState } from "./models/DdsqlTabularQueryState";
 export { DdsqlTabularQueryTimeWindow } from "./models/DdsqlTabularQueryTimeWindow";
+export { DefaultInboxRuleAttributesResponse } from "./models/DefaultInboxRuleAttributesResponse";
+export { DefaultInboxRuleDataResponse } from "./models/DefaultInboxRuleDataResponse";
+export { DefaultInboxRuleResponse } from "./models/DefaultInboxRuleResponse";
+export { DefaultInboxRulesResponse } from "./models/DefaultInboxRulesResponse";
+export { DefaultInboxRuleType } from "./models/DefaultInboxRuleType";
 export { DefaultRulesetsPerLanguageData } from "./models/DefaultRulesetsPerLanguageData";
 export { DefaultRulesetsPerLanguageDataAttributes } from "./models/DefaultRulesetsPerLanguageDataAttributes";
 export { DefaultRulesetsPerLanguageDataType } from "./models/DefaultRulesetsPerLanguageDataType";
@@ -4860,6 +4874,20 @@ export { IdentityProviderUpdateData } from "./models/IdentityProviderUpdateData"
 export { IdentityProviderUpdateRequest } from "./models/IdentityProviderUpdateRequest";
 export { IL2CPPSourcemapAttributes } from "./models/IL2CPPSourcemapAttributes";
 export { IL2CPPSourcemapData } from "./models/IL2CPPSourcemapData";
+export { InboxRuleAction } from "./models/InboxRuleAction";
+export { InboxRuleAttributesCreate } from "./models/InboxRuleAttributesCreate";
+export { InboxRuleAttributesResponse } from "./models/InboxRuleAttributesResponse";
+export { InboxRuleCreateRequest } from "./models/InboxRuleCreateRequest";
+export { InboxRuleDataCreate } from "./models/InboxRuleDataCreate";
+export { InboxRuleDataResponse } from "./models/InboxRuleDataResponse";
+export { InboxRuleDataUpdate } from "./models/InboxRuleDataUpdate";
+export { InboxRuleReorderItem } from "./models/InboxRuleReorderItem";
+export { InboxRuleReorderRequest } from "./models/InboxRuleReorderRequest";
+export { InboxRuleReorderResponse } from "./models/InboxRuleReorderResponse";
+export { InboxRuleResponse } from "./models/InboxRuleResponse";
+export { InboxRulesResponse } from "./models/InboxRulesResponse";
+export { InboxRuleType } from "./models/InboxRuleType";
+export { InboxRuleUpdateRequest } from "./models/InboxRuleUpdateRequest";
 export { IncidentAIPostmortemDataAttributesResponse } from "./models/IncidentAIPostmortemDataAttributesResponse";
 export { IncidentAIPostmortemDataResponse } from "./models/IncidentAIPostmortemDataResponse";
 export { IncidentAIPostmortemResponse } from "./models/IncidentAIPostmortemResponse";

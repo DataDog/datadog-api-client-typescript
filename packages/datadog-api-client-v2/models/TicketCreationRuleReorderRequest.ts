@@ -12,7 +12,7 @@ import { AttributeTypeMap } from "../../datadog-api-client-common/util";
  */
 export class TicketCreationRuleReorderRequest {
   /**
-   * The ordered list of all ticket creation rules; every rule must be included.
+   * The ordered list of all ticket creation rules. Every rule must be included.
    */
   "data": Array<TicketCreationRuleReorderItem>;
 

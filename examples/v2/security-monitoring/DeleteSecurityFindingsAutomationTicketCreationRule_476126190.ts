@@ -1,5 +1,5 @@
 /**
- * Delete a ticket creation rule returns "Successfully deleted the ticket creation rule" response
+ * Delete a ticket creation rule returns "Rule successfully deleted." response
  */
 
 import { client, v2 } from "@datadog/datadog-api-client";
@@ -10,9 +10,13 @@ configuration.unstableOperations[
 ] = true;
 const apiInstance = new v2.SecurityMonitoringApi(configuration);
 
+// there is a valid "valid_ticket_creation_rule" in the system
+const VALID_TICKET_CREATION_RULE_DATA_ID = process.env
+  .VALID_TICKET_CREATION_RULE_DATA_ID as string;
+
 const params: v2.SecurityMonitoringApiDeleteSecurityFindingsAutomationTicketCreationRuleRequest =
   {
-    ruleId: "00000000-0000-0000-0000-000000000000",
+    ruleId: VALID_TICKET_CREATION_RULE_DATA_ID,
   };
 
 apiInstance

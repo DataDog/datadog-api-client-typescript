@@ -1386,6 +1386,10 @@ import { DdsqlTabularQueryResponseAttributes } from "./DdsqlTabularQueryResponse
 import { DdsqlTabularQueryResponseData } from "./DdsqlTabularQueryResponseData";
 import { DdsqlTabularQueryResponseMeta } from "./DdsqlTabularQueryResponseMeta";
 import { DdsqlTabularQueryTimeWindow } from "./DdsqlTabularQueryTimeWindow";
+import { DefaultInboxRuleAttributesResponse } from "./DefaultInboxRuleAttributesResponse";
+import { DefaultInboxRuleDataResponse } from "./DefaultInboxRuleDataResponse";
+import { DefaultInboxRuleResponse } from "./DefaultInboxRuleResponse";
+import { DefaultInboxRulesResponse } from "./DefaultInboxRulesResponse";
 import { DefaultRulesetsPerLanguageData } from "./DefaultRulesetsPerLanguageData";
 import { DefaultRulesetsPerLanguageDataAttributes } from "./DefaultRulesetsPerLanguageDataAttributes";
 import { DefaultRulesetsPerLanguageResponse } from "./DefaultRulesetsPerLanguageResponse";
@@ -2240,6 +2244,19 @@ import { IdentityProviderUpdateAttributes } from "./IdentityProviderUpdateAttrib
 import { IdentityProviderUpdateData } from "./IdentityProviderUpdateData";
 import { IdentityProviderUpdateRequest } from "./IdentityProviderUpdateRequest";
 import { IdentityProvidersResponse } from "./IdentityProvidersResponse";
+import { InboxRuleAction } from "./InboxRuleAction";
+import { InboxRuleAttributesCreate } from "./InboxRuleAttributesCreate";
+import { InboxRuleAttributesResponse } from "./InboxRuleAttributesResponse";
+import { InboxRuleCreateRequest } from "./InboxRuleCreateRequest";
+import { InboxRuleDataCreate } from "./InboxRuleDataCreate";
+import { InboxRuleDataResponse } from "./InboxRuleDataResponse";
+import { InboxRuleDataUpdate } from "./InboxRuleDataUpdate";
+import { InboxRuleReorderItem } from "./InboxRuleReorderItem";
+import { InboxRuleReorderRequest } from "./InboxRuleReorderRequest";
+import { InboxRuleReorderResponse } from "./InboxRuleReorderResponse";
+import { InboxRuleResponse } from "./InboxRuleResponse";
+import { InboxRuleUpdateRequest } from "./InboxRuleUpdateRequest";
+import { InboxRulesResponse } from "./InboxRulesResponse";
 import { IncidentAIPostmortemDataAttributesResponse } from "./IncidentAIPostmortemDataAttributesResponse";
 import { IncidentAIPostmortemDataResponse } from "./IncidentAIPostmortemDataResponse";
 import { IncidentAIPostmortemResponse } from "./IncidentAIPostmortemResponse";
@@ -6783,6 +6800,7 @@ const enumsMap: { [key: string]: any[] } = {
   DdsqlTabularQueryRequestType: ["ddsql_query_request"],
   DdsqlTabularQueryResponseType: ["ddsql_query_response"],
   DdsqlTabularQueryState: ["running", "completed"],
+  DefaultInboxRuleType: ["default_inbox_rules"],
   DefaultRulesetsPerLanguageDataType: ["defaultRulesetsPerLanguage"],
   DegradationDataAttributesSourceType: ["incident"],
   DeletedSuitesRequestType: ["delete_suites_request"],
@@ -7118,6 +7136,7 @@ const enumsMap: { [key: string]: any[] } = {
   IPAllowlistEntryType: ["ip_allowlist_entry"],
   IPAllowlistType: ["ip_allowlist"],
   IdentityProviderType: ["identity_providers"],
+  InboxRuleType: ["inbox_rules"],
   IncidentAIPostmortemResponseType: ["get_incident_ai_postmortem_response"],
   IncidentAttachmentType: ["incident_attachments"],
   IncidentConfigurationType: ["incidents_configurations"],
@@ -11014,6 +11033,10 @@ const typeMap: { [index: string]: any } = {
   DdsqlTabularQueryResponseData: DdsqlTabularQueryResponseData,
   DdsqlTabularQueryResponseMeta: DdsqlTabularQueryResponseMeta,
   DdsqlTabularQueryTimeWindow: DdsqlTabularQueryTimeWindow,
+  DefaultInboxRuleAttributesResponse: DefaultInboxRuleAttributesResponse,
+  DefaultInboxRuleDataResponse: DefaultInboxRuleDataResponse,
+  DefaultInboxRuleResponse: DefaultInboxRuleResponse,
+  DefaultInboxRulesResponse: DefaultInboxRulesResponse,
   DefaultRulesetsPerLanguageData: DefaultRulesetsPerLanguageData,
   DefaultRulesetsPerLanguageDataAttributes:
     DefaultRulesetsPerLanguageDataAttributes,
@@ -12024,6 +12047,19 @@ const typeMap: { [index: string]: any } = {
   IdentityProviderUpdateData: IdentityProviderUpdateData,
   IdentityProviderUpdateRequest: IdentityProviderUpdateRequest,
   IdentityProvidersResponse: IdentityProvidersResponse,
+  InboxRuleAction: InboxRuleAction,
+  InboxRuleAttributesCreate: InboxRuleAttributesCreate,
+  InboxRuleAttributesResponse: InboxRuleAttributesResponse,
+  InboxRuleCreateRequest: InboxRuleCreateRequest,
+  InboxRuleDataCreate: InboxRuleDataCreate,
+  InboxRuleDataResponse: InboxRuleDataResponse,
+  InboxRuleDataUpdate: InboxRuleDataUpdate,
+  InboxRuleReorderItem: InboxRuleReorderItem,
+  InboxRuleReorderRequest: InboxRuleReorderRequest,
+  InboxRuleReorderResponse: InboxRuleReorderResponse,
+  InboxRuleResponse: InboxRuleResponse,
+  InboxRuleUpdateRequest: InboxRuleUpdateRequest,
+  InboxRulesResponse: InboxRulesResponse,
   IncidentAIPostmortemDataAttributesResponse:
     IncidentAIPostmortemDataAttributesResponse,
   IncidentAIPostmortemDataResponse: IncidentAIPostmortemDataResponse,

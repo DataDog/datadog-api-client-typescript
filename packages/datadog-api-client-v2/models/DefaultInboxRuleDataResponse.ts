@@ -3,22 +3,33 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
-import { SeverityModifierRuleType } from "./SeverityModifierRuleType";
+import { DefaultInboxRuleAttributesResponse } from "./DefaultInboxRuleAttributesResponse";
+import { DefaultInboxRuleType } from "./DefaultInboxRuleType";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * A reference to a severity modifier rule used for reordering.
+ * The data object for a default inbox rule returned by the API.
  */
-export class SeverityModifierRuleReorderItem {
+export class DefaultInboxRuleDataResponse {
   /**
-   * The ID of the severity modifier rule.
+   * Attributes of a default inbox rule returned by the API.
+   */
+  "attributes": DefaultInboxRuleAttributesResponse;
+  /**
+   * The ID of the default inbox rule.
+   * Known default rule IDs include: `identity_risk_default_rule`,
+   * `secret_default_rule`, `library_vulnerability_default_rule`,
+   * `attack_path_default_rule`, `host_and_container_vulnerability_default_rule`,
+   * `runtime_code_vulnerability_default_rule`, `iac_misconfiguration_default_rule`,
+   * and `misconfiguration_default_rule`. Datadog can add new default rules
+   * over time.
    */
   "id": string;
   /**
-   * The JSON:API type for severity modifier rules.
+   * The JSON:API type for default inbox rules.
    */
-  "type": SeverityModifierRuleType;
+  "type": DefaultInboxRuleType;
 
   /**
    * A container for additional, undeclared properties.
@@ -36,15 +47,19 @@ export class SeverityModifierRuleReorderItem {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
+    attributes: {
+      baseName: "attributes",
+      type: "DefaultInboxRuleAttributesResponse",
+      required: true,
+    },
     id: {
       baseName: "id",
       type: "string",
       required: true,
-      format: "uuid",
     },
     type: {
       baseName: "type",
-      type: "SeverityModifierRuleType",
+      type: "DefaultInboxRuleType",
       required: true,
     },
     additionalProperties: {
@@ -57,7 +72,7 @@ export class SeverityModifierRuleReorderItem {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-    return SeverityModifierRuleReorderItem.attributeTypeMap;
+    return DefaultInboxRuleDataResponse.attributeTypeMap;
   }
 
   public constructor() {}

@@ -3,22 +3,27 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
-import { SeverityModifierRuleType } from "./SeverityModifierRuleType";
+import { InboxRuleAttributesCreate } from "./InboxRuleAttributesCreate";
+import { InboxRuleType } from "./InboxRuleType";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * A reference to a severity modifier rule used for reordering.
+ * The data object for an inbox rule update request. The `id` must match the `rule_id` path parameter.
  */
-export class SeverityModifierRuleReorderItem {
+export class InboxRuleDataUpdate {
   /**
-   * The ID of the severity modifier rule.
+   * Attributes for creating or updating an inbox rule.
+   */
+  "attributes": InboxRuleAttributesCreate;
+  /**
+   * The ID of the inbox rule to update.
    */
   "id": string;
   /**
-   * The JSON:API type for severity modifier rules.
+   * The JSON:API type for inbox rules.
    */
-  "type": SeverityModifierRuleType;
+  "type": InboxRuleType;
 
   /**
    * A container for additional, undeclared properties.
@@ -36,6 +41,11 @@ export class SeverityModifierRuleReorderItem {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
+    attributes: {
+      baseName: "attributes",
+      type: "InboxRuleAttributesCreate",
+      required: true,
+    },
     id: {
       baseName: "id",
       type: "string",
@@ -44,7 +54,7 @@ export class SeverityModifierRuleReorderItem {
     },
     type: {
       baseName: "type",
-      type: "SeverityModifierRuleType",
+      type: "InboxRuleType",
       required: true,
     },
     additionalProperties: {
@@ -57,7 +67,7 @@ export class SeverityModifierRuleReorderItem {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-    return SeverityModifierRuleReorderItem.attributeTypeMap;
+    return InboxRuleDataUpdate.attributeTypeMap;
   }
 
   public constructor() {}
