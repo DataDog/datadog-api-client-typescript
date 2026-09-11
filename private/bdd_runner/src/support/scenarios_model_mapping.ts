@@ -11585,6 +11585,41 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
       },
       operationResponseType: "ElasticCloudIntegrationAccountResponse",
     },
+  "SnowflakeIntegrationApi.V2.ListSnowflakeIntegrationAccounts": {
+    operationResponseType: "SnowflakeIntegrationAccountsResponse",
+  },
+  "SnowflakeIntegrationApi.V2.CreateSnowflakeIntegrationAccount": {
+    body: {
+      type: "SnowflakeIntegrationAccountCreateRequest",
+      format: "",
+    },
+    operationResponseType: "SnowflakeIntegrationAccountResponse",
+  },
+  "SnowflakeIntegrationApi.V2.GetSnowflakeIntegrationAccount": {
+    accountId: {
+      type: "string",
+      format: "",
+    },
+    operationResponseType: "SnowflakeIntegrationAccountResponse",
+  },
+  "SnowflakeIntegrationApi.V2.DeleteSnowflakeIntegrationAccount": {
+    accountId: {
+      type: "string",
+      format: "",
+    },
+    operationResponseType: "{}",
+  },
+  "SnowflakeIntegrationApi.V2.UpdateSnowflakeIntegrationAccount": {
+    accountId: {
+      type: "string",
+      format: "",
+    },
+    body: {
+      type: "SnowflakeIntegrationAccountUpdateRequest",
+      format: "",
+    },
+    operationResponseType: "SnowflakeIntegrationAccountResponse",
+  },
   "TwilioIntegrationAccountsApi.V2.ListTwilioIntegrationAccounts": {
     operationResponseType: "TwilioIntegrationAccountsResponse",
   },
