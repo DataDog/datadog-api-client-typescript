@@ -8,6 +8,8 @@ import { TimeseriesAnomalyInvestigationFormulaLimit } from "./TimeseriesAnomalyI
 export class TimeseriesAnomalyInvestigationFormula {
   /**
    * Formula expression referencing one or more named queries.
+   * When the expression does not contain an explicit `anomalies()` call,
+   * the endpoint applies the default Watchdog Explains anomaly detection configuration.
    */
   "formula": string;
   /**

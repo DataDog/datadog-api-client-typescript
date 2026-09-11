@@ -222,8 +222,9 @@ export class TimeseriesAnomalyInvestigationsApi {
   }
 
   /**
-   * Investigates a metrics timeseries request for its most significant anomaly and returns deterministic findings.
-   * Metrics queries with or without grouping are supported. This API version accepts exactly one request and returns at most one anomaly.
+   * Investigates a metrics timeseries request for its most significant anomalies and returns
+   * deterministic findings. Metrics queries with or without grouping are supported. This
+   * API version accepts exactly one request and returns at most three anomalies.
    * @param param The request object
    */
   public createTimeseriesAnomalyInvestigation(
