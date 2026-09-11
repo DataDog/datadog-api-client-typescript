@@ -7,7 +7,7 @@ import { SeverityModifierRuleType } from "./SeverityModifierRuleType";
  */
 export class SeverityModifierRuleReorderItem {
   /**
-   * The ID of the automation rule.
+   * The ID of the severity modifier rule.
    */
   "id": string;
   /**

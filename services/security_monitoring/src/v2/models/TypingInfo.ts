@@ -106,6 +106,10 @@ import { CycloneDXVulnerabilityAnalysis } from "./CycloneDXVulnerabilityAnalysis
 import { CycloneDXVulnerabilityRating } from "./CycloneDXVulnerabilityRating";
 import { CycloneDXVulnerabilityReference } from "./CycloneDXVulnerabilityReference";
 import { CycloneDXVulnerabilityReferenceSource } from "./CycloneDXVulnerabilityReferenceSource";
+import { DefaultInboxRuleAttributesResponse } from "./DefaultInboxRuleAttributesResponse";
+import { DefaultInboxRuleDataResponse } from "./DefaultInboxRuleDataResponse";
+import { DefaultInboxRuleResponse } from "./DefaultInboxRuleResponse";
+import { DefaultInboxRulesResponse } from "./DefaultInboxRulesResponse";
 import { DefaultRulesetsPerLanguageData } from "./DefaultRulesetsPerLanguageData";
 import { DefaultRulesetsPerLanguageDataAttributes } from "./DefaultRulesetsPerLanguageDataAttributes";
 import { DefaultRulesetsPerLanguageResponse } from "./DefaultRulesetsPerLanguageResponse";
@@ -189,6 +193,19 @@ import { HistoricalJobQuery } from "./HistoricalJobQuery";
 import { HistoricalJobResponse } from "./HistoricalJobResponse";
 import { HistoricalJobResponseAttributes } from "./HistoricalJobResponseAttributes";
 import { HistoricalJobResponseData } from "./HistoricalJobResponseData";
+import { InboxRuleAction } from "./InboxRuleAction";
+import { InboxRuleAttributesCreate } from "./InboxRuleAttributesCreate";
+import { InboxRuleAttributesResponse } from "./InboxRuleAttributesResponse";
+import { InboxRuleCreateRequest } from "./InboxRuleCreateRequest";
+import { InboxRuleDataCreate } from "./InboxRuleDataCreate";
+import { InboxRuleDataResponse } from "./InboxRuleDataResponse";
+import { InboxRuleDataUpdate } from "./InboxRuleDataUpdate";
+import { InboxRuleReorderItem } from "./InboxRuleReorderItem";
+import { InboxRuleReorderRequest } from "./InboxRuleReorderRequest";
+import { InboxRuleReorderResponse } from "./InboxRuleReorderResponse";
+import { InboxRuleResponse } from "./InboxRuleResponse";
+import { InboxRuleUpdateRequest } from "./InboxRuleUpdateRequest";
+import { InboxRulesResponse } from "./InboxRulesResponse";
 import { IoCExplorerListResponse } from "./IoCExplorerListResponse";
 import { IoCExplorerListResponseAttributes } from "./IoCExplorerListResponseAttributes";
 import { IoCExplorerListResponseData } from "./IoCExplorerListResponseData";
@@ -608,6 +625,7 @@ export const TypingInfo: ModelTypingInfo = {
     ],
     CustomFrameworkType: ["custom_framework"],
     CycloneDXComponentType: ["library", "application", "operating-system"],
+    DefaultInboxRuleType: ["default_inbox_rules"],
     DefaultRulesetsPerLanguageDataType: ["defaultRulesetsPerLanguage"],
     DetailedFindingType: ["detailed_finding"],
     DueDateFrom: ["first_seen", "fix_available"],
@@ -650,6 +668,7 @@ export const TypingInfo: ModelTypingInfo = {
     GetRuleVersionHistoryDataType: ["GetRuleVersionHistoryResponse"],
     GetSuppressionVersionHistoryDataType: ["suppression_version_history"],
     HistoricalJobDataType: ["historicalDetectionsJob"],
+    InboxRuleType: ["inbox_rules"],
     IoCScoreEffect: ["RAISE_SCORE", "LOWER_SCORE", "NO_EFFECT"],
     IoCTriageState: ["not_reviewed", "reviewed"],
     JiraIssuesDataType: ["jira_issues"],
@@ -1285,6 +1304,10 @@ export const TypingInfo: ModelTypingInfo = {
     CycloneDXVulnerabilityReference: CycloneDXVulnerabilityReference,
     CycloneDXVulnerabilityReferenceSource:
       CycloneDXVulnerabilityReferenceSource,
+    DefaultInboxRuleAttributesResponse: DefaultInboxRuleAttributesResponse,
+    DefaultInboxRuleDataResponse: DefaultInboxRuleDataResponse,
+    DefaultInboxRuleResponse: DefaultInboxRuleResponse,
+    DefaultInboxRulesResponse: DefaultInboxRulesResponse,
     DefaultRulesetsPerLanguageData: DefaultRulesetsPerLanguageData,
     DefaultRulesetsPerLanguageDataAttributes:
       DefaultRulesetsPerLanguageDataAttributes,
@@ -1377,6 +1400,19 @@ export const TypingInfo: ModelTypingInfo = {
     HistoricalJobResponse: HistoricalJobResponse,
     HistoricalJobResponseAttributes: HistoricalJobResponseAttributes,
     HistoricalJobResponseData: HistoricalJobResponseData,
+    InboxRuleAction: InboxRuleAction,
+    InboxRuleAttributesCreate: InboxRuleAttributesCreate,
+    InboxRuleAttributesResponse: InboxRuleAttributesResponse,
+    InboxRuleCreateRequest: InboxRuleCreateRequest,
+    InboxRuleDataCreate: InboxRuleDataCreate,
+    InboxRuleDataResponse: InboxRuleDataResponse,
+    InboxRuleDataUpdate: InboxRuleDataUpdate,
+    InboxRuleReorderItem: InboxRuleReorderItem,
+    InboxRuleReorderRequest: InboxRuleReorderRequest,
+    InboxRuleReorderResponse: InboxRuleReorderResponse,
+    InboxRuleResponse: InboxRuleResponse,
+    InboxRuleUpdateRequest: InboxRuleUpdateRequest,
+    InboxRulesResponse: InboxRulesResponse,
     IoCExplorerListResponse: IoCExplorerListResponse,
     IoCExplorerListResponseAttributes: IoCExplorerListResponseAttributes,
     IoCExplorerListResponseData: IoCExplorerListResponseData,

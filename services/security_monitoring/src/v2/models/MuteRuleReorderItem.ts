@@ -7,7 +7,7 @@ import { MuteRuleType } from "./MuteRuleType";
  */
 export class MuteRuleReorderItem {
   /**
-   * The ID of the automation rule.
+   * The ID of the mute rule.
    */
   "id": string;
   /**

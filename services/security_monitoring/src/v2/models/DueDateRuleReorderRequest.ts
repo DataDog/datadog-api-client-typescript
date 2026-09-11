@@ -7,7 +7,7 @@ import { DueDateRuleReorderItem } from "./DueDateRuleReorderItem";
  */
 export class DueDateRuleReorderRequest {
   /**
-   * The ordered list of all due date rules; every rule must be included.
+   * The ordered list of all due date rules. Every rule must be included.
    */
   "data": Array<DueDateRuleReorderItem>;
   /**

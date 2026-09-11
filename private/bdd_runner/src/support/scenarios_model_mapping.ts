@@ -5982,6 +5982,31 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
     },
     operationResponseType: "AssigneeResponse",
   },
+  "SecurityMonitoringApi.V2.ListSecurityFindingsAutomationDefaultInboxRules": {
+    operationResponseType: "DefaultInboxRulesResponse",
+  },
+  "SecurityMonitoringApi.V2.GetSecurityFindingsAutomationDefaultInboxRule": {
+    ruleId: {
+      type: "string",
+      format: "",
+    },
+    operationResponseType: "DefaultInboxRuleResponse",
+  },
+  "SecurityMonitoringApi.V2.DisableSecurityFindingsAutomationDefaultInboxRule":
+    {
+      ruleId: {
+        type: "string",
+        format: "",
+      },
+      operationResponseType: "DefaultInboxRuleResponse",
+    },
+  "SecurityMonitoringApi.V2.EnableSecurityFindingsAutomationDefaultInboxRule": {
+    ruleId: {
+      type: "string",
+      format: "",
+    },
+    operationResponseType: "DefaultInboxRuleResponse",
+  },
   "SecurityMonitoringApi.V2.ListSecurityFindingsAutomationDueDateRules": {
     pageSize: {
       type: "number",
@@ -6026,6 +6051,56 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
     operationResponseType: "DueDateRuleResponse",
   },
   "SecurityMonitoringApi.V2.DeleteSecurityFindingsAutomationDueDateRule": {
+    ruleId: {
+      type: "string",
+      format: "uuid",
+    },
+    operationResponseType: "{}",
+  },
+  "SecurityMonitoringApi.V2.ListSecurityFindingsAutomationInboxRules": {
+    pageSize: {
+      type: "number",
+      format: "int64",
+    },
+    pageNumber: {
+      type: "number",
+      format: "int64",
+    },
+    operationResponseType: "InboxRulesResponse",
+  },
+  "SecurityMonitoringApi.V2.CreateSecurityFindingsAutomationInboxRule": {
+    body: {
+      type: "InboxRuleCreateRequest",
+      format: "",
+    },
+    operationResponseType: "InboxRuleResponse",
+  },
+  "SecurityMonitoringApi.V2.ReorderSecurityFindingsAutomationInboxRules": {
+    body: {
+      type: "InboxRuleReorderRequest",
+      format: "",
+    },
+    operationResponseType: "InboxRuleReorderResponse",
+  },
+  "SecurityMonitoringApi.V2.GetSecurityFindingsAutomationInboxRule": {
+    ruleId: {
+      type: "string",
+      format: "uuid",
+    },
+    operationResponseType: "InboxRuleResponse",
+  },
+  "SecurityMonitoringApi.V2.UpdateSecurityFindingsAutomationInboxRule": {
+    ruleId: {
+      type: "string",
+      format: "uuid",
+    },
+    body: {
+      type: "InboxRuleUpdateRequest",
+      format: "",
+    },
+    operationResponseType: "InboxRuleResponse",
+  },
+  "SecurityMonitoringApi.V2.DeleteSecurityFindingsAutomationInboxRule": {
     ruleId: {
       type: "string",
       format: "uuid",

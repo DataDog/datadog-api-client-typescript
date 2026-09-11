@@ -1,19 +1,13 @@
 import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
-import { DueDateRuleType } from "./DueDateRuleType";
-
 /**
- * A reference to a due date rule used for reordering.
+ * The action to take when the inbox rule matches a finding.
  */
-export class DueDateRuleReorderItem {
+export class InboxRuleAction {
   /**
-   * The ID of the due date rule.
+   * An optional description providing more context for the rule.
    */
-  "id": string;
-  /**
-   * The JSON:API type for due date rules.
-   */
-  "type": DueDateRuleType;
+  "description"?: string;
   /**
    * A container for additional, undeclared properties.
    * This is a holder for any undeclared properties as specified with
@@ -29,16 +23,9 @@ export class DueDateRuleReorderItem {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    id: {
-      baseName: "id",
+    description: {
+      baseName: "description",
       type: "string",
-      required: true,
-      format: "uuid",
-    },
-    type: {
-      baseName: "type",
-      type: "DueDateRuleType",
-      required: true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -50,7 +37,7 @@ export class DueDateRuleReorderItem {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-    return DueDateRuleReorderItem.attributeTypeMap;
+    return InboxRuleAction.attributeTypeMap;
   }
 
   public constructor() {}
