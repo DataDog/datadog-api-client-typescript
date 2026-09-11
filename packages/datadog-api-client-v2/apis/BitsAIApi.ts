@@ -570,6 +570,7 @@ export class BitsAIApi {
 
   /**
    * Trigger a new Bits AI investigation based on a monitor alert.
+   * The `monitors_read` permission is also required when the trigger type is `monitor_alert_trigger`.
    * @param param The request object
    */
   public triggerInvestigation(
