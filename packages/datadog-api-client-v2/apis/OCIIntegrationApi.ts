@@ -30,11 +30,6 @@ export class OCIIntegrationApiRequestFactory extends BaseAPIRequestFactory {
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
-    logger.warn("Using unstable operation 'createTenancyConfig'");
-    if (!_config.unstableOperations["v2.createTenancyConfig"]) {
-      throw new Error("Unstable operation 'createTenancyConfig' is disabled");
-    }
-
     // verify required parameter 'body' is not null or undefined
     if (body === null || body === undefined) {
       throw new RequiredError("body", "createTenancyConfig");
@@ -157,11 +152,6 @@ export class OCIIntegrationApiRequestFactory extends BaseAPIRequestFactory {
     _options?: Configuration
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
-
-    logger.warn("Using unstable operation 'getTenancyConfigs'");
-    if (!_config.unstableOperations["v2.getTenancyConfigs"]) {
-      throw new Error("Unstable operation 'getTenancyConfigs' is disabled");
-    }
 
     // Path Params
     const localVarPath = "/api/v2/integration/oci/tenancies";
