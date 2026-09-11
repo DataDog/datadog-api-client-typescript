@@ -33,7 +33,7 @@ export class RumRetentionFilterAttributes {
    */
   "query"?: string;
   /**
-   * The sample rate for a RUM retention filter, between 0.1 and 100.
+   * The sample rate for a RUM retention filter, between 0.1 and 100. Values are truncated to one decimal place.
    */
   "sampleRate"?: number;
 
