@@ -1,0 +1,61 @@
+/**
+ * Unless explicitly stated otherwise all files in this repository are licensed under the Apache-2.0 License.
+ * This product includes software developed at Datadog (https://www.datadoghq.com/).
+ * Copyright 2020-Present Datadog, Inc.
+ */
+import { DatabricksDataObservabilityJobsMonitoringIntegrationDataflowSettingsRequest } from "./DatabricksDataObservabilityJobsMonitoringIntegrationDataflowSettingsRequest";
+
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+/**
+ * Data Jobs Monitoring, which collects performance, reliability, and cost data for your Databricks jobs.
+ */
+export class DatabricksDataObservabilityJobsMonitoringIntegrationDataflowRequest {
+  /**
+   * Whether Datadog collects this data. Defaults to `true`; set to `false` to stop collection.
+   */
+  "enabled"?: boolean;
+  /**
+   * Settings of the Data Jobs Monitoring dataflow. Only the fields provided are changed.
+   */
+  "settings"?: DatabricksDataObservabilityJobsMonitoringIntegrationDataflowSettingsRequest;
+
+  /**
+   * A container for additional, undeclared properties.
+   * This is a holder for any undeclared properties as specified with
+   * the 'additionalProperties' keyword in the OAS document.
+   */
+  "additionalProperties"?: { [key: string]: any };
+
+  /**
+   * @ignore
+   */
+  "_unparsed"?: boolean;
+
+  /**
+   * @ignore
+   */
+  static readonly attributeTypeMap: AttributeTypeMap = {
+    enabled: {
+      baseName: "enabled",
+      type: "boolean",
+    },
+    settings: {
+      baseName: "settings",
+      type: "DatabricksDataObservabilityJobsMonitoringIntegrationDataflowSettingsRequest",
+    },
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "{ [key: string]: any; }",
+    },
+  };
+
+  /**
+   * @ignore
+   */
+  static getAttributeTypeMap(): AttributeTypeMap {
+    return DatabricksDataObservabilityJobsMonitoringIntegrationDataflowRequest.attributeTypeMap;
+  }
+
+  public constructor() {}
+}
