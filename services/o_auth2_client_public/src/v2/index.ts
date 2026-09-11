@@ -25,6 +25,7 @@ export { OAuthScopesRestrictionResponse } from "./models/OAuthScopesRestrictionR
 export { OAuthScopesRestrictionResponseAttributes } from "./models/OAuthScopesRestrictionResponseAttributes";
 export { OAuthScopesRestrictionResponseData } from "./models/OAuthScopesRestrictionResponseData";
 export { OAuthScopesRestrictionType } from "./models/OAuthScopesRestrictionType";
+export { OIDCDiscoveryDocument } from "./models/OIDCDiscoveryDocument";
 export { UpsertOAuthScopesRestrictionData } from "./models/UpsertOAuthScopesRestrictionData";
 export { UpsertOAuthScopesRestrictionDataAttributes } from "./models/UpsertOAuthScopesRestrictionDataAttributes";
 export { UpsertOAuthScopesRestrictionRequest } from "./models/UpsertOAuthScopesRestrictionRequest";
