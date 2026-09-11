@@ -6741,6 +6741,7 @@ export { OCIConfig } from "./models/OCIConfig";
 export { OCIConfigAttributes } from "./models/OCIConfigAttributes";
 export { OCIConfigsResponse } from "./models/OCIConfigsResponse";
 export { OCIConfigType } from "./models/OCIConfigType";
+export { OIDCDiscoveryDocument } from "./models/OIDCDiscoveryDocument";
 export { OktaAccount } from "./models/OktaAccount";
 export { OktaAccountAttributes } from "./models/OktaAccountAttributes";
 export { OktaAccountRequest } from "./models/OktaAccountRequest";

@@ -3452,6 +3452,7 @@ import { OAuthScopesRestrictionResponseData } from "./OAuthScopesRestrictionResp
 import { OCIConfig } from "./OCIConfig";
 import { OCIConfigAttributes } from "./OCIConfigAttributes";
 import { OCIConfigsResponse } from "./OCIConfigsResponse";
+import { OIDCDiscoveryDocument } from "./OIDCDiscoveryDocument";
 import { ObservabilityPipeline } from "./ObservabilityPipeline";
 import { ObservabilityPipelineAddEnvVarsProcessor } from "./ObservabilityPipelineAddEnvVarsProcessor";
 import { ObservabilityPipelineAddEnvVarsProcessorVariable } from "./ObservabilityPipelineAddEnvVarsProcessorVariable";
@@ -13494,6 +13495,7 @@ const typeMap: { [index: string]: any } = {
   OCIConfig: OCIConfig,
   OCIConfigAttributes: OCIConfigAttributes,
   OCIConfigsResponse: OCIConfigsResponse,
+  OIDCDiscoveryDocument: OIDCDiscoveryDocument,
   ObservabilityPipeline: ObservabilityPipeline,
   ObservabilityPipelineAddEnvVarsProcessor:
     ObservabilityPipelineAddEnvVarsProcessor,
