@@ -8,7 +8,8 @@ import { TimeseriesAnomalyInvestigationCompleteStatus } from "./TimeseriesAnomal
  */
 export class TimeseriesAnomalyInvestigationResult {
   /**
-   * Detected anomalies. This API version returns at most one anomaly.
+   * Detected anomalies, ordered by significance. This API version returns at most
+   * three anomalies across the submitted request.
    */
   "anomalies": Array<TimeseriesAnomalyInvestigationAnomaly>;
   /**

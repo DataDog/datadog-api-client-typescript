@@ -9,7 +9,7 @@ import { TimeseriesAnomalyInvestigationSeries } from "./TimeseriesAnomalyInvesti
 import { TimeseriesAnomalyInvestigationTagAnalysis } from "./TimeseriesAnomalyInvestigationTagAnalysis";
 
 /**
- * Most significant anomaly detected in the request.
+ * One of the most significant anomalies detected in the request.
  */
 export class TimeseriesAnomalyInvestigationAnomaly {
   /**
