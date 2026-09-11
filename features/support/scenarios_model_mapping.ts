@@ -13766,6 +13766,9 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             },
         "operationResponseType": "SingleAggregatedDnsResponseArray",
     },
+    "v2.GetOIDCDiscoveryDocument": {
+        "operationResponseType": "OIDCDiscoveryDocument",
+    },
     "v2.GetOAuth2WellKnownSites": {
         "operationResponseType": "OAuth2WellKnownSitesResponse",
     },
