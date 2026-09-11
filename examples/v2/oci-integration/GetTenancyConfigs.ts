@@ -5,7 +5,6 @@
 import { client, v2 } from "@datadog/datadog-api-client";
 
 const configuration = client.createConfiguration();
-configuration.unstableOperations["v2.getTenancyConfigs"] = true;
 const apiInstance = new v2.OCIIntegrationApi(configuration);
 
 apiInstance
