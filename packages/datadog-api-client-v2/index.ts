@@ -6579,6 +6579,13 @@ export { ObservabilityPipelineParseJSONProcessor } from "./models/ObservabilityP
 export { ObservabilityPipelineParseJSONProcessorType } from "./models/ObservabilityPipelineParseJSONProcessorType";
 export { ObservabilityPipelineParseXMLProcessor } from "./models/ObservabilityPipelineParseXMLProcessor";
 export { ObservabilityPipelineParseXMLProcessorType } from "./models/ObservabilityPipelineParseXMLProcessorType";
+export { ObservabilityPipelinePrometheusRemoteWriteDestination } from "./models/ObservabilityPipelinePrometheusRemoteWriteDestination";
+export { ObservabilityPipelinePrometheusRemoteWriteDestinationAuthStrategy } from "./models/ObservabilityPipelinePrometheusRemoteWriteDestinationAuthStrategy";
+export { ObservabilityPipelinePrometheusRemoteWriteDestinationType } from "./models/ObservabilityPipelinePrometheusRemoteWriteDestinationType";
+export { ObservabilityPipelinePrometheusRemoteWriteSource } from "./models/ObservabilityPipelinePrometheusRemoteWriteSource";
+export { ObservabilityPipelinePrometheusRemoteWriteSourceAuthStrategy } from "./models/ObservabilityPipelinePrometheusRemoteWriteSourceAuthStrategy";
+export { ObservabilityPipelinePrometheusRemoteWriteSourceType } from "./models/ObservabilityPipelinePrometheusRemoteWriteSourceType";
+export { ObservabilityPipelinePrometheusRemoteWriteSourceValidToken } from "./models/ObservabilityPipelinePrometheusRemoteWriteSourceValidToken";
 export { ObservabilityPipelineQuotaProcessor } from "./models/ObservabilityPipelineQuotaProcessor";
 export { ObservabilityPipelineQuotaProcessorLimit } from "./models/ObservabilityPipelineQuotaProcessorLimit";
 export { ObservabilityPipelineQuotaProcessorLimitEnforceType } from "./models/ObservabilityPipelineQuotaProcessorLimitEnforceType";
