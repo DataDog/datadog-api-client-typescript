@@ -372,6 +372,7 @@ export const TypingInfo: ModelTypingInfo = {
       "none",
       "basic",
       "bearer",
+      "custom",
     ],
     ObservabilityPipelineHttpClientDestinationCompressionAlgorithm: ["gzip"],
     ObservabilityPipelineHttpClientDestinationEncoding: ["json"],

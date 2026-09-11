@@ -8,6 +8,8 @@ import { ObservabilityPipelineGenerateMetricsProcessorType } from "./Observabili
  * Metrics can be counters, gauges, or distributions and optionally grouped by log fields.
  *
  * **Supported pipeline types:** logs
+ *
+ * **Deprecated:** This processor is deprecated. Use the `generate_metrics` processor instead.
  */
 export class ObservabilityPipelineGenerateMetricsProcessor {
   /**
