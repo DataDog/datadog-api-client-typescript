@@ -7789,6 +7789,7 @@ const enumsMap: { [key: string]: any[] } = {
     "none",
     "basic",
     "bearer",
+    "custom",
   ],
   ObservabilityPipelineHttpClientDestinationCompressionAlgorithm: ["gzip"],
   ObservabilityPipelineHttpClientDestinationEncoding: ["json"],
