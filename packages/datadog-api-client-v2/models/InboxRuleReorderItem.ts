@@ -3,22 +3,22 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
-import { SeverityModifierRuleType } from "./SeverityModifierRuleType";
+import { InboxRuleType } from "./InboxRuleType";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * A reference to a severity modifier rule used for reordering.
+ * A reference to an inbox rule used for reordering.
  */
-export class SeverityModifierRuleReorderItem {
+export class InboxRuleReorderItem {
   /**
-   * The ID of the severity modifier rule.
+   * The ID of the inbox rule.
    */
   "id": string;
   /**
-   * The JSON:API type for severity modifier rules.
+   * The JSON:API type for inbox rules.
    */
-  "type": SeverityModifierRuleType;
+  "type": InboxRuleType;
 
   /**
    * A container for additional, undeclared properties.
@@ -44,7 +44,7 @@ export class SeverityModifierRuleReorderItem {
     },
     type: {
       baseName: "type",
-      type: "SeverityModifierRuleType",
+      type: "InboxRuleType",
       required: true,
     },
     additionalProperties: {
@@ -57,7 +57,7 @@ export class SeverityModifierRuleReorderItem {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-    return SeverityModifierRuleReorderItem.attributeTypeMap;
+    return InboxRuleReorderItem.attributeTypeMap;
   }
 
   public constructor() {}

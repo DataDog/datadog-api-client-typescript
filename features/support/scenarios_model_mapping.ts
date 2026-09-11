@@ -5970,6 +5970,30 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             },
         "operationResponseType": "AssigneeResponse",
     },
+    "v2.ListSecurityFindingsAutomationDefaultInboxRules": {
+        "operationResponseType": "DefaultInboxRulesResponse",
+    },
+    "v2.GetSecurityFindingsAutomationDefaultInboxRule": {
+        "ruleId": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "DefaultInboxRuleResponse",
+    },
+    "v2.DisableSecurityFindingsAutomationDefaultInboxRule": {
+        "ruleId": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "DefaultInboxRuleResponse",
+    },
+    "v2.EnableSecurityFindingsAutomationDefaultInboxRule": {
+        "ruleId": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "DefaultInboxRuleResponse",
+    },
     "v2.ListSecurityFindingsAutomationDueDateRules": {
         "pageSize": {
             "type": "number",
@@ -6014,6 +6038,56 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
         "operationResponseType": "DueDateRuleResponse",
     },
     "v2.DeleteSecurityFindingsAutomationDueDateRule": {
+        "ruleId": {
+            "type": "string",
+            "format": "uuid",
+            },
+        "operationResponseType": "{}",
+    },
+    "v2.ListSecurityFindingsAutomationInboxRules": {
+        "pageSize": {
+            "type": "number",
+            "format": "int64",
+            },
+        "pageNumber": {
+            "type": "number",
+            "format": "int64",
+            },
+        "operationResponseType": "InboxRulesResponse",
+    },
+    "v2.CreateSecurityFindingsAutomationInboxRule": {
+        "body": {
+            "type": "InboxRuleCreateRequest",
+            "format": "",
+            },
+        "operationResponseType": "InboxRuleResponse",
+    },
+    "v2.ReorderSecurityFindingsAutomationInboxRules": {
+        "body": {
+            "type": "InboxRuleReorderRequest",
+            "format": "",
+            },
+        "operationResponseType": "InboxRuleReorderResponse",
+    },
+    "v2.GetSecurityFindingsAutomationInboxRule": {
+        "ruleId": {
+            "type": "string",
+            "format": "uuid",
+            },
+        "operationResponseType": "InboxRuleResponse",
+    },
+    "v2.UpdateSecurityFindingsAutomationInboxRule": {
+        "ruleId": {
+            "type": "string",
+            "format": "uuid",
+            },
+        "body": {
+            "type": "InboxRuleUpdateRequest",
+            "format": "",
+            },
+        "operationResponseType": "InboxRuleResponse",
+    },
+    "v2.DeleteSecurityFindingsAutomationInboxRule": {
         "ruleId": {
             "type": "string",
             "format": "uuid",

@@ -1,5 +1,5 @@
 /**
- * Delete a mute rule returns "Rule successfully deleted." response
+ * Delete a mute rule returns "Successfully deleted the mute rule" response
  */
 
 import { client, v2 } from "@datadog/datadog-api-client";
@@ -10,12 +10,9 @@ configuration.unstableOperations[
 ] = true;
 const apiInstance = new v2.SecurityMonitoringApi(configuration);
 
-// there is a valid "valid_mute_rule" in the system
-const VALID_MUTE_RULE_DATA_ID = process.env.VALID_MUTE_RULE_DATA_ID as string;
-
 const params: v2.SecurityMonitoringApiDeleteSecurityFindingsAutomationMuteRuleRequest =
   {
-    ruleId: VALID_MUTE_RULE_DATA_ID,
+    ruleId: "00000000-0000-0000-0000-000000000000",
   };
 
 apiInstance

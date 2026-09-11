@@ -12,7 +12,7 @@ import { AttributeTypeMap } from "../../datadog-api-client-common/util";
  */
 export class DueDateRuleReorderItem {
   /**
-   * The ID of the automation rule.
+   * The ID of the due date rule.
    */
   "id": string;
   /**

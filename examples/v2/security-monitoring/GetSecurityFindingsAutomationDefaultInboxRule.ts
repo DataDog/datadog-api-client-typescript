@@ -1,23 +1,23 @@
 /**
- * Delete a due date rule returns "Successfully deleted the due date rule" response
+ * Get a default inbox rule returns "Successfully retrieved the default inbox rule" response
  */
 
 import { client, v2 } from "@datadog/datadog-api-client";
 
 const configuration = client.createConfiguration();
 configuration.unstableOperations[
-  "v2.deleteSecurityFindingsAutomationDueDateRule"
+  "v2.getSecurityFindingsAutomationDefaultInboxRule"
 ] = true;
 const apiInstance = new v2.SecurityMonitoringApi(configuration);
 
-const params: v2.SecurityMonitoringApiDeleteSecurityFindingsAutomationDueDateRuleRequest =
+const params: v2.SecurityMonitoringApiGetSecurityFindingsAutomationDefaultInboxRuleRequest =
   {
-    ruleId: "00000000-0000-0000-0000-000000000000",
+    ruleId: "secret_default_rule",
   };
 
 apiInstance
-  .deleteSecurityFindingsAutomationDueDateRule(params)
-  .then((data: any) => {
+  .getSecurityFindingsAutomationDefaultInboxRule(params)
+  .then((data: v2.DefaultInboxRuleResponse) => {
     console.log(
       "API called successfully. Returned data: " + JSON.stringify(data)
     );

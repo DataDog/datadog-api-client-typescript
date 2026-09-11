@@ -37,6 +37,8 @@ import { CreateLinearIssueRequestArray } from "../models/CreateLinearIssueReques
 import { CreateNotificationRuleParameters } from "../models/CreateNotificationRuleParameters";
 import { CreateServiceNowTicketRequestArray } from "../models/CreateServiceNowTicketRequestArray";
 import { CycloneDXBom } from "../models/CycloneDXBom";
+import { DefaultInboxRuleResponse } from "../models/DefaultInboxRuleResponse";
+import { DefaultInboxRulesResponse } from "../models/DefaultInboxRulesResponse";
 import { DefaultRulesetsPerLanguageResponse } from "../models/DefaultRulesetsPerLanguageResponse";
 import { DeleteCustomFrameworkResponse } from "../models/DeleteCustomFrameworkResponse";
 import { DetachCaseRequest } from "../models/DetachCaseRequest";
@@ -64,6 +66,12 @@ import { GetRuleVersionHistoryResponse } from "../models/GetRuleVersionHistoryRe
 import { GetSBOMResponse } from "../models/GetSBOMResponse";
 import { GetSuppressionVersionHistoryResponse } from "../models/GetSuppressionVersionHistoryResponse";
 import { HistoricalJobResponse } from "../models/HistoricalJobResponse";
+import { InboxRuleCreateRequest } from "../models/InboxRuleCreateRequest";
+import { InboxRuleReorderRequest } from "../models/InboxRuleReorderRequest";
+import { InboxRuleReorderResponse } from "../models/InboxRuleReorderResponse";
+import { InboxRuleResponse } from "../models/InboxRuleResponse";
+import { InboxRulesResponse } from "../models/InboxRulesResponse";
+import { InboxRuleUpdateRequest } from "../models/InboxRuleUpdateRequest";
 import { IoCExplorerListResponse } from "../models/IoCExplorerListResponse";
 import { IoCTriageState } from "../models/IoCTriageState";
 import { IoCTriageWriteRequest } from "../models/IoCTriageWriteRequest";
@@ -1745,6 +1753,70 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
+  public async createSecurityFindingsAutomationInboxRule(
+    body: InboxRuleCreateRequest,
+    _options?: Configuration
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    logger.warn(
+      "Using unstable operation 'createSecurityFindingsAutomationInboxRule'"
+    );
+    if (
+      !_config.unstableOperations[
+        "v2.createSecurityFindingsAutomationInboxRule"
+      ]
+    ) {
+      throw new Error(
+        "Unstable operation 'createSecurityFindingsAutomationInboxRule' is disabled"
+      );
+    }
+
+    // verify required parameter 'body' is not null or undefined
+    if (body === null || body === undefined) {
+      throw new RequiredError(
+        "body",
+        "createSecurityFindingsAutomationInboxRule"
+      );
+    }
+
+    // Path Params
+    const localVarPath = "/api/v2/security/findings/automation/inbox_rules";
+
+    // Make Request Context
+    const requestContext = _config
+      .getServer(
+        "v2.SecurityMonitoringApi.createSecurityFindingsAutomationInboxRule"
+      )
+      .makeRequestContext(localVarPath, HttpMethod.POST);
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Set IaC header
+    if (_config.isIaC) {
+      requestContext.setHeaderParam("X-Datadog-Managed-By", "iac");
+    }
+
+    // Body Params
+    const contentType = ObjectSerializer.getPreferredMediaType([
+      "application/json",
+    ]);
+    requestContext.setHeaderParam("Content-Type", contentType);
+    const serializedBody = ObjectSerializer.stringify(
+      ObjectSerializer.serialize(body, "InboxRuleCreateRequest", ""),
+      contentType
+    );
+    requestContext.setBody(serializedBody);
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+    ]);
+
+    return requestContext;
+  }
+
   public async createSecurityFindingsAutomationMuteRule(
     body: MuteRuleCreateRequest,
     _options?: Configuration
@@ -2810,6 +2882,63 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
+  public async deleteSecurityFindingsAutomationInboxRule(
+    ruleId: string,
+    _options?: Configuration
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    logger.warn(
+      "Using unstable operation 'deleteSecurityFindingsAutomationInboxRule'"
+    );
+    if (
+      !_config.unstableOperations[
+        "v2.deleteSecurityFindingsAutomationInboxRule"
+      ]
+    ) {
+      throw new Error(
+        "Unstable operation 'deleteSecurityFindingsAutomationInboxRule' is disabled"
+      );
+    }
+
+    // verify required parameter 'ruleId' is not null or undefined
+    if (ruleId === null || ruleId === undefined) {
+      throw new RequiredError(
+        "ruleId",
+        "deleteSecurityFindingsAutomationInboxRule"
+      );
+    }
+
+    // Path Params
+    const localVarPath =
+      "/api/v2/security/findings/automation/inbox_rules/{rule_id}".replace(
+        "{rule_id}",
+        encodeURIComponent(String(ruleId))
+      );
+
+    // Make Request Context
+    const requestContext = _config
+      .getServer(
+        "v2.SecurityMonitoringApi.deleteSecurityFindingsAutomationInboxRule"
+      )
+      .makeRequestContext(localVarPath, HttpMethod.DELETE);
+    requestContext.setHeaderParam("Accept", "*/*");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Set IaC header
+    if (_config.isIaC) {
+      requestContext.setHeaderParam("X-Datadog-Managed-By", "iac");
+    }
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+    ]);
+
+    return requestContext;
+  }
+
   public async deleteSecurityFindingsAutomationMuteRule(
     ruleId: string,
     _options?: Configuration
@@ -3336,6 +3465,63 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
+  public async disableSecurityFindingsAutomationDefaultInboxRule(
+    ruleId: string,
+    _options?: Configuration
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    logger.warn(
+      "Using unstable operation 'disableSecurityFindingsAutomationDefaultInboxRule'"
+    );
+    if (
+      !_config.unstableOperations[
+        "v2.disableSecurityFindingsAutomationDefaultInboxRule"
+      ]
+    ) {
+      throw new Error(
+        "Unstable operation 'disableSecurityFindingsAutomationDefaultInboxRule' is disabled"
+      );
+    }
+
+    // verify required parameter 'ruleId' is not null or undefined
+    if (ruleId === null || ruleId === undefined) {
+      throw new RequiredError(
+        "ruleId",
+        "disableSecurityFindingsAutomationDefaultInboxRule"
+      );
+    }
+
+    // Path Params
+    const localVarPath =
+      "/api/v2/security/findings/automation/default_inbox_rules/{rule_id}/disable".replace(
+        "{rule_id}",
+        encodeURIComponent(String(ruleId))
+      );
+
+    // Make Request Context
+    const requestContext = _config
+      .getServer(
+        "v2.SecurityMonitoringApi.disableSecurityFindingsAutomationDefaultInboxRule"
+      )
+      .makeRequestContext(localVarPath, HttpMethod.POST);
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Set IaC header
+    if (_config.isIaC) {
+      requestContext.setHeaderParam("X-Datadog-Managed-By", "iac");
+    }
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+    ]);
+
+    return requestContext;
+  }
+
   public async editSecurityMonitoringSignal(
     signalId: string,
     body: SecurityMonitoringSignalUpdateRequest,
@@ -3585,6 +3771,63 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
       "apiKeyAuth",
       "appKeyAuth",
       "AuthZ",
+    ]);
+
+    return requestContext;
+  }
+
+  public async enableSecurityFindingsAutomationDefaultInboxRule(
+    ruleId: string,
+    _options?: Configuration
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    logger.warn(
+      "Using unstable operation 'enableSecurityFindingsAutomationDefaultInboxRule'"
+    );
+    if (
+      !_config.unstableOperations[
+        "v2.enableSecurityFindingsAutomationDefaultInboxRule"
+      ]
+    ) {
+      throw new Error(
+        "Unstable operation 'enableSecurityFindingsAutomationDefaultInboxRule' is disabled"
+      );
+    }
+
+    // verify required parameter 'ruleId' is not null or undefined
+    if (ruleId === null || ruleId === undefined) {
+      throw new RequiredError(
+        "ruleId",
+        "enableSecurityFindingsAutomationDefaultInboxRule"
+      );
+    }
+
+    // Path Params
+    const localVarPath =
+      "/api/v2/security/findings/automation/default_inbox_rules/{rule_id}/enable".replace(
+        "{rule_id}",
+        encodeURIComponent(String(ruleId))
+      );
+
+    // Make Request Context
+    const requestContext = _config
+      .getServer(
+        "v2.SecurityMonitoringApi.enableSecurityFindingsAutomationDefaultInboxRule"
+      )
+      .makeRequestContext(localVarPath, HttpMethod.POST);
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Set IaC header
+    if (_config.isIaC) {
+      requestContext.setHeaderParam("X-Datadog-Managed-By", "iac");
+    }
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
     ]);
 
     return requestContext;
@@ -4390,6 +4633,63 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
+  public async getSecurityFindingsAutomationDefaultInboxRule(
+    ruleId: string,
+    _options?: Configuration
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    logger.warn(
+      "Using unstable operation 'getSecurityFindingsAutomationDefaultInboxRule'"
+    );
+    if (
+      !_config.unstableOperations[
+        "v2.getSecurityFindingsAutomationDefaultInboxRule"
+      ]
+    ) {
+      throw new Error(
+        "Unstable operation 'getSecurityFindingsAutomationDefaultInboxRule' is disabled"
+      );
+    }
+
+    // verify required parameter 'ruleId' is not null or undefined
+    if (ruleId === null || ruleId === undefined) {
+      throw new RequiredError(
+        "ruleId",
+        "getSecurityFindingsAutomationDefaultInboxRule"
+      );
+    }
+
+    // Path Params
+    const localVarPath =
+      "/api/v2/security/findings/automation/default_inbox_rules/{rule_id}".replace(
+        "{rule_id}",
+        encodeURIComponent(String(ruleId))
+      );
+
+    // Make Request Context
+    const requestContext = _config
+      .getServer(
+        "v2.SecurityMonitoringApi.getSecurityFindingsAutomationDefaultInboxRule"
+      )
+      .makeRequestContext(localVarPath, HttpMethod.GET);
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Set IaC header
+    if (_config.isIaC) {
+      requestContext.setHeaderParam("X-Datadog-Managed-By", "iac");
+    }
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+    ]);
+
+    return requestContext;
+  }
+
   public async getSecurityFindingsAutomationDueDateRule(
     ruleId: string,
     _options?: Configuration
@@ -4426,6 +4726,61 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
     const requestContext = _config
       .getServer(
         "v2.SecurityMonitoringApi.getSecurityFindingsAutomationDueDateRule"
+      )
+      .makeRequestContext(localVarPath, HttpMethod.GET);
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Set IaC header
+    if (_config.isIaC) {
+      requestContext.setHeaderParam("X-Datadog-Managed-By", "iac");
+    }
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+    ]);
+
+    return requestContext;
+  }
+
+  public async getSecurityFindingsAutomationInboxRule(
+    ruleId: string,
+    _options?: Configuration
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    logger.warn(
+      "Using unstable operation 'getSecurityFindingsAutomationInboxRule'"
+    );
+    if (
+      !_config.unstableOperations["v2.getSecurityFindingsAutomationInboxRule"]
+    ) {
+      throw new Error(
+        "Unstable operation 'getSecurityFindingsAutomationInboxRule' is disabled"
+      );
+    }
+
+    // verify required parameter 'ruleId' is not null or undefined
+    if (ruleId === null || ruleId === undefined) {
+      throw new RequiredError(
+        "ruleId",
+        "getSecurityFindingsAutomationInboxRule"
+      );
+    }
+
+    // Path Params
+    const localVarPath =
+      "/api/v2/security/findings/automation/inbox_rules/{rule_id}".replace(
+        "{rule_id}",
+        encodeURIComponent(String(ruleId))
+      );
+
+    // Make Request Context
+    const requestContext = _config
+      .getServer(
+        "v2.SecurityMonitoringApi.getSecurityFindingsAutomationInboxRule"
       )
       .makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam("Accept", "application/json");
@@ -6665,6 +7020,51 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
+  public async listSecurityFindingsAutomationDefaultInboxRules(
+    _options?: Configuration
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    logger.warn(
+      "Using unstable operation 'listSecurityFindingsAutomationDefaultInboxRules'"
+    );
+    if (
+      !_config.unstableOperations[
+        "v2.listSecurityFindingsAutomationDefaultInboxRules"
+      ]
+    ) {
+      throw new Error(
+        "Unstable operation 'listSecurityFindingsAutomationDefaultInboxRules' is disabled"
+      );
+    }
+
+    // Path Params
+    const localVarPath =
+      "/api/v2/security/findings/automation/default_inbox_rules";
+
+    // Make Request Context
+    const requestContext = _config
+      .getServer(
+        "v2.SecurityMonitoringApi.listSecurityFindingsAutomationDefaultInboxRules"
+      )
+      .makeRequestContext(localVarPath, HttpMethod.GET);
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Set IaC header
+    if (_config.isIaC) {
+      requestContext.setHeaderParam("X-Datadog-Managed-By", "iac");
+    }
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+    ]);
+
+    return requestContext;
+  }
+
   public async listSecurityFindingsAutomationDueDateRules(
     pageSize?: number,
     pageNumber?: number,
@@ -6692,6 +7092,66 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
     const requestContext = _config
       .getServer(
         "v2.SecurityMonitoringApi.listSecurityFindingsAutomationDueDateRules"
+      )
+      .makeRequestContext(localVarPath, HttpMethod.GET);
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Set IaC header
+    if (_config.isIaC) {
+      requestContext.setHeaderParam("X-Datadog-Managed-By", "iac");
+    }
+
+    // Query Params
+    if (pageSize !== undefined) {
+      requestContext.setQueryParam(
+        "page[size]",
+        ObjectSerializer.serialize(pageSize, "number", "int64"),
+        ""
+      );
+    }
+    if (pageNumber !== undefined) {
+      requestContext.setQueryParam(
+        "page[number]",
+        ObjectSerializer.serialize(pageNumber, "number", "int64"),
+        ""
+      );
+    }
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+    ]);
+
+    return requestContext;
+  }
+
+  public async listSecurityFindingsAutomationInboxRules(
+    pageSize?: number,
+    pageNumber?: number,
+    _options?: Configuration
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    logger.warn(
+      "Using unstable operation 'listSecurityFindingsAutomationInboxRules'"
+    );
+    if (
+      !_config.unstableOperations["v2.listSecurityFindingsAutomationInboxRules"]
+    ) {
+      throw new Error(
+        "Unstable operation 'listSecurityFindingsAutomationInboxRules' is disabled"
+      );
+    }
+
+    // Path Params
+    const localVarPath = "/api/v2/security/findings/automation/inbox_rules";
+
+    // Make Request Context
+    const requestContext = _config
+      .getServer(
+        "v2.SecurityMonitoringApi.listSecurityFindingsAutomationInboxRules"
       )
       .makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam("Accept", "application/json");
@@ -8248,6 +8708,71 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
+  public async reorderSecurityFindingsAutomationInboxRules(
+    body: InboxRuleReorderRequest,
+    _options?: Configuration
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    logger.warn(
+      "Using unstable operation 'reorderSecurityFindingsAutomationInboxRules'"
+    );
+    if (
+      !_config.unstableOperations[
+        "v2.reorderSecurityFindingsAutomationInboxRules"
+      ]
+    ) {
+      throw new Error(
+        "Unstable operation 'reorderSecurityFindingsAutomationInboxRules' is disabled"
+      );
+    }
+
+    // verify required parameter 'body' is not null or undefined
+    if (body === null || body === undefined) {
+      throw new RequiredError(
+        "body",
+        "reorderSecurityFindingsAutomationInboxRules"
+      );
+    }
+
+    // Path Params
+    const localVarPath =
+      "/api/v2/security/findings/automation/inbox_rules/reorder";
+
+    // Make Request Context
+    const requestContext = _config
+      .getServer(
+        "v2.SecurityMonitoringApi.reorderSecurityFindingsAutomationInboxRules"
+      )
+      .makeRequestContext(localVarPath, HttpMethod.POST);
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Set IaC header
+    if (_config.isIaC) {
+      requestContext.setHeaderParam("X-Datadog-Managed-By", "iac");
+    }
+
+    // Body Params
+    const contentType = ObjectSerializer.getPreferredMediaType([
+      "application/json",
+    ]);
+    requestContext.setHeaderParam("Content-Type", contentType);
+    const serializedBody = ObjectSerializer.stringify(
+      ObjectSerializer.serialize(body, "InboxRuleReorderRequest", ""),
+      contentType
+    );
+    requestContext.setBody(serializedBody);
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+    ]);
+
+    return requestContext;
+  }
+
   public async reorderSecurityFindingsAutomationMuteRules(
     body: MuteRuleReorderRequest,
     _options?: Configuration
@@ -9145,6 +9670,83 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
       ObjectSerializer.serialize(body, "DueDateRuleUpdateRequest", ""),
+      contentType
+    );
+    requestContext.setBody(serializedBody);
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+    ]);
+
+    return requestContext;
+  }
+
+  public async updateSecurityFindingsAutomationInboxRule(
+    ruleId: string,
+    body: InboxRuleUpdateRequest,
+    _options?: Configuration
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    logger.warn(
+      "Using unstable operation 'updateSecurityFindingsAutomationInboxRule'"
+    );
+    if (
+      !_config.unstableOperations[
+        "v2.updateSecurityFindingsAutomationInboxRule"
+      ]
+    ) {
+      throw new Error(
+        "Unstable operation 'updateSecurityFindingsAutomationInboxRule' is disabled"
+      );
+    }
+
+    // verify required parameter 'ruleId' is not null or undefined
+    if (ruleId === null || ruleId === undefined) {
+      throw new RequiredError(
+        "ruleId",
+        "updateSecurityFindingsAutomationInboxRule"
+      );
+    }
+
+    // verify required parameter 'body' is not null or undefined
+    if (body === null || body === undefined) {
+      throw new RequiredError(
+        "body",
+        "updateSecurityFindingsAutomationInboxRule"
+      );
+    }
+
+    // Path Params
+    const localVarPath =
+      "/api/v2/security/findings/automation/inbox_rules/{rule_id}".replace(
+        "{rule_id}",
+        encodeURIComponent(String(ruleId))
+      );
+
+    // Make Request Context
+    const requestContext = _config
+      .getServer(
+        "v2.SecurityMonitoringApi.updateSecurityFindingsAutomationInboxRule"
+      )
+      .makeRequestContext(localVarPath, HttpMethod.PUT);
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Set IaC header
+    if (_config.isIaC) {
+      requestContext.setHeaderParam("X-Datadog-Managed-By", "iac");
+    }
+
+    // Body Params
+    const contentType = ObjectSerializer.getPreferredMediaType([
+      "application/json",
+    ]);
+    requestContext.setHeaderParam("Content-Type", contentType);
+    const serializedBody = ObjectSerializer.stringify(
+      ObjectSerializer.serialize(body, "InboxRuleUpdateRequest", ""),
       contentType
     );
     requestContext.setBody(serializedBody);
@@ -11804,6 +12406,87 @@ export class SecurityMonitoringApiResponseProcessor {
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
    *
+   * @params response Response returned by the server for a request to createSecurityFindingsAutomationInboxRule
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async createSecurityFindingsAutomationInboxRule(
+    response: ResponseContext
+  ): Promise<InboxRuleResponse> {
+    const contentType = ObjectSerializer.normalizeMediaType(
+      response.headers["content-type"]
+    );
+    if (response.httpStatusCode === 201) {
+      const body: InboxRuleResponse = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "InboxRuleResponse"
+      ) as InboxRuleResponse;
+      return body;
+    }
+    if (response.httpStatusCode === 400 || response.httpStatusCode === 422) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: JSONAPIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "JSONAPIErrorResponse"
+        ) as JSONAPIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<JSONAPIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<JSONAPIErrorResponse>(
+        response.httpStatusCode,
+        body
+      );
+    }
+    if (response.httpStatusCode === 403 || response.httpStatusCode === 429) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: APIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "APIErrorResponse"
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: InboxRuleResponse = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "InboxRuleResponse",
+        ""
+      ) as InboxRuleResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"'
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
    * @params response Response returned by the server for a request to createSecurityFindingsAutomationMuteRule
    * @throws ApiException if the response code was not in [200, 299]
    */
@@ -13156,6 +13839,59 @@ export class SecurityMonitoringApiResponseProcessor {
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
    *
+   * @params response Response returned by the server for a request to deleteSecurityFindingsAutomationInboxRule
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async deleteSecurityFindingsAutomationInboxRule(
+    response: ResponseContext
+  ): Promise<void> {
+    const contentType = ObjectSerializer.normalizeMediaType(
+      response.headers["content-type"]
+    );
+    if (response.httpStatusCode === 204) {
+      return;
+    }
+    if (
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 404 ||
+      response.httpStatusCode === 429
+    ) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: APIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "APIErrorResponse"
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      return;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"'
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
    * @params response Response returned by the server for a request to deleteSecurityFindingsAutomationMuteRule
    * @throws ApiException if the response code was not in [200, 299]
    */
@@ -13783,6 +14519,68 @@ export class SecurityMonitoringApiResponseProcessor {
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
    *
+   * @params response Response returned by the server for a request to disableSecurityFindingsAutomationDefaultInboxRule
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async disableSecurityFindingsAutomationDefaultInboxRule(
+    response: ResponseContext
+  ): Promise<DefaultInboxRuleResponse> {
+    const contentType = ObjectSerializer.normalizeMediaType(
+      response.headers["content-type"]
+    );
+    if (response.httpStatusCode === 200) {
+      const body: DefaultInboxRuleResponse = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "DefaultInboxRuleResponse"
+      ) as DefaultInboxRuleResponse;
+      return body;
+    }
+    if (
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 404 ||
+      response.httpStatusCode === 429
+    ) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: APIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "APIErrorResponse"
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: DefaultInboxRuleResponse = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "DefaultInboxRuleResponse",
+        ""
+      ) as DefaultInboxRuleResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"'
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
    * @params response Response returned by the server for a request to editSecurityMonitoringSignal
    * @throws ApiException if the response code was not in [200, 299]
    */
@@ -14051,6 +14849,68 @@ export class SecurityMonitoringApiResponseProcessor {
           "SecurityMonitoringSignalTriageUpdateResponse",
           ""
         ) as SecurityMonitoringSignalTriageUpdateResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"'
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
+   * @params response Response returned by the server for a request to enableSecurityFindingsAutomationDefaultInboxRule
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async enableSecurityFindingsAutomationDefaultInboxRule(
+    response: ResponseContext
+  ): Promise<DefaultInboxRuleResponse> {
+    const contentType = ObjectSerializer.normalizeMediaType(
+      response.headers["content-type"]
+    );
+    if (response.httpStatusCode === 200) {
+      const body: DefaultInboxRuleResponse = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "DefaultInboxRuleResponse"
+      ) as DefaultInboxRuleResponse;
+      return body;
+    }
+    if (
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 404 ||
+      response.httpStatusCode === 429
+    ) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: APIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "APIErrorResponse"
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: DefaultInboxRuleResponse = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "DefaultInboxRuleResponse",
+        ""
+      ) as DefaultInboxRuleResponse;
       return body;
     }
 
@@ -15046,6 +15906,68 @@ export class SecurityMonitoringApiResponseProcessor {
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
    *
+   * @params response Response returned by the server for a request to getSecurityFindingsAutomationDefaultInboxRule
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async getSecurityFindingsAutomationDefaultInboxRule(
+    response: ResponseContext
+  ): Promise<DefaultInboxRuleResponse> {
+    const contentType = ObjectSerializer.normalizeMediaType(
+      response.headers["content-type"]
+    );
+    if (response.httpStatusCode === 200) {
+      const body: DefaultInboxRuleResponse = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "DefaultInboxRuleResponse"
+      ) as DefaultInboxRuleResponse;
+      return body;
+    }
+    if (
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 404 ||
+      response.httpStatusCode === 429
+    ) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: APIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "APIErrorResponse"
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: DefaultInboxRuleResponse = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "DefaultInboxRuleResponse",
+        ""
+      ) as DefaultInboxRuleResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"'
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
    * @params response Response returned by the server for a request to getSecurityFindingsAutomationDueDateRule
    * @throws ApiException if the response code was not in [200, 299]
    */
@@ -15094,6 +16016,68 @@ export class SecurityMonitoringApiResponseProcessor {
         "DueDateRuleResponse",
         ""
       ) as DueDateRuleResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"'
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
+   * @params response Response returned by the server for a request to getSecurityFindingsAutomationInboxRule
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async getSecurityFindingsAutomationInboxRule(
+    response: ResponseContext
+  ): Promise<InboxRuleResponse> {
+    const contentType = ObjectSerializer.normalizeMediaType(
+      response.headers["content-type"]
+    );
+    if (response.httpStatusCode === 200) {
+      const body: InboxRuleResponse = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "InboxRuleResponse"
+      ) as InboxRuleResponse;
+      return body;
+    }
+    if (
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 404 ||
+      response.httpStatusCode === 429
+    ) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: APIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "APIErrorResponse"
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: InboxRuleResponse = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "InboxRuleResponse",
+        ""
+      ) as InboxRuleResponse;
       return body;
     }
 
@@ -17680,6 +18664,64 @@ export class SecurityMonitoringApiResponseProcessor {
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
    *
+   * @params response Response returned by the server for a request to listSecurityFindingsAutomationDefaultInboxRules
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async listSecurityFindingsAutomationDefaultInboxRules(
+    response: ResponseContext
+  ): Promise<DefaultInboxRulesResponse> {
+    const contentType = ObjectSerializer.normalizeMediaType(
+      response.headers["content-type"]
+    );
+    if (response.httpStatusCode === 200) {
+      const body: DefaultInboxRulesResponse = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "DefaultInboxRulesResponse"
+      ) as DefaultInboxRulesResponse;
+      return body;
+    }
+    if (response.httpStatusCode === 403 || response.httpStatusCode === 429) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: APIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "APIErrorResponse"
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: DefaultInboxRulesResponse = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "DefaultInboxRulesResponse",
+        ""
+      ) as DefaultInboxRulesResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"'
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
    * @params response Response returned by the server for a request to listSecurityFindingsAutomationDueDateRules
    * @throws ApiException if the response code was not in [200, 299]
    */
@@ -17724,6 +18766,64 @@ export class SecurityMonitoringApiResponseProcessor {
         "DueDateRulesResponse",
         ""
       ) as DueDateRulesResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"'
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
+   * @params response Response returned by the server for a request to listSecurityFindingsAutomationInboxRules
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async listSecurityFindingsAutomationInboxRules(
+    response: ResponseContext
+  ): Promise<InboxRulesResponse> {
+    const contentType = ObjectSerializer.normalizeMediaType(
+      response.headers["content-type"]
+    );
+    if (response.httpStatusCode === 200) {
+      const body: InboxRulesResponse = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "InboxRulesResponse"
+      ) as InboxRulesResponse;
+      return body;
+    }
+    if (response.httpStatusCode === 403 || response.httpStatusCode === 429) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: APIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "APIErrorResponse"
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: InboxRulesResponse = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "InboxRulesResponse",
+        ""
+      ) as InboxRulesResponse;
       return body;
     }
 
@@ -18958,6 +20058,87 @@ export class SecurityMonitoringApiResponseProcessor {
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
    *
+   * @params response Response returned by the server for a request to reorderSecurityFindingsAutomationInboxRules
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async reorderSecurityFindingsAutomationInboxRules(
+    response: ResponseContext
+  ): Promise<InboxRuleReorderResponse> {
+    const contentType = ObjectSerializer.normalizeMediaType(
+      response.headers["content-type"]
+    );
+    if (response.httpStatusCode === 200) {
+      const body: InboxRuleReorderResponse = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "InboxRuleReorderResponse"
+      ) as InboxRuleReorderResponse;
+      return body;
+    }
+    if (response.httpStatusCode === 400 || response.httpStatusCode === 422) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: JSONAPIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "JSONAPIErrorResponse"
+        ) as JSONAPIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<JSONAPIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<JSONAPIErrorResponse>(
+        response.httpStatusCode,
+        body
+      );
+    }
+    if (response.httpStatusCode === 403 || response.httpStatusCode === 429) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: APIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "APIErrorResponse"
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: InboxRuleReorderResponse = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "InboxRuleReorderResponse",
+        ""
+      ) as InboxRuleReorderResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"'
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
    * @params response Response returned by the server for a request to reorderSecurityFindingsAutomationMuteRules
    * @throws ApiException if the response code was not in [200, 299]
    */
@@ -20076,6 +21257,91 @@ export class SecurityMonitoringApiResponseProcessor {
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
    *
+   * @params response Response returned by the server for a request to updateSecurityFindingsAutomationInboxRule
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async updateSecurityFindingsAutomationInboxRule(
+    response: ResponseContext
+  ): Promise<InboxRuleResponse> {
+    const contentType = ObjectSerializer.normalizeMediaType(
+      response.headers["content-type"]
+    );
+    if (response.httpStatusCode === 200) {
+      const body: InboxRuleResponse = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "InboxRuleResponse"
+      ) as InboxRuleResponse;
+      return body;
+    }
+    if (response.httpStatusCode === 400 || response.httpStatusCode === 422) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: JSONAPIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "JSONAPIErrorResponse"
+        ) as JSONAPIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<JSONAPIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<JSONAPIErrorResponse>(
+        response.httpStatusCode,
+        body
+      );
+    }
+    if (
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 404 ||
+      response.httpStatusCode === 429
+    ) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: APIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "APIErrorResponse"
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: InboxRuleResponse = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "InboxRuleResponse",
+        ""
+      ) as InboxRuleResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"'
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
    * @params response Response returned by the server for a request to updateSecurityFindingsAutomationMuteRule
    * @throws ApiException if the response code was not in [200, 299]
    */
@@ -21108,6 +22374,13 @@ export interface SecurityMonitoringApiCreateSecurityFindingsAutomationDueDateRul
   body: DueDateRuleCreateRequest;
 }
 
+export interface SecurityMonitoringApiCreateSecurityFindingsAutomationInboxRuleRequest {
+  /**
+   * @type InboxRuleCreateRequest
+   */
+  body: InboxRuleCreateRequest;
+}
+
 export interface SecurityMonitoringApiCreateSecurityFindingsAutomationMuteRuleRequest {
   /**
    * @type MuteRuleCreateRequest
@@ -21267,6 +22540,14 @@ export interface SecurityMonitoringApiDeleteSecurityFindingsAutomationDueDateRul
   ruleId: string;
 }
 
+export interface SecurityMonitoringApiDeleteSecurityFindingsAutomationInboxRuleRequest {
+  /**
+   * The ID of the inbox rule.
+   * @type string
+   */
+  ruleId: string;
+}
+
 export interface SecurityMonitoringApiDeleteSecurityFindingsAutomationMuteRuleRequest {
   /**
    * The ID of the mute rule.
@@ -21354,6 +22635,20 @@ export interface SecurityMonitoringApiDetachCaseRequest {
   body: DetachCaseRequest;
 }
 
+export interface SecurityMonitoringApiDisableSecurityFindingsAutomationDefaultInboxRuleRequest {
+  /**
+   * The ID of the default inbox rule.
+   * Known default rule IDs include: `identity_risk_default_rule`,
+   * `secret_default_rule`, `library_vulnerability_default_rule`,
+   * `attack_path_default_rule`, `host_and_container_vulnerability_default_rule`,
+   * `runtime_code_vulnerability_default_rule`, `iac_misconfiguration_default_rule`,
+   * and `misconfiguration_default_rule`. Datadog can add new default rules
+   * over time.
+   * @type string
+   */
+  ruleId: string;
+}
+
 export interface SecurityMonitoringApiEditSecurityMonitoringSignalRequest {
   /**
    * The ID of the signal.
@@ -21404,6 +22699,20 @@ export interface SecurityMonitoringApiEditSecurityMonitoringSignalStateRequest {
    * @type SecurityMonitoringSignalStateUpdateRequest
    */
   body: SecurityMonitoringSignalStateUpdateRequest;
+}
+
+export interface SecurityMonitoringApiEnableSecurityFindingsAutomationDefaultInboxRuleRequest {
+  /**
+   * The ID of the default inbox rule.
+   * Known default rule IDs include: `identity_risk_default_rule`,
+   * `secret_default_rule`, `library_vulnerability_default_rule`,
+   * `attack_path_default_rule`, `host_and_container_vulnerability_default_rule`,
+   * `runtime_code_vulnerability_default_rule`, `iac_misconfiguration_default_rule`,
+   * and `misconfiguration_default_rule`. Datadog can add new default rules
+   * over time.
+   * @type string
+   */
+  ruleId: string;
 }
 
 export interface SecurityMonitoringApiExportSecurityMonitoringTerraformResourceRequest {
@@ -21601,9 +22910,31 @@ export interface SecurityMonitoringApiGetSecurityFilterRequest {
   securityFilterId: string;
 }
 
+export interface SecurityMonitoringApiGetSecurityFindingsAutomationDefaultInboxRuleRequest {
+  /**
+   * The ID of the default inbox rule.
+   * Known default rule IDs include: `identity_risk_default_rule`,
+   * `secret_default_rule`, `library_vulnerability_default_rule`,
+   * `attack_path_default_rule`, `host_and_container_vulnerability_default_rule`,
+   * `runtime_code_vulnerability_default_rule`, `iac_misconfiguration_default_rule`,
+   * and `misconfiguration_default_rule`. Datadog can add new default rules
+   * over time.
+   * @type string
+   */
+  ruleId: string;
+}
+
 export interface SecurityMonitoringApiGetSecurityFindingsAutomationDueDateRuleRequest {
   /**
    * The ID of the due date rule.
+   * @type string
+   */
+  ruleId: string;
+}
+
+export interface SecurityMonitoringApiGetSecurityFindingsAutomationInboxRuleRequest {
+  /**
+   * The ID of the inbox rule.
    * @type string
    */
   ruleId: string;
@@ -22190,6 +23521,19 @@ export interface SecurityMonitoringApiListSecurityFindingsAutomationDueDateRules
   pageNumber?: number;
 }
 
+export interface SecurityMonitoringApiListSecurityFindingsAutomationInboxRulesRequest {
+  /**
+   * The number of rules per page. Maximum is 1000.
+   * @type number
+   */
+  pageSize?: number;
+  /**
+   * The page number to return.
+   * @type number
+   */
+  pageNumber?: number;
+}
+
 export interface SecurityMonitoringApiListSecurityFindingsAutomationMuteRulesRequest {
   /**
    * The number of rules per page. Maximum is 1000.
@@ -22716,6 +24060,13 @@ export interface SecurityMonitoringApiReorderSecurityFindingsAutomationDueDateRu
   body: DueDateRuleReorderRequest;
 }
 
+export interface SecurityMonitoringApiReorderSecurityFindingsAutomationInboxRulesRequest {
+  /**
+   * @type InboxRuleReorderRequest
+   */
+  body: InboxRuleReorderRequest;
+}
+
 export interface SecurityMonitoringApiReorderSecurityFindingsAutomationMuteRulesRequest {
   /**
    * @type MuteRuleReorderRequest
@@ -22858,6 +24209,18 @@ export interface SecurityMonitoringApiUpdateSecurityFindingsAutomationDueDateRul
    * @type DueDateRuleUpdateRequest
    */
   body: DueDateRuleUpdateRequest;
+}
+
+export interface SecurityMonitoringApiUpdateSecurityFindingsAutomationInboxRuleRequest {
+  /**
+   * The ID of the inbox rule.
+   * @type string
+   */
+  ruleId: string;
+  /**
+   * @type InboxRuleUpdateRequest
+   */
+  body: InboxRuleUpdateRequest;
 }
 
 export interface SecurityMonitoringApiUpdateSecurityFindingsAutomationMuteRuleRequest {
@@ -23675,7 +25038,7 @@ export class SecurityMonitoringApi {
   }
 
   /**
-   * Create a new due date rule for the current organization.
+   * Create a due date rule for the current organization.
    * @param param The request object
    */
   public createSecurityFindingsAutomationDueDateRule(
@@ -23699,7 +25062,31 @@ export class SecurityMonitoringApi {
   }
 
   /**
-   * Create a new mute rule for the current organization.
+   * Create an inbox rule for the current organization.
+   * @param param The request object
+   */
+  public createSecurityFindingsAutomationInboxRule(
+    param: SecurityMonitoringApiCreateSecurityFindingsAutomationInboxRuleRequest,
+    options?: Configuration
+  ): Promise<InboxRuleResponse> {
+    const requestContextPromise =
+      this.requestFactory.createSecurityFindingsAutomationInboxRule(
+        param.body,
+        options
+      );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.createSecurityFindingsAutomationInboxRule(
+            responseContext
+          );
+        });
+    });
+  }
+
+  /**
+   * Create a mute rule for the current organization.
    * @param param The request object
    */
   public createSecurityFindingsAutomationMuteRule(
@@ -23723,7 +25110,7 @@ export class SecurityMonitoringApi {
   }
 
   /**
-   * Create a new severity modifier rule for the current organization.
+   * Create a severity modifier rule for the current organization.
    * @param param The request object
    */
   public createSecurityFindingsAutomationSeverityModifierRule(
@@ -23747,7 +25134,7 @@ export class SecurityMonitoringApi {
   }
 
   /**
-   * Create a new ticket creation rule for the current organization.
+   * Create a ticket creation rule for the current organization.
    * @param param The request object
    */
   public createSecurityFindingsAutomationTicketCreationRule(
@@ -24140,7 +25527,7 @@ export class SecurityMonitoringApi {
   }
 
   /**
-   * Delete an existing due date rule by ID.
+   * Delete a due date rule by ID.
    * @param param The request object
    */
   public deleteSecurityFindingsAutomationDueDateRule(
@@ -24164,7 +25551,31 @@ export class SecurityMonitoringApi {
   }
 
   /**
-   * Delete an existing mute rule by ID.
+   * Delete an inbox rule by ID.
+   * @param param The request object
+   */
+  public deleteSecurityFindingsAutomationInboxRule(
+    param: SecurityMonitoringApiDeleteSecurityFindingsAutomationInboxRuleRequest,
+    options?: Configuration
+  ): Promise<void> {
+    const requestContextPromise =
+      this.requestFactory.deleteSecurityFindingsAutomationInboxRule(
+        param.ruleId,
+        options
+      );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.deleteSecurityFindingsAutomationInboxRule(
+            responseContext
+          );
+        });
+    });
+  }
+
+  /**
+   * Delete a mute rule by ID.
    * @param param The request object
    */
   public deleteSecurityFindingsAutomationMuteRule(
@@ -24188,7 +25599,7 @@ export class SecurityMonitoringApi {
   }
 
   /**
-   * Delete an existing severity modifier rule by ID.
+   * Delete a severity modifier rule by ID.
    * @param param The request object
    */
   public deleteSecurityFindingsAutomationSeverityModifierRule(
@@ -24212,7 +25623,7 @@ export class SecurityMonitoringApi {
   }
 
   /**
-   * Delete an existing ticket creation rule by ID.
+   * Delete a ticket creation rule by ID.
    * @param param The request object
    */
   public deleteSecurityFindingsAutomationTicketCreationRule(
@@ -24422,6 +25833,30 @@ export class SecurityMonitoringApi {
   }
 
   /**
+   * Disable a default inbox rule for the current organization.
+   * @param param The request object
+   */
+  public disableSecurityFindingsAutomationDefaultInboxRule(
+    param: SecurityMonitoringApiDisableSecurityFindingsAutomationDefaultInboxRuleRequest,
+    options?: Configuration
+  ): Promise<DefaultInboxRuleResponse> {
+    const requestContextPromise =
+      this.requestFactory.disableSecurityFindingsAutomationDefaultInboxRule(
+        param.ruleId,
+        options
+      );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.disableSecurityFindingsAutomationDefaultInboxRule(
+            responseContext
+          );
+        });
+    });
+  }
+
+  /**
    * Update the triage state or assignee of a security signal.
    * @param param The request object
    */
@@ -24515,6 +25950,30 @@ export class SecurityMonitoringApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.editSecurityMonitoringSignalState(
+            responseContext
+          );
+        });
+    });
+  }
+
+  /**
+   * Enable a default inbox rule for the current organization.
+   * @param param The request object
+   */
+  public enableSecurityFindingsAutomationDefaultInboxRule(
+    param: SecurityMonitoringApiEnableSecurityFindingsAutomationDefaultInboxRuleRequest,
+    options?: Configuration
+  ): Promise<DefaultInboxRuleResponse> {
+    const requestContextPromise =
+      this.requestFactory.enableSecurityFindingsAutomationDefaultInboxRule(
+        param.ruleId,
+        options
+      );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.enableSecurityFindingsAutomationDefaultInboxRule(
             responseContext
           );
         });
@@ -24868,6 +26327,32 @@ export class SecurityMonitoringApi {
   }
 
   /**
+   * Get the details of a default inbox rule by ID.
+   * Datadog manages default inbox rules. Their name, rule, and action are
+   * read-only, and each organization can change only whether they are enabled.
+   * @param param The request object
+   */
+  public getSecurityFindingsAutomationDefaultInboxRule(
+    param: SecurityMonitoringApiGetSecurityFindingsAutomationDefaultInboxRuleRequest,
+    options?: Configuration
+  ): Promise<DefaultInboxRuleResponse> {
+    const requestContextPromise =
+      this.requestFactory.getSecurityFindingsAutomationDefaultInboxRule(
+        param.ruleId,
+        options
+      );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.getSecurityFindingsAutomationDefaultInboxRule(
+            responseContext
+          );
+        });
+    });
+  }
+
+  /**
    * Get the details of a due date rule by ID.
    * @param param The request object
    */
@@ -24885,6 +26370,30 @@ export class SecurityMonitoringApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.getSecurityFindingsAutomationDueDateRule(
+            responseContext
+          );
+        });
+    });
+  }
+
+  /**
+   * Get the details of an inbox rule by ID.
+   * @param param The request object
+   */
+  public getSecurityFindingsAutomationInboxRule(
+    param: SecurityMonitoringApiGetSecurityFindingsAutomationInboxRuleRequest,
+    options?: Configuration
+  ): Promise<InboxRuleResponse> {
+    const requestContextPromise =
+      this.requestFactory.getSecurityFindingsAutomationInboxRule(
+        param.ruleId,
+        options
+      );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.getSecurityFindingsAutomationInboxRule(
             responseContext
           );
         });
@@ -26057,6 +27566,30 @@ export class SecurityMonitoringApi {
   }
 
   /**
+   * Get all default inbox rules for the current organization.
+   * Datadog manages default inbox rules. Their name, rule, and action are
+   * read-only, and each organization can change only whether they are enabled.
+   * @param param The request object
+   */
+  public listSecurityFindingsAutomationDefaultInboxRules(
+    options?: Configuration
+  ): Promise<DefaultInboxRulesResponse> {
+    const requestContextPromise =
+      this.requestFactory.listSecurityFindingsAutomationDefaultInboxRules(
+        options
+      );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.listSecurityFindingsAutomationDefaultInboxRules(
+            responseContext
+          );
+        });
+    });
+  }
+
+  /**
    * Get all due date rules for the current organization.
    * @param param The request object
    */
@@ -26075,6 +27608,31 @@ export class SecurityMonitoringApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.listSecurityFindingsAutomationDueDateRules(
+            responseContext
+          );
+        });
+    });
+  }
+
+  /**
+   * Get all inbox rules for the current organization.
+   * @param param The request object
+   */
+  public listSecurityFindingsAutomationInboxRules(
+    param: SecurityMonitoringApiListSecurityFindingsAutomationInboxRulesRequest = {},
+    options?: Configuration
+  ): Promise<InboxRulesResponse> {
+    const requestContextPromise =
+      this.requestFactory.listSecurityFindingsAutomationInboxRules(
+        param.pageSize,
+        param.pageNumber,
+        options
+      );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.listSecurityFindingsAutomationInboxRules(
             responseContext
           );
         });
@@ -26722,6 +28280,30 @@ export class SecurityMonitoringApi {
   }
 
   /**
+   * Reorder the list of inbox rules for the current organization.
+   * @param param The request object
+   */
+  public reorderSecurityFindingsAutomationInboxRules(
+    param: SecurityMonitoringApiReorderSecurityFindingsAutomationInboxRulesRequest,
+    options?: Configuration
+  ): Promise<InboxRuleReorderResponse> {
+    const requestContextPromise =
+      this.requestFactory.reorderSecurityFindingsAutomationInboxRules(
+        param.body,
+        options
+      );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.reorderSecurityFindingsAutomationInboxRules(
+            responseContext
+          );
+        });
+    });
+  }
+
+  /**
    * Reorder the list of mute rules for the current organization.
    * @param param The request object
    */
@@ -27198,7 +28780,7 @@ export class SecurityMonitoringApi {
   }
 
   /**
-   * Update an existing due date rule by ID.
+   * Update a due date rule by ID.
    * @param param The request object
    */
   public updateSecurityFindingsAutomationDueDateRule(
@@ -27223,7 +28805,32 @@ export class SecurityMonitoringApi {
   }
 
   /**
-   * Update an existing mute rule by ID.
+   * Update an inbox rule by ID.
+   * @param param The request object
+   */
+  public updateSecurityFindingsAutomationInboxRule(
+    param: SecurityMonitoringApiUpdateSecurityFindingsAutomationInboxRuleRequest,
+    options?: Configuration
+  ): Promise<InboxRuleResponse> {
+    const requestContextPromise =
+      this.requestFactory.updateSecurityFindingsAutomationInboxRule(
+        param.ruleId,
+        param.body,
+        options
+      );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.updateSecurityFindingsAutomationInboxRule(
+            responseContext
+          );
+        });
+    });
+  }
+
+  /**
+   * Update a mute rule by ID.
    * @param param The request object
    */
   public updateSecurityFindingsAutomationMuteRule(
@@ -27248,7 +28855,7 @@ export class SecurityMonitoringApi {
   }
 
   /**
-   * Update an existing severity modifier rule by ID.
+   * Update a severity modifier rule by ID.
    * @param param The request object
    */
   public updateSecurityFindingsAutomationSeverityModifierRule(
@@ -27273,7 +28880,7 @@ export class SecurityMonitoringApi {
   }
 
   /**
-   * Update an existing ticket creation rule by ID.
+   * Update a ticket creation rule by ID.
    * @param param The request object
    */
   public updateSecurityFindingsAutomationTicketCreationRule(
