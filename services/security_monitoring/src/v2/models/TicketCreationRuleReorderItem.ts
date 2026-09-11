@@ -7,7 +7,7 @@ import { TicketCreationRuleType } from "./TicketCreationRuleType";
  */
 export class TicketCreationRuleReorderItem {
   /**
-   * The ID of the automation rule.
+   * The ID of the ticket creation rule.
    */
   "id": string;
   /**

@@ -7,7 +7,7 @@ import { MuteRuleReorderItem } from "./MuteRuleReorderItem";
  */
 export class MuteRuleReorderRequest {
   /**
-   * The ordered list of all mute rules; every rule must be included.
+   * The ordered list of all mute rules. Every rule must be included.
    */
   "data": Array<MuteRuleReorderItem>;
   /**
