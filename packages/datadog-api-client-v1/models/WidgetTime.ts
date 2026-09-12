@@ -3,6 +3,7 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
+import { WidgetCalendarAlignedSpan } from "./WidgetCalendarAlignedSpan";
 import { WidgetLegacyLiveSpan } from "./WidgetLegacyLiveSpan";
 import { WidgetNewFixedSpan } from "./WidgetNewFixedSpan";
 import { WidgetNewLiveSpan } from "./WidgetNewLiveSpan";
@@ -17,4 +18,5 @@ export type WidgetTime =
   | WidgetLegacyLiveSpan
   | WidgetNewLiveSpan
   | WidgetNewFixedSpan
+  | WidgetCalendarAlignedSpan
   | UnparsedObject;
