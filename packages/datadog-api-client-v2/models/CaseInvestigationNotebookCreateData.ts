@@ -3,18 +3,18 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
-import { NotebookCreateData } from "./NotebookCreateData";
+import { CaseInvestigationNotebookResourceType } from "./CaseInvestigationNotebookResourceType";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * Notebook creation request
+ * Case investigation notebook creation data.
  */
-export class NotebookCreateRequest {
+export class CaseInvestigationNotebookCreateData {
   /**
-   * Notebook creation data
+   * Case investigation notebook resource type.
    */
-  "data": NotebookCreateData;
+  "type": CaseInvestigationNotebookResourceType;
 
   /**
    * A container for additional, undeclared properties.
@@ -32,9 +32,9 @@ export class NotebookCreateRequest {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    data: {
-      baseName: "data",
-      type: "NotebookCreateData",
+    type: {
+      baseName: "type",
+      type: "CaseInvestigationNotebookResourceType",
       required: true,
     },
     additionalProperties: {
@@ -47,7 +47,7 @@ export class NotebookCreateRequest {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-    return NotebookCreateRequest.attributeTypeMap;
+    return CaseInvestigationNotebookCreateData.attributeTypeMap;
   }
 
   public constructor() {}
