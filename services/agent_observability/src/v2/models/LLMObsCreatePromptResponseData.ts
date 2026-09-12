@@ -1,16 +1,20 @@
 import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
-import { LLMObsCreatePromptDataAttributes } from "./LLMObsCreatePromptDataAttributes";
+import { LLMObsCreatePromptResponseDataAttributes } from "./LLMObsCreatePromptResponseDataAttributes";
 import { LLMObsPromptType } from "./LLMObsPromptType";
 
 /**
- * Data object for creating an Agent Observability prompt.
+ * Data object returned after creating an Agent Observability prompt.
  */
-export class LLMObsCreatePromptData {
+export class LLMObsCreatePromptResponseData {
   /**
-   * Attributes for creating an Agent Observability prompt and its first version. `prompt_id` and `template` are required; all other attributes are optional. If `config` is omitted, the first version stores an empty object.
+   * Attributes returned after creating an Agent Observability prompt and its first version.
    */
-  "attributes": LLMObsCreatePromptDataAttributes;
+  "attributes": LLMObsCreatePromptResponseDataAttributes;
+  /**
+   * Unique identifier of the prompt.
+   */
+  "id": string;
   /**
    * Resource type of an Agent Observability prompt.
    */
@@ -32,7 +36,12 @@ export class LLMObsCreatePromptData {
   static readonly attributeTypeMap: AttributeTypeMap = {
     attributes: {
       baseName: "attributes",
-      type: "LLMObsCreatePromptDataAttributes",
+      type: "LLMObsCreatePromptResponseDataAttributes",
+      required: true,
+    },
+    id: {
+      baseName: "id",
+      type: "string",
       required: true,
     },
     type: {
@@ -50,7 +59,7 @@ export class LLMObsCreatePromptData {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-    return LLMObsCreatePromptData.attributeTypeMap;
+    return LLMObsCreatePromptResponseData.attributeTypeMap;
   }
 
   public constructor() {}

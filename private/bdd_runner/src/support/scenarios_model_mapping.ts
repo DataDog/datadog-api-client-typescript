@@ -2909,7 +2909,7 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
       type: "LLMObsCreatePromptRequest",
       format: "",
     },
-    operationResponseType: "LLMObsPromptResponse",
+    operationResponseType: "LLMObsCreatePromptResponse",
   },
   "AgentObservabilityApi.V2.GetLLMObsPrompt": {
     promptId: {
