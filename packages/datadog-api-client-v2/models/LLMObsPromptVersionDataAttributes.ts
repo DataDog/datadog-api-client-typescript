@@ -17,6 +17,10 @@ export class LLMObsPromptVersionDataAttributes {
    */
   "author"?: string;
   /**
+   * Customer-owned configuration delivered with a prompt version. Datadog stores and returns the object without interpolating it, validating provider-specific keys, or applying it to model calls. Do not include secrets.
+   */
+  "config": { [key: string]: any };
+  /**
    * Timestamp stored on this prompt version.
    */
   "createdAt"?: Date;
@@ -92,6 +96,11 @@ export class LLMObsPromptVersionDataAttributes {
     author: {
       baseName: "author",
       type: "string",
+    },
+    config: {
+      baseName: "config",
+      type: "{ [key: string]: any; }",
+      required: true,
     },
     createdAt: {
       baseName: "created_at",

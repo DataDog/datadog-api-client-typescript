@@ -36,6 +36,7 @@ import { LLMObsAnnotationQueueUpdateRequest } from "../models/LLMObsAnnotationQu
 import { LLMObsAnnotationsRequest } from "../models/LLMObsAnnotationsRequest";
 import { LLMObsAnnotationsResponse } from "../models/LLMObsAnnotationsResponse";
 import { LLMObsCreatePromptRequest } from "../models/LLMObsCreatePromptRequest";
+import { LLMObsCreatePromptResponse } from "../models/LLMObsCreatePromptResponse";
 import { LLMObsCreatePromptVersionRequest } from "../models/LLMObsCreatePromptVersionRequest";
 import { LLMObsCustomEvalConfigListResponse } from "../models/LLMObsCustomEvalConfigListResponse";
 import { LLMObsCustomEvalConfigResponse } from "../models/LLMObsCustomEvalConfigResponse";
@@ -5472,15 +5473,15 @@ export class AgentObservabilityApiResponseProcessor {
    */
   public async createLLMObsPrompt(
     response: ResponseContext
-  ): Promise<LLMObsPromptResponse> {
+  ): Promise<LLMObsCreatePromptResponse> {
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 200) {
-      const body: LLMObsPromptResponse = ObjectSerializer.deserialize(
+      const body: LLMObsCreatePromptResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
-        "LLMObsPromptResponse"
-      ) as LLMObsPromptResponse;
+        "LLMObsCreatePromptResponse"
+      ) as LLMObsCreatePromptResponse;
       return body;
     }
     if (
@@ -5534,11 +5535,11 @@ export class AgentObservabilityApiResponseProcessor {
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-      const body: LLMObsPromptResponse = ObjectSerializer.deserialize(
+      const body: LLMObsCreatePromptResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
-        "LLMObsPromptResponse",
+        "LLMObsCreatePromptResponse",
         ""
-      ) as LLMObsPromptResponse;
+      ) as LLMObsCreatePromptResponse;
       return body;
     }
 
@@ -12044,7 +12045,7 @@ export class AgentObservabilityApi {
   public createLLMObsPrompt(
     param: AgentObservabilityApiCreateLLMObsPromptRequest,
     options?: Configuration
-  ): Promise<LLMObsPromptResponse> {
+  ): Promise<LLMObsCreatePromptResponse> {
     const requestContextPromise = this.requestFactory.createLLMObsPrompt(
       param.body,
       options
@@ -12611,7 +12612,7 @@ export class AgentObservabilityApi {
   }
 
   /**
-   * Get the full template of a single, specific version of an Agent Observability prompt.
+   * Get the full template and configuration of a single, specific version of an Agent Observability prompt.
    * @param param The request object
    */
   public getLLMObsPromptVersion(
