@@ -12,6 +12,11 @@ const params: v2.AgentObservabilityApiCreateLLMObsPromptVersionRequest = {
   body: {
     data: {
       attributes: {
+        config: {
+          model: "provider-model",
+          response_format: "{'type': 'json_object'}",
+          temperature: "0.2",
+        },
         envIds: [],
         labels: ["production"],
         template: "You are a helpful assistant for .",

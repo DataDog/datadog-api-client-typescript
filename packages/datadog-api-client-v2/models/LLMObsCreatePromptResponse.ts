@@ -3,23 +3,18 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
-import { LLMObsCreatePromptVersionDataAttributes } from "./LLMObsCreatePromptVersionDataAttributes";
-import { LLMObsPromptVersionType } from "./LLMObsPromptVersionType";
+import { LLMObsCreatePromptResponseData } from "./LLMObsCreatePromptResponseData";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * Data object for creating an Agent Observability prompt version.
+ * Response returned after creating an Agent Observability prompt.
  */
-export class LLMObsCreatePromptVersionData {
+export class LLMObsCreatePromptResponse {
   /**
-   * Attributes for creating a new version of an Agent Observability prompt. `template` is required; all other attributes are optional. If `config` is omitted, the latest version's configuration is carried forward. An explicit empty object clears it.
+   * Data object returned after creating an Agent Observability prompt.
    */
-  "attributes": LLMObsCreatePromptVersionDataAttributes;
-  /**
-   * Resource type of an Agent Observability prompt version.
-   */
-  "type": LLMObsPromptVersionType;
+  "data": LLMObsCreatePromptResponseData;
 
   /**
    * A container for additional, undeclared properties.
@@ -37,14 +32,9 @@ export class LLMObsCreatePromptVersionData {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    attributes: {
-      baseName: "attributes",
-      type: "LLMObsCreatePromptVersionDataAttributes",
-      required: true,
-    },
-    type: {
-      baseName: "type",
-      type: "LLMObsPromptVersionType",
+    data: {
+      baseName: "data",
+      type: "LLMObsCreatePromptResponseData",
       required: true,
     },
     additionalProperties: {
@@ -57,7 +47,7 @@ export class LLMObsCreatePromptVersionData {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-    return LLMObsCreatePromptVersionData.attributeTypeMap;
+    return LLMObsCreatePromptResponse.attributeTypeMap;
   }
 
   public constructor() {}

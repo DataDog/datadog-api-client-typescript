@@ -13,7 +13,7 @@ import { AttributeTypeMap } from "../../datadog-api-client-common/util";
  */
 export class LLMObsCreatePromptData {
   /**
-   * Attributes for creating an Agent Observability prompt and its first version. `prompt_id` and `template` are required; all other attributes are optional.
+   * Attributes for creating an Agent Observability prompt and its first version. `prompt_id` and `template` are required; all other attributes are optional. If `config` is omitted, the first version stores an empty object.
    */
   "attributes": LLMObsCreatePromptDataAttributes;
   /**
