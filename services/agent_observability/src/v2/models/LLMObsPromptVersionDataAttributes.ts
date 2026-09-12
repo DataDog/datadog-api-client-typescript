@@ -4,13 +4,17 @@ import { LLMObsPromptDataset } from "./LLMObsPromptDataset";
 import { LLMObsPromptTemplate } from "./LLMObsPromptTemplate";
 
 /**
- * Attributes of a specific version of an Agent Observability prompt.
+ * Attributes of a specific version of an Agent Observability prompt. For a composed version, `authoring_template` contains its pinned include-bearing source; ordinary versions omit that attribute.
  */
 export class LLMObsPromptVersionDataAttributes {
   /**
    * UUID of the user who authored this version.
    */
   "author"?: string;
+  /**
+   * A text template, a list of chat messages, or an authored chat object. Text can include an exact prompt version with `{{>prompt-id version=N}}`. Use an authored chat object when including prompts as chat messages.
+   */
+  "authoringTemplate"?: LLMObsPromptTemplate;
   /**
    * Timestamp stored on this prompt version.
    */
@@ -52,7 +56,7 @@ export class LLMObsPromptVersionDataAttributes {
    */
   "tags"?: Array<string>;
   /**
-   * A text template or a list of chat messages.
+   * A text template, a list of chat messages, or an authored chat object. Text can include an exact prompt version with `{{>prompt-id version=N}}`. Use an authored chat object when including prompts as chat messages.
    */
   "template": LLMObsPromptTemplate;
   /**
@@ -85,6 +89,10 @@ export class LLMObsPromptVersionDataAttributes {
     author: {
       baseName: "author",
       type: "string",
+    },
+    authoringTemplate: {
+      baseName: "authoring_template",
+      type: "LLMObsPromptTemplate",
     },
     createdAt: {
       baseName: "created_at",

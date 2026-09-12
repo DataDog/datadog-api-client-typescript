@@ -8,7 +8,7 @@ import { LLMObsPromptVersionType } from "./LLMObsPromptVersionType";
  */
 export class LLMObsPromptVersionData {
   /**
-   * Attributes of a specific version of an Agent Observability prompt.
+   * Attributes of a specific version of an Agent Observability prompt. For a composed version, `authoring_template` contains its pinned include-bearing source; ordinary versions omit that attribute.
    */
   "attributes": LLMObsPromptVersionDataAttributes;
   /**
