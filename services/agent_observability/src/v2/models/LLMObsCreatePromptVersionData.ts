@@ -8,7 +8,7 @@ import { LLMObsPromptVersionType } from "./LLMObsPromptVersionType";
  */
 export class LLMObsCreatePromptVersionData {
   /**
-   * Attributes for creating a new version of an Agent Observability prompt. `template` is required; all other attributes are optional.
+   * Attributes for creating a new version of an Agent Observability prompt. `template` is required; all other attributes are optional. If `config` is omitted, the latest version's configuration is carried forward. An explicit empty object clears it.
    */
   "attributes": LLMObsCreatePromptVersionDataAttributes;
   /**
