@@ -30,6 +30,10 @@ export class FormVersionAttributes {
    */
   "etag": string | null;
   /**
+   * Whether this version number has ever appeared in the form's publication history.
+   */
+  "hasEverBeenPublished"?: boolean;
+  /**
    * The ID of the form version.
    */
   "id"?: string;
@@ -94,6 +98,10 @@ export class FormVersionAttributes {
       baseName: "etag",
       type: "string",
       required: true,
+    },
+    hasEverBeenPublished: {
+      baseName: "has_ever_been_published",
+      type: "boolean",
     },
     id: {
       baseName: "id",
