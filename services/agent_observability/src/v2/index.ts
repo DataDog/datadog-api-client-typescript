@@ -404,9 +404,12 @@ export { LLMObsProjectUpdateDataAttributesRequest } from "./models/LLMObsProject
 export { LLMObsProjectUpdateDataRequest } from "./models/LLMObsProjectUpdateDataRequest";
 export { LLMObsProjectUpdateRequest } from "./models/LLMObsProjectUpdateRequest";
 export { LLMObsPromptChatMessage } from "./models/LLMObsPromptChatMessage";
+export { LLMObsPromptChatTemplateItem } from "./models/LLMObsPromptChatTemplateItem";
 export { LLMObsPromptData } from "./models/LLMObsPromptData";
 export { LLMObsPromptDataAttributes } from "./models/LLMObsPromptDataAttributes";
 export { LLMObsPromptDataset } from "./models/LLMObsPromptDataset";
+export { LLMObsPromptMessagePlaceholder } from "./models/LLMObsPromptMessagePlaceholder";
+export { LLMObsPromptMessagePlaceholderType } from "./models/LLMObsPromptMessagePlaceholderType";
 export { LLMObsPromptResponse } from "./models/LLMObsPromptResponse";
 export { LLMObsPromptResponseSource } from "./models/LLMObsPromptResponseSource";
 export { LLMObsPromptSDKData } from "./models/LLMObsPromptSDKData";
