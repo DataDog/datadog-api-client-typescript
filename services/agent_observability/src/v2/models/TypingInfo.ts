@@ -277,10 +277,13 @@ import { LLMObsProjectUpdateDataAttributesRequest } from "./LLMObsProjectUpdateD
 import { LLMObsProjectUpdateDataRequest } from "./LLMObsProjectUpdateDataRequest";
 import { LLMObsProjectUpdateRequest } from "./LLMObsProjectUpdateRequest";
 import { LLMObsProjectsResponse } from "./LLMObsProjectsResponse";
+import { LLMObsPromptAuthoringMessagesTemplate } from "./LLMObsPromptAuthoringMessagesTemplate";
 import { LLMObsPromptChatMessage } from "./LLMObsPromptChatMessage";
 import { LLMObsPromptData } from "./LLMObsPromptData";
 import { LLMObsPromptDataAttributes } from "./LLMObsPromptDataAttributes";
 import { LLMObsPromptDataset } from "./LLMObsPromptDataset";
+import { LLMObsPromptInclude } from "./LLMObsPromptInclude";
+import { LLMObsPromptIncludeItem } from "./LLMObsPromptIncludeItem";
 import { LLMObsPromptResponse } from "./LLMObsPromptResponse";
 import { LLMObsPromptSDKData } from "./LLMObsPromptSDKData";
 import { LLMObsPromptSDKDataAttributes } from "./LLMObsPromptSDKDataAttributes";
@@ -450,7 +453,15 @@ export const TypingInfo: ModelTypingInfo = {
       "LLMObsTraceInteractionResponseItem",
       "LLMObsDisplayBlockInteractionResponseItem",
     ],
-    LLMObsPromptTemplate: ["string", "Array<LLMObsPromptChatMessage>"],
+    LLMObsPromptAuthoringItem: [
+      "LLMObsPromptChatMessage",
+      "LLMObsPromptIncludeItem",
+    ],
+    LLMObsPromptTemplate: [
+      "string",
+      "Array<LLMObsPromptChatMessage>",
+      "LLMObsPromptAuthoringMessagesTemplate",
+    ],
   },
   typeMap: {
     APIErrorResponse: APIErrorResponse,
@@ -823,10 +834,14 @@ export const TypingInfo: ModelTypingInfo = {
     LLMObsProjectUpdateDataRequest: LLMObsProjectUpdateDataRequest,
     LLMObsProjectUpdateRequest: LLMObsProjectUpdateRequest,
     LLMObsProjectsResponse: LLMObsProjectsResponse,
+    LLMObsPromptAuthoringMessagesTemplate:
+      LLMObsPromptAuthoringMessagesTemplate,
     LLMObsPromptChatMessage: LLMObsPromptChatMessage,
     LLMObsPromptData: LLMObsPromptData,
     LLMObsPromptDataAttributes: LLMObsPromptDataAttributes,
     LLMObsPromptDataset: LLMObsPromptDataset,
+    LLMObsPromptInclude: LLMObsPromptInclude,
+    LLMObsPromptIncludeItem: LLMObsPromptIncludeItem,
     LLMObsPromptResponse: LLMObsPromptResponse,
     LLMObsPromptSDKData: LLMObsPromptSDKData,
     LLMObsPromptSDKDataAttributes: LLMObsPromptSDKDataAttributes,
