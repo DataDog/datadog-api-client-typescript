@@ -3,7 +3,7 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
-import { LLMObsPromptChatMessage } from "./LLMObsPromptChatMessage";
+import { LLMObsPromptChatTemplateItem } from "./LLMObsPromptChatTemplateItem";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
@@ -12,9 +12,9 @@ import { AttributeTypeMap } from "../../datadog-api-client-common/util";
  */
 export class LLMObsPromptSDKDataAttributes {
   /**
-   * Chat template for this prompt version, as a list of role and content messages. Omitted for text templates.
+   * Chat template for this prompt version, as a list of messages and named message placeholders. Omitted for text templates.
    */
-  "chatTemplate"?: Array<LLMObsPromptChatMessage>;
+  "chatTemplate"?: Array<LLMObsPromptChatTemplateItem>;
   /**
    * Labels attached to the selected version.
    */
@@ -54,7 +54,7 @@ export class LLMObsPromptSDKDataAttributes {
   static readonly attributeTypeMap: AttributeTypeMap = {
     chatTemplate: {
       baseName: "chat_template",
-      type: "Array<LLMObsPromptChatMessage>",
+      type: "Array<LLMObsPromptChatTemplateItem>",
     },
     labels: {
       baseName: "labels",
