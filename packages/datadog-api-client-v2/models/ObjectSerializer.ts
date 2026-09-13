@@ -2940,10 +2940,13 @@ import { LLMObsProjectUpdateDataAttributesRequest } from "./LLMObsProjectUpdateD
 import { LLMObsProjectUpdateDataRequest } from "./LLMObsProjectUpdateDataRequest";
 import { LLMObsProjectUpdateRequest } from "./LLMObsProjectUpdateRequest";
 import { LLMObsProjectsResponse } from "./LLMObsProjectsResponse";
+import { LLMObsPromptAuthoringMessagesTemplate } from "./LLMObsPromptAuthoringMessagesTemplate";
 import { LLMObsPromptChatMessage } from "./LLMObsPromptChatMessage";
 import { LLMObsPromptData } from "./LLMObsPromptData";
 import { LLMObsPromptDataAttributes } from "./LLMObsPromptDataAttributes";
 import { LLMObsPromptDataset } from "./LLMObsPromptDataset";
+import { LLMObsPromptInclude } from "./LLMObsPromptInclude";
+import { LLMObsPromptIncludeItem } from "./LLMObsPromptIncludeItem";
 import { LLMObsPromptResponse } from "./LLMObsPromptResponse";
 import { LLMObsPromptSDKData } from "./LLMObsPromptSDKData";
 import { LLMObsPromptSDKDataAttributes } from "./LLMObsPromptSDKDataAttributes";
@@ -12912,10 +12915,13 @@ const typeMap: { [index: string]: any } = {
   LLMObsProjectUpdateDataRequest: LLMObsProjectUpdateDataRequest,
   LLMObsProjectUpdateRequest: LLMObsProjectUpdateRequest,
   LLMObsProjectsResponse: LLMObsProjectsResponse,
+  LLMObsPromptAuthoringMessagesTemplate: LLMObsPromptAuthoringMessagesTemplate,
   LLMObsPromptChatMessage: LLMObsPromptChatMessage,
   LLMObsPromptData: LLMObsPromptData,
   LLMObsPromptDataAttributes: LLMObsPromptDataAttributes,
   LLMObsPromptDataset: LLMObsPromptDataset,
+  LLMObsPromptInclude: LLMObsPromptInclude,
+  LLMObsPromptIncludeItem: LLMObsPromptIncludeItem,
   LLMObsPromptResponse: LLMObsPromptResponse,
   LLMObsPromptSDKData: LLMObsPromptSDKData,
   LLMObsPromptSDKDataAttributes: LLMObsPromptSDKDataAttributes,
@@ -17188,7 +17194,15 @@ const oneOfMap: { [index: string]: string[] } = {
     "LLMObsTraceInteractionResponseItem",
     "LLMObsDisplayBlockInteractionResponseItem",
   ],
-  LLMObsPromptTemplate: ["string", "Array<LLMObsPromptChatMessage>"],
+  LLMObsPromptAuthoringItem: [
+    "LLMObsPromptChatMessage",
+    "LLMObsPromptIncludeItem",
+  ],
+  LLMObsPromptTemplate: [
+    "string",
+    "Array<LLMObsPromptChatMessage>",
+    "LLMObsPromptAuthoringMessagesTemplate",
+  ],
   LaunchDarklyCredentials: ["LaunchDarklyAPIKey"],
   LaunchDarklyCredentialsUpdate: ["LaunchDarklyAPIKeyUpdate"],
   ListEntityCatalogResponseIncludedItem: [
