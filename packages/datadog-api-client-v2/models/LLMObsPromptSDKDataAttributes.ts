@@ -16,6 +16,10 @@ export class LLMObsPromptSDKDataAttributes {
    */
   "chatTemplate"?: Array<LLMObsPromptChatMessage>;
   /**
+   * Customer-owned configuration delivered with a prompt version. Datadog stores and returns the object without interpolating it, validating provider-specific keys, or applying it to model calls. Do not include secrets.
+   */
+  "config": { [key: string]: any };
+  /**
    * Labels attached to the selected version.
    */
   "labels"?: Array<string>;
@@ -55,6 +59,11 @@ export class LLMObsPromptSDKDataAttributes {
     chatTemplate: {
       baseName: "chat_template",
       type: "Array<LLMObsPromptChatMessage>",
+    },
+    config: {
+      baseName: "config",
+      type: "{ [key: string]: any; }",
+      required: true,
     },
     labels: {
       baseName: "labels",

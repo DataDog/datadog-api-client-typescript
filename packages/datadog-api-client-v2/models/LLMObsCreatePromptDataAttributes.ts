@@ -9,9 +9,13 @@ import { LLMObsPromptVersionLabel } from "./LLMObsPromptVersionLabel";
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * Attributes for creating an Agent Observability prompt and its first version. `prompt_id` and `template` are required; all other attributes are optional.
+ * Attributes for creating an Agent Observability prompt and its first version. `prompt_id` and `template` are required; all other attributes are optional. If `config` is omitted, the first version stores an empty object.
  */
 export class LLMObsCreatePromptDataAttributes {
+  /**
+   * Customer-owned configuration delivered with a prompt version. Datadog stores and returns the object without interpolating it, validating provider-specific keys, or applying it to model calls. Do not include secrets.
+   */
+  "config"?: { [key: string]: any };
   /**
    * Optional description of the prompt.
    */
@@ -57,6 +61,10 @@ export class LLMObsCreatePromptDataAttributes {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
+    config: {
+      baseName: "config",
+      type: "{ [key: string]: any; }",
+    },
     description: {
       baseName: "description",
       type: "string",

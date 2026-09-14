@@ -2724,6 +2724,9 @@ import { LLMObsContentBlockTimeFrame } from "./LLMObsContentBlockTimeFrame";
 import { LLMObsCreatePromptData } from "./LLMObsCreatePromptData";
 import { LLMObsCreatePromptDataAttributes } from "./LLMObsCreatePromptDataAttributes";
 import { LLMObsCreatePromptRequest } from "./LLMObsCreatePromptRequest";
+import { LLMObsCreatePromptResponse } from "./LLMObsCreatePromptResponse";
+import { LLMObsCreatePromptResponseData } from "./LLMObsCreatePromptResponseData";
+import { LLMObsCreatePromptResponseDataAttributes } from "./LLMObsCreatePromptResponseDataAttributes";
 import { LLMObsCreatePromptVersionData } from "./LLMObsCreatePromptVersionData";
 import { LLMObsCreatePromptVersionDataAttributes } from "./LLMObsCreatePromptVersionDataAttributes";
 import { LLMObsCreatePromptVersionRequest } from "./LLMObsCreatePromptVersionRequest";
@@ -12646,6 +12649,10 @@ const typeMap: { [index: string]: any } = {
   LLMObsCreatePromptData: LLMObsCreatePromptData,
   LLMObsCreatePromptDataAttributes: LLMObsCreatePromptDataAttributes,
   LLMObsCreatePromptRequest: LLMObsCreatePromptRequest,
+  LLMObsCreatePromptResponse: LLMObsCreatePromptResponse,
+  LLMObsCreatePromptResponseData: LLMObsCreatePromptResponseData,
+  LLMObsCreatePromptResponseDataAttributes:
+    LLMObsCreatePromptResponseDataAttributes,
   LLMObsCreatePromptVersionData: LLMObsCreatePromptVersionData,
   LLMObsCreatePromptVersionDataAttributes:
     LLMObsCreatePromptVersionDataAttributes,
