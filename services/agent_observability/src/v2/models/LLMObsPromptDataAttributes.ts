@@ -4,7 +4,7 @@ import { LLMObsPromptDataset } from "./LLMObsPromptDataset";
 import { LLMObsPromptResponseSource } from "./LLMObsPromptResponseSource";
 
 /**
- * Attributes of an Agent Observability prompt registry entry.
+ * Attributes of an Agent Observability prompt registry entry. Prompt list and metadata-update responses omit complete template and configuration data.
  */
 export class LLMObsPromptDataAttributes {
   /**

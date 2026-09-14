@@ -1,14 +1,14 @@
 import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
 import { LLMObsPromptDataset } from "./LLMObsPromptDataset";
-import { LLMObsPromptTemplate } from "./LLMObsPromptTemplate";
+import { LLMObsPromptResponseSource } from "./LLMObsPromptResponseSource";
 
 /**
- * Attributes of a specific version of an Agent Observability prompt.
+ * Attributes returned after creating an Agent Observability prompt and its first version.
  */
-export class LLMObsPromptVersionDataAttributes {
+export class LLMObsCreatePromptResponseDataAttributes {
   /**
-   * UUID of the user who authored this version.
+   * UUID of the user who authored the prompt.
    */
   "author"?: string;
   /**
@@ -16,61 +16,65 @@ export class LLMObsPromptVersionDataAttributes {
    */
   "config": { [key: string]: any };
   /**
-   * Timestamp stored on this prompt version.
+   * Timestamp when the prompt was created.
    */
   "createdAt"?: Date;
   /**
-   * Datasets observed in runs associated with this prompt version.
+   * Source that created the prompt, such as `ui-registry`, `sdk-registry`, or `sdk-instrumentation`.
+   */
+  "createdFrom": string;
+  /**
+   * Datasets observed in runs associated with this prompt.
    */
   "datasets"?: Array<LLMObsPromptDataset>;
   /**
-   * Description of this version.
+   * Description of the prompt.
    */
   "description"?: string;
   /**
-   * Labels attached to this version (for example `development`, `staging`, `production`).
+   * Source prompt from which this prompt was extracted, when applicable.
    */
-  "labels"?: Array<string>;
+  "extractedFrom"?: string;
   /**
-   * Timestamp of the most recent observed run of this prompt version.
+   * Whether the prompt is a registry entry (as opposed to a code-discovered prompt).
+   */
+  "inRegistry": boolean;
+  /**
+   * Timestamp of the most recent observed run of this prompt.
    */
   "lastSeenAt"?: Date;
+  /**
+   * Timestamp when the most recent version of the prompt was created.
+   */
+  "lastVersionCreatedAt"?: Date;
   /**
    * The ML application this prompt is associated with.
    */
   "mlApp"?: string;
   /**
-   * ML applications observed running this prompt version.
+   * ML applications observed running this prompt.
    */
   "mlApps"?: Array<string>;
   /**
-   * Customer-provided identifier of the parent prompt.
+   * Number of versions of the prompt.
+   */
+  "numVersions": number;
+  /**
+   * Customer-provided identifier of the prompt.
    */
   "promptId": string;
   /**
-   * Unique identifier of the parent prompt.
+   * Whether the prompt was created from the registry or discovered from observed LLM calls.
    */
-  "promptUuid": string;
+  "source": LLMObsPromptResponseSource;
   /**
-   * Tags observed on runs of this prompt version.
+   * Tags observed on runs of this prompt.
    */
   "tags"?: Array<string>;
   /**
-   * A text template or a list of chat messages.
+   * Title of the prompt.
    */
-  "template": LLMObsPromptTemplate;
-  /**
-   * User-supplied identifier for this version.
-   */
-  "userVersion"?: string;
-  /**
-   * Sequential version number.
-   */
-  "version": number;
-  /**
-   * Timestamp when this version was created.
-   */
-  "versionCreatedAt"?: Date;
+  "title"?: string;
   /**
    * A container for additional, undeclared properties.
    * This is a holder for any undeclared properties as specified with
@@ -100,6 +104,11 @@ export class LLMObsPromptVersionDataAttributes {
       type: "Date",
       format: "date-time",
     },
+    createdFrom: {
+      baseName: "created_from",
+      type: "string",
+      required: true,
+    },
     datasets: {
       baseName: "datasets",
       type: "Array<LLMObsPromptDataset>",
@@ -108,12 +117,22 @@ export class LLMObsPromptVersionDataAttributes {
       baseName: "description",
       type: "string",
     },
-    labels: {
-      baseName: "labels",
-      type: "Array<string>",
+    extractedFrom: {
+      baseName: "extracted_from",
+      type: "string",
+    },
+    inRegistry: {
+      baseName: "in_registry",
+      type: "boolean",
+      required: true,
     },
     lastSeenAt: {
       baseName: "last_seen_at",
+      type: "Date",
+      format: "date-time",
+    },
+    lastVersionCreatedAt: {
+      baseName: "last_version_created_at",
       type: "Date",
       format: "date-time",
     },
@@ -125,39 +144,29 @@ export class LLMObsPromptVersionDataAttributes {
       baseName: "ml_apps",
       type: "Array<string>",
     },
+    numVersions: {
+      baseName: "num_versions",
+      type: "number",
+      required: true,
+      format: "int64",
+    },
     promptId: {
       baseName: "prompt_id",
       type: "string",
       required: true,
     },
-    promptUuid: {
-      baseName: "prompt_uuid",
-      type: "string",
+    source: {
+      baseName: "source",
+      type: "LLMObsPromptResponseSource",
       required: true,
     },
     tags: {
       baseName: "tags",
       type: "Array<string>",
     },
-    template: {
-      baseName: "template",
-      type: "LLMObsPromptTemplate",
-      required: true,
-    },
-    userVersion: {
-      baseName: "user_version",
+    title: {
+      baseName: "title",
       type: "string",
-    },
-    version: {
-      baseName: "version",
-      type: "number",
-      required: true,
-      format: "int64",
-    },
-    versionCreatedAt: {
-      baseName: "version_created_at",
-      type: "Date",
-      format: "date-time",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -169,7 +178,7 @@ export class LLMObsPromptVersionDataAttributes {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-    return LLMObsPromptVersionDataAttributes.attributeTypeMap;
+    return LLMObsCreatePromptResponseDataAttributes.attributeTypeMap;
   }
 
   public constructor() {}
