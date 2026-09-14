@@ -1,15 +1,9 @@
 import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
-import { DeviceTagsBySource } from "./DeviceTagsBySource";
-
 /**
  * The definition of ListTagsResponseDataAttributes object.
  */
 export class ListTagsResponseDataAttributes {
-  /**
-   * The list of device tags grouped by source.
-   */
-  "bySource"?: Array<DeviceTagsBySource>;
   /**
    * The list of tags
    */
@@ -29,10 +23,6 @@ export class ListTagsResponseDataAttributes {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    bySource: {
-      baseName: "by_source",
-      type: "Array<DeviceTagsBySource>",
-    },
     tags: {
       baseName: "tags",
       type: "Array<string>",

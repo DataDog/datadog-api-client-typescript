@@ -1,5 +1,6 @@
 import { UnparsedObject } from "@datadog/datadog-api-client";
 
+import { MonitorConfigPolicyDowntimePolicy } from "./MonitorConfigPolicyDowntimePolicy";
 import { MonitorConfigPolicyTagPolicy } from "./MonitorConfigPolicyTagPolicy";
 
 /**
@@ -7,4 +8,5 @@ import { MonitorConfigPolicyTagPolicy } from "./MonitorConfigPolicyTagPolicy";
  */
 export type MonitorConfigPolicyPolicy =
   | MonitorConfigPolicyTagPolicy
+  | MonitorConfigPolicyDowntimePolicy
   | UnparsedObject;
