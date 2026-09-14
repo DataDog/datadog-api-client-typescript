@@ -1,17 +1,15 @@
 import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
-import { DeviceTagsBySource } from "./DeviceTagsBySource";
-
 /**
- * The definition of ListTagsResponseDataAttributes object.
+ * Tags associated with a device from a specific source.
  */
-export class ListTagsResponseDataAttributes {
+export class DeviceTagsBySource {
   /**
-   * The list of device tags grouped by source.
+   * The source of the tags.
    */
-  "bySource"?: Array<DeviceTagsBySource>;
+  "source"?: string;
   /**
-   * The list of tags
+   * The list of tags for the source.
    */
   "tags"?: Array<string>;
   /**
@@ -29,9 +27,9 @@ export class ListTagsResponseDataAttributes {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    bySource: {
-      baseName: "by_source",
-      type: "Array<DeviceTagsBySource>",
+    source: {
+      baseName: "source",
+      type: "string",
     },
     tags: {
       baseName: "tags",
@@ -47,7 +45,7 @@ export class ListTagsResponseDataAttributes {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-    return ListTagsResponseDataAttributes.attributeTypeMap;
+    return DeviceTagsBySource.attributeTypeMap;
   }
 
   public constructor() {}

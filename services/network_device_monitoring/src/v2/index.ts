@@ -13,6 +13,7 @@ export { APIErrorResponse } from "./models/APIErrorResponse";
 export { DeviceAttributes } from "./models/DeviceAttributes";
 export { DeviceAttributesInterfaceStatuses } from "./models/DeviceAttributesInterfaceStatuses";
 export { DevicesListData } from "./models/DevicesListData";
+export { DeviceTagsBySource } from "./models/DeviceTagsBySource";
 export { GetDeviceAttributes } from "./models/GetDeviceAttributes";
 export { GetDeviceData } from "./models/GetDeviceData";
 export { GetDeviceResponse } from "./models/GetDeviceResponse";
