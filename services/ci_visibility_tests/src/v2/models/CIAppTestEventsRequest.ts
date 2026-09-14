@@ -1,8 +1,8 @@
 import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
 import { CIAppQueryOptions } from "./CIAppQueryOptions";
-import { CIAppQueryPageOptions } from "./CIAppQueryPageOptions";
 import { CIAppSort } from "./CIAppSort";
+import { CIAppTestQueryPageOptions } from "./CIAppTestQueryPageOptions";
 import { CIAppTestsQueryFilter } from "./CIAppTestsQueryFilter";
 
 /**
@@ -19,9 +19,9 @@ export class CIAppTestEventsRequest {
    */
   "options"?: CIAppQueryOptions;
   /**
-   * Paging attributes for listing events.
+   * Paging attributes for listing test events.
    */
-  "page"?: CIAppQueryPageOptions;
+  "page"?: CIAppTestQueryPageOptions;
   /**
    * Sort parameters when querying events.
    */
@@ -51,7 +51,7 @@ export class CIAppTestEventsRequest {
     },
     page: {
       baseName: "page",
-      type: "CIAppQueryPageOptions",
+      type: "CIAppTestQueryPageOptions",
     },
     sort: {
       baseName: "sort",

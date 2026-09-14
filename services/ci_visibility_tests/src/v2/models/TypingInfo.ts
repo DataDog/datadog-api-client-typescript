@@ -7,13 +7,13 @@ import { CIAppCompute } from "./CIAppCompute";
 import { CIAppEventAttributes } from "./CIAppEventAttributes";
 import { CIAppGroupByHistogram } from "./CIAppGroupByHistogram";
 import { CIAppQueryOptions } from "./CIAppQueryOptions";
-import { CIAppQueryPageOptions } from "./CIAppQueryPageOptions";
 import { CIAppResponseLinks } from "./CIAppResponseLinks";
 import { CIAppResponseMetadataWithPagination } from "./CIAppResponseMetadataWithPagination";
 import { CIAppResponsePage } from "./CIAppResponsePage";
 import { CIAppTestEvent } from "./CIAppTestEvent";
 import { CIAppTestEventsRequest } from "./CIAppTestEventsRequest";
 import { CIAppTestEventsResponse } from "./CIAppTestEventsResponse";
+import { CIAppTestQueryPageOptions } from "./CIAppTestQueryPageOptions";
 import { CIAppTestsAggregateRequest } from "./CIAppTestsAggregateRequest";
 import { CIAppTestsAggregationBucketsResponse } from "./CIAppTestsAggregationBucketsResponse";
 import { CIAppTestsAnalyticsAggregateResponse } from "./CIAppTestsAnalyticsAggregateResponse";
@@ -58,6 +58,7 @@ export const TypingInfo: ModelTypingInfo = {
     ],
     CIAppGroupByMissing: ["string", "number"],
     CIAppGroupByTotal: ["boolean", "string", "number"],
+    CIAppTestQueryPageLimit: ["number", "string"],
   },
   typeMap: {
     APIErrorResponse: APIErrorResponse,
@@ -68,13 +69,13 @@ export const TypingInfo: ModelTypingInfo = {
     CIAppEventAttributes: CIAppEventAttributes,
     CIAppGroupByHistogram: CIAppGroupByHistogram,
     CIAppQueryOptions: CIAppQueryOptions,
-    CIAppQueryPageOptions: CIAppQueryPageOptions,
     CIAppResponseLinks: CIAppResponseLinks,
     CIAppResponseMetadataWithPagination: CIAppResponseMetadataWithPagination,
     CIAppResponsePage: CIAppResponsePage,
     CIAppTestEvent: CIAppTestEvent,
     CIAppTestEventsRequest: CIAppTestEventsRequest,
     CIAppTestEventsResponse: CIAppTestEventsResponse,
+    CIAppTestQueryPageOptions: CIAppTestQueryPageOptions,
     CIAppTestsAggregateRequest: CIAppTestsAggregateRequest,
     CIAppTestsAggregationBucketsResponse: CIAppTestsAggregationBucketsResponse,
     CIAppTestsAnalyticsAggregateResponse: CIAppTestsAnalyticsAggregateResponse,

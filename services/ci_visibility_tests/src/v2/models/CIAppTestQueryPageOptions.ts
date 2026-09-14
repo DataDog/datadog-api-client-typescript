@@ -1,17 +1,19 @@
 import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
+import { CIAppTestQueryPageLimit } from "./CIAppTestQueryPageLimit";
+
 /**
- * Paging attributes for listing events.
+ * Paging attributes for listing test events.
  */
-export class CIAppQueryPageOptions {
+export class CIAppTestQueryPageOptions {
   /**
    * List following results with a cursor provided in the previous query.
    */
   "cursor"?: string;
   /**
-   * Maximum number of events in the response.
+   * Maximum number of events in the response, supplied as an integer or a string containing decimal digits.
    */
-  "limit"?: number;
+  "limit"?: CIAppTestQueryPageLimit;
   /**
    * A container for additional, undeclared properties.
    * This is a holder for any undeclared properties as specified with
@@ -33,8 +35,7 @@ export class CIAppQueryPageOptions {
     },
     limit: {
       baseName: "limit",
-      type: "number",
-      format: "int32",
+      type: "CIAppTestQueryPageLimit",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -46,7 +47,7 @@ export class CIAppQueryPageOptions {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-    return CIAppQueryPageOptions.attributeTypeMap;
+    return CIAppTestQueryPageOptions.attributeTypeMap;
   }
 
   public constructor() {}
