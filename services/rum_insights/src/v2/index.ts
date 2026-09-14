@@ -38,6 +38,7 @@ export { AggregatedWaterfallRequestData } from "./models/AggregatedWaterfallRequ
 export { AggregatedWaterfallRequestType } from "./models/AggregatedWaterfallRequestType";
 export { AggregatedWaterfallResponse } from "./models/AggregatedWaterfallResponse";
 export { AggregatedWaterfallResponseAttributes } from "./models/AggregatedWaterfallResponseAttributes";
+export { AggregatedWaterfallResponseAttributesCriteria } from "./models/AggregatedWaterfallResponseAttributesCriteria";
 export { AggregatedWaterfallResponseData } from "./models/AggregatedWaterfallResponseData";
 export { APIErrorResponse } from "./models/APIErrorResponse";
 export { JSONAPIErrorItem } from "./models/JSONAPIErrorItem";
