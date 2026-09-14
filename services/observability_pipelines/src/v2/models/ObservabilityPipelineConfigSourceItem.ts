@@ -11,6 +11,7 @@ import { ObservabilityPipelineHttpServerSource } from "./ObservabilityPipelineHt
 import { ObservabilityPipelineKafkaSource } from "./ObservabilityPipelineKafkaSource";
 import { ObservabilityPipelineLogstashSource } from "./ObservabilityPipelineLogstashSource";
 import { ObservabilityPipelineOpentelemetrySource } from "./ObservabilityPipelineOpentelemetrySource";
+import { ObservabilityPipelinePrometheusRemoteWriteSource } from "./ObservabilityPipelinePrometheusRemoteWriteSource";
 import { ObservabilityPipelineRsyslogSource } from "./ObservabilityPipelineRsyslogSource";
 import { ObservabilityPipelineSocketSource } from "./ObservabilityPipelineSocketSource";
 import { ObservabilityPipelineSplunkHecSource } from "./ObservabilityPipelineSplunkHecSource";
@@ -41,4 +42,5 @@ export type ObservabilityPipelineConfigSourceItem =
   | ObservabilityPipelineSyslogNgSource
   | ObservabilityPipelineWebsocketSource
   | ObservabilityPipelineOpentelemetrySource
+  | ObservabilityPipelinePrometheusRemoteWriteSource
   | UnparsedObject;
