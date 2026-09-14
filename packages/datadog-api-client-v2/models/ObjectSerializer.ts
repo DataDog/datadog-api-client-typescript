@@ -2946,6 +2946,7 @@ import { LLMObsPromptChatMessage } from "./LLMObsPromptChatMessage";
 import { LLMObsPromptData } from "./LLMObsPromptData";
 import { LLMObsPromptDataAttributes } from "./LLMObsPromptDataAttributes";
 import { LLMObsPromptDataset } from "./LLMObsPromptDataset";
+import { LLMObsPromptMessagePlaceholder } from "./LLMObsPromptMessagePlaceholder";
 import { LLMObsPromptResponse } from "./LLMObsPromptResponse";
 import { LLMObsPromptSDKData } from "./LLMObsPromptSDKData";
 import { LLMObsPromptSDKDataAttributes } from "./LLMObsPromptSDKDataAttributes";
@@ -7435,6 +7436,7 @@ const enumsMap: { [key: string]: any[] } = {
   ],
   LLMObsPatternsTriggerResponseType: ["topic_discovery_run"],
   LLMObsProjectType: ["projects"],
+  LLMObsPromptMessagePlaceholderType: ["placeholder"],
   LLMObsPromptResponseSource: ["registry", "code"],
   LLMObsPromptType: ["prompt-templates"],
   LLMObsPromptVersionLabel: ["production", "development"],
@@ -12920,6 +12922,7 @@ const typeMap: { [index: string]: any } = {
   LLMObsPromptData: LLMObsPromptData,
   LLMObsPromptDataAttributes: LLMObsPromptDataAttributes,
   LLMObsPromptDataset: LLMObsPromptDataset,
+  LLMObsPromptMessagePlaceholder: LLMObsPromptMessagePlaceholder,
   LLMObsPromptResponse: LLMObsPromptResponse,
   LLMObsPromptSDKData: LLMObsPromptSDKData,
   LLMObsPromptSDKDataAttributes: LLMObsPromptSDKDataAttributes,
@@ -17193,7 +17196,11 @@ const oneOfMap: { [index: string]: string[] } = {
     "LLMObsTraceInteractionResponseItem",
     "LLMObsDisplayBlockInteractionResponseItem",
   ],
-  LLMObsPromptTemplate: ["string", "Array<LLMObsPromptChatMessage>"],
+  LLMObsPromptChatTemplateItem: [
+    "LLMObsPromptChatMessage",
+    "LLMObsPromptMessagePlaceholder",
+  ],
+  LLMObsPromptTemplate: ["string", "Array<LLMObsPromptChatTemplateItem>"],
   LaunchDarklyCredentials: ["LaunchDarklyAPIKey"],
   LaunchDarklyCredentialsUpdate: ["LaunchDarklyAPIKeyUpdate"],
   ListEntityCatalogResponseIncludedItem: [

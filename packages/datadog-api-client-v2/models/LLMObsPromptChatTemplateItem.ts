@@ -3,15 +3,16 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
-import { LLMObsPromptChatTemplateItem } from "./LLMObsPromptChatTemplateItem";
+import { LLMObsPromptChatMessage } from "./LLMObsPromptChatMessage";
+import { LLMObsPromptMessagePlaceholder } from "./LLMObsPromptMessagePlaceholder";
 
 import { UnparsedObject } from "../../datadog-api-client-common/util";
 
 /**
- * A text template or a list of chat messages.
+ * A chat message or a named message placeholder in a prompt template.
  */
 
-export type LLMObsPromptTemplate =
-  | string
-  | Array<LLMObsPromptChatTemplateItem>
+export type LLMObsPromptChatTemplateItem =
+  | LLMObsPromptChatMessage
+  | LLMObsPromptMessagePlaceholder
   | UnparsedObject;
