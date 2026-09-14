@@ -18,6 +18,8 @@ export class MonitorConfigPolicyAttributeEditRequest {
   "policy": MonitorConfigPolicyPolicy;
   /**
    * The monitor configuration policy type.
+   * `tag` enforces required tags on monitors.
+   * `downtime` sets a maximum downtime duration for the organization.
    */
   "policyType": MonitorConfigPolicyType;
 
