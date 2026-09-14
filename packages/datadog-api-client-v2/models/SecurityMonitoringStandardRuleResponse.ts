@@ -11,8 +11,10 @@ import { SecurityMonitoringRuleCase } from "./SecurityMonitoringRuleCase";
 import { SecurityMonitoringRuleOptions } from "./SecurityMonitoringRuleOptions";
 import { SecurityMonitoringRuleTypeRead } from "./SecurityMonitoringRuleTypeRead";
 import { SecurityMonitoringSchedulingOptions } from "./SecurityMonitoringSchedulingOptions";
+import { SecurityMonitoringStandardDataSource } from "./SecurityMonitoringStandardDataSource";
 import { SecurityMonitoringStandardRuleQuery } from "./SecurityMonitoringStandardRuleQuery";
 import { SecurityMonitoringThirdPartyRuleCase } from "./SecurityMonitoringThirdPartyRuleCase";
+import { SecurityMonitoringUser } from "./SecurityMonitoringUser";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
@@ -20,6 +22,10 @@ import { AttributeTypeMap } from "../../datadog-api-client-common/util";
  * Rule.
  */
 export class SecurityMonitoringStandardRuleResponse {
+  /**
+   * Whether the rule blocks requests.
+   */
+  "blocking"?: boolean;
   /**
    * Calculated fields. Only allowed for scheduled rules - in other words, when schedulingOptions is also defined.
    */
@@ -41,6 +47,10 @@ export class SecurityMonitoringStandardRuleResponse {
    */
   "creationAuthorId"?: number;
   /**
+   * A user.
+   */
+  "creator"?: SecurityMonitoringUser;
+  /**
    * Custom/Overridden message for generated signals (used in case of Default rule update).
    */
   "customMessage"?: string;
@@ -49,9 +59,17 @@ export class SecurityMonitoringStandardRuleResponse {
    */
   "customName"?: string;
   /**
+   * Source of events, either logs, audit trail, security signals, or Datadog events. `app_sec_spans` is deprecated in favor of `spans`.
+   */
+  "dataSource"?: SecurityMonitoringStandardDataSource;
+  /**
    * Default Tags for default rules (included in tags)
    */
   "defaultTags"?: Array<string>;
+  /**
+   * Dependencies used by the rule.
+   */
+  "dependencies"?: Array<string>;
   /**
    * When the rule will be deprecated, timestamp in milliseconds.
    */
@@ -73,6 +91,10 @@ export class SecurityMonitoringStandardRuleResponse {
    */
   "id"?: string;
   /**
+   * Whether the rule is in beta.
+   */
+  "isBeta"?: boolean;
+  /**
    * Whether the rule is included by default.
    */
   "isDefault"?: boolean;
@@ -81,13 +103,25 @@ export class SecurityMonitoringStandardRuleResponse {
    */
   "isDeleted"?: boolean;
   /**
+   * Whether the rule is deprecated.
+   */
+  "isDeprecated"?: boolean;
+  /**
    * Whether the rule is enabled.
    */
   "isEnabled"?: boolean;
   /**
+   * Whether the rule is provided by a partner.
+   */
+  "isPartner"?: boolean;
+  /**
    * Message for generated signals.
    */
   "message"?: string;
+  /**
+   * Additional metadata about the rule.
+   */
+  "metadata"?: { [key: string]: any };
   /**
    * The name of the rule.
    */
@@ -129,6 +163,10 @@ export class SecurityMonitoringStandardRuleResponse {
    */
   "updatedAt"?: number;
   /**
+   * A user.
+   */
+  "updater"?: SecurityMonitoringUser;
+  /**
    * The version of the rule.
    */
   "version"?: number;
@@ -149,6 +187,10 @@ export class SecurityMonitoringStandardRuleResponse {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
+    blocking: {
+      baseName: "blocking",
+      type: "boolean",
+    },
     calculatedFields: {
       baseName: "calculatedFields",
       type: "Array<CalculatedField>",
@@ -171,6 +213,10 @@ export class SecurityMonitoringStandardRuleResponse {
       type: "number",
       format: "int64",
     },
+    creator: {
+      baseName: "creator",
+      type: "SecurityMonitoringUser",
+    },
     customMessage: {
       baseName: "customMessage",
       type: "string",
@@ -179,8 +225,16 @@ export class SecurityMonitoringStandardRuleResponse {
       baseName: "customName",
       type: "string",
     },
+    dataSource: {
+      baseName: "dataSource",
+      type: "SecurityMonitoringStandardDataSource",
+    },
     defaultTags: {
       baseName: "defaultTags",
+      type: "Array<string>",
+    },
+    dependencies: {
+      baseName: "dependencies",
       type: "Array<string>",
     },
     deprecationDate: {
@@ -204,6 +258,10 @@ export class SecurityMonitoringStandardRuleResponse {
       baseName: "id",
       type: "string",
     },
+    isBeta: {
+      baseName: "isBeta",
+      type: "boolean",
+    },
     isDefault: {
       baseName: "isDefault",
       type: "boolean",
@@ -212,13 +270,25 @@ export class SecurityMonitoringStandardRuleResponse {
       baseName: "isDeleted",
       type: "boolean",
     },
+    isDeprecated: {
+      baseName: "isDeprecated",
+      type: "boolean",
+    },
     isEnabled: {
       baseName: "isEnabled",
+      type: "boolean",
+    },
+    isPartner: {
+      baseName: "isPartner",
       type: "boolean",
     },
     message: {
       baseName: "message",
       type: "string",
+    },
+    metadata: {
+      baseName: "metadata",
+      type: "{ [key: string]: any; }",
     },
     name: {
       baseName: "name",
@@ -261,6 +331,10 @@ export class SecurityMonitoringStandardRuleResponse {
       baseName: "updatedAt",
       type: "number",
       format: "int64",
+    },
+    updater: {
+      baseName: "updater",
+      type: "SecurityMonitoringUser",
     },
     version: {
       baseName: "version",
