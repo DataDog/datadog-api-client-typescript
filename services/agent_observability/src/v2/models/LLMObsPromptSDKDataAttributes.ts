@@ -1,15 +1,15 @@
 import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
-import { LLMObsPromptChatMessage } from "./LLMObsPromptChatMessage";
+import { LLMObsPromptChatTemplateItem } from "./LLMObsPromptChatTemplateItem";
 
 /**
  * Attributes of a flattened prompt version returned for SDK consumption. Exactly one of `template` and `chat_template` is returned.
  */
 export class LLMObsPromptSDKDataAttributes {
   /**
-   * Chat template for this prompt version, as a list of role and content messages. Omitted for text templates.
+   * Chat template for this prompt version, as a list of messages and named message placeholders. Omitted for text templates.
    */
-  "chatTemplate"?: Array<LLMObsPromptChatMessage>;
+  "chatTemplate"?: Array<LLMObsPromptChatTemplateItem>;
   /**
    * Labels attached to the selected version.
    */
@@ -47,7 +47,7 @@ export class LLMObsPromptSDKDataAttributes {
   static readonly attributeTypeMap: AttributeTypeMap = {
     chatTemplate: {
       baseName: "chat_template",
-      type: "Array<LLMObsPromptChatMessage>",
+      type: "Array<LLMObsPromptChatTemplateItem>",
     },
     labels: {
       baseName: "labels",
