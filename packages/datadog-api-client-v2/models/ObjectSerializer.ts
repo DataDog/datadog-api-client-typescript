@@ -157,6 +157,7 @@ import { AggregatedWaterfallRequestAttributes } from "./AggregatedWaterfallReque
 import { AggregatedWaterfallRequestData } from "./AggregatedWaterfallRequestData";
 import { AggregatedWaterfallResponse } from "./AggregatedWaterfallResponse";
 import { AggregatedWaterfallResponseAttributes } from "./AggregatedWaterfallResponseAttributes";
+import { AggregatedWaterfallResponseAttributesCriteria } from "./AggregatedWaterfallResponseAttributesCriteria";
 import { AggregatedWaterfallResponseData } from "./AggregatedWaterfallResponseData";
 import { AiCustomRuleItem } from "./AiCustomRuleItem";
 import { AiCustomRuleRequest } from "./AiCustomRuleRequest";
@@ -9579,6 +9580,8 @@ const typeMap: { [index: string]: any } = {
   AggregatedWaterfallRequestData: AggregatedWaterfallRequestData,
   AggregatedWaterfallResponse: AggregatedWaterfallResponse,
   AggregatedWaterfallResponseAttributes: AggregatedWaterfallResponseAttributes,
+  AggregatedWaterfallResponseAttributesCriteria:
+    AggregatedWaterfallResponseAttributesCriteria,
   AggregatedWaterfallResponseData: AggregatedWaterfallResponseData,
   AiCustomRuleItem: AiCustomRuleItem,
   AiCustomRuleRequest: AiCustomRuleRequest,
