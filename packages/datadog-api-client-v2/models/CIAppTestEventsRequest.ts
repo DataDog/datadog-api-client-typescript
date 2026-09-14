@@ -4,8 +4,8 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 import { CIAppQueryOptions } from "./CIAppQueryOptions";
-import { CIAppQueryPageOptions } from "./CIAppQueryPageOptions";
 import { CIAppSort } from "./CIAppSort";
+import { CIAppTestQueryPageOptions } from "./CIAppTestQueryPageOptions";
 import { CIAppTestsQueryFilter } from "./CIAppTestsQueryFilter";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
@@ -24,9 +24,9 @@ export class CIAppTestEventsRequest {
    */
   "options"?: CIAppQueryOptions;
   /**
-   * Paging attributes for listing events.
+   * Paging attributes for listing test events.
    */
-  "page"?: CIAppQueryPageOptions;
+  "page"?: CIAppTestQueryPageOptions;
   /**
    * Sort parameters when querying events.
    */
@@ -58,7 +58,7 @@ export class CIAppTestEventsRequest {
     },
     page: {
       baseName: "page",
-      type: "CIAppQueryPageOptions",
+      type: "CIAppTestQueryPageOptions",
     },
     sort: {
       baseName: "sort",

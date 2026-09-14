@@ -3004,6 +3004,8 @@ export { CIAppTestEventsRequest } from "./models/CIAppTestEventsRequest";
 export { CIAppTestEventsResponse } from "./models/CIAppTestEventsResponse";
 export { CIAppTestEventTypeName } from "./models/CIAppTestEventTypeName";
 export { CIAppTestLevel } from "./models/CIAppTestLevel";
+export { CIAppTestQueryPageLimit } from "./models/CIAppTestQueryPageLimit";
+export { CIAppTestQueryPageOptions } from "./models/CIAppTestQueryPageOptions";
 export { CIAppTestsAggregateRequest } from "./models/CIAppTestsAggregateRequest";
 export { CIAppTestsAggregationBucketsResponse } from "./models/CIAppTestsAggregationBucketsResponse";
 export { CIAppTestsAnalyticsAggregateResponse } from "./models/CIAppTestsAnalyticsAggregateResponse";

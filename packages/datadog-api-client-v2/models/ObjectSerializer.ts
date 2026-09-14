@@ -575,6 +575,7 @@ import { CIAppResponsePage } from "./CIAppResponsePage";
 import { CIAppTestEvent } from "./CIAppTestEvent";
 import { CIAppTestEventsRequest } from "./CIAppTestEventsRequest";
 import { CIAppTestEventsResponse } from "./CIAppTestEventsResponse";
+import { CIAppTestQueryPageOptions } from "./CIAppTestQueryPageOptions";
 import { CIAppTestsAggregateRequest } from "./CIAppTestsAggregateRequest";
 import { CIAppTestsAggregationBucketsResponse } from "./CIAppTestsAggregationBucketsResponse";
 import { CIAppTestsAnalyticsAggregateResponse } from "./CIAppTestsAnalyticsAggregateResponse";
@@ -10076,6 +10077,7 @@ const typeMap: { [index: string]: any } = {
   CIAppTestEvent: CIAppTestEvent,
   CIAppTestEventsRequest: CIAppTestEventsRequest,
   CIAppTestEventsResponse: CIAppTestEventsResponse,
+  CIAppTestQueryPageOptions: CIAppTestQueryPageOptions,
   CIAppTestsAggregateRequest: CIAppTestsAggregateRequest,
   CIAppTestsAggregationBucketsResponse: CIAppTestsAggregationBucketsResponse,
   CIAppTestsAnalyticsAggregateResponse: CIAppTestsAnalyticsAggregateResponse,
@@ -16984,6 +16986,7 @@ const oneOfMap: { [index: string]: string[] } = {
     "CIAppPipelineEventFinishedPipeline",
     "CIAppPipelineEventInProgressPipeline",
   ],
+  CIAppTestQueryPageLimit: ["number", "string"],
   ChangeRequestIncludedItem: [
     "ChangeRequestIncludedUser",
     "ChangeRequestIncludedDecision",

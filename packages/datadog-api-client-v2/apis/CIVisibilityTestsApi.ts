@@ -17,11 +17,11 @@ import { ObjectSerializer } from "../models/ObjectSerializer";
 import { ApiException } from "../../datadog-api-client-common/exception";
 
 import { APIErrorResponse } from "../models/APIErrorResponse";
-import { CIAppQueryPageOptions } from "../models/CIAppQueryPageOptions";
 import { CIAppSort } from "../models/CIAppSort";
 import { CIAppTestEvent } from "../models/CIAppTestEvent";
 import { CIAppTestEventsRequest } from "../models/CIAppTestEventsRequest";
 import { CIAppTestEventsResponse } from "../models/CIAppTestEventsResponse";
+import { CIAppTestQueryPageOptions } from "../models/CIAppTestQueryPageOptions";
 import { CIAppTestsAggregateRequest } from "../models/CIAppTestsAggregateRequest";
 import { CIAppTestsAnalyticsAggregateResponse } from "../models/CIAppTestsAnalyticsAggregateResponse";
 
@@ -595,7 +595,7 @@ export class CIVisibilityTestsApi {
       param.body = new CIAppTestEventsRequest();
     }
     if (param.body.page === undefined) {
-      param.body.page = new CIAppQueryPageOptions();
+      param.body.page = new CIAppTestQueryPageOptions();
     }
     if (param.body.page.limit !== undefined) {
       pageSize = param.body.page.limit;
