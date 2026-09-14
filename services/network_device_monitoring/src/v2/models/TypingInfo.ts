@@ -3,6 +3,7 @@ import { ModelTypingInfo } from "@datadog/datadog-api-client";
 import { APIErrorResponse } from "./APIErrorResponse";
 import { DeviceAttributes } from "./DeviceAttributes";
 import { DeviceAttributesInterfaceStatuses } from "./DeviceAttributesInterfaceStatuses";
+import { DeviceTagsBySource } from "./DeviceTagsBySource";
 import { DevicesListData } from "./DevicesListData";
 import { GetDeviceAttributes } from "./GetDeviceAttributes";
 import { GetDeviceData } from "./GetDeviceData";
@@ -28,6 +29,7 @@ export const TypingInfo: ModelTypingInfo = {
     APIErrorResponse: APIErrorResponse,
     DeviceAttributes: DeviceAttributes,
     DeviceAttributesInterfaceStatuses: DeviceAttributesInterfaceStatuses,
+    DeviceTagsBySource: DeviceTagsBySource,
     DevicesListData: DevicesListData,
     GetDeviceAttributes: GetDeviceAttributes,
     GetDeviceData: GetDeviceData,
