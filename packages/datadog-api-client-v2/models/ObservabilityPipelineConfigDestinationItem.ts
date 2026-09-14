@@ -24,6 +24,7 @@ import { ObservabilityPipelineKafkaDestination } from "./ObservabilityPipelineKa
 import { ObservabilityPipelineNewRelicDestination } from "./ObservabilityPipelineNewRelicDestination";
 import { ObservabilityPipelineOpenSearchDestination } from "./ObservabilityPipelineOpenSearchDestination";
 import { ObservabilityPipelineOpentelemetryMetricsDestination } from "./ObservabilityPipelineOpentelemetryMetricsDestination";
+import { ObservabilityPipelinePrometheusRemoteWriteDestination } from "./ObservabilityPipelinePrometheusRemoteWriteDestination";
 import { ObservabilityPipelineRsyslogDestination } from "./ObservabilityPipelineRsyslogDestination";
 import { ObservabilityPipelineSentinelOneDestination } from "./ObservabilityPipelineSentinelOneDestination";
 import { ObservabilityPipelineSocketDestination } from "./ObservabilityPipelineSocketDestination";
@@ -66,5 +67,6 @@ export type ObservabilityPipelineConfigDestinationItem =
   | ObservabilityPipelineDatabricksZerobusDestination
   | ObservabilityPipelineDatadogMetricsDestination
   | ObservabilityPipelineOpentelemetryMetricsDestination
+  | ObservabilityPipelinePrometheusRemoteWriteDestination
   | ObservabilityPipelineSplunkHecMetricsDestination
   | UnparsedObject;

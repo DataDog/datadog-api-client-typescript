@@ -3,7 +3,6 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
-import { DeviceTagsBySource } from "./DeviceTagsBySource";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
@@ -11,10 +10,6 @@ import { AttributeTypeMap } from "../../datadog-api-client-common/util";
  * The definition of ListTagsResponseDataAttributes object.
  */
 export class ListTagsResponseDataAttributes {
-  /**
-   * The list of device tags grouped by source.
-   */
-  "bySource"?: Array<DeviceTagsBySource>;
   /**
    * The list of tags
    */
@@ -36,10 +31,6 @@ export class ListTagsResponseDataAttributes {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    bySource: {
-      baseName: "by_source",
-      type: "Array<DeviceTagsBySource>",
-    },
     tags: {
       baseName: "tags",
       type: "Array<string>",
