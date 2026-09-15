@@ -1,17 +1,17 @@
 import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
 /**
- * Hash file specified by the field attribute
+ * The log action applied when the rule is triggered.
  */
-export class CloudWorkloadSecurityAgentRuleActionHash {
+export class CloudWorkloadSecurityAgentRuleActionLog {
   /**
-   * The field of the hash action
+   * The level of the log action.
    */
-  "field"?: string;
+  "level"?: string;
   /**
-   * The maximum size of the files to hash, in bytes.
+   * The message of the log action.
    */
-  "maxFileSize"?: number;
+  "message"?: string;
   /**
    * A container for additional, undeclared properties.
    * This is a holder for any undeclared properties as specified with
@@ -27,14 +27,13 @@ export class CloudWorkloadSecurityAgentRuleActionHash {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    field: {
-      baseName: "field",
+    level: {
+      baseName: "level",
       type: "string",
     },
-    maxFileSize: {
-      baseName: "max_file_size",
-      type: "number",
-      format: "int64",
+    message: {
+      baseName: "message",
+      type: "string",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -46,7 +45,7 @@ export class CloudWorkloadSecurityAgentRuleActionHash {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-    return CloudWorkloadSecurityAgentRuleActionHash.attributeTypeMap;
+    return CloudWorkloadSecurityAgentRuleActionLog.attributeTypeMap;
   }
 
   public constructor() {}

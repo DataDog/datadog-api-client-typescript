@@ -14,8 +14,11 @@ import { CloudWorkloadSecurityAgentPolicyUpdateRequest } from "./CloudWorkloadSe
 import { CloudWorkloadSecurityAgentPolicyUpdaterAttributes } from "./CloudWorkloadSecurityAgentPolicyUpdaterAttributes";
 import { CloudWorkloadSecurityAgentPolicyVersion } from "./CloudWorkloadSecurityAgentPolicyVersion";
 import { CloudWorkloadSecurityAgentRuleAction } from "./CloudWorkloadSecurityAgentRuleAction";
+import { CloudWorkloadSecurityAgentRuleActionCoreDump } from "./CloudWorkloadSecurityAgentRuleActionCoreDump";
 import { CloudWorkloadSecurityAgentRuleActionHash } from "./CloudWorkloadSecurityAgentRuleActionHash";
+import { CloudWorkloadSecurityAgentRuleActionLog } from "./CloudWorkloadSecurityAgentRuleActionLog";
 import { CloudWorkloadSecurityAgentRuleActionMetadata } from "./CloudWorkloadSecurityAgentRuleActionMetadata";
+import { CloudWorkloadSecurityAgentRuleActionNetworkFilter } from "./CloudWorkloadSecurityAgentRuleActionNetworkFilter";
 import { CloudWorkloadSecurityAgentRuleActionSet } from "./CloudWorkloadSecurityAgentRuleActionSet";
 import { CloudWorkloadSecurityAgentRuleAttributes } from "./CloudWorkloadSecurityAgentRuleAttributes";
 import { CloudWorkloadSecurityAgentRuleCreateAttributes } from "./CloudWorkloadSecurityAgentRuleCreateAttributes";
@@ -69,10 +72,16 @@ export const TypingInfo: ModelTypingInfo = {
     CloudWorkloadSecurityAgentPolicyVersion:
       CloudWorkloadSecurityAgentPolicyVersion,
     CloudWorkloadSecurityAgentRuleAction: CloudWorkloadSecurityAgentRuleAction,
+    CloudWorkloadSecurityAgentRuleActionCoreDump:
+      CloudWorkloadSecurityAgentRuleActionCoreDump,
     CloudWorkloadSecurityAgentRuleActionHash:
       CloudWorkloadSecurityAgentRuleActionHash,
+    CloudWorkloadSecurityAgentRuleActionLog:
+      CloudWorkloadSecurityAgentRuleActionLog,
     CloudWorkloadSecurityAgentRuleActionMetadata:
       CloudWorkloadSecurityAgentRuleActionMetadata,
+    CloudWorkloadSecurityAgentRuleActionNetworkFilter:
+      CloudWorkloadSecurityAgentRuleActionNetworkFilter,
     CloudWorkloadSecurityAgentRuleActionSet:
       CloudWorkloadSecurityAgentRuleActionSet,
     CloudWorkloadSecurityAgentRuleAttributes:
