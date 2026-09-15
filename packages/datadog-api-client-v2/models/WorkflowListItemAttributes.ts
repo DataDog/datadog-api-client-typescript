@@ -33,6 +33,10 @@ export class WorkflowListItemAttributes {
    */
   "runAsUserMode"?: WorkflowRunAsUserMode;
   /**
+   * Whether the workflow requires sensitive privileges to run. Only the workflow owner can update this field. This allows it to run actions that use [Execution Policies](https://docs.datadoghq.com/actions/private_actions/execution_policies/).
+   */
+  "sensitivePrivileges"?: boolean;
+  /**
    * A complete Workflow Automation definition, including its triggers, steps, and connections.
    */
   "spec"?: Spec;
@@ -82,6 +86,10 @@ export class WorkflowListItemAttributes {
     runAsUserMode: {
       baseName: "runAsUserMode",
       type: "WorkflowRunAsUserMode",
+    },
+    sensitivePrivileges: {
+      baseName: "sensitivePrivileges",
+      type: "boolean",
     },
     spec: {
       baseName: "spec",
