@@ -17,7 +17,9 @@ const params: v2.CloudCostManagementApiUpsertBudgetRequest = {
           forecast: undefined,
           ootbForecast: undefined,
         },
-        costsUnit: {},
+        costsUnit: {
+          id: 42,
+        },
         createdAt: 1738258683590,
         createdBy: "00000000-0a0a-0a0a-aaa0-00000000000a",
         endMonth: 202502,

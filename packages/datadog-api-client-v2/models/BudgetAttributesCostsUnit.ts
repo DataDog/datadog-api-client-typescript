@@ -17,7 +17,7 @@ export class BudgetAttributesCostsUnit {
   /**
    * The unique identifier for the unit.
    */
-  "id"?: string;
+  "id"?: number;
   /**
    * The full name of the unit.
    */
@@ -57,7 +57,8 @@ export class BudgetAttributesCostsUnit {
     },
     id: {
       baseName: "id",
-      type: "string",
+      type: "number",
+      format: "int64",
     },
     name: {
       baseName: "name",
