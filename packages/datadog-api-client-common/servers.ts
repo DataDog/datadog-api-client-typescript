@@ -227,6 +227,38 @@ export const operationServers: {
       subdomain: "http-intake.logs",
     }),
   ],
+  "v2.OAuth2ClientPublicApi.getOIDCDiscoveryDocument": [
+    new ServerConfiguration<{
+      site:
+        | "datadoghq.com"
+        | "us3.datadoghq.com"
+        | "us5.datadoghq.com"
+        | "ap1.datadoghq.com"
+        | "ap2.datadoghq.com"
+        | "uk1.datadoghq.com"
+        | "datadoghq.eu"
+        | "ddog-gov.com"
+        | "us2.ddog-gov.com";
+      subdomain: string;
+    }>("https://{subdomain}.{site}", {
+      site: "datadoghq.com",
+      subdomain: "app",
+    }),
+    new ServerConfiguration<{
+      name: string;
+      protocol: string;
+    }>("{protocol}://{name}", {
+      name: "app.datadoghq.com",
+      protocol: "https",
+    }),
+    new ServerConfiguration<{
+      site: string;
+      subdomain: string;
+    }>("https://{subdomain}.{site}", {
+      site: "datadoghq.com",
+      subdomain: "app",
+    }),
+  ],
   "v2.OnCallPagingApi.acknowledgeOnCallPage": [
     new ServerConfiguration<{
       site:

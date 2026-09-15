@@ -704,6 +704,7 @@ export function createConfiguration(
       "v2.listNetworkHealthInsights": false,
       "v2.deleteScopesRestriction": false,
       "v2.getOAuth2WellKnownSites": false,
+      "v2.getOIDCDiscoveryDocument": false,
       "v2.getScopesRestriction": false,
       "v2.registerOAuthClient": false,
       "v2.upsertScopesRestriction": false,

@@ -23,6 +23,7 @@ import { OAuthClientRegistrationError } from "../models/OAuthClientRegistrationE
 import { OAuthClientRegistrationRequest } from "../models/OAuthClientRegistrationRequest";
 import { OAuthClientRegistrationResponse } from "../models/OAuthClientRegistrationResponse";
 import { OAuthScopesRestrictionResponse } from "../models/OAuthScopesRestrictionResponse";
+import { OIDCDiscoveryDocument } from "../models/OIDCDiscoveryDocument";
 import { UpsertOAuthScopesRestrictionRequest } from "../models/UpsertOAuthScopesRestrictionRequest";
 
 export class OAuth2ClientPublicApiRequestFactory extends BaseAPIRequestFactory {
@@ -90,6 +91,36 @@ export class OAuth2ClientPublicApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const requestContext = _config
       .getServer("v2.OAuth2ClientPublicApi.getOAuth2WellKnownSites")
+      .makeRequestContext(localVarPath, HttpMethod.GET);
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Set IaC header
+    if (_config.isIaC) {
+      requestContext.setHeaderParam("X-Datadog-Managed-By", "iac");
+    }
+
+    return requestContext;
+  }
+
+  public async getOIDCDiscoveryDocument(
+    _options?: Configuration
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    logger.warn("Using unstable operation 'getOIDCDiscoveryDocument'");
+    if (!_config.unstableOperations["v2.getOIDCDiscoveryDocument"]) {
+      throw new Error(
+        "Unstable operation 'getOIDCDiscoveryDocument' is disabled"
+      );
+    }
+
+    // Path Params
+    const localVarPath = "/api/v2/oauth2/.well-known/openid-configuration";
+
+    // Make Request Context
+    const requestContext = _config
+      .getServer("v2.OAuth2ClientPublicApi.getOIDCDiscoveryDocument")
       .makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -380,6 +411,64 @@ export class OAuth2ClientPublicApiResponseProcessor {
         "OAuth2WellKnownSitesResponse",
         ""
       ) as OAuth2WellKnownSitesResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"'
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
+   * @params response Response returned by the server for a request to getOIDCDiscoveryDocument
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async getOIDCDiscoveryDocument(
+    response: ResponseContext
+  ): Promise<OIDCDiscoveryDocument> {
+    const contentType = ObjectSerializer.normalizeMediaType(
+      response.headers["content-type"]
+    );
+    if (response.httpStatusCode === 200) {
+      const body: OIDCDiscoveryDocument = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "OIDCDiscoveryDocument"
+      ) as OIDCDiscoveryDocument;
+      return body;
+    }
+    if (response.httpStatusCode === 429) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: APIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "APIErrorResponse"
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: OIDCDiscoveryDocument = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "OIDCDiscoveryDocument",
+        ""
+      ) as OIDCDiscoveryDocument;
       return body;
     }
 
@@ -725,6 +814,26 @@ export class OAuth2ClientPublicApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.getOAuth2WellKnownSites(
+            responseContext
+          );
+        });
+    });
+  }
+
+  /**
+   * Retrieve OpenID Connect provider metadata for the OAuth2 v2 token endpoint.
+   * @param param The request object
+   */
+  public getOIDCDiscoveryDocument(
+    options?: Configuration
+  ): Promise<OIDCDiscoveryDocument> {
+    const requestContextPromise =
+      this.requestFactory.getOIDCDiscoveryDocument(options);
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.getOIDCDiscoveryDocument(
             responseContext
           );
         });
