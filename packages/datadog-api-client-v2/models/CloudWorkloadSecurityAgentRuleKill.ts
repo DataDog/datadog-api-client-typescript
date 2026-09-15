@@ -11,6 +11,18 @@ import { AttributeTypeMap } from "../../datadog-api-client-common/util";
  */
 export class CloudWorkloadSecurityAgentRuleKill {
   /**
+   * Whether the automatic container safeguard of the kill action is disabled.
+   */
+  "disableContainerDisarmer"?: boolean;
+  /**
+   * Whether the automatic executable safeguard of the kill action is disabled.
+   */
+  "disableExecutableDisarmer"?: boolean;
+  /**
+   * The scope of the kill action.
+   */
+  "scope"?: string;
+  /**
    * Supported signals for the kill system call
    */
   "signal"?: string;
@@ -31,6 +43,18 @@ export class CloudWorkloadSecurityAgentRuleKill {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
+    disableContainerDisarmer: {
+      baseName: "disable_container_disarmer",
+      type: "boolean",
+    },
+    disableExecutableDisarmer: {
+      baseName: "disable_executable_disarmer",
+      type: "boolean",
+    },
+    scope: {
+      baseName: "scope",
+      type: "string",
+    },
     signal: {
       baseName: "signal",
       type: "string",

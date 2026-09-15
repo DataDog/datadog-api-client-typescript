@@ -36,9 +36,17 @@ export class CloudWorkloadSecurityAgentRuleActionSet {
    */
   "name"?: string;
   /**
+   * Whether the value of the set action is private.
+   */
+  "_private"?: boolean;
+  /**
    * The scope of the set action.
    */
   "scope"?: string;
+  /**
+   * The scope field of the set action.
+   */
+  "scopeField"?: string;
   /**
    * The size of the set action.
    */
@@ -92,8 +100,16 @@ export class CloudWorkloadSecurityAgentRuleActionSet {
       baseName: "name",
       type: "string",
     },
+    _private: {
+      baseName: "private",
+      type: "boolean",
+    },
     scope: {
       baseName: "scope",
+      type: "string",
+    },
+    scopeField: {
+      baseName: "scope_field",
       type: "string",
     },
     size: {
