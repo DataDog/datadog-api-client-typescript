@@ -10,6 +10,7 @@ import { ChangeWidgetDefinition } from "./ChangeWidgetDefinition";
 import { CheckStatusWidgetDefinition } from "./CheckStatusWidgetDefinition";
 import { CohortWidgetDefinition } from "./CohortWidgetDefinition";
 import { DistributionWidgetDefinition } from "./DistributionWidgetDefinition";
+import { EmbeddedAppWidgetDefinition } from "./EmbeddedAppWidgetDefinition";
 import { EventStreamWidgetDefinition } from "./EventStreamWidgetDefinition";
 import { EventTimelineWidgetDefinition } from "./EventTimelineWidgetDefinition";
 import { FreeTextWidgetDefinition } from "./FreeTextWidgetDefinition";
@@ -59,6 +60,7 @@ export type WidgetDefinition =
   | CheckStatusWidgetDefinition
   | CohortWidgetDefinition
   | DistributionWidgetDefinition
+  | EmbeddedAppWidgetDefinition
   | EventStreamWidgetDefinition
   | EventTimelineWidgetDefinition
   | FreeTextWidgetDefinition
