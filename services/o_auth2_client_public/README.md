@@ -29,14 +29,14 @@ const configuration = createConfiguration();
 // Enable unstable operations
 const configurationOpts = {
     unstableOperations: {
-        "OAuth2ClientPublicApi.v2.getOAuth2WellKnownSites": true
+        "OAuth2ClientPublicApi.v2.getOIDCDiscoveryDocument": true
     }
 }
 
 const configuration = createConfiguration(configurationOpts);
 const apiInstance = new OAuth2ClientPublicApiV2(configuration);
 
-apiInstance.getOAuth2WellKnownSites().then((data) => {
+apiInstance.getOIDCDiscoveryDocument().then((data) => {
     console.log("API called successfully. Returned data: " + JSON.stringify(data));
 }).catch((error) => {
     console.error("Error calling API: " + error);
