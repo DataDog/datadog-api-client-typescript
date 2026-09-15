@@ -1,6 +1,6 @@
 import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
-import { MetricCustomAggregation } from "./MetricCustomAggregation";
+import { MetricCustomAggregations } from "./MetricCustomAggregations";
 import { MetricTagConfigurationMetricTypes } from "./MetricTagConfigurationMetricTypes";
 
 /**
@@ -10,7 +10,7 @@ export class MetricTagConfigurationAttributes {
   /**
    * Deprecated. You no longer need to configure specific time and space aggregations for Metrics Without Limits.
    */
-  "aggregations"?: Array<MetricCustomAggregation>;
+  "aggregations"?: MetricCustomAggregations;
   /**
    * Timestamp when the tag configuration was created.
    */
@@ -55,7 +55,7 @@ export class MetricTagConfigurationAttributes {
   static readonly attributeTypeMap: AttributeTypeMap = {
     aggregations: {
       baseName: "aggregations",
-      type: "Array<MetricCustomAggregation>",
+      type: "MetricCustomAggregations",
     },
     createdAt: {
       baseName: "created_at",
