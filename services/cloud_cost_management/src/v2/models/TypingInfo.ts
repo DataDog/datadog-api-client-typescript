@@ -74,6 +74,7 @@ import { BudgetWithEntriesDataAttributes } from "./BudgetWithEntriesDataAttribut
 import { BudgetWithEntriesDataAttributesEntriesItems } from "./BudgetWithEntriesDataAttributesEntriesItems";
 import { BudgetWithEntriesDataAttributesEntriesItemsCosts } from "./BudgetWithEntriesDataAttributesEntriesItemsCosts";
 import { BudgetWithEntriesDataAttributesEntriesItemsTagFiltersItems } from "./BudgetWithEntriesDataAttributesEntriesItemsTagFiltersItems";
+import { BudgetWithEntriesMeta } from "./BudgetWithEntriesMeta";
 import { CommitmentsAwsEC2RICommitment } from "./CommitmentsAwsEC2RICommitment";
 import { CommitmentsAwsElasticacheRICommitment } from "./CommitmentsAwsElasticacheRICommitment";
 import { CommitmentsAwsRDSRICommitment } from "./CommitmentsAwsRDSRICommitment";
@@ -400,6 +401,7 @@ export const TypingInfo: ModelTypingInfo = {
       BudgetWithEntriesDataAttributesEntriesItemsCosts,
     BudgetWithEntriesDataAttributesEntriesItemsTagFiltersItems:
       BudgetWithEntriesDataAttributesEntriesItemsTagFiltersItems,
+    BudgetWithEntriesMeta: BudgetWithEntriesMeta,
     CommitmentsAwsEC2RICommitment: CommitmentsAwsEC2RICommitment,
     CommitmentsAwsElasticacheRICommitment:
       CommitmentsAwsElasticacheRICommitment,
