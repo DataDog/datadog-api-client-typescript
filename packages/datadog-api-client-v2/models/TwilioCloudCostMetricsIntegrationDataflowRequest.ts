@@ -7,20 +7,13 @@
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * The Twilio cloud cost metrics dataflow.
+ * Your Twilio cost data, so that Twilio spend can be broken down and attributed in [Cloud Cost Management](https://docs.datadoghq.com/cloud_cost_management/). Cost data appears in Cloud Cost Management within 24 hours of enabling this dataflow.
  */
 export class TwilioCloudCostMetricsIntegrationDataflowRequest {
   /**
-   * Whether the Twilio dataflow is enabled.
+   * Whether Datadog collects this data. Defaults to `false`; set to `true` to start collection.
    */
   "enabled"?: boolean;
-
-  /**
-   * A container for additional, undeclared properties.
-   * This is a holder for any undeclared properties as specified with
-   * the 'additionalProperties' keyword in the OAS document.
-   */
-  "additionalProperties"?: { [key: string]: any };
 
   /**
    * @ignore
@@ -34,10 +27,6 @@ export class TwilioCloudCostMetricsIntegrationDataflowRequest {
     enabled: {
       baseName: "enabled",
       type: "boolean",
-    },
-    additionalProperties: {
-      baseName: "additionalProperties",
-      type: "{ [key: string]: any; }",
     },
   };
 

@@ -639,12 +639,12 @@ export {
 } from "./apis/DowntimesApi";
 
 export {
-  ElasticCloudIntegrationAccountsApiCreateElasticCloudIntegrationAccountRequest,
-  ElasticCloudIntegrationAccountsApiDeleteElasticCloudIntegrationAccountRequest,
-  ElasticCloudIntegrationAccountsApiGetElasticCloudIntegrationAccountRequest,
-  ElasticCloudIntegrationAccountsApiUpdateElasticCloudIntegrationAccountRequest,
-  ElasticCloudIntegrationAccountsApi,
-} from "./apis/ElasticCloudIntegrationAccountsApi";
+  ElasticCloudIntegrationApiCreateElasticCloudIntegrationAccountRequest,
+  ElasticCloudIntegrationApiDeleteElasticCloudIntegrationAccountRequest,
+  ElasticCloudIntegrationApiGetElasticCloudIntegrationAccountRequest,
+  ElasticCloudIntegrationApiUpdateElasticCloudIntegrationAccountRequest,
+  ElasticCloudIntegrationApi,
+} from "./apis/ElasticCloudIntegrationApi";
 
 export {
   EntityIntegrationConfigsApiDeleteEntityIntegrationConfigRequest,
@@ -1953,12 +1953,12 @@ export {
 } from "./apis/TimeseriesAnomalyInvestigationsApi";
 
 export {
-  TwilioIntegrationAccountsApiCreateTwilioIntegrationAccountRequest,
-  TwilioIntegrationAccountsApiDeleteTwilioIntegrationAccountRequest,
-  TwilioIntegrationAccountsApiGetTwilioIntegrationAccountRequest,
-  TwilioIntegrationAccountsApiUpdateTwilioIntegrationAccountRequest,
-  TwilioIntegrationAccountsApi,
-} from "./apis/TwilioIntegrationAccountsApi";
+  TwilioIntegrationApiCreateTwilioIntegrationAccountRequest,
+  TwilioIntegrationApiDeleteTwilioIntegrationAccountRequest,
+  TwilioIntegrationApiGetTwilioIntegrationAccountRequest,
+  TwilioIntegrationApiUpdateTwilioIntegrationAccountRequest,
+  TwilioIntegrationApi,
+} from "./apis/TwilioIntegrationApi";
 
 export {
   UsageMeteringApiCreateQuotasRequest,

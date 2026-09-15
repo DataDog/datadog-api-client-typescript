@@ -17,44 +17,37 @@ import { ObjectSerializer } from "../models/ObjectSerializer";
 import { ApiException } from "../../datadog-api-client-common/exception";
 
 import { APIErrorResponse } from "../models/APIErrorResponse";
-import { ElasticCloudIntegrationAccountCreateRequest } from "../models/ElasticCloudIntegrationAccountCreateRequest";
-import { ElasticCloudIntegrationAccountResponse } from "../models/ElasticCloudIntegrationAccountResponse";
-import { ElasticCloudIntegrationAccountsResponse } from "../models/ElasticCloudIntegrationAccountsResponse";
-import { ElasticCloudIntegrationAccountUpdateRequest } from "../models/ElasticCloudIntegrationAccountUpdateRequest";
 import { JSONAPIErrorResponse } from "../models/JSONAPIErrorResponse";
+import { TwilioIntegrationAccountCreateRequest } from "../models/TwilioIntegrationAccountCreateRequest";
+import { TwilioIntegrationAccountResponse } from "../models/TwilioIntegrationAccountResponse";
+import { TwilioIntegrationAccountsResponse } from "../models/TwilioIntegrationAccountsResponse";
+import { TwilioIntegrationAccountUpdateRequest } from "../models/TwilioIntegrationAccountUpdateRequest";
 
-export class ElasticCloudIntegrationAccountsApiRequestFactory extends BaseAPIRequestFactory {
-  public async createElasticCloudIntegrationAccount(
-    body: ElasticCloudIntegrationAccountCreateRequest,
+export class TwilioIntegrationApiRequestFactory extends BaseAPIRequestFactory {
+  public async createTwilioIntegrationAccount(
+    body: TwilioIntegrationAccountCreateRequest,
     _options?: Configuration
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
-    logger.warn(
-      "Using unstable operation 'createElasticCloudIntegrationAccount'"
-    );
-    if (
-      !_config.unstableOperations["v2.createElasticCloudIntegrationAccount"]
-    ) {
+    logger.warn("Using unstable operation 'createTwilioIntegrationAccount'");
+    if (!_config.unstableOperations["v2.createTwilioIntegrationAccount"]) {
       throw new Error(
-        "Unstable operation 'createElasticCloudIntegrationAccount' is disabled"
+        "Unstable operation 'createTwilioIntegrationAccount' is disabled"
       );
     }
 
     // verify required parameter 'body' is not null or undefined
     if (body === null || body === undefined) {
-      throw new RequiredError("body", "createElasticCloudIntegrationAccount");
+      throw new RequiredError("body", "createTwilioIntegrationAccount");
     }
 
     // Path Params
-    const localVarPath =
-      "/api/v2/integration-interfaces/elastic-cloud/accounts";
+    const localVarPath = "/api/v2/integration-interfaces/twilio/accounts";
 
     // Make Request Context
     const requestContext = _config
-      .getServer(
-        "v2.ElasticCloudIntegrationAccountsApi.createElasticCloudIntegrationAccount"
-      )
+      .getServer("v2.TwilioIntegrationApi.createTwilioIntegrationAccount")
       .makeRequestContext(localVarPath, HttpMethod.POST);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -72,7 +65,7 @@ export class ElasticCloudIntegrationAccountsApiRequestFactory extends BaseAPIReq
     const serializedBody = ObjectSerializer.stringify(
       ObjectSerializer.serialize(
         body,
-        "ElasticCloudIntegrationAccountCreateRequest",
+        "TwilioIntegrationAccountCreateRequest",
         ""
       ),
       contentType
@@ -88,43 +81,34 @@ export class ElasticCloudIntegrationAccountsApiRequestFactory extends BaseAPIReq
     return requestContext;
   }
 
-  public async deleteElasticCloudIntegrationAccount(
+  public async deleteTwilioIntegrationAccount(
     accountId: string,
     _options?: Configuration
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
-    logger.warn(
-      "Using unstable operation 'deleteElasticCloudIntegrationAccount'"
-    );
-    if (
-      !_config.unstableOperations["v2.deleteElasticCloudIntegrationAccount"]
-    ) {
+    logger.warn("Using unstable operation 'deleteTwilioIntegrationAccount'");
+    if (!_config.unstableOperations["v2.deleteTwilioIntegrationAccount"]) {
       throw new Error(
-        "Unstable operation 'deleteElasticCloudIntegrationAccount' is disabled"
+        "Unstable operation 'deleteTwilioIntegrationAccount' is disabled"
       );
     }
 
     // verify required parameter 'accountId' is not null or undefined
     if (accountId === null || accountId === undefined) {
-      throw new RequiredError(
-        "accountId",
-        "deleteElasticCloudIntegrationAccount"
-      );
+      throw new RequiredError("accountId", "deleteTwilioIntegrationAccount");
     }
 
     // Path Params
     const localVarPath =
-      "/api/v2/integration-interfaces/elastic-cloud/accounts/{account_id}".replace(
+      "/api/v2/integration-interfaces/twilio/accounts/{account_id}".replace(
         "{account_id}",
         encodeURIComponent(String(accountId))
       );
 
     // Make Request Context
     const requestContext = _config
-      .getServer(
-        "v2.ElasticCloudIntegrationAccountsApi.deleteElasticCloudIntegrationAccount"
-      )
+      .getServer("v2.TwilioIntegrationApi.deleteTwilioIntegrationAccount")
       .makeRequestContext(localVarPath, HttpMethod.DELETE);
     requestContext.setHeaderParam("Accept", "*/*");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -143,36 +127,34 @@ export class ElasticCloudIntegrationAccountsApiRequestFactory extends BaseAPIReq
     return requestContext;
   }
 
-  public async getElasticCloudIntegrationAccount(
+  public async getTwilioIntegrationAccount(
     accountId: string,
     _options?: Configuration
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
-    logger.warn("Using unstable operation 'getElasticCloudIntegrationAccount'");
-    if (!_config.unstableOperations["v2.getElasticCloudIntegrationAccount"]) {
+    logger.warn("Using unstable operation 'getTwilioIntegrationAccount'");
+    if (!_config.unstableOperations["v2.getTwilioIntegrationAccount"]) {
       throw new Error(
-        "Unstable operation 'getElasticCloudIntegrationAccount' is disabled"
+        "Unstable operation 'getTwilioIntegrationAccount' is disabled"
       );
     }
 
     // verify required parameter 'accountId' is not null or undefined
     if (accountId === null || accountId === undefined) {
-      throw new RequiredError("accountId", "getElasticCloudIntegrationAccount");
+      throw new RequiredError("accountId", "getTwilioIntegrationAccount");
     }
 
     // Path Params
     const localVarPath =
-      "/api/v2/integration-interfaces/elastic-cloud/accounts/{account_id}".replace(
+      "/api/v2/integration-interfaces/twilio/accounts/{account_id}".replace(
         "{account_id}",
         encodeURIComponent(String(accountId))
       );
 
     // Make Request Context
     const requestContext = _config
-      .getServer(
-        "v2.ElasticCloudIntegrationAccountsApi.getElasticCloudIntegrationAccount"
-      )
+      .getServer("v2.TwilioIntegrationApi.getTwilioIntegrationAccount")
       .makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -191,29 +173,24 @@ export class ElasticCloudIntegrationAccountsApiRequestFactory extends BaseAPIReq
     return requestContext;
   }
 
-  public async listElasticCloudIntegrationAccounts(
+  public async listTwilioIntegrationAccounts(
     _options?: Configuration
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
-    logger.warn(
-      "Using unstable operation 'listElasticCloudIntegrationAccounts'"
-    );
-    if (!_config.unstableOperations["v2.listElasticCloudIntegrationAccounts"]) {
+    logger.warn("Using unstable operation 'listTwilioIntegrationAccounts'");
+    if (!_config.unstableOperations["v2.listTwilioIntegrationAccounts"]) {
       throw new Error(
-        "Unstable operation 'listElasticCloudIntegrationAccounts' is disabled"
+        "Unstable operation 'listTwilioIntegrationAccounts' is disabled"
       );
     }
 
     // Path Params
-    const localVarPath =
-      "/api/v2/integration-interfaces/elastic-cloud/accounts";
+    const localVarPath = "/api/v2/integration-interfaces/twilio/accounts";
 
     // Make Request Context
     const requestContext = _config
-      .getServer(
-        "v2.ElasticCloudIntegrationAccountsApi.listElasticCloudIntegrationAccounts"
-      )
+      .getServer("v2.TwilioIntegrationApi.listTwilioIntegrationAccounts")
       .makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -232,49 +209,40 @@ export class ElasticCloudIntegrationAccountsApiRequestFactory extends BaseAPIReq
     return requestContext;
   }
 
-  public async updateElasticCloudIntegrationAccount(
+  public async updateTwilioIntegrationAccount(
     accountId: string,
-    body: ElasticCloudIntegrationAccountUpdateRequest,
+    body: TwilioIntegrationAccountUpdateRequest,
     _options?: Configuration
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
-    logger.warn(
-      "Using unstable operation 'updateElasticCloudIntegrationAccount'"
-    );
-    if (
-      !_config.unstableOperations["v2.updateElasticCloudIntegrationAccount"]
-    ) {
+    logger.warn("Using unstable operation 'updateTwilioIntegrationAccount'");
+    if (!_config.unstableOperations["v2.updateTwilioIntegrationAccount"]) {
       throw new Error(
-        "Unstable operation 'updateElasticCloudIntegrationAccount' is disabled"
+        "Unstable operation 'updateTwilioIntegrationAccount' is disabled"
       );
     }
 
     // verify required parameter 'accountId' is not null or undefined
     if (accountId === null || accountId === undefined) {
-      throw new RequiredError(
-        "accountId",
-        "updateElasticCloudIntegrationAccount"
-      );
+      throw new RequiredError("accountId", "updateTwilioIntegrationAccount");
     }
 
     // verify required parameter 'body' is not null or undefined
     if (body === null || body === undefined) {
-      throw new RequiredError("body", "updateElasticCloudIntegrationAccount");
+      throw new RequiredError("body", "updateTwilioIntegrationAccount");
     }
 
     // Path Params
     const localVarPath =
-      "/api/v2/integration-interfaces/elastic-cloud/accounts/{account_id}".replace(
+      "/api/v2/integration-interfaces/twilio/accounts/{account_id}".replace(
         "{account_id}",
         encodeURIComponent(String(accountId))
       );
 
     // Make Request Context
     const requestContext = _config
-      .getServer(
-        "v2.ElasticCloudIntegrationAccountsApi.updateElasticCloudIntegrationAccount"
-      )
+      .getServer("v2.TwilioIntegrationApi.updateTwilioIntegrationAccount")
       .makeRequestContext(localVarPath, HttpMethod.PATCH);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -292,7 +260,7 @@ export class ElasticCloudIntegrationAccountsApiRequestFactory extends BaseAPIReq
     const serializedBody = ObjectSerializer.stringify(
       ObjectSerializer.serialize(
         body,
-        "ElasticCloudIntegrationAccountUpdateRequest",
+        "TwilioIntegrationAccountUpdateRequest",
         ""
       ),
       contentType
@@ -309,26 +277,26 @@ export class ElasticCloudIntegrationAccountsApiRequestFactory extends BaseAPIReq
   }
 }
 
-export class ElasticCloudIntegrationAccountsApiResponseProcessor {
+export class TwilioIntegrationApiResponseProcessor {
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
    *
-   * @params response Response returned by the server for a request to createElasticCloudIntegrationAccount
+   * @params response Response returned by the server for a request to createTwilioIntegrationAccount
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async createElasticCloudIntegrationAccount(
+  public async createTwilioIntegrationAccount(
     response: ResponseContext
-  ): Promise<ElasticCloudIntegrationAccountResponse> {
+  ): Promise<TwilioIntegrationAccountResponse> {
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 201) {
-      const body: ElasticCloudIntegrationAccountResponse =
+      const body: TwilioIntegrationAccountResponse =
         ObjectSerializer.deserialize(
           ObjectSerializer.parse(await response.body.text(), contentType),
-          "ElasticCloudIntegrationAccountResponse"
-        ) as ElasticCloudIntegrationAccountResponse;
+          "TwilioIntegrationAccountResponse"
+        ) as TwilioIntegrationAccountResponse;
       return body;
     }
     if (
@@ -382,12 +350,12 @@ export class ElasticCloudIntegrationAccountsApiResponseProcessor {
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-      const body: ElasticCloudIntegrationAccountResponse =
+      const body: TwilioIntegrationAccountResponse =
         ObjectSerializer.deserialize(
           ObjectSerializer.parse(await response.body.text(), contentType),
-          "ElasticCloudIntegrationAccountResponse",
+          "TwilioIntegrationAccountResponse",
           ""
-        ) as ElasticCloudIntegrationAccountResponse;
+        ) as TwilioIntegrationAccountResponse;
       return body;
     }
 
@@ -402,10 +370,10 @@ export class ElasticCloudIntegrationAccountsApiResponseProcessor {
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
    *
-   * @params response Response returned by the server for a request to deleteElasticCloudIntegrationAccount
+   * @params response Response returned by the server for a request to deleteTwilioIntegrationAccount
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async deleteElasticCloudIntegrationAccount(
+  public async deleteTwilioIntegrationAccount(
     response: ResponseContext
   ): Promise<void> {
     const contentType = ObjectSerializer.normalizeMediaType(
@@ -456,21 +424,21 @@ export class ElasticCloudIntegrationAccountsApiResponseProcessor {
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
    *
-   * @params response Response returned by the server for a request to getElasticCloudIntegrationAccount
+   * @params response Response returned by the server for a request to getTwilioIntegrationAccount
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async getElasticCloudIntegrationAccount(
+  public async getTwilioIntegrationAccount(
     response: ResponseContext
-  ): Promise<ElasticCloudIntegrationAccountResponse> {
+  ): Promise<TwilioIntegrationAccountResponse> {
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 200) {
-      const body: ElasticCloudIntegrationAccountResponse =
+      const body: TwilioIntegrationAccountResponse =
         ObjectSerializer.deserialize(
           ObjectSerializer.parse(await response.body.text(), contentType),
-          "ElasticCloudIntegrationAccountResponse"
-        ) as ElasticCloudIntegrationAccountResponse;
+          "TwilioIntegrationAccountResponse"
+        ) as TwilioIntegrationAccountResponse;
       return body;
     }
     if (
@@ -501,12 +469,12 @@ export class ElasticCloudIntegrationAccountsApiResponseProcessor {
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-      const body: ElasticCloudIntegrationAccountResponse =
+      const body: TwilioIntegrationAccountResponse =
         ObjectSerializer.deserialize(
           ObjectSerializer.parse(await response.body.text(), contentType),
-          "ElasticCloudIntegrationAccountResponse",
+          "TwilioIntegrationAccountResponse",
           ""
-        ) as ElasticCloudIntegrationAccountResponse;
+        ) as TwilioIntegrationAccountResponse;
       return body;
     }
 
@@ -521,21 +489,21 @@ export class ElasticCloudIntegrationAccountsApiResponseProcessor {
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
    *
-   * @params response Response returned by the server for a request to listElasticCloudIntegrationAccounts
+   * @params response Response returned by the server for a request to listTwilioIntegrationAccounts
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async listElasticCloudIntegrationAccounts(
+  public async listTwilioIntegrationAccounts(
     response: ResponseContext
-  ): Promise<ElasticCloudIntegrationAccountsResponse> {
+  ): Promise<TwilioIntegrationAccountsResponse> {
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 200) {
-      const body: ElasticCloudIntegrationAccountsResponse =
+      const body: TwilioIntegrationAccountsResponse =
         ObjectSerializer.deserialize(
           ObjectSerializer.parse(await response.body.text(), contentType),
-          "ElasticCloudIntegrationAccountsResponse"
-        ) as ElasticCloudIntegrationAccountsResponse;
+          "TwilioIntegrationAccountsResponse"
+        ) as TwilioIntegrationAccountsResponse;
       return body;
     }
     if (
@@ -566,12 +534,12 @@ export class ElasticCloudIntegrationAccountsApiResponseProcessor {
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-      const body: ElasticCloudIntegrationAccountsResponse =
+      const body: TwilioIntegrationAccountsResponse =
         ObjectSerializer.deserialize(
           ObjectSerializer.parse(await response.body.text(), contentType),
-          "ElasticCloudIntegrationAccountsResponse",
+          "TwilioIntegrationAccountsResponse",
           ""
-        ) as ElasticCloudIntegrationAccountsResponse;
+        ) as TwilioIntegrationAccountsResponse;
       return body;
     }
 
@@ -586,21 +554,21 @@ export class ElasticCloudIntegrationAccountsApiResponseProcessor {
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
    *
-   * @params response Response returned by the server for a request to updateElasticCloudIntegrationAccount
+   * @params response Response returned by the server for a request to updateTwilioIntegrationAccount
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async updateElasticCloudIntegrationAccount(
+  public async updateTwilioIntegrationAccount(
     response: ResponseContext
-  ): Promise<ElasticCloudIntegrationAccountResponse> {
+  ): Promise<TwilioIntegrationAccountResponse> {
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 200) {
-      const body: ElasticCloudIntegrationAccountResponse =
+      const body: TwilioIntegrationAccountResponse =
         ObjectSerializer.deserialize(
           ObjectSerializer.parse(await response.body.text(), contentType),
-          "ElasticCloudIntegrationAccountResponse"
-        ) as ElasticCloudIntegrationAccountResponse;
+          "TwilioIntegrationAccountResponse"
+        ) as TwilioIntegrationAccountResponse;
       return body;
     }
     if (
@@ -654,12 +622,12 @@ export class ElasticCloudIntegrationAccountsApiResponseProcessor {
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-      const body: ElasticCloudIntegrationAccountResponse =
+      const body: TwilioIntegrationAccountResponse =
         ObjectSerializer.deserialize(
           ObjectSerializer.parse(await response.body.text(), contentType),
-          "ElasticCloudIntegrationAccountResponse",
+          "TwilioIntegrationAccountResponse",
           ""
-        ) as ElasticCloudIntegrationAccountResponse;
+        ) as TwilioIntegrationAccountResponse;
       return body;
     }
 
@@ -671,14 +639,14 @@ export class ElasticCloudIntegrationAccountsApiResponseProcessor {
   }
 }
 
-export interface ElasticCloudIntegrationAccountsApiCreateElasticCloudIntegrationAccountRequest {
+export interface TwilioIntegrationApiCreateTwilioIntegrationAccountRequest {
   /**
-   * @type ElasticCloudIntegrationAccountCreateRequest
+   * @type TwilioIntegrationAccountCreateRequest
    */
-  body: ElasticCloudIntegrationAccountCreateRequest;
+  body: TwilioIntegrationAccountCreateRequest;
 }
 
-export interface ElasticCloudIntegrationAccountsApiDeleteElasticCloudIntegrationAccountRequest {
+export interface TwilioIntegrationApiDeleteTwilioIntegrationAccountRequest {
   /**
    * Unique identifier of the integration account.
    * @type string
@@ -686,7 +654,7 @@ export interface ElasticCloudIntegrationAccountsApiDeleteElasticCloudIntegration
   accountId: string;
 }
 
-export interface ElasticCloudIntegrationAccountsApiGetElasticCloudIntegrationAccountRequest {
+export interface TwilioIntegrationApiGetTwilioIntegrationAccountRequest {
   /**
    * Unique identifier of the integration account.
    * @type string
@@ -694,55 +662,50 @@ export interface ElasticCloudIntegrationAccountsApiGetElasticCloudIntegrationAcc
   accountId: string;
 }
 
-export interface ElasticCloudIntegrationAccountsApiUpdateElasticCloudIntegrationAccountRequest {
+export interface TwilioIntegrationApiUpdateTwilioIntegrationAccountRequest {
   /**
    * Unique identifier of the integration account.
    * @type string
    */
   accountId: string;
   /**
-   * @type ElasticCloudIntegrationAccountUpdateRequest
+   * @type TwilioIntegrationAccountUpdateRequest
    */
-  body: ElasticCloudIntegrationAccountUpdateRequest;
+  body: TwilioIntegrationAccountUpdateRequest;
 }
 
-export class ElasticCloudIntegrationAccountsApi {
-  private requestFactory: ElasticCloudIntegrationAccountsApiRequestFactory;
-  private responseProcessor: ElasticCloudIntegrationAccountsApiResponseProcessor;
+export class TwilioIntegrationApi {
+  private requestFactory: TwilioIntegrationApiRequestFactory;
+  private responseProcessor: TwilioIntegrationApiResponseProcessor;
   private configuration: Configuration;
 
   public constructor(
     configuration: Configuration,
-    requestFactory?: ElasticCloudIntegrationAccountsApiRequestFactory,
-    responseProcessor?: ElasticCloudIntegrationAccountsApiResponseProcessor
+    requestFactory?: TwilioIntegrationApiRequestFactory,
+    responseProcessor?: TwilioIntegrationApiResponseProcessor
   ) {
     this.configuration = configuration;
     this.requestFactory =
-      requestFactory ||
-      new ElasticCloudIntegrationAccountsApiRequestFactory(configuration);
+      requestFactory || new TwilioIntegrationApiRequestFactory(configuration);
     this.responseProcessor =
-      responseProcessor ||
-      new ElasticCloudIntegrationAccountsApiResponseProcessor();
+      responseProcessor || new TwilioIntegrationApiResponseProcessor();
   }
 
   /**
-   * Create an Elastic Cloud integration account.
+   * Create a Twilio integration account.
    * @param param The request object
    */
-  public createElasticCloudIntegrationAccount(
-    param: ElasticCloudIntegrationAccountsApiCreateElasticCloudIntegrationAccountRequest,
+  public createTwilioIntegrationAccount(
+    param: TwilioIntegrationApiCreateTwilioIntegrationAccountRequest,
     options?: Configuration
-  ): Promise<ElasticCloudIntegrationAccountResponse> {
+  ): Promise<TwilioIntegrationAccountResponse> {
     const requestContextPromise =
-      this.requestFactory.createElasticCloudIntegrationAccount(
-        param.body,
-        options
-      );
+      this.requestFactory.createTwilioIntegrationAccount(param.body, options);
     return requestContextPromise.then((requestContext) => {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.createElasticCloudIntegrationAccount(
+          return this.responseProcessor.createTwilioIntegrationAccount(
             responseContext
           );
         });
@@ -750,15 +713,15 @@ export class ElasticCloudIntegrationAccountsApi {
   }
 
   /**
-   * Delete an Elastic Cloud integration account.
+   * Delete a Twilio integration account.
    * @param param The request object
    */
-  public deleteElasticCloudIntegrationAccount(
-    param: ElasticCloudIntegrationAccountsApiDeleteElasticCloudIntegrationAccountRequest,
+  public deleteTwilioIntegrationAccount(
+    param: TwilioIntegrationApiDeleteTwilioIntegrationAccountRequest,
     options?: Configuration
   ): Promise<void> {
     const requestContextPromise =
-      this.requestFactory.deleteElasticCloudIntegrationAccount(
+      this.requestFactory.deleteTwilioIntegrationAccount(
         param.accountId,
         options
       );
@@ -766,7 +729,7 @@ export class ElasticCloudIntegrationAccountsApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.deleteElasticCloudIntegrationAccount(
+          return this.responseProcessor.deleteTwilioIntegrationAccount(
             responseContext
           );
         });
@@ -774,23 +737,20 @@ export class ElasticCloudIntegrationAccountsApi {
   }
 
   /**
-   * Get an Elastic Cloud integration account.
+   * Get a Twilio integration account.
    * @param param The request object
    */
-  public getElasticCloudIntegrationAccount(
-    param: ElasticCloudIntegrationAccountsApiGetElasticCloudIntegrationAccountRequest,
+  public getTwilioIntegrationAccount(
+    param: TwilioIntegrationApiGetTwilioIntegrationAccountRequest,
     options?: Configuration
-  ): Promise<ElasticCloudIntegrationAccountResponse> {
+  ): Promise<TwilioIntegrationAccountResponse> {
     const requestContextPromise =
-      this.requestFactory.getElasticCloudIntegrationAccount(
-        param.accountId,
-        options
-      );
+      this.requestFactory.getTwilioIntegrationAccount(param.accountId, options);
     return requestContextPromise.then((requestContext) => {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.getElasticCloudIntegrationAccount(
+          return this.responseProcessor.getTwilioIntegrationAccount(
             responseContext
           );
         });
@@ -798,19 +758,19 @@ export class ElasticCloudIntegrationAccountsApi {
   }
 
   /**
-   * List Elastic Cloud integration accounts.
+   * List Twilio integration accounts.
    * @param param The request object
    */
-  public listElasticCloudIntegrationAccounts(
+  public listTwilioIntegrationAccounts(
     options?: Configuration
-  ): Promise<ElasticCloudIntegrationAccountsResponse> {
+  ): Promise<TwilioIntegrationAccountsResponse> {
     const requestContextPromise =
-      this.requestFactory.listElasticCloudIntegrationAccounts(options);
+      this.requestFactory.listTwilioIntegrationAccounts(options);
     return requestContextPromise.then((requestContext) => {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.listElasticCloudIntegrationAccounts(
+          return this.responseProcessor.listTwilioIntegrationAccounts(
             responseContext
           );
         });
@@ -818,15 +778,15 @@ export class ElasticCloudIntegrationAccountsApi {
   }
 
   /**
-   * Update an Elastic Cloud integration account. Only the fields provided are changed.
+   * Update a Twilio integration account. Only the fields provided are changed.
    * @param param The request object
    */
-  public updateElasticCloudIntegrationAccount(
-    param: ElasticCloudIntegrationAccountsApiUpdateElasticCloudIntegrationAccountRequest,
+  public updateTwilioIntegrationAccount(
+    param: TwilioIntegrationApiUpdateTwilioIntegrationAccountRequest,
     options?: Configuration
-  ): Promise<ElasticCloudIntegrationAccountResponse> {
+  ): Promise<TwilioIntegrationAccountResponse> {
     const requestContextPromise =
-      this.requestFactory.updateElasticCloudIntegrationAccount(
+      this.requestFactory.updateTwilioIntegrationAccount(
         param.accountId,
         param.body,
         options
@@ -835,7 +795,7 @@ export class ElasticCloudIntegrationAccountsApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.updateElasticCloudIntegrationAccount(
+          return this.responseProcessor.updateTwilioIntegrationAccount(
             responseContext
           );
         });

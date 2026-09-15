@@ -6,12 +6,11 @@ import { client, v2 } from "@datadog/datadog-api-client";
 
 const configuration = client.createConfiguration();
 configuration.unstableOperations["v2.getTwilioIntegrationAccount"] = true;
-const apiInstance = new v2.TwilioIntegrationAccountsApi(configuration);
+const apiInstance = new v2.TwilioIntegrationApi(configuration);
 
-const params: v2.TwilioIntegrationAccountsApiGetTwilioIntegrationAccountRequest =
-  {
-    accountId: "account_id",
-  };
+const params: v2.TwilioIntegrationApiGetTwilioIntegrationAccountRequest = {
+  accountId: "account_id",
+};
 
 apiInstance
   .getTwilioIntegrationAccount(params)

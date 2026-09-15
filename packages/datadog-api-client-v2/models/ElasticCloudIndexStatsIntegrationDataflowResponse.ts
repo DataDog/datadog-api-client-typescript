@@ -8,11 +8,11 @@ import { IntegrationAccountDataflowStatus } from "./IntegrationAccountDataflowSt
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * The Elastic Cloud index stats dataflow.
+ * Metrics for individual indices. Only the indices granted to the role of the user in `authentication` are collected.
  */
 export class ElasticCloudIndexStatsIntegrationDataflowResponse {
   /**
-   * Whether the Elastic Cloud dataflow is enabled.
+   * Whether Datadog collects this data.
    */
   "enabled"?: boolean;
   /**

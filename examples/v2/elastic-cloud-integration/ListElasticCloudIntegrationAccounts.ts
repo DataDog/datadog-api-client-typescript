@@ -7,7 +7,7 @@ import { client, v2 } from "@datadog/datadog-api-client";
 const configuration = client.createConfiguration();
 configuration.unstableOperations["v2.listElasticCloudIntegrationAccounts"] =
   true;
-const apiInstance = new v2.ElasticCloudIntegrationAccountsApi(configuration);
+const apiInstance = new v2.ElasticCloudIntegrationApi(configuration);
 
 apiInstance
   .listElasticCloudIntegrationAccounts()

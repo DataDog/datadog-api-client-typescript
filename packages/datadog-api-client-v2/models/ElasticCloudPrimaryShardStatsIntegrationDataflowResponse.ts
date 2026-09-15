@@ -8,11 +8,11 @@ import { IntegrationAccountDataflowStatus } from "./IntegrationAccountDataflowSt
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * The Elastic Cloud primary shard stats dataflow.
+ * Metrics covering only the cluster's primary shards.
  */
 export class ElasticCloudPrimaryShardStatsIntegrationDataflowResponse {
   /**
-   * Whether the Elastic Cloud dataflow is enabled.
+   * Whether Datadog collects this data.
    */
   "enabled"?: boolean;
   /**

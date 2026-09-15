@@ -12,27 +12,27 @@ import { TwilioMessagesLogsIntegrationDataflowResponse } from "./TwilioMessagesL
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * Dataflows configured on the Twilio integration account, keyed by dataflow id.
+ * Data Datadog collects from Twilio, keyed by dataflow id.
  */
 export class TwilioIntegrationDataflowsResponse {
   /**
-   * The Twilio alerts logs dataflow.
+   * Twilio Alert resource logs, which detail the errors and warnings raised when Twilio makes a webhook request to your server or when your application calls the Twilio REST API.
    */
   "twilioAlertsLogs"?: TwilioAlertsLogsIntegrationDataflowResponse;
   /**
-   * The Twilio call summaries logs dataflow.
+   * Twilio Call Summary resource logs, covering the metadata and performance of the calls made from your Twilio account. Requires Voice Insights Advanced Features to be enabled on the Twilio account; without it this dataflow collects no data.
    */
   "twilioCallSummariesLogs"?: TwilioCallSummariesLogsIntegrationDataflowResponse;
   /**
-   * The Twilio cloud cost metrics dataflow.
+   * Your Twilio cost data, so that Twilio spend can be broken down and attributed in [Cloud Cost Management](https://docs.datadoghq.com/cloud_cost_management/).
    */
   "twilioCloudCostMetrics"?: TwilioCloudCostMetricsIntegrationDataflowResponse;
   /**
-   * The Twilio events logs dataflow.
+   * Twilio Event resource logs, which record virtually every action taken in your Twilio account, such as provisioning a phone number, changing account security settings, or deleting a recording. Actions are recorded whether they came from the REST API, a user in the Twilio Console, or Twilio itself. [Cloud SIEM](https://docs.datadoghq.com/security/cloud_siem/) analyzes and correlates these logs to detect threats in real time.
    */
   "twilioEventsLogs"?: TwilioEventsLogsIntegrationDataflowResponse;
   /**
-   * The Twilio messages logs dataflow.
+   * Twilio Message resource logs for inbound and outbound messages, used to track delivery and troubleshoot message errors. A log is produced when you send a message through the REST API, when Twilio executes a TwiML instruction, and when someone messages one of your Twilio numbers or channel addresses. Message bodies are never collected.
    */
   "twilioMessagesLogs"?: TwilioMessagesLogsIntegrationDataflowResponse;
 
