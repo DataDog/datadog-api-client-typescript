@@ -44,6 +44,9 @@ const params: v2.CloudCostManagementApiUpsertBudgetRequest = {
       id: "00000000-0a0a-0a0a-aaa0-00000000000a",
       type: "",
     },
+    meta: {
+      error: "",
+    },
   },
 };
 
