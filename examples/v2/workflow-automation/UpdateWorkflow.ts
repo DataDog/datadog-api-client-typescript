@@ -20,6 +20,7 @@ const params: v2.WorkflowAutomationApiUpdateWorkflowRequest = {
         runAs: {
           type: "owner",
         },
+        sensitivePrivileges: false,
         spec: {
           connectionEnvs: [
             {

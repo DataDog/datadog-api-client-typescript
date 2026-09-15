@@ -17,6 +17,7 @@ const params: v2.WorkflowAutomationApiCreateWorkflowRequest = {
         runAs: {
           type: "owner",
         },
+        sensitivePrivileges: true,
         spec: {
           connectionEnvs: [
             {
