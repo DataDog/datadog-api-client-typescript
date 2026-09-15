@@ -7,17 +7,21 @@
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * Hash file specified by the field attribute
+ * The network filter action applied on the network traffic matching the rule.
  */
-export class CloudWorkloadSecurityAgentRuleActionHash {
+export class CloudWorkloadSecurityAgentRuleActionNetworkFilter {
   /**
-   * The field of the hash action
+   * The filter expression of the network filter action.
    */
-  "field"?: string;
+  "filter"?: string;
   /**
-   * The maximum size of the files to hash, in bytes.
+   * The policy of the network filter action.
    */
-  "maxFileSize"?: number;
+  "policy"?: string;
+  /**
+   * The scope of the network filter action.
+   */
+  "scope"?: string;
 
   /**
    * A container for additional, undeclared properties.
@@ -35,14 +39,17 @@ export class CloudWorkloadSecurityAgentRuleActionHash {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    field: {
-      baseName: "field",
+    filter: {
+      baseName: "filter",
       type: "string",
     },
-    maxFileSize: {
-      baseName: "max_file_size",
-      type: "number",
-      format: "int64",
+    policy: {
+      baseName: "policy",
+      type: "string",
+    },
+    scope: {
+      baseName: "scope",
+      type: "string",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -54,7 +61,7 @@ export class CloudWorkloadSecurityAgentRuleActionHash {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-    return CloudWorkloadSecurityAgentRuleActionHash.attributeTypeMap;
+    return CloudWorkloadSecurityAgentRuleActionNetworkFilter.attributeTypeMap;
   }
 
   public constructor() {}

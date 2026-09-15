@@ -3085,8 +3085,11 @@ export { CloudWorkloadSecurityAgentPolicyUpdaterAttributes } from "./models/Clou
 export { CloudWorkloadSecurityAgentPolicyUpdateRequest } from "./models/CloudWorkloadSecurityAgentPolicyUpdateRequest";
 export { CloudWorkloadSecurityAgentPolicyVersion } from "./models/CloudWorkloadSecurityAgentPolicyVersion";
 export { CloudWorkloadSecurityAgentRuleAction } from "./models/CloudWorkloadSecurityAgentRuleAction";
+export { CloudWorkloadSecurityAgentRuleActionCoreDump } from "./models/CloudWorkloadSecurityAgentRuleActionCoreDump";
 export { CloudWorkloadSecurityAgentRuleActionHash } from "./models/CloudWorkloadSecurityAgentRuleActionHash";
+export { CloudWorkloadSecurityAgentRuleActionLog } from "./models/CloudWorkloadSecurityAgentRuleActionLog";
 export { CloudWorkloadSecurityAgentRuleActionMetadata } from "./models/CloudWorkloadSecurityAgentRuleActionMetadata";
+export { CloudWorkloadSecurityAgentRuleActionNetworkFilter } from "./models/CloudWorkloadSecurityAgentRuleActionNetworkFilter";
 export { CloudWorkloadSecurityAgentRuleActionSet } from "./models/CloudWorkloadSecurityAgentRuleActionSet";
 export { CloudWorkloadSecurityAgentRuleActionSetValue } from "./models/CloudWorkloadSecurityAgentRuleActionSetValue";
 export { CloudWorkloadSecurityAgentRuleAttributes } from "./models/CloudWorkloadSecurityAgentRuleAttributes";

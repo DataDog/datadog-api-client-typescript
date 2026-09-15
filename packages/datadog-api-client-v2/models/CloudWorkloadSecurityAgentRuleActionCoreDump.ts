@@ -7,17 +7,25 @@
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * Hash file specified by the field attribute
+ * The core dump action applied on the process matching the rule.
  */
-export class CloudWorkloadSecurityAgentRuleActionHash {
+export class CloudWorkloadSecurityAgentRuleActionCoreDump {
   /**
-   * The field of the hash action
+   * Whether the directory entry information is included in the core dump.
    */
-  "field"?: string;
+  "dentry"?: boolean;
   /**
-   * The maximum size of the files to hash, in bytes.
+   * Whether the mount information is included in the core dump.
    */
-  "maxFileSize"?: number;
+  "mount"?: boolean;
+  /**
+   * Whether the core dump is left uncompressed.
+   */
+  "noCompression"?: boolean;
+  /**
+   * Whether the process memory is included in the core dump.
+   */
+  "process"?: boolean;
 
   /**
    * A container for additional, undeclared properties.
@@ -35,14 +43,21 @@ export class CloudWorkloadSecurityAgentRuleActionHash {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    field: {
-      baseName: "field",
-      type: "string",
+    dentry: {
+      baseName: "dentry",
+      type: "boolean",
     },
-    maxFileSize: {
-      baseName: "max_file_size",
-      type: "number",
-      format: "int64",
+    mount: {
+      baseName: "mount",
+      type: "boolean",
+    },
+    noCompression: {
+      baseName: "no_compression",
+      type: "boolean",
+    },
+    process: {
+      baseName: "process",
+      type: "boolean",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -54,7 +69,7 @@ export class CloudWorkloadSecurityAgentRuleActionHash {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-    return CloudWorkloadSecurityAgentRuleActionHash.attributeTypeMap;
+    return CloudWorkloadSecurityAgentRuleActionCoreDump.attributeTypeMap;
   }
 
   public constructor() {}
