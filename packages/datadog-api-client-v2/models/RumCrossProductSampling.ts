@@ -15,7 +15,7 @@ export class RumCrossProductSampling {
    */
   "traceEnabled"?: boolean;
   /**
-   * The sample rate for the APM cross-product retention filter, between 0 and 100.
+   * The sample rate for the APM cross-product retention filter, between 0 and 100. Values returned by the API are rounded to two decimal places.
    */
   "traceSampleRate"?: number;
 
