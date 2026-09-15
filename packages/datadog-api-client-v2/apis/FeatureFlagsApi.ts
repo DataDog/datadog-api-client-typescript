@@ -3181,6 +3181,11 @@ export class FeatureFlagsApi {
   /**
    * Updates targeting rules (allocations) for a specific feature flag in a specific environment.
    * This operation replaces the existing allocation set with the request payload.
+   * Creating, updating, or deleting a standard experiment allocation—an allocation with
+   * `type: FEATURE_GATE` and a non-null `experiment_id`—also requires the
+   * `product_analytics_experiments_write` permission. This additional permission is not
+   * required for `CANARY` allocations, exposure schedules, or guardrail metrics unless
+   * the same operation also mutates a standard experiment allocation.
    * @param param The request object
    */
   public updateAllocationsForFeatureFlagInEnvironment(
