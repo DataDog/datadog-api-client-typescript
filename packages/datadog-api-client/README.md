@@ -483,6 +483,7 @@ apiInstance
 | ServiceNow Integration | @datadog/datadog-api-client-service-now-integration | [README.md](../../services/service-now-integration/README.md) |
 | Slack Integration | @datadog/datadog-api-client-slack-integration | [README.md](../../services/slack-integration/README.md) |
 | Snapshots | @datadog/datadog-api-client-snapshots | [README.md](../../services/snapshots/README.md) |
+| Snowflake Integration | @datadog/datadog-api-client-snowflake-integration | [README.md](../../services/snowflake-integration/README.md) |
 | Software Catalog | @datadog/datadog-api-client-software-catalog | [README.md](../../services/software-catalog/README.md) |
 | Spa | @datadog/datadog-api-client-spa | [README.md](../../services/spa/README.md) |
 | Spans | @datadog/datadog-api-client-spans | [README.md](../../services/spans/README.md) |

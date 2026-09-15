@@ -1,0 +1,44 @@
+import { AttributeTypeMap } from "@datadog/datadog-api-client";
+
+import { SnowflakeQueryHistoryLogsIntegrationDataflowSettingsRequest } from "./SnowflakeQueryHistoryLogsIntegrationDataflowSettingsRequest";
+
+/**
+ * Per-query logs that let you identify long-running, poorly performing, and expensive queries.
+ */
+export class SnowflakeQueryHistoryLogsIntegrationDataflowRequest {
+  /**
+   * Whether Datadog collects this data. Defaults to `false`; set to `true` to start collection.
+   */
+  "enabled"?: boolean;
+  /**
+   * Settings of the query history logs dataflow. Only the fields provided are changed.
+   */
+  "settings"?: SnowflakeQueryHistoryLogsIntegrationDataflowSettingsRequest;
+  /**
+   * @ignore
+   */
+  "_unparsed"?: boolean;
+
+  /**
+   * @ignore
+   */
+  static readonly attributeTypeMap: AttributeTypeMap = {
+    enabled: {
+      baseName: "enabled",
+      type: "boolean",
+    },
+    settings: {
+      baseName: "settings",
+      type: "SnowflakeQueryHistoryLogsIntegrationDataflowSettingsRequest",
+    },
+  };
+
+  /**
+   * @ignore
+   */
+  static getAttributeTypeMap(): AttributeTypeMap {
+    return SnowflakeQueryHistoryLogsIntegrationDataflowRequest.attributeTypeMap;
+  }
+
+  public constructor() {}
+}
