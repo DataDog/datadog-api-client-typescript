@@ -8,11 +8,11 @@ import { IntegrationAccountDataflowStatus } from "./IntegrationAccountDataflowSt
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * The Elastic Cloud pending task stats dataflow.
+ * Metrics for cluster-level changes that have been submitted but not yet executed.
  */
 export class ElasticCloudPendingTaskStatsIntegrationDataflowResponse {
   /**
-   * Whether the Elastic Cloud dataflow is enabled.
+   * Whether Datadog collects this data.
    */
   "enabled"?: boolean;
   /**

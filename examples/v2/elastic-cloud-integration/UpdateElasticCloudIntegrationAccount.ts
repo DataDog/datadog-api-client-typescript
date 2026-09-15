@@ -1,15 +1,15 @@
 /**
- * Create an Elastic Cloud integration account returns "Created" response
+ * Update an Elastic Cloud integration account returns "OK" response
  */
 
 import { client, v2 } from "@datadog/datadog-api-client";
 
 const configuration = client.createConfiguration();
-configuration.unstableOperations["v2.createElasticCloudIntegrationAccount"] =
+configuration.unstableOperations["v2.updateElasticCloudIntegrationAccount"] =
   true;
-const apiInstance = new v2.ElasticCloudIntegrationAccountsApi(configuration);
+const apiInstance = new v2.ElasticCloudIntegrationApi(configuration);
 
-const params: v2.ElasticCloudIntegrationAccountsApiCreateElasticCloudIntegrationAccountRequest =
+const params: v2.ElasticCloudIntegrationApiUpdateElasticCloudIntegrationAccountRequest =
   {
     body: {
       data: {
@@ -48,13 +48,15 @@ const params: v2.ElasticCloudIntegrationAccountsApiCreateElasticCloudIntegration
             url: "https://example.es.us-central1.gcp.cloud.es.io:9243",
           },
         },
+        id: "953a0060-81ec-4221-aed4-d4733b59cd96",
         type: "integration-account",
       },
     },
+    accountId: "account_id",
   };
 
 apiInstance
-  .createElasticCloudIntegrationAccount(params)
+  .updateElasticCloudIntegrationAccount(params)
   .then((data: v2.ElasticCloudIntegrationAccountResponse) => {
     console.log(
       "API called successfully. Returned data: " + JSON.stringify(data)

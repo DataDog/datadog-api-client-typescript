@@ -8,11 +8,11 @@ import { IntegrationAccountDataflowStatus } from "./IntegrationAccountDataflowSt
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * The Elastic Cloud shard allocation stats dataflow.
+ * Metrics for how many shards are allocated to each data node, and the disk space they use.
  */
 export class ElasticCloudShardAllocationStatsIntegrationDataflowResponse {
   /**
-   * Whether the Elastic Cloud dataflow is enabled.
+   * Whether Datadog collects this data.
    */
   "enabled"?: boolean;
   /**

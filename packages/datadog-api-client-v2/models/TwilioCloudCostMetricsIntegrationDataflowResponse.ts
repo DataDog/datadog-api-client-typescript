@@ -8,11 +8,11 @@ import { IntegrationAccountDataflowStatus } from "./IntegrationAccountDataflowSt
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * The Twilio cloud cost metrics dataflow.
+ * Your Twilio cost data, so that Twilio spend can be broken down and attributed in [Cloud Cost Management](https://docs.datadoghq.com/cloud_cost_management/).
  */
 export class TwilioCloudCostMetricsIntegrationDataflowResponse {
   /**
-   * Whether the Twilio dataflow is enabled.
+   * Whether Datadog collects this data.
    */
   "enabled"?: boolean;
   /**
