@@ -1,25 +1,21 @@
 import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
 /**
- * Kill system call applied on the container matching the rule
+ * The network filter action applied on the network traffic matching the rule.
  */
-export class CloudWorkloadSecurityAgentRuleKill {
+export class CloudWorkloadSecurityAgentRuleActionNetworkFilter {
   /**
-   * Whether the automatic container safeguard of the kill action is disabled.
+   * The filter expression of the network filter action.
    */
-  "disableContainerDisarmer"?: boolean;
+  "filter"?: string;
   /**
-   * Whether the automatic executable safeguard of the kill action is disabled.
+   * The policy of the network filter action.
    */
-  "disableExecutableDisarmer"?: boolean;
+  "policy"?: string;
   /**
-   * The scope of the kill action.
+   * The scope of the network filter action.
    */
   "scope"?: string;
-  /**
-   * Supported signals for the kill system call
-   */
-  "signal"?: string;
   /**
    * A container for additional, undeclared properties.
    * This is a holder for any undeclared properties as specified with
@@ -35,20 +31,16 @@ export class CloudWorkloadSecurityAgentRuleKill {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    disableContainerDisarmer: {
-      baseName: "disable_container_disarmer",
-      type: "boolean",
+    filter: {
+      baseName: "filter",
+      type: "string",
     },
-    disableExecutableDisarmer: {
-      baseName: "disable_executable_disarmer",
-      type: "boolean",
+    policy: {
+      baseName: "policy",
+      type: "string",
     },
     scope: {
       baseName: "scope",
-      type: "string",
-    },
-    signal: {
-      baseName: "signal",
       type: "string",
     },
     additionalProperties: {
@@ -61,7 +53,7 @@ export class CloudWorkloadSecurityAgentRuleKill {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-    return CloudWorkloadSecurityAgentRuleKill.attributeTypeMap;
+    return CloudWorkloadSecurityAgentRuleActionNetworkFilter.attributeTypeMap;
   }
 
   public constructor() {}
