@@ -1,20 +1,13 @@
 import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
-import { BudgetWithEntriesData } from "./BudgetWithEntriesData";
-import { BudgetWithEntriesMeta } from "./BudgetWithEntriesMeta";
-
 /**
- * The definition of the `BudgetWithEntries` object.
+ * Additional information about errors encountered while retrieving budget cost data.
  */
-export class BudgetWithEntries {
+export class BudgetWithEntriesMeta {
   /**
-   * A budget and all its entries.
+   * A user-facing explanation of why budget cost data could not be retrieved.
    */
-  "data"?: BudgetWithEntriesData;
-  /**
-   * Additional information about errors encountered while retrieving budget cost data.
-   */
-  "meta"?: BudgetWithEntriesMeta;
+  "error": string;
   /**
    * A container for additional, undeclared properties.
    * This is a holder for any undeclared properties as specified with
@@ -30,13 +23,10 @@ export class BudgetWithEntries {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    data: {
-      baseName: "data",
-      type: "BudgetWithEntriesData",
-    },
-    meta: {
-      baseName: "meta",
-      type: "BudgetWithEntriesMeta",
+    error: {
+      baseName: "error",
+      type: "string",
+      required: true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -48,7 +38,7 @@ export class BudgetWithEntries {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-    return BudgetWithEntries.attributeTypeMap;
+    return BudgetWithEntriesMeta.attributeTypeMap;
   }
 
   public constructor() {}

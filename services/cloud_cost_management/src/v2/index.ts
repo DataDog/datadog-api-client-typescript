@@ -155,6 +155,7 @@ export { BudgetWithEntriesDataAttributesEntriesItems } from "./models/BudgetWith
 export { BudgetWithEntriesDataAttributesEntriesItemsCosts } from "./models/BudgetWithEntriesDataAttributesEntriesItemsCosts";
 export { BudgetWithEntriesDataAttributesEntriesItemsTagFiltersItems } from "./models/BudgetWithEntriesDataAttributesEntriesItemsTagFiltersItems";
 export { BudgetWithEntriesDataType } from "./models/BudgetWithEntriesDataType";
+export { BudgetWithEntriesMeta } from "./models/BudgetWithEntriesMeta";
 export { CommitmentsAwsEC2RICommitment } from "./models/CommitmentsAwsEC2RICommitment";
 export { CommitmentsAwsElasticacheRICommitment } from "./models/CommitmentsAwsElasticacheRICommitment";
 export { CommitmentsAwsRDSRICommitment } from "./models/CommitmentsAwsRDSRICommitment";
