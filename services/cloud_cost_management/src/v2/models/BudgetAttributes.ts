@@ -57,6 +57,10 @@ export class BudgetAttributes {
    */
   "startMonth"?: number;
   /**
+   * The tag keys used to group costs for the budget.
+   */
+  "tags"?: Array<string>;
+  /**
    * The sum of all budget entries' amounts.
    */
   "totalAmount"?: number;
@@ -136,6 +140,10 @@ export class BudgetAttributes {
       baseName: "start_month",
       type: "number",
       format: "int64",
+    },
+    tags: {
+      baseName: "tags",
+      type: "Array<string>",
     },
     totalAmount: {
       baseName: "total_amount",
