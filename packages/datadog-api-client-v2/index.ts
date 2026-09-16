@@ -2729,6 +2729,7 @@ export { BudgetWithEntriesDataAttributesEntriesItems } from "./models/BudgetWith
 export { BudgetWithEntriesDataAttributesEntriesItemsCosts } from "./models/BudgetWithEntriesDataAttributesEntriesItemsCosts";
 export { BudgetWithEntriesDataAttributesEntriesItemsTagFiltersItems } from "./models/BudgetWithEntriesDataAttributesEntriesItemsTagFiltersItems";
 export { BudgetWithEntriesDataType } from "./models/BudgetWithEntriesDataType";
+export { BudgetWithEntriesMeta } from "./models/BudgetWithEntriesMeta";
 export { BulkDeleteAppsDatastoreItemsRequest } from "./models/BulkDeleteAppsDatastoreItemsRequest";
 export { BulkDeleteAppsDatastoreItemsRequestData } from "./models/BulkDeleteAppsDatastoreItemsRequestData";
 export { BulkDeleteAppsDatastoreItemsRequestDataAttributes } from "./models/BulkDeleteAppsDatastoreItemsRequestDataAttributes";

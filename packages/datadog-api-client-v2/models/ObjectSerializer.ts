@@ -523,6 +523,7 @@ import { BudgetWithEntriesDataAttributes } from "./BudgetWithEntriesDataAttribut
 import { BudgetWithEntriesDataAttributesEntriesItems } from "./BudgetWithEntriesDataAttributesEntriesItems";
 import { BudgetWithEntriesDataAttributesEntriesItemsCosts } from "./BudgetWithEntriesDataAttributesEntriesItemsCosts";
 import { BudgetWithEntriesDataAttributesEntriesItemsTagFiltersItems } from "./BudgetWithEntriesDataAttributesEntriesItemsTagFiltersItems";
+import { BudgetWithEntriesMeta } from "./BudgetWithEntriesMeta";
 import { BulkDeleteAppsDatastoreItemsRequest } from "./BulkDeleteAppsDatastoreItemsRequest";
 import { BulkDeleteAppsDatastoreItemsRequestData } from "./BulkDeleteAppsDatastoreItemsRequestData";
 import { BulkDeleteAppsDatastoreItemsRequestDataAttributes } from "./BulkDeleteAppsDatastoreItemsRequestDataAttributes";
@@ -10042,6 +10043,7 @@ const typeMap: { [index: string]: any } = {
     BudgetWithEntriesDataAttributesEntriesItemsCosts,
   BudgetWithEntriesDataAttributesEntriesItemsTagFiltersItems:
     BudgetWithEntriesDataAttributesEntriesItemsTagFiltersItems,
+  BudgetWithEntriesMeta: BudgetWithEntriesMeta,
   BulkDeleteAppsDatastoreItemsRequest: BulkDeleteAppsDatastoreItemsRequest,
   BulkDeleteAppsDatastoreItemsRequestData:
     BulkDeleteAppsDatastoreItemsRequestData,
