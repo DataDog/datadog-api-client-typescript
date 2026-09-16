@@ -85,6 +85,8 @@ import { DistributionWidgetYAxis } from "./DistributionWidgetYAxis";
 import { Downtime } from "./Downtime";
 import { DowntimeChild } from "./DowntimeChild";
 import { DowntimeRecurrence } from "./DowntimeRecurrence";
+import { EmbeddedAppWidgetDefinition } from "./EmbeddedAppWidgetDefinition";
+import { EmbeddedAppWidgetInput } from "./EmbeddedAppWidgetInput";
 import { Event } from "./Event";
 import { EventCreateRequest } from "./EventCreateRequest";
 import { EventCreateResponse } from "./EventCreateResponse";
@@ -864,6 +866,7 @@ const enumsMap: { [key: string]: any[] } = {
   DistributionPointsContentEncoding: ["deflate"],
   DistributionPointsType: ["distribution"],
   DistributionWidgetDefinitionType: ["distribution"],
+  EmbeddedAppWidgetDefinitionType: ["embedded_app"],
   EventAlertType: [
     "error",
     "warning",
@@ -2180,6 +2183,8 @@ const typeMap: { [index: string]: any } = {
   Downtime: Downtime,
   DowntimeChild: DowntimeChild,
   DowntimeRecurrence: DowntimeRecurrence,
+  EmbeddedAppWidgetDefinition: EmbeddedAppWidgetDefinition,
+  EmbeddedAppWidgetInput: EmbeddedAppWidgetInput,
   Event: Event,
   EventCreateRequest: EventCreateRequest,
   EventCreateResponse: EventCreateResponse,
@@ -3145,6 +3150,7 @@ const oneOfMap: { [index: string]: string[] } = {
     "CheckStatusWidgetDefinition",
     "CohortWidgetDefinition",
     "DistributionWidgetDefinition",
+    "EmbeddedAppWidgetDefinition",
     "EventStreamWidgetDefinition",
     "EventTimelineWidgetDefinition",
     "FreeTextWidgetDefinition",
