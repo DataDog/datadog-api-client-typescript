@@ -39,6 +39,7 @@ const params: v2.CloudCostManagementApiUpsertBudgetRequest = {
         name: "my budget",
         orgId: 123,
         startMonth: 202501,
+        tags: ["service"],
         totalAmount: 1000,
         updatedAt: 1738258683590,
         updatedBy: "00000000-0a0a-0a0a-aaa0-00000000000a",
