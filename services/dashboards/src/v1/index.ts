@@ -84,6 +84,9 @@ export { DistributionWidgetHistogramRequestQuery } from "./models/DistributionWi
 export { DistributionWidgetRequest } from "./models/DistributionWidgetRequest";
 export { DistributionWidgetXAxis } from "./models/DistributionWidgetXAxis";
 export { DistributionWidgetYAxis } from "./models/DistributionWidgetYAxis";
+export { EmbeddedAppWidgetDefinition } from "./models/EmbeddedAppWidgetDefinition";
+export { EmbeddedAppWidgetDefinitionType } from "./models/EmbeddedAppWidgetDefinitionType";
+export { EmbeddedAppWidgetInput } from "./models/EmbeddedAppWidgetInput";
 export { EventQueryDefinition } from "./models/EventQueryDefinition";
 export { EventsAggregation } from "./models/EventsAggregation";
 export { EventsAggregationValue } from "./models/EventsAggregationValue";
