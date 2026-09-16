@@ -69,7 +69,7 @@ export class SecurityEntityRiskScoreAttributes {
    */
   "severity": SecurityEntityRiskScoreAttributesSeverity;
   /**
-   * Number of security signals detected for this entity.
+   * Number of risk-contributing security signals detected for this entity.
    */
   "signalsDetected": number;
   /**
