@@ -150,6 +150,7 @@ export class DowntimesApiRequestFactory extends BaseAPIRequestFactory {
   public async getDowntime(
     downtimeId: string,
     include?: string,
+    withRunAs?: boolean,
     _options?: Configuration,
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
@@ -193,6 +194,13 @@ export class DowntimesApiRequestFactory extends BaseAPIRequestFactory {
       requestContext.setQueryParam(
         "include",
         serialize(include, TypingInfo, "string", ""),
+        "",
+      );
+    }
+    if (withRunAs !== undefined) {
+      requestContext.setQueryParam(
+        "with_run_as",
+        serialize(withRunAs, TypingInfo, "boolean", ""),
         "",
       );
     }
@@ -788,6 +796,14 @@ export interface DowntimesApiGetDowntimeRequest {
    * @type string
    */
   include?: string;
+  /**
+   * If `true`, include the `run_as` attribute in the response, which lists the principals allowed to
+   * act on behalf of the downtime.
+   *
+   * **Note**: This feature is currently in Preview and may not be available for all organizations.
+   * @type boolean
+   */
+  withRunAs?: boolean;
 }
 
 export interface DowntimesApiListDowntimesRequest {
@@ -919,6 +935,7 @@ export class DowntimesApi {
     const requestContextPromise = this.requestFactory.getDowntime(
       param.downtimeId,
       param.include,
+      param.withRunAs,
       options,
     );
     return requestContextPromise.then((requestContext) => {

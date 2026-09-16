@@ -18,6 +18,8 @@ import { DowntimeRelationshipsMonitorData } from "./DowntimeRelationshipsMonitor
 import { DowntimeResponse } from "./DowntimeResponse";
 import { DowntimeResponseAttributes } from "./DowntimeResponseAttributes";
 import { DowntimeResponseData } from "./DowntimeResponseData";
+import { DowntimeRunAsItem } from "./DowntimeRunAsItem";
+import { DowntimeRunAsPrincipal } from "./DowntimeRunAsPrincipal";
 import { DowntimeScheduleCurrentDowntimeResponse } from "./DowntimeScheduleCurrentDowntimeResponse";
 import { DowntimeScheduleOneTimeCreateUpdateRequest } from "./DowntimeScheduleOneTimeCreateUpdateRequest";
 import { DowntimeScheduleOneTimeResponse } from "./DowntimeScheduleOneTimeResponse";
@@ -50,6 +52,7 @@ export const TypingInfo: ModelTypingInfo = {
     DowntimeNotifyEndStateActions: ["canceled", "expired"],
     DowntimeNotifyEndStateTypes: ["alert", "no data", "warn"],
     DowntimeResourceType: ["downtime"],
+    DowntimeRunAsPrincipalType: ["user", "role", "team"],
     DowntimeStatus: ["active", "canceled", "ended", "scheduled"],
     MonitorDowntimeMatchResourceType: ["downtime_match"],
     OrganizationsType: ["orgs"],
@@ -94,6 +97,8 @@ export const TypingInfo: ModelTypingInfo = {
     DowntimeResponse: DowntimeResponse,
     DowntimeResponseAttributes: DowntimeResponseAttributes,
     DowntimeResponseData: DowntimeResponseData,
+    DowntimeRunAsItem: DowntimeRunAsItem,
+    DowntimeRunAsPrincipal: DowntimeRunAsPrincipal,
     DowntimeScheduleCurrentDowntimeResponse:
       DowntimeScheduleCurrentDowntimeResponse,
     DowntimeScheduleOneTimeCreateUpdateRequest:
