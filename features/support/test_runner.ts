@@ -115,6 +115,7 @@ interface TestRunnerPlan {
   operation_id: string;
   request: {
     body?: { value: any };
+    compression?: string;
     parameters: Array<{
       name: string;
       source: {
@@ -262,6 +263,9 @@ export function applyTestRunnerPlan(world: World, pagination: boolean): void {
 
   if (plan.request.body != null) {
     world.opts.body = materialize(plan.request.body.value, world.fixtures);
+  }
+  if (plan.request.compression != null) {
+    world.opts.contentEncoding = plan.request.compression;
   }
   for (const parameter of plan.request.parameters) {
     const value =
