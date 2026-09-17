@@ -59,9 +59,9 @@ jobs:
           echo "to_ref=HEAD" >> $GITHUB_OUTPUT
           echo "Pre-commit will check from $FROM_REF to HEAD"
       - id: pre_commit
-        name: Run generate to fix lint and format
+        name: Run format
         if: github.event.action != 'closed' && github.event.pull_request.merged != true
-        run: bash -c "./generate.sh"
+        run: pre-commit run format --all-files --hook-stage manual --show-diff-on-failure --color=always
       - name: Commit changes
         if: ${{ failure() && inputs.enable-commit-changes }}
         run: |-
