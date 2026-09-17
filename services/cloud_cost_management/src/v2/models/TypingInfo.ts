@@ -189,6 +189,8 @@ import { OCIConfig } from "./OCIConfig";
 import { OCIConfigAttributes } from "./OCIConfigAttributes";
 import { OCIConfigsResponse } from "./OCIConfigsResponse";
 import { RecommendationsFilterRequest } from "./RecommendationsFilterRequest";
+import { RecommendationsFilterRequestData } from "./RecommendationsFilterRequestData";
+import { RecommendationsFilterRequestDataAttributes } from "./RecommendationsFilterRequestDataAttributes";
 import { RecommendationsFilterRequestSortItems } from "./RecommendationsFilterRequestSortItems";
 import { RecommendationsPageMeta } from "./RecommendationsPageMeta";
 import { RecommendationsPageMetaPage } from "./RecommendationsPageMetaPage";
@@ -284,6 +286,7 @@ export const TypingInfo: ModelTypingInfo = {
     GcpUcConfigResponseDataType: ["gcp_uc_config"],
     GeneratedCostTagDescriptionType: ["cost_generated_tag_description"],
     OCIConfigType: ["oci_config"],
+    RecommendationsFilterRequestDataType: ["recommendations_filter"],
     RecommendationsFilterRequestScope: ["ccm", "experiment", "*"],
     ReorderRuleResourceDataType: ["arbitrary_rule"],
     ReorderRulesetResourceDataType: ["ruleset"],
@@ -534,6 +537,9 @@ export const TypingInfo: ModelTypingInfo = {
     OCIConfigAttributes: OCIConfigAttributes,
     OCIConfigsResponse: OCIConfigsResponse,
     RecommendationsFilterRequest: RecommendationsFilterRequest,
+    RecommendationsFilterRequestData: RecommendationsFilterRequestData,
+    RecommendationsFilterRequestDataAttributes:
+      RecommendationsFilterRequestDataAttributes,
     RecommendationsFilterRequestSortItems:
       RecommendationsFilterRequestSortItems,
     RecommendationsPageMeta: RecommendationsPageMeta,
