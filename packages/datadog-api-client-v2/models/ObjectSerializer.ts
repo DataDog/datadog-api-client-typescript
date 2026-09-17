@@ -4257,6 +4257,8 @@ import { RecommendationAttributes } from "./RecommendationAttributes";
 import { RecommendationData } from "./RecommendationData";
 import { RecommendationDocument } from "./RecommendationDocument";
 import { RecommendationsFilterRequest } from "./RecommendationsFilterRequest";
+import { RecommendationsFilterRequestData } from "./RecommendationsFilterRequestData";
+import { RecommendationsFilterRequestDataAttributes } from "./RecommendationsFilterRequestDataAttributes";
 import { RecommendationsFilterRequestSortItems } from "./RecommendationsFilterRequestSortItems";
 import { RecommendationsPageMeta } from "./RecommendationsPageMeta";
 import { RecommendationsPageMetaPage } from "./RecommendationsPageMetaPage";
@@ -8304,6 +8306,7 @@ const enumsMap: { [key: string]: any[] } = {
   RUMSortOrder: ["asc", "desc"],
   ReadinessGateThresholdType: ["ANY", "ALL"],
   RecommendationType: ["recommendation"],
+  RecommendationsFilterRequestDataType: ["recommendations_filter"],
   RecommendationsFilterRequestScope: ["ccm", "experiment", "*"],
   ReferenceTableCreateSourceType: ["LOCAL_FILE", "S3", "GCS", "AZURE"],
   ReferenceTableSchemaFieldType: ["STRING", "INT32"],
@@ -14593,6 +14596,9 @@ const typeMap: { [index: string]: any } = {
   RecommendationData: RecommendationData,
   RecommendationDocument: RecommendationDocument,
   RecommendationsFilterRequest: RecommendationsFilterRequest,
+  RecommendationsFilterRequestData: RecommendationsFilterRequestData,
+  RecommendationsFilterRequestDataAttributes:
+    RecommendationsFilterRequestDataAttributes,
   RecommendationsFilterRequestSortItems: RecommendationsFilterRequestSortItems,
   RecommendationsPageMeta: RecommendationsPageMeta,
   RecommendationsPageMetaPage: RecommendationsPageMetaPage,

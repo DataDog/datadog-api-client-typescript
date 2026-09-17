@@ -10,13 +10,19 @@ const apiInstance = new v2.CloudCostManagementApi(configuration);
 
 const params: v2.CloudCostManagementApiSearchCostRecommendationsRequest = {
   body: {
-    filter: "@resource_table:aws_ec2_instance",
-    sort: [
-      {
-        expression: "potential_daily_savings.amount",
-        order: "DESC",
+    data: {
+      attributes: {
+        scope: "ccm",
+        sort: [
+          {
+            expression: "potential_daily_savings.amount",
+            order: "DESC",
+          },
+        ],
       },
-    ],
+      id: "@resource_table:aws_ec2_instance",
+      type: "recommendations_filter",
+    },
   },
 };
 
