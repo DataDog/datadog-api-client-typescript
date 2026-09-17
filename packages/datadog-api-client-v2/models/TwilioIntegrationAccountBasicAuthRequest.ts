@@ -3,18 +3,18 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
-import { IntegrationAccountBasicAuthType } from "./IntegrationAccountBasicAuthType";
+import { TwilioIntegrationAccountBasicAuthType } from "./TwilioIntegrationAccountBasicAuthType";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * Username and password authentication.
  */
-export class IntegrationAccountBasicAuthRequest {
+export class TwilioIntegrationAccountBasicAuthRequest {
   /**
    * The authentication method type.
    */
-  "authType": IntegrationAccountBasicAuthType;
+  "authType": TwilioIntegrationAccountBasicAuthType;
   /**
    * Secret password or private key.
    */
@@ -23,13 +23,6 @@ export class IntegrationAccountBasicAuthRequest {
    * Non-secret username or public identifier for the credential pair.
    */
   "username": string;
-
-  /**
-   * A container for additional, undeclared properties.
-   * This is a holder for any undeclared properties as specified with
-   * the 'additionalProperties' keyword in the OAS document.
-   */
-  "additionalProperties"?: { [key: string]: any };
 
   /**
    * @ignore
@@ -42,7 +35,7 @@ export class IntegrationAccountBasicAuthRequest {
   static readonly attributeTypeMap: AttributeTypeMap = {
     authType: {
       baseName: "auth_type",
-      type: "IntegrationAccountBasicAuthType",
+      type: "TwilioIntegrationAccountBasicAuthType",
       required: true,
     },
     password: {
@@ -55,17 +48,13 @@ export class IntegrationAccountBasicAuthRequest {
       type: "string",
       required: true,
     },
-    additionalProperties: {
-      baseName: "additionalProperties",
-      type: "{ [key: string]: any; }",
-    },
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-    return IntegrationAccountBasicAuthRequest.attributeTypeMap;
+    return TwilioIntegrationAccountBasicAuthRequest.attributeTypeMap;
   }
 
   public constructor() {}

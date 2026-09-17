@@ -3,7 +3,7 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
-import { IntegrationAccountBasicAuthRequest } from "./IntegrationAccountBasicAuthRequest";
+import { ElasticCloudIntegrationAccountBasicAuthRequest } from "./ElasticCloudIntegrationAccountBasicAuthRequest";
 
 import { UnparsedObject } from "../../datadog-api-client-common/util";
 
@@ -12,5 +12,5 @@ import { UnparsedObject } from "../../datadog-api-client-common/util";
  */
 
 export type ElasticCloudIntegrationAccountAuthenticationRequest =
-  | IntegrationAccountBasicAuthRequest
+  | ElasticCloudIntegrationAccountBasicAuthRequest
   | UnparsedObject;

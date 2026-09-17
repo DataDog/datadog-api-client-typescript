@@ -639,12 +639,12 @@ export {
 } from "./apis/DowntimesApi";
 
 export {
-  ElasticCloudIntegrationAccountsApiCreateElasticCloudIntegrationAccountRequest,
-  ElasticCloudIntegrationAccountsApiDeleteElasticCloudIntegrationAccountRequest,
-  ElasticCloudIntegrationAccountsApiGetElasticCloudIntegrationAccountRequest,
-  ElasticCloudIntegrationAccountsApiUpdateElasticCloudIntegrationAccountRequest,
-  ElasticCloudIntegrationAccountsApi,
-} from "./apis/ElasticCloudIntegrationAccountsApi";
+  ElasticCloudIntegrationApiCreateElasticCloudIntegrationAccountRequest,
+  ElasticCloudIntegrationApiDeleteElasticCloudIntegrationAccountRequest,
+  ElasticCloudIntegrationApiGetElasticCloudIntegrationAccountRequest,
+  ElasticCloudIntegrationApiUpdateElasticCloudIntegrationAccountRequest,
+  ElasticCloudIntegrationApi,
+} from "./apis/ElasticCloudIntegrationApi";
 
 export {
   EntityIntegrationConfigsApiDeleteEntityIntegrationConfigRequest,
@@ -1953,12 +1953,12 @@ export {
 } from "./apis/TimeseriesAnomalyInvestigationsApi";
 
 export {
-  TwilioIntegrationAccountsApiCreateTwilioIntegrationAccountRequest,
-  TwilioIntegrationAccountsApiDeleteTwilioIntegrationAccountRequest,
-  TwilioIntegrationAccountsApiGetTwilioIntegrationAccountRequest,
-  TwilioIntegrationAccountsApiUpdateTwilioIntegrationAccountRequest,
-  TwilioIntegrationAccountsApi,
-} from "./apis/TwilioIntegrationAccountsApi";
+  TwilioIntegrationApiCreateTwilioIntegrationAccountRequest,
+  TwilioIntegrationApiDeleteTwilioIntegrationAccountRequest,
+  TwilioIntegrationApiGetTwilioIntegrationAccountRequest,
+  TwilioIntegrationApiUpdateTwilioIntegrationAccountRequest,
+  TwilioIntegrationApi,
+} from "./apis/TwilioIntegrationApi";
 
 export {
   UsageMeteringApiCreateQuotasRequest,
@@ -4085,6 +4085,10 @@ export { ElasticCloudIndexStatsIntegrationDataflowResponse } from "./models/Elas
 export { ElasticCloudIntegrationAccountAuthenticationRequest } from "./models/ElasticCloudIntegrationAccountAuthenticationRequest";
 export { ElasticCloudIntegrationAccountAuthenticationResponse } from "./models/ElasticCloudIntegrationAccountAuthenticationResponse";
 export { ElasticCloudIntegrationAccountAuthenticationUpdate } from "./models/ElasticCloudIntegrationAccountAuthenticationUpdate";
+export { ElasticCloudIntegrationAccountBasicAuthRequest } from "./models/ElasticCloudIntegrationAccountBasicAuthRequest";
+export { ElasticCloudIntegrationAccountBasicAuthResponse } from "./models/ElasticCloudIntegrationAccountBasicAuthResponse";
+export { ElasticCloudIntegrationAccountBasicAuthType } from "./models/ElasticCloudIntegrationAccountBasicAuthType";
+export { ElasticCloudIntegrationAccountBasicAuthUpdate } from "./models/ElasticCloudIntegrationAccountBasicAuthUpdate";
 export { ElasticCloudIntegrationAccountCreateAttributes } from "./models/ElasticCloudIntegrationAccountCreateAttributes";
 export { ElasticCloudIntegrationAccountCreateData } from "./models/ElasticCloudIntegrationAccountCreateData";
 export { ElasticCloudIntegrationAccountCreateRequest } from "./models/ElasticCloudIntegrationAccountCreateRequest";
@@ -5244,10 +5248,6 @@ export { InputSchemaParameters } from "./models/InputSchemaParameters";
 export { InputSchemaParametersType } from "./models/InputSchemaParametersType";
 export { IntakePayloadAccepted } from "./models/IntakePayloadAccepted";
 export { Integration } from "./models/Integration";
-export { IntegrationAccountBasicAuthRequest } from "./models/IntegrationAccountBasicAuthRequest";
-export { IntegrationAccountBasicAuthResponse } from "./models/IntegrationAccountBasicAuthResponse";
-export { IntegrationAccountBasicAuthType } from "./models/IntegrationAccountBasicAuthType";
-export { IntegrationAccountBasicAuthUpdate } from "./models/IntegrationAccountBasicAuthUpdate";
 export { IntegrationAccountDataflowHealth } from "./models/IntegrationAccountDataflowHealth";
 export { IntegrationAccountDataflowStatus } from "./models/IntegrationAccountDataflowStatus";
 export { IntegrationAccountType } from "./models/IntegrationAccountType";
@@ -9519,6 +9519,10 @@ export { TwilioEventsLogsIntegrationDataflowResponse } from "./models/TwilioEven
 export { TwilioIntegrationAccountAuthenticationRequest } from "./models/TwilioIntegrationAccountAuthenticationRequest";
 export { TwilioIntegrationAccountAuthenticationResponse } from "./models/TwilioIntegrationAccountAuthenticationResponse";
 export { TwilioIntegrationAccountAuthenticationUpdate } from "./models/TwilioIntegrationAccountAuthenticationUpdate";
+export { TwilioIntegrationAccountBasicAuthRequest } from "./models/TwilioIntegrationAccountBasicAuthRequest";
+export { TwilioIntegrationAccountBasicAuthResponse } from "./models/TwilioIntegrationAccountBasicAuthResponse";
+export { TwilioIntegrationAccountBasicAuthType } from "./models/TwilioIntegrationAccountBasicAuthType";
+export { TwilioIntegrationAccountBasicAuthUpdate } from "./models/TwilioIntegrationAccountBasicAuthUpdate";
 export { TwilioIntegrationAccountCreateAttributes } from "./models/TwilioIntegrationAccountCreateAttributes";
 export { TwilioIntegrationAccountCreateData } from "./models/TwilioIntegrationAccountCreateData";
 export { TwilioIntegrationAccountCreateRequest } from "./models/TwilioIntegrationAccountCreateRequest";

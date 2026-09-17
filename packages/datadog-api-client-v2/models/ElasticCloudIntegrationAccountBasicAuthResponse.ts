@@ -3,18 +3,18 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
-import { IntegrationAccountBasicAuthType } from "./IntegrationAccountBasicAuthType";
+import { ElasticCloudIntegrationAccountBasicAuthType } from "./ElasticCloudIntegrationAccountBasicAuthType";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * The basic authentication method and username configured on the account.
  */
-export class IntegrationAccountBasicAuthResponse {
+export class ElasticCloudIntegrationAccountBasicAuthResponse {
   /**
    * The authentication method type.
    */
-  "authType": IntegrationAccountBasicAuthType;
+  "authType": ElasticCloudIntegrationAccountBasicAuthType;
   /**
    * Non-secret username or public identifier for the credential pair.
    */
@@ -38,7 +38,7 @@ export class IntegrationAccountBasicAuthResponse {
   static readonly attributeTypeMap: AttributeTypeMap = {
     authType: {
       baseName: "auth_type",
-      type: "IntegrationAccountBasicAuthType",
+      type: "ElasticCloudIntegrationAccountBasicAuthType",
       required: true,
     },
     username: {
@@ -56,7 +56,7 @@ export class IntegrationAccountBasicAuthResponse {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-    return IntegrationAccountBasicAuthResponse.attributeTypeMap;
+    return ElasticCloudIntegrationAccountBasicAuthResponse.attributeTypeMap;
   }
 
   public constructor() {}

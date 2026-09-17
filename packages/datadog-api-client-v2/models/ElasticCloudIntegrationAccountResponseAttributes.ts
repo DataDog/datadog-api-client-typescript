@@ -18,7 +18,7 @@ export class ElasticCloudIntegrationAccountResponseAttributes {
    */
   "authentication"?: ElasticCloudIntegrationAccountAuthenticationResponse;
   /**
-   * Dataflows configured on the Elastic Cloud integration account, keyed by dataflow id.
+   * Data Datadog collects from Elastic Cloud, keyed by dataflow id.
    */
   "dataflows"?: ElasticCloudIntegrationDataflowsResponse;
   /**

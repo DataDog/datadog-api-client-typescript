@@ -7,20 +7,13 @@
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * The Elastic Cloud primary shard stats dataflow.
+ * Metrics covering only the cluster's primary shards.
  */
 export class ElasticCloudPrimaryShardStatsIntegrationDataflowRequest {
   /**
-   * Whether the Elastic Cloud dataflow is enabled.
+   * Whether Datadog collects this data. Defaults to `false`; set to `true` to start collection.
    */
   "enabled"?: boolean;
-
-  /**
-   * A container for additional, undeclared properties.
-   * This is a holder for any undeclared properties as specified with
-   * the 'additionalProperties' keyword in the OAS document.
-   */
-  "additionalProperties"?: { [key: string]: any };
 
   /**
    * @ignore
@@ -34,10 +27,6 @@ export class ElasticCloudPrimaryShardStatsIntegrationDataflowRequest {
     enabled: {
       baseName: "enabled",
       type: "boolean",
-    },
-    additionalProperties: {
-      baseName: "additionalProperties",
-      type: "{ [key: string]: any; }",
     },
   };
 

@@ -14,35 +14,35 @@ import { ElasticCloudSlmStatsIntegrationDataflowRequest } from "./ElasticCloudSl
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * Dataflows to configure on the Elastic Cloud integration account, keyed by dataflow id.
+ * Data Datadog collects from Elastic Cloud, keyed by dataflow id. Node-level cluster statistics are always collected; each dataflow here adds a further set of metrics on top of that baseline, so set `enabled` to start or stop it. Defaults listed on each dataflow apply when the account is created; on update, omitted fields keep their current values. Every dataflow queries the deployment as the user in `authentication`, so that user's role must hold the required Elasticsearch privileges; a dataflow enabled without them is stored but collects no data.
  */
 export class ElasticCloudIntegrationDataflowsRequest {
   /**
-   * The Elastic Cloud detailed index stats dataflow.
+   * Primary shard metrics broken down per index, rather than aggregated across the cluster.
    */
   "elasticCloudDetailedIndexStats"?: ElasticCloudDetailedIndexStatsIntegrationDataflowRequest;
   /**
-   * The Elastic Cloud index stats dataflow.
+   * Metrics for individual indices. Only the indices granted to the role of the user in `authentication` are collected.
    */
   "elasticCloudIndexStats"?: ElasticCloudIndexStatsIntegrationDataflowRequest;
   /**
-   * The Elastic Cloud pending task stats dataflow.
+   * Metrics for cluster-level changes that have been submitted but not yet executed.
    */
   "elasticCloudPendingTaskStats"?: ElasticCloudPendingTaskStatsIntegrationDataflowRequest;
   /**
-   * The Elastic Cloud primary shard graceful timeout dataflow.
+   * Tolerance for slow primary shard requests. Primary shard metrics can grow large enough for the request to time out; enabling this keeps the rest of the collection running when that happens instead of failing the run. Only has an effect alongside `elastic-cloud-primary-shard-stats`.
    */
   "elasticCloudPrimaryShardGracefulTimeout"?: ElasticCloudPrimaryShardGracefulTimeoutIntegrationDataflowRequest;
   /**
-   * The Elastic Cloud primary shard stats dataflow.
+   * Metrics covering only the cluster's primary shards.
    */
   "elasticCloudPrimaryShardStats"?: ElasticCloudPrimaryShardStatsIntegrationDataflowRequest;
   /**
-   * The Elastic Cloud shard allocation stats dataflow.
+   * Metrics for how many shards are allocated to each data node, and the disk space they use.
    */
   "elasticCloudShardAllocationStats"?: ElasticCloudShardAllocationStatsIntegrationDataflowRequest;
   /**
-   * The Elastic Cloud snapshot lifecycle management stats dataflow.
+   * Metrics about the actions taken by snapshot lifecycle management. Requires the `read_slm` Elasticsearch cluster privilege on the role of the user in `authentication`; without it this dataflow collects no data.
    */
   "elasticCloudSlmStats"?: ElasticCloudSlmStatsIntegrationDataflowRequest;
 
