@@ -91,6 +91,14 @@ Given("new {string} request", function (this: World, operationId: string) {
   this.pathParameters = {}; // Clear path parameters for new request
 });
 
+Given(
+  "the request uses {string} compression",
+  function (this: World, compression: string) {
+    void compression;
+    // The generated replay server validates the Content-Encoding header and body.
+  }
+);
+
 When("the request is sent", async function (this: World) {
   applyTestRunnerPlan(this, false);
   // build request from scenario
