@@ -7,7 +7,7 @@
 import { UnparsedObject } from "../../datadog-api-client-common/util";
 
 /**
- * Source from which to query items to display in the stream. apm_issue_stream, rum_issue_stream, and logs_issue_stream are deprecated. Use issue_stream instead.
+ * Source from which to query items to display in the stream. apm_issue_stream, rum_issue_stream, and logs_issue_stream are deprecated. Use issue_stream instead. apm_recommendations_stream is used to query APM recommendations, and supports filtering by environment, services, teams, recommendation types, and status.
  */
 
 export type ListStreamSource =
@@ -28,6 +28,7 @@ export type ListStreamSource =
   | typeof SECURITY_RUNTIME_STREAM
   | typeof SECURITY_SIGNALS_STREAM
   | typeof INCIDENTS_STREAM
+  | typeof APM_RECOMMENDATIONS_STREAM
   | UnparsedObject;
 export const LOGS_STREAM = "logs_stream";
 export const AUDIT_STREAM = "audit_stream";
@@ -46,3 +47,4 @@ export const ISSUE_STREAM = "issue_stream";
 export const SECURITY_RUNTIME_STREAM = "security_runtime_stream";
 export const SECURITY_SIGNALS_STREAM = "security_signals_stream";
 export const INCIDENTS_STREAM = "incidents_stream";
+export const APM_RECOMMENDATIONS_STREAM = "apm_recommendations_stream";
