@@ -10,5 +10,7 @@ import { UnparsedObject } from "../../datadog-api-client-common/util";
  * The authentication method type.
  */
 
-export type IntegrationAccountBasicAuthType = typeof BASIC | UnparsedObject;
+export type ElasticCloudIntegrationAccountBasicAuthType =
+  | typeof BASIC
+  | UnparsedObject;
 export const BASIC = "basic";

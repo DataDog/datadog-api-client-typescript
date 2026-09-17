@@ -8,11 +8,11 @@ import { IntegrationAccountDataflowStatus } from "./IntegrationAccountDataflowSt
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * The Elastic Cloud primary shard graceful timeout dataflow.
+ * Tolerance for slow primary shard requests, keeping the rest of the collection running when a primary shard request times out instead of failing the run. Only has an effect alongside `elastic-cloud-primary-shard-stats`.
  */
 export class ElasticCloudPrimaryShardGracefulTimeoutIntegrationDataflowResponse {
   /**
-   * Whether the Elastic Cloud dataflow is enabled.
+   * Whether this tolerance is applied.
    */
   "enabled"?: boolean;
   /**

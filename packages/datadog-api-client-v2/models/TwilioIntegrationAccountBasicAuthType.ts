@@ -3,14 +3,14 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
-import { TwilioIntegrationAccountBasicAuthUpdate } from "./TwilioIntegrationAccountBasicAuthUpdate";
 
 import { UnparsedObject } from "../../datadog-api-client-common/util";
 
 /**
- * Authentication for updating the Twilio integration account. Exactly one method is set.
+ * The authentication method type.
  */
 
-export type TwilioIntegrationAccountAuthenticationUpdate =
-  | TwilioIntegrationAccountBasicAuthUpdate
+export type TwilioIntegrationAccountBasicAuthType =
+  | typeof BASIC
   | UnparsedObject;
+export const BASIC = "basic";

@@ -7,9 +7,9 @@ import { client, v2 } from "@datadog/datadog-api-client";
 const configuration = client.createConfiguration();
 configuration.unstableOperations["v2.deleteElasticCloudIntegrationAccount"] =
   true;
-const apiInstance = new v2.ElasticCloudIntegrationAccountsApi(configuration);
+const apiInstance = new v2.ElasticCloudIntegrationApi(configuration);
 
-const params: v2.ElasticCloudIntegrationAccountsApiDeleteElasticCloudIntegrationAccountRequest =
+const params: v2.ElasticCloudIntegrationApiDeleteElasticCloudIntegrationAccountRequest =
   {
     accountId: "account_id",
   };

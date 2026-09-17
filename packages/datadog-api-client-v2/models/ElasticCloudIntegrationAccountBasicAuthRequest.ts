@@ -3,33 +3,26 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
-import { IntegrationAccountBasicAuthType } from "./IntegrationAccountBasicAuthType";
+import { ElasticCloudIntegrationAccountBasicAuthType } from "./ElasticCloudIntegrationAccountBasicAuthType";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * Username and password authentication. Only the fields provided are changed; omit `password` to keep the stored one.
+ * Username and password authentication.
  */
-export class IntegrationAccountBasicAuthUpdate {
+export class ElasticCloudIntegrationAccountBasicAuthRequest {
   /**
    * The authentication method type.
    */
-  "authType": IntegrationAccountBasicAuthType;
+  "authType": ElasticCloudIntegrationAccountBasicAuthType;
   /**
    * Secret password or private key.
    */
-  "password"?: string;
+  "password": string;
   /**
    * Non-secret username or public identifier for the credential pair.
    */
-  "username"?: string;
-
-  /**
-   * A container for additional, undeclared properties.
-   * This is a holder for any undeclared properties as specified with
-   * the 'additionalProperties' keyword in the OAS document.
-   */
-  "additionalProperties"?: { [key: string]: any };
+  "username": string;
 
   /**
    * @ignore
@@ -42,20 +35,18 @@ export class IntegrationAccountBasicAuthUpdate {
   static readonly attributeTypeMap: AttributeTypeMap = {
     authType: {
       baseName: "auth_type",
-      type: "IntegrationAccountBasicAuthType",
+      type: "ElasticCloudIntegrationAccountBasicAuthType",
       required: true,
     },
     password: {
       baseName: "password",
       type: "string",
+      required: true,
     },
     username: {
       baseName: "username",
       type: "string",
-    },
-    additionalProperties: {
-      baseName: "additionalProperties",
-      type: "{ [key: string]: any; }",
+      required: true,
     },
   };
 
@@ -63,7 +54,7 @@ export class IntegrationAccountBasicAuthUpdate {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-    return IntegrationAccountBasicAuthUpdate.attributeTypeMap;
+    return ElasticCloudIntegrationAccountBasicAuthRequest.attributeTypeMap;
   }
 
   public constructor() {}

@@ -6,9 +6,9 @@ import { client, v2 } from "@datadog/datadog-api-client";
 
 const configuration = client.createConfiguration();
 configuration.unstableOperations["v2.getElasticCloudIntegrationAccount"] = true;
-const apiInstance = new v2.ElasticCloudIntegrationAccountsApi(configuration);
+const apiInstance = new v2.ElasticCloudIntegrationApi(configuration);
 
-const params: v2.ElasticCloudIntegrationAccountsApiGetElasticCloudIntegrationAccountRequest =
+const params: v2.ElasticCloudIntegrationApiGetElasticCloudIntegrationAccountRequest =
   {
     accountId: "account_id",
   };

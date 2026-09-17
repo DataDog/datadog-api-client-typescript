@@ -7,20 +7,13 @@
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * The Elastic Cloud index stats dataflow.
+ * Metrics for individual indices. Only the indices granted to the role of the user in `authentication` are collected.
  */
 export class ElasticCloudIndexStatsIntegrationDataflowRequest {
   /**
-   * Whether the Elastic Cloud dataflow is enabled.
+   * Whether Datadog collects this data. Defaults to `false`; set to `true` to start collection.
    */
   "enabled"?: boolean;
-
-  /**
-   * A container for additional, undeclared properties.
-   * This is a holder for any undeclared properties as specified with
-   * the 'additionalProperties' keyword in the OAS document.
-   */
-  "additionalProperties"?: { [key: string]: any };
 
   /**
    * @ignore
@@ -34,10 +27,6 @@ export class ElasticCloudIndexStatsIntegrationDataflowRequest {
     enabled: {
       baseName: "enabled",
       type: "boolean",
-    },
-    additionalProperties: {
-      baseName: "additionalProperties",
-      type: "{ [key: string]: any; }",
     },
   };
 

@@ -7,20 +7,13 @@
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * The Twilio alerts logs dataflow.
+ * Twilio Alert resource logs, which detail the errors and warnings raised when Twilio makes a webhook request to your server or when your application calls the Twilio REST API. This is the one kind of data the integration collects by default.
  */
 export class TwilioAlertsLogsIntegrationDataflowRequest {
   /**
-   * Whether the Twilio dataflow is enabled.
+   * Whether Datadog collects this data. Defaults to `true`; set to `false` to stop collection.
    */
   "enabled"?: boolean;
-
-  /**
-   * A container for additional, undeclared properties.
-   * This is a holder for any undeclared properties as specified with
-   * the 'additionalProperties' keyword in the OAS document.
-   */
-  "additionalProperties"?: { [key: string]: any };
 
   /**
    * @ignore
@@ -34,10 +27,6 @@ export class TwilioAlertsLogsIntegrationDataflowRequest {
     enabled: {
       baseName: "enabled",
       type: "boolean",
-    },
-    additionalProperties: {
-      baseName: "additionalProperties",
-      type: "{ [key: string]: any; }",
     },
   };
 

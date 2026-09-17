@@ -3,22 +3,22 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
-import { IntegrationAccountDataflowStatus } from "./IntegrationAccountDataflowStatus";
+import { TwilioIntegrationAccountBasicAuthType } from "./TwilioIntegrationAccountBasicAuthType";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * Twilio Message resource logs for inbound and outbound messages, used to track delivery and troubleshoot message errors. A log is produced when you send a message through the REST API, when Twilio executes a TwiML instruction, and when someone messages one of your Twilio numbers or channel addresses. Message bodies are never collected.
+ * The basic authentication method and username configured on the account.
  */
-export class TwilioMessagesLogsIntegrationDataflowResponse {
+export class TwilioIntegrationAccountBasicAuthResponse {
   /**
-   * Whether Datadog collects this data.
+   * The authentication method type.
    */
-  "enabled"?: boolean;
+  "authType": TwilioIntegrationAccountBasicAuthType;
   /**
-   * Read-only collection status of a dataflow.
+   * Non-secret username or public identifier for the credential pair.
    */
-  "status"?: IntegrationAccountDataflowStatus;
+  "username": string;
 
   /**
    * A container for additional, undeclared properties.
@@ -36,13 +36,15 @@ export class TwilioMessagesLogsIntegrationDataflowResponse {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    enabled: {
-      baseName: "enabled",
-      type: "boolean",
+    authType: {
+      baseName: "auth_type",
+      type: "TwilioIntegrationAccountBasicAuthType",
+      required: true,
     },
-    status: {
-      baseName: "status",
-      type: "IntegrationAccountDataflowStatus",
+    username: {
+      baseName: "username",
+      type: "string",
+      required: true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -54,7 +56,7 @@ export class TwilioMessagesLogsIntegrationDataflowResponse {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-    return TwilioMessagesLogsIntegrationDataflowResponse.attributeTypeMap;
+    return TwilioIntegrationAccountBasicAuthResponse.attributeTypeMap;
   }
 
   public constructor() {}

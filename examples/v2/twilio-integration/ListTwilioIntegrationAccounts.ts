@@ -6,7 +6,7 @@ import { client, v2 } from "@datadog/datadog-api-client";
 
 const configuration = client.createConfiguration();
 configuration.unstableOperations["v2.listTwilioIntegrationAccounts"] = true;
-const apiInstance = new v2.TwilioIntegrationAccountsApi(configuration);
+const apiInstance = new v2.TwilioIntegrationApi(configuration);
 
 apiInstance
   .listTwilioIntegrationAccounts()

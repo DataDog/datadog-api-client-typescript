@@ -1605,6 +1605,9 @@ import { ElasticCloudDetailedIndexStatsIntegrationDataflowRequest } from "./Elas
 import { ElasticCloudDetailedIndexStatsIntegrationDataflowResponse } from "./ElasticCloudDetailedIndexStatsIntegrationDataflowResponse";
 import { ElasticCloudIndexStatsIntegrationDataflowRequest } from "./ElasticCloudIndexStatsIntegrationDataflowRequest";
 import { ElasticCloudIndexStatsIntegrationDataflowResponse } from "./ElasticCloudIndexStatsIntegrationDataflowResponse";
+import { ElasticCloudIntegrationAccountBasicAuthRequest } from "./ElasticCloudIntegrationAccountBasicAuthRequest";
+import { ElasticCloudIntegrationAccountBasicAuthResponse } from "./ElasticCloudIntegrationAccountBasicAuthResponse";
+import { ElasticCloudIntegrationAccountBasicAuthUpdate } from "./ElasticCloudIntegrationAccountBasicAuthUpdate";
 import { ElasticCloudIntegrationAccountCreateAttributes } from "./ElasticCloudIntegrationAccountCreateAttributes";
 import { ElasticCloudIntegrationAccountCreateData } from "./ElasticCloudIntegrationAccountCreateData";
 import { ElasticCloudIntegrationAccountCreateRequest } from "./ElasticCloudIntegrationAccountCreateRequest";
@@ -2544,9 +2547,6 @@ import { InputSchema } from "./InputSchema";
 import { InputSchemaParameters } from "./InputSchemaParameters";
 import { IntakePayloadAccepted } from "./IntakePayloadAccepted";
 import { Integration } from "./Integration";
-import { IntegrationAccountBasicAuthRequest } from "./IntegrationAccountBasicAuthRequest";
-import { IntegrationAccountBasicAuthResponse } from "./IntegrationAccountBasicAuthResponse";
-import { IntegrationAccountBasicAuthUpdate } from "./IntegrationAccountBasicAuthUpdate";
 import { IntegrationAccountDataflowStatus } from "./IntegrationAccountDataflowStatus";
 import { IntegrationAttributes } from "./IntegrationAttributes";
 import { IntegrationIncident } from "./IntegrationIncident";
@@ -5769,6 +5769,9 @@ import { TwilioCloudCostMetricsIntegrationDataflowRequest } from "./TwilioCloudC
 import { TwilioCloudCostMetricsIntegrationDataflowResponse } from "./TwilioCloudCostMetricsIntegrationDataflowResponse";
 import { TwilioEventsLogsIntegrationDataflowRequest } from "./TwilioEventsLogsIntegrationDataflowRequest";
 import { TwilioEventsLogsIntegrationDataflowResponse } from "./TwilioEventsLogsIntegrationDataflowResponse";
+import { TwilioIntegrationAccountBasicAuthRequest } from "./TwilioIntegrationAccountBasicAuthRequest";
+import { TwilioIntegrationAccountBasicAuthResponse } from "./TwilioIntegrationAccountBasicAuthResponse";
+import { TwilioIntegrationAccountBasicAuthUpdate } from "./TwilioIntegrationAccountBasicAuthUpdate";
 import { TwilioIntegrationAccountCreateAttributes } from "./TwilioIntegrationAccountCreateAttributes";
 import { TwilioIntegrationAccountCreateData } from "./TwilioIntegrationAccountCreateData";
 import { TwilioIntegrationAccountCreateRequest } from "./TwilioIntegrationAccountCreateRequest";
@@ -6889,6 +6892,7 @@ const enumsMap: { [key: string]: any[] } = {
     "none",
     "unknown",
   ],
+  ElasticCloudIntegrationAccountBasicAuthType: ["basic"],
   EntityIntegrationConfigRequestType: ["entity_integration_config_requests"],
   EntityIntegrationConfigType: ["entity_integration_configs"],
   EntityResponseDataRelationshipsIncidentsDataItemsType: ["incident"],
@@ -7284,7 +7288,6 @@ const enumsMap: { [key: string]: any[] } = {
     "ARRAY_BOOLEAN",
     "ARRAY_OBJECT",
   ],
-  IntegrationAccountBasicAuthType: ["basic"],
   IntegrationAccountDataflowHealth: [
     "DATAFLOW_HEALTH_OK",
     "DATAFLOW_HEALTH_BROKEN",
@@ -9242,6 +9245,7 @@ const enumsMap: { [key: string]: any[] } = {
   TriggerSource: ["security_findings", "security_signals"],
   TriggerType: ["monitor_alert_trigger"],
   TriggerWorkflowAutomationActionType: ["workflow"],
+  TwilioIntegrationAccountBasicAuthType: ["basic"],
   UCConfigPairDataType: ["azure_uc_configs"],
   UnitCostType: ["unit_cost"],
   UpdateAppsDatastoreItemRequestDataType: ["items"],
@@ -11337,6 +11341,12 @@ const typeMap: { [index: string]: any } = {
     ElasticCloudIndexStatsIntegrationDataflowRequest,
   ElasticCloudIndexStatsIntegrationDataflowResponse:
     ElasticCloudIndexStatsIntegrationDataflowResponse,
+  ElasticCloudIntegrationAccountBasicAuthRequest:
+    ElasticCloudIntegrationAccountBasicAuthRequest,
+  ElasticCloudIntegrationAccountBasicAuthResponse:
+    ElasticCloudIntegrationAccountBasicAuthResponse,
+  ElasticCloudIntegrationAccountBasicAuthUpdate:
+    ElasticCloudIntegrationAccountBasicAuthUpdate,
   ElasticCloudIntegrationAccountCreateAttributes:
     ElasticCloudIntegrationAccountCreateAttributes,
   ElasticCloudIntegrationAccountCreateData:
@@ -12467,9 +12477,6 @@ const typeMap: { [index: string]: any } = {
   InputSchemaParameters: InputSchemaParameters,
   IntakePayloadAccepted: IntakePayloadAccepted,
   Integration: Integration,
-  IntegrationAccountBasicAuthRequest: IntegrationAccountBasicAuthRequest,
-  IntegrationAccountBasicAuthResponse: IntegrationAccountBasicAuthResponse,
-  IntegrationAccountBasicAuthUpdate: IntegrationAccountBasicAuthUpdate,
   IntegrationAccountDataflowStatus: IntegrationAccountDataflowStatus,
   IntegrationAttributes: IntegrationAttributes,
   IntegrationIncident: IntegrationIncident,
@@ -16517,6 +16524,12 @@ const typeMap: { [index: string]: any } = {
     TwilioEventsLogsIntegrationDataflowRequest,
   TwilioEventsLogsIntegrationDataflowResponse:
     TwilioEventsLogsIntegrationDataflowResponse,
+  TwilioIntegrationAccountBasicAuthRequest:
+    TwilioIntegrationAccountBasicAuthRequest,
+  TwilioIntegrationAccountBasicAuthResponse:
+    TwilioIntegrationAccountBasicAuthResponse,
+  TwilioIntegrationAccountBasicAuthUpdate:
+    TwilioIntegrationAccountBasicAuthUpdate,
   TwilioIntegrationAccountCreateAttributes:
     TwilioIntegrationAccountCreateAttributes,
   TwilioIntegrationAccountCreateData: TwilioIntegrationAccountCreateData,
@@ -17143,13 +17156,13 @@ const oneOfMap: { [index: string]: string[] } = {
     "DowntimeScheduleOneTimeCreateUpdateRequest",
   ],
   ElasticCloudIntegrationAccountAuthenticationRequest: [
-    "IntegrationAccountBasicAuthRequest",
+    "ElasticCloudIntegrationAccountBasicAuthRequest",
   ],
   ElasticCloudIntegrationAccountAuthenticationResponse: [
-    "IntegrationAccountBasicAuthResponse",
+    "ElasticCloudIntegrationAccountBasicAuthResponse",
   ],
   ElasticCloudIntegrationAccountAuthenticationUpdate: [
-    "IntegrationAccountBasicAuthUpdate",
+    "ElasticCloudIntegrationAccountBasicAuthUpdate",
   ],
   EntityV3: [
     "EntityV3Service",
@@ -17723,13 +17736,13 @@ const oneOfMap: { [index: string]: string[] } = {
     "WorkflowTriggerWrapper",
   ],
   TwilioIntegrationAccountAuthenticationRequest: [
-    "IntegrationAccountBasicAuthRequest",
+    "TwilioIntegrationAccountBasicAuthRequest",
   ],
   TwilioIntegrationAccountAuthenticationResponse: [
-    "IntegrationAccountBasicAuthResponse",
+    "TwilioIntegrationAccountBasicAuthResponse",
   ],
   TwilioIntegrationAccountAuthenticationUpdate: [
-    "IntegrationAccountBasicAuthUpdate",
+    "TwilioIntegrationAccountBasicAuthUpdate",
   ],
   UpsertCatalogEntityRequest: ["EntityV3", "string"],
   UpsertCatalogEntityResponseIncludedItem: ["EntityResponseIncludedSchema"],
