@@ -9726,6 +9726,10 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             "type": "string",
             "format": "",
             },
+        "withRunAs": {
+            "type": "boolean",
+            "format": "",
+            },
         "operationResponseType": "DowntimeResponse",
     },
     "v2.CancelDowntime": {

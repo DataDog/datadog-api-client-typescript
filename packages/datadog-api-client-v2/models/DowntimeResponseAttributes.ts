@@ -6,6 +6,7 @@
 import { DowntimeMonitorIdentifier } from "./DowntimeMonitorIdentifier";
 import { DowntimeNotifyEndStateActions } from "./DowntimeNotifyEndStateActions";
 import { DowntimeNotifyEndStateTypes } from "./DowntimeNotifyEndStateTypes";
+import { DowntimeRunAsItem } from "./DowntimeRunAsItem";
 import { DowntimeScheduleResponse } from "./DowntimeScheduleResponse";
 import { DowntimeStatus } from "./DowntimeStatus";
 
@@ -53,6 +54,12 @@ export class DowntimeResponseAttributes {
    * Actions that will trigger a monitor notification if the downtime is in the `notify_end_types` state.
    */
   "notifyEndTypes"?: Array<DowntimeNotifyEndStateActions>;
+  /**
+   * The principals (users, roles, or teams) allowed to act on behalf of the downtime.
+   *
+   * **Note**: This feature is currently in Preview and may not be available for all organizations.
+   */
+  "runAs"?: Array<DowntimeRunAsItem>;
   /**
    * The schedule that defines when the monitor starts, stops, and recurs. There are two types of schedules:
    * one-time and recurring. Recurring schedules may have up to five RRULE-based recurrences. If no schedules are
@@ -122,6 +129,10 @@ export class DowntimeResponseAttributes {
     notifyEndTypes: {
       baseName: "notify_end_types",
       type: "Array<DowntimeNotifyEndStateActions>",
+    },
+    runAs: {
+      baseName: "run_as",
+      type: "Array<DowntimeRunAsItem>",
     },
     schedule: {
       baseName: "schedule",
