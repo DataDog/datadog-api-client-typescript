@@ -1,28 +1,16 @@
 import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
-import { RecommendationsFilterRequestScope } from "./RecommendationsFilterRequestScope";
-import { RecommendationsFilterRequestSortItems } from "./RecommendationsFilterRequestSortItems";
+import { RecommendationsFilterRequestData } from "./RecommendationsFilterRequestData";
 
 /**
- * Request body for filtering cost recommendations.
+ * JSON:API request body for filtering cost recommendations.
  */
 export class RecommendationsFilterRequest {
   /**
-   * Filter expression applied to the recommendations.
+   * JSON:API resource containing the cost recommendations filter. This legacy search contract
+   * uses the resource ID for the filter expression rather than as a persistent resource identifier.
    */
-  "filter"?: string;
-  /**
-   * Recommendations scope. Defaults to `ccm`; use `experiment` for experimental recommendations or `*` for both.
-   */
-  "scope"?: RecommendationsFilterRequestScope;
-  /**
-   * Ordered list of sort clauses applied to the result set.
-   */
-  "sort"?: Array<RecommendationsFilterRequestSortItems>;
-  /**
-   * Active view name (for example, `active`, `dismissed`, `open`, `in-progress`, or `completed`).
-   */
-  "view"?: string;
+  "data": RecommendationsFilterRequestData;
   /**
    * A container for additional, undeclared properties.
    * This is a holder for any undeclared properties as specified with
@@ -38,21 +26,10 @@ export class RecommendationsFilterRequest {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    filter: {
-      baseName: "filter",
-      type: "string",
-    },
-    scope: {
-      baseName: "scope",
-      type: "RecommendationsFilterRequestScope",
-    },
-    sort: {
-      baseName: "sort",
-      type: "Array<RecommendationsFilterRequestSortItems>",
-    },
-    view: {
-      baseName: "view",
-      type: "string",
+    data: {
+      baseName: "data",
+      type: "RecommendationsFilterRequestData",
+      required: true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
