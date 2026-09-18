@@ -1572,6 +1572,7 @@ export {
   SecurityMonitoringApiGetHistoricalJobRequest,
   SecurityMonitoringApiGetIndicatorOfCompromiseRequest,
   SecurityMonitoringApiGetInvestigationLogQueriesMatchingSignalRequest,
+  SecurityMonitoringApiGetMatchingSignalsRequest,
   SecurityMonitoringApiGetResourceEvaluationFiltersRequest,
   SecurityMonitoringApiGetRuleVersionHistoryRequest,
   SecurityMonitoringApiGetSBOMRequest,
@@ -6048,6 +6049,10 @@ export { ManagedOrgsRelationshipToOrg } from "./models/ManagedOrgsRelationshipTo
 export { ManagedOrgsRelationshipToOrgs } from "./models/ManagedOrgsRelationshipToOrgs";
 export { ManagedOrgsResponse } from "./models/ManagedOrgsResponse";
 export { ManagedOrgsType } from "./models/ManagedOrgsType";
+export { MatchingSignalAttributes } from "./models/MatchingSignalAttributes";
+export { MatchingSignalData } from "./models/MatchingSignalData";
+export { MatchingSignalsResponse } from "./models/MatchingSignalsResponse";
+export { MatchingSignalType } from "./models/MatchingSignalType";
 export { MaxSessionDurationType } from "./models/MaxSessionDurationType";
 export { MaxSessionDurationUpdateAttributes } from "./models/MaxSessionDurationUpdateAttributes";
 export { MaxSessionDurationUpdateData } from "./models/MaxSessionDurationUpdateData";

@@ -378,6 +378,7 @@ export function createConfiguration(
       "v2.getFinding": false,
       "v2.getHistoricalJob": false,
       "v2.getIndicatorOfCompromise": false,
+      "v2.getMatchingSignals": false,
       "v2.getRuleVersionHistory": false,
       "v2.getSecretsRules": false,
       "v2.getSecurityFindingsAutomationDefaultInboxRule": false,
