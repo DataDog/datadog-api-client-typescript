@@ -3,16 +3,14 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
-import { GeneralInvestigationTrigger } from "./GeneralInvestigationTrigger";
-import { MonitorAlertTrigger } from "./MonitorAlertTrigger";
 
 import { UnparsedObject } from "../../datadog-api-client-common/util";
 
 /**
- * The trigger definition for starting an investigation.
+ * The type of general investigation trigger.
  */
 
-export type TriggerAttributes =
-  | MonitorAlertTrigger
-  | GeneralInvestigationTrigger
+export type GeneralInvestigationTriggerType =
+  | typeof GENERAL_INVESTIGATION
   | UnparsedObject;
+export const GENERAL_INVESTIGATION = "general_investigation";
