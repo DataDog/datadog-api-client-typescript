@@ -15,6 +15,10 @@ export class LLMObsPatternsActivityProgress {
    */
   "name": string;
   /**
+   * Number of completed work items.
+   */
+  "nbCompleted"?: number;
+  /**
    * Timestamp when the step started. Null if the step has not started.
    */
   "startedAt"?: Date;
@@ -22,6 +26,14 @@ export class LLMObsPatternsActivityProgress {
    * Status of the step.
    */
   "status": string;
+  /**
+   * Label of the current sub-step.
+   */
+  "subStep"?: string;
+  /**
+   * Total number of work items.
+   */
+  "target"?: number;
 
   /**
    * A container for additional, undeclared properties.
@@ -44,6 +56,11 @@ export class LLMObsPatternsActivityProgress {
       type: "string",
       required: true,
     },
+    nbCompleted: {
+      baseName: "nb_completed",
+      type: "number",
+      format: "int64",
+    },
     startedAt: {
       baseName: "started_at",
       type: "Date",
@@ -53,6 +70,15 @@ export class LLMObsPatternsActivityProgress {
       baseName: "status",
       type: "string",
       required: true,
+    },
+    subStep: {
+      baseName: "sub_step",
+      type: "string",
+    },
+    target: {
+      baseName: "target",
+      type: "number",
+      format: "int64",
     },
     additionalProperties: {
       baseName: "additionalProperties",
