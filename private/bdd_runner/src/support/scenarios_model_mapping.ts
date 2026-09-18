@@ -9186,6 +9186,39 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
     },
     operationResponseType: "DashboardListDeleteItemsResponse",
   },
+  "DashboardsApi.V2.ValidateDashboardWidgets": {
+    body: {
+      type: "DashboardWidgetValidationRequest",
+      format: "",
+    },
+    operationResponseType: "DashboardWidgetValidationResponse",
+  },
+  "DashboardsApi.V2.ListDashboardsUsage": {
+    pageLimit: {
+      type: "number",
+      format: "int64",
+    },
+    pageOffset: {
+      type: "number",
+      format: "int64",
+    },
+    filterEditedBefore: {
+      type: "string",
+      format: "",
+    },
+    filterViewedBefore: {
+      type: "string",
+      format: "",
+    },
+    operationResponseType: "ListDashboardsUsageResponse",
+  },
+  "DashboardsApi.V2.GetDashboardUsage": {
+    dashboardId: {
+      type: "string",
+      format: "",
+    },
+    operationResponseType: "DashboardUsageResponse",
+  },
   "DashboardSharingApi.V2.ListSharedDashboardsByDashboardId": {
     dashboardId: {
       type: "string",
@@ -9240,32 +9273,6 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
       format: "",
     },
     operationResponseType: "SecureEmbedUpdateResponse",
-  },
-  "DashboardsApi.V2.ListDashboardsUsage": {
-    pageLimit: {
-      type: "number",
-      format: "int64",
-    },
-    pageOffset: {
-      type: "number",
-      format: "int64",
-    },
-    filterEditedBefore: {
-      type: "string",
-      format: "",
-    },
-    filterViewedBefore: {
-      type: "string",
-      format: "",
-    },
-    operationResponseType: "ListDashboardsUsageResponse",
-  },
-  "DashboardsApi.V2.GetDashboardUsage": {
-    dashboardId: {
-      type: "string",
-      format: "",
-    },
-    operationResponseType: "DashboardUsageResponse",
   },
   "DataObservabilityApi.V2.GetDataObservabilityMonitorRunStatus": {
     runId: {
