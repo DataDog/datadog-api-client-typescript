@@ -5668,6 +5668,17 @@ import { TenancyProductsData } from "./TenancyProductsData";
 import { TenancyProductsDataAttributes } from "./TenancyProductsDataAttributes";
 import { TenancyProductsDataAttributesProductsItems } from "./TenancyProductsDataAttributesProductsItems";
 import { TenancyProductsList } from "./TenancyProductsList";
+import { TerraformBackendAttributes } from "./TerraformBackendAttributes";
+import { TerraformBackendBucket } from "./TerraformBackendBucket";
+import { TerraformBackendCreateAttributes } from "./TerraformBackendCreateAttributes";
+import { TerraformBackendCreateData } from "./TerraformBackendCreateData";
+import { TerraformBackendCreateRequest } from "./TerraformBackendCreateRequest";
+import { TerraformBackendData } from "./TerraformBackendData";
+import { TerraformBackendListResponse } from "./TerraformBackendListResponse";
+import { TerraformBackendResponse } from "./TerraformBackendResponse";
+import { TerraformBackendUpdateAttributes } from "./TerraformBackendUpdateAttributes";
+import { TerraformBackendUpdateData } from "./TerraformBackendUpdateData";
+import { TerraformBackendUpdateRequest } from "./TerraformBackendUpdateRequest";
 import { TestOptimizationDeleteServiceSettingsRequest } from "./TestOptimizationDeleteServiceSettingsRequest";
 import { TestOptimizationDeleteServiceSettingsRequestAttributes } from "./TestOptimizationDeleteServiceSettingsRequestAttributes";
 import { TestOptimizationDeleteServiceSettingsRequestData } from "./TestOptimizationDeleteServiceSettingsRequestData";
@@ -9188,6 +9199,9 @@ const enumsMap: { [key: string]: any[] } = {
   TeamsOwnershipMatchType: ["exact", "prefix"],
   TeamsOwnershipRuleType: ["teams_ownership_grouped_mappings"],
   TenancyProductsDataType: ["oci_tenancy_product"],
+  TerraformBackendKind: ["terraform"],
+  TerraformBackendSyncStatus: ["pending", "success", "failure"],
+  TerraformBackendType: ["terraform-backends"],
   TestOptimizationDeleteServiceSettingsRequestDataType: [
     "test_optimization_delete_service_settings_request",
   ],
@@ -16366,6 +16380,17 @@ const typeMap: { [index: string]: any } = {
   TenancyProductsDataAttributesProductsItems:
     TenancyProductsDataAttributesProductsItems,
   TenancyProductsList: TenancyProductsList,
+  TerraformBackendAttributes: TerraformBackendAttributes,
+  TerraformBackendBucket: TerraformBackendBucket,
+  TerraformBackendCreateAttributes: TerraformBackendCreateAttributes,
+  TerraformBackendCreateData: TerraformBackendCreateData,
+  TerraformBackendCreateRequest: TerraformBackendCreateRequest,
+  TerraformBackendData: TerraformBackendData,
+  TerraformBackendListResponse: TerraformBackendListResponse,
+  TerraformBackendResponse: TerraformBackendResponse,
+  TerraformBackendUpdateAttributes: TerraformBackendUpdateAttributes,
+  TerraformBackendUpdateData: TerraformBackendUpdateData,
+  TerraformBackendUpdateRequest: TerraformBackendUpdateRequest,
   TestOptimizationDeleteServiceSettingsRequest:
     TestOptimizationDeleteServiceSettingsRequest,
   TestOptimizationDeleteServiceSettingsRequestAttributes:
