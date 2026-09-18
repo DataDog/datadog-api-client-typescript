@@ -21,10 +21,6 @@ const params: v2.MetricsApiUpdateTagIndexingRuleRequest = {
         name: "my-indexing-rule",
         options: {
           data: {
-            dynamicTags: {
-              queriedTagsWindowSeconds: 3600,
-              relatedAssetTags: false,
-            },
             managePreexistingMetrics: true,
             metricMatch: {
               queriedWindowSeconds: 3600,
