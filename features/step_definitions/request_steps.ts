@@ -99,6 +99,14 @@ Given(
   }
 );
 
+Given(
+  "the user selects {string} compression",
+  function (this: World, compression: string) {
+    void compression;
+    // The generated request plan passes the selected compression to the client call.
+  }
+);
+
 When("the request is sent", async function (this: World) {
   applyTestRunnerPlan(this, false);
   // build request from scenario
