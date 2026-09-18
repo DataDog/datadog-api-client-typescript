@@ -7214,6 +7214,17 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
     },
     operationResponseType: "SingleEntityContextResponse",
   },
+  "SecurityMonitoringApi.V2.GetMatchingSignals": {
+    eventId: {
+      type: "string",
+      format: "",
+    },
+    track: {
+      type: "string",
+      format: "",
+    },
+    operationResponseType: "MatchingSignalsResponse",
+  },
   "SecurityMonitoringApi.V2.ListSecurityMonitoringRules": {
     pageSize: {
       type: "number",

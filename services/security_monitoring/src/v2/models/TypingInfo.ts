@@ -240,6 +240,9 @@ import { ListHistoricalJobsResponse } from "./ListHistoricalJobsResponse";
 import { ListSecurityFindingsResponse } from "./ListSecurityFindingsResponse";
 import { ListVulnerabilitiesResponse } from "./ListVulnerabilitiesResponse";
 import { ListVulnerableAssetsResponse } from "./ListVulnerableAssetsResponse";
+import { MatchingSignalAttributes } from "./MatchingSignalAttributes";
+import { MatchingSignalData } from "./MatchingSignalData";
+import { MatchingSignalsResponse } from "./MatchingSignalsResponse";
 import { Metadata } from "./Metadata";
 import { MuteFindingsMuteAttributes } from "./MuteFindingsMuteAttributes";
 import { MuteFindingsRequest } from "./MuteFindingsRequest";
@@ -673,6 +676,7 @@ export const TypingInfo: ModelTypingInfo = {
     IoCTriageState: ["not_reviewed", "reviewed"],
     JiraIssuesDataType: ["jira_issues"],
     LinearIssuesDataType: ["linear_issues"],
+    MatchingSignalType: ["matching_signal"],
     MuteDataType: ["mute"],
     MuteFindingsReason: [
       "PENDING_FIX",
@@ -1447,6 +1451,9 @@ export const TypingInfo: ModelTypingInfo = {
     ListSecurityFindingsResponse: ListSecurityFindingsResponse,
     ListVulnerabilitiesResponse: ListVulnerabilitiesResponse,
     ListVulnerableAssetsResponse: ListVulnerableAssetsResponse,
+    MatchingSignalAttributes: MatchingSignalAttributes,
+    MatchingSignalData: MatchingSignalData,
+    MatchingSignalsResponse: MatchingSignalsResponse,
     Metadata: Metadata,
     MuteFindingsMuteAttributes: MuteFindingsMuteAttributes,
     MuteFindingsRequest: MuteFindingsRequest,
