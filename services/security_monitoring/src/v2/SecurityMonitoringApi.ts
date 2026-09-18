@@ -90,6 +90,7 @@ import { ListHistoricalJobsResponse } from "./models/ListHistoricalJobsResponse"
 import { ListSecurityFindingsResponse } from "./models/ListSecurityFindingsResponse";
 import { ListVulnerabilitiesResponse } from "./models/ListVulnerabilitiesResponse";
 import { ListVulnerableAssetsResponse } from "./models/ListVulnerableAssetsResponse";
+import { MatchingSignalsResponse } from "./models/MatchingSignalsResponse";
 import { MuteFindingsRequest } from "./models/MuteFindingsRequest";
 import { MuteFindingsResponse } from "./models/MuteFindingsResponse";
 import { MuteRuleCreateRequest } from "./models/MuteRuleCreateRequest";
@@ -5080,6 +5081,80 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
     // Set IaC header
     if (_config.isIaC) {
       requestContext.setHeaderParam("X-Datadog-Managed-By", "iac");
+    }
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+      "AuthZ",
+    ]);
+
+    return requestContext;
+  }
+
+  public async getMatchingSignals(
+    eventId: string,
+    track: string,
+    _options?: Configuration,
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    if (
+      !_config.unstableOperations["SecurityMonitoringApi.v2.getMatchingSignals"]
+    ) {
+      throw new Error(
+        "Unstable operation 'getMatchingSignals' is disabled. Enable it by setting `configuration.unstableOperations['SecurityMonitoringApi.v2.getMatchingSignals'] = true`",
+      );
+    }
+
+    // verify required parameter 'eventId' is not null or undefined
+    if (eventId === null || eventId === undefined) {
+      throw new RequiredError("eventId", "getMatchingSignals");
+    }
+
+    // verify required parameter 'track' is not null or undefined
+    if (track === null || track === undefined) {
+      throw new RequiredError("track", "getMatchingSignals");
+    }
+
+    // Path Params
+    const localVarPath =
+      "/api/v2/security_monitoring/events/{event_id}/matching_signals".replace(
+        "{event_id}",
+        encodeURIComponent(String(eventId)),
+      );
+
+    // Make Request Context
+    const { server, overrides } = _config.getServerAndOverrides(
+      "SecurityMonitoringApi.v2.getMatchingSignals",
+      SecurityMonitoringApi.operationServers,
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.GET,
+      overrides,
+    );
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Set User-Agent
+    if (this.userAgent) {
+      requestContext.setHeaderParam("User-Agent", this.userAgent);
+    }
+
+    // Set IaC header
+    if (_config.isIaC) {
+      requestContext.setHeaderParam("X-Datadog-Managed-By", "iac");
+    }
+
+    // Query Params
+    if (track !== undefined) {
+      requestContext.setQueryParam(
+        "track",
+        serialize(track, TypingInfo, "string", ""),
+        "",
+      );
     }
 
     // Apply auth methods
@@ -16901,6 +16976,67 @@ export class SecurityMonitoringApiResponseProcessor {
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
    *
+   * @params response Response returned by the server for a request to getMatchingSignals
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async getMatchingSignals(
+    response: ResponseContext,
+  ): Promise<MatchingSignalsResponse> {
+    const contentType = normalizeMediaType(response.headers["content-type"]);
+    if (response.httpStatusCode === 200) {
+      const body: MatchingSignalsResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "MatchingSignalsResponse",
+      ) as MatchingSignalsResponse;
+      return body;
+    }
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 404 ||
+      response.httpStatusCode === 429
+    ) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: APIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "APIErrorResponse",
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: MatchingSignalsResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "MatchingSignalsResponse",
+        "",
+      ) as MatchingSignalsResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"',
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
    * @params response Response returned by the server for a request to getResourceEvaluationFilters
    * @throws ApiException if the response code was not in [200, 299]
    */
@@ -23836,6 +23972,19 @@ export interface SecurityMonitoringApiGetInvestigationLogQueriesMatchingSignalRe
   signalId: string;
 }
 
+export interface SecurityMonitoringApiGetMatchingSignalsRequest {
+  /**
+   * The ID of the event to find matching signals for.
+   * @type string
+   */
+  eventId: string;
+  /**
+   * The product track that the event belongs to.
+   * @type string
+   */
+  track: string;
+}
+
 export interface SecurityMonitoringApiGetResourceEvaluationFiltersRequest {
   /**
    * Filter resource filters by cloud provider (e.g. aws, gcp, azure).
@@ -27206,6 +27355,28 @@ export class SecurityMonitoringApi {
           return this.responseProcessor.getInvestigationLogQueriesMatchingSignal(
             responseContext,
           );
+        });
+    });
+  }
+
+  /**
+   * Returns the list of security signals that match a given event on the given track.
+   * @param param The request object
+   */
+  public getMatchingSignals(
+    param: SecurityMonitoringApiGetMatchingSignalsRequest,
+    options?: Configuration,
+  ): Promise<MatchingSignalsResponse> {
+    const requestContextPromise = this.requestFactory.getMatchingSignals(
+      param.eventId,
+      param.track,
+      options,
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.getMatchingSignals(responseContext);
         });
     });
   }
