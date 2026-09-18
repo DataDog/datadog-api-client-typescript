@@ -883,7 +883,7 @@ export class DowntimesApi {
   }
 
   /**
-   * Get all scheduled downtimes.
+   * List scheduled downtimes, optionally filtering to those that are active when the request is made.
    * @param param The request object
    */
   public listDowntimes(
