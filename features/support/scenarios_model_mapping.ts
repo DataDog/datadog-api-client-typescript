@@ -10162,6 +10162,13 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             },
         "operationResponseType": "FormPublicationResponse",
     },
+    "v2.ListFormVersions": {
+        "formId": {
+            "type": "string",
+            "format": "uuid",
+            },
+        "operationResponseType": "ListFormVersionsResponse",
+    },
     "v2.UpsertFormVersion": {
         "formId": {
             "type": "string",
@@ -10170,6 +10177,17 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
         "body": {
             "type": "UpsertFormVersionRequest",
             "format": "",
+            },
+        "operationResponseType": "FormVersionResponse",
+    },
+    "v2.RevertFormVersion": {
+        "formId": {
+            "type": "string",
+            "format": "uuid",
+            },
+        "version": {
+            "type": "number",
+            "format": "int64",
             },
         "operationResponseType": "FormVersionResponse",
     },
