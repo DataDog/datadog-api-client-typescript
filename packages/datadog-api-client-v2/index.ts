@@ -1932,6 +1932,14 @@ export {
 } from "./apis/TeamsApi";
 
 export {
+  TerraformStateFilesApiCreateTerraformBackendSyncConfigRequest,
+  TerraformStateFilesApiDeleteTerraformBackendSyncConfigRequest,
+  TerraformStateFilesApiListTerraformBackendSyncConfigsRequest,
+  TerraformStateFilesApiUpdateTerraformBackendSyncConfigRequest,
+  TerraformStateFilesApi,
+} from "./apis/TerraformStateFilesApi";
+
+export {
   TestOptimizationApiDeleteTestOptimizationServiceSettingsRequest,
   TestOptimizationApiGetFlakyTestsManagementPoliciesRequest,
   TestOptimizationApiGetTestOptimizationServiceSettingsRequest,
@@ -9378,6 +9386,20 @@ export { TenancyProductsDataAttributes } from "./models/TenancyProductsDataAttri
 export { TenancyProductsDataAttributesProductsItems } from "./models/TenancyProductsDataAttributesProductsItems";
 export { TenancyProductsDataType } from "./models/TenancyProductsDataType";
 export { TenancyProductsList } from "./models/TenancyProductsList";
+export { TerraformBackendAttributes } from "./models/TerraformBackendAttributes";
+export { TerraformBackendBucket } from "./models/TerraformBackendBucket";
+export { TerraformBackendCreateAttributes } from "./models/TerraformBackendCreateAttributes";
+export { TerraformBackendCreateData } from "./models/TerraformBackendCreateData";
+export { TerraformBackendCreateRequest } from "./models/TerraformBackendCreateRequest";
+export { TerraformBackendData } from "./models/TerraformBackendData";
+export { TerraformBackendKind } from "./models/TerraformBackendKind";
+export { TerraformBackendListResponse } from "./models/TerraformBackendListResponse";
+export { TerraformBackendResponse } from "./models/TerraformBackendResponse";
+export { TerraformBackendSyncStatus } from "./models/TerraformBackendSyncStatus";
+export { TerraformBackendType } from "./models/TerraformBackendType";
+export { TerraformBackendUpdateAttributes } from "./models/TerraformBackendUpdateAttributes";
+export { TerraformBackendUpdateData } from "./models/TerraformBackendUpdateData";
+export { TerraformBackendUpdateRequest } from "./models/TerraformBackendUpdateRequest";
 export { TestOptimizationDeleteServiceSettingsRequest } from "./models/TestOptimizationDeleteServiceSettingsRequest";
 export { TestOptimizationDeleteServiceSettingsRequestAttributes } from "./models/TestOptimizationDeleteServiceSettingsRequestAttributes";
 export { TestOptimizationDeleteServiceSettingsRequestData } from "./models/TestOptimizationDeleteServiceSettingsRequestData";
