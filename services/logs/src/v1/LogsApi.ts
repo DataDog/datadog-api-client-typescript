@@ -108,6 +108,9 @@ export class LogsApiRequestFactory extends BaseAPIRequestFactory {
     if (body === null || body === undefined) {
       throw new RequiredError("body", "submitLog");
     }
+    if (contentEncoding === undefined) {
+      contentEncoding = "gzip";
+    }
 
     // Path Params
     const localVarPath = "/v1/input";
