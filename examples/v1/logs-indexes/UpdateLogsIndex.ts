@@ -15,6 +15,7 @@ const params: v1.LogsIndexesApiUpdateLogsIndexRequest = {
       resetUtcOffset: "+02:00",
     },
     dailyLimitWarningThresholdPercentage: 70,
+    description: "Contains logs matching the criteria defined by the filter.",
     disableDailyLimit: false,
     exclusionFilters: [
       {
