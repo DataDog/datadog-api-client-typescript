@@ -74,6 +74,7 @@ export {
   SecurityMonitoringApiGetHistoricalJobRequest,
   SecurityMonitoringApiGetIndicatorOfCompromiseRequest,
   SecurityMonitoringApiGetInvestigationLogQueriesMatchingSignalRequest,
+  SecurityMonitoringApiGetMatchingSignalsRequest,
   SecurityMonitoringApiGetResourceEvaluationFiltersRequest,
   SecurityMonitoringApiGetRuleVersionHistoryRequest,
   SecurityMonitoringApiGetSBOMRequest,
@@ -445,6 +446,10 @@ export { ListHistoricalJobsResponse } from "./models/ListHistoricalJobsResponse"
 export { ListSecurityFindingsResponse } from "./models/ListSecurityFindingsResponse";
 export { ListVulnerabilitiesResponse } from "./models/ListVulnerabilitiesResponse";
 export { ListVulnerableAssetsResponse } from "./models/ListVulnerableAssetsResponse";
+export { MatchingSignalAttributes } from "./models/MatchingSignalAttributes";
+export { MatchingSignalData } from "./models/MatchingSignalData";
+export { MatchingSignalsResponse } from "./models/MatchingSignalsResponse";
+export { MatchingSignalType } from "./models/MatchingSignalType";
 export { Metadata } from "./models/Metadata";
 export { MuteDataType } from "./models/MuteDataType";
 export { MuteFindingsMuteAttributes } from "./models/MuteFindingsMuteAttributes";
