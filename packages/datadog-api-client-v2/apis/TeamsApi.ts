@@ -5048,7 +5048,7 @@ export class TeamsApi {
   }
 
   /**
-   * Get all teams.
+   * Get all teams in your organization.
    * Can be used to search for teams using the `filter[keyword]` and `filter[me]` query parameters.
    * @param param The request object
    */
