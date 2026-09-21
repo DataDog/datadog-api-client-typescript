@@ -3,7 +3,6 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
-import { MonitorConfigPolicyDowntimePolicy } from "./MonitorConfigPolicyDowntimePolicy";
 import { MonitorConfigPolicyTagPolicy } from "./MonitorConfigPolicyTagPolicy";
 
 import { UnparsedObject } from "../../datadog-api-client-common/util";
@@ -14,5 +13,4 @@ import { UnparsedObject } from "../../datadog-api-client-common/util";
 
 export type MonitorConfigPolicyPolicy =
   | MonitorConfigPolicyTagPolicy
-  | MonitorConfigPolicyDowntimePolicy
   | UnparsedObject;
