@@ -38,6 +38,10 @@ export class AnalysisRequestRule {
    */
   "createdBy"?: string;
   /**
+   * The message associated with the custom rule revision. Forwarded from the custom rulesets endpoints; ignored by this operation.
+   */
+  "creationMessage"?: string;
+  /**
    * The CVE identifier associated with the rule. Forwarded from the rulesets endpoints; ignored by this operation.
    */
   "cve"?: string;
@@ -102,6 +106,10 @@ export class AnalysisRequestRule {
    */
   "shouldUseAiFix"?: boolean;
   /**
+   * Tags associated with the custom rule revision. Forwarded from the custom rulesets endpoints; ignored by this operation.
+   */
+  "tags"?: Array<string>;
+  /**
    * The test cases associated with the rule. Forwarded from the rulesets endpoints; ignored by this operation.
    */
   "tests"?: Array<AnalysisRequestRuleTest>;
@@ -113,6 +121,10 @@ export class AnalysisRequestRule {
    * The rule type indicating the detection mechanism (for example, `TREE_SITTER_QUERY`).
    */
   "type": string;
+  /**
+   * The custom rule revision version. Forwarded from the custom rulesets endpoints; ignored by this operation.
+   */
+  "versionId"?: number;
   /**
    * A container for additional, undeclared properties.
    * This is a holder for any undeclared properties as specified with
@@ -154,6 +166,10 @@ export class AnalysisRequestRule {
     },
     createdBy: {
       baseName: "created_by",
+      type: "string",
+    },
+    creationMessage: {
+      baseName: "creation_message",
       type: "string",
     },
     cve: {
@@ -224,6 +240,10 @@ export class AnalysisRequestRule {
       baseName: "should_use_ai_fix",
       type: "boolean",
     },
+    tags: {
+      baseName: "tags",
+      type: "Array<string>",
+    },
     tests: {
       baseName: "tests",
       type: "Array<AnalysisRequestRuleTest>",
@@ -237,6 +257,11 @@ export class AnalysisRequestRule {
       baseName: "type",
       type: "string",
       required: true,
+    },
+    versionId: {
+      baseName: "version_id",
+      type: "number",
+      format: "int64",
     },
     additionalProperties: {
       baseName: "additionalProperties",
