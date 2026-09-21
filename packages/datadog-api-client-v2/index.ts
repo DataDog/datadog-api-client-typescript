@@ -9165,6 +9165,7 @@ export { TableResultV2DataAttributesSchema } from "./models/TableResultV2DataAtt
 export { TableResultV2DataAttributesSchemaFieldsItems } from "./models/TableResultV2DataAttributesSchemaFieldsItems";
 export { TableResultV2DataType } from "./models/TableResultV2DataType";
 export { TableRowResourceArray } from "./models/TableRowResourceArray";
+export { TableRowResourceArrayMeta } from "./models/TableRowResourceArrayMeta";
 export { TableRowResourceData } from "./models/TableRowResourceData";
 export { TableRowResourceDataAttributes } from "./models/TableRowResourceDataAttributes";
 export { TableRowResourceDataType } from "./models/TableRowResourceDataType";

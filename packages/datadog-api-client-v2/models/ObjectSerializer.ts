@@ -5498,6 +5498,7 @@ import { TableResultV2DataAttributesFileMetadataOneOfAccessDetailsGcpDetail } fr
 import { TableResultV2DataAttributesSchema } from "./TableResultV2DataAttributesSchema";
 import { TableResultV2DataAttributesSchemaFieldsItems } from "./TableResultV2DataAttributesSchemaFieldsItems";
 import { TableRowResourceArray } from "./TableRowResourceArray";
+import { TableRowResourceArrayMeta } from "./TableRowResourceArrayMeta";
 import { TableRowResourceData } from "./TableRowResourceData";
 import { TableRowResourceDataAttributes } from "./TableRowResourceDataAttributes";
 import { TableRowResourceIdentifier } from "./TableRowResourceIdentifier";
@@ -16178,6 +16179,7 @@ const typeMap: { [index: string]: any } = {
   TableResultV2DataAttributesSchemaFieldsItems:
     TableResultV2DataAttributesSchemaFieldsItems,
   TableRowResourceArray: TableRowResourceArray,
+  TableRowResourceArrayMeta: TableRowResourceArrayMeta,
   TableRowResourceData: TableRowResourceData,
   TableRowResourceDataAttributes: TableRowResourceDataAttributes,
   TableRowResourceIdentifier: TableRowResourceIdentifier,
