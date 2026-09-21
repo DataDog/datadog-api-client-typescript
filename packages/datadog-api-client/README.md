@@ -497,6 +497,7 @@ apiInstance
 | Tag Rules | @datadog/datadog-api-client-tag-rules | [README.md](../../services/tag-rules/README.md) |
 | Tags | @datadog/datadog-api-client-tags | [README.md](../../services/tags/README.md) |
 | Teams | @datadog/datadog-api-client-teams | [README.md](../../services/teams/README.md) |
+| Terraform State Files | @datadog/datadog-api-client-terraform-state-files | [README.md](../../services/terraform-state-files/README.md) |
 | Test Optimization | @datadog/datadog-api-client-test-optimization | [README.md](../../services/test-optimization/README.md) |
 | Threat Intelligence | @datadog/datadog-api-client-threat-intelligence | [README.md](../../services/threat-intelligence/README.md) |
 | Timeseries Anomaly Investigations | @datadog/datadog-api-client-timeseries-anomaly-investigations | [README.md](../../services/timeseries-anomaly-investigations/README.md) |
