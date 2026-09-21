@@ -3203,6 +3203,9 @@ import { ManagedOrgsRelationshipToOrg } from "./ManagedOrgsRelationshipToOrg";
 import { ManagedOrgsRelationshipToOrgs } from "./ManagedOrgsRelationshipToOrgs";
 import { ManagedOrgsRelationships } from "./ManagedOrgsRelationships";
 import { ManagedOrgsResponse } from "./ManagedOrgsResponse";
+import { MatchingSignalAttributes } from "./MatchingSignalAttributes";
+import { MatchingSignalData } from "./MatchingSignalData";
+import { MatchingSignalsResponse } from "./MatchingSignalsResponse";
 import { MaxSessionDurationUpdateAttributes } from "./MaxSessionDurationUpdateAttributes";
 import { MaxSessionDurationUpdateData } from "./MaxSessionDurationUpdateData";
 import { MaxSessionDurationUpdateRequest } from "./MaxSessionDurationUpdateRequest";
@@ -7586,6 +7589,7 @@ const enumsMap: { [key: string]: any[] } = {
   ],
   MaintenanceWindowResourceType: ["maintenance_window"],
   ManagedOrgsType: ["managed_orgs"],
+  MatchingSignalType: ["matching_signal"],
   MaxSessionDurationType: ["max_session_duration"],
   McpScanRequestDataType: ["mcpscanrequest"],
   McpScanRequestResponseDataType: ["mcpscanrequestresponse"],
@@ -13299,6 +13303,9 @@ const typeMap: { [index: string]: any } = {
   ManagedOrgsRelationshipToOrgs: ManagedOrgsRelationshipToOrgs,
   ManagedOrgsRelationships: ManagedOrgsRelationships,
   ManagedOrgsResponse: ManagedOrgsResponse,
+  MatchingSignalAttributes: MatchingSignalAttributes,
+  MatchingSignalData: MatchingSignalData,
+  MatchingSignalsResponse: MatchingSignalsResponse,
   MaxSessionDurationUpdateAttributes: MaxSessionDurationUpdateAttributes,
   MaxSessionDurationUpdateData: MaxSessionDurationUpdateData,
   MaxSessionDurationUpdateRequest: MaxSessionDurationUpdateRequest,
