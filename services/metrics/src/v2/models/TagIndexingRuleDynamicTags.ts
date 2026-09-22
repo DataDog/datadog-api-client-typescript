@@ -21,14 +21,6 @@ export class TagIndexingRuleDynamicTags {
    */
   "excludeNotUsedInAssets"?: boolean;
   /**
-   * Window in seconds for evaluating queried tags.
-   */
-  "queriedTagsWindowSeconds"?: number;
-  /**
-   * When true, tags from related assets are included.
-   */
-  "relatedAssetTags"?: boolean;
-  /**
    * A container for additional, undeclared properties.
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
@@ -50,15 +42,6 @@ export class TagIndexingRuleDynamicTags {
     },
     excludeNotUsedInAssets: {
       baseName: "exclude_not_used_in_assets",
-      type: "boolean",
-    },
-    queriedTagsWindowSeconds: {
-      baseName: "queried_tags_window_seconds",
-      type: "number",
-      format: "int64",
-    },
-    relatedAssetTags: {
-      baseName: "related_asset_tags",
       type: "boolean",
     },
     additionalProperties: {
