@@ -13313,6 +13313,9 @@ export class IncidentsApi {
 
   /**
    * Create a page from an incident using the Cases service.
+   *
+   * **Deprecated**: This endpoint is deprecated. Use
+   * [Create an on-call page from an incident](#create-an-on-call-page-from-an-incident) instead.
    * @param param The request object
    */
   public createPageFromIncident(
