@@ -112,7 +112,7 @@ export class IPRangesApi {
   }
 
   /**
-   * Get information about Datadog IP ranges.
+   * Get information about Datadog IP ranges, including service-specific prefixes.
    * @param param The request object
    */
   public getIPRanges(options?: Configuration): Promise<IPRanges> {
