@@ -26,14 +26,6 @@ export class TagIndexingRuleDynamicTags {
    * Tags not used in any dashboards,  monitors, notebooks, or SLOs are excluded from indexing.
    */
   "excludeNotUsedInAssets"?: boolean;
-  /**
-   * Window in seconds for evaluating queried tags.
-   */
-  "queriedTagsWindowSeconds"?: number;
-  /**
-   * When true, tags from related assets are included.
-   */
-  "relatedAssetTags"?: boolean;
 
   /**
    * A container for additional, undeclared properties.
@@ -58,15 +50,6 @@ export class TagIndexingRuleDynamicTags {
     },
     excludeNotUsedInAssets: {
       baseName: "exclude_not_used_in_assets",
-      type: "boolean",
-    },
-    queriedTagsWindowSeconds: {
-      baseName: "queried_tags_window_seconds",
-      type: "number",
-      format: "int64",
-    },
-    relatedAssetTags: {
-      baseName: "related_asset_tags",
       type: "boolean",
     },
     additionalProperties: {
