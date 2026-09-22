@@ -40,6 +40,11 @@ export class GCPSTSServiceAccountAttributes {
    */
   "isGlobalLocationEnabled"?: boolean;
   /**
+   * When enabled, Datadog scans for organization and folder-level resources
+   * under the organization the service account belongs to.
+   */
+  "isOrgFolderResourceCollectionEnabled"?: boolean;
+  /**
    * When enabled, Datadog applies the `X-Goog-User-Project` header, attributing Google Cloud billing and quota usage to the project being monitored rather than the default service account project.
    */
   "isPerProjectQuotaEnabled"?: boolean;
@@ -64,7 +69,7 @@ export class GCPSTSServiceAccountAttributes {
    */
   "regionFilterConfigs"?: Array<string>;
   /**
-   * When enabled, Datadog scans for all resources in your GCP environment.
+   * When enabled, Datadog scans for all project-level resources in your GCP environment.
    */
   "resourceCollectionEnabled"?: boolean;
   /**
@@ -108,6 +113,10 @@ export class GCPSTSServiceAccountAttributes {
     },
     isGlobalLocationEnabled: {
       baseName: "is_global_location_enabled",
+      type: "boolean",
+    },
+    isOrgFolderResourceCollectionEnabled: {
+      baseName: "is_org_folder_resource_collection_enabled",
       type: "boolean",
     },
     isPerProjectQuotaEnabled: {
