@@ -30,6 +30,7 @@ const params: v2.SecurityMonitoringApiCreateStaticAnalysisServerAnalysisRequest 
               name: "no-exit",
               regex: undefined,
               severity: "WARNING",
+              tags: [],
               tests: [{}],
               treeSitterQuery: "KGNhbGwgbmFtZTogKGF0dHJpYnV0ZSkpQHZhbA==",
               type: "TREE_SITTER_QUERY",
