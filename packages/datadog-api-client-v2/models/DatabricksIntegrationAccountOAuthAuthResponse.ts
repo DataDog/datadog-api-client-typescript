@@ -3,18 +3,26 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
-import { TableRowResourceIdentifier } from "./TableRowResourceIdentifier";
+import { DatabricksIntegrationAccountOAuthAuthType } from "./DatabricksIntegrationAccountOAuthAuthType";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * The request body for deleting multiple rows from a reference table.
+ * The Databricks OAuth authentication method and service principal configured on the account.
  */
-export class BatchDeleteRowsRequestArray {
+export class DatabricksIntegrationAccountOAuthAuthResponse {
   /**
-   * List of row resources to delete from the reference table. The request payload can be up to 1 MiB.
+   * The authentication method type.
    */
-  "data": Array<TableRowResourceIdentifier>;
+  "authType": DatabricksIntegrationAccountOAuthAuthType;
+  /**
+   * Microsoft Entra ID tenant of the service principal, for Azure Databricks workspaces.
+   */
+  "azureTenantId"?: string;
+  /**
+   * Client ID of the Databricks service principal.
+   */
+  "clientId": string;
 
   /**
    * A container for additional, undeclared properties.
@@ -32,9 +40,18 @@ export class BatchDeleteRowsRequestArray {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    data: {
-      baseName: "data",
-      type: "Array<TableRowResourceIdentifier>",
+    authType: {
+      baseName: "auth_type",
+      type: "DatabricksIntegrationAccountOAuthAuthType",
+      required: true,
+    },
+    azureTenantId: {
+      baseName: "azure_tenant_id",
+      type: "string",
+    },
+    clientId: {
+      baseName: "client_id",
+      type: "string",
       required: true,
     },
     additionalProperties: {
@@ -47,7 +64,7 @@ export class BatchDeleteRowsRequestArray {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-    return BatchDeleteRowsRequestArray.attributeTypeMap;
+    return DatabricksIntegrationAccountOAuthAuthResponse.attributeTypeMap;
   }
 
   public constructor() {}

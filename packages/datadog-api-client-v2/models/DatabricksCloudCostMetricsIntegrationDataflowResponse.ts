@@ -3,18 +3,22 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
-import { TableRowResourceIdentifier } from "./TableRowResourceIdentifier";
+import { DatabricksCloudCostMetricsIntegrationDataflowSettingsResponse } from "./DatabricksCloudCostMetricsIntegrationDataflowSettingsResponse";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * The request body for deleting multiple rows from a reference table.
+ * Cost data collected from your Databricks system tables. Requires [Cloud Cost Management](https://docs.datadoghq.com/cloud_cost_management/) to be set up for your organization.
  */
-export class BatchDeleteRowsRequestArray {
+export class DatabricksCloudCostMetricsIntegrationDataflowResponse {
   /**
-   * List of row resources to delete from the reference table. The request payload can be up to 1 MiB.
+   * Whether Datadog collects this data.
    */
-  "data": Array<TableRowResourceIdentifier>;
+  "enabled"?: boolean;
+  /**
+   * Settings of the Cloud Cost Management dataflow.
+   */
+  "settings"?: DatabricksCloudCostMetricsIntegrationDataflowSettingsResponse;
 
   /**
    * A container for additional, undeclared properties.
@@ -32,10 +36,13 @@ export class BatchDeleteRowsRequestArray {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    data: {
-      baseName: "data",
-      type: "Array<TableRowResourceIdentifier>",
-      required: true,
+    enabled: {
+      baseName: "enabled",
+      type: "boolean",
+    },
+    settings: {
+      baseName: "settings",
+      type: "DatabricksCloudCostMetricsIntegrationDataflowSettingsResponse",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -47,7 +54,7 @@ export class BatchDeleteRowsRequestArray {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-    return BatchDeleteRowsRequestArray.attributeTypeMap;
+    return DatabricksCloudCostMetricsIntegrationDataflowResponse.attributeTypeMap;
   }
 
   public constructor() {}

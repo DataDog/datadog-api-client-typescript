@@ -3,18 +3,18 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
-import { TableRowResourceIdentifier } from "./TableRowResourceIdentifier";
+import { DatabricksIntegrationAccountUpdateData } from "./DatabricksIntegrationAccountUpdateData";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * The request body for deleting multiple rows from a reference table.
+ * Request payload to update a Databricks integration account.
  */
-export class BatchDeleteRowsRequestArray {
+export class DatabricksIntegrationAccountUpdateRequest {
   /**
-   * List of row resources to delete from the reference table. The request payload can be up to 1 MiB.
+   * Data envelope for updating a Databricks integration account.
    */
-  "data": Array<TableRowResourceIdentifier>;
+  "data": DatabricksIntegrationAccountUpdateData;
 
   /**
    * A container for additional, undeclared properties.
@@ -34,7 +34,7 @@ export class BatchDeleteRowsRequestArray {
   static readonly attributeTypeMap: AttributeTypeMap = {
     data: {
       baseName: "data",
-      type: "Array<TableRowResourceIdentifier>",
+      type: "DatabricksIntegrationAccountUpdateData",
       required: true,
     },
     additionalProperties: {
@@ -47,7 +47,7 @@ export class BatchDeleteRowsRequestArray {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-    return BatchDeleteRowsRequestArray.attributeTypeMap;
+    return DatabricksIntegrationAccountUpdateRequest.attributeTypeMap;
   }
 
   public constructor() {}

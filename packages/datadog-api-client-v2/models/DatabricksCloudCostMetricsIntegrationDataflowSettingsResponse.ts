@@ -3,18 +3,17 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
-import { TableRowResourceIdentifier } from "./TableRowResourceIdentifier";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * The request body for deleting multiple rows from a reference table.
+ * Settings of the Cloud Cost Management dataflow.
  */
-export class BatchDeleteRowsRequestArray {
+export class DatabricksCloudCostMetricsIntegrationDataflowSettingsResponse {
   /**
-   * List of row resources to delete from the reference table. The request payload can be up to 1 MiB.
+   * Whether cost data is collected for every workspace in the Databricks account rather than this workspace only. This takes effect across the Databricks account: if any one workspace enables it, Datadog collects cost data for all of them regardless of their individual settings, and every covered workspace incurs Cloud Cost Management charges.
    */
-  "data": Array<TableRowResourceIdentifier>;
+  "ccmCollectAllWorkspaces"?: boolean;
 
   /**
    * A container for additional, undeclared properties.
@@ -32,10 +31,9 @@ export class BatchDeleteRowsRequestArray {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    data: {
-      baseName: "data",
-      type: "Array<TableRowResourceIdentifier>",
-      required: true,
+    ccmCollectAllWorkspaces: {
+      baseName: "ccm_collect_all_workspaces",
+      type: "boolean",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -47,7 +45,7 @@ export class BatchDeleteRowsRequestArray {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-    return BatchDeleteRowsRequestArray.attributeTypeMap;
+    return DatabricksCloudCostMetricsIntegrationDataflowSettingsResponse.attributeTypeMap;
   }
 
   public constructor() {}

@@ -12,7 +12,7 @@ import { AttributeTypeMap } from "../../datadog-api-client-common/util";
  */
 export class BatchUpsertRowsRequestArray {
   /**
-   * List of row resources to create or update in the reference table.
+   * List of row resources to create or update in the reference table. The request payload can be up to 1 MiB.
    */
   "data": Array<BatchUpsertRowsRequestData>;
 

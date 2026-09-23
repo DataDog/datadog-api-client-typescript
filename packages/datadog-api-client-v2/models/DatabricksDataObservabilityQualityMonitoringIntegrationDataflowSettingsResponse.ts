@@ -3,18 +3,21 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
-import { TableRowResourceIdentifier } from "./TableRowResourceIdentifier";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * The request body for deleting multiple rows from a reference table.
+ * Settings of the Data Observability dataflow.
  */
-export class BatchDeleteRowsRequestArray {
+export class DatabricksDataObservabilityQualityMonitoringIntegrationDataflowSettingsResponse {
   /**
-   * List of row resources to delete from the reference table. The request payload can be up to 1 MiB.
+   * Cron expression setting how often Datadog connects to your Databricks warehouse to collect metadata. Currently, only hourly (`0 * * * *`) and daily (`0 0 * * *`) are supported.
    */
-  "data": Array<TableRowResourceIdentifier>;
+  "doCrawlersCron"?: string;
+  /**
+   * Whether metadata from the Databricks `system` catalog is included in Data Observability alongside your data catalogs.
+   */
+  "syncSystemCatalog"?: boolean;
 
   /**
    * A container for additional, undeclared properties.
@@ -32,10 +35,13 @@ export class BatchDeleteRowsRequestArray {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    data: {
-      baseName: "data",
-      type: "Array<TableRowResourceIdentifier>",
-      required: true,
+    doCrawlersCron: {
+      baseName: "do_crawlers_cron",
+      type: "string",
+    },
+    syncSystemCatalog: {
+      baseName: "sync_system_catalog",
+      type: "boolean",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -47,7 +53,7 @@ export class BatchDeleteRowsRequestArray {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-    return BatchDeleteRowsRequestArray.attributeTypeMap;
+    return DatabricksDataObservabilityQualityMonitoringIntegrationDataflowSettingsResponse.attributeTypeMap;
   }
 
   public constructor() {}

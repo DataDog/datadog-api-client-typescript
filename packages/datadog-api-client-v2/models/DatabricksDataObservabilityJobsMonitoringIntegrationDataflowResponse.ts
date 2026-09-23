@@ -3,18 +3,22 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
-import { TableRowResourceIdentifier } from "./TableRowResourceIdentifier";
+import { DatabricksDataObservabilityJobsMonitoringIntegrationDataflowSettingsResponse } from "./DatabricksDataObservabilityJobsMonitoringIntegrationDataflowSettingsResponse";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * The request body for deleting multiple rows from a reference table.
+ * Data Jobs Monitoring, which collects performance, reliability, and cost data for your Databricks jobs.
  */
-export class BatchDeleteRowsRequestArray {
+export class DatabricksDataObservabilityJobsMonitoringIntegrationDataflowResponse {
   /**
-   * List of row resources to delete from the reference table. The request payload can be up to 1 MiB.
+   * Whether Datadog collects this data.
    */
-  "data": Array<TableRowResourceIdentifier>;
+  "enabled"?: boolean;
+  /**
+   * Settings of the Data Jobs Monitoring dataflow.
+   */
+  "settings"?: DatabricksDataObservabilityJobsMonitoringIntegrationDataflowSettingsResponse;
 
   /**
    * A container for additional, undeclared properties.
@@ -32,10 +36,13 @@ export class BatchDeleteRowsRequestArray {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    data: {
-      baseName: "data",
-      type: "Array<TableRowResourceIdentifier>",
-      required: true,
+    enabled: {
+      baseName: "enabled",
+      type: "boolean",
+    },
+    settings: {
+      baseName: "settings",
+      type: "DatabricksDataObservabilityJobsMonitoringIntegrationDataflowSettingsResponse",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -47,7 +54,7 @@ export class BatchDeleteRowsRequestArray {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-    return BatchDeleteRowsRequestArray.attributeTypeMap;
+    return DatabricksDataObservabilityJobsMonitoringIntegrationDataflowResponse.attributeTypeMap;
   }
 
   public constructor() {}
