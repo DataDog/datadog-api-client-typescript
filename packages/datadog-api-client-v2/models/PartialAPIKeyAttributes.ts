@@ -35,6 +35,10 @@ export class PartialAPIKeyAttributes {
    */
   "name"?: string;
   /**
+   * Whether the API key can enroll a Private Action Runner.
+   */
+  "privateActionRunnerEnrollEnabled"?: boolean;
+  /**
    * The remote config read enabled status.
    */
   "remoteConfigReadEnabled"?: boolean;
@@ -79,6 +83,10 @@ export class PartialAPIKeyAttributes {
     name: {
       baseName: "name",
       type: "string",
+    },
+    privateActionRunnerEnrollEnabled: {
+      baseName: "private_action_runner_enroll_enabled",
+      type: "boolean",
     },
     remoteConfigReadEnabled: {
       baseName: "remote_config_read_enabled",
