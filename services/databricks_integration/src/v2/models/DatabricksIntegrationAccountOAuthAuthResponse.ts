@@ -1,21 +1,23 @@
 import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
+import { DatabricksIntegrationAccountOAuthAuthType } from "./DatabricksIntegrationAccountOAuthAuthType";
+
 /**
- * A RUM node within a journey step.
+ * The Databricks OAuth authentication method and service principal configured on the account.
  */
-export class DemRumNode {
+export class DatabricksIntegrationAccountOAuthAuthResponse {
   /**
-   * The RUM application ID whose events this node query matches. This value is required for every node when creating or updating a DEM feature or journey, including variants, and is used to discover the resource in application-scoped searches. Use `GET /api/v2/rum/applications` to find RUM application IDs.
+   * The authentication method type.
    */
-  "appId": string;
+  "authType": DatabricksIntegrationAccountOAuthAuthType;
   /**
-   * The ID of the RUM node element.
+   * Microsoft Entra ID tenant of the service principal, for Azure Databricks workspaces.
    */
-  "id"?: string;
+  "azureTenantId"?: string;
   /**
-   * The RUM query for matching this node.
+   * Client ID of the Databricks service principal.
    */
-  "query": string;
+  "clientId": string;
   /**
    * A container for additional, undeclared properties.
    * This is a holder for any undeclared properties as specified with
@@ -31,17 +33,17 @@ export class DemRumNode {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    appId: {
-      baseName: "app_id",
-      type: "string",
+    authType: {
+      baseName: "auth_type",
+      type: "DatabricksIntegrationAccountOAuthAuthType",
       required: true,
     },
-    id: {
-      baseName: "id",
+    azureTenantId: {
+      baseName: "azure_tenant_id",
       type: "string",
     },
-    query: {
-      baseName: "query",
+    clientId: {
+      baseName: "client_id",
       type: "string",
       required: true,
     },
@@ -55,7 +57,7 @@ export class DemRumNode {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-    return DemRumNode.attributeTypeMap;
+    return DatabricksIntegrationAccountOAuthAuthResponse.attributeTypeMap;
   }
 
   public constructor() {}

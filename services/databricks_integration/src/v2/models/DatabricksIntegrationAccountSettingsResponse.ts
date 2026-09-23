@@ -1,21 +1,17 @@
 import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
 /**
- * A RUM node within a journey step.
+ * Settings configured on the Databricks integration account.
  */
-export class DemRumNode {
+export class DatabricksIntegrationAccountSettingsResponse {
   /**
-   * The RUM application ID whose events this node query matches. This value is required for every node when creating or updating a DEM feature or journey, including variants, and is used to discover the resource in application-scoped searches. Use `GET /api/v2/rum/applications` to find RUM application IDs.
+   * ID of the SQL warehouse used to query the Databricks system tables.
    */
-  "appId": string;
+  "systemTablesSqlWarehouseId"?: string;
   /**
-   * The ID of the RUM node element.
+   * URL of the Databricks workspace.
    */
-  "id"?: string;
-  /**
-   * The RUM query for matching this node.
-   */
-  "query": string;
+  "workspaceUrl": string;
   /**
    * A container for additional, undeclared properties.
    * This is a holder for any undeclared properties as specified with
@@ -31,17 +27,12 @@ export class DemRumNode {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    appId: {
-      baseName: "app_id",
-      type: "string",
-      required: true,
-    },
-    id: {
-      baseName: "id",
+    systemTablesSqlWarehouseId: {
+      baseName: "system_tables_sql_warehouse_id",
       type: "string",
     },
-    query: {
-      baseName: "query",
+    workspaceUrl: {
+      baseName: "workspace_url",
       type: "string",
       required: true,
     },
@@ -55,7 +46,7 @@ export class DemRumNode {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-    return DemRumNode.attributeTypeMap;
+    return DatabricksIntegrationAccountSettingsResponse.attributeTypeMap;
   }
 
   public constructor() {}

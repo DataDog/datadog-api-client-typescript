@@ -1,21 +1,21 @@
 import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
 /**
- * A RUM node within a journey step.
+ * References to the source of the error.
  */
-export class DemRumNode {
+export class JSONAPIErrorItemSource {
   /**
-   * The RUM application ID whose events this node query matches. This value is required for every node when creating or updating a DEM feature or journey, including variants, and is used to discover the resource in application-scoped searches. Use `GET /api/v2/rum/applications` to find RUM application IDs.
+   * A string indicating the name of a single request header which caused the error.
    */
-  "appId": string;
+  "header"?: string;
   /**
-   * The ID of the RUM node element.
+   * A string indicating which URI query parameter caused the error.
    */
-  "id"?: string;
+  "parameter"?: string;
   /**
-   * The RUM query for matching this node.
+   * A JSON pointer to the value in the request document that caused the error.
    */
-  "query": string;
+  "pointer"?: string;
   /**
    * A container for additional, undeclared properties.
    * This is a holder for any undeclared properties as specified with
@@ -31,19 +31,17 @@ export class DemRumNode {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    appId: {
-      baseName: "app_id",
-      type: "string",
-      required: true,
-    },
-    id: {
-      baseName: "id",
+    header: {
+      baseName: "header",
       type: "string",
     },
-    query: {
-      baseName: "query",
+    parameter: {
+      baseName: "parameter",
       type: "string",
-      required: true,
+    },
+    pointer: {
+      baseName: "pointer",
+      type: "string",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -55,7 +53,7 @@ export class DemRumNode {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-    return DemRumNode.attributeTypeMap;
+    return JSONAPIErrorItemSource.attributeTypeMap;
   }
 
   public constructor() {}
