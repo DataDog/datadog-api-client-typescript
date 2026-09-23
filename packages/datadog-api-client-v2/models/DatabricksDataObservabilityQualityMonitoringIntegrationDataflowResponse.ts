@@ -3,27 +3,22 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
-import { DemRumStep } from "./DemRumStep";
-import { DemVariant } from "./DemVariant";
+import { DatabricksDataObservabilityQualityMonitoringIntegrationDataflowSettingsResponse } from "./DatabricksDataObservabilityQualityMonitoringIntegrationDataflowSettingsResponse";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * The RUM definition for a DEM journey.
+ * Data Observability, which collects lineage and data quality information from your Databricks catalogs so you can explore how data flows and detect, resolve, and prevent quality issues.
  */
-export class DemJourneyRum {
+export class DatabricksDataObservabilityQualityMonitoringIntegrationDataflowResponse {
   /**
-   * An optional RUM query filter applied to the entire journey. For a single-application journey, include the application as `@application.id:<application_id>` in addition to setting `app_id` on every RUM node.
+   * Whether Datadog collects this data.
    */
-  "filter"?: string;
+  "enabled"?: boolean;
   /**
-   * List of RUM journey steps.
+   * Settings of the Data Observability dataflow.
    */
-  "rumSteps": Array<DemRumStep>;
-  /**
-   * List of variants associated with a DEM journey.
-   */
-  "variants"?: Array<DemVariant>;
+  "settings"?: DatabricksDataObservabilityQualityMonitoringIntegrationDataflowSettingsResponse;
 
   /**
    * A container for additional, undeclared properties.
@@ -41,18 +36,13 @@ export class DemJourneyRum {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    filter: {
-      baseName: "filter",
-      type: "string",
+    enabled: {
+      baseName: "enabled",
+      type: "boolean",
     },
-    rumSteps: {
-      baseName: "rum_steps",
-      type: "Array<DemRumStep>",
-      required: true,
-    },
-    variants: {
-      baseName: "variants",
-      type: "Array<DemVariant>",
+    settings: {
+      baseName: "settings",
+      type: "DatabricksDataObservabilityQualityMonitoringIntegrationDataflowSettingsResponse",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -64,7 +54,7 @@ export class DemJourneyRum {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-    return DemJourneyRum.attributeTypeMap;
+    return DatabricksDataObservabilityQualityMonitoringIntegrationDataflowResponse.attributeTypeMap;
   }
 
   public constructor() {}

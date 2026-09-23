@@ -3,27 +3,26 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
-import { DemRumStep } from "./DemRumStep";
-import { DemVariant } from "./DemVariant";
+import { DatabricksIntegrationAccountOAuthAuthType } from "./DatabricksIntegrationAccountOAuthAuthType";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * The RUM definition for a DEM journey.
+ * The Databricks OAuth authentication method and service principal configured on the account.
  */
-export class DemJourneyRum {
+export class DatabricksIntegrationAccountOAuthAuthResponse {
   /**
-   * An optional RUM query filter applied to the entire journey. For a single-application journey, include the application as `@application.id:<application_id>` in addition to setting `app_id` on every RUM node.
+   * The authentication method type.
    */
-  "filter"?: string;
+  "authType": DatabricksIntegrationAccountOAuthAuthType;
   /**
-   * List of RUM journey steps.
+   * Microsoft Entra ID tenant of the service principal, for Azure Databricks workspaces.
    */
-  "rumSteps": Array<DemRumStep>;
+  "azureTenantId"?: string;
   /**
-   * List of variants associated with a DEM journey.
+   * Client ID of the Databricks service principal.
    */
-  "variants"?: Array<DemVariant>;
+  "clientId": string;
 
   /**
    * A container for additional, undeclared properties.
@@ -41,18 +40,19 @@ export class DemJourneyRum {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    filter: {
-      baseName: "filter",
-      type: "string",
-    },
-    rumSteps: {
-      baseName: "rum_steps",
-      type: "Array<DemRumStep>",
+    authType: {
+      baseName: "auth_type",
+      type: "DatabricksIntegrationAccountOAuthAuthType",
       required: true,
     },
-    variants: {
-      baseName: "variants",
-      type: "Array<DemVariant>",
+    azureTenantId: {
+      baseName: "azure_tenant_id",
+      type: "string",
+    },
+    clientId: {
+      baseName: "client_id",
+      type: "string",
+      required: true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -64,7 +64,7 @@ export class DemJourneyRum {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-    return DemJourneyRum.attributeTypeMap;
+    return DatabricksIntegrationAccountOAuthAuthResponse.attributeTypeMap;
   }
 
   public constructor() {}

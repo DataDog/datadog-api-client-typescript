@@ -3,27 +3,21 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
-import { DemRumStep } from "./DemRumStep";
-import { DemVariant } from "./DemVariant";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * The RUM definition for a DEM journey.
+ * Settings of the Data Observability dataflow.
  */
-export class DemJourneyRum {
+export class DatabricksDataObservabilityQualityMonitoringIntegrationDataflowSettingsResponse {
   /**
-   * An optional RUM query filter applied to the entire journey. For a single-application journey, include the application as `@application.id:<application_id>` in addition to setting `app_id` on every RUM node.
+   * Cron expression setting how often Datadog connects to your Databricks warehouse to collect metadata. Currently, only hourly (`0 * * * *`) and daily (`0 0 * * *`) are supported.
    */
-  "filter"?: string;
+  "doCrawlersCron"?: string;
   /**
-   * List of RUM journey steps.
+   * Whether metadata from the Databricks `system` catalog is included in Data Observability alongside your data catalogs.
    */
-  "rumSteps": Array<DemRumStep>;
-  /**
-   * List of variants associated with a DEM journey.
-   */
-  "variants"?: Array<DemVariant>;
+  "syncSystemCatalog"?: boolean;
 
   /**
    * A container for additional, undeclared properties.
@@ -41,18 +35,13 @@ export class DemJourneyRum {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    filter: {
-      baseName: "filter",
+    doCrawlersCron: {
+      baseName: "do_crawlers_cron",
       type: "string",
     },
-    rumSteps: {
-      baseName: "rum_steps",
-      type: "Array<DemRumStep>",
-      required: true,
-    },
-    variants: {
-      baseName: "variants",
-      type: "Array<DemVariant>",
+    syncSystemCatalog: {
+      baseName: "sync_system_catalog",
+      type: "boolean",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -64,7 +53,7 @@ export class DemJourneyRum {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-    return DemJourneyRum.attributeTypeMap;
+    return DatabricksDataObservabilityQualityMonitoringIntegrationDataflowSettingsResponse.attributeTypeMap;
   }
 
   public constructor() {}

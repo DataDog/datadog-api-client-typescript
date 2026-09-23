@@ -3,25 +3,27 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
+import { DatabricksIntegrationAccountResponseAttributes } from "./DatabricksIntegrationAccountResponseAttributes";
+import { IntegrationAccountType } from "./IntegrationAccountType";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * A RUM node within a journey step.
+ * Data envelope of a Databricks integration account, including server-assigned identity.
  */
-export class DemRumNode {
+export class DatabricksIntegrationAccountResponseData {
   /**
-   * The RUM application ID whose events this node query matches. This value is required for every node when creating or updating a DEM feature or journey, including variants, and is used to discover the resource in application-scoped searches. Use `GET /api/v2/rum/applications` to find RUM application IDs.
+   * Attributes of a Databricks integration account returned in responses.
    */
-  "appId": string;
+  "attributes": DatabricksIntegrationAccountResponseAttributes;
   /**
-   * The ID of the RUM node element.
+   * Server-generated unique identifier of the Databricks integration account.
    */
-  "id"?: string;
+  "id": string;
   /**
-   * The RUM query for matching this node.
+   * The type of the integration account resource. Always `integration-account`.
    */
-  "query": string;
+  "type": IntegrationAccountType;
 
   /**
    * A container for additional, undeclared properties.
@@ -39,18 +41,19 @@ export class DemRumNode {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    appId: {
-      baseName: "app_id",
-      type: "string",
+    attributes: {
+      baseName: "attributes",
+      type: "DatabricksIntegrationAccountResponseAttributes",
       required: true,
     },
     id: {
       baseName: "id",
       type: "string",
+      required: true,
     },
-    query: {
-      baseName: "query",
-      type: "string",
+    type: {
+      baseName: "type",
+      type: "IntegrationAccountType",
       required: true,
     },
     additionalProperties: {
@@ -63,7 +66,7 @@ export class DemRumNode {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-    return DemRumNode.attributeTypeMap;
+    return DatabricksIntegrationAccountResponseData.attributeTypeMap;
   }
 
   public constructor() {}

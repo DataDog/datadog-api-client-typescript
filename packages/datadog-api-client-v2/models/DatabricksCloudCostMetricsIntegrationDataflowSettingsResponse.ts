@@ -3,27 +3,17 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
-import { DemRumStep } from "./DemRumStep";
-import { DemVariant } from "./DemVariant";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * The RUM definition for a DEM journey.
+ * Settings of the Cloud Cost Management dataflow.
  */
-export class DemJourneyRum {
+export class DatabricksCloudCostMetricsIntegrationDataflowSettingsResponse {
   /**
-   * An optional RUM query filter applied to the entire journey. For a single-application journey, include the application as `@application.id:<application_id>` in addition to setting `app_id` on every RUM node.
+   * Whether cost data is collected for every workspace in the Databricks account rather than this workspace only. This takes effect across the Databricks account: if any one workspace enables it, Datadog collects cost data for all of them regardless of their individual settings, and every covered workspace incurs Cloud Cost Management charges.
    */
-  "filter"?: string;
-  /**
-   * List of RUM journey steps.
-   */
-  "rumSteps": Array<DemRumStep>;
-  /**
-   * List of variants associated with a DEM journey.
-   */
-  "variants"?: Array<DemVariant>;
+  "ccmCollectAllWorkspaces"?: boolean;
 
   /**
    * A container for additional, undeclared properties.
@@ -41,18 +31,9 @@ export class DemJourneyRum {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    filter: {
-      baseName: "filter",
-      type: "string",
-    },
-    rumSteps: {
-      baseName: "rum_steps",
-      type: "Array<DemRumStep>",
-      required: true,
-    },
-    variants: {
-      baseName: "variants",
-      type: "Array<DemVariant>",
+    ccmCollectAllWorkspaces: {
+      baseName: "ccm_collect_all_workspaces",
+      type: "boolean",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -64,7 +45,7 @@ export class DemJourneyRum {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-    return DemJourneyRum.attributeTypeMap;
+    return DatabricksCloudCostMetricsIntegrationDataflowSettingsResponse.attributeTypeMap;
   }
 
   public constructor() {}

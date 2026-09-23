@@ -3,27 +3,23 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
-import { DemRumStep } from "./DemRumStep";
-import { DemVariant } from "./DemVariant";
+import { DatabricksIntegrationAccountCreateAttributes } from "./DatabricksIntegrationAccountCreateAttributes";
+import { IntegrationAccountType } from "./IntegrationAccountType";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * The RUM definition for a DEM journey.
+ * Data envelope for creating a Databricks integration account.
  */
-export class DemJourneyRum {
+export class DatabricksIntegrationAccountCreateData {
   /**
-   * An optional RUM query filter applied to the entire journey. For a single-application journey, include the application as `@application.id:<application_id>` in addition to setting `app_id` on every RUM node.
+   * Writable attributes used to create a Databricks integration account.
    */
-  "filter"?: string;
+  "attributes": DatabricksIntegrationAccountCreateAttributes;
   /**
-   * List of RUM journey steps.
+   * The type of the integration account resource. Always `integration-account`.
    */
-  "rumSteps": Array<DemRumStep>;
-  /**
-   * List of variants associated with a DEM journey.
-   */
-  "variants"?: Array<DemVariant>;
+  "type": IntegrationAccountType;
 
   /**
    * A container for additional, undeclared properties.
@@ -41,18 +37,15 @@ export class DemJourneyRum {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    filter: {
-      baseName: "filter",
-      type: "string",
-    },
-    rumSteps: {
-      baseName: "rum_steps",
-      type: "Array<DemRumStep>",
+    attributes: {
+      baseName: "attributes",
+      type: "DatabricksIntegrationAccountCreateAttributes",
       required: true,
     },
-    variants: {
-      baseName: "variants",
-      type: "Array<DemVariant>",
+    type: {
+      baseName: "type",
+      type: "IntegrationAccountType",
+      required: true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -64,7 +57,7 @@ export class DemJourneyRum {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-    return DemJourneyRum.attributeTypeMap;
+    return DatabricksIntegrationAccountCreateData.attributeTypeMap;
   }
 
   public constructor() {}

@@ -3,27 +3,22 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
-import { DemRumStep } from "./DemRumStep";
-import { DemVariant } from "./DemVariant";
+import { DatabricksDataObservabilityJobsMonitoringIntegrationDataflowSettingsResponse } from "./DatabricksDataObservabilityJobsMonitoringIntegrationDataflowSettingsResponse";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * The RUM definition for a DEM journey.
+ * Data Jobs Monitoring, which collects performance, reliability, and cost data for your Databricks jobs.
  */
-export class DemJourneyRum {
+export class DatabricksDataObservabilityJobsMonitoringIntegrationDataflowResponse {
   /**
-   * An optional RUM query filter applied to the entire journey. For a single-application journey, include the application as `@application.id:<application_id>` in addition to setting `app_id` on every RUM node.
+   * Whether Datadog collects this data.
    */
-  "filter"?: string;
+  "enabled"?: boolean;
   /**
-   * List of RUM journey steps.
+   * Settings of the Data Jobs Monitoring dataflow.
    */
-  "rumSteps": Array<DemRumStep>;
-  /**
-   * List of variants associated with a DEM journey.
-   */
-  "variants"?: Array<DemVariant>;
+  "settings"?: DatabricksDataObservabilityJobsMonitoringIntegrationDataflowSettingsResponse;
 
   /**
    * A container for additional, undeclared properties.
@@ -41,18 +36,13 @@ export class DemJourneyRum {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    filter: {
-      baseName: "filter",
-      type: "string",
+    enabled: {
+      baseName: "enabled",
+      type: "boolean",
     },
-    rumSteps: {
-      baseName: "rum_steps",
-      type: "Array<DemRumStep>",
-      required: true,
-    },
-    variants: {
-      baseName: "variants",
-      type: "Array<DemVariant>",
+    settings: {
+      baseName: "settings",
+      type: "DatabricksDataObservabilityJobsMonitoringIntegrationDataflowSettingsResponse",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -64,7 +54,7 @@ export class DemJourneyRum {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-    return DemJourneyRum.attributeTypeMap;
+    return DatabricksDataObservabilityJobsMonitoringIntegrationDataflowResponse.attributeTypeMap;
   }
 
   public constructor() {}

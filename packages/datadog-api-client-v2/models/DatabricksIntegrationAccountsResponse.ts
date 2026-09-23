@@ -3,27 +3,18 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
-import { DemRumStep } from "./DemRumStep";
-import { DemVariant } from "./DemVariant";
+import { DatabricksIntegrationAccountResponseData } from "./DatabricksIntegrationAccountResponseData";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * The RUM definition for a DEM journey.
+ * Response payload for a list of Databricks integration accounts.
  */
-export class DemJourneyRum {
+export class DatabricksIntegrationAccountsResponse {
   /**
-   * An optional RUM query filter applied to the entire journey. For a single-application journey, include the application as `@application.id:<application_id>` in addition to setting `app_id` on every RUM node.
+   * List of Databricks integration accounts.
    */
-  "filter"?: string;
-  /**
-   * List of RUM journey steps.
-   */
-  "rumSteps": Array<DemRumStep>;
-  /**
-   * List of variants associated with a DEM journey.
-   */
-  "variants"?: Array<DemVariant>;
+  "data": Array<DatabricksIntegrationAccountResponseData>;
 
   /**
    * A container for additional, undeclared properties.
@@ -41,18 +32,10 @@ export class DemJourneyRum {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    filter: {
-      baseName: "filter",
-      type: "string",
-    },
-    rumSteps: {
-      baseName: "rum_steps",
-      type: "Array<DemRumStep>",
+    data: {
+      baseName: "data",
+      type: "Array<DatabricksIntegrationAccountResponseData>",
       required: true,
-    },
-    variants: {
-      baseName: "variants",
-      type: "Array<DemVariant>",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -64,7 +47,7 @@ export class DemJourneyRum {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-    return DemJourneyRum.attributeTypeMap;
+    return DatabricksIntegrationAccountsResponse.attributeTypeMap;
   }
 
   public constructor() {}

@@ -1640,7 +1640,7 @@ export class DEMApiResponseProcessor {
       ) as DemJourneyResponse;
       return body;
     }
-    if (response.httpStatusCode === 404) {
+    if (response.httpStatusCode === 400 || response.httpStatusCode === 404) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
         contentType
