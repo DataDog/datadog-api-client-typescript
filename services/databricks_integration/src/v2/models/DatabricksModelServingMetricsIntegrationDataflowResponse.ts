@@ -1,15 +1,13 @@
 import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
-import { TableRowResourceIdentifier } from "./TableRowResourceIdentifier";
-
 /**
- * The request body for deleting multiple rows from a reference table.
+ * Health and usage metrics for your Databricks model serving endpoints. Not supported on accounts that authenticate with `private_action_runner`; on those accounts this dataflow collects no data.
  */
-export class BatchDeleteRowsRequestArray {
+export class DatabricksModelServingMetricsIntegrationDataflowResponse {
   /**
-   * List of row resources to delete from the reference table. The request payload can be up to 1 MiB.
+   * Whether Datadog collects this data.
    */
-  "data": Array<TableRowResourceIdentifier>;
+  "enabled"?: boolean;
   /**
    * A container for additional, undeclared properties.
    * This is a holder for any undeclared properties as specified with
@@ -25,10 +23,9 @@ export class BatchDeleteRowsRequestArray {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    data: {
-      baseName: "data",
-      type: "Array<TableRowResourceIdentifier>",
-      required: true,
+    enabled: {
+      baseName: "enabled",
+      type: "boolean",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -40,7 +37,7 @@ export class BatchDeleteRowsRequestArray {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-    return BatchDeleteRowsRequestArray.attributeTypeMap;
+    return DatabricksModelServingMetricsIntegrationDataflowResponse.attributeTypeMap;
   }
 
   public constructor() {}

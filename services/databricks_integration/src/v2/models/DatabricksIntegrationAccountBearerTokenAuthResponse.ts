@@ -1,15 +1,15 @@
 import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
-import { TableRowResourceIdentifier } from "./TableRowResourceIdentifier";
+import { DatabricksIntegrationAccountBearerTokenAuthType } from "./DatabricksIntegrationAccountBearerTokenAuthType";
 
 /**
- * The request body for deleting multiple rows from a reference table.
+ * The bearer token authentication method configured on the account.
  */
-export class BatchDeleteRowsRequestArray {
+export class DatabricksIntegrationAccountBearerTokenAuthResponse {
   /**
-   * List of row resources to delete from the reference table. The request payload can be up to 1 MiB.
+   * The authentication method type.
    */
-  "data": Array<TableRowResourceIdentifier>;
+  "authType": DatabricksIntegrationAccountBearerTokenAuthType;
   /**
    * A container for additional, undeclared properties.
    * This is a holder for any undeclared properties as specified with
@@ -25,9 +25,9 @@ export class BatchDeleteRowsRequestArray {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    data: {
-      baseName: "data",
-      type: "Array<TableRowResourceIdentifier>",
+    authType: {
+      baseName: "auth_type",
+      type: "DatabricksIntegrationAccountBearerTokenAuthType",
       required: true,
     },
     additionalProperties: {
@@ -40,7 +40,7 @@ export class BatchDeleteRowsRequestArray {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-    return BatchDeleteRowsRequestArray.attributeTypeMap;
+    return DatabricksIntegrationAccountBearerTokenAuthResponse.attributeTypeMap;
   }
 
   public constructor() {}

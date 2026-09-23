@@ -1,15 +1,15 @@
 import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
-import { TableRowResourceIdentifier } from "./TableRowResourceIdentifier";
+import { JSONAPIErrorItem } from "./JSONAPIErrorItem";
 
 /**
- * The request body for deleting multiple rows from a reference table.
+ * API error response.
  */
-export class BatchDeleteRowsRequestArray {
+export class JSONAPIErrorResponse {
   /**
-   * List of row resources to delete from the reference table. The request payload can be up to 1 MiB.
+   * A list of errors.
    */
-  "data": Array<TableRowResourceIdentifier>;
+  "errors": Array<JSONAPIErrorItem>;
   /**
    * A container for additional, undeclared properties.
    * This is a holder for any undeclared properties as specified with
@@ -25,9 +25,9 @@ export class BatchDeleteRowsRequestArray {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    data: {
-      baseName: "data",
-      type: "Array<TableRowResourceIdentifier>",
+    errors: {
+      baseName: "errors",
+      type: "Array<JSONAPIErrorItem>",
       required: true,
     },
     additionalProperties: {
@@ -40,7 +40,7 @@ export class BatchDeleteRowsRequestArray {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-    return BatchDeleteRowsRequestArray.attributeTypeMap;
+    return JSONAPIErrorResponse.attributeTypeMap;
   }
 
   public constructor() {}
