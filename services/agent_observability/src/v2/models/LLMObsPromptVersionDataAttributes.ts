@@ -4,13 +4,17 @@ import { LLMObsPromptDataset } from "./LLMObsPromptDataset";
 import { LLMObsPromptTemplate } from "./LLMObsPromptTemplate";
 
 /**
- * Attributes of a specific version of an Agent Observability prompt.
+ * Attributes of a specific version of an Agent Observability prompt. Empty `config` is omitted when configuration authoring is disabled for the organization. Non-empty saved configuration is always returned.
  */
 export class LLMObsPromptVersionDataAttributes {
   /**
    * UUID of the user who authored this version.
    */
   "author"?: string;
+  /**
+   * Versioned prompt configuration is in Preview. To request access, contact [Datadog Support](https://www.datadoghq.com/support/) or your Customer Success Manager. Customer-owned configuration delivered with a prompt version. Datadog stores and returns the object without interpolating it, validating provider-specific keys, or applying it to model calls. Do not include secrets.
+   */
+  "config"?: { [key: string]: any };
   /**
    * Timestamp stored on this prompt version.
    */
@@ -85,6 +89,10 @@ export class LLMObsPromptVersionDataAttributes {
     author: {
       baseName: "author",
       type: "string",
+    },
+    config: {
+      baseName: "config",
+      type: "{ [key: string]: any; }",
     },
     createdAt: {
       baseName: "created_at",
