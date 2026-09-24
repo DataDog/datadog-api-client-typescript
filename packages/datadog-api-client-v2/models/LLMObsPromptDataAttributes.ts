@@ -9,7 +9,7 @@ import { LLMObsPromptResponseSource } from "./LLMObsPromptResponseSource";
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * Attributes of an Agent Observability prompt registry entry.
+ * Attributes of an Agent Observability prompt registry entry. Prompt list and metadata-update responses omit complete template and configuration data.
  */
 export class LLMObsPromptDataAttributes {
   /**
