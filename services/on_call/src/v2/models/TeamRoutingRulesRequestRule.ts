@@ -13,6 +13,11 @@ export class TeamRoutingRulesRequestRule {
    */
   "actions"?: Array<RoutingRuleAction>;
   /**
+   * Specifies the unique identifier of an existing routing rule to update.
+   * If omitted, a new routing rule is created.
+   */
+  "id"?: string;
+  /**
    * Identifies the policy to be applied when this routing rule matches.
    */
   "policyId"?: string;
@@ -46,6 +51,10 @@ export class TeamRoutingRulesRequestRule {
     actions: {
       baseName: "actions",
       type: "Array<RoutingRuleAction>",
+    },
+    id: {
+      baseName: "id",
+      type: "string",
     },
     policyId: {
       baseName: "policy_id",
