@@ -6,6 +6,7 @@
 import { TeamNotificationRuleAttributesEmail } from "./TeamNotificationRuleAttributesEmail";
 import { TeamNotificationRuleAttributesMsTeams } from "./TeamNotificationRuleAttributesMsTeams";
 import { TeamNotificationRuleAttributesPagerduty } from "./TeamNotificationRuleAttributesPagerduty";
+import { TeamNotificationRuleAttributesServiceNow } from "./TeamNotificationRuleAttributesServiceNow";
 import { TeamNotificationRuleAttributesSlack } from "./TeamNotificationRuleAttributesSlack";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
@@ -26,6 +27,10 @@ export class TeamNotificationRuleAttributes {
    * PagerDuty notification settings for the team
    */
   "pagerduty"?: TeamNotificationRuleAttributesPagerduty;
+  /**
+   * ServiceNow notification settings for the team.
+   */
+  "servicenow"?: TeamNotificationRuleAttributesServiceNow;
   /**
    * Slack notification settings for the team
    */
@@ -58,6 +63,10 @@ export class TeamNotificationRuleAttributes {
     pagerduty: {
       baseName: "pagerduty",
       type: "TeamNotificationRuleAttributesPagerduty",
+    },
+    servicenow: {
+      baseName: "servicenow",
+      type: "TeamNotificationRuleAttributesServiceNow",
     },
     slack: {
       baseName: "slack",
