@@ -1,5 +1,71 @@
 # CHANGELOG
 
+## 1.64.0/2026-09-24
+
+### Added
+* Add bearer auth to endpoints that support api app key auth [#5192](https://github.com/DataDog/datadog-api-client-typescript/pull/5192)
+* Document Deployment Gate evaluation APIs [#5190](https://github.com/DataDog/datadog-api-client-typescript/pull/5190)
+* Update GCP V2 API spec to support is_org_folder_resource_collection_enabled  [#5177](https://github.com/DataDog/datadog-api-client-typescript/pull/5177)
+* allow billing read for ListQuotas GET endpoint [#5160](https://github.com/DataDog/datadog-api-client-typescript/pull/5160)
+* Document run_as attribute and with_run_as param for downtime v2 API [#5148](https://github.com/DataDog/datadog-api-client-typescript/pull/5148)
+* Add draft monitor permissions definition [#5136](https://github.com/DataDog/datadog-api-client-typescript/pull/5136)
+* Add sensitivePrivileges field to Workflow Automation spec [#5134](https://github.com/DataDog/datadog-api-client-typescript/pull/5134)
+* Document NDM device tag sources [#5119](https://github.com/DataDog/datadog-api-client-typescript/pull/5119)
+* Document GetBudget response metadata [#5113](https://github.com/DataDog/datadog-api-client-typescript/pull/5113)
+* LLMObs Document version-pinned prompt composition [#5102](https://github.com/DataDog/datadog-api-client-typescript/pull/5102)
+* Add versioned prompt configuration [#5101](https://github.com/DataDog/datadog-api-client-typescript/pull/5101)
+* Document OAuth v2 OIDC discovery endpoint [#5099](https://github.com/DataDog/datadog-api-client-typescript/pull/5099)
+* Add prometheus remote write source and sink to obs-pipelines public api spec [#5091](https://github.com/DataDog/datadog-api-client-typescript/pull/5091)
+* Allow up to three timeseries anomaly investigation results [#5089](https://github.com/DataDog/datadog-api-client-typescript/pull/5089)
+* Security findings default and regular inbox rules API spec [#5085](https://github.com/DataDog/datadog-api-client-typescript/pull/5085)
+* Add Integration Accounts v2 API for Snowflake [#5083](https://github.com/DataDog/datadog-api-client-typescript/pull/5083)
+* Add downtime duration policy to Monitor Config Policy API spec [#5079](https://github.com/DataDog/datadog-api-client-typescript/pull/5079)
+* Add overflow and metrics destinations, deprecate generate_datadog_metrics, add custom auth for http_client [#5077](https://github.com/DataDog/datadog-api-client-typescript/pull/5077)
+* promote GET `/api/v2/on-call/schedules` to a public ListOnCallSchedules operation [#5075](https://github.com/DataDog/datadog-api-client-typescript/pull/5075)
+* Add documentation for name filter query parameter in ListStatusPages [#5073](https://github.com/DataDog/datadog-api-client-typescript/pull/5073)
+* Add embedded app widgets to the Dashboard API [#5065](https://github.com/DataDog/datadog-api-client-typescript/pull/5065)
+* Support frontend annotation display blocks [#5063](https://github.com/DataDog/datadog-api-client-typescript/pull/5063)
+* Accept the linear ticket creation target in security pipelines automation [#5061](https://github.com/DataDog/datadog-api-client-typescript/pull/5061)
+* Add timeseries anomaly investigations API [#5045](https://github.com/DataDog/datadog-api-client-typescript/pull/5045)
+* Add monitor IDs to deployment rules [#5040](https://github.com/DataDog/datadog-api-client-typescript/pull/5040)
+* Change usage quotas public APIs to only required billing_edit [#5038](https://github.com/DataDog/datadog-api-client-typescript/pull/5038)
+* Add `sensitive_data` and `serverless_function_code_vulnerability` to security finding notification API spec [#5036](https://github.com/DataDog/datadog-api-client-typescript/pull/5036)
+* Add Integration Accounts v2 API for Databricks [#5028](https://github.com/DataDog/datadog-api-client-typescript/pull/5028)
+* Add source to target and model configuration options to data quality monitors [#5022](https://github.com/DataDog/datadog-api-client-typescript/pull/5022)
+* Publish product catalog SKUs and pricing API in preview [#5020](https://github.com/DataDog/datadog-api-client-typescript/pull/5020)
+* Add unit cost ROI endpoints to Cloud Cost Management [#5018](https://github.com/DataDog/datadog-api-client-typescript/pull/5018)
+* Update Observability Pipelines Splunk TCP source in OpenAPI spec [#5016](https://github.com/DataDog/datadog-api-client-typescript/pull/5016)
+* Add annotated interaction details endpoint [#5004](https://github.com/DataDog/datadog-api-client-typescript/pull/5004)
+* [DEM-68] - Publish DEM Journey APIs [#5000](https://github.com/DataDog/datadog-api-client-typescript/pull/5000)
+* Add canceled_description to maintenance response attributes [#4996](https://github.com/DataDog/datadog-api-client-typescript/pull/4996)
+* Add Feature Flag creation options [#4984](https://github.com/DataDog/datadog-api-client-typescript/pull/4984)
+* Add workflow run as configuration [#4952](https://github.com/DataDog/datadog-api-client-typescript/pull/4952)
+* Document NDM device tag sources [#4918](https://github.com/DataDog/datadog-api-client-typescript/pull/4918)
+* Promote Code Coverage v2 endpoints to stable [#4861](https://github.com/DataDog/datadog-api-client-typescript/pull/4861)
+* Document include_scopes query param on GET /api/v2/permissions [#4786](https://github.com/DataDog/datadog-api-client-typescript/pull/4786)
+
+### Removed
+* Remove deprecated queried_tags_window_seconds and related_asset_tags fields [#5183](https://github.com/DataDog/datadog-api-client-typescript/pull/5183)
+* Deprecate POST incidents /cases/page endpoint [#5162](https://github.com/DataDog/datadog-api-client-typescript/pull/5162)
+* Remove actor_handle and actor_type from the CSM ownership feedback request [#5030](https://github.com/DataDog/datadog-api-client-typescript/pull/5030)
+
+### Fixed
+* Fix static analysis OpenAPI drift [#5181](https://github.com/DataDog/datadog-api-client-typescript/pull/5181)
+* Allow SDS configuration metadata extensions [#5175](https://github.com/DataDog/datadog-api-client-typescript/pull/5175)
+* Fix cost recommendations JSON API request schema [#5150](https://github.com/DataDog/datadog-api-client-typescript/pull/5150)
+* Add Private Action Runner flag to API key schemas [#5144](https://github.com/DataDog/datadog-api-client-typescript/pull/5144)
+* Document monitor scope for investigations [#5093](https://github.com/DataDog/datadog-api-client-typescript/pull/5093)
+* Fix static-analysis-api spec drift [#5069](https://github.com/DataDog/datadog-api-client-typescript/pull/5069)
+
+### Changed
+* Normalize Twilio and Elastic Cloud integration account specs [#5130](https://github.com/DataDog/datadog-api-client-typescript/pull/5130)
+* Use JSONAPI error schema for cost tag endpoints [#5123](https://github.com/DataDog/datadog-api-client-typescript/pull/5123)
+* Fix GetBudget costs_unit.id type to integer [#5117](https://github.com/DataDog/datadog-api-client-typescript/pull/5117)
+* Add role policy type to org group policies [#5024](https://github.com/DataDog/datadog-api-client-typescript/pull/5024)
+
+### Deprecated
+* Deprecate OCI config listing endpoint [#4986](https://github.com/DataDog/datadog-api-client-typescript/pull/4986)
+
 ## 1.63.0/2026-09-02
 
 ### Added
