@@ -4,7 +4,13 @@
 
 import { client, v2 } from "@datadog/datadog-api-client";
 
-const configuration = client.createConfiguration();
+const configuration = client.createConfiguration({
+  authMethods: {
+    AuthZ: {
+      accessToken: process.env.DD_BEARER_TOKEN as string,
+    },
+  },
+});
 const apiInstance = new v2.ServiceAccountsApi(configuration);
 
 // there is a valid "service_account_user" in the system

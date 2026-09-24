@@ -64,6 +64,7 @@ export class CloudflareIntegrationApiRequestFactory extends BaseAPIRequestFactor
     applySecurityAuthentication(_config, requestContext, [
       "apiKeyAuth",
       "appKeyAuth",
+      "AuthZ",
     ]);
 
     return requestContext;
@@ -103,6 +104,7 @@ export class CloudflareIntegrationApiRequestFactory extends BaseAPIRequestFactor
     applySecurityAuthentication(_config, requestContext, [
       "apiKeyAuth",
       "appKeyAuth",
+      "AuthZ",
     ]);
 
     return requestContext;
@@ -142,6 +144,7 @@ export class CloudflareIntegrationApiRequestFactory extends BaseAPIRequestFactor
     applySecurityAuthentication(_config, requestContext, [
       "apiKeyAuth",
       "appKeyAuth",
+      "AuthZ",
     ]);
 
     return requestContext;
@@ -171,6 +174,7 @@ export class CloudflareIntegrationApiRequestFactory extends BaseAPIRequestFactor
     applySecurityAuthentication(_config, requestContext, [
       "apiKeyAuth",
       "appKeyAuth",
+      "AuthZ",
     ]);
 
     return requestContext;
@@ -227,6 +231,7 @@ export class CloudflareIntegrationApiRequestFactory extends BaseAPIRequestFactor
     applySecurityAuthentication(_config, requestContext, [
       "apiKeyAuth",
       "appKeyAuth",
+      "AuthZ",
     ]);
 
     return requestContext;

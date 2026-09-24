@@ -70,6 +70,7 @@ export class HighAvailabilityMultiRegionApiRequestFactory extends BaseAPIRequest
     applySecurityAuthentication(_config, requestContext, [
       "apiKeyAuth",
       "appKeyAuth",
+      "AuthZ",
     ]);
 
     return requestContext;
@@ -104,6 +105,7 @@ export class HighAvailabilityMultiRegionApiRequestFactory extends BaseAPIRequest
     applySecurityAuthentication(_config, requestContext, [
       "apiKeyAuth",
       "appKeyAuth",
+      "AuthZ",
     ]);
 
     return requestContext;

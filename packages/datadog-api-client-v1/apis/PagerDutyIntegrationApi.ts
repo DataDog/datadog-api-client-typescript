@@ -63,6 +63,7 @@ export class PagerDutyIntegrationApiRequestFactory extends BaseAPIRequestFactory
     applySecurityAuthentication(_config, requestContext, [
       "apiKeyAuth",
       "appKeyAuth",
+      "AuthZ",
     ]);
 
     return requestContext;
@@ -105,6 +106,7 @@ export class PagerDutyIntegrationApiRequestFactory extends BaseAPIRequestFactory
     applySecurityAuthentication(_config, requestContext, [
       "apiKeyAuth",
       "appKeyAuth",
+      "AuthZ",
     ]);
 
     return requestContext;
@@ -144,6 +146,7 @@ export class PagerDutyIntegrationApiRequestFactory extends BaseAPIRequestFactory
     applySecurityAuthentication(_config, requestContext, [
       "apiKeyAuth",
       "appKeyAuth",
+      "AuthZ",
     ]);
 
     return requestContext;
@@ -203,6 +206,7 @@ export class PagerDutyIntegrationApiRequestFactory extends BaseAPIRequestFactory
     applySecurityAuthentication(_config, requestContext, [
       "apiKeyAuth",
       "appKeyAuth",
+      "AuthZ",
     ]);
 
     return requestContext;

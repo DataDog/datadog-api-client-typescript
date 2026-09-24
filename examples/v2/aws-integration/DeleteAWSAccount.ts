@@ -4,7 +4,13 @@
 
 import { client, v2 } from "@datadog/datadog-api-client";
 
-const configuration = client.createConfiguration();
+const configuration = client.createConfiguration({
+  authMethods: {
+    AuthZ: {
+      accessToken: process.env.DD_BEARER_TOKEN as string,
+    },
+  },
+});
 const apiInstance = new v2.AWSIntegrationApi(configuration);
 
 // there is a valid "aws_account_v2" in the system
