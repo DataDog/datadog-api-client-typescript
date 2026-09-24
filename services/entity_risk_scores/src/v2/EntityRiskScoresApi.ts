@@ -90,6 +90,7 @@ export class EntityRiskScoresApiRequestFactory extends BaseAPIRequestFactory {
     applySecurityAuthentication(_config, requestContext, [
       "apiKeyAuth",
       "appKeyAuth",
+      "AuthZ",
     ]);
 
     return requestContext;
@@ -204,6 +205,7 @@ export class EntityRiskScoresApiRequestFactory extends BaseAPIRequestFactory {
     applySecurityAuthentication(_config, requestContext, [
       "apiKeyAuth",
       "appKeyAuth",
+      "AuthZ",
     ]);
 
     return requestContext;

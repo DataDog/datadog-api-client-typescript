@@ -89,6 +89,7 @@ export class OCIIntegrationApiRequestFactory extends BaseAPIRequestFactory {
     applySecurityAuthentication(_config, requestContext, [
       "apiKeyAuth",
       "appKeyAuth",
+      "AuthZ",
     ]);
 
     return requestContext;
@@ -139,6 +140,7 @@ export class OCIIntegrationApiRequestFactory extends BaseAPIRequestFactory {
     applySecurityAuthentication(_config, requestContext, [
       "apiKeyAuth",
       "appKeyAuth",
+      "AuthZ",
     ]);
 
     return requestContext;
@@ -189,6 +191,7 @@ export class OCIIntegrationApiRequestFactory extends BaseAPIRequestFactory {
     applySecurityAuthentication(_config, requestContext, [
       "apiKeyAuth",
       "appKeyAuth",
+      "AuthZ",
     ]);
 
     return requestContext;
@@ -229,6 +232,7 @@ export class OCIIntegrationApiRequestFactory extends BaseAPIRequestFactory {
     applySecurityAuthentication(_config, requestContext, [
       "apiKeyAuth",
       "appKeyAuth",
+      "AuthZ",
     ]);
 
     return requestContext;
@@ -284,6 +288,7 @@ export class OCIIntegrationApiRequestFactory extends BaseAPIRequestFactory {
     applySecurityAuthentication(_config, requestContext, [
       "apiKeyAuth",
       "appKeyAuth",
+      "AuthZ",
     ]);
 
     return requestContext;
@@ -349,6 +354,7 @@ export class OCIIntegrationApiRequestFactory extends BaseAPIRequestFactory {
     applySecurityAuthentication(_config, requestContext, [
       "apiKeyAuth",
       "appKeyAuth",
+      "AuthZ",
     ]);
 
     return requestContext;

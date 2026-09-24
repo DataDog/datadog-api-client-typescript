@@ -124,6 +124,7 @@ export class AuditApiRequestFactory extends BaseAPIRequestFactory {
     applySecurityAuthentication(_config, requestContext, [
       "apiKeyAuth",
       "appKeyAuth",
+      "AuthZ",
     ]);
 
     return requestContext;
@@ -174,6 +175,7 @@ export class AuditApiRequestFactory extends BaseAPIRequestFactory {
     applySecurityAuthentication(_config, requestContext, [
       "apiKeyAuth",
       "appKeyAuth",
+      "AuthZ",
     ]);
 
     return requestContext;

@@ -116,6 +116,7 @@ export class CSMSettingsApiRequestFactory extends BaseAPIRequestFactory {
     applySecurityAuthentication(_config, requestContext, [
       "apiKeyAuth",
       "appKeyAuth",
+      "AuthZ",
     ]);
 
     return requestContext;
@@ -197,6 +198,7 @@ export class CSMSettingsApiRequestFactory extends BaseAPIRequestFactory {
     applySecurityAuthentication(_config, requestContext, [
       "apiKeyAuth",
       "appKeyAuth",
+      "AuthZ",
     ]);
 
     return requestContext;
@@ -247,6 +249,7 @@ export class CSMSettingsApiRequestFactory extends BaseAPIRequestFactory {
     applySecurityAuthentication(_config, requestContext, [
       "apiKeyAuth",
       "appKeyAuth",
+      "AuthZ",
     ]);
 
     return requestContext;
@@ -321,6 +324,7 @@ export class CSMSettingsApiRequestFactory extends BaseAPIRequestFactory {
     applySecurityAuthentication(_config, requestContext, [
       "apiKeyAuth",
       "appKeyAuth",
+      "AuthZ",
     ]);
 
     return requestContext;
@@ -369,6 +373,7 @@ export class CSMSettingsApiRequestFactory extends BaseAPIRequestFactory {
     applySecurityAuthentication(_config, requestContext, [
       "apiKeyAuth",
       "appKeyAuth",
+      "AuthZ",
     ]);
 
     return requestContext;
@@ -441,6 +446,7 @@ export class CSMSettingsApiRequestFactory extends BaseAPIRequestFactory {
     applySecurityAuthentication(_config, requestContext, [
       "apiKeyAuth",
       "appKeyAuth",
+      "AuthZ",
     ]);
 
     return requestContext;

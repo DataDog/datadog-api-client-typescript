@@ -109,6 +109,7 @@ export class GoogleChatIntegrationApiRequestFactory extends BaseAPIRequestFactor
     applySecurityAuthentication(_config, requestContext, [
       "apiKeyAuth",
       "appKeyAuth",
+      "AuthZ",
     ]);
 
     return requestContext;
@@ -182,6 +183,7 @@ export class GoogleChatIntegrationApiRequestFactory extends BaseAPIRequestFactor
     applySecurityAuthentication(_config, requestContext, [
       "apiKeyAuth",
       "appKeyAuth",
+      "AuthZ",
     ]);
 
     return requestContext;
@@ -235,6 +237,7 @@ export class GoogleChatIntegrationApiRequestFactory extends BaseAPIRequestFactor
     applySecurityAuthentication(_config, requestContext, [
       "apiKeyAuth",
       "appKeyAuth",
+      "AuthZ",
     ]);
 
     return requestContext;
@@ -288,6 +291,7 @@ export class GoogleChatIntegrationApiRequestFactory extends BaseAPIRequestFactor
     applySecurityAuthentication(_config, requestContext, [
       "apiKeyAuth",
       "appKeyAuth",
+      "AuthZ",
     ]);
 
     return requestContext;
@@ -355,6 +359,7 @@ export class GoogleChatIntegrationApiRequestFactory extends BaseAPIRequestFactor
     applySecurityAuthentication(_config, requestContext, [
       "apiKeyAuth",
       "appKeyAuth",
+      "AuthZ",
     ]);
 
     return requestContext;
@@ -416,6 +421,7 @@ export class GoogleChatIntegrationApiRequestFactory extends BaseAPIRequestFactor
     applySecurityAuthentication(_config, requestContext, [
       "apiKeyAuth",
       "appKeyAuth",
+      "AuthZ",
     ]);
 
     return requestContext;
@@ -469,6 +475,7 @@ export class GoogleChatIntegrationApiRequestFactory extends BaseAPIRequestFactor
     applySecurityAuthentication(_config, requestContext, [
       "apiKeyAuth",
       "appKeyAuth",
+      "AuthZ",
     ]);
 
     return requestContext;
@@ -522,6 +529,7 @@ export class GoogleChatIntegrationApiRequestFactory extends BaseAPIRequestFactor
     applySecurityAuthentication(_config, requestContext, [
       "apiKeyAuth",
       "appKeyAuth",
+      "AuthZ",
     ]);
 
     return requestContext;
@@ -589,6 +597,7 @@ export class GoogleChatIntegrationApiRequestFactory extends BaseAPIRequestFactor
     applySecurityAuthentication(_config, requestContext, [
       "apiKeyAuth",
       "appKeyAuth",
+      "AuthZ",
     ]);
 
     return requestContext;
@@ -647,6 +656,7 @@ export class GoogleChatIntegrationApiRequestFactory extends BaseAPIRequestFactor
     applySecurityAuthentication(_config, requestContext, [
       "apiKeyAuth",
       "appKeyAuth",
+      "AuthZ",
     ]);
 
     return requestContext;
@@ -705,6 +715,7 @@ export class GoogleChatIntegrationApiRequestFactory extends BaseAPIRequestFactor
     applySecurityAuthentication(_config, requestContext, [
       "apiKeyAuth",
       "appKeyAuth",
+      "AuthZ",
     ]);
 
     return requestContext;
@@ -745,6 +756,7 @@ export class GoogleChatIntegrationApiRequestFactory extends BaseAPIRequestFactor
     applySecurityAuthentication(_config, requestContext, [
       "apiKeyAuth",
       "appKeyAuth",
+      "AuthZ",
     ]);
 
     return requestContext;
@@ -798,6 +810,7 @@ export class GoogleChatIntegrationApiRequestFactory extends BaseAPIRequestFactor
     applySecurityAuthentication(_config, requestContext, [
       "apiKeyAuth",
       "appKeyAuth",
+      "AuthZ",
     ]);
 
     return requestContext;
@@ -851,6 +864,7 @@ export class GoogleChatIntegrationApiRequestFactory extends BaseAPIRequestFactor
     applySecurityAuthentication(_config, requestContext, [
       "apiKeyAuth",
       "appKeyAuth",
+      "AuthZ",
     ]);
 
     return requestContext;
@@ -933,6 +947,7 @@ export class GoogleChatIntegrationApiRequestFactory extends BaseAPIRequestFactor
     applySecurityAuthentication(_config, requestContext, [
       "apiKeyAuth",
       "appKeyAuth",
+      "AuthZ",
     ]);
 
     return requestContext;
@@ -1014,6 +1029,7 @@ export class GoogleChatIntegrationApiRequestFactory extends BaseAPIRequestFactor
     applySecurityAuthentication(_config, requestContext, [
       "apiKeyAuth",
       "appKeyAuth",
+      "AuthZ",
     ]);
 
     return requestContext;
