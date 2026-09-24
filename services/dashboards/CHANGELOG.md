@@ -1,5 +1,11 @@
 # CHANGELOG
 
+## 0.0.1-beta.12/2026-09-24
+
+### Added
+* Add embedded app widgets to the Dashboard API [#5064](https://github.com/DataDog/datadog-api-client-typescript/pull/5064)
+* Add is_iac support to send X-Datadog-Managed-By header [#4945](https://github.com/DataDog/datadog-api-client-typescript/pull/4945)
+
 ## 0.0.1-beta.11/2026-08-06
 
 ### Changed

@@ -1,5 +1,11 @@
 # CHANGELOG
 
+## 0.0.1-beta.5/2026-09-24
+
+### Added
+* Document run_as attribute and with_run_as param for downtime v2 API [#5147](https://github.com/DataDog/datadog-api-client-typescript/pull/5147)
+* Add is_iac support to send X-Datadog-Managed-By header [#4945](https://github.com/DataDog/datadog-api-client-typescript/pull/4945)
+
 ## 0.0.1-beta.4/2026-05-15
 
 ### Added

@@ -1,5 +1,18 @@
 # CHANGELOG
 
+## 0.0.1-beta.16/2026-09-24
+
+### Fixed
+* Fix static analysis OpenAPI drift [#5180](https://github.com/DataDog/datadog-api-client-typescript/pull/5180)
+* Fix static-analysis-api spec drift [#5068](https://github.com/DataDog/datadog-api-client-typescript/pull/5068)
+* Fix ARM API security spec drift [#4915](https://github.com/DataDog/datadog-api-client-typescript/pull/4915)
+
+### Added
+* Security findings default and regular inbox rules API spec [#5084](https://github.com/DataDog/datadog-api-client-typescript/pull/5084)
+* Accept the linear ticket creation target in security pipelines automation [#5060](https://github.com/DataDog/datadog-api-client-typescript/pull/5060)
+* Add `sensitive_data` and `serverless_function_code_vulnerability` to security finding notification API spec [#5035](https://github.com/DataDog/datadog-api-client-typescript/pull/5035)
+* API spec for severity modifiers automation pipelines [#4870](https://github.com/DataDog/datadog-api-client-typescript/pull/4870)
+
 ## 0.0.1-beta.15/2026-08-06
 
 ### Fixed
