@@ -11,13 +11,14 @@ const params: v2.DEMApiUpdateJourneyVariantRequest = {
   body: {
     data: {
       attributes: {
-        filter: "device.type:mobile",
+        filter: "@device.type:mobile",
         name: "Mobile checkout",
         rumSteps: [
           {
             nodes: [
               {
-                query: "action.name:'checkout'",
+                appId: "11111111-2222-3333-4444-555555555555",
+                query: `@action.name:"Checkout"`,
               },
             ],
             type: "start",
@@ -25,7 +26,8 @@ const params: v2.DEMApiUpdateJourneyVariantRequest = {
           {
             nodes: [
               {
-                query: "action.name:'confirmation'",
+                appId: "11111111-2222-3333-4444-555555555555",
+                query: `@view.url_path:"/confirmation"`,
               },
             ],
             type: "stop",

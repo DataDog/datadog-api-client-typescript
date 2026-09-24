@@ -13,12 +13,14 @@ const params: v2.DEMApiCreateJourneyRequest = {
       attributes: {
         description: "Tracks the user checkout flow from cart to confirmation.",
         journeyRum: {
-          filter: "env:prod",
+          filter:
+            "@application.id:11111111-2222-3333-4444-555555555555 env:prod",
           rumSteps: [
             {
               nodes: [
                 {
-                  query: "action.name:'checkout'",
+                  appId: "11111111-2222-3333-4444-555555555555",
+                  query: `@action.name:"Checkout"`,
                 },
               ],
               type: "start",
@@ -26,7 +28,8 @@ const params: v2.DEMApiCreateJourneyRequest = {
             {
               nodes: [
                 {
-                  query: "action.name:'confirmation'",
+                  appId: "11111111-2222-3333-4444-555555555555",
+                  query: `@view.url_path:"/confirmation"`,
                 },
               ],
               type: "stop",
@@ -39,7 +42,8 @@ const params: v2.DEMApiCreateJourneyRequest = {
                 {
                   nodes: [
                     {
-                      query: "action.name:'checkout'",
+                      appId: "11111111-2222-3333-4444-555555555555",
+                      query: `@action.name:"Checkout"`,
                     },
                   ],
                   type: "start",
@@ -47,7 +51,8 @@ const params: v2.DEMApiCreateJourneyRequest = {
                 {
                   nodes: [
                     {
-                      query: "action.name:'confirmation'",
+                      appId: "11111111-2222-3333-4444-555555555555",
+                      query: `@view.url_path:"/confirmation"`,
                     },
                   ],
                   type: "stop",
@@ -65,7 +70,8 @@ const params: v2.DEMApiCreateJourneyRequest = {
               {
                 nodes: [
                   {
-                    query: "action.name:'checkout'",
+                    appId: "11111111-2222-3333-4444-555555555555",
+                    query: `@action.name:"Checkout"`,
                   },
                 ],
                 type: "start",
@@ -73,7 +79,8 @@ const params: v2.DEMApiCreateJourneyRequest = {
               {
                 nodes: [
                   {
-                    query: "action.name:'confirmation'",
+                    appId: "11111111-2222-3333-4444-555555555555",
+                    query: `@view.url_path:"/confirmation"`,
                   },
                 ],
                 type: "stop",

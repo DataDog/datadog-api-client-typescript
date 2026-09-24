@@ -11,9 +11,9 @@ import { AttributeTypeMap } from "../../datadog-api-client-common/util";
  */
 export class DemRumNode {
   /**
-   * The application ID associated with this node.
+   * The RUM application ID whose events this node query matches. This value is required for every node when creating or updating a DEM feature or journey, including variants, and is used to discover the resource in application-scoped searches. Use `GET /api/v2/rum/applications` to find RUM application IDs.
    */
-  "appId"?: string;
+  "appId": string;
   /**
    * The ID of the RUM node element.
    */
@@ -42,6 +42,7 @@ export class DemRumNode {
     appId: {
       baseName: "app_id",
       type: "string",
+      required: true,
     },
     id: {
       baseName: "id",
