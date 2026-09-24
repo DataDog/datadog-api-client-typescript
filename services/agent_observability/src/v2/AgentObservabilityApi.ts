@@ -12612,6 +12612,8 @@ export class AgentObservabilityApi {
 
   /**
    * Create a new prompt (and its first version) in the Agent Observability prompt registry.
+   *
+   * > **Preview**: Prompt composition is available in Preview. To request access, contact [Datadog Support](https://docs.datadoghq.com/help/) or your Customer Success Manager.
    * @param param The request object
    */
   public createLLMObsPrompt(
@@ -12633,6 +12635,8 @@ export class AgentObservabilityApi {
 
   /**
    * Create a new version of an existing Agent Observability prompt.
+   *
+   * > **Preview**: Prompt composition is available in Preview. To request access, contact [Datadog Support](https://docs.datadoghq.com/help/) or your Customer Success Manager.
    * @param param The request object
    */
   public createLLMObsPromptVersion(
