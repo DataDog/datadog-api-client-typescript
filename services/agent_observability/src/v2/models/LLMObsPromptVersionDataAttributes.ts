@@ -4,13 +4,19 @@ import { LLMObsPromptDataset } from "./LLMObsPromptDataset";
 import { LLMObsPromptTemplate } from "./LLMObsPromptTemplate";
 
 /**
- * Attributes of a specific version of an Agent Observability prompt. Empty `config` is omitted when configuration authoring is disabled for the organization. Non-empty saved configuration is always returned.
+ * Attributes of a specific version of an Agent Observability prompt. For a composed version, `authoring_template` contains its pinned include-bearing source; ordinary versions omit that attribute. Empty `config` is omitted when configuration authoring is disabled for the organization. Non-empty saved configuration is always returned.
  */
 export class LLMObsPromptVersionDataAttributes {
   /**
    * UUID of the user who authored this version.
    */
   "author"?: string;
+  /**
+   * A text template, a list of chat messages, or an authored chat object. Text can include an exact prompt version with `{{>prompt-id version=N}}`; other text, including `{{>...}}` sequences without a version, remains literal. Use an authored chat object when including prompts as chat messages.
+   * **Preview**: Prompt composition is available in Preview. To request access, contact [Datadog Support](https://docs.datadoghq.com/help/) or your Customer Success Manager.
+   * Without access, inline references remain literal text and structured includes are unsupported. Previously compiled prompt versions remain available for execution.
+   */
+  "authoringTemplate"?: LLMObsPromptTemplate;
   /**
    * Versioned prompt configuration is in Preview. To request access, contact [Datadog Support](https://www.datadoghq.com/support/) or your Customer Success Manager. Customer-owned configuration delivered with a prompt version. Datadog stores and returns the object without interpolating it, validating provider-specific keys, or applying it to model calls. Do not include secrets.
    */
@@ -56,7 +62,9 @@ export class LLMObsPromptVersionDataAttributes {
    */
   "tags"?: Array<string>;
   /**
-   * A text template or a list of chat messages.
+   * A text template, a list of chat messages, or an authored chat object. Text can include an exact prompt version with `{{>prompt-id version=N}}`; other text, including `{{>...}}` sequences without a version, remains literal. Use an authored chat object when including prompts as chat messages.
+   * **Preview**: Prompt composition is available in Preview. To request access, contact [Datadog Support](https://docs.datadoghq.com/help/) or your Customer Success Manager.
+   * Without access, inline references remain literal text and structured includes are unsupported. Previously compiled prompt versions remain available for execution.
    */
   "template": LLMObsPromptTemplate;
   /**
@@ -89,6 +97,10 @@ export class LLMObsPromptVersionDataAttributes {
     author: {
       baseName: "author",
       type: "string",
+    },
+    authoringTemplate: {
+      baseName: "authoring_template",
+      type: "LLMObsPromptTemplate",
     },
     config: {
       baseName: "config",
