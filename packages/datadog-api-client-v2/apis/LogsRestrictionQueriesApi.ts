@@ -87,6 +87,7 @@ export class LogsRestrictionQueriesApiRequestFactory extends BaseAPIRequestFacto
     applySecurityAuthentication(_config, requestContext, [
       "apiKeyAuth",
       "appKeyAuth",
+      "AuthZ",
     ]);
 
     return requestContext;
@@ -140,6 +141,7 @@ export class LogsRestrictionQueriesApiRequestFactory extends BaseAPIRequestFacto
     applySecurityAuthentication(_config, requestContext, [
       "apiKeyAuth",
       "appKeyAuth",
+      "AuthZ",
     ]);
 
     return requestContext;
@@ -186,6 +188,7 @@ export class LogsRestrictionQueriesApiRequestFactory extends BaseAPIRequestFacto
     applySecurityAuthentication(_config, requestContext, [
       "apiKeyAuth",
       "appKeyAuth",
+      "AuthZ",
     ]);
 
     return requestContext;
@@ -230,6 +233,7 @@ export class LogsRestrictionQueriesApiRequestFactory extends BaseAPIRequestFacto
     applySecurityAuthentication(_config, requestContext, [
       "apiKeyAuth",
       "appKeyAuth",
+      "AuthZ",
     ]);
 
     return requestContext;
@@ -276,6 +280,7 @@ export class LogsRestrictionQueriesApiRequestFactory extends BaseAPIRequestFacto
     applySecurityAuthentication(_config, requestContext, [
       "apiKeyAuth",
       "appKeyAuth",
+      "AuthZ",
     ]);
 
     return requestContext;
@@ -330,6 +335,7 @@ export class LogsRestrictionQueriesApiRequestFactory extends BaseAPIRequestFacto
     applySecurityAuthentication(_config, requestContext, [
       "apiKeyAuth",
       "appKeyAuth",
+      "AuthZ",
     ]);
 
     return requestContext;
@@ -397,6 +403,7 @@ export class LogsRestrictionQueriesApiRequestFactory extends BaseAPIRequestFacto
     applySecurityAuthentication(_config, requestContext, [
       "apiKeyAuth",
       "appKeyAuth",
+      "AuthZ",
     ]);
 
     return requestContext;
@@ -443,6 +450,7 @@ export class LogsRestrictionQueriesApiRequestFactory extends BaseAPIRequestFacto
     applySecurityAuthentication(_config, requestContext, [
       "apiKeyAuth",
       "appKeyAuth",
+      "AuthZ",
     ]);
 
     return requestContext;
@@ -509,6 +517,7 @@ export class LogsRestrictionQueriesApiRequestFactory extends BaseAPIRequestFacto
     applySecurityAuthentication(_config, requestContext, [
       "apiKeyAuth",
       "appKeyAuth",
+      "AuthZ",
     ]);
 
     return requestContext;
@@ -572,6 +581,7 @@ export class LogsRestrictionQueriesApiRequestFactory extends BaseAPIRequestFacto
     applySecurityAuthentication(_config, requestContext, [
       "apiKeyAuth",
       "appKeyAuth",
+      "AuthZ",
     ]);
 
     return requestContext;
@@ -635,6 +645,7 @@ export class LogsRestrictionQueriesApiRequestFactory extends BaseAPIRequestFacto
     applySecurityAuthentication(_config, requestContext, [
       "apiKeyAuth",
       "appKeyAuth",
+      "AuthZ",
     ]);
 
     return requestContext;

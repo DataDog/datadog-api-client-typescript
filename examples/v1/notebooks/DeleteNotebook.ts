@@ -4,7 +4,13 @@
 
 import { client, v1 } from "@datadog/datadog-api-client";
 
-const configuration = client.createConfiguration();
+const configuration = client.createConfiguration({
+  authMethods: {
+    AuthZ: {
+      accessToken: process.env.DD_BEARER_TOKEN as string,
+    },
+  },
+});
 const apiInstance = new v1.NotebooksApi(configuration);
 
 // there is a valid "notebook" in the system

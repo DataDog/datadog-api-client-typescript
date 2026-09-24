@@ -4,7 +4,13 @@
 
 import { client, v2 } from "@datadog/datadog-api-client";
 
-const configuration = client.createConfiguration();
+const configuration = client.createConfiguration({
+  authMethods: {
+    AuthZ: {
+      accessToken: process.env.DD_BEARER_TOKEN as string,
+    },
+  },
+});
 const apiInstance = new v2.LogsCustomDestinationsApi(configuration);
 
 // there is a valid "custom_destination_splunk_with_null_sourcetype" in the system

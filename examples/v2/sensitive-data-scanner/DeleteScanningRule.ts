@@ -4,7 +4,13 @@
 
 import { client, v2 } from "@datadog/datadog-api-client";
 
-const configuration = client.createConfiguration();
+const configuration = client.createConfiguration({
+  authMethods: {
+    AuthZ: {
+      accessToken: process.env.DD_BEARER_TOKEN as string,
+    },
+  },
+});
 const apiInstance = new v2.SensitiveDataScannerApi(configuration);
 
 // the "scanning_group" has a "scanning_rule"

@@ -78,6 +78,7 @@ export class CaseManagementAttributeApiRequestFactory extends BaseAPIRequestFact
     applySecurityAuthentication(_config, requestContext, [
       "apiKeyAuth",
       "appKeyAuth",
+      "AuthZ",
     ]);
 
     return requestContext;
@@ -128,6 +129,7 @@ export class CaseManagementAttributeApiRequestFactory extends BaseAPIRequestFact
     applySecurityAuthentication(_config, requestContext, [
       "apiKeyAuth",
       "appKeyAuth",
+      "AuthZ",
     ]);
 
     return requestContext;
@@ -172,6 +174,7 @@ export class CaseManagementAttributeApiRequestFactory extends BaseAPIRequestFact
     applySecurityAuthentication(_config, requestContext, [
       "apiKeyAuth",
       "appKeyAuth",
+      "AuthZ",
     ]);
 
     return requestContext;
@@ -201,6 +204,7 @@ export class CaseManagementAttributeApiRequestFactory extends BaseAPIRequestFact
     applySecurityAuthentication(_config, requestContext, [
       "apiKeyAuth",
       "appKeyAuth",
+      "AuthZ",
     ]);
 
     return requestContext;

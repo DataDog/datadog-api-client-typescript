@@ -69,6 +69,7 @@ export class ServiceNowIntegrationApiRequestFactory extends BaseAPIRequestFactor
     applySecurityAuthentication(_config, requestContext, [
       "apiKeyAuth",
       "appKeyAuth",
+      "AuthZ",
     ]);
 
     return requestContext;
@@ -108,6 +109,7 @@ export class ServiceNowIntegrationApiRequestFactory extends BaseAPIRequestFactor
     applySecurityAuthentication(_config, requestContext, [
       "apiKeyAuth",
       "appKeyAuth",
+      "AuthZ",
     ]);
 
     return requestContext;
@@ -147,6 +149,7 @@ export class ServiceNowIntegrationApiRequestFactory extends BaseAPIRequestFactor
     applySecurityAuthentication(_config, requestContext, [
       "apiKeyAuth",
       "appKeyAuth",
+      "AuthZ",
     ]);
 
     return requestContext;
@@ -186,6 +189,7 @@ export class ServiceNowIntegrationApiRequestFactory extends BaseAPIRequestFactor
     applySecurityAuthentication(_config, requestContext, [
       "apiKeyAuth",
       "appKeyAuth",
+      "AuthZ",
     ]);
 
     return requestContext;
@@ -225,6 +229,7 @@ export class ServiceNowIntegrationApiRequestFactory extends BaseAPIRequestFactor
     applySecurityAuthentication(_config, requestContext, [
       "apiKeyAuth",
       "appKeyAuth",
+      "AuthZ",
     ]);
 
     return requestContext;
@@ -254,6 +259,7 @@ export class ServiceNowIntegrationApiRequestFactory extends BaseAPIRequestFactor
     applySecurityAuthentication(_config, requestContext, [
       "apiKeyAuth",
       "appKeyAuth",
+      "AuthZ",
     ]);
 
     return requestContext;
@@ -283,6 +289,7 @@ export class ServiceNowIntegrationApiRequestFactory extends BaseAPIRequestFactor
     applySecurityAuthentication(_config, requestContext, [
       "apiKeyAuth",
       "appKeyAuth",
+      "AuthZ",
     ]);
 
     return requestContext;
@@ -322,6 +329,7 @@ export class ServiceNowIntegrationApiRequestFactory extends BaseAPIRequestFactor
     applySecurityAuthentication(_config, requestContext, [
       "apiKeyAuth",
       "appKeyAuth",
+      "AuthZ",
     ]);
 
     return requestContext;
@@ -378,6 +386,7 @@ export class ServiceNowIntegrationApiRequestFactory extends BaseAPIRequestFactor
     applySecurityAuthentication(_config, requestContext, [
       "apiKeyAuth",
       "appKeyAuth",
+      "AuthZ",
     ]);
 
     return requestContext;
