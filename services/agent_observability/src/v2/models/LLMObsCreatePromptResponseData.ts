@@ -1,16 +1,16 @@
 import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
-import { LLMObsPromptSDKDataAttributes } from "./LLMObsPromptSDKDataAttributes";
+import { LLMObsCreatePromptResponseDataAttributes } from "./LLMObsCreatePromptResponseDataAttributes";
 import { LLMObsPromptType } from "./LLMObsPromptType";
 
 /**
- * Data object for a flattened Agent Observability prompt version returned for SDK consumption.
+ * Data object returned after creating an Agent Observability prompt.
  */
-export class LLMObsPromptSDKData {
+export class LLMObsCreatePromptResponseData {
   /**
-   * Attributes of a flattened prompt version returned for SDK consumption. Exactly one of `template` and `chat_template` is returned. Empty `config` is omitted when configuration authoring is disabled for the organization. Non-empty saved configuration is always returned.
+   * Attributes returned after creating an Agent Observability prompt and its first version. Empty `config` is omitted when configuration authoring is disabled for the organization. Non-empty saved configuration is always returned.
    */
-  "attributes": LLMObsPromptSDKDataAttributes;
+  "attributes": LLMObsCreatePromptResponseDataAttributes;
   /**
    * Unique identifier of the prompt.
    */
@@ -36,7 +36,7 @@ export class LLMObsPromptSDKData {
   static readonly attributeTypeMap: AttributeTypeMap = {
     attributes: {
       baseName: "attributes",
-      type: "LLMObsPromptSDKDataAttributes",
+      type: "LLMObsCreatePromptResponseDataAttributes",
       required: true,
     },
     id: {
@@ -59,7 +59,7 @@ export class LLMObsPromptSDKData {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-    return LLMObsPromptSDKData.attributeTypeMap;
+    return LLMObsCreatePromptResponseData.attributeTypeMap;
   }
 
   public constructor() {}
