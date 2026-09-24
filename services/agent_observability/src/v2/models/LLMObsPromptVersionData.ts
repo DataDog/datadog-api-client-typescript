@@ -8,7 +8,7 @@ import { LLMObsPromptVersionType } from "./LLMObsPromptVersionType";
  */
 export class LLMObsPromptVersionData {
   /**
-   * Attributes of a specific version of an Agent Observability prompt.
+   * Attributes of a specific version of an Agent Observability prompt. Empty `config` is omitted when configuration authoring is disabled for the organization. Non-empty saved configuration is always returned.
    */
   "attributes": LLMObsPromptVersionDataAttributes;
   /**

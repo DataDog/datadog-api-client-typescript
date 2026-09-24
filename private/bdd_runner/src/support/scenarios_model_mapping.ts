@@ -2909,7 +2909,7 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
       type: "LLMObsCreatePromptRequest",
       format: "",
     },
-    operationResponseType: "LLMObsPromptResponse",
+    operationResponseType: "LLMObsCreatePromptResponse",
   },
   "AgentObservabilityApi.V2.GetLLMObsPrompt": {
     promptId: {
@@ -11561,6 +11561,41 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
       format: "",
     },
     operationResponseType: "IncidentTimestampOverrideResponse",
+  },
+  "DatabricksIntegrationApi.V2.ListDatabricksIntegrationAccounts": {
+    operationResponseType: "DatabricksIntegrationAccountsResponse",
+  },
+  "DatabricksIntegrationApi.V2.CreateDatabricksIntegrationAccount": {
+    body: {
+      type: "DatabricksIntegrationAccountCreateRequest",
+      format: "",
+    },
+    operationResponseType: "DatabricksIntegrationAccountResponse",
+  },
+  "DatabricksIntegrationApi.V2.GetDatabricksIntegrationAccount": {
+    accountId: {
+      type: "string",
+      format: "",
+    },
+    operationResponseType: "DatabricksIntegrationAccountResponse",
+  },
+  "DatabricksIntegrationApi.V2.DeleteDatabricksIntegrationAccount": {
+    accountId: {
+      type: "string",
+      format: "",
+    },
+    operationResponseType: "{}",
+  },
+  "DatabricksIntegrationApi.V2.UpdateDatabricksIntegrationAccount": {
+    accountId: {
+      type: "string",
+      format: "",
+    },
+    body: {
+      type: "DatabricksIntegrationAccountUpdateRequest",
+      format: "",
+    },
+    operationResponseType: "DatabricksIntegrationAccountResponse",
   },
   "ElasticCloudIntegrationApi.V2.ListElasticCloudIntegrationAccounts": {
     operationResponseType: "ElasticCloudIntegrationAccountsResponse",
