@@ -88,6 +88,7 @@ export class ObservabilityPipelinesApiRequestFactory extends BaseAPIRequestFacto
     applySecurityAuthentication(_config, requestContext, [
       "apiKeyAuth",
       "appKeyAuth",
+      "AuthZ",
     ]);
 
     return requestContext;
@@ -138,6 +139,7 @@ export class ObservabilityPipelinesApiRequestFactory extends BaseAPIRequestFacto
     applySecurityAuthentication(_config, requestContext, [
       "apiKeyAuth",
       "appKeyAuth",
+      "AuthZ",
     ]);
 
     return requestContext;
@@ -188,6 +190,7 @@ export class ObservabilityPipelinesApiRequestFactory extends BaseAPIRequestFacto
     applySecurityAuthentication(_config, requestContext, [
       "apiKeyAuth",
       "appKeyAuth",
+      "AuthZ",
     ]);
 
     return requestContext;
@@ -246,6 +249,7 @@ export class ObservabilityPipelinesApiRequestFactory extends BaseAPIRequestFacto
     applySecurityAuthentication(_config, requestContext, [
       "apiKeyAuth",
       "appKeyAuth",
+      "AuthZ",
     ]);
 
     return requestContext;
@@ -311,6 +315,7 @@ export class ObservabilityPipelinesApiRequestFactory extends BaseAPIRequestFacto
     applySecurityAuthentication(_config, requestContext, [
       "apiKeyAuth",
       "appKeyAuth",
+      "AuthZ",
     ]);
 
     return requestContext;
@@ -366,6 +371,7 @@ export class ObservabilityPipelinesApiRequestFactory extends BaseAPIRequestFacto
     applySecurityAuthentication(_config, requestContext, [
       "apiKeyAuth",
       "appKeyAuth",
+      "AuthZ",
     ]);
 
     return requestContext;
