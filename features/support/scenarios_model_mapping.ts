@@ -2899,7 +2899,7 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             "type": "LLMObsCreatePromptRequest",
             "format": "",
             },
-        "operationResponseType": "LLMObsPromptResponse",
+        "operationResponseType": "LLMObsCreatePromptResponse",
     },
     "v2.GetLLMObsPrompt": {
         "promptId": {

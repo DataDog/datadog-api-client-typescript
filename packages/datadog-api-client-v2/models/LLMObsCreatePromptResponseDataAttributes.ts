@@ -9,13 +9,17 @@ import { LLMObsPromptResponseSource } from "./LLMObsPromptResponseSource";
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * Attributes of an Agent Observability prompt registry entry. Prompt list and metadata-update responses omit complete template and configuration data.
+ * Attributes returned after creating an Agent Observability prompt and its first version. Empty `config` is omitted when configuration authoring is disabled for the organization. Non-empty saved configuration is always returned.
  */
-export class LLMObsPromptDataAttributes {
+export class LLMObsCreatePromptResponseDataAttributes {
   /**
    * UUID of the user who authored the prompt.
    */
   "author"?: string;
+  /**
+   * Versioned prompt configuration is in Preview. To request access, contact [Datadog Support](https://www.datadoghq.com/support/) or your Customer Success Manager. Customer-owned configuration delivered with a prompt version. Datadog stores and returns the object without interpolating it, validating provider-specific keys, or applying it to model calls. Do not include secrets.
+   */
+  "config"?: { [key: string]: any };
   /**
    * Timestamp when the prompt was created.
    */
@@ -97,6 +101,10 @@ export class LLMObsPromptDataAttributes {
       baseName: "author",
       type: "string",
     },
+    config: {
+      baseName: "config",
+      type: "{ [key: string]: any; }",
+    },
     createdAt: {
       baseName: "created_at",
       type: "Date",
@@ -176,7 +184,7 @@ export class LLMObsPromptDataAttributes {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-    return LLMObsPromptDataAttributes.attributeTypeMap;
+    return LLMObsCreatePromptResponseDataAttributes.attributeTypeMap;
   }
 
   public constructor() {}

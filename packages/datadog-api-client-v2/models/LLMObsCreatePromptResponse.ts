@@ -3,27 +3,18 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
-import { LLMObsPromptDataAttributes } from "./LLMObsPromptDataAttributes";
-import { LLMObsPromptType } from "./LLMObsPromptType";
+import { LLMObsCreatePromptResponseData } from "./LLMObsCreatePromptResponseData";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * Data object for an Agent Observability prompt.
+ * Response returned after creating an Agent Observability prompt.
  */
-export class LLMObsPromptData {
+export class LLMObsCreatePromptResponse {
   /**
-   * Attributes of an Agent Observability prompt registry entry. Prompt list and metadata-update responses omit complete template and configuration data.
+   * Data object returned after creating an Agent Observability prompt.
    */
-  "attributes": LLMObsPromptDataAttributes;
-  /**
-   * Unique identifier of the prompt.
-   */
-  "id": string;
-  /**
-   * Resource type of an Agent Observability prompt.
-   */
-  "type": LLMObsPromptType;
+  "data": LLMObsCreatePromptResponseData;
 
   /**
    * A container for additional, undeclared properties.
@@ -41,19 +32,9 @@ export class LLMObsPromptData {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    attributes: {
-      baseName: "attributes",
-      type: "LLMObsPromptDataAttributes",
-      required: true,
-    },
-    id: {
-      baseName: "id",
-      type: "string",
-      required: true,
-    },
-    type: {
-      baseName: "type",
-      type: "LLMObsPromptType",
+    data: {
+      baseName: "data",
+      type: "LLMObsCreatePromptResponseData",
       required: true,
     },
     additionalProperties: {
@@ -66,7 +47,7 @@ export class LLMObsPromptData {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-    return LLMObsPromptData.attributeTypeMap;
+    return LLMObsCreatePromptResponse.attributeTypeMap;
   }
 
   public constructor() {}

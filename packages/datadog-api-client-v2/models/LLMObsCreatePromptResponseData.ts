@@ -3,23 +3,27 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
-import { LLMObsCreatePromptVersionDataAttributes } from "./LLMObsCreatePromptVersionDataAttributes";
-import { LLMObsPromptVersionType } from "./LLMObsPromptVersionType";
+import { LLMObsCreatePromptResponseDataAttributes } from "./LLMObsCreatePromptResponseDataAttributes";
+import { LLMObsPromptType } from "./LLMObsPromptType";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * Data object for creating an Agent Observability prompt version.
+ * Data object returned after creating an Agent Observability prompt.
  */
-export class LLMObsCreatePromptVersionData {
+export class LLMObsCreatePromptResponseData {
   /**
-   * Attributes for creating a new version of an Agent Observability prompt. `template` is required; all other attributes are optional. If `config` is omitted, the latest version's configuration is carried forward. An explicit empty object clears it. Configuration authoring must be enabled for your organization to supply `config`. Otherwise, supplying it, including an empty object, returns HTTP 403. Omitting `config` still carries forward the latest configuration.
+   * Attributes returned after creating an Agent Observability prompt and its first version. Empty `config` is omitted when configuration authoring is disabled for the organization. Non-empty saved configuration is always returned.
    */
-  "attributes": LLMObsCreatePromptVersionDataAttributes;
+  "attributes": LLMObsCreatePromptResponseDataAttributes;
   /**
-   * Resource type of an Agent Observability prompt version.
+   * Unique identifier of the prompt.
    */
-  "type": LLMObsPromptVersionType;
+  "id": string;
+  /**
+   * Resource type of an Agent Observability prompt.
+   */
+  "type": LLMObsPromptType;
 
   /**
    * A container for additional, undeclared properties.
@@ -39,12 +43,17 @@ export class LLMObsCreatePromptVersionData {
   static readonly attributeTypeMap: AttributeTypeMap = {
     attributes: {
       baseName: "attributes",
-      type: "LLMObsCreatePromptVersionDataAttributes",
+      type: "LLMObsCreatePromptResponseDataAttributes",
+      required: true,
+    },
+    id: {
+      baseName: "id",
+      type: "string",
       required: true,
     },
     type: {
       baseName: "type",
-      type: "LLMObsPromptVersionType",
+      type: "LLMObsPromptType",
       required: true,
     },
     additionalProperties: {
@@ -57,7 +66,7 @@ export class LLMObsCreatePromptVersionData {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-    return LLMObsCreatePromptVersionData.attributeTypeMap;
+    return LLMObsCreatePromptResponseData.attributeTypeMap;
   }
 
   public constructor() {}
