@@ -12,7 +12,7 @@ import { AttributeTypeMap } from "../../datadog-api-client-common/util";
  */
 export class BatchDeleteRowsRequestArray {
   /**
-   * List of row resources to delete from the reference table.
+   * List of row resources to delete from the reference table. The request payload can be up to 1 MiB.
    */
   "data": Array<TableRowResourceIdentifier>;
 
