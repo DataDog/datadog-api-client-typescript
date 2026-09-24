@@ -1,5 +1,14 @@
 # CHANGELOG
 
+## 0.0.1-beta.4/2026-09-24
+
+### Fixed
+* Fix static analysis OpenAPI drift [#5180](https://github.com/DataDog/datadog-api-client-typescript/pull/5180)
+* Fix static-analysis-api spec drift [#5068](https://github.com/DataDog/datadog-api-client-typescript/pull/5068)
+
+### Changed
+* Fix SCA OpenAPI drift [#4927](https://github.com/DataDog/datadog-api-client-typescript/pull/4927)
+
 ## 0.0.1-beta.3/2026-06-30
 
 ### Added

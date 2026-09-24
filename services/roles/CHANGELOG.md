@@ -1,5 +1,10 @@
 # CHANGELOG
 
+## 0.0.1-beta.7/2026-09-24
+
+### Added
+* Document include_scopes query param on GET /api/v2/permissions [#4785](https://github.com/DataDog/datadog-api-client-typescript/pull/4785)
+
 ## 0.0.1-beta.6/2026-05-15
 
 ### Added

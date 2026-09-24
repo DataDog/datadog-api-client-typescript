@@ -1,5 +1,11 @@
 # CHANGELOG
 
+## 0.0.1-beta.4/2026-09-24
+
+### Added
+* Update GCP V2 API spec to support is_org_folder_resource_collection_enabled  [#5176](https://github.com/DataDog/datadog-api-client-typescript/pull/5176)
+* Add is_iac support to send X-Datadog-Managed-By header [#4945](https://github.com/DataDog/datadog-api-client-typescript/pull/4945)
+
 ## 0.0.1-beta.3/2026-01-15
 
 ### Added

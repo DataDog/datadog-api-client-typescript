@@ -1,5 +1,10 @@
 # CHANGELOG
 
+## 0.0.1-beta.8/2026-09-24
+
+### Added
+* promote GET `/api/v2/on-call/schedules` to a public ListOnCallSchedules operation [#5074](https://github.com/DataDog/datadog-api-client-typescript/pull/5074)
+
 ## 0.0.1-beta.7/2026-08-06
 
 ### Added

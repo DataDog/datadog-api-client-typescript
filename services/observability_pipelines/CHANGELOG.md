@@ -1,5 +1,15 @@
 # CHANGELOG
 
+## 0.0.1-beta.14/2026-09-24
+
+### Added
+* Add prometheus remote write source and sink to obs-pipelines public api spec [#5090](https://github.com/DataDog/datadog-api-client-typescript/pull/5090)
+* Add overflow and metrics destinations, deprecate generate_datadog_metrics, add custom auth for http_client [#5076](https://github.com/DataDog/datadog-api-client-typescript/pull/5076)
+* Update Observability Pipelines Splunk TCP source in OpenAPI spec [#5015](https://github.com/DataDog/datadog-api-client-typescript/pull/5015)
+* Add opentelemetry metrics destination to observability pipelines public api spec [#4967](https://github.com/DataDog/datadog-api-client-typescript/pull/4967)
+* Add zstd/compression to archive destinations [#4905](https://github.com/DataDog/datadog-api-client-typescript/pull/4905)
+* Add endpoint_target field to Splunk HEC destination [#4856](https://github.com/DataDog/datadog-api-client-typescript/pull/4856)
+
 ## 0.0.1-beta.13/2026-08-06
 
 ### Added

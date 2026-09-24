@@ -1,5 +1,12 @@
 # CHANGELOG
 
+## 0.0.1-beta.7/2026-09-24
+
+### Added
+* Add sensitivePrivileges field to Workflow Automation spec [#5133](https://github.com/DataDog/datadog-api-client-typescript/pull/5133)
+* Add incident and Slack reaction triggers to Workflow Automation [#4965](https://github.com/DataDog/datadog-api-client-typescript/pull/4965)
+* Add workflow run as configuration [#4950](https://github.com/DataDog/datadog-api-client-typescript/pull/4950)
+
 ## 0.0.1-beta.6/2026-08-06
 
 ### Added

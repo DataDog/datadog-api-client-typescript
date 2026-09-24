@@ -1,5 +1,10 @@
 # CHANGELOG
 
+## 0.0.1-beta.7/2026-09-24
+
+### Changed
+* Add role policy type to org group policies [#5023](https://github.com/DataDog/datadog-api-client-typescript/pull/5023)
+
 ## 0.0.1-beta.6/2026-08-06
 
 ### Added
