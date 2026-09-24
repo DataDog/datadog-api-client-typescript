@@ -1,17 +1,13 @@
 import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
 /**
- * Email notification settings for the team
+ * ServiceNow notification settings for the team.
  */
-export class TeamNotificationRuleAttributesEmail {
+export class TeamNotificationRuleAttributesServiceNow {
   /**
-   * Flag indicating email notification
+   * ServiceNow template handle names to use for notifications.
    */
-  "enabled"?: boolean;
-  /**
-   * Email address to notify. When omitted and email notifications are enabled, notifications are sent to all team members.
-   */
-  "recipientEmail"?: string;
+  "templates"?: Array<string>;
   /**
    * A container for additional, undeclared properties.
    * This is a holder for any undeclared properties as specified with
@@ -27,13 +23,9 @@ export class TeamNotificationRuleAttributesEmail {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    enabled: {
-      baseName: "enabled",
-      type: "boolean",
-    },
-    recipientEmail: {
-      baseName: "recipient_email",
-      type: "string",
+    templates: {
+      baseName: "templates",
+      type: "Array<string>",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -45,7 +37,7 @@ export class TeamNotificationRuleAttributesEmail {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-    return TeamNotificationRuleAttributesEmail.attributeTypeMap;
+    return TeamNotificationRuleAttributesServiceNow.attributeTypeMap;
   }
 
   public constructor() {}
