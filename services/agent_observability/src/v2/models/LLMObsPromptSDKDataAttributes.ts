@@ -1,15 +1,20 @@
 import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
-import { LLMObsPromptChatMessage } from "./LLMObsPromptChatMessage";
+import { LLMObsPromptChatTemplateItem } from "./LLMObsPromptChatTemplateItem";
 
 /**
- * Attributes of a flattened prompt version returned for SDK consumption. Exactly one of `template` and `chat_template` is returned.
+ * Attributes of a flattened prompt version returned for SDK consumption. Exactly one of `template` and `chat_template` is returned. Empty `config` is omitted when configuration authoring is disabled for the organization. Non-empty saved configuration is always returned.
  */
 export class LLMObsPromptSDKDataAttributes {
   /**
-   * Chat template for this prompt version, as a list of role and content messages. Omitted for text templates.
+   * Chat template for this prompt version, as a list of messages and named message placeholders. Omitted for text templates.
+   * **Preview:** Message placeholders are available in Preview. To request access, contact [Datadog Support](https://www.datadoghq.com/support/) or your Customer Success Manager.
    */
-  "chatTemplate"?: Array<LLMObsPromptChatMessage>;
+  "chatTemplate"?: Array<LLMObsPromptChatTemplateItem>;
+  /**
+   * Versioned prompt configuration is in Preview. To request access, contact [Datadog Support](https://www.datadoghq.com/support/) or your Customer Success Manager. Customer-owned configuration delivered with a prompt version. Datadog stores and returns the object without interpolating it, validating provider-specific keys, or applying it to model calls. Do not include secrets.
+   */
+  "config"?: { [key: string]: any };
   /**
    * Labels attached to the selected version.
    */
@@ -47,7 +52,11 @@ export class LLMObsPromptSDKDataAttributes {
   static readonly attributeTypeMap: AttributeTypeMap = {
     chatTemplate: {
       baseName: "chat_template",
-      type: "Array<LLMObsPromptChatMessage>",
+      type: "Array<LLMObsPromptChatTemplateItem>",
+    },
+    config: {
+      baseName: "config",
+      type: "{ [key: string]: any; }",
     },
     labels: {
       baseName: "labels",

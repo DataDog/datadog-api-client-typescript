@@ -58,6 +58,9 @@ import { LLMObsContentBlockTimeFrame } from "./LLMObsContentBlockTimeFrame";
 import { LLMObsCreatePromptData } from "./LLMObsCreatePromptData";
 import { LLMObsCreatePromptDataAttributes } from "./LLMObsCreatePromptDataAttributes";
 import { LLMObsCreatePromptRequest } from "./LLMObsCreatePromptRequest";
+import { LLMObsCreatePromptResponse } from "./LLMObsCreatePromptResponse";
+import { LLMObsCreatePromptResponseData } from "./LLMObsCreatePromptResponseData";
+import { LLMObsCreatePromptResponseDataAttributes } from "./LLMObsCreatePromptResponseDataAttributes";
 import { LLMObsCreatePromptVersionData } from "./LLMObsCreatePromptVersionData";
 import { LLMObsCreatePromptVersionDataAttributes } from "./LLMObsCreatePromptVersionDataAttributes";
 import { LLMObsCreatePromptVersionRequest } from "./LLMObsCreatePromptVersionRequest";
@@ -281,6 +284,7 @@ import { LLMObsPromptChatMessage } from "./LLMObsPromptChatMessage";
 import { LLMObsPromptData } from "./LLMObsPromptData";
 import { LLMObsPromptDataAttributes } from "./LLMObsPromptDataAttributes";
 import { LLMObsPromptDataset } from "./LLMObsPromptDataset";
+import { LLMObsPromptMessagePlaceholder } from "./LLMObsPromptMessagePlaceholder";
 import { LLMObsPromptResponse } from "./LLMObsPromptResponse";
 import { LLMObsPromptSDKData } from "./LLMObsPromptSDKData";
 import { LLMObsPromptSDKDataAttributes } from "./LLMObsPromptSDKDataAttributes";
@@ -414,6 +418,7 @@ export const TypingInfo: ModelTypingInfo = {
     ],
     LLMObsPatternsTriggerResponseType: ["topic_discovery_run"],
     LLMObsProjectType: ["projects"],
+    LLMObsPromptMessagePlaceholderType: ["placeholder"],
     LLMObsPromptResponseSource: ["registry", "code"],
     LLMObsPromptType: ["prompt-templates"],
     LLMObsPromptVersionLabel: ["production", "development"],
@@ -450,7 +455,11 @@ export const TypingInfo: ModelTypingInfo = {
       "LLMObsTraceInteractionResponseItem",
       "LLMObsDisplayBlockInteractionResponseItem",
     ],
-    LLMObsPromptTemplate: ["string", "Array<LLMObsPromptChatMessage>"],
+    LLMObsPromptChatTemplateItem: [
+      "LLMObsPromptChatMessage",
+      "LLMObsPromptMessagePlaceholder",
+    ],
+    LLMObsPromptTemplate: ["string", "Array<LLMObsPromptChatTemplateItem>"],
   },
   typeMap: {
     APIErrorResponse: APIErrorResponse,
@@ -536,6 +545,10 @@ export const TypingInfo: ModelTypingInfo = {
     LLMObsCreatePromptData: LLMObsCreatePromptData,
     LLMObsCreatePromptDataAttributes: LLMObsCreatePromptDataAttributes,
     LLMObsCreatePromptRequest: LLMObsCreatePromptRequest,
+    LLMObsCreatePromptResponse: LLMObsCreatePromptResponse,
+    LLMObsCreatePromptResponseData: LLMObsCreatePromptResponseData,
+    LLMObsCreatePromptResponseDataAttributes:
+      LLMObsCreatePromptResponseDataAttributes,
     LLMObsCreatePromptVersionData: LLMObsCreatePromptVersionData,
     LLMObsCreatePromptVersionDataAttributes:
       LLMObsCreatePromptVersionDataAttributes,
@@ -827,6 +840,7 @@ export const TypingInfo: ModelTypingInfo = {
     LLMObsPromptData: LLMObsPromptData,
     LLMObsPromptDataAttributes: LLMObsPromptDataAttributes,
     LLMObsPromptDataset: LLMObsPromptDataset,
+    LLMObsPromptMessagePlaceholder: LLMObsPromptMessagePlaceholder,
     LLMObsPromptResponse: LLMObsPromptResponse,
     LLMObsPromptSDKData: LLMObsPromptSDKData,
     LLMObsPromptSDKDataAttributes: LLMObsPromptSDKDataAttributes,
