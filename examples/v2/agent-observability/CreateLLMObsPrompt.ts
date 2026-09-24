@@ -12,6 +12,11 @@ const params: v2.AgentObservabilityApiCreateLLMObsPromptRequest = {
   body: {
     data: {
       attributes: {
+        config: {
+          model: "provider-model",
+          response_format: "{'type': 'json_object'}",
+          temperature: "0.2",
+        },
         envIds: [],
         labels: ["production"],
         promptId: "customer-support-assistant",
@@ -24,7 +29,7 @@ const params: v2.AgentObservabilityApiCreateLLMObsPromptRequest = {
 
 apiInstance
   .createLLMObsPrompt(params)
-  .then((data: v2.LLMObsPromptResponse) => {
+  .then((data: v2.LLMObsCreatePromptResponse) => {
     console.log(
       "API called successfully. Returned data: " + JSON.stringify(data)
     );
