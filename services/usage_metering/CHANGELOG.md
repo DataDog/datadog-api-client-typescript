@@ -1,5 +1,14 @@
 # CHANGELOG
 
+## 0.0.1-beta.13/2026-09-24
+
+### Added
+* allow billing read for ListQuotas GET endpoint [#5159](https://github.com/DataDog/datadog-api-client-typescript/pull/5159)
+* Change usage quotas public APIs to only required billing_edit [#5037](https://github.com/DataDog/datadog-api-client-typescript/pull/5037)
+
+### Changed
+* Promote usage quotas admin endpoints to public unstable [#4955](https://github.com/DataDog/datadog-api-client-typescript/pull/4955)
+
 ## 0.0.1-beta.12/2026-08-06
 
 ### Added

@@ -1,5 +1,16 @@
 # CHANGELOG
 
+## 0.0.1-beta.9/2026-09-24
+
+### Removed
+* Deprecate POST incidents /cases/page endpoint [#5161](https://github.com/DataDog/datadog-api-client-typescript/pull/5161)
+
+### Fixed
+* Add Private Action Runner flag to API key schemas [#5143](https://github.com/DataDog/datadog-api-client-typescript/pull/5143)
+
+### Added
+* Add is_iac support to send X-Datadog-Managed-By header [#4945](https://github.com/DataDog/datadog-api-client-typescript/pull/4945)
+
 ## 0.0.1-beta.8/2026-08-06
 
 ### Added

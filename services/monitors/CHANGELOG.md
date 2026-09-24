@@ -1,5 +1,13 @@
 # CHANGELOG
 
+## 0.0.1-beta.12/2026-09-24
+
+### Added
+* Add downtime duration policy to Monitor Config Policy API spec [#5078](https://github.com/DataDog/datadog-api-client-typescript/pull/5078)
+* Add source to target and model configuration options to data quality monitors [#5021](https://github.com/DataDog/datadog-api-client-typescript/pull/5021)
+* Add is_iac support to send X-Datadog-Managed-By header [#4945](https://github.com/DataDog/datadog-api-client-typescript/pull/4945)
+* Add bundle_config to Monitor Notification Rule [#4869](https://github.com/DataDog/datadog-api-client-typescript/pull/4869)
+
 ## 0.0.1-beta.11/2026-08-12
 
 ### Added

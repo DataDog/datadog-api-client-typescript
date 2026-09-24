@@ -1,5 +1,10 @@
 # CHANGELOG
 
+## 0.0.1-beta.9/2026-09-24
+
+### Added
+* Add network-path-config type to restriction policies [#4987](https://github.com/DataDog/datadog-api-client-typescript/pull/4987)
+
 ## 0.0.1-beta.8/2026-08-06
 
 ### Added

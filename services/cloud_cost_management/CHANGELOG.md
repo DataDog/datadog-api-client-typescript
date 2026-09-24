@@ -1,5 +1,22 @@
 # CHANGELOG
 
+## 0.0.1-beta.9/2026-09-24
+
+### Fixed
+* Fix cost recommendations JSON API request schema [#5149](https://github.com/DataDog/datadog-api-client-typescript/pull/5149)
+
+### Changed
+* Use JSONAPI error schema for cost tag endpoints [#5122](https://github.com/DataDog/datadog-api-client-typescript/pull/5122)
+* Fix GetBudget costs_unit.id type to integer [#5116](https://github.com/DataDog/datadog-api-client-typescript/pull/5116)
+
+### Added
+* Document GetBudget response metadata [#5111](https://github.com/DataDog/datadog-api-client-typescript/pull/5111)
+* Add unit cost ROI endpoints to Cloud Cost Management [#5017](https://github.com/DataDog/datadog-api-client-typescript/pull/5017)
+* Add is_iac support to send X-Datadog-Managed-By header [#4945](https://github.com/DataDog/datadog-api-client-typescript/pull/4945)
+
+### Deprecated
+* Deprecate OCI config listing endpoint [#4985](https://github.com/DataDog/datadog-api-client-typescript/pull/4985)
+
 ## 0.0.1-beta.8/2026-08-06
 
 ### Changed
