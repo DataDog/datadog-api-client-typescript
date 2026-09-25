@@ -53,6 +53,7 @@ export class DatabricksIntegrationAccountPrivateActionRunnerAuthResponse {
       baseName: "connection_id",
       type: "string",
       required: true,
+      format: "uuid",
     },
     secretPath: {
       baseName: "secret_path",
@@ -62,6 +63,7 @@ export class DatabricksIntegrationAccountPrivateActionRunnerAuthResponse {
       baseName: "user_uuid",
       type: "string",
       required: true,
+      format: "uuid",
     },
     additionalProperties: {
       baseName: "additionalProperties",
