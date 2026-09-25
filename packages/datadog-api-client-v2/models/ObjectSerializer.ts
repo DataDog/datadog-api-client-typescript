@@ -2071,6 +2071,9 @@ import { GeminiAPIKey } from "./GeminiAPIKey";
 import { GeminiAPIKeyUpdate } from "./GeminiAPIKeyUpdate";
 import { GeminiIntegration } from "./GeminiIntegration";
 import { GeminiIntegrationUpdate } from "./GeminiIntegrationUpdate";
+import { GeneralInvestigationAttributesWithTimeBounds } from "./GeneralInvestigationAttributesWithTimeBounds";
+import { GeneralInvestigationAttributesWithoutTimeBounds } from "./GeneralInvestigationAttributesWithoutTimeBounds";
+import { GeneralInvestigationTrigger } from "./GeneralInvestigationTrigger";
 import { GenerateCostTagDescriptionResponse } from "./GenerateCostTagDescriptionResponse";
 import { GeneratedCostTagDescription } from "./GeneratedCostTagDescription";
 import { GeneratedCostTagDescriptionAttributes } from "./GeneratedCostTagDescriptionAttributes";
@@ -3388,6 +3391,7 @@ import { ModelLabRunParam } from "./ModelLabRunParam";
 import { ModelLabRunResponse } from "./ModelLabRunResponse";
 import { ModelLabRunsResponse } from "./ModelLabRunsResponse";
 import { ModelLabTag } from "./ModelLabTag";
+import { MonitorAlertTrigger } from "./MonitorAlertTrigger";
 import { MonitorAlertTriggerAttributes } from "./MonitorAlertTriggerAttributes";
 import { MonitorConfigPolicyAttributeCreateRequest } from "./MonitorConfigPolicyAttributeCreateRequest";
 import { MonitorConfigPolicyAttributeEditRequest } from "./MonitorConfigPolicyAttributeEditRequest";
@@ -7183,6 +7187,7 @@ const enumsMap: { [key: string]: any[] } = {
   GcpUcConfigResponseDataType: ["gcp_uc_config"],
   GeminiAPIKeyType: ["GeminiAPIKey"],
   GeminiIntegrationType: ["Gemini"],
+  GeneralInvestigationTriggerType: ["general_investigation"],
   GeneratedCostTagDescriptionType: ["cost_generated_tag_description"],
   GetAstRequestDataType: ["get_ast_request"],
   GetAstResponseDataType: ["get_ast_response"],
@@ -7712,6 +7717,7 @@ const enumsMap: { [key: string]: any[] } = {
     "paused",
   ],
   ModelLabRunType: ["runs"],
+  MonitorAlertTriggerType: ["monitor_alert_trigger"],
   MonitorConfigPolicyResourceType: ["monitor-config-policy"],
   MonitorConfigPolicyType: ["tag", "downtime"],
   MonitorDowntimeMatchResourceType: ["downtime_match"],
@@ -9358,7 +9364,7 @@ const enumsMap: { [key: string]: any[] } = {
   TriggerInvestigationRequestType: ["trigger_investigation_request"],
   TriggerInvestigationResponseType: ["trigger_investigation_response"],
   TriggerSource: ["security_findings", "security_signals"],
-  TriggerType: ["monitor_alert_trigger"],
+  TriggerType: ["monitor_alert_trigger", "general_investigation"],
   TriggerWorkflowAutomationActionType: ["workflow"],
   TwilioIntegrationAccountBasicAuthType: ["basic"],
   UCConfigPairDataType: ["azure_uc_configs"],
@@ -12028,6 +12034,11 @@ const typeMap: { [index: string]: any } = {
   GeminiAPIKeyUpdate: GeminiAPIKeyUpdate,
   GeminiIntegration: GeminiIntegration,
   GeminiIntegrationUpdate: GeminiIntegrationUpdate,
+  GeneralInvestigationAttributesWithTimeBounds:
+    GeneralInvestigationAttributesWithTimeBounds,
+  GeneralInvestigationAttributesWithoutTimeBounds:
+    GeneralInvestigationAttributesWithoutTimeBounds,
+  GeneralInvestigationTrigger: GeneralInvestigationTrigger,
   GenerateCostTagDescriptionResponse: GenerateCostTagDescriptionResponse,
   GeneratedCostTagDescription: GeneratedCostTagDescription,
   GeneratedCostTagDescriptionAttributes: GeneratedCostTagDescriptionAttributes,
@@ -13612,6 +13623,7 @@ const typeMap: { [index: string]: any } = {
   ModelLabRunResponse: ModelLabRunResponse,
   ModelLabRunsResponse: ModelLabRunsResponse,
   ModelLabTag: ModelLabTag,
+  MonitorAlertTrigger: MonitorAlertTrigger,
   MonitorAlertTriggerAttributes: MonitorAlertTriggerAttributes,
   MonitorConfigPolicyAttributeCreateRequest:
     MonitorConfigPolicyAttributeCreateRequest,
@@ -17504,6 +17516,10 @@ const oneOfMap: { [index: string]: string[] } = {
   GCPCredentialsUpdate: ["GCPServiceAccountUpdate"],
   GeminiCredentials: ["GeminiAPIKey"],
   GeminiCredentialsUpdate: ["GeminiAPIKeyUpdate"],
+  GeneralInvestigationAttributes: [
+    "GeneralInvestigationAttributesWithoutTimeBounds",
+    "GeneralInvestigationAttributesWithTimeBounds",
+  ],
   GitlabCredentials: ["GitlabAPIKey"],
   GitlabCredentialsUpdate: ["GitlabAPIKeyUpdate"],
   GreyNoiseCredentials: ["GreyNoiseAPIKey"],

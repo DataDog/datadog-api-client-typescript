@@ -7,12 +7,10 @@
 import { UnparsedObject } from "../../datadog-api-client-common/util";
 
 /**
- * The type of trigger for the investigation.
+ * The type of general investigation trigger.
  */
 
-export type TriggerType =
-  | typeof MONITOR_ALERT_TRIGGER
+export type GeneralInvestigationTriggerType =
   | typeof GENERAL_INVESTIGATION
   | UnparsedObject;
-export const MONITOR_ALERT_TRIGGER = "monitor_alert_trigger";
 export const GENERAL_INVESTIGATION = "general_investigation";
