@@ -1,20 +1,15 @@
 import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
-import { AccessTokenResponseIncludedItem } from "./AccessTokenResponseIncludedItem";
-import { PersonalAccessToken } from "./PersonalAccessToken";
+import { UpdatedServiceAccessToken } from "./UpdatedServiceAccessToken";
 
 /**
- * Response for retrieving an access token.
+ * Response for updating an access token.
  */
-export class PersonalAccessTokenResponse {
+export class UpdatedServiceAccessTokenResponse {
   /**
-   * Datadog access token.
+   * Datadog access token returned by the update endpoint.
    */
-  "data"?: PersonalAccessToken;
-  /**
-   * Array of objects related to the access tokens.
-   */
-  "included"?: Array<AccessTokenResponseIncludedItem>;
+  "data": UpdatedServiceAccessToken;
   /**
    * A container for additional, undeclared properties.
    * This is a holder for any undeclared properties as specified with
@@ -32,11 +27,8 @@ export class PersonalAccessTokenResponse {
   static readonly attributeTypeMap: AttributeTypeMap = {
     data: {
       baseName: "data",
-      type: "PersonalAccessToken",
-    },
-    included: {
-      baseName: "included",
-      type: "Array<AccessTokenResponseIncludedItem>",
+      type: "UpdatedServiceAccessToken",
+      required: true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -48,7 +40,7 @@ export class PersonalAccessTokenResponse {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-    return PersonalAccessTokenResponse.attributeTypeMap;
+    return UpdatedServiceAccessTokenResponse.attributeTypeMap;
   }
 
   public constructor() {}

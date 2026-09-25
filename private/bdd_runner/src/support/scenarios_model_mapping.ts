@@ -4191,6 +4191,14 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
       type: "Array<string>",
       format: "",
     },
+    filterLeaked: {
+      type: "boolean",
+      format: "",
+    },
+    include: {
+      type: "Array<PersonalAccessTokensIncludeQueryParameterItem>",
+      format: "",
+    },
     operationResponseType: "ListPersonalAccessTokensResponse",
   },
   "KeyManagementApi.V2.CreatePersonalAccessToken": {
@@ -4203,6 +4211,10 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
   "KeyManagementApi.V2.GetPersonalAccessToken": {
     tokenId: {
       type: "string",
+      format: "",
+    },
+    include: {
+      type: "Array<PersonalAccessTokensIncludeQueryParameterItem>",
       format: "",
     },
     operationResponseType: "PersonalAccessTokenResponse",
@@ -4223,7 +4235,7 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
       type: "PersonalAccessTokenUpdateRequest",
       format: "",
     },
-    operationResponseType: "PersonalAccessTokenResponse",
+    operationResponseType: "UpdatedPersonalAccessTokenResponse",
   },
   "KeyManagementApi.V2.Validate": {
     operationResponseType: "ValidateV2Response",
@@ -17104,6 +17116,14 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
       type: "string",
       format: "",
     },
+    filterLeaked: {
+      type: "boolean",
+      format: "",
+    },
+    include: {
+      type: "Array<PersonalAccessTokensIncludeQueryParameterItem>",
+      format: "",
+    },
     operationResponseType: "ListServiceAccessTokensResponse",
   },
   "ServiceAccountsApi.V2.CreateServiceAccountAccessToken": {
@@ -17124,6 +17144,10 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
     },
     tokenId: {
       type: "string",
+      format: "",
+    },
+    include: {
+      type: "Array<PersonalAccessTokensIncludeQueryParameterItem>",
       format: "",
     },
     operationResponseType: "ServiceAccessTokenResponse",
@@ -17152,7 +17176,7 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
       type: "ServiceAccountAccessTokenUpdateRequest",
       format: "",
     },
-    operationResponseType: "ServiceAccessTokenResponse",
+    operationResponseType: "UpdatedServiceAccessTokenResponse",
   },
   "ServiceAccountsApi.V2.ListServiceAccountApplicationKeys": {
     serviceAccountId: {
