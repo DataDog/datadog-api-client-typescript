@@ -1,20 +1,19 @@
 import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
-import { AccessTokenResponseIncludedItem } from "./AccessTokenResponseIncludedItem";
-import { PersonalAccessToken } from "./PersonalAccessToken";
+import { LeakedKeyType } from "./LeakedKeyType";
 
 /**
- * Response for retrieving an access token.
+ * Relationship to the leak the access token was found in.
  */
-export class PersonalAccessTokenResponse {
+export class RelationshipToLeakedKeyData {
   /**
-   * Datadog access token.
+   * A unique identifier that represents the leak.
    */
-  "data"?: PersonalAccessToken;
+  "id": string;
   /**
-   * Array of objects related to the access tokens.
+   * The definition of LeakedKeyType object.
    */
-  "included"?: Array<AccessTokenResponseIncludedItem>;
+  "type": LeakedKeyType;
   /**
    * A container for additional, undeclared properties.
    * This is a holder for any undeclared properties as specified with
@@ -30,13 +29,15 @@ export class PersonalAccessTokenResponse {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    data: {
-      baseName: "data",
-      type: "PersonalAccessToken",
+    id: {
+      baseName: "id",
+      type: "string",
+      required: true,
     },
-    included: {
-      baseName: "included",
-      type: "Array<AccessTokenResponseIncludedItem>",
+    type: {
+      baseName: "type",
+      type: "LeakedKeyType",
+      required: true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -48,7 +49,7 @@ export class PersonalAccessTokenResponse {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-    return PersonalAccessTokenResponse.attributeTypeMap;
+    return RelationshipToLeakedKeyData.attributeTypeMap;
   }
 
   public constructor() {}
