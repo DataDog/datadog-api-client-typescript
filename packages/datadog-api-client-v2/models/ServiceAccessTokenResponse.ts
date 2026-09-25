@@ -3,6 +3,7 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
+import { AccessTokenResponseIncludedItem } from "./AccessTokenResponseIncludedItem";
 import { ServiceAccessToken } from "./ServiceAccessToken";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
@@ -15,6 +16,10 @@ export class ServiceAccessTokenResponse {
    * Datadog access token.
    */
   "data"?: ServiceAccessToken;
+  /**
+   * Array of objects related to the access tokens.
+   */
+  "included"?: Array<AccessTokenResponseIncludedItem>;
 
   /**
    * A container for additional, undeclared properties.
@@ -35,6 +40,10 @@ export class ServiceAccessTokenResponse {
     data: {
       baseName: "data",
       type: "ServiceAccessToken",
+    },
+    included: {
+      baseName: "included",
+      type: "Array<AccessTokenResponseIncludedItem>",
     },
     additionalProperties: {
       baseName: "additionalProperties",

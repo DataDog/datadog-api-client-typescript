@@ -3,32 +3,32 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
-import { FullPersonalAccessTokenAttributes } from "./FullPersonalAccessTokenAttributes";
-import { FullPersonalAccessTokenRelationships } from "./FullPersonalAccessTokenRelationships";
+import { PersonalAccessTokenAttributes } from "./PersonalAccessTokenAttributes";
 import { PersonalAccessTokensType } from "./PersonalAccessTokensType";
+import { UpdatedPersonalAccessTokenRelationships } from "./UpdatedPersonalAccessTokenRelationships";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * Datadog access token, including the token key.
+ * Datadog access token returned by the update endpoint.
  */
-export class FullPersonalAccessToken {
+export class UpdatedPersonalAccessToken {
   /**
-   * Attributes of a full access token, including the token key.
+   * Attributes of an access token.
    */
-  "attributes"?: FullPersonalAccessTokenAttributes;
+  "attributes"?: PersonalAccessTokenAttributes;
   /**
    * ID of the access token.
    */
-  "id"?: string;
+  "id": string;
   /**
    * Resources related to the access token.
    */
-  "relationships"?: FullPersonalAccessTokenRelationships;
+  "relationships"?: UpdatedPersonalAccessTokenRelationships;
   /**
    * Personal access tokens resource type.
    */
-  "type"?: PersonalAccessTokensType;
+  "type": PersonalAccessTokensType;
 
   /**
    * A container for additional, undeclared properties.
@@ -48,19 +48,21 @@ export class FullPersonalAccessToken {
   static readonly attributeTypeMap: AttributeTypeMap = {
     attributes: {
       baseName: "attributes",
-      type: "FullPersonalAccessTokenAttributes",
+      type: "PersonalAccessTokenAttributes",
     },
     id: {
       baseName: "id",
       type: "string",
+      required: true,
     },
     relationships: {
       baseName: "relationships",
-      type: "FullPersonalAccessTokenRelationships",
+      type: "UpdatedPersonalAccessTokenRelationships",
     },
     type: {
       baseName: "type",
       type: "PersonalAccessTokensType",
+      required: true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -72,7 +74,7 @@ export class FullPersonalAccessToken {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-    return FullPersonalAccessToken.attributeTypeMap;
+    return UpdatedPersonalAccessToken.attributeTypeMap;
   }
 
   public constructor() {}
