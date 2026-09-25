@@ -4,7 +4,7 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 import { FullServiceAccessTokenAttributes } from "./FullServiceAccessTokenAttributes";
-import { ServiceAccessTokenRelationships } from "./ServiceAccessTokenRelationships";
+import { FullServiceAccessTokenRelationships } from "./FullServiceAccessTokenRelationships";
 import { ServiceAccessTokensType } from "./ServiceAccessTokensType";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
@@ -24,7 +24,7 @@ export class FullServiceAccessToken {
   /**
    * Resources related to the access token.
    */
-  "relationships"?: ServiceAccessTokenRelationships;
+  "relationships"?: FullServiceAccessTokenRelationships;
   /**
    * Service access tokens resource type.
    */
@@ -56,7 +56,7 @@ export class FullServiceAccessToken {
     },
     relationships: {
       baseName: "relationships",
-      type: "ServiceAccessTokenRelationships",
+      type: "FullServiceAccessTokenRelationships",
     },
     type: {
       baseName: "type",

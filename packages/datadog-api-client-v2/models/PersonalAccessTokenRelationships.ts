@@ -3,6 +3,7 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
+import { RelationshipToLeakedKey } from "./RelationshipToLeakedKey";
 import { RelationshipToUser } from "./RelationshipToUser";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
@@ -11,6 +12,10 @@ import { AttributeTypeMap } from "../../datadog-api-client-common/util";
  * Resources related to the access token.
  */
 export class PersonalAccessTokenRelationships {
+  /**
+   * Relationship to the leak the access token was found in. `data` is null when the access token has not been detected as leaked.
+   */
+  "leakInformation"?: RelationshipToLeakedKey;
   /**
    * Relationship to user.
    */
@@ -32,6 +37,10 @@ export class PersonalAccessTokenRelationships {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
+    leakInformation: {
+      baseName: "leak_information",
+      type: "RelationshipToLeakedKey",
+    },
     ownedBy: {
       baseName: "owned_by",
       type: "RelationshipToUser",

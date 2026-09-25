@@ -3,28 +3,18 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
-import { AccessTokenResponseIncludedItem } from "./AccessTokenResponseIncludedItem";
-import { ServiceAccessToken } from "./ServiceAccessToken";
-import { ServiceAccessTokenResponseMeta } from "./ServiceAccessTokenResponseMeta";
+import { RelationshipToLeakedKeyData } from "./RelationshipToLeakedKeyData";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * Response for a list of access tokens.
+ * Relationship to the leak the access token was found in. `data` is null when the access token has not been detected as leaked.
  */
-export class ListServiceAccessTokensResponse {
+export class RelationshipToLeakedKey {
   /**
-   * Array of access tokens.
+   * Relationship to the leak the access token was found in.
    */
-  "data"?: Array<ServiceAccessToken>;
-  /**
-   * Array of objects related to the access tokens.
-   */
-  "included"?: Array<AccessTokenResponseIncludedItem>;
-  /**
-   * Additional information related to the access token response.
-   */
-  "meta"?: ServiceAccessTokenResponseMeta;
+  "data": RelationshipToLeakedKeyData | null;
 
   /**
    * A container for additional, undeclared properties.
@@ -44,15 +34,8 @@ export class ListServiceAccessTokensResponse {
   static readonly attributeTypeMap: AttributeTypeMap = {
     data: {
       baseName: "data",
-      type: "Array<ServiceAccessToken>",
-    },
-    included: {
-      baseName: "included",
-      type: "Array<AccessTokenResponseIncludedItem>",
-    },
-    meta: {
-      baseName: "meta",
-      type: "ServiceAccessTokenResponseMeta",
+      type: "RelationshipToLeakedKeyData",
+      required: true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -64,7 +47,7 @@ export class ListServiceAccessTokensResponse {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-    return ListServiceAccessTokensResponse.attributeTypeMap;
+    return RelationshipToLeakedKey.attributeTypeMap;
   }
 
   public constructor() {}

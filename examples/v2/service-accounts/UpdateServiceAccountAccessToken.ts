@@ -37,7 +37,7 @@ const params: v2.ServiceAccountsApiUpdateServiceAccountAccessTokenRequest = {
 
 apiInstance
   .updateServiceAccountAccessToken(params)
-  .then((data: v2.ServiceAccessTokenResponse) => {
+  .then((data: v2.UpdatedServiceAccessTokenResponse) => {
     console.log(
       "API called successfully. Returned data: " + JSON.stringify(data)
     );
