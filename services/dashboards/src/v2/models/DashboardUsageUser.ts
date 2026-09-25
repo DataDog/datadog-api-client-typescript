@@ -21,6 +21,10 @@ export class DashboardUsageUser {
    */
   "name"?: string;
   /**
+   * just testing generation
+   */
+  "test"?: boolean;
+  /**
    * A container for additional, undeclared properties.
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
@@ -50,6 +54,10 @@ export class DashboardUsageUser {
     name: {
       baseName: "name",
       type: "string",
+    },
+    test: {
+      baseName: "test",
+      type: "boolean",
     },
     additionalProperties: {
       baseName: "additionalProperties",
