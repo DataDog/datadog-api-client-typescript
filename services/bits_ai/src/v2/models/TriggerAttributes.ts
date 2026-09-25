@@ -1,5 +1,6 @@
 import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
+import { GeneralInvestigationAttributes } from "./GeneralInvestigationAttributes";
 import { MonitorAlertTriggerAttributes } from "./MonitorAlertTriggerAttributes";
 import { TriggerType } from "./TriggerType";
 
@@ -8,13 +9,17 @@ import { TriggerType } from "./TriggerType";
  */
 export class TriggerAttributes {
   /**
+   * Attributes for a general investigation, not tied to a specific monitor alert.
+   */
+  "generalInvestigation"?: GeneralInvestigationAttributes;
+  /**
    * Attributes for a monitor alert trigger.
    */
-  "monitorAlertTrigger": MonitorAlertTriggerAttributes;
+  "monitorAlertTrigger"?: MonitorAlertTriggerAttributes;
   /**
    * The type of trigger for the investigation.
    */
-  "type": TriggerType;
+  "type"?: TriggerType;
   /**
    * A container for additional, undeclared properties.
    * This is a holder for any undeclared properties as specified with
@@ -30,15 +35,17 @@ export class TriggerAttributes {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
+    generalInvestigation: {
+      baseName: "general_investigation",
+      type: "GeneralInvestigationAttributes",
+    },
     monitorAlertTrigger: {
       baseName: "monitor_alert_trigger",
       type: "MonitorAlertTriggerAttributes",
-      required: true,
     },
     type: {
       baseName: "type",
       type: "TriggerType",
-      required: true,
     },
     additionalProperties: {
       baseName: "additionalProperties",

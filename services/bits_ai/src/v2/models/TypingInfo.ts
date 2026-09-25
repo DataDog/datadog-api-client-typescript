@@ -1,6 +1,9 @@
 import { ModelTypingInfo } from "@datadog/datadog-api-client";
 
 import { APIErrorResponse } from "./APIErrorResponse";
+import { GeneralInvestigationAttributesWithTimeBounds } from "./GeneralInvestigationAttributesWithTimeBounds";
+import { GeneralInvestigationAttributesWithoutTimeBounds } from "./GeneralInvestigationAttributesWithoutTimeBounds";
+import { GeneralInvestigationTrigger } from "./GeneralInvestigationTrigger";
 import { GetInvestigationResponse } from "./GetInvestigationResponse";
 import { GetInvestigationResponseData } from "./GetInvestigationResponseData";
 import { GetInvestigationResponseDataAttributes } from "./GetInvestigationResponseDataAttributes";
@@ -15,6 +18,7 @@ import { ListInvestigationsResponseDataAttributes } from "./ListInvestigationsRe
 import { ListInvestigationsResponseLinks } from "./ListInvestigationsResponseLinks";
 import { ListInvestigationsResponseMeta } from "./ListInvestigationsResponseMeta";
 import { ListInvestigationsResponseMetaPage } from "./ListInvestigationsResponseMetaPage";
+import { MonitorAlertTrigger } from "./MonitorAlertTrigger";
 import { MonitorAlertTriggerAttributes } from "./MonitorAlertTriggerAttributes";
 import { TriggerAttributes } from "./TriggerAttributes";
 import { TriggerInvestigationRequest } from "./TriggerInvestigationRequest";
@@ -26,14 +30,26 @@ import { TriggerInvestigationResponseDataAttributes } from "./TriggerInvestigati
 
 export const TypingInfo: ModelTypingInfo = {
   enumsMap: {
+    GeneralInvestigationTriggerType: ["general_investigation"],
     InvestigationType: ["investigation"],
+    MonitorAlertTriggerType: ["monitor_alert_trigger"],
     TriggerInvestigationRequestType: ["trigger_investigation_request"],
     TriggerInvestigationResponseType: ["trigger_investigation_response"],
-    TriggerType: ["monitor_alert_trigger"],
+    TriggerType: ["monitor_alert_trigger", "general_investigation"],
   },
-  oneOfMap: {},
+  oneOfMap: {
+    GeneralInvestigationAttributes: [
+      "GeneralInvestigationAttributesWithoutTimeBounds",
+      "GeneralInvestigationAttributesWithTimeBounds",
+    ],
+  },
   typeMap: {
     APIErrorResponse: APIErrorResponse,
+    GeneralInvestigationAttributesWithTimeBounds:
+      GeneralInvestigationAttributesWithTimeBounds,
+    GeneralInvestigationAttributesWithoutTimeBounds:
+      GeneralInvestigationAttributesWithoutTimeBounds,
+    GeneralInvestigationTrigger: GeneralInvestigationTrigger,
     GetInvestigationResponse: GetInvestigationResponse,
     GetInvestigationResponseData: GetInvestigationResponseData,
     GetInvestigationResponseDataAttributes:
@@ -50,6 +66,7 @@ export const TypingInfo: ModelTypingInfo = {
     ListInvestigationsResponseLinks: ListInvestigationsResponseLinks,
     ListInvestigationsResponseMeta: ListInvestigationsResponseMeta,
     ListInvestigationsResponseMetaPage: ListInvestigationsResponseMetaPage,
+    MonitorAlertTrigger: MonitorAlertTrigger,
     MonitorAlertTriggerAttributes: MonitorAlertTriggerAttributes,
     TriggerAttributes: TriggerAttributes,
     TriggerInvestigationRequest: TriggerInvestigationRequest,
