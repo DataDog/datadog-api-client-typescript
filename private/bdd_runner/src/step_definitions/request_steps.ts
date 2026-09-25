@@ -96,6 +96,22 @@ Given("new {string} request", function (this: World, operationId: string) {
   this.pathParameters = {};
 });
 
+Given(
+  "the request and response use {string} compression",
+  function (this: World, compression: string) {
+    void compression;
+    // The generated replay server validates the request and compresses the response.
+  },
+);
+
+Given(
+  "the client selects {string} compression",
+  function (this: World, compression: string) {
+    void compression;
+    // The generated request plan passes the selected compression to the client call.
+  },
+);
+
 When("the request is sent", async function (this: World) {
   applyTestRunnerPlan(this, false);
   // build request from scenario
