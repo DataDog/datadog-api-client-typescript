@@ -3,6 +3,7 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
+import { GeneralInvestigationAttributes } from "./GeneralInvestigationAttributes";
 import { MonitorAlertTriggerAttributes } from "./MonitorAlertTriggerAttributes";
 import { TriggerType } from "./TriggerType";
 
@@ -13,13 +14,17 @@ import { AttributeTypeMap } from "../../datadog-api-client-common/util";
  */
 export class TriggerAttributes {
   /**
+   * Attributes for a general investigation, not tied to a specific monitor alert.
+   */
+  "generalInvestigation"?: GeneralInvestigationAttributes;
+  /**
    * Attributes for a monitor alert trigger.
    */
-  "monitorAlertTrigger": MonitorAlertTriggerAttributes;
+  "monitorAlertTrigger"?: MonitorAlertTriggerAttributes;
   /**
    * The type of trigger for the investigation.
    */
-  "type": TriggerType;
+  "type"?: TriggerType;
 
   /**
    * A container for additional, undeclared properties.
@@ -37,15 +42,17 @@ export class TriggerAttributes {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
+    generalInvestigation: {
+      baseName: "general_investigation",
+      type: "GeneralInvestigationAttributes",
+    },
     monitorAlertTrigger: {
       baseName: "monitor_alert_trigger",
       type: "MonitorAlertTriggerAttributes",
-      required: true,
     },
     type: {
       baseName: "type",
       type: "TriggerType",
-      required: true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
