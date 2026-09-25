@@ -26,6 +26,10 @@ export class DashboardUsageUser {
    * Display name of the user.
    */
   "name"?: string;
+  /**
+   * just testing generation
+   */
+  "test"?: boolean;
 
   /**
    * A container for additional, undeclared properties.
@@ -58,6 +62,10 @@ export class DashboardUsageUser {
     name: {
       baseName: "name",
       type: "string",
+    },
+    test: {
+      baseName: "test",
+      type: "boolean",
     },
     additionalProperties: {
       baseName: "additionalProperties",
