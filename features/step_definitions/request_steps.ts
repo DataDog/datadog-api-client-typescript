@@ -92,15 +92,15 @@ Given("new {string} request", function (this: World, operationId: string) {
 });
 
 Given(
-  "the request uses {string} compression",
+  "the request and response use {string} compression",
   function (this: World, compression: string) {
     void compression;
-    // The generated replay server validates the Content-Encoding header and body.
+    // The generated replay server validates the request and compresses the response.
   }
 );
 
 Given(
-  "the user selects {string} compression",
+  "the client selects {string} compression",
   function (this: World, compression: string) {
     void compression;
     // The generated request plan passes the selected compression to the client call.
