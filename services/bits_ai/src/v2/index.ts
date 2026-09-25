@@ -6,6 +6,11 @@ export {
 } from "./BitsAIApi";
 
 export { APIErrorResponse } from "./models/APIErrorResponse";
+export { GeneralInvestigationAttributes } from "./models/GeneralInvestigationAttributes";
+export { GeneralInvestigationAttributesWithoutTimeBounds } from "./models/GeneralInvestigationAttributesWithoutTimeBounds";
+export { GeneralInvestigationAttributesWithTimeBounds } from "./models/GeneralInvestigationAttributesWithTimeBounds";
+export { GeneralInvestigationTrigger } from "./models/GeneralInvestigationTrigger";
+export { GeneralInvestigationTriggerType } from "./models/GeneralInvestigationTriggerType";
 export { GetInvestigationResponse } from "./models/GetInvestigationResponse";
 export { GetInvestigationResponseData } from "./models/GetInvestigationResponseData";
 export { GetInvestigationResponseDataAttributes } from "./models/GetInvestigationResponseDataAttributes";
@@ -21,7 +26,9 @@ export { ListInvestigationsResponseDataAttributes } from "./models/ListInvestiga
 export { ListInvestigationsResponseLinks } from "./models/ListInvestigationsResponseLinks";
 export { ListInvestigationsResponseMeta } from "./models/ListInvestigationsResponseMeta";
 export { ListInvestigationsResponseMetaPage } from "./models/ListInvestigationsResponseMetaPage";
+export { MonitorAlertTrigger } from "./models/MonitorAlertTrigger";
 export { MonitorAlertTriggerAttributes } from "./models/MonitorAlertTriggerAttributes";
+export { MonitorAlertTriggerType } from "./models/MonitorAlertTriggerType";
 export { TriggerAttributes } from "./models/TriggerAttributes";
 export { TriggerInvestigationRequest } from "./models/TriggerInvestigationRequest";
 export { TriggerInvestigationRequestData } from "./models/TriggerInvestigationRequestData";
