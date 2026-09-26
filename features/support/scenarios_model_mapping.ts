@@ -2348,6 +2348,25 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
     "v1.Validate": {
         "operationResponseType": "AuthenticationValidationResponse",
     },
+    "v1_20270101.ListDashboards": {
+        "filterShared": {
+            "type": "boolean",
+            "format": "",
+            },
+        "filterDeleted": {
+            "type": "boolean",
+            "format": "",
+            },
+        "count": {
+            "type": "number",
+            "format": "int64",
+            },
+        "start": {
+            "type": "number",
+            "format": "int64",
+            },
+        "operationResponseType": "DashboardSummary",
+    },
     "v2.ListFleetAgentTracers": {
         "agentKey": {
             "type": "string",

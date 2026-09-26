@@ -8,6 +8,7 @@ export class World {
   public polly?: Polly;
 
   public apiVersion = "";
+  public operationVersion?: string;
   public authMethods: any = {};
   public unstableOperations: { [key: string]: boolean } = {};
 
@@ -26,6 +27,10 @@ export class World {
   public testFeature = "";
   public testScenario = "";
   public testServerSession?: string;
+
+  public get operationApiVersion(): string {
+    return this.operationVersion || this.apiVersion;
+  }
 
   async cleanup() {
     const undo = this.undo;
