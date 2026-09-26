@@ -3,7 +3,7 @@ import { AttributeTypeMap } from "@datadog/datadog-api-client";
 import { ObservabilityPipelineDataAttributes } from "./ObservabilityPipelineDataAttributes";
 
 /**
- * Contains the the pipeline configuration.
+ * Contains the pipeline configuration.
  */
 export class ObservabilityPipelineSpecData {
   /**

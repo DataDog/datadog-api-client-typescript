@@ -7,7 +7,7 @@ import { ObservabilityPipelineSpecData } from "./ObservabilityPipelineSpecData";
  */
 export class ObservabilityPipelineSpec {
   /**
-   * Contains the the pipeline configuration.
+   * Contains the pipeline configuration.
    */
   "data": ObservabilityPipelineSpecData;
   /**
