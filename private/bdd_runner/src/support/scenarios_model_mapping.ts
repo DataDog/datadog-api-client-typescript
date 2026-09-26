@@ -8541,6 +8541,10 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
       type: "string",
       format: "",
     },
+    filterEnabledMetricsOnly: {
+      type: "boolean",
+      format: "",
+    },
     operationResponseType: "CostMetricsResponse",
   },
   "CloudCostManagementApi.V2.ListCostTagMetadataMonths": {
