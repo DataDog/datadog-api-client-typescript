@@ -1,4 +1,5 @@
 export * as v1 from "./v1";
+export * as v1_20270101 from "./v1_20270101";
 export * as v2 from "./v2";
 
 export { DashboardsApi as DashboardsApiV1 } from "./v1/DashboardsApi";

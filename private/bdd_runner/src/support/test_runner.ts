@@ -87,6 +87,7 @@ interface TestRunnerManifestItem {
 interface TestRunnerPlan {
   api: string;
   operation_id: string;
+  operation_version?: string;
   request: {
     body?: { value: any };
     parameters: Array<{
@@ -229,6 +230,9 @@ export function applyTestRunnerPlan(world: World, pagination: boolean): void {
     return;
   }
   const plan = loadPlan(world);
+  world.operationVersion = plan.operation_version
+    ? `${world.apiVersion}_${plan.operation_version.replace(/-/g, "")}`
+    : undefined;
   if (plan.request.pagination !== pagination) {
     throw new Error(
       `Generated request plan pagination mismatch for ${world.testFeature}/${world.testScenario}`,
