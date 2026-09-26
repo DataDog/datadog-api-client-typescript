@@ -35,6 +35,10 @@ export class LLMObsPatternsClusteredPointRef {
    */
   "status"?: string;
   /**
+   * Unix timestamp of the source span in milliseconds. Included only when metrics are requested.
+   */
+  "timestamp"?: number;
+  /**
    * Total number of tokens of the source span. Included only when metrics are requested.
    */
   "totalTokens"?: number;
@@ -85,6 +89,11 @@ export class LLMObsPatternsClusteredPointRef {
     status: {
       baseName: "status",
       type: "string",
+    },
+    timestamp: {
+      baseName: "timestamp",
+      type: "number",
+      format: "int64",
     },
     totalTokens: {
       baseName: "total_tokens",
