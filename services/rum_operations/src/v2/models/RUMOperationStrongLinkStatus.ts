@@ -1,7 +1,7 @@
 import { UnparsedObject } from "@datadog/datadog-api-client";
 
 /**
- * The status of a RUM operation strong link.
+ * The status of a RUM operation link.
  */
 export type RUMOperationStrongLinkStatus =
   | typeof DRAFT

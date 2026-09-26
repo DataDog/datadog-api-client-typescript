@@ -3,7 +3,7 @@ import { AttributeTypeMap } from "@datadog/datadog-api-client";
 import { RUMOperationStrongLinkStatus } from "./RUMOperationStrongLinkStatus";
 
 /**
- * Attributes for creating a RUM operation strong link.
+ * Attributes for creating a RUM operation link.
  */
 export class RUMOperationStrongLinkCreateRequestAttributes {
   /**
@@ -11,11 +11,11 @@ export class RUMOperationStrongLinkCreateRequestAttributes {
    */
   "applicationId"?: string;
   /**
-   * A description of the strong link.
+   * A description of the link.
    */
   "description"?: string;
   /**
-   * The unique identifier of the feature to link.
+   * The unique identifier of the journey to link.
    */
   "featureId": string;
   /**
@@ -29,11 +29,11 @@ export class RUMOperationStrongLinkCreateRequestAttributes {
    */
   "operationName"?: string;
   /**
-   * The status of a RUM operation strong link.
+   * The status of a RUM operation link.
    */
   "status"?: RUMOperationStrongLinkStatus;
   /**
-   * A list of tags associated with the strong link.
+   * A list of tags associated with the link.
    */
   "tags"?: Array<string>;
   /**

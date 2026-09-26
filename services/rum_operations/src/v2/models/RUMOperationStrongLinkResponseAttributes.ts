@@ -3,19 +3,19 @@ import { AttributeTypeMap } from "@datadog/datadog-api-client";
 import { RUMOperationStrongLinkStatus } from "./RUMOperationStrongLinkStatus";
 
 /**
- * Attributes of a RUM operation strong link response.
+ * Attributes of a RUM operation link response.
  */
 export class RUMOperationStrongLinkResponseAttributes {
   /**
-   * The timestamp when the strong link was created.
+   * The timestamp when the link was created.
    */
   "createdAt"?: Date;
   /**
-   * A description of the strong link.
+   * A description of the link.
    */
   "description"?: string;
   /**
-   * The unique identifier of the linked feature.
+   * The unique identifier of the linked journey.
    */
   "featureId": string;
   /**
@@ -23,15 +23,15 @@ export class RUMOperationStrongLinkResponseAttributes {
    */
   "operationId": string;
   /**
-   * The status of a RUM operation strong link.
+   * The status of a RUM operation link.
    */
   "status": RUMOperationStrongLinkStatus;
   /**
-   * A list of tags associated with the strong link.
+   * A list of tags associated with the link.
    */
   "tags"?: Array<string>;
   /**
-   * The timestamp when the strong link was last updated.
+   * The timestamp when the link was last updated.
    */
   "updatedAt"?: Date;
   /**

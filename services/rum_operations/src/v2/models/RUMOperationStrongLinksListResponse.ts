@@ -4,12 +4,12 @@ import { RUMOperationStrongLinkResponseData } from "./RUMOperationStrongLinkResp
 import { RUMOperationStrongLinksListResponseMeta } from "./RUMOperationStrongLinksListResponseMeta";
 
 /**
- * The response for a list of RUM operation strong links.
+ * The response for a list of RUM operation links.
  */
 export class RUMOperationStrongLinksListResponse {
   "data": Array<RUMOperationStrongLinkResponseData>;
   /**
-   * Metadata for a list of RUM operation strong links.
+   * Metadata for a list of RUM operation links.
    */
   "meta"?: RUMOperationStrongLinksListResponseMeta;
   /**

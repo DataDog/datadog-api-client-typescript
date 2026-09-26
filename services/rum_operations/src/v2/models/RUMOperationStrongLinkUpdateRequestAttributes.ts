@@ -3,11 +3,11 @@ import { AttributeTypeMap } from "@datadog/datadog-api-client";
 import { RUMOperationStrongLinkUpdateStatus } from "./RUMOperationStrongLinkUpdateStatus";
 
 /**
- * Attributes for updating a RUM operation strong link.
+ * Attributes for updating a RUM operation link.
  */
 export class RUMOperationStrongLinkUpdateRequestAttributes {
   /**
-   * The status of a RUM operation strong link. Can only be set to `CONFIRMED` or `REJECTED`.
+   * The status of a RUM operation link. Can only be set to `CONFIRMED` or `REJECTED`.
    */
   "status": RUMOperationStrongLinkUpdateStatus;
   /**
