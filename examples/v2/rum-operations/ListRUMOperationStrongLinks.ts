@@ -1,5 +1,5 @@
 /**
- * List RUM operation strong links returns "OK" response
+ * List RUM operation links returns "OK" response
  */
 
 import { client, v2 } from "@datadog/datadog-api-client";

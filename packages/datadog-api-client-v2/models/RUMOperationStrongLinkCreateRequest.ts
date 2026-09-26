@@ -8,11 +8,11 @@ import { RUMOperationStrongLinkCreateRequestData } from "./RUMOperationStrongLin
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * The request body for creating a RUM operation strong link.
+ * The request body for creating a RUM operation link.
  */
 export class RUMOperationStrongLinkCreateRequest {
   /**
-   * The data object for creating a RUM operation strong link.
+   * The data object for creating a RUM operation link.
    */
   "data": RUMOperationStrongLinkCreateRequestData;
 

@@ -9,19 +9,19 @@ import { RUMOperationStrongLinkType } from "./RUMOperationStrongLinkType";
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * The data object in a RUM operation strong link response.
+ * The data object in a RUM operation link response.
  */
 export class RUMOperationStrongLinkResponseData {
   /**
-   * Attributes of a RUM operation strong link response.
+   * Attributes of a RUM operation link response.
    */
   "attributes": RUMOperationStrongLinkResponseAttributes;
   /**
-   * The unique identifier of the strong link, formatted as `<operation_id>:<feature_id>`.
+   * The unique identifier of the link, formatted as `<operation_id>:<feature_id>`.
    */
   "id": string;
   /**
-   * The JSON:API type for RUM operation strong link resources.
+   * The JSON:API type for RUM operation link resources.
    */
   "type": RUMOperationStrongLinkType;
 
