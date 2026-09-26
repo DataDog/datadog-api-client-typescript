@@ -14,6 +14,11 @@ export class ObservabilityPipelineConfig {
    */
   "destinations": Array<ObservabilityPipelineConfigDestinationItem>;
   /**
+   * Enables end-to-end event delivery confirmation. Without a disk buffer, sources acknowledge events after delivery to all final destinations; when a disk buffer provides the acknowledgment boundary, they acknowledge after durable persistence.
+   * Defaults to `false` when omitted. Requires Observability Pipelines Worker 2.14 or later. All configured sources must support this behavior.
+   */
+  "endToEndAcknowledgements"?: boolean;
+  /**
    * The type of data being ingested. Defaults to `logs` if not specified.
    */
   "pipelineType"?: ObservabilityPipelineConfigPipelineType;
@@ -58,6 +63,10 @@ export class ObservabilityPipelineConfig {
       baseName: "destinations",
       type: "Array<ObservabilityPipelineConfigDestinationItem>",
       required: true,
+    },
+    endToEndAcknowledgements: {
+      baseName: "end_to_end_acknowledgements",
+      type: "boolean",
     },
     pipelineType: {
       baseName: "pipeline_type",
