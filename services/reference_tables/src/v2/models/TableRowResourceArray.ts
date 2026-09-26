@@ -1,15 +1,20 @@
 import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
+import { TableRowResourceArrayMeta } from "./TableRowResourceArrayMeta";
 import { TableRowResourceData } from "./TableRowResourceData";
 
 /**
- * List of rows from a reference table query.
+ * List of rows from a reference table query, along with metadata about rows that were requested but not found.
  */
 export class TableRowResourceArray {
   /**
    * The rows.
    */
   "data": Array<TableRowResourceData>;
+  /**
+   * Metadata about the rows requested, including which ones were not found.
+   */
+  "meta"?: TableRowResourceArrayMeta;
   /**
    * A container for additional, undeclared properties.
    * This is a holder for any undeclared properties as specified with
@@ -29,6 +34,10 @@ export class TableRowResourceArray {
       baseName: "data",
       type: "Array<TableRowResourceData>",
       required: true,
+    },
+    meta: {
+      baseName: "meta",
+      type: "TableRowResourceArrayMeta",
     },
     additionalProperties: {
       baseName: "additionalProperties",
