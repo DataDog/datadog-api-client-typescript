@@ -5,7 +5,7 @@ import { AttributeTypeMap } from "@datadog/datadog-api-client";
  */
 export class RecommendationsFilterRequestSortItems {
   /**
-   * Field to sort by (for example, `potential_daily_savings.amount`).
+   * Field to sort by (for example, `@potential_daily_savings`).
    */
   "expression"?: string;
   /**
