@@ -3098,6 +3098,9 @@ import { ListFeatureFlagsResponse } from "./ListFeatureFlagsResponse";
 import { ListFindingsMeta } from "./ListFindingsMeta";
 import { ListFindingsPage } from "./ListFindingsPage";
 import { ListFindingsResponse } from "./ListFindingsResponse";
+import { ListFormVersionsData } from "./ListFormVersionsData";
+import { ListFormVersionsDataAttributes } from "./ListFormVersionsDataAttributes";
+import { ListFormVersionsResponse } from "./ListFormVersionsResponse";
 import { ListHistoricalJobsResponse } from "./ListHistoricalJobsResponse";
 import { ListIntegrationsResponse } from "./ListIntegrationsResponse";
 import { ListInterfaceTagsResponse } from "./ListInterfaceTagsResponse";
@@ -7166,6 +7169,7 @@ const enumsMap: { [key: string]: any[] } = {
     "magenta",
     "indigo",
   ],
+  FormVersionListType: ["form_version_lists"],
   FormVersionState: ["draft", "frozen"],
   FormVersionType: ["form_versions"],
   FreshserviceAPIKeyType: ["FreshserviceAPIKey"],
@@ -13280,6 +13284,9 @@ const typeMap: { [index: string]: any } = {
   ListFindingsMeta: ListFindingsMeta,
   ListFindingsPage: ListFindingsPage,
   ListFindingsResponse: ListFindingsResponse,
+  ListFormVersionsData: ListFormVersionsData,
+  ListFormVersionsDataAttributes: ListFormVersionsDataAttributes,
+  ListFormVersionsResponse: ListFormVersionsResponse,
   ListHistoricalJobsResponse: ListHistoricalJobsResponse,
   ListIntegrationsResponse: ListIntegrationsResponse,
   ListInterfaceTagsResponse: ListInterfaceTagsResponse,
