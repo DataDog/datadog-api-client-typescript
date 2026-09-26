@@ -10516,6 +10516,38 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
     },
     operationResponseType: "HamrOrgConnectionResponse",
   },
+  "TerraformStateFilesApi.V2.ListTerraformBackendSyncConfigs": {
+    accountId: {
+      type: "string",
+      format: "",
+    },
+    operationResponseType: "TerraformBackendListResponse",
+  },
+  "TerraformStateFilesApi.V2.CreateTerraformBackendSyncConfig": {
+    body: {
+      type: "TerraformBackendCreateRequest",
+      format: "",
+    },
+    operationResponseType: "TerraformBackendResponse",
+  },
+  "TerraformStateFilesApi.V2.DeleteTerraformBackendSyncConfig": {
+    id: {
+      type: "string",
+      format: "",
+    },
+    operationResponseType: "{}",
+  },
+  "TerraformStateFilesApi.V2.UpdateTerraformBackendSyncConfig": {
+    id: {
+      type: "string",
+      format: "",
+    },
+    body: {
+      type: "TerraformBackendUpdateRequest",
+      format: "",
+    },
+    operationResponseType: "TerraformBackendResponse",
+  },
   "IdentityProvidersApi.V2.ListIdentityProviders": {
     operationResponseType: "IdentityProvidersResponse",
   },
