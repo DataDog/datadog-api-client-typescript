@@ -10217,6 +10217,13 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             },
         "operationResponseType": "{}",
     },
+    "v2.UpdateLoginOrgConfigsMcpCrossAppAccessIssuerUrl": {
+        "body": {
+            "type": "McpCrossAppAccessIssuerUrlUpdateRequest",
+            "format": "",
+            },
+        "operationResponseType": "{}",
+    },
     "v2.ListOrgs": {
         "filterName": {
             "type": "string",

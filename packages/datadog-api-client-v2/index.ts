@@ -1231,6 +1231,7 @@ export {
   OrganizationsApiListGlobalOrgsRequest,
   OrganizationsApiListOrgsRequest,
   OrganizationsApiUpdateLoginOrgConfigsMaxSessionDurationRequest,
+  OrganizationsApiUpdateLoginOrgConfigsMcpCrossAppAccessIssuerUrlRequest,
   OrganizationsApiUpdateOrgConfigRequest,
   OrganizationsApiUpdateOrgSamlConfigurationsRequest,
   OrganizationsApiUpdateSAMLConfigurationRequest,
@@ -6128,6 +6129,10 @@ export { MaxSessionDurationType } from "./models/MaxSessionDurationType";
 export { MaxSessionDurationUpdateAttributes } from "./models/MaxSessionDurationUpdateAttributes";
 export { MaxSessionDurationUpdateData } from "./models/MaxSessionDurationUpdateData";
 export { MaxSessionDurationUpdateRequest } from "./models/MaxSessionDurationUpdateRequest";
+export { McpCrossAppAccessIssuerUrlType } from "./models/McpCrossAppAccessIssuerUrlType";
+export { McpCrossAppAccessIssuerUrlUpdateAttributes } from "./models/McpCrossAppAccessIssuerUrlUpdateAttributes";
+export { McpCrossAppAccessIssuerUrlUpdateData } from "./models/McpCrossAppAccessIssuerUrlUpdateData";
+export { McpCrossAppAccessIssuerUrlUpdateRequest } from "./models/McpCrossAppAccessIssuerUrlUpdateRequest";
 export { McpScanRequest } from "./models/McpScanRequest";
 export { McpScanRequestData } from "./models/McpScanRequestData";
 export { McpScanRequestDataAttributes } from "./models/McpScanRequestDataAttributes";
