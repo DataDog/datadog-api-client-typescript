@@ -9,7 +9,7 @@ export class ConfluentResourceRequestAttributes {
    */
   "enableCustomMetrics"?: boolean;
   /**
-   * The resource type of the Resource. Can be `kafka`, `connector`, `ksql`, or `schema_registry`.
+   * The resource type of the Resource. Can be `kafka`, `connector`, `ksql`, `schema_registry`, or `flink`.
    */
   "resourceType": string;
   /**
