@@ -325,6 +325,13 @@ export class DDSQLApi {
    * Submit a DDSQL statement and return either a `running` state with an opaque `query_id`
    * for the client to poll, or a `completed` state with the column-major result set inlined
    * when the query finishes quickly enough to be served synchronously.
+   *
+   * For a scoped application key, include `timeseries_query` in its scopes.
+   * A query that does not read a data source, such as `SELECT 1`, requires no additional
+   * data-source permissions. Queries that read data sources also require the user or
+   * service account that owns the application key to have the corresponding data access
+   * permissions through their roles. The `timeseries_query` permission does not grant
+   * access to the underlying data sources.
    * @param param The request object
    */
   public executeDdsqlTabularQuery(
@@ -351,6 +358,11 @@ export class DDSQLApi {
    * by a prior `ExecuteDdsqlTabularQuery` (or by a prior `FetchDdsqlTabularQuery` that
    * returned `state: running`) and the server returns either a `running` state to poll again
    * or a `completed` state with the column-major result set inlined.
+   *
+   * For a scoped application key, include `timeseries_query` in its scopes.
+   * Fetch results as the same user and organization that submitted the query.
+   * The user or service account that owns the application key must have the data access
+   * permissions required by the queried data sources through their roles.
    * @param param The request object
    */
   public fetchDdsqlTabularQuery(
