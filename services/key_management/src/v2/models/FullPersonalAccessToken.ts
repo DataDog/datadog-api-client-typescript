@@ -1,7 +1,7 @@
 import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
 import { FullPersonalAccessTokenAttributes } from "./FullPersonalAccessTokenAttributes";
-import { PersonalAccessTokenRelationships } from "./PersonalAccessTokenRelationships";
+import { FullPersonalAccessTokenRelationships } from "./FullPersonalAccessTokenRelationships";
 import { PersonalAccessTokensType } from "./PersonalAccessTokensType";
 
 /**
@@ -19,7 +19,7 @@ export class FullPersonalAccessToken {
   /**
    * Resources related to the access token.
    */
-  "relationships"?: PersonalAccessTokenRelationships;
+  "relationships"?: FullPersonalAccessTokenRelationships;
   /**
    * Personal access tokens resource type.
    */
@@ -49,7 +49,7 @@ export class FullPersonalAccessToken {
     },
     relationships: {
       baseName: "relationships",
-      type: "PersonalAccessTokenRelationships",
+      type: "FullPersonalAccessTokenRelationships",
     },
     type: {
       baseName: "type",
