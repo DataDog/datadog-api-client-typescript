@@ -20,7 +20,9 @@ import log from "loglevel";
 import { ScenariosModelMappings } from "../support/scenarios_model_mapping";
 import {
   applyTestRunnerPlan,
+  lastTestServerRequest,
   testRunnerEnabled,
+  testServerEnabled,
   testServerFetch,
 } from "../support/test_runner";
 const logger = log.getLogger("testing");
@@ -90,6 +92,25 @@ Given("new {string} request", function (this: World, operationId: string) {
   this.opts = {};
   this.pathParameters = {}; // Clear path parameters for new request
 });
+
+Then(
+  "the request uses {string} compression",
+  async function (this: World, compression: string) {
+    if (!testServerEnabled()) return;
+    const request = await lastTestServerRequest(this);
+    expect(request.headers?.["content-encoding"]).to.equal(
+      compression.toLowerCase()
+    );
+  }
+);
+
+Given(
+  "the client selects {string} compression",
+  function (this: World, compression: string) {
+    void compression;
+    // The generated request plan passes the selected compression to the client call.
+  }
+);
 
 When("the request is sent", async function (this: World) {
   applyTestRunnerPlan(this, false);
