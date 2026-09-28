@@ -3,32 +3,22 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
-import { FullPersonalAccessTokenAttributes } from "./FullPersonalAccessTokenAttributes";
-import { FullPersonalAccessTokenRelationships } from "./FullPersonalAccessTokenRelationships";
-import { PersonalAccessTokensType } from "./PersonalAccessTokensType";
+import { LeakedKeyType } from "./LeakedKeyType";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * Datadog access token, including the token key.
+ * Relationship to the leak the access token was found in.
  */
-export class FullPersonalAccessToken {
+export class RelationshipToLeakedKeyData {
   /**
-   * Attributes of a full access token, including the token key.
+   * A unique identifier that represents the leak.
    */
-  "attributes"?: FullPersonalAccessTokenAttributes;
+  "id": string;
   /**
-   * ID of the access token.
+   * The definition of LeakedKeyType object.
    */
-  "id"?: string;
-  /**
-   * Resources related to the access token.
-   */
-  "relationships"?: FullPersonalAccessTokenRelationships;
-  /**
-   * Personal access tokens resource type.
-   */
-  "type"?: PersonalAccessTokensType;
+  "type": LeakedKeyType;
 
   /**
    * A container for additional, undeclared properties.
@@ -46,21 +36,15 @@ export class FullPersonalAccessToken {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    attributes: {
-      baseName: "attributes",
-      type: "FullPersonalAccessTokenAttributes",
-    },
     id: {
       baseName: "id",
       type: "string",
-    },
-    relationships: {
-      baseName: "relationships",
-      type: "FullPersonalAccessTokenRelationships",
+      required: true,
     },
     type: {
       baseName: "type",
-      type: "PersonalAccessTokensType",
+      type: "LeakedKeyType",
+      required: true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -72,7 +56,7 @@ export class FullPersonalAccessToken {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-    return FullPersonalAccessToken.attributeTypeMap;
+    return RelationshipToLeakedKeyData.attributeTypeMap;
   }
 
   public constructor() {}

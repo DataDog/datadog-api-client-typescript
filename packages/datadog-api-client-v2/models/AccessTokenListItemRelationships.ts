@@ -4,6 +4,7 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 import { RelationshipToAccessTokenOwner } from "./RelationshipToAccessTokenOwner";
+import { RelationshipToLeakedKey } from "./RelationshipToLeakedKey";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
@@ -11,6 +12,10 @@ import { AttributeTypeMap } from "../../datadog-api-client-common/util";
  * Resources related to the access token entry in the mixed list response.
  */
 export class AccessTokenListItemRelationships {
+  /**
+   * Relationship to the leak the access token was found in. `data` is null when the access token has not been detected as leaked.
+   */
+  "leakInformation"?: RelationshipToLeakedKey;
   /**
    * Relationship to the access token's owner.
    */
@@ -32,6 +37,10 @@ export class AccessTokenListItemRelationships {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
+    leakInformation: {
+      baseName: "leak_information",
+      type: "RelationshipToLeakedKey",
+    },
     ownedBy: {
       baseName: "owned_by",
       type: "RelationshipToAccessTokenOwner",
