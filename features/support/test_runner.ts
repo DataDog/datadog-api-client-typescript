@@ -115,6 +115,7 @@ interface TestRunnerPlan {
   operation_id: string;
   request: {
     body?: { value: any };
+    selected_compression?: string;
     parameters: Array<{
       name: string;
       source: {
@@ -135,11 +136,15 @@ export function testServerEnabled(): boolean {
   return generatedTestsEnabled && process.env.DD_TEST_SERVER_URL !== undefined;
 }
 
-async function controlRequest(endpoint: string, body?: any): Promise<any> {
+async function controlRequest(
+  endpoint: string,
+  body?: any,
+  method = "POST"
+): Promise<any> {
   const response = await fetchImpl(
     `${process.env.DD_TEST_SERVER_URL}${CONTROL_ROOT}${endpoint}`,
     {
-      method: "POST",
+      method,
       headers: {
         connection: "close",
         "content-type": "application/json",
@@ -149,12 +154,27 @@ async function controlRequest(endpoint: string, body?: any): Promise<any> {
   );
   if (!response.ok) {
     throw new Error(
-      `Test server POST ${endpoint} failed (${
+      `Test server ${method} ${endpoint} failed (${
         response.status
       }): ${await response.text()}`
     );
   }
   return response.json();
+}
+
+export async function lastTestServerRequest(world: World): Promise<any> {
+  if (world.testServerSession === undefined) {
+    throw new Error("Generated test-server session has not been started");
+  }
+  const result = await controlRequest(
+    `/sessions/${world.testServerSession}/last-request`,
+    undefined,
+    "GET"
+  );
+  if (result.request == null) {
+    throw new Error("Generated test server has not received a request");
+  }
+  return result.request;
 }
 
 export async function startTestServerSession(
@@ -262,6 +282,9 @@ export function applyTestRunnerPlan(world: World, pagination: boolean): void {
 
   if (plan.request.body != null) {
     world.opts.body = materialize(plan.request.body.value, world.fixtures);
+  }
+  if (plan.request.selected_compression != null) {
+    world.opts.contentEncoding = plan.request.selected_compression;
   }
   for (const parameter of plan.request.parameters) {
     const value =
