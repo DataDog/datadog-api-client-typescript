@@ -3,6 +3,7 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
+import { AccessTokenResponseIncludedItem } from "./AccessTokenResponseIncludedItem";
 import { PersonalAccessToken } from "./PersonalAccessToken";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
@@ -15,6 +16,10 @@ export class PersonalAccessTokenResponse {
    * Datadog access token.
    */
   "data"?: PersonalAccessToken;
+  /**
+   * Array of objects related to the access tokens.
+   */
+  "included"?: Array<AccessTokenResponseIncludedItem>;
 
   /**
    * A container for additional, undeclared properties.
@@ -35,6 +40,10 @@ export class PersonalAccessTokenResponse {
     data: {
       baseName: "data",
       type: "PersonalAccessToken",
+    },
+    included: {
+      baseName: "included",
+      type: "Array<AccessTokenResponseIncludedItem>",
     },
     additionalProperties: {
       baseName: "additionalProperties",

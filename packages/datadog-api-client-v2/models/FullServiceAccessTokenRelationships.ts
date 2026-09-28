@@ -3,28 +3,18 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
-import { AccessTokenResponseIncludedItem } from "./AccessTokenResponseIncludedItem";
-import { ServiceAccessToken } from "./ServiceAccessToken";
-import { ServiceAccessTokenResponseMeta } from "./ServiceAccessTokenResponseMeta";
+import { RelationshipToServiceAccount } from "./RelationshipToServiceAccount";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * Response for a list of access tokens.
+ * Resources related to the access token.
  */
-export class ListServiceAccessTokensResponse {
+export class FullServiceAccessTokenRelationships {
   /**
-   * Array of access tokens.
+   * Relationship to service account.
    */
-  "data"?: Array<ServiceAccessToken>;
-  /**
-   * Array of objects related to the access tokens.
-   */
-  "included"?: Array<AccessTokenResponseIncludedItem>;
-  /**
-   * Additional information related to the access token response.
-   */
-  "meta"?: ServiceAccessTokenResponseMeta;
+  "ownedBy"?: RelationshipToServiceAccount;
 
   /**
    * A container for additional, undeclared properties.
@@ -42,17 +32,9 @@ export class ListServiceAccessTokensResponse {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    data: {
-      baseName: "data",
-      type: "Array<ServiceAccessToken>",
-    },
-    included: {
-      baseName: "included",
-      type: "Array<AccessTokenResponseIncludedItem>",
-    },
-    meta: {
-      baseName: "meta",
-      type: "ServiceAccessTokenResponseMeta",
+    ownedBy: {
+      baseName: "owned_by",
+      type: "RelationshipToServiceAccount",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -64,7 +46,7 @@ export class ListServiceAccessTokensResponse {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-    return ListServiceAccessTokensResponse.attributeTypeMap;
+    return FullServiceAccessTokenRelationships.attributeTypeMap;
   }
 
   public constructor() {}

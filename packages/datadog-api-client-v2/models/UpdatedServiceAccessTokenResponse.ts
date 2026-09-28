@@ -3,28 +3,18 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
-import { AccessTokenResponseIncludedItem } from "./AccessTokenResponseIncludedItem";
-import { ServiceAccessToken } from "./ServiceAccessToken";
-import { ServiceAccessTokenResponseMeta } from "./ServiceAccessTokenResponseMeta";
+import { UpdatedServiceAccessToken } from "./UpdatedServiceAccessToken";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * Response for a list of access tokens.
+ * Response for updating an access token.
  */
-export class ListServiceAccessTokensResponse {
+export class UpdatedServiceAccessTokenResponse {
   /**
-   * Array of access tokens.
+   * Datadog access token returned by the update endpoint.
    */
-  "data"?: Array<ServiceAccessToken>;
-  /**
-   * Array of objects related to the access tokens.
-   */
-  "included"?: Array<AccessTokenResponseIncludedItem>;
-  /**
-   * Additional information related to the access token response.
-   */
-  "meta"?: ServiceAccessTokenResponseMeta;
+  "data": UpdatedServiceAccessToken;
 
   /**
    * A container for additional, undeclared properties.
@@ -44,15 +34,8 @@ export class ListServiceAccessTokensResponse {
   static readonly attributeTypeMap: AttributeTypeMap = {
     data: {
       baseName: "data",
-      type: "Array<ServiceAccessToken>",
-    },
-    included: {
-      baseName: "included",
-      type: "Array<AccessTokenResponseIncludedItem>",
-    },
-    meta: {
-      baseName: "meta",
-      type: "ServiceAccessTokenResponseMeta",
+      type: "UpdatedServiceAccessToken",
+      required: true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -64,7 +47,7 @@ export class ListServiceAccessTokensResponse {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-    return ListServiceAccessTokensResponse.attributeTypeMap;
+    return UpdatedServiceAccessTokenResponse.attributeTypeMap;
   }
 
   public constructor() {}

@@ -4181,6 +4181,14 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             "type": "Array<string>",
             "format": "",
             },
+        "filterLeaked": {
+            "type": "boolean",
+            "format": "",
+            },
+        "include": {
+            "type": "Array<PersonalAccessTokensIncludeQueryParameterItem>",
+            "format": "",
+            },
         "operationResponseType": "ListPersonalAccessTokensResponse",
     },
     "v2.CreatePersonalAccessToken": {
@@ -4193,6 +4201,10 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
     "v2.GetPersonalAccessToken": {
         "tokenId": {
             "type": "string",
+            "format": "",
+            },
+        "include": {
+            "type": "Array<PersonalAccessTokensIncludeQueryParameterItem>",
             "format": "",
             },
         "operationResponseType": "PersonalAccessTokenResponse",
@@ -4213,7 +4225,7 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             "type": "PersonalAccessTokenUpdateRequest",
             "format": "",
             },
-        "operationResponseType": "PersonalAccessTokenResponse",
+        "operationResponseType": "UpdatedPersonalAccessTokenResponse",
     },
     "v2.Validate": {
         "operationResponseType": "ValidateV2Response",
@@ -17079,6 +17091,14 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             "type": "string",
             "format": "",
             },
+        "filterLeaked": {
+            "type": "boolean",
+            "format": "",
+            },
+        "include": {
+            "type": "Array<PersonalAccessTokensIncludeQueryParameterItem>",
+            "format": "",
+            },
         "operationResponseType": "ListServiceAccessTokensResponse",
     },
     "v2.CreateServiceAccountAccessToken": {
@@ -17099,6 +17119,10 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             },
         "tokenId": {
             "type": "string",
+            "format": "",
+            },
+        "include": {
+            "type": "Array<PersonalAccessTokensIncludeQueryParameterItem>",
             "format": "",
             },
         "operationResponseType": "ServiceAccessTokenResponse",
@@ -17127,7 +17151,7 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             "type": "ServiceAccountAccessTokenUpdateRequest",
             "format": "",
             },
-        "operationResponseType": "ServiceAccessTokenResponse",
+        "operationResponseType": "UpdatedServiceAccessTokenResponse",
     },
     "v2.ListServiceAccountApplicationKeys": {
         "serviceAccountId": {

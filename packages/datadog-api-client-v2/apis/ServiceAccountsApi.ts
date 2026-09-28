@@ -24,12 +24,14 @@ import { ApplicationKeyUpdateRequest } from "../models/ApplicationKeyUpdateReque
 import { ListApplicationKeysResponse } from "../models/ListApplicationKeysResponse";
 import { ListServiceAccessTokensResponse } from "../models/ListServiceAccessTokensResponse";
 import { PartialApplicationKeyResponse } from "../models/PartialApplicationKeyResponse";
+import { PersonalAccessTokensIncludeQueryParameterItem } from "../models/PersonalAccessTokensIncludeQueryParameterItem";
 import { PersonalAccessTokensSort } from "../models/PersonalAccessTokensSort";
 import { ServiceAccessTokenCreateResponse } from "../models/ServiceAccessTokenCreateResponse";
 import { ServiceAccessTokenResponse } from "../models/ServiceAccessTokenResponse";
 import { ServiceAccountAccessTokenCreateRequest } from "../models/ServiceAccountAccessTokenCreateRequest";
 import { ServiceAccountAccessTokenUpdateRequest } from "../models/ServiceAccountAccessTokenUpdateRequest";
 import { ServiceAccountCreateRequest } from "../models/ServiceAccountCreateRequest";
+import { UpdatedServiceAccessTokenResponse } from "../models/UpdatedServiceAccessTokenResponse";
 import { UserResponse } from "../models/UserResponse";
 
 export class ServiceAccountsApiRequestFactory extends BaseAPIRequestFactory {
@@ -258,6 +260,7 @@ export class ServiceAccountsApiRequestFactory extends BaseAPIRequestFactory {
   public async getServiceAccountAccessToken(
     serviceAccountId: string,
     tokenId: string,
+    include?: Array<PersonalAccessTokensIncludeQueryParameterItem>,
     _options?: Configuration
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
@@ -294,6 +297,19 @@ export class ServiceAccountsApiRequestFactory extends BaseAPIRequestFactory {
     // Set IaC header
     if (_config.isIaC) {
       requestContext.setHeaderParam("X-Datadog-Managed-By", "iac");
+    }
+
+    // Query Params
+    if (include !== undefined) {
+      requestContext.setQueryParam(
+        "include",
+        ObjectSerializer.serialize(
+          include,
+          "Array<PersonalAccessTokensIncludeQueryParameterItem>",
+          ""
+        ),
+        "csv"
+      );
     }
 
     // Apply auth methods
@@ -363,6 +379,8 @@ export class ServiceAccountsApiRequestFactory extends BaseAPIRequestFactory {
     pageNumber?: number,
     sort?: PersonalAccessTokensSort,
     filter?: string,
+    filterLeaked?: boolean,
+    include?: Array<PersonalAccessTokensIncludeQueryParameterItem>,
     _options?: Configuration
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
@@ -421,6 +439,24 @@ export class ServiceAccountsApiRequestFactory extends BaseAPIRequestFactory {
         "filter",
         ObjectSerializer.serialize(filter, "string", ""),
         ""
+      );
+    }
+    if (filterLeaked !== undefined) {
+      requestContext.setQueryParam(
+        "filter[leaked]",
+        ObjectSerializer.serialize(filterLeaked, "boolean", ""),
+        ""
+      );
+    }
+    if (include !== undefined) {
+      requestContext.setQueryParam(
+        "include",
+        ObjectSerializer.serialize(
+          include,
+          "Array<PersonalAccessTokensIncludeQueryParameterItem>",
+          ""
+        ),
+        "csv"
       );
     }
 
@@ -1276,15 +1312,16 @@ export class ServiceAccountsApiResponseProcessor {
    */
   public async updateServiceAccountAccessToken(
     response: ResponseContext
-  ): Promise<ServiceAccessTokenResponse> {
+  ): Promise<UpdatedServiceAccessTokenResponse> {
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 200) {
-      const body: ServiceAccessTokenResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "ServiceAccessTokenResponse"
-      ) as ServiceAccessTokenResponse;
+      const body: UpdatedServiceAccessTokenResponse =
+        ObjectSerializer.deserialize(
+          ObjectSerializer.parse(await response.body.text(), contentType),
+          "UpdatedServiceAccessTokenResponse"
+        ) as UpdatedServiceAccessTokenResponse;
       return body;
     }
     if (
@@ -1315,11 +1352,12 @@ export class ServiceAccountsApiResponseProcessor {
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-      const body: ServiceAccessTokenResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "ServiceAccessTokenResponse",
-        ""
-      ) as ServiceAccessTokenResponse;
+      const body: UpdatedServiceAccessTokenResponse =
+        ObjectSerializer.deserialize(
+          ObjectSerializer.parse(await response.body.text(), contentType),
+          "UpdatedServiceAccessTokenResponse",
+          ""
+        ) as UpdatedServiceAccessTokenResponse;
       return body;
     }
 
@@ -1449,6 +1487,11 @@ export interface ServiceAccountsApiGetServiceAccountAccessTokenRequest {
    * @type string
    */
   tokenId: string;
+  /**
+   * Comma-separated list of relationship objects that should be included in the response.
+   * @type Array<PersonalAccessTokensIncludeQueryParameterItem>
+   */
+  include?: Array<PersonalAccessTokensIncludeQueryParameterItem>;
 }
 
 export interface ServiceAccountsApiGetServiceAccountApplicationKeyRequest {
@@ -1492,6 +1535,16 @@ export interface ServiceAccountsApiListServiceAccountAccessTokensRequest {
    * @type string
    */
   filter?: string;
+  /**
+   * When true, only return access tokens that have been detected as leaked. Has no effect when false.
+   * @type boolean
+   */
+  filterLeaked?: boolean;
+  /**
+   * Comma-separated list of relationship objects that should be included in the response.
+   * @type Array<PersonalAccessTokensIncludeQueryParameterItem>
+   */
+  include?: Array<PersonalAccessTokensIncludeQueryParameterItem>;
 }
 
 export interface ServiceAccountsApiListServiceAccountApplicationKeysRequest {
@@ -1706,6 +1759,7 @@ export class ServiceAccountsApi {
       this.requestFactory.getServiceAccountAccessToken(
         param.serviceAccountId,
         param.tokenId,
+        param.include,
         options
       );
     return requestContextPromise.then((requestContext) => {
@@ -1759,6 +1813,8 @@ export class ServiceAccountsApi {
         param.pageNumber,
         param.sort,
         param.filter,
+        param.filterLeaked,
+        param.include,
         options
       );
     return requestContextPromise.then((requestContext) => {
@@ -1834,7 +1890,7 @@ export class ServiceAccountsApi {
   public updateServiceAccountAccessToken(
     param: ServiceAccountsApiUpdateServiceAccountAccessTokenRequest,
     options?: Configuration
-  ): Promise<ServiceAccessTokenResponse> {
+  ): Promise<UpdatedServiceAccessTokenResponse> {
     const requestContextPromise =
       this.requestFactory.updateServiceAccountAccessToken(
         param.serviceAccountId,

@@ -32,8 +32,10 @@ import { ListPersonalAccessTokensResponse } from "../models/ListPersonalAccessTo
 import { PersonalAccessTokenCreateRequest } from "../models/PersonalAccessTokenCreateRequest";
 import { PersonalAccessTokenCreateResponse } from "../models/PersonalAccessTokenCreateResponse";
 import { PersonalAccessTokenResponse } from "../models/PersonalAccessTokenResponse";
+import { PersonalAccessTokensIncludeQueryParameterItem } from "../models/PersonalAccessTokensIncludeQueryParameterItem";
 import { PersonalAccessTokensSort } from "../models/PersonalAccessTokensSort";
 import { PersonalAccessTokenUpdateRequest } from "../models/PersonalAccessTokenUpdateRequest";
+import { UpdatedPersonalAccessTokenResponse } from "../models/UpdatedPersonalAccessTokenResponse";
 import { ValidateAPIKeyResponse } from "../models/ValidateAPIKeyResponse";
 import { ValidateV2Response } from "../models/ValidateV2Response";
 
@@ -437,6 +439,7 @@ export class KeyManagementApiRequestFactory extends BaseAPIRequestFactory {
 
   public async getPersonalAccessToken(
     tokenId: string,
+    include?: Array<PersonalAccessTokensIncludeQueryParameterItem>,
     _options?: Configuration
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
@@ -462,6 +465,19 @@ export class KeyManagementApiRequestFactory extends BaseAPIRequestFactory {
     // Set IaC header
     if (_config.isIaC) {
       requestContext.setHeaderParam("X-Datadog-Managed-By", "iac");
+    }
+
+    // Query Params
+    if (include !== undefined) {
+      requestContext.setQueryParam(
+        "include",
+        ObjectSerializer.serialize(
+          include,
+          "Array<PersonalAccessTokensIncludeQueryParameterItem>",
+          ""
+        ),
+        "csv"
+      );
     }
 
     // Apply auth methods
@@ -788,6 +804,8 @@ export class KeyManagementApiRequestFactory extends BaseAPIRequestFactory {
     sort?: PersonalAccessTokensSort,
     filter?: string,
     filterOwnedBy?: Array<string>,
+    filterLeaked?: boolean,
+    include?: Array<PersonalAccessTokensIncludeQueryParameterItem>,
     _options?: Configuration
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
@@ -841,6 +859,24 @@ export class KeyManagementApiRequestFactory extends BaseAPIRequestFactory {
         "filter[owned_by]",
         ObjectSerializer.serialize(filterOwnedBy, "Array<string>", ""),
         "multi"
+      );
+    }
+    if (filterLeaked !== undefined) {
+      requestContext.setQueryParam(
+        "filter[leaked]",
+        ObjectSerializer.serialize(filterLeaked, "boolean", ""),
+        ""
+      );
+    }
+    if (include !== undefined) {
+      requestContext.setQueryParam(
+        "include",
+        ObjectSerializer.serialize(
+          include,
+          "Array<PersonalAccessTokensIncludeQueryParameterItem>",
+          ""
+        ),
+        "csv"
       );
     }
 
@@ -2272,15 +2308,16 @@ export class KeyManagementApiResponseProcessor {
    */
   public async updatePersonalAccessToken(
     response: ResponseContext
-  ): Promise<PersonalAccessTokenResponse> {
+  ): Promise<UpdatedPersonalAccessTokenResponse> {
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 200) {
-      const body: PersonalAccessTokenResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "PersonalAccessTokenResponse"
-      ) as PersonalAccessTokenResponse;
+      const body: UpdatedPersonalAccessTokenResponse =
+        ObjectSerializer.deserialize(
+          ObjectSerializer.parse(await response.body.text(), contentType),
+          "UpdatedPersonalAccessTokenResponse"
+        ) as UpdatedPersonalAccessTokenResponse;
       return body;
     }
     if (
@@ -2311,11 +2348,12 @@ export class KeyManagementApiResponseProcessor {
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-      const body: PersonalAccessTokenResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "PersonalAccessTokenResponse",
-        ""
-      ) as PersonalAccessTokenResponse;
+      const body: UpdatedPersonalAccessTokenResponse =
+        ObjectSerializer.deserialize(
+          ObjectSerializer.parse(await response.body.text(), contentType),
+          "UpdatedPersonalAccessTokenResponse",
+          ""
+        ) as UpdatedPersonalAccessTokenResponse;
       return body;
     }
 
@@ -2555,6 +2593,11 @@ export interface KeyManagementApiGetPersonalAccessTokenRequest {
    * @type string
    */
   tokenId: string;
+  /**
+   * Comma-separated list of relationship objects that should be included in the response.
+   * @type Array<PersonalAccessTokensIncludeQueryParameterItem>
+   */
+  include?: Array<PersonalAccessTokensIncludeQueryParameterItem>;
 }
 
 export interface KeyManagementApiListAPIKeysRequest {
@@ -2730,6 +2773,16 @@ export interface KeyManagementApiListPersonalAccessTokensRequest {
    * @type Array<string>
    */
   filterOwnedBy?: Array<string>;
+  /**
+   * When true, only return access tokens that have been detected as leaked. Has no effect when false.
+   * @type boolean
+   */
+  filterLeaked?: boolean;
+  /**
+   * Comma-separated list of relationship objects that should be included in the response.
+   * @type Array<PersonalAccessTokensIncludeQueryParameterItem>
+   */
+  include?: Array<PersonalAccessTokensIncludeQueryParameterItem>;
 }
 
 export interface KeyManagementApiRevokePersonalAccessTokenRequest {
@@ -3012,6 +3065,7 @@ export class KeyManagementApi {
   ): Promise<PersonalAccessTokenResponse> {
     const requestContextPromise = this.requestFactory.getPersonalAccessToken(
       param.tokenId,
+      param.include,
       options
     );
     return requestContextPromise.then((requestContext) => {
@@ -3126,6 +3180,8 @@ export class KeyManagementApi {
       param.sort,
       param.filter,
       param.filterOwnedBy,
+      param.filterLeaked,
+      param.include,
       options
     );
     return requestContextPromise.then((requestContext) => {
@@ -3239,7 +3295,7 @@ export class KeyManagementApi {
   public updatePersonalAccessToken(
     param: KeyManagementApiUpdatePersonalAccessTokenRequest,
     options?: Configuration
-  ): Promise<PersonalAccessTokenResponse> {
+  ): Promise<UpdatedPersonalAccessTokenResponse> {
     const requestContextPromise = this.requestFactory.updatePersonalAccessToken(
       param.tokenId,
       param.body,

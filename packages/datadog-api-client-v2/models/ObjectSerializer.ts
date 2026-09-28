@@ -2027,8 +2027,10 @@ import { FullCustomFrameworkData } from "./FullCustomFrameworkData";
 import { FullCustomFrameworkDataAttributes } from "./FullCustomFrameworkDataAttributes";
 import { FullPersonalAccessToken } from "./FullPersonalAccessToken";
 import { FullPersonalAccessTokenAttributes } from "./FullPersonalAccessTokenAttributes";
+import { FullPersonalAccessTokenRelationships } from "./FullPersonalAccessTokenRelationships";
 import { FullServiceAccessToken } from "./FullServiceAccessToken";
 import { FullServiceAccessTokenAttributes } from "./FullServiceAccessTokenAttributes";
+import { FullServiceAccessTokenRelationships } from "./FullServiceAccessTokenRelationships";
 import { GCPIntegration } from "./GCPIntegration";
 import { GCPIntegrationUpdate } from "./GCPIntegrationUpdate";
 import { GCPMetricNamespaceConfig } from "./GCPMetricNamespaceConfig";
@@ -4342,6 +4344,8 @@ import { RelationshipToIncidentType } from "./RelationshipToIncidentType";
 import { RelationshipToIncidentTypeData } from "./RelationshipToIncidentTypeData";
 import { RelationshipToIncidentUserDefinedFieldData } from "./RelationshipToIncidentUserDefinedFieldData";
 import { RelationshipToIncidentUserDefinedFields } from "./RelationshipToIncidentUserDefinedFields";
+import { RelationshipToLeakedKey } from "./RelationshipToLeakedKey";
+import { RelationshipToLeakedKeyData } from "./RelationshipToLeakedKeyData";
 import { RelationshipToOrganization } from "./RelationshipToOrganization";
 import { RelationshipToOrganizationData } from "./RelationshipToOrganizationData";
 import { RelationshipToOrganizations } from "./RelationshipToOrganizations";
@@ -6007,6 +6011,12 @@ import { UpdateUserIdentityProvidersRequest } from "./UpdateUserIdentityProvider
 import { UpdateVariantRequest } from "./UpdateVariantRequest";
 import { UpdateWorkflowRequest } from "./UpdateWorkflowRequest";
 import { UpdateWorkflowResponse } from "./UpdateWorkflowResponse";
+import { UpdatedPersonalAccessToken } from "./UpdatedPersonalAccessToken";
+import { UpdatedPersonalAccessTokenRelationships } from "./UpdatedPersonalAccessTokenRelationships";
+import { UpdatedPersonalAccessTokenResponse } from "./UpdatedPersonalAccessTokenResponse";
+import { UpdatedServiceAccessToken } from "./UpdatedServiceAccessToken";
+import { UpdatedServiceAccessTokenRelationships } from "./UpdatedServiceAccessTokenRelationships";
+import { UpdatedServiceAccessTokenResponse } from "./UpdatedServiceAccessTokenResponse";
 import { UpsertAllocationRequest } from "./UpsertAllocationRequest";
 import { UpsertAndPublishFormVersionData } from "./UpsertAndPublishFormVersionData";
 import { UpsertAndPublishFormVersionDataAttributes } from "./UpsertAndPublishFormVersionDataAttributes";
@@ -8270,6 +8280,7 @@ const enumsMap: { [key: string]: any[] } = {
   PatchMaintenanceUpdateRequestDataType: ["maintenance_updates"],
   PatchTableRequestDataType: ["reference_table"],
   PermissionsType: ["permissions"],
+  PersonalAccessTokensIncludeQueryParameterItem: ["leak_information"],
   PersonalAccessTokensSort: [
     "name",
     "-name",
@@ -8279,6 +8290,8 @@ const enumsMap: { [key: string]: any[] } = {
     "-expires_at",
     "last_used_at",
     "-last_used_at",
+    "leaked",
+    "-leaked",
   ],
   PersonalAccessTokensType: ["personal_access_tokens"],
   PlaylistDataType: ["rum_replay_playlist"],
@@ -11987,8 +12000,10 @@ const typeMap: { [index: string]: any } = {
   FullCustomFrameworkDataAttributes: FullCustomFrameworkDataAttributes,
   FullPersonalAccessToken: FullPersonalAccessToken,
   FullPersonalAccessTokenAttributes: FullPersonalAccessTokenAttributes,
+  FullPersonalAccessTokenRelationships: FullPersonalAccessTokenRelationships,
   FullServiceAccessToken: FullServiceAccessToken,
   FullServiceAccessTokenAttributes: FullServiceAccessTokenAttributes,
+  FullServiceAccessTokenRelationships: FullServiceAccessTokenRelationships,
   GCPIntegration: GCPIntegration,
   GCPIntegrationUpdate: GCPIntegrationUpdate,
   GCPMetricNamespaceConfig: GCPMetricNamespaceConfig,
@@ -14853,6 +14868,8 @@ const typeMap: { [index: string]: any } = {
     RelationshipToIncidentUserDefinedFieldData,
   RelationshipToIncidentUserDefinedFields:
     RelationshipToIncidentUserDefinedFields,
+  RelationshipToLeakedKey: RelationshipToLeakedKey,
+  RelationshipToLeakedKeyData: RelationshipToLeakedKeyData,
   RelationshipToOrganization: RelationshipToOrganization,
   RelationshipToOrganizationData: RelationshipToOrganizationData,
   RelationshipToOrganizations: RelationshipToOrganizations,
@@ -17002,6 +17019,14 @@ const typeMap: { [index: string]: any } = {
   UpdateVariantRequest: UpdateVariantRequest,
   UpdateWorkflowRequest: UpdateWorkflowRequest,
   UpdateWorkflowResponse: UpdateWorkflowResponse,
+  UpdatedPersonalAccessToken: UpdatedPersonalAccessToken,
+  UpdatedPersonalAccessTokenRelationships:
+    UpdatedPersonalAccessTokenRelationships,
+  UpdatedPersonalAccessTokenResponse: UpdatedPersonalAccessTokenResponse,
+  UpdatedServiceAccessToken: UpdatedServiceAccessToken,
+  UpdatedServiceAccessTokenRelationships:
+    UpdatedServiceAccessTokenRelationships,
+  UpdatedServiceAccessTokenResponse: UpdatedServiceAccessTokenResponse,
   UpsertAllocationRequest: UpsertAllocationRequest,
   UpsertAndPublishFormVersionData: UpsertAndPublishFormVersionData,
   UpsertAndPublishFormVersionDataAttributes:
@@ -17244,6 +17269,7 @@ const oneOfMap: { [index: string]: string[] } = {
     "AWSNamespaceFiltersIncludeOnly",
   ],
   AWSRegions: ["AWSRegionsIncludeAll", "AWSRegionsIncludeOnly"],
+  AccessTokenResponseIncludedItem: ["LeakedKey"],
   ActionConnectionIntegration: [
     "AWSIntegration",
     "AnthropicIntegration",

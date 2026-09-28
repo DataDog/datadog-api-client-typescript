@@ -4,6 +4,7 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 import { AccessTokenListItem } from "./AccessTokenListItem";
+import { AccessTokenResponseIncludedItem } from "./AccessTokenResponseIncludedItem";
 import { PersonalAccessTokenResponseMeta } from "./PersonalAccessTokenResponseMeta";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
@@ -16,6 +17,10 @@ export class ListPersonalAccessTokensResponse {
    * Array of access tokens. Includes both personal and service access tokens.
    */
   "data"?: Array<AccessTokenListItem>;
+  /**
+   * Array of objects related to the access tokens.
+   */
+  "included"?: Array<AccessTokenResponseIncludedItem>;
   /**
    * Additional information related to the access token response.
    */
@@ -40,6 +45,10 @@ export class ListPersonalAccessTokensResponse {
     data: {
       baseName: "data",
       type: "Array<AccessTokenListItem>",
+    },
+    included: {
+      baseName: "included",
+      type: "Array<AccessTokenResponseIncludedItem>",
     },
     meta: {
       baseName: "meta",
