@@ -30,6 +30,7 @@ import { FullApplicationKey } from "./FullApplicationKey";
 import { FullApplicationKeyAttributes } from "./FullApplicationKeyAttributes";
 import { FullPersonalAccessToken } from "./FullPersonalAccessToken";
 import { FullPersonalAccessTokenAttributes } from "./FullPersonalAccessTokenAttributes";
+import { FullPersonalAccessTokenRelationships } from "./FullPersonalAccessTokenRelationships";
 import { JSONAPIErrorItem } from "./JSONAPIErrorItem";
 import { JSONAPIErrorItemSource } from "./JSONAPIErrorItemSource";
 import { JSONAPIErrorResponse } from "./JSONAPIErrorResponse";
@@ -58,6 +59,8 @@ import { PersonalAccessTokenUpdateData } from "./PersonalAccessTokenUpdateData";
 import { PersonalAccessTokenUpdateRequest } from "./PersonalAccessTokenUpdateRequest";
 import { RelationshipToAccessTokenOwner } from "./RelationshipToAccessTokenOwner";
 import { RelationshipToAccessTokenOwnerData } from "./RelationshipToAccessTokenOwnerData";
+import { RelationshipToLeakedKey } from "./RelationshipToLeakedKey";
+import { RelationshipToLeakedKeyData } from "./RelationshipToLeakedKeyData";
 import { RelationshipToOrganization } from "./RelationshipToOrganization";
 import { RelationshipToOrganizationData } from "./RelationshipToOrganizationData";
 import { RelationshipToOrganizations } from "./RelationshipToOrganizations";
@@ -71,6 +74,9 @@ import { RelationshipToUsers } from "./RelationshipToUsers";
 import { Role } from "./Role";
 import { RoleAttributes } from "./RoleAttributes";
 import { RoleResponseRelationships } from "./RoleResponseRelationships";
+import { UpdatedPersonalAccessToken } from "./UpdatedPersonalAccessToken";
+import { UpdatedPersonalAccessTokenRelationships } from "./UpdatedPersonalAccessTokenRelationships";
+import { UpdatedPersonalAccessTokenResponse } from "./UpdatedPersonalAccessTokenResponse";
 import { User } from "./User";
 import { UserAttributes } from "./UserAttributes";
 import { UserResponseRelationships } from "./UserResponseRelationships";
@@ -106,6 +112,7 @@ export const TypingInfo: ModelTypingInfo = {
     LeakedKeyType: ["leaked_keys"],
     OrganizationsType: ["orgs"],
     PermissionsType: ["permissions"],
+    PersonalAccessTokensIncludeQueryParameterItem: ["leak_information"],
     PersonalAccessTokensSort: [
       "name",
       "-name",
@@ -115,6 +122,8 @@ export const TypingInfo: ModelTypingInfo = {
       "-expires_at",
       "last_used_at",
       "-last_used_at",
+      "leaked",
+      "-leaked",
     ],
     PersonalAccessTokensType: ["personal_access_tokens"],
     RolesType: ["roles"],
@@ -124,6 +133,7 @@ export const TypingInfo: ModelTypingInfo = {
   },
   oneOfMap: {
     APIKeyResponseIncludedItem: ["User", "LeakedKey"],
+    AccessTokenResponseIncludedItem: ["LeakedKey"],
     ApplicationKeyResponseIncludedItem: ["User", "Role", "LeakedKey"],
   },
   typeMap: {
@@ -157,6 +167,7 @@ export const TypingInfo: ModelTypingInfo = {
     FullApplicationKeyAttributes: FullApplicationKeyAttributes,
     FullPersonalAccessToken: FullPersonalAccessToken,
     FullPersonalAccessTokenAttributes: FullPersonalAccessTokenAttributes,
+    FullPersonalAccessTokenRelationships: FullPersonalAccessTokenRelationships,
     JSONAPIErrorItem: JSONAPIErrorItem,
     JSONAPIErrorItemSource: JSONAPIErrorItemSource,
     JSONAPIErrorResponse: JSONAPIErrorResponse,
@@ -185,6 +196,8 @@ export const TypingInfo: ModelTypingInfo = {
     PersonalAccessTokenUpdateRequest: PersonalAccessTokenUpdateRequest,
     RelationshipToAccessTokenOwner: RelationshipToAccessTokenOwner,
     RelationshipToAccessTokenOwnerData: RelationshipToAccessTokenOwnerData,
+    RelationshipToLeakedKey: RelationshipToLeakedKey,
+    RelationshipToLeakedKeyData: RelationshipToLeakedKeyData,
     RelationshipToOrganization: RelationshipToOrganization,
     RelationshipToOrganizationData: RelationshipToOrganizationData,
     RelationshipToOrganizations: RelationshipToOrganizations,
@@ -198,6 +211,10 @@ export const TypingInfo: ModelTypingInfo = {
     Role: Role,
     RoleAttributes: RoleAttributes,
     RoleResponseRelationships: RoleResponseRelationships,
+    UpdatedPersonalAccessToken: UpdatedPersonalAccessToken,
+    UpdatedPersonalAccessTokenRelationships:
+      UpdatedPersonalAccessTokenRelationships,
+    UpdatedPersonalAccessTokenResponse: UpdatedPersonalAccessTokenResponse,
     User: User,
     UserAttributes: UserAttributes,
     UserResponseRelationships: UserResponseRelationships,

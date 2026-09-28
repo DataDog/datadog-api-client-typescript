@@ -1,5 +1,6 @@
 import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
+import { AccessTokenResponseIncludedItem } from "./AccessTokenResponseIncludedItem";
 import { ServiceAccessToken } from "./ServiceAccessToken";
 
 /**
@@ -10,6 +11,10 @@ export class ServiceAccessTokenResponse {
    * Datadog access token.
    */
   "data"?: ServiceAccessToken;
+  /**
+   * Array of objects related to the access tokens.
+   */
+  "included"?: Array<AccessTokenResponseIncludedItem>;
   /**
    * A container for additional, undeclared properties.
    * This is a holder for any undeclared properties as specified with
@@ -28,6 +33,10 @@ export class ServiceAccessTokenResponse {
     data: {
       baseName: "data",
       type: "ServiceAccessToken",
+    },
+    included: {
+      baseName: "included",
+      type: "Array<AccessTokenResponseIncludedItem>",
     },
     additionalProperties: {
       baseName: "additionalProperties",

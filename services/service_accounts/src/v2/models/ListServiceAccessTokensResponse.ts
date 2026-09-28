@@ -1,5 +1,6 @@
 import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
+import { AccessTokenResponseIncludedItem } from "./AccessTokenResponseIncludedItem";
 import { ServiceAccessToken } from "./ServiceAccessToken";
 import { ServiceAccessTokenResponseMeta } from "./ServiceAccessTokenResponseMeta";
 
@@ -11,6 +12,10 @@ export class ListServiceAccessTokensResponse {
    * Array of access tokens.
    */
   "data"?: Array<ServiceAccessToken>;
+  /**
+   * Array of objects related to the access tokens.
+   */
+  "included"?: Array<AccessTokenResponseIncludedItem>;
   /**
    * Additional information related to the access token response.
    */
@@ -33,6 +38,10 @@ export class ListServiceAccessTokensResponse {
     data: {
       baseName: "data",
       type: "Array<ServiceAccessToken>",
+    },
+    included: {
+      baseName: "included",
+      type: "Array<AccessTokenResponseIncludedItem>",
     },
     meta: {
       baseName: "meta",

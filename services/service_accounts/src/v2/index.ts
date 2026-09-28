@@ -13,6 +13,7 @@ export {
   ServiceAccountsApi,
 } from "./ServiceAccountsApi";
 
+export { AccessTokenResponseIncludedItem } from "./models/AccessTokenResponseIncludedItem";
 export { APIErrorResponse } from "./models/APIErrorResponse";
 export { ApplicationKeyCreateAttributes } from "./models/ApplicationKeyCreateAttributes";
 export { ApplicationKeyCreateData } from "./models/ApplicationKeyCreateData";
@@ -31,6 +32,7 @@ export { FullApplicationKey } from "./models/FullApplicationKey";
 export { FullApplicationKeyAttributes } from "./models/FullApplicationKeyAttributes";
 export { FullServiceAccessToken } from "./models/FullServiceAccessToken";
 export { FullServiceAccessTokenAttributes } from "./models/FullServiceAccessTokenAttributes";
+export { FullServiceAccessTokenRelationships } from "./models/FullServiceAccessTokenRelationships";
 export { LeakedKey } from "./models/LeakedKey";
 export { LeakedKeyAttributes } from "./models/LeakedKeyAttributes";
 export { LeakedKeyType } from "./models/LeakedKeyType";
@@ -45,7 +47,10 @@ export { PartialApplicationKeyResponse } from "./models/PartialApplicationKeyRes
 export { Permission } from "./models/Permission";
 export { PermissionAttributes } from "./models/PermissionAttributes";
 export { PermissionsType } from "./models/PermissionsType";
+export { PersonalAccessTokensIncludeQueryParameterItem } from "./models/PersonalAccessTokensIncludeQueryParameterItem";
 export { PersonalAccessTokensSort } from "./models/PersonalAccessTokensSort";
+export { RelationshipToLeakedKey } from "./models/RelationshipToLeakedKey";
+export { RelationshipToLeakedKeyData } from "./models/RelationshipToLeakedKeyData";
 export { RelationshipToOrganization } from "./models/RelationshipToOrganization";
 export { RelationshipToOrganizationData } from "./models/RelationshipToOrganizationData";
 export { RelationshipToOrganizations } from "./models/RelationshipToOrganizations";
@@ -80,6 +85,9 @@ export { ServiceAccountCreateAttributes } from "./models/ServiceAccountCreateAtt
 export { ServiceAccountCreateData } from "./models/ServiceAccountCreateData";
 export { ServiceAccountCreateRequest } from "./models/ServiceAccountCreateRequest";
 export { ServiceAccountType } from "./models/ServiceAccountType";
+export { UpdatedServiceAccessToken } from "./models/UpdatedServiceAccessToken";
+export { UpdatedServiceAccessTokenRelationships } from "./models/UpdatedServiceAccessTokenRelationships";
+export { UpdatedServiceAccessTokenResponse } from "./models/UpdatedServiceAccessTokenResponse";
 export { User } from "./models/User";
 export { UserAttributes } from "./models/UserAttributes";
 export { UserRelationships } from "./models/UserRelationships";

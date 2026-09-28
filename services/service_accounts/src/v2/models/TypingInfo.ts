@@ -15,6 +15,7 @@ import { FullApplicationKey } from "./FullApplicationKey";
 import { FullApplicationKeyAttributes } from "./FullApplicationKeyAttributes";
 import { FullServiceAccessToken } from "./FullServiceAccessToken";
 import { FullServiceAccessTokenAttributes } from "./FullServiceAccessTokenAttributes";
+import { FullServiceAccessTokenRelationships } from "./FullServiceAccessTokenRelationships";
 import { LeakedKey } from "./LeakedKey";
 import { LeakedKeyAttributes } from "./LeakedKeyAttributes";
 import { ListApplicationKeysResponse } from "./ListApplicationKeysResponse";
@@ -26,6 +27,8 @@ import { PartialApplicationKeyAttributes } from "./PartialApplicationKeyAttribut
 import { PartialApplicationKeyResponse } from "./PartialApplicationKeyResponse";
 import { Permission } from "./Permission";
 import { PermissionAttributes } from "./PermissionAttributes";
+import { RelationshipToLeakedKey } from "./RelationshipToLeakedKey";
+import { RelationshipToLeakedKeyData } from "./RelationshipToLeakedKeyData";
 import { RelationshipToOrganization } from "./RelationshipToOrganization";
 import { RelationshipToOrganizationData } from "./RelationshipToOrganizationData";
 import { RelationshipToOrganizations } from "./RelationshipToOrganizations";
@@ -57,6 +60,9 @@ import { ServiceAccountAccessTokenUpdateRequest } from "./ServiceAccountAccessTo
 import { ServiceAccountCreateAttributes } from "./ServiceAccountCreateAttributes";
 import { ServiceAccountCreateData } from "./ServiceAccountCreateData";
 import { ServiceAccountCreateRequest } from "./ServiceAccountCreateRequest";
+import { UpdatedServiceAccessToken } from "./UpdatedServiceAccessToken";
+import { UpdatedServiceAccessTokenRelationships } from "./UpdatedServiceAccessTokenRelationships";
+import { UpdatedServiceAccessTokenResponse } from "./UpdatedServiceAccessTokenResponse";
 import { User } from "./User";
 import { UserAttributes } from "./UserAttributes";
 import { UserRelationships } from "./UserRelationships";
@@ -77,6 +83,7 @@ export const TypingInfo: ModelTypingInfo = {
     LeakedKeyType: ["leaked_keys"],
     OrganizationsType: ["orgs"],
     PermissionsType: ["permissions"],
+    PersonalAccessTokensIncludeQueryParameterItem: ["leak_information"],
     PersonalAccessTokensSort: [
       "name",
       "-name",
@@ -86,6 +93,8 @@ export const TypingInfo: ModelTypingInfo = {
       "-expires_at",
       "last_used_at",
       "-last_used_at",
+      "leaked",
+      "-leaked",
     ],
     RolesType: ["roles"],
     ServiceAccessTokensType: ["service_access_tokens"],
@@ -93,6 +102,7 @@ export const TypingInfo: ModelTypingInfo = {
     UsersType: ["users"],
   },
   oneOfMap: {
+    AccessTokenResponseIncludedItem: ["LeakedKey"],
     ApplicationKeyResponseIncludedItem: ["User", "Role", "LeakedKey"],
     UserResponseIncludedItem: ["Organization", "Permission", "Role"],
   },
@@ -112,6 +122,7 @@ export const TypingInfo: ModelTypingInfo = {
     FullApplicationKeyAttributes: FullApplicationKeyAttributes,
     FullServiceAccessToken: FullServiceAccessToken,
     FullServiceAccessTokenAttributes: FullServiceAccessTokenAttributes,
+    FullServiceAccessTokenRelationships: FullServiceAccessTokenRelationships,
     LeakedKey: LeakedKey,
     LeakedKeyAttributes: LeakedKeyAttributes,
     ListApplicationKeysResponse: ListApplicationKeysResponse,
@@ -123,6 +134,8 @@ export const TypingInfo: ModelTypingInfo = {
     PartialApplicationKeyResponse: PartialApplicationKeyResponse,
     Permission: Permission,
     PermissionAttributes: PermissionAttributes,
+    RelationshipToLeakedKey: RelationshipToLeakedKey,
+    RelationshipToLeakedKeyData: RelationshipToLeakedKeyData,
     RelationshipToOrganization: RelationshipToOrganization,
     RelationshipToOrganizationData: RelationshipToOrganizationData,
     RelationshipToOrganizations: RelationshipToOrganizations,
@@ -158,6 +171,10 @@ export const TypingInfo: ModelTypingInfo = {
     ServiceAccountCreateAttributes: ServiceAccountCreateAttributes,
     ServiceAccountCreateData: ServiceAccountCreateData,
     ServiceAccountCreateRequest: ServiceAccountCreateRequest,
+    UpdatedServiceAccessToken: UpdatedServiceAccessToken,
+    UpdatedServiceAccessTokenRelationships:
+      UpdatedServiceAccessTokenRelationships,
+    UpdatedServiceAccessTokenResponse: UpdatedServiceAccessTokenResponse,
     User: User,
     UserAttributes: UserAttributes,
     UserRelationships: UserRelationships,
