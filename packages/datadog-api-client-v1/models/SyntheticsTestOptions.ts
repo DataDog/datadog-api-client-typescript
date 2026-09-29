@@ -26,6 +26,10 @@ export class SyntheticsTestOptions {
    */
   "allowInsecure"?: boolean;
   /**
+   * Whether Bits AI automatically investigates alerts from the test monitor.
+   */
+  "bitsAiAutoInvestigate"?: boolean;
+  /**
    * Array of URL patterns to block.
    */
   "blockedRequestPatterns"?: Array<string>;
@@ -164,6 +168,10 @@ export class SyntheticsTestOptions {
     },
     allowInsecure: {
       baseName: "allow_insecure",
+      type: "boolean",
+    },
+    bitsAiAutoInvestigate: {
+      baseName: "bits_ai_auto_investigate",
       type: "boolean",
     },
     blockedRequestPatterns: {

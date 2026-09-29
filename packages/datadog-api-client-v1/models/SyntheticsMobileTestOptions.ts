@@ -25,6 +25,10 @@ export class SyntheticsMobileTestOptions {
    */
   "bindings"?: Array<SyntheticsTestRestrictionPolicyBinding>;
   /**
+   * Whether Bits AI automatically investigates alerts from the test monitor.
+   */
+  "bitsAiAutoInvestigate"?: boolean;
+  /**
    * CI/CD options for a Synthetic test.
    */
   "ci"?: SyntheticsTestCiOptions;
@@ -109,6 +113,10 @@ export class SyntheticsMobileTestOptions {
     bindings: {
       baseName: "bindings",
       type: "Array<SyntheticsTestRestrictionPolicyBinding>",
+    },
+    bitsAiAutoInvestigate: {
+      baseName: "bits_ai_auto_investigate",
+      type: "boolean",
     },
     ci: {
       baseName: "ci",
