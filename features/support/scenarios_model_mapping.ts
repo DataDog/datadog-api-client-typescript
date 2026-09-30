@@ -2528,6 +2528,13 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             },
         "operationResponseType": "FleetScheduleV2Response",
     },
+    "v2.GetFleetConfigFileSchemaV2": {
+        "filePath": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "FleetConfigFileSchemaV2Response",
+    },
     "v2.ListLLMObsCustomEvalConfigs": {
         "operationResponseType": "LLMObsCustomEvalConfigListResponse",
     },
