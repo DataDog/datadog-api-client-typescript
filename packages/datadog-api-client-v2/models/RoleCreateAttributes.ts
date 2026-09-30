@@ -15,6 +15,12 @@ export class RoleCreateAttributes {
    */
   "createdAt"?: Date;
   /**
+   * Whether to exclude restricted default permissions from this role.
+   * Restricted default permissions are automatically assigned to every role by default. Set this field to `true` to exclude them.
+   * Some of these permissions can only be excluded after Minimal Access Roles is enabled for the organization.
+   */
+  "defaultPermissionsOptOut"?: boolean;
+  /**
    * Time of last role modification.
    */
   "modifiedAt"?: Date;
@@ -49,6 +55,10 @@ export class RoleCreateAttributes {
       baseName: "created_at",
       type: "Date",
       format: "date-time",
+    },
+    defaultPermissionsOptOut: {
+      baseName: "default_permissions_opt_out",
+      type: "boolean",
     },
     modifiedAt: {
       baseName: "modified_at",
