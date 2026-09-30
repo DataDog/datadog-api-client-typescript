@@ -5934,11 +5934,14 @@ export { LLMObsProjectUpdateRequest } from "./models/LLMObsProjectUpdateRequest"
 export { LLMObsPromptAuthoringItem } from "./models/LLMObsPromptAuthoringItem";
 export { LLMObsPromptAuthoringMessagesTemplate } from "./models/LLMObsPromptAuthoringMessagesTemplate";
 export { LLMObsPromptChatMessage } from "./models/LLMObsPromptChatMessage";
+export { LLMObsPromptChatTemplateItem } from "./models/LLMObsPromptChatTemplateItem";
 export { LLMObsPromptData } from "./models/LLMObsPromptData";
 export { LLMObsPromptDataAttributes } from "./models/LLMObsPromptDataAttributes";
 export { LLMObsPromptDataset } from "./models/LLMObsPromptDataset";
 export { LLMObsPromptInclude } from "./models/LLMObsPromptInclude";
 export { LLMObsPromptIncludeItem } from "./models/LLMObsPromptIncludeItem";
+export { LLMObsPromptMessagePlaceholder } from "./models/LLMObsPromptMessagePlaceholder";
+export { LLMObsPromptMessagePlaceholderType } from "./models/LLMObsPromptMessagePlaceholderType";
 export { LLMObsPromptResponse } from "./models/LLMObsPromptResponse";
 export { LLMObsPromptResponseSource } from "./models/LLMObsPromptResponseSource";
 export { LLMObsPromptSDKData } from "./models/LLMObsPromptSDKData";
