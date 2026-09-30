@@ -287,6 +287,7 @@ import { LLMObsPromptDataAttributes } from "./LLMObsPromptDataAttributes";
 import { LLMObsPromptDataset } from "./LLMObsPromptDataset";
 import { LLMObsPromptInclude } from "./LLMObsPromptInclude";
 import { LLMObsPromptIncludeItem } from "./LLMObsPromptIncludeItem";
+import { LLMObsPromptMessagePlaceholder } from "./LLMObsPromptMessagePlaceholder";
 import { LLMObsPromptResponse } from "./LLMObsPromptResponse";
 import { LLMObsPromptSDKData } from "./LLMObsPromptSDKData";
 import { LLMObsPromptSDKDataAttributes } from "./LLMObsPromptSDKDataAttributes";
@@ -420,6 +421,7 @@ export const TypingInfo: ModelTypingInfo = {
     ],
     LLMObsPatternsTriggerResponseType: ["topic_discovery_run"],
     LLMObsProjectType: ["projects"],
+    LLMObsPromptMessagePlaceholderType: ["placeholder"],
     LLMObsPromptResponseSource: ["registry", "code"],
     LLMObsPromptType: ["prompt-templates"],
     LLMObsPromptVersionLabel: ["production", "development"],
@@ -460,9 +462,13 @@ export const TypingInfo: ModelTypingInfo = {
       "LLMObsPromptChatMessage",
       "LLMObsPromptIncludeItem",
     ],
+    LLMObsPromptChatTemplateItem: [
+      "LLMObsPromptChatMessage",
+      "LLMObsPromptMessagePlaceholder",
+    ],
     LLMObsPromptTemplate: [
       "string",
-      "Array<LLMObsPromptChatMessage>",
+      "Array<LLMObsPromptChatTemplateItem>",
       "LLMObsPromptAuthoringMessagesTemplate",
     ],
   },
@@ -849,6 +855,7 @@ export const TypingInfo: ModelTypingInfo = {
     LLMObsPromptDataset: LLMObsPromptDataset,
     LLMObsPromptInclude: LLMObsPromptInclude,
     LLMObsPromptIncludeItem: LLMObsPromptIncludeItem,
+    LLMObsPromptMessagePlaceholder: LLMObsPromptMessagePlaceholder,
     LLMObsPromptResponse: LLMObsPromptResponse,
     LLMObsPromptSDKData: LLMObsPromptSDKData,
     LLMObsPromptSDKDataAttributes: LLMObsPromptSDKDataAttributes,

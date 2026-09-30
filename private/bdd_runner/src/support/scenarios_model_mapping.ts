@@ -7185,6 +7185,10 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
       type: "string",
       format: "",
     },
+    entityType: {
+      type: "EntityContextEntityType",
+      format: "",
+    },
     from: {
       type: "string",
       format: "",
@@ -7207,9 +7211,40 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
     },
     operationResponseType: "EntityContextResponse",
   },
+  "SecurityMonitoringApi.V2.GetEntityContextRecentlyUpdated": {
+    query: {
+      type: "string",
+      format: "",
+    },
+    entityType: {
+      type: "EntityContextEntityType",
+      format: "",
+    },
+    from: {
+      type: "string",
+      format: "",
+    },
+    to: {
+      type: "string",
+      format: "",
+    },
+    limit: {
+      type: "number",
+      format: "int64",
+    },
+    revisions: {
+      type: "EntityContextRevisionsMode",
+      format: "",
+    },
+    operationResponseType: "RecentlyUpdatedEntitiesResponse",
+  },
   "SecurityMonitoringApi.V2.GetSingleEntityContext": {
     id: {
       type: "string",
+      format: "",
+    },
+    entityType: {
+      type: "EntityContextEntityType",
       format: "",
     },
     from: {
