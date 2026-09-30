@@ -24,7 +24,7 @@ const params: v2.RUMOperationsApiUpdateRUMOperationStrongLinkRequest = {
     },
   },
   rumOperationId: "rum_operation_id",
-  featureId: "feature_id",
+  journeyId: "journey_id",
 };
 
 apiInstance
