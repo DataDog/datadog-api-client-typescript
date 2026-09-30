@@ -3,7 +3,7 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
-import { LLMObsPromptChatMessage } from "./LLMObsPromptChatMessage";
+import { LLMObsPromptChatTemplateItem } from "./LLMObsPromptChatTemplateItem";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
@@ -12,9 +12,10 @@ import { AttributeTypeMap } from "../../datadog-api-client-common/util";
  */
 export class LLMObsPromptSDKDataAttributes {
   /**
-   * Chat template for this prompt version, as a list of role and content messages. Omitted for text templates.
+   * Chat template for this prompt version, as a list of messages and named message placeholders. Omitted for text templates.
+   * **Preview:** Message placeholders are available in Preview. To request access, contact [Datadog Support](https://www.datadoghq.com/support/) or your Customer Success Manager.
    */
-  "chatTemplate"?: Array<LLMObsPromptChatMessage>;
+  "chatTemplate"?: Array<LLMObsPromptChatTemplateItem>;
   /**
    * Versioned prompt configuration is in Preview. To request access, contact [Datadog Support](https://www.datadoghq.com/support/) or your Customer Success Manager. Customer-owned configuration delivered with a prompt version. Datadog stores and returns the object without interpolating it, validating provider-specific keys, or applying it to model calls. Do not include secrets.
    */
@@ -58,7 +59,7 @@ export class LLMObsPromptSDKDataAttributes {
   static readonly attributeTypeMap: AttributeTypeMap = {
     chatTemplate: {
       baseName: "chat_template",
-      type: "Array<LLMObsPromptChatMessage>",
+      type: "Array<LLMObsPromptChatTemplateItem>",
     },
     config: {
       baseName: "config",

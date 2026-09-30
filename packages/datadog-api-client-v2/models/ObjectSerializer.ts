@@ -3002,6 +3002,7 @@ import { LLMObsPromptDataAttributes } from "./LLMObsPromptDataAttributes";
 import { LLMObsPromptDataset } from "./LLMObsPromptDataset";
 import { LLMObsPromptInclude } from "./LLMObsPromptInclude";
 import { LLMObsPromptIncludeItem } from "./LLMObsPromptIncludeItem";
+import { LLMObsPromptMessagePlaceholder } from "./LLMObsPromptMessagePlaceholder";
 import { LLMObsPromptResponse } from "./LLMObsPromptResponse";
 import { LLMObsPromptSDKData } from "./LLMObsPromptSDKData";
 import { LLMObsPromptSDKDataAttributes } from "./LLMObsPromptSDKDataAttributes";
@@ -4305,6 +4306,7 @@ import { RawErrorBudgetRemaining } from "./RawErrorBudgetRemaining";
 import { ReactNativeSourcemapAttributes } from "./ReactNativeSourcemapAttributes";
 import { ReactNativeSourcemapData } from "./ReactNativeSourcemapData";
 import { ReadinessGate } from "./ReadinessGate";
+import { RecentlyUpdatedEntitiesResponse } from "./RecentlyUpdatedEntitiesResponse";
 import { RecommendationAttributes } from "./RecommendationAttributes";
 import { RecommendationData } from "./RecommendationData";
 import { RecommendationDocument } from "./RecommendationDocument";
@@ -7008,6 +7010,8 @@ const enumsMap: { [key: string]: any[] } = {
     "unknown",
   ],
   ElasticCloudIntegrationAccountBasicAuthType: ["basic"],
+  EntityContextEntityType: ["siem_entity_identity"],
+  EntityContextRevisionsMode: ["latest", "all"],
   EntityIntegrationConfigRequestType: ["entity_integration_config_requests"],
   EntityIntegrationConfigType: ["entity_integration_configs"],
   EntityResponseDataRelationshipsIncidentsDataItemsType: ["incident"],
@@ -7571,6 +7575,7 @@ const enumsMap: { [key: string]: any[] } = {
   ],
   LLMObsPatternsTriggerResponseType: ["topic_discovery_run"],
   LLMObsProjectType: ["projects"],
+  LLMObsPromptMessagePlaceholderType: ["placeholder"],
   LLMObsPromptResponseSource: ["registry", "code"],
   LLMObsPromptType: ["prompt-templates"],
   LLMObsPromptVersionLabel: ["production", "development"],
@@ -13191,6 +13196,7 @@ const typeMap: { [index: string]: any } = {
   LLMObsPromptDataset: LLMObsPromptDataset,
   LLMObsPromptInclude: LLMObsPromptInclude,
   LLMObsPromptIncludeItem: LLMObsPromptIncludeItem,
+  LLMObsPromptMessagePlaceholder: LLMObsPromptMessagePlaceholder,
   LLMObsPromptResponse: LLMObsPromptResponse,
   LLMObsPromptSDKData: LLMObsPromptSDKData,
   LLMObsPromptSDKDataAttributes: LLMObsPromptSDKDataAttributes,
@@ -14822,6 +14828,7 @@ const typeMap: { [index: string]: any } = {
   ReactNativeSourcemapAttributes: ReactNativeSourcemapAttributes,
   ReactNativeSourcemapData: ReactNativeSourcemapData,
   ReadinessGate: ReadinessGate,
+  RecentlyUpdatedEntitiesResponse: RecentlyUpdatedEntitiesResponse,
   RecommendationAttributes: RecommendationAttributes,
   RecommendationData: RecommendationData,
   RecommendationDocument: RecommendationDocument,
@@ -17614,9 +17621,13 @@ const oneOfMap: { [index: string]: string[] } = {
     "LLMObsPromptChatMessage",
     "LLMObsPromptIncludeItem",
   ],
+  LLMObsPromptChatTemplateItem: [
+    "LLMObsPromptChatMessage",
+    "LLMObsPromptMessagePlaceholder",
+  ],
   LLMObsPromptTemplate: [
     "string",
-    "Array<LLMObsPromptChatMessage>",
+    "Array<LLMObsPromptChatTemplateItem>",
     "LLMObsPromptAuthoringMessagesTemplate",
   ],
   LaunchDarklyCredentials: ["LaunchDarklyAPIKey"],

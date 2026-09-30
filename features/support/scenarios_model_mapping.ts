@@ -7160,6 +7160,10 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             "type": "string",
             "format": "",
             },
+        "entityType": {
+            "type": "EntityContextEntityType",
+            "format": "",
+            },
         "from": {
             "type": "string",
             "format": "",
@@ -7182,9 +7186,40 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             },
         "operationResponseType": "EntityContextResponse",
     },
+    "v2.GetEntityContextRecentlyUpdated": {
+        "query": {
+            "type": "string",
+            "format": "",
+            },
+        "entityType": {
+            "type": "EntityContextEntityType",
+            "format": "",
+            },
+        "from": {
+            "type": "string",
+            "format": "",
+            },
+        "to": {
+            "type": "string",
+            "format": "",
+            },
+        "limit": {
+            "type": "number",
+            "format": "int64",
+            },
+        "revisions": {
+            "type": "EntityContextRevisionsMode",
+            "format": "",
+            },
+        "operationResponseType": "RecentlyUpdatedEntitiesResponse",
+    },
     "v2.GetSingleEntityContext": {
         "id": {
             "type": "string",
+            "format": "",
+            },
+        "entityType": {
+            "type": "EntityContextEntityType",
             "format": "",
             },
         "from": {
