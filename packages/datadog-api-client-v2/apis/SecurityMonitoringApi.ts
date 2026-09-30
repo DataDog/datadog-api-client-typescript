@@ -47,7 +47,9 @@ import { DueDateRuleReorderRequest } from "../models/DueDateRuleReorderRequest";
 import { DueDateRuleResponse } from "../models/DueDateRuleResponse";
 import { DueDateRulesResponse } from "../models/DueDateRulesResponse";
 import { DueDateRuleUpdateRequest } from "../models/DueDateRuleUpdateRequest";
+import { EntityContextEntityType } from "../models/EntityContextEntityType";
 import { EntityContextResponse } from "../models/EntityContextResponse";
+import { EntityContextRevisionsMode } from "../models/EntityContextRevisionsMode";
 import { Finding } from "../models/Finding";
 import { FindingCaseResponse } from "../models/FindingCaseResponse";
 import { FindingCaseResponseArray } from "../models/FindingCaseResponseArray";
@@ -97,6 +99,7 @@ import { NotificationRulePreviewResponse } from "../models/NotificationRulePrevi
 import { NotificationRuleResponse } from "../models/NotificationRuleResponse";
 import { NotificationRulesListResponse } from "../models/NotificationRulesListResponse";
 import { PatchNotificationRuleParameters } from "../models/PatchNotificationRuleParameters";
+import { RecentlyUpdatedEntitiesResponse } from "../models/RecentlyUpdatedEntitiesResponse";
 import { RunHistoricalJobRequest } from "../models/RunHistoricalJobRequest";
 import { SampleLogGenerationBulkSubscriptionRequest } from "../models/SampleLogGenerationBulkSubscriptionRequest";
 import { SampleLogGenerationBulkSubscriptionResponse } from "../models/SampleLogGenerationBulkSubscriptionResponse";
@@ -4041,6 +4044,7 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
 
   public async getEntityContext(
     query?: string,
+    entityType?: EntityContextEntityType,
     from?: string,
     to?: string,
     asOf?: string,
@@ -4078,6 +4082,13 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
         ""
       );
     }
+    if (entityType !== undefined) {
+      requestContext.setQueryParam(
+        "entity_type",
+        ObjectSerializer.serialize(entityType, "EntityContextEntityType", ""),
+        ""
+      );
+    }
     if (from !== undefined) {
       requestContext.setQueryParam(
         "from",
@@ -4110,6 +4121,94 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
       requestContext.setQueryParam(
         "page_token",
         ObjectSerializer.serialize(pageToken, "string", ""),
+        ""
+      );
+    }
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+      "AuthZ",
+    ]);
+
+    return requestContext;
+  }
+
+  public async getEntityContextRecentlyUpdated(
+    query?: string,
+    entityType?: EntityContextEntityType,
+    from?: string,
+    to?: string,
+    limit?: number,
+    revisions?: EntityContextRevisionsMode,
+    _options?: Configuration
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    logger.warn("Using unstable operation 'getEntityContextRecentlyUpdated'");
+    if (!_config.unstableOperations["v2.getEntityContextRecentlyUpdated"]) {
+      throw new Error(
+        "Unstable operation 'getEntityContextRecentlyUpdated' is disabled"
+      );
+    }
+
+    // Path Params
+    const localVarPath =
+      "/api/v2/security_monitoring/entity_context/recently_updated";
+
+    // Make Request Context
+    const requestContext = _config
+      .getServer("v2.SecurityMonitoringApi.getEntityContextRecentlyUpdated")
+      .makeRequestContext(localVarPath, HttpMethod.GET);
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Set IaC header
+    if (_config.isIaC) {
+      requestContext.setHeaderParam("X-Datadog-Managed-By", "iac");
+    }
+
+    // Query Params
+    if (query !== undefined) {
+      requestContext.setQueryParam(
+        "query",
+        ObjectSerializer.serialize(query, "string", ""),
+        ""
+      );
+    }
+    if (entityType !== undefined) {
+      requestContext.setQueryParam(
+        "entity_type",
+        ObjectSerializer.serialize(entityType, "EntityContextEntityType", ""),
+        ""
+      );
+    }
+    if (from !== undefined) {
+      requestContext.setQueryParam(
+        "from",
+        ObjectSerializer.serialize(from, "string", ""),
+        ""
+      );
+    }
+    if (to !== undefined) {
+      requestContext.setQueryParam(
+        "to",
+        ObjectSerializer.serialize(to, "string", ""),
+        ""
+      );
+    }
+    if (limit !== undefined) {
+      requestContext.setQueryParam(
+        "limit",
+        ObjectSerializer.serialize(limit, "number", "int64"),
+        ""
+      );
+    }
+    if (revisions !== undefined) {
+      requestContext.setQueryParam(
+        "revisions",
+        ObjectSerializer.serialize(revisions, "EntityContextRevisionsMode", ""),
         ""
       );
     }
@@ -5748,6 +5847,7 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
 
   public async getSingleEntityContext(
     id: string,
+    entityType?: EntityContextEntityType,
     from?: string,
     to?: string,
     asOf?: string,
@@ -5787,6 +5887,13 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Query Params
+    if (entityType !== undefined) {
+      requestContext.setQueryParam(
+        "entity_type",
+        ObjectSerializer.serialize(entityType, "EntityContextEntityType", ""),
+        ""
+      );
+    }
     if (from !== undefined) {
       requestContext.setQueryParam(
         "from",
@@ -15374,6 +15481,70 @@ export class SecurityMonitoringApiResponseProcessor {
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
    *
+   * @params response Response returned by the server for a request to getEntityContextRecentlyUpdated
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async getEntityContextRecentlyUpdated(
+    response: ResponseContext
+  ): Promise<RecentlyUpdatedEntitiesResponse> {
+    const contentType = ObjectSerializer.normalizeMediaType(
+      response.headers["content-type"]
+    );
+    if (response.httpStatusCode === 200) {
+      const body: RecentlyUpdatedEntitiesResponse =
+        ObjectSerializer.deserialize(
+          ObjectSerializer.parse(await response.body.text(), contentType),
+          "RecentlyUpdatedEntitiesResponse"
+        ) as RecentlyUpdatedEntitiesResponse;
+      return body;
+    }
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 429
+    ) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: APIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "APIErrorResponse"
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: RecentlyUpdatedEntitiesResponse =
+        ObjectSerializer.deserialize(
+          ObjectSerializer.parse(await response.body.text(), contentType),
+          "RecentlyUpdatedEntitiesResponse",
+          ""
+        ) as RecentlyUpdatedEntitiesResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"'
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
    * @params response Response returned by the server for a request to getEntraIdAzureAppRegistrations
    * @throws ApiException if the response code was not in [200, 299]
    */
@@ -22933,6 +23104,12 @@ export interface SecurityMonitoringApiGetEntityContextRequest {
    */
   query?: string;
   /**
+   * The type of entity to retrieve. Only `siem_entity_identity` is currently supported.
+   * Defaults to `siem_entity_identity`.
+   * @type EntityContextEntityType
+   */
+  entityType?: EntityContextEntityType;
+  /**
    * The start of the time range to query, as an RFC3339 timestamp or a relative time (for example, `now-7d`).
    * Defaults to `now-7d`. Ignored when `as_of` is set.
    * @type string
@@ -22961,6 +23138,43 @@ export interface SecurityMonitoringApiGetEntityContextRequest {
    * @type string
    */
   pageToken?: string;
+}
+
+export interface SecurityMonitoringApiGetEntityContextRecentlyUpdatedRequest {
+  /**
+   * A free-text query (for example, an email address or principal ID) used to filter the entities returned.
+   * @type string
+   */
+  query?: string;
+  /**
+   * The type of entity to retrieve. Only `siem_entity_identity` is currently supported.
+   * Defaults to `siem_entity_identity`.
+   * @type EntityContextEntityType
+   */
+  entityType?: EntityContextEntityType;
+  /**
+   * The start of the time range to query, as an RFC3339 timestamp or a relative time (for example, `now-7d`).
+   * Defaults to `now-7d`.
+   * @type string
+   */
+  from?: string;
+  /**
+   * The end of the time range to query, as an RFC3339 timestamp or a relative time (for example, `now`).
+   * Defaults to `now`. Entities are ranked by their most recent revision within `[from, to]`.
+   * @type string
+   */
+  to?: string;
+  /**
+   * The number of entities to return. Must be between 1 and 100.
+   * @type number
+   */
+  limit?: number;
+  /**
+   * Which revisions to return for each entity: `latest` returns only the latest revision of each entity as of `to`,
+   * and `all` returns every revision in the requested time range.
+   * @type EntityContextRevisionsMode
+   */
+  revisions?: EntityContextRevisionsMode;
 }
 
 export interface SecurityMonitoringApiGetFindingRequest {
@@ -23306,6 +23520,12 @@ export interface SecurityMonitoringApiGetSingleEntityContextRequest {
    * @type string
    */
   id: string;
+  /**
+   * The type of entity to retrieve. Only `siem_entity_identity` is currently supported.
+   * Defaults to `siem_entity_identity`.
+   * @type EntityContextEntityType
+   */
+  entityType?: EntityContextEntityType;
   /**
    * The start of the time range to query, as an RFC3339 timestamp or a relative time (for example, `now-7d`).
    * Defaults to `now-7d`. Ignored when `as_of` is set.
@@ -26273,6 +26493,7 @@ export class SecurityMonitoringApi {
   ): Promise<EntityContextResponse> {
     const requestContextPromise = this.requestFactory.getEntityContext(
       param.query,
+      param.entityType,
       param.from,
       param.to,
       param.asOf,
@@ -26285,6 +26506,37 @@ export class SecurityMonitoringApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.getEntityContext(responseContext);
+        });
+    });
+  }
+
+  /**
+   * Get the entities with the most recent updates in the Cloud SIEM entity context store. Entities are ranked
+   * by the time of their most recent revision in the requested time range, and the top `limit` entities are
+   * returned in that order. This endpoint is not paginated.
+   * @param param The request object
+   */
+  public getEntityContextRecentlyUpdated(
+    param: SecurityMonitoringApiGetEntityContextRecentlyUpdatedRequest = {},
+    options?: Configuration
+  ): Promise<RecentlyUpdatedEntitiesResponse> {
+    const requestContextPromise =
+      this.requestFactory.getEntityContextRecentlyUpdated(
+        param.query,
+        param.entityType,
+        param.from,
+        param.to,
+        param.limit,
+        param.revisions,
+        options
+      );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.getEntityContextRecentlyUpdated(
+            responseContext
+          );
         });
     });
   }
@@ -27007,6 +27259,7 @@ export class SecurityMonitoringApi {
   ): Promise<SingleEntityContextResponse> {
     const requestContextPromise = this.requestFactory.getSingleEntityContext(
       param.id,
+      param.entityType,
       param.from,
       param.to,
       param.asOf,

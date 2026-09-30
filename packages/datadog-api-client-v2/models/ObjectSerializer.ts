@@ -4305,6 +4305,7 @@ import { RawErrorBudgetRemaining } from "./RawErrorBudgetRemaining";
 import { ReactNativeSourcemapAttributes } from "./ReactNativeSourcemapAttributes";
 import { ReactNativeSourcemapData } from "./ReactNativeSourcemapData";
 import { ReadinessGate } from "./ReadinessGate";
+import { RecentlyUpdatedEntitiesResponse } from "./RecentlyUpdatedEntitiesResponse";
 import { RecommendationAttributes } from "./RecommendationAttributes";
 import { RecommendationData } from "./RecommendationData";
 import { RecommendationDocument } from "./RecommendationDocument";
@@ -7008,6 +7009,8 @@ const enumsMap: { [key: string]: any[] } = {
     "unknown",
   ],
   ElasticCloudIntegrationAccountBasicAuthType: ["basic"],
+  EntityContextEntityType: ["siem_entity_identity"],
+  EntityContextRevisionsMode: ["latest", "all"],
   EntityIntegrationConfigRequestType: ["entity_integration_config_requests"],
   EntityIntegrationConfigType: ["entity_integration_configs"],
   EntityResponseDataRelationshipsIncidentsDataItemsType: ["incident"],
@@ -14822,6 +14825,7 @@ const typeMap: { [index: string]: any } = {
   ReactNativeSourcemapAttributes: ReactNativeSourcemapAttributes,
   ReactNativeSourcemapData: ReactNativeSourcemapData,
   ReadinessGate: ReadinessGate,
+  RecentlyUpdatedEntitiesResponse: RecentlyUpdatedEntitiesResponse,
   RecommendationAttributes: RecommendationAttributes,
   RecommendationData: RecommendationData,
   RecommendationDocument: RecommendationDocument,
