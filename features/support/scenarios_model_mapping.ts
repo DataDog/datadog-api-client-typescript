@@ -16387,7 +16387,7 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             "type": "string",
             "format": "",
             },
-        "featureId": {
+        "journeyId": {
             "type": "string",
             "format": "",
             },
@@ -16402,7 +16402,7 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             "type": "string",
             "format": "",
             },
-        "featureId": {
+        "journeyId": {
             "type": "string",
             "format": "",
             },

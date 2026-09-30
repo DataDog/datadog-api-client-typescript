@@ -184,7 +184,7 @@ export class RUMOperationsApiRequestFactory extends BaseAPIRequestFactory {
 
   public async deleteRUMOperationStrongLink(
     rumOperationId: string,
-    featureId: string,
+    journeyId: string,
     _options?: Configuration
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
@@ -201,19 +201,19 @@ export class RUMOperationsApiRequestFactory extends BaseAPIRequestFactory {
       throw new RequiredError("rumOperationId", "deleteRUMOperationStrongLink");
     }
 
-    // verify required parameter 'featureId' is not null or undefined
-    if (featureId === null || featureId === undefined) {
-      throw new RequiredError("featureId", "deleteRUMOperationStrongLink");
+    // verify required parameter 'journeyId' is not null or undefined
+    if (journeyId === null || journeyId === undefined) {
+      throw new RequiredError("journeyId", "deleteRUMOperationStrongLink");
     }
 
     // Path Params
     const localVarPath =
-      "/api/v2/rum/operations/strong_links/{rum_operation_id}/{feature_id}"
+      "/api/v2/rum/operations/strong_links/{rum_operation_id}/{journey_id}"
         .replace(
           "{rum_operation_id}",
           encodeURIComponent(String(rumOperationId))
         )
-        .replace("{feature_id}", encodeURIComponent(String(featureId)));
+        .replace("{journey_id}", encodeURIComponent(String(journeyId)));
 
     // Make Request Context
     const requestContext = _config
@@ -545,7 +545,7 @@ export class RUMOperationsApiRequestFactory extends BaseAPIRequestFactory {
 
   public async updateRUMOperationStrongLink(
     rumOperationId: string,
-    featureId: string,
+    journeyId: string,
     body: RUMOperationStrongLinkUpdateRequest,
     _options?: Configuration
   ): Promise<RequestContext> {
@@ -563,9 +563,9 @@ export class RUMOperationsApiRequestFactory extends BaseAPIRequestFactory {
       throw new RequiredError("rumOperationId", "updateRUMOperationStrongLink");
     }
 
-    // verify required parameter 'featureId' is not null or undefined
-    if (featureId === null || featureId === undefined) {
-      throw new RequiredError("featureId", "updateRUMOperationStrongLink");
+    // verify required parameter 'journeyId' is not null or undefined
+    if (journeyId === null || journeyId === undefined) {
+      throw new RequiredError("journeyId", "updateRUMOperationStrongLink");
     }
 
     // verify required parameter 'body' is not null or undefined
@@ -575,12 +575,12 @@ export class RUMOperationsApiRequestFactory extends BaseAPIRequestFactory {
 
     // Path Params
     const localVarPath =
-      "/api/v2/rum/operations/strong_links/{rum_operation_id}/{feature_id}"
+      "/api/v2/rum/operations/strong_links/{rum_operation_id}/{journey_id}"
         .replace(
           "{rum_operation_id}",
           encodeURIComponent(String(rumOperationId))
         )
-        .replace("{feature_id}", encodeURIComponent(String(featureId)));
+        .replace("{journey_id}", encodeURIComponent(String(journeyId)));
 
     // Make Request Context
     const requestContext = _config
@@ -1451,10 +1451,10 @@ export interface RUMOperationsApiDeleteRUMOperationStrongLinkRequest {
    */
   rumOperationId: string;
   /**
-   * The unique identifier of the feature.
+   * The unique identifier of the journey.
    * @type string
    */
-  featureId: string;
+  journeyId: string;
 }
 
 export interface RUMOperationsApiGetRUMOperationRequest {
@@ -1553,10 +1553,10 @@ export interface RUMOperationsApiUpdateRUMOperationStrongLinkRequest {
    */
   rumOperationId: string;
   /**
-   * The unique identifier of the feature.
+   * The unique identifier of the journey.
    * @type string
    */
-  featureId: string;
+  journeyId: string;
   /**
    * @type RUMOperationStrongLinkUpdateRequest
    */
@@ -1656,7 +1656,7 @@ export class RUMOperationsApi {
     const requestContextPromise =
       this.requestFactory.deleteRUMOperationStrongLink(
         param.rumOperationId,
-        param.featureId,
+        param.journeyId,
         options
       );
     return requestContextPromise.then((requestContext) => {
@@ -1802,7 +1802,7 @@ export class RUMOperationsApi {
     const requestContextPromise =
       this.requestFactory.updateRUMOperationStrongLink(
         param.rumOperationId,
-        param.featureId,
+        param.journeyId,
         param.body,
         options
       );
