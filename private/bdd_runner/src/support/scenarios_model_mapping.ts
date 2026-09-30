@@ -16412,7 +16412,7 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
       type: "string",
       format: "",
     },
-    featureId: {
+    journeyId: {
       type: "string",
       format: "",
     },
@@ -16427,7 +16427,7 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
       type: "string",
       format: "",
     },
-    featureId: {
+    journeyId: {
       type: "string",
       format: "",
     },
