@@ -374,6 +374,7 @@ export function createConfiguration(
       "v2.exportSecurityMonitoringTerraformResource": false,
       "v2.getContentPacksStates": false,
       "v2.getEntityContext": false,
+      "v2.getEntityContextRecentlyUpdated": false,
       "v2.getEntraIdAzureAppRegistrations": false,
       "v2.getFinding": false,
       "v2.getHistoricalJob": false,

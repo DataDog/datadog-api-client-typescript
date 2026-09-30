@@ -1576,6 +1576,7 @@ export {
   SecurityMonitoringApiGetCriticalAssetsAffectingRuleRequest,
   SecurityMonitoringApiGetCustomFrameworkRequest,
   SecurityMonitoringApiGetEntityContextRequest,
+  SecurityMonitoringApiGetEntityContextRecentlyUpdatedRequest,
   SecurityMonitoringApiGetFindingRequest,
   SecurityMonitoringApiGetHistoricalJobRequest,
   SecurityMonitoringApiGetIndicatorOfCompromiseRequest,
@@ -4181,10 +4182,12 @@ export { ELFSourcemapData } from "./models/ELFSourcemapData";
 export { EntityAttributes } from "./models/EntityAttributes";
 export { EntityContextEntity } from "./models/EntityContextEntity";
 export { EntityContextEntityAttributes } from "./models/EntityContextEntityAttributes";
+export { EntityContextEntityType } from "./models/EntityContextEntityType";
 export { EntityContextPage } from "./models/EntityContextPage";
 export { EntityContextResponse } from "./models/EntityContextResponse";
 export { EntityContextResponseMeta } from "./models/EntityContextResponseMeta";
 export { EntityContextRevision } from "./models/EntityContextRevision";
+export { EntityContextRevisionsMode } from "./models/EntityContextRevisionsMode";
 export { EntityData } from "./models/EntityData";
 export { EntityIntegrationConfigAttributes } from "./models/EntityIntegrationConfigAttributes";
 export { EntityIntegrationConfigData } from "./models/EntityIntegrationConfigData";
@@ -7546,6 +7549,7 @@ export { ReactNativeSourcemapAttributes } from "./models/ReactNativeSourcemapAtt
 export { ReactNativeSourcemapData } from "./models/ReactNativeSourcemapData";
 export { ReadinessGate } from "./models/ReadinessGate";
 export { ReadinessGateThresholdType } from "./models/ReadinessGateThresholdType";
+export { RecentlyUpdatedEntitiesResponse } from "./models/RecentlyUpdatedEntitiesResponse";
 export { RecommendationAttributes } from "./models/RecommendationAttributes";
 export { RecommendationData } from "./models/RecommendationData";
 export { RecommendationDocument } from "./models/RecommendationDocument";
