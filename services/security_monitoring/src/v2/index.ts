@@ -70,6 +70,7 @@ export {
   SecurityMonitoringApiGetCriticalAssetsAffectingRuleRequest,
   SecurityMonitoringApiGetCustomFrameworkRequest,
   SecurityMonitoringApiGetEntityContextRequest,
+  SecurityMonitoringApiGetEntityContextRecentlyUpdatedRequest,
   SecurityMonitoringApiGetFindingRequest,
   SecurityMonitoringApiGetHistoricalJobRequest,
   SecurityMonitoringApiGetIndicatorOfCompromiseRequest,
@@ -321,10 +322,12 @@ export { DueDateRuleUpdateRequest } from "./models/DueDateRuleUpdateRequest";
 export { DueDateSeverity } from "./models/DueDateSeverity";
 export { EntityContextEntity } from "./models/EntityContextEntity";
 export { EntityContextEntityAttributes } from "./models/EntityContextEntityAttributes";
+export { EntityContextEntityType } from "./models/EntityContextEntityType";
 export { EntityContextPage } from "./models/EntityContextPage";
 export { EntityContextResponse } from "./models/EntityContextResponse";
 export { EntityContextResponseMeta } from "./models/EntityContextResponseMeta";
 export { EntityContextRevision } from "./models/EntityContextRevision";
+export { EntityContextRevisionsMode } from "./models/EntityContextRevisionsMode";
 export { EPSS } from "./models/EPSS";
 export { Finding } from "./models/Finding";
 export { FindingAttributes } from "./models/FindingAttributes";
@@ -494,6 +497,7 @@ export { Pagination } from "./models/Pagination";
 export { PatchNotificationRuleParameters } from "./models/PatchNotificationRuleParameters";
 export { PatchNotificationRuleParametersData } from "./models/PatchNotificationRuleParametersData";
 export { PatchNotificationRuleParametersDataAttributes } from "./models/PatchNotificationRuleParametersDataAttributes";
+export { RecentlyUpdatedEntitiesResponse } from "./models/RecentlyUpdatedEntitiesResponse";
 export { RelationshipToUser } from "./models/RelationshipToUser";
 export { RelationshipToUserData } from "./models/RelationshipToUserData";
 export { Remediation } from "./models/Remediation";
