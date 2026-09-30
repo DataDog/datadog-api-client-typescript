@@ -126,6 +126,7 @@ const params: v1.SyntheticsApiCreateSyntheticsAPITestRequest = {
     options: {
       acceptSelfSigned: false,
       allowInsecure: true,
+      bitsAiAutoInvestigate: true,
       followRedirects: true,
       minFailureDuration: 10,
       minLocationFailed: 1,
