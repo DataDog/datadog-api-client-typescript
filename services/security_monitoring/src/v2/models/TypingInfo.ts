@@ -278,6 +278,7 @@ import { Pagination } from "./Pagination";
 import { PatchNotificationRuleParameters } from "./PatchNotificationRuleParameters";
 import { PatchNotificationRuleParametersData } from "./PatchNotificationRuleParametersData";
 import { PatchNotificationRuleParametersDataAttributes } from "./PatchNotificationRuleParametersDataAttributes";
+import { RecentlyUpdatedEntitiesResponse } from "./RecentlyUpdatedEntitiesResponse";
 import { RelationshipToUser } from "./RelationshipToUser";
 import { RelationshipToUserData } from "./RelationshipToUserData";
 import { Remediation } from "./Remediation";
@@ -642,6 +643,8 @@ export const TypingInfo: ModelTypingInfo = {
       "none",
       "unknown",
     ],
+    EntityContextEntityType: ["siem_entity_identity"],
+    EntityContextRevisionsMode: ["latest", "all"],
     FindingDataType: ["findings"],
     FindingEvaluation: ["pass", "fail"],
     FindingMuteReason: [
@@ -1491,6 +1494,7 @@ export const TypingInfo: ModelTypingInfo = {
     PatchNotificationRuleParametersData: PatchNotificationRuleParametersData,
     PatchNotificationRuleParametersDataAttributes:
       PatchNotificationRuleParametersDataAttributes,
+    RecentlyUpdatedEntitiesResponse: RecentlyUpdatedEntitiesResponse,
     RelationshipToUser: RelationshipToUser,
     RelationshipToUserData: RelationshipToUserData,
     Remediation: Remediation,
