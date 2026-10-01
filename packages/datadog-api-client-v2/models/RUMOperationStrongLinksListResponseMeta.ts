@@ -7,7 +7,7 @@
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * Metadata for a list of RUM operation strong links.
+ * Metadata for a list of RUM operation links.
  */
 export class RUMOperationStrongLinksListResponseMeta {
   /**
@@ -19,7 +19,7 @@ export class RUMOperationStrongLinksListResponseMeta {
    */
   "offset"?: number;
   /**
-   * The total number of strong links matching the request.
+   * The total number of links matching the request.
    */
   "total"?: number;
 
