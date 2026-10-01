@@ -7,7 +7,7 @@
 import { UnparsedObject } from "../../datadog-api-client-common/util";
 
 /**
- * The JSON:API type for RUM operation strong link resources.
+ * The JSON:API type for RUM operation link resources.
  */
 
 export type RUMOperationStrongLinkType = typeof STRONG_LINKS | UnparsedObject;

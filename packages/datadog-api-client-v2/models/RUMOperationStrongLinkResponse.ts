@@ -8,11 +8,11 @@ import { RUMOperationStrongLinkResponseData } from "./RUMOperationStrongLinkResp
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * The response for a single RUM operation strong link.
+ * The response for a single RUM operation link.
  */
 export class RUMOperationStrongLinkResponse {
   /**
-   * The data object in a RUM operation strong link response.
+   * The data object in a RUM operation link response.
    */
   "data": RUMOperationStrongLinkResponseData;
 
