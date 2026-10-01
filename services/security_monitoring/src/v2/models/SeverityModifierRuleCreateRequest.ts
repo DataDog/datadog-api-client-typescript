@@ -7,7 +7,7 @@ import { SeverityModifierRuleDataCreate } from "./SeverityModifierRuleDataCreate
  */
 export class SeverityModifierRuleCreateRequest {
   /**
-   * The data object for a severity modifier rule create or update request.
+   * The data object for a severity modifier rule create request.
    */
   "data": SeverityModifierRuleDataCreate;
   /**

@@ -6042,7 +6042,7 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
       type: "DueDateRuleReorderRequest",
       format: "",
     },
-    operationResponseType: "DueDateRuleReorderRequest",
+    operationResponseType: "DueDateRuleReorderResponse",
   },
   "SecurityMonitoringApi.V2.GetSecurityFindingsAutomationDueDateRule": {
     ruleId: {
@@ -6142,7 +6142,7 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
       type: "MuteRuleReorderRequest",
       format: "",
     },
-    operationResponseType: "MuteRuleReorderRequest",
+    operationResponseType: "MuteRuleReorderResponse",
   },
   "SecurityMonitoringApi.V2.GetSecurityFindingsAutomationMuteRule": {
     ruleId: {
@@ -6251,7 +6251,7 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
         type: "TicketCreationRuleReorderRequest",
         format: "",
       },
-      operationResponseType: "TicketCreationRuleReorderRequest",
+      operationResponseType: "TicketCreationRuleReorderResponse",
     },
   "SecurityMonitoringApi.V2.GetSecurityFindingsAutomationTicketCreationRule": {
     ruleId: {

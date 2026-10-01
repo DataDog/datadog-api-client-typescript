@@ -1,15 +1,15 @@
 import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
-import { MuteRuleDataCreate } from "./MuteRuleDataCreate";
+import { MuteRuleDataUpdate } from "./MuteRuleDataUpdate";
 
 /**
  * The body of a mute rule update request.
  */
 export class MuteRuleUpdateRequest {
   /**
-   * The data object for a mute rule create or update request.
+   * The data object for a mute rule update request. The `id` must match the `rule_id` path parameter.
    */
-  "data": MuteRuleDataCreate;
+  "data": MuteRuleDataUpdate;
   /**
    * A container for additional, undeclared properties.
    * This is a holder for any undeclared properties as specified with
@@ -27,7 +27,7 @@ export class MuteRuleUpdateRequest {
   static readonly attributeTypeMap: AttributeTypeMap = {
     data: {
       baseName: "data",
-      type: "MuteRuleDataCreate",
+      type: "MuteRuleDataUpdate",
       required: true,
     },
     additionalProperties: {

@@ -127,8 +127,10 @@ import { DueDateRuleAttributesResponse } from "./DueDateRuleAttributesResponse";
 import { DueDateRuleCreateRequest } from "./DueDateRuleCreateRequest";
 import { DueDateRuleDataCreate } from "./DueDateRuleDataCreate";
 import { DueDateRuleDataResponse } from "./DueDateRuleDataResponse";
+import { DueDateRuleDataUpdate } from "./DueDateRuleDataUpdate";
 import { DueDateRuleReorderItem } from "./DueDateRuleReorderItem";
 import { DueDateRuleReorderRequest } from "./DueDateRuleReorderRequest";
+import { DueDateRuleReorderResponse } from "./DueDateRuleReorderResponse";
 import { DueDateRuleResponse } from "./DueDateRuleResponse";
 import { DueDateRuleUpdateRequest } from "./DueDateRuleUpdateRequest";
 import { DueDateRulesResponse } from "./DueDateRulesResponse";
@@ -257,8 +259,10 @@ import { MuteRuleAttributesResponse } from "./MuteRuleAttributesResponse";
 import { MuteRuleCreateRequest } from "./MuteRuleCreateRequest";
 import { MuteRuleDataCreate } from "./MuteRuleDataCreate";
 import { MuteRuleDataResponse } from "./MuteRuleDataResponse";
+import { MuteRuleDataUpdate } from "./MuteRuleDataUpdate";
 import { MuteRuleReorderItem } from "./MuteRuleReorderItem";
 import { MuteRuleReorderRequest } from "./MuteRuleReorderRequest";
+import { MuteRuleReorderResponse } from "./MuteRuleReorderResponse";
 import { MuteRuleResponse } from "./MuteRuleResponse";
 import { MuteRuleUpdateRequest } from "./MuteRuleUpdateRequest";
 import { MuteRulesResponse } from "./MuteRulesResponse";
@@ -560,6 +564,7 @@ import { SeverityModifierRuleAttributesResponse } from "./SeverityModifierRuleAt
 import { SeverityModifierRuleCreateRequest } from "./SeverityModifierRuleCreateRequest";
 import { SeverityModifierRuleDataCreate } from "./SeverityModifierRuleDataCreate";
 import { SeverityModifierRuleDataResponse } from "./SeverityModifierRuleDataResponse";
+import { SeverityModifierRuleDataUpdate } from "./SeverityModifierRuleDataUpdate";
 import { SeverityModifierRuleReorderItem } from "./SeverityModifierRuleReorderItem";
 import { SeverityModifierRuleReorderRequest } from "./SeverityModifierRuleReorderRequest";
 import { SeverityModifierRuleReorderResponse } from "./SeverityModifierRuleReorderResponse";
@@ -581,8 +586,10 @@ import { TicketCreationRuleAttributesResponse } from "./TicketCreationRuleAttrib
 import { TicketCreationRuleCreateRequest } from "./TicketCreationRuleCreateRequest";
 import { TicketCreationRuleDataCreate } from "./TicketCreationRuleDataCreate";
 import { TicketCreationRuleDataResponse } from "./TicketCreationRuleDataResponse";
+import { TicketCreationRuleDataUpdate } from "./TicketCreationRuleDataUpdate";
 import { TicketCreationRuleReorderItem } from "./TicketCreationRuleReorderItem";
 import { TicketCreationRuleReorderRequest } from "./TicketCreationRuleReorderRequest";
+import { TicketCreationRuleReorderResponse } from "./TicketCreationRuleReorderResponse";
 import { TicketCreationRuleResponse } from "./TicketCreationRuleResponse";
 import { TicketCreationRuleUpdateRequest } from "./TicketCreationRuleUpdateRequest";
 import { TicketCreationRulesResponse } from "./TicketCreationRulesResponse";
@@ -1333,8 +1340,10 @@ export const TypingInfo: ModelTypingInfo = {
     DueDateRuleCreateRequest: DueDateRuleCreateRequest,
     DueDateRuleDataCreate: DueDateRuleDataCreate,
     DueDateRuleDataResponse: DueDateRuleDataResponse,
+    DueDateRuleDataUpdate: DueDateRuleDataUpdate,
     DueDateRuleReorderItem: DueDateRuleReorderItem,
     DueDateRuleReorderRequest: DueDateRuleReorderRequest,
+    DueDateRuleReorderResponse: DueDateRuleReorderResponse,
     DueDateRuleResponse: DueDateRuleResponse,
     DueDateRuleUpdateRequest: DueDateRuleUpdateRequest,
     DueDateRulesResponse: DueDateRulesResponse,
@@ -1471,8 +1480,10 @@ export const TypingInfo: ModelTypingInfo = {
     MuteRuleCreateRequest: MuteRuleCreateRequest,
     MuteRuleDataCreate: MuteRuleDataCreate,
     MuteRuleDataResponse: MuteRuleDataResponse,
+    MuteRuleDataUpdate: MuteRuleDataUpdate,
     MuteRuleReorderItem: MuteRuleReorderItem,
     MuteRuleReorderRequest: MuteRuleReorderRequest,
+    MuteRuleReorderResponse: MuteRuleReorderResponse,
     MuteRuleResponse: MuteRuleResponse,
     MuteRuleUpdateRequest: MuteRuleUpdateRequest,
     MuteRulesResponse: MuteRulesResponse,
@@ -1952,6 +1963,7 @@ export const TypingInfo: ModelTypingInfo = {
     SeverityModifierRuleCreateRequest: SeverityModifierRuleCreateRequest,
     SeverityModifierRuleDataCreate: SeverityModifierRuleDataCreate,
     SeverityModifierRuleDataResponse: SeverityModifierRuleDataResponse,
+    SeverityModifierRuleDataUpdate: SeverityModifierRuleDataUpdate,
     SeverityModifierRuleReorderItem: SeverityModifierRuleReorderItem,
     SeverityModifierRuleReorderRequest: SeverityModifierRuleReorderRequest,
     SeverityModifierRuleReorderResponse: SeverityModifierRuleReorderResponse,
@@ -1973,8 +1985,10 @@ export const TypingInfo: ModelTypingInfo = {
     TicketCreationRuleCreateRequest: TicketCreationRuleCreateRequest,
     TicketCreationRuleDataCreate: TicketCreationRuleDataCreate,
     TicketCreationRuleDataResponse: TicketCreationRuleDataResponse,
+    TicketCreationRuleDataUpdate: TicketCreationRuleDataUpdate,
     TicketCreationRuleReorderItem: TicketCreationRuleReorderItem,
     TicketCreationRuleReorderRequest: TicketCreationRuleReorderRequest,
+    TicketCreationRuleReorderResponse: TicketCreationRuleReorderResponse,
     TicketCreationRuleResponse: TicketCreationRuleResponse,
     TicketCreationRuleUpdateRequest: TicketCreationRuleUpdateRequest,
     TicketCreationRulesResponse: TicketCreationRulesResponse,

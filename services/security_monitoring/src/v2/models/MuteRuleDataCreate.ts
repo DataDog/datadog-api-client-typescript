@@ -4,7 +4,7 @@ import { MuteRuleAttributesCreate } from "./MuteRuleAttributesCreate";
 import { MuteRuleType } from "./MuteRuleType";
 
 /**
- * The data object for a mute rule create or update request.
+ * The data object for a mute rule create request.
  */
 export class MuteRuleDataCreate {
   /**

@@ -7,7 +7,7 @@ import { MuteRuleDataCreate } from "./MuteRuleDataCreate";
  */
 export class MuteRuleCreateRequest {
   /**
-   * The data object for a mute rule create or update request.
+   * The data object for a mute rule create request.
    */
   "data": MuteRuleDataCreate;
   /**

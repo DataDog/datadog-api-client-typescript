@@ -1,15 +1,15 @@
 import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
-import { DueDateRuleDataCreate } from "./DueDateRuleDataCreate";
+import { DueDateRuleDataUpdate } from "./DueDateRuleDataUpdate";
 
 /**
  * The body of a due date rule update request.
  */
 export class DueDateRuleUpdateRequest {
   /**
-   * The data object for a due date rule create or update request.
+   * The data object for a due date rule update request. The `id` must match the `rule_id` path parameter.
    */
-  "data": DueDateRuleDataCreate;
+  "data": DueDateRuleDataUpdate;
   /**
    * A container for additional, undeclared properties.
    * This is a holder for any undeclared properties as specified with
@@ -27,7 +27,7 @@ export class DueDateRuleUpdateRequest {
   static readonly attributeTypeMap: AttributeTypeMap = {
     data: {
       baseName: "data",
-      type: "DueDateRuleDataCreate",
+      type: "DueDateRuleDataUpdate",
       required: true,
     },
     additionalProperties: {

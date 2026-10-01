@@ -4,13 +4,17 @@ import { SeverityModifierRuleAttributesCreate } from "./SeverityModifierRuleAttr
 import { SeverityModifierRuleType } from "./SeverityModifierRuleType";
 
 /**
- * The data object for a severity modifier rule create request.
+ * The data object for a severity modifier rule update request. The `id` must match the `rule_id` path parameter.
  */
-export class SeverityModifierRuleDataCreate {
+export class SeverityModifierRuleDataUpdate {
   /**
    * Attributes for creating or updating a severity modifier rule.
    */
   "attributes": SeverityModifierRuleAttributesCreate;
+  /**
+   * The ID of the severity modifier rule to update.
+   */
+  "id": string;
   /**
    * The JSON:API type for severity modifier rules.
    */
@@ -35,6 +39,12 @@ export class SeverityModifierRuleDataCreate {
       type: "SeverityModifierRuleAttributesCreate",
       required: true,
     },
+    id: {
+      baseName: "id",
+      type: "string",
+      required: true,
+      format: "uuid",
+    },
     type: {
       baseName: "type",
       type: "SeverityModifierRuleType",
@@ -50,7 +60,7 @@ export class SeverityModifierRuleDataCreate {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-    return SeverityModifierRuleDataCreate.attributeTypeMap;
+    return SeverityModifierRuleDataUpdate.attributeTypeMap;
   }
 
   public constructor() {}
