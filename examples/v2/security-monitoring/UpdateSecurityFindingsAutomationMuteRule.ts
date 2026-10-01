@@ -34,6 +34,7 @@ const params: v2.SecurityMonitoringApiUpdateSecurityFindingsAutomationMuteRuleRe
             query: "env:staging",
           },
         },
+        id: VALID_MUTE_RULE_DATA_ID,
         type: "mute_rules",
       },
     },

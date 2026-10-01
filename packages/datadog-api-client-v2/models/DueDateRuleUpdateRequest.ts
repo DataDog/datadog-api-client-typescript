@@ -3,7 +3,7 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
-import { DueDateRuleDataCreate } from "./DueDateRuleDataCreate";
+import { DueDateRuleDataUpdate } from "./DueDateRuleDataUpdate";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
@@ -12,9 +12,9 @@ import { AttributeTypeMap } from "../../datadog-api-client-common/util";
  */
 export class DueDateRuleUpdateRequest {
   /**
-   * The data object for a due date rule create or update request.
+   * The data object for a due date rule update request. The `id` must match the `rule_id` path parameter.
    */
-  "data": DueDateRuleDataCreate;
+  "data": DueDateRuleDataUpdate;
 
   /**
    * A container for additional, undeclared properties.
@@ -34,7 +34,7 @@ export class DueDateRuleUpdateRequest {
   static readonly attributeTypeMap: AttributeTypeMap = {
     data: {
       baseName: "data",
-      type: "DueDateRuleDataCreate",
+      type: "DueDateRuleDataUpdate",
       required: true,
     },
     additionalProperties: {

@@ -44,6 +44,7 @@ import { DeleteCustomFrameworkResponse } from "../models/DeleteCustomFrameworkRe
 import { DetachCaseRequest } from "../models/DetachCaseRequest";
 import { DueDateRuleCreateRequest } from "../models/DueDateRuleCreateRequest";
 import { DueDateRuleReorderRequest } from "../models/DueDateRuleReorderRequest";
+import { DueDateRuleReorderResponse } from "../models/DueDateRuleReorderResponse";
 import { DueDateRuleResponse } from "../models/DueDateRuleResponse";
 import { DueDateRulesResponse } from "../models/DueDateRulesResponse";
 import { DueDateRuleUpdateRequest } from "../models/DueDateRuleUpdateRequest";
@@ -91,6 +92,7 @@ import { MuteFindingsRequest } from "../models/MuteFindingsRequest";
 import { MuteFindingsResponse } from "../models/MuteFindingsResponse";
 import { MuteRuleCreateRequest } from "../models/MuteRuleCreateRequest";
 import { MuteRuleReorderRequest } from "../models/MuteRuleReorderRequest";
+import { MuteRuleReorderResponse } from "../models/MuteRuleReorderResponse";
 import { MuteRuleResponse } from "../models/MuteRuleResponse";
 import { MuteRulesResponse } from "../models/MuteRulesResponse";
 import { MuteRuleUpdateRequest } from "../models/MuteRuleUpdateRequest";
@@ -195,6 +197,7 @@ import { SignalEntitiesResponse } from "../models/SignalEntitiesResponse";
 import { SingleEntityContextResponse } from "../models/SingleEntityContextResponse";
 import { TicketCreationRuleCreateRequest } from "../models/TicketCreationRuleCreateRequest";
 import { TicketCreationRuleReorderRequest } from "../models/TicketCreationRuleReorderRequest";
+import { TicketCreationRuleReorderResponse } from "../models/TicketCreationRuleReorderResponse";
 import { TicketCreationRuleResponse } from "../models/TicketCreationRuleResponse";
 import { TicketCreationRulesResponse } from "../models/TicketCreationRulesResponse";
 import { TicketCreationRuleUpdateRequest } from "../models/TicketCreationRuleUpdateRequest";
@@ -20330,15 +20333,15 @@ export class SecurityMonitoringApiResponseProcessor {
    */
   public async reorderSecurityFindingsAutomationDueDateRules(
     response: ResponseContext
-  ): Promise<DueDateRuleReorderRequest> {
+  ): Promise<DueDateRuleReorderResponse> {
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 200) {
-      const body: DueDateRuleReorderRequest = ObjectSerializer.deserialize(
+      const body: DueDateRuleReorderResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
-        "DueDateRuleReorderRequest"
-      ) as DueDateRuleReorderRequest;
+        "DueDateRuleReorderResponse"
+      ) as DueDateRuleReorderResponse;
       return body;
     }
     if (response.httpStatusCode === 400 || response.httpStatusCode === 422) {
@@ -20387,11 +20390,11 @@ export class SecurityMonitoringApiResponseProcessor {
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-      const body: DueDateRuleReorderRequest = ObjectSerializer.deserialize(
+      const body: DueDateRuleReorderResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
-        "DueDateRuleReorderRequest",
+        "DueDateRuleReorderResponse",
         ""
-      ) as DueDateRuleReorderRequest;
+      ) as DueDateRuleReorderResponse;
       return body;
     }
 
@@ -20492,15 +20495,15 @@ export class SecurityMonitoringApiResponseProcessor {
    */
   public async reorderSecurityFindingsAutomationMuteRules(
     response: ResponseContext
-  ): Promise<MuteRuleReorderRequest> {
+  ): Promise<MuteRuleReorderResponse> {
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 200) {
-      const body: MuteRuleReorderRequest = ObjectSerializer.deserialize(
+      const body: MuteRuleReorderResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
-        "MuteRuleReorderRequest"
-      ) as MuteRuleReorderRequest;
+        "MuteRuleReorderResponse"
+      ) as MuteRuleReorderResponse;
       return body;
     }
     if (response.httpStatusCode === 400 || response.httpStatusCode === 422) {
@@ -20549,11 +20552,11 @@ export class SecurityMonitoringApiResponseProcessor {
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-      const body: MuteRuleReorderRequest = ObjectSerializer.deserialize(
+      const body: MuteRuleReorderResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
-        "MuteRuleReorderRequest",
+        "MuteRuleReorderResponse",
         ""
-      ) as MuteRuleReorderRequest;
+      ) as MuteRuleReorderResponse;
       return body;
     }
 
@@ -20656,16 +20659,16 @@ export class SecurityMonitoringApiResponseProcessor {
    */
   public async reorderSecurityFindingsAutomationTicketCreationRules(
     response: ResponseContext
-  ): Promise<TicketCreationRuleReorderRequest> {
+  ): Promise<TicketCreationRuleReorderResponse> {
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 200) {
-      const body: TicketCreationRuleReorderRequest =
+      const body: TicketCreationRuleReorderResponse =
         ObjectSerializer.deserialize(
           ObjectSerializer.parse(await response.body.text(), contentType),
-          "TicketCreationRuleReorderRequest"
-        ) as TicketCreationRuleReorderRequest;
+          "TicketCreationRuleReorderResponse"
+        ) as TicketCreationRuleReorderResponse;
       return body;
     }
     if (response.httpStatusCode === 400 || response.httpStatusCode === 422) {
@@ -20714,12 +20717,12 @@ export class SecurityMonitoringApiResponseProcessor {
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-      const body: TicketCreationRuleReorderRequest =
+      const body: TicketCreationRuleReorderResponse =
         ObjectSerializer.deserialize(
           ObjectSerializer.parse(await response.body.text(), contentType),
-          "TicketCreationRuleReorderRequest",
+          "TicketCreationRuleReorderResponse",
           ""
-        ) as TicketCreationRuleReorderRequest;
+        ) as TicketCreationRuleReorderResponse;
       return body;
     }
 
@@ -28727,7 +28730,7 @@ export class SecurityMonitoringApi {
   public reorderSecurityFindingsAutomationDueDateRules(
     param: SecurityMonitoringApiReorderSecurityFindingsAutomationDueDateRulesRequest,
     options?: Configuration
-  ): Promise<DueDateRuleReorderRequest> {
+  ): Promise<DueDateRuleReorderResponse> {
     const requestContextPromise =
       this.requestFactory.reorderSecurityFindingsAutomationDueDateRules(
         param.body,
@@ -28775,7 +28778,7 @@ export class SecurityMonitoringApi {
   public reorderSecurityFindingsAutomationMuteRules(
     param: SecurityMonitoringApiReorderSecurityFindingsAutomationMuteRulesRequest,
     options?: Configuration
-  ): Promise<MuteRuleReorderRequest> {
+  ): Promise<MuteRuleReorderResponse> {
     const requestContextPromise =
       this.requestFactory.reorderSecurityFindingsAutomationMuteRules(
         param.body,
@@ -28823,7 +28826,7 @@ export class SecurityMonitoringApi {
   public reorderSecurityFindingsAutomationTicketCreationRules(
     param: SecurityMonitoringApiReorderSecurityFindingsAutomationTicketCreationRulesRequest,
     options?: Configuration
-  ): Promise<TicketCreationRuleReorderRequest> {
+  ): Promise<TicketCreationRuleReorderResponse> {
     const requestContextPromise =
       this.requestFactory.reorderSecurityFindingsAutomationTicketCreationRules(
         param.body,

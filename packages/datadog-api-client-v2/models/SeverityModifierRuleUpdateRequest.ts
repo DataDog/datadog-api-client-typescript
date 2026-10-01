@@ -3,7 +3,7 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
-import { SeverityModifierRuleDataCreate } from "./SeverityModifierRuleDataCreate";
+import { SeverityModifierRuleDataUpdate } from "./SeverityModifierRuleDataUpdate";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
@@ -12,9 +12,9 @@ import { AttributeTypeMap } from "../../datadog-api-client-common/util";
  */
 export class SeverityModifierRuleUpdateRequest {
   /**
-   * The data object for a severity modifier rule create or update request.
+   * The data object for a severity modifier rule update request. The `id` must match the `rule_id` path parameter.
    */
-  "data": SeverityModifierRuleDataCreate;
+  "data": SeverityModifierRuleDataUpdate;
 
   /**
    * A container for additional, undeclared properties.
@@ -34,7 +34,7 @@ export class SeverityModifierRuleUpdateRequest {
   static readonly attributeTypeMap: AttributeTypeMap = {
     data: {
       baseName: "data",
-      type: "SeverityModifierRuleDataCreate",
+      type: "SeverityModifierRuleDataUpdate",
       required: true,
     },
     additionalProperties: {

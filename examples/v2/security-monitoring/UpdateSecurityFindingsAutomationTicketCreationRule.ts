@@ -37,6 +37,7 @@ const params: v2.SecurityMonitoringApiUpdateSecurityFindingsAutomationTicketCrea
             query: "env:staging",
           },
         },
+        id: VALID_TICKET_CREATION_RULE_DATA_ID,
         type: "ticket_creation_rules",
       },
     },

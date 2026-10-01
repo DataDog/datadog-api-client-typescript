@@ -9,7 +9,7 @@ import { TicketCreationRuleType } from "./TicketCreationRuleType";
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * The data object for a ticket creation rule create or update request.
+ * The data object for a ticket creation rule create request.
  */
 export class TicketCreationRuleDataCreate {
   /**

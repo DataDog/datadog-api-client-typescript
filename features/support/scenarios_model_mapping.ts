@@ -6029,7 +6029,7 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             "type": "DueDateRuleReorderRequest",
             "format": "",
             },
-        "operationResponseType": "DueDateRuleReorderRequest",
+        "operationResponseType": "DueDateRuleReorderResponse",
     },
     "v2.GetSecurityFindingsAutomationDueDateRule": {
         "ruleId": {
@@ -6129,7 +6129,7 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             "type": "MuteRuleReorderRequest",
             "format": "",
             },
-        "operationResponseType": "MuteRuleReorderRequest",
+        "operationResponseType": "MuteRuleReorderResponse",
     },
     "v2.GetSecurityFindingsAutomationMuteRule": {
         "ruleId": {
@@ -6229,7 +6229,7 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             "type": "TicketCreationRuleReorderRequest",
             "format": "",
             },
-        "operationResponseType": "TicketCreationRuleReorderRequest",
+        "operationResponseType": "TicketCreationRuleReorderResponse",
     },
     "v2.GetSecurityFindingsAutomationTicketCreationRule": {
         "ruleId": {

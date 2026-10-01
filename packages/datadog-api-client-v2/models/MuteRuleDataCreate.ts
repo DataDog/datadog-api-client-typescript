@@ -9,7 +9,7 @@ import { MuteRuleType } from "./MuteRuleType";
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * The data object for a mute rule create or update request.
+ * The data object for a mute rule create request.
  */
 export class MuteRuleDataCreate {
   /**

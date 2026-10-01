@@ -3,23 +3,18 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
-import { SeverityModifierRuleAttributesCreate } from "./SeverityModifierRuleAttributesCreate";
-import { SeverityModifierRuleType } from "./SeverityModifierRuleType";
+import { TicketCreationRuleReorderItem } from "./TicketCreationRuleReorderItem";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * The data object for a severity modifier rule create request.
+ * The response of a ticket creation rule reorder request.
  */
-export class SeverityModifierRuleDataCreate {
+export class TicketCreationRuleReorderResponse {
   /**
-   * Attributes for creating or updating a severity modifier rule.
+   * The ordered list of all ticket creation rules. Every rule must be included.
    */
-  "attributes": SeverityModifierRuleAttributesCreate;
-  /**
-   * The JSON:API type for severity modifier rules.
-   */
-  "type": SeverityModifierRuleType;
+  "data": Array<TicketCreationRuleReorderItem>;
 
   /**
    * A container for additional, undeclared properties.
@@ -37,14 +32,9 @@ export class SeverityModifierRuleDataCreate {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    attributes: {
-      baseName: "attributes",
-      type: "SeverityModifierRuleAttributesCreate",
-      required: true,
-    },
-    type: {
-      baseName: "type",
-      type: "SeverityModifierRuleType",
+    data: {
+      baseName: "data",
+      type: "Array<TicketCreationRuleReorderItem>",
       required: true,
     },
     additionalProperties: {
@@ -57,7 +47,7 @@ export class SeverityModifierRuleDataCreate {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-    return SeverityModifierRuleDataCreate.attributeTypeMap;
+    return TicketCreationRuleReorderResponse.attributeTypeMap;
   }
 
   public constructor() {}

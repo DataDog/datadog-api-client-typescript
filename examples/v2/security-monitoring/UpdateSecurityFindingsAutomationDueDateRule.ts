@@ -41,6 +41,7 @@ const params: v2.SecurityMonitoringApiUpdateSecurityFindingsAutomationDueDateRul
             query: "env:staging",
           },
         },
+        id: VALID_DUE_DATE_RULE_DATA_ID,
         type: "due_date_rules",
       },
     },

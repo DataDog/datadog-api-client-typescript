@@ -8,7 +8,7 @@ import { TicketCreationRuleReorderItem } from "./TicketCreationRuleReorderItem";
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * The body of the ticket creation rule reorder request.
+ * The body of a ticket creation rule reorder request.
  */
 export class TicketCreationRuleReorderRequest {
   /**
