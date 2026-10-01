@@ -3,8 +3,8 @@
 ## Description
 
 Manage [RUM Operations](https://docs.datadoghq.com/real_user_monitoring/), business
-transactions detected from RUM events through a configurable journey, and their strong links
-to features. See the [RUM & Session Replay page](https://docs.datadoghq.com/real_user_monitoring/)
+transactions detected from RUM events through a configurable journey, and their links
+to journeys. See the [RUM & Session Replay page](https://docs.datadoghq.com/real_user_monitoring/)
 for more information.
 
 ## Navigation
