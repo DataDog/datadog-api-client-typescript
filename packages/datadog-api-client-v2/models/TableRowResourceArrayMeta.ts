@@ -3,23 +3,25 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
-import { TableRowResourceArrayMeta } from "./TableRowResourceArrayMeta";
-import { TableRowResourceData } from "./TableRowResourceData";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * List of rows from a reference table query, along with metadata about rows that were requested but not found.
+ * Metadata about the rows requested, including which ones were not found.
  */
-export class TableRowResourceArray {
+export class TableRowResourceArrayMeta {
   /**
-   * The rows.
+   * Number of requested rows that were found and returned in `data`.
    */
-  "data": Array<TableRowResourceData>;
+  "foundCount": number;
   /**
-   * Metadata about the rows requested, including which ones were not found.
+   * Row IDs from the request that do not exist in the reference table. Empty when every requested row was found.
    */
-  "meta"?: TableRowResourceArrayMeta;
+  "notFound": Array<string>;
+  /**
+   * Number of row IDs supplied in the `row_id` query parameter.
+   */
+  "requestedCount": number;
 
   /**
    * A container for additional, undeclared properties.
@@ -37,14 +39,22 @@ export class TableRowResourceArray {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    data: {
-      baseName: "data",
-      type: "Array<TableRowResourceData>",
+    foundCount: {
+      baseName: "found_count",
+      type: "number",
+      required: true,
+      format: "int64",
+    },
+    notFound: {
+      baseName: "not_found",
+      type: "Array<string>",
       required: true,
     },
-    meta: {
-      baseName: "meta",
-      type: "TableRowResourceArrayMeta",
+    requestedCount: {
+      baseName: "requested_count",
+      type: "number",
+      required: true,
+      format: "int64",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -56,7 +66,7 @@ export class TableRowResourceArray {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-    return TableRowResourceArray.attributeTypeMap;
+    return TableRowResourceArrayMeta.attributeTypeMap;
   }
 
   public constructor() {}
