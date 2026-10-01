@@ -15,6 +15,7 @@ import { ObservabilityPipelineEnrichmentTableProcessor } from "./ObservabilityPi
 import { ObservabilityPipelineFilterProcessor } from "./ObservabilityPipelineFilterProcessor";
 import { ObservabilityPipelineGenerateMetricsProcessor } from "./ObservabilityPipelineGenerateMetricsProcessor";
 import { ObservabilityPipelineGenerateMetricsV2Processor } from "./ObservabilityPipelineGenerateMetricsV2Processor";
+import { ObservabilityPipelineMetricEnrichmentTableProcessor } from "./ObservabilityPipelineMetricEnrichmentTableProcessor";
 import { ObservabilityPipelineMetricTagsProcessor } from "./ObservabilityPipelineMetricTagsProcessor";
 import { ObservabilityPipelineOcsfMapperProcessor } from "./ObservabilityPipelineOcsfMapperProcessor";
 import { ObservabilityPipelineParseGrokProcessor } from "./ObservabilityPipelineParseGrokProcessor";
@@ -62,6 +63,7 @@ export type ObservabilityPipelineConfigProcessorItem =
   | ObservabilityPipelineThrottleProcessor
   | ObservabilityPipelineAddMetricTagsProcessor
   | ObservabilityPipelineAggregateProcessor
+  | ObservabilityPipelineMetricEnrichmentTableProcessor
   | ObservabilityPipelineMetricTagsProcessor
   | ObservabilityPipelineRenameMetricTagsProcessor
   | ObservabilityPipelineTagCardinalityLimitProcessor

@@ -3612,6 +3612,14 @@ import { ObservabilityPipelineLogstashSource } from "./ObservabilityPipelineLogs
 import { ObservabilityPipelineMemoryBufferOptions } from "./ObservabilityPipelineMemoryBufferOptions";
 import { ObservabilityPipelineMemoryBufferSizeOptions } from "./ObservabilityPipelineMemoryBufferSizeOptions";
 import { ObservabilityPipelineMetadataEntry } from "./ObservabilityPipelineMetadataEntry";
+import { ObservabilityPipelineMetricEnrichmentTableFile } from "./ObservabilityPipelineMetricEnrichmentTableFile";
+import { ObservabilityPipelineMetricEnrichmentTableFileKey } from "./ObservabilityPipelineMetricEnrichmentTableFileKey";
+import { ObservabilityPipelineMetricEnrichmentTableFileProcessor } from "./ObservabilityPipelineMetricEnrichmentTableFileProcessor";
+import { ObservabilityPipelineMetricEnrichmentTableMetricNameLookup } from "./ObservabilityPipelineMetricEnrichmentTableMetricNameLookup";
+import { ObservabilityPipelineMetricEnrichmentTableReferenceKey } from "./ObservabilityPipelineMetricEnrichmentTableReferenceKey";
+import { ObservabilityPipelineMetricEnrichmentTableReferenceTable } from "./ObservabilityPipelineMetricEnrichmentTableReferenceTable";
+import { ObservabilityPipelineMetricEnrichmentTableReferenceTableProcessor } from "./ObservabilityPipelineMetricEnrichmentTableReferenceTableProcessor";
+import { ObservabilityPipelineMetricEnrichmentTableTagLookup } from "./ObservabilityPipelineMetricEnrichmentTableTagLookup";
 import { ObservabilityPipelineMetricTagsProcessor } from "./ObservabilityPipelineMetricTagsProcessor";
 import { ObservabilityPipelineMetricTagsProcessorRule } from "./ObservabilityPipelineMetricTagsProcessorRule";
 import { ObservabilityPipelineMtlsServerTls } from "./ObservabilityPipelineMtlsServerTls";
@@ -7999,6 +8007,10 @@ const enumsMap: { [key: string]: any[] } = {
   ],
   ObservabilityPipelineKafkaSourceType: ["kafka"],
   ObservabilityPipelineLogstashSourceType: ["logstash"],
+  ObservabilityPipelineMetricEnrichmentTableMetricNameLookupType: [
+    "metric_name",
+  ],
+  ObservabilityPipelineMetricEnrichmentTableTagLookupType: ["tag"],
   ObservabilityPipelineMetricTagsProcessorRuleAction: ["include", "exclude"],
   ObservabilityPipelineMetricTagsProcessorRuleMode: ["filter"],
   ObservabilityPipelineMetricTagsProcessorType: ["metric_tags"],
@@ -13949,6 +13961,22 @@ const typeMap: { [index: string]: any } = {
   ObservabilityPipelineMemoryBufferSizeOptions:
     ObservabilityPipelineMemoryBufferSizeOptions,
   ObservabilityPipelineMetadataEntry: ObservabilityPipelineMetadataEntry,
+  ObservabilityPipelineMetricEnrichmentTableFile:
+    ObservabilityPipelineMetricEnrichmentTableFile,
+  ObservabilityPipelineMetricEnrichmentTableFileKey:
+    ObservabilityPipelineMetricEnrichmentTableFileKey,
+  ObservabilityPipelineMetricEnrichmentTableFileProcessor:
+    ObservabilityPipelineMetricEnrichmentTableFileProcessor,
+  ObservabilityPipelineMetricEnrichmentTableMetricNameLookup:
+    ObservabilityPipelineMetricEnrichmentTableMetricNameLookup,
+  ObservabilityPipelineMetricEnrichmentTableReferenceKey:
+    ObservabilityPipelineMetricEnrichmentTableReferenceKey,
+  ObservabilityPipelineMetricEnrichmentTableReferenceTable:
+    ObservabilityPipelineMetricEnrichmentTableReferenceTable,
+  ObservabilityPipelineMetricEnrichmentTableReferenceTableProcessor:
+    ObservabilityPipelineMetricEnrichmentTableReferenceTableProcessor,
+  ObservabilityPipelineMetricEnrichmentTableTagLookup:
+    ObservabilityPipelineMetricEnrichmentTableTagLookup,
   ObservabilityPipelineMetricTagsProcessor:
     ObservabilityPipelineMetricTagsProcessor,
   ObservabilityPipelineMetricTagsProcessorRule:
@@ -17770,6 +17798,7 @@ const oneOfMap: { [index: string]: string[] } = {
     "ObservabilityPipelineThrottleProcessor",
     "ObservabilityPipelineAddMetricTagsProcessor",
     "ObservabilityPipelineAggregateProcessor",
+    "ObservabilityPipelineMetricEnrichmentTableProcessor",
     "ObservabilityPipelineMetricTagsProcessor",
     "ObservabilityPipelineRenameMetricTagsProcessor",
     "ObservabilityPipelineTagCardinalityLimitProcessor",
@@ -17808,6 +17837,14 @@ const oneOfMap: { [index: string]: string[] } = {
   ObservabilityPipelineHttpServerSourceValidTokenPathToToken: [
     "ObservabilityPipelineHttpServerSourceValidTokenPathToTokenLocation",
     "ObservabilityPipelineHttpServerSourceValidTokenPathToTokenHeader",
+  ],
+  ObservabilityPipelineMetricEnrichmentTableLookupSource: [
+    "ObservabilityPipelineMetricEnrichmentTableMetricNameLookup",
+    "ObservabilityPipelineMetricEnrichmentTableTagLookup",
+  ],
+  ObservabilityPipelineMetricEnrichmentTableProcessor: [
+    "ObservabilityPipelineMetricEnrichmentTableFileProcessor",
+    "ObservabilityPipelineMetricEnrichmentTableReferenceTableProcessor",
   ],
   ObservabilityPipelineMetricValue: [
     "ObservabilityPipelineGeneratedMetricIncrementByOne",
