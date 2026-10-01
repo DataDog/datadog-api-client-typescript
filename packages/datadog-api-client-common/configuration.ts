@@ -664,6 +664,8 @@ export function createConfiguration(
       "v2.listJiraAccounts": false,
       "v2.listJiraIssueTemplates": false,
       "v2.updateJiraIssueTemplate": false,
+      "v2.createArchiveSearch": false,
+      "v2.getArchiveSearch": false,
       "v2.addRoleToRestrictionQuery": false,
       "v2.createRestrictionQuery": false,
       "v2.deleteRestrictionQuery": false,
