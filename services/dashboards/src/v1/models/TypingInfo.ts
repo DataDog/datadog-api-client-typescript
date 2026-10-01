@@ -274,6 +274,7 @@ export const TypingInfo: ModelTypingInfo = {
       "previous_week",
       "previous_month",
     ],
+    DashboardExperienceType: ["default", "product_analytics"],
     DashboardFixedTimeframeType: ["fixed"],
     DashboardGlobalTimeLiveSpan: [
       "15m",
