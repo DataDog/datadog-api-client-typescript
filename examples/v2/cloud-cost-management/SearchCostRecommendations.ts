@@ -21,7 +21,7 @@ const params: v2.CloudCostManagementApiSearchCostRecommendationsRequest = {
         scope: "ccm",
         sort: [
           {
-            expression: "potential_daily_savings.amount",
+            expression: "@potential_daily_savings",
             order: "DESC",
           },
         ],
