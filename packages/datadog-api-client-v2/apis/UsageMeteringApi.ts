@@ -110,6 +110,55 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
+  public async deletePendingQuota(
+    quotaNamespace: string,
+    id: string,
+    _options?: Configuration
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    logger.warn("Using unstable operation 'deletePendingQuota'");
+    if (!_config.unstableOperations["v2.deletePendingQuota"]) {
+      throw new Error("Unstable operation 'deletePendingQuota' is disabled");
+    }
+
+    // verify required parameter 'quotaNamespace' is not null or undefined
+    if (quotaNamespace === null || quotaNamespace === undefined) {
+      throw new RequiredError("quotaNamespace", "deletePendingQuota");
+    }
+
+    // verify required parameter 'id' is not null or undefined
+    if (id === null || id === undefined) {
+      throw new RequiredError("id", "deletePendingQuota");
+    }
+
+    // Path Params
+    const localVarPath = "/api/v2/usage/quotas/{quota_namespace}/{id}/pending"
+      .replace("{quota_namespace}", encodeURIComponent(String(quotaNamespace)))
+      .replace("{id}", encodeURIComponent(String(id)));
+
+    // Make Request Context
+    const requestContext = _config
+      .getServer("v2.UsageMeteringApi.deletePendingQuota")
+      .makeRequestContext(localVarPath, HttpMethod.DELETE);
+    requestContext.setHeaderParam("Accept", "*/*");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Set IaC header
+    if (_config.isIaC) {
+      requestContext.setHeaderParam("X-Datadog-Managed-By", "iac");
+    }
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+      "AuthZ",
+    ]);
+
+    return requestContext;
+  }
+
   public async deleteQuota(
     quotaNamespace: string,
     id: string,
@@ -1207,6 +1256,80 @@ export class UsageMeteringApiResponseProcessor {
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
    *
+   * @params response Response returned by the server for a request to deletePendingQuota
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async deletePendingQuota(response: ResponseContext): Promise<void> {
+    const contentType = ObjectSerializer.normalizeMediaType(
+      response.headers["content-type"]
+    );
+    if (response.httpStatusCode === 204) {
+      return;
+    }
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 404
+    ) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: JSONAPIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "JSONAPIErrorResponse"
+        ) as JSONAPIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<JSONAPIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<JSONAPIErrorResponse>(
+        response.httpStatusCode,
+        body
+      );
+    }
+    if (response.httpStatusCode === 429) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: APIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "APIErrorResponse"
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      return;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"'
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
    * @params response Response returned by the server for a request to deleteQuota
    * @throws ApiException if the response code was not in [200, 299]
    */
@@ -2268,6 +2391,19 @@ export interface UsageMeteringApiCreateQuotasRequest {
   includeDescendants?: boolean;
 }
 
+export interface UsageMeteringApiDeletePendingQuotaRequest {
+  /**
+   * The product-specific namespace whose usage quotas are being managed.
+   * @type string
+   */
+  quotaNamespace: string;
+  /**
+   * The opaque quota identifier returned by a previous list or create request. Clients must pass this value verbatim.
+   * @type string
+   */
+  id: string;
+}
+
 export interface UsageMeteringApiDeleteQuotaRequest {
   /**
    * The product-specific namespace whose usage quotas are being managed.
@@ -2590,7 +2726,11 @@ export class UsageMeteringApi {
   }
 
   /**
-   * Creates or updates one or more usage quotas by scope. If a quota already exists for a supplied scope, it is updated; otherwise, a new quota is created. Requires the `billing_edit` permission.
+   * Creates or updates one or more usage quotas by scope. If a quota already exists for a supplied scope, it is updated.
+   * Otherwise, a quota is created only when `usage_limit` and `enforced` are provided.
+   * For the organization-wide quota, `pending_usage_limit` schedules a limit for the next usage period and can
+   * accompany an immediate limit or update an existing quota by itself.
+   * Scheduled changes follow `include_descendants` like the other fields. Requires the `billing_edit` permission.
    * @param param The request object
    */
   public createQuotas(
@@ -2608,6 +2748,28 @@ export class UsageMeteringApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.createQuotas(responseContext);
+        });
+    });
+  }
+
+  /**
+   * Cancels the limit change scheduled to take effect at the start of the next usage period, leaving the usage quota and its current limit unchanged. Returns `404` when the quota does not exist, has no scheduled change, or its scheduled change has already taken effect; in every case the quota is left unchanged. The quota must belong to the caller's organization or one of its descendants, and its opaque identifier must belong to the requested quota namespace. Requires the `billing_edit` permission.
+   * @param param The request object
+   */
+  public deletePendingQuota(
+    param: UsageMeteringApiDeletePendingQuotaRequest,
+    options?: Configuration
+  ): Promise<void> {
+    const requestContextPromise = this.requestFactory.deletePendingQuota(
+      param.quotaNamespace,
+      param.id,
+      options
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.deletePendingQuota(responseContext);
         });
     });
   }
@@ -3103,7 +3265,7 @@ export class UsageMeteringApi {
   }
 
   /**
-   * Updates the supplied fields on a usage quota and leaves omitted fields unchanged. The quota must belong to the caller's organization or one of its descendants, and its opaque identifier must belong to the requested quota namespace. Requires the `billing_edit` permission.
+   * Updates the supplied fields on a usage quota and leaves omitted fields unchanged. For an organization-wide quota, `pending_usage_limit` schedules a limit for the next usage period. The quota must belong to the caller's organization or one of its descendants, and its opaque identifier must belong to the requested quota namespace. Requires the `billing_edit` permission.
    * @param param The request object
    */
   public updateQuota(

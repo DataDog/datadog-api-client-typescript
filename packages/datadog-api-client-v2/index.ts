@@ -1986,6 +1986,7 @@ export {
 
 export {
   UsageMeteringApiCreateQuotasRequest,
+  UsageMeteringApiDeletePendingQuotaRequest,
   UsageMeteringApiDeleteQuotaRequest,
   UsageMeteringApiGetBillingDimensionMappingRequest,
   UsageMeteringApiGetCostByOrgRequest,
