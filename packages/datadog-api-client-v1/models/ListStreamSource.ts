@@ -28,6 +28,7 @@ export type ListStreamSource =
   | typeof SECURITY_RUNTIME_STREAM
   | typeof SECURITY_SIGNALS_STREAM
   | typeof INCIDENTS_STREAM
+  | typeof CASE_STREAM
   | UnparsedObject;
 export const LOGS_STREAM = "logs_stream";
 export const AUDIT_STREAM = "audit_stream";
@@ -46,3 +47,4 @@ export const ISSUE_STREAM = "issue_stream";
 export const SECURITY_RUNTIME_STREAM = "security_runtime_stream";
 export const SECURITY_SIGNALS_STREAM = "security_signals_stream";
 export const INCIDENTS_STREAM = "incidents_stream";
+export const CASE_STREAM = "case_stream";
