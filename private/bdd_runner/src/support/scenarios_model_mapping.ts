@@ -12846,6 +12846,20 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
     },
     operationResponseType: "LogsListResponse",
   },
+  "LogsArchiveSearchesApi.V2.CreateArchiveSearch": {
+    body: {
+      type: "ArchiveSearchCreateRequest",
+      format: "",
+    },
+    operationResponseType: "ArchiveSearchResponse",
+  },
+  "LogsArchiveSearchesApi.V2.GetArchiveSearch": {
+    archiveSearchId: {
+      type: "string",
+      format: "",
+    },
+    operationResponseType: "ArchiveSearchResponse",
+  },
   "LogsArchivesApi.V2.GetLogsArchiveOrder": {
     operationResponseType: "LogsArchiveOrder",
   },

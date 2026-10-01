@@ -423,6 +423,7 @@ apiInstance
 | Jira Integration | @datadog/datadog-api-client-jira-integration | [README.md](../../services/jira-integration/README.md) |
 | Key Management | @datadog/datadog-api-client-key-management | [README.md](../../services/key-management/README.md) |
 | Logs | @datadog/datadog-api-client-logs | [README.md](../../services/logs/README.md) |
+| Logs Archive Searches | @datadog/datadog-api-client-logs-archive-searches | [README.md](../../services/logs-archive-searches/README.md) |
 | Logs Archives | @datadog/datadog-api-client-logs-archives | [README.md](../../services/logs-archives/README.md) |
 | Logs Custom Destinations | @datadog/datadog-api-client-logs-custom-destinations | [README.md](../../services/logs-custom-destinations/README.md) |
 | Logs Indexes | @datadog/datadog-api-client-logs-indexes | [README.md](../../services/logs-indexes/README.md) |
