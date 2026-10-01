@@ -3,23 +3,27 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
-import { SeverityModifierRuleAttributesCreate } from "./SeverityModifierRuleAttributesCreate";
-import { SeverityModifierRuleType } from "./SeverityModifierRuleType";
+import { MuteRuleAttributesCreate } from "./MuteRuleAttributesCreate";
+import { MuteRuleType } from "./MuteRuleType";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * The data object for a severity modifier rule create request.
+ * The data object for a mute rule update request. The `id` must match the `rule_id` path parameter.
  */
-export class SeverityModifierRuleDataCreate {
+export class MuteRuleDataUpdate {
   /**
-   * Attributes for creating or updating a severity modifier rule.
+   * Attributes for creating or updating a mute rule.
    */
-  "attributes": SeverityModifierRuleAttributesCreate;
+  "attributes": MuteRuleAttributesCreate;
   /**
-   * The JSON:API type for severity modifier rules.
+   * The ID of the mute rule to update.
    */
-  "type": SeverityModifierRuleType;
+  "id": string;
+  /**
+   * The JSON:API type for mute rules.
+   */
+  "type": MuteRuleType;
 
   /**
    * A container for additional, undeclared properties.
@@ -39,12 +43,18 @@ export class SeverityModifierRuleDataCreate {
   static readonly attributeTypeMap: AttributeTypeMap = {
     attributes: {
       baseName: "attributes",
-      type: "SeverityModifierRuleAttributesCreate",
+      type: "MuteRuleAttributesCreate",
       required: true,
+    },
+    id: {
+      baseName: "id",
+      type: "string",
+      required: true,
+      format: "uuid",
     },
     type: {
       baseName: "type",
-      type: "SeverityModifierRuleType",
+      type: "MuteRuleType",
       required: true,
     },
     additionalProperties: {
@@ -57,7 +67,7 @@ export class SeverityModifierRuleDataCreate {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-    return SeverityModifierRuleDataCreate.attributeTypeMap;
+    return MuteRuleDataUpdate.attributeTypeMap;
   }
 
   public constructor() {}

@@ -8,7 +8,7 @@ import { DueDateRuleReorderItem } from "./DueDateRuleReorderItem";
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * The body of the due date rule reorder request.
+ * The body of a due date rule reorder request.
  */
 export class DueDateRuleReorderRequest {
   /**

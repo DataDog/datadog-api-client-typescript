@@ -3,23 +3,27 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
-import { SeverityModifierRuleAttributesCreate } from "./SeverityModifierRuleAttributesCreate";
-import { SeverityModifierRuleType } from "./SeverityModifierRuleType";
+import { DueDateRuleAttributesCreate } from "./DueDateRuleAttributesCreate";
+import { DueDateRuleType } from "./DueDateRuleType";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * The data object for a severity modifier rule create request.
+ * The data object for a due date rule update request. The `id` must match the `rule_id` path parameter.
  */
-export class SeverityModifierRuleDataCreate {
+export class DueDateRuleDataUpdate {
   /**
-   * Attributes for creating or updating a severity modifier rule.
+   * Attributes for creating or updating a due date rule.
    */
-  "attributes": SeverityModifierRuleAttributesCreate;
+  "attributes": DueDateRuleAttributesCreate;
   /**
-   * The JSON:API type for severity modifier rules.
+   * The ID of the due date rule to update.
    */
-  "type": SeverityModifierRuleType;
+  "id": string;
+  /**
+   * The JSON:API type for due date rules.
+   */
+  "type": DueDateRuleType;
 
   /**
    * A container for additional, undeclared properties.
@@ -39,12 +43,18 @@ export class SeverityModifierRuleDataCreate {
   static readonly attributeTypeMap: AttributeTypeMap = {
     attributes: {
       baseName: "attributes",
-      type: "SeverityModifierRuleAttributesCreate",
+      type: "DueDateRuleAttributesCreate",
       required: true,
+    },
+    id: {
+      baseName: "id",
+      type: "string",
+      required: true,
+      format: "uuid",
     },
     type: {
       baseName: "type",
-      type: "SeverityModifierRuleType",
+      type: "DueDateRuleType",
       required: true,
     },
     additionalProperties: {
@@ -57,7 +67,7 @@ export class SeverityModifierRuleDataCreate {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-    return SeverityModifierRuleDataCreate.attributeTypeMap;
+    return DueDateRuleDataUpdate.attributeTypeMap;
   }
 
   public constructor() {}

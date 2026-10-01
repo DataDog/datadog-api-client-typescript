@@ -12,7 +12,7 @@ import { AttributeTypeMap } from "../../datadog-api-client-common/util";
  */
 export class SeverityModifierRuleCreateRequest {
   /**
-   * The data object for a severity modifier rule create or update request.
+   * The data object for a severity modifier rule create request.
    */
   "data": SeverityModifierRuleDataCreate;
 

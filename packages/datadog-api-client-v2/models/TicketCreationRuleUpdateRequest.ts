@@ -3,7 +3,7 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
-import { TicketCreationRuleDataCreate } from "./TicketCreationRuleDataCreate";
+import { TicketCreationRuleDataUpdate } from "./TicketCreationRuleDataUpdate";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
@@ -12,9 +12,9 @@ import { AttributeTypeMap } from "../../datadog-api-client-common/util";
  */
 export class TicketCreationRuleUpdateRequest {
   /**
-   * The data object for a ticket creation rule create or update request.
+   * The data object for a ticket creation rule update request. The `id` must match the `rule_id` path parameter.
    */
-  "data": TicketCreationRuleDataCreate;
+  "data": TicketCreationRuleDataUpdate;
 
   /**
    * A container for additional, undeclared properties.
@@ -34,7 +34,7 @@ export class TicketCreationRuleUpdateRequest {
   static readonly attributeTypeMap: AttributeTypeMap = {
     data: {
       baseName: "data",
-      type: "TicketCreationRuleDataCreate",
+      type: "TicketCreationRuleDataUpdate",
       required: true,
     },
     additionalProperties: {

@@ -37,6 +37,7 @@ const params: v2.SecurityMonitoringApiUpdateSecurityFindingsAutomationSeverityMo
             query: "env:prod team:platform",
           },
         },
+        id: VALID_SEVERITY_MODIFIER_RULE_DATA_ID,
         type: "severity_modifier_rules",
       },
     },

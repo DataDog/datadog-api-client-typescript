@@ -9,7 +9,7 @@ import { DueDateRuleType } from "./DueDateRuleType";
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * The data object for a due date rule create or update request.
+ * The data object for a due date rule create request.
  */
 export class DueDateRuleDataCreate {
   /**
