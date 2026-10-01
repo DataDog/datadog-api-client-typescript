@@ -49,6 +49,10 @@ export class DataDeletionResponseItemAttributes {
    */
   "query": string;
   /**
+   * The source of the deletion request.
+   */
+  "source"?: string;
+  /**
    * Starting time of the process to delete the requested data.
    */
   "startingAt": string;
@@ -137,6 +141,10 @@ export class DataDeletionResponseItemAttributes {
       baseName: "query",
       type: "string",
       required: true,
+    },
+    source: {
+      baseName: "source",
+      type: "string",
     },
     startingAt: {
       baseName: "starting_at",
