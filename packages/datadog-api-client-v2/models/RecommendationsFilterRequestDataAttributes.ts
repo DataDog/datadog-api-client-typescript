@@ -13,6 +13,12 @@ import { AttributeTypeMap } from "../../datadog-api-client-common/util";
  */
 export class RecommendationsFilterRequestDataAttributes {
   /**
+   * Filter expression applied to the recommendations. When supplied, this attribute overrides
+   * `data.id`, including when empty. When omitted, `data.id` is used. If the resulting filter
+   * is empty, it defaults to `*`. Scope, view, and pagination still apply.
+   */
+  "filter"?: string;
+  /**
    * Recommendations scope. Defaults to `ccm`; use `experiment` for experimental recommendations or `*` for both.
    */
   "scope"?: RecommendationsFilterRequestScope;
@@ -41,6 +47,10 @@ export class RecommendationsFilterRequestDataAttributes {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
+    filter: {
+      baseName: "filter",
+      type: "string",
+    },
     scope: {
       baseName: "scope",
       type: "RecommendationsFilterRequestScope",
