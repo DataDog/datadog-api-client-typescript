@@ -3,7 +3,7 @@ import { AttributeTypeMap } from "@datadog/datadog-api-client";
 import { TicketCreationRuleReorderItem } from "./TicketCreationRuleReorderItem";
 
 /**
- * The body of the ticket creation rule reorder request.
+ * The body of a ticket creation rule reorder request.
  */
 export class TicketCreationRuleReorderRequest {
   /**

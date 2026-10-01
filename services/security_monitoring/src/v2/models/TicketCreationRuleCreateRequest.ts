@@ -7,7 +7,7 @@ import { TicketCreationRuleDataCreate } from "./TicketCreationRuleDataCreate";
  */
 export class TicketCreationRuleCreateRequest {
   /**
-   * The data object for a ticket creation rule create or update request.
+   * The data object for a ticket creation rule create request.
    */
   "data": TicketCreationRuleDataCreate;
   /**

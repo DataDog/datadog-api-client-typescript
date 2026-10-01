@@ -3,7 +3,7 @@ import { AttributeTypeMap } from "@datadog/datadog-api-client";
 import { MuteRuleReorderItem } from "./MuteRuleReorderItem";
 
 /**
- * The body of the mute rule reorder request.
+ * The body of a mute rule reorder request.
  */
 export class MuteRuleReorderRequest {
   /**

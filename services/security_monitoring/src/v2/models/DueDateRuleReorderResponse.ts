@@ -3,9 +3,9 @@ import { AttributeTypeMap } from "@datadog/datadog-api-client";
 import { DueDateRuleReorderItem } from "./DueDateRuleReorderItem";
 
 /**
- * The body of a due date rule reorder request.
+ * The response of a due date rule reorder request.
  */
-export class DueDateRuleReorderRequest {
+export class DueDateRuleReorderResponse {
   /**
    * The ordered list of all due date rules. Every rule must be included.
    */
@@ -40,7 +40,7 @@ export class DueDateRuleReorderRequest {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-    return DueDateRuleReorderRequest.attributeTypeMap;
+    return DueDateRuleReorderResponse.attributeTypeMap;
   }
 
   public constructor() {}

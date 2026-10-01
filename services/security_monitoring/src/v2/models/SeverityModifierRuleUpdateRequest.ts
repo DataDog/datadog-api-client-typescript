@@ -1,15 +1,15 @@
 import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
-import { SeverityModifierRuleDataCreate } from "./SeverityModifierRuleDataCreate";
+import { SeverityModifierRuleDataUpdate } from "./SeverityModifierRuleDataUpdate";
 
 /**
  * The body of a severity modifier rule update request.
  */
 export class SeverityModifierRuleUpdateRequest {
   /**
-   * The data object for a severity modifier rule create or update request.
+   * The data object for a severity modifier rule update request. The `id` must match the `rule_id` path parameter.
    */
-  "data": SeverityModifierRuleDataCreate;
+  "data": SeverityModifierRuleDataUpdate;
   /**
    * A container for additional, undeclared properties.
    * This is a holder for any undeclared properties as specified with
@@ -27,7 +27,7 @@ export class SeverityModifierRuleUpdateRequest {
   static readonly attributeTypeMap: AttributeTypeMap = {
     data: {
       baseName: "data",
-      type: "SeverityModifierRuleDataCreate",
+      type: "SeverityModifierRuleDataUpdate",
       required: true,
     },
     additionalProperties: {

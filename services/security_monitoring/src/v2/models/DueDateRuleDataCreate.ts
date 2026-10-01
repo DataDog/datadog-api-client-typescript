@@ -4,7 +4,7 @@ import { DueDateRuleAttributesCreate } from "./DueDateRuleAttributesCreate";
 import { DueDateRuleType } from "./DueDateRuleType";
 
 /**
- * The data object for a due date rule create or update request.
+ * The data object for a due date rule create request.
  */
 export class DueDateRuleDataCreate {
   /**

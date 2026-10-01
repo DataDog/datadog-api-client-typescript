@@ -1,15 +1,15 @@
 import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
-import { TicketCreationRuleDataCreate } from "./TicketCreationRuleDataCreate";
+import { TicketCreationRuleDataUpdate } from "./TicketCreationRuleDataUpdate";
 
 /**
  * The body of a ticket creation rule update request.
  */
 export class TicketCreationRuleUpdateRequest {
   /**
-   * The data object for a ticket creation rule create or update request.
+   * The data object for a ticket creation rule update request. The `id` must match the `rule_id` path parameter.
    */
-  "data": TicketCreationRuleDataCreate;
+  "data": TicketCreationRuleDataUpdate;
   /**
    * A container for additional, undeclared properties.
    * This is a holder for any undeclared properties as specified with
@@ -27,7 +27,7 @@ export class TicketCreationRuleUpdateRequest {
   static readonly attributeTypeMap: AttributeTypeMap = {
     data: {
       baseName: "data",
-      type: "TicketCreationRuleDataCreate",
+      type: "TicketCreationRuleDataUpdate",
       required: true,
     },
     additionalProperties: {

@@ -1,20 +1,24 @@
 import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
-import { TicketCreationRuleAttributesCreate } from "./TicketCreationRuleAttributesCreate";
-import { TicketCreationRuleType } from "./TicketCreationRuleType";
+import { MuteRuleAttributesCreate } from "./MuteRuleAttributesCreate";
+import { MuteRuleType } from "./MuteRuleType";
 
 /**
- * The data object for a ticket creation rule create request.
+ * The data object for a mute rule update request. The `id` must match the `rule_id` path parameter.
  */
-export class TicketCreationRuleDataCreate {
+export class MuteRuleDataUpdate {
   /**
-   * Attributes for creating or updating a ticket creation rule.
+   * Attributes for creating or updating a mute rule.
    */
-  "attributes": TicketCreationRuleAttributesCreate;
+  "attributes": MuteRuleAttributesCreate;
   /**
-   * The JSON:API type for ticket creation rules.
+   * The ID of the mute rule to update.
    */
-  "type": TicketCreationRuleType;
+  "id": string;
+  /**
+   * The JSON:API type for mute rules.
+   */
+  "type": MuteRuleType;
   /**
    * A container for additional, undeclared properties.
    * This is a holder for any undeclared properties as specified with
@@ -32,12 +36,18 @@ export class TicketCreationRuleDataCreate {
   static readonly attributeTypeMap: AttributeTypeMap = {
     attributes: {
       baseName: "attributes",
-      type: "TicketCreationRuleAttributesCreate",
+      type: "MuteRuleAttributesCreate",
       required: true,
+    },
+    id: {
+      baseName: "id",
+      type: "string",
+      required: true,
+      format: "uuid",
     },
     type: {
       baseName: "type",
-      type: "TicketCreationRuleType",
+      type: "MuteRuleType",
       required: true,
     },
     additionalProperties: {
@@ -50,7 +60,7 @@ export class TicketCreationRuleDataCreate {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-    return TicketCreationRuleDataCreate.attributeTypeMap;
+    return MuteRuleDataUpdate.attributeTypeMap;
   }
 
   public constructor() {}

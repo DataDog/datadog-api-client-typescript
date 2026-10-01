@@ -1,20 +1,24 @@
 import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
-import { TicketCreationRuleAttributesCreate } from "./TicketCreationRuleAttributesCreate";
-import { TicketCreationRuleType } from "./TicketCreationRuleType";
+import { DueDateRuleAttributesCreate } from "./DueDateRuleAttributesCreate";
+import { DueDateRuleType } from "./DueDateRuleType";
 
 /**
- * The data object for a ticket creation rule create request.
+ * The data object for a due date rule update request. The `id` must match the `rule_id` path parameter.
  */
-export class TicketCreationRuleDataCreate {
+export class DueDateRuleDataUpdate {
   /**
-   * Attributes for creating or updating a ticket creation rule.
+   * Attributes for creating or updating a due date rule.
    */
-  "attributes": TicketCreationRuleAttributesCreate;
+  "attributes": DueDateRuleAttributesCreate;
   /**
-   * The JSON:API type for ticket creation rules.
+   * The ID of the due date rule to update.
    */
-  "type": TicketCreationRuleType;
+  "id": string;
+  /**
+   * The JSON:API type for due date rules.
+   */
+  "type": DueDateRuleType;
   /**
    * A container for additional, undeclared properties.
    * This is a holder for any undeclared properties as specified with
@@ -32,12 +36,18 @@ export class TicketCreationRuleDataCreate {
   static readonly attributeTypeMap: AttributeTypeMap = {
     attributes: {
       baseName: "attributes",
-      type: "TicketCreationRuleAttributesCreate",
+      type: "DueDateRuleAttributesCreate",
       required: true,
+    },
+    id: {
+      baseName: "id",
+      type: "string",
+      required: true,
+      format: "uuid",
     },
     type: {
       baseName: "type",
-      type: "TicketCreationRuleType",
+      type: "DueDateRuleType",
       required: true,
     },
     additionalProperties: {
@@ -50,7 +60,7 @@ export class TicketCreationRuleDataCreate {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-    return TicketCreationRuleDataCreate.attributeTypeMap;
+    return DueDateRuleDataUpdate.attributeTypeMap;
   }
 
   public constructor() {}

@@ -1,15 +1,15 @@
 import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
-import { DueDateRuleReorderItem } from "./DueDateRuleReorderItem";
+import { MuteRuleReorderItem } from "./MuteRuleReorderItem";
 
 /**
- * The body of a due date rule reorder request.
+ * The response of a mute rule reorder request.
  */
-export class DueDateRuleReorderRequest {
+export class MuteRuleReorderResponse {
   /**
-   * The ordered list of all due date rules. Every rule must be included.
+   * The ordered list of all mute rules. Every rule must be included.
    */
-  "data": Array<DueDateRuleReorderItem>;
+  "data": Array<MuteRuleReorderItem>;
   /**
    * A container for additional, undeclared properties.
    * This is a holder for any undeclared properties as specified with
@@ -27,7 +27,7 @@ export class DueDateRuleReorderRequest {
   static readonly attributeTypeMap: AttributeTypeMap = {
     data: {
       baseName: "data",
-      type: "Array<DueDateRuleReorderItem>",
+      type: "Array<MuteRuleReorderItem>",
       required: true,
     },
     additionalProperties: {
@@ -40,7 +40,7 @@ export class DueDateRuleReorderRequest {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-    return DueDateRuleReorderRequest.attributeTypeMap;
+    return MuteRuleReorderResponse.attributeTypeMap;
   }
 
   public constructor() {}
