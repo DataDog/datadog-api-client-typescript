@@ -956,6 +956,12 @@ export {
 } from "./apis/LogsApi";
 
 export {
+  LogsArchiveSearchesApiCreateArchiveSearchRequest,
+  LogsArchiveSearchesApiGetArchiveSearchRequest,
+  LogsArchiveSearchesApi,
+} from "./apis/LogsArchiveSearchesApi";
+
+export {
   LogsArchivesApiAddReadRoleToArchiveRequest,
   LogsArchivesApiCreateLogsArchiveRequest,
   LogsArchivesApiDeleteLogsArchiveRequest,
@@ -2408,6 +2414,17 @@ export { ArbitraryRuleStatusResponseArray } from "./models/ArbitraryRuleStatusRe
 export { ArbitraryRuleStatusResponseData } from "./models/ArbitraryRuleStatusResponseData";
 export { ArbitraryRuleStatusResponseDataAttributes } from "./models/ArbitraryRuleStatusResponseDataAttributes";
 export { ArbitraryRuleStatusResponseDataType } from "./models/ArbitraryRuleStatusResponseDataType";
+export { ArchiveSearchCreateRehydration } from "./models/ArchiveSearchCreateRehydration";
+export { ArchiveSearchCreateRequest } from "./models/ArchiveSearchCreateRequest";
+export { ArchiveSearchCreateRequestAttributes } from "./models/ArchiveSearchCreateRequestAttributes";
+export { ArchiveSearchCreateRequestData } from "./models/ArchiveSearchCreateRequestData";
+export { ArchiveSearchRehydration } from "./models/ArchiveSearchRehydration";
+export { ArchiveSearchRehydrationTier } from "./models/ArchiveSearchRehydrationTier";
+export { ArchiveSearchResponse } from "./models/ArchiveSearchResponse";
+export { ArchiveSearchResponseAttributes } from "./models/ArchiveSearchResponseAttributes";
+export { ArchiveSearchResponseData } from "./models/ArchiveSearchResponseData";
+export { ArchiveSearchStatus } from "./models/ArchiveSearchStatus";
+export { ArchiveSearchType } from "./models/ArchiveSearchType";
 export { Argument } from "./models/Argument";
 export { AsanaAccessToken } from "./models/AsanaAccessToken";
 export { AsanaAccessTokenType } from "./models/AsanaAccessTokenType";

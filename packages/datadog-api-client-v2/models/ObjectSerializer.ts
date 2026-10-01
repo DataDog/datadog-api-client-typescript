@@ -339,6 +339,14 @@ import { ArbitraryRuleResponseDataAttributesStrategyEvaluateGroupedByFiltersItem
 import { ArbitraryRuleStatusResponseArray } from "./ArbitraryRuleStatusResponseArray";
 import { ArbitraryRuleStatusResponseData } from "./ArbitraryRuleStatusResponseData";
 import { ArbitraryRuleStatusResponseDataAttributes } from "./ArbitraryRuleStatusResponseDataAttributes";
+import { ArchiveSearchCreateRehydration } from "./ArchiveSearchCreateRehydration";
+import { ArchiveSearchCreateRequest } from "./ArchiveSearchCreateRequest";
+import { ArchiveSearchCreateRequestAttributes } from "./ArchiveSearchCreateRequestAttributes";
+import { ArchiveSearchCreateRequestData } from "./ArchiveSearchCreateRequestData";
+import { ArchiveSearchRehydration } from "./ArchiveSearchRehydration";
+import { ArchiveSearchResponse } from "./ArchiveSearchResponse";
+import { ArchiveSearchResponseAttributes } from "./ArchiveSearchResponseAttributes";
+import { ArchiveSearchResponseData } from "./ArchiveSearchResponseData";
 import { Argument } from "./Argument";
 import { AsanaAccessToken } from "./AsanaAccessToken";
 import { AsanaAccessTokenUpdate } from "./AsanaAccessTokenUpdate";
@@ -6530,6 +6538,16 @@ const enumsMap: { [key: string]: any[] } = {
   ArbitraryCostUpsertRequestDataType: ["upsert_arbitrary_rule"],
   ArbitraryRuleResponseDataType: ["arbitrary_rule"],
   ArbitraryRuleStatusResponseDataType: ["arbitrary_rule_status"],
+  ArchiveSearchRehydrationTier: ["standard", "flex"],
+  ArchiveSearchStatus: [
+    "RUNNING",
+    "COMPLETED",
+    "FAILED",
+    "CANCELLED",
+    "QUOTA_REACHED",
+    "EXPIRED",
+  ],
+  ArchiveSearchType: ["archive_search"],
   AsanaAccessTokenType: ["AsanaAccessToken"],
   AsanaIntegrationType: ["Asana"],
   AssetEntityType: ["assets"],
@@ -10012,6 +10030,14 @@ const typeMap: { [index: string]: any } = {
   ArbitraryRuleStatusResponseData: ArbitraryRuleStatusResponseData,
   ArbitraryRuleStatusResponseDataAttributes:
     ArbitraryRuleStatusResponseDataAttributes,
+  ArchiveSearchCreateRehydration: ArchiveSearchCreateRehydration,
+  ArchiveSearchCreateRequest: ArchiveSearchCreateRequest,
+  ArchiveSearchCreateRequestAttributes: ArchiveSearchCreateRequestAttributes,
+  ArchiveSearchCreateRequestData: ArchiveSearchCreateRequestData,
+  ArchiveSearchRehydration: ArchiveSearchRehydration,
+  ArchiveSearchResponse: ArchiveSearchResponse,
+  ArchiveSearchResponseAttributes: ArchiveSearchResponseAttributes,
+  ArchiveSearchResponseData: ArchiveSearchResponseData,
   Argument: Argument,
   AsanaAccessToken: AsanaAccessToken,
   AsanaAccessTokenUpdate: AsanaAccessTokenUpdate,

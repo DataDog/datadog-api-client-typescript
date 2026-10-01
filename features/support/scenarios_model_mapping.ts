@@ -12821,6 +12821,20 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             },
         "operationResponseType": "LogsListResponse",
     },
+    "v2.CreateArchiveSearch": {
+        "body": {
+            "type": "ArchiveSearchCreateRequest",
+            "format": "",
+            },
+        "operationResponseType": "ArchiveSearchResponse",
+    },
+    "v2.GetArchiveSearch": {
+        "archiveSearchId": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "ArchiveSearchResponse",
+    },
     "v2.GetLogsArchiveOrder": {
         "operationResponseType": "LogsArchiveOrder",
     },
