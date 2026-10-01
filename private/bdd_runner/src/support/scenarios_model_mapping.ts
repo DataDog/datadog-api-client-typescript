@@ -5828,6 +5828,54 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
     },
     operationResponseType: "{}",
   },
+  "CloudAuthenticationApi.V2.ListGitHubCloudAuthIntakeMappings": {
+    operationResponseType: "GitHubCloudAuthIntakeMappingsResponse",
+  },
+  "CloudAuthenticationApi.V2.CreateGitHubCloudAuthIntakeMapping": {
+    body: {
+      type: "GitHubCloudAuthIntakeMappingCreateRequest",
+      format: "",
+    },
+    operationResponseType: "GitHubCloudAuthIntakeMappingResponse",
+  },
+  "CloudAuthenticationApi.V2.GetGitHubCloudAuthIntakeMapping": {
+    intakeMappingId: {
+      type: "string",
+      format: "",
+    },
+    operationResponseType: "GitHubCloudAuthIntakeMappingResponse",
+  },
+  "CloudAuthenticationApi.V2.DeleteGitHubCloudAuthIntakeMapping": {
+    intakeMappingId: {
+      type: "string",
+      format: "",
+    },
+    operationResponseType: "{}",
+  },
+  "CloudAuthenticationApi.V2.ListGitHubCloudAuthPersonaMappings": {
+    operationResponseType: "GitHubCloudAuthPersonaMappingsResponse",
+  },
+  "CloudAuthenticationApi.V2.CreateGitHubCloudAuthPersonaMapping": {
+    body: {
+      type: "GitHubCloudAuthPersonaMappingCreateRequest",
+      format: "",
+    },
+    operationResponseType: "GitHubCloudAuthPersonaMappingResponse",
+  },
+  "CloudAuthenticationApi.V2.GetGitHubCloudAuthPersonaMapping": {
+    personaMappingId: {
+      type: "string",
+      format: "",
+    },
+    operationResponseType: "GitHubCloudAuthPersonaMappingResponse",
+  },
+  "CloudAuthenticationApi.V2.DeleteGitHubCloudAuthPersonaMapping": {
+    personaMappingId: {
+      type: "string",
+      format: "",
+    },
+    operationResponseType: "{}",
+  },
   "SecurityMonitoringApi.V2.CreateCustomFramework": {
     body: {
       type: "CreateCustomFrameworkRequest",
