@@ -4,7 +4,7 @@ import { NullableUserRelationship } from "./NullableUserRelationship";
 import { ProjectRelationship } from "./ProjectRelationship";
 
 /**
- * Related resources for the case view, including the creator, last modifier, and associated project.
+ * Related resources for the work item view, including the creator, last modifier, and associated project.
  */
 export class CaseViewRelationships {
   /**

@@ -3,11 +3,11 @@ import { AttributeTypeMap } from "@datadog/datadog-api-client";
 import { CaseInsight } from "./CaseInsight";
 
 /**
- * Attributes for adding or removing insights from a case.
+ * Attributes for adding or removing insights from a work item.
  */
 export class CaseInsightsAttributes {
   /**
-   * Array of insights to add to or remove from a case.
+   * Array of insights to add to or remove from a work item.
    */
   "insights": Array<CaseInsight>;
   /**

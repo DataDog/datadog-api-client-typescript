@@ -2,7 +2,7 @@
 
 ## Description
 
-View and configure case types within Case Management. See the [Case Management page](https://docs.datadoghq.com/service_management/case_management/) for more information.
+View and configure work item types within Work Management. See the [Work Management page](https://docs.datadoghq.com/incident_response/work_management/) for more information.
 
 ## Navigation
 

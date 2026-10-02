@@ -1,7 +1,7 @@
 import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
 /**
- * Auto-creation settings for Jira issues from cases.
+ * Auto-creation settings for Jira issues from work items.
  */
 export class IntegrationJiraAutoCreation {
   /**

@@ -4,7 +4,7 @@ import { NullableUserRelationship } from "./NullableUserRelationship";
 import { ProjectRelationship } from "./ProjectRelationship";
 
 /**
- * Relationships formed with the case on creation
+ * Relationships formed with the work item on creation
  */
 export class CaseCreateRelationships {
   /**
