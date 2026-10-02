@@ -17386,6 +17386,17 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
     },
     operationResponseType: "CreateSnapshotResponse",
   },
+  "SpaApi.V2.GetSPARecommendationsV2": {
+    service: {
+      type: "string",
+      format: "",
+    },
+    body: {
+      type: "RecommendationV2RequestBody",
+      format: "",
+    },
+    operationResponseType: "RecommendationDocument",
+  },
   "SpaApi.V2.GetSPARecommendations": {
     bypassCache: {
       type: "string",

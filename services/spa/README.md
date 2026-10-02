@@ -28,7 +28,7 @@ const configuration = createConfiguration();
 // Enable unstable operations
 const configurationOpts = {
     unstableOperations: {
-        "SpaApi.v2.getSPARecommendations": true
+        "SpaApi.v2.getSPARecommendationsV2": true
     }
 }
 
@@ -36,7 +36,7 @@ const configuration = createConfiguration(configurationOpts);
 const apiInstance = new SpaApiV2(configuration);
 const params = {/* parameters */};
 
-apiInstance.getSPARecommendations(params).then((data) => {
+apiInstance.getSPARecommendationsV2(params).then((data) => {
     console.log("API called successfully. Returned data: " + JSON.stringify(data));
 }).catch((error) => {
     console.error("Error calling API: " + error);
