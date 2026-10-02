@@ -4,6 +4,7 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 import { FeatureFlagEnvironment } from "./FeatureFlagEnvironment";
+import { FeatureFlagStalenessDetails } from "./FeatureFlagStalenessDetails";
 import { ValueType } from "./ValueType";
 import { Variant } from "./Variant";
 
@@ -38,6 +39,10 @@ export class FeatureFlagAttributes {
    */
   "featureFlagEnvironments"?: Array<FeatureFlagEnvironment>;
   /**
+   * Indicates whether the current user has marked the feature flag as a favorite.
+   */
+  "isFavorite"?: boolean;
+  /**
    * JSON schema for validation when value_type is JSON.
    */
   "jsonSchema"?: string;
@@ -57,6 +62,10 @@ export class FeatureFlagAttributes {
    * Indicates whether this feature flag requires approval for changes.
    */
   "requireApproval"?: boolean;
+  /**
+   * The feature flag's current staleness state and suggested actions.
+   */
+  "stalenessDetails"?: FeatureFlagStalenessDetails;
   /**
    * Indicates the whether a feature flag is stale or not.
    */
@@ -122,6 +131,10 @@ export class FeatureFlagAttributes {
       baseName: "feature_flag_environments",
       type: "Array<FeatureFlagEnvironment>",
     },
+    isFavorite: {
+      baseName: "is_favorite",
+      type: "boolean",
+    },
     jsonSchema: {
       baseName: "json_schema",
       type: "string",
@@ -144,6 +157,10 @@ export class FeatureFlagAttributes {
     requireApproval: {
       baseName: "require_approval",
       type: "boolean",
+    },
+    stalenessDetails: {
+      baseName: "staleness_details",
+      type: "FeatureFlagStalenessDetails",
     },
     stalenessStatus: {
       baseName: "staleness_status",

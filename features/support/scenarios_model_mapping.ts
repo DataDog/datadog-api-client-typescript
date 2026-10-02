@@ -9922,6 +9922,570 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             },
         "operationResponseType": "V2EventResponse",
     },
+    "v2.ListExperiments": {
+        "concludedSince": {
+            "type": "Date",
+            "format": "date-time",
+            },
+        "createdSince": {
+            "type": "Date",
+            "format": "date-time",
+            },
+        "pageLimit": {
+            "type": "number",
+            "format": "int64",
+            },
+        "pageOffset": {
+            "type": "number",
+            "format": "int64",
+            },
+        "protocolId": {
+            "type": "Array<string>",
+            "format": "",
+            },
+        "resultsUpdatedBefore": {
+            "type": "Date",
+            "format": "date-time",
+            },
+        "resultsUpdatedSince": {
+            "type": "Date",
+            "format": "date-time",
+            },
+        "search": {
+            "type": "string",
+            "format": "",
+            },
+        "sort": {
+            "type": "string",
+            "format": "",
+            },
+        "status": {
+            "type": "Array<string>",
+            "format": "",
+            },
+        "tags": {
+            "type": "Array<string>",
+            "format": "",
+            },
+        "operationResponseType": "ExperimentsExperimentV2ListDTOArray",
+    },
+    "v2.CreateExperiment": {
+        "body": {
+            "type": "ExperimentsCreateExperimentV2Request",
+            "format": "",
+            },
+        "operationResponseType": "ExperimentsExperimentV2DTO",
+    },
+    "v2.ListExposureSQLModels": {
+        "include": {
+            "type": "Array<string>",
+            "format": "",
+            },
+        "includeArchived": {
+            "type": "boolean",
+            "format": "",
+            },
+        "pageLimit": {
+            "type": "number",
+            "format": "int64",
+            },
+        "pageOffset": {
+            "type": "number",
+            "format": "int64",
+            },
+        "search": {
+            "type": "string",
+            "format": "",
+            },
+        "sort": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "ExperimentsExposureSQLModelV2DTOArray",
+    },
+    "v2.CreateExposureSQLModel": {
+        "body": {
+            "type": "ExperimentsCreateExposureSQLModelV2Request",
+            "format": "",
+            },
+        "operationResponseType": "ExperimentsExposureSQLModelV2DTO",
+    },
+    "v2.GetExposureSQLModel": {
+        "exposureSqlModelId": {
+            "type": "string",
+            "format": "uuid",
+            },
+        "include": {
+            "type": "Array<string>",
+            "format": "",
+            },
+        "operationResponseType": "ExperimentsExposureSQLModelV2DTO",
+    },
+    "v2.UpdateExposureSQLModel": {
+        "exposureSqlModelId": {
+            "type": "string",
+            "format": "uuid",
+            },
+        "include": {
+            "type": "Array<string>",
+            "format": "",
+            },
+        "body": {
+            "type": "ExperimentsCreateExposureSQLModelV2Request",
+            "format": "",
+            },
+        "operationResponseType": "ExperimentsUpdateExposureSQLModelV2Response",
+    },
+    "v2.ArchiveExposureSQLModel": {
+        "exposureSqlModelId": {
+            "type": "string",
+            "format": "uuid",
+            },
+        "operationResponseType": "{}",
+    },
+    "v2.UnarchiveExposureSQLModel": {
+        "exposureSqlModelId": {
+            "type": "string",
+            "format": "uuid",
+            },
+        "operationResponseType": "{}",
+    },
+    "v2.ListMetricCollections": {
+        "include": {
+            "type": "Array<string>",
+            "format": "",
+            },
+        "pageLimit": {
+            "type": "number",
+            "format": "int64",
+            },
+        "pageOffset": {
+            "type": "number",
+            "format": "int64",
+            },
+        "search": {
+            "type": "string",
+            "format": "",
+            },
+        "sort": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "ExperimentsMetricCollectionV2DTOArray",
+    },
+    "v2.CreateMetricCollection": {
+        "body": {
+            "type": "ExperimentsCreateMetricCollectionV2Request",
+            "format": "",
+            },
+        "operationResponseType": "ExperimentsMetricCollectionV2DTO",
+    },
+    "v2.GetMetricCollection": {
+        "metricCollectionId": {
+            "type": "string",
+            "format": "uuid",
+            },
+        "operationResponseType": "ExperimentsMetricCollectionV2DTO",
+    },
+    "v2.DeleteMetricCollection": {
+        "metricCollectionId": {
+            "type": "string",
+            "format": "uuid",
+            },
+        "operationResponseType": "{}",
+    },
+    "v2.UpdateMetricCollection": {
+        "metricCollectionId": {
+            "type": "string",
+            "format": "uuid",
+            },
+        "body": {
+            "type": "ExperimentsPatchMetricCollectionV2Request",
+            "format": "",
+            },
+        "operationResponseType": "ExperimentsMetricCollectionV2DTO",
+    },
+    "v2.ListMetricSQLModels": {
+        "include": {
+            "type": "Array<string>",
+            "format": "",
+            },
+        "pageLimit": {
+            "type": "number",
+            "format": "int64",
+            },
+        "pageOffset": {
+            "type": "number",
+            "format": "int64",
+            },
+        "sort": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "ExperimentsMetricSQLModelV2DTOArray",
+    },
+    "v2.CreateMetricSQLModel": {
+        "body": {
+            "type": "ExperimentsCreateMetricSQLModelV2Request",
+            "format": "",
+            },
+        "operationResponseType": "ExperimentsMetricSQLModelV2DTO",
+    },
+    "v2.GetMetricSQLModel": {
+        "include": {
+            "type": "Array<string>",
+            "format": "",
+            },
+        "metricSqlModelId": {
+            "type": "string",
+            "format": "uuid",
+            },
+        "operationResponseType": "ExperimentsMetricSQLModelV2DTO",
+    },
+    "v2.UpdateMetricSQLModel": {
+        "metricSqlModelId": {
+            "type": "string",
+            "format": "uuid",
+            },
+        "body": {
+            "type": "ExperimentsCreateMetricSQLModelV2Request",
+            "format": "",
+            },
+        "operationResponseType": "ExperimentsUpdateMetricSQLModelV2Response",
+    },
+    "v2.ListMetrics": {
+        "include": {
+            "type": "Array<string>",
+            "format": "",
+            },
+        "pageLimit": {
+            "type": "number",
+            "format": "int64",
+            },
+        "pageOffset": {
+            "type": "number",
+            "format": "int64",
+            },
+        "search": {
+            "type": "string",
+            "format": "",
+            },
+        "sort": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "ExperimentsMetricV2DTOArray",
+    },
+    "v2.CreateMetric": {
+        "body": {
+            "type": "ExperimentsCreateMetricV2Request",
+            "format": "",
+            },
+        "operationResponseType": "ExperimentsMetricV2DTO",
+    },
+    "v2.GetMetric": {
+        "include": {
+            "type": "Array<string>",
+            "format": "",
+            },
+        "metricId": {
+            "type": "string",
+            "format": "uuid",
+            },
+        "operationResponseType": "ExperimentsMetricV2DTO",
+    },
+    "v2.DeleteMetric": {
+        "metricId": {
+            "type": "string",
+            "format": "uuid",
+            },
+        "operationResponseType": "{}",
+    },
+    "v2.UpdateMetric": {
+        "metricId": {
+            "type": "string",
+            "format": "uuid",
+            },
+        "body": {
+            "type": "ExperimentsUpdateMetricV2Request",
+            "format": "",
+            },
+        "operationResponseType": "ExperimentsMetricV2DTO",
+    },
+    "v2.ListExperimentProtocols": {
+        "filterStatus": {
+            "type": "Array<ExperimentsPublicProtocolResponseDataAttributesStatus>",
+            "format": "",
+            },
+        "filterPrimaryMetricId": {
+            "type": "string",
+            "format": "uuid",
+            },
+        "filterQuery": {
+            "type": "string",
+            "format": "",
+            },
+        "filterSubjectTypeId": {
+            "type": "string",
+            "format": "uuid",
+            },
+        "pageLimit": {
+            "type": "number",
+            "format": "int64",
+            },
+        "pageOffset": {
+            "type": "number",
+            "format": "int64",
+            },
+        "sort": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "ExperimentsPublicProtocolListResponseArray",
+    },
+    "v2.GetExperimentProtocol": {
+        "protocolId": {
+            "type": "string",
+            "format": "uuid",
+            },
+        "operationResponseType": "ExperimentsPublicProtocolResponse",
+    },
+    "v2.RefreshExperimentResultsForOrg": {
+        "fullRefresh": {
+            "type": "boolean",
+            "format": "",
+            },
+        "operationResponseType": "ExperimentsRefreshExperimentResultsV2DTOArray",
+    },
+    "v2.ListSubjectTypes": {
+        "include": {
+            "type": "string",
+            "format": "",
+            },
+        "pageLimit": {
+            "type": "number",
+            "format": "int64",
+            },
+        "pageOffset": {
+            "type": "number",
+            "format": "int64",
+            },
+        "search": {
+            "type": "string",
+            "format": "",
+            },
+        "sort": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "ExperimentsSubjectTypeV2DTOArray",
+    },
+    "v2.CreateSubjectType": {
+        "body": {
+            "type": "ExperimentsCreateSubjectTypeV2Request",
+            "format": "",
+            },
+        "operationResponseType": "ExperimentsSubjectTypeV2DTO",
+    },
+    "v2.GetSubjectType": {
+        "include": {
+            "type": "string",
+            "format": "",
+            },
+        "subjectTypeId": {
+            "type": "string",
+            "format": "uuid",
+            },
+        "operationResponseType": "ExperimentsSubjectTypeV2DTO",
+    },
+    "v2.DeleteSubjectType": {
+        "subjectTypeId": {
+            "type": "string",
+            "format": "uuid",
+            },
+        "operationResponseType": "{}",
+    },
+    "v2.PatchSubjectType": {
+        "subjectTypeId": {
+            "type": "string",
+            "format": "uuid",
+            },
+        "body": {
+            "type": "ExperimentsPatchSubjectTypeV2Request",
+            "format": "",
+            },
+        "operationResponseType": "ExperimentsSubjectTypeV2DTO",
+    },
+    "v2.SetDefaultSubjectType": {
+        "subjectTypeId": {
+            "type": "string",
+            "format": "uuid",
+            },
+        "operationResponseType": "{}",
+    },
+    "v2.GetExperiment": {
+        "experimentId": {
+            "type": "string",
+            "format": "uuid",
+            },
+        "operationResponseType": "ExperimentsExperimentV2DTO",
+    },
+    "v2.DeleteExperiment": {
+        "experimentId": {
+            "type": "string",
+            "format": "uuid",
+            },
+        "operationResponseType": "{}",
+    },
+    "v2.PatchExperiment": {
+        "experimentId": {
+            "type": "string",
+            "format": "uuid",
+            },
+        "body": {
+            "type": "ExperimentsPatchExperimentV2Request",
+            "format": "",
+            },
+        "operationResponseType": "ExperimentsPatchExperimentV2Response",
+    },
+    "v2.GetExperimentAnalysisPlan": {
+        "experimentId": {
+            "type": "string",
+            "format": "uuid",
+            },
+        "operationResponseType": "ExperimentsAnalysisPlanV2DTO",
+    },
+    "v2.UpdateExperimentAnalysisPlanAttributes": {
+        "experimentId": {
+            "type": "string",
+            "format": "uuid",
+            },
+        "body": {
+            "type": "ExperimentsAnalysisPlanWriteV2Request",
+            "format": "",
+            },
+        "operationResponseType": "ExperimentsAnalysisPlanV2MutationResponse",
+    },
+    "v2.CancelExperiment": {
+        "experimentId": {
+            "type": "string",
+            "format": "uuid",
+            },
+        "body": {
+            "type": "ExperimentsCancelExperimentV2Request",
+            "format": "",
+            },
+        "operationResponseType": "{}",
+    },
+    "v2.ConcludeExperiment": {
+        "experimentId": {
+            "type": "string",
+            "format": "uuid",
+            },
+        "body": {
+            "type": "ExperimentsConcludeExperimentV2Request",
+            "format": "",
+            },
+        "operationResponseType": "{}",
+    },
+    "v2.GetExperimentDiagnostics": {
+        "experimentId": {
+            "type": "string",
+            "format": "uuid",
+            },
+        "operationResponseType": "ExperimentsExperimentDiagnosticsV2DTO",
+    },
+    "v2.ListExperimentMetricGroups": {
+        "experimentId": {
+            "type": "string",
+            "format": "uuid",
+            },
+        "operationResponseType": "ExperimentsExperimentMetricGroupV2DTOArray",
+    },
+    "v2.CreateExperimentMetricGroup": {
+        "experimentId": {
+            "type": "string",
+            "format": "uuid",
+            },
+        "body": {
+            "type": "ExperimentsCreateExperimentMetricGroupV2Request",
+            "format": "",
+            },
+        "operationResponseType": "ExperimentsExperimentMetricGroupMutationV2",
+    },
+    "v2.CreateExperimentMetricGroupFromCollection": {
+        "experimentId": {
+            "type": "string",
+            "format": "uuid",
+            },
+        "metricCollectionId": {
+            "type": "string",
+            "format": "uuid",
+            },
+        "operationResponseType": "ExperimentsExperimentMetricGroupMutationV2",
+    },
+    "v2.DeleteExperimentMetricGroup": {
+        "experimentId": {
+            "type": "string",
+            "format": "uuid",
+            },
+        "metricGroupId": {
+            "type": "string",
+            "format": "uuid",
+            },
+        "operationResponseType": "{}",
+    },
+    "v2.UpdateExperimentMetricGroup": {
+        "experimentId": {
+            "type": "string",
+            "format": "uuid",
+            },
+        "metricGroupId": {
+            "type": "string",
+            "format": "uuid",
+            },
+        "body": {
+            "type": "ExperimentsPatchExperimentMetricGroupV2Request",
+            "format": "",
+            },
+        "operationResponseType": "ExperimentsExperimentMetricGroupMutationV2",
+    },
+    "v2.GetExperimentResults": {
+        "experimentId": {
+            "type": "string",
+            "format": "uuid",
+            },
+        "operationResponseType": "ExperimentsVariantResultsV2DTOArray",
+    },
+    "v2.RefreshExperimentResults": {
+        "experimentId": {
+            "type": "string",
+            "format": "uuid",
+            },
+        "fullRefresh": {
+            "type": "boolean",
+            "format": "",
+            },
+        "operationResponseType": "ExperimentsRefreshExperimentResultsV2DTO",
+    },
+    "v2.StartExperiment": {
+        "experimentId": {
+            "type": "string",
+            "format": "uuid",
+            },
+        "body": {
+            "type": "ExperimentsStartExperimentV2Request",
+            "format": "",
+            },
+        "operationResponseType": "{}",
+    },
+    "v2.GetExperimentTrafficSummary": {
+        "experimentId": {
+            "type": "string",
+            "format": "uuid",
+            },
+        "operationResponseType": "ExperimentsTrafficSummaryV2DTO",
+    },
     "v2.ListFeatureFlags": {
         "key": {
             "type": "string",
