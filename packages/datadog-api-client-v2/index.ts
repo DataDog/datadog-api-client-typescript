@@ -239,6 +239,11 @@ export {
 } from "./apis/CIVisibilityGitHubAccountsApi";
 
 export {
+  CIVisibilityLogsApiSubmitCILogRequest,
+  CIVisibilityLogsApi,
+} from "./apis/CIVisibilityLogsApi";
+
+export {
   CIVisibilityPipelinesApiAggregateCIAppPipelineEventsRequest,
   CIVisibilityPipelinesApiCreateCIAppPipelineEventRequest,
   CIVisibilityPipelinesApiListCIAppPipelineEventsRequest,
@@ -3034,6 +3039,12 @@ export { CIAppTestsBucketResponse } from "./models/CIAppTestsBucketResponse";
 export { CIAppTestsGroupBy } from "./models/CIAppTestsGroupBy";
 export { CIAppTestsQueryFilter } from "./models/CIAppTestsQueryFilter";
 export { CIAppWarning } from "./models/CIAppWarning";
+export { CILogAttributeValue } from "./models/CILogAttributeValue";
+export { CILogContentEncoding } from "./models/CILogContentEncoding";
+export { CILogErrors } from "./models/CILogErrors";
+export { CILogIntakeError } from "./models/CILogIntakeError";
+export { CILogIntakeErrors } from "./models/CILogIntakeErrors";
+export { CILogItem } from "./models/CILogItem";
 export { CircleCIAPIKey } from "./models/CircleCIAPIKey";
 export { CircleCIAPIKeyType } from "./models/CircleCIAPIKeyType";
 export { CircleCIAPIKeyUpdate } from "./models/CircleCIAPIKeyUpdate";

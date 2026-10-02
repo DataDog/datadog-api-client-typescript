@@ -579,6 +579,10 @@ import { CIAppTestsBucketResponse } from "./CIAppTestsBucketResponse";
 import { CIAppTestsGroupBy } from "./CIAppTestsGroupBy";
 import { CIAppTestsQueryFilter } from "./CIAppTestsQueryFilter";
 import { CIAppWarning } from "./CIAppWarning";
+import { CILogErrors } from "./CILogErrors";
+import { CILogIntakeError } from "./CILogIntakeError";
+import { CILogIntakeErrors } from "./CILogIntakeErrors";
+import { CILogItem } from "./CILogItem";
 import { CSMAgentsMetadata } from "./CSMAgentsMetadata";
 import { CVSS } from "./CVSS";
 import { CalculatedField } from "./CalculatedField";
@@ -6644,6 +6648,7 @@ const enumsMap: { [key: string]: any[] } = {
   CIAppSortOrder: ["asc", "desc"],
   CIAppTestEventTypeName: ["citest"],
   CIAppTestLevel: ["session", "module", "suite", "test"],
+  CILogContentEncoding: ["identity", "gzip"],
   CSMAgentsType: ["datadog_agent"],
   CampaignStatus: ["in_progress", "not_started", "completed"],
   CampaignType: ["campaign"],
@@ -10277,6 +10282,10 @@ const typeMap: { [index: string]: any } = {
   CIAppTestsGroupBy: CIAppTestsGroupBy,
   CIAppTestsQueryFilter: CIAppTestsQueryFilter,
   CIAppWarning: CIAppWarning,
+  CILogErrors: CILogErrors,
+  CILogIntakeError: CILogIntakeError,
+  CILogIntakeErrors: CILogIntakeErrors,
+  CILogItem: CILogItem,
   CSMAgentsMetadata: CSMAgentsMetadata,
   CVSS: CVSS,
   CalculatedField: CalculatedField,
@@ -17427,6 +17436,7 @@ const oneOfMap: { [index: string]: string[] } = {
     "CIAppPipelineEventFinishedPipeline",
     "CIAppPipelineEventInProgressPipeline",
   ],
+  CILogAttributeValue: ["string", "number", "boolean"],
   ChangeRequestIncludedItem: [
     "ChangeRequestIncludedUser",
     "ChangeRequestIncludedDecision",
