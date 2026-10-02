@@ -20,6 +20,7 @@ import { APIErrorResponse } from "../models/APIErrorResponse";
 import { FleetAgentDetailV2Response } from "../models/FleetAgentDetailV2Response";
 import { FleetAgentsV2Response } from "../models/FleetAgentsV2Response";
 import { FleetAgentVersionsV2Response } from "../models/FleetAgentVersionsV2Response";
+import { FleetConfigFileSchemaV2Response } from "../models/FleetConfigFileSchemaV2Response";
 import { FleetDeploymentConfigureV2CreateRequest } from "../models/FleetDeploymentConfigureV2CreateRequest";
 import { FleetDeploymentConfigureV2DryRunResponse } from "../models/FleetDeploymentConfigureV2DryRunResponse";
 import { FleetDeploymentPackageUpgradeV2CreateRequest } from "../models/FleetDeploymentPackageUpgradeV2CreateRequest";
@@ -34,6 +35,7 @@ import { FleetScheduleResponse } from "../models/FleetScheduleResponse";
 import { FleetSchedulesV2Response } from "../models/FleetSchedulesV2Response";
 import { FleetScheduleV2Response } from "../models/FleetScheduleV2Response";
 import { FleetTracersResponse } from "../models/FleetTracersResponse";
+import { JSONAPIErrorResponse } from "../models/JSONAPIErrorResponse";
 
 export class FleetAutomationApiRequestFactory extends BaseAPIRequestFactory {
   public async cancelFleetDeploymentV2(
@@ -318,6 +320,50 @@ export class FleetAutomationApiRequestFactory extends BaseAPIRequestFactory {
       "apiKeyAuth",
       "appKeyAuth",
       "AuthZ",
+    ]);
+
+    return requestContext;
+  }
+
+  public async getFleetConfigFileSchemaV2(
+    filePath: string,
+    _options?: Configuration
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    // verify required parameter 'filePath' is not null or undefined
+    if (filePath === null || filePath === undefined) {
+      throw new RequiredError("filePath", "getFleetConfigFileSchemaV2");
+    }
+
+    // Path Params
+    const localVarPath = "/api/v2/fleet/schemas/config-file";
+
+    // Make Request Context
+    const requestContext = _config
+      .getServer("v2.FleetAutomationApi.getFleetConfigFileSchemaV2")
+      .makeRequestContext(localVarPath, HttpMethod.GET);
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Set IaC header
+    if (_config.isIaC) {
+      requestContext.setHeaderParam("X-Datadog-Managed-By", "iac");
+    }
+
+    // Query Params
+    if (filePath !== undefined) {
+      requestContext.setQueryParam(
+        "file_path",
+        ObjectSerializer.serialize(filePath, "string", ""),
+        ""
+      );
+    }
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
     ]);
 
     return requestContext;
@@ -1265,6 +1311,93 @@ export class FleetAutomationApiResponseProcessor {
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
    *
+   * @params response Response returned by the server for a request to getFleetConfigFileSchemaV2
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async getFleetConfigFileSchemaV2(
+    response: ResponseContext
+  ): Promise<FleetConfigFileSchemaV2Response> {
+    const contentType = ObjectSerializer.normalizeMediaType(
+      response.headers["content-type"]
+    );
+    if (response.httpStatusCode === 200) {
+      const body: FleetConfigFileSchemaV2Response =
+        ObjectSerializer.deserialize(
+          ObjectSerializer.parse(await response.body.text(), contentType),
+          "FleetConfigFileSchemaV2Response"
+        ) as FleetConfigFileSchemaV2Response;
+      return body;
+    }
+    if (response.httpStatusCode === 400) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: JSONAPIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "JSONAPIErrorResponse"
+        ) as JSONAPIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<JSONAPIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<JSONAPIErrorResponse>(
+        response.httpStatusCode,
+        body
+      );
+    }
+    if (
+      response.httpStatusCode === 401 ||
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 429
+    ) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: APIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "APIErrorResponse"
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: FleetConfigFileSchemaV2Response =
+        ObjectSerializer.deserialize(
+          ObjectSerializer.parse(await response.body.text(), contentType),
+          "FleetConfigFileSchemaV2Response",
+          ""
+        ) as FleetConfigFileSchemaV2Response;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"'
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
    * @params response Response returned by the server for a request to getFleetDeploymentV2
    * @throws ApiException if the response code was not in [200, 299]
    */
@@ -1953,6 +2086,14 @@ export interface FleetAutomationApiGetFleetAgentDetailV2Request {
   include?: string;
 }
 
+export interface FleetAutomationApiGetFleetConfigFileSchemaV2Request {
+  /**
+   * The configuration file path reported by the Datadog Agent (for example, `conf.d/postgres.d/conf.yaml` or `datadog.yaml`).
+   * @type string
+   */
+  filePath: string;
+}
+
 export interface FleetAutomationApiGetFleetDeploymentV2Request {
   /**
    * The unique identifier of the deployment to retrieve.
@@ -2311,6 +2452,33 @@ export class FleetAutomationApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.getFleetAgentDetailV2(responseContext);
+        });
+    });
+  }
+
+  /**
+   * Retrieve the schema for a configuration file, identified by the file
+   * path reported by the Datadog Agent. A schema describes the structure
+   * and options of a configuration file. Works for both integration
+   * configuration files and core Agent configuration files.
+   *
+   * The schema defines which fields can be edited remotely from Fleet
+   * Automation using `POST /api/v2/fleet/deployments/configure`.
+   * @param param The request object
+   */
+  public getFleetConfigFileSchemaV2(
+    param: FleetAutomationApiGetFleetConfigFileSchemaV2Request,
+    options?: Configuration
+  ): Promise<FleetConfigFileSchemaV2Response> {
+    const requestContextPromise =
+      this.requestFactory.getFleetConfigFileSchemaV2(param.filePath, options);
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.getFleetConfigFileSchemaV2(
+            responseContext
+          );
         });
     });
   }
