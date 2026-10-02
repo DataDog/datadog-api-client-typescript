@@ -2538,6 +2538,13 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
     },
     operationResponseType: "FleetScheduleV2Response",
   },
+  "FleetAutomationApi.V2.GetFleetConfigFileSchemaV2": {
+    filePath: {
+      type: "string",
+      format: "",
+    },
+    operationResponseType: "FleetConfigFileSchemaV2Response",
+  },
   "AgentObservabilityApi.V2.ListLLMObsCustomEvalConfigs": {
     operationResponseType: "LLMObsCustomEvalConfigListResponse",
   },
