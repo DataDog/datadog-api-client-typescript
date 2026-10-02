@@ -3,15 +3,15 @@ import { AttributeTypeMap } from "@datadog/datadog-api-client";
 import { CaseStatus } from "./CaseStatus";
 
 /**
- * Case update status attributes
+ * Work item update status attributes
  */
 export class CaseUpdateStatusAttributes {
   /**
-   * Deprecated way of representing the case status, which only supports OPEN, IN_PROGRESS, and CLOSED statuses. Use `status_name` instead.
+   * Deprecated way of representing the work item status, which only supports OPEN, IN_PROGRESS, and CLOSED statuses. Use `status_name` instead.
    */
   "status"?: CaseStatus;
   /**
-   * Status of the case. Must be one of the existing statuses for the case's type.
+   * Status of the work item. Must be one of the existing statuses for the work item's type.
    */
   "statusName"?: string;
   /**

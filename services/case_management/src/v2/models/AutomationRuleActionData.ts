@@ -9,7 +9,7 @@ export class AutomationRuleActionData {
    */
   "agentType"?: string;
   /**
-   * The identifier of the AI agent to assign to the case. Required when the action type is `ASSIGN_AGENT`.
+   * The identifier of the AI agent to assign to the work item. Required when the action type is `ASSIGN_AGENT`.
    */
   "assignedAgentId"?: string;
   /**

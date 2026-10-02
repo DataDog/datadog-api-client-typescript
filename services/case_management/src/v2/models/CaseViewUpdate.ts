@@ -4,15 +4,15 @@ import { CaseViewResourceType } from "./CaseViewResourceType";
 import { CaseViewUpdateAttributes } from "./CaseViewUpdateAttributes";
 
 /**
- * Data object for updating a case view.
+ * Data object for updating a work item view.
  */
 export class CaseViewUpdate {
   /**
-   * Attributes that can be updated on a case view. All fields are optional; only provided fields are changed.
+   * Attributes that can be updated on a work item view. All fields are optional; only provided fields are changed.
    */
   "attributes"?: CaseViewUpdateAttributes;
   /**
-   * JSON:API resource type for case views.
+   * JSON:API resource type for work item views.
    */
   "type": CaseViewResourceType;
   /**

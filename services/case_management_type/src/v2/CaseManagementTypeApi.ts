@@ -485,7 +485,7 @@ export class CaseManagementTypeApiResponseProcessor {
 
 export interface CaseManagementTypeApiCreateCaseTypeRequest {
   /**
-   * Case type payload
+   * Work item type payload
    * @type CaseTypeCreateRequest
    */
   body: CaseTypeCreateRequest;
@@ -493,7 +493,7 @@ export interface CaseManagementTypeApiCreateCaseTypeRequest {
 
 export interface CaseManagementTypeApiDeleteCaseTypeRequest {
   /**
-   * The UUID of the case type.
+   * The UUID of the work item type.
    * @type string
    */
   caseTypeId: string;
@@ -501,12 +501,12 @@ export interface CaseManagementTypeApiDeleteCaseTypeRequest {
 
 export interface CaseManagementTypeApiUpdateCaseTypeRequest {
   /**
-   * The UUID of the case type.
+   * The UUID of the work item type.
    * @type string
    */
   caseTypeId: string;
   /**
-   * Case type payload.
+   * Work item type payload.
    * @type CaseTypeUpdateRequest
    */
   body: CaseTypeUpdateRequest;
@@ -533,7 +533,7 @@ export class CaseManagementTypeApi {
   }
 
   /**
-   * Create a Case Type
+   * Create a work item type.
    * @param param The request object
    */
   public createCaseType(
@@ -554,7 +554,7 @@ export class CaseManagementTypeApi {
   }
 
   /**
-   * Delete a case type
+   * Delete a work item type
    * @param param The request object
    */
   public deleteCaseType(
@@ -575,7 +575,7 @@ export class CaseManagementTypeApi {
   }
 
   /**
-   * Get all case types
+   * Get all work item types
    * @param param The request object
    */
   public getAllCaseTypes(options?: Configuration): Promise<CaseTypesResponse> {
@@ -590,7 +590,7 @@ export class CaseManagementTypeApi {
   }
 
   /**
-   * Updates the name, emoji, or description of an existing case type.
+   * Updates the name, emoji, or description of an existing work item type.
    * @param param The request object
    */
   public updateCaseType(

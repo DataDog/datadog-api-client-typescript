@@ -1,11 +1,11 @@
 import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
 /**
- * Attributes for setting the resolution reason on a security case.
+ * Attributes for setting the resolution reason on a security work item.
  */
 export class CaseUpdateResolvedReasonAttributes {
   /**
-   * The reason the security case was resolved (for example, `FALSE_POSITIVE`, `TRUE_POSITIVE`, `BENIGN_POSITIVE`).
+   * The reason the security work item was resolved (for example, `FALSE_POSITIVE`, `TRUE_POSITIVE`, `BENIGN_POSITIVE`).
    */
   "securityResolvedReason": string;
   /**

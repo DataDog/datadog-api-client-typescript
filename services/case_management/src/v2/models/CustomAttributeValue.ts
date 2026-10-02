@@ -4,7 +4,7 @@ import { CustomAttributeType } from "./CustomAttributeType";
 import { CustomAttributeValuesUnion } from "./CustomAttributeValuesUnion";
 
 /**
- * A typed value for a custom attribute on a specific case.
+ * A typed value for a custom attribute on a specific work item.
  */
 export class CustomAttributeValue {
   /**

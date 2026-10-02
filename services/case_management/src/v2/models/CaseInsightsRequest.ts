@@ -3,7 +3,7 @@ import { AttributeTypeMap } from "@datadog/datadog-api-client";
 import { CaseInsightsData } from "./CaseInsightsData";
 
 /**
- * Request payload for adding or removing case insights.
+ * Request payload for adding or removing work item insights.
  */
 export class CaseInsightsRequest {
   /**

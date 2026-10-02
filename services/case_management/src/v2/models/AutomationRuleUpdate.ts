@@ -12,7 +12,7 @@ export class AutomationRuleUpdate {
    */
   "attributes"?: AutomationRuleCreateAttributes;
   /**
-   * JSON:API resource type for case automation rules.
+   * JSON:API resource type for work item automation rules.
    */
   "type": CaseAutomationRuleResourceType;
   /**

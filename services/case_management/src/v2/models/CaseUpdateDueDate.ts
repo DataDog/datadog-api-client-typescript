@@ -4,15 +4,15 @@ import { CaseResourceType } from "./CaseResourceType";
 import { CaseUpdateDueDateAttributes } from "./CaseUpdateDueDateAttributes";
 
 /**
- * Data object for updating a case's due date.
+ * Data object for updating a work item's due date.
  */
 export class CaseUpdateDueDate {
   /**
-   * Attributes for setting or clearing a case's due date.
+   * Attributes for setting or clearing a work item's due date.
    */
   "attributes": CaseUpdateDueDateAttributes;
   /**
-   * JSON:API resource type for cases.
+   * JSON:API resource type for work items.
    */
   "type": CaseResourceType;
   /**

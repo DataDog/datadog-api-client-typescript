@@ -4,7 +4,7 @@ import { NullableUserRelationship } from "./NullableUserRelationship";
 import { ProjectRelationship } from "./ProjectRelationship";
 
 /**
- * Resources related to a case
+ * Resources related to a work item
  */
 export class CaseRelationships {
   /**

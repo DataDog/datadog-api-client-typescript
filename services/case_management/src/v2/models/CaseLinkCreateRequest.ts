@@ -7,7 +7,7 @@ import { CaseLinkCreate } from "./CaseLinkCreate";
  */
 export class CaseLinkCreateRequest {
   /**
-   * Data object for creating a case link.
+   * Data object for creating a work item link.
    */
   "data": CaseLinkCreate;
   /**

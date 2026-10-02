@@ -7,7 +7,7 @@ import { MaintenanceWindow } from "./MaintenanceWindow";
  */
 export class MaintenanceWindowResponse {
   /**
-   * A maintenance window that defines a scheduled time period during which case-related notifications and automation rules are suppressed. Each maintenance window applies to cases matching a specified query.
+   * A maintenance window that defines a scheduled time period during which notifications and automation rules related to work items are suppressed. Each maintenance window applies to work items matching a specified query.
    */
   "data": MaintenanceWindow;
   /**

@@ -3,11 +3,11 @@ import { AttributeTypeMap } from "@datadog/datadog-api-client";
 import { CaseWatcher } from "./CaseWatcher";
 
 /**
- * Response containing the list of users watching a case.
+ * Response containing the list of users watching a work item.
  */
 export class CaseWatchersResponse {
   /**
-   * List of case watchers.
+   * List of work item watchers.
    */
   "data": Array<CaseWatcher>;
   /**
