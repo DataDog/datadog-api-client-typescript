@@ -843,6 +843,7 @@ const enumsMap: { [key: string]: any[] } = {
     "previous_month",
   ],
   ContentEncoding: ["gzip", "deflate"],
+  DashboardExperienceType: ["default", "product_analytics"],
   DashboardFixedTimeframeType: ["fixed"],
   DashboardGlobalTimeLiveSpan: [
     "15m",

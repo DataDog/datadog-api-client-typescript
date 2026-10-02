@@ -412,6 +412,7 @@ export { DashboardBulkActionData } from "./models/DashboardBulkActionData";
 export { DashboardBulkDeleteRequest } from "./models/DashboardBulkDeleteRequest";
 export { DashboardDefaultTimeframeSetting } from "./models/DashboardDefaultTimeframeSetting";
 export { DashboardDeleteResponse } from "./models/DashboardDeleteResponse";
+export { DashboardExperienceType } from "./models/DashboardExperienceType";
 export { DashboardFixedTimeframe } from "./models/DashboardFixedTimeframe";
 export { DashboardFixedTimeframeType } from "./models/DashboardFixedTimeframeType";
 export { DashboardGlobalTime } from "./models/DashboardGlobalTime";
