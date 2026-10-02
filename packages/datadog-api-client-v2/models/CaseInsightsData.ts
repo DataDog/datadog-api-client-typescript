@@ -13,11 +13,11 @@ import { AttributeTypeMap } from "../../datadog-api-client-common/util";
  */
 export class CaseInsightsData {
   /**
-   * Attributes for adding or removing insights from a case.
+   * Attributes for adding or removing insights from a work item.
    */
   "attributes": CaseInsightsAttributes;
   /**
-   * JSON:API resource type for cases.
+   * JSON:API resource type for work items.
    */
   "type": CaseResourceType;
 

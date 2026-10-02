@@ -7,7 +7,7 @@
 import { UnparsedObject } from "../../datadog-api-client-common/util";
 
 /**
- * JSON:API resource type for case watchers.
+ * JSON:API resource type for work item watchers.
  */
 
 export type CaseWatcherResourceType = typeof WATCHER | UnparsedObject;

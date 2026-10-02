@@ -15,7 +15,7 @@ export class CasesResponseMetaPagination {
    */
   "current"?: number;
   /**
-   * Number of cases in current page
+   * Number of work items in current page
    */
   "size"?: number;
   /**

@@ -9,15 +9,15 @@ import { CaseUpdateTitleAttributes } from "./CaseUpdateTitleAttributes";
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * Case update title
+ * Work item update title
  */
 export class CaseUpdateTitle {
   /**
-   * Case update title attributes
+   * Work item update title attributes
    */
   "attributes": CaseUpdateTitleAttributes;
   /**
-   * JSON:API resource type for cases.
+   * JSON:API resource type for work items.
    */
   "type": CaseResourceType;
 

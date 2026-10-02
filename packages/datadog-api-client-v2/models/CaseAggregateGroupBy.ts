@@ -7,7 +7,7 @@
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * Configuration for grouping aggregated results by one or more case fields.
+ * Configuration for grouping aggregated results by one or more work item fields.
  */
 export class CaseAggregateGroupBy {
   /**

@@ -16,7 +16,7 @@ export class CaseAggregateResponseAttributes {
    */
   "groups": Array<CaseAggregateGroup>;
   /**
-   * Total count of aggregated cases.
+   * Total count of aggregated work items.
    */
   "total": number;
 

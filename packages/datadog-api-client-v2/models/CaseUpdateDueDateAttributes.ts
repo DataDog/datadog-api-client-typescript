@@ -7,11 +7,11 @@
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * Attributes for setting or clearing a case's due date.
+ * Attributes for setting or clearing a work item's due date.
  */
 export class CaseUpdateDueDateAttributes {
   /**
-   * The target resolution date for the case, in `YYYY-MM-DD` format. Set to `null` to clear the due date.
+   * The target resolution date for the work item, in `YYYY-MM-DD` format. Set to `null` to clear the due date.
    */
   "dueDate": string;
 

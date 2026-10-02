@@ -14,27 +14,27 @@ import { ServiceNowTicket } from "./ServiceNowTicket";
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * Case resource attributes
+ * Work item resource attributes
  */
 export class CaseAttributes {
   /**
-   * Timestamp of when the case was archived
+   * Timestamp of when the work item was archived
    */
   "archivedAt"?: Date;
   /**
-   * Key-value pairs of case attributes. Each key maps to an array of string values, used for flexible metadata such as labels or tags.
+   * Key-value pairs of work item attributes. Each key maps to an array of string values, used for flexible metadata such as labels or tags.
    */
   "attributes"?: { [key: string]: Array<string> };
   /**
-   * Timestamp of when the case was closed
+   * Timestamp of when the work item was closed
    */
   "closedAt"?: Date;
   /**
-   * Timestamp of when the case was created
+   * Timestamp of when the work item was created
    */
   "createdAt"?: Date;
   /**
-   * Case custom attributes
+   * Work item custom attributes
    */
   "customAttributes"?: { [key: string]: CustomAttributeValue };
   /**
@@ -42,7 +42,7 @@ export class CaseAttributes {
    */
   "description"?: string;
   /**
-   * Jira issue attached to case
+   * Jira issue attached to work item
    */
   "jiraIssue"?: JiraIssue;
   /**
@@ -50,27 +50,27 @@ export class CaseAttributes {
    */
   "key"?: string;
   /**
-   * Timestamp of when the case was last modified
+   * Timestamp of when the work item was last modified
    */
   "modifiedAt"?: Date;
   /**
-   * Case priority
+   * Work item priority
    */
   "priority"?: CasePriority;
   /**
-   * ServiceNow ticket attached to case
+   * ServiceNow ticket attached to work item
    */
   "serviceNowTicket"?: ServiceNowTicket;
   /**
-   * Deprecated way of representing the case status, which only supports OPEN, IN_PROGRESS, and CLOSED statuses. Use `status_name` instead.
+   * Deprecated way of representing the work item status, which only supports OPEN, IN_PROGRESS, and CLOSED statuses. Use `status_name` instead.
    */
   "status"?: CaseStatus;
   /**
-   * Status group of the case.
+   * Status group of the work item.
    */
   "statusGroup"?: CaseStatusGroup;
   /**
-   * Status of the case. Must be one of the existing statuses for the case's type.
+   * Status of the work item. Must be one of the existing statuses for the work item's type.
    */
   "statusName"?: string;
   /**
@@ -78,11 +78,11 @@ export class CaseAttributes {
    */
   "title"?: string;
   /**
-   * Case type
+   * Work item type
    */
   "type"?: CaseType;
   /**
-   * Case type UUID
+   * Work item type UUID
    */
   "typeId"?: string;
 

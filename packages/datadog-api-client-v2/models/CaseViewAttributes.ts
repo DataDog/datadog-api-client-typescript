@@ -7,7 +7,7 @@
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * Attributes of a case view, including the filter query and optional notification rule.
+ * Attributes of a work item view, including the filter query and optional notification rule.
  */
 export class CaseViewAttributes {
   /**
@@ -19,15 +19,15 @@ export class CaseViewAttributes {
    */
   "modifiedAt"?: Date;
   /**
-   * A human-readable name for the view, displayed in the Case Management UI.
+   * A human-readable name for the view, displayed in the Work Management UI.
    */
   "name": string;
   /**
-   * The identifier of a notification rule linked to this view. When set, users subscribed to the view receive alerts for matching cases.
+   * The identifier of a notification rule linked to this view. When set, users subscribed to the view receive alerts for matching work items.
    */
   "npRuleId"?: string;
   /**
-   * The search query that determines which cases appear in this view. Uses the same syntax as the Case Management search bar (for example, `status:open priority:P1`).
+   * The search query that determines which work items appear in this view. Uses the same syntax as the Work Management search bar (for example, `status:open priority:P1`).
    */
   "query": string;
 
