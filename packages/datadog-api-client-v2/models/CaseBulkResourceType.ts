@@ -7,7 +7,7 @@
 import { UnparsedObject } from "../../datadog-api-client-common/util";
 
 /**
- * JSON:API resource type for bulk case operations.
+ * JSON:API resource type for bulk work item operations.
  */
 
 export type CaseBulkResourceType = typeof BULK | UnparsedObject;

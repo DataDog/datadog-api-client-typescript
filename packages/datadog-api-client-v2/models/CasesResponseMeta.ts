@@ -8,7 +8,7 @@ import { CasesResponseMetaPagination } from "./CasesResponseMetaPagination";
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * Cases response metadata
+ * Work items response metadata
  */
 export class CasesResponseMeta {
   /**

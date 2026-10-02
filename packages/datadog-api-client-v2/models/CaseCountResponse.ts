@@ -8,7 +8,7 @@ import { CaseCountResponseData } from "./CaseCountResponseData";
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * Response containing the total number of cases matching a query, optionally grouped by specified fields.
+ * Response containing the total number of work items matching a query, optionally grouped by specified fields.
  */
 export class CaseCountResponse {
   /**

@@ -7,7 +7,7 @@
 import { UnparsedObject } from "../../datadog-api-client-common/util";
 
 /**
- * Case priority
+ * Work item priority
  */
 
 export type CasePriority =

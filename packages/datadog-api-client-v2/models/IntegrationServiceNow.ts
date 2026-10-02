@@ -17,7 +17,7 @@ export class IntegrationServiceNow {
    */
   "assignmentGroup"?: string;
   /**
-   * Auto-creation settings for ServiceNow incidents from cases.
+   * Auto-creation settings for ServiceNow incidents from work items.
    */
   "autoCreation"?: IntegrationServiceNowAutoCreation;
   /**

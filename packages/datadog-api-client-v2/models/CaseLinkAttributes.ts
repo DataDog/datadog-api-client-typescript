@@ -7,7 +7,7 @@
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * Attributes describing a directional relationship between two entities (cases, incidents, or pages).
+ * Attributes describing a directional relationship between two entities (work items, incidents, or pages).
  */
 export class CaseLinkAttributes {
   /**

@@ -9,7 +9,7 @@ import { CaseNotificationRuleResourceType } from "./CaseNotificationRuleResource
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * A notification rule for case management
+ * A notification rule for Work Management
  */
 export class CaseNotificationRule {
   /**

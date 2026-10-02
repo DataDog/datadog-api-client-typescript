@@ -7,7 +7,7 @@
 import { UnparsedObject } from "../../datadog-api-client-common/util";
 
 /**
- * Case status
+ * Work item status
  */
 
 export type Case3rdPartyTicketStatus =

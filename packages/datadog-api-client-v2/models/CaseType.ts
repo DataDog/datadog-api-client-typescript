@@ -7,7 +7,7 @@
 import { UnparsedObject } from "../../datadog-api-client-common/util";
 
 /**
- * Case type
+ * Work item type
  */
 
 export type CaseType = typeof STANDARD | UnparsedObject;

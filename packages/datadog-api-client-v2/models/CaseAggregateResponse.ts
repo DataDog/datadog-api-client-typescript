@@ -8,7 +8,7 @@ import { CaseAggregateResponseData } from "./CaseAggregateResponseData";
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * Response containing aggregated case counts grouped by the requested fields.
+ * Response containing aggregated work item counts grouped by the requested fields.
  */
 export class CaseAggregateResponse {
   /**
