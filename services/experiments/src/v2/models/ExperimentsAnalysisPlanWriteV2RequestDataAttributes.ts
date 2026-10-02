@@ -1,0 +1,134 @@
+import { AttributeTypeMap } from "@datadog/datadog-api-client";
+
+import { ExperimentsAnalysisPlanV2DTODataAttributesConfidenceIntervalMethod } from "./ExperimentsAnalysisPlanV2DTODataAttributesConfidenceIntervalMethod";
+import { ExperimentsAnalysisPlanWriteV2RequestDataAttributesBayesianPrior } from "./ExperimentsAnalysisPlanWriteV2RequestDataAttributesBayesianPrior";
+
+/**
+ * Statistical settings and duration targets to apply to the experiment.
+ */
+export class ExperimentsAnalysisPlanWriteV2RequestDataAttributes {
+  /**
+   * Parameters of the prior distribution to use for Bayesian analysis.
+   */
+  "bayesianPrior"?: ExperimentsAnalysisPlanWriteV2RequestDataAttributesBayesianPrior;
+  /**
+   * Statistical method used to calculate the experiment results.
+   */
+  "confidenceIntervalMethod"?: ExperimentsAnalysisPlanV2DTODataAttributesConfidenceIntervalMethod;
+  /**
+   * Confidence level used for statistical analysis, expressed as a fraction.
+   */
+  "confidenceLevel"?: number;
+  /**
+   * Only a 30-day CUPED lookback is supported.
+   */
+  "cupedLookbackPeriodDays"?: number;
+  /**
+   * Number of days configured for the experiment to end automatically.
+   */
+  "experimentAutoEndDays"?: number;
+  /**
+   * Minimum experiment duration in days configured in the analysis plan.
+   */
+  "experimentMinDuration"?: number;
+  /**
+   * Minimum sample size configured in the analysis plan.
+   */
+  "experimentMinSampleSize"?: number;
+  /**
+   * Whether CUPED uses pre-experiment data to reduce variance in the analysis.
+   */
+  "isCupedEnabled"?: boolean;
+  /**
+   * Whether the analysis adjusts for testing multiple hypotheses.
+   */
+  "isMultipleTestingCorrectionEnabled"?: boolean;
+  /**
+   * Weight assigned to the primary metric in the preferential Bonferroni correction.
+   */
+  "preferentialBonferroniPrimaryMetricWeight"?: number;
+  /**
+   * Planned experiment duration in days.
+   */
+  "targetDurationDays"?: number;
+  /**
+   * A container for additional, undeclared properties.
+   * This is a holder for any undeclared properties as specified with
+   * the 'additionalProperties' keyword in the OAS document.
+   */
+  "additionalProperties"?: { [key: string]: any };
+  /**
+   * @ignore
+   */
+  "_unparsed"?: boolean;
+
+  /**
+   * @ignore
+   */
+  static readonly attributeTypeMap: AttributeTypeMap = {
+    bayesianPrior: {
+      baseName: "bayesian_prior",
+      type: "ExperimentsAnalysisPlanWriteV2RequestDataAttributesBayesianPrior",
+    },
+    confidenceIntervalMethod: {
+      baseName: "confidence_interval_method",
+      type: "ExperimentsAnalysisPlanV2DTODataAttributesConfidenceIntervalMethod",
+    },
+    confidenceLevel: {
+      baseName: "confidence_level",
+      type: "number",
+      format: "double",
+    },
+    cupedLookbackPeriodDays: {
+      baseName: "cuped_lookback_period_days",
+      type: "number",
+      format: "int64",
+    },
+    experimentAutoEndDays: {
+      baseName: "experiment_auto_end_days",
+      type: "number",
+      format: "int64",
+    },
+    experimentMinDuration: {
+      baseName: "experiment_min_duration",
+      type: "number",
+      format: "int64",
+    },
+    experimentMinSampleSize: {
+      baseName: "experiment_min_sample_size",
+      type: "number",
+      format: "int64",
+    },
+    isCupedEnabled: {
+      baseName: "is_cuped_enabled",
+      type: "boolean",
+    },
+    isMultipleTestingCorrectionEnabled: {
+      baseName: "is_multiple_testing_correction_enabled",
+      type: "boolean",
+    },
+    preferentialBonferroniPrimaryMetricWeight: {
+      baseName: "preferential_bonferroni_primary_metric_weight",
+      type: "number",
+      format: "double",
+    },
+    targetDurationDays: {
+      baseName: "target_duration_days",
+      type: "number",
+      format: "int64",
+    },
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "{ [key: string]: any; }",
+    },
+  };
+
+  /**
+   * @ignore
+   */
+  static getAttributeTypeMap(): AttributeTypeMap {
+    return ExperimentsAnalysisPlanWriteV2RequestDataAttributes.attributeTypeMap;
+  }
+
+  public constructor() {}
+}

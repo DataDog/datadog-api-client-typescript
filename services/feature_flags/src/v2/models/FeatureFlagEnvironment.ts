@@ -35,6 +35,10 @@ export class FeatureFlagEnvironment {
    */
   "isProduction"?: boolean;
   /**
+   * Indicates whether feature flag evaluation events include original targeting identifiers and full evaluation context.
+   */
+  "observeFullEvaluationData"?: boolean;
+  /**
    * The allocation key used for the override variant.
    */
   "overrideAllocationKey"?: string;
@@ -97,6 +101,10 @@ export class FeatureFlagEnvironment {
     },
     isProduction: {
       baseName: "is_production",
+      type: "boolean",
+    },
+    observeFullEvaluationData: {
+      baseName: "observe_full_evaluation_data",
       type: "boolean",
     },
     overrideAllocationKey: {

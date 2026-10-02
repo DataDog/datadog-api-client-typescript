@@ -1,6 +1,7 @@
 import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
 import { FeatureFlagEnvironmentListItem } from "./FeatureFlagEnvironmentListItem";
+import { FeatureFlagStalenessDetails } from "./FeatureFlagStalenessDetails";
 import { ValueType } from "./ValueType";
 import { Variant } from "./Variant";
 
@@ -33,6 +34,10 @@ export class FeatureFlagListItemAttributes {
    */
   "featureFlagEnvironments"?: Array<FeatureFlagEnvironmentListItem>;
   /**
+   * Indicates whether the current user has marked the feature flag as a favorite.
+   */
+  "isFavorite"?: boolean;
+  /**
    * JSON schema for validation when value_type is JSON.
    */
   "jsonSchema"?: string;
@@ -52,6 +57,10 @@ export class FeatureFlagListItemAttributes {
    * Indicates whether this feature flag requires approval for changes.
    */
   "requireApproval"?: boolean;
+  /**
+   * The feature flag's current staleness state and suggested actions.
+   */
+  "stalenessDetails"?: FeatureFlagStalenessDetails;
   /**
    * Indicates the staleness status of the feature flag.
    */
@@ -115,6 +124,10 @@ export class FeatureFlagListItemAttributes {
       baseName: "feature_flag_environments",
       type: "Array<FeatureFlagEnvironmentListItem>",
     },
+    isFavorite: {
+      baseName: "is_favorite",
+      type: "boolean",
+    },
     jsonSchema: {
       baseName: "json_schema",
       type: "string",
@@ -137,6 +150,10 @@ export class FeatureFlagListItemAttributes {
     requireApproval: {
       baseName: "require_approval",
       type: "boolean",
+    },
+    stalenessDetails: {
+      baseName: "staleness_details",
+      type: "FeatureFlagStalenessDetails",
     },
     stalenessStatus: {
       baseName: "staleness_status",

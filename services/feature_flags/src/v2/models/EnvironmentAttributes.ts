@@ -25,6 +25,10 @@ export class EnvironmentAttributes {
    */
   "name": string;
   /**
+   * Indicates whether feature flag evaluation events include original targeting identifiers and full evaluation context.
+   */
+  "observeFullEvaluationData"?: boolean;
+  /**
    * List of queries to define the environment scope.
    */
   "queries"?: Array<string>;
@@ -72,6 +76,10 @@ export class EnvironmentAttributes {
       baseName: "name",
       type: "string",
       required: true,
+    },
+    observeFullEvaluationData: {
+      baseName: "observe_full_evaluation_data",
+      type: "boolean",
     },
     queries: {
       baseName: "queries",
