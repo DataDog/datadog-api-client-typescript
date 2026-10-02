@@ -3772,6 +3772,13 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
     },
     operationResponseType: "AwsOnDemandResponse",
   },
+  "AIImpactApi.V2.CreateAIImpactUserActivity": {
+    body: {
+      type: "AIImpactUserActivityRequest",
+      format: "",
+    },
+    operationResponseType: "{}",
+  },
   "AnnotationsApi.V2.ListAnnotations": {
     pageId: {
       type: "string",
