@@ -16514,13 +16514,6 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
     },
     operationResponseType: "AggregatedLongTasksResponse",
   },
-  "RUMInsightsApi.V2.QueryAggregatedSignalsProblems": {
-    body: {
-      type: "AggregatedSignalsProblemsRequest",
-      format: "",
-    },
-    operationResponseType: "AggregatedSignalsProblemsResponse",
-  },
   "RUMInsightsApi.V2.QueryAggregatedWaterfall": {
     body: {
       type: "AggregatedWaterfallRequest",
