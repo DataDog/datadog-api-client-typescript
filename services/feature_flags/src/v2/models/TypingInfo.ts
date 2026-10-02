@@ -34,6 +34,9 @@ import { FeatureFlagEnvironmentListItem } from "./FeatureFlagEnvironmentListItem
 import { FeatureFlagListItem } from "./FeatureFlagListItem";
 import { FeatureFlagListItemAttributes } from "./FeatureFlagListItemAttributes";
 import { FeatureFlagResponse } from "./FeatureFlagResponse";
+import { FeatureFlagStalenessCodeReference } from "./FeatureFlagStalenessCodeReference";
+import { FeatureFlagStalenessDetails } from "./FeatureFlagStalenessDetails";
+import { FeatureFlagStalenessRecommendedAction } from "./FeatureFlagStalenessRecommendedAction";
 import { FeatureFlagsPaginationMeta } from "./FeatureFlagsPaginationMeta";
 import { FeatureFlagsPaginationMetaPage } from "./FeatureFlagsPaginationMetaPage";
 import { GuardrailMetric } from "./GuardrailMetric";
@@ -122,6 +125,10 @@ export const TypingInfo: ModelTypingInfo = {
     FeatureFlagListItem: FeatureFlagListItem,
     FeatureFlagListItemAttributes: FeatureFlagListItemAttributes,
     FeatureFlagResponse: FeatureFlagResponse,
+    FeatureFlagStalenessCodeReference: FeatureFlagStalenessCodeReference,
+    FeatureFlagStalenessDetails: FeatureFlagStalenessDetails,
+    FeatureFlagStalenessRecommendedAction:
+      FeatureFlagStalenessRecommendedAction,
     FeatureFlagsPaginationMeta: FeatureFlagsPaginationMeta,
     FeatureFlagsPaginationMetaPage: FeatureFlagsPaginationMetaPage,
     GuardrailMetric: GuardrailMetric,

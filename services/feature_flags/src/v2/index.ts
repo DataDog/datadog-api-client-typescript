@@ -68,6 +68,9 @@ export { FeatureFlagListItemAttributes } from "./models/FeatureFlagListItemAttri
 export { FeatureFlagResponse } from "./models/FeatureFlagResponse";
 export { FeatureFlagsPaginationMeta } from "./models/FeatureFlagsPaginationMeta";
 export { FeatureFlagsPaginationMetaPage } from "./models/FeatureFlagsPaginationMetaPage";
+export { FeatureFlagStalenessCodeReference } from "./models/FeatureFlagStalenessCodeReference";
+export { FeatureFlagStalenessDetails } from "./models/FeatureFlagStalenessDetails";
+export { FeatureFlagStalenessRecommendedAction } from "./models/FeatureFlagStalenessRecommendedAction";
 export { FeatureFlagStatus } from "./models/FeatureFlagStatus";
 export { GuardrailMetric } from "./models/GuardrailMetric";
 export { GuardrailMetricRequest } from "./models/GuardrailMetricRequest";
