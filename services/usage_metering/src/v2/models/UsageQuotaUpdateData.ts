@@ -8,7 +8,7 @@ import { UsageQuotaUpdateAttributes } from "./UsageQuotaUpdateAttributes";
  */
 export class UsageQuotaUpdateData {
   /**
-   * Attributes to update on a usage quota. Omitting a property leaves its current value unchanged.
+   * Attributes to update on a usage quota. At least one of `usage_limit`, `enforced`, or `pending_usage_limit` must be provided. Omitting a property leaves its current value unchanged.
    */
   "attributes": UsageQuotaUpdateAttributes;
   /**
