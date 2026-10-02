@@ -1,6 +1,7 @@
 import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
 import { DashboardDefaultTimeframeSetting } from "./DashboardDefaultTimeframeSetting";
+import { DashboardExperienceType } from "./DashboardExperienceType";
 import { DashboardLayoutType } from "./DashboardLayoutType";
 import { DashboardReflowType } from "./DashboardReflowType";
 import { DashboardTab } from "./DashboardTab";
@@ -33,6 +34,10 @@ export class Dashboard {
    * Description of the dashboard.
    */
   "description"?: string;
+  /**
+   * The experience type of the dashboard.
+   */
+  "experienceType"?: DashboardExperienceType;
   /**
    * ID of the dashboard.
    */
@@ -128,6 +133,10 @@ export class Dashboard {
     description: {
       baseName: "description",
       type: "string",
+    },
+    experienceType: {
+      baseName: "experience_type",
+      type: "DashboardExperienceType",
     },
     id: {
       baseName: "id",
