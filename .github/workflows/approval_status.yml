@@ -29,7 +29,7 @@ jobs:
         id: get_token
         uses: DataDog/dd-octo-sts-action@96a25462dbcb10ebf0bfd6e2ccc917d2ab235b9a # v1.0.4
         with:
-          scope: DataDog/datadog-api-spec
+          scope: ddoghq/datadog-api-spec
           policy: datadog-api-client-typescript.approved_status.post-review-status
       - name: Get pull request number
         id: get_pr_number
@@ -40,6 +40,7 @@ jobs:
         uses: DataDog/github-actions/post-review-status@65b4875f33ad773d7ba4b005a2cb5f35020295f3
         with:
           github-token: ${{ steps.get_token.outputs.token }}
+          owner: ddoghq
           repo: datadog-api-spec
           context: datadog-api-client-typescript/v2
           pull-request: ${{ steps.get_pr_number.outputs.spec_pr }}
