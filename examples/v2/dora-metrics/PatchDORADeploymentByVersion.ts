@@ -1,5 +1,5 @@
 /**
- * Patch a deployment event by version returns "Accepted" response
+ * Mark a deployment as failed by version returns "Accepted" response
  */
 
 import { client, v2 } from "@datadog/datadog-api-client";
@@ -11,7 +11,6 @@ const configuration = client.createConfiguration({
     },
   },
 });
-configuration.unstableOperations["v2.patchDORADeploymentByVersion"] = true;
 const apiInstance = new v2.DORAMetricsApi(configuration);
 
 const params: v2.DORAMetricsApiPatchDORADeploymentByVersionRequest = {
