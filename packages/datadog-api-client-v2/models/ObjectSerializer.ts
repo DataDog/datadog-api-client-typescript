@@ -4317,6 +4317,9 @@ import { RecentlyUpdatedEntitiesResponse } from "./RecentlyUpdatedEntitiesRespon
 import { RecommendationAttributes } from "./RecommendationAttributes";
 import { RecommendationData } from "./RecommendationData";
 import { RecommendationDocument } from "./RecommendationDocument";
+import { RecommendationV2RequestAttributes } from "./RecommendationV2RequestAttributes";
+import { RecommendationV2RequestBody } from "./RecommendationV2RequestBody";
+import { RecommendationV2RequestData } from "./RecommendationV2RequestData";
 import { RecommendationsFilterRequest } from "./RecommendationsFilterRequest";
 import { RecommendationsFilterRequestData } from "./RecommendationsFilterRequestData";
 import { RecommendationsFilterRequestDataAttributes } from "./RecommendationsFilterRequestDataAttributes";
@@ -8470,6 +8473,7 @@ const enumsMap: { [key: string]: any[] } = {
   RUMSortOrder: ["asc", "desc"],
   ReadinessGateThresholdType: ["ANY", "ALL"],
   RecommendationType: ["recommendation"],
+  RecommendationV2RequestType: ["recommendation_v2_request"],
   RecommendationsFilterRequestDataType: ["recommendations_filter"],
   RecommendationsFilterRequestScope: ["ccm", "experiment", "*"],
   ReferenceTableCreateSourceType: ["LOCAL_FILE", "S3", "GCS", "AZURE"],
@@ -14868,6 +14872,9 @@ const typeMap: { [index: string]: any } = {
   RecommendationAttributes: RecommendationAttributes,
   RecommendationData: RecommendationData,
   RecommendationDocument: RecommendationDocument,
+  RecommendationV2RequestAttributes: RecommendationV2RequestAttributes,
+  RecommendationV2RequestBody: RecommendationV2RequestBody,
+  RecommendationV2RequestData: RecommendationV2RequestData,
   RecommendationsFilterRequest: RecommendationsFilterRequest,
   RecommendationsFilterRequestData: RecommendationsFilterRequestData,
   RecommendationsFilterRequestDataAttributes:

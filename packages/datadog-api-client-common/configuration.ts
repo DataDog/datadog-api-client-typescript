@@ -811,6 +811,7 @@ export function createConfiguration(
       "v2.getSloStatus": false,
       "v2.createSnapshot": false,
       "v2.getSPARecommendations": false,
+      "v2.getSPARecommendationsV2": false,
       "v2.getSPARecommendationsWithShard": false,
       "v2.createAiCustomRule": false,
       "v2.createAiCustomRuleRevision": false,

@@ -1757,6 +1757,7 @@ export {
 
 export {
   SpaApiGetSPARecommendationsRequest,
+  SpaApiGetSPARecommendationsV2Request,
   SpaApiGetSPARecommendationsWithShardRequest,
   SpaApi,
 } from "./apis/SpaApi";
@@ -7583,6 +7584,10 @@ export { RecommendationsFilterRequestSortItems } from "./models/RecommendationsF
 export { RecommendationsPageMeta } from "./models/RecommendationsPageMeta";
 export { RecommendationsPageMetaPage } from "./models/RecommendationsPageMetaPage";
 export { RecommendationType } from "./models/RecommendationType";
+export { RecommendationV2RequestAttributes } from "./models/RecommendationV2RequestAttributes";
+export { RecommendationV2RequestBody } from "./models/RecommendationV2RequestBody";
+export { RecommendationV2RequestData } from "./models/RecommendationV2RequestData";
+export { RecommendationV2RequestType } from "./models/RecommendationV2RequestType";
 export { ReferenceTableCreateSourceType } from "./models/ReferenceTableCreateSourceType";
 export { ReferenceTableSchemaFieldType } from "./models/ReferenceTableSchemaFieldType";
 export { ReferenceTableSortType } from "./models/ReferenceTableSortType";
