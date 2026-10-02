@@ -24,6 +24,10 @@ export class SecurityMonitoringStandardRuleResponse {
    */
   "cases"?: Array<SecurityMonitoringRuleCase>;
   /**
+   * The version of the rule at which its detection logic last changed. Updates that only change the name, message, tags, or notifications do not change this value.
+   */
+  "compatibleVersion"?: number;
+  /**
    * How to generate compliance signals. Useful for cloud_configuration rules only.
    */
   "complianceSignalOptions"?: CloudConfigurationRuleComplianceSignalOptions;
@@ -149,6 +153,11 @@ export class SecurityMonitoringStandardRuleResponse {
     cases: {
       baseName: "cases",
       type: "Array<SecurityMonitoringRuleCase>",
+    },
+    compatibleVersion: {
+      baseName: "compatibleVersion",
+      type: "number",
+      format: "int64",
     },
     complianceSignalOptions: {
       baseName: "complianceSignalOptions",
