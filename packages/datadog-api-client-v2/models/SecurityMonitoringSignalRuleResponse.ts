@@ -20,6 +20,10 @@ export class SecurityMonitoringSignalRuleResponse {
    */
   "cases"?: Array<SecurityMonitoringRuleCase>;
   /**
+   * The version of the rule at which its detection logic last changed. Updates that only change the name, message, tags, or notifications do not change this value.
+   */
+  "compatibleVersion"?: number;
+  /**
    * When the rule was created, timestamp in milliseconds.
    */
   "createdAt"?: number;
@@ -115,6 +119,11 @@ export class SecurityMonitoringSignalRuleResponse {
     cases: {
       baseName: "cases",
       type: "Array<SecurityMonitoringRuleCase>",
+    },
+    compatibleVersion: {
+      baseName: "compatibleVersion",
+      type: "number",
+      format: "int64",
     },
     createdAt: {
       baseName: "createdAt",
