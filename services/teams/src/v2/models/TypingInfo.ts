@@ -60,6 +60,7 @@ import { TeamNotificationRuleAttributes } from "./TeamNotificationRuleAttributes
 import { TeamNotificationRuleAttributesEmail } from "./TeamNotificationRuleAttributesEmail";
 import { TeamNotificationRuleAttributesMsTeams } from "./TeamNotificationRuleAttributesMsTeams";
 import { TeamNotificationRuleAttributesPagerduty } from "./TeamNotificationRuleAttributesPagerduty";
+import { TeamNotificationRuleAttributesServiceNow } from "./TeamNotificationRuleAttributesServiceNow";
 import { TeamNotificationRuleAttributesSlack } from "./TeamNotificationRuleAttributesSlack";
 import { TeamNotificationRuleRequest } from "./TeamNotificationRuleRequest";
 import { TeamNotificationRuleResponse } from "./TeamNotificationRuleResponse";
@@ -242,6 +243,8 @@ export const TypingInfo: ModelTypingInfo = {
       TeamNotificationRuleAttributesMsTeams,
     TeamNotificationRuleAttributesPagerduty:
       TeamNotificationRuleAttributesPagerduty,
+    TeamNotificationRuleAttributesServiceNow:
+      TeamNotificationRuleAttributesServiceNow,
     TeamNotificationRuleAttributesSlack: TeamNotificationRuleAttributesSlack,
     TeamNotificationRuleRequest: TeamNotificationRuleRequest,
     TeamNotificationRuleResponse: TeamNotificationRuleResponse,
