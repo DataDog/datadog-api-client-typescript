@@ -9,7 +9,7 @@ import { ScaRequestDataAttributesDependenciesItemsReachableSymbolPropertiesItems
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * A dependency found in the repository, including its identity, location, and reachability metadata.
+ * A dependency found in the repository, including its identity, location, and `reachability metadata`.
  */
 export class ScaRequestDataAttributesDependenciesItems {
   /**
