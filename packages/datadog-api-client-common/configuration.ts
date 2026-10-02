@@ -800,7 +800,6 @@ export function createConfiguration(
       "v2.updateRUMOperation": false,
       "v2.updateRUMOperationStrongLink": false,
       "v2.queryAggregatedLongTasks": false,
-      "v2.queryAggregatedSignalsProblems": false,
       "v2.queryAggregatedWaterfall": false,
       "v2.createScorecardOutcomesBatch": false,
       "v2.getEntityRiskScore": false,

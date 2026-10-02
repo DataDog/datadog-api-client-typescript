@@ -16489,13 +16489,6 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             },
         "operationResponseType": "AggregatedLongTasksResponse",
     },
-    "v2.QueryAggregatedSignalsProblems": {
-        "body": {
-            "type": "AggregatedSignalsProblemsRequest",
-            "format": "",
-            },
-        "operationResponseType": "AggregatedSignalsProblemsResponse",
-    },
     "v2.QueryAggregatedWaterfall": {
         "body": {
             "type": "AggregatedWaterfallRequest",

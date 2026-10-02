@@ -128,8 +128,6 @@ import { AddMemberTeamRequest } from "./AddMemberTeamRequest";
 import { Advisory } from "./Advisory";
 import { AgentTrigger } from "./AgentTrigger";
 import { AgentTriggerWrapper } from "./AgentTriggerWrapper";
-import { AggregatedHighFrozenFrameRate } from "./AggregatedHighFrozenFrameRate";
-import { AggregatedHighScriptEval } from "./AggregatedHighScriptEval";
 import { AggregatedLongTasksByInvokerType } from "./AggregatedLongTasksByInvokerType";
 import { AggregatedLongTasksRequest } from "./AggregatedLongTasksRequest";
 import { AggregatedLongTasksRequestAttributes } from "./AggregatedLongTasksRequestAttributes";
@@ -138,19 +136,8 @@ import { AggregatedLongTasksResponse } from "./AggregatedLongTasksResponse";
 import { AggregatedLongTasksResponseAttributes } from "./AggregatedLongTasksResponseAttributes";
 import { AggregatedLongTasksResponseAttributesCriteria } from "./AggregatedLongTasksResponseAttributesCriteria";
 import { AggregatedLongTasksResponseData } from "./AggregatedLongTasksResponseData";
-import { AggregatedLowCacheHitRate } from "./AggregatedLowCacheHitRate";
-import { AggregatedMobileScrollFriction } from "./AggregatedMobileScrollFriction";
 import { AggregatedResource } from "./AggregatedResource";
 import { AggregatedResourceTimingBreakdown } from "./AggregatedResourceTimingBreakdown";
-import { AggregatedSignalsProblemsRequest } from "./AggregatedSignalsProblemsRequest";
-import { AggregatedSignalsProblemsRequestAttributes } from "./AggregatedSignalsProblemsRequestAttributes";
-import { AggregatedSignalsProblemsRequestData } from "./AggregatedSignalsProblemsRequestData";
-import { AggregatedSignalsProblemsResponse } from "./AggregatedSignalsProblemsResponse";
-import { AggregatedSignalsProblemsResponseAttributes } from "./AggregatedSignalsProblemsResponseAttributes";
-import { AggregatedSignalsProblemsResponseData } from "./AggregatedSignalsProblemsResponseData";
-import { AggregatedSlowFCPHighBytes } from "./AggregatedSlowFCPHighBytes";
-import { AggregatedSlowInteractionLongTask } from "./AggregatedSlowInteractionLongTask";
-import { AggregatedUncompressedResource } from "./AggregatedUncompressedResource";
 import { AggregatedWaterfallPerformanceCriteria } from "./AggregatedWaterfallPerformanceCriteria";
 import { AggregatedWaterfallRequest } from "./AggregatedWaterfallRequest";
 import { AggregatedWaterfallRequestAttributes } from "./AggregatedWaterfallRequestAttributes";
@@ -5229,8 +5216,6 @@ import { ShiftDataRelationshipsUserData } from "./ShiftDataRelationshipsUserData
 import { SignalEntitiesAttributes } from "./SignalEntitiesAttributes";
 import { SignalEntitiesData } from "./SignalEntitiesData";
 import { SignalEntitiesResponse } from "./SignalEntitiesResponse";
-import { SignalsProblemsDetections } from "./SignalsProblemsDetections";
-import { SignalsProblemsSampleMetadata } from "./SignalsProblemsSampleMetadata";
 import { SimpleMonitorUserTemplate } from "./SimpleMonitorUserTemplate";
 import { SingleAggregatedConnectionResponseArray } from "./SingleAggregatedConnectionResponseArray";
 import { SingleAggregatedConnectionResponseData } from "./SingleAggregatedConnectionResponseData";
@@ -6321,7 +6306,6 @@ const enumsMap: { [key: string]: any[] } = {
   ActionQueryType: ["action"],
   ActiveBillingDimensionsType: ["billing_dimensions"],
   AggregatedLongTasksRequestType: ["aggregated_long_tasks"],
-  AggregatedSignalsProblemsRequestType: ["aggregated_signals_problems"],
   AggregatedWaterfallPerformanceCriteriaMetric: [
     "loading_time",
     "largest_contentful_paint",
@@ -9760,8 +9744,6 @@ const typeMap: { [index: string]: any } = {
   Advisory: Advisory,
   AgentTrigger: AgentTrigger,
   AgentTriggerWrapper: AgentTriggerWrapper,
-  AggregatedHighFrozenFrameRate: AggregatedHighFrozenFrameRate,
-  AggregatedHighScriptEval: AggregatedHighScriptEval,
   AggregatedLongTasksByInvokerType: AggregatedLongTasksByInvokerType,
   AggregatedLongTasksRequest: AggregatedLongTasksRequest,
   AggregatedLongTasksRequestAttributes: AggregatedLongTasksRequestAttributes,
@@ -9771,21 +9753,8 @@ const typeMap: { [index: string]: any } = {
   AggregatedLongTasksResponseAttributesCriteria:
     AggregatedLongTasksResponseAttributesCriteria,
   AggregatedLongTasksResponseData: AggregatedLongTasksResponseData,
-  AggregatedLowCacheHitRate: AggregatedLowCacheHitRate,
-  AggregatedMobileScrollFriction: AggregatedMobileScrollFriction,
   AggregatedResource: AggregatedResource,
   AggregatedResourceTimingBreakdown: AggregatedResourceTimingBreakdown,
-  AggregatedSignalsProblemsRequest: AggregatedSignalsProblemsRequest,
-  AggregatedSignalsProblemsRequestAttributes:
-    AggregatedSignalsProblemsRequestAttributes,
-  AggregatedSignalsProblemsRequestData: AggregatedSignalsProblemsRequestData,
-  AggregatedSignalsProblemsResponse: AggregatedSignalsProblemsResponse,
-  AggregatedSignalsProblemsResponseAttributes:
-    AggregatedSignalsProblemsResponseAttributes,
-  AggregatedSignalsProblemsResponseData: AggregatedSignalsProblemsResponseData,
-  AggregatedSlowFCPHighBytes: AggregatedSlowFCPHighBytes,
-  AggregatedSlowInteractionLongTask: AggregatedSlowInteractionLongTask,
-  AggregatedUncompressedResource: AggregatedUncompressedResource,
   AggregatedWaterfallPerformanceCriteria:
     AggregatedWaterfallPerformanceCriteria,
   AggregatedWaterfallRequest: AggregatedWaterfallRequest,
@@ -16059,8 +16028,6 @@ const typeMap: { [index: string]: any } = {
   SignalEntitiesAttributes: SignalEntitiesAttributes,
   SignalEntitiesData: SignalEntitiesData,
   SignalEntitiesResponse: SignalEntitiesResponse,
-  SignalsProblemsDetections: SignalsProblemsDetections,
-  SignalsProblemsSampleMetadata: SignalsProblemsSampleMetadata,
   SimpleMonitorUserTemplate: SimpleMonitorUserTemplate,
   SingleAggregatedConnectionResponseArray:
     SingleAggregatedConnectionResponseArray,
