@@ -13,23 +13,23 @@ const configuration = client.createConfiguration({
 });
 const apiInstance = new v2.CSMThreatsApi(configuration);
 
-// there is a valid "policy_rc" in the system
-const POLICY_DATA_ID = process.env.POLICY_DATA_ID as string;
+// there is a valid "policy_rc_disabled" in the system
+const POLICY_DISABLED_DATA_ID = process.env.POLICY_DISABLED_DATA_ID as string;
 
 const params: v2.CSMThreatsApiUpdateCSMThreatsAgentPolicyRequest = {
   body: {
     data: {
       attributes: {
         description: "Updated agent policy",
-        enabled: true,
+        enabled: false,
         hostTagsLists: [["env:test"]],
         name: "updated_agent_policy",
       },
-      id: POLICY_DATA_ID,
+      id: POLICY_DISABLED_DATA_ID,
       type: "policy",
     },
   },
-  policyId: POLICY_DATA_ID,
+  policyId: POLICY_DISABLED_DATA_ID,
 };
 
 apiInstance
