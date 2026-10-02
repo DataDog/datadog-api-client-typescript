@@ -107,6 +107,7 @@ export { TeamNotificationRuleAttributes } from "./models/TeamNotificationRuleAtt
 export { TeamNotificationRuleAttributesEmail } from "./models/TeamNotificationRuleAttributesEmail";
 export { TeamNotificationRuleAttributesMsTeams } from "./models/TeamNotificationRuleAttributesMsTeams";
 export { TeamNotificationRuleAttributesPagerduty } from "./models/TeamNotificationRuleAttributesPagerduty";
+export { TeamNotificationRuleAttributesServiceNow } from "./models/TeamNotificationRuleAttributesServiceNow";
 export { TeamNotificationRuleAttributesSlack } from "./models/TeamNotificationRuleAttributesSlack";
 export { TeamNotificationRuleRequest } from "./models/TeamNotificationRuleRequest";
 export { TeamNotificationRuleResponse } from "./models/TeamNotificationRuleResponse";
