@@ -4,7 +4,7 @@ import { ScaRequestDataAttributesDependenciesItemsLocationsItems } from "./ScaRe
 import { ScaRequestDataAttributesDependenciesItemsReachableSymbolPropertiesItems } from "./ScaRequestDataAttributesDependenciesItemsReachableSymbolPropertiesItems";
 
 /**
- * A dependency found in the repository, including its identity, location, and reachability metadata.
+ * A dependency found in the repository, including its identity, location, and `reachability metadata`.
  */
 export class ScaRequestDataAttributesDependenciesItems {
   /**
