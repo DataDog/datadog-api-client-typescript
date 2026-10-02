@@ -1304,7 +1304,6 @@ export {
 
 export {
   RUMInsightsApiQueryAggregatedLongTasksRequest,
-  RUMInsightsApiQueryAggregatedSignalsProblemsRequest,
   RUMInsightsApiQueryAggregatedWaterfallRequest,
   RUMInsightsApi,
 } from "./apis/RUMInsightsApi";
@@ -2113,8 +2112,6 @@ export { AddMemberTeamRequest } from "./models/AddMemberTeamRequest";
 export { Advisory } from "./models/Advisory";
 export { AgentTrigger } from "./models/AgentTrigger";
 export { AgentTriggerWrapper } from "./models/AgentTriggerWrapper";
-export { AggregatedHighFrozenFrameRate } from "./models/AggregatedHighFrozenFrameRate";
-export { AggregatedHighScriptEval } from "./models/AggregatedHighScriptEval";
 export { AggregatedLongTasksByInvokerType } from "./models/AggregatedLongTasksByInvokerType";
 export { AggregatedLongTasksRequest } from "./models/AggregatedLongTasksRequest";
 export { AggregatedLongTasksRequestAttributes } from "./models/AggregatedLongTasksRequestAttributes";
@@ -2124,20 +2121,8 @@ export { AggregatedLongTasksResponse } from "./models/AggregatedLongTasksRespons
 export { AggregatedLongTasksResponseAttributes } from "./models/AggregatedLongTasksResponseAttributes";
 export { AggregatedLongTasksResponseAttributesCriteria } from "./models/AggregatedLongTasksResponseAttributesCriteria";
 export { AggregatedLongTasksResponseData } from "./models/AggregatedLongTasksResponseData";
-export { AggregatedLowCacheHitRate } from "./models/AggregatedLowCacheHitRate";
-export { AggregatedMobileScrollFriction } from "./models/AggregatedMobileScrollFriction";
 export { AggregatedResource } from "./models/AggregatedResource";
 export { AggregatedResourceTimingBreakdown } from "./models/AggregatedResourceTimingBreakdown";
-export { AggregatedSignalsProblemsRequest } from "./models/AggregatedSignalsProblemsRequest";
-export { AggregatedSignalsProblemsRequestAttributes } from "./models/AggregatedSignalsProblemsRequestAttributes";
-export { AggregatedSignalsProblemsRequestData } from "./models/AggregatedSignalsProblemsRequestData";
-export { AggregatedSignalsProblemsRequestType } from "./models/AggregatedSignalsProblemsRequestType";
-export { AggregatedSignalsProblemsResponse } from "./models/AggregatedSignalsProblemsResponse";
-export { AggregatedSignalsProblemsResponseAttributes } from "./models/AggregatedSignalsProblemsResponseAttributes";
-export { AggregatedSignalsProblemsResponseData } from "./models/AggregatedSignalsProblemsResponseData";
-export { AggregatedSlowFCPHighBytes } from "./models/AggregatedSlowFCPHighBytes";
-export { AggregatedSlowInteractionLongTask } from "./models/AggregatedSlowInteractionLongTask";
-export { AggregatedUncompressedResource } from "./models/AggregatedUncompressedResource";
 export { AggregatedWaterfallPerformanceCriteria } from "./models/AggregatedWaterfallPerformanceCriteria";
 export { AggregatedWaterfallPerformanceCriteriaMetric } from "./models/AggregatedWaterfallPerformanceCriteriaMetric";
 export { AggregatedWaterfallRequest } from "./models/AggregatedWaterfallRequest";
@@ -8835,8 +8820,6 @@ export { SignalEntitiesAttributes } from "./models/SignalEntitiesAttributes";
 export { SignalEntitiesData } from "./models/SignalEntitiesData";
 export { SignalEntitiesResponse } from "./models/SignalEntitiesResponse";
 export { SignalEntitiesType } from "./models/SignalEntitiesType";
-export { SignalsProblemsDetections } from "./models/SignalsProblemsDetections";
-export { SignalsProblemsSampleMetadata } from "./models/SignalsProblemsSampleMetadata";
 export { SimpleMonitorUserTemplate } from "./models/SimpleMonitorUserTemplate";
 export { SingleAggregatedConnectionResponseArray } from "./models/SingleAggregatedConnectionResponseArray";
 export { SingleAggregatedConnectionResponseData } from "./models/SingleAggregatedConnectionResponseData";
