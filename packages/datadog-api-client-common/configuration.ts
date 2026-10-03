@@ -461,6 +461,7 @@ export function createConfiguration(
       "v2.searchCostRecommendations": false,
       "v2.updateUnitCost": false,
       "v2.createQuotas": false,
+      "v2.deletePendingQuota": false,
       "v2.deleteQuota": false,
       "v2.listQuotas": false,
       "v2.updateQuota": false,

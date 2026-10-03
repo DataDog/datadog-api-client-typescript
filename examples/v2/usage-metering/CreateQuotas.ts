@@ -21,10 +21,8 @@ const params: v2.UsageMeteringApiCreateQuotasRequest = {
       {
         attributes: {
           enforced: true,
-          scope: {
-            user_handle: "jane@example.com",
-          },
-          usageLimit: 100000,
+          pendingUsageLimit: 100000,
+          usageLimit: 600000,
         },
         type: "quotas",
       },
