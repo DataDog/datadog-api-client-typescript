@@ -21,6 +21,10 @@ export class SyntheticsGlobalVariableRequest {
    */
   "id"?: string;
   /**
+   * Whether this global variable is a persistent email variable. Set this when creating the variable and omit `value`; Datadog generates an immutable email address. The variable cannot be converted to or from a persistent email variable.
+   */
+  "isEmail"?: boolean;
+  /**
    * Determines if the global variable is a FIDO variable.
    */
   "isFido"?: boolean;
@@ -75,6 +79,10 @@ export class SyntheticsGlobalVariableRequest {
     id: {
       baseName: "id",
       type: "string",
+    },
+    isEmail: {
+      baseName: "is_email",
+      type: "boolean",
     },
     isFido: {
       baseName: "is_fido",
