@@ -163,6 +163,36 @@ export const operationServers: {
       subdomain: "http-intake.logs",
     }),
   ],
+  "v2.CIVisibilityLogsApi.submitCILog": [
+    new ServerConfiguration<{
+      site:
+        | "datadoghq.com"
+        | "us3.datadoghq.com"
+        | "us5.datadoghq.com"
+        | "ap1.datadoghq.com"
+        | "ap2.datadoghq.com"
+        | "uk1.datadoghq.com"
+        | "datadoghq.eu";
+      subdomain: string;
+    }>("https://{subdomain}.{site}", {
+      site: "datadoghq.com",
+      subdomain: "http-intake.logs",
+    }),
+    new ServerConfiguration<{
+      name: string;
+      protocol: string;
+    }>("{protocol}://{name}", {
+      name: "http-intake.logs.datadoghq.com",
+      protocol: "https",
+    }),
+    new ServerConfiguration<{
+      site: string;
+      subdomain: string;
+    }>("https://{subdomain}.{site}", {
+      site: "datadoghq.com",
+      subdomain: "http-intake.logs",
+    }),
+  ],
   "v2.EventsApi.createEvent": [
     new ServerConfiguration<{
       site:
