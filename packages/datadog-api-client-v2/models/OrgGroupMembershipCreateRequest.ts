@@ -3,18 +3,18 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
-import { GlobalOrgIdentifier } from "./GlobalOrgIdentifier";
+import { OrgGroupMembershipCreateData } from "./OrgGroupMembershipCreateData";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * Attributes for bulk updating org group memberships.
+ * Request to add organizations to an org group.
  */
-export class OrgGroupMembershipBulkUpdateAttributes {
+export class OrgGroupMembershipCreateRequest {
   /**
-   * List of organizations to move. Between 1 and 100 per request. Each `org_uuid` and `org_site` pair must be unique.
+   * Data for adding organizations to an org group.
    */
-  "orgs": Array<GlobalOrgIdentifier>;
+  "data": OrgGroupMembershipCreateData;
 
   /**
    * A container for additional, undeclared properties.
@@ -32,9 +32,9 @@ export class OrgGroupMembershipBulkUpdateAttributes {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    orgs: {
-      baseName: "orgs",
-      type: "Array<GlobalOrgIdentifier>",
+    data: {
+      baseName: "data",
+      type: "OrgGroupMembershipCreateData",
       required: true,
     },
     additionalProperties: {
@@ -47,7 +47,7 @@ export class OrgGroupMembershipBulkUpdateAttributes {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-    return OrgGroupMembershipBulkUpdateAttributes.attributeTypeMap;
+    return OrgGroupMembershipCreateRequest.attributeTypeMap;
   }
 
   public constructor() {}

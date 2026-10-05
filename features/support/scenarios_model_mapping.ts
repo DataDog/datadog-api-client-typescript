@@ -15076,6 +15076,13 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             },
         "operationResponseType": "OrgGroupMembershipListResponse",
     },
+    "v2.CreateOrgGroupMemberships": {
+        "body": {
+            "type": "OrgGroupMembershipCreateRequest",
+            "format": "",
+            },
+        "operationResponseType": "{}",
+    },
     "v2.BulkUpdateOrgGroupMemberships": {
         "body": {
             "type": "OrgGroupMembershipBulkUpdateRequest",
@@ -15083,12 +15090,34 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             },
         "operationResponseType": "OrgGroupMembershipListResponse",
     },
+    "v2.BulkDeleteOrgGroupMemberships": {
+        "filterOrgGroupId": {
+            "type": "string",
+            "format": "uuid",
+            },
+        "body": {
+            "type": "OrgGroupMembershipBulkDeleteRequest",
+            "format": "",
+            },
+        "operationResponseType": "{}",
+    },
     "v2.GetOrgGroupMembership": {
         "orgGroupMembershipId": {
             "type": "string",
             "format": "uuid",
             },
         "operationResponseType": "OrgGroupMembershipResponse",
+    },
+    "v2.DeleteOrgGroupMembership": {
+        "orgGroupMembershipId": {
+            "type": "string",
+            "format": "uuid",
+            },
+        "filterOrgGroupId": {
+            "type": "string",
+            "format": "uuid",
+            },
+        "operationResponseType": "{}",
     },
     "v2.UpdateOrgGroupMembership": {
         "orgGroupMembershipId": {
