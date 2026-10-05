@@ -2117,6 +2117,9 @@ import { FleetAgentVersionsV2ResponseMeta } from "./FleetAgentVersionsV2Response
 import { FleetAgentsV2Page } from "./FleetAgentsV2Page";
 import { FleetAgentsV2Response } from "./FleetAgentsV2Response";
 import { FleetAgentsV2ResponseMeta } from "./FleetAgentsV2ResponseMeta";
+import { FleetConfigFileSchemaV2 } from "./FleetConfigFileSchemaV2";
+import { FleetConfigFileSchemaV2Attributes } from "./FleetConfigFileSchemaV2Attributes";
+import { FleetConfigFileSchemaV2Response } from "./FleetConfigFileSchemaV2Response";
 import { FleetConfigurationFileV2 } from "./FleetConfigurationFileV2";
 import { FleetConfigurationLayer } from "./FleetConfigurationLayer";
 import { FleetDeployment } from "./FleetDeployment";
@@ -2154,6 +2157,12 @@ import { FleetDeploymentsV2Response } from "./FleetDeploymentsV2Response";
 import { FleetDeploymentsV2ResponseMeta } from "./FleetDeploymentsV2ResponseMeta";
 import { FleetDetectedIntegration } from "./FleetDetectedIntegration";
 import { FleetIntegrationDetailsV2 } from "./FleetIntegrationDetailsV2";
+import { FleetIntegrationSchemaDetailV2 } from "./FleetIntegrationSchemaDetailV2";
+import { FleetIntegrationSchemaDetailV2Attributes } from "./FleetIntegrationSchemaDetailV2Attributes";
+import { FleetIntegrationSchemaFileSpecV2 } from "./FleetIntegrationSchemaFileSpecV2";
+import { FleetIntegrationSchemaSpecOptionV2 } from "./FleetIntegrationSchemaSpecOptionV2";
+import { FleetIntegrationSchemaSpecPropertyV2 } from "./FleetIntegrationSchemaSpecPropertyV2";
+import { FleetIntegrationSchemaSpecValueV2 } from "./FleetIntegrationSchemaSpecValueV2";
 import { FleetIntegrationsByStatusV2 } from "./FleetIntegrationsByStatusV2";
 import { FleetOtelCollectorConfigurationV2 } from "./FleetOtelCollectorConfigurationV2";
 import { FleetSchedule } from "./FleetSchedule";
@@ -7592,8 +7601,10 @@ const enumsMap: { [key: string]: any[] } = {
   FleetAgentV2AttributesInstrumentationStatus: ["success", "failure"],
   FleetAgentV2ResourceType: ["agent"],
   FleetAgentVersionV2ResourceType: ["agent_version"],
+  FleetConfigFileSchemaV2ResourceType: ["config_file_schema"],
   FleetDeploymentFileOp: ["merge-patch", "delete"],
   FleetDeploymentResourceType: ["deployment"],
+  FleetIntegrationSchemaV2ResourceType: ["integration_schema"],
   FleetScheduleResourceType: ["schedule"],
   FleetScheduleStatus: ["active", "inactive"],
   FormDataDefinitionType: ["object"],
@@ -12649,6 +12660,9 @@ const typeMap: { [index: string]: any } = {
   FleetAgentsV2Page: FleetAgentsV2Page,
   FleetAgentsV2Response: FleetAgentsV2Response,
   FleetAgentsV2ResponseMeta: FleetAgentsV2ResponseMeta,
+  FleetConfigFileSchemaV2: FleetConfigFileSchemaV2,
+  FleetConfigFileSchemaV2Attributes: FleetConfigFileSchemaV2Attributes,
+  FleetConfigFileSchemaV2Response: FleetConfigFileSchemaV2Response,
   FleetConfigurationFileV2: FleetConfigurationFileV2,
   FleetConfigurationLayer: FleetConfigurationLayer,
   FleetDeployment: FleetDeployment,
@@ -12692,6 +12706,13 @@ const typeMap: { [index: string]: any } = {
   FleetDeploymentsV2ResponseMeta: FleetDeploymentsV2ResponseMeta,
   FleetDetectedIntegration: FleetDetectedIntegration,
   FleetIntegrationDetailsV2: FleetIntegrationDetailsV2,
+  FleetIntegrationSchemaDetailV2: FleetIntegrationSchemaDetailV2,
+  FleetIntegrationSchemaDetailV2Attributes:
+    FleetIntegrationSchemaDetailV2Attributes,
+  FleetIntegrationSchemaFileSpecV2: FleetIntegrationSchemaFileSpecV2,
+  FleetIntegrationSchemaSpecOptionV2: FleetIntegrationSchemaSpecOptionV2,
+  FleetIntegrationSchemaSpecPropertyV2: FleetIntegrationSchemaSpecPropertyV2,
+  FleetIntegrationSchemaSpecValueV2: FleetIntegrationSchemaSpecValueV2,
   FleetIntegrationsByStatusV2: FleetIntegrationsByStatusV2,
   FleetOtelCollectorConfigurationV2: FleetOtelCollectorConfigurationV2,
   FleetSchedule: FleetSchedule,
@@ -18336,6 +18357,10 @@ const oneOfMap: { [index: string]: string[] } = {
   ],
   FastlyCredentials: ["FastlyAPIKey"],
   FastlyCredentialsUpdate: ["FastlyAPIKeyUpdate"],
+  FleetConfigFileSchemaV2ResponseData: [
+    "FleetIntegrationSchemaDetailV2",
+    "FleetConfigFileSchemaV2",
+  ],
   FreshserviceCredentials: ["FreshserviceAPIKey"],
   FreshserviceCredentialsUpdate: ["FreshserviceAPIKeyUpdate"],
   GCPCredentials: ["GCPServiceAccount"],
