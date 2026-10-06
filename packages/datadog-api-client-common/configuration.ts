@@ -712,7 +712,6 @@ export function createConfiguration(
       "v2.updateMonitorUserTemplate": false,
       "v2.validateExistingMonitorUserTemplate": false,
       "v2.validateMonitorUserTemplate": false,
-      "v2.listNetworkHealthInsights": false,
       "v2.deleteScopesRestriction": false,
       "v2.getOAuth2WellKnownSites": false,
       "v2.getOIDCDiscoveryDocument": false,

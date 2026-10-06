@@ -3662,10 +3662,6 @@ import { MuteRuleUpdateRequest } from "./MuteRuleUpdateRequest";
 import { MuteRulesResponse } from "./MuteRulesResponse";
 import { NDKSourcemapAttributes } from "./NDKSourcemapAttributes";
 import { NDKSourcemapData } from "./NDKSourcemapData";
-import { NetworkHealthInsight } from "./NetworkHealthInsight";
-import { NetworkHealthInsightAttributes } from "./NetworkHealthInsightAttributes";
-import { NetworkHealthInsightTrafficVolume } from "./NetworkHealthInsightTrafficVolume";
-import { NetworkHealthInsightsResponse } from "./NetworkHealthInsightsResponse";
 import { NodeTypesResponse } from "./NodeTypesResponse";
 import { NodeTypesResponseData } from "./NodeTypesResponseData";
 import { NodeTypesResponseDataAttributes } from "./NodeTypesResponseDataAttributes";
@@ -8194,17 +8190,6 @@ const enumsMap: { [key: string]: any[] } = {
     "risk_accepted",
   ],
   MuteRuleType: ["mute_rules"],
-  NetworkHealthInsightCategory: ["dns", "tcp", "tls-cert", "security-group"],
-  NetworkHealthInsightFailureType: [
-    "timeout",
-    "nxdomain",
-    "servfail",
-    "general_failure",
-    "expired",
-    "expiring_soon",
-    "denied",
-  ],
-  NetworkHealthInsightsType: ["network-health-insights"],
   NodeTypesResponseDataType: ["get_node_types_response"],
   NotebookResourceType: ["notebook"],
   NotificationChannelEmailConfigType: ["email"],
@@ -14490,10 +14475,6 @@ const typeMap: { [index: string]: any } = {
   MuteRulesResponse: MuteRulesResponse,
   NDKSourcemapAttributes: NDKSourcemapAttributes,
   NDKSourcemapData: NDKSourcemapData,
-  NetworkHealthInsight: NetworkHealthInsight,
-  NetworkHealthInsightAttributes: NetworkHealthInsightAttributes,
-  NetworkHealthInsightTrafficVolume: NetworkHealthInsightTrafficVolume,
-  NetworkHealthInsightsResponse: NetworkHealthInsightsResponse,
   NodeTypesResponse: NodeTypesResponse,
   NodeTypesResponseData: NodeTypesResponseData,
   NodeTypesResponseDataAttributes: NodeTypesResponseDataAttributes,
