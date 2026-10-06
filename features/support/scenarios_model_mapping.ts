@@ -5792,6 +5792,17 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             },
         "operationResponseType": "CIAppTestEventsResponse",
     },
+    "v2.SubmitCILog": {
+        "contentEncoding": {
+            "type": "CILogContentEncoding",
+            "format": "",
+            },
+        "body": {
+            "type": "Array<CILogItem>",
+            "format": "",
+            },
+        "operationResponseType": "any",
+    },
     "v2.ListAWSCloudAuthPersonaMappings": {
         "operationResponseType": "AWSCloudAuthPersonaMappingsResponse",
     },
