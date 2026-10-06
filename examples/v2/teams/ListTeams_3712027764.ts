@@ -1,5 +1,5 @@
 /**
- * List all teams returns "OK" response
+ * Get all teams returns "OK" response
  */
 
 import { client, v2 } from "@datadog/datadog-api-client";
