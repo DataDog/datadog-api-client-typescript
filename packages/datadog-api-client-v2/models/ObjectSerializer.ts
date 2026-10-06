@@ -760,6 +760,9 @@ import { CloudConfigurationRuleComplianceSignalOptions } from "./CloudConfigurat
 import { CloudConfigurationRuleCreatePayload } from "./CloudConfigurationRuleCreatePayload";
 import { CloudConfigurationRuleOptions } from "./CloudConfigurationRuleOptions";
 import { CloudConfigurationRulePayload } from "./CloudConfigurationRulePayload";
+import { CloudCostAccount } from "./CloudCostAccount";
+import { CloudCostAccountAttributes } from "./CloudCostAccountAttributes";
+import { CloudCostAccountsResponse } from "./CloudCostAccountsResponse";
 import { CloudInventorySyncConfigAWSRequestAttributes } from "./CloudInventorySyncConfigAWSRequestAttributes";
 import { CloudInventorySyncConfigAttributes } from "./CloudInventorySyncConfigAttributes";
 import { CloudInventorySyncConfigAzureRequestAttributes } from "./CloudInventorySyncConfigAzureRequestAttributes";
@@ -6918,6 +6921,7 @@ const enumsMap: { [key: string]: any[] } = {
   ClickupIntegrationType: ["Clickup"],
   CloudAssetType: ["Host", "HostImage", "Image"],
   CloudConfigurationRuleType: ["cloud_configuration"],
+  CloudCostAccountType: ["cloud_account"],
   CloudInventoryCloudProviderId: ["aws", "gcp", "azure"],
   CloudInventoryCloudProviderRequestType: ["cloud_provider"],
   CloudInventorySyncConfigResourceType: ["sync_configs"],
@@ -10885,6 +10889,9 @@ const typeMap: { [index: string]: any } = {
   CloudConfigurationRuleCreatePayload: CloudConfigurationRuleCreatePayload,
   CloudConfigurationRuleOptions: CloudConfigurationRuleOptions,
   CloudConfigurationRulePayload: CloudConfigurationRulePayload,
+  CloudCostAccount: CloudCostAccount,
+  CloudCostAccountAttributes: CloudCostAccountAttributes,
+  CloudCostAccountsResponse: CloudCostAccountsResponse,
   CloudInventorySyncConfigAWSRequestAttributes:
     CloudInventorySyncConfigAWSRequestAttributes,
   CloudInventorySyncConfigAttributes: CloudInventorySyncConfigAttributes,
