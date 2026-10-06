@@ -75,6 +75,9 @@ import { BudgetWithEntriesDataAttributesEntriesItems } from "./BudgetWithEntries
 import { BudgetWithEntriesDataAttributesEntriesItemsCosts } from "./BudgetWithEntriesDataAttributesEntriesItemsCosts";
 import { BudgetWithEntriesDataAttributesEntriesItemsTagFiltersItems } from "./BudgetWithEntriesDataAttributesEntriesItemsTagFiltersItems";
 import { BudgetWithEntriesMeta } from "./BudgetWithEntriesMeta";
+import { CloudCostAccount } from "./CloudCostAccount";
+import { CloudCostAccountAttributes } from "./CloudCostAccountAttributes";
+import { CloudCostAccountsResponse } from "./CloudCostAccountsResponse";
 import { CommitmentsAwsEC2RICommitment } from "./CommitmentsAwsEC2RICommitment";
 import { CommitmentsAwsElasticacheRICommitment } from "./CommitmentsAwsElasticacheRICommitment";
 import { CommitmentsAwsRDSRICommitment } from "./CommitmentsAwsRDSRICommitment";
@@ -260,6 +263,7 @@ export const TypingInfo: ModelTypingInfo = {
     AzureUCConfigPostRequestType: ["azure_uc_config_post_request"],
     BudgetValidationResponseDataType: ["budget_validation"],
     BudgetWithEntriesDataType: ["budget"],
+    CloudCostAccountType: ["cloud_account"],
     CommitmentsAzureVMRIStatus: ["running", "expired", "cancelled"],
     CommitmentsCommitmentType: ["ri", "sp"],
     CommitmentsProvider: ["aws", "azure"],
@@ -405,6 +409,9 @@ export const TypingInfo: ModelTypingInfo = {
     BudgetWithEntriesDataAttributesEntriesItemsTagFiltersItems:
       BudgetWithEntriesDataAttributesEntriesItemsTagFiltersItems,
     BudgetWithEntriesMeta: BudgetWithEntriesMeta,
+    CloudCostAccount: CloudCostAccount,
+    CloudCostAccountAttributes: CloudCostAccountAttributes,
+    CloudCostAccountsResponse: CloudCostAccountsResponse,
     CommitmentsAwsEC2RICommitment: CommitmentsAwsEC2RICommitment,
     CommitmentsAwsElasticacheRICommitment:
       CommitmentsAwsElasticacheRICommitment,

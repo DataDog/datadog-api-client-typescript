@@ -39,6 +39,7 @@ export {
   CloudCostManagementApiGetTagPipelinesRulesetRequest,
   CloudCostManagementApiGetUnitCostRequest,
   CloudCostManagementApiListCostAnomaliesRequest,
+  CloudCostManagementApiListCostCloudAccountsV2Request,
   CloudCostManagementApiListCostTagDescriptionsRequest,
   CloudCostManagementApiListCostTagKeySourcesRequest,
   CloudCostManagementApiListCostTagKeysRequest,
@@ -156,6 +157,10 @@ export { BudgetWithEntriesDataAttributesEntriesItemsCosts } from "./models/Budge
 export { BudgetWithEntriesDataAttributesEntriesItemsTagFiltersItems } from "./models/BudgetWithEntriesDataAttributesEntriesItemsTagFiltersItems";
 export { BudgetWithEntriesDataType } from "./models/BudgetWithEntriesDataType";
 export { BudgetWithEntriesMeta } from "./models/BudgetWithEntriesMeta";
+export { CloudCostAccount } from "./models/CloudCostAccount";
+export { CloudCostAccountAttributes } from "./models/CloudCostAccountAttributes";
+export { CloudCostAccountsResponse } from "./models/CloudCostAccountsResponse";
+export { CloudCostAccountType } from "./models/CloudCostAccountType";
 export { CommitmentsAwsEC2RICommitment } from "./models/CommitmentsAwsEC2RICommitment";
 export { CommitmentsAwsElasticacheRICommitment } from "./models/CommitmentsAwsElasticacheRICommitment";
 export { CommitmentsAwsRDSRICommitment } from "./models/CommitmentsAwsRDSRICommitment";
