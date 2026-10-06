@@ -586,16 +586,6 @@ export class DORAMetricsApiRequestFactory extends BaseAPIRequestFactory {
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
-    if (
-      !_config.unstableOperations[
-        "DORAMetricsApi.v2.patchDORADeploymentByVersion"
-      ]
-    ) {
-      throw new Error(
-        "Unstable operation 'patchDORADeploymentByVersion' is disabled. Enable it by setting `configuration.unstableOperations['DORAMetricsApi.v2.patchDORADeploymentByVersion'] = true`",
-      );
-    }
-
     // verify required parameter 'body' is not null or undefined
     if (body === null || body === undefined) {
       throw new RequiredError("body", "patchDORADeploymentByVersion");
