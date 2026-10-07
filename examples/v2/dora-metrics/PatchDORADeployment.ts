@@ -1,5 +1,5 @@
 /**
- * Patch a deployment event returns "Accepted" response
+ * Mark a deployment as failed by ID returns "Accepted" response
  */
 
 import { client, v2 } from "@datadog/datadog-api-client";
