@@ -20,6 +20,11 @@ import { ListInvestigationsResponseMeta } from "./ListInvestigationsResponseMeta
 import { ListInvestigationsResponseMetaPage } from "./ListInvestigationsResponseMetaPage";
 import { MonitorAlertTrigger } from "./MonitorAlertTrigger";
 import { MonitorAlertTriggerAttributes } from "./MonitorAlertTriggerAttributes";
+import { MonitorAutomationAttributes } from "./MonitorAutomationAttributes";
+import { MonitorAutomationData } from "./MonitorAutomationData";
+import { MonitorAutomationRequest } from "./MonitorAutomationRequest";
+import { MonitorAutomationRequestData } from "./MonitorAutomationRequestData";
+import { MonitorAutomationResponse } from "./MonitorAutomationResponse";
 import { TriggerAttributes } from "./TriggerAttributes";
 import { TriggerInvestigationRequest } from "./TriggerInvestigationRequest";
 import { TriggerInvestigationRequestData } from "./TriggerInvestigationRequestData";
@@ -33,6 +38,7 @@ export const TypingInfo: ModelTypingInfo = {
     GeneralInvestigationTriggerType: ["general_investigation"],
     InvestigationType: ["investigation"],
     MonitorAlertTriggerType: ["monitor_alert_trigger"],
+    MonitorAutomationType: ["monitor_automation"],
     TriggerInvestigationRequestType: ["trigger_investigation_request"],
     TriggerInvestigationResponseType: ["trigger_investigation_response"],
     TriggerType: ["monitor_alert_trigger", "general_investigation"],
@@ -68,6 +74,11 @@ export const TypingInfo: ModelTypingInfo = {
     ListInvestigationsResponseMetaPage: ListInvestigationsResponseMetaPage,
     MonitorAlertTrigger: MonitorAlertTrigger,
     MonitorAlertTriggerAttributes: MonitorAlertTriggerAttributes,
+    MonitorAutomationAttributes: MonitorAutomationAttributes,
+    MonitorAutomationData: MonitorAutomationData,
+    MonitorAutomationRequest: MonitorAutomationRequest,
+    MonitorAutomationRequestData: MonitorAutomationRequestData,
+    MonitorAutomationResponse: MonitorAutomationResponse,
     TriggerAttributes: TriggerAttributes,
     TriggerInvestigationRequest: TriggerInvestigationRequest,
     TriggerInvestigationRequestData: TriggerInvestigationRequestData,

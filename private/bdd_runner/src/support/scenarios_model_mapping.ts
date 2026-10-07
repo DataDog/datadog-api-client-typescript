@@ -4727,6 +4727,24 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
     },
     operationResponseType: "GetInvestigationResponse",
   },
+  "BitsAIApi.V2.GetMonitorAutomation": {
+    monitorId: {
+      type: "number",
+      format: "int64",
+    },
+    operationResponseType: "MonitorAutomationResponse",
+  },
+  "BitsAIApi.V2.UpdateMonitorAutomation": {
+    monitorId: {
+      type: "number",
+      format: "int64",
+    },
+    body: {
+      type: "MonitorAutomationRequest",
+      format: "",
+    },
+    operationResponseType: "MonitorAutomationResponse",
+  },
   "CaseManagementApi.V2.SearchCases": {
     pageSize: {
       type: "number",

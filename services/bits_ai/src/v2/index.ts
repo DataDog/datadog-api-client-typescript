@@ -1,7 +1,9 @@
 export {
   BitsAIApiGetInvestigationRequest,
+  BitsAIApiGetMonitorAutomationRequest,
   BitsAIApiListInvestigationsRequest,
   BitsAIApiTriggerInvestigationRequest,
+  BitsAIApiUpdateMonitorAutomationRequest,
   BitsAIApi,
 } from "./BitsAIApi";
 
@@ -29,6 +31,12 @@ export { ListInvestigationsResponseMetaPage } from "./models/ListInvestigationsR
 export { MonitorAlertTrigger } from "./models/MonitorAlertTrigger";
 export { MonitorAlertTriggerAttributes } from "./models/MonitorAlertTriggerAttributes";
 export { MonitorAlertTriggerType } from "./models/MonitorAlertTriggerType";
+export { MonitorAutomationAttributes } from "./models/MonitorAutomationAttributes";
+export { MonitorAutomationData } from "./models/MonitorAutomationData";
+export { MonitorAutomationRequest } from "./models/MonitorAutomationRequest";
+export { MonitorAutomationRequestData } from "./models/MonitorAutomationRequestData";
+export { MonitorAutomationResponse } from "./models/MonitorAutomationResponse";
+export { MonitorAutomationType } from "./models/MonitorAutomationType";
 export { TriggerAttributes } from "./models/TriggerAttributes";
 export { TriggerInvestigationRequest } from "./models/TriggerInvestigationRequest";
 export { TriggerInvestigationRequestData } from "./models/TriggerInvestigationRequestData";
