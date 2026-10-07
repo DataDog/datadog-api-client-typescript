@@ -3585,6 +3585,11 @@ import { ModelLabRunsResponse } from "./ModelLabRunsResponse";
 import { ModelLabTag } from "./ModelLabTag";
 import { MonitorAlertTrigger } from "./MonitorAlertTrigger";
 import { MonitorAlertTriggerAttributes } from "./MonitorAlertTriggerAttributes";
+import { MonitorAutomationAttributes } from "./MonitorAutomationAttributes";
+import { MonitorAutomationData } from "./MonitorAutomationData";
+import { MonitorAutomationRequest } from "./MonitorAutomationRequest";
+import { MonitorAutomationRequestData } from "./MonitorAutomationRequestData";
+import { MonitorAutomationResponse } from "./MonitorAutomationResponse";
 import { MonitorConfigPolicyAttributeCreateRequest } from "./MonitorConfigPolicyAttributeCreateRequest";
 import { MonitorConfigPolicyAttributeEditRequest } from "./MonitorConfigPolicyAttributeEditRequest";
 import { MonitorConfigPolicyAttributeResponse } from "./MonitorConfigPolicyAttributeResponse";
@@ -8168,6 +8173,7 @@ const enumsMap: { [key: string]: any[] } = {
   ],
   ModelLabRunType: ["runs"],
   MonitorAlertTriggerType: ["monitor_alert_trigger"],
+  MonitorAutomationType: ["monitor_automation"],
   MonitorConfigPolicyResourceType: ["monitor-config-policy"],
   MonitorConfigPolicyType: ["tag", "downtime"],
   MonitorDowntimeMatchResourceType: ["downtime_match"],
@@ -14400,6 +14406,11 @@ const typeMap: { [index: string]: any } = {
   ModelLabTag: ModelLabTag,
   MonitorAlertTrigger: MonitorAlertTrigger,
   MonitorAlertTriggerAttributes: MonitorAlertTriggerAttributes,
+  MonitorAutomationAttributes: MonitorAutomationAttributes,
+  MonitorAutomationData: MonitorAutomationData,
+  MonitorAutomationRequest: MonitorAutomationRequest,
+  MonitorAutomationRequestData: MonitorAutomationRequestData,
+  MonitorAutomationResponse: MonitorAutomationResponse,
   MonitorConfigPolicyAttributeCreateRequest:
     MonitorConfigPolicyAttributeCreateRequest,
   MonitorConfigPolicyAttributeEditRequest:
