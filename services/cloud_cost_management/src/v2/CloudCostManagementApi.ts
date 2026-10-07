@@ -41,6 +41,7 @@ import { BudgetArray } from "./models/BudgetArray";
 import { BudgetValidationRequest } from "./models/BudgetValidationRequest";
 import { BudgetValidationResponse } from "./models/BudgetValidationResponse";
 import { BudgetWithEntries } from "./models/BudgetWithEntries";
+import { CloudCostAccountsResponse } from "./models/CloudCostAccountsResponse";
 import { CommitmentsCommitmentType } from "./models/CommitmentsCommitmentType";
 import { CommitmentsCoverageScalarResponse } from "./models/CommitmentsCoverageScalarResponse";
 import { CommitmentsCoverageTimeseriesResponse } from "./models/CommitmentsCoverageTimeseriesResponse";
@@ -3015,6 +3016,57 @@ export class CloudCostManagementApiRequestFactory extends BaseAPIRequestFactory 
     // Set IaC header
     if (_config.isIaC) {
       requestContext.setHeaderParam("X-Datadog-Managed-By", "iac");
+    }
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+      "AuthZ",
+    ]);
+
+    return requestContext;
+  }
+
+  public async listCostCloudAccountsV2(
+    filterCloud?: string,
+    _options?: Configuration,
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    // Path Params
+    const localVarPath = "/api/v2/cost/cloud_accounts";
+
+    // Make Request Context
+    const { server, overrides } = _config.getServerAndOverrides(
+      "CloudCostManagementApi.v2.listCostCloudAccountsV2",
+      CloudCostManagementApi.operationServers,
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.GET,
+      overrides,
+    );
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Set User-Agent
+    if (this.userAgent) {
+      requestContext.setHeaderParam("User-Agent", this.userAgent);
+    }
+
+    // Set IaC header
+    if (_config.isIaC) {
+      requestContext.setHeaderParam("X-Datadog-Managed-By", "iac");
+    }
+
+    // Query Params
+    if (filterCloud !== undefined) {
+      requestContext.setQueryParam(
+        "filter[cloud]",
+        serialize(filterCloud, TypingInfo, "string", ""),
+        "",
+      );
     }
 
     // Apply auth methods
@@ -7678,6 +7730,83 @@ export class CloudCostManagementApiResponseProcessor {
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
    *
+   * @params response Response returned by the server for a request to listCostCloudAccountsV2
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async listCostCloudAccountsV2(
+    response: ResponseContext,
+  ): Promise<CloudCostAccountsResponse> {
+    const contentType = normalizeMediaType(response.headers["content-type"]);
+    if (response.httpStatusCode === 200) {
+      const body: CloudCostAccountsResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "CloudCostAccountsResponse",
+      ) as CloudCostAccountsResponse;
+      return body;
+    }
+    if (response.httpStatusCode === 400) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: JSONAPIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "JSONAPIErrorResponse",
+        ) as JSONAPIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<JSONAPIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<JSONAPIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
+    }
+    if (response.httpStatusCode === 403 || response.httpStatusCode === 429) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: APIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "APIErrorResponse",
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: CloudCostAccountsResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "CloudCostAccountsResponse",
+        "",
+      ) as CloudCostAccountsResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"',
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
    * @params response Response returned by the server for a request to listCostGCPUsageCostConfigs
    * @throws ApiException if the response code was not in [200, 299]
    */
@@ -10221,6 +10350,14 @@ export interface CloudCostManagementApiListCostAnomaliesRequest {
   providerIds?: Array<string>;
 }
 
+export interface CloudCostManagementApiListCostCloudAccountsV2Request {
+  /**
+   * Filter by cloud, either `oci` or `aws_cur2` (case insensitive). Omit or leave empty to return both.
+   * @type string
+   */
+  filterCloud?: string;
+}
+
 export interface CloudCostManagementApiListCostTagDescriptionsRequest {
   /**
    * Filter descriptions to a specific cloud provider (for example, `aws`). Omit to return descriptions across all clouds.
@@ -11577,6 +11714,36 @@ export class CloudCostManagementApi {
   }
 
   /**
+   * List the OCI and AWS CUR 2.0 cloud accounts for your organization, including account IDs, status, and validation errors.
+   * Use `filter[cloud]=oci` or `filter[cloud]=aws_cur2` to return a single cloud. When omitted or empty, both clouds are returned.
+   * AWS CUR 1.0, Azure, and GCP accounts are available through their dedicated configuration endpoints.
+   * Archived accounts are excluded. The response contains all matching accounts and is not paginated.
+   *
+   * This endpoint replaces `GET /api/v2/cost/oci_config`. To migrate, use `filter[cloud]=oci` and update clients to accept
+   * the `cloud_account` resource type instead of `oci_config`. Account IDs and the existing attributes are preserved;
+   * each account also includes the `cloud` attribute.
+   * @param param The request object
+   */
+  public listCostCloudAccountsV2(
+    param: CloudCostManagementApiListCostCloudAccountsV2Request = {},
+    options?: Configuration,
+  ): Promise<CloudCostAccountsResponse> {
+    const requestContextPromise = this.requestFactory.listCostCloudAccountsV2(
+      param.filterCloud,
+      options,
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.listCostCloudAccountsV2(
+            responseContext,
+          );
+        });
+    });
+  }
+
+  /**
    * List the Google Cloud Usage Cost configs.
    * @param param The request object
    */
@@ -11597,7 +11764,9 @@ export class CloudCostManagementApi {
   }
 
   /**
-   * **Note**: This endpoint is deprecated. View OCI accounts in Cloud Cost Settings in the Datadog web application instead.
+   * **Note**: This endpoint is deprecated. Use [List Cloud Cost Management cloud accounts](https://docs.datadoghq.com/api/latest/cloud-cost-management/#list-cloud-cost-management-cloud-accounts)
+   * with `filter[cloud]=oci` instead. Update clients to accept the `cloud_account` resource type instead of `oci_config`.
+   * Account IDs and the existing attributes are preserved; each account also includes the `cloud` attribute.
    *
    * List the OCI configs.
    * @param param The request object

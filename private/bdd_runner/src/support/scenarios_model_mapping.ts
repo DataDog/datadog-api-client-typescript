@@ -8186,6 +8186,13 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
   "CloudCostManagementApi.V2.ListBudgets": {
     operationResponseType: "BudgetArray",
   },
+  "CloudCostManagementApi.V2.ListCostCloudAccountsV2": {
+    filterCloud: {
+      type: "string",
+      format: "",
+    },
+    operationResponseType: "CloudCostAccountsResponse",
+  },
   "CloudCostManagementApi.V2.GetCommitmentsCommitmentList": {
     provider: {
       type: "CommitmentsProvider",
