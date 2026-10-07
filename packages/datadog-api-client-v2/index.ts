@@ -442,6 +442,7 @@ export {
   CloudCostManagementApiGetTagPipelinesRulesetRequest,
   CloudCostManagementApiGetUnitCostRequest,
   CloudCostManagementApiListCostAnomaliesRequest,
+  CloudCostManagementApiListCostCloudAccountsV2Request,
   CloudCostManagementApiListCostTagDescriptionsRequest,
   CloudCostManagementApiListCostTagKeySourcesRequest,
   CloudCostManagementApiListCostTagKeysRequest,
@@ -3126,6 +3127,10 @@ export { CloudConfigurationRuleCreatePayload } from "./models/CloudConfiguration
 export { CloudConfigurationRuleOptions } from "./models/CloudConfigurationRuleOptions";
 export { CloudConfigurationRulePayload } from "./models/CloudConfigurationRulePayload";
 export { CloudConfigurationRuleType } from "./models/CloudConfigurationRuleType";
+export { CloudCostAccount } from "./models/CloudCostAccount";
+export { CloudCostAccountAttributes } from "./models/CloudCostAccountAttributes";
+export { CloudCostAccountsResponse } from "./models/CloudCostAccountsResponse";
+export { CloudCostAccountType } from "./models/CloudCostAccountType";
 export { CloudflareAccountCreateRequest } from "./models/CloudflareAccountCreateRequest";
 export { CloudflareAccountCreateRequestAttributes } from "./models/CloudflareAccountCreateRequestAttributes";
 export { CloudflareAccountCreateRequestData } from "./models/CloudflareAccountCreateRequestData";
