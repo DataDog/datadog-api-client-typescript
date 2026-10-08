@@ -3769,6 +3769,87 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             },
         "operationResponseType": "{}",
     },
+    "v2.CreateDORADeployment": {
+        "body": {
+            "type": "DORADeploymentRequest",
+            "format": "",
+            },
+        "operationResponseType": "DORADeploymentResponse",
+    },
+    "v2.DeleteDORADeployment": {
+        "deploymentId": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "{}",
+    },
+    "v2.ListDORADeployments": {
+        "body": {
+            "type": "DORAListDeploymentsRequest",
+            "format": "",
+            },
+        "operationResponseType": "DORADeploymentsListResponse",
+    },
+    "v2.PatchDORADeploymentByVersion": {
+        "body": {
+            "type": "DORADeploymentPatchByVersionRequest",
+            "format": "",
+            },
+        "operationResponseType": "{}",
+    },
+    "v2.GetDORADeployment": {
+        "deploymentId": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "DORADeploymentFetchResponse",
+    },
+    "v2.PatchDORADeployment": {
+        "deploymentId": {
+            "type": "string",
+            "format": "",
+            },
+        "body": {
+            "type": "DORADeploymentPatchRequest",
+            "format": "",
+            },
+        "operationResponseType": "{}",
+    },
+    "v2.CreateDORAFailure": {
+        "body": {
+            "type": "DORAFailureRequest",
+            "format": "",
+            },
+        "operationResponseType": "DORAFailureResponse",
+    },
+    "v2.DeleteDORAFailure": {
+        "failureId": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "{}",
+    },
+    "v2.ListDORAFailures": {
+        "body": {
+            "type": "DORAListFailuresRequest",
+            "format": "",
+            },
+        "operationResponseType": "DORAFailuresListResponse",
+    },
+    "v2.GetDORAFailure": {
+        "failureId": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "DORAFailureFetchResponse",
+    },
+    "v2.CreateDORAIncident": {
+        "body": {
+            "type": "DORAFailureRequest",
+            "format": "",
+            },
+        "operationResponseType": "DORAFailureResponse",
+    },
     "v2.ListAnnotations": {
         "pageId": {
             "type": "string",
@@ -9740,87 +9821,6 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             "format": "",
             },
         "operationResponseType": "DomainAllowlistResponse",
-    },
-    "v2.CreateDORADeployment": {
-        "body": {
-            "type": "DORADeploymentRequest",
-            "format": "",
-            },
-        "operationResponseType": "DORADeploymentResponse",
-    },
-    "v2.DeleteDORADeployment": {
-        "deploymentId": {
-            "type": "string",
-            "format": "",
-            },
-        "operationResponseType": "{}",
-    },
-    "v2.ListDORADeployments": {
-        "body": {
-            "type": "DORAListDeploymentsRequest",
-            "format": "",
-            },
-        "operationResponseType": "DORADeploymentsListResponse",
-    },
-    "v2.PatchDORADeploymentByVersion": {
-        "body": {
-            "type": "DORADeploymentPatchByVersionRequest",
-            "format": "",
-            },
-        "operationResponseType": "{}",
-    },
-    "v2.GetDORADeployment": {
-        "deploymentId": {
-            "type": "string",
-            "format": "",
-            },
-        "operationResponseType": "DORADeploymentFetchResponse",
-    },
-    "v2.PatchDORADeployment": {
-        "deploymentId": {
-            "type": "string",
-            "format": "",
-            },
-        "body": {
-            "type": "DORADeploymentPatchRequest",
-            "format": "",
-            },
-        "operationResponseType": "{}",
-    },
-    "v2.CreateDORAFailure": {
-        "body": {
-            "type": "DORAFailureRequest",
-            "format": "",
-            },
-        "operationResponseType": "DORAFailureResponse",
-    },
-    "v2.DeleteDORAFailure": {
-        "failureId": {
-            "type": "string",
-            "format": "",
-            },
-        "operationResponseType": "{}",
-    },
-    "v2.ListDORAFailures": {
-        "body": {
-            "type": "DORAListFailuresRequest",
-            "format": "",
-            },
-        "operationResponseType": "DORAFailuresListResponse",
-    },
-    "v2.GetDORAFailure": {
-        "failureId": {
-            "type": "string",
-            "format": "",
-            },
-        "operationResponseType": "DORAFailureFetchResponse",
-    },
-    "v2.CreateDORAIncident": {
-        "body": {
-            "type": "DORAFailureRequest",
-            "format": "",
-            },
-        "operationResponseType": "DORAFailureResponse",
     },
     "v2.ListDowntimes": {
         "currentOnly": {
