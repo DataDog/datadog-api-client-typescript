@@ -4704,6 +4704,7 @@ import { RoutingRuleEscalationPolicyActionSupportHours } from "./RoutingRuleEsca
 import { RoutingRuleRelationships } from "./RoutingRuleRelationships";
 import { RoutingRuleRelationshipsPolicy } from "./RoutingRuleRelationshipsPolicy";
 import { RoutingRuleRelationshipsPolicyData } from "./RoutingRuleRelationshipsPolicyData";
+import { RoutingRuleRerouteToTeamAction } from "./RoutingRuleRerouteToTeamAction";
 import { RuleAttributes } from "./RuleAttributes";
 import { RuleAttributesRequest } from "./RuleAttributesRequest";
 import { RuleBasedViewAttributes } from "./RuleBasedViewAttributes";
@@ -8970,6 +8971,7 @@ const enumsMap: { [key: string]: any[] } = {
   RolloutStrategy: ["UNIFORM_INTERVALS", "NO_ROLLOUT"],
   RoutingRuleEscalationPolicyActionType: ["escalation_policy"],
   RoutingRuleRelationshipsPolicyDataType: ["policies"],
+  RoutingRuleRerouteToTeamActionType: ["reroute_to_team"],
   RoutingRuleType: ["team_routing_rules"],
   RuleBasedViewRuleCategory: [
     "cloud_configuration",
@@ -15827,6 +15829,7 @@ const typeMap: { [index: string]: any } = {
   RoutingRuleRelationships: RoutingRuleRelationships,
   RoutingRuleRelationshipsPolicy: RoutingRuleRelationshipsPolicy,
   RoutingRuleRelationshipsPolicyData: RoutingRuleRelationshipsPolicyData,
+  RoutingRuleRerouteToTeamAction: RoutingRuleRerouteToTeamAction,
   RuleAttributes: RuleAttributes,
   RuleAttributesRequest: RuleAttributesRequest,
   RuleBasedViewAttributes: RuleBasedViewAttributes,
@@ -18728,6 +18731,7 @@ const oneOfMap: { [index: string]: string[] } = {
     "SendTeamsMessageAction",
     "TriggerWorkflowAutomationAction",
     "RoutingRuleEscalationPolicyAction",
+    "RoutingRuleRerouteToTeamAction",
   ],
   ScalarColumn: ["GroupScalarColumn", "DataScalarColumn"],
   ScalarQuery: [

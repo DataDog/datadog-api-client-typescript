@@ -8116,6 +8116,8 @@ export { RoutingRuleRelationships } from "./models/RoutingRuleRelationships";
 export { RoutingRuleRelationshipsPolicy } from "./models/RoutingRuleRelationshipsPolicy";
 export { RoutingRuleRelationshipsPolicyData } from "./models/RoutingRuleRelationshipsPolicyData";
 export { RoutingRuleRelationshipsPolicyDataType } from "./models/RoutingRuleRelationshipsPolicyDataType";
+export { RoutingRuleRerouteToTeamAction } from "./models/RoutingRuleRerouteToTeamAction";
+export { RoutingRuleRerouteToTeamActionType } from "./models/RoutingRuleRerouteToTeamActionType";
 export { RoutingRuleType } from "./models/RoutingRuleType";
 export { RuleAttributes } from "./models/RuleAttributes";
 export { RuleAttributesRequest } from "./models/RuleAttributesRequest";
