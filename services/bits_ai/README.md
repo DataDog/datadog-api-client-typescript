@@ -25,14 +25,6 @@ import { BitsAIApiV2 } from "@datadog/datadog-api-client-bits-ai";
 import { v2 } from "@datadog/datadog-api-client-bits-ai";
 
 const configuration = createConfiguration();
-// Enable unstable operations
-const configurationOpts = {
-    unstableOperations: {
-        "BitsAIApi.v2.listInvestigations": true
-    }
-}
-
-const configuration = createConfiguration(configurationOpts);
 const apiInstance = new BitsAIApiV2(configuration);
 const params = {/* parameters */};
 
