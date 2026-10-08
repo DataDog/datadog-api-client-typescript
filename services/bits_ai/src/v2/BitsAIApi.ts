@@ -46,12 +46,6 @@ export class BitsAIApiRequestFactory extends BaseAPIRequestFactory {
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
-    if (!_config.unstableOperations["BitsAIApi.v2.getInvestigation"]) {
-      throw new Error(
-        "Unstable operation 'getInvestigation' is disabled. Enable it by setting `configuration.unstableOperations['BitsAIApi.v2.getInvestigation'] = true`",
-      );
-    }
-
     // verify required parameter 'id' is not null or undefined
     if (id === null || id === undefined) {
       throw new RequiredError("id", "getInvestigation");
@@ -103,12 +97,6 @@ export class BitsAIApiRequestFactory extends BaseAPIRequestFactory {
     _options?: Configuration,
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
-
-    if (!_config.unstableOperations["BitsAIApi.v2.listInvestigations"]) {
-      throw new Error(
-        "Unstable operation 'listInvestigations' is disabled. Enable it by setting `configuration.unstableOperations['BitsAIApi.v2.listInvestigations'] = true`",
-      );
-    }
 
     // Path Params
     const localVarPath = "/api/v2/bits-ai/investigations";
@@ -174,12 +162,6 @@ export class BitsAIApiRequestFactory extends BaseAPIRequestFactory {
     _options?: Configuration,
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
-
-    if (!_config.unstableOperations["BitsAIApi.v2.triggerInvestigation"]) {
-      throw new Error(
-        "Unstable operation 'triggerInvestigation' is disabled. Enable it by setting `configuration.unstableOperations['BitsAIApi.v2.triggerInvestigation'] = true`",
-      );
-    }
 
     // verify required parameter 'body' is not null or undefined
     if (body === null || body === undefined) {
@@ -607,7 +589,8 @@ export class BitsAIApi {
 
   /**
    * Trigger a Bits AI investigation from a monitor alert or a general investigation.
-   * The `monitors_read` permission is required when the trigger type is `monitor_alert_trigger`.
+   * This endpoint requires the `bits_investigations_write` permission. When the trigger type is
+   * `monitor_alert_trigger`, the `monitors_read` permission is also required.
    * @param param The request object
    */
   public triggerInvestigation(
