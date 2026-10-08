@@ -1,4 +1,9 @@
 export {
+  AIImpactApiCreateAIImpactUserActivityRequest,
+  AIImpactApi,
+} from "./apis/AIImpactApi";
+
+export {
   APIManagementApiCreateOpenAPIRequest,
   APIManagementApiDeleteOpenAPIRequest,
   APIManagementApiGetOpenAPIRequest,
@@ -2219,6 +2224,10 @@ export { AiCustomRulesetsResponse } from "./models/AiCustomRulesetsResponse";
 export { AiCustomRulesetUpdateAttributes } from "./models/AiCustomRulesetUpdateAttributes";
 export { AiCustomRulesetUpdateData } from "./models/AiCustomRulesetUpdateData";
 export { AiCustomRulesetUpdateRequest } from "./models/AiCustomRulesetUpdateRequest";
+export { AIImpactUserActivityAttributes } from "./models/AIImpactUserActivityAttributes";
+export { AIImpactUserActivityData } from "./models/AIImpactUserActivityData";
+export { AIImpactUserActivityRequest } from "./models/AIImpactUserActivityRequest";
+export { AIImpactUserActivityType } from "./models/AIImpactUserActivityType";
 export { AiMemoryViolationResultDataType } from "./models/AiMemoryViolationResultDataType";
 export { AiMemoryViolationResultRequest } from "./models/AiMemoryViolationResultRequest";
 export { AiMemoryViolationResultRequestAttributes } from "./models/AiMemoryViolationResultRequestAttributes";

@@ -1,3 +1,6 @@
+import { AIImpactUserActivityAttributes } from "./AIImpactUserActivityAttributes";
+import { AIImpactUserActivityData } from "./AIImpactUserActivityData";
+import { AIImpactUserActivityRequest } from "./AIImpactUserActivityRequest";
 import { APIErrorResponse } from "./APIErrorResponse";
 import { APIKeyCreateAttributes } from "./APIKeyCreateAttributes";
 import { APIKeyCreateData } from "./APIKeyCreateData";
@@ -6451,6 +6454,7 @@ const supportedMediaTypes: { [mediaType: string]: number } = {
 };
 
 const enumsMap: { [key: string]: any[] } = {
+  AIImpactUserActivityType: ["ai_impact_user_activity"],
   APIKeysSort: [
     "created_at",
     "-created_at",
@@ -10022,6 +10026,9 @@ const enumsMap: { [key: string]: any[] } = {
 };
 
 const typeMap: { [index: string]: any } = {
+  AIImpactUserActivityAttributes: AIImpactUserActivityAttributes,
+  AIImpactUserActivityData: AIImpactUserActivityData,
+  AIImpactUserActivityRequest: AIImpactUserActivityRequest,
   APIErrorResponse: APIErrorResponse,
   APIKeyCreateAttributes: APIKeyCreateAttributes,
   APIKeyCreateData: APIKeyCreateData,
