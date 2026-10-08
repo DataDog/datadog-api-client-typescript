@@ -11,7 +11,6 @@ const configuration = client.createConfiguration({
     },
   },
 });
-configuration.unstableOperations["v2.listInvestigations"] = true;
 const apiInstance = new v2.BitsAIApi(configuration);
 
 (async () => {

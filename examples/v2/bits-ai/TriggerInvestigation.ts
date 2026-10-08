@@ -11,7 +11,6 @@ const configuration = client.createConfiguration({
     },
   },
 });
-configuration.unstableOperations["v2.triggerInvestigation"] = true;
 const apiInstance = new v2.BitsAIApi(configuration);
 
 const params: v2.BitsAIApiTriggerInvestigationRequest = {
