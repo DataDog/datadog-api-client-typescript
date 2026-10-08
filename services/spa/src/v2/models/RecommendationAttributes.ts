@@ -19,6 +19,11 @@ export class RecommendationAttributes {
    */
   "executor": ComponentRecommendation;
   /**
+   * Only returned by the v2 endpoint. The job parameters whose values the recommendation was matched on, as `parameter=value` pairs joined by `|`.
+   * An empty string means the service-wide (coarse) recommendation was used.
+   */
+  "matchedParams"?: string;
+  /**
    * A container for additional, undeclared properties.
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
@@ -47,6 +52,10 @@ export class RecommendationAttributes {
       baseName: "executor",
       type: "ComponentRecommendation",
       required: true,
+    },
+    matchedParams: {
+      baseName: "matched_params",
+      type: "string",
     },
     additionalProperties: {
       baseName: "additionalProperties",
