@@ -3,6 +3,7 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
+import { ObservabilityPipelineAggregateProcessorAggregationTiming } from "./ObservabilityPipelineAggregateProcessorAggregationTiming";
 import { ObservabilityPipelineAggregateProcessorMode } from "./ObservabilityPipelineAggregateProcessorMode";
 import { ObservabilityPipelineAggregateProcessorType } from "./ObservabilityPipelineAggregateProcessorType";
 
@@ -14,6 +15,10 @@ import { AttributeTypeMap } from "../../datadog-api-client-common/util";
  * **Supported pipeline types:** metrics
  */
 export class ObservabilityPipelineAggregateProcessor {
+  /**
+   * Configures how metrics are assigned to aggregation windows. When omitted, metrics are grouped using system time.
+   */
+  "aggregationTiming"?: ObservabilityPipelineAggregateProcessorAggregationTiming;
   /**
    * The display name for a component.
    */
@@ -59,6 +64,10 @@ export class ObservabilityPipelineAggregateProcessor {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
+    aggregationTiming: {
+      baseName: "aggregation_timing",
+      type: "ObservabilityPipelineAggregateProcessorAggregationTiming",
+    },
     displayName: {
       baseName: "display_name",
       type: "string",
