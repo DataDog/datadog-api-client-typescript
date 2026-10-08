@@ -233,8 +233,10 @@ export {
 
 export {
   BitsAIApiGetInvestigationRequest,
+  BitsAIApiGetMonitorAutomationRequest,
   BitsAIApiListInvestigationsRequest,
   BitsAIApiTriggerInvestigationRequest,
+  BitsAIApiUpdateMonitorAutomationRequest,
   BitsAIApi,
 } from "./apis/BitsAIApi";
 
@@ -6636,6 +6638,12 @@ export { ModelLabTag } from "./models/ModelLabTag";
 export { MonitorAlertTrigger } from "./models/MonitorAlertTrigger";
 export { MonitorAlertTriggerAttributes } from "./models/MonitorAlertTriggerAttributes";
 export { MonitorAlertTriggerType } from "./models/MonitorAlertTriggerType";
+export { MonitorAutomationAttributes } from "./models/MonitorAutomationAttributes";
+export { MonitorAutomationData } from "./models/MonitorAutomationData";
+export { MonitorAutomationRequest } from "./models/MonitorAutomationRequest";
+export { MonitorAutomationRequestData } from "./models/MonitorAutomationRequestData";
+export { MonitorAutomationResponse } from "./models/MonitorAutomationResponse";
+export { MonitorAutomationType } from "./models/MonitorAutomationType";
 export { MonitorConfigPolicyAttributeCreateRequest } from "./models/MonitorConfigPolicyAttributeCreateRequest";
 export { MonitorConfigPolicyAttributeEditRequest } from "./models/MonitorConfigPolicyAttributeEditRequest";
 export { MonitorConfigPolicyAttributeResponse } from "./models/MonitorConfigPolicyAttributeResponse";

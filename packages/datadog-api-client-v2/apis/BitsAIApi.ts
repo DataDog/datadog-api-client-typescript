@@ -21,6 +21,8 @@ import { GetInvestigationResponse } from "../models/GetInvestigationResponse";
 import { JSONAPIErrorResponse } from "../models/JSONAPIErrorResponse";
 import { ListInvestigationsResponse } from "../models/ListInvestigationsResponse";
 import { ListInvestigationsResponseData } from "../models/ListInvestigationsResponseData";
+import { MonitorAutomationRequest } from "../models/MonitorAutomationRequest";
+import { MonitorAutomationResponse } from "../models/MonitorAutomationResponse";
 import { TriggerInvestigationRequest } from "../models/TriggerInvestigationRequest";
 import { TriggerInvestigationResponse } from "../models/TriggerInvestigationResponse";
 
@@ -50,6 +52,51 @@ export class BitsAIApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const requestContext = _config
       .getServer("v2.BitsAIApi.getInvestigation")
+      .makeRequestContext(localVarPath, HttpMethod.GET);
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Set IaC header
+    if (_config.isIaC) {
+      requestContext.setHeaderParam("X-Datadog-Managed-By", "iac");
+    }
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+      "AuthZ",
+    ]);
+
+    return requestContext;
+  }
+
+  public async getMonitorAutomation(
+    monitorId: number,
+    _options?: Configuration
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    logger.warn("Using unstable operation 'getMonitorAutomation'");
+    if (!_config.unstableOperations["v2.getMonitorAutomation"]) {
+      throw new Error("Unstable operation 'getMonitorAutomation' is disabled");
+    }
+
+    // verify required parameter 'monitorId' is not null or undefined
+    if (monitorId === null || monitorId === undefined) {
+      throw new RequiredError("monitorId", "getMonitorAutomation");
+    }
+
+    // Path Params
+    const localVarPath =
+      "/api/v2/bits-ai/monitors/{monitor_id}/automation".replace(
+        "{monitor_id}",
+        encodeURIComponent(String(monitorId))
+      );
+
+    // Make Request Context
+    const requestContext = _config
+      .getServer("v2.BitsAIApi.getMonitorAutomation")
       .makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -181,6 +228,70 @@ export class BitsAIApiRequestFactory extends BaseAPIRequestFactory {
 
     return requestContext;
   }
+
+  public async updateMonitorAutomation(
+    monitorId: number,
+    body: MonitorAutomationRequest,
+    _options?: Configuration
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    logger.warn("Using unstable operation 'updateMonitorAutomation'");
+    if (!_config.unstableOperations["v2.updateMonitorAutomation"]) {
+      throw new Error(
+        "Unstable operation 'updateMonitorAutomation' is disabled"
+      );
+    }
+
+    // verify required parameter 'monitorId' is not null or undefined
+    if (monitorId === null || monitorId === undefined) {
+      throw new RequiredError("monitorId", "updateMonitorAutomation");
+    }
+
+    // verify required parameter 'body' is not null or undefined
+    if (body === null || body === undefined) {
+      throw new RequiredError("body", "updateMonitorAutomation");
+    }
+
+    // Path Params
+    const localVarPath =
+      "/api/v2/bits-ai/monitors/{monitor_id}/automation".replace(
+        "{monitor_id}",
+        encodeURIComponent(String(monitorId))
+      );
+
+    // Make Request Context
+    const requestContext = _config
+      .getServer("v2.BitsAIApi.updateMonitorAutomation")
+      .makeRequestContext(localVarPath, HttpMethod.PUT);
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Set IaC header
+    if (_config.isIaC) {
+      requestContext.setHeaderParam("X-Datadog-Managed-By", "iac");
+    }
+
+    // Body Params
+    const contentType = ObjectSerializer.getPreferredMediaType([
+      "application/json",
+    ]);
+    requestContext.setHeaderParam("Content-Type", contentType);
+    const serializedBody = ObjectSerializer.stringify(
+      ObjectSerializer.serialize(body, "MonitorAutomationRequest", ""),
+      contentType
+    );
+    requestContext.setBody(serializedBody);
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+      "AuthZ",
+    ]);
+
+    return requestContext;
+  }
 }
 
 export class BitsAIApiResponseProcessor {
@@ -255,6 +366,92 @@ export class BitsAIApiResponseProcessor {
         "GetInvestigationResponse",
         ""
       ) as GetInvestigationResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"'
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
+   * @params response Response returned by the server for a request to getMonitorAutomation
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async getMonitorAutomation(
+    response: ResponseContext
+  ): Promise<MonitorAutomationResponse> {
+    const contentType = ObjectSerializer.normalizeMediaType(
+      response.headers["content-type"]
+    );
+    if (response.httpStatusCode === 200) {
+      const body: MonitorAutomationResponse = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "MonitorAutomationResponse"
+      ) as MonitorAutomationResponse;
+      return body;
+    }
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 404 ||
+      response.httpStatusCode === 412
+    ) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: JSONAPIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "JSONAPIErrorResponse"
+        ) as JSONAPIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<JSONAPIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<JSONAPIErrorResponse>(
+        response.httpStatusCode,
+        body
+      );
+    }
+    if (response.httpStatusCode === 429) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: APIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "APIErrorResponse"
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: MonitorAutomationResponse = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "MonitorAutomationResponse",
+        ""
+      ) as MonitorAutomationResponse;
       return body;
     }
 
@@ -426,6 +623,92 @@ export class BitsAIApiResponseProcessor {
       'Unknown API Status Code!\nBody: "' + body + '"'
     );
   }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
+   * @params response Response returned by the server for a request to updateMonitorAutomation
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async updateMonitorAutomation(
+    response: ResponseContext
+  ): Promise<MonitorAutomationResponse> {
+    const contentType = ObjectSerializer.normalizeMediaType(
+      response.headers["content-type"]
+    );
+    if (response.httpStatusCode === 200) {
+      const body: MonitorAutomationResponse = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "MonitorAutomationResponse"
+      ) as MonitorAutomationResponse;
+      return body;
+    }
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 404 ||
+      response.httpStatusCode === 412
+    ) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: JSONAPIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "JSONAPIErrorResponse"
+        ) as JSONAPIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<JSONAPIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<JSONAPIErrorResponse>(
+        response.httpStatusCode,
+        body
+      );
+    }
+    if (response.httpStatusCode === 429) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: APIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "APIErrorResponse"
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: MonitorAutomationResponse = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "MonitorAutomationResponse",
+        ""
+      ) as MonitorAutomationResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"'
+    );
+  }
 }
 
 export interface BitsAIApiGetInvestigationRequest {
@@ -434,6 +717,14 @@ export interface BitsAIApiGetInvestigationRequest {
    * @type string
    */
   id: string;
+}
+
+export interface BitsAIApiGetMonitorAutomationRequest {
+  /**
+   * The monitor ID.
+   * @type number
+   */
+  monitorId: number;
 }
 
 export interface BitsAIApiListInvestigationsRequest {
@@ -460,6 +751,19 @@ export interface BitsAIApiTriggerInvestigationRequest {
    * @type TriggerInvestigationRequest
    */
   body: TriggerInvestigationRequest;
+}
+
+export interface BitsAIApiUpdateMonitorAutomationRequest {
+  /**
+   * The monitor ID.
+   * @type number
+   */
+  monitorId: number;
+  /**
+   * Automatic investigation settings to apply.
+   * @type MonitorAutomationRequest
+   */
+  body: MonitorAutomationRequest;
 }
 
 export class BitsAIApi {
@@ -496,6 +800,27 @@ export class BitsAIApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.getInvestigation(responseContext);
+        });
+    });
+  }
+
+  /**
+   * Manage the Bits automatic investigation setting independently of the monitor definition. Requires access to the monitor and the specified permissions. A newly created monitor and updated settings can take time to appear in reads.
+   * @param param The request object
+   */
+  public getMonitorAutomation(
+    param: BitsAIApiGetMonitorAutomationRequest,
+    options?: Configuration
+  ): Promise<MonitorAutomationResponse> {
+    const requestContextPromise = this.requestFactory.getMonitorAutomation(
+      param.monitorId,
+      options
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.getMonitorAutomation(responseContext);
         });
     });
   }
@@ -586,6 +911,30 @@ export class BitsAIApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.triggerInvestigation(responseContext);
+        });
+    });
+  }
+
+  /**
+   * Manage the Bits automatic investigation setting independently of the monitor definition. Requires access to the monitor and the specified permissions. A newly created monitor and updated settings can take time to appear in reads. The enabled attribute is required; false disables automatic investigations. Repeated requests set the same desired state. This operation does not create or delete the monitor.
+   * @param param The request object
+   */
+  public updateMonitorAutomation(
+    param: BitsAIApiUpdateMonitorAutomationRequest,
+    options?: Configuration
+  ): Promise<MonitorAutomationResponse> {
+    const requestContextPromise = this.requestFactory.updateMonitorAutomation(
+      param.monitorId,
+      param.body,
+      options
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.updateMonitorAutomation(
+            responseContext
+          );
         });
     });
   }
