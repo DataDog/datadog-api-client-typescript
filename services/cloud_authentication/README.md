@@ -2,7 +2,7 @@
 
 ## Description
 
-Configure AWS cloud authentication mappings for persona and intake authentication through the Datadog API.
+Configure AWS and GitHub cloud authentication mappings for persona and intake authentication through the Datadog API.
 
 ## Navigation
 
