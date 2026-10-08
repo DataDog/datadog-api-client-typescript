@@ -3722,6 +3722,7 @@ import { ObservabilityPipelineAddFieldsProcessor } from "./ObservabilityPipeline
 import { ObservabilityPipelineAddHostnameProcessor } from "./ObservabilityPipelineAddHostnameProcessor";
 import { ObservabilityPipelineAddMetricTagsProcessor } from "./ObservabilityPipelineAddMetricTagsProcessor";
 import { ObservabilityPipelineAggregateProcessor } from "./ObservabilityPipelineAggregateProcessor";
+import { ObservabilityPipelineAggregateProcessorAggregationTiming } from "./ObservabilityPipelineAggregateProcessorAggregationTiming";
 import { ObservabilityPipelineAmazonDataFirehoseSource } from "./ObservabilityPipelineAmazonDataFirehoseSource";
 import { ObservabilityPipelineAmazonOpenSearchDestination } from "./ObservabilityPipelineAmazonOpenSearchDestination";
 import { ObservabilityPipelineAmazonOpenSearchDestinationAuth } from "./ObservabilityPipelineAmazonOpenSearchDestinationAuth";
@@ -8236,6 +8237,10 @@ const enumsMap: { [key: string]: any[] } = {
   ObservabilityPipelineAddFieldsProcessorType: ["add_fields"],
   ObservabilityPipelineAddHostnameProcessorType: ["add_hostname"],
   ObservabilityPipelineAddMetricTagsProcessorType: ["add_metric_tags"],
+  ObservabilityPipelineAggregateProcessorAggregationTimingType: [
+    "system_time",
+    "event_time",
+  ],
   ObservabilityPipelineAggregateProcessorMode: [
     "auto",
     "sum",
@@ -14566,6 +14571,8 @@ const typeMap: { [index: string]: any } = {
     ObservabilityPipelineAddMetricTagsProcessor,
   ObservabilityPipelineAggregateProcessor:
     ObservabilityPipelineAggregateProcessor,
+  ObservabilityPipelineAggregateProcessorAggregationTiming:
+    ObservabilityPipelineAggregateProcessorAggregationTiming,
   ObservabilityPipelineAmazonDataFirehoseSource:
     ObservabilityPipelineAmazonDataFirehoseSource,
   ObservabilityPipelineAmazonOpenSearchDestination:

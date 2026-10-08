@@ -6806,6 +6806,8 @@ export { ObservabilityPipelineAddHostnameProcessorType } from "./models/Observab
 export { ObservabilityPipelineAddMetricTagsProcessor } from "./models/ObservabilityPipelineAddMetricTagsProcessor";
 export { ObservabilityPipelineAddMetricTagsProcessorType } from "./models/ObservabilityPipelineAddMetricTagsProcessorType";
 export { ObservabilityPipelineAggregateProcessor } from "./models/ObservabilityPipelineAggregateProcessor";
+export { ObservabilityPipelineAggregateProcessorAggregationTiming } from "./models/ObservabilityPipelineAggregateProcessorAggregationTiming";
+export { ObservabilityPipelineAggregateProcessorAggregationTimingType } from "./models/ObservabilityPipelineAggregateProcessorAggregationTimingType";
 export { ObservabilityPipelineAggregateProcessorMode } from "./models/ObservabilityPipelineAggregateProcessorMode";
 export { ObservabilityPipelineAggregateProcessorType } from "./models/ObservabilityPipelineAggregateProcessorType";
 export { ObservabilityPipelineAmazonDataFirehoseSource } from "./models/ObservabilityPipelineAmazonDataFirehoseSource";
