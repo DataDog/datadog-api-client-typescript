@@ -23,6 +23,11 @@ export class RecommendationAttributes {
    * Resource recommendation for a single Spark component (driver or executor). Contains estimation data used to patch Spark job specs.
    */
   "executor": ComponentRecommendation;
+  /**
+   * Only returned by the v2 endpoint. The job parameters whose values the recommendation was matched on, as `parameter=value` pairs joined by `|`.
+   * An empty string means the service-wide (coarse) recommendation was used.
+   */
+  "matchedParams"?: string;
 
   /**
    * A container for additional, undeclared properties.
@@ -54,6 +59,10 @@ export class RecommendationAttributes {
       baseName: "executor",
       type: "ComponentRecommendation",
       required: true,
+    },
+    matchedParams: {
+      baseName: "matched_params",
+      type: "string",
     },
     additionalProperties: {
       baseName: "additionalProperties",
