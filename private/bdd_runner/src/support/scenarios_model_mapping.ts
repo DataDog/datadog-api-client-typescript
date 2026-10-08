@@ -3772,12 +3772,93 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
     },
     operationResponseType: "AwsOnDemandResponse",
   },
-  "AIImpactApi.V2.CreateAIImpactUserActivity": {
+  "DORAMetricsApi.V2.CreateAIImpactUserActivity": {
     body: {
       type: "AIImpactUserActivityRequest",
       format: "",
     },
     operationResponseType: "{}",
+  },
+  "DORAMetricsApi.V2.CreateDORADeployment": {
+    body: {
+      type: "DORADeploymentRequest",
+      format: "",
+    },
+    operationResponseType: "DORADeploymentResponse",
+  },
+  "DORAMetricsApi.V2.DeleteDORADeployment": {
+    deploymentId: {
+      type: "string",
+      format: "",
+    },
+    operationResponseType: "{}",
+  },
+  "DORAMetricsApi.V2.ListDORADeployments": {
+    body: {
+      type: "DORAListDeploymentsRequest",
+      format: "",
+    },
+    operationResponseType: "DORADeploymentsListResponse",
+  },
+  "DORAMetricsApi.V2.PatchDORADeploymentByVersion": {
+    body: {
+      type: "DORADeploymentPatchByVersionRequest",
+      format: "",
+    },
+    operationResponseType: "{}",
+  },
+  "DORAMetricsApi.V2.GetDORADeployment": {
+    deploymentId: {
+      type: "string",
+      format: "",
+    },
+    operationResponseType: "DORADeploymentFetchResponse",
+  },
+  "DORAMetricsApi.V2.PatchDORADeployment": {
+    deploymentId: {
+      type: "string",
+      format: "",
+    },
+    body: {
+      type: "DORADeploymentPatchRequest",
+      format: "",
+    },
+    operationResponseType: "{}",
+  },
+  "DORAMetricsApi.V2.CreateDORAFailure": {
+    body: {
+      type: "DORAFailureRequest",
+      format: "",
+    },
+    operationResponseType: "DORAFailureResponse",
+  },
+  "DORAMetricsApi.V2.DeleteDORAFailure": {
+    failureId: {
+      type: "string",
+      format: "",
+    },
+    operationResponseType: "{}",
+  },
+  "DORAMetricsApi.V2.ListDORAFailures": {
+    body: {
+      type: "DORAListFailuresRequest",
+      format: "",
+    },
+    operationResponseType: "DORAFailuresListResponse",
+  },
+  "DORAMetricsApi.V2.GetDORAFailure": {
+    failureId: {
+      type: "string",
+      format: "",
+    },
+    operationResponseType: "DORAFailureFetchResponse",
+  },
+  "DORAMetricsApi.V2.CreateDORAIncident": {
+    body: {
+      type: "DORAFailureRequest",
+      format: "",
+    },
+    operationResponseType: "DORAFailureResponse",
   },
   "AnnotationsApi.V2.ListAnnotations": {
     pageId: {
@@ -9765,87 +9846,6 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
       format: "",
     },
     operationResponseType: "DomainAllowlistResponse",
-  },
-  "DORAMetricsApi.V2.CreateDORADeployment": {
-    body: {
-      type: "DORADeploymentRequest",
-      format: "",
-    },
-    operationResponseType: "DORADeploymentResponse",
-  },
-  "DORAMetricsApi.V2.DeleteDORADeployment": {
-    deploymentId: {
-      type: "string",
-      format: "",
-    },
-    operationResponseType: "{}",
-  },
-  "DORAMetricsApi.V2.ListDORADeployments": {
-    body: {
-      type: "DORAListDeploymentsRequest",
-      format: "",
-    },
-    operationResponseType: "DORADeploymentsListResponse",
-  },
-  "DORAMetricsApi.V2.PatchDORADeploymentByVersion": {
-    body: {
-      type: "DORADeploymentPatchByVersionRequest",
-      format: "",
-    },
-    operationResponseType: "{}",
-  },
-  "DORAMetricsApi.V2.GetDORADeployment": {
-    deploymentId: {
-      type: "string",
-      format: "",
-    },
-    operationResponseType: "DORADeploymentFetchResponse",
-  },
-  "DORAMetricsApi.V2.PatchDORADeployment": {
-    deploymentId: {
-      type: "string",
-      format: "",
-    },
-    body: {
-      type: "DORADeploymentPatchRequest",
-      format: "",
-    },
-    operationResponseType: "{}",
-  },
-  "DORAMetricsApi.V2.CreateDORAFailure": {
-    body: {
-      type: "DORAFailureRequest",
-      format: "",
-    },
-    operationResponseType: "DORAFailureResponse",
-  },
-  "DORAMetricsApi.V2.DeleteDORAFailure": {
-    failureId: {
-      type: "string",
-      format: "",
-    },
-    operationResponseType: "{}",
-  },
-  "DORAMetricsApi.V2.ListDORAFailures": {
-    body: {
-      type: "DORAListFailuresRequest",
-      format: "",
-    },
-    operationResponseType: "DORAFailuresListResponse",
-  },
-  "DORAMetricsApi.V2.GetDORAFailure": {
-    failureId: {
-      type: "string",
-      format: "",
-    },
-    operationResponseType: "DORAFailureFetchResponse",
-  },
-  "DORAMetricsApi.V2.CreateDORAIncident": {
-    body: {
-      type: "DORAFailureRequest",
-      format: "",
-    },
-    operationResponseType: "DORAFailureResponse",
   },
   "DowntimesApi.V2.ListDowntimes": {
     currentOnly: {

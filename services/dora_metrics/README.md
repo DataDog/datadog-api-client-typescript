@@ -24,14 +24,13 @@ yarn add @datadog/datadog-api-client-dora-metrics
 ```ts
 import { createConfiguration } from "@datadog/datadog-api-client";
 import { DORAMetricsApiV2 } from "@datadog/datadog-api-client-dora-metrics";
-import { v2 } from "@datadog/datadog-api-client-dora-metrics";
 
 const configuration = createConfiguration();
 const apiInstance = new DORAMetricsApiV2(configuration);
 const params = {/* parameters */};
 
-apiInstance.createDORADeployment(params).then((data) => {
-    console.log("API called successfully. Returned data: " + JSON.stringify(data));
+apiInstance.createAIImpactUserActivity(params).then(() => {
+    console.log("API called successfully.");
 }).catch((error) => {
     console.error("Error calling API: " + error);
 });
