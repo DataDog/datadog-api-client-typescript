@@ -14,7 +14,7 @@ import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 export class RecommendationV2RequestData {
   /**
    * Attributes for requesting SPA recommendations by forwarding a Spark job's raw arguments
-   * instead of a precomputed shard.
+   * instead of a pre-computed shard.
    */
   "attributes": RecommendationV2RequestAttributes;
   /**
