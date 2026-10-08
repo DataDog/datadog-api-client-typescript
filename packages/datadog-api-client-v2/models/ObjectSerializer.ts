@@ -2327,6 +2327,21 @@ import { GetSBOMResponse } from "./GetSBOMResponse";
 import { GetSuppressionVersionHistoryData } from "./GetSuppressionVersionHistoryData";
 import { GetSuppressionVersionHistoryResponse } from "./GetSuppressionVersionHistoryResponse";
 import { GetWorkflowResponse } from "./GetWorkflowResponse";
+import { GitHubCloudAuthIntakeMappingAttributesResponse } from "./GitHubCloudAuthIntakeMappingAttributesResponse";
+import { GitHubCloudAuthIntakeMappingCreateAttributes } from "./GitHubCloudAuthIntakeMappingCreateAttributes";
+import { GitHubCloudAuthIntakeMappingCreateData } from "./GitHubCloudAuthIntakeMappingCreateData";
+import { GitHubCloudAuthIntakeMappingCreateRequest } from "./GitHubCloudAuthIntakeMappingCreateRequest";
+import { GitHubCloudAuthIntakeMappingDataResponse } from "./GitHubCloudAuthIntakeMappingDataResponse";
+import { GitHubCloudAuthIntakeMappingResponse } from "./GitHubCloudAuthIntakeMappingResponse";
+import { GitHubCloudAuthIntakeMappingsResponse } from "./GitHubCloudAuthIntakeMappingsResponse";
+import { GitHubCloudAuthPersonaMappingAttributesResponse } from "./GitHubCloudAuthPersonaMappingAttributesResponse";
+import { GitHubCloudAuthPersonaMappingCreateAttributes } from "./GitHubCloudAuthPersonaMappingCreateAttributes";
+import { GitHubCloudAuthPersonaMappingCreateData } from "./GitHubCloudAuthPersonaMappingCreateData";
+import { GitHubCloudAuthPersonaMappingCreateRequest } from "./GitHubCloudAuthPersonaMappingCreateRequest";
+import { GitHubCloudAuthPersonaMappingDataResponse } from "./GitHubCloudAuthPersonaMappingDataResponse";
+import { GitHubCloudAuthPersonaMappingResponse } from "./GitHubCloudAuthPersonaMappingResponse";
+import { GitHubCloudAuthPersonaMappingsResponse } from "./GitHubCloudAuthPersonaMappingsResponse";
+import { GitHubOIDCClaimPatterns } from "./GitHubOIDCClaimPatterns";
 import { GithubWebhookTrigger } from "./GithubWebhookTrigger";
 import { GithubWebhookTriggerWrapper } from "./GithubWebhookTriggerWrapper";
 import { GitlabAPIKey } from "./GitlabAPIKey";
@@ -7665,6 +7680,8 @@ const enumsMap: { [key: string]: any[] } = {
     "email",
     "-email",
   ],
+  GitHubCloudAuthIntakeMappingType: ["github_oidc_auth_intake_mapping"],
+  GitHubCloudAuthPersonaMappingType: ["github_oidc_auth_config"],
   GitlabAPIKeyType: ["GitlabAPIKey"],
   GitlabIntegrationType: ["Gitlab"],
   GlobalIncidentSettingsType: ["incidents_global_settings"],
@@ -12895,6 +12912,32 @@ const typeMap: { [index: string]: any } = {
   GetSuppressionVersionHistoryData: GetSuppressionVersionHistoryData,
   GetSuppressionVersionHistoryResponse: GetSuppressionVersionHistoryResponse,
   GetWorkflowResponse: GetWorkflowResponse,
+  GitHubCloudAuthIntakeMappingAttributesResponse:
+    GitHubCloudAuthIntakeMappingAttributesResponse,
+  GitHubCloudAuthIntakeMappingCreateAttributes:
+    GitHubCloudAuthIntakeMappingCreateAttributes,
+  GitHubCloudAuthIntakeMappingCreateData:
+    GitHubCloudAuthIntakeMappingCreateData,
+  GitHubCloudAuthIntakeMappingCreateRequest:
+    GitHubCloudAuthIntakeMappingCreateRequest,
+  GitHubCloudAuthIntakeMappingDataResponse:
+    GitHubCloudAuthIntakeMappingDataResponse,
+  GitHubCloudAuthIntakeMappingResponse: GitHubCloudAuthIntakeMappingResponse,
+  GitHubCloudAuthIntakeMappingsResponse: GitHubCloudAuthIntakeMappingsResponse,
+  GitHubCloudAuthPersonaMappingAttributesResponse:
+    GitHubCloudAuthPersonaMappingAttributesResponse,
+  GitHubCloudAuthPersonaMappingCreateAttributes:
+    GitHubCloudAuthPersonaMappingCreateAttributes,
+  GitHubCloudAuthPersonaMappingCreateData:
+    GitHubCloudAuthPersonaMappingCreateData,
+  GitHubCloudAuthPersonaMappingCreateRequest:
+    GitHubCloudAuthPersonaMappingCreateRequest,
+  GitHubCloudAuthPersonaMappingDataResponse:
+    GitHubCloudAuthPersonaMappingDataResponse,
+  GitHubCloudAuthPersonaMappingResponse: GitHubCloudAuthPersonaMappingResponse,
+  GitHubCloudAuthPersonaMappingsResponse:
+    GitHubCloudAuthPersonaMappingsResponse,
+  GitHubOIDCClaimPatterns: GitHubOIDCClaimPatterns,
   GithubWebhookTrigger: GithubWebhookTrigger,
   GithubWebhookTriggerWrapper: GithubWebhookTriggerWrapper,
   GitlabAPIKey: GitlabAPIKey,
