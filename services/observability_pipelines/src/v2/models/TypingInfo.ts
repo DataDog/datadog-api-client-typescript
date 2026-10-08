@@ -12,6 +12,7 @@ import { ObservabilityPipelineAddFieldsProcessor } from "./ObservabilityPipeline
 import { ObservabilityPipelineAddHostnameProcessor } from "./ObservabilityPipelineAddHostnameProcessor";
 import { ObservabilityPipelineAddMetricTagsProcessor } from "./ObservabilityPipelineAddMetricTagsProcessor";
 import { ObservabilityPipelineAggregateProcessor } from "./ObservabilityPipelineAggregateProcessor";
+import { ObservabilityPipelineAggregateProcessorAggregationTiming } from "./ObservabilityPipelineAggregateProcessorAggregationTiming";
 import { ObservabilityPipelineAmazonDataFirehoseSource } from "./ObservabilityPipelineAmazonDataFirehoseSource";
 import { ObservabilityPipelineAmazonOpenSearchDestination } from "./ObservabilityPipelineAmazonOpenSearchDestination";
 import { ObservabilityPipelineAmazonOpenSearchDestinationAuth } from "./ObservabilityPipelineAmazonOpenSearchDestinationAuth";
@@ -208,6 +209,10 @@ export const TypingInfo: ModelTypingInfo = {
     ObservabilityPipelineAddFieldsProcessorType: ["add_fields"],
     ObservabilityPipelineAddHostnameProcessorType: ["add_hostname"],
     ObservabilityPipelineAddMetricTagsProcessorType: ["add_metric_tags"],
+    ObservabilityPipelineAggregateProcessorAggregationTimingType: [
+      "system_time",
+      "event_time",
+    ],
     ObservabilityPipelineAggregateProcessorMode: [
       "auto",
       "sum",
@@ -793,6 +798,8 @@ export const TypingInfo: ModelTypingInfo = {
       ObservabilityPipelineAddMetricTagsProcessor,
     ObservabilityPipelineAggregateProcessor:
       ObservabilityPipelineAggregateProcessor,
+    ObservabilityPipelineAggregateProcessorAggregationTiming:
+      ObservabilityPipelineAggregateProcessorAggregationTiming,
     ObservabilityPipelineAmazonDataFirehoseSource:
       ObservabilityPipelineAmazonDataFirehoseSource,
     ObservabilityPipelineAmazonOpenSearchDestination:
