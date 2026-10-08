@@ -3,27 +3,21 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
-import { ScheduleUserAttributes } from "./ScheduleUserAttributes";
-import { ScheduleUserType } from "./ScheduleUserType";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * Represents a user object in the context of a schedule, including their `id`, type, and basic attributes.
+ * Attributes for creating an on-call schedule override.
  */
-export class ScheduleUser {
+export class CreateOverrideRequestAttributes {
   /**
-   * Provides basic user information for a schedule, including a name and email address.
+   * The end time of the override.
    */
-  "attributes"?: ScheduleUserAttributes;
+  "end": Date;
   /**
-   * The unique user identifier.
+   * The start time of the override.
    */
-  "id": string;
-  /**
-   * Users resource type.
-   */
-  "type": ScheduleUserType;
+  "start": Date;
 
   /**
    * A container for additional, undeclared properties.
@@ -41,19 +35,17 @@ export class ScheduleUser {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    attributes: {
-      baseName: "attributes",
-      type: "ScheduleUserAttributes",
-    },
-    id: {
-      baseName: "id",
-      type: "string",
+    end: {
+      baseName: "end",
+      type: "Date",
       required: true,
+      format: "date-time",
     },
-    type: {
-      baseName: "type",
-      type: "ScheduleUserType",
+    start: {
+      baseName: "start",
+      type: "Date",
       required: true,
+      format: "date-time",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -65,7 +57,7 @@ export class ScheduleUser {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-    return ScheduleUser.attributeTypeMap;
+    return CreateOverrideRequestAttributes.attributeTypeMap;
   }
 
   public constructor() {}

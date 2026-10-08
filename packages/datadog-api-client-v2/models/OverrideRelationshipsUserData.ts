@@ -3,27 +3,22 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
-import { ScheduleUserAttributes } from "./ScheduleUserAttributes";
-import { ScheduleUserType } from "./ScheduleUserType";
+import { OverrideRelationshipsUserDataType } from "./OverrideRelationshipsUserDataType";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * Represents a user object in the context of a schedule, including their `id`, type, and basic attributes.
+ * A reference to a user, containing the user's ID and resource type.
  */
-export class ScheduleUser {
+export class OverrideRelationshipsUserData {
   /**
-   * Provides basic user information for a schedule, including a name and email address.
-   */
-  "attributes"?: ScheduleUserAttributes;
-  /**
-   * The unique user identifier.
+   * The unique identifier of the user.
    */
   "id": string;
   /**
-   * Users resource type.
+   * Indicates that the related resource is of type 'users'.
    */
-  "type": ScheduleUserType;
+  "type": OverrideRelationshipsUserDataType;
 
   /**
    * A container for additional, undeclared properties.
@@ -41,10 +36,6 @@ export class ScheduleUser {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    attributes: {
-      baseName: "attributes",
-      type: "ScheduleUserAttributes",
-    },
     id: {
       baseName: "id",
       type: "string",
@@ -52,7 +43,7 @@ export class ScheduleUser {
     },
     type: {
       baseName: "type",
-      type: "ScheduleUserType",
+      type: "OverrideRelationshipsUserDataType",
       required: true,
     },
     additionalProperties: {
@@ -65,7 +56,7 @@ export class ScheduleUser {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-    return ScheduleUser.attributeTypeMap;
+    return OverrideRelationshipsUserData.attributeTypeMap;
   }
 
   public constructor() {}

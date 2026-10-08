@@ -3,27 +3,18 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
-import { ScheduleUserAttributes } from "./ScheduleUserAttributes";
-import { ScheduleUserType } from "./ScheduleUserType";
+import { CreateOverrideRequestData } from "./CreateOverrideRequestData";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * Represents a user object in the context of a schedule, including their `id`, type, and basic attributes.
+ * Request to create one or more on-call schedule overrides. You can create up to 25 overrides in a single request.
  */
-export class ScheduleUser {
+export class CreateOverridesRequest {
   /**
-   * Provides basic user information for a schedule, including a name and email address.
+   * A list of on-call schedule overrides to create.
    */
-  "attributes"?: ScheduleUserAttributes;
-  /**
-   * The unique user identifier.
-   */
-  "id": string;
-  /**
-   * Users resource type.
-   */
-  "type": ScheduleUserType;
+  "data": Array<CreateOverrideRequestData>;
 
   /**
    * A container for additional, undeclared properties.
@@ -41,18 +32,9 @@ export class ScheduleUser {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    attributes: {
-      baseName: "attributes",
-      type: "ScheduleUserAttributes",
-    },
-    id: {
-      baseName: "id",
-      type: "string",
-      required: true,
-    },
-    type: {
-      baseName: "type",
-      type: "ScheduleUserType",
+    data: {
+      baseName: "data",
+      type: "Array<CreateOverrideRequestData>",
       required: true,
     },
     additionalProperties: {
@@ -65,7 +47,7 @@ export class ScheduleUser {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-    return ScheduleUser.attributeTypeMap;
+    return CreateOverridesRequest.attributeTypeMap;
   }
 
   public constructor() {}

@@ -12,6 +12,10 @@ import { AttributeTypeMap } from "../../datadog-api-client-common/util";
  */
 export class ScheduleUserAttributes {
   /**
+   * The user's on-call color, as a hex code (for example, `#FF0000`). Included only when `user.color` is requested in the `include` parameter.
+   */
+  "color"?: string;
+  /**
    * The user's email address.
    */
   "email"?: string;
@@ -40,6 +44,10 @@ export class ScheduleUserAttributes {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
+    color: {
+      baseName: "color",
+      type: "string",
+    },
     email: {
       baseName: "email",
       type: "string",

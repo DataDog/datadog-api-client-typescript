@@ -1208,10 +1208,12 @@ export {
 export {
   OnCallApiCreateOnCallEscalationPolicyRequest,
   OnCallApiCreateOnCallScheduleRequest,
+  OnCallApiCreateScheduleOverridesRequest,
   OnCallApiCreateUserNotificationChannelRequest,
   OnCallApiCreateUserNotificationRuleRequest,
   OnCallApiDeleteOnCallEscalationPolicyRequest,
   OnCallApiDeleteOnCallScheduleRequest,
+  OnCallApiDeleteScheduleOverrideRequest,
   OnCallApiDeleteUserNotificationChannelRequest,
   OnCallApiDeleteUserNotificationRuleRequest,
   OnCallApiGetOnCallEscalationPolicyRequest,
@@ -1223,6 +1225,7 @@ export {
   OnCallApiGetUserNotificationChannelRequest,
   OnCallApiGetUserNotificationRuleRequest,
   OnCallApiListOnCallSchedulesRequest,
+  OnCallApiListScheduleOverridesRequest,
   OnCallApiListUserNotificationChannelsRequest,
   OnCallApiListUserNotificationRulesRequest,
   OnCallApiSetOnCallTeamRoutingRulesRequest,
@@ -3538,6 +3541,10 @@ export { CreateOpenAPIResponseData } from "./models/CreateOpenAPIResponseData";
 export { CreateOrUpdateWidgetRequest } from "./models/CreateOrUpdateWidgetRequest";
 export { CreateOrUpdateWidgetRequestAttributes } from "./models/CreateOrUpdateWidgetRequestAttributes";
 export { CreateOrUpdateWidgetRequestData } from "./models/CreateOrUpdateWidgetRequestData";
+export { CreateOverrideRequestAttributes } from "./models/CreateOverrideRequestAttributes";
+export { CreateOverrideRequestData } from "./models/CreateOverrideRequestData";
+export { CreateOverrideRequestRelationships } from "./models/CreateOverrideRequestRelationships";
+export { CreateOverridesRequest } from "./models/CreateOverridesRequest";
 export { CreatePageRequest } from "./models/CreatePageRequest";
 export { CreatePageRequestData } from "./models/CreatePageRequestData";
 export { CreatePageRequestDataAttributes } from "./models/CreatePageRequestDataAttributes";
@@ -7404,6 +7411,19 @@ export { OutcomeType } from "./models/OutcomeType";
 export { OutputSchema } from "./models/OutputSchema";
 export { OutputSchemaParameters } from "./models/OutputSchemaParameters";
 export { OutputSchemaParametersType } from "./models/OutputSchemaParametersType";
+export { OverrideAttributes } from "./models/OverrideAttributes";
+export { OverrideCreateResponse } from "./models/OverrideCreateResponse";
+export { OverrideData } from "./models/OverrideData";
+export { OverrideDataType } from "./models/OverrideDataType";
+export { OverrideIncluded } from "./models/OverrideIncluded";
+export { OverrideRelationships } from "./models/OverrideRelationships";
+export { OverrideRelationshipsSchedule } from "./models/OverrideRelationshipsSchedule";
+export { OverrideRelationshipsScheduleData } from "./models/OverrideRelationshipsScheduleData";
+export { OverrideRelationshipsScheduleDataType } from "./models/OverrideRelationshipsScheduleDataType";
+export { OverrideRelationshipsUser } from "./models/OverrideRelationshipsUser";
+export { OverrideRelationshipsUserData } from "./models/OverrideRelationshipsUserData";
+export { OverrideRelationshipsUserDataType } from "./models/OverrideRelationshipsUserDataType";
+export { Overrides } from "./models/Overrides";
 export { OverwriteAllocationsRequest } from "./models/OverwriteAllocationsRequest";
 export { OwnershipConfidenceLevel } from "./models/OwnershipConfidenceLevel";
 export { OwnershipEvidenceAttributes } from "./models/OwnershipEvidenceAttributes";

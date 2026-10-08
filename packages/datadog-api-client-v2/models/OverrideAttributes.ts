@@ -3,27 +3,25 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
-import { ScheduleUserAttributes } from "./ScheduleUserAttributes";
-import { ScheduleUserType } from "./ScheduleUserType";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * Represents a user object in the context of a schedule, including their `id`, type, and basic attributes.
+ * Attributes for an on-call schedule override.
  */
-export class ScheduleUser {
+export class OverrideAttributes {
   /**
-   * Provides basic user information for a schedule, including a name and email address.
+   * The end time of the override.
    */
-  "attributes"?: ScheduleUserAttributes;
+  "end"?: Date;
   /**
-   * The unique user identifier.
+   * Whether the override is inactive (for example, because its time range has ended).
    */
-  "id": string;
+  "inactive"?: boolean;
   /**
-   * Users resource type.
+   * The start time of the override.
    */
-  "type": ScheduleUserType;
+  "start"?: Date;
 
   /**
    * A container for additional, undeclared properties.
@@ -41,19 +39,19 @@ export class ScheduleUser {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    attributes: {
-      baseName: "attributes",
-      type: "ScheduleUserAttributes",
+    end: {
+      baseName: "end",
+      type: "Date",
+      format: "date-time",
     },
-    id: {
-      baseName: "id",
-      type: "string",
-      required: true,
+    inactive: {
+      baseName: "inactive",
+      type: "boolean",
     },
-    type: {
-      baseName: "type",
-      type: "ScheduleUserType",
-      required: true,
+    start: {
+      baseName: "start",
+      type: "Date",
+      format: "date-time",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -65,7 +63,7 @@ export class ScheduleUser {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-    return ScheduleUser.attributeTypeMap;
+    return OverrideAttributes.attributeTypeMap;
   }
 
   public constructor() {}
