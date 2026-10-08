@@ -80,6 +80,7 @@ import { RoutingRuleEscalationPolicyActionSupportHours } from "./RoutingRuleEsca
 import { RoutingRuleRelationships } from "./RoutingRuleRelationships";
 import { RoutingRuleRelationshipsPolicy } from "./RoutingRuleRelationshipsPolicy";
 import { RoutingRuleRelationshipsPolicyData } from "./RoutingRuleRelationshipsPolicyData";
+import { RoutingRuleRerouteToTeamAction } from "./RoutingRuleRerouteToTeamAction";
 import { Schedule } from "./Schedule";
 import { ScheduleCreateRequest } from "./ScheduleCreateRequest";
 import { ScheduleCreateRequestData } from "./ScheduleCreateRequestData";
@@ -189,6 +190,7 @@ export const TypingInfo: ModelTypingInfo = {
     RolesType: ["roles"],
     RoutingRuleEscalationPolicyActionType: ["escalation_policy"],
     RoutingRuleRelationshipsPolicyDataType: ["policies"],
+    RoutingRuleRerouteToTeamActionType: ["reroute_to_team"],
     RoutingRuleType: ["team_routing_rules"],
     ScheduleCreateRequestDataType: ["schedules"],
     ScheduleDataRelationshipsLayersDataItemsType: ["layers"],
@@ -267,6 +269,7 @@ export const TypingInfo: ModelTypingInfo = {
       "SendTeamsMessageAction",
       "TriggerWorkflowAutomationAction",
       "RoutingRuleEscalationPolicyAction",
+      "RoutingRuleRerouteToTeamAction",
     ],
     ScheduleDataIncludedItem: [
       "TeamReference",
@@ -382,6 +385,7 @@ export const TypingInfo: ModelTypingInfo = {
     RoutingRuleRelationships: RoutingRuleRelationships,
     RoutingRuleRelationshipsPolicy: RoutingRuleRelationshipsPolicy,
     RoutingRuleRelationshipsPolicyData: RoutingRuleRelationshipsPolicyData,
+    RoutingRuleRerouteToTeamAction: RoutingRuleRerouteToTeamAction,
     Schedule: Schedule,
     ScheduleCreateRequest: ScheduleCreateRequest,
     ScheduleCreateRequestData: ScheduleCreateRequestData,
