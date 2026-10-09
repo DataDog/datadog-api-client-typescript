@@ -199,6 +199,8 @@ import { SeverityModifierRuleReorderResponse } from "./models/SeverityModifierRu
 import { SeverityModifierRuleResponse } from "./models/SeverityModifierRuleResponse";
 import { SeverityModifierRulesResponse } from "./models/SeverityModifierRulesResponse";
 import { SeverityModifierRuleUpdateRequest } from "./models/SeverityModifierRuleUpdateRequest";
+import { SeverityOverrideRequest } from "./models/SeverityOverrideRequest";
+import { SeverityOverrideResponse } from "./models/SeverityOverrideResponse";
 import { SignalEntitiesResponse } from "./models/SignalEntitiesResponse";
 import { SingleEntityContextResponse } from "./models/SingleEntityContextResponse";
 import { TicketCreationRuleCreateRequest } from "./models/TicketCreationRuleCreateRequest";
@@ -11236,6 +11238,72 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = stringify(
       serialize(body, TypingInfo, "AssigneeRequest", ""),
+      contentType,
+    );
+    requestContext.setBody(serializedBody);
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+      "AuthZ",
+    ]);
+
+    return requestContext;
+  }
+
+  public async updateFindingsSeverity(
+    body: SeverityOverrideRequest,
+    _options?: Configuration,
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    if (
+      !_config.unstableOperations[
+        "SecurityMonitoringApi.v2.updateFindingsSeverity"
+      ]
+    ) {
+      throw new Error(
+        "Unstable operation 'updateFindingsSeverity' is disabled. Enable it by setting `configuration.unstableOperations['SecurityMonitoringApi.v2.updateFindingsSeverity'] = true`",
+      );
+    }
+
+    // verify required parameter 'body' is not null or undefined
+    if (body === null || body === undefined) {
+      throw new RequiredError("body", "updateFindingsSeverity");
+    }
+
+    // Path Params
+    const localVarPath = "/api/v2/security/findings/severity";
+
+    // Make Request Context
+    const { server, overrides } = _config.getServerAndOverrides(
+      "SecurityMonitoringApi.v2.updateFindingsSeverity",
+      SecurityMonitoringApi.operationServers,
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.PATCH,
+      overrides,
+    );
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Set User-Agent
+    if (this.userAgent) {
+      requestContext.setHeaderParam("User-Agent", this.userAgent);
+    }
+
+    // Set IaC header
+    if (_config.isIaC) {
+      requestContext.setHeaderParam("X-Datadog-Managed-By", "iac");
+    }
+
+    // Body Params
+    const contentType = getPreferredMediaType(["application/json"]);
+    requestContext.setHeaderParam("Content-Type", contentType);
+    const serializedBody = stringify(
+      serialize(body, TypingInfo, "SeverityOverrideRequest", ""),
       contentType,
     );
     requestContext.setBody(serializedBody);
@@ -22472,6 +22540,91 @@ export class SecurityMonitoringApiResponseProcessor {
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
    *
+   * @params response Response returned by the server for a request to updateFindingsSeverity
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async updateFindingsSeverity(
+    response: ResponseContext,
+  ): Promise<SeverityOverrideResponse> {
+    const contentType = normalizeMediaType(response.headers["content-type"]);
+    if (response.httpStatusCode === 202) {
+      const body: SeverityOverrideResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "SeverityOverrideResponse",
+      ) as SeverityOverrideResponse;
+      return body;
+    }
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 404 ||
+      response.httpStatusCode === 422
+    ) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: JSONAPIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "JSONAPIErrorResponse",
+        ) as JSONAPIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<JSONAPIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<JSONAPIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
+    }
+    if (
+      response.httpStatusCode === 401 ||
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 429
+    ) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: APIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "APIErrorResponse",
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: SeverityOverrideResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "SeverityOverrideResponse",
+        "",
+      ) as SeverityOverrideResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"',
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
    * @params response Response returned by the server for a request to updateResourceEvaluationFilters
    * @throws ApiException if the response code was not in [200, 299]
    */
@@ -25605,6 +25758,13 @@ export interface SecurityMonitoringApiUpdateFindingsAssigneeRequest {
    * @type AssigneeRequest
    */
   body: AssigneeRequest;
+}
+
+export interface SecurityMonitoringApiUpdateFindingsSeverityRequest {
+  /**
+   * @type SeverityOverrideRequest
+   */
+  body: SeverityOverrideRequest;
 }
 
 export interface SecurityMonitoringApiUpdateResourceEvaluationFiltersRequest {
@@ -30209,6 +30369,41 @@ export class SecurityMonitoringApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.updateFindingsAssignee(responseContext);
+        });
+    });
+  }
+
+  /**
+   * Set or clear the manual severity override of security findings.
+   *
+   * You can update up to 100 security findings per request.
+   * Use the `set` action with a `value` to apply a manual severity override.
+   * `value` is required for `set` and must be omitted for `clear`.
+   * The `info` value sets the lowest severity the finding type allows.
+   * Use the `clear` action to remove a manual severity override.
+   * `clear` does not remove a severity set by an automation rule.
+   * The optional `description` is accepted with both actions and has a limit of 280 characters.
+   *
+   * Auto-closed findings are excluded.
+   * Findings whose severity was set by an automation rule are skipped and listed in the response `meta.warnings`.
+   * If every finding is skipped this way, the request fails with a `400` error.
+   * Findings that cannot be found are skipped without a warning.
+   * The request fails with a `404` error only if none of the findings can be found.
+   * @param param The request object
+   */
+  public updateFindingsSeverity(
+    param: SecurityMonitoringApiUpdateFindingsSeverityRequest,
+    options?: Configuration,
+  ): Promise<SeverityOverrideResponse> {
+    const requestContextPromise = this.requestFactory.updateFindingsSeverity(
+      param.body,
+      options,
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.updateFindingsSeverity(responseContext);
         });
     });
   }

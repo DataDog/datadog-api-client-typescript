@@ -148,6 +148,7 @@ export {
   SecurityMonitoringApiTestSecurityMonitoringRuleRequest,
   SecurityMonitoringApiUpdateCustomFrameworkRequest,
   SecurityMonitoringApiUpdateFindingsAssigneeRequest,
+  SecurityMonitoringApiUpdateFindingsSeverityRequest,
   SecurityMonitoringApiUpdateResourceEvaluationFiltersRequest,
   SecurityMonitoringApiUpdateSecurityFilterRequest,
   SecurityMonitoringApiUpdateSecurityFindingsAutomationDueDateRuleRequest,
@@ -895,6 +896,21 @@ export { SeverityModifierRuleType } from "./models/SeverityModifierRuleType";
 export { SeverityModifierRuleUpdateRequest } from "./models/SeverityModifierRuleUpdateRequest";
 export { SeverityModifierSeverity } from "./models/SeverityModifierSeverity";
 export { SeverityModifierSeverityDelta } from "./models/SeverityModifierSeverityDelta";
+export { SeverityOverrideAttributes } from "./models/SeverityOverrideAttributes";
+export { SeverityOverrideClear } from "./models/SeverityOverrideClear";
+export { SeverityOverrideClearActionType } from "./models/SeverityOverrideClearActionType";
+export { SeverityOverrideDataType } from "./models/SeverityOverrideDataType";
+export { SeverityOverrideRequest } from "./models/SeverityOverrideRequest";
+export { SeverityOverrideRequestData } from "./models/SeverityOverrideRequestData";
+export { SeverityOverrideRequestDataAttributes } from "./models/SeverityOverrideRequestDataAttributes";
+export { SeverityOverrideRequestDataRelationships } from "./models/SeverityOverrideRequestDataRelationships";
+export { SeverityOverrideResponse } from "./models/SeverityOverrideResponse";
+export { SeverityOverrideResponseData } from "./models/SeverityOverrideResponseData";
+export { SeverityOverrideResponseMeta } from "./models/SeverityOverrideResponseMeta";
+export { SeverityOverrideResult } from "./models/SeverityOverrideResult";
+export { SeverityOverrideSet } from "./models/SeverityOverrideSet";
+export { SeverityOverrideSetActionType } from "./models/SeverityOverrideSetActionType";
+export { SeverityOverrideValue } from "./models/SeverityOverrideValue";
 export { SignalEntitiesAttributes } from "./models/SignalEntitiesAttributes";
 export { SignalEntitiesData } from "./models/SignalEntitiesData";
 export { SignalEntitiesResponse } from "./models/SignalEntitiesResponse";
