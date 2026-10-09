@@ -19,17 +19,24 @@ import { ApiException } from "../../datadog-api-client-common/exception";
 import { APIErrorResponse } from "../models/APIErrorResponse";
 import { CreateDeploymentGateParams } from "../models/CreateDeploymentGateParams";
 import { CreateDeploymentRuleParams } from "../models/CreateDeploymentRuleParams";
+import { DeploymentGateEvaluationData } from "../models/DeploymentGateEvaluationData";
+import { DeploymentGateEvaluationsResponse } from "../models/DeploymentGateEvaluationsResponse";
 import { DeploymentGateResponse } from "../models/DeploymentGateResponse";
+import { DeploymentGateRuleEvaluationData } from "../models/DeploymentGateRuleEvaluationData";
+import { DeploymentGateRuleEvaluationsResponse } from "../models/DeploymentGateRuleEvaluationsResponse";
+import { DeploymentGateRuleEvaluationType } from "../models/DeploymentGateRuleEvaluationType";
 import { DeploymentGateRulesResponse } from "../models/DeploymentGateRulesResponse";
 import { DeploymentGatesEvaluationRequest } from "../models/DeploymentGatesEvaluationRequest";
 import { DeploymentGatesEvaluationResponse } from "../models/DeploymentGatesEvaluationResponse";
 import { DeploymentGatesEvaluationResultResponse } from "../models/DeploymentGatesEvaluationResultResponse";
+import { DeploymentGatesEvaluationResultResponseAttributesGateStatus } from "../models/DeploymentGatesEvaluationResultResponseAttributesGateStatus";
 import { DeploymentGatesListResponse } from "../models/DeploymentGatesListResponse";
 import { DeploymentRuleResponse } from "../models/DeploymentRuleResponse";
 import { HTTPCDGatesBadRequestResponse } from "../models/HTTPCDGatesBadRequestResponse";
 import { HTTPCDGatesNotFoundResponse } from "../models/HTTPCDGatesNotFoundResponse";
 import { HTTPCDRulesNotFoundResponse } from "../models/HTTPCDRulesNotFoundResponse";
 import { HTTPCIAppErrors } from "../models/HTTPCIAppErrors";
+import { JSONAPIErrorResponse } from "../models/JSONAPIErrorResponse";
 import { UpdateDeploymentGateParams } from "../models/UpdateDeploymentGateParams";
 import { UpdateDeploymentRuleParams } from "../models/UpdateDeploymentRuleParams";
 
@@ -427,7 +434,150 @@ export class DeploymentGatesApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
+  public async listDeploymentGateEvaluations(
+    filterFrom?: Date,
+    filterTo?: Date,
+    filterService?: Array<string>,
+    filterEnv?: Array<string>,
+    filterIdentifier?: Array<string>,
+    filterStatus?: Array<DeploymentGatesEvaluationResultResponseAttributesGateStatus>,
+    filterDryRun?: boolean,
+    filterEvaluationId?: string,
+    filterGateId?: string,
+    filterVersion?: Array<string>,
+    pageSize?: number,
+    pageCursor?: string,
+    _options?: Configuration
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    logger.warn("Using unstable operation 'listDeploymentGateEvaluations'");
+    if (!_config.unstableOperations["v2.listDeploymentGateEvaluations"]) {
+      throw new Error(
+        "Unstable operation 'listDeploymentGateEvaluations' is disabled"
+      );
+    }
+
+    // Path Params
+    const localVarPath = "/api/v2/deployment_gates/evaluations";
+
+    // Make Request Context
+    const requestContext = _config
+      .getServer("v2.DeploymentGatesApi.listDeploymentGateEvaluations")
+      .makeRequestContext(localVarPath, HttpMethod.GET);
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Set IaC header
+    if (_config.isIaC) {
+      requestContext.setHeaderParam("X-Datadog-Managed-By", "iac");
+    }
+
+    // Query Params
+    if (filterFrom !== undefined) {
+      requestContext.setQueryParam(
+        "filter[from]",
+        ObjectSerializer.serialize(filterFrom, "Date", "date-time"),
+        ""
+      );
+    }
+    if (filterTo !== undefined) {
+      requestContext.setQueryParam(
+        "filter[to]",
+        ObjectSerializer.serialize(filterTo, "Date", "date-time"),
+        ""
+      );
+    }
+    if (filterService !== undefined) {
+      requestContext.setQueryParam(
+        "filter[service]",
+        ObjectSerializer.serialize(filterService, "Array<string>", ""),
+        "multi"
+      );
+    }
+    if (filterEnv !== undefined) {
+      requestContext.setQueryParam(
+        "filter[env]",
+        ObjectSerializer.serialize(filterEnv, "Array<string>", ""),
+        "multi"
+      );
+    }
+    if (filterIdentifier !== undefined) {
+      requestContext.setQueryParam(
+        "filter[identifier]",
+        ObjectSerializer.serialize(filterIdentifier, "Array<string>", ""),
+        "multi"
+      );
+    }
+    if (filterStatus !== undefined) {
+      requestContext.setQueryParam(
+        "filter[status]",
+        ObjectSerializer.serialize(
+          filterStatus,
+          "Array<DeploymentGatesEvaluationResultResponseAttributesGateStatus>",
+          ""
+        ),
+        "multi"
+      );
+    }
+    if (filterDryRun !== undefined) {
+      requestContext.setQueryParam(
+        "filter[dry_run]",
+        ObjectSerializer.serialize(filterDryRun, "boolean", ""),
+        ""
+      );
+    }
+    if (filterEvaluationId !== undefined) {
+      requestContext.setQueryParam(
+        "filter[evaluation_id]",
+        ObjectSerializer.serialize(filterEvaluationId, "string", "uuid"),
+        ""
+      );
+    }
+    if (filterGateId !== undefined) {
+      requestContext.setQueryParam(
+        "filter[gate_id]",
+        ObjectSerializer.serialize(filterGateId, "string", "uuid"),
+        ""
+      );
+    }
+    if (filterVersion !== undefined) {
+      requestContext.setQueryParam(
+        "filter[version]",
+        ObjectSerializer.serialize(filterVersion, "Array<string>", ""),
+        "multi"
+      );
+    }
+    if (pageSize !== undefined) {
+      requestContext.setQueryParam(
+        "page[size]",
+        ObjectSerializer.serialize(pageSize, "number", "int64"),
+        ""
+      );
+    }
+    if (pageCursor !== undefined) {
+      requestContext.setQueryParam(
+        "page[cursor]",
+        ObjectSerializer.serialize(pageCursor, "string", ""),
+        ""
+      );
+    }
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+      "AuthZ",
+    ]);
+
+    return requestContext;
+  }
+
   public async listDeploymentGates(
+    filterService?: string,
+    filterEnv?: string,
+    filterIdentifier?: string,
+    filterDryRun?: boolean,
     pageCursor?: string,
     pageSize?: number,
     _options?: Configuration
@@ -455,6 +605,34 @@ export class DeploymentGatesApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Query Params
+    if (filterService !== undefined) {
+      requestContext.setQueryParam(
+        "filter[service]",
+        ObjectSerializer.serialize(filterService, "string", ""),
+        ""
+      );
+    }
+    if (filterEnv !== undefined) {
+      requestContext.setQueryParam(
+        "filter[env]",
+        ObjectSerializer.serialize(filterEnv, "string", ""),
+        ""
+      );
+    }
+    if (filterIdentifier !== undefined) {
+      requestContext.setQueryParam(
+        "filter[identifier]",
+        ObjectSerializer.serialize(filterIdentifier, "string", ""),
+        ""
+      );
+    }
+    if (filterDryRun !== undefined) {
+      requestContext.setQueryParam(
+        "filter[dry_run]",
+        ObjectSerializer.serialize(filterDryRun, "boolean", ""),
+        ""
+      );
+    }
     if (pageCursor !== undefined) {
       requestContext.setQueryParam(
         "page[cursor]",
@@ -466,6 +644,189 @@ export class DeploymentGatesApiRequestFactory extends BaseAPIRequestFactory {
       requestContext.setQueryParam(
         "page[size]",
         ObjectSerializer.serialize(pageSize, "number", "int64"),
+        ""
+      );
+    }
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+      "AuthZ",
+    ]);
+
+    return requestContext;
+  }
+
+  public async listDeploymentRuleEvaluations(
+    filterFrom?: Date,
+    filterTo?: Date,
+    filterGateEvaluationId?: string,
+    filterEvaluationId?: string,
+    filterGateId?: string,
+    filterRuleId?: string,
+    filterService?: Array<string>,
+    filterEnv?: Array<string>,
+    filterIdentifier?: Array<string>,
+    filterVersion?: Array<string>,
+    filterStatus?: Array<DeploymentGatesEvaluationResultResponseAttributesGateStatus>,
+    filterType?: Array<DeploymentGateRuleEvaluationType>,
+    filterDryRun?: boolean,
+    filterGateDryRun?: boolean,
+    filterName?: Array<string>,
+    pageSize?: number,
+    pageCursor?: string,
+    _options?: Configuration
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    logger.warn("Using unstable operation 'listDeploymentRuleEvaluations'");
+    if (!_config.unstableOperations["v2.listDeploymentRuleEvaluations"]) {
+      throw new Error(
+        "Unstable operation 'listDeploymentRuleEvaluations' is disabled"
+      );
+    }
+
+    // Path Params
+    const localVarPath = "/api/v2/deployment_gates/evaluations/rules";
+
+    // Make Request Context
+    const requestContext = _config
+      .getServer("v2.DeploymentGatesApi.listDeploymentRuleEvaluations")
+      .makeRequestContext(localVarPath, HttpMethod.GET);
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Set IaC header
+    if (_config.isIaC) {
+      requestContext.setHeaderParam("X-Datadog-Managed-By", "iac");
+    }
+
+    // Query Params
+    if (filterFrom !== undefined) {
+      requestContext.setQueryParam(
+        "filter[from]",
+        ObjectSerializer.serialize(filterFrom, "Date", "date-time"),
+        ""
+      );
+    }
+    if (filterTo !== undefined) {
+      requestContext.setQueryParam(
+        "filter[to]",
+        ObjectSerializer.serialize(filterTo, "Date", "date-time"),
+        ""
+      );
+    }
+    if (filterGateEvaluationId !== undefined) {
+      requestContext.setQueryParam(
+        "filter[gate_evaluation_id]",
+        ObjectSerializer.serialize(filterGateEvaluationId, "string", "uuid"),
+        ""
+      );
+    }
+    if (filterEvaluationId !== undefined) {
+      requestContext.setQueryParam(
+        "filter[evaluation_id]",
+        ObjectSerializer.serialize(filterEvaluationId, "string", "uuid"),
+        ""
+      );
+    }
+    if (filterGateId !== undefined) {
+      requestContext.setQueryParam(
+        "filter[gate_id]",
+        ObjectSerializer.serialize(filterGateId, "string", "uuid"),
+        ""
+      );
+    }
+    if (filterRuleId !== undefined) {
+      requestContext.setQueryParam(
+        "filter[rule_id]",
+        ObjectSerializer.serialize(filterRuleId, "string", "uuid"),
+        ""
+      );
+    }
+    if (filterService !== undefined) {
+      requestContext.setQueryParam(
+        "filter[service]",
+        ObjectSerializer.serialize(filterService, "Array<string>", ""),
+        "multi"
+      );
+    }
+    if (filterEnv !== undefined) {
+      requestContext.setQueryParam(
+        "filter[env]",
+        ObjectSerializer.serialize(filterEnv, "Array<string>", ""),
+        "multi"
+      );
+    }
+    if (filterIdentifier !== undefined) {
+      requestContext.setQueryParam(
+        "filter[identifier]",
+        ObjectSerializer.serialize(filterIdentifier, "Array<string>", ""),
+        "multi"
+      );
+    }
+    if (filterVersion !== undefined) {
+      requestContext.setQueryParam(
+        "filter[version]",
+        ObjectSerializer.serialize(filterVersion, "Array<string>", ""),
+        "multi"
+      );
+    }
+    if (filterStatus !== undefined) {
+      requestContext.setQueryParam(
+        "filter[status]",
+        ObjectSerializer.serialize(
+          filterStatus,
+          "Array<DeploymentGatesEvaluationResultResponseAttributesGateStatus>",
+          ""
+        ),
+        "multi"
+      );
+    }
+    if (filterType !== undefined) {
+      requestContext.setQueryParam(
+        "filter[type]",
+        ObjectSerializer.serialize(
+          filterType,
+          "Array<DeploymentGateRuleEvaluationType>",
+          ""
+        ),
+        "multi"
+      );
+    }
+    if (filterDryRun !== undefined) {
+      requestContext.setQueryParam(
+        "filter[dry_run]",
+        ObjectSerializer.serialize(filterDryRun, "boolean", ""),
+        ""
+      );
+    }
+    if (filterGateDryRun !== undefined) {
+      requestContext.setQueryParam(
+        "filter[gate_dry_run]",
+        ObjectSerializer.serialize(filterGateDryRun, "boolean", ""),
+        ""
+      );
+    }
+    if (filterName !== undefined) {
+      requestContext.setQueryParam(
+        "filter[name]",
+        ObjectSerializer.serialize(filterName, "Array<string>", ""),
+        "multi"
+      );
+    }
+    if (pageSize !== undefined) {
+      requestContext.setQueryParam(
+        "page[size]",
+        ObjectSerializer.serialize(pageSize, "number", "int64"),
+        ""
+      );
+    }
+    if (pageCursor !== undefined) {
+      requestContext.setQueryParam(
+        "page[cursor]",
+        ObjectSerializer.serialize(pageCursor, "string", ""),
         ""
       );
     }
@@ -1602,6 +1963,93 @@ export class DeploymentGatesApiResponseProcessor {
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
    *
+   * @params response Response returned by the server for a request to listDeploymentGateEvaluations
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async listDeploymentGateEvaluations(
+    response: ResponseContext
+  ): Promise<DeploymentGateEvaluationsResponse> {
+    const contentType = ObjectSerializer.normalizeMediaType(
+      response.headers["content-type"]
+    );
+    if (response.httpStatusCode === 200) {
+      const body: DeploymentGateEvaluationsResponse =
+        ObjectSerializer.deserialize(
+          ObjectSerializer.parse(await response.body.text(), contentType),
+          "DeploymentGateEvaluationsResponse"
+        ) as DeploymentGateEvaluationsResponse;
+      return body;
+    }
+    if (response.httpStatusCode === 400) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: JSONAPIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "JSONAPIErrorResponse"
+        ) as JSONAPIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<JSONAPIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<JSONAPIErrorResponse>(
+        response.httpStatusCode,
+        body
+      );
+    }
+    if (
+      response.httpStatusCode === 401 ||
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 429
+    ) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: APIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "APIErrorResponse"
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: DeploymentGateEvaluationsResponse =
+        ObjectSerializer.deserialize(
+          ObjectSerializer.parse(await response.body.text(), contentType),
+          "DeploymentGateEvaluationsResponse",
+          ""
+        ) as DeploymentGateEvaluationsResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"'
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
    * @params response Response returned by the server for a request to listDeploymentGates
    * @throws ApiException if the response code was not in [200, 299]
    */
@@ -1693,6 +2141,93 @@ export class DeploymentGatesApiResponseProcessor {
         "DeploymentGatesListResponse",
         ""
       ) as DeploymentGatesListResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"'
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
+   * @params response Response returned by the server for a request to listDeploymentRuleEvaluations
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async listDeploymentRuleEvaluations(
+    response: ResponseContext
+  ): Promise<DeploymentGateRuleEvaluationsResponse> {
+    const contentType = ObjectSerializer.normalizeMediaType(
+      response.headers["content-type"]
+    );
+    if (response.httpStatusCode === 200) {
+      const body: DeploymentGateRuleEvaluationsResponse =
+        ObjectSerializer.deserialize(
+          ObjectSerializer.parse(await response.body.text(), contentType),
+          "DeploymentGateRuleEvaluationsResponse"
+        ) as DeploymentGateRuleEvaluationsResponse;
+      return body;
+    }
+    if (response.httpStatusCode === 400) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: JSONAPIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "JSONAPIErrorResponse"
+        ) as JSONAPIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<JSONAPIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<JSONAPIErrorResponse>(
+        response.httpStatusCode,
+        body
+      );
+    }
+    if (
+      response.httpStatusCode === 401 ||
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 429
+    ) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: APIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "APIErrorResponse"
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: DeploymentGateRuleEvaluationsResponse =
+        ObjectSerializer.deserialize(
+          ObjectSerializer.parse(await response.body.text(), contentType),
+          "DeploymentGateRuleEvaluationsResponse",
+          ""
+        ) as DeploymentGateRuleEvaluationsResponse;
       return body;
     }
 
@@ -2167,9 +2702,92 @@ export interface DeploymentGatesApiGetDeploymentRuleRequest {
   id: string;
 }
 
+export interface DeploymentGatesApiListDeploymentGateEvaluationsRequest {
+  /**
+   * Inclusive evaluation start time. Defaults to 24 hours before the request. Together with `filter[to]`, the window may span no more than 30 days.
+   * @type Date
+   */
+  filterFrom?: Date;
+  /**
+   * Exclusive evaluation start time. Defaults to the request time. Must be after `filter[from]`; the window may span no more than 30 days.
+   * @type Date
+   */
+  filterTo?: Date;
+  /**
+   * Service values. Repeated or comma-separated values are combined with OR.
+   * @type Array<string>
+   */
+  filterService?: Array<string>;
+  /**
+   * Environment values. Repeated or comma-separated values are combined with OR.
+   * @type Array<string>
+   */
+  filterEnv?: Array<string>;
+  /**
+   * Gate identifier values. Repeated or comma-separated values are combined with OR.
+   * @type Array<string>
+   */
+  filterIdentifier?: Array<string>;
+  /**
+   * Gate outcomes. Repeated or comma-separated values are combined with OR.
+   * @type Array<DeploymentGatesEvaluationResultResponseAttributesGateStatus>
+   */
+  filterStatus?: Array<DeploymentGatesEvaluationResultResponseAttributesGateStatus>;
+  /**
+   * Gate-level dry-run state.
+   * @type boolean
+   */
+  filterDryRun?: boolean;
+  /**
+   * Gate evaluation UUID. No match returns an empty list.
+   * @type string
+   */
+  filterEvaluationId?: string;
+  /**
+   * Configured gate UUID. Just-in-time evaluations have no gate ID.
+   * @type string
+   */
+  filterGateId?: string;
+  /**
+   * Deployment version values. Repeated or comma-separated values are combined with OR.
+   * @type Array<string>
+   */
+  filterVersion?: Array<string>;
+  /**
+   * Maximum evaluations returned.
+   * @type number
+   */
+  pageSize?: number;
+  /**
+   * Opaque cursor returned in `meta.page.next_cursor` by the previous page. Invalid cursors return 400.
+   * @type string
+   */
+  pageCursor?: string;
+}
+
 export interface DeploymentGatesApiListDeploymentGatesRequest {
   /**
-   * Cursor for pagination. Use the `meta.page.next_cursor` value from the previous response.
+   * Service name.
+   * @type string
+   */
+  filterService?: string;
+  /**
+   * Environment name.
+   * @type string
+   */
+  filterEnv?: string;
+  /**
+   * Gate identifier.
+   * @type string
+   */
+  filterIdentifier?: string;
+  /**
+   * Dry-run state.
+   * @type boolean
+   */
+  filterDryRun?: boolean;
+  /**
+   * Cursor for pagination. Use the `meta.page.next_cursor` value from the previous response. Invalid cursors return 400.
    * @type string
    */
   pageCursor?: string;
@@ -2178,6 +2796,95 @@ export interface DeploymentGatesApiListDeploymentGatesRequest {
    * @type number
    */
   pageSize?: number;
+}
+
+export interface DeploymentGatesApiListDeploymentRuleEvaluationsRequest {
+  /**
+   * Inclusive gate evaluation start time. Defaults to 24 hours before the request. Together with `filter[to]`, the window may span no more than 30 days.
+   * @type Date
+   */
+  filterFrom?: Date;
+  /**
+   * Exclusive gate evaluation start time. Defaults to the request time. Must be after `filter[from]`; the window may span no more than 30 days.
+   * @type Date
+   */
+  filterTo?: Date;
+  /**
+   * Gate evaluation UUID. No match returns an empty list.
+   * @type string
+   */
+  filterGateEvaluationId?: string;
+  /**
+   * Rule evaluation UUID. No match returns an empty list.
+   * @type string
+   */
+  filterEvaluationId?: string;
+  /**
+   * Configured gate UUID. Just-in-time evaluations have no gate ID.
+   * @type string
+   */
+  filterGateId?: string;
+  /**
+   * Configured rule UUID. Just-in-time rules have no rule ID.
+   * @type string
+   */
+  filterRuleId?: string;
+  /**
+   * Evaluated service values. Repeated or comma-separated values are combined with OR.
+   * @type Array<string>
+   */
+  filterService?: Array<string>;
+  /**
+   * Evaluated environment values. Repeated or comma-separated values are combined with OR.
+   * @type Array<string>
+   */
+  filterEnv?: Array<string>;
+  /**
+   * Gate identifier values. Repeated or comma-separated values are combined with OR.
+   * @type Array<string>
+   */
+  filterIdentifier?: Array<string>;
+  /**
+   * Evaluated deployment version values. Repeated or comma-separated values are combined with OR.
+   * @type Array<string>
+   */
+  filterVersion?: Array<string>;
+  /**
+   * Rule statuses. Repeated or comma-separated values are combined with OR.
+   * @type Array<DeploymentGatesEvaluationResultResponseAttributesGateStatus>
+   */
+  filterStatus?: Array<DeploymentGatesEvaluationResultResponseAttributesGateStatus>;
+  /**
+   * Rule types. Repeated or comma-separated values are combined with OR.
+   * Defaults to all rule types.
+   * @type Array<DeploymentGateRuleEvaluationType>
+   */
+  filterType?: Array<DeploymentGateRuleEvaluationType>;
+  /**
+   * Rule-level dry-run state. A failed dry-run rule is ignored when computing the gate outcome.
+   * @type boolean
+   */
+  filterDryRun?: boolean;
+  /**
+   * Gate-level dry-run state. A failed dry-run gate blocks but does not stop deployment.
+   * @type boolean
+   */
+  filterGateDryRun?: boolean;
+  /**
+   * Rule names. Repeated or comma-separated values are combined with OR.
+   * @type Array<string>
+   */
+  filterName?: Array<string>;
+  /**
+   * Maximum rule evaluations returned.
+   * @type number
+   */
+  pageSize?: number;
+  /**
+   * Opaque cursor returned in `meta.page.next_cursor` by the previous page. Invalid cursors return 400.
+   * @type string
+   */
+  pageCursor?: string;
 }
 
 export interface DeploymentGatesApiTriggerDeploymentGatesEvaluationRequest {
@@ -2409,6 +3116,108 @@ export class DeploymentGatesApi {
   }
 
   /**
+   * Returns deployment gate evaluations started in a maximum 30-day window (the default is the previous 24 hours).
+   * Results are ordered by start time, newest first.
+   * In-progress state is near-real-time and mutable. Finished state is eventually consistent.
+   * @param param The request object
+   */
+  public listDeploymentGateEvaluations(
+    param: DeploymentGatesApiListDeploymentGateEvaluationsRequest = {},
+    options?: Configuration
+  ): Promise<DeploymentGateEvaluationsResponse> {
+    const requestContextPromise =
+      this.requestFactory.listDeploymentGateEvaluations(
+        param.filterFrom,
+        param.filterTo,
+        param.filterService,
+        param.filterEnv,
+        param.filterIdentifier,
+        param.filterStatus,
+        param.filterDryRun,
+        param.filterEvaluationId,
+        param.filterGateId,
+        param.filterVersion,
+        param.pageSize,
+        param.pageCursor,
+        options
+      );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.listDeploymentGateEvaluations(
+            responseContext
+          );
+        });
+    });
+  }
+
+  /**
+   * Provide a paginated version of listDeploymentGateEvaluations returning a generator with all the items.
+   */
+  public async *listDeploymentGateEvaluationsWithPagination(
+    param: DeploymentGatesApiListDeploymentGateEvaluationsRequest = {},
+    options?: Configuration
+  ): AsyncGenerator<DeploymentGateEvaluationData> {
+    let pageSize = 20;
+    if (param.pageSize !== undefined) {
+      pageSize = param.pageSize;
+    }
+    param.pageSize = pageSize;
+    while (true) {
+      const requestContext =
+        await this.requestFactory.listDeploymentGateEvaluations(
+          param.filterFrom,
+          param.filterTo,
+          param.filterService,
+          param.filterEnv,
+          param.filterIdentifier,
+          param.filterStatus,
+          param.filterDryRun,
+          param.filterEvaluationId,
+          param.filterGateId,
+          param.filterVersion,
+          param.pageSize,
+          param.pageCursor,
+          options
+        );
+      const responseContext = await this.configuration.httpApi.send(
+        requestContext
+      );
+
+      const response =
+        await this.responseProcessor.listDeploymentGateEvaluations(
+          responseContext
+        );
+      const responseData = response.data;
+      if (responseData === undefined) {
+        break;
+      }
+      const results = responseData;
+      for (const item of results) {
+        yield item;
+      }
+      if (results.length === 0) {
+        break;
+      }
+      const cursorMeta = response.meta;
+      if (cursorMeta === undefined) {
+        break;
+      }
+      const cursorMetaPage = cursorMeta.page;
+      if (cursorMetaPage === undefined) {
+        break;
+      }
+      const cursorMetaPageNextCursor = cursorMetaPage.nextCursor;
+      if (cursorMetaPageNextCursor === undefined) {
+        break;
+      }
+
+      param.pageCursor = cursorMetaPageNextCursor;
+    }
+  }
+
+  /**
    * Returns a paginated list of all deployment gates for the organization.
    * Use `page[cursor]` and `page[size]` query parameters to paginate through results.
    * @param param The request object
@@ -2418,6 +3227,10 @@ export class DeploymentGatesApi {
     options?: Configuration
   ): Promise<DeploymentGatesListResponse> {
     const requestContextPromise = this.requestFactory.listDeploymentGates(
+      param.filterService,
+      param.filterEnv,
+      param.filterIdentifier,
+      param.filterDryRun,
       param.pageCursor,
       param.pageSize,
       options
@@ -2429,6 +3242,121 @@ export class DeploymentGatesApi {
           return this.responseProcessor.listDeploymentGates(responseContext);
         });
     });
+  }
+
+  /**
+   * Returns rule evaluations whose gate evaluation started in a maximum 30-day window (the default is the previous 24 hours).
+   * Filter by gate, rule, gate evaluation, or rule evaluation ID; omit IDs for cross-evaluation searches.
+   * Results are ordered by start time, newest first.
+   * In-progress state is near-real-time and mutable. Finished state is eventually consistent.
+   * Gate-level and rule-level dry-run states are independent.
+   * Pagination is deterministic but not snapshot isolated; clients should deduplicate by rule evaluation ID.
+   * @param param The request object
+   */
+  public listDeploymentRuleEvaluations(
+    param: DeploymentGatesApiListDeploymentRuleEvaluationsRequest = {},
+    options?: Configuration
+  ): Promise<DeploymentGateRuleEvaluationsResponse> {
+    const requestContextPromise =
+      this.requestFactory.listDeploymentRuleEvaluations(
+        param.filterFrom,
+        param.filterTo,
+        param.filterGateEvaluationId,
+        param.filterEvaluationId,
+        param.filterGateId,
+        param.filterRuleId,
+        param.filterService,
+        param.filterEnv,
+        param.filterIdentifier,
+        param.filterVersion,
+        param.filterStatus,
+        param.filterType,
+        param.filterDryRun,
+        param.filterGateDryRun,
+        param.filterName,
+        param.pageSize,
+        param.pageCursor,
+        options
+      );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.listDeploymentRuleEvaluations(
+            responseContext
+          );
+        });
+    });
+  }
+
+  /**
+   * Provide a paginated version of listDeploymentRuleEvaluations returning a generator with all the items.
+   */
+  public async *listDeploymentRuleEvaluationsWithPagination(
+    param: DeploymentGatesApiListDeploymentRuleEvaluationsRequest = {},
+    options?: Configuration
+  ): AsyncGenerator<DeploymentGateRuleEvaluationData> {
+    let pageSize = 50;
+    if (param.pageSize !== undefined) {
+      pageSize = param.pageSize;
+    }
+    param.pageSize = pageSize;
+    while (true) {
+      const requestContext =
+        await this.requestFactory.listDeploymentRuleEvaluations(
+          param.filterFrom,
+          param.filterTo,
+          param.filterGateEvaluationId,
+          param.filterEvaluationId,
+          param.filterGateId,
+          param.filterRuleId,
+          param.filterService,
+          param.filterEnv,
+          param.filterIdentifier,
+          param.filterVersion,
+          param.filterStatus,
+          param.filterType,
+          param.filterDryRun,
+          param.filterGateDryRun,
+          param.filterName,
+          param.pageSize,
+          param.pageCursor,
+          options
+        );
+      const responseContext = await this.configuration.httpApi.send(
+        requestContext
+      );
+
+      const response =
+        await this.responseProcessor.listDeploymentRuleEvaluations(
+          responseContext
+        );
+      const responseData = response.data;
+      if (responseData === undefined) {
+        break;
+      }
+      const results = responseData;
+      for (const item of results) {
+        yield item;
+      }
+      if (results.length === 0) {
+        break;
+      }
+      const cursorMeta = response.meta;
+      if (cursorMeta === undefined) {
+        break;
+      }
+      const cursorMetaPage = cursorMeta.page;
+      if (cursorMetaPage === undefined) {
+        break;
+      }
+      const cursorMetaPageNextCursor = cursorMetaPage.nextCursor;
+      if (cursorMetaPageNextCursor === undefined) {
+        break;
+      }
+
+      param.pageCursor = cursorMetaPageNextCursor;
+    }
   }
 
   /**

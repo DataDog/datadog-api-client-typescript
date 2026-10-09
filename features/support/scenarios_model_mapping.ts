@@ -9620,6 +9620,22 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
         "operationResponseType": "DemJourneyTestSuiteResponse",
     },
     "v2.ListDeploymentGates": {
+        "filterService": {
+            "type": "string",
+            "format": "",
+            },
+        "filterEnv": {
+            "type": "string",
+            "format": "",
+            },
+        "filterIdentifier": {
+            "type": "string",
+            "format": "",
+            },
+        "filterDryRun": {
+            "type": "boolean",
+            "format": "",
+            },
         "pageCursor": {
             "type": "string",
             "format": "",
@@ -9636,6 +9652,128 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             "format": "",
             },
         "operationResponseType": "DeploymentGateResponse",
+    },
+    "v2.ListDeploymentGateEvaluations": {
+        "filterFrom": {
+            "type": "Date",
+            "format": "date-time",
+            },
+        "filterTo": {
+            "type": "Date",
+            "format": "date-time",
+            },
+        "filterService": {
+            "type": "Array<string>",
+            "format": "",
+            },
+        "filterEnv": {
+            "type": "Array<string>",
+            "format": "",
+            },
+        "filterIdentifier": {
+            "type": "Array<string>",
+            "format": "",
+            },
+        "filterStatus": {
+            "type": "Array<DeploymentGatesEvaluationResultResponseAttributesGateStatus>",
+            "format": "",
+            },
+        "filterDryRun": {
+            "type": "boolean",
+            "format": "",
+            },
+        "filterEvaluationId": {
+            "type": "string",
+            "format": "uuid",
+            },
+        "filterGateId": {
+            "type": "string",
+            "format": "uuid",
+            },
+        "filterVersion": {
+            "type": "Array<string>",
+            "format": "",
+            },
+        "pageSize": {
+            "type": "number",
+            "format": "int64",
+            },
+        "pageCursor": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "DeploymentGateEvaluationsResponse",
+    },
+    "v2.ListDeploymentRuleEvaluations": {
+        "filterFrom": {
+            "type": "Date",
+            "format": "date-time",
+            },
+        "filterTo": {
+            "type": "Date",
+            "format": "date-time",
+            },
+        "filterGateEvaluationId": {
+            "type": "string",
+            "format": "uuid",
+            },
+        "filterEvaluationId": {
+            "type": "string",
+            "format": "uuid",
+            },
+        "filterGateId": {
+            "type": "string",
+            "format": "uuid",
+            },
+        "filterRuleId": {
+            "type": "string",
+            "format": "uuid",
+            },
+        "filterService": {
+            "type": "Array<string>",
+            "format": "",
+            },
+        "filterEnv": {
+            "type": "Array<string>",
+            "format": "",
+            },
+        "filterIdentifier": {
+            "type": "Array<string>",
+            "format": "",
+            },
+        "filterVersion": {
+            "type": "Array<string>",
+            "format": "",
+            },
+        "filterStatus": {
+            "type": "Array<DeploymentGatesEvaluationResultResponseAttributesGateStatus>",
+            "format": "",
+            },
+        "filterType": {
+            "type": "Array<DeploymentGateRuleEvaluationType>",
+            "format": "",
+            },
+        "filterDryRun": {
+            "type": "boolean",
+            "format": "",
+            },
+        "filterGateDryRun": {
+            "type": "boolean",
+            "format": "",
+            },
+        "filterName": {
+            "type": "Array<string>",
+            "format": "",
+            },
+        "pageSize": {
+            "type": "number",
+            "format": "int64",
+            },
+        "pageCursor": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "DeploymentGateRuleEvaluationsResponse",
     },
     "v2.GetDeploymentGateRules": {
         "gateId": {
