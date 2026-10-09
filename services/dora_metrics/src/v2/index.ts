@@ -1,4 +1,5 @@
 export {
+  DORAMetricsApiCreateAIImpactUserActivityRequest,
   DORAMetricsApiCreateDORADeploymentRequest,
   DORAMetricsApiCreateDORAFailureRequest,
   DORAMetricsApiCreateDORAIncidentRequest,
@@ -13,6 +14,10 @@ export {
   DORAMetricsApi,
 } from "./DORAMetricsApi";
 
+export { AIImpactUserActivityAttributes } from "./models/AIImpactUserActivityAttributes";
+export { AIImpactUserActivityData } from "./models/AIImpactUserActivityData";
+export { AIImpactUserActivityRequest } from "./models/AIImpactUserActivityRequest";
+export { AIImpactUserActivityType } from "./models/AIImpactUserActivityType";
 export { APIErrorResponse } from "./models/APIErrorResponse";
 export { DORADeploymentFetchResponse } from "./models/DORADeploymentFetchResponse";
 export { DORADeploymentObject } from "./models/DORADeploymentObject";
