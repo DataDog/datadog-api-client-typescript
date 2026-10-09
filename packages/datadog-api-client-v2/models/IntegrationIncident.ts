@@ -25,7 +25,7 @@ export class IntegrationIncident {
    */
   "enabled"?: boolean;
   /**
-   * List of mappings between incident fields and case fields.
+   * List of mappings between incident fields and work item fields.
    */
   "fieldMappings"?: Array<IntegrationIncidentFieldMappingsItems>;
   /**
@@ -33,7 +33,7 @@ export class IntegrationIncident {
    */
   "incidentType"?: string;
   /**
-   * Severity configuration for mapping incident priorities to case priorities.
+   * Severity configuration for mapping incident priorities to work item priorities.
    */
   "severityConfig"?: IntegrationIncidentSeverityConfig;
 

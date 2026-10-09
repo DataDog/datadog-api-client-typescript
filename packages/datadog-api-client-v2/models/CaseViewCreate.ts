@@ -9,15 +9,15 @@ import { CaseViewResourceType } from "./CaseViewResourceType";
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * Data object for creating a case view.
+ * Data object for creating a work item view.
  */
 export class CaseViewCreate {
   /**
-   * Attributes required to create a case view.
+   * Attributes required to create a work item view.
    */
   "attributes": CaseViewCreateAttributes;
   /**
-   * JSON:API resource type for case views.
+   * JSON:API resource type for work item views.
    */
   "type": CaseViewResourceType;
 

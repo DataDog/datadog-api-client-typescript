@@ -8,11 +8,11 @@ import { CaseViewUpdate } from "./CaseViewUpdate";
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * Request payload for updating a case view.
+ * Request payload for updating a work item view.
  */
 export class CaseViewUpdateRequest {
   /**
-   * Data object for updating a case view.
+   * Data object for updating a work item view.
    */
   "data": CaseViewUpdate;
 

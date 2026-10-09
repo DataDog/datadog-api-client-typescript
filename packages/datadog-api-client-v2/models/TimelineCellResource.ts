@@ -9,11 +9,11 @@ import { TimelineCellResourceType } from "./TimelineCellResourceType";
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * A timeline cell resource representing a single entry in a case's activity timeline.
+ * A timeline cell resource representing a single entry in a work item's activity timeline.
  */
 export class TimelineCellResource {
   /**
-   * Attributes of a timeline cell, representing a single event in a case's chronological activity log (for example, a comment, status change, or assignment update).
+   * Attributes of a timeline cell, representing a single event in a work item's chronological activity log (for example, a comment, status change, or assignment update).
    */
   "attributes": TimelineCell;
   /**

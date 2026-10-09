@@ -9,15 +9,15 @@ import { CaseLinkResourceType } from "./CaseLinkResourceType";
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * Data object for creating a case link.
+ * Data object for creating a work item link.
  */
 export class CaseLinkCreate {
   /**
-   * Attributes describing a directional relationship between two entities (cases, incidents, or pages).
+   * Attributes describing a directional relationship between two entities (work items, incidents, or pages).
    */
   "attributes": CaseLinkAttributes;
   /**
-   * JSON:API resource type for case links.
+   * JSON:API resource type for work item links.
    */
   "type": CaseLinkResourceType;
 

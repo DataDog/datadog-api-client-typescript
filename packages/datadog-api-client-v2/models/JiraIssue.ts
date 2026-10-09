@@ -9,7 +9,7 @@ import { JiraIssueResult } from "./JiraIssueResult";
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * Jira issue attached to case
+ * Jira issue attached to work item
  */
 export class JiraIssue {
   /**
@@ -17,7 +17,7 @@ export class JiraIssue {
    */
   "result"?: JiraIssueResult;
   /**
-   * Case status
+   * Work item status
    */
   "status"?: Case3rdPartyTicketStatus;
 

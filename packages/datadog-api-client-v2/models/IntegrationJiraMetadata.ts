@@ -7,7 +7,7 @@
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * Metadata for connecting a case management project to a Jira project.
+ * Metadata for connecting a Work Management project to a Jira project.
  */
 export class IntegrationJiraMetadata {
   /**
@@ -19,7 +19,7 @@ export class IntegrationJiraMetadata {
    */
   "issueTypeId"?: string;
   /**
-   * The Jira project identifier to associate with this case project.
+   * The Jira project identifier to associate with this Work Management project.
    */
   "projectId"?: string;
 

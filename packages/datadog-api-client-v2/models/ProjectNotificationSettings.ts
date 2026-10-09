@@ -19,31 +19,31 @@ export class ProjectNotificationSettings {
    */
   "enabled"?: boolean;
   /**
-   * Whether to send a notification when a case is assigned.
+   * Whether to send a notification when a work item is assigned.
    */
   "notifyOnCaseAssignment"?: boolean;
   /**
-   * Whether to send a notification when a case is closed.
+   * Whether to send a notification when a work item is closed.
    */
   "notifyOnCaseClosed"?: boolean;
   /**
-   * Whether to send a notification when a comment is added to a case.
+   * Whether to send a notification when a comment is added to a work item.
    */
   "notifyOnCaseComment"?: boolean;
   /**
-   * Whether to send a notification when a user is mentioned in a case comment.
+   * Whether to send a notification when a user is mentioned in a work item comment.
    */
   "notifyOnCaseCommentMention"?: boolean;
   /**
-   * Whether to send a notification when a case's priority changes.
+   * Whether to send a notification when a work item's priority changes.
    */
   "notifyOnCasePriorityChange"?: boolean;
   /**
-   * Whether to send a notification when a case's status changes.
+   * Whether to send a notification when a work item's status changes.
    */
   "notifyOnCaseStatusChange"?: boolean;
   /**
-   * Whether to send a notification when a case is unassigned.
+   * Whether to send a notification when a work item is unassigned.
    */
   "notifyOnCaseUnassignment"?: boolean;
 

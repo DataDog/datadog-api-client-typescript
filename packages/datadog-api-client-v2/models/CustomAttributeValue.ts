@@ -9,7 +9,7 @@ import { CustomAttributeValuesUnion } from "./CustomAttributeValuesUnion";
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * A typed value for a custom attribute on a specific case.
+ * A typed value for a custom attribute on a specific work item.
  */
 export class CustomAttributeValue {
   /**

@@ -9,15 +9,15 @@ import { CasesResponseMeta } from "./CasesResponseMeta";
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * Response with cases
+ * Response with work items
  */
 export class CasesResponse {
   /**
-   * Cases response data
+   * Work items response data
    */
   "data"?: Array<Case>;
   /**
-   * Cases response metadata
+   * Work items response metadata
    */
   "meta"?: CasesResponseMeta;
 

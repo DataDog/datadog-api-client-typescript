@@ -7,7 +7,7 @@
 import { UnparsedObject } from "../../datadog-api-client-common/util";
 
 /**
- * JSON:API resource type for case automation rules.
+ * JSON:API resource type for work item automation rules.
  */
 
 export type CaseAutomationRuleResourceType = typeof RULE | UnparsedObject;

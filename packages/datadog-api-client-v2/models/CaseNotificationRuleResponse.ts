@@ -12,7 +12,7 @@ import { AttributeTypeMap } from "../../datadog-api-client-common/util";
  */
 export class CaseNotificationRuleResponse {
   /**
-   * A notification rule for case management
+   * A notification rule for Work Management
    */
   "data"?: CaseNotificationRule;
 
