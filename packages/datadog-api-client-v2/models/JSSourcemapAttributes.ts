@@ -27,6 +27,11 @@ export class JSSourcemapAttributes {
    */
   "createdAt": Date;
   /**
+   * The debug identifier (UUID format) that uniquely identifies this
+   * JavaScript source map. Returned for source maps indexed by debug ID.
+   */
+  "debugId"?: string;
+  /**
    * The domain associated with the source map.
    */
   "domain"?: string;
@@ -92,6 +97,10 @@ export class JSSourcemapAttributes {
       type: "Date",
       required: true,
       format: "date-time",
+    },
+    debugId: {
+      baseName: "debug_id",
+      type: "string",
     },
     domain: {
       baseName: "domain",
