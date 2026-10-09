@@ -1547,11 +1547,23 @@ import { DemVariantResponseData } from "./DemVariantResponseData";
 import { DependencyLocation } from "./DependencyLocation";
 import { Deployment } from "./Deployment";
 import { DeploymentAttributes } from "./DeploymentAttributes";
+import { DeploymentGateEvaluationAttributes } from "./DeploymentGateEvaluationAttributes";
+import { DeploymentGateEvaluationData } from "./DeploymentGateEvaluationData";
+import { DeploymentGateEvaluationListMeta } from "./DeploymentGateEvaluationListMeta";
+import { DeploymentGateEvaluationPage } from "./DeploymentGateEvaluationPage";
+import { DeploymentGateEvaluationsResponse } from "./DeploymentGateEvaluationsResponse";
 import { DeploymentGateResponse } from "./DeploymentGateResponse";
 import { DeploymentGateResponseData } from "./DeploymentGateResponseData";
 import { DeploymentGateResponseDataAttributes } from "./DeploymentGateResponseDataAttributes";
 import { DeploymentGateResponseDataAttributesCreatedBy } from "./DeploymentGateResponseDataAttributesCreatedBy";
 import { DeploymentGateResponseDataAttributesUpdatedBy } from "./DeploymentGateResponseDataAttributesUpdatedBy";
+import { DeploymentGateRuleEvaluationAttributes } from "./DeploymentGateRuleEvaluationAttributes";
+import { DeploymentGateRuleEvaluationConfiguration } from "./DeploymentGateRuleEvaluationConfiguration";
+import { DeploymentGateRuleEvaluationData } from "./DeploymentGateRuleEvaluationData";
+import { DeploymentGateRuleEvaluationsResponse } from "./DeploymentGateRuleEvaluationsResponse";
+import { DeploymentGateRuleFailureMonitor } from "./DeploymentGateRuleFailureMonitor";
+import { DeploymentGateRuleFailureNarrative } from "./DeploymentGateRuleFailureNarrative";
+import { DeploymentGateRuleFailures } from "./DeploymentGateRuleFailures";
 import { DeploymentGateRulesResponse } from "./DeploymentGateRulesResponse";
 import { DeploymentGatesEvaluationConfiguration } from "./DeploymentGatesEvaluationConfiguration";
 import { DeploymentGatesEvaluationRequest } from "./DeploymentGatesEvaluationRequest";
@@ -7197,6 +7209,9 @@ const enumsMap: { [key: string]: any[] } = {
   DemRumStepType: ["start", "stop", "step"],
   DemVariantType: ["variants"],
   DeploymentGateDataType: ["deployment_gate"],
+  DeploymentGateEvaluationDataType: ["deployment_gate_evaluation"],
+  DeploymentGateRuleEvaluationDataType: ["deployment_gate_rule_evaluation"],
+  DeploymentGateRuleEvaluationType: ["monitor", "faulty_deployment_detection"],
   DeploymentGatesEvaluationRequestDataType: [
     "deployment_gates_evaluation_request",
   ],
@@ -11906,6 +11921,11 @@ const typeMap: { [index: string]: any } = {
   DependencyLocation: DependencyLocation,
   Deployment: Deployment,
   DeploymentAttributes: DeploymentAttributes,
+  DeploymentGateEvaluationAttributes: DeploymentGateEvaluationAttributes,
+  DeploymentGateEvaluationData: DeploymentGateEvaluationData,
+  DeploymentGateEvaluationListMeta: DeploymentGateEvaluationListMeta,
+  DeploymentGateEvaluationPage: DeploymentGateEvaluationPage,
+  DeploymentGateEvaluationsResponse: DeploymentGateEvaluationsResponse,
   DeploymentGateResponse: DeploymentGateResponse,
   DeploymentGateResponseData: DeploymentGateResponseData,
   DeploymentGateResponseDataAttributes: DeploymentGateResponseDataAttributes,
@@ -11913,6 +11933,15 @@ const typeMap: { [index: string]: any } = {
     DeploymentGateResponseDataAttributesCreatedBy,
   DeploymentGateResponseDataAttributesUpdatedBy:
     DeploymentGateResponseDataAttributesUpdatedBy,
+  DeploymentGateRuleEvaluationAttributes:
+    DeploymentGateRuleEvaluationAttributes,
+  DeploymentGateRuleEvaluationConfiguration:
+    DeploymentGateRuleEvaluationConfiguration,
+  DeploymentGateRuleEvaluationData: DeploymentGateRuleEvaluationData,
+  DeploymentGateRuleEvaluationsResponse: DeploymentGateRuleEvaluationsResponse,
+  DeploymentGateRuleFailureMonitor: DeploymentGateRuleFailureMonitor,
+  DeploymentGateRuleFailureNarrative: DeploymentGateRuleFailureNarrative,
+  DeploymentGateRuleFailures: DeploymentGateRuleFailures,
   DeploymentGateRulesResponse: DeploymentGateRulesResponse,
   DeploymentGatesEvaluationConfiguration:
     DeploymentGatesEvaluationConfiguration,

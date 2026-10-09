@@ -641,7 +641,9 @@ export {
   DeploymentGatesApiGetDeploymentGateRulesRequest,
   DeploymentGatesApiGetDeploymentGatesEvaluationResultRequest,
   DeploymentGatesApiGetDeploymentRuleRequest,
+  DeploymentGatesApiListDeploymentGateEvaluationsRequest,
   DeploymentGatesApiListDeploymentGatesRequest,
+  DeploymentGatesApiListDeploymentRuleEvaluationsRequest,
   DeploymentGatesApiTriggerDeploymentGatesEvaluationRequest,
   DeploymentGatesApiUpdateDeploymentGateRequest,
   DeploymentGatesApiUpdateDeploymentRuleRequest,
@@ -4064,11 +4066,26 @@ export { DependencyLocation } from "./models/DependencyLocation";
 export { Deployment } from "./models/Deployment";
 export { DeploymentAttributes } from "./models/DeploymentAttributes";
 export { DeploymentGateDataType } from "./models/DeploymentGateDataType";
+export { DeploymentGateEvaluationAttributes } from "./models/DeploymentGateEvaluationAttributes";
+export { DeploymentGateEvaluationData } from "./models/DeploymentGateEvaluationData";
+export { DeploymentGateEvaluationDataType } from "./models/DeploymentGateEvaluationDataType";
+export { DeploymentGateEvaluationListMeta } from "./models/DeploymentGateEvaluationListMeta";
+export { DeploymentGateEvaluationPage } from "./models/DeploymentGateEvaluationPage";
+export { DeploymentGateEvaluationsResponse } from "./models/DeploymentGateEvaluationsResponse";
 export { DeploymentGateResponse } from "./models/DeploymentGateResponse";
 export { DeploymentGateResponseData } from "./models/DeploymentGateResponseData";
 export { DeploymentGateResponseDataAttributes } from "./models/DeploymentGateResponseDataAttributes";
 export { DeploymentGateResponseDataAttributesCreatedBy } from "./models/DeploymentGateResponseDataAttributesCreatedBy";
 export { DeploymentGateResponseDataAttributesUpdatedBy } from "./models/DeploymentGateResponseDataAttributesUpdatedBy";
+export { DeploymentGateRuleEvaluationAttributes } from "./models/DeploymentGateRuleEvaluationAttributes";
+export { DeploymentGateRuleEvaluationConfiguration } from "./models/DeploymentGateRuleEvaluationConfiguration";
+export { DeploymentGateRuleEvaluationData } from "./models/DeploymentGateRuleEvaluationData";
+export { DeploymentGateRuleEvaluationDataType } from "./models/DeploymentGateRuleEvaluationDataType";
+export { DeploymentGateRuleEvaluationsResponse } from "./models/DeploymentGateRuleEvaluationsResponse";
+export { DeploymentGateRuleEvaluationType } from "./models/DeploymentGateRuleEvaluationType";
+export { DeploymentGateRuleFailureMonitor } from "./models/DeploymentGateRuleFailureMonitor";
+export { DeploymentGateRuleFailureNarrative } from "./models/DeploymentGateRuleFailureNarrative";
+export { DeploymentGateRuleFailures } from "./models/DeploymentGateRuleFailures";
 export { DeploymentGateRulesResponse } from "./models/DeploymentGateRulesResponse";
 export { DeploymentGatesEvaluationConfiguration } from "./models/DeploymentGatesEvaluationConfiguration";
 export { DeploymentGatesEvaluationRequest } from "./models/DeploymentGatesEvaluationRequest";
