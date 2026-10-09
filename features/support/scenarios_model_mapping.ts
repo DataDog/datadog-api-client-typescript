@@ -14491,17 +14491,6 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             },
         "operationResponseType": "ListInterfaceTagsResponse",
     },
-    "v2.ListNetworkHealthInsights": {
-        "from": {
-            "type": "string",
-            "format": "",
-            },
-        "to": {
-            "type": "string",
-            "format": "",
-            },
-        "operationResponseType": "NetworkHealthInsightsResponse",
-    },
     "v2.GetAggregatedConnections": {
         "from": {
             "type": "number",
