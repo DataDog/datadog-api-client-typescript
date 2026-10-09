@@ -11,6 +11,10 @@ import { CreateNotificationChannelAttributes } from "./CreateNotificationChannel
 import { CreateNotificationChannelData } from "./CreateNotificationChannelData";
 import { CreateOnCallNotificationRuleRequest } from "./CreateOnCallNotificationRuleRequest";
 import { CreateOnCallNotificationRuleRequestData } from "./CreateOnCallNotificationRuleRequestData";
+import { CreateOverrideRequestAttributes } from "./CreateOverrideRequestAttributes";
+import { CreateOverrideRequestData } from "./CreateOverrideRequestData";
+import { CreateOverrideRequestRelationships } from "./CreateOverrideRequestRelationships";
+import { CreateOverridesRequest } from "./CreateOverridesRequest";
 import { CreatePhoneNotificationChannelConfig } from "./CreatePhoneNotificationChannelConfig";
 import { CreateUserNotificationChannelRequest } from "./CreateUserNotificationChannelRequest";
 import { DataRelationshipsTeams } from "./DataRelationshipsTeams";
@@ -66,6 +70,15 @@ import { OnCallNotificationRuleData } from "./OnCallNotificationRuleData";
 import { OnCallNotificationRuleRelationships } from "./OnCallNotificationRuleRelationships";
 import { OnCallNotificationRuleRequestAttributes } from "./OnCallNotificationRuleRequestAttributes";
 import { OnCallPhoneNotificationRuleSettings } from "./OnCallPhoneNotificationRuleSettings";
+import { OverrideAttributes } from "./OverrideAttributes";
+import { OverrideCreateResponse } from "./OverrideCreateResponse";
+import { OverrideData } from "./OverrideData";
+import { OverrideRelationships } from "./OverrideRelationships";
+import { OverrideRelationshipsSchedule } from "./OverrideRelationshipsSchedule";
+import { OverrideRelationshipsScheduleData } from "./OverrideRelationshipsScheduleData";
+import { OverrideRelationshipsUser } from "./OverrideRelationshipsUser";
+import { OverrideRelationshipsUserData } from "./OverrideRelationshipsUserData";
+import { Overrides } from "./Overrides";
 import { RelationshipToOrganization } from "./RelationshipToOrganization";
 import { RelationshipToOrganizationData } from "./RelationshipToOrganizationData";
 import { RelationshipToOrganizations } from "./RelationshipToOrganizations";
@@ -187,6 +200,9 @@ export const TypingInfo: ModelTypingInfo = {
     OnCallNotificationRuleType: ["notification_rules"],
     OnCallPhoneNotificationRuleMethod: ["sms", "voice"],
     OrganizationsType: ["orgs"],
+    OverrideDataType: ["overrides"],
+    OverrideRelationshipsScheduleDataType: ["schedules"],
+    OverrideRelationshipsUserDataType: ["users"],
     RolesType: ["roles"],
     RoutingRuleEscalationPolicyActionType: ["escalation_policy"],
     RoutingRuleRelationshipsPolicyDataType: ["policies"],
@@ -264,6 +280,7 @@ export const TypingInfo: ModelTypingInfo = {
       "OnCallPhoneNotificationRuleSettings",
     ],
     OnCallNotificationRulesIncluded: ["NotificationChannelData"],
+    OverrideIncluded: ["ScheduleUser"],
     RoutingRuleAction: [
       "SendSlackMessageAction",
       "SendTeamsMessageAction",
@@ -302,6 +319,10 @@ export const TypingInfo: ModelTypingInfo = {
     CreateOnCallNotificationRuleRequest: CreateOnCallNotificationRuleRequest,
     CreateOnCallNotificationRuleRequestData:
       CreateOnCallNotificationRuleRequestData,
+    CreateOverrideRequestAttributes: CreateOverrideRequestAttributes,
+    CreateOverrideRequestData: CreateOverrideRequestData,
+    CreateOverrideRequestRelationships: CreateOverrideRequestRelationships,
+    CreateOverridesRequest: CreateOverridesRequest,
     CreatePhoneNotificationChannelConfig: CreatePhoneNotificationChannelConfig,
     CreateUserNotificationChannelRequest: CreateUserNotificationChannelRequest,
     DataRelationshipsTeams: DataRelationshipsTeams,
@@ -370,6 +391,15 @@ export const TypingInfo: ModelTypingInfo = {
     OnCallNotificationRuleRequestAttributes:
       OnCallNotificationRuleRequestAttributes,
     OnCallPhoneNotificationRuleSettings: OnCallPhoneNotificationRuleSettings,
+    OverrideAttributes: OverrideAttributes,
+    OverrideCreateResponse: OverrideCreateResponse,
+    OverrideData: OverrideData,
+    OverrideRelationships: OverrideRelationships,
+    OverrideRelationshipsSchedule: OverrideRelationshipsSchedule,
+    OverrideRelationshipsScheduleData: OverrideRelationshipsScheduleData,
+    OverrideRelationshipsUser: OverrideRelationshipsUser,
+    OverrideRelationshipsUserData: OverrideRelationshipsUserData,
+    Overrides: Overrides,
     RelationshipToOrganization: RelationshipToOrganization,
     RelationshipToOrganizationData: RelationshipToOrganizationData,
     RelationshipToOrganizations: RelationshipToOrganizations,

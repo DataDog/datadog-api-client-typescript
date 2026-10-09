@@ -14791,6 +14791,59 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
     },
     operationResponseType: "Shift",
   },
+  "OnCallApi.V2.ListScheduleOverrides": {
+    scheduleId: {
+      type: "string",
+      format: "",
+    },
+    filterStart: {
+      type: "Date",
+      format: "date-time",
+    },
+    filterEnd: {
+      type: "Date",
+      format: "date-time",
+    },
+    include: {
+      type: "string",
+      format: "",
+    },
+    pageSize: {
+      type: "number",
+      format: "int64",
+    },
+    pageNumber: {
+      type: "number",
+      format: "int64",
+    },
+    operationResponseType: "Overrides",
+  },
+  "OnCallApi.V2.CreateScheduleOverrides": {
+    scheduleId: {
+      type: "string",
+      format: "",
+    },
+    include: {
+      type: "string",
+      format: "",
+    },
+    body: {
+      type: "CreateOverridesRequest",
+      format: "",
+    },
+    operationResponseType: "OverrideCreateResponse",
+  },
+  "OnCallApi.V2.DeleteScheduleOverride": {
+    scheduleId: {
+      type: "string",
+      format: "",
+    },
+    overrideId: {
+      type: "string",
+      format: "",
+    },
+    operationResponseType: "{}",
+  },
   "OnCallApi.V2.GetScheduleOnCallResponders": {
     include: {
       type: "string",
