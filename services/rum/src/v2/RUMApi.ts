@@ -40,6 +40,7 @@ import { ServiceRepositoryInfoRequest } from "./models/ServiceRepositoryInfoRequ
 import { ServiceRepositoryInfoResponse } from "./models/ServiceRepositoryInfoResponse";
 import { SourcemapFileResponse } from "./models/SourcemapFileResponse";
 import { SourcemapMapKind } from "./models/SourcemapMapKind";
+import { SourcemapSearchBy } from "./models/SourcemapSearchBy";
 import { SourcemapsResponse } from "./models/SourcemapsResponse";
 import { version } from "../version";
 
@@ -766,7 +767,9 @@ export class RUMApiRequestFactory extends BaseAPIRequestFactory {
   }
 
   public async listSourcemaps(
+    searchBy?: SourcemapSearchBy,
     mapkind?: SourcemapMapKind,
+    pageAfter?: string,
     pageSize?: number,
     pageNumber?: number,
     filterService?: Array<string>,
@@ -824,10 +827,24 @@ export class RUMApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Query Params
+    if (searchBy !== undefined) {
+      requestContext.setQueryParam(
+        "search_by",
+        serialize(searchBy, TypingInfo, "SourcemapSearchBy", ""),
+        "",
+      );
+    }
     if (mapkind !== undefined) {
       requestContext.setQueryParam(
         "mapkind",
         serialize(mapkind, TypingInfo, "SourcemapMapKind", ""),
+        "",
+      );
+    }
+    if (pageAfter !== undefined) {
+      requestContext.setQueryParam(
+        "page[after]",
+        serialize(pageAfter, TypingInfo, "string", ""),
         "",
       );
     }
@@ -946,7 +963,7 @@ export class RUMApiRequestFactory extends BaseAPIRequestFactory {
     if (filterDebugId !== undefined) {
       requestContext.setQueryParam(
         "filter[debug_id]",
-        serialize(filterDebugId, TypingInfo, "string", ""),
+        serialize(filterDebugId, TypingInfo, "string", "uuid"),
         "",
       );
     }
@@ -2377,29 +2394,49 @@ export interface RUMApiListRUMEventsRequest {
 
 export interface RUMApiListSourcemapsRequest {
   /**
+   * Set to `debug_id` to browse JavaScript source maps indexed by debug ID.
+   * Only supported for `mapkind=js`. Omit for service/version searches or a
+   * specific `filter[debug_id]` lookup. In debug-ID browse mode, service,
+   * version, and filename filters are not supported.
+   * @type SourcemapSearchBy
+   */
+  searchBy?: SourcemapSearchBy;
+  /**
    * The type of source map. Defaults to `js`.
    * @type SourcemapMapKind
    */
   mapkind?: SourcemapMapKind;
   /**
-   * The number of results to return per page. Must be at least 1.
+   * Cursor for the next page of a JavaScript listing. Use the value from
+   * `meta.page.next_cursor` and keep the same search mode and filters.
+   * Omit on the first request. Not supported for other map kinds or for
+   * a specific `filter[debug_id]` lookup without `search_by=debug_id`.
+   * @type string
+   */
+  pageAfter?: string;
+  /**
+   * The number of results per page. Defaults to 100. Must be at least 1; values above 1000 are capped at 1000.
    * @type number
    */
   pageSize?: number;
   /**
-   * The page number to retrieve, starting from 1.
+   * Legacy page number, starting from 1. Prefer `page[after]` for JavaScript
+   * listings. Not supported with `search_by=debug_id`. Other map kinds
+   * default to page 1 when pagination parameters are omitted.
    * @type number
    */
   pageNumber?: number;
   /**
    * Filter by service names (multiple values allowed). Required for
-   * `js`, `jvm`, `react`, and `flutter` map kinds.
+   * `jvm`, `react`, and `flutter` map kinds. Also required for `js` unless
+   * searching by `filter[debug_id]` or browsing with `search_by=debug_id`.
    * @type Array<string>
    */
   filterService?: Array<string>;
   /**
    * Filter by version values (multiple values allowed). Required for
-   * `js`, `jvm`, `react`, and `flutter` map kinds.
+   * `jvm`, `react`, and `flutter` map kinds. Also required for `js` unless
+   * searching by `filter[debug_id]` or browsing with `search_by=debug_id`.
    * @type Array<string>
    */
   filterVersion?: Array<string>;
@@ -2465,7 +2502,10 @@ export interface RUMApiListSourcemapsRequest {
    */
   filterFilename?: string;
   /**
-   * Filter by debug ID (single value). Supported for `react`.
+   * Filter by a single debug ID in UUID format. Supported for `js` and `react`.
+   * For `js`, a debug ID identifies exactly one source map, so the lookup returns
+   * at most one result and does not require service/version filters. For `react`,
+   * a debug ID can match multiple files, and service/version filters remain required.
    * @type string
    */
   filterDebugId?: string;
@@ -2910,7 +2950,77 @@ export class RUMApi {
   }
 
   /**
-   * Retrieves a paginated list of source maps matching the specified filter criteria.
+   * Retrieves a paginated list of source maps. Send filters as query parameters,
+   * not in a JSON request body. `mapkind` defaults to `js`.
+   *
+   * For JavaScript source maps, choose one of these searches:
+   *
+   * - **Service and version:** provide both `filter[service]` and `filter[version]`.
+   *   This searches source maps indexed by service and version.
+   * - **One debug ID:** provide `filter[debug_id]` with a UUID to look up the single
+   *   source map with that debug ID. Service and version are not required for this
+   *   JavaScript search.
+   * - **Browse debug IDs:** set `search_by=debug_id` to list source maps indexed by
+   *   debug ID without specifying an ID. Do not send service, version, or filename
+   *   filters in this mode.
+   *
+   * **Pagination:** for JavaScript listings, omit `page[after]` and `page[number]`
+   * to start at the first page. Copy `meta.page.next_cursor` into `page[after]` on
+   * the next request, keeping the same search mode and filters. Continue until
+   * `meta.page.has_more_results` is `false`. Do not decode or modify the cursor.
+   * Debug-ID browsing requires cursor pagination; `page[number]` is not supported.
+   * A specific `filter[debug_id]` lookup without `search_by=debug_id` does not support
+   * `page[after]`. Other map kinds use `page[number]`, starting at 1.
+   *
+   * **Examples:** the following commands use the US1 API host. Replace the host with
+   * the API host for your site, and the service, version, debug ID, and cursor with
+   * values from your organization. Use `--get` so curl sends the filters in the query
+   * string; `-X GET` with `--data-urlencode` sends them in the request body instead.
+   *
+   * **List by service and version**
+   *
+   * ```bash
+   * curl -sS --get "https://api.datadoghq.com/api/v2/sourcemaps/list" \
+   *   -H "Accept: application/json" \
+   *   -H "Authorization: Bearer ${DD_BEARER_TOKEN}" \
+   *   --data-urlencode "mapkind=js" \
+   *   --data-urlencode "filter[service]=my-web-service" \
+   *   --data-urlencode "filter[version]=1.0.0" \
+   *   --data-urlencode "page[size]=10"
+   * ```
+   *
+   * **Find a specific JavaScript debug ID**
+   *
+   * ```bash
+   * curl -sS --get "https://api.datadoghq.com/api/v2/sourcemaps/list" \
+   *   -H "Accept: application/json" \
+   *   -H "Authorization: Bearer ${DD_BEARER_TOKEN}" \
+   *   --data-urlencode "mapkind=js" \
+   *   --data-urlencode "filter[debug_id]=00000000-0000-4000-8000-000000000001"
+   * ```
+   *
+   * **Browse debug-ID source maps from the first page**
+   *
+   * ```bash
+   * curl -sS --get "https://api.datadoghq.com/api/v2/sourcemaps/list" \
+   *   -H "Accept: application/json" \
+   *   -H "Authorization: Bearer ${DD_BEARER_TOKEN}" \
+   *   --data-urlencode "mapkind=js" \
+   *   --data-urlencode "search_by=debug_id" \
+   *   --data-urlencode "page[size]=10"
+   * ```
+   *
+   * **Get the next page of debug-ID source maps**
+   *
+   * ```bash
+   * curl -sS --get "https://api.datadoghq.com/api/v2/sourcemaps/list" \
+   *   -H "Accept: application/json" \
+   *   -H "Authorization: Bearer ${DD_BEARER_TOKEN}" \
+   *   --data-urlencode "mapkind=js" \
+   *   --data-urlencode "search_by=debug_id" \
+   *   --data-urlencode "page[size]=10" \
+   *   --data-urlencode "page[after]=<meta.page.next_cursor>"
+   * ```
    * @param param The request object
    */
   public listSourcemaps(
@@ -2918,7 +3028,9 @@ export class RUMApi {
     options?: Configuration,
   ): Promise<ListSourcemapsResponse> {
     const requestContextPromise = this.requestFactory.listSourcemaps(
+      param.searchBy,
       param.mapkind,
+      param.pageAfter,
       param.pageSize,
       param.pageNumber,
       param.filterService,
