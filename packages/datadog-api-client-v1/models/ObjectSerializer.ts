@@ -132,6 +132,20 @@ import { HTTPLogItem } from "./HTTPLogItem";
 import { HeatMapWidgetDefinition } from "./HeatMapWidgetDefinition";
 import { HeatMapWidgetRequest } from "./HeatMapWidgetRequest";
 import { HeatMapWidgetXAxis } from "./HeatMapWidgetXAxis";
+import { HeatgridColorBin } from "./HeatgridColorBin";
+import { HeatgridColorStop } from "./HeatgridColorStop";
+import { HeatgridDiscreteCustomColor } from "./HeatgridDiscreteCustomColor";
+import { HeatgridDiscretePresetColor } from "./HeatgridDiscretePresetColor";
+import { HeatgridGradientCustomColor } from "./HeatgridGradientCustomColor";
+import { HeatgridGradientPresetColor } from "./HeatgridGradientPresetColor";
+import { HeatgridLabelColumn } from "./HeatgridLabelColumn";
+import { HeatgridLegend } from "./HeatgridLegend";
+import { HeatgridSort } from "./HeatgridSort";
+import { HeatgridSortByLabel } from "./HeatgridSortByLabel";
+import { HeatgridSortByValue } from "./HeatgridSortByValue";
+import { HeatgridWidgetDefinition } from "./HeatgridWidgetDefinition";
+import { HeatgridWidgetFormula } from "./HeatgridWidgetFormula";
+import { HeatgridWidgetRequest } from "./HeatgridWidgetRequest";
 import { Host } from "./Host";
 import { HostListResponse } from "./HostListResponse";
 import { HostMapRequest } from "./HostMapRequest";
@@ -1028,6 +1042,18 @@ const enumsMap: { [key: string]: any[] } = {
   GroupType: ["group"],
   GroupWidgetDefinitionType: ["group"],
   HeatMapWidgetDefinitionType: ["heatmap"],
+  HeatgridCustomColorSource: ["custom"],
+  HeatgridDiscreteMode: ["discrete"],
+  HeatgridGradientMode: ["gradient"],
+  HeatgridLabelColumnWidth: ["xs", "s", "m", "l", "xl"],
+  HeatgridNestingDisplay: ["flat"],
+  HeatgridPresetColorSource: ["preset"],
+  HeatgridSortAggregation: ["avg", "min", "max", "sum"],
+  HeatgridSortByLabelProperty: ["label"],
+  HeatgridSortByValueProperty: ["value"],
+  HeatgridSortOrder: ["asc", "desc"],
+  HeatgridWidgetDefinitionType: ["heatgrid"],
+  HeatgridWidgetResponseFormat: ["timeseries"],
   HostMapWidgetDefinitionRequestType: [
     "infrastructure_hostmap",
     "data_projection",
@@ -2246,6 +2272,20 @@ const typeMap: { [index: string]: any } = {
   HeatMapWidgetDefinition: HeatMapWidgetDefinition,
   HeatMapWidgetRequest: HeatMapWidgetRequest,
   HeatMapWidgetXAxis: HeatMapWidgetXAxis,
+  HeatgridColorBin: HeatgridColorBin,
+  HeatgridColorStop: HeatgridColorStop,
+  HeatgridDiscreteCustomColor: HeatgridDiscreteCustomColor,
+  HeatgridDiscretePresetColor: HeatgridDiscretePresetColor,
+  HeatgridGradientCustomColor: HeatgridGradientCustomColor,
+  HeatgridGradientPresetColor: HeatgridGradientPresetColor,
+  HeatgridLabelColumn: HeatgridLabelColumn,
+  HeatgridLegend: HeatgridLegend,
+  HeatgridSort: HeatgridSort,
+  HeatgridSortByLabel: HeatgridSortByLabel,
+  HeatgridSortByValue: HeatgridSortByValue,
+  HeatgridWidgetDefinition: HeatgridWidgetDefinition,
+  HeatgridWidgetFormula: HeatgridWidgetFormula,
+  HeatgridWidgetRequest: HeatgridWidgetRequest,
   Host: Host,
   HostListResponse: HostListResponse,
   HostMapRequest: HostMapRequest,
@@ -2988,6 +3028,14 @@ const oneOfMap: { [index: string]: string[] } = {
     "FormulaAndFunctionUserJourneyQueryDefinition",
     "FormulaAndFunctionRetentionQueryDefinition",
   ],
+  HeatgridColor: ["string", "[string, string]"],
+  HeatgridColorConfig: [
+    "HeatgridGradientCustomColor",
+    "HeatgridGradientPresetColor",
+    "HeatgridDiscreteCustomColor",
+    "HeatgridDiscretePresetColor",
+  ],
+  HeatgridSortBy: ["HeatgridSortByValue", "HeatgridSortByLabel"],
   LogsArrayMapSubProcessor: [
     "LogsArrayMapAttributeRemapper",
     "LogsArrayMapArithmeticSubProcessor",
@@ -3160,6 +3208,7 @@ const oneOfMap: { [index: string]: string[] } = {
     "ProductAnalyticsFunnelWidgetDefinition",
     "GeomapWidgetDefinition",
     "GroupWidgetDefinition",
+    "HeatgridWidgetDefinition",
     "HeatMapWidgetDefinition",
     "HostMapWidgetDefinition",
     "IFrameWidgetDefinition",

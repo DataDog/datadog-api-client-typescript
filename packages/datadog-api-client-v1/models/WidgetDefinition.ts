@@ -17,6 +17,7 @@ import { FreeTextWidgetDefinition } from "./FreeTextWidgetDefinition";
 import { FunnelWidgetDefinition } from "./FunnelWidgetDefinition";
 import { GeomapWidgetDefinition } from "./GeomapWidgetDefinition";
 import { GroupWidgetDefinition } from "./GroupWidgetDefinition";
+import { HeatgridWidgetDefinition } from "./HeatgridWidgetDefinition";
 import { HeatMapWidgetDefinition } from "./HeatMapWidgetDefinition";
 import { HostMapWidgetDefinition } from "./HostMapWidgetDefinition";
 import { IFrameWidgetDefinition } from "./IFrameWidgetDefinition";
@@ -68,6 +69,7 @@ export type WidgetDefinition =
   | ProductAnalyticsFunnelWidgetDefinition
   | GeomapWidgetDefinition
   | GroupWidgetDefinition
+  | HeatgridWidgetDefinition
   | HeatMapWidgetDefinition
   | HostMapWidgetDefinition
   | IFrameWidgetDefinition
