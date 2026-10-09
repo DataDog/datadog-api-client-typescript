@@ -12,9 +12,9 @@ import { AttributeTypeMap } from "../../datadog-api-client-common/util";
  */
 export class GovernanceControlParameterDefinition {
   /**
-   * The default value of the parameter. The JSON type depends on the parameter's `type`.
+   * The default value of the parameter. The JSON type depends on the parameter's `type`. `null` when the parameter has no default.
    */
-  "defaultValue": any;
+  "defaultValue": any | null;
   /**
    * A human-readable description of the parameter.
    */
