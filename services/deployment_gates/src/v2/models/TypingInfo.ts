@@ -7,11 +7,23 @@ import { CreateDeploymentGateParamsDataAttributes } from "./CreateDeploymentGate
 import { CreateDeploymentRuleParams } from "./CreateDeploymentRuleParams";
 import { CreateDeploymentRuleParamsData } from "./CreateDeploymentRuleParamsData";
 import { CreateDeploymentRuleParamsDataAttributes } from "./CreateDeploymentRuleParamsDataAttributes";
+import { DeploymentGateEvaluationAttributes } from "./DeploymentGateEvaluationAttributes";
+import { DeploymentGateEvaluationData } from "./DeploymentGateEvaluationData";
+import { DeploymentGateEvaluationListMeta } from "./DeploymentGateEvaluationListMeta";
+import { DeploymentGateEvaluationPage } from "./DeploymentGateEvaluationPage";
+import { DeploymentGateEvaluationsResponse } from "./DeploymentGateEvaluationsResponse";
 import { DeploymentGateResponse } from "./DeploymentGateResponse";
 import { DeploymentGateResponseData } from "./DeploymentGateResponseData";
 import { DeploymentGateResponseDataAttributes } from "./DeploymentGateResponseDataAttributes";
 import { DeploymentGateResponseDataAttributesCreatedBy } from "./DeploymentGateResponseDataAttributesCreatedBy";
 import { DeploymentGateResponseDataAttributesUpdatedBy } from "./DeploymentGateResponseDataAttributesUpdatedBy";
+import { DeploymentGateRuleEvaluationAttributes } from "./DeploymentGateRuleEvaluationAttributes";
+import { DeploymentGateRuleEvaluationConfiguration } from "./DeploymentGateRuleEvaluationConfiguration";
+import { DeploymentGateRuleEvaluationData } from "./DeploymentGateRuleEvaluationData";
+import { DeploymentGateRuleEvaluationsResponse } from "./DeploymentGateRuleEvaluationsResponse";
+import { DeploymentGateRuleFailureMonitor } from "./DeploymentGateRuleFailureMonitor";
+import { DeploymentGateRuleFailureNarrative } from "./DeploymentGateRuleFailureNarrative";
+import { DeploymentGateRuleFailures } from "./DeploymentGateRuleFailures";
 import { DeploymentGateRulesResponse } from "./DeploymentGateRulesResponse";
 import { DeploymentGatesEvaluationConfiguration } from "./DeploymentGatesEvaluationConfiguration";
 import { DeploymentGatesEvaluationRequest } from "./DeploymentGatesEvaluationRequest";
@@ -45,6 +57,9 @@ import { HTTPCDGatesNotFoundResponse } from "./HTTPCDGatesNotFoundResponse";
 import { HTTPCDRulesNotFoundResponse } from "./HTTPCDRulesNotFoundResponse";
 import { HTTPCIAppError } from "./HTTPCIAppError";
 import { HTTPCIAppErrors } from "./HTTPCIAppErrors";
+import { JSONAPIErrorItem } from "./JSONAPIErrorItem";
+import { JSONAPIErrorItemSource } from "./JSONAPIErrorItemSource";
+import { JSONAPIErrorResponse } from "./JSONAPIErrorResponse";
 import { ListDeploymentRuleResponseData } from "./ListDeploymentRuleResponseData";
 import { ListDeploymentRulesResponseDataAttributes } from "./ListDeploymentRulesResponseDataAttributes";
 import { UpdateDeploymentGateParams } from "./UpdateDeploymentGateParams";
@@ -57,6 +72,12 @@ import { UpdateDeploymentRuleParamsDataAttributes } from "./UpdateDeploymentRule
 export const TypingInfo: ModelTypingInfo = {
   enumsMap: {
     DeploymentGateDataType: ["deployment_gate"],
+    DeploymentGateEvaluationDataType: ["deployment_gate_evaluation"],
+    DeploymentGateRuleEvaluationDataType: ["deployment_gate_rule_evaluation"],
+    DeploymentGateRuleEvaluationType: [
+      "monitor",
+      "faulty_deployment_detection",
+    ],
     DeploymentGatesEvaluationRequestDataType: [
       "deployment_gates_evaluation_request",
     ],
@@ -101,6 +122,11 @@ export const TypingInfo: ModelTypingInfo = {
     CreateDeploymentRuleParamsData: CreateDeploymentRuleParamsData,
     CreateDeploymentRuleParamsDataAttributes:
       CreateDeploymentRuleParamsDataAttributes,
+    DeploymentGateEvaluationAttributes: DeploymentGateEvaluationAttributes,
+    DeploymentGateEvaluationData: DeploymentGateEvaluationData,
+    DeploymentGateEvaluationListMeta: DeploymentGateEvaluationListMeta,
+    DeploymentGateEvaluationPage: DeploymentGateEvaluationPage,
+    DeploymentGateEvaluationsResponse: DeploymentGateEvaluationsResponse,
     DeploymentGateResponse: DeploymentGateResponse,
     DeploymentGateResponseData: DeploymentGateResponseData,
     DeploymentGateResponseDataAttributes: DeploymentGateResponseDataAttributes,
@@ -108,6 +134,16 @@ export const TypingInfo: ModelTypingInfo = {
       DeploymentGateResponseDataAttributesCreatedBy,
     DeploymentGateResponseDataAttributesUpdatedBy:
       DeploymentGateResponseDataAttributesUpdatedBy,
+    DeploymentGateRuleEvaluationAttributes:
+      DeploymentGateRuleEvaluationAttributes,
+    DeploymentGateRuleEvaluationConfiguration:
+      DeploymentGateRuleEvaluationConfiguration,
+    DeploymentGateRuleEvaluationData: DeploymentGateRuleEvaluationData,
+    DeploymentGateRuleEvaluationsResponse:
+      DeploymentGateRuleEvaluationsResponse,
+    DeploymentGateRuleFailureMonitor: DeploymentGateRuleFailureMonitor,
+    DeploymentGateRuleFailureNarrative: DeploymentGateRuleFailureNarrative,
+    DeploymentGateRuleFailures: DeploymentGateRuleFailures,
     DeploymentGateRulesResponse: DeploymentGateRulesResponse,
     DeploymentGatesEvaluationConfiguration:
       DeploymentGatesEvaluationConfiguration,
@@ -151,6 +187,9 @@ export const TypingInfo: ModelTypingInfo = {
     HTTPCDRulesNotFoundResponse: HTTPCDRulesNotFoundResponse,
     HTTPCIAppError: HTTPCIAppError,
     HTTPCIAppErrors: HTTPCIAppErrors,
+    JSONAPIErrorItem: JSONAPIErrorItem,
+    JSONAPIErrorItemSource: JSONAPIErrorItemSource,
+    JSONAPIErrorResponse: JSONAPIErrorResponse,
     ListDeploymentRuleResponseData: ListDeploymentRuleResponseData,
     ListDeploymentRulesResponseDataAttributes:
       ListDeploymentRulesResponseDataAttributes,
