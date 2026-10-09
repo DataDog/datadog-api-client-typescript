@@ -1,5 +1,5 @@
 /**
- * Create a Workload Protection policy returns "OK" response
+ * Create a Workload Protection policy returns "Created" response
  */
 
 import { client, v2 } from "@datadog/datadog-api-client";
@@ -18,7 +18,7 @@ const params: v2.CSMThreatsApiCreateCSMThreatsAgentPolicyRequest = {
     data: {
       attributes: {
         description: "My agent policy",
-        enabled: true,
+        enabled: false,
         hostTagsLists: [["env:test"]],
         name: "my_agent_policy_2",
       },
