@@ -1,15 +1,19 @@
 import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
-import { GlobalOrgIdentifier } from "./GlobalOrgIdentifier";
+import { OrgGroupMembershipType } from "./OrgGroupMembershipType";
 
 /**
- * Attributes for bulk updating org group memberships.
+ * A resource identifier for an org group membership to delete.
  */
-export class OrgGroupMembershipBulkUpdateAttributes {
+export class OrgGroupMembershipBulkDeleteRequestData {
   /**
-   * List of organizations to move. Between 1 and 100 per request. Each `org_uuid` and `org_site` pair must be unique.
+   * The ID of the org group membership.
    */
-  "orgs": Array<GlobalOrgIdentifier>;
+  "id": string;
+  /**
+   * Org group memberships resource type.
+   */
+  "type": OrgGroupMembershipType;
   /**
    * A container for additional, undeclared properties.
    * This is a holder for any undeclared properties as specified with
@@ -25,9 +29,15 @@ export class OrgGroupMembershipBulkUpdateAttributes {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    orgs: {
-      baseName: "orgs",
-      type: "Array<GlobalOrgIdentifier>",
+    id: {
+      baseName: "id",
+      type: "string",
+      required: true,
+      format: "uuid",
+    },
+    type: {
+      baseName: "type",
+      type: "OrgGroupMembershipType",
       required: true,
     },
     additionalProperties: {
@@ -40,7 +50,7 @@ export class OrgGroupMembershipBulkUpdateAttributes {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-    return OrgGroupMembershipBulkUpdateAttributes.attributeTypeMap;
+    return OrgGroupMembershipBulkDeleteRequestData.attributeTypeMap;
   }
 
   public constructor() {}
