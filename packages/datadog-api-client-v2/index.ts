@@ -1277,11 +1277,14 @@ export {
 } from "./apis/OrgConnectionsApi";
 
 export {
+  OrgGroupsApiBulkDeleteOrgGroupMembershipsRequest,
   OrgGroupsApiBulkUpdateOrgGroupMembershipsRequest,
   OrgGroupsApiCreateOrgGroupRequest,
+  OrgGroupsApiCreateOrgGroupMembershipsRequest,
   OrgGroupsApiCreateOrgGroupPolicyRequest,
   OrgGroupsApiCreateOrgGroupPolicyOverrideRequest,
   OrgGroupsApiDeleteOrgGroupRequest,
+  OrgGroupsApiDeleteOrgGroupMembershipRequest,
   OrgGroupsApiDeleteOrgGroupPolicyRequest,
   OrgGroupsApiDeleteOrgGroupPolicyOverrideRequest,
   OrgGroupsApiGetOrgGroupRequest,
@@ -7338,11 +7341,17 @@ export { OrgGroupCreateRequest } from "./models/OrgGroupCreateRequest";
 export { OrgGroupData } from "./models/OrgGroupData";
 export { OrgGroupListResponse } from "./models/OrgGroupListResponse";
 export { OrgGroupMembershipAttributes } from "./models/OrgGroupMembershipAttributes";
+export { OrgGroupMembershipBulkDeleteRequest } from "./models/OrgGroupMembershipBulkDeleteRequest";
+export { OrgGroupMembershipBulkDeleteRequestData } from "./models/OrgGroupMembershipBulkDeleteRequestData";
 export { OrgGroupMembershipBulkUpdateAttributes } from "./models/OrgGroupMembershipBulkUpdateAttributes";
 export { OrgGroupMembershipBulkUpdateData } from "./models/OrgGroupMembershipBulkUpdateData";
 export { OrgGroupMembershipBulkUpdateRelationships } from "./models/OrgGroupMembershipBulkUpdateRelationships";
 export { OrgGroupMembershipBulkUpdateRequest } from "./models/OrgGroupMembershipBulkUpdateRequest";
 export { OrgGroupMembershipBulkUpdateType } from "./models/OrgGroupMembershipBulkUpdateType";
+export { OrgGroupMembershipCreateAttributes } from "./models/OrgGroupMembershipCreateAttributes";
+export { OrgGroupMembershipCreateData } from "./models/OrgGroupMembershipCreateData";
+export { OrgGroupMembershipCreateRelationships } from "./models/OrgGroupMembershipCreateRelationships";
+export { OrgGroupMembershipCreateRequest } from "./models/OrgGroupMembershipCreateRequest";
 export { OrgGroupMembershipData } from "./models/OrgGroupMembershipData";
 export { OrgGroupMembershipListResponse } from "./models/OrgGroupMembershipListResponse";
 export { OrgGroupMembershipRelationships } from "./models/OrgGroupMembershipRelationships";

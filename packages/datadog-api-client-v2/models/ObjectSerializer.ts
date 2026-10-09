@@ -4020,10 +4020,16 @@ import { OrgGroupCreateRequest } from "./OrgGroupCreateRequest";
 import { OrgGroupData } from "./OrgGroupData";
 import { OrgGroupListResponse } from "./OrgGroupListResponse";
 import { OrgGroupMembershipAttributes } from "./OrgGroupMembershipAttributes";
+import { OrgGroupMembershipBulkDeleteRequest } from "./OrgGroupMembershipBulkDeleteRequest";
+import { OrgGroupMembershipBulkDeleteRequestData } from "./OrgGroupMembershipBulkDeleteRequestData";
 import { OrgGroupMembershipBulkUpdateAttributes } from "./OrgGroupMembershipBulkUpdateAttributes";
 import { OrgGroupMembershipBulkUpdateData } from "./OrgGroupMembershipBulkUpdateData";
 import { OrgGroupMembershipBulkUpdateRelationships } from "./OrgGroupMembershipBulkUpdateRelationships";
 import { OrgGroupMembershipBulkUpdateRequest } from "./OrgGroupMembershipBulkUpdateRequest";
+import { OrgGroupMembershipCreateAttributes } from "./OrgGroupMembershipCreateAttributes";
+import { OrgGroupMembershipCreateData } from "./OrgGroupMembershipCreateData";
+import { OrgGroupMembershipCreateRelationships } from "./OrgGroupMembershipCreateRelationships";
+import { OrgGroupMembershipCreateRequest } from "./OrgGroupMembershipCreateRequest";
 import { OrgGroupMembershipData } from "./OrgGroupMembershipData";
 import { OrgGroupMembershipListResponse } from "./OrgGroupMembershipListResponse";
 import { OrgGroupMembershipRelationships } from "./OrgGroupMembershipRelationships";
@@ -15071,12 +15077,19 @@ const typeMap: { [index: string]: any } = {
   OrgGroupData: OrgGroupData,
   OrgGroupListResponse: OrgGroupListResponse,
   OrgGroupMembershipAttributes: OrgGroupMembershipAttributes,
+  OrgGroupMembershipBulkDeleteRequest: OrgGroupMembershipBulkDeleteRequest,
+  OrgGroupMembershipBulkDeleteRequestData:
+    OrgGroupMembershipBulkDeleteRequestData,
   OrgGroupMembershipBulkUpdateAttributes:
     OrgGroupMembershipBulkUpdateAttributes,
   OrgGroupMembershipBulkUpdateData: OrgGroupMembershipBulkUpdateData,
   OrgGroupMembershipBulkUpdateRelationships:
     OrgGroupMembershipBulkUpdateRelationships,
   OrgGroupMembershipBulkUpdateRequest: OrgGroupMembershipBulkUpdateRequest,
+  OrgGroupMembershipCreateAttributes: OrgGroupMembershipCreateAttributes,
+  OrgGroupMembershipCreateData: OrgGroupMembershipCreateData,
+  OrgGroupMembershipCreateRelationships: OrgGroupMembershipCreateRelationships,
+  OrgGroupMembershipCreateRequest: OrgGroupMembershipCreateRequest,
   OrgGroupMembershipData: OrgGroupMembershipData,
   OrgGroupMembershipListResponse: OrgGroupMembershipListResponse,
   OrgGroupMembershipRelationships: OrgGroupMembershipRelationships,

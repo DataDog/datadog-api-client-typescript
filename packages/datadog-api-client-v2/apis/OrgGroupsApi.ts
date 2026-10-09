@@ -20,7 +20,9 @@ import { APIErrorResponse } from "../models/APIErrorResponse";
 import { JSONAPIErrorResponse } from "../models/JSONAPIErrorResponse";
 import { OrgGroupCreateRequest } from "../models/OrgGroupCreateRequest";
 import { OrgGroupListResponse } from "../models/OrgGroupListResponse";
+import { OrgGroupMembershipBulkDeleteRequest } from "../models/OrgGroupMembershipBulkDeleteRequest";
 import { OrgGroupMembershipBulkUpdateRequest } from "../models/OrgGroupMembershipBulkUpdateRequest";
+import { OrgGroupMembershipCreateRequest } from "../models/OrgGroupMembershipCreateRequest";
 import { OrgGroupMembershipListResponse } from "../models/OrgGroupMembershipListResponse";
 import { OrgGroupMembershipResponse } from "../models/OrgGroupMembershipResponse";
 import { OrgGroupMembershipSortOption } from "../models/OrgGroupMembershipSortOption";
@@ -43,6 +45,82 @@ import { OrgGroupSortOption } from "../models/OrgGroupSortOption";
 import { OrgGroupUpdateRequest } from "../models/OrgGroupUpdateRequest";
 
 export class OrgGroupsApiRequestFactory extends BaseAPIRequestFactory {
+  public async bulkDeleteOrgGroupMemberships(
+    filterOrgGroupId: string,
+    body: OrgGroupMembershipBulkDeleteRequest,
+    _options?: Configuration
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    logger.warn("Using unstable operation 'bulkDeleteOrgGroupMemberships'");
+    if (!_config.unstableOperations["v2.bulkDeleteOrgGroupMemberships"]) {
+      throw new Error(
+        "Unstable operation 'bulkDeleteOrgGroupMemberships' is disabled"
+      );
+    }
+
+    // verify required parameter 'filterOrgGroupId' is not null or undefined
+    if (filterOrgGroupId === null || filterOrgGroupId === undefined) {
+      throw new RequiredError(
+        "filterOrgGroupId",
+        "bulkDeleteOrgGroupMemberships"
+      );
+    }
+
+    // verify required parameter 'body' is not null or undefined
+    if (body === null || body === undefined) {
+      throw new RequiredError("body", "bulkDeleteOrgGroupMemberships");
+    }
+
+    // Path Params
+    const localVarPath = "/api/v2/org_group_memberships/bulk_delete";
+
+    // Make Request Context
+    const requestContext = _config
+      .getServer("v2.OrgGroupsApi.bulkDeleteOrgGroupMemberships")
+      .makeRequestContext(localVarPath, HttpMethod.POST);
+    requestContext.setHeaderParam("Accept", "*/*");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Set IaC header
+    if (_config.isIaC) {
+      requestContext.setHeaderParam("X-Datadog-Managed-By", "iac");
+    }
+
+    // Query Params
+    if (filterOrgGroupId !== undefined) {
+      requestContext.setQueryParam(
+        "filter[org_group_id]",
+        ObjectSerializer.serialize(filterOrgGroupId, "string", "uuid"),
+        ""
+      );
+    }
+
+    // Body Params
+    const contentType = ObjectSerializer.getPreferredMediaType([
+      "application/json",
+    ]);
+    requestContext.setHeaderParam("Content-Type", contentType);
+    const serializedBody = ObjectSerializer.stringify(
+      ObjectSerializer.serialize(
+        body,
+        "OrgGroupMembershipBulkDeleteRequest",
+        ""
+      ),
+      contentType
+    );
+    requestContext.setBody(serializedBody);
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+      "AuthZ",
+    ]);
+
+    return requestContext;
+  }
+
   public async bulkUpdateOrgGroupMemberships(
     body: OrgGroupMembershipBulkUpdateRequest,
     _options?: Configuration
@@ -139,6 +217,60 @@ export class OrgGroupsApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
       ObjectSerializer.serialize(body, "OrgGroupCreateRequest", ""),
+      contentType
+    );
+    requestContext.setBody(serializedBody);
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+      "AuthZ",
+    ]);
+
+    return requestContext;
+  }
+
+  public async createOrgGroupMemberships(
+    body: OrgGroupMembershipCreateRequest,
+    _options?: Configuration
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    logger.warn("Using unstable operation 'createOrgGroupMemberships'");
+    if (!_config.unstableOperations["v2.createOrgGroupMemberships"]) {
+      throw new Error(
+        "Unstable operation 'createOrgGroupMemberships' is disabled"
+      );
+    }
+
+    // verify required parameter 'body' is not null or undefined
+    if (body === null || body === undefined) {
+      throw new RequiredError("body", "createOrgGroupMemberships");
+    }
+
+    // Path Params
+    const localVarPath = "/api/v2/org_group_memberships";
+
+    // Make Request Context
+    const requestContext = _config
+      .getServer("v2.OrgGroupsApi.createOrgGroupMemberships")
+      .makeRequestContext(localVarPath, HttpMethod.POST);
+    requestContext.setHeaderParam("Accept", "*/*");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Set IaC header
+    if (_config.isIaC) {
+      requestContext.setHeaderParam("X-Datadog-Managed-By", "iac");
+    }
+
+    // Body Params
+    const contentType = ObjectSerializer.getPreferredMediaType([
+      "application/json",
+    ]);
+    requestContext.setHeaderParam("Content-Type", contentType);
+    const serializedBody = ObjectSerializer.stringify(
+      ObjectSerializer.serialize(body, "OrgGroupMembershipCreateRequest", ""),
       contentType
     );
     requestContext.setBody(serializedBody);
@@ -295,6 +427,71 @@ export class OrgGroupsApiRequestFactory extends BaseAPIRequestFactory {
     // Set IaC header
     if (_config.isIaC) {
       requestContext.setHeaderParam("X-Datadog-Managed-By", "iac");
+    }
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+      "AuthZ",
+    ]);
+
+    return requestContext;
+  }
+
+  public async deleteOrgGroupMembership(
+    orgGroupMembershipId: string,
+    filterOrgGroupId: string,
+    _options?: Configuration
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    logger.warn("Using unstable operation 'deleteOrgGroupMembership'");
+    if (!_config.unstableOperations["v2.deleteOrgGroupMembership"]) {
+      throw new Error(
+        "Unstable operation 'deleteOrgGroupMembership' is disabled"
+      );
+    }
+
+    // verify required parameter 'orgGroupMembershipId' is not null or undefined
+    if (orgGroupMembershipId === null || orgGroupMembershipId === undefined) {
+      throw new RequiredError(
+        "orgGroupMembershipId",
+        "deleteOrgGroupMembership"
+      );
+    }
+
+    // verify required parameter 'filterOrgGroupId' is not null or undefined
+    if (filterOrgGroupId === null || filterOrgGroupId === undefined) {
+      throw new RequiredError("filterOrgGroupId", "deleteOrgGroupMembership");
+    }
+
+    // Path Params
+    const localVarPath =
+      "/api/v2/org_group_memberships/{org_group_membership_id}".replace(
+        "{org_group_membership_id}",
+        encodeURIComponent(String(orgGroupMembershipId))
+      );
+
+    // Make Request Context
+    const requestContext = _config
+      .getServer("v2.OrgGroupsApi.deleteOrgGroupMembership")
+      .makeRequestContext(localVarPath, HttpMethod.DELETE);
+    requestContext.setHeaderParam("Accept", "*/*");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Set IaC header
+    if (_config.isIaC) {
+      requestContext.setHeaderParam("X-Datadog-Managed-By", "iac");
+    }
+
+    // Query Params
+    if (filterOrgGroupId !== undefined) {
+      requestContext.setQueryParam(
+        "filter[org_group_id]",
+        ObjectSerializer.serialize(filterOrgGroupId, "string", "uuid"),
+        ""
+      );
     }
 
     // Apply auth methods
@@ -1279,6 +1476,83 @@ export class OrgGroupsApiResponseProcessor {
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
    *
+   * @params response Response returned by the server for a request to bulkDeleteOrgGroupMemberships
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async bulkDeleteOrgGroupMemberships(
+    response: ResponseContext
+  ): Promise<void> {
+    const contentType = ObjectSerializer.normalizeMediaType(
+      response.headers["content-type"]
+    );
+    if (response.httpStatusCode === 204) {
+      return;
+    }
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 401 ||
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 404
+    ) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: JSONAPIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "JSONAPIErrorResponse"
+        ) as JSONAPIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<JSONAPIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<JSONAPIErrorResponse>(
+        response.httpStatusCode,
+        body
+      );
+    }
+    if (response.httpStatusCode === 429) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: APIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "APIErrorResponse"
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      return;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"'
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
    * @params response Response returned by the server for a request to bulkUpdateOrgGroupMemberships
    * @throws ApiException if the response code was not in [200, 299]
    */
@@ -1438,6 +1712,83 @@ export class OrgGroupsApiResponseProcessor {
         ""
       ) as OrgGroupResponse;
       return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"'
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
+   * @params response Response returned by the server for a request to createOrgGroupMemberships
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async createOrgGroupMemberships(
+    response: ResponseContext
+  ): Promise<void> {
+    const contentType = ObjectSerializer.normalizeMediaType(
+      response.headers["content-type"]
+    );
+    if (response.httpStatusCode === 201) {
+      return;
+    }
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 401 ||
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 404
+    ) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: JSONAPIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "JSONAPIErrorResponse"
+        ) as JSONAPIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<JSONAPIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<JSONAPIErrorResponse>(
+        response.httpStatusCode,
+        body
+      );
+    }
+    if (response.httpStatusCode === 429) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: APIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "APIErrorResponse"
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      return;
     }
 
     const body = (await response.body.text()) || "";
@@ -1627,6 +1978,83 @@ export class OrgGroupsApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async deleteOrgGroup(response: ResponseContext): Promise<void> {
+    const contentType = ObjectSerializer.normalizeMediaType(
+      response.headers["content-type"]
+    );
+    if (response.httpStatusCode === 204) {
+      return;
+    }
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 401 ||
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 404
+    ) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: JSONAPIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "JSONAPIErrorResponse"
+        ) as JSONAPIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<JSONAPIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<JSONAPIErrorResponse>(
+        response.httpStatusCode,
+        body
+      );
+    }
+    if (response.httpStatusCode === 429) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: APIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "APIErrorResponse"
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      return;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"'
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
+   * @params response Response returned by the server for a request to deleteOrgGroupMembership
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async deleteOrgGroupMembership(
+    response: ResponseContext
+  ): Promise<void> {
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
@@ -3047,6 +3475,18 @@ export class OrgGroupsApiResponseProcessor {
   }
 }
 
+export interface OrgGroupsApiBulkDeleteOrgGroupMembershipsRequest {
+  /**
+   * The ID of the org group the memberships belong to.
+   * @type string
+   */
+  filterOrgGroupId: string;
+  /**
+   * @type OrgGroupMembershipBulkDeleteRequest
+   */
+  body: OrgGroupMembershipBulkDeleteRequest;
+}
+
 export interface OrgGroupsApiBulkUpdateOrgGroupMembershipsRequest {
   /**
    * @type OrgGroupMembershipBulkUpdateRequest
@@ -3059,6 +3499,13 @@ export interface OrgGroupsApiCreateOrgGroupRequest {
    * @type OrgGroupCreateRequest
    */
   body: OrgGroupCreateRequest;
+}
+
+export interface OrgGroupsApiCreateOrgGroupMembershipsRequest {
+  /**
+   * @type OrgGroupMembershipCreateRequest
+   */
+  body: OrgGroupMembershipCreateRequest;
 }
 
 export interface OrgGroupsApiCreateOrgGroupPolicyRequest {
@@ -3081,6 +3528,19 @@ export interface OrgGroupsApiDeleteOrgGroupRequest {
    * @type string
    */
   orgGroupId: string;
+}
+
+export interface OrgGroupsApiDeleteOrgGroupMembershipRequest {
+  /**
+   * The ID of the org group membership.
+   * @type string
+   */
+  orgGroupMembershipId: string;
+  /**
+   * The ID of the org group the memberships belong to.
+   * @type string
+   */
+  filterOrgGroupId: string;
 }
 
 export interface OrgGroupsApiDeleteOrgGroupPolicyRequest {
@@ -3312,7 +3772,32 @@ export class OrgGroupsApi {
   }
 
   /**
-   * Move a batch of organizations from one org group to another. This is an atomic operation. Maximum 100 orgs per request.
+   * Delete a batch of memberships from an org group. The memberships to delete are provided as membership resource identifiers, and the org group they belong to must be provided with `filter[org_group_id]`. Between 1 and 100 unique membership IDs may be provided per request, and the requesting organization must own the org group. Membership IDs that were already deleted, do not exist, or do not belong to the org group do not cause the request to fail.
+   * @param param The request object
+   */
+  public bulkDeleteOrgGroupMemberships(
+    param: OrgGroupsApiBulkDeleteOrgGroupMembershipsRequest,
+    options?: Configuration
+  ): Promise<void> {
+    const requestContextPromise =
+      this.requestFactory.bulkDeleteOrgGroupMemberships(
+        param.filterOrgGroupId,
+        param.body,
+        options
+      );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.bulkDeleteOrgGroupMemberships(
+            responseContext
+          );
+        });
+    });
+  }
+
+  /**
+   * Move a batch of organizations from one org group to another. This is an atomic operation. Between 1 and 100 organizations may be provided per request. Each organization must be identified by a unique `org_uuid` and `org_site` pair, and must be in the same site as the requesting organization.
    * @param param The request object
    */
   public bulkUpdateOrgGroupMemberships(
@@ -3349,6 +3834,29 @@ export class OrgGroupsApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.createOrgGroup(responseContext);
+        });
+    });
+  }
+
+  /**
+   * Add a batch of organizations to an existing org group. This is an atomic operation: either all organizations are added or none are. Between 1 and 100 organizations may be provided per request. Each organization must be identified by a unique `org_uuid` and `org_site` pair, and must be in the same site as the requesting organization. The requesting organization must own the org group.
+   * @param param The request object
+   */
+  public createOrgGroupMemberships(
+    param: OrgGroupsApiCreateOrgGroupMembershipsRequest,
+    options?: Configuration
+  ): Promise<void> {
+    const requestContextPromise = this.requestFactory.createOrgGroupMemberships(
+      param.body,
+      options
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.createOrgGroupMemberships(
+            responseContext
+          );
         });
     });
   }
@@ -3412,6 +3920,30 @@ export class OrgGroupsApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.deleteOrgGroup(responseContext);
+        });
+    });
+  }
+
+  /**
+   * Remove an organization from an org group by deleting its membership. The org group the membership belongs to must be provided with `filter[org_group_id]`, and the requesting organization must own that org group. Returns `404` if the membership does not exist, was already removed, or does not belong to the org group.
+   * @param param The request object
+   */
+  public deleteOrgGroupMembership(
+    param: OrgGroupsApiDeleteOrgGroupMembershipRequest,
+    options?: Configuration
+  ): Promise<void> {
+    const requestContextPromise = this.requestFactory.deleteOrgGroupMembership(
+      param.orgGroupMembershipId,
+      param.filterOrgGroupId,
+      options
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.deleteOrgGroupMembership(
+            responseContext
+          );
         });
     });
   }

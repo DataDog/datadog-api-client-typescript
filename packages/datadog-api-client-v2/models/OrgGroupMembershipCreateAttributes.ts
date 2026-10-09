@@ -8,11 +8,11 @@ import { GlobalOrgIdentifier } from "./GlobalOrgIdentifier";
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * Attributes for bulk updating org group memberships.
+ * Attributes for adding organizations to an org group.
  */
-export class OrgGroupMembershipBulkUpdateAttributes {
+export class OrgGroupMembershipCreateAttributes {
   /**
-   * List of organizations to move. Between 1 and 100 per request. Each `org_uuid` and `org_site` pair must be unique.
+   * List of organizations to add. Between 1 and 100 per request. Each `org_uuid` and `org_site` pair must be unique.
    */
   "orgs": Array<GlobalOrgIdentifier>;
 
@@ -47,7 +47,7 @@ export class OrgGroupMembershipBulkUpdateAttributes {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-    return OrgGroupMembershipBulkUpdateAttributes.attributeTypeMap;
+    return OrgGroupMembershipCreateAttributes.attributeTypeMap;
   }
 
   public constructor() {}
