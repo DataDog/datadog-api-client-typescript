@@ -22,6 +22,13 @@ export class UpdateFeatureFlagAttributes {
    * The name of the feature flag.
    */
   "name"?: string;
+  /**
+   * Tags associated with the feature flag. This field replaces the full set of
+   * existing tags; omit it to leave tags unchanged, or pass an empty array to
+   * clear all tags. The owning team is set by including a tag of the form
+   * `team:<team-handle>` in this array.
+   */
+  "tags"?: Array<string>;
 
   /**
    * A container for additional, undeclared properties.
@@ -50,6 +57,10 @@ export class UpdateFeatureFlagAttributes {
     name: {
       baseName: "name",
       type: "string",
+    },
+    tags: {
+      baseName: "tags",
+      type: "Array<string>",
     },
     additionalProperties: {
       baseName: "additionalProperties",
