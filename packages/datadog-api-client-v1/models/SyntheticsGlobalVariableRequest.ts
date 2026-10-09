@@ -10,7 +10,7 @@ import { SyntheticsGlobalVariableValue } from "./SyntheticsGlobalVariableValue";
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * Details of the global variable to create.
+ * Details of the global variable to create or update.
  */
 export class SyntheticsGlobalVariableRequest {
   /**
@@ -25,6 +25,13 @@ export class SyntheticsGlobalVariableRequest {
    * Unique identifier of the global variable.
    */
   "id"?: string;
+  /**
+   * Whether this global variable is a persistent email variable. Set to `true` and omit `value` when creating
+   * a persistent email variable; Datadog generates an immutable email address. When updating an existing
+   * persistent email variable, omit `value` and either keep `is_email` set to `true` or omit it.
+   * The variable cannot be converted to or from a persistent email variable.
+   */
+  "isEmail"?: boolean;
   /**
    * Determines if the global variable is a FIDO variable.
    */
@@ -82,6 +89,10 @@ export class SyntheticsGlobalVariableRequest {
     id: {
       baseName: "id",
       type: "string",
+    },
+    isEmail: {
+      baseName: "is_email",
+      type: "boolean",
     },
     isFido: {
       baseName: "is_fido",
