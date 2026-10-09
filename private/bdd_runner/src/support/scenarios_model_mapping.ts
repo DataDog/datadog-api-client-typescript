@@ -9066,6 +9066,17 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
     },
     operationResponseType: "UsageQuotaResponse",
   },
+  "UsageMeteringApi.V2.DeletePendingQuota": {
+    quotaNamespace: {
+      type: "string",
+      format: "",
+    },
+    id: {
+      type: "string",
+      format: "",
+    },
+    operationResponseType: "{}",
+  },
   "UsageMeteringApi.V2.GetUsageSummaryAvailableFields": {
     operationResponseType: "UsageSummaryAvailableFieldsResponse",
   },
