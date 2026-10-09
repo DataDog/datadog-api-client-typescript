@@ -433,6 +433,7 @@ export function createConfiguration(
       "v2.runHistoricalJob": false,
       "v2.searchSecurityMonitoringHistsignals": false,
       "v2.updateFindingsAssignee": false,
+      "v2.updateFindingsSeverity": false,
       "v2.updateSecurityFindingsAutomationDueDateRule": false,
       "v2.updateSecurityFindingsAutomationInboxRule": false,
       "v2.updateSecurityFindingsAutomationMuteRule": false,

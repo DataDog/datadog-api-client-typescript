@@ -5412,6 +5412,16 @@ import { SeverityModifierRuleSetAction } from "./SeverityModifierRuleSetAction";
 import { SeverityModifierRuleShiftAction } from "./SeverityModifierRuleShiftAction";
 import { SeverityModifierRuleUpdateRequest } from "./SeverityModifierRuleUpdateRequest";
 import { SeverityModifierRulesResponse } from "./SeverityModifierRulesResponse";
+import { SeverityOverrideClear } from "./SeverityOverrideClear";
+import { SeverityOverrideRequest } from "./SeverityOverrideRequest";
+import { SeverityOverrideRequestData } from "./SeverityOverrideRequestData";
+import { SeverityOverrideRequestDataAttributes } from "./SeverityOverrideRequestDataAttributes";
+import { SeverityOverrideRequestDataRelationships } from "./SeverityOverrideRequestDataRelationships";
+import { SeverityOverrideResponse } from "./SeverityOverrideResponse";
+import { SeverityOverrideResponseData } from "./SeverityOverrideResponseData";
+import { SeverityOverrideResponseMeta } from "./SeverityOverrideResponseMeta";
+import { SeverityOverrideResult } from "./SeverityOverrideResult";
+import { SeverityOverrideSet } from "./SeverityOverrideSet";
 import { SharedDashboardIncludedDashboard } from "./SharedDashboardIncludedDashboard";
 import { SharedDashboardIncludedDashboardAttributes } from "./SharedDashboardIncludedDashboardAttributes";
 import { SharedDashboardIncludedUser } from "./SharedDashboardIncludedUser";
@@ -9545,6 +9555,10 @@ const enumsMap: { [key: string]: any[] } = {
   SeverityModifierRuleType: ["severity_modifier_rules"],
   SeverityModifierSeverity: ["info_none", "low", "medium", "high", "critical"],
   SeverityModifierSeverityDelta: ["up_one", "down_one"],
+  SeverityOverrideClearActionType: ["clear"],
+  SeverityOverrideDataType: ["severity_override"],
+  SeverityOverrideSetActionType: ["set"],
+  SeverityOverrideValue: ["critical", "high", "medium", "low", "info"],
   SharedDashboardIncludedDashboardType: ["dashboard"],
   SharedDashboardShareType: ["open", "invite", "embed", "secure-embed"],
   SharedDashboardStatus: ["active", "paused"],
@@ -16810,6 +16824,17 @@ const typeMap: { [index: string]: any } = {
   SeverityModifierRuleShiftAction: SeverityModifierRuleShiftAction,
   SeverityModifierRuleUpdateRequest: SeverityModifierRuleUpdateRequest,
   SeverityModifierRulesResponse: SeverityModifierRulesResponse,
+  SeverityOverrideClear: SeverityOverrideClear,
+  SeverityOverrideRequest: SeverityOverrideRequest,
+  SeverityOverrideRequestData: SeverityOverrideRequestData,
+  SeverityOverrideRequestDataAttributes: SeverityOverrideRequestDataAttributes,
+  SeverityOverrideRequestDataRelationships:
+    SeverityOverrideRequestDataRelationships,
+  SeverityOverrideResponse: SeverityOverrideResponse,
+  SeverityOverrideResponseData: SeverityOverrideResponseData,
+  SeverityOverrideResponseMeta: SeverityOverrideResponseMeta,
+  SeverityOverrideResult: SeverityOverrideResult,
+  SeverityOverrideSet: SeverityOverrideSet,
   SharedDashboardIncludedDashboard: SharedDashboardIncludedDashboard,
   SharedDashboardIncludedDashboardAttributes:
     SharedDashboardIncludedDashboardAttributes,
@@ -18894,6 +18919,7 @@ const oneOfMap: { [index: string]: string[] } = {
     "SeverityModifierRuleSetAction",
     "SeverityModifierRuleShiftAction",
   ],
+  SeverityOverrideAttributes: ["SeverityOverrideSet", "SeverityOverrideClear"],
   SharedDashboardIncluded: [
     "SharedDashboardIncludedDashboard",
     "SharedDashboardIncludedUser",
