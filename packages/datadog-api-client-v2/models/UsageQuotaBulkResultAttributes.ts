@@ -7,7 +7,7 @@
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * Attributes of a usage quota bulk write result. On success, all fields except `error` are present. On failure, only `error` is present and the other fields are omitted.
+ * Attributes of a usage quota bulk write result. On success, quota fields are present as applicable, and pending fields are present only when a change is scheduled. On failure, only `error` is present and the other fields are omitted.
  */
 export class UsageQuotaBulkResultAttributes {
   /**
@@ -22,6 +22,14 @@ export class UsageQuotaBulkResultAttributes {
    * The public ID of the organization that owns the quota. Omitted if this item failed to write.
    */
   "orgPublicId"?: string;
+  /**
+   * The future UTC month when the scheduled limit takes effect, formatted as `YYYY-MM`, starting at 00:00 UTC on its first day. Present only together with `pending_usage_limit` and omitted when no change is scheduled or this item failed to write.
+   */
+  "pendingEffectiveFrom"?: string;
+  /**
+   * The usage limit scheduled for the organization-wide quota in the usage units defined by the quota namespace. A value of `0` is valid. At the start of the effective month, this value becomes `usage_limit` and both pending fields are omitted. Omitted when no change is scheduled or this item failed to write.
+   */
+  "pendingUsageLimit"?: number;
   /**
    * A namespace-specific key and value identifying what the quota applies to within an organization. The object contains exactly one entry. A value of `"*"` identifies the default quota applied to entities without a specific quota. This field is omitted for an organization-wide quota.
    */
@@ -58,6 +66,15 @@ export class UsageQuotaBulkResultAttributes {
     orgPublicId: {
       baseName: "org_public_id",
       type: "string",
+    },
+    pendingEffectiveFrom: {
+      baseName: "pending_effective_from",
+      type: "string",
+    },
+    pendingUsageLimit: {
+      baseName: "pending_usage_limit",
+      type: "number",
+      format: "double",
     },
     scope: {
       baseName: "scope",

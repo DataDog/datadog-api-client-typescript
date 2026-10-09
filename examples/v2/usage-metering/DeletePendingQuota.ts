@@ -1,5 +1,5 @@
 /**
- * Update a usage quota returns "OK" response
+ * Cancel a scheduled usage quota limit returns "No Content" response
  */
 
 import { client, v2 } from "@datadog/datadog-api-client";
@@ -11,28 +11,17 @@ const configuration = client.createConfiguration({
     },
   },
 });
-configuration.unstableOperations["v2.updateQuota"] = true;
+configuration.unstableOperations["v2.deletePendingQuota"] = true;
 const apiInstance = new v2.UsageMeteringApi(configuration);
 
-const params: v2.UsageMeteringApiUpdateQuotaRequest = {
-  body: {
-    data: {
-      attributes: {
-        enforced: false,
-        pendingUsageLimit: 50000,
-        usageLimit: 120000,
-      },
-      id: "MTIzNB9haV9jcmVkaXRzH3VzZXJfaGFuZGxlOl9fQUxMX18",
-      type: "quotas",
-    },
-  },
+const params: v2.UsageMeteringApiDeletePendingQuotaRequest = {
   quotaNamespace: "ai_credits",
   id: "MTIzNB9haV9jcmVkaXRzH3VzZXJfaGFuZGxlOl9fQUxMX18",
 };
 
 apiInstance
-  .updateQuota(params)
-  .then((data: v2.UsageQuotaResponse) => {
+  .deletePendingQuota(params)
+  .then((data: any) => {
     console.log(
       "API called successfully. Returned data: " + JSON.stringify(data)
     );

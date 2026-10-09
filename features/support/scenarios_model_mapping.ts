@@ -9041,6 +9041,17 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             },
         "operationResponseType": "UsageQuotaResponse",
     },
+    "v2.DeletePendingQuota": {
+        "quotaNamespace": {
+            "type": "string",
+            "format": "",
+            },
+        "id": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "{}",
+    },
     "v2.GetUsageSummaryAvailableFields": {
         "operationResponseType": "UsageSummaryAvailableFieldsResponse",
     },
