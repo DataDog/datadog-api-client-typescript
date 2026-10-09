@@ -4,7 +4,7 @@ import { Case3rdPartyTicketStatus } from "./Case3rdPartyTicketStatus";
 import { ServiceNowTicketResult } from "./ServiceNowTicketResult";
 
 /**
- * ServiceNow ticket attached to case
+ * ServiceNow ticket attached to work item
  */
 export class ServiceNowTicket {
   /**
@@ -12,7 +12,7 @@ export class ServiceNowTicket {
    */
   "result"?: ServiceNowTicketResult;
   /**
-   * Case status
+   * Work item status
    */
   "status"?: Case3rdPartyTicketStatus;
   /**

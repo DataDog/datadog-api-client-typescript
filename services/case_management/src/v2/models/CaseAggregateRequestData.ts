@@ -12,7 +12,7 @@ export class CaseAggregateRequestData {
    */
   "attributes": CaseAggregateRequestAttributes;
   /**
-   * JSON:API resource type for case aggregation requests.
+   * JSON:API resource type for work item aggregation requests.
    */
   "type": CaseAggregateResourceType;
   /**

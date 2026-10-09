@@ -3,7 +3,7 @@ import { AttributeTypeMap } from "@datadog/datadog-api-client";
 import { CaseCountGroupValue } from "./CaseCountGroupValue";
 
 /**
- * A facet group containing counts broken down by the distinct values of a case field (for example, status or priority).
+ * A facet group containing counts broken down by the distinct values of a work item field (for example, status or priority).
  */
 export class CaseCountGroup {
   /**

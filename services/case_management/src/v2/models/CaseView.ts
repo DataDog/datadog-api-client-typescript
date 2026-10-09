@@ -5,11 +5,11 @@ import { CaseViewRelationships } from "./CaseViewRelationships";
 import { CaseViewResourceType } from "./CaseViewResourceType";
 
 /**
- * A saved case view that provides a filtered, reusable list of cases matching a specific query. Views act as persistent dashboards for monitoring case subsets.
+ * A saved work item view that provides a filtered, reusable list of work items matching a specific query. Views act as persistent dashboards for monitoring work item subsets.
  */
 export class CaseView {
   /**
-   * Attributes of a case view, including the filter query and optional notification rule.
+   * Attributes of a work item view, including the filter query and optional notification rule.
    */
   "attributes": CaseViewAttributes;
   /**
@@ -17,11 +17,11 @@ export class CaseView {
    */
   "id": string;
   /**
-   * Related resources for the case view, including the creator, last modifier, and associated project.
+   * Related resources for the work item view, including the creator, last modifier, and associated project.
    */
   "relationships"?: CaseViewRelationships;
   /**
-   * JSON:API resource type for case views.
+   * JSON:API resource type for work item views.
    */
   "type": CaseViewResourceType;
   /**

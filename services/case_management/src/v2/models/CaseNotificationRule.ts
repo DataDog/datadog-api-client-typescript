@@ -4,7 +4,7 @@ import { CaseNotificationRuleAttributes } from "./CaseNotificationRuleAttributes
 import { CaseNotificationRuleResourceType } from "./CaseNotificationRuleResourceType";
 
 /**
- * A notification rule for case management
+ * A notification rule for Work Management
  */
 export class CaseNotificationRule {
   /**

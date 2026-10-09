@@ -1,7 +1,7 @@
 import { UnparsedObject } from "@datadog/datadog-api-client";
 
 /**
- * The case event that activates the automation rule.
+ * The work item event that activates the automation rule.
  */
 export type AutomationRuleTriggerType =
   | typeof CASE_CREATED

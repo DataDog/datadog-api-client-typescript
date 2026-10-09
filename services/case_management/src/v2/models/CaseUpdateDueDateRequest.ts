@@ -3,11 +3,11 @@ import { AttributeTypeMap } from "@datadog/datadog-api-client";
 import { CaseUpdateDueDate } from "./CaseUpdateDueDate";
 
 /**
- * Request payload for updating a case's due date.
+ * Request payload for updating a work item's due date.
  */
 export class CaseUpdateDueDateRequest {
   /**
-   * Data object for updating a case's due date.
+   * Data object for updating a work item's due date.
    */
   "data": CaseUpdateDueDate;
   /**

@@ -9,7 +9,7 @@ export class CaseAggregateGroup {
    */
   "group": string;
   /**
-   * The count of cases in this group.
+   * The count of work items in this group.
    */
   "value": Array<number>;
   /**

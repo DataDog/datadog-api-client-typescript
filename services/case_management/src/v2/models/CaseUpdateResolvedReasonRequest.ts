@@ -3,11 +3,11 @@ import { AttributeTypeMap } from "@datadog/datadog-api-client";
 import { CaseUpdateResolvedReason } from "./CaseUpdateResolvedReason";
 
 /**
- * Request payload for updating the resolution reason on a closed security case.
+ * Request payload for updating the resolution reason on a closed security work item.
  */
 export class CaseUpdateResolvedReasonRequest {
   /**
-   * Data object for updating a case's resolved reason.
+   * Data object for updating a work item's resolved reason.
    */
   "data": CaseUpdateResolvedReason;
   /**
