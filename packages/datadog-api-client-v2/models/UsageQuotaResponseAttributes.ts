@@ -19,6 +19,16 @@ export class UsageQuotaResponseAttributes {
    */
   "orgPublicId": string;
   /**
+   * The future UTC month when the scheduled limit takes effect, formatted as `YYYY-MM`, starting at 00:00 UTC on its first day. Present only together with `pending_usage_limit` and omitted when no change is scheduled.
+   */
+  "pendingEffectiveFrom"?: string;
+  /**
+   * The usage limit scheduled for the organization-wide quota in the usage units defined by the quota namespace.
+   * A value of `0` is valid. At the start of the effective month, this value becomes `usage_limit` and both pending
+   * fields are omitted. Omitted when no change is scheduled.
+   */
+  "pendingUsageLimit"?: number;
+  /**
    * A namespace-specific key and value identifying what the quota applies to within an organization. The object contains exactly one entry. A value of `"*"` identifies the default quota applied to entities without a specific quota. This field is omitted for an organization-wide quota.
    */
   "scope"?: { [key: string]: string };
@@ -52,6 +62,15 @@ export class UsageQuotaResponseAttributes {
       baseName: "org_public_id",
       type: "string",
       required: true,
+    },
+    pendingEffectiveFrom: {
+      baseName: "pending_effective_from",
+      type: "string",
+    },
+    pendingUsageLimit: {
+      baseName: "pending_usage_limit",
+      type: "number",
+      format: "double",
     },
     scope: {
       baseName: "scope",
