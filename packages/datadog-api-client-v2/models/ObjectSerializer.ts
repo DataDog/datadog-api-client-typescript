@@ -3754,6 +3754,14 @@ import { ObservabilityPipelineAmazonS3GenericEncodingParquet } from "./Observabi
 import { ObservabilityPipelineAmazonS3Source } from "./ObservabilityPipelineAmazonS3Source";
 import { ObservabilityPipelineAmazonSecurityLakeDestination } from "./ObservabilityPipelineAmazonSecurityLakeDestination";
 import { ObservabilityPipelineAwsAuth } from "./ObservabilityPipelineAwsAuth";
+import { ObservabilityPipelineAzureDataExplorerDestination } from "./ObservabilityPipelineAzureDataExplorerDestination";
+import { ObservabilityPipelineAzureDataExplorerDestinationAuthAzureCli } from "./ObservabilityPipelineAzureDataExplorerDestinationAuthAzureCli";
+import { ObservabilityPipelineAzureDataExplorerDestinationAuthClientCertificate } from "./ObservabilityPipelineAzureDataExplorerDestinationAuthClientCertificate";
+import { ObservabilityPipelineAzureDataExplorerDestinationAuthClientSecret } from "./ObservabilityPipelineAzureDataExplorerDestinationAuthClientSecret";
+import { ObservabilityPipelineAzureDataExplorerDestinationAuthManagedIdentity } from "./ObservabilityPipelineAzureDataExplorerDestinationAuthManagedIdentity";
+import { ObservabilityPipelineAzureDataExplorerDestinationAuthManagedIdentityClientAssertion } from "./ObservabilityPipelineAzureDataExplorerDestinationAuthManagedIdentityClientAssertion";
+import { ObservabilityPipelineAzureDataExplorerDestinationAuthWorkloadIdentity } from "./ObservabilityPipelineAzureDataExplorerDestinationAuthWorkloadIdentity";
+import { ObservabilityPipelineAzureDataExplorerDestinationBatch } from "./ObservabilityPipelineAzureDataExplorerDestinationBatch";
 import { ObservabilityPipelineAzureStorageDestinationCompressionGzip } from "./ObservabilityPipelineAzureStorageDestinationCompressionGzip";
 import { ObservabilityPipelineAzureStorageDestinationCompressionZstd } from "./ObservabilityPipelineAzureStorageDestinationCompressionZstd";
 import { ObservabilityPipelineClickhouseDestination } from "./ObservabilityPipelineClickhouseDestination";
@@ -8318,6 +8326,31 @@ const enumsMap: { [key: string]: any[] } = {
   ObservabilityPipelineAmazonS3SourceType: ["amazon_s3"],
   ObservabilityPipelineAmazonSecurityLakeDestinationType: [
     "amazon_security_lake",
+  ],
+  ObservabilityPipelineAzureDataExplorerDestinationAuthAzureCliKind: [
+    "azure_cli",
+  ],
+  ObservabilityPipelineAzureDataExplorerDestinationAuthClientCertificateKind: [
+    "client_certificate_credential",
+  ],
+  ObservabilityPipelineAzureDataExplorerDestinationAuthClientSecretKind: [
+    "client_secret_credential",
+  ],
+  ObservabilityPipelineAzureDataExplorerDestinationAuthManagedIdentityClientAssertionKind:
+    ["managed_identity_client_assertion"],
+  ObservabilityPipelineAzureDataExplorerDestinationAuthManagedIdentityKind: [
+    "managed_identity",
+  ],
+  ObservabilityPipelineAzureDataExplorerDestinationAuthWorkloadIdentityKind: [
+    "workload_identity",
+  ],
+  ObservabilityPipelineAzureDataExplorerDestinationManagedIdentityIdType: [
+    "client_id",
+    "object_id",
+    "resource_id",
+  ],
+  ObservabilityPipelineAzureDataExplorerDestinationType: [
+    "azure_data_explorer",
   ],
   ObservabilityPipelineAzureStorageDestinationCompressionGzipType: ["gzip"],
   ObservabilityPipelineAzureStorageDestinationCompressionZstdType: ["zstd"],
@@ -14662,6 +14695,22 @@ const typeMap: { [index: string]: any } = {
   ObservabilityPipelineAmazonSecurityLakeDestination:
     ObservabilityPipelineAmazonSecurityLakeDestination,
   ObservabilityPipelineAwsAuth: ObservabilityPipelineAwsAuth,
+  ObservabilityPipelineAzureDataExplorerDestination:
+    ObservabilityPipelineAzureDataExplorerDestination,
+  ObservabilityPipelineAzureDataExplorerDestinationAuthAzureCli:
+    ObservabilityPipelineAzureDataExplorerDestinationAuthAzureCli,
+  ObservabilityPipelineAzureDataExplorerDestinationAuthClientCertificate:
+    ObservabilityPipelineAzureDataExplorerDestinationAuthClientCertificate,
+  ObservabilityPipelineAzureDataExplorerDestinationAuthClientSecret:
+    ObservabilityPipelineAzureDataExplorerDestinationAuthClientSecret,
+  ObservabilityPipelineAzureDataExplorerDestinationAuthManagedIdentity:
+    ObservabilityPipelineAzureDataExplorerDestinationAuthManagedIdentity,
+  ObservabilityPipelineAzureDataExplorerDestinationAuthManagedIdentityClientAssertion:
+    ObservabilityPipelineAzureDataExplorerDestinationAuthManagedIdentityClientAssertion,
+  ObservabilityPipelineAzureDataExplorerDestinationAuthWorkloadIdentity:
+    ObservabilityPipelineAzureDataExplorerDestinationAuthWorkloadIdentity,
+  ObservabilityPipelineAzureDataExplorerDestinationBatch:
+    ObservabilityPipelineAzureDataExplorerDestinationBatch,
   ObservabilityPipelineAzureStorageDestinationCompressionGzip:
     ObservabilityPipelineAzureStorageDestinationCompressionGzip,
   ObservabilityPipelineAzureStorageDestinationCompressionZstd:
@@ -18596,6 +18645,14 @@ const oneOfMap: { [index: string]: string[] } = {
     "ObservabilityPipelineAmazonS3GenericEncodingJson",
     "ObservabilityPipelineAmazonS3GenericEncodingParquet",
   ],
+  ObservabilityPipelineAzureDataExplorerDestinationAuth: [
+    "ObservabilityPipelineAzureDataExplorerDestinationAuthAzureCli",
+    "ObservabilityPipelineAzureDataExplorerDestinationAuthClientSecret",
+    "ObservabilityPipelineAzureDataExplorerDestinationAuthClientCertificate",
+    "ObservabilityPipelineAzureDataExplorerDestinationAuthManagedIdentity",
+    "ObservabilityPipelineAzureDataExplorerDestinationAuthManagedIdentityClientAssertion",
+    "ObservabilityPipelineAzureDataExplorerDestinationAuthWorkloadIdentity",
+  ],
   ObservabilityPipelineAzureStorageDestinationCompression: [
     "ObservabilityPipelineAzureStorageDestinationCompressionZstd",
     "ObservabilityPipelineAzureStorageDestinationCompressionGzip",
@@ -18617,6 +18674,7 @@ const oneOfMap: { [index: string]: string[] } = {
     "ObservabilityPipelineAmazonS3GenericDestination",
     "ObservabilityPipelineAmazonSecurityLakeDestination",
     "AzureStorageDestination",
+    "ObservabilityPipelineAzureDataExplorerDestination",
     "ObservabilityPipelineClickhouseDestination",
     "ObservabilityPipelineCloudPremDestination",
     "ObservabilityPipelineCrowdStrikeNextGenSiemDestination",
