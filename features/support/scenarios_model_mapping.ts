@@ -6403,6 +6403,13 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             },
         "operationResponseType": "FindingCaseResponse",
     },
+    "v2.UpdateFindingsSeverity": {
+        "body": {
+            "type": "SeverityOverrideRequest",
+            "format": "",
+            },
+        "operationResponseType": "SeverityOverrideResponse",
+    },
     "v2.ListAssetsSBOMs": {
         "pageToken": {
             "type": "string",
