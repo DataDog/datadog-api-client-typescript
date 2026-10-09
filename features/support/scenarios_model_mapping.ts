@@ -14766,6 +14766,59 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             },
         "operationResponseType": "Shift",
     },
+    "v2.ListScheduleOverrides": {
+        "scheduleId": {
+            "type": "string",
+            "format": "",
+            },
+        "filterStart": {
+            "type": "Date",
+            "format": "date-time",
+            },
+        "filterEnd": {
+            "type": "Date",
+            "format": "date-time",
+            },
+        "include": {
+            "type": "string",
+            "format": "",
+            },
+        "pageSize": {
+            "type": "number",
+            "format": "int64",
+            },
+        "pageNumber": {
+            "type": "number",
+            "format": "int64",
+            },
+        "operationResponseType": "Overrides",
+    },
+    "v2.CreateScheduleOverrides": {
+        "scheduleId": {
+            "type": "string",
+            "format": "",
+            },
+        "include": {
+            "type": "string",
+            "format": "",
+            },
+        "body": {
+            "type": "CreateOverridesRequest",
+            "format": "",
+            },
+        "operationResponseType": "OverrideCreateResponse",
+    },
+    "v2.DeleteScheduleOverride": {
+        "scheduleId": {
+            "type": "string",
+            "format": "",
+            },
+        "overrideId": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "{}",
+    },
     "v2.GetScheduleOnCallResponders": {
         "include": {
             "type": "string",

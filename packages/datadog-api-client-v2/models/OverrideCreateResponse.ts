@@ -3,27 +3,23 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
-import { ScheduleUserAttributes } from "./ScheduleUserAttributes";
-import { ScheduleUserType } from "./ScheduleUserType";
+import { OverrideData } from "./OverrideData";
+import { OverrideIncluded } from "./OverrideIncluded";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * Represents a user object in the context of a schedule, including their `id`, type, and basic attributes.
+ * The on-call schedule overrides that were created, and any related included resources (such as users).
  */
-export class ScheduleUser {
+export class OverrideCreateResponse {
   /**
-   * Provides basic user information for a schedule, including a name and email address.
+   * The on-call schedule overrides that were created.
    */
-  "attributes"?: ScheduleUserAttributes;
+  "data": Array<OverrideData>;
   /**
-   * The unique user identifier.
+   * Related resources referenced in the overrides' relationships, such as users.
    */
-  "id": string;
-  /**
-   * Users resource type.
-   */
-  "type": ScheduleUserType;
+  "included"?: Array<OverrideIncluded>;
 
   /**
    * A container for additional, undeclared properties.
@@ -41,19 +37,14 @@ export class ScheduleUser {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    attributes: {
-      baseName: "attributes",
-      type: "ScheduleUserAttributes",
-    },
-    id: {
-      baseName: "id",
-      type: "string",
+    data: {
+      baseName: "data",
+      type: "Array<OverrideData>",
       required: true,
     },
-    type: {
-      baseName: "type",
-      type: "ScheduleUserType",
-      required: true,
+    included: {
+      baseName: "included",
+      type: "Array<OverrideIncluded>",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -65,7 +56,7 @@ export class ScheduleUser {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-    return ScheduleUser.attributeTypeMap;
+    return OverrideCreateResponse.attributeTypeMap;
   }
 
   public constructor() {}

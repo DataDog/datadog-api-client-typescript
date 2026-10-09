@@ -1092,6 +1092,10 @@ import { CreateOpenAPIResponseData } from "./CreateOpenAPIResponseData";
 import { CreateOrUpdateWidgetRequest } from "./CreateOrUpdateWidgetRequest";
 import { CreateOrUpdateWidgetRequestAttributes } from "./CreateOrUpdateWidgetRequestAttributes";
 import { CreateOrUpdateWidgetRequestData } from "./CreateOrUpdateWidgetRequestData";
+import { CreateOverrideRequestAttributes } from "./CreateOverrideRequestAttributes";
+import { CreateOverrideRequestData } from "./CreateOverrideRequestData";
+import { CreateOverrideRequestRelationships } from "./CreateOverrideRequestRelationships";
+import { CreateOverridesRequest } from "./CreateOverridesRequest";
 import { CreatePageRequest } from "./CreatePageRequest";
 import { CreatePageRequestData } from "./CreatePageRequestData";
 import { CreatePageRequestDataAttributes } from "./CreatePageRequestDataAttributes";
@@ -4094,6 +4098,15 @@ import { OutcomesResponseIncludedRuleAttributes } from "./OutcomesResponseInclud
 import { OutcomesResponseLinks } from "./OutcomesResponseLinks";
 import { OutputSchema } from "./OutputSchema";
 import { OutputSchemaParameters } from "./OutputSchemaParameters";
+import { OverrideAttributes } from "./OverrideAttributes";
+import { OverrideCreateResponse } from "./OverrideCreateResponse";
+import { OverrideData } from "./OverrideData";
+import { OverrideRelationships } from "./OverrideRelationships";
+import { OverrideRelationshipsSchedule } from "./OverrideRelationshipsSchedule";
+import { OverrideRelationshipsScheduleData } from "./OverrideRelationshipsScheduleData";
+import { OverrideRelationshipsUser } from "./OverrideRelationshipsUser";
+import { OverrideRelationshipsUserData } from "./OverrideRelationshipsUserData";
+import { Overrides } from "./Overrides";
 import { OverwriteAllocationsRequest } from "./OverwriteAllocationsRequest";
 import { OwnershipEvidenceAttributes } from "./OwnershipEvidenceAttributes";
 import { OwnershipEvidenceData } from "./OwnershipEvidenceData";
@@ -8714,6 +8727,9 @@ const enumsMap: { [key: string]: any[] } = {
     "ARRAY_BOOLEAN",
     "ARRAY_OBJECT",
   ],
+  OverrideDataType: ["overrides"],
+  OverrideRelationshipsScheduleDataType: ["schedules"],
+  OverrideRelationshipsUserDataType: ["users"],
   OwnershipConfidenceLevel: ["high", "medium", "low"],
   OwnershipEvidenceType: ["ownership_evidence"],
   OwnershipFeedbackAction: ["confirm", "reject", "correct", "persist"],
@@ -11350,6 +11366,10 @@ const typeMap: { [index: string]: any } = {
   CreateOrUpdateWidgetRequest: CreateOrUpdateWidgetRequest,
   CreateOrUpdateWidgetRequestAttributes: CreateOrUpdateWidgetRequestAttributes,
   CreateOrUpdateWidgetRequestData: CreateOrUpdateWidgetRequestData,
+  CreateOverrideRequestAttributes: CreateOverrideRequestAttributes,
+  CreateOverrideRequestData: CreateOverrideRequestData,
+  CreateOverrideRequestRelationships: CreateOverrideRequestRelationships,
+  CreateOverridesRequest: CreateOverridesRequest,
   CreatePageRequest: CreatePageRequest,
   CreatePageRequestData: CreatePageRequestData,
   CreatePageRequestDataAttributes: CreatePageRequestDataAttributes,
@@ -15151,6 +15171,15 @@ const typeMap: { [index: string]: any } = {
   OutcomesResponseLinks: OutcomesResponseLinks,
   OutputSchema: OutputSchema,
   OutputSchemaParameters: OutputSchemaParameters,
+  OverrideAttributes: OverrideAttributes,
+  OverrideCreateResponse: OverrideCreateResponse,
+  OverrideData: OverrideData,
+  OverrideRelationships: OverrideRelationships,
+  OverrideRelationshipsSchedule: OverrideRelationshipsSchedule,
+  OverrideRelationshipsScheduleData: OverrideRelationshipsScheduleData,
+  OverrideRelationshipsUser: OverrideRelationshipsUser,
+  OverrideRelationshipsUserData: OverrideRelationshipsUserData,
+  Overrides: Overrides,
   OverwriteAllocationsRequest: OverwriteAllocationsRequest,
   OwnershipEvidenceAttributes: OwnershipEvidenceAttributes,
   OwnershipEvidenceData: OwnershipEvidenceData,
@@ -18763,6 +18792,7 @@ const oneOfMap: { [index: string]: string[] } = {
   OnCallNotificationRulesIncluded: ["NotificationChannelData"],
   OpenAICredentials: ["OpenAIAPIKey"],
   OpenAICredentialsUpdate: ["OpenAIAPIKeyUpdate"],
+  OverrideIncluded: ["ScheduleUser"],
   PatchTableRequestDataAttributesFileMetadata: [
     "PatchTableRequestDataAttributesFileMetadataCloudStorage",
     "PatchTableRequestDataAttributesFileMetadataLocalFile",
