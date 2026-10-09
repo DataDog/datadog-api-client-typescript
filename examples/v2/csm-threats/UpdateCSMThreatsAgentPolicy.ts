@@ -21,7 +21,7 @@ const params: v2.CSMThreatsApiUpdateCSMThreatsAgentPolicyRequest = {
     data: {
       attributes: {
         description: "Updated agent policy",
-        enabled: true,
+        enabled: false,
         hostTagsLists: [["env:test"]],
         name: "updated_agent_policy",
       },
