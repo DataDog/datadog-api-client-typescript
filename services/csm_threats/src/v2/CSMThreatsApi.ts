@@ -1081,7 +1081,7 @@ export class CSMThreatsApiResponseProcessor {
     response: ResponseContext,
   ): Promise<CloudWorkloadSecurityAgentPolicyResponse> {
     const contentType = normalizeMediaType(response.headers["content-type"]);
-    if (response.httpStatusCode === 200) {
+    if (response.httpStatusCode === 201) {
       const body: CloudWorkloadSecurityAgentPolicyResponse = deserialize(
         parse(await response.body.text(), contentType),
         TypingInfo,
