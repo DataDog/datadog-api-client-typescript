@@ -3,7 +3,7 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
-import { MetricCustomAggregation } from "./MetricCustomAggregation";
+import { MetricCustomAggregations } from "./MetricCustomAggregations";
 import { MetricTagConfigurationMetricTypes } from "./MetricTagConfigurationMetricTypes";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
@@ -15,7 +15,7 @@ export class MetricTagConfigurationCreateAttributes {
   /**
    * Deprecated. You no longer need to configure specific time and space aggregations for Metrics Without Limits.
    */
-  "aggregations"?: Array<MetricCustomAggregation>;
+  "aggregations"?: MetricCustomAggregations;
   /**
    * When set to true, the configuration will exclude the configured tags and include any other submitted tags.
    * When set to false, the configuration will include the configured tags and exclude any other submitted tags.
@@ -54,7 +54,7 @@ export class MetricTagConfigurationCreateAttributes {
   static readonly attributeTypeMap: AttributeTypeMap = {
     aggregations: {
       baseName: "aggregations",
-      type: "Array<MetricCustomAggregation>",
+      type: "MetricCustomAggregations",
     },
     excludeTagsMode: {
       baseName: "exclude_tags_mode",
