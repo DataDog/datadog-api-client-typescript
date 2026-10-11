@@ -237,6 +237,7 @@ import { UserJourneySearchTarget } from "./UserJourneySearchTarget";
 import { ViewingPreferences } from "./ViewingPreferences";
 import { Widget } from "./Widget";
 import { WidgetAxis } from "./WidgetAxis";
+import { WidgetCalendarAlignedSpan } from "./WidgetCalendarAlignedSpan";
 import { WidgetConditionalFormat } from "./WidgetConditionalFormat";
 import { WidgetCustomLink } from "./WidgetCustomLink";
 import { WidgetEvent } from "./WidgetEvent";
@@ -633,6 +634,7 @@ export const TypingInfo: ModelTypingInfo = {
     ],
     ViewingPreferencesTheme: ["system", "light", "dark"],
     WidgetAggregator: ["avg", "last", "max", "min", "sum", "percentile"],
+    WidgetCalendarAlignedSpanType: ["daily", "weekly", "monthly", "yearly"],
     WidgetChangeType: ["absolute", "relative"],
     WidgetColorPreference: ["background", "text"],
     WidgetComparator: ["=", ">", ">=", "<", "<="],
@@ -680,6 +682,9 @@ export const TypingInfo: ModelTypingInfo = {
       "month_to_date",
       "1y",
       "alert",
+      "full_week",
+      "full_month",
+      "year_to_date",
     ],
     WidgetLiveSpanUnit: ["minute", "hour", "day", "week", "month", "year"],
     WidgetMargin: ["sm", "md", "lg", "small", "large"],
@@ -875,6 +880,7 @@ export const TypingInfo: ModelTypingInfo = {
       "WidgetLegacyLiveSpan",
       "WidgetNewLiveSpan",
       "WidgetNewFixedSpan",
+      "WidgetCalendarAlignedSpan",
     ],
     WildcardWidgetRequest: [
       "TreeMapWidgetRequest",
@@ -1146,6 +1152,7 @@ export const TypingInfo: ModelTypingInfo = {
     ViewingPreferences: ViewingPreferences,
     Widget: Widget,
     WidgetAxis: WidgetAxis,
+    WidgetCalendarAlignedSpan: WidgetCalendarAlignedSpan,
     WidgetConditionalFormat: WidgetConditionalFormat,
     WidgetCustomLink: WidgetCustomLink,
     WidgetEvent: WidgetEvent,

@@ -182,6 +182,8 @@ export { UserJourneySearchGraphFilter } from "./models/UserJourneySearchGraphFil
 export { UserJourneySearchTarget } from "./models/UserJourneySearchTarget";
 export { WidgetAggregator } from "./models/WidgetAggregator";
 export { WidgetAxis } from "./models/WidgetAxis";
+export { WidgetCalendarAlignedSpan } from "./models/WidgetCalendarAlignedSpan";
+export { WidgetCalendarAlignedSpanType } from "./models/WidgetCalendarAlignedSpanType";
 export { WidgetComparator } from "./models/WidgetComparator";
 export { WidgetConditionalFormat } from "./models/WidgetConditionalFormat";
 export { WidgetCustomLink } from "./models/WidgetCustomLink";
