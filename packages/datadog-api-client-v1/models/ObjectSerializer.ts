@@ -767,6 +767,7 @@ import { WebhooksIntegrationCustomVariableUpdateRequest } from "./WebhooksIntegr
 import { WebhooksIntegrationUpdateRequest } from "./WebhooksIntegrationUpdateRequest";
 import { Widget } from "./Widget";
 import { WidgetAxis } from "./WidgetAxis";
+import { WidgetCalendarAlignedSpan } from "./WidgetCalendarAlignedSpan";
 import { WidgetConditionalFormat } from "./WidgetConditionalFormat";
 import { WidgetCustomLink } from "./WidgetCustomLink";
 import { WidgetEvent } from "./WidgetEvent";
@@ -2004,6 +2005,7 @@ const enumsMap: { [key: string]: any[] } = {
   ViewingPreferencesTheme: ["system", "light", "dark"],
   WebhooksIntegrationEncoding: ["json", "form"],
   WidgetAggregator: ["avg", "last", "max", "min", "sum", "percentile"],
+  WidgetCalendarAlignedSpanType: ["daily", "weekly", "monthly", "yearly"],
   WidgetChangeType: ["absolute", "relative"],
   WidgetColorPreference: ["background", "text"],
   WidgetComparator: ["=", ">", ">=", "<", "<="],
@@ -2046,6 +2048,9 @@ const enumsMap: { [key: string]: any[] } = {
     "month_to_date",
     "1y",
     "alert",
+    "full_week",
+    "full_month",
+    "year_to_date",
   ],
   WidgetLiveSpanUnit: ["minute", "hour", "day", "week", "month", "year"],
   WidgetMargin: ["sm", "md", "lg", "small", "large"],
@@ -2974,6 +2979,7 @@ const typeMap: { [index: string]: any } = {
   WebhooksIntegrationUpdateRequest: WebhooksIntegrationUpdateRequest,
   Widget: Widget,
   WidgetAxis: WidgetAxis,
+  WidgetCalendarAlignedSpan: WidgetCalendarAlignedSpan,
   WidgetConditionalFormat: WidgetConditionalFormat,
   WidgetCustomLink: WidgetCustomLink,
   WidgetEvent: WidgetEvent,
@@ -3242,6 +3248,7 @@ const oneOfMap: { [index: string]: string[] } = {
     "WidgetLegacyLiveSpan",
     "WidgetNewLiveSpan",
     "WidgetNewFixedSpan",
+    "WidgetCalendarAlignedSpan",
   ],
   WildcardWidgetRequest: [
     "TreeMapWidgetRequest",
