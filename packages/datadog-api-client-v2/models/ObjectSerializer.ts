@@ -9601,6 +9601,7 @@ const enumsMap: { [key: string]: any[] } = {
     "ndk",
     "il2cpp",
   ],
+  SourcemapSearchBy: ["debug_id"],
   SpansAggregateBucketType: ["bucket"],
   SpansAggregateRequestType: ["aggregate_request"],
   SpansAggregateResponseStatus: ["done", "timeout"],
