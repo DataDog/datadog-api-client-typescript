@@ -16519,8 +16519,16 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
         "operationResponseType": "SourcemapsResponse",
     },
     "v2.ListSourcemaps": {
+        "searchBy": {
+            "type": "SourcemapSearchBy",
+            "format": "",
+            },
         "mapkind": {
             "type": "SourcemapMapKind",
+            "format": "",
+            },
+        "pageAfter": {
+            "type": "string",
             "format": "",
             },
         "pageSize": {
@@ -16589,7 +16597,7 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             },
         "filterDebugId": {
             "type": "string",
-            "format": "",
+            "format": "uuid",
             },
         "filterGnuBuildId": {
             "type": "string",

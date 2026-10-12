@@ -15,7 +15,15 @@ export class SourcemapsListMetaPage {
    */
   "hasMoreResults": boolean;
   /**
-   * Total number of source maps matching the filter criteria.
+   * Cursor for the next page of a JavaScript cursor-based listing. Pass
+   * this value as `page[after]` with the same search mode and filters.
+   * Only returned when another page is available.
+   */
+  "nextCursor"?: string;
+  /**
+   * Total number of matching source maps for legacy page-number pagination.
+   * Cursor-based listings do not compute a total; this field may be zero
+   * even when records are returned. Use `has_more_results` to continue.
    */
   "totalFilteredCount": number;
 
@@ -39,6 +47,10 @@ export class SourcemapsListMetaPage {
       baseName: "has_more_results",
       type: "boolean",
       required: true,
+    },
+    nextCursor: {
+      baseName: "next_cursor",
+      type: "string",
     },
     totalFilteredCount: {
       baseName: "total_filtered_count",
