@@ -101,6 +101,7 @@ export { SourcemapFileDataType } from "./models/SourcemapFileDataType";
 export { SourcemapFileResponse } from "./models/SourcemapFileResponse";
 export { SourcemapItem } from "./models/SourcemapItem";
 export { SourcemapMapKind } from "./models/SourcemapMapKind";
+export { SourcemapSearchBy } from "./models/SourcemapSearchBy";
 export { SourcemapsListMeta } from "./models/SourcemapsListMeta";
 export { SourcemapsListMetaPage } from "./models/SourcemapsListMetaPage";
 export { SourcemapsResponse } from "./models/SourcemapsResponse";

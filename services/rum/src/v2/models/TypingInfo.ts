@@ -117,6 +117,7 @@ export const TypingInfo: ModelTypingInfo = {
       "ndk",
       "il2cpp",
     ],
+    SourcemapSearchBy: ["debug_id"],
   },
   oneOfMap: {
     RUMAggregateBucketValue: [
