@@ -891,7 +891,7 @@ export class CSMThreatsApiResponseProcessor {
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
-    if (response.httpStatusCode === 200) {
+    if (response.httpStatusCode === 201) {
       const body: CloudWorkloadSecurityAgentPolicyResponse =
         ObjectSerializer.deserialize(
           ObjectSerializer.parse(await response.body.text(), contentType),
