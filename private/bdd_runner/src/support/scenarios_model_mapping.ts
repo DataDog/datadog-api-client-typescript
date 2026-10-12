@@ -16544,8 +16544,16 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
     operationResponseType: "SourcemapsResponse",
   },
   "RUMApi.V2.ListSourcemaps": {
+    searchBy: {
+      type: "SourcemapSearchBy",
+      format: "",
+    },
     mapkind: {
       type: "SourcemapMapKind",
+      format: "",
+    },
+    pageAfter: {
+      type: "string",
       format: "",
     },
     pageSize: {
@@ -16614,7 +16622,7 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
     },
     filterDebugId: {
       type: "string",
-      format: "",
+      format: "uuid",
     },
     filterGnuBuildId: {
       type: "string",
