@@ -1134,6 +1134,7 @@ export class NetworkDeviceMonitoringApi {
 
   /**
    * Update the tags for a device.
+   * A device supports up to 20 user tags by default. To request a higher limit for your organization, [contact Support](https://docs.datadoghq.com/help/).
    * @param param The request object
    */
   public updateDeviceUserTags(
