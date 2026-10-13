@@ -1,5 +1,11 @@
 # CHANGELOG
 
+## 0.0.1-beta.4/2026-10-13
+
+### Added
+* Mark Bits Investigation endpoints as stable [#5341](https://github.com/DataDog/datadog-api-client-typescript/pull/5341)
+* Add support for general investigations to Bits Investigations trigger API [#5157](https://github.com/DataDog/datadog-api-client-typescript/pull/5157)
+
 ## 0.0.1-beta.3/2026-09-24
 
 ### Fixed

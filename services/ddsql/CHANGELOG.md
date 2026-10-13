@@ -1,5 +1,10 @@
 # CHANGELOG
 
+## 0.0.1-beta.3/2026-10-13
+
+### Fixed
+* Document DDSQL query permissions and OAuth scope [#5241](https://github.com/DataDog/datadog-api-client-typescript/pull/5241)
+
 ## 0.0.1-beta.2/2026-09-24
 
 ### Added

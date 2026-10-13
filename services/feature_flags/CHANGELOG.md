@@ -1,5 +1,10 @@
 # CHANGELOG
 
+## 0.0.1-beta.7/2026-10-13
+
+### Added
+* Publish stable Experiments v2 APIs [#5235](https://github.com/DataDog/datadog-api-client-typescript/pull/5235)
+
 ## 0.0.1-beta.6/2026-09-24
 
 ### Added

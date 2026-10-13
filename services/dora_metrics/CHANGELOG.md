@@ -1,5 +1,13 @@
 # CHANGELOG
 
+## 0.0.1-beta.9/2026-10-13
+
+### Changed
+* Document AI Impact user activity endpoint under DORA Metrics [#5339](https://github.com/DataDog/datadog-api-client-typescript/pull/5339)
+
+### Added
+* Promote Mark a deployment as failed by version endpoint to GA [#5294](https://github.com/DataDog/datadog-api-client-typescript/pull/5294)
+
 ## 0.0.1-beta.8/2026-09-24
 
 ### Added

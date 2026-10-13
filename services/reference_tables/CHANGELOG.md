@@ -1,5 +1,12 @@
 # CHANGELOG
 
+## 0.0.1-beta.6/2026-10-13
+
+### Added
+* Increase Reference Tables Upsert/DeleteRows payload limit to 1 MiB [#5211](https://github.com/DataDog/datadog-api-client-typescript/pull/5211)
+* Document the meta object returned by Reference Tables Get rows by id [#5172](https://github.com/DataDog/datadog-api-client-typescript/pull/5172)
+* Add is_iac support to send X-Datadog-Managed-By header [#4945](https://github.com/DataDog/datadog-api-client-typescript/pull/4945)
+
 ## 0.0.1-beta.5/2026-08-12
 
 ### Changed

@@ -1,5 +1,10 @@
 # CHANGELOG
 
+## 0.0.1-beta.8/2026-10-13
+
+### Added
+* Clarify JavaScript source map listing and pagination [#5351](https://github.com/DataDog/datadog-api-client-typescript/pull/5351)
+
 ## 0.0.1-beta.7/2026-09-24
 
 ### Removed

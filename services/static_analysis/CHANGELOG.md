@@ -1,5 +1,10 @@
 # CHANGELOG
 
+## 0.0.1-beta.5/2026-10-13
+
+### Added
+* Document Supply Chain Firewall reports API [#5292](https://github.com/DataDog/datadog-api-client-typescript/pull/5292)
+
 ## 0.0.1-beta.4/2026-09-24
 
 ### Fixed

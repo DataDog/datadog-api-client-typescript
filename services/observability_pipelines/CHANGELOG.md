@@ -1,5 +1,11 @@
 # CHANGELOG
 
+## 0.0.1-beta.15/2026-10-13
+
+### Added
+* Add aggregate event-time configuration to Observability Pipelines [#5319](https://github.com/DataDog/datadog-api-client-typescript/pull/5319)
+* Add metrics enrichment table processor to Observability Pipelines [#5261](https://github.com/DataDog/datadog-api-client-typescript/pull/5261)
+
 ## 0.0.1-beta.14/2026-09-24
 
 ### Added

@@ -1,5 +1,10 @@
 # CHANGELOG
 
+## 0.0.1-beta.3/2026-10-13
+
+### Fixed
+* Document missing limitations and 409 response for org disable endpoint [#4690](https://github.com/DataDog/datadog-api-client-typescript/pull/4690)
+
 ## 0.0.1-beta.2/2026-09-24
 
 ### Added

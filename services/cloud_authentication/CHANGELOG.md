@@ -1,5 +1,10 @@
 # CHANGELOG
 
+## 0.0.1-beta.3/2026-10-13
+
+### Added
+* Extend Cloud Auth Config endpoints to support new GitHub provider [#5274](https://github.com/DataDog/datadog-api-client-typescript/pull/5274)
+
 ## 0.0.1-beta.2/2026-09-24
 
 ### Added
