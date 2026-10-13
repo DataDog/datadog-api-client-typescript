@@ -1,5 +1,10 @@
 # CHANGELOG
 
+## 0.0.1-beta.10/2026-10-13
+
+### Added
+* Document leak information on personal and service access tokens [#5230](https://github.com/DataDog/datadog-api-client-typescript/pull/5230)
+
 ## 0.0.1-beta.9/2026-09-24
 
 ### Fixed

@@ -1,5 +1,13 @@
 # CHANGELOG
 
+## 0.0.1-beta.10/2026-10-13
+
+### Added
+* Publish Cloud Cost Management cloud account listing [#5317](https://github.com/DataDog/datadog-api-client-typescript/pull/5317)
+
+### Fixed
+* CCM Recommendations API - Re-add filter request attribute and fix sort examples [#5184](https://github.com/DataDog/datadog-api-client-typescript/pull/5184)
+
 ## 0.0.1-beta.9/2026-09-24
 
 ### Fixed

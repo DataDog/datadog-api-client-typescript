@@ -1,5 +1,16 @@
 # CHANGELOG
 
+## 0.0.1-beta.17/2026-10-13
+
+### Added
+* Add endpoint to override the severity of security findings [#5335](https://github.com/DataDog/datadog-api-client-typescript/pull/5335)
+* Add compatibleVersion to security monitoring rule responses [#5289](https://github.com/DataDog/datadog-api-client-typescript/pull/5289)
+* Document recently updated entities endpoint and entity_type parameter [#5243](https://github.com/DataDog/datadog-api-client-typescript/pull/5243)
+* Document managed prompt message placeholders [#5104](https://github.com/DataDog/datadog-api-client-typescript/pull/5104)
+
+### Fixed
+* Automation pipelines require ID in updates and use different request/response schemas [#5051](https://github.com/DataDog/datadog-api-client-typescript/pull/5051)
+
 ## 0.0.1-beta.16/2026-09-24
 
 ### Fixed

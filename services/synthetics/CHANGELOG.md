@@ -1,5 +1,12 @@
 # CHANGELOG
 
+## 0.0.1-beta.13/2026-10-13
+
+### Added
+* Add bits_ai_auto_investigate to synthetics test options [#5255](https://github.com/DataDog/datadog-api-client-typescript/pull/5255)
+* Add bearer auth to endpoints that support api app key auth [#5191](https://github.com/DataDog/datadog-api-client-typescript/pull/5191)
+* Add is_iac support to send X-Datadog-Managed-By header [#4945](https://github.com/DataDog/datadog-api-client-typescript/pull/4945)
+
 ## 0.0.1-beta.12/2026-06-17
 
 ### Added

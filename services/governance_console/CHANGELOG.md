@@ -1,5 +1,10 @@
 # CHANGELOG
 
+## 0.0.1-beta.4/2026-10-13
+
+### Fixed
+* Allow null default_value in governance control parameter definitions [#5337](https://github.com/DataDog/datadog-api-client-typescript/pull/5337)
+
 ## 0.0.1-beta.3/2026-09-24
 
 ### Added

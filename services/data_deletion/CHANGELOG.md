@@ -1,5 +1,10 @@
 # CHANGELOG
 
+## 0.0.1-beta.4/2026-10-13
+
+### Added
+* Document `source` field in DataDeletionResponseItemAttributes [#5253](https://github.com/DataDog/datadog-api-client-typescript/pull/5253)
+
 ## 0.0.1-beta.3/2026-09-24
 
 ### Added

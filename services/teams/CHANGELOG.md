@@ -1,5 +1,11 @@
 # CHANGELOG
 
+## 0.0.1-beta.8/2026-10-13
+
+### Added
+* add recipient_email and servicenow to team notification rule [#5205](https://github.com/DataDog/datadog-api-client-typescript/pull/5205)
+* Add is_iac support to send X-Datadog-Managed-By header [#4945](https://github.com/DataDog/datadog-api-client-typescript/pull/4945)
+
 ## 0.0.1-beta.7/2026-05-15
 
 ### Added

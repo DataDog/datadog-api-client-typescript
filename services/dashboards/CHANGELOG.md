@@ -1,5 +1,15 @@
 # CHANGELOG
 
+## 0.0.1-beta.13/2026-10-13
+
+### Added
+* Add Heatgrid dashboard widget support [#5343](https://github.com/DataDog/datadog-api-client-typescript/pull/5343)
+* Add dashboard experience type to API responses [#5276](https://github.com/DataDog/datadog-api-client-typescript/pull/5276)
+* Add case_stream to dashboard list stream sources [#5263](https://github.com/DataDog/datadog-api-client-typescript/pull/5263)
+
+### Changed
+* Document dashboard quality scores in usage APIs [#5312](https://github.com/DataDog/datadog-api-client-typescript/pull/5312)
+
 ## 0.0.1-beta.12/2026-09-24
 
 ### Added

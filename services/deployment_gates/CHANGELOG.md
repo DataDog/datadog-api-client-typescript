@@ -1,5 +1,10 @@
 # CHANGELOG
 
+## 0.0.1-beta.6/2026-10-13
+
+### Added
+* Document public Deployment Gate and rule evaluation endpoints [#5349](https://github.com/DataDog/datadog-api-client-typescript/pull/5349)
+
 ## 0.0.1-beta.5/2026-09-24
 
 ### Added

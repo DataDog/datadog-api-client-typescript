@@ -1,5 +1,10 @@
 # CHANGELOG
 
+## 0.0.1-beta.8/2026-10-13
+
+### Fixed
+* Remove bearer token auth from the CreateEvent intake endpoint [#5329](https://github.com/DataDog/datadog-api-client-typescript/pull/5329)
+
 ## 0.0.1-beta.7/2026-09-24
 
 ### Added

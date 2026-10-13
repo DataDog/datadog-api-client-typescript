@@ -1,5 +1,10 @@
 # CHANGELOG
 
+## 0.0.1-beta.9/2026-10-13
+
+### Added
+* Add reroute_to_team action to On-Call team routing rules [#5332](https://github.com/DataDog/datadog-api-client-typescript/pull/5332)
+
 ## 0.0.1-beta.8/2026-09-24
 
 ### Added
