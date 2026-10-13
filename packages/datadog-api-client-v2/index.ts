@@ -1,9 +1,4 @@
 export {
-  AIImpactApiCreateAIImpactUserActivityRequest,
-  AIImpactApi,
-} from "./apis/AIImpactApi";
-
-export {
   APIManagementApiCreateOpenAPIRequest,
   APIManagementApiDeleteOpenAPIRequest,
   APIManagementApiGetOpenAPIRequest,
@@ -562,6 +557,7 @@ export {
 } from "./apis/DEMApi";
 
 export {
+  DORAMetricsApiCreateAIImpactUserActivityRequest,
   DORAMetricsApiCreateDORADeploymentRequest,
   DORAMetricsApiCreateDORAFailureRequest,
   DORAMetricsApiCreateDORAIncidentRequest,
