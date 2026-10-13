@@ -1795,6 +1795,7 @@ export class ProductAnalyticsApi {
           | "browser-intake-us5-datadoghq.com"
           | "browser-intake-ap1-datadoghq.com"
           | "browser-intake-ap2-datadoghq.com"
+          | "browser-intake-uk1-datadoghq.com"
           | "browser-intake-datadoghq.eu";
       }>("https://{site}", {
         site: "browser-intake-datadoghq.com",
