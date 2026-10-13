@@ -19,7 +19,7 @@ export class ScheduleUser {
   /**
    * The unique user identifier.
    */
-  "id"?: string;
+  "id": string;
   /**
    * Users resource type.
    */
@@ -48,6 +48,7 @@ export class ScheduleUser {
     id: {
       baseName: "id",
       type: "string",
+      required: true,
     },
     type: {
       baseName: "type",
