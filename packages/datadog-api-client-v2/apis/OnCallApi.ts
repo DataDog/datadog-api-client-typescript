@@ -18,6 +18,7 @@ import { ApiException } from "../../datadog-api-client-common/exception";
 
 import { APIErrorResponse } from "../models/APIErrorResponse";
 import { CreateOnCallNotificationRuleRequest } from "../models/CreateOnCallNotificationRuleRequest";
+import { CreateOverridesRequest } from "../models/CreateOverridesRequest";
 import { CreateUserNotificationChannelRequest } from "../models/CreateUserNotificationChannelRequest";
 import { EscalationPolicy } from "../models/EscalationPolicy";
 import { EscalationPolicyCreateRequest } from "../models/EscalationPolicyCreateRequest";
@@ -26,6 +27,9 @@ import { ListNotificationChannelsResponse } from "../models/ListNotificationChan
 import { ListOnCallNotificationRulesResponse } from "../models/ListOnCallNotificationRulesResponse";
 import { NotificationChannel } from "../models/NotificationChannel";
 import { OnCallNotificationRule } from "../models/OnCallNotificationRule";
+import { OverrideCreateResponse } from "../models/OverrideCreateResponse";
+import { OverrideData } from "../models/OverrideData";
+import { Overrides } from "../models/Overrides";
 import { Schedule } from "../models/Schedule";
 import { ScheduleCreateRequest } from "../models/ScheduleCreateRequest";
 import { ScheduleListItem } from "../models/ScheduleListItem";
@@ -139,6 +143,73 @@ export class OnCallApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
       ObjectSerializer.serialize(body, "ScheduleCreateRequest", ""),
+      contentType
+    );
+    requestContext.setBody(serializedBody);
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+      "AuthZ",
+    ]);
+
+    return requestContext;
+  }
+
+  public async createScheduleOverrides(
+    scheduleId: string,
+    body: CreateOverridesRequest,
+    include?: string,
+    _options?: Configuration
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    // verify required parameter 'scheduleId' is not null or undefined
+    if (scheduleId === null || scheduleId === undefined) {
+      throw new RequiredError("scheduleId", "createScheduleOverrides");
+    }
+
+    // verify required parameter 'body' is not null or undefined
+    if (body === null || body === undefined) {
+      throw new RequiredError("body", "createScheduleOverrides");
+    }
+
+    // Path Params
+    const localVarPath =
+      "/api/v2/on-call/schedules/{schedule_id}/overrides".replace(
+        "{schedule_id}",
+        encodeURIComponent(String(scheduleId))
+      );
+
+    // Make Request Context
+    const requestContext = _config
+      .getServer("v2.OnCallApi.createScheduleOverrides")
+      .makeRequestContext(localVarPath, HttpMethod.POST);
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Set IaC header
+    if (_config.isIaC) {
+      requestContext.setHeaderParam("X-Datadog-Managed-By", "iac");
+    }
+
+    // Query Params
+    if (include !== undefined) {
+      requestContext.setQueryParam(
+        "include",
+        ObjectSerializer.serialize(include, "string", ""),
+        ""
+      );
+    }
+
+    // Body Params
+    const contentType = ObjectSerializer.getPreferredMediaType([
+      "application/json",
+    ]);
+    requestContext.setHeaderParam("Content-Type", contentType);
+    const serializedBody = ObjectSerializer.stringify(
+      ObjectSerializer.serialize(body, "CreateOverridesRequest", ""),
       contentType
     );
     requestContext.setBody(serializedBody);
@@ -335,6 +406,51 @@ export class OnCallApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const requestContext = _config
       .getServer("v2.OnCallApi.deleteOnCallSchedule")
+      .makeRequestContext(localVarPath, HttpMethod.DELETE);
+    requestContext.setHeaderParam("Accept", "*/*");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Set IaC header
+    if (_config.isIaC) {
+      requestContext.setHeaderParam("X-Datadog-Managed-By", "iac");
+    }
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+      "AuthZ",
+    ]);
+
+    return requestContext;
+  }
+
+  public async deleteScheduleOverride(
+    scheduleId: string,
+    overrideId: string,
+    _options?: Configuration
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    // verify required parameter 'scheduleId' is not null or undefined
+    if (scheduleId === null || scheduleId === undefined) {
+      throw new RequiredError("scheduleId", "deleteScheduleOverride");
+    }
+
+    // verify required parameter 'overrideId' is not null or undefined
+    if (overrideId === null || overrideId === undefined) {
+      throw new RequiredError("overrideId", "deleteScheduleOverride");
+    }
+
+    // Path Params
+    const localVarPath =
+      "/api/v2/on-call/schedules/{schedule_id}/overrides/{override_id}"
+        .replace("{schedule_id}", encodeURIComponent(String(scheduleId)))
+        .replace("{override_id}", encodeURIComponent(String(overrideId)));
+
+    // Make Request Context
+    const requestContext = _config
+      .getServer("v2.OnCallApi.deleteScheduleOverride")
       .makeRequestContext(localVarPath, HttpMethod.DELETE);
     requestContext.setHeaderParam("Accept", "*/*");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -930,6 +1046,98 @@ export class OnCallApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
+  public async listScheduleOverrides(
+    scheduleId: string,
+    filterStart: Date,
+    filterEnd: Date,
+    include?: string,
+    pageSize?: number,
+    pageNumber?: number,
+    _options?: Configuration
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    // verify required parameter 'scheduleId' is not null or undefined
+    if (scheduleId === null || scheduleId === undefined) {
+      throw new RequiredError("scheduleId", "listScheduleOverrides");
+    }
+
+    // verify required parameter 'filterStart' is not null or undefined
+    if (filterStart === null || filterStart === undefined) {
+      throw new RequiredError("filterStart", "listScheduleOverrides");
+    }
+
+    // verify required parameter 'filterEnd' is not null or undefined
+    if (filterEnd === null || filterEnd === undefined) {
+      throw new RequiredError("filterEnd", "listScheduleOverrides");
+    }
+
+    // Path Params
+    const localVarPath =
+      "/api/v2/on-call/schedules/{schedule_id}/overrides".replace(
+        "{schedule_id}",
+        encodeURIComponent(String(scheduleId))
+      );
+
+    // Make Request Context
+    const requestContext = _config
+      .getServer("v2.OnCallApi.listScheduleOverrides")
+      .makeRequestContext(localVarPath, HttpMethod.GET);
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Set IaC header
+    if (_config.isIaC) {
+      requestContext.setHeaderParam("X-Datadog-Managed-By", "iac");
+    }
+
+    // Query Params
+    if (filterStart !== undefined) {
+      requestContext.setQueryParam(
+        "filter[start]",
+        ObjectSerializer.serialize(filterStart, "Date", "date-time"),
+        ""
+      );
+    }
+    if (filterEnd !== undefined) {
+      requestContext.setQueryParam(
+        "filter[end]",
+        ObjectSerializer.serialize(filterEnd, "Date", "date-time"),
+        ""
+      );
+    }
+    if (include !== undefined) {
+      requestContext.setQueryParam(
+        "include",
+        ObjectSerializer.serialize(include, "string", ""),
+        ""
+      );
+    }
+    if (pageSize !== undefined) {
+      requestContext.setQueryParam(
+        "page[size]",
+        ObjectSerializer.serialize(pageSize, "number", "int64"),
+        ""
+      );
+    }
+    if (pageNumber !== undefined) {
+      requestContext.setQueryParam(
+        "page[number]",
+        ObjectSerializer.serialize(pageNumber, "number", "int64"),
+        ""
+      );
+    }
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+      "AuthZ",
+    ]);
+
+    return requestContext;
+  }
+
   public async listUserNotificationChannels(
     userId: string,
     _options?: Configuration
@@ -1428,6 +1636,70 @@ export class OnCallApiResponseProcessor {
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
    *
+   * @params response Response returned by the server for a request to createScheduleOverrides
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async createScheduleOverrides(
+    response: ResponseContext
+  ): Promise<OverrideCreateResponse> {
+    const contentType = ObjectSerializer.normalizeMediaType(
+      response.headers["content-type"]
+    );
+    if (response.httpStatusCode === 201) {
+      const body: OverrideCreateResponse = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "OverrideCreateResponse"
+      ) as OverrideCreateResponse;
+      return body;
+    }
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 401 ||
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 404 ||
+      response.httpStatusCode === 429
+    ) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: APIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "APIErrorResponse"
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: OverrideCreateResponse = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "OverrideCreateResponse",
+        ""
+      ) as OverrideCreateResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"'
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
    * @params response Response returned by the server for a request to createUserNotificationChannel
    * @throws ApiException if the response code was not in [200, 299]
    */
@@ -1621,6 +1893,61 @@ export class OnCallApiResponseProcessor {
       return;
     }
     if (
+      response.httpStatusCode === 401 ||
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 404 ||
+      response.httpStatusCode === 429
+    ) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: APIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "APIErrorResponse"
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      return;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"'
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
+   * @params response Response returned by the server for a request to deleteScheduleOverride
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async deleteScheduleOverride(
+    response: ResponseContext
+  ): Promise<void> {
+    const contentType = ObjectSerializer.normalizeMediaType(
+      response.headers["content-type"]
+    );
+    if (response.httpStatusCode === 204) {
+      return;
+    }
+    if (
+      response.httpStatusCode === 400 ||
       response.httpStatusCode === 401 ||
       response.httpStatusCode === 403 ||
       response.httpStatusCode === 404 ||
@@ -2338,6 +2665,70 @@ export class OnCallApiResponseProcessor {
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
    *
+   * @params response Response returned by the server for a request to listScheduleOverrides
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async listScheduleOverrides(
+    response: ResponseContext
+  ): Promise<Overrides> {
+    const contentType = ObjectSerializer.normalizeMediaType(
+      response.headers["content-type"]
+    );
+    if (response.httpStatusCode === 200) {
+      const body: Overrides = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "Overrides"
+      ) as Overrides;
+      return body;
+    }
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 401 ||
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 404 ||
+      response.httpStatusCode === 429
+    ) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: APIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "APIErrorResponse"
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: Overrides = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "Overrides",
+        ""
+      ) as Overrides;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"'
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
    * @params response Response returned by the server for a request to listUserNotificationChannels
    * @throws ApiException if the response code was not in [200, 299]
    */
@@ -2741,6 +3132,23 @@ export interface OnCallApiCreateOnCallScheduleRequest {
   include?: string;
 }
 
+export interface OnCallApiCreateScheduleOverridesRequest {
+  /**
+   * The ID of the schedule.
+   * @type string
+   */
+  scheduleId: string;
+  /**
+   * @type CreateOverridesRequest
+   */
+  body: CreateOverridesRequest;
+  /**
+   * Comma-separated list of included relationships to be returned. Allowed values: `user`, `overridden_user`, `user.color`.
+   * @type string
+   */
+  include?: string;
+}
+
 export interface OnCallApiCreateUserNotificationChannelRequest {
   /**
    * The user ID
@@ -2779,6 +3187,19 @@ export interface OnCallApiDeleteOnCallScheduleRequest {
    * @type string
    */
   scheduleId: string;
+}
+
+export interface OnCallApiDeleteScheduleOverrideRequest {
+  /**
+   * The ID of the schedule.
+   * @type string
+   */
+  scheduleId: string;
+  /**
+   * The ID of the override.
+   * @type string
+   */
+  overrideId: string;
 }
 
 export interface OnCallApiDeleteUserNotificationChannelRequest {
@@ -2863,7 +3284,7 @@ export interface OnCallApiGetScheduleOnCallRespondersRequest {
    */
   filterPosition?: string;
   /**
-   * Retrieves the on-call responders at the given timestamp in RFC3339 format (for example, `2025-05-07T02:53:01Z` or `2025-05-07T02:53:01+00:00`). When using timezone offsets with `+` or `-`, ensure proper URL encoding (`+` should be encoded as `%2B`). Defaults to the current time if omitted.
+   * Retrieves the on-call responders at the given timestamp in RFC3339 format (for example, `2025-05-07T02:53:01Z` or `2025-05-07T02:53:01+00:00`). If you use a time zone offset with `+`, URL-encode the `+` as `%2B`. Defaults to the current time if omitted.
    * @type string
    */
   filterAtTs?: string;
@@ -2881,7 +3302,7 @@ export interface OnCallApiGetScheduleOnCallUserRequest {
    */
   include?: string;
   /**
-   * Retrieves the on-call user at the given timestamp in RFC3339 format (for example, `2025-05-07T02:53:01Z` or `2025-05-07T02:53:01+00:00`). When using timezone offsets with `+` or `-`, ensure proper URL encoding (`+` should be encoded as `%2B`). Defaults to the current time if omitted.
+   * Retrieves the on-call user at the given timestamp in RFC3339 format (for example, `2025-05-07T02:53:01Z` or `2025-05-07T02:53:01+00:00`). If you use a time zone offset with `+`, URL-encode the `+` as `%2B`. Defaults to the current time if omitted.
    * @type string
    */
   filterAtTs?: string;
@@ -2952,6 +3373,39 @@ export interface OnCallApiListOnCallSchedulesRequest {
    * @type string
    */
   include?: string;
+}
+
+export interface OnCallApiListScheduleOverridesRequest {
+  /**
+   * The ID of the schedule.
+   * @type string
+   */
+  scheduleId: string;
+  /**
+   * Start of the time range to retrieve overrides for, in RFC3339 format (for example, `2025-05-07T02:53:01Z` or `2025-05-07T02:53:01+00:00`). If you use a time zone offset with `+`, URL-encode the `+` as `%2B`.
+   * @type Date
+   */
+  filterStart: Date;
+  /**
+   * End of the time range to retrieve overrides for, in RFC3339 format (for example, `2025-05-07T02:53:01Z` or `2025-05-07T02:53:01+00:00`). If you use a time zone offset with `+`, URL-encode the `+` as `%2B`. The time range cannot exceed 45 days.
+   * @type Date
+   */
+  filterEnd: Date;
+  /**
+   * Comma-separated list of related resources to include in the response. Allowed values: `user`, `overridden_user`, `user.color`.
+   * @type string
+   */
+  include?: string;
+  /**
+   * Number of overrides to return per page. The maximum allowed value is 50.
+   * @type number
+   */
+  pageSize?: number;
+  /**
+   * Specific page number to return.
+   * @type number
+   */
+  pageNumber?: number;
 }
 
 export interface OnCallApiListUserNotificationChannelsRequest {
@@ -3113,6 +3567,31 @@ export class OnCallApi {
   }
 
   /**
+   * Create one or more overrides for the specified On-Call schedule.
+   * @param param The request object
+   */
+  public createScheduleOverrides(
+    param: OnCallApiCreateScheduleOverridesRequest,
+    options?: Configuration
+  ): Promise<OverrideCreateResponse> {
+    const requestContextPromise = this.requestFactory.createScheduleOverrides(
+      param.scheduleId,
+      param.body,
+      param.include,
+      options
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.createScheduleOverrides(
+            responseContext
+          );
+        });
+    });
+  }
+
+  /**
    * Create a new notification channel for a user. The authenticated user must be the target user or have the `on_call_admin` permission
    * @param param The request object
    */
@@ -3200,6 +3679,28 @@ export class OnCallApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.deleteOnCallSchedule(responseContext);
+        });
+    });
+  }
+
+  /**
+   * Delete an override from the specified On-Call schedule.
+   * @param param The request object
+   */
+  public deleteScheduleOverride(
+    param: OnCallApiDeleteScheduleOverrideRequest,
+    options?: Configuration
+  ): Promise<void> {
+    const requestContextPromise = this.requestFactory.deleteScheduleOverride(
+      param.scheduleId,
+      param.overrideId,
+      options
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.deleteScheduleOverride(responseContext);
         });
     });
   }
@@ -3496,6 +3997,77 @@ export class OnCallApi {
       );
 
       const response = await this.responseProcessor.listOnCallSchedules(
+        responseContext
+      );
+      const responseData = response.data;
+      if (responseData === undefined) {
+        break;
+      }
+      const results = responseData;
+      for (const item of results) {
+        yield item;
+      }
+      if (results.length < pageSize) {
+        break;
+      }
+      param.pageNumber = param.pageNumber + 1;
+    }
+  }
+
+  /**
+   * Retrieve a list of overrides for the specified On-Call schedule within a given time range.
+   * @param param The request object
+   */
+  public listScheduleOverrides(
+    param: OnCallApiListScheduleOverridesRequest,
+    options?: Configuration
+  ): Promise<Overrides> {
+    const requestContextPromise = this.requestFactory.listScheduleOverrides(
+      param.scheduleId,
+      param.filterStart,
+      param.filterEnd,
+      param.include,
+      param.pageSize,
+      param.pageNumber,
+      options
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.listScheduleOverrides(responseContext);
+        });
+    });
+  }
+
+  /**
+   * Provide a paginated version of listScheduleOverrides returning a generator with all the items.
+   */
+  public async *listScheduleOverridesWithPagination(
+    param: OnCallApiListScheduleOverridesRequest,
+    options?: Configuration
+  ): AsyncGenerator<OverrideData> {
+    let pageSize = 10;
+    if (param.pageSize !== undefined) {
+      pageSize = param.pageSize;
+    }
+    param.pageSize = pageSize;
+    param.pageNumber = 0;
+    while (true) {
+      const requestContext = await this.requestFactory.listScheduleOverrides(
+        param.scheduleId,
+        param.filterStart,
+        param.filterEnd,
+        param.include,
+        param.pageSize,
+        param.pageNumber,
+        options
+      );
+      const responseContext = await this.configuration.httpApi.send(
+        requestContext
+      );
+
+      const response = await this.responseProcessor.listScheduleOverrides(
         responseContext
       );
       const responseData = response.data;
