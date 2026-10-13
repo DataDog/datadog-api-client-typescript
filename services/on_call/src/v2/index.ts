@@ -1,10 +1,12 @@
 export {
   OnCallApiCreateOnCallEscalationPolicyRequest,
   OnCallApiCreateOnCallScheduleRequest,
+  OnCallApiCreateScheduleOverridesRequest,
   OnCallApiCreateUserNotificationChannelRequest,
   OnCallApiCreateUserNotificationRuleRequest,
   OnCallApiDeleteOnCallEscalationPolicyRequest,
   OnCallApiDeleteOnCallScheduleRequest,
+  OnCallApiDeleteScheduleOverrideRequest,
   OnCallApiDeleteUserNotificationChannelRequest,
   OnCallApiDeleteUserNotificationRuleRequest,
   OnCallApiGetOnCallEscalationPolicyRequest,
@@ -16,6 +18,7 @@ export {
   OnCallApiGetUserNotificationChannelRequest,
   OnCallApiGetUserNotificationRuleRequest,
   OnCallApiListOnCallSchedulesRequest,
+  OnCallApiListScheduleOverridesRequest,
   OnCallApiListUserNotificationChannelsRequest,
   OnCallApiListUserNotificationRulesRequest,
   OnCallApiSetOnCallTeamRoutingRulesRequest,
@@ -38,6 +41,10 @@ export { CreateNotificationChannelConfig } from "./models/CreateNotificationChan
 export { CreateNotificationChannelData } from "./models/CreateNotificationChannelData";
 export { CreateOnCallNotificationRuleRequest } from "./models/CreateOnCallNotificationRuleRequest";
 export { CreateOnCallNotificationRuleRequestData } from "./models/CreateOnCallNotificationRuleRequestData";
+export { CreateOverrideRequestAttributes } from "./models/CreateOverrideRequestAttributes";
+export { CreateOverrideRequestData } from "./models/CreateOverrideRequestData";
+export { CreateOverrideRequestRelationships } from "./models/CreateOverrideRequestRelationships";
+export { CreateOverridesRequest } from "./models/CreateOverridesRequest";
 export { CreatePhoneNotificationChannelConfig } from "./models/CreatePhoneNotificationChannelConfig";
 export { CreateUserNotificationChannelRequest } from "./models/CreateUserNotificationChannelRequest";
 export { DataRelationshipsTeams } from "./models/DataRelationshipsTeams";
@@ -120,6 +127,19 @@ export { OnCallNotificationRuleType } from "./models/OnCallNotificationRuleType"
 export { OnCallPhoneNotificationRuleMethod } from "./models/OnCallPhoneNotificationRuleMethod";
 export { OnCallPhoneNotificationRuleSettings } from "./models/OnCallPhoneNotificationRuleSettings";
 export { OrganizationsType } from "./models/OrganizationsType";
+export { OverrideAttributes } from "./models/OverrideAttributes";
+export { OverrideCreateResponse } from "./models/OverrideCreateResponse";
+export { OverrideData } from "./models/OverrideData";
+export { OverrideDataType } from "./models/OverrideDataType";
+export { OverrideIncluded } from "./models/OverrideIncluded";
+export { OverrideRelationships } from "./models/OverrideRelationships";
+export { OverrideRelationshipsSchedule } from "./models/OverrideRelationshipsSchedule";
+export { OverrideRelationshipsScheduleData } from "./models/OverrideRelationshipsScheduleData";
+export { OverrideRelationshipsScheduleDataType } from "./models/OverrideRelationshipsScheduleDataType";
+export { OverrideRelationshipsUser } from "./models/OverrideRelationshipsUser";
+export { OverrideRelationshipsUserData } from "./models/OverrideRelationshipsUserData";
+export { OverrideRelationshipsUserDataType } from "./models/OverrideRelationshipsUserDataType";
+export { Overrides } from "./models/Overrides";
 export { RelationshipToOrganization } from "./models/RelationshipToOrganization";
 export { RelationshipToOrganizationData } from "./models/RelationshipToOrganizationData";
 export { RelationshipToOrganizations } from "./models/RelationshipToOrganizations";
