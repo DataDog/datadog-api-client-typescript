@@ -7,7 +7,7 @@
 import { UnparsedObject } from "../../datadog-api-client-common/util";
 
 /**
- * Case field that can be sorted on
+ * Work item field that can be sorted on
  */
 
 export type CaseSortableField =

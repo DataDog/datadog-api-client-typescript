@@ -19,7 +19,7 @@ export class AutomationRuleTriggerData {
    */
   "changeType"?: string;
   /**
-   * The case attribute field name to monitor for changes. Used with `ATTRIBUTE_VALUE_CHANGED` triggers.
+   * The work item attribute field name to monitor for changes. Used with `ATTRIBUTE_VALUE_CHANGED` triggers.
    */
   "field"?: string;
   /**

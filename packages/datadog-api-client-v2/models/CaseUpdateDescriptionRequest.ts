@@ -8,11 +8,11 @@ import { CaseUpdateDescription } from "./CaseUpdateDescription";
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * Case update description request
+ * Work item update description request
  */
 export class CaseUpdateDescriptionRequest {
   /**
-   * Case update description
+   * Work item update description
    */
   "data": CaseUpdateDescription;
 

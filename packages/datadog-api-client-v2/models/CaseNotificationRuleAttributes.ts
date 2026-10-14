@@ -17,7 +17,7 @@ export class CaseNotificationRuleAttributes {
    */
   "isEnabled"?: boolean;
   /**
-   * Query to filter cases for this notification rule
+   * Query to filter work items for this notification rule
    */
   "query"?: string;
   /**

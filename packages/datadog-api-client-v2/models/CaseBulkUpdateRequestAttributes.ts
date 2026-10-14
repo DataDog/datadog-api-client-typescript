@@ -8,11 +8,11 @@ import { CaseBulkActionType } from "./CaseBulkActionType";
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * Attributes for the bulk update, specifying which cases to update and the action to apply.
+ * Attributes for the bulk update, specifying which work items to update and the action to apply.
  */
 export class CaseBulkUpdateRequestAttributes {
   /**
-   * An array of case identifiers to apply the bulk action to.
+   * An array of work item identifiers to apply the bulk action to.
    */
   "caseIds": Array<string>;
   /**

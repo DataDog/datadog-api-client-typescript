@@ -10,7 +10,7 @@ import { CaseAutomationRuleResourceType } from "./CaseAutomationRuleResourceType
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * An automation rule that executes an action (such as running a Datadog workflow or assigning an AI agent) when a specified case event occurs within a project.
+ * An automation rule that executes an action (such as running a Datadog workflow or assigning an AI agent) when a specified work item event occurs within a project.
  */
 export class AutomationRule {
   /**
@@ -26,7 +26,7 @@ export class AutomationRule {
    */
   "relationships"?: AutomationRuleRelationships;
   /**
-   * JSON:API resource type for case automation rules.
+   * JSON:API resource type for work item automation rules.
    */
   "type": CaseAutomationRuleResourceType;
 

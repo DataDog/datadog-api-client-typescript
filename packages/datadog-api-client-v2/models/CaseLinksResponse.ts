@@ -8,11 +8,11 @@ import { CaseLink } from "./CaseLink";
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * Response containing a list of case links.
+ * Response containing a list of work item links.
  */
 export class CaseLinksResponse {
   /**
-   * A list of case links.
+   * A list of work item links.
    */
   "data": Array<CaseLink>;
 

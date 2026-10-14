@@ -9,19 +9,19 @@ import { CaseWatcherResourceType } from "./CaseWatcherResourceType";
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * Represents a user who is subscribed to notifications for a case. Watchers receive updates when the case's status, priority, assignee, or comments change.
+ * Represents a user who is subscribed to notifications for a work item. Watchers receive updates when the work item's status, priority, assignee, or comments change.
  */
 export class CaseWatcher {
   /**
-   * The primary identifier of the case watcher.
+   * The primary identifier of the work item watcher.
    */
   "id": string;
   /**
-   * Relationships for a case watcher, linking to the underlying user resource.
+   * Relationships for a work item watcher, linking to the underlying user resource.
    */
   "relationships": CaseWatcherRelationships;
   /**
-   * JSON:API resource type for case watchers.
+   * JSON:API resource type for work item watchers.
    */
   "type": CaseWatcherResourceType;
 

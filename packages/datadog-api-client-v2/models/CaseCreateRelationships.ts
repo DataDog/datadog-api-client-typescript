@@ -9,7 +9,7 @@ import { ProjectRelationship } from "./ProjectRelationship";
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * Relationships formed with the case on creation
+ * Relationships formed with the work item on creation
  */
 export class CaseCreateRelationships {
   /**

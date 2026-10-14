@@ -9,15 +9,15 @@ import { CaseUpdateResolvedReasonAttributes } from "./CaseUpdateResolvedReasonAt
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * Data object for updating a case's resolved reason.
+ * Data object for updating a work item's resolved reason.
  */
 export class CaseUpdateResolvedReason {
   /**
-   * Attributes for setting the resolution reason on a security case.
+   * Attributes for setting the resolution reason on a security work item.
    */
   "attributes": CaseUpdateResolvedReasonAttributes;
   /**
-   * JSON:API resource type for cases.
+   * JSON:API resource type for work items.
    */
   "type": CaseResourceType;
 

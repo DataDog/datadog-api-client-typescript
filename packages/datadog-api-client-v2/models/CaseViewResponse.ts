@@ -8,11 +8,11 @@ import { CaseView } from "./CaseView";
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * Response containing a single case view.
+ * Response containing a single work item view.
  */
 export class CaseViewResponse {
   /**
-   * A saved case view that provides a filtered, reusable list of cases matching a specific query. Views act as persistent dashboards for monitoring case subsets.
+   * A saved work item view that provides a filtered, reusable list of work items matching a specific query. Views act as persistent dashboards for monitoring work item subsets.
    */
   "data": CaseView;
 

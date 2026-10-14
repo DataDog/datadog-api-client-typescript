@@ -7,7 +7,7 @@
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * Attributes required to create a case view.
+ * Attributes required to create a work item view.
  */
 export class CaseViewCreateAttributes {
   /**
@@ -15,7 +15,7 @@ export class CaseViewCreateAttributes {
    */
   "name": string;
   /**
-   * The identifier of a notification rule linked to this view. When set, users subscribed to the view receive alerts for matching cases.
+   * The identifier of a notification rule linked to this view. When set, users subscribed to the view receive alerts for matching work items.
    */
   "npRuleId"?: string;
   /**
@@ -23,7 +23,7 @@ export class CaseViewCreateAttributes {
    */
   "projectId": string;
   /**
-   * The query used to filter cases in this view.
+   * The query used to filter work items in this view.
    */
   "query": string;
 

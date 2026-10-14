@@ -8,11 +8,11 @@ import { CaseCreate } from "./CaseCreate";
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * Case create request
+ * Work item create request
  */
 export class CaseCreateRequest {
   /**
-   * Case creation data
+   * Work item creation data
    */
   "data": CaseCreate;
 

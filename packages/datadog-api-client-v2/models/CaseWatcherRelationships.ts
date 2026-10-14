@@ -8,11 +8,11 @@ import { CaseWatcherUserRelationship } from "./CaseWatcherUserRelationship";
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * Relationships for a case watcher, linking to the underlying user resource.
+ * Relationships for a work item watcher, linking to the underlying user resource.
  */
 export class CaseWatcherRelationships {
   /**
-   * The user relationship for a case watcher.
+   * The user relationship for a work item watcher.
    */
   "user": CaseWatcherUserRelationship;
 

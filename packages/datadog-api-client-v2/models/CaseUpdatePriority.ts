@@ -9,15 +9,15 @@ import { CaseUpdatePriorityAttributes } from "./CaseUpdatePriorityAttributes";
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * Case priority status
+ * Work item priority status
  */
 export class CaseUpdatePriority {
   /**
-   * Case update priority attributes
+   * Work item update priority attributes
    */
   "attributes": CaseUpdatePriorityAttributes;
   /**
-   * JSON:API resource type for cases.
+   * JSON:API resource type for work items.
    */
   "type": CaseResourceType;
 

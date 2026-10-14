@@ -20,7 +20,7 @@ export class CreateServiceNowTicketRequestDataAttributes {
    */
   "description"?: string;
   /**
-   * Case priority
+   * Work item priority
    */
   "priority"?: CasePriority;
   /**

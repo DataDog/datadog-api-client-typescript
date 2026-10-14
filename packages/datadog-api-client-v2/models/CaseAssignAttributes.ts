@@ -7,7 +7,7 @@
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * Case assign attributes
+ * Work item assign attributes
  */
 export class CaseAssignAttributes {
   /**

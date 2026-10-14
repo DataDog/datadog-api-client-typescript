@@ -8,11 +8,11 @@ import { CaseAssign } from "./CaseAssign";
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * Case assign request
+ * Work item assign request
  */
 export class CaseAssignRequest {
   /**
-   * Case assign
+   * Work item assign
    */
   "data": CaseAssign;
 

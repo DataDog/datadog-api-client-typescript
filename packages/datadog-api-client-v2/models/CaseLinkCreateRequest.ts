@@ -12,7 +12,7 @@ import { AttributeTypeMap } from "../../datadog-api-client-common/util";
  */
 export class CaseLinkCreateRequest {
   /**
-   * Data object for creating a case link.
+   * Data object for creating a work item link.
    */
   "data": CaseLinkCreate;
 

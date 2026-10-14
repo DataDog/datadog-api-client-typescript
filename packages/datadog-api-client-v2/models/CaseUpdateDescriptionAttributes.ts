@@ -7,11 +7,11 @@
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * Case update description attributes
+ * Work item update description attributes
  */
 export class CaseUpdateDescriptionAttributes {
   /**
-   * Case new description
+   * Work item new description
    */
   "description": string;
 

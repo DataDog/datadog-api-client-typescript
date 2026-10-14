@@ -7,7 +7,7 @@
 import { UnparsedObject } from "../../datadog-api-client-common/util";
 
 /**
- * Status group of the case.
+ * Status group of the work item.
  */
 
 export type CaseStatusGroup =
