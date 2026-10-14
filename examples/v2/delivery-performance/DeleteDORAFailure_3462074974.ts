@@ -1,5 +1,5 @@
 /**
- * Get an incident event returns "OK" response
+ * Delete a failure event returns "Accepted" response
  */
 
 import { client, v2 } from "@datadog/datadog-api-client";
@@ -11,15 +11,15 @@ const configuration = client.createConfiguration({
     },
   },
 });
-const apiInstance = new v2.DORAMetricsApi(configuration);
+const apiInstance = new v2.DeliveryPerformanceApi(configuration);
 
-const params: v2.DORAMetricsApiGetDORAFailureRequest = {
-  failureId: "failure_id",
+const params: v2.DeliveryPerformanceApiDeleteDORAFailureRequest = {
+  failureId: "NO_VALUE",
 };
 
 apiInstance
-  .getDORAFailure(params)
-  .then((data: v2.DORAFailureFetchResponse) => {
+  .deleteDORAFailure(params)
+  .then((data: any) => {
     console.log(
       "API called successfully. Returned data: " + JSON.stringify(data)
     );

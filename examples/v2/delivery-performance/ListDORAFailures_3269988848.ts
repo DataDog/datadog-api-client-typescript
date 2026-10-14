@@ -1,5 +1,5 @@
 /**
- * Get a list of deployment events returns "OK" response
+ * Get a list of failure events returns "OK" response
  */
 
 import { client, v2 } from "@datadog/datadog-api-client";
@@ -11,9 +11,9 @@ const configuration = client.createConfiguration({
     },
   },
 });
-const apiInstance = new v2.DORAMetricsApi(configuration);
+const apiInstance = new v2.DeliveryPerformanceApi(configuration);
 
-const params: v2.DORAMetricsApiListDORADeploymentsRequest = {
+const params: v2.DeliveryPerformanceApiListDORAFailuresRequest = {
   body: {
     data: {
       attributes: {
@@ -21,14 +21,14 @@ const params: v2.DORAMetricsApiListDORADeploymentsRequest = {
         limit: 1,
         to: new Date(2025, 3, 24, 0, 0, 0, 0),
       },
-      type: "dora_deployments_list_request",
+      type: "dora_failures_list_request",
     },
   },
 };
 
 apiInstance
-  .listDORADeployments(params)
-  .then((data: v2.DORADeploymentsListResponse) => {
+  .listDORAFailures(params)
+  .then((data: v2.DORAFailuresListResponse) => {
     console.log(
       "API called successfully. Returned data: " + JSON.stringify(data)
     );

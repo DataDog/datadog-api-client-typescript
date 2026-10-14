@@ -557,22 +557,6 @@ export {
 } from "./apis/DEMApi";
 
 export {
-  DORAMetricsApiCreateAIImpactUserActivityRequest,
-  DORAMetricsApiCreateDORADeploymentRequest,
-  DORAMetricsApiCreateDORAFailureRequest,
-  DORAMetricsApiCreateDORAIncidentRequest,
-  DORAMetricsApiDeleteDORADeploymentRequest,
-  DORAMetricsApiDeleteDORAFailureRequest,
-  DORAMetricsApiGetDORADeploymentRequest,
-  DORAMetricsApiGetDORAFailureRequest,
-  DORAMetricsApiListDORADeploymentsRequest,
-  DORAMetricsApiListDORAFailuresRequest,
-  DORAMetricsApiPatchDORADeploymentRequest,
-  DORAMetricsApiPatchDORADeploymentByVersionRequest,
-  DORAMetricsApi,
-} from "./apis/DORAMetricsApi";
-
-export {
   DashboardListsApiCreateDashboardListItemsRequest,
   DashboardListsApiDeleteDashboardListItemsRequest,
   DashboardListsApiGetDashboardListItemsRequest,
@@ -627,6 +611,22 @@ export {
   DatasetsApiUpdateDatasetRequest,
   DatasetsApi,
 } from "./apis/DatasetsApi";
+
+export {
+  DeliveryPerformanceApiCreateAIImpactUserActivityRequest,
+  DeliveryPerformanceApiCreateDORADeploymentRequest,
+  DeliveryPerformanceApiCreateDORAFailureRequest,
+  DeliveryPerformanceApiCreateDORAIncidentRequest,
+  DeliveryPerformanceApiDeleteDORADeploymentRequest,
+  DeliveryPerformanceApiDeleteDORAFailureRequest,
+  DeliveryPerformanceApiGetDORADeploymentRequest,
+  DeliveryPerformanceApiGetDORAFailureRequest,
+  DeliveryPerformanceApiListDORADeploymentsRequest,
+  DeliveryPerformanceApiListDORAFailuresRequest,
+  DeliveryPerformanceApiPatchDORADeploymentRequest,
+  DeliveryPerformanceApiPatchDORADeploymentByVersionRequest,
+  DeliveryPerformanceApi,
+} from "./apis/DeliveryPerformanceApi";
 
 export {
   DeploymentGatesApiCreateDeploymentGateRequest,

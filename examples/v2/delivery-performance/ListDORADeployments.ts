@@ -1,5 +1,5 @@
 /**
- * Get a list of deployment events returns deployments with date-time timestamps
+ * Get a list of deployment events returns "OK" response
  */
 
 import { client, v2 } from "@datadog/datadog-api-client";
@@ -11,14 +11,15 @@ const configuration = client.createConfiguration({
     },
   },
 });
-const apiInstance = new v2.DORAMetricsApi(configuration);
+const apiInstance = new v2.DeliveryPerformanceApi(configuration);
 
-const params: v2.DORAMetricsApiListDORADeploymentsRequest = {
+const params: v2.DeliveryPerformanceApiListDORADeploymentsRequest = {
   body: {
     data: {
       attributes: {
-        from: new Date(2023, 8, 31, 0, 0, 0, 0),
-        to: new Date(2023, 9, 1, 0, 0, 0, 0),
+        from: new Date(2025, 3, 23, 0, 0, 0, 0),
+        limit: 1,
+        to: new Date(2025, 3, 24, 0, 0, 0, 0),
       },
       type: "dora_deployments_list_request",
     },

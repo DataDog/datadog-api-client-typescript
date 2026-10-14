@@ -32,7 +32,7 @@ import { DORAListDeploymentsRequest } from "../models/DORAListDeploymentsRequest
 import { DORAListFailuresRequest } from "../models/DORAListFailuresRequest";
 import { JSONAPIErrorResponse } from "../models/JSONAPIErrorResponse";
 
-export class DORAMetricsApiRequestFactory extends BaseAPIRequestFactory {
+export class DeliveryPerformanceApiRequestFactory extends BaseAPIRequestFactory {
   public async createAIImpactUserActivity(
     body: AIImpactUserActivityRequest,
     _options?: Configuration
@@ -49,7 +49,7 @@ export class DORAMetricsApiRequestFactory extends BaseAPIRequestFactory {
 
     // Make Request Context
     const requestContext = _config
-      .getServer("v2.DORAMetricsApi.createAIImpactUserActivity")
+      .getServer("v2.DeliveryPerformanceApi.createAIImpactUserActivity")
       .makeRequestContext(localVarPath, HttpMethod.POST);
     requestContext.setHeaderParam("Accept", "*/*");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -92,7 +92,7 @@ export class DORAMetricsApiRequestFactory extends BaseAPIRequestFactory {
 
     // Make Request Context
     const requestContext = _config
-      .getServer("v2.DORAMetricsApi.createDORADeployment")
+      .getServer("v2.DeliveryPerformanceApi.createDORADeployment")
       .makeRequestContext(localVarPath, HttpMethod.POST);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -135,7 +135,7 @@ export class DORAMetricsApiRequestFactory extends BaseAPIRequestFactory {
 
     // Make Request Context
     const requestContext = _config
-      .getServer("v2.DORAMetricsApi.createDORAFailure")
+      .getServer("v2.DeliveryPerformanceApi.createDORAFailure")
       .makeRequestContext(localVarPath, HttpMethod.POST);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -178,7 +178,7 @@ export class DORAMetricsApiRequestFactory extends BaseAPIRequestFactory {
 
     // Make Request Context
     const requestContext = _config
-      .getServer("v2.DORAMetricsApi.createDORAIncident")
+      .getServer("v2.DeliveryPerformanceApi.createDORAIncident")
       .makeRequestContext(localVarPath, HttpMethod.POST);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -224,7 +224,7 @@ export class DORAMetricsApiRequestFactory extends BaseAPIRequestFactory {
 
     // Make Request Context
     const requestContext = _config
-      .getServer("v2.DORAMetricsApi.deleteDORADeployment")
+      .getServer("v2.DeliveryPerformanceApi.deleteDORADeployment")
       .makeRequestContext(localVarPath, HttpMethod.DELETE);
     requestContext.setHeaderParam("Accept", "*/*");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -263,7 +263,7 @@ export class DORAMetricsApiRequestFactory extends BaseAPIRequestFactory {
 
     // Make Request Context
     const requestContext = _config
-      .getServer("v2.DORAMetricsApi.deleteDORAFailure")
+      .getServer("v2.DeliveryPerformanceApi.deleteDORAFailure")
       .makeRequestContext(localVarPath, HttpMethod.DELETE);
     requestContext.setHeaderParam("Accept", "*/*");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -302,7 +302,7 @@ export class DORAMetricsApiRequestFactory extends BaseAPIRequestFactory {
 
     // Make Request Context
     const requestContext = _config
-      .getServer("v2.DORAMetricsApi.getDORADeployment")
+      .getServer("v2.DeliveryPerformanceApi.getDORADeployment")
       .makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -341,7 +341,7 @@ export class DORAMetricsApiRequestFactory extends BaseAPIRequestFactory {
 
     // Make Request Context
     const requestContext = _config
-      .getServer("v2.DORAMetricsApi.getDORAFailure")
+      .getServer("v2.DeliveryPerformanceApi.getDORAFailure")
       .makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -377,7 +377,7 @@ export class DORAMetricsApiRequestFactory extends BaseAPIRequestFactory {
 
     // Make Request Context
     const requestContext = _config
-      .getServer("v2.DORAMetricsApi.listDORADeployments")
+      .getServer("v2.DeliveryPerformanceApi.listDORADeployments")
       .makeRequestContext(localVarPath, HttpMethod.POST);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -424,7 +424,7 @@ export class DORAMetricsApiRequestFactory extends BaseAPIRequestFactory {
 
     // Make Request Context
     const requestContext = _config
-      .getServer("v2.DORAMetricsApi.listDORAFailures")
+      .getServer("v2.DeliveryPerformanceApi.listDORAFailures")
       .makeRequestContext(localVarPath, HttpMethod.POST);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -480,7 +480,7 @@ export class DORAMetricsApiRequestFactory extends BaseAPIRequestFactory {
 
     // Make Request Context
     const requestContext = _config
-      .getServer("v2.DORAMetricsApi.patchDORADeployment")
+      .getServer("v2.DeliveryPerformanceApi.patchDORADeployment")
       .makeRequestContext(localVarPath, HttpMethod.PATCH);
     requestContext.setHeaderParam("Accept", "*/*");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -527,7 +527,7 @@ export class DORAMetricsApiRequestFactory extends BaseAPIRequestFactory {
 
     // Make Request Context
     const requestContext = _config
-      .getServer("v2.DORAMetricsApi.patchDORADeploymentByVersion")
+      .getServer("v2.DeliveryPerformanceApi.patchDORADeploymentByVersion")
       .makeRequestContext(localVarPath, HttpMethod.PATCH);
     requestContext.setHeaderParam("Accept", "*/*");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -563,7 +563,7 @@ export class DORAMetricsApiRequestFactory extends BaseAPIRequestFactory {
   }
 }
 
-export class DORAMetricsApiResponseProcessor {
+export class DeliveryPerformanceApiResponseProcessor {
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
@@ -1486,35 +1486,35 @@ export class DORAMetricsApiResponseProcessor {
   }
 }
 
-export interface DORAMetricsApiCreateAIImpactUserActivityRequest {
+export interface DeliveryPerformanceApiCreateAIImpactUserActivityRequest {
   /**
    * @type AIImpactUserActivityRequest
    */
   body: AIImpactUserActivityRequest;
 }
 
-export interface DORAMetricsApiCreateDORADeploymentRequest {
+export interface DeliveryPerformanceApiCreateDORADeploymentRequest {
   /**
    * @type DORADeploymentRequest
    */
   body: DORADeploymentRequest;
 }
 
-export interface DORAMetricsApiCreateDORAFailureRequest {
+export interface DeliveryPerformanceApiCreateDORAFailureRequest {
   /**
    * @type DORAFailureRequest
    */
   body: DORAFailureRequest;
 }
 
-export interface DORAMetricsApiCreateDORAIncidentRequest {
+export interface DeliveryPerformanceApiCreateDORAIncidentRequest {
   /**
    * @type DORAFailureRequest
    */
   body: DORAFailureRequest;
 }
 
-export interface DORAMetricsApiDeleteDORADeploymentRequest {
+export interface DeliveryPerformanceApiDeleteDORADeploymentRequest {
   /**
    * The ID of the deployment event to delete.
    * @type string
@@ -1522,7 +1522,7 @@ export interface DORAMetricsApiDeleteDORADeploymentRequest {
   deploymentId: string;
 }
 
-export interface DORAMetricsApiDeleteDORAFailureRequest {
+export interface DeliveryPerformanceApiDeleteDORAFailureRequest {
   /**
    * The ID of the incident event to delete.
    * @type string
@@ -1530,7 +1530,7 @@ export interface DORAMetricsApiDeleteDORAFailureRequest {
   failureId: string;
 }
 
-export interface DORAMetricsApiGetDORADeploymentRequest {
+export interface DeliveryPerformanceApiGetDORADeploymentRequest {
   /**
    * The ID of the deployment event.
    * @type string
@@ -1538,7 +1538,7 @@ export interface DORAMetricsApiGetDORADeploymentRequest {
   deploymentId: string;
 }
 
-export interface DORAMetricsApiGetDORAFailureRequest {
+export interface DeliveryPerformanceApiGetDORAFailureRequest {
   /**
    * The ID of the incident event.
    * @type string
@@ -1546,21 +1546,21 @@ export interface DORAMetricsApiGetDORAFailureRequest {
   failureId: string;
 }
 
-export interface DORAMetricsApiListDORADeploymentsRequest {
+export interface DeliveryPerformanceApiListDORADeploymentsRequest {
   /**
    * @type DORAListDeploymentsRequest
    */
   body: DORAListDeploymentsRequest;
 }
 
-export interface DORAMetricsApiListDORAFailuresRequest {
+export interface DeliveryPerformanceApiListDORAFailuresRequest {
   /**
    * @type DORAListFailuresRequest
    */
   body: DORAListFailuresRequest;
 }
 
-export interface DORAMetricsApiPatchDORADeploymentRequest {
+export interface DeliveryPerformanceApiPatchDORADeploymentRequest {
   /**
    * The ID of the deployment event.
    * @type string
@@ -1572,28 +1572,28 @@ export interface DORAMetricsApiPatchDORADeploymentRequest {
   body: DORADeploymentPatchRequest;
 }
 
-export interface DORAMetricsApiPatchDORADeploymentByVersionRequest {
+export interface DeliveryPerformanceApiPatchDORADeploymentByVersionRequest {
   /**
    * @type DORADeploymentPatchByVersionRequest
    */
   body: DORADeploymentPatchByVersionRequest;
 }
 
-export class DORAMetricsApi {
-  private requestFactory: DORAMetricsApiRequestFactory;
-  private responseProcessor: DORAMetricsApiResponseProcessor;
+export class DeliveryPerformanceApi {
+  private requestFactory: DeliveryPerformanceApiRequestFactory;
+  private responseProcessor: DeliveryPerformanceApiResponseProcessor;
   private configuration: Configuration;
 
   public constructor(
     configuration: Configuration,
-    requestFactory?: DORAMetricsApiRequestFactory,
-    responseProcessor?: DORAMetricsApiResponseProcessor
+    requestFactory?: DeliveryPerformanceApiRequestFactory,
+    responseProcessor?: DeliveryPerformanceApiResponseProcessor
   ) {
     this.configuration = configuration;
     this.requestFactory =
-      requestFactory || new DORAMetricsApiRequestFactory(configuration);
+      requestFactory || new DeliveryPerformanceApiRequestFactory(configuration);
     this.responseProcessor =
-      responseProcessor || new DORAMetricsApiResponseProcessor();
+      responseProcessor || new DeliveryPerformanceApiResponseProcessor();
   }
 
   /**
@@ -1604,7 +1604,7 @@ export class DORAMetricsApi {
    * @param param The request object
    */
   public createAIImpactUserActivity(
-    param: DORAMetricsApiCreateAIImpactUserActivityRequest,
+    param: DeliveryPerformanceApiCreateAIImpactUserActivityRequest,
     options?: Configuration
   ): Promise<void> {
     const requestContextPromise =
@@ -1631,7 +1631,7 @@ export class DORAMetricsApi {
    * @param param The request object
    */
   public createDORADeployment(
-    param: DORAMetricsApiCreateDORADeploymentRequest,
+    param: DeliveryPerformanceApiCreateDORADeploymentRequest,
     options?: Configuration
   ): Promise<DORADeploymentResponse> {
     const requestContextPromise = this.requestFactory.createDORADeployment(
@@ -1654,7 +1654,7 @@ export class DORAMetricsApi {
    * @param param The request object
    */
   public createDORAFailure(
-    param: DORAMetricsApiCreateDORAFailureRequest,
+    param: DeliveryPerformanceApiCreateDORAFailureRequest,
     options?: Configuration
   ): Promise<DORAFailureResponse> {
     const requestContextPromise = this.requestFactory.createDORAFailure(
@@ -1678,7 +1678,7 @@ export class DORAMetricsApi {
    * @param param The request object
    */
   public createDORAIncident(
-    param: DORAMetricsApiCreateDORAIncidentRequest,
+    param: DeliveryPerformanceApiCreateDORAIncidentRequest,
     options?: Configuration
   ): Promise<DORAFailureResponse> {
     const requestContextPromise = this.requestFactory.createDORAIncident(
@@ -1699,7 +1699,7 @@ export class DORAMetricsApi {
    * @param param The request object
    */
   public deleteDORADeployment(
-    param: DORAMetricsApiDeleteDORADeploymentRequest,
+    param: DeliveryPerformanceApiDeleteDORADeploymentRequest,
     options?: Configuration
   ): Promise<void> {
     const requestContextPromise = this.requestFactory.deleteDORADeployment(
@@ -1720,7 +1720,7 @@ export class DORAMetricsApi {
    * @param param The request object
    */
   public deleteDORAFailure(
-    param: DORAMetricsApiDeleteDORAFailureRequest,
+    param: DeliveryPerformanceApiDeleteDORAFailureRequest,
     options?: Configuration
   ): Promise<void> {
     const requestContextPromise = this.requestFactory.deleteDORAFailure(
@@ -1741,7 +1741,7 @@ export class DORAMetricsApi {
    * @param param The request object
    */
   public getDORADeployment(
-    param: DORAMetricsApiGetDORADeploymentRequest,
+    param: DeliveryPerformanceApiGetDORADeploymentRequest,
     options?: Configuration
   ): Promise<DORADeploymentFetchResponse> {
     const requestContextPromise = this.requestFactory.getDORADeployment(
@@ -1762,7 +1762,7 @@ export class DORAMetricsApi {
    * @param param The request object
    */
   public getDORAFailure(
-    param: DORAMetricsApiGetDORAFailureRequest,
+    param: DeliveryPerformanceApiGetDORAFailureRequest,
     options?: Configuration
   ): Promise<DORAFailureFetchResponse> {
     const requestContextPromise = this.requestFactory.getDORAFailure(
@@ -1783,7 +1783,7 @@ export class DORAMetricsApi {
    * @param param The request object
    */
   public listDORADeployments(
-    param: DORAMetricsApiListDORADeploymentsRequest,
+    param: DeliveryPerformanceApiListDORADeploymentsRequest,
     options?: Configuration
   ): Promise<DORADeploymentsListResponse> {
     const requestContextPromise = this.requestFactory.listDORADeployments(
@@ -1804,7 +1804,7 @@ export class DORAMetricsApi {
    * @param param The request object
    */
   public listDORAFailures(
-    param: DORAMetricsApiListDORAFailuresRequest,
+    param: DeliveryPerformanceApiListDORAFailuresRequest,
     options?: Configuration
   ): Promise<DORAFailuresListResponse> {
     const requestContextPromise = this.requestFactory.listDORAFailures(
@@ -1825,7 +1825,7 @@ export class DORAMetricsApi {
    * @param param The request object
    */
   public patchDORADeployment(
-    param: DORAMetricsApiPatchDORADeploymentRequest,
+    param: DeliveryPerformanceApiPatchDORADeploymentRequest,
     options?: Configuration
   ): Promise<void> {
     const requestContextPromise = this.requestFactory.patchDORADeployment(
@@ -1847,7 +1847,7 @@ export class DORAMetricsApi {
    * @param param The request object
    */
   public patchDORADeploymentByVersion(
-    param: DORAMetricsApiPatchDORADeploymentByVersionRequest,
+    param: DeliveryPerformanceApiPatchDORADeploymentByVersionRequest,
     options?: Configuration
   ): Promise<void> {
     const requestContextPromise =

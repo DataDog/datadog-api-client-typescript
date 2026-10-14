@@ -5,9 +5,9 @@
 import { client, v2 } from "@datadog/datadog-api-client";
 
 const configuration = client.createConfiguration();
-const apiInstance = new v2.DORAMetricsApi(configuration);
+const apiInstance = new v2.DeliveryPerformanceApi(configuration);
 
-const params: v2.DORAMetricsApiCreateAIImpactUserActivityRequest = {
+const params: v2.DeliveryPerformanceApiCreateAIImpactUserActivityRequest = {
   body: {
     data: [
       {

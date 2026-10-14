@@ -1,5 +1,5 @@
 /**
- * Mark a deployment as failed by ID returns "Accepted" response
+ * Mark a deployment as failed by version returns "Accepted" response
  */
 
 import { client, v2 } from "@datadog/datadog-api-client";
@@ -11,27 +11,28 @@ const configuration = client.createConfiguration({
     },
   },
 });
-const apiInstance = new v2.DORAMetricsApi(configuration);
+const apiInstance = new v2.DeliveryPerformanceApi(configuration);
 
-const params: v2.DORAMetricsApiPatchDORADeploymentRequest = {
+const params: v2.DeliveryPerformanceApiPatchDORADeploymentByVersionRequest = {
   body: {
     data: {
       attributes: {
         changeFailure: true,
+        env: "production",
         remediation: {
-          id: "eG42zNIkVjM",
           type: "rollback",
+          version: "v1.2.2",
         },
+        service: "my-service",
+        version: "v1.2.3",
       },
-      id: "z_RwVLi7v4Y",
       type: "dora_deployment_patch_request",
     },
   },
-  deploymentId: "deployment_id",
 };
 
 apiInstance
-  .patchDORADeployment(params)
+  .patchDORADeploymentByVersion(params)
   .then((data: any) => {
     console.log(
       "API called successfully. Returned data: " + JSON.stringify(data)

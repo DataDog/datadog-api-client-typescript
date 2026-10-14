@@ -11,9 +11,9 @@ const configuration = client.createConfiguration({
     },
   },
 });
-const apiInstance = new v2.DORAMetricsApi(configuration);
+const apiInstance = new v2.DeliveryPerformanceApi(configuration);
 
-const params: v2.DORAMetricsApiListDORAFailuresRequest = {
+const params: v2.DeliveryPerformanceApiListDORAFailuresRequest = {
   body: {
     data: {
       attributes: {
