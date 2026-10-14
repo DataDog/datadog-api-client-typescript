@@ -4,6 +4,7 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 import { FeatureFlagListItem } from "./FeatureFlagListItem";
+import { FeatureFlagsPaginationLinks } from "./FeatureFlagsPaginationLinks";
 import { FeatureFlagsPaginationMeta } from "./FeatureFlagsPaginationMeta";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
@@ -16,6 +17,10 @@ export class ListFeatureFlagsResponse {
    * List of feature flags.
    */
   "data": Array<FeatureFlagListItem>;
+  /**
+   * Pagination links. Follow `next` with the same authentication to retrieve the next page. Links use `page[limit]` and `page[offset]` and preserve the filters. Navigation links are omitted when not applicable.
+   */
+  "links"?: FeatureFlagsPaginationLinks;
   /**
    * Pagination metadata for feature flags.
    */
@@ -41,6 +46,10 @@ export class ListFeatureFlagsResponse {
       baseName: "data",
       type: "Array<FeatureFlagListItem>",
       required: true,
+    },
+    links: {
+      baseName: "links",
+      type: "FeatureFlagsPaginationLinks",
     },
     meta: {
       baseName: "meta",

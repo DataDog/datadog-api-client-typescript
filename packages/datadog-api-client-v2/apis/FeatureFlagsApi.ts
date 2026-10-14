@@ -24,7 +24,11 @@ import { CreateEnvironmentRequest } from "../models/CreateEnvironmentRequest";
 import { CreateFeatureFlagRequest } from "../models/CreateFeatureFlagRequest";
 import { CreateVariant } from "../models/CreateVariant";
 import { EnvironmentResponse } from "../models/EnvironmentResponse";
+import { FeatureFlagDistributionChannel } from "../models/FeatureFlagDistributionChannel";
+import { FeatureFlagProductionStatus } from "../models/FeatureFlagProductionStatus";
 import { FeatureFlagResponse } from "../models/FeatureFlagResponse";
+import { FeatureFlagStalenessStatus } from "../models/FeatureFlagStalenessStatus";
+import { JSONAPIErrorResponse } from "../models/JSONAPIErrorResponse";
 import { ListAllocationsResponse } from "../models/ListAllocationsResponse";
 import { ListEnvironmentsResponse } from "../models/ListEnvironmentsResponse";
 import { ListFeatureFlagsResponse } from "../models/ListFeatureFlagsResponse";
@@ -32,6 +36,7 @@ import { OverwriteAllocationsRequest } from "../models/OverwriteAllocationsReque
 import { UpdateEnvironmentRequest } from "../models/UpdateEnvironmentRequest";
 import { UpdateFeatureFlagRequest } from "../models/UpdateFeatureFlagRequest";
 import { UpdateVariantRequest } from "../models/UpdateVariantRequest";
+import { ValueType } from "../models/ValueType";
 import { Variant } from "../models/Variant";
 
 export class FeatureFlagsApiRequestFactory extends BaseAPIRequestFactory {
@@ -558,6 +563,19 @@ export class FeatureFlagsApiRequestFactory extends BaseAPIRequestFactory {
     isArchived?: boolean,
     limit?: number,
     offset?: number,
+    tags?: Array<string>,
+    teams?: Array<string>,
+    productionStatus?: Array<FeatureFlagProductionStatus>,
+    distributionChannel?: FeatureFlagDistributionChannel,
+    search?: string,
+    valueType?: Array<ValueType>,
+    createdBy?: Array<string>,
+    flagIds?: Array<string>,
+    stalenessStatus?: FeatureFlagStalenessStatus,
+    savedFilterId?: string,
+    sort?: string,
+    pageLimit?: number,
+    pageOffset?: number,
     _options?: Configuration
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
@@ -603,6 +621,109 @@ export class FeatureFlagsApiRequestFactory extends BaseAPIRequestFactory {
       requestContext.setQueryParam(
         "offset",
         ObjectSerializer.serialize(offset, "number", "int64"),
+        ""
+      );
+    }
+    if (tags !== undefined) {
+      requestContext.setQueryParam(
+        "tags",
+        ObjectSerializer.serialize(tags, "Array<string>", ""),
+        "multi"
+      );
+    }
+    if (teams !== undefined) {
+      requestContext.setQueryParam(
+        "teams",
+        ObjectSerializer.serialize(teams, "Array<string>", ""),
+        "multi"
+      );
+    }
+    if (productionStatus !== undefined) {
+      requestContext.setQueryParam(
+        "production_status",
+        ObjectSerializer.serialize(
+          productionStatus,
+          "Array<FeatureFlagProductionStatus>",
+          ""
+        ),
+        "multi"
+      );
+    }
+    if (distributionChannel !== undefined) {
+      requestContext.setQueryParam(
+        "distribution_channel",
+        ObjectSerializer.serialize(
+          distributionChannel,
+          "FeatureFlagDistributionChannel",
+          ""
+        ),
+        ""
+      );
+    }
+    if (search !== undefined) {
+      requestContext.setQueryParam(
+        "search",
+        ObjectSerializer.serialize(search, "string", ""),
+        ""
+      );
+    }
+    if (valueType !== undefined) {
+      requestContext.setQueryParam(
+        "value_type",
+        ObjectSerializer.serialize(valueType, "Array<ValueType>", ""),
+        "multi"
+      );
+    }
+    if (createdBy !== undefined) {
+      requestContext.setQueryParam(
+        "created_by",
+        ObjectSerializer.serialize(createdBy, "Array<string>", "uuid"),
+        "multi"
+      );
+    }
+    if (flagIds !== undefined) {
+      requestContext.setQueryParam(
+        "flag_ids",
+        ObjectSerializer.serialize(flagIds, "Array<string>", "uuid"),
+        "multi"
+      );
+    }
+    if (stalenessStatus !== undefined) {
+      requestContext.setQueryParam(
+        "staleness_status",
+        ObjectSerializer.serialize(
+          stalenessStatus,
+          "FeatureFlagStalenessStatus",
+          ""
+        ),
+        ""
+      );
+    }
+    if (savedFilterId !== undefined) {
+      requestContext.setQueryParam(
+        "saved_filter_id",
+        ObjectSerializer.serialize(savedFilterId, "string", "uuid"),
+        ""
+      );
+    }
+    if (sort !== undefined) {
+      requestContext.setQueryParam(
+        "sort",
+        ObjectSerializer.serialize(sort, "string", ""),
+        ""
+      );
+    }
+    if (pageLimit !== undefined) {
+      requestContext.setQueryParam(
+        "page[limit]",
+        ObjectSerializer.serialize(pageLimit, "number", "int64"),
+        ""
+      );
+    }
+    if (pageOffset !== undefined) {
+      requestContext.setQueryParam(
+        "page[offset]",
+        ObjectSerializer.serialize(pageOffset, "number", "int64"),
         ""
       );
     }
@@ -1814,6 +1935,29 @@ export class FeatureFlagsApiResponseProcessor {
       ) as ListFeatureFlagsResponse;
       return body;
     }
+    if (response.httpStatusCode === 400) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: JSONAPIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "JSONAPIErrorResponse"
+        ) as JSONAPIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<JSONAPIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<JSONAPIErrorResponse>(
+        response.httpStatusCode,
+        body
+      );
+    }
     if (response.httpStatusCode === 403 || response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
@@ -2608,25 +2752,90 @@ export interface FeatureFlagsApiGetFeatureFlagsEnvironmentRequest {
 
 export interface FeatureFlagsApiListFeatureFlagsRequest {
   /**
-   * Filter feature flags by key (partial matching).
+   * Filter feature flags by an exact, case-sensitive key. Use `search` for partial matching.
    * @type string
    */
   key?: string;
   /**
-   * Filter by archived status.
+   * Filter by archived status. If `true`, return only archived flags. If `false`, return only flags that are not archived. If omitted, return both.
    * @type boolean
    */
   isArchived?: boolean;
   /**
-   * Maximum number of results to return.
+   * Deprecated alias for `page[limit]`. Use `page[limit]` for new requests. Used only when `page[limit]` is absent. When both parameters are omitted, the server defaults to `25`. Values that exceed `50` are set to `50`; non-positive or empty values use the server default.
    * @type number
    */
   limit?: number;
   /**
-   * Number of results to skip.
+   * Deprecated alias for `page[offset]`. Used only when `page[offset]` is absent. Defaults to `0`. Negative or empty values are set to `0`.
    * @type number
    */
   offset?: number;
+  /**
+   * Filter by exact tag values using repeated parameters, such as `tags=env:prod&tags=purpose:sitemap`. A flag must have all ordinary tags. Values of the form `team:<handle>` match any selected team and are combined with `teams` into one set. The result must match all ordinary tags, any selected team, and all other filters. Empty values are ignored.
+   * @type Array<string>
+   */
+  tags?: Array<string>;
+  /**
+   * Filter by team handles without the `team:` prefix. Use repeated parameters to filter by multiple team handles, such as `teams=checkout&teams=payments`. A flag must belong to at least one selected team. Team handles from `teams` and `team:<handle>` values from tags are treated as a single set and combined with ordinary tags and other filters using AND logic. Duplicate handles do not duplicate results. Unknown handles do not match any flags. Empty handles, surrounding white space, or using the `team:` prefix return a bad request error. Response tags are unchanged.
+   * @type Array<string>
+   */
+  teams?: Array<string>;
+  /**
+   * Filter by status across production environments. Use repeated parameters to match any selected status. `ENABLED` matches at least one enabled production environment without a variant override. `OVERRIDDEN` matches at least one enabled production environment with a variant override. `DISABLED` matches flags whose associated production environments are all disabled. A flag can match both `ENABLED` and `OVERRIDDEN` in different environments. Flags without associated production environments do not match. This does not filter by a specific environment. Unknown values do not match any status.
+   * @type Array<FeatureFlagProductionStatus>
+   */
+  productionStatus?: Array<FeatureFlagProductionStatus>;
+  /**
+   * Filter by SDK availability. `CLIENT` returns flags with channel `CLIENT` or `ALL`. `SERVER` returns flags with channel `SERVER` or `ALL`. `ALL`, an empty value, or omission applies no channel restriction; it does not select only flags whose channel is `ALL`. Values are case-insensitive and surrounding white space is ignored. Invalid values return a bad request error.
+   * @type FeatureFlagDistributionChannel
+   */
+  distributionChannel?: FeatureFlagDistributionChannel;
+  /**
+   * Case-insensitive substring search on flag names, keys, and tag names. Combined with all other filters. An empty value applies no search restriction.
+   * @type string
+   */
+  search?: string;
+  /**
+   * Filter by variant value types using repeated parameters. A flag must match at least one selected type. Empty values are ignored. Invalid types return a bad request error.
+   * @type Array<ValueType>
+   */
+  valueType?: Array<ValueType>;
+  /**
+   * Filter by creator UUIDs using repeated parameters. A flag must match at least one creator. Empty values are ignored. Invalid UUIDs return a bad request error.
+   * @type Array<string>
+   */
+  createdBy?: Array<string>;
+  /**
+   * Filter by feature flag UUIDs using repeated parameters. A flag must match at least one ID and all other filters. Duplicate IDs return each flag once. Unknown IDs and IDs from other organizations do not match any flags. Empty or invalid UUIDs return a bad request error. Pagination still applies.
+   * @type Array<string>
+   */
+  flagIds?: Array<string>;
+  /**
+   * Filter by the computed staleness status: `ACTIVE`, `STALE`, or `PERMANENT`. Values are case-insensitive and surrounding white space is ignored. An empty value or omission applies no restriction. Invalid values return a bad request error. Read the computed result from `staleness_details.staleness_status`, not the legacy `staleness_status` response field.
+   * @type FeatureFlagStalenessStatus
+   */
+  stalenessStatus?: FeatureFlagStalenessStatus;
+  /**
+   * Filter to flags that reference this saved filter in their targeting conditions. An empty value or omission applies no restriction. An invalid UUID returns a bad request error.
+   * @type string
+   */
+  savedFilterId?: string;
+  /**
+   * Sort by `name`, `updated_at`, `created_at`, or `evaluations`. Use a comma-separated list for multiple sort fields and prefix a field with `-` for descending order. The default is `updated_at` descending. When favorites are enabled, the authenticated user's favorite flags take precedence over the selected ordering. Unknown fields return a bad request error.
+   * @type string
+   */
+  sort?: string;
+  /**
+   * Maximum number of flags to return. Defaults to `25` and is capped at `50`. Values that exceed `50` are set to `50`. Non-positive or empty values use the default. A non-integer value returns a bad request error. Takes precedence over `limit` when both are present. Pagination applies even when no pagination parameters are supplied.
+   * @type number
+   */
+  pageLimit?: number;
+  /**
+   * Number of matching flags to skip before returning results. Defaults to `0`. Negative or empty values are set to `0`. A non-integer value returns a bad request error. Takes precedence over `offset` when both are present.
+   * @type number
+   */
+  pageOffset?: number;
 }
 
 export interface FeatureFlagsApiListFeatureFlagsEnvironmentsRequest {
@@ -3041,8 +3250,9 @@ export class FeatureFlagsApi {
   }
 
   /**
-   * Returns a list of feature flags for the organization.
-   * Supports filtering by key and archived status.
+   * Returns a paginated list of feature flags for the organization.
+   * Supports filtering by key, tags, teams, SDK availability, production status, and other flag properties.
+   * Use `page[limit]` and `page[offset]` to paginate, or follow the `next` link in the response.
    * @param param The request object
    */
   public listFeatureFlags(
@@ -3054,6 +3264,19 @@ export class FeatureFlagsApi {
       param.isArchived,
       param.limit,
       param.offset,
+      param.tags,
+      param.teams,
+      param.productionStatus,
+      param.distributionChannel,
+      param.search,
+      param.valueType,
+      param.createdBy,
+      param.flagIds,
+      param.stalenessStatus,
+      param.savedFilterId,
+      param.sort,
+      param.pageLimit,
+      param.pageOffset,
       options
     );
     return requestContextPromise.then((requestContext) => {

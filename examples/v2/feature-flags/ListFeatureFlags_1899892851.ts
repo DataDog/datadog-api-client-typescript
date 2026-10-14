@@ -1,0 +1,28 @@
+/**
+ * List feature flags matches any selected team
+ */
+
+import { client, v2 } from "@datadog/datadog-api-client";
+
+const configuration = client.createConfiguration({
+  authMethods: {
+    AuthZ: {
+      accessToken: process.env.DD_BEARER_TOKEN as string,
+    },
+  },
+});
+const apiInstance = new v2.FeatureFlagsApi(configuration);
+
+const params: v2.FeatureFlagsApiListFeatureFlagsRequest = {
+  tags: ["list-test:example-feature-flag"],
+  teams: ["api-client-test-a", "api-client-test-b"],
+};
+
+apiInstance
+  .listFeatureFlags(params)
+  .then((data: v2.ListFeatureFlagsResponse) => {
+    console.log(
+      "API called successfully. Returned data: " + JSON.stringify(data)
+    );
+  })
+  .catch((error: any) => console.error(error));

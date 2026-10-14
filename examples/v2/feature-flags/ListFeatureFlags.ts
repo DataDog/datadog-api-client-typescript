@@ -14,7 +14,10 @@ const configuration = client.createConfiguration({
 const apiInstance = new v2.FeatureFlagsApi(configuration);
 
 const params: v2.FeatureFlagsApiListFeatureFlagsRequest = {
-  limit: 10,
+  tags: ["list-test:example-feature-flag"],
+  sort: "name",
+  pageLimit: 1,
+  pageOffset: 0,
 };
 
 apiInstance
