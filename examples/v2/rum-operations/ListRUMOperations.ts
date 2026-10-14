@@ -11,7 +11,6 @@ const configuration = client.createConfiguration({
     },
   },
 });
-configuration.unstableOperations["v2.listRUMOperations"] = true;
 const apiInstance = new v2.RUMOperationsApi(configuration);
 
 apiInstance
