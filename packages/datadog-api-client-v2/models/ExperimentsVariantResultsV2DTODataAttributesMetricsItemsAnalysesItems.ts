@@ -3,7 +3,7 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
-import { ExperimentsVariantResultsV2DTODataAttributesMetricsItemsAnalysesItemsConfidenceInterval } from "./ExperimentsVariantResultsV2DTODataAttributesMetricsItemsAnalysesItemsConfidenceInterval";
+import { ExperimentsConfidenceInterval } from "./ExperimentsConfidenceInterval";
 import { ExperimentsVariantResultsV2DTODataAttributesMetricsItemsAnalysesItemsLiftType } from "./ExperimentsVariantResultsV2DTODataAttributesMetricsItemsAnalysesItemsLiftType";
 import { ExperimentsVariantResultsV2DTODataAttributesMetricsItemsAnalysesItemsMethod } from "./ExperimentsVariantResultsV2DTODataAttributesMetricsItemsAnalysesItemsMethod";
 import { ExperimentsVariantResultsV2DTODataAttributesMetricsItemsAnalysesItemsUnreliableReason } from "./ExperimentsVariantResultsV2DTODataAttributesMetricsItemsAnalysesItemsUnreliableReason";
@@ -17,7 +17,7 @@ export class ExperimentsVariantResultsV2DTODataAttributesMetricsItemsAnalysesIte
   /**
    * Lower and upper bounds of the reported statistical interval.
    */
-  "confidenceInterval"?: ExperimentsVariantResultsV2DTODataAttributesMetricsItemsAnalysesItemsConfidenceInterval;
+  "confidenceInterval"?: ExperimentsConfidenceInterval;
   /**
    * Configured nominal confidence level. Interval bounds can use an adjusted level for multiple testing or hybrid methods.
    */
@@ -117,7 +117,7 @@ export class ExperimentsVariantResultsV2DTODataAttributesMetricsItemsAnalysesIte
   static readonly attributeTypeMap: AttributeTypeMap = {
     confidenceInterval: {
       baseName: "confidence_interval",
-      type: "ExperimentsVariantResultsV2DTODataAttributesMetricsItemsAnalysesItemsConfidenceInterval",
+      type: "ExperimentsConfidenceInterval",
     },
     confidenceLevel: {
       baseName: "confidence_level",

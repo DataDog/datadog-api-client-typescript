@@ -3,9 +3,9 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
-import { ExperimentsCreateMetricV2RequestDataAttributesPercentileAggregationWarehouseMetricMeasure } from "./ExperimentsCreateMetricV2RequestDataAttributesPercentileAggregationWarehouseMetricMeasure";
 import { ExperimentsNullableDatadogPercentileMeasureInput } from "./ExperimentsNullableDatadogPercentileMeasureInput";
 import { ExperimentsPropertyFilterInput } from "./ExperimentsPropertyFilterInput";
+import { ExperimentsWarehouseMetricMeasure } from "./ExperimentsWarehouseMetricMeasure";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
@@ -28,7 +28,7 @@ export class ExperimentsWarehousePercentileAggregationInput {
   /**
    * Reference to a measure defined in a warehouse metric SQL model.
    */
-  "warehouseMetricMeasure": ExperimentsCreateMetricV2RequestDataAttributesPercentileAggregationWarehouseMetricMeasure;
+  "warehouseMetricMeasure": ExperimentsWarehouseMetricMeasure;
 
   /**
    * A container for additional, undeclared properties.
@@ -62,7 +62,7 @@ export class ExperimentsWarehousePercentileAggregationInput {
     },
     warehouseMetricMeasure: {
       baseName: "warehouse_metric_measure",
-      type: "ExperimentsCreateMetricV2RequestDataAttributesPercentileAggregationWarehouseMetricMeasure",
+      type: "ExperimentsWarehouseMetricMeasure",
       required: true,
     },
     additionalProperties: {

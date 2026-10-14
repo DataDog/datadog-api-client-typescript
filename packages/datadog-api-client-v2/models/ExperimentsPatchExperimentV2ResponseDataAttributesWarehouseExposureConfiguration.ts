@@ -3,7 +3,7 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
-import { ExperimentsPatchExperimentV2ResponseDataAttributesWarehouseExposureConfigurationEntryPoint } from "./ExperimentsPatchExperimentV2ResponseDataAttributesWarehouseExposureConfigurationEntryPoint";
+import { ExperimentsWarehouseEntryPoint } from "./ExperimentsWarehouseEntryPoint";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
@@ -14,7 +14,7 @@ export class ExperimentsPatchExperimentV2ResponseDataAttributesWarehouseExposure
   /**
    * Optional Warehouse measure that scopes analyzed subjects.
    */
-  "entryPoint": ExperimentsPatchExperimentV2ResponseDataAttributesWarehouseExposureConfigurationEntryPoint | null;
+  "entryPoint": ExperimentsWarehouseEntryPoint | null;
   /**
    * Warehouse experiment key. Reads can return null for incomplete configuration; configuration writes require a value.
    */
@@ -42,7 +42,7 @@ export class ExperimentsPatchExperimentV2ResponseDataAttributesWarehouseExposure
   static readonly attributeTypeMap: AttributeTypeMap = {
     entryPoint: {
       baseName: "entry_point",
-      type: "ExperimentsPatchExperimentV2ResponseDataAttributesWarehouseExposureConfigurationEntryPoint",
+      type: "ExperimentsWarehouseEntryPoint",
       required: true,
     },
     experimentKey: {

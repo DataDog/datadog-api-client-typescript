@@ -10,7 +10,9 @@ import { UnparsedObject } from "../../datadog-api-client-common/util";
  * Comparison applied by the warehouse entry-point filter.
  */
 
-export type ExperimentsPatchExperimentV2ResponseDataAttributesWarehouseExposureConfigurationEntryPointFiltersItemsOperation =
-  typeof IS | typeof IS_NOT | UnparsedObject;
+export type ExperimentsWarehouseEntryPointFilterOperation =
+  | typeof IS
+  | typeof IS_NOT
+  | UnparsedObject;
 export const IS = "IS";
 export const IS_NOT = "IS_NOT";

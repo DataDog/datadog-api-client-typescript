@@ -3,22 +3,21 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
-import { ExperimentsWarehouseExposureFilter } from "./ExperimentsWarehouseExposureFilter";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * Optional Warehouse measure that scopes analyzed subjects.
+ * Lower and upper bounds of the reported statistical interval.
  */
-export class ExperimentsPatchExperimentV2ResponseDataAttributesWarehouseExposureConfigurationEntryPoint {
+export class ExperimentsConfidenceInterval {
   /**
-   * Complete ordered Warehouse entry-point filter set.
+   * Lower bound of the reported interval.
    */
-  "filters": Array<ExperimentsWarehouseExposureFilter>;
+  "lower"?: number;
   /**
-   * Warehouse measure UUID.
+   * Upper bound of the reported interval.
    */
-  "measureId": string;
+  "upper"?: number;
 
   /**
    * A container for additional, undeclared properties.
@@ -36,15 +35,15 @@ export class ExperimentsPatchExperimentV2ResponseDataAttributesWarehouseExposure
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    filters: {
-      baseName: "filters",
-      type: "Array<ExperimentsWarehouseExposureFilter>",
-      required: true,
+    lower: {
+      baseName: "lower",
+      type: "number",
+      format: "double",
     },
-    measureId: {
-      baseName: "measure_id",
-      type: "string",
-      required: true,
+    upper: {
+      baseName: "upper",
+      type: "number",
+      format: "double",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -56,7 +55,7 @@ export class ExperimentsPatchExperimentV2ResponseDataAttributesWarehouseExposure
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-    return ExperimentsPatchExperimentV2ResponseDataAttributesWarehouseExposureConfigurationEntryPoint.attributeTypeMap;
+    return ExperimentsConfidenceInterval.attributeTypeMap;
   }
 
   public constructor() {}

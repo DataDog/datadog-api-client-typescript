@@ -3,8 +3,8 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
-import { ExperimentsPatchExperimentV2ResponseDataAttributesDatadogFlagConfigurationEntryPointFiltersItemsItemsColumnType } from "./ExperimentsPatchExperimentV2ResponseDataAttributesDatadogFlagConfigurationEntryPointFiltersItemsItemsColumnType";
-import { ExperimentsPatchExperimentV2ResponseDataAttributesDatadogFlagConfigurationEntryPointFiltersItemsItemsOperation } from "./ExperimentsPatchExperimentV2ResponseDataAttributesDatadogFlagConfigurationEntryPointFiltersItemsItemsOperation";
+import { ExperimentsDatadogEntryPointFilterColumnType } from "./ExperimentsDatadogEntryPointFilterColumnType";
+import { ExperimentsDatadogEntryPointFilterOperation } from "./ExperimentsDatadogEntryPointFilterOperation";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
@@ -19,11 +19,11 @@ export class ExperimentsDatadogEntryPointFilter {
   /**
    * Data type of the column evaluated by the entry-point filter.
    */
-  "columnType": ExperimentsPatchExperimentV2ResponseDataAttributesDatadogFlagConfigurationEntryPointFiltersItemsItemsColumnType;
+  "columnType": ExperimentsDatadogEntryPointFilterColumnType;
   /**
    * Comparison applied by the Datadog entry-point filter.
    */
-  "operation": ExperimentsPatchExperimentV2ResponseDataAttributesDatadogFlagConfigurationEntryPointFiltersItemsItemsOperation;
+  "operation": ExperimentsDatadogEntryPointFilterOperation;
   /**
    * Comparison values used by the filter operation.
    */
@@ -52,12 +52,12 @@ export class ExperimentsDatadogEntryPointFilter {
     },
     columnType: {
       baseName: "column_type",
-      type: "ExperimentsPatchExperimentV2ResponseDataAttributesDatadogFlagConfigurationEntryPointFiltersItemsItemsColumnType",
+      type: "ExperimentsDatadogEntryPointFilterColumnType",
       required: true,
     },
     operation: {
       baseName: "operation",
-      type: "ExperimentsPatchExperimentV2ResponseDataAttributesDatadogFlagConfigurationEntryPointFiltersItemsItemsOperation",
+      type: "ExperimentsDatadogEntryPointFilterOperation",
       required: true,
     },
     values: {
