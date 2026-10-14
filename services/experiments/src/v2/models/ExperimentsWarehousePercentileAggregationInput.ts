@@ -1,8 +1,8 @@
 import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
-import { ExperimentsCreateMetricV2RequestDataAttributesPercentileAggregationWarehouseMetricMeasure } from "./ExperimentsCreateMetricV2RequestDataAttributesPercentileAggregationWarehouseMetricMeasure";
 import { ExperimentsNullableDatadogPercentileMeasureInput } from "./ExperimentsNullableDatadogPercentileMeasureInput";
 import { ExperimentsPropertyFilterInput } from "./ExperimentsPropertyFilterInput";
+import { ExperimentsWarehouseMetricMeasure } from "./ExperimentsWarehouseMetricMeasure";
 
 /**
  * Settings for a percentile aggregation that uses a Warehouse measure. The other measure must be omitted or null.
@@ -23,7 +23,7 @@ export class ExperimentsWarehousePercentileAggregationInput {
   /**
    * Reference to a measure defined in a warehouse metric SQL model.
    */
-  "warehouseMetricMeasure": ExperimentsCreateMetricV2RequestDataAttributesPercentileAggregationWarehouseMetricMeasure;
+  "warehouseMetricMeasure": ExperimentsWarehouseMetricMeasure;
   /**
    * A container for additional, undeclared properties.
    * This is a holder for any undeclared properties as specified with
@@ -55,7 +55,7 @@ export class ExperimentsWarehousePercentileAggregationInput {
     },
     warehouseMetricMeasure: {
       baseName: "warehouse_metric_measure",
-      type: "ExperimentsCreateMetricV2RequestDataAttributesPercentileAggregationWarehouseMetricMeasure",
+      type: "ExperimentsWarehouseMetricMeasure",
       required: true,
     },
     additionalProperties: {

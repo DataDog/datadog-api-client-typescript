@@ -1,8 +1,8 @@
 import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
-import { ExperimentsCreateMetricV2RequestDataAttributesPercentileAggregationWarehouseMetricMeasure } from "./ExperimentsCreateMetricV2RequestDataAttributesPercentileAggregationWarehouseMetricMeasure";
 import { ExperimentsNullableDatadogMetricMeasureInput } from "./ExperimentsNullableDatadogMetricMeasureInput";
 import { ExperimentsWarehouseFilterInput } from "./ExperimentsWarehouseFilterInput";
+import { ExperimentsWarehouseMetricMeasure } from "./ExperimentsWarehouseMetricMeasure";
 
 /**
  * Settings for a metric aggregation that uses a Warehouse measure. The other measure must be omitted or null.
@@ -65,7 +65,7 @@ export class ExperimentsWarehouseMetricAggregationInput {
   /**
    * Reference to a measure defined in a warehouse metric SQL model.
    */
-  "warehouseMetricMeasure": ExperimentsCreateMetricV2RequestDataAttributesPercentileAggregationWarehouseMetricMeasure;
+  "warehouseMetricMeasure": ExperimentsWarehouseMetricMeasure;
   /**
    * Fixed lower bound used to cap extreme measure values.
    */
@@ -161,7 +161,7 @@ export class ExperimentsWarehouseMetricAggregationInput {
     },
     warehouseMetricMeasure: {
       baseName: "warehouse_metric_measure",
-      type: "ExperimentsCreateMetricV2RequestDataAttributesPercentileAggregationWarehouseMetricMeasure",
+      type: "ExperimentsWarehouseMetricMeasure",
       required: true,
     },
     winsorLowerFixedValue: {

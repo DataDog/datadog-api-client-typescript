@@ -1,7 +1,7 @@
 import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
-import { ExperimentsCreateExperimentV2RequestDataAttributesDatadogFlagConfigurationTargetingRulesItems } from "./ExperimentsCreateExperimentV2RequestDataAttributesDatadogFlagConfigurationTargetingRulesItems";
 import { ExperimentsPatchExperimentV2ResponseDataAttributesDatadogFlagConfigurationEntryPoint } from "./ExperimentsPatchExperimentV2ResponseDataAttributesDatadogFlagConfigurationEntryPoint";
+import { ExperimentsTargetingRule } from "./ExperimentsTargetingRule";
 
 /**
  * Feature flag, environment, and targeting configuration for a Datadog experiment.
@@ -26,7 +26,7 @@ export class ExperimentsCreateExperimentV2RequestDataAttributesDatadogFlagConfig
   /**
    * Use an empty array when no targeting rules apply.
    */
-  "targetingRules": Array<ExperimentsCreateExperimentV2RequestDataAttributesDatadogFlagConfigurationTargetingRulesItems>;
+  "targetingRules": Array<ExperimentsTargetingRule>;
   /**
    * A container for additional, undeclared properties.
    * This is a holder for any undeclared properties as specified with
@@ -65,7 +65,7 @@ export class ExperimentsCreateExperimentV2RequestDataAttributesDatadogFlagConfig
     },
     targetingRules: {
       baseName: "targeting_rules",
-      type: "Array<ExperimentsCreateExperimentV2RequestDataAttributesDatadogFlagConfigurationTargetingRulesItems>",
+      type: "Array<ExperimentsTargetingRule>",
       required: true,
     },
     additionalProperties: {

@@ -1,6 +1,6 @@
 import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
-import { ExperimentsPatchExperimentV2ResponseDataAttributesWarehouseExposureConfigurationEntryPointFiltersItemsOperation } from "./ExperimentsPatchExperimentV2ResponseDataAttributesWarehouseExposureConfigurationEntryPointFiltersItemsOperation";
+import { ExperimentsWarehouseEntryPointFilterOperation } from "./ExperimentsWarehouseEntryPointFilterOperation";
 
 /**
  * A comparison that selects warehouse exposure data by a property.
@@ -9,7 +9,7 @@ export class ExperimentsWarehouseExposureFilter {
   /**
    * Comparison applied by the warehouse entry-point filter.
    */
-  "operation": ExperimentsPatchExperimentV2ResponseDataAttributesWarehouseExposureConfigurationEntryPointFiltersItemsOperation;
+  "operation": ExperimentsWarehouseEntryPointFilterOperation;
   /**
    * Warehouse property UUID.
    */
@@ -35,7 +35,7 @@ export class ExperimentsWarehouseExposureFilter {
   static readonly attributeTypeMap: AttributeTypeMap = {
     operation: {
       baseName: "operation",
-      type: "ExperimentsPatchExperimentV2ResponseDataAttributesWarehouseExposureConfigurationEntryPointFiltersItemsOperation",
+      type: "ExperimentsWarehouseEntryPointFilterOperation",
       required: true,
     },
     propertyId: {

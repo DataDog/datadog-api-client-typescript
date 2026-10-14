@@ -3772,49 +3772,49 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
     },
     operationResponseType: "AwsOnDemandResponse",
   },
-  "DORAMetricsApi.V2.CreateAIImpactUserActivity": {
+  "DeliveryPerformanceApi.V2.CreateAIImpactUserActivity": {
     body: {
       type: "AIImpactUserActivityRequest",
       format: "",
     },
     operationResponseType: "{}",
   },
-  "DORAMetricsApi.V2.CreateDORADeployment": {
+  "DeliveryPerformanceApi.V2.CreateDORADeployment": {
     body: {
       type: "DORADeploymentRequest",
       format: "",
     },
     operationResponseType: "DORADeploymentResponse",
   },
-  "DORAMetricsApi.V2.DeleteDORADeployment": {
+  "DeliveryPerformanceApi.V2.DeleteDORADeployment": {
     deploymentId: {
       type: "string",
       format: "",
     },
     operationResponseType: "{}",
   },
-  "DORAMetricsApi.V2.ListDORADeployments": {
+  "DeliveryPerformanceApi.V2.ListDORADeployments": {
     body: {
       type: "DORAListDeploymentsRequest",
       format: "",
     },
     operationResponseType: "DORADeploymentsListResponse",
   },
-  "DORAMetricsApi.V2.PatchDORADeploymentByVersion": {
+  "DeliveryPerformanceApi.V2.PatchDORADeploymentByVersion": {
     body: {
       type: "DORADeploymentPatchByVersionRequest",
       format: "",
     },
     operationResponseType: "{}",
   },
-  "DORAMetricsApi.V2.GetDORADeployment": {
+  "DeliveryPerformanceApi.V2.GetDORADeployment": {
     deploymentId: {
       type: "string",
       format: "",
     },
     operationResponseType: "DORADeploymentFetchResponse",
   },
-  "DORAMetricsApi.V2.PatchDORADeployment": {
+  "DeliveryPerformanceApi.V2.PatchDORADeployment": {
     deploymentId: {
       type: "string",
       format: "",
@@ -3825,35 +3825,35 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
     },
     operationResponseType: "{}",
   },
-  "DORAMetricsApi.V2.CreateDORAFailure": {
+  "DeliveryPerformanceApi.V2.CreateDORAFailure": {
     body: {
       type: "DORAFailureRequest",
       format: "",
     },
     operationResponseType: "DORAFailureResponse",
   },
-  "DORAMetricsApi.V2.DeleteDORAFailure": {
+  "DeliveryPerformanceApi.V2.DeleteDORAFailure": {
     failureId: {
       type: "string",
       format: "",
     },
     operationResponseType: "{}",
   },
-  "DORAMetricsApi.V2.ListDORAFailures": {
+  "DeliveryPerformanceApi.V2.ListDORAFailures": {
     body: {
       type: "DORAListFailuresRequest",
       format: "",
     },
     operationResponseType: "DORAFailuresListResponse",
   },
-  "DORAMetricsApi.V2.GetDORAFailure": {
+  "DeliveryPerformanceApi.V2.GetDORAFailure": {
     failureId: {
       type: "string",
       format: "",
     },
     operationResponseType: "DORAFailureFetchResponse",
   },
-  "DORAMetricsApi.V2.CreateDORAIncident": {
+  "DeliveryPerformanceApi.V2.CreateDORAIncident": {
     body: {
       type: "DORAFailureRequest",
       format: "",

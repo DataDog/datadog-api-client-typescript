@@ -1,6 +1,6 @@
 import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
-import { ExperimentsPatchExperimentV2ResponseDataAttributesWarehouseExposureConfigurationEntryPointFiltersItemsOperation } from "./ExperimentsPatchExperimentV2ResponseDataAttributesWarehouseExposureConfigurationEntryPointFiltersItemsOperation";
+import { ExperimentsWarehouseEntryPointFilterOperation } from "./ExperimentsWarehouseEntryPointFilterOperation";
 
 /**
  * A property comparison for metric source data.
@@ -13,7 +13,7 @@ export class ExperimentsPropertyFilterInput {
   /**
    * Comparison applied by the warehouse entry-point filter.
    */
-  "operation": ExperimentsPatchExperimentV2ResponseDataAttributesWarehouseExposureConfigurationEntryPointFiltersItemsOperation;
+  "operation": ExperimentsWarehouseEntryPointFilterOperation;
   /**
    * ID of the property on the aggregation source.
    */
@@ -43,7 +43,7 @@ export class ExperimentsPropertyFilterInput {
     },
     operation: {
       baseName: "operation",
-      type: "ExperimentsPatchExperimentV2ResponseDataAttributesWarehouseExposureConfigurationEntryPointFiltersItemsOperation",
+      type: "ExperimentsWarehouseEntryPointFilterOperation",
       required: true,
     },
     propertyId: {

@@ -1,6 +1,6 @@
 import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
-import { ExperimentsPatchExperimentV2ResponseDataAttributesDatadogFlagConfigurationEntryPointFiltersItemsItemsColumnType } from "./ExperimentsPatchExperimentV2ResponseDataAttributesDatadogFlagConfigurationEntryPointFiltersItemsItemsColumnType";
+import { ExperimentsDatadogEntryPointFilterColumnType } from "./ExperimentsDatadogEntryPointFilterColumnType";
 
 /**
  * Complete Datadog split-by selection. Identify each property by column_name. Omit this field to copy organization defaults.
@@ -13,7 +13,7 @@ export class ExperimentsCreateExperimentV2RequestDataAttributesSplitByProperties
   /**
    * Data type of the column evaluated by the entry-point filter.
    */
-  "columnType"?: ExperimentsPatchExperimentV2ResponseDataAttributesDatadogFlagConfigurationEntryPointFiltersItemsItemsColumnType;
+  "columnType"?: ExperimentsDatadogEntryPointFilterColumnType;
   /**
    * Optional display name. Defaults to column_name for a new property.
    */
@@ -40,7 +40,7 @@ export class ExperimentsCreateExperimentV2RequestDataAttributesSplitByProperties
     },
     columnType: {
       baseName: "column_type",
-      type: "ExperimentsPatchExperimentV2ResponseDataAttributesDatadogFlagConfigurationEntryPointFiltersItemsItemsColumnType",
+      type: "ExperimentsDatadogEntryPointFilterColumnType",
     },
     name: {
       baseName: "name",
