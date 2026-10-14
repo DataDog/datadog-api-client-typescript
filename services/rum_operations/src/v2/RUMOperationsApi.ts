@@ -49,12 +49,6 @@ export class RUMOperationsApiRequestFactory extends BaseAPIRequestFactory {
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
-    if (!_config.unstableOperations["RUMOperationsApi.v2.createRUMOperation"]) {
-      throw new Error(
-        "Unstable operation 'createRUMOperation' is disabled. Enable it by setting `configuration.unstableOperations['RUMOperationsApi.v2.createRUMOperation'] = true`",
-      );
-    }
-
     // verify required parameter 'body' is not null or undefined
     if (body === null || body === undefined) {
       throw new RequiredError("body", "createRUMOperation");
@@ -110,16 +104,6 @@ export class RUMOperationsApiRequestFactory extends BaseAPIRequestFactory {
     _options?: Configuration,
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
-
-    if (
-      !_config.unstableOperations[
-        "RUMOperationsApi.v2.createRUMOperationStrongLink"
-      ]
-    ) {
-      throw new Error(
-        "Unstable operation 'createRUMOperationStrongLink' is disabled. Enable it by setting `configuration.unstableOperations['RUMOperationsApi.v2.createRUMOperationStrongLink'] = true`",
-      );
-    }
 
     // verify required parameter 'body' is not null or undefined
     if (body === null || body === undefined) {
@@ -177,12 +161,6 @@ export class RUMOperationsApiRequestFactory extends BaseAPIRequestFactory {
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
-    if (!_config.unstableOperations["RUMOperationsApi.v2.deleteRUMOperation"]) {
-      throw new Error(
-        "Unstable operation 'deleteRUMOperation' is disabled. Enable it by setting `configuration.unstableOperations['RUMOperationsApi.v2.deleteRUMOperation'] = true`",
-      );
-    }
-
     // verify required parameter 'rumOperationId' is not null or undefined
     if (rumOperationId === null || rumOperationId === undefined) {
       throw new RequiredError("rumOperationId", "deleteRUMOperation");
@@ -233,16 +211,6 @@ export class RUMOperationsApiRequestFactory extends BaseAPIRequestFactory {
     _options?: Configuration,
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
-
-    if (
-      !_config.unstableOperations[
-        "RUMOperationsApi.v2.deleteRUMOperationStrongLink"
-      ]
-    ) {
-      throw new Error(
-        "Unstable operation 'deleteRUMOperationStrongLink' is disabled. Enable it by setting `configuration.unstableOperations['RUMOperationsApi.v2.deleteRUMOperationStrongLink'] = true`",
-      );
-    }
 
     // verify required parameter 'rumOperationId' is not null or undefined
     if (rumOperationId === null || rumOperationId === undefined) {
@@ -302,12 +270,6 @@ export class RUMOperationsApiRequestFactory extends BaseAPIRequestFactory {
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
-    if (!_config.unstableOperations["RUMOperationsApi.v2.getRUMOperation"]) {
-      throw new Error(
-        "Unstable operation 'getRUMOperation' is disabled. Enable it by setting `configuration.unstableOperations['RUMOperationsApi.v2.getRUMOperation'] = true`",
-      );
-    }
-
     // verify required parameter 'rumOperationId' is not null or undefined
     if (rumOperationId === null || rumOperationId === undefined) {
       throw new RequiredError("rumOperationId", "getRUMOperation");
@@ -357,14 +319,6 @@ export class RUMOperationsApiRequestFactory extends BaseAPIRequestFactory {
     _options?: Configuration,
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
-
-    if (
-      !_config.unstableOperations["RUMOperationsApi.v2.getRUMOperationByName"]
-    ) {
-      throw new Error(
-        "Unstable operation 'getRUMOperationByName' is disabled. Enable it by setting `configuration.unstableOperations['RUMOperationsApi.v2.getRUMOperationByName'] = true`",
-      );
-    }
 
     // verify required parameter 'name' is not null or undefined
     if (name === null || name === undefined) {
@@ -421,12 +375,6 @@ export class RUMOperationsApiRequestFactory extends BaseAPIRequestFactory {
     _options?: Configuration,
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
-
-    if (!_config.unstableOperations["RUMOperationsApi.v2.listRUMOperations"]) {
-      throw new Error(
-        "Unstable operation 'listRUMOperations' is disabled. Enable it by setting `configuration.unstableOperations['RUMOperationsApi.v2.listRUMOperations'] = true`",
-      );
-    }
 
     // Path Params
     const localVarPath = "/api/v2/rum/operations/search";
@@ -597,12 +545,6 @@ export class RUMOperationsApiRequestFactory extends BaseAPIRequestFactory {
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
-    if (!_config.unstableOperations["RUMOperationsApi.v2.updateRUMOperation"]) {
-      throw new Error(
-        "Unstable operation 'updateRUMOperation' is disabled. Enable it by setting `configuration.unstableOperations['RUMOperationsApi.v2.updateRUMOperation'] = true`",
-      );
-    }
-
     // verify required parameter 'rumOperationId' is not null or undefined
     if (rumOperationId === null || rumOperationId === undefined) {
       throw new RequiredError("rumOperationId", "updateRUMOperation");
@@ -668,16 +610,6 @@ export class RUMOperationsApiRequestFactory extends BaseAPIRequestFactory {
     _options?: Configuration,
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
-
-    if (
-      !_config.unstableOperations[
-        "RUMOperationsApi.v2.updateRUMOperationStrongLink"
-      ]
-    ) {
-      throw new Error(
-        "Unstable operation 'updateRUMOperationStrongLink' is disabled. Enable it by setting `configuration.unstableOperations['RUMOperationsApi.v2.updateRUMOperationStrongLink'] = true`",
-      );
-    }
 
     // verify required parameter 'rumOperationId' is not null or undefined
     if (rumOperationId === null || rumOperationId === undefined) {
