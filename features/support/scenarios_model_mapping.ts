@@ -10461,7 +10461,69 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             },
         "operationResponseType": "ExperimentsPublicProtocolListResponseArray",
     },
+    "v2.CreateExperimentProtocol": {
+        "body": {
+            "type": "ExperimentsCreateExperimentProtocolRequest",
+            "format": "",
+            },
+        "operationResponseType": "ExperimentsPublicProtocolResponse",
+    },
     "v2.GetExperimentProtocol": {
+        "protocolId": {
+            "type": "string",
+            "format": "uuid",
+            },
+        "operationResponseType": "ExperimentsPublicProtocolResponse",
+    },
+    "v2.ReplaceExperimentProtocol": {
+        "protocolId": {
+            "type": "string",
+            "format": "uuid",
+            },
+        "expectedUpdatedAt": {
+            "type": "string",
+            "format": "",
+            },
+        "body": {
+            "type": "ExperimentsReplaceExperimentProtocolRequest",
+            "format": "",
+            },
+        "operationResponseType": "ExperimentsPublicProtocolResponse",
+    },
+    "v2.DeleteExperimentProtocol": {
+        "protocolId": {
+            "type": "string",
+            "format": "uuid",
+            },
+        "expectedUpdatedAt": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "{}",
+    },
+    "v2.PatchExperimentProtocol": {
+        "protocolId": {
+            "type": "string",
+            "format": "uuid",
+            },
+        "body": {
+            "type": "ExperimentsPatchExperimentProtocolRequest",
+            "format": "",
+            },
+        "operationResponseType": "ExperimentsPublicProtocolResponse",
+    },
+    "v2.ArchiveExperimentProtocol": {
+        "protocolId": {
+            "type": "string",
+            "format": "uuid",
+            },
+        "expectedUpdatedAt": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "ExperimentsPublicProtocolResponse",
+    },
+    "v2.PublishExperimentProtocol": {
         "protocolId": {
             "type": "string",
             "format": "uuid",

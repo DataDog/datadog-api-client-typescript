@@ -1876,6 +1876,9 @@ import { ExperimentsCreateExperimentMetricGroupV2Request } from "./ExperimentsCr
 import { ExperimentsCreateExperimentMetricGroupV2RequestData } from "./ExperimentsCreateExperimentMetricGroupV2RequestData";
 import { ExperimentsCreateExperimentMetricGroupV2RequestDataAttributes } from "./ExperimentsCreateExperimentMetricGroupV2RequestDataAttributes";
 import { ExperimentsCreateExperimentMetricGroupV2RequestDataAttributesMetricsItems } from "./ExperimentsCreateExperimentMetricGroupV2RequestDataAttributesMetricsItems";
+import { ExperimentsCreateExperimentProtocolRequest } from "./ExperimentsCreateExperimentProtocolRequest";
+import { ExperimentsCreateExperimentProtocolRequestData } from "./ExperimentsCreateExperimentProtocolRequestData";
+import { ExperimentsCreateExperimentProtocolRequestDataAttributes } from "./ExperimentsCreateExperimentProtocolRequestDataAttributes";
 import { ExperimentsCreateExperimentV2Request } from "./ExperimentsCreateExperimentV2Request";
 import { ExperimentsCreateExperimentV2RequestData } from "./ExperimentsCreateExperimentV2RequestData";
 import { ExperimentsCreateExperimentV2RequestDataAttributes } from "./ExperimentsCreateExperimentV2RequestDataAttributes";
@@ -1965,6 +1968,9 @@ import { ExperimentsOffsetMetaPage } from "./ExperimentsOffsetMetaPage";
 import { ExperimentsPatchExperimentMetricGroupV2Request } from "./ExperimentsPatchExperimentMetricGroupV2Request";
 import { ExperimentsPatchExperimentMetricGroupV2RequestData } from "./ExperimentsPatchExperimentMetricGroupV2RequestData";
 import { ExperimentsPatchExperimentMetricGroupV2RequestDataAttributes } from "./ExperimentsPatchExperimentMetricGroupV2RequestDataAttributes";
+import { ExperimentsPatchExperimentProtocolRequest } from "./ExperimentsPatchExperimentProtocolRequest";
+import { ExperimentsPatchExperimentProtocolRequestData } from "./ExperimentsPatchExperimentProtocolRequestData";
+import { ExperimentsPatchExperimentProtocolRequestDataAttributes } from "./ExperimentsPatchExperimentProtocolRequestDataAttributes";
 import { ExperimentsPatchExperimentV2MetaDTO } from "./ExperimentsPatchExperimentV2MetaDTO";
 import { ExperimentsPatchExperimentV2MetaDTOWarningsItems } from "./ExperimentsPatchExperimentV2MetaDTOWarningsItems";
 import { ExperimentsPatchExperimentV2Request } from "./ExperimentsPatchExperimentV2Request";
@@ -1981,11 +1987,21 @@ import { ExperimentsPatchExperimentV2ResponseDataAttributesWarehouseExposureConf
 import { ExperimentsPatchMetricCollectionV2Request } from "./ExperimentsPatchMetricCollectionV2Request";
 import { ExperimentsPatchMetricCollectionV2RequestData } from "./ExperimentsPatchMetricCollectionV2RequestData";
 import { ExperimentsPatchMetricCollectionV2RequestDataAttributes } from "./ExperimentsPatchMetricCollectionV2RequestDataAttributes";
+import { ExperimentsPatchProtocolAnalysisPlanInput } from "./ExperimentsPatchProtocolAnalysisPlanInput";
+import { ExperimentsPatchProtocolEnforcementInput } from "./ExperimentsPatchProtocolEnforcementInput";
+import { ExperimentsPatchProtocolExposureScheduleInput } from "./ExperimentsPatchProtocolExposureScheduleInput";
 import { ExperimentsPatchSubjectTypeV2Request } from "./ExperimentsPatchSubjectTypeV2Request";
 import { ExperimentsPatchSubjectTypeV2RequestData } from "./ExperimentsPatchSubjectTypeV2RequestData";
 import { ExperimentsPatchSubjectTypeV2RequestDataAttributes } from "./ExperimentsPatchSubjectTypeV2RequestDataAttributes";
 import { ExperimentsPropertyFilterInput } from "./ExperimentsPropertyFilterInput";
 import { ExperimentsPropertyNullFilterInput } from "./ExperimentsPropertyNullFilterInput";
+import { ExperimentsProtocolAnalysisPlanInput } from "./ExperimentsProtocolAnalysisPlanInput";
+import { ExperimentsProtocolConditionInput } from "./ExperimentsProtocolConditionInput";
+import { ExperimentsProtocolExposureScheduleInput } from "./ExperimentsProtocolExposureScheduleInput";
+import { ExperimentsProtocolExposureStepInput } from "./ExperimentsProtocolExposureStepInput";
+import { ExperimentsProtocolMetricGroupInput } from "./ExperimentsProtocolMetricGroupInput";
+import { ExperimentsProtocolMetricInput } from "./ExperimentsProtocolMetricInput";
+import { ExperimentsProtocolTargetingRuleInput } from "./ExperimentsProtocolTargetingRuleInput";
 import { ExperimentsPublicProtocolListResponseArray } from "./ExperimentsPublicProtocolListResponseArray";
 import { ExperimentsPublicProtocolListResponseData } from "./ExperimentsPublicProtocolListResponseData";
 import { ExperimentsPublicProtocolListResponseDataAttributes } from "./ExperimentsPublicProtocolListResponseDataAttributes";
@@ -2007,6 +2023,10 @@ import { ExperimentsRefreshExperimentResultsV2DTO } from "./ExperimentsRefreshEx
 import { ExperimentsRefreshExperimentResultsV2DTOArray } from "./ExperimentsRefreshExperimentResultsV2DTOArray";
 import { ExperimentsRefreshExperimentResultsV2DTOData } from "./ExperimentsRefreshExperimentResultsV2DTOData";
 import { ExperimentsRefreshExperimentResultsV2DTODataAttributes } from "./ExperimentsRefreshExperimentResultsV2DTODataAttributes";
+import { ExperimentsReplaceExperimentProtocolRequest } from "./ExperimentsReplaceExperimentProtocolRequest";
+import { ExperimentsReplaceExperimentProtocolRequestData } from "./ExperimentsReplaceExperimentProtocolRequestData";
+import { ExperimentsReplaceExperimentProtocolRequestDataAttributes } from "./ExperimentsReplaceExperimentProtocolRequestDataAttributes";
+import { ExperimentsReplaceProtocolEnforcementInput } from "./ExperimentsReplaceProtocolEnforcementInput";
 import { ExperimentsSQLModelPropertyInput } from "./ExperimentsSQLModelPropertyInput";
 import { ExperimentsSavedFilterCondition } from "./ExperimentsSavedFilterCondition";
 import { ExperimentsStartExperimentV2Request } from "./ExperimentsStartExperimentV2Request";
@@ -12420,6 +12440,12 @@ const typeMap: { [index: string]: any } = {
     ExperimentsCreateExperimentMetricGroupV2RequestDataAttributes,
   ExperimentsCreateExperimentMetricGroupV2RequestDataAttributesMetricsItems:
     ExperimentsCreateExperimentMetricGroupV2RequestDataAttributesMetricsItems,
+  ExperimentsCreateExperimentProtocolRequest:
+    ExperimentsCreateExperimentProtocolRequest,
+  ExperimentsCreateExperimentProtocolRequestData:
+    ExperimentsCreateExperimentProtocolRequestData,
+  ExperimentsCreateExperimentProtocolRequestDataAttributes:
+    ExperimentsCreateExperimentProtocolRequestDataAttributes,
   ExperimentsCreateExperimentV2Request: ExperimentsCreateExperimentV2Request,
   ExperimentsCreateExperimentV2RequestData:
     ExperimentsCreateExperimentV2RequestData,
@@ -12566,6 +12592,12 @@ const typeMap: { [index: string]: any } = {
     ExperimentsPatchExperimentMetricGroupV2RequestData,
   ExperimentsPatchExperimentMetricGroupV2RequestDataAttributes:
     ExperimentsPatchExperimentMetricGroupV2RequestDataAttributes,
+  ExperimentsPatchExperimentProtocolRequest:
+    ExperimentsPatchExperimentProtocolRequest,
+  ExperimentsPatchExperimentProtocolRequestData:
+    ExperimentsPatchExperimentProtocolRequestData,
+  ExperimentsPatchExperimentProtocolRequestDataAttributes:
+    ExperimentsPatchExperimentProtocolRequestDataAttributes,
   ExperimentsPatchExperimentV2MetaDTO: ExperimentsPatchExperimentV2MetaDTO,
   ExperimentsPatchExperimentV2MetaDTOWarningsItems:
     ExperimentsPatchExperimentV2MetaDTOWarningsItems,
@@ -12595,6 +12627,12 @@ const typeMap: { [index: string]: any } = {
     ExperimentsPatchMetricCollectionV2RequestData,
   ExperimentsPatchMetricCollectionV2RequestDataAttributes:
     ExperimentsPatchMetricCollectionV2RequestDataAttributes,
+  ExperimentsPatchProtocolAnalysisPlanInput:
+    ExperimentsPatchProtocolAnalysisPlanInput,
+  ExperimentsPatchProtocolEnforcementInput:
+    ExperimentsPatchProtocolEnforcementInput,
+  ExperimentsPatchProtocolExposureScheduleInput:
+    ExperimentsPatchProtocolExposureScheduleInput,
   ExperimentsPatchSubjectTypeV2Request: ExperimentsPatchSubjectTypeV2Request,
   ExperimentsPatchSubjectTypeV2RequestData:
     ExperimentsPatchSubjectTypeV2RequestData,
@@ -12602,6 +12640,14 @@ const typeMap: { [index: string]: any } = {
     ExperimentsPatchSubjectTypeV2RequestDataAttributes,
   ExperimentsPropertyFilterInput: ExperimentsPropertyFilterInput,
   ExperimentsPropertyNullFilterInput: ExperimentsPropertyNullFilterInput,
+  ExperimentsProtocolAnalysisPlanInput: ExperimentsProtocolAnalysisPlanInput,
+  ExperimentsProtocolConditionInput: ExperimentsProtocolConditionInput,
+  ExperimentsProtocolExposureScheduleInput:
+    ExperimentsProtocolExposureScheduleInput,
+  ExperimentsProtocolExposureStepInput: ExperimentsProtocolExposureStepInput,
+  ExperimentsProtocolMetricGroupInput: ExperimentsProtocolMetricGroupInput,
+  ExperimentsProtocolMetricInput: ExperimentsProtocolMetricInput,
+  ExperimentsProtocolTargetingRuleInput: ExperimentsProtocolTargetingRuleInput,
   ExperimentsPublicProtocolListResponseArray:
     ExperimentsPublicProtocolListResponseArray,
   ExperimentsPublicProtocolListResponseData:
@@ -12642,6 +12688,14 @@ const typeMap: { [index: string]: any } = {
     ExperimentsRefreshExperimentResultsV2DTOData,
   ExperimentsRefreshExperimentResultsV2DTODataAttributes:
     ExperimentsRefreshExperimentResultsV2DTODataAttributes,
+  ExperimentsReplaceExperimentProtocolRequest:
+    ExperimentsReplaceExperimentProtocolRequest,
+  ExperimentsReplaceExperimentProtocolRequestData:
+    ExperimentsReplaceExperimentProtocolRequestData,
+  ExperimentsReplaceExperimentProtocolRequestDataAttributes:
+    ExperimentsReplaceExperimentProtocolRequestDataAttributes,
+  ExperimentsReplaceProtocolEnforcementInput:
+    ExperimentsReplaceProtocolEnforcementInput,
   ExperimentsSQLModelPropertyInput: ExperimentsSQLModelPropertyInput,
   ExperimentsSavedFilterCondition: ExperimentsSavedFilterCondition,
   ExperimentsStartExperimentV2Request: ExperimentsStartExperimentV2Request,

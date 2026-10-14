@@ -709,12 +709,14 @@ export {
 } from "./apis/ExecutionPolicyApi";
 
 export {
+  ExperimentsApiArchiveExperimentProtocolRequest,
   ExperimentsApiArchiveExposureSQLModelRequest,
   ExperimentsApiCancelExperimentRequest,
   ExperimentsApiConcludeExperimentRequest,
   ExperimentsApiCreateExperimentRequest,
   ExperimentsApiCreateExperimentMetricGroupRequest,
   ExperimentsApiCreateExperimentMetricGroupFromCollectionRequest,
+  ExperimentsApiCreateExperimentProtocolRequest,
   ExperimentsApiCreateExposureSQLModelRequest,
   ExperimentsApiCreateMetricRequest,
   ExperimentsApiCreateMetricCollectionRequest,
@@ -722,6 +724,7 @@ export {
   ExperimentsApiCreateSubjectTypeRequest,
   ExperimentsApiDeleteExperimentRequest,
   ExperimentsApiDeleteExperimentMetricGroupRequest,
+  ExperimentsApiDeleteExperimentProtocolRequest,
   ExperimentsApiDeleteMetricRequest,
   ExperimentsApiDeleteMetricCollectionRequest,
   ExperimentsApiDeleteSubjectTypeRequest,
@@ -745,9 +748,12 @@ export {
   ExperimentsApiListMetricsRequest,
   ExperimentsApiListSubjectTypesRequest,
   ExperimentsApiPatchExperimentRequest,
+  ExperimentsApiPatchExperimentProtocolRequest,
   ExperimentsApiPatchSubjectTypeRequest,
+  ExperimentsApiPublishExperimentProtocolRequest,
   ExperimentsApiRefreshExperimentResultsRequest,
   ExperimentsApiRefreshExperimentResultsForOrgRequest,
+  ExperimentsApiReplaceExperimentProtocolRequest,
   ExperimentsApiSetDefaultSubjectTypeRequest,
   ExperimentsApiStartExperimentRequest,
   ExperimentsApiUnarchiveExposureSQLModelRequest,
@@ -4527,6 +4533,9 @@ export { ExperimentsCreateExperimentMetricGroupV2Request } from "./models/Experi
 export { ExperimentsCreateExperimentMetricGroupV2RequestData } from "./models/ExperimentsCreateExperimentMetricGroupV2RequestData";
 export { ExperimentsCreateExperimentMetricGroupV2RequestDataAttributes } from "./models/ExperimentsCreateExperimentMetricGroupV2RequestDataAttributes";
 export { ExperimentsCreateExperimentMetricGroupV2RequestDataAttributesMetricsItems } from "./models/ExperimentsCreateExperimentMetricGroupV2RequestDataAttributesMetricsItems";
+export { ExperimentsCreateExperimentProtocolRequest } from "./models/ExperimentsCreateExperimentProtocolRequest";
+export { ExperimentsCreateExperimentProtocolRequestData } from "./models/ExperimentsCreateExperimentProtocolRequestData";
+export { ExperimentsCreateExperimentProtocolRequestDataAttributes } from "./models/ExperimentsCreateExperimentProtocolRequestDataAttributes";
 export { ExperimentsCreateExperimentV2Request } from "./models/ExperimentsCreateExperimentV2Request";
 export { ExperimentsCreateExperimentV2RequestData } from "./models/ExperimentsCreateExperimentV2RequestData";
 export { ExperimentsCreateExperimentV2RequestDataAttributes } from "./models/ExperimentsCreateExperimentV2RequestDataAttributes";
@@ -4639,6 +4648,9 @@ export { ExperimentsPatchExperimentMetricGroupV2Request } from "./models/Experim
 export { ExperimentsPatchExperimentMetricGroupV2RequestData } from "./models/ExperimentsPatchExperimentMetricGroupV2RequestData";
 export { ExperimentsPatchExperimentMetricGroupV2RequestDataAttributes } from "./models/ExperimentsPatchExperimentMetricGroupV2RequestDataAttributes";
 export { ExperimentsPatchExperimentMetricGroupV2RequestDataType } from "./models/ExperimentsPatchExperimentMetricGroupV2RequestDataType";
+export { ExperimentsPatchExperimentProtocolRequest } from "./models/ExperimentsPatchExperimentProtocolRequest";
+export { ExperimentsPatchExperimentProtocolRequestData } from "./models/ExperimentsPatchExperimentProtocolRequestData";
+export { ExperimentsPatchExperimentProtocolRequestDataAttributes } from "./models/ExperimentsPatchExperimentProtocolRequestDataAttributes";
 export { ExperimentsPatchExperimentV2MetaDTO } from "./models/ExperimentsPatchExperimentV2MetaDTO";
 export { ExperimentsPatchExperimentV2MetaDTOWarningsItems } from "./models/ExperimentsPatchExperimentV2MetaDTOWarningsItems";
 export { ExperimentsPatchExperimentV2Request } from "./models/ExperimentsPatchExperimentV2Request";
@@ -4659,12 +4671,22 @@ export { ExperimentsPatchMetricCollectionV2Request } from "./models/ExperimentsP
 export { ExperimentsPatchMetricCollectionV2RequestData } from "./models/ExperimentsPatchMetricCollectionV2RequestData";
 export { ExperimentsPatchMetricCollectionV2RequestDataAttributes } from "./models/ExperimentsPatchMetricCollectionV2RequestDataAttributes";
 export { ExperimentsPatchMetricCollectionV2RequestDataType } from "./models/ExperimentsPatchMetricCollectionV2RequestDataType";
+export { ExperimentsPatchProtocolAnalysisPlanInput } from "./models/ExperimentsPatchProtocolAnalysisPlanInput";
+export { ExperimentsPatchProtocolEnforcementInput } from "./models/ExperimentsPatchProtocolEnforcementInput";
+export { ExperimentsPatchProtocolExposureScheduleInput } from "./models/ExperimentsPatchProtocolExposureScheduleInput";
 export { ExperimentsPatchSubjectTypeV2Request } from "./models/ExperimentsPatchSubjectTypeV2Request";
 export { ExperimentsPatchSubjectTypeV2RequestData } from "./models/ExperimentsPatchSubjectTypeV2RequestData";
 export { ExperimentsPatchSubjectTypeV2RequestDataAttributes } from "./models/ExperimentsPatchSubjectTypeV2RequestDataAttributes";
 export { ExperimentsPropertyFilterInput } from "./models/ExperimentsPropertyFilterInput";
 export { ExperimentsPropertyNullFilterInput } from "./models/ExperimentsPropertyNullFilterInput";
 export { ExperimentsPropertyNullFilterInputOperation } from "./models/ExperimentsPropertyNullFilterInputOperation";
+export { ExperimentsProtocolAnalysisPlanInput } from "./models/ExperimentsProtocolAnalysisPlanInput";
+export { ExperimentsProtocolConditionInput } from "./models/ExperimentsProtocolConditionInput";
+export { ExperimentsProtocolExposureScheduleInput } from "./models/ExperimentsProtocolExposureScheduleInput";
+export { ExperimentsProtocolExposureStepInput } from "./models/ExperimentsProtocolExposureStepInput";
+export { ExperimentsProtocolMetricGroupInput } from "./models/ExperimentsProtocolMetricGroupInput";
+export { ExperimentsProtocolMetricInput } from "./models/ExperimentsProtocolMetricInput";
+export { ExperimentsProtocolTargetingRuleInput } from "./models/ExperimentsProtocolTargetingRuleInput";
 export { ExperimentsPublicProtocolListResponseArray } from "./models/ExperimentsPublicProtocolListResponseArray";
 export { ExperimentsPublicProtocolListResponseData } from "./models/ExperimentsPublicProtocolListResponseData";
 export { ExperimentsPublicProtocolListResponseDataAttributes } from "./models/ExperimentsPublicProtocolListResponseDataAttributes";
@@ -4690,6 +4712,10 @@ export { ExperimentsRefreshExperimentResultsV2DTOArray } from "./models/Experime
 export { ExperimentsRefreshExperimentResultsV2DTOData } from "./models/ExperimentsRefreshExperimentResultsV2DTOData";
 export { ExperimentsRefreshExperimentResultsV2DTODataAttributes } from "./models/ExperimentsRefreshExperimentResultsV2DTODataAttributes";
 export { ExperimentsRefreshExperimentResultsV2DTODataType } from "./models/ExperimentsRefreshExperimentResultsV2DTODataType";
+export { ExperimentsReplaceExperimentProtocolRequest } from "./models/ExperimentsReplaceExperimentProtocolRequest";
+export { ExperimentsReplaceExperimentProtocolRequestData } from "./models/ExperimentsReplaceExperimentProtocolRequestData";
+export { ExperimentsReplaceExperimentProtocolRequestDataAttributes } from "./models/ExperimentsReplaceExperimentProtocolRequestDataAttributes";
+export { ExperimentsReplaceProtocolEnforcementInput } from "./models/ExperimentsReplaceProtocolEnforcementInput";
 export { ExperimentsSavedFilterCondition } from "./models/ExperimentsSavedFilterCondition";
 export { ExperimentsSQLModelPropertyInput } from "./models/ExperimentsSQLModelPropertyInput";
 export { ExperimentsStartExperimentV2Request } from "./models/ExperimentsStartExperimentV2Request";
