@@ -396,10 +396,10 @@ apiInstance
 | Databricks Integration | @datadog/datadog-api-client-databricks-integration | [README.md](../../services/databricks-integration/README.md) |
 | Datasets | @datadog/datadog-api-client-datasets | [README.md](../../services/datasets/README.md) |
 | DDSQL | @datadog/datadog-api-client-ddsql | [README.md](../../services/ddsql/README.md) |
+| Delivery Performance | @datadog/datadog-api-client-delivery-performance | [README.md](../../services/delivery-performance/README.md) |
 | DEM | @datadog/datadog-api-client-dem | [README.md](../../services/dem/README.md) |
 | Deployment Gates | @datadog/datadog-api-client-deployment-gates | [README.md](../../services/deployment-gates/README.md) |
 | Domain Allowlist | @datadog/datadog-api-client-domain-allowlist | [README.md](../../services/domain-allowlist/README.md) |
-| DORA Metrics | @datadog/datadog-api-client-dora-metrics | [README.md](../../services/dora-metrics/README.md) |
 | Downtimes | @datadog/datadog-api-client-downtimes | [README.md](../../services/downtimes/README.md) |
 | Elastic Cloud Integration | @datadog/datadog-api-client-elastic-cloud-integration | [README.md](../../services/elastic-cloud-integration/README.md) |
 | Entity Integration Configs | @datadog/datadog-api-client-entity-integration-configs | [README.md](../../services/entity-integration-configs/README.md) |
