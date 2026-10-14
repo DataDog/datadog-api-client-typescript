@@ -37,10 +37,14 @@ import { FeatureFlagResponse } from "./FeatureFlagResponse";
 import { FeatureFlagStalenessCodeReference } from "./FeatureFlagStalenessCodeReference";
 import { FeatureFlagStalenessDetails } from "./FeatureFlagStalenessDetails";
 import { FeatureFlagStalenessRecommendedAction } from "./FeatureFlagStalenessRecommendedAction";
+import { FeatureFlagsPaginationLinks } from "./FeatureFlagsPaginationLinks";
 import { FeatureFlagsPaginationMeta } from "./FeatureFlagsPaginationMeta";
 import { FeatureFlagsPaginationMetaPage } from "./FeatureFlagsPaginationMetaPage";
 import { GuardrailMetric } from "./GuardrailMetric";
 import { GuardrailMetricRequest } from "./GuardrailMetricRequest";
+import { JSONAPIErrorItem } from "./JSONAPIErrorItem";
+import { JSONAPIErrorItemSource } from "./JSONAPIErrorItemSource";
+import { JSONAPIErrorResponse } from "./JSONAPIErrorResponse";
 import { ListAllocationsResponse } from "./ListAllocationsResponse";
 import { ListEnvironmentsResponse } from "./ListEnvironmentsResponse";
 import { ListFeatureFlagsResponse } from "./ListFeatureFlagsResponse";
@@ -82,6 +86,9 @@ export const TypingInfo: ModelTypingInfo = {
     CreateFeatureFlagDataType: ["feature-flags"],
     CreateFeatureFlagStalenessStatus: ["ACTIVE", "PERMANENT"],
     FeatureFlagDistributionChannel: ["ALL", "CLIENT", "SERVER"],
+    FeatureFlagProductionStatus: ["ENABLED", "DISABLED", "OVERRIDDEN"],
+    FeatureFlagStalenessStatus: ["ACTIVE", "STALE", "PERMANENT"],
+    FeatureFlagStalenessStatusOverride: ["STALE", "PERMANENT"],
     FeatureFlagStatus: ["ENABLED", "DISABLED"],
     GuardrailTriggerAction: ["PAUSE", "ABORT"],
     RolloutStrategy: ["UNIFORM_INTERVALS", "NO_ROLLOUT"],
@@ -129,10 +136,14 @@ export const TypingInfo: ModelTypingInfo = {
     FeatureFlagStalenessDetails: FeatureFlagStalenessDetails,
     FeatureFlagStalenessRecommendedAction:
       FeatureFlagStalenessRecommendedAction,
+    FeatureFlagsPaginationLinks: FeatureFlagsPaginationLinks,
     FeatureFlagsPaginationMeta: FeatureFlagsPaginationMeta,
     FeatureFlagsPaginationMetaPage: FeatureFlagsPaginationMetaPage,
     GuardrailMetric: GuardrailMetric,
     GuardrailMetricRequest: GuardrailMetricRequest,
+    JSONAPIErrorItem: JSONAPIErrorItem,
+    JSONAPIErrorItemSource: JSONAPIErrorItemSource,
+    JSONAPIErrorResponse: JSONAPIErrorResponse,
     ListAllocationsResponse: ListAllocationsResponse,
     ListEnvironmentsResponse: ListEnvironmentsResponse,
     ListFeatureFlagsResponse: ListFeatureFlagsResponse,

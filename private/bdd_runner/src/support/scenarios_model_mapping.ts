@@ -10746,6 +10746,58 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
       type: "number",
       format: "int64",
     },
+    tags: {
+      type: "Array<string>",
+      format: "",
+    },
+    teams: {
+      type: "Array<string>",
+      format: "",
+    },
+    productionStatus: {
+      type: "Array<FeatureFlagProductionStatus>",
+      format: "",
+    },
+    distributionChannel: {
+      type: "FeatureFlagDistributionChannel",
+      format: "",
+    },
+    search: {
+      type: "string",
+      format: "",
+    },
+    valueType: {
+      type: "Array<ValueType>",
+      format: "",
+    },
+    createdBy: {
+      type: "Array<string>",
+      format: "",
+    },
+    flagIds: {
+      type: "Array<string>",
+      format: "",
+    },
+    stalenessStatus: {
+      type: "FeatureFlagStalenessStatus",
+      format: "",
+    },
+    savedFilterId: {
+      type: "string",
+      format: "uuid",
+    },
+    sort: {
+      type: "string",
+      format: "",
+    },
+    pageLimit: {
+      type: "number",
+      format: "int64",
+    },
+    pageOffset: {
+      type: "number",
+      format: "int64",
+    },
     operationResponseType: "ListFeatureFlagsResponse",
   },
   "FeatureFlagsApi.V2.CreateFeatureFlag": {
