@@ -1,6 +1,6 @@
 import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
-import { ExperimentsPatchExperimentV2ResponseDataAttributesWarehouseExposureConfigurationEntryPoint } from "./ExperimentsPatchExperimentV2ResponseDataAttributesWarehouseExposureConfigurationEntryPoint";
+import { ExperimentsWarehouseEntryPoint } from "./ExperimentsWarehouseEntryPoint";
 
 /**
  * Warehouse exposure model and settings used to identify experiment assignments.
@@ -9,7 +9,7 @@ export class ExperimentsPatchExperimentV2ResponseDataAttributesWarehouseExposure
   /**
    * Optional Warehouse measure that scopes analyzed subjects.
    */
-  "entryPoint": ExperimentsPatchExperimentV2ResponseDataAttributesWarehouseExposureConfigurationEntryPoint | null;
+  "entryPoint": ExperimentsWarehouseEntryPoint | null;
   /**
    * Warehouse experiment key. Reads can return null for incomplete configuration; configuration writes require a value.
    */
@@ -35,7 +35,7 @@ export class ExperimentsPatchExperimentV2ResponseDataAttributesWarehouseExposure
   static readonly attributeTypeMap: AttributeTypeMap = {
     entryPoint: {
       baseName: "entry_point",
-      type: "ExperimentsPatchExperimentV2ResponseDataAttributesWarehouseExposureConfigurationEntryPoint",
+      type: "ExperimentsWarehouseEntryPoint",
       required: true,
     },
     experimentKey: {

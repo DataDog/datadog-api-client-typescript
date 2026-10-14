@@ -16,6 +16,7 @@ import { ExperimentsCancelExperimentV2RequestDataAttributes } from "./Experiment
 import { ExperimentsConcludeExperimentV2Request } from "./ExperimentsConcludeExperimentV2Request";
 import { ExperimentsConcludeExperimentV2RequestData } from "./ExperimentsConcludeExperimentV2RequestData";
 import { ExperimentsConcludeExperimentV2RequestDataAttributes } from "./ExperimentsConcludeExperimentV2RequestDataAttributes";
+import { ExperimentsConfidenceInterval } from "./ExperimentsConfidenceInterval";
 import { ExperimentsCreateExperimentMetricGroupV2Request } from "./ExperimentsCreateExperimentMetricGroupV2Request";
 import { ExperimentsCreateExperimentMetricGroupV2RequestData } from "./ExperimentsCreateExperimentMetricGroupV2RequestData";
 import { ExperimentsCreateExperimentMetricGroupV2RequestDataAttributes } from "./ExperimentsCreateExperimentMetricGroupV2RequestDataAttributes";
@@ -24,7 +25,6 @@ import { ExperimentsCreateExperimentV2Request } from "./ExperimentsCreateExperim
 import { ExperimentsCreateExperimentV2RequestData } from "./ExperimentsCreateExperimentV2RequestData";
 import { ExperimentsCreateExperimentV2RequestDataAttributes } from "./ExperimentsCreateExperimentV2RequestDataAttributes";
 import { ExperimentsCreateExperimentV2RequestDataAttributesDatadogFlagConfiguration } from "./ExperimentsCreateExperimentV2RequestDataAttributesDatadogFlagConfiguration";
-import { ExperimentsCreateExperimentV2RequestDataAttributesDatadogFlagConfigurationTargetingRulesItems } from "./ExperimentsCreateExperimentV2RequestDataAttributesDatadogFlagConfigurationTargetingRulesItems";
 import { ExperimentsCreateExperimentV2RequestDataAttributesDecisionMetricsItems } from "./ExperimentsCreateExperimentV2RequestDataAttributesDecisionMetricsItems";
 import { ExperimentsCreateExperimentV2RequestDataAttributesRelatedLinksItems } from "./ExperimentsCreateExperimentV2RequestDataAttributesRelatedLinksItems";
 import { ExperimentsCreateExperimentV2RequestDataAttributesSplitByPropertiesItems } from "./ExperimentsCreateExperimentV2RequestDataAttributesSplitByPropertiesItems";
@@ -46,7 +46,6 @@ import { ExperimentsCreateMetricSQLModelV2RequestData } from "./ExperimentsCreat
 import { ExperimentsCreateMetricSQLModelV2RequestDataAttributesMeasuresItems } from "./ExperimentsCreateMetricSQLModelV2RequestDataAttributesMeasuresItems";
 import { ExperimentsCreateMetricV2Request } from "./ExperimentsCreateMetricV2Request";
 import { ExperimentsCreateMetricV2RequestData } from "./ExperimentsCreateMetricV2RequestData";
-import { ExperimentsCreateMetricV2RequestDataAttributesPercentileAggregationWarehouseMetricMeasure } from "./ExperimentsCreateMetricV2RequestDataAttributesPercentileAggregationWarehouseMetricMeasure";
 import { ExperimentsCreateSubjectTypeV2Request } from "./ExperimentsCreateSubjectTypeV2Request";
 import { ExperimentsCreateSubjectTypeV2RequestData } from "./ExperimentsCreateSubjectTypeV2RequestData";
 import { ExperimentsCreateSubjectTypeV2RequestDataAttributes } from "./ExperimentsCreateSubjectTypeV2RequestDataAttributes";
@@ -124,7 +123,6 @@ import { ExperimentsPatchExperimentV2ResponseDataAttributesDatadogFlagConfigurat
 import { ExperimentsPatchExperimentV2ResponseDataAttributesDatadogFlagConfigurationEntryPoint } from "./ExperimentsPatchExperimentV2ResponseDataAttributesDatadogFlagConfigurationEntryPoint";
 import { ExperimentsPatchExperimentV2ResponseDataAttributesTrafficExposure } from "./ExperimentsPatchExperimentV2ResponseDataAttributesTrafficExposure";
 import { ExperimentsPatchExperimentV2ResponseDataAttributesWarehouseExposureConfiguration } from "./ExperimentsPatchExperimentV2ResponseDataAttributesWarehouseExposureConfiguration";
-import { ExperimentsPatchExperimentV2ResponseDataAttributesWarehouseExposureConfigurationEntryPoint } from "./ExperimentsPatchExperimentV2ResponseDataAttributesWarehouseExposureConfigurationEntryPoint";
 import { ExperimentsPatchMetricCollectionV2Request } from "./ExperimentsPatchMetricCollectionV2Request";
 import { ExperimentsPatchMetricCollectionV2RequestData } from "./ExperimentsPatchMetricCollectionV2RequestData";
 import { ExperimentsPatchMetricCollectionV2RequestDataAttributes } from "./ExperimentsPatchMetricCollectionV2RequestDataAttributes";
@@ -163,6 +161,7 @@ import { ExperimentsSubjectTypeV2DTO } from "./ExperimentsSubjectTypeV2DTO";
 import { ExperimentsSubjectTypeV2DTOArray } from "./ExperimentsSubjectTypeV2DTOArray";
 import { ExperimentsSubjectTypeV2DTOData } from "./ExperimentsSubjectTypeV2DTOData";
 import { ExperimentsSubjectTypeV2DTODataAttributes } from "./ExperimentsSubjectTypeV2DTODataAttributes";
+import { ExperimentsTargetingRule } from "./ExperimentsTargetingRule";
 import { ExperimentsTrafficSummaryV2DTO } from "./ExperimentsTrafficSummaryV2DTO";
 import { ExperimentsTrafficSummaryV2DTOData } from "./ExperimentsTrafficSummaryV2DTOData";
 import { ExperimentsTrafficSummaryV2DTODataAttributes } from "./ExperimentsTrafficSummaryV2DTODataAttributes";
@@ -181,10 +180,11 @@ import { ExperimentsVariantResultsV2DTOData } from "./ExperimentsVariantResultsV
 import { ExperimentsVariantResultsV2DTODataAttributes } from "./ExperimentsVariantResultsV2DTODataAttributes";
 import { ExperimentsVariantResultsV2DTODataAttributesMetricsItems } from "./ExperimentsVariantResultsV2DTODataAttributesMetricsItems";
 import { ExperimentsVariantResultsV2DTODataAttributesMetricsItemsAnalysesItems } from "./ExperimentsVariantResultsV2DTODataAttributesMetricsItemsAnalysesItems";
-import { ExperimentsVariantResultsV2DTODataAttributesMetricsItemsAnalysesItemsConfidenceInterval } from "./ExperimentsVariantResultsV2DTODataAttributesMetricsItemsAnalysesItemsConfidenceInterval";
 import { ExperimentsVariantResultsV2DTODataAttributesMetricsItemsCoverageSummary } from "./ExperimentsVariantResultsV2DTODataAttributesMetricsItemsCoverageSummary";
+import { ExperimentsWarehouseEntryPoint } from "./ExperimentsWarehouseEntryPoint";
 import { ExperimentsWarehouseExposureFilter } from "./ExperimentsWarehouseExposureFilter";
 import { ExperimentsWarehouseMetricAggregationInput } from "./ExperimentsWarehouseMetricAggregationInput";
+import { ExperimentsWarehouseMetricMeasure } from "./ExperimentsWarehouseMetricMeasure";
 import { ExperimentsWarehousePercentileAggregationInput } from "./ExperimentsWarehousePercentileAggregationInput";
 import { JSONAPIErrorItem } from "./JSONAPIErrorItem";
 import { JSONAPIErrorItemSource } from "./JSONAPIErrorItemSource";
@@ -223,6 +223,26 @@ export const TypingInfo: ModelTypingInfo = {
     ExperimentsCreateMetricV2RequestDataAttributesDesiredChange: [
       "METRIC_INCREASES",
       "METRIC_DECREASES",
+    ],
+    ExperimentsDatadogEntryPointFilterColumnType: [
+      "varchar",
+      "int",
+      "double",
+      "boolean",
+      "varchar_array",
+      "int_array",
+      "double_array",
+      "raw",
+    ],
+    ExperimentsDatadogEntryPointFilterOperation: [
+      "eq",
+      "in",
+      "neq",
+      "not_in",
+      "gte",
+      "lte",
+      "gt",
+      "lt",
     ],
     ExperimentsExperimentDiagnosticsV2DTODataAttributesDiagnosticsItemsSkippedReason:
       [
@@ -316,38 +336,6 @@ export const TypingInfo: ModelTypingInfo = {
     ExperimentsPatchExperimentMetricGroupV2RequestDataType: [
       "experiment-metric-groups",
     ],
-    ExperimentsPatchExperimentV2ResponseDataAttributesDatadogFlagConfigurationEntryPointFiltersItemsItemsColumnType:
-      [
-        "varchar",
-        "int",
-        "double",
-        "boolean",
-        "varchar_array",
-        "int_array",
-        "double_array",
-        "raw",
-      ],
-    ExperimentsPatchExperimentV2ResponseDataAttributesDatadogFlagConfigurationEntryPointFiltersItemsItemsOperation:
-      ["eq", "in", "neq", "not_in", "gte", "lte", "gt", "lt"],
-    ExperimentsPatchExperimentV2ResponseDataAttributesDatadogFlagConfigurationTargetingRulesItemsConditionsItemsOperator:
-      [
-        "LT",
-        "LTE",
-        "GT",
-        "GTE",
-        "MATCHES",
-        "NOT_MATCHES",
-        "ONE_OF",
-        "NOT_ONE_OF",
-        "IS_NULL",
-        "EQUALS",
-        "SEMVER_EQ",
-        "SEMVER_NEQ",
-        "SEMVER_LT",
-        "SEMVER_LTE",
-        "SEMVER_GT",
-        "SEMVER_GTE",
-      ],
     ExperimentsPatchExperimentV2ResponseDataAttributesSplitByPropertiesItemsColumnType:
       [
         "varchar",
@@ -367,8 +355,6 @@ export const TypingInfo: ModelTypingInfo = {
       ],
     ExperimentsPatchExperimentV2ResponseDataAttributesStructuredMetadataItemsFieldType:
       ["FREETEXT", "ENUM"],
-    ExperimentsPatchExperimentV2ResponseDataAttributesWarehouseExposureConfigurationEntryPointFiltersItemsOperation:
-      ["IS", "IS_NOT"],
     ExperimentsPatchExperimentV2ResponseDataType: ["experiments"],
     ExperimentsPatchMetricCollectionV2RequestDataType: ["metric-collections"],
     ExperimentsPropertyNullFilterInputOperation: ["IS_NULL", "IS_NOT_NULL"],
@@ -390,6 +376,24 @@ export const TypingInfo: ModelTypingInfo = {
     ],
     ExperimentsStartExperimentV2RequestDataType: ["start-experiment-request"],
     ExperimentsSubjectTypeV2DTODataType: ["subject-types"],
+    ExperimentsTargetingRuleOperator: [
+      "LT",
+      "LTE",
+      "GT",
+      "GTE",
+      "MATCHES",
+      "NOT_MATCHES",
+      "ONE_OF",
+      "NOT_ONE_OF",
+      "IS_NULL",
+      "EQUALS",
+      "SEMVER_EQ",
+      "SEMVER_NEQ",
+      "SEMVER_LT",
+      "SEMVER_LTE",
+      "SEMVER_GT",
+      "SEMVER_GTE",
+    ],
     ExperimentsTrafficSummaryV2DTODataType: ["traffic-summary"],
     ExperimentsUpdateExposureSQLModelV2RequestDataType: ["exposure-sql-models"],
     ExperimentsUpdateMetricSQLModelV2RequestDataType: ["metric-sql-models"],
@@ -413,6 +417,7 @@ export const TypingInfo: ModelTypingInfo = {
         "UNKNOWN",
       ],
     ExperimentsVariantResultsV2DTODataType: ["experiment-variant-results"],
+    ExperimentsWarehouseEntryPointFilterOperation: ["IS", "IS_NOT"],
     MetricType: ["metrics"],
   },
   oneOfMap: {
@@ -469,6 +474,7 @@ export const TypingInfo: ModelTypingInfo = {
       ExperimentsConcludeExperimentV2RequestData,
     ExperimentsConcludeExperimentV2RequestDataAttributes:
       ExperimentsConcludeExperimentV2RequestDataAttributes,
+    ExperimentsConfidenceInterval: ExperimentsConfidenceInterval,
     ExperimentsCreateExperimentMetricGroupV2Request:
       ExperimentsCreateExperimentMetricGroupV2Request,
     ExperimentsCreateExperimentMetricGroupV2RequestData:
@@ -484,8 +490,6 @@ export const TypingInfo: ModelTypingInfo = {
       ExperimentsCreateExperimentV2RequestDataAttributes,
     ExperimentsCreateExperimentV2RequestDataAttributesDatadogFlagConfiguration:
       ExperimentsCreateExperimentV2RequestDataAttributesDatadogFlagConfiguration,
-    ExperimentsCreateExperimentV2RequestDataAttributesDatadogFlagConfigurationTargetingRulesItems:
-      ExperimentsCreateExperimentV2RequestDataAttributesDatadogFlagConfigurationTargetingRulesItems,
     ExperimentsCreateExperimentV2RequestDataAttributesDecisionMetricsItems:
       ExperimentsCreateExperimentV2RequestDataAttributesDecisionMetricsItems,
     ExperimentsCreateExperimentV2RequestDataAttributesRelatedLinksItems:
@@ -526,8 +530,6 @@ export const TypingInfo: ModelTypingInfo = {
       ExperimentsCreateMetricSQLModelV2RequestDataAttributesMeasuresItems,
     ExperimentsCreateMetricV2Request: ExperimentsCreateMetricV2Request,
     ExperimentsCreateMetricV2RequestData: ExperimentsCreateMetricV2RequestData,
-    ExperimentsCreateMetricV2RequestDataAttributesPercentileAggregationWarehouseMetricMeasure:
-      ExperimentsCreateMetricV2RequestDataAttributesPercentileAggregationWarehouseMetricMeasure,
     ExperimentsCreateSubjectTypeV2Request:
       ExperimentsCreateSubjectTypeV2Request,
     ExperimentsCreateSubjectTypeV2RequestData:
@@ -655,8 +657,6 @@ export const TypingInfo: ModelTypingInfo = {
       ExperimentsPatchExperimentV2ResponseDataAttributesTrafficExposure,
     ExperimentsPatchExperimentV2ResponseDataAttributesWarehouseExposureConfiguration:
       ExperimentsPatchExperimentV2ResponseDataAttributesWarehouseExposureConfiguration,
-    ExperimentsPatchExperimentV2ResponseDataAttributesWarehouseExposureConfigurationEntryPoint:
-      ExperimentsPatchExperimentV2ResponseDataAttributesWarehouseExposureConfigurationEntryPoint,
     ExperimentsPatchMetricCollectionV2Request:
       ExperimentsPatchMetricCollectionV2Request,
     ExperimentsPatchMetricCollectionV2RequestData:
@@ -723,6 +723,7 @@ export const TypingInfo: ModelTypingInfo = {
     ExperimentsSubjectTypeV2DTOData: ExperimentsSubjectTypeV2DTOData,
     ExperimentsSubjectTypeV2DTODataAttributes:
       ExperimentsSubjectTypeV2DTODataAttributes,
+    ExperimentsTargetingRule: ExperimentsTargetingRule,
     ExperimentsTrafficSummaryV2DTO: ExperimentsTrafficSummaryV2DTO,
     ExperimentsTrafficSummaryV2DTOData: ExperimentsTrafficSummaryV2DTOData,
     ExperimentsTrafficSummaryV2DTODataAttributes:
@@ -753,13 +754,13 @@ export const TypingInfo: ModelTypingInfo = {
       ExperimentsVariantResultsV2DTODataAttributesMetricsItems,
     ExperimentsVariantResultsV2DTODataAttributesMetricsItemsAnalysesItems:
       ExperimentsVariantResultsV2DTODataAttributesMetricsItemsAnalysesItems,
-    ExperimentsVariantResultsV2DTODataAttributesMetricsItemsAnalysesItemsConfidenceInterval:
-      ExperimentsVariantResultsV2DTODataAttributesMetricsItemsAnalysesItemsConfidenceInterval,
     ExperimentsVariantResultsV2DTODataAttributesMetricsItemsCoverageSummary:
       ExperimentsVariantResultsV2DTODataAttributesMetricsItemsCoverageSummary,
+    ExperimentsWarehouseEntryPoint: ExperimentsWarehouseEntryPoint,
     ExperimentsWarehouseExposureFilter: ExperimentsWarehouseExposureFilter,
     ExperimentsWarehouseMetricAggregationInput:
       ExperimentsWarehouseMetricAggregationInput,
+    ExperimentsWarehouseMetricMeasure: ExperimentsWarehouseMetricMeasure,
     ExperimentsWarehousePercentileAggregationInput:
       ExperimentsWarehousePercentileAggregationInput,
     JSONAPIErrorItem: JSONAPIErrorItem,
