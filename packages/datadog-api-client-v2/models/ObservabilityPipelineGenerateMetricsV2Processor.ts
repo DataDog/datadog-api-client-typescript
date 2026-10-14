@@ -26,6 +26,10 @@ export class ObservabilityPipelineGenerateMetricsV2Processor {
    */
   "enabled": boolean;
   /**
+   * [Recommended] Indicates whether generated metrics are automatically aggregated and enriched with the `worker_uuid` tag before being sent to the metric destination.
+   */
+  "enabledMetricAggregation"?: boolean;
+  /**
    * The unique identifier for this component. Used to reference this component in other parts of the pipeline.
    */
   "id": string;
@@ -66,6 +70,10 @@ export class ObservabilityPipelineGenerateMetricsV2Processor {
       baseName: "enabled",
       type: "boolean",
       required: true,
+    },
+    enabledMetricAggregation: {
+      baseName: "enabled_metric_aggregation",
+      type: "boolean",
     },
     id: {
       baseName: "id",

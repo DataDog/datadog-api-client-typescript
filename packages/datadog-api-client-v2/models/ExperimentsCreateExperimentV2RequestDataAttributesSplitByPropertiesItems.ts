@@ -3,7 +3,7 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
-import { ExperimentsPatchExperimentV2ResponseDataAttributesDatadogFlagConfigurationEntryPointFiltersItemsItemsColumnType } from "./ExperimentsPatchExperimentV2ResponseDataAttributesDatadogFlagConfigurationEntryPointFiltersItemsItemsColumnType";
+import { ExperimentsDatadogEntryPointFilterColumnType } from "./ExperimentsDatadogEntryPointFilterColumnType";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
@@ -18,7 +18,7 @@ export class ExperimentsCreateExperimentV2RequestDataAttributesSplitByProperties
   /**
    * Data type of the column evaluated by the entry-point filter.
    */
-  "columnType"?: ExperimentsPatchExperimentV2ResponseDataAttributesDatadogFlagConfigurationEntryPointFiltersItemsItemsColumnType;
+  "columnType"?: ExperimentsDatadogEntryPointFilterColumnType;
   /**
    * Optional display name. Defaults to column_name for a new property.
    */
@@ -47,7 +47,7 @@ export class ExperimentsCreateExperimentV2RequestDataAttributesSplitByProperties
     },
     columnType: {
       baseName: "column_type",
-      type: "ExperimentsPatchExperimentV2ResponseDataAttributesDatadogFlagConfigurationEntryPointFiltersItemsItemsColumnType",
+      type: "ExperimentsDatadogEntryPointFilterColumnType",
     },
     name: {
       baseName: "name",

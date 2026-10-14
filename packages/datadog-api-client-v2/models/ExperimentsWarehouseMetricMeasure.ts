@@ -9,7 +9,7 @@ import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 /**
  * Reference to a measure defined in a warehouse metric SQL model.
  */
-export class ExperimentsCreateMetricV2RequestDataAttributesPercentileAggregationWarehouseMetricMeasure {
+export class ExperimentsWarehouseMetricMeasure {
   /**
    * Identifier of the warehouse metric measure.
    */
@@ -47,7 +47,7 @@ export class ExperimentsCreateMetricV2RequestDataAttributesPercentileAggregation
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-    return ExperimentsCreateMetricV2RequestDataAttributesPercentileAggregationWarehouseMetricMeasure.attributeTypeMap;
+    return ExperimentsWarehouseMetricMeasure.attributeTypeMap;
   }
 
   public constructor() {}

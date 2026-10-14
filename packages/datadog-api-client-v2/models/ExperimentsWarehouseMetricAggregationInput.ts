@@ -3,9 +3,9 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
-import { ExperimentsCreateMetricV2RequestDataAttributesPercentileAggregationWarehouseMetricMeasure } from "./ExperimentsCreateMetricV2RequestDataAttributesPercentileAggregationWarehouseMetricMeasure";
 import { ExperimentsNullableDatadogMetricMeasureInput } from "./ExperimentsNullableDatadogMetricMeasureInput";
 import { ExperimentsWarehouseFilterInput } from "./ExperimentsWarehouseFilterInput";
+import { ExperimentsWarehouseMetricMeasure } from "./ExperimentsWarehouseMetricMeasure";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
@@ -70,7 +70,7 @@ export class ExperimentsWarehouseMetricAggregationInput {
   /**
    * Reference to a measure defined in a warehouse metric SQL model.
    */
-  "warehouseMetricMeasure": ExperimentsCreateMetricV2RequestDataAttributesPercentileAggregationWarehouseMetricMeasure;
+  "warehouseMetricMeasure": ExperimentsWarehouseMetricMeasure;
   /**
    * Fixed lower bound used to cap extreme measure values.
    */
@@ -168,7 +168,7 @@ export class ExperimentsWarehouseMetricAggregationInput {
     },
     warehouseMetricMeasure: {
       baseName: "warehouse_metric_measure",
-      type: "ExperimentsCreateMetricV2RequestDataAttributesPercentileAggregationWarehouseMetricMeasure",
+      type: "ExperimentsWarehouseMetricMeasure",
       required: true,
     },
     winsorLowerFixedValue: {
