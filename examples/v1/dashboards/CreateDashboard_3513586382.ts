@@ -53,10 +53,6 @@ const params: v1.DashboardsApiCreateDashboardRequest = {
                   field: "classic",
                   width: "auto",
                 },
-                {
-                  field: "",
-                  width: "auto",
-                },
               ],
             },
           ],

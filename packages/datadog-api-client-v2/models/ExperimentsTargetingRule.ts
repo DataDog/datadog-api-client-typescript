@@ -3,21 +3,18 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
+import { ExperimentsTargetingRuleCondition } from "./ExperimentsTargetingRuleCondition";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * Lower and upper bounds of the reported statistical interval.
+ * Use an empty array when no targeting rules apply.
  */
-export class ExperimentsVariantResultsV2DTODataAttributesMetricsItemsAnalysesItemsConfidenceInterval {
+export class ExperimentsTargetingRule {
   /**
-   * Lower bound of the reported interval.
+   * Conditions that must all match for this rule. Each condition must use exactly one shape: saved_filter_id alone or operator plus attribute plus value.
    */
-  "lower"?: number;
-  /**
-   * Upper bound of the reported interval.
-   */
-  "upper"?: number;
+  "conditions": Array<ExperimentsTargetingRuleCondition>;
 
   /**
    * A container for additional, undeclared properties.
@@ -35,15 +32,10 @@ export class ExperimentsVariantResultsV2DTODataAttributesMetricsItemsAnalysesIte
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    lower: {
-      baseName: "lower",
-      type: "number",
-      format: "double",
-    },
-    upper: {
-      baseName: "upper",
-      type: "number",
-      format: "double",
+    conditions: {
+      baseName: "conditions",
+      type: "Array<ExperimentsTargetingRuleCondition>",
+      required: true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -55,7 +47,7 @@ export class ExperimentsVariantResultsV2DTODataAttributesMetricsItemsAnalysesIte
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-    return ExperimentsVariantResultsV2DTODataAttributesMetricsItemsAnalysesItemsConfidenceInterval.attributeTypeMap;
+    return ExperimentsTargetingRule.attributeTypeMap;
   }
 
   public constructor() {}

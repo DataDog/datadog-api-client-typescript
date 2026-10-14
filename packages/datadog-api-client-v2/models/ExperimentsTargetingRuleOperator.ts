@@ -10,25 +10,24 @@ import { UnparsedObject } from "../../datadog-api-client-common/util";
  * Required with attribute and value for an inline condition; omit when saved_filter_id is set.
  */
 
-export type ExperimentsPatchExperimentV2ResponseDataAttributesDatadogFlagConfigurationTargetingRulesItemsConditionsItemsOperator =
-
-    | typeof LT
-    | typeof LTE
-    | typeof GT
-    | typeof GTE
-    | typeof MATCHES
-    | typeof NOT_MATCHES
-    | typeof ONE_OF
-    | typeof NOT_ONE_OF
-    | typeof IS_NULL
-    | typeof EQUALS
-    | typeof SEMVER_EQ
-    | typeof SEMVER_NEQ
-    | typeof SEMVER_LT
-    | typeof SEMVER_LTE
-    | typeof SEMVER_GT
-    | typeof SEMVER_GTE
-    | UnparsedObject;
+export type ExperimentsTargetingRuleOperator =
+  | typeof LT
+  | typeof LTE
+  | typeof GT
+  | typeof GTE
+  | typeof MATCHES
+  | typeof NOT_MATCHES
+  | typeof ONE_OF
+  | typeof NOT_ONE_OF
+  | typeof IS_NULL
+  | typeof EQUALS
+  | typeof SEMVER_EQ
+  | typeof SEMVER_NEQ
+  | typeof SEMVER_LT
+  | typeof SEMVER_LTE
+  | typeof SEMVER_GT
+  | typeof SEMVER_GTE
+  | UnparsedObject;
 export const LT = "LT";
 export const LTE = "LTE";
 export const GT = "GT";

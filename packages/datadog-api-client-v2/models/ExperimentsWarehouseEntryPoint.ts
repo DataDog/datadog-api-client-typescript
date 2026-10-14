@@ -3,18 +3,22 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
-import { ExperimentsTargetingRuleCondition } from "./ExperimentsTargetingRuleCondition";
+import { ExperimentsWarehouseExposureFilter } from "./ExperimentsWarehouseExposureFilter";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * Use an empty array when no targeting rules apply.
+ * Optional Warehouse measure that scopes analyzed subjects.
  */
-export class ExperimentsCreateExperimentV2RequestDataAttributesDatadogFlagConfigurationTargetingRulesItems {
+export class ExperimentsWarehouseEntryPoint {
   /**
-   * Conditions that must all match for this rule. Each condition must use exactly one shape: saved_filter_id alone or operator plus attribute plus value.
+   * Complete ordered Warehouse entry-point filter set.
    */
-  "conditions": Array<ExperimentsTargetingRuleCondition>;
+  "filters": Array<ExperimentsWarehouseExposureFilter>;
+  /**
+   * Warehouse measure UUID.
+   */
+  "measureId": string;
 
   /**
    * A container for additional, undeclared properties.
@@ -32,9 +36,14 @@ export class ExperimentsCreateExperimentV2RequestDataAttributesDatadogFlagConfig
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    conditions: {
-      baseName: "conditions",
-      type: "Array<ExperimentsTargetingRuleCondition>",
+    filters: {
+      baseName: "filters",
+      type: "Array<ExperimentsWarehouseExposureFilter>",
+      required: true,
+    },
+    measureId: {
+      baseName: "measure_id",
+      type: "string",
       required: true,
     },
     additionalProperties: {
@@ -47,7 +56,7 @@ export class ExperimentsCreateExperimentV2RequestDataAttributesDatadogFlagConfig
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-    return ExperimentsCreateExperimentV2RequestDataAttributesDatadogFlagConfigurationTargetingRulesItems.attributeTypeMap;
+    return ExperimentsWarehouseEntryPoint.attributeTypeMap;
   }
 
   public constructor() {}
