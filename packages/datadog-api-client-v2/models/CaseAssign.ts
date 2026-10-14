@@ -9,15 +9,15 @@ import { CaseResourceType } from "./CaseResourceType";
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * Case assign
+ * Work item assign
  */
 export class CaseAssign {
   /**
-   * Case assign attributes
+   * Work item assign attributes
    */
   "attributes": CaseAssignAttributes;
   /**
-   * JSON:API resource type for cases.
+   * JSON:API resource type for work items.
    */
   "type": CaseResourceType;
 

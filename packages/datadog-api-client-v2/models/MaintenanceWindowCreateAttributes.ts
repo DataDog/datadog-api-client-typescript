@@ -19,7 +19,7 @@ export class MaintenanceWindowCreateAttributes {
    */
   "name": string;
   /**
-   * The query to filter event management cases for this maintenance window.
+   * The query to filter event management work items for this maintenance window.
    */
   "query": string;
   /**

@@ -7,7 +7,7 @@
 import { UnparsedObject } from "../../datadog-api-client-common/util";
 
 /**
- * JSON:API resource type for case aggregation requests.
+ * JSON:API resource type for work item aggregation requests.
  */
 
 export type CaseAggregateResourceType = typeof AGGREGATE | UnparsedObject;

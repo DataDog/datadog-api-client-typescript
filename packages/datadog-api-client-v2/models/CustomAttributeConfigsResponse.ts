@@ -12,7 +12,7 @@ import { AttributeTypeMap } from "../../datadog-api-client-common/util";
  */
 export class CustomAttributeConfigsResponse {
   /**
-   * List of custom attribute configs of case type
+   * List of custom attribute configs of work item type
    */
   "data"?: Array<CustomAttributeConfig>;
 

@@ -8,11 +8,11 @@ import { CasePriority } from "./CasePriority";
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * Case update priority attributes
+ * Work item update priority attributes
  */
 export class CaseUpdatePriorityAttributes {
   /**
-   * Case priority
+   * Work item priority
    */
   "priority": CasePriority;
 

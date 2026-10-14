@@ -7,7 +7,7 @@
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * Attributes of a maintenance window, including its schedule and the query that determines which cases are affected.
+ * Attributes of a maintenance window, including its schedule and the query that determines which work items are affected.
  */
 export class MaintenanceWindowAttributes {
   /**
@@ -23,7 +23,7 @@ export class MaintenanceWindowAttributes {
    */
   "name": string;
   /**
-   * A case search query that determines which cases are affected during the maintenance window. Uses the same syntax as the Case Management search bar.
+   * A work item search query that determines which work items are affected during the maintenance window. Uses the same syntax as the Work Management search bar.
    */
   "query": string;
   /**

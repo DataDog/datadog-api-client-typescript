@@ -9,7 +9,7 @@ import { ServiceNowTicketResult } from "./ServiceNowTicketResult";
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * ServiceNow ticket attached to case
+ * ServiceNow ticket attached to work item
  */
 export class ServiceNowTicket {
   /**
@@ -17,7 +17,7 @@ export class ServiceNowTicket {
    */
   "result"?: ServiceNowTicketResult;
   /**
-   * Case status
+   * Work item status
    */
   "status"?: Case3rdPartyTicketStatus;
 

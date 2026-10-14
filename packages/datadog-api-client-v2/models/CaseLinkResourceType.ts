@@ -7,7 +7,7 @@
 import { UnparsedObject } from "../../datadog-api-client-common/util";
 
 /**
- * JSON:API resource type for case links.
+ * JSON:API resource type for work item links.
  */
 
 export type CaseLinkResourceType = typeof LINK | UnparsedObject;

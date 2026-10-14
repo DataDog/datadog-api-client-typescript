@@ -8,11 +8,11 @@ import { CaseEmpty } from "./CaseEmpty";
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * Case empty request
+ * Work item empty request
  */
 export class CaseEmptyRequest {
   /**
-   * Case empty request data
+   * Work item empty request data
    */
   "data": CaseEmpty;
 

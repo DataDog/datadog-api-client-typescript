@@ -8,7 +8,7 @@ import { CaseInsightType } from "./CaseInsightType";
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * A reference to an external Datadog resource that provides investigative context for a case, such as a security signal, monitor alert, error tracking issue, or incident.
+ * A reference to an external Datadog resource that provides investigative context for a work item, such as a security signal, monitor alert, error tracking issue, or incident.
  */
 export class CaseInsight {
   /**
@@ -20,7 +20,7 @@ export class CaseInsight {
    */
   "resourceId": string;
   /**
-   * The type of Datadog resource linked to the case as contextual evidence. Each type corresponds to a different Datadog product signal (for example, a security finding, a monitor alert, or an incident).
+   * The type of Datadog resource linked to the work item as contextual evidence. Each type corresponds to a different Datadog product signal (for example, a security finding, a monitor alert, or an incident).
    */
   "type": CaseInsightType;
 

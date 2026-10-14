@@ -24,7 +24,7 @@ export class CreateJiraIssueRequestDataAttributes {
    */
   "fields"?: { [key: string]: any };
   /**
-   * Case priority
+   * Work item priority
    */
   "priority"?: CasePriority;
   /**

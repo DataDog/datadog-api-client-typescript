@@ -20,7 +20,7 @@ export class CreateCaseRequestDataAttributes {
    */
   "description"?: string;
   /**
-   * Case priority
+   * Work item priority
    */
   "priority"?: CasePriority;
   /**

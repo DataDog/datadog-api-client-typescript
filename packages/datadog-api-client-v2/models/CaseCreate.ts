@@ -10,19 +10,19 @@ import { CaseResourceType } from "./CaseResourceType";
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * Case creation data
+ * Work item creation data
  */
 export class CaseCreate {
   /**
-   * Case creation attributes
+   * Work item creation attributes
    */
   "attributes": CaseCreateAttributes;
   /**
-   * Relationships formed with the case on creation
+   * Relationships formed with the work item on creation
    */
   "relationships"?: CaseCreateRelationships;
   /**
-   * JSON:API resource type for cases.
+   * JSON:API resource type for work items.
    */
   "type": CaseResourceType;
 

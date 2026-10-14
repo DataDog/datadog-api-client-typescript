@@ -19,11 +19,11 @@ import { AttributeTypeMap } from "../../datadog-api-client-common/util";
  */
 export class ProjectSettings {
   /**
-   * Auto-close inactive cases settings.
+   * Auto-close inactive work items settings.
    */
   "autoCloseInactiveCases"?: AutoCloseInactiveCases;
   /**
-   * Auto-transition assigned cases settings.
+   * Auto-transition assigned work items settings.
    */
   "autoTransitionAssignedCases"?: AutoTransitionAssignedCases;
   /**
