@@ -8,11 +8,11 @@ import { CaseBulkUpdateRequestAttributes } from "./CaseBulkUpdateRequestAttribut
  */
 export class CaseBulkUpdateRequestData {
   /**
-   * Attributes for the bulk update, specifying which cases to update and the action to apply.
+   * Attributes for the bulk update, specifying which work items to update and the action to apply.
    */
   "attributes": CaseBulkUpdateRequestAttributes;
   /**
-   * JSON:API resource type for bulk case operations.
+   * JSON:API resource type for bulk work item operations.
    */
   "type": CaseBulkResourceType;
   /**

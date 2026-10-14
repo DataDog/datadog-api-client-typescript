@@ -2,7 +2,7 @@
 
 ## Description
 
-View and configure custom attributes within Case Management. See the [Case Management page](https://docs.datadoghq.com/service_management/case_management/) for more information.
+View and configure custom attributes within Work Management. See the [Work Management page](https://docs.datadoghq.com/incident_response/work_management/) for more information.
 
 ## Navigation
 

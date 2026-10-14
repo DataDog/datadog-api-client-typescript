@@ -4,15 +4,15 @@ import { Case } from "./Case";
 import { CasesResponseMeta } from "./CasesResponseMeta";
 
 /**
- * Response with cases
+ * Response with work items
  */
 export class CasesResponse {
   /**
-   * Cases response data
+   * Work items response data
    */
   "data"?: Array<Case>;
   /**
-   * Cases response metadata
+   * Work items response metadata
    */
   "meta"?: CasesResponseMeta;
   /**

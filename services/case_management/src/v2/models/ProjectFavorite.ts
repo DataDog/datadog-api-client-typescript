@@ -3,7 +3,7 @@ import { AttributeTypeMap } from "@datadog/datadog-api-client";
 import { ProjectFavoriteResourceType } from "./ProjectFavoriteResourceType";
 
 /**
- * Represents a case project that the current user has bookmarked for quick access. Favorited projects appear prominently in the Case Management UI.
+ * Represents a Work Management project that the current user has bookmarked for quick access. Favorited projects appear prominently in the Work Management UI.
  */
 export class ProjectFavorite {
   /**

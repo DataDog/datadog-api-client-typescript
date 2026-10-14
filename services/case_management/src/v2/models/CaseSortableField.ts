@@ -1,7 +1,7 @@
 import { UnparsedObject } from "@datadog/datadog-api-client";
 
 /**
- * Case field that can be sorted on
+ * Work item field that can be sorted on
  */
 export type CaseSortableField =
   | typeof CREATED_AT

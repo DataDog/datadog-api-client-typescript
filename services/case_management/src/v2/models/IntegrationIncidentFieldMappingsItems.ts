@@ -1,11 +1,11 @@
 import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
 /**
- * Mapping between an incident user-defined field and a case field.
+ * Mapping between an incident user-defined field and a work item field.
  */
 export class IntegrationIncidentFieldMappingsItems {
   /**
-   * The case field to map the incident field value to.
+   * The work item field to map the incident field value to.
    */
   "caseField"?: string;
   /**

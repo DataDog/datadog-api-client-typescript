@@ -3,7 +3,7 @@ import { AttributeTypeMap } from "@datadog/datadog-api-client";
 import { CasesResponseMetaPagination } from "./CasesResponseMetaPagination";
 
 /**
- * Cases response metadata
+ * Work items response metadata
  */
 export class CasesResponseMeta {
   /**

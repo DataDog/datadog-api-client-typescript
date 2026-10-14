@@ -9,7 +9,7 @@ import { IntegrationJiraSync } from "./IntegrationJiraSync";
  */
 export class IntegrationJira {
   /**
-   * Auto-creation settings for Jira issues from cases.
+   * Auto-creation settings for Jira issues from work items.
    */
   "autoCreation"?: IntegrationJiraAutoCreation;
   /**
@@ -17,7 +17,7 @@ export class IntegrationJira {
    */
   "enabled"?: boolean;
   /**
-   * Metadata for connecting a case management project to a Jira project.
+   * Metadata for connecting a Work Management project to a Jira project.
    */
   "metadata"?: IntegrationJiraMetadata;
   /**

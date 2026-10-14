@@ -7,7 +7,7 @@ import { CustomAttributeConfig } from "./CustomAttributeConfig";
  */
 export class CustomAttributeConfigsResponse {
   /**
-   * List of custom attribute configs of case type
+   * List of custom attribute configs of work item type
    */
   "data"?: Array<CustomAttributeConfig>;
   /**

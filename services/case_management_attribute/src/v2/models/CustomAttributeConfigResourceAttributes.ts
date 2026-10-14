@@ -3,11 +3,11 @@ import { AttributeTypeMap } from "@datadog/datadog-api-client";
 import { CustomAttributeType } from "./CustomAttributeType";
 
 /**
- * Attributes of a custom attribute configuration, defining an organization-specific metadata field that can be added to cases of a given type.
+ * Attributes of a custom attribute configuration, defining an organization-specific metadata field that can be added to work items of a given type.
  */
 export class CustomAttributeConfigResourceAttributes {
   /**
-   * The UUID of the case type this custom attribute belongs to.
+   * The UUID of the work item type this custom attribute belongs to.
    */
   "caseTypeId": string;
   /**
@@ -15,7 +15,7 @@ export class CustomAttributeConfigResourceAttributes {
    */
   "description"?: string;
   /**
-   * The human-readable label shown in the Case Management UI for this custom attribute.
+   * The human-readable label shown in the Work Management UI for this custom attribute.
    */
   "displayName": string;
   /**

@@ -1,7 +1,7 @@
 import { UnparsedObject } from "@datadog/datadog-api-client";
 
 /**
- * Whether the automation rule is active. Enabled rules trigger on matching case events; disabled rules are inactive but preserve their configuration.
+ * Whether the automation rule is active. Enabled rules trigger on matching work item events; disabled rules are inactive but preserve their configuration.
  */
 export type CaseAutomationRuleState =
   | typeof ENABLED

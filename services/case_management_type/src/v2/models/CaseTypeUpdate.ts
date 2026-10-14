@@ -4,15 +4,15 @@ import { CaseTypeResourceAttributes } from "./CaseTypeResourceAttributes";
 import { CaseTypeResourceType } from "./CaseTypeResourceType";
 
 /**
- * Data object for updating a case type.
+ * Data object for updating a work item type.
  */
 export class CaseTypeUpdate {
   /**
-   * Attributes of a case type, which define a classification category for cases. Organizations use case types to model different workflows (for example, Security Incident, Bug Report, Change Request).
+   * Attributes of a work item type, which define a classification category for work items. Organizations use work item types to model different workflows (for example, Security Incident, Bug Report, Change Request).
    */
   "attributes"?: CaseTypeResourceAttributes;
   /**
-   * JSON:API resource type for case types.
+   * JSON:API resource type for work item types.
    */
   "type": CaseTypeResourceType;
   /**

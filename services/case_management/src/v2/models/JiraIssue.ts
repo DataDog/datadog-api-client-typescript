@@ -4,7 +4,7 @@ import { Case3rdPartyTicketStatus } from "./Case3rdPartyTicketStatus";
 import { JiraIssueResult } from "./JiraIssueResult";
 
 /**
- * Jira issue attached to case
+ * Jira issue attached to work item
  */
 export class JiraIssue {
   /**
@@ -12,7 +12,7 @@ export class JiraIssue {
    */
   "result"?: JiraIssueResult;
   /**
-   * Case status
+   * Work item status
    */
   "status"?: Case3rdPartyTicketStatus;
   /**

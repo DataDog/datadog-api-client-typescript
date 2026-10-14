@@ -3,11 +3,11 @@ import { AttributeTypeMap } from "@datadog/datadog-api-client";
 import { CaseUpdateCustomAttribute } from "./CaseUpdateCustomAttribute";
 
 /**
- * Case update custom attribute request
+ * Work item update custom attribute request
  */
 export class CaseUpdateCustomAttributeRequest {
   /**
-   * Case update custom attribute
+   * Work item update custom attribute
    */
   "data": CaseUpdateCustomAttribute;
   /**

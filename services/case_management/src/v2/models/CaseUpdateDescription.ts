@@ -4,15 +4,15 @@ import { CaseResourceType } from "./CaseResourceType";
 import { CaseUpdateDescriptionAttributes } from "./CaseUpdateDescriptionAttributes";
 
 /**
- * Case update description
+ * Work item update description
  */
 export class CaseUpdateDescription {
   /**
-   * Case update description attributes
+   * Work item update description attributes
    */
   "attributes": CaseUpdateDescriptionAttributes;
   /**
-   * JSON:API resource type for cases.
+   * JSON:API resource type for work items.
    */
   "type": CaseResourceType;
   /**

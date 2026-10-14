@@ -3,7 +3,7 @@ import { AttributeTypeMap } from "@datadog/datadog-api-client";
 import { CaseBulkUpdateRequestData } from "./CaseBulkUpdateRequestData";
 
 /**
- * Request payload for applying a single action (such as changing priority, status, or assignment) to multiple cases at once.
+ * Request payload for applying a single action (such as changing priority, status, or assignment) to multiple work items at once.
  */
 export class CaseBulkUpdateRequest {
   /**

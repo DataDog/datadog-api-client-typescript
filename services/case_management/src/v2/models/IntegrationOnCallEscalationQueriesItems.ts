@@ -3,7 +3,7 @@ import { AttributeTypeMap } from "@datadog/datadog-api-client";
 import { IntegrationOnCallEscalationQueriesItemsTarget } from "./IntegrationOnCallEscalationQueriesItemsTarget";
 
 /**
- * An On-Call escalation query entry used to route cases to on-call responders.
+ * An On-Call escalation query entry used to route work items to on-call responders.
  */
 export class IntegrationOnCallEscalationQueriesItems {
   /**
@@ -15,7 +15,7 @@ export class IntegrationOnCallEscalationQueriesItems {
    */
   "id"?: string;
   /**
-   * The query used to match cases for escalation.
+   * The query used to match work items for escalation.
    */
   "query"?: string;
   /**

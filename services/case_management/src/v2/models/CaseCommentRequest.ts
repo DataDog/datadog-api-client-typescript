@@ -3,11 +3,11 @@ import { AttributeTypeMap } from "@datadog/datadog-api-client";
 import { CaseComment } from "./CaseComment";
 
 /**
- * Case comment request
+ * Work item comment request
  */
 export class CaseCommentRequest {
   /**
-   * Case comment
+   * Work item comment
    */
   "data": CaseComment;
   /**

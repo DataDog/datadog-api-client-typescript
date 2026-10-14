@@ -12,7 +12,7 @@ export class ProjectUpdateAttributes {
    */
   "columnsConfig"?: ProjectColumnsConfig;
   /**
-   * List of enabled custom case type IDs.
+   * List of enabled custom work item type IDs.
    */
   "enabledCustomCaseTypes"?: Array<string>;
   /**

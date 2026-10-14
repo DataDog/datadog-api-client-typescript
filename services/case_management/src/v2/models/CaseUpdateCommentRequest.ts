@@ -3,11 +3,11 @@ import { AttributeTypeMap } from "@datadog/datadog-api-client";
 import { CaseUpdateComment } from "./CaseUpdateComment";
 
 /**
- * Request payload for updating a comment on a case timeline.
+ * Request payload for updating a comment on a work item timeline.
  */
 export class CaseUpdateCommentRequest {
   /**
-   * Data object for updating a case comment.
+   * Data object for updating a work item comment.
    */
   "data": CaseUpdateComment;
   /**

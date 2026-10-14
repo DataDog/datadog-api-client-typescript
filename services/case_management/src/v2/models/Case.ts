@@ -5,23 +5,23 @@ import { CaseRelationships } from "./CaseRelationships";
 import { CaseResourceType } from "./CaseResourceType";
 
 /**
- * A case
+ * A work item
  */
 export class Case {
   /**
-   * Case resource attributes
+   * Work item resource attributes
    */
   "attributes": CaseAttributes;
   /**
-   * Case's identifier
+   * Work item's identifier
    */
   "id": string;
   /**
-   * Resources related to a case
+   * Resources related to a work item
    */
   "relationships"?: CaseRelationships;
   /**
-   * JSON:API resource type for cases.
+   * JSON:API resource type for work items.
    */
   "type": CaseResourceType;
   /**

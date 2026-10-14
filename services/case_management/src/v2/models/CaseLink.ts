@@ -4,19 +4,19 @@ import { CaseLinkAttributes } from "./CaseLinkAttributes";
 import { CaseLinkResourceType } from "./CaseLinkResourceType";
 
 /**
- * A directional link representing a relationship between two entities. At least one entity must be a case.
+ * A directional link representing a relationship between two entities. At least one entity must be a work item.
  */
 export class CaseLink {
   /**
-   * Attributes describing a directional relationship between two entities (cases, incidents, or pages).
+   * Attributes describing a directional relationship between two entities (work items, incidents, or pages).
    */
   "attributes": CaseLinkAttributes;
   /**
-   * The case link identifier.
+   * The work item link identifier.
    */
   "id": string;
   /**
-   * JSON:API resource type for case links.
+   * JSON:API resource type for work item links.
    */
   "type": CaseLinkResourceType;
   /**

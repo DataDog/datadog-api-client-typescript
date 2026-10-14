@@ -4,15 +4,15 @@ import { CaseResourceType } from "./CaseResourceType";
 import { CustomAttributeValue } from "./CustomAttributeValue";
 
 /**
- * Case update custom attribute
+ * Work item update custom attribute
  */
 export class CaseUpdateCustomAttribute {
   /**
-   * A typed value for a custom attribute on a specific case.
+   * A typed value for a custom attribute on a specific work item.
    */
   "attributes": CustomAttributeValue;
   /**
-   * JSON:API resource type for cases.
+   * JSON:API resource type for work items.
    */
   "type": CaseResourceType;
   /**
