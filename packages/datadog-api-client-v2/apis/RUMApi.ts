@@ -502,9 +502,10 @@ export class RUMApiRequestFactory extends BaseAPIRequestFactory {
   }
 
   public async getSourcemaps(
-    filename: string,
-    service: string,
-    version: string,
+    debugId?: string,
+    filename?: string,
+    service?: string,
+    version?: string,
     _options?: Configuration
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
@@ -512,21 +513,6 @@ export class RUMApiRequestFactory extends BaseAPIRequestFactory {
     logger.warn("Using unstable operation 'getSourcemaps'");
     if (!_config.unstableOperations["v2.getSourcemaps"]) {
       throw new Error("Unstable operation 'getSourcemaps' is disabled");
-    }
-
-    // verify required parameter 'filename' is not null or undefined
-    if (filename === null || filename === undefined) {
-      throw new RequiredError("filename", "getSourcemaps");
-    }
-
-    // verify required parameter 'service' is not null or undefined
-    if (service === null || service === undefined) {
-      throw new RequiredError("service", "getSourcemaps");
-    }
-
-    // verify required parameter 'version' is not null or undefined
-    if (version === null || version === undefined) {
-      throw new RequiredError("version", "getSourcemaps");
     }
 
     // Path Params
@@ -545,6 +531,13 @@ export class RUMApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Query Params
+    if (debugId !== undefined) {
+      requestContext.setQueryParam(
+        "debug_id",
+        ObjectSerializer.serialize(debugId, "string", "uuid"),
+        ""
+      );
+    }
     if (filename !== undefined) {
       requestContext.setQueryParam(
         "filename",
@@ -2230,20 +2223,26 @@ export interface RUMApiGetServiceRepositoryInfoRequest {
 
 export interface RUMApiGetSourcemapsRequest {
   /**
-   * The path to the source map file.
+   * The debug ID of the JavaScript source map, in UUID format. When provided,
+   * filename, service, and version are not required and are ignored.
    * @type string
    */
-  filename: string;
+  debugId?: string;
   /**
-   * The service name associated with the source map.
+   * The path to the source map file. Required when `debug_id` is omitted.
    * @type string
    */
-  service: string;
+  filename?: string;
   /**
-   * The version of the service associated with the source map.
+   * The service name associated with the source map. Required when `debug_id` is omitted.
    * @type string
    */
-  version: string;
+  service?: string;
+  /**
+   * The version of the service associated with the source map. Required when `debug_id` is omitted.
+   * @type string
+   */
+  version?: string;
 }
 
 export interface RUMApiListRUMEventsRequest {
@@ -2724,15 +2723,47 @@ export class RUMApi {
   }
 
   /**
-   * Retrieves the content of a specific JavaScript source map file by its
-   * filename, service name, and version.
+   * Retrieves the content of a specific JavaScript source map file. Provide either
+   * `debug_id` with a UUID, or all three of `filename`, `service`, and `version`.
+   * When `debug_id` is provided, filename, service, and version are not required
+   * and are ignored.
+   *
+   * **Examples:** the following commands use the US1 API host. Replace the host
+   * with the API host for your site, and the filename, service, version, and
+   * debug ID with values from your organization. Use `--get` so curl sends the
+   * parameters in the query string.
+   *
+   * **1. Retrieve a source map by debug ID**
+   *
+   * Provide `debug_id` with a UUID. No filename, service, or version is required.
+   *
+   * ```bash
+   * curl -sS --get "https://api.datadoghq.com/api/v2/sourcemaps" \
+   *   -H "Accept: application/json" \
+   *   -H "Authorization: Bearer ${DD_BEARER_TOKEN}" \
+   *   --data-urlencode "debug_id=00000000-0000-4000-8000-000000000001"
+   * ```
+   *
+   * **2. Retrieve a source map by service and version**
+   *
+   * Provide `filename` together with `service` and `version`.
+   *
+   * ```bash
+   * curl -sS --get "https://api.datadoghq.com/api/v2/sourcemaps" \
+   *   -H "Accept: application/json" \
+   *   -H "Authorization: Bearer ${DD_BEARER_TOKEN}" \
+   *   --data-urlencode "filename=js/bundle.min.js.map" \
+   *   --data-urlencode "service=my-web-service" \
+   *   --data-urlencode "version=1.0.0"
+   * ```
    * @param param The request object
    */
   public getSourcemaps(
-    param: RUMApiGetSourcemapsRequest,
+    param: RUMApiGetSourcemapsRequest = {},
     options?: Configuration
   ): Promise<SourcemapFileResponse> {
     const requestContextPromise = this.requestFactory.getSourcemaps(
+      param.debugId,
       param.filename,
       param.service,
       param.version,

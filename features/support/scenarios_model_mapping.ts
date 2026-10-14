@@ -16612,6 +16612,10 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
         "operationResponseType": "RUMEventsResponse",
     },
     "v2.GetSourcemaps": {
+        "debugId": {
+            "type": "string",
+            "format": "uuid",
+            },
         "filename": {
             "type": "string",
             "format": "",
