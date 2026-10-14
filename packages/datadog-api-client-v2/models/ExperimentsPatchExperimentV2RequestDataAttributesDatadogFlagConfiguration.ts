@@ -3,8 +3,8 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
-import { ExperimentsCreateExperimentV2RequestDataAttributesDatadogFlagConfigurationTargetingRulesItems } from "./ExperimentsCreateExperimentV2RequestDataAttributesDatadogFlagConfigurationTargetingRulesItems";
 import { ExperimentsPatchExperimentV2ResponseDataAttributesDatadogFlagConfigurationEntryPoint } from "./ExperimentsPatchExperimentV2ResponseDataAttributesDatadogFlagConfigurationEntryPoint";
+import { ExperimentsTargetingRule } from "./ExperimentsTargetingRule";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
@@ -31,7 +31,7 @@ export class ExperimentsPatchExperimentV2RequestDataAttributesDatadogFlagConfigu
   /**
    * Omit to keep the stored rules. Use an empty array to remove targeting rules.
    */
-  "targetingRules"?: Array<ExperimentsCreateExperimentV2RequestDataAttributesDatadogFlagConfigurationTargetingRulesItems>;
+  "targetingRules"?: Array<ExperimentsTargetingRule>;
 
   /**
    * A container for additional, undeclared properties.
@@ -67,7 +67,7 @@ export class ExperimentsPatchExperimentV2RequestDataAttributesDatadogFlagConfigu
     },
     targetingRules: {
       baseName: "targeting_rules",
-      type: "Array<ExperimentsCreateExperimentV2RequestDataAttributesDatadogFlagConfigurationTargetingRulesItems>",
+      type: "Array<ExperimentsTargetingRule>",
     },
     additionalProperties: {
       baseName: "additionalProperties",

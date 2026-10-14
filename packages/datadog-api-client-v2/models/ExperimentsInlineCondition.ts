@@ -3,7 +3,7 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
-import { ExperimentsPatchExperimentV2ResponseDataAttributesDatadogFlagConfigurationTargetingRulesItemsConditionsItemsOperator } from "./ExperimentsPatchExperimentV2ResponseDataAttributesDatadogFlagConfigurationTargetingRulesItemsConditionsItemsOperator";
+import { ExperimentsTargetingRuleOperator } from "./ExperimentsTargetingRuleOperator";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
@@ -18,7 +18,7 @@ export class ExperimentsInlineCondition {
   /**
    * Required with attribute and value for an inline condition; omit when saved_filter_id is set.
    */
-  "operator": ExperimentsPatchExperimentV2ResponseDataAttributesDatadogFlagConfigurationTargetingRulesItemsConditionsItemsOperator;
+  "operator": ExperimentsTargetingRuleOperator;
   /**
    * Values used by the operator. Every operator requires at least one value.
    */
@@ -47,7 +47,7 @@ export class ExperimentsInlineCondition {
     },
     operator: {
       baseName: "operator",
-      type: "ExperimentsPatchExperimentV2ResponseDataAttributesDatadogFlagConfigurationTargetingRulesItemsConditionsItemsOperator",
+      type: "ExperimentsTargetingRuleOperator",
       required: true,
     },
     value: {

@@ -3,7 +3,7 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
-import { ExperimentsPatchExperimentV2ResponseDataAttributesWarehouseExposureConfigurationEntryPointFiltersItemsOperation } from "./ExperimentsPatchExperimentV2ResponseDataAttributesWarehouseExposureConfigurationEntryPointFiltersItemsOperation";
+import { ExperimentsWarehouseEntryPointFilterOperation } from "./ExperimentsWarehouseEntryPointFilterOperation";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
@@ -14,7 +14,7 @@ export class ExperimentsWarehouseExposureFilter {
   /**
    * Comparison applied by the warehouse entry-point filter.
    */
-  "operation": ExperimentsPatchExperimentV2ResponseDataAttributesWarehouseExposureConfigurationEntryPointFiltersItemsOperation;
+  "operation": ExperimentsWarehouseEntryPointFilterOperation;
   /**
    * Warehouse property UUID.
    */
@@ -42,7 +42,7 @@ export class ExperimentsWarehouseExposureFilter {
   static readonly attributeTypeMap: AttributeTypeMap = {
     operation: {
       baseName: "operation",
-      type: "ExperimentsPatchExperimentV2ResponseDataAttributesWarehouseExposureConfigurationEntryPointFiltersItemsOperation",
+      type: "ExperimentsWarehouseEntryPointFilterOperation",
       required: true,
     },
     propertyId: {
