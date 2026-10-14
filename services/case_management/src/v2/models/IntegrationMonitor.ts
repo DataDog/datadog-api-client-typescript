@@ -9,7 +9,7 @@ export class IntegrationMonitor {
    */
   "autoResolveEnabled"?: boolean;
   /**
-   * Case type ID for monitor integration.
+   * Work item type ID for monitor integration.
    */
   "caseTypeId"?: string;
   /**

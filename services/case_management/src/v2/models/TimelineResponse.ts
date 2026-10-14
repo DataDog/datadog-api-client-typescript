@@ -3,7 +3,7 @@ import { AttributeTypeMap } from "@datadog/datadog-api-client";
 import { TimelineCellResource } from "./TimelineCellResource";
 
 /**
- * Response containing the chronological list of timeline cells for a case.
+ * Response containing the chronological list of timeline cells for a work item.
  */
 export class TimelineResponse {
   /**

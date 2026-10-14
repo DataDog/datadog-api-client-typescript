@@ -5,19 +5,19 @@ import { CaseCreateRelationships } from "./CaseCreateRelationships";
 import { CaseResourceType } from "./CaseResourceType";
 
 /**
- * Case creation data
+ * Work item creation data
  */
 export class CaseCreate {
   /**
-   * Case creation attributes
+   * Work item creation attributes
    */
   "attributes": CaseCreateAttributes;
   /**
-   * Relationships formed with the case on creation
+   * Relationships formed with the work item on creation
    */
   "relationships"?: CaseCreateRelationships;
   /**
-   * JSON:API resource type for cases.
+   * JSON:API resource type for work items.
    */
   "type": CaseResourceType;
   /**

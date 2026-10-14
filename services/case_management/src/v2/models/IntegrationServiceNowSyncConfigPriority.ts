@@ -5,7 +5,7 @@ import { AttributeTypeMap } from "@datadog/datadog-api-client";
  */
 export class IntegrationServiceNowSyncConfigPriority {
   /**
-   * Mapping of case priority values to ServiceNow impact values.
+   * Mapping of work item priority values to ServiceNow impact values.
    */
   "impactMapping"?: { [key: string]: string };
   /**
@@ -13,7 +13,7 @@ export class IntegrationServiceNowSyncConfigPriority {
    */
   "syncType"?: string;
   /**
-   * Mapping of case priority values to ServiceNow urgency values.
+   * Mapping of work item priority values to ServiceNow urgency values.
    */
   "urgencyMapping"?: { [key: string]: string };
   /**

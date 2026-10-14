@@ -1,11 +1,11 @@
 import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
 /**
- * Case update attributes attributes
+ * Work item update attributes.
  */
 export class CaseUpdateAttributesAttributes {
   /**
-   * Key-value pairs of case attributes. Each key maps to an array of string values, used for flexible metadata such as labels or tags.
+   * Key-value pairs of work item attributes. Each key maps to an array of string values, used for flexible metadata such as labels or tags.
    */
   "attributes": { [key: string]: Array<string> };
   /**

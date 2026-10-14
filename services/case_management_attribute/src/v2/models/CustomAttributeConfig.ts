@@ -4,11 +4,11 @@ import { CustomAttributeConfigResourceAttributes } from "./CustomAttributeConfig
 import { CustomAttributeConfigResourceType } from "./CustomAttributeConfigResourceType";
 
 /**
- * A custom attribute configuration that defines an organization-specific metadata field on cases. Custom attributes are scoped to a case type and can hold text, URLs, numbers, or predefined select options.
+ * A custom attribute configuration that defines an organization-specific metadata field on work items. Custom attributes are scoped to a work item type and can hold text, URLs, numbers, or predefined select options.
  */
 export class CustomAttributeConfig {
   /**
-   * Attributes of a custom attribute configuration, defining an organization-specific metadata field that can be added to cases of a given type.
+   * Attributes of a custom attribute configuration, defining an organization-specific metadata field that can be added to work items of a given type.
    */
   "attributes"?: CustomAttributeConfigResourceAttributes;
   /**

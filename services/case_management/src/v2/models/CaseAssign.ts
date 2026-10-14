@@ -4,15 +4,15 @@ import { CaseAssignAttributes } from "./CaseAssignAttributes";
 import { CaseResourceType } from "./CaseResourceType";
 
 /**
- * Case assign
+ * Work item assign
  */
 export class CaseAssign {
   /**
-   * Case assign attributes
+   * Work item assign attributes
    */
   "attributes": CaseAssignAttributes;
   /**
-   * JSON:API resource type for cases.
+   * JSON:API resource type for work items.
    */
   "type": CaseResourceType;
   /**

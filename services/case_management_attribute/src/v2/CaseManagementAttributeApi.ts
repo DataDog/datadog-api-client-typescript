@@ -638,7 +638,7 @@ export class CaseManagementAttributeApiResponseProcessor {
 
 export interface CaseManagementAttributeApiCreateCustomAttributeConfigRequest {
   /**
-   * The UUID of the case type.
+   * The UUID of the work item type.
    * @type string
    */
   caseTypeId: string;
@@ -651,12 +651,12 @@ export interface CaseManagementAttributeApiCreateCustomAttributeConfigRequest {
 
 export interface CaseManagementAttributeApiDeleteCustomAttributeConfigRequest {
   /**
-   * The UUID of the case type.
+   * The UUID of the work item type.
    * @type string
    */
   caseTypeId: string;
   /**
-   * Case Custom attribute's UUID
+   * Work item custom attribute's UUID.
    * @type string
    */
   customAttributeId: string;
@@ -664,7 +664,7 @@ export interface CaseManagementAttributeApiDeleteCustomAttributeConfigRequest {
 
 export interface CaseManagementAttributeApiGetAllCustomAttributeConfigsByCaseTypeRequest {
   /**
-   * The UUID of the case type.
+   * The UUID of the work item type.
    * @type string
    */
   caseTypeId: string;
@@ -672,12 +672,12 @@ export interface CaseManagementAttributeApiGetAllCustomAttributeConfigsByCaseTyp
 
 export interface CaseManagementAttributeApiUpdateCustomAttributeConfigRequest {
   /**
-   * The UUID of the case type.
+   * The UUID of the work item type.
    * @type string
    */
   caseTypeId: string;
   /**
-   * Case Custom attribute's UUID
+   * Work item custom attribute's UUID.
    * @type string
    */
   customAttributeId: string;
@@ -709,7 +709,7 @@ export class CaseManagementAttributeApi {
   }
 
   /**
-   * Create custom attribute config for a case type
+   * Create a custom attribute configuration for a work item type.
    * @param param The request object
    */
   public createCustomAttributeConfig(
@@ -759,7 +759,7 @@ export class CaseManagementAttributeApi {
   }
 
   /**
-   * Get all custom attribute config of case type
+   * Get custom attribute configurations for a work item type.
    * @param param The request object
    */
   public getAllCustomAttributeConfigsByCaseType(
@@ -801,7 +801,7 @@ export class CaseManagementAttributeApi {
   }
 
   /**
-   * Updates the display name, description, type, or options of an existing custom attribute configuration for a case type.
+   * Updates the display name, description, type, or options of an existing custom attribute configuration for a work item type.
    * @param param The request object
    */
   public updateCustomAttributeConfig(

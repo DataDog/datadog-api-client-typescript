@@ -23,7 +23,7 @@ export class CreateLinearIssueRequestDataAttributes {
    */
   "linearProjectId"?: string;
   /**
-   * Case priority
+   * Work item priority
    */
   "priority"?: CasePriority;
   /**

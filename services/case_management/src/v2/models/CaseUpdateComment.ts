@@ -4,7 +4,7 @@ import { CaseResourceType } from "./CaseResourceType";
 import { CaseUpdateCommentAttributes } from "./CaseUpdateCommentAttributes";
 
 /**
- * Data object for updating a case comment.
+ * Data object for updating a work item comment.
  */
 export class CaseUpdateComment {
   /**
@@ -12,7 +12,7 @@ export class CaseUpdateComment {
    */
   "attributes": CaseUpdateCommentAttributes;
   /**
-   * JSON:API resource type for cases.
+   * JSON:API resource type for work items.
    */
   "type": CaseResourceType;
   /**

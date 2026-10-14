@@ -3,7 +3,7 @@ import { AttributeTypeMap } from "@datadog/datadog-api-client";
 import { UserRelationshipData } from "./UserRelationshipData";
 
 /**
- * The user relationship for a case watcher.
+ * The user relationship for a work item watcher.
  */
 export class CaseWatcherUserRelationship {
   /**

@@ -1,7 +1,7 @@
 import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
 /**
- * Case comment attributes
+ * Work item comment attributes
  */
 export class CaseCommentAttributes {
   /**

@@ -1,11 +1,11 @@
 import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
 /**
- * Severity configuration for mapping incident priorities to case priorities.
+ * Severity configuration for mapping incident priorities to work item priorities.
  */
 export class IntegrationIncidentSeverityConfig {
   /**
-   * Mapping of incident severity values to case priority values.
+   * Mapping of incident severity values to work item priority values.
    */
   "priorityMapping"?: { [key: string]: string };
   /**

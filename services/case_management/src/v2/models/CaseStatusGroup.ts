@@ -1,7 +1,7 @@
 import { UnparsedObject } from "@datadog/datadog-api-client";
 
 /**
- * Status group of the case.
+ * Status group of the work item.
  */
 export type CaseStatusGroup =
   | typeof SG_OPEN

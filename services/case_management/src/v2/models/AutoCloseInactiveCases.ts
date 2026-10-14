@@ -1,7 +1,7 @@
 import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
 /**
- * Auto-close inactive cases settings.
+ * Auto-close inactive work items settings.
  */
 export class AutoCloseInactiveCases {
   /**

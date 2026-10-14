@@ -1,7 +1,7 @@
 import { UnparsedObject } from "@datadog/datadog-api-client";
 
 /**
- * Case status
+ * Work item status
  */
 export type Case3rdPartyTicketStatus =
   | typeof IN_PROGRESS

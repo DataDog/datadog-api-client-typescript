@@ -4,7 +4,7 @@ import { AutomationRuleTriggerData } from "./AutomationRuleTriggerData";
 import { AutomationRuleTriggerType } from "./AutomationRuleTriggerType";
 
 /**
- * Defines when the rule activates. Combines a trigger type (the case event to listen for) with optional trigger data (conditions that narrow when the trigger fires).
+ * Defines when the rule activates. Combines a trigger type (the work item event to listen for) with optional trigger data (conditions that narrow when the trigger fires).
  */
 export class AutomationRuleTrigger {
   /**
@@ -12,7 +12,7 @@ export class AutomationRuleTrigger {
    */
   "data"?: AutomationRuleTriggerData;
   /**
-   * The case event that activates the automation rule.
+   * The work item event that activates the automation rule.
    */
   "type": AutomationRuleTriggerType;
   /**

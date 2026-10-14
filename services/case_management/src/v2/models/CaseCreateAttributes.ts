@@ -4,11 +4,11 @@ import { CasePriority } from "./CasePriority";
 import { CustomAttributeValue } from "./CustomAttributeValue";
 
 /**
- * Case creation attributes
+ * Work item creation attributes
  */
 export class CaseCreateAttributes {
   /**
-   * Case custom attributes
+   * Work item custom attributes
    */
   "customAttributes"?: { [key: string]: CustomAttributeValue };
   /**
@@ -16,11 +16,11 @@ export class CaseCreateAttributes {
    */
   "description"?: string;
   /**
-   * Case priority
+   * Work item priority
    */
   "priority"?: CasePriority;
   /**
-   * Status of the case. Must be one of the existing statuses for the case's type.
+   * Status of the work item. Must be one of the existing statuses for the work item's type.
    */
   "statusName"?: string;
   /**
@@ -28,7 +28,7 @@ export class CaseCreateAttributes {
    */
   "title": string;
   /**
-   * Case type UUID
+   * Work item type UUID
    */
   "typeId": string;
   /**

@@ -1,11 +1,11 @@
 import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
 /**
- * A single value within a count group, representing the number of cases with that specific field value.
+ * A single value within a count group, representing the number of work items with that specific field value.
  */
 export class CaseCountGroupValue {
   /**
-   * Count of cases for this value.
+   * Count of work items for this value.
    */
   "count": number;
   /**

@@ -4,15 +4,15 @@ import { CaseCommentAttributes } from "./CaseCommentAttributes";
 import { CaseResourceType } from "./CaseResourceType";
 
 /**
- * Case comment
+ * Work item comment
  */
 export class CaseComment {
   /**
-   * Case comment attributes
+   * Work item comment attributes
    */
   "attributes": CaseCommentAttributes;
   /**
-   * JSON:API resource type for cases.
+   * JSON:API resource type for work items.
    */
   "type": CaseResourceType;
   /**

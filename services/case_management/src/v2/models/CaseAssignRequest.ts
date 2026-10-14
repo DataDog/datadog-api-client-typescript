@@ -3,11 +3,11 @@ import { AttributeTypeMap } from "@datadog/datadog-api-client";
 import { CaseAssign } from "./CaseAssign";
 
 /**
- * Case assign request
+ * Work item assign request
  */
 export class CaseAssignRequest {
   /**
-   * Case assign
+   * Work item assign
    */
   "data": CaseAssign;
   /**

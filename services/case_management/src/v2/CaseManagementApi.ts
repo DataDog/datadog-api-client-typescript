@@ -8068,12 +8068,12 @@ export class CaseManagementApiResponseProcessor {
 
 export interface CaseManagementApiAddCaseInsightsRequest {
   /**
-   * Case's UUID or key
+   * Work item's UUID or key
    * @type string
    */
   caseId: string;
   /**
-   * Case insights request.
+   * Work item insights request.
    * @type CaseInsightsRequest
    */
   body: CaseInsightsRequest;
@@ -8081,7 +8081,7 @@ export interface CaseManagementApiAddCaseInsightsRequest {
 
 export interface CaseManagementApiAggregateCasesRequest {
   /**
-   * Case aggregate request payload.
+   * Work item aggregate request payload.
    * @type CaseAggregateRequest
    */
   body: CaseAggregateRequest;
@@ -8089,12 +8089,12 @@ export interface CaseManagementApiAggregateCasesRequest {
 
 export interface CaseManagementApiArchiveCaseRequest {
   /**
-   * Case's UUID or key
+   * Work item's UUID or key
    * @type string
    */
   caseId: string;
   /**
-   * Archive case payload
+   * Archive work item payload
    * @type CaseEmptyRequest
    */
   body: CaseEmptyRequest;
@@ -8102,12 +8102,12 @@ export interface CaseManagementApiArchiveCaseRequest {
 
 export interface CaseManagementApiAssignCaseRequest {
   /**
-   * Case's UUID or key
+   * Work item's UUID or key
    * @type string
    */
   caseId: string;
   /**
-   * Assign case payload
+   * Assign work item payload
    * @type CaseAssignRequest
    */
   body: CaseAssignRequest;
@@ -8115,7 +8115,7 @@ export interface CaseManagementApiAssignCaseRequest {
 
 export interface CaseManagementApiBulkUpdateCasesRequest {
   /**
-   * Case bulk update request payload.
+   * Work item bulk update request payload.
    * @type CaseBulkUpdateRequest
    */
   body: CaseBulkUpdateRequest;
@@ -8123,12 +8123,12 @@ export interface CaseManagementApiBulkUpdateCasesRequest {
 
 export interface CaseManagementApiCommentCaseRequest {
   /**
-   * Case's UUID or key
+   * Work item's UUID or key
    * @type string
    */
   caseId: string;
   /**
-   * Case comment payload
+   * Work item comment payload
    * @type CaseCommentRequest
    */
   body: CaseCommentRequest;
@@ -8136,7 +8136,7 @@ export interface CaseManagementApiCommentCaseRequest {
 
 export interface CaseManagementApiCountCasesRequest {
   /**
-   * Filter query for cases.
+   * Filter query for work items.
    * @type string
    */
   queryFilter?: string;
@@ -8154,7 +8154,7 @@ export interface CaseManagementApiCountCasesRequest {
 
 export interface CaseManagementApiCreateCaseRequest {
   /**
-   * Case payload
+   * Work item payload
    * @type CaseCreateRequest
    */
   body: CaseCreateRequest;
@@ -8175,7 +8175,7 @@ export interface CaseManagementApiCreateCaseAutomationRuleRequest {
 
 export interface CaseManagementApiCreateCaseJiraIssueRequest {
   /**
-   * Case's UUID or key
+   * Work item's UUID or key
    * @type string
    */
   caseId: string;
@@ -8188,7 +8188,7 @@ export interface CaseManagementApiCreateCaseJiraIssueRequest {
 
 export interface CaseManagementApiCreateCaseLinkRequest {
   /**
-   * Case link create request.
+   * Work item link create request.
    * @type CaseLinkCreateRequest
    */
   body: CaseLinkCreateRequest;
@@ -8196,7 +8196,7 @@ export interface CaseManagementApiCreateCaseLinkRequest {
 
 export interface CaseManagementApiCreateCaseNotebookRequest {
   /**
-   * Case's UUID or key
+   * Work item's UUID or key
    * @type string
    */
   caseId: string;
@@ -8209,7 +8209,7 @@ export interface CaseManagementApiCreateCaseNotebookRequest {
 
 export interface CaseManagementApiCreateCaseServiceNowTicketRequest {
   /**
-   * Case's UUID or key
+   * Work item's UUID or key
    * @type string
    */
   caseId: string;
@@ -8222,7 +8222,7 @@ export interface CaseManagementApiCreateCaseServiceNowTicketRequest {
 
 export interface CaseManagementApiCreateCaseViewRequest {
   /**
-   * Case view payload.
+   * Work item view payload.
    * @type CaseViewCreateRequest
    */
   body: CaseViewCreateRequest;
@@ -8272,7 +8272,7 @@ export interface CaseManagementApiDeleteCaseAutomationRuleRequest {
 
 export interface CaseManagementApiDeleteCaseCommentRequest {
   /**
-   * Case's UUID or key
+   * Work item's UUID or key
    * @type string
    */
   caseId: string;
@@ -8285,12 +8285,12 @@ export interface CaseManagementApiDeleteCaseCommentRequest {
 
 export interface CaseManagementApiDeleteCaseCustomAttributeRequest {
   /**
-   * Case's UUID or key
+   * Work item's UUID or key
    * @type string
    */
   caseId: string;
   /**
-   * Case Custom attribute's key
+   * Work item custom attribute's key.
    * @type string
    */
   customAttributeKey: string;
@@ -8298,7 +8298,7 @@ export interface CaseManagementApiDeleteCaseCustomAttributeRequest {
 
 export interface CaseManagementApiDeleteCaseLinkRequest {
   /**
-   * The UUID of the case link.
+   * The UUID of the work item link.
    * @type string
    */
   linkId: string;
@@ -8306,7 +8306,7 @@ export interface CaseManagementApiDeleteCaseLinkRequest {
 
 export interface CaseManagementApiDeleteCaseViewRequest {
   /**
-   * The UUID of the case view.
+   * The UUID of the work item view.
    * @type string
    */
   viewId: string;
@@ -8377,7 +8377,7 @@ export interface CaseManagementApiFavoriteCaseProjectRequest {
 
 export interface CaseManagementApiGetCaseRequest {
   /**
-   * Case's UUID or key
+   * Work item's UUID or key
    * @type string
    */
   caseId: string;
@@ -8398,7 +8398,7 @@ export interface CaseManagementApiGetCaseAutomationRuleRequest {
 
 export interface CaseManagementApiGetCaseViewRequest {
   /**
-   * The UUID of the case view.
+   * The UUID of the work item view.
    * @type string
    */
   viewId: string;
@@ -8422,7 +8422,7 @@ export interface CaseManagementApiGetProjectNotificationRulesRequest {
 
 export interface CaseManagementApiLinkIncidentRequest {
   /**
-   * Case's UUID or key
+   * Work item's UUID or key
    * @type string
    */
   caseId: string;
@@ -8435,7 +8435,7 @@ export interface CaseManagementApiLinkIncidentRequest {
 
 export interface CaseManagementApiLinkJiraIssueToCaseRequest {
   /**
-   * Case's UUID or key
+   * Work item's UUID or key
    * @type string
    */
   caseId: string;
@@ -8456,7 +8456,7 @@ export interface CaseManagementApiListCaseAutomationRulesRequest {
 
 export interface CaseManagementApiListCaseLinksRequest {
   /**
-   * The entity type to look up links for. Use `CASE` to find links for a specific case.
+   * The entity type to look up links for. Use `CASE` to find links for a specific work item.
    * @type string
    */
   entityType: string;
@@ -8474,7 +8474,7 @@ export interface CaseManagementApiListCaseLinksRequest {
 
 export interface CaseManagementApiListCaseTimelineRequest {
   /**
-   * Case's UUID or key
+   * Work item's UUID or key
    * @type string
    */
   caseId: string;
@@ -8505,7 +8505,7 @@ export interface CaseManagementApiListCaseViewsRequest {
 
 export interface CaseManagementApiListCaseWatchersRequest {
   /**
-   * Case's UUID or key
+   * Work item's UUID or key
    * @type string
    */
   caseId: string;
@@ -8513,7 +8513,7 @@ export interface CaseManagementApiListCaseWatchersRequest {
 
 export interface CaseManagementApiMoveCaseToProjectRequest {
   /**
-   * Case's UUID or key
+   * Work item's UUID or key
    * @type string
    */
   caseId: string;
@@ -8526,12 +8526,12 @@ export interface CaseManagementApiMoveCaseToProjectRequest {
 
 export interface CaseManagementApiRemoveCaseInsightsRequest {
   /**
-   * Case's UUID or key
+   * Work item's UUID or key
    * @type string
    */
   caseId: string;
   /**
-   * Case insights request.
+   * Work item insights request.
    * @type CaseInsightsRequest
    */
   body: CaseInsightsRequest;
@@ -8567,12 +8567,12 @@ export interface CaseManagementApiSearchCasesRequest {
 
 export interface CaseManagementApiUnarchiveCaseRequest {
   /**
-   * Case's UUID or key
+   * Work item's UUID or key
    * @type string
    */
   caseId: string;
   /**
-   * Unarchive case payload
+   * Unarchive work item payload
    * @type CaseEmptyRequest
    */
   body: CaseEmptyRequest;
@@ -8580,12 +8580,12 @@ export interface CaseManagementApiUnarchiveCaseRequest {
 
 export interface CaseManagementApiUnassignCaseRequest {
   /**
-   * Case's UUID or key
+   * Work item's UUID or key
    * @type string
    */
   caseId: string;
   /**
-   * Unassign case payload
+   * Unassign work item payload
    * @type CaseEmptyRequest
    */
   body: CaseEmptyRequest;
@@ -8601,7 +8601,7 @@ export interface CaseManagementApiUnfavoriteCaseProjectRequest {
 
 export interface CaseManagementApiUnlinkJiraIssueRequest {
   /**
-   * Case's UUID or key
+   * Work item's UUID or key
    * @type string
    */
   caseId: string;
@@ -8609,7 +8609,7 @@ export interface CaseManagementApiUnlinkJiraIssueRequest {
 
 export interface CaseManagementApiUnwatchCaseRequest {
   /**
-   * Case's UUID or key
+   * Work item's UUID or key
    * @type string
    */
   caseId: string;
@@ -8622,12 +8622,12 @@ export interface CaseManagementApiUnwatchCaseRequest {
 
 export interface CaseManagementApiUpdateAttributesRequest {
   /**
-   * Case's UUID or key
+   * Work item's UUID or key
    * @type string
    */
   caseId: string;
   /**
-   * Case attributes update payload
+   * Work item attributes update payload
    * @type CaseUpdateAttributesRequest
    */
   body: CaseUpdateAttributesRequest;
@@ -8653,7 +8653,7 @@ export interface CaseManagementApiUpdateCaseAutomationRuleRequest {
 
 export interface CaseManagementApiUpdateCaseCommentRequest {
   /**
-   * Case's UUID or key
+   * Work item's UUID or key
    * @type string
    */
   caseId: string;
@@ -8663,7 +8663,7 @@ export interface CaseManagementApiUpdateCaseCommentRequest {
    */
   cellId: string;
   /**
-   * Case update comment payload.
+   * Work item update comment payload.
    * @type CaseUpdateCommentRequest
    */
   body: CaseUpdateCommentRequest;
@@ -8671,17 +8671,17 @@ export interface CaseManagementApiUpdateCaseCommentRequest {
 
 export interface CaseManagementApiUpdateCaseCustomAttributeRequest {
   /**
-   * Case's UUID or key
+   * Work item's UUID or key
    * @type string
    */
   caseId: string;
   /**
-   * Case Custom attribute's key
+   * Work item custom attribute's key.
    * @type string
    */
   customAttributeKey: string;
   /**
-   * Update case custom attribute payload
+   * Update work item custom attribute payload
    * @type CaseUpdateCustomAttributeRequest
    */
   body: CaseUpdateCustomAttributeRequest;
@@ -8689,12 +8689,12 @@ export interface CaseManagementApiUpdateCaseCustomAttributeRequest {
 
 export interface CaseManagementApiUpdateCaseDescriptionRequest {
   /**
-   * Case's UUID or key
+   * Work item's UUID or key
    * @type string
    */
   caseId: string;
   /**
-   * Case description update payload
+   * Work item description update payload
    * @type CaseUpdateDescriptionRequest
    */
   body: CaseUpdateDescriptionRequest;
@@ -8702,12 +8702,12 @@ export interface CaseManagementApiUpdateCaseDescriptionRequest {
 
 export interface CaseManagementApiUpdateCaseDueDateRequest {
   /**
-   * Case's UUID or key
+   * Work item's UUID or key
    * @type string
    */
   caseId: string;
   /**
-   * Case due date update payload.
+   * Work item due date update payload.
    * @type CaseUpdateDueDateRequest
    */
   body: CaseUpdateDueDateRequest;
@@ -8715,12 +8715,12 @@ export interface CaseManagementApiUpdateCaseDueDateRequest {
 
 export interface CaseManagementApiUpdateCaseResolvedReasonRequest {
   /**
-   * Case's UUID or key
+   * Work item's UUID or key
    * @type string
    */
   caseId: string;
   /**
-   * Case resolved reason update payload.
+   * Work item resolved reason update payload.
    * @type CaseUpdateResolvedReasonRequest
    */
   body: CaseUpdateResolvedReasonRequest;
@@ -8728,12 +8728,12 @@ export interface CaseManagementApiUpdateCaseResolvedReasonRequest {
 
 export interface CaseManagementApiUpdateCaseTitleRequest {
   /**
-   * Case's UUID or key
+   * Work item's UUID or key
    * @type string
    */
   caseId: string;
   /**
-   * Case title update payload
+   * Work item title update payload
    * @type CaseUpdateTitleRequest
    */
   body: CaseUpdateTitleRequest;
@@ -8741,12 +8741,12 @@ export interface CaseManagementApiUpdateCaseTitleRequest {
 
 export interface CaseManagementApiUpdateCaseViewRequest {
   /**
-   * The UUID of the case view.
+   * The UUID of the work item view.
    * @type string
    */
   viewId: string;
   /**
-   * Case view payload.
+   * Work item view payload.
    * @type CaseViewUpdateRequest
    */
   body: CaseViewUpdateRequest;
@@ -8767,12 +8767,12 @@ export interface CaseManagementApiUpdateMaintenanceWindowRequest {
 
 export interface CaseManagementApiUpdatePriorityRequest {
   /**
-   * Case's UUID or key
+   * Work item's UUID or key
    * @type string
    */
   caseId: string;
   /**
-   * Case priority update payload
+   * Work item priority update payload
    * @type CaseUpdatePriorityRequest
    */
   body: CaseUpdatePriorityRequest;
@@ -8811,12 +8811,12 @@ export interface CaseManagementApiUpdateProjectNotificationRuleRequest {
 
 export interface CaseManagementApiUpdateStatusRequest {
   /**
-   * Case's UUID or key
+   * Work item's UUID or key
    * @type string
    */
   caseId: string;
   /**
-   * Case status update payload
+   * Work item status update payload
    * @type CaseUpdateStatusRequest
    */
   body: CaseUpdateStatusRequest;
@@ -8824,7 +8824,7 @@ export interface CaseManagementApiUpdateStatusRequest {
 
 export interface CaseManagementApiWatchCaseRequest {
   /**
-   * Case's UUID or key
+   * Work item's UUID or key
    * @type string
    */
   caseId: string;
@@ -8855,7 +8855,7 @@ export class CaseManagementApi {
   }
 
   /**
-   * Adds one or more insights to a case. Insights are references to related Datadog resources (such as monitors, security signals, incidents, or error tracking issues) that provide investigative context. Up to 100 insights can be added per request. Each insight requires a type (see `CaseInsightType` for allowed values), a ref (URL path to the resource), and a resource_id.
+   * Adds one or more insights to a work item. Insights are references to related Datadog resources (such as monitors, security signals, incidents, or error tracking issues) that provide investigative context. Up to 100 insights can be added per request. Each insight requires a type (see `CaseInsightType` for allowed values), a ref (URL path to the resource), and a resource_id.
    * @param param The request object
    */
   public addCaseInsights(
@@ -8877,7 +8877,7 @@ export class CaseManagementApi {
   }
 
   /**
-   * Performs an aggregation query over cases, grouping results by specified fields and returning counts per group along with a total. Useful for dashboards and analytics.
+   * Performs an aggregation query over work items, grouping results by specified fields and returning counts per group along with a total. Useful for dashboards and analytics.
    * @param param The request object
    */
   public aggregateCases(
@@ -8898,7 +8898,7 @@ export class CaseManagementApi {
   }
 
   /**
-   * Archive case
+   * Archive work item
    * @param param The request object
    */
   public archiveCase(
@@ -8920,7 +8920,7 @@ export class CaseManagementApi {
   }
 
   /**
-   * Assign case to a user
+   * Assign work item to a user
    * @param param The request object
    */
   public assignCase(
@@ -8942,7 +8942,7 @@ export class CaseManagementApi {
   }
 
   /**
-   * Applies a single action (such as changing priority, status, assignment, or archiving) to multiple cases at once. The list of case IDs and the action type with its payload are specified in the request body.
+   * Applies a single action (such as changing priority, status, assignment, or archiving) to multiple work items at once. The list of work item IDs and the action type with its payload are specified in the request body.
    * @param param The request object
    */
   public bulkUpdateCases(
@@ -8963,7 +8963,7 @@ export class CaseManagementApi {
   }
 
   /**
-   * Comment case
+   * Add a comment to a work item.
    * @param param The request object
    */
   public commentCase(
@@ -8985,7 +8985,7 @@ export class CaseManagementApi {
   }
 
   /**
-   * Returns case counts, optionally grouped by one or more fields (for example, status, priority). Supports a query filter to narrow the scope.
+   * Returns work item counts, optionally grouped by one or more fields (for example, status, priority). Supports a query filter to narrow the scope.
    * @param param The request object
    */
   public countCases(
@@ -9008,7 +9008,7 @@ export class CaseManagementApi {
   }
 
   /**
-   * Create a Case
+   * Create a work item
    * @param param The request object
    */
   public createCase(
@@ -9029,7 +9029,7 @@ export class CaseManagementApi {
   }
 
   /**
-   * Creates an automation rule for a project. The rule defines a trigger event (for example, case created, status transitioned) and an action to execute.
+   * Creates an automation rule for a project. The rule defines a trigger event (for example, work item created, status transitioned) and an action to execute.
    * @param param The request object
    */
   public createCaseAutomationRule(
@@ -9053,7 +9053,7 @@ export class CaseManagementApi {
   }
 
   /**
-   * Create a new Jira issue and link it to a case
+   * Create a new Jira issue and link it to a work item
    * @param param The request object
    */
   public createCaseJiraIssue(
@@ -9075,7 +9075,7 @@ export class CaseManagementApi {
   }
 
   /**
-   * Creates a directional link between two cases (for example, case A blocks case B). The parent and child cases and their relationship type must be specified.
+   * Creates a directional link between two work items (for example, work item A blocks work item B). The parent and child work items and their relationship type must be specified.
    * @param param The request object
    */
   public createCaseLink(
@@ -9096,7 +9096,7 @@ export class CaseManagementApi {
   }
 
   /**
-   * Create a new investigation notebook and link it to a case
+   * Create a new investigation notebook and link it to a work item
    * @param param The request object
    */
   public createCaseNotebook(
@@ -9118,7 +9118,7 @@ export class CaseManagementApi {
   }
 
   /**
-   * Create a new ServiceNow incident ticket and link it to a case
+   * Create a new ServiceNow incident ticket and link it to a work item
    * @param param The request object
    */
   public createCaseServiceNowTicket(
@@ -9143,7 +9143,7 @@ export class CaseManagementApi {
   }
 
   /**
-   * Creates a new saved case view with a name, filter query, and associated project. Optionally, a notification rule can be linked to the view.
+   * Creates a new saved work item view with a name, filter query, and associated project. Optionally, a notification rule can be linked to the view.
    * @param param The request object
    */
   public createCaseView(
@@ -9164,7 +9164,7 @@ export class CaseManagementApi {
   }
 
   /**
-   * Creates a maintenance window for event management cases with a name, case filter query, and time range (start and end).
+   * Creates a maintenance window for event management work items with a name, work item filter query, and time range (start and end).
    * @param param The request object
    */
   public createMaintenanceWindow(
@@ -9257,7 +9257,7 @@ export class CaseManagementApi {
   }
 
   /**
-   * Delete case comment
+   * Delete work item comment
    * @param param The request object
    */
   public deleteCaseComment(
@@ -9279,7 +9279,7 @@ export class CaseManagementApi {
   }
 
   /**
-   * Delete custom attribute from case
+   * Delete custom attribute from work item
    * @param param The request object
    */
   public deleteCaseCustomAttribute(
@@ -9303,7 +9303,7 @@ export class CaseManagementApi {
   }
 
   /**
-   * Deletes an existing link between cases by link ID.
+   * Deletes an existing link between work items by link ID.
    * @param param The request object
    */
   public deleteCaseLink(
@@ -9324,7 +9324,7 @@ export class CaseManagementApi {
   }
 
   /**
-   * Permanently deletes a saved case view.
+   * Permanently deletes a saved work item view.
    * @param param The request object
    */
   public deleteCaseView(
@@ -9414,7 +9414,7 @@ export class CaseManagementApi {
   }
 
   /**
-   * Disables an automation rule so it no longer triggers on case events. The rule configuration is preserved.
+   * Disables an automation rule so it no longer triggers on work item events. The rule configuration is preserved.
    * @param param The request object
    */
   public disableCaseAutomationRule(
@@ -9438,7 +9438,7 @@ export class CaseManagementApi {
   }
 
   /**
-   * Enables a previously disabled automation rule so it triggers on matching case events.
+   * Enables a previously disabled automation rule so it triggers on matching work item events.
    * @param param The request object
    */
   public enableCaseAutomationRule(
@@ -9462,7 +9462,7 @@ export class CaseManagementApi {
   }
 
   /**
-   * Marks a case project as a favorite for the current authenticated user.
+   * Marks a Work Management project as a favorite for the current authenticated user.
    * @param param The request object
    */
   public favoriteCaseProject(
@@ -9483,7 +9483,7 @@ export class CaseManagementApi {
   }
 
   /**
-   * Get the details of case by `case_id`
+   * Get the details of a work item by `case_id`.
    * @param param The request object
    */
   public getCase(
@@ -9526,7 +9526,7 @@ export class CaseManagementApi {
   }
 
   /**
-   * Returns a single saved case view identified by its UUID, including its query, associated project, and timestamps.
+   * Returns a single saved work item view identified by its UUID, including its query, associated project, and timestamps.
    * @param param The request object
    */
   public getCaseView(
@@ -9604,7 +9604,7 @@ export class CaseManagementApi {
   }
 
   /**
-   * Link an incident to a case
+   * Link an incident to a work item
    * @param param The request object
    */
   public linkIncident(
@@ -9626,7 +9626,7 @@ export class CaseManagementApi {
   }
 
   /**
-   * Link an existing Jira issue to a case
+   * Link an existing Jira issue to a work item
    * @param param The request object
    */
   public linkJiraIssueToCase(
@@ -9648,7 +9648,7 @@ export class CaseManagementApi {
   }
 
   /**
-   * Returns all automation rules configured for a project. Automation rules allow automatic actions to be triggered by case events like creation, status transitions, or attribute changes.
+   * Returns all automation rules configured for a project. Automation rules allow automatic actions to be triggered by work item events like creation, status transitions, or attribute changes.
    * @param param The request object
    */
   public listCaseAutomationRules(
@@ -9671,7 +9671,7 @@ export class CaseManagementApi {
   }
 
   /**
-   * Returns all links associated with a case. Links define relationships (for example, BLOCKS) between cases. Requires entity_type and entity_id query parameters.
+   * Returns all links associated with a work item. Links define relationships (for example, BLOCKS) between work items. Requires entity_type and entity_id query parameters.
    * @param param The request object
    */
   public listCaseLinks(
@@ -9694,7 +9694,7 @@ export class CaseManagementApi {
   }
 
   /**
-   * Returns the timeline of events for a case, including comments, status changes, and other activity. Supports pagination and sort order.
+   * Returns the timeline of events for a work item, including comments, status changes, and other activity. Supports pagination and sort order.
    * @param param The request object
    */
   public listCaseTimeline(
@@ -9718,7 +9718,7 @@ export class CaseManagementApi {
   }
 
   /**
-   * Returns all saved case views for a given project. Views are saved search queries that allow quick access to filtered lists of cases.
+   * Returns all saved work item views for a given project. Views are saved search queries that allow quick access to filtered lists of work items.
    * @param param The request object
    */
   public listCaseViews(
@@ -9739,7 +9739,7 @@ export class CaseManagementApi {
   }
 
   /**
-   * Returns the list of users who are watching a case. Watchers receive notifications about updates to the case.
+   * Returns the list of users who are watching a work item. Watchers receive notifications about updates to the work item.
    * @param param The request object
    */
   public listCaseWatchers(
@@ -9760,7 +9760,7 @@ export class CaseManagementApi {
   }
 
   /**
-   * Returns all configured maintenance windows for event management cases. Maintenance windows define time periods during which case notifications and automation rules are suppressed for cases matching a given query.
+   * Returns all configured maintenance windows for event management work items. Maintenance windows define time periods during which work item notifications and automation rules are suppressed for work items matching a given query.
    * @param param The request object
    */
   public listMaintenanceWindows(
@@ -9778,7 +9778,7 @@ export class CaseManagementApi {
   }
 
   /**
-   * Returns the list of case projects that the current authenticated user has marked as favorites.
+   * Returns the list of Work Management projects that the current authenticated user has marked as favorites.
    * @param param The request object
    */
   public listUserCaseProjectFavorites(
@@ -9798,7 +9798,7 @@ export class CaseManagementApi {
   }
 
   /**
-   * Update the project associated with a case
+   * Update the project associated with a work item
    * @param param The request object
    */
   public moveCaseToProject(
@@ -9820,7 +9820,7 @@ export class CaseManagementApi {
   }
 
   /**
-   * Removes one or more previously added insights from a case by specifying their type and resource identifier in the request body.
+   * Removes one or more previously added insights from a work item by specifying their type and resource identifier in the request body.
    * @param param The request object
    */
   public removeCaseInsights(
@@ -9842,7 +9842,7 @@ export class CaseManagementApi {
   }
 
   /**
-   * Search cases.
+   * Search work items.
    * @param param The request object
    */
   public searchCases(
@@ -9909,7 +9909,7 @@ export class CaseManagementApi {
   }
 
   /**
-   * Unarchive case
+   * Unarchive work item
    * @param param The request object
    */
   public unarchiveCase(
@@ -9931,7 +9931,7 @@ export class CaseManagementApi {
   }
 
   /**
-   * Unassign case
+   * Unassign work item
    * @param param The request object
    */
   public unassignCase(
@@ -9953,7 +9953,7 @@ export class CaseManagementApi {
   }
 
   /**
-   * Removes a case project from the current user's favorites list.
+   * Removes a Work Management project from the current user's favorites list.
    * @param param The request object
    */
   public unfavoriteCaseProject(
@@ -9974,7 +9974,7 @@ export class CaseManagementApi {
   }
 
   /**
-   * Remove the link between a Jira issue and a case
+   * Remove the link between a Jira issue and a work item
    * @param param The request object
    */
   public unlinkJiraIssue(
@@ -9995,7 +9995,7 @@ export class CaseManagementApi {
   }
 
   /**
-   * Removes a user from the watchers list of a case. The user no longer receives notifications about updates to the case.
+   * Removes a user from the watchers list of a work item. The user no longer receives notifications about updates to the work item.
    * @param param The request object
    */
   public unwatchCase(
@@ -10017,7 +10017,7 @@ export class CaseManagementApi {
   }
 
   /**
-   * Update case attributes
+   * Update work item attributes
    * @param param The request object
    */
   public updateAttributes(
@@ -10064,7 +10064,7 @@ export class CaseManagementApi {
   }
 
   /**
-   * Updates the text content of an existing comment on a case timeline. The comment is identified by its cell ID.
+   * Updates the text content of an existing comment on a work item timeline. The comment is identified by its cell ID.
    * @param param The request object
    */
   public updateCaseComment(
@@ -10087,7 +10087,7 @@ export class CaseManagementApi {
   }
 
   /**
-   * Update case custom attribute
+   * Update work item custom attribute
    * @param param The request object
    */
   public updateCaseCustomAttribute(
@@ -10112,7 +10112,7 @@ export class CaseManagementApi {
   }
 
   /**
-   * Update case description
+   * Update work item description
    * @param param The request object
    */
   public updateCaseDescription(
@@ -10134,7 +10134,7 @@ export class CaseManagementApi {
   }
 
   /**
-   * Sets or updates the due date for a case. The due date is a calendar date (without a time component) indicating when the case should be resolved.
+   * Sets or updates the due date for a work item. The due date is a calendar date (without a time component) indicating when the work item should be resolved.
    * @param param The request object
    */
   public updateCaseDueDate(
@@ -10156,7 +10156,7 @@ export class CaseManagementApi {
   }
 
   /**
-   * Sets the resolved reason for a security case (for example, FALSE_POSITIVE, TRUE_POSITIVE). Applicable to security-type cases.
+   * Sets the resolved reason for a security work item (for example, FALSE_POSITIVE, TRUE_POSITIVE). Applicable to security-type work items.
    * @param param The request object
    */
   public updateCaseResolvedReason(
@@ -10180,7 +10180,7 @@ export class CaseManagementApi {
   }
 
   /**
-   * Update case title
+   * Update work item title
    * @param param The request object
    */
   public updateCaseTitle(
@@ -10202,7 +10202,7 @@ export class CaseManagementApi {
   }
 
   /**
-   * Updates the name, query, or notification rule of an existing case view.
+   * Updates the name, query, or notification rule of an existing work item view.
    * @param param The request object
    */
   public updateCaseView(
@@ -10248,7 +10248,7 @@ export class CaseManagementApi {
   }
 
   /**
-   * Update case priority
+   * Update work item priority
    * @param param The request object
    */
   public updatePriority(
@@ -10318,7 +10318,7 @@ export class CaseManagementApi {
   }
 
   /**
-   * Update case status
+   * Update work item status
    * @param param The request object
    */
   public updateStatus(
@@ -10340,7 +10340,7 @@ export class CaseManagementApi {
   }
 
   /**
-   * Adds a user (identified by their UUID) as a watcher of a case. The user receives notifications about subsequent updates to the case.
+   * Adds a user (identified by their UUID) as a watcher of a work item. The user receives notifications about subsequent updates to the work item.
    * @param param The request object
    */
   public watchCase(

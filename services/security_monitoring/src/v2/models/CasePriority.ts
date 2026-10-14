@@ -1,7 +1,7 @@
 import { UnparsedObject } from "@datadog/datadog-api-client";
 
 /**
- * Case priority
+ * Work item priority
  */
 export type CasePriority =
   | typeof NOT_DEFINED
