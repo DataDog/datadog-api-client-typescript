@@ -1,16 +1,16 @@
 import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
-import { ObservabilityPipelineAzureDataExplorerDestinationAuthManagedIdentityClientAssertionKind } from "./ObservabilityPipelineAzureDataExplorerDestinationAuthManagedIdentityClientAssertionKind";
 import { ObservabilityPipelineAzureDataExplorerDestinationManagedIdentityIdType } from "./ObservabilityPipelineAzureDataExplorerDestinationManagedIdentityIdType";
+import { ObservabilityPipelineAzureDataExplorerManagedIdentityClientAssertionKind } from "./ObservabilityPipelineAzureDataExplorerManagedIdentityClientAssertionKind";
 
 /**
  * Authenticate using a managed identity as a client assertion for a Microsoft Entra application.
  */
-export class ObservabilityPipelineAzureDataExplorerDestinationAuthManagedIdentityClientAssertion {
+export class ObservabilityPipelineAzureDataExplorerManagedIdentityClientAssertion {
   /**
    * The Azure credential kind. The value should always be `managed_identity_client_assertion`.
    */
-  "azureCredentialKind": ObservabilityPipelineAzureDataExplorerDestinationAuthManagedIdentityClientAssertionKind;
+  "azureCredentialKind": ObservabilityPipelineAzureDataExplorerManagedIdentityClientAssertionKind;
   /**
    * The client ID of the Microsoft Entra application that trusts the managed identity.
    */
@@ -44,7 +44,7 @@ export class ObservabilityPipelineAzureDataExplorerDestinationAuthManagedIdentit
   static readonly attributeTypeMap: AttributeTypeMap = {
     azureCredentialKind: {
       baseName: "azure_credential_kind",
-      type: "ObservabilityPipelineAzureDataExplorerDestinationAuthManagedIdentityClientAssertionKind",
+      type: "ObservabilityPipelineAzureDataExplorerManagedIdentityClientAssertionKind",
       required: true,
     },
     clientAssertionClientId: {
@@ -75,7 +75,7 @@ export class ObservabilityPipelineAzureDataExplorerDestinationAuthManagedIdentit
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-    return ObservabilityPipelineAzureDataExplorerDestinationAuthManagedIdentityClientAssertion.attributeTypeMap;
+    return ObservabilityPipelineAzureDataExplorerManagedIdentityClientAssertion.attributeTypeMap;
   }
 
   public constructor() {}
