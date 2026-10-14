@@ -7,8 +7,8 @@ import { ObservabilityPipelineAzureDataExplorerDestinationAuthAzureCli } from ".
 import { ObservabilityPipelineAzureDataExplorerDestinationAuthClientCertificate } from "./ObservabilityPipelineAzureDataExplorerDestinationAuthClientCertificate";
 import { ObservabilityPipelineAzureDataExplorerDestinationAuthClientSecret } from "./ObservabilityPipelineAzureDataExplorerDestinationAuthClientSecret";
 import { ObservabilityPipelineAzureDataExplorerDestinationAuthManagedIdentity } from "./ObservabilityPipelineAzureDataExplorerDestinationAuthManagedIdentity";
-import { ObservabilityPipelineAzureDataExplorerDestinationAuthManagedIdentityClientAssertion } from "./ObservabilityPipelineAzureDataExplorerDestinationAuthManagedIdentityClientAssertion";
 import { ObservabilityPipelineAzureDataExplorerDestinationAuthWorkloadIdentity } from "./ObservabilityPipelineAzureDataExplorerDestinationAuthWorkloadIdentity";
+import { ObservabilityPipelineAzureDataExplorerManagedIdentityClientAssertion } from "./ObservabilityPipelineAzureDataExplorerManagedIdentityClientAssertion";
 
 import { UnparsedObject } from "../../datadog-api-client-common/util";
 
@@ -21,6 +21,6 @@ export type ObservabilityPipelineAzureDataExplorerDestinationAuth =
   | ObservabilityPipelineAzureDataExplorerDestinationAuthClientSecret
   | ObservabilityPipelineAzureDataExplorerDestinationAuthClientCertificate
   | ObservabilityPipelineAzureDataExplorerDestinationAuthManagedIdentity
-  | ObservabilityPipelineAzureDataExplorerDestinationAuthManagedIdentityClientAssertion
+  | ObservabilityPipelineAzureDataExplorerManagedIdentityClientAssertion
   | ObservabilityPipelineAzureDataExplorerDestinationAuthWorkloadIdentity
   | UnparsedObject;
