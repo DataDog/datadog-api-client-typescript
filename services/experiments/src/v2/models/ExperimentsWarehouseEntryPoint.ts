@@ -5,7 +5,7 @@ import { ExperimentsWarehouseExposureFilter } from "./ExperimentsWarehouseExposu
 /**
  * Optional Warehouse measure that scopes analyzed subjects.
  */
-export class ExperimentsPatchExperimentV2ResponseDataAttributesWarehouseExposureConfigurationEntryPoint {
+export class ExperimentsWarehouseEntryPoint {
   /**
    * Complete ordered Warehouse entry-point filter set.
    */
@@ -49,7 +49,7 @@ export class ExperimentsPatchExperimentV2ResponseDataAttributesWarehouseExposure
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-    return ExperimentsPatchExperimentV2ResponseDataAttributesWarehouseExposureConfigurationEntryPoint.attributeTypeMap;
+    return ExperimentsWarehouseEntryPoint.attributeTypeMap;
   }
 
   public constructor() {}

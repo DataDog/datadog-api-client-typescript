@@ -3,17 +3,16 @@ import { UnparsedObject } from "@datadog/datadog-api-client";
 /**
  * Data type of the column evaluated by the entry-point filter.
  */
-export type ExperimentsPatchExperimentV2ResponseDataAttributesDatadogFlagConfigurationEntryPointFiltersItemsItemsColumnType =
-
-    | typeof VARCHAR
-    | typeof INT
-    | typeof DOUBLE
-    | typeof BOOLEAN
-    | typeof VARCHAR_ARRAY
-    | typeof INT_ARRAY
-    | typeof DOUBLE_ARRAY
-    | typeof RAW
-    | UnparsedObject;
+export type ExperimentsDatadogEntryPointFilterColumnType =
+  | typeof VARCHAR
+  | typeof INT
+  | typeof DOUBLE
+  | typeof BOOLEAN
+  | typeof VARCHAR_ARRAY
+  | typeof INT_ARRAY
+  | typeof DOUBLE_ARRAY
+  | typeof RAW
+  | UnparsedObject;
 export const VARCHAR = "varchar";
 export const INT = "int";
 export const DOUBLE = "double";

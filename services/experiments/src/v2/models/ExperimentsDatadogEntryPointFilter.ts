@@ -1,7 +1,7 @@
 import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
-import { ExperimentsPatchExperimentV2ResponseDataAttributesDatadogFlagConfigurationEntryPointFiltersItemsItemsColumnType } from "./ExperimentsPatchExperimentV2ResponseDataAttributesDatadogFlagConfigurationEntryPointFiltersItemsItemsColumnType";
-import { ExperimentsPatchExperimentV2ResponseDataAttributesDatadogFlagConfigurationEntryPointFiltersItemsItemsOperation } from "./ExperimentsPatchExperimentV2ResponseDataAttributesDatadogFlagConfigurationEntryPointFiltersItemsItemsOperation";
+import { ExperimentsDatadogEntryPointFilterColumnType } from "./ExperimentsDatadogEntryPointFilterColumnType";
+import { ExperimentsDatadogEntryPointFilterOperation } from "./ExperimentsDatadogEntryPointFilterOperation";
 
 /**
  * Complete Datadog OR-of-ANDs entry-point filter expression.
@@ -14,11 +14,11 @@ export class ExperimentsDatadogEntryPointFilter {
   /**
    * Data type of the column evaluated by the entry-point filter.
    */
-  "columnType": ExperimentsPatchExperimentV2ResponseDataAttributesDatadogFlagConfigurationEntryPointFiltersItemsItemsColumnType;
+  "columnType": ExperimentsDatadogEntryPointFilterColumnType;
   /**
    * Comparison applied by the Datadog entry-point filter.
    */
-  "operation": ExperimentsPatchExperimentV2ResponseDataAttributesDatadogFlagConfigurationEntryPointFiltersItemsItemsOperation;
+  "operation": ExperimentsDatadogEntryPointFilterOperation;
   /**
    * Comparison values used by the filter operation.
    */
@@ -45,12 +45,12 @@ export class ExperimentsDatadogEntryPointFilter {
     },
     columnType: {
       baseName: "column_type",
-      type: "ExperimentsPatchExperimentV2ResponseDataAttributesDatadogFlagConfigurationEntryPointFiltersItemsItemsColumnType",
+      type: "ExperimentsDatadogEntryPointFilterColumnType",
       required: true,
     },
     operation: {
       baseName: "operation",
-      type: "ExperimentsPatchExperimentV2ResponseDataAttributesDatadogFlagConfigurationEntryPointFiltersItemsItemsOperation",
+      type: "ExperimentsDatadogEntryPointFilterOperation",
       required: true,
     },
     values: {

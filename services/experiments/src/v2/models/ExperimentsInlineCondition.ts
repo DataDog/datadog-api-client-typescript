@@ -1,6 +1,6 @@
 import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
-import { ExperimentsPatchExperimentV2ResponseDataAttributesDatadogFlagConfigurationTargetingRulesItemsConditionsItemsOperator } from "./ExperimentsPatchExperimentV2ResponseDataAttributesDatadogFlagConfigurationTargetingRulesItemsConditionsItemsOperator";
+import { ExperimentsTargetingRuleOperator } from "./ExperimentsTargetingRuleOperator";
 
 /**
  * An inline condition. The saved_filter_id field must be omitted or null.
@@ -13,7 +13,7 @@ export class ExperimentsInlineCondition {
   /**
    * Required with attribute and value for an inline condition; omit when saved_filter_id is set.
    */
-  "operator": ExperimentsPatchExperimentV2ResponseDataAttributesDatadogFlagConfigurationTargetingRulesItemsConditionsItemsOperator;
+  "operator": ExperimentsTargetingRuleOperator;
   /**
    * Values used by the operator. Every operator requires at least one value.
    */
@@ -40,7 +40,7 @@ export class ExperimentsInlineCondition {
     },
     operator: {
       baseName: "operator",
-      type: "ExperimentsPatchExperimentV2ResponseDataAttributesDatadogFlagConfigurationTargetingRulesItemsConditionsItemsOperator",
+      type: "ExperimentsTargetingRuleOperator",
       required: true,
     },
     value: {
