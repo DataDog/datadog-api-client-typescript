@@ -1,15 +1,13 @@
 import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
-import { ExperimentsTargetingRuleCondition } from "./ExperimentsTargetingRuleCondition";
-
 /**
- * Use an empty array when no targeting rules apply.
+ * Reference to a measure defined in a warehouse metric SQL model.
  */
-export class ExperimentsCreateExperimentV2RequestDataAttributesDatadogFlagConfigurationTargetingRulesItems {
+export class ExperimentsWarehouseMetricMeasure {
   /**
-   * Conditions that must all match for this rule. Each condition must use exactly one shape: saved_filter_id alone or operator plus attribute plus value.
+   * Identifier of the warehouse metric measure.
    */
-  "conditions": Array<ExperimentsTargetingRuleCondition>;
+  "id": string;
   /**
    * A container for additional, undeclared properties.
    * This is a holder for any undeclared properties as specified with
@@ -25,10 +23,11 @@ export class ExperimentsCreateExperimentV2RequestDataAttributesDatadogFlagConfig
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    conditions: {
-      baseName: "conditions",
-      type: "Array<ExperimentsTargetingRuleCondition>",
+    id: {
+      baseName: "id",
+      type: "string",
       required: true,
+      format: "uuid",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -40,7 +39,7 @@ export class ExperimentsCreateExperimentV2RequestDataAttributesDatadogFlagConfig
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-    return ExperimentsCreateExperimentV2RequestDataAttributesDatadogFlagConfigurationTargetingRulesItems.attributeTypeMap;
+    return ExperimentsWarehouseMetricMeasure.attributeTypeMap;
   }
 
   public constructor() {}

@@ -3,7 +3,7 @@ import { AttributeTypeMap } from "@datadog/datadog-api-client";
 /**
  * Lower and upper bounds of the reported statistical interval.
  */
-export class ExperimentsVariantResultsV2DTODataAttributesMetricsItemsAnalysesItemsConfidenceInterval {
+export class ExperimentsConfidenceInterval {
   /**
    * Lower bound of the reported interval.
    */
@@ -47,7 +47,7 @@ export class ExperimentsVariantResultsV2DTODataAttributesMetricsItemsAnalysesIte
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-    return ExperimentsVariantResultsV2DTODataAttributesMetricsItemsAnalysesItemsConfidenceInterval.attributeTypeMap;
+    return ExperimentsConfidenceInterval.attributeTypeMap;
   }
 
   public constructor() {}
