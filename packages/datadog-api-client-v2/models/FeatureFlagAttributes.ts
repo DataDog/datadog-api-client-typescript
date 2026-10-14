@@ -5,6 +5,7 @@
  */
 import { FeatureFlagEnvironment } from "./FeatureFlagEnvironment";
 import { FeatureFlagStalenessDetails } from "./FeatureFlagStalenessDetails";
+import { FeatureFlagStalenessStatusOverride } from "./FeatureFlagStalenessStatusOverride";
 import { ValueType } from "./ValueType";
 import { Variant } from "./Variant";
 
@@ -70,6 +71,10 @@ export class FeatureFlagAttributes {
    * Indicates the whether a feature flag is stale or not.
    */
   "stalenessStatus"?: string;
+  /**
+   * An explicit staleness status override. Omitted when no override is set.
+   */
+  "stalenessStatusOverride"?: FeatureFlagStalenessStatusOverride;
   /**
    * Tags associated with the feature flag.
    */
@@ -165,6 +170,10 @@ export class FeatureFlagAttributes {
     stalenessStatus: {
       baseName: "staleness_status",
       type: "string",
+    },
+    stalenessStatusOverride: {
+      baseName: "staleness_status_override",
+      type: "FeatureFlagStalenessStatusOverride",
     },
     tags: {
       baseName: "tags",

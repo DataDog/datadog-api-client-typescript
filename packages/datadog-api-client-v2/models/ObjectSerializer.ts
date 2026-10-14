@@ -2084,6 +2084,7 @@ import { FeatureFlagResponse } from "./FeatureFlagResponse";
 import { FeatureFlagStalenessCodeReference } from "./FeatureFlagStalenessCodeReference";
 import { FeatureFlagStalenessDetails } from "./FeatureFlagStalenessDetails";
 import { FeatureFlagStalenessRecommendedAction } from "./FeatureFlagStalenessRecommendedAction";
+import { FeatureFlagsPaginationLinks } from "./FeatureFlagsPaginationLinks";
 import { FeatureFlagsPaginationMeta } from "./FeatureFlagsPaginationMeta";
 import { FeatureFlagsPaginationMetaPage } from "./FeatureFlagsPaginationMetaPage";
 import { FileCoverageLines } from "./FileCoverageLines";
@@ -7619,6 +7620,9 @@ const enumsMap: { [key: string]: any[] } = {
   FastlyIntegrationType: ["Fastly"],
   FastlyServiceType: ["fastly-services"],
   FeatureFlagDistributionChannel: ["ALL", "CLIENT", "SERVER"],
+  FeatureFlagProductionStatus: ["ENABLED", "DISABLED", "OVERRIDDEN"],
+  FeatureFlagStalenessStatus: ["ACTIVE", "STALE", "PERMANENT"],
+  FeatureFlagStalenessStatusOverride: ["STALE", "PERMANENT"],
   FeatureFlagStatus: ["ENABLED", "DISABLED"],
   FilesCoverageRequestType: ["ci_app_coverage_files_request"],
   FilesCoverageResponseType: ["ci_app_coverage_files"],
@@ -12735,6 +12739,7 @@ const typeMap: { [index: string]: any } = {
   FeatureFlagStalenessCodeReference: FeatureFlagStalenessCodeReference,
   FeatureFlagStalenessDetails: FeatureFlagStalenessDetails,
   FeatureFlagStalenessRecommendedAction: FeatureFlagStalenessRecommendedAction,
+  FeatureFlagsPaginationLinks: FeatureFlagsPaginationLinks,
   FeatureFlagsPaginationMeta: FeatureFlagsPaginationMeta,
   FeatureFlagsPaginationMetaPage: FeatureFlagsPaginationMetaPage,
   FileCoverageLines: FileCoverageLines,
