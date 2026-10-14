@@ -28,14 +28,6 @@ import { RUMOperationsApiV2 } from "@datadog/datadog-api-client-rum-operations";
 import { v2 } from "@datadog/datadog-api-client-rum-operations";
 
 const configuration = createConfiguration();
-// Enable unstable operations
-const configurationOpts = {
-    unstableOperations: {
-        "RUMOperationsApi.v2.createRUMOperation": true
-    }
-}
-
-const configuration = createConfiguration(configurationOpts);
 const apiInstance = new RUMOperationsApiV2(configuration);
 const params = {/* parameters */};
 
