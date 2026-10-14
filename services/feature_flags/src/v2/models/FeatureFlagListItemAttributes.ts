@@ -2,6 +2,7 @@ import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
 import { FeatureFlagEnvironmentListItem } from "./FeatureFlagEnvironmentListItem";
 import { FeatureFlagStalenessDetails } from "./FeatureFlagStalenessDetails";
+import { FeatureFlagStalenessStatusOverride } from "./FeatureFlagStalenessStatusOverride";
 import { ValueType } from "./ValueType";
 import { Variant } from "./Variant";
 
@@ -62,9 +63,13 @@ export class FeatureFlagListItemAttributes {
    */
   "stalenessDetails"?: FeatureFlagStalenessDetails;
   /**
-   * Indicates the staleness status of the feature flag.
+   * Legacy status retained for compatibility. This field is always `ACTIVE`; use `staleness_details.staleness_status` for the computed status.
    */
   "stalenessStatus"?: string;
+  /**
+   * An explicit staleness status override. Omitted when no override is set.
+   */
+  "stalenessStatusOverride"?: FeatureFlagStalenessStatusOverride;
   /**
    * Tags associated with the feature flag.
    */
@@ -158,6 +163,10 @@ export class FeatureFlagListItemAttributes {
     stalenessStatus: {
       baseName: "staleness_status",
       type: "string",
+    },
+    stalenessStatusOverride: {
+      baseName: "staleness_status_override",
+      type: "FeatureFlagStalenessStatusOverride",
     },
     tags: {
       baseName: "tags",
