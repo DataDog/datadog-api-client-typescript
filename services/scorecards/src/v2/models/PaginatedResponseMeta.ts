@@ -1,11 +1,11 @@
 import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
 /**
- * Metadata for scores response.
+ * Pagination metadata.
  */
 export class PaginatedResponseMeta {
   /**
-   * Number of entities in this response.
+   * Number of results in this response.
    */
   "count": number;
   /**
@@ -17,7 +17,7 @@ export class PaginatedResponseMeta {
    */
   "offset": number;
   /**
-   * Total number of entities available.
+   * Total number of results matching the filters.
    */
   "total": number;
   /**

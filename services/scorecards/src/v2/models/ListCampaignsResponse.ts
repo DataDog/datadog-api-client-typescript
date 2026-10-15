@@ -12,7 +12,7 @@ export class ListCampaignsResponse {
    */
   "data": Array<CampaignResponseData>;
   /**
-   * Metadata for scores response.
+   * Pagination metadata.
    */
   "meta": PaginatedResponseMeta;
   /**

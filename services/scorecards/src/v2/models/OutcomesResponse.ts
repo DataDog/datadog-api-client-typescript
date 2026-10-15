@@ -3,6 +3,7 @@ import { AttributeTypeMap } from "@datadog/datadog-api-client";
 import { OutcomesResponseDataItem } from "./OutcomesResponseDataItem";
 import { OutcomesResponseIncludedItem } from "./OutcomesResponseIncludedItem";
 import { OutcomesResponseLinks } from "./OutcomesResponseLinks";
+import { PaginatedResponseMeta } from "./PaginatedResponseMeta";
 
 /**
  * Scorecard outcomes - the result of a rule for a service.
@@ -17,9 +18,13 @@ export class OutcomesResponse {
    */
   "included"?: Array<OutcomesResponseIncludedItem>;
   /**
-   * Links attributes.
+   * Pagination links for rule outcomes.
    */
   "links"?: OutcomesResponseLinks;
+  /**
+   * Pagination metadata.
+   */
+  "meta"?: PaginatedResponseMeta;
   /**
    * A container for additional, undeclared properties.
    * This is a holder for any undeclared properties as specified with
@@ -46,6 +51,10 @@ export class OutcomesResponse {
     links: {
       baseName: "links",
       type: "OutcomesResponseLinks",
+    },
+    meta: {
+      baseName: "meta",
+      type: "PaginatedResponseMeta",
     },
     additionalProperties: {
       baseName: "additionalProperties",
