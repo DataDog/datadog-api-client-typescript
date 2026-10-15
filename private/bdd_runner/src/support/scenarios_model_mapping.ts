@@ -19933,41 +19933,6 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
     },
     operationResponseType: "TeamLinkResponse",
   },
-  "TeamsApi.V2.GetTeamHierarchyMembers": {
-    teamId: {
-      type: "string",
-      format: "",
-    },
-    filterIsDirectOnly: {
-      type: "boolean",
-      format: "",
-    },
-    filterIncludeServiceAccounts: {
-      type: "boolean",
-      format: "",
-    },
-    filterKeyword: {
-      type: "string",
-      format: "",
-    },
-    include: {
-      type: "string",
-      format: "",
-    },
-    sort: {
-      type: "string",
-      format: "",
-    },
-    pageNumber: {
-      type: "number",
-      format: "int64",
-    },
-    pageSize: {
-      type: "number",
-      format: "int64",
-    },
-    operationResponseType: "TeamHierarchyMembersResponse",
-  },
   "TeamsApi.V2.GetTeamMemberships": {
     teamId: {
       type: "string",
