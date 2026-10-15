@@ -10890,6 +10890,13 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
     },
     operationResponseType: "AllocationExposureScheduleResponse",
   },
+  "FeatureFlagsApi.V2.GetSavedFilter": {
+    savedFilterId: {
+      type: "string",
+      format: "uuid",
+    },
+    operationResponseType: "SavedFilterResponse",
+  },
   "FeatureFlagsApi.V2.GetFeatureFlag": {
     featureFlagId: {
       type: "string",

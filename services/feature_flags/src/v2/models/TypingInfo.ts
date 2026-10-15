@@ -51,6 +51,11 @@ import { ListFeatureFlagsResponse } from "./ListFeatureFlagsResponse";
 import { OverwriteAllocationsRequest } from "./OverwriteAllocationsRequest";
 import { RolloutOptions } from "./RolloutOptions";
 import { RolloutOptionsRequest } from "./RolloutOptionsRequest";
+import { SavedFilterAttributes } from "./SavedFilterAttributes";
+import { SavedFilterCondition } from "./SavedFilterCondition";
+import { SavedFilterData } from "./SavedFilterData";
+import { SavedFilterResponse } from "./SavedFilterResponse";
+import { SavedFilterTargetingRule } from "./SavedFilterTargetingRule";
 import { TargetingRule } from "./TargetingRule";
 import { TargetingRuleRequest } from "./TargetingRuleRequest";
 import { UpdateEnvironmentAttributes } from "./UpdateEnvironmentAttributes";
@@ -92,6 +97,26 @@ export const TypingInfo: ModelTypingInfo = {
     FeatureFlagStatus: ["ENABLED", "DISABLED"],
     GuardrailTriggerAction: ["PAUSE", "ABORT"],
     RolloutStrategy: ["UNIFORM_INTERVALS", "NO_ROLLOUT"],
+    SavedFilterConditionOperator: [
+      "LT",
+      "LTE",
+      "GT",
+      "GTE",
+      "MATCHES",
+      "NOT_MATCHES",
+      "ONE_OF",
+      "NOT_ONE_OF",
+      "IS_NULL",
+      "EQUALS",
+      "SEMVER_EQ",
+      "SEMVER_NEQ",
+      "SEMVER_LT",
+      "SEMVER_LTE",
+      "SEMVER_GT",
+      "SEMVER_GTE",
+    ],
+    SavedFilterCreationType: ["RULES", "LIST"],
+    SavedFilterDataType: ["saved-filters"],
     UpdateEnvironmentDataType: ["environments"],
     UpdateFeatureFlagDataType: ["feature-flags"],
     ValueType: ["BOOLEAN", "INTEGER", "NUMERIC", "STRING", "JSON"],
@@ -150,6 +175,11 @@ export const TypingInfo: ModelTypingInfo = {
     OverwriteAllocationsRequest: OverwriteAllocationsRequest,
     RolloutOptions: RolloutOptions,
     RolloutOptionsRequest: RolloutOptionsRequest,
+    SavedFilterAttributes: SavedFilterAttributes,
+    SavedFilterCondition: SavedFilterCondition,
+    SavedFilterData: SavedFilterData,
+    SavedFilterResponse: SavedFilterResponse,
+    SavedFilterTargetingRule: SavedFilterTargetingRule,
     TargetingRule: TargetingRule,
     TargetingRuleRequest: TargetingRuleRequest,
     UpdateEnvironmentAttributes: UpdateEnvironmentAttributes,
