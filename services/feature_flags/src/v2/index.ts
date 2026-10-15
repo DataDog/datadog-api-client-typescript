@@ -10,6 +10,7 @@ export {
   FeatureFlagsApiEnableFeatureFlagEnvironmentRequest,
   FeatureFlagsApiGetFeatureFlagRequest,
   FeatureFlagsApiGetFeatureFlagsEnvironmentRequest,
+  FeatureFlagsApiGetSavedFilterRequest,
   FeatureFlagsApiListFeatureFlagsRequest,
   FeatureFlagsApiListFeatureFlagsEnvironmentsRequest,
   FeatureFlagsApiPauseExposureScheduleRequest,
@@ -89,6 +90,14 @@ export { OverwriteAllocationsRequest } from "./models/OverwriteAllocationsReques
 export { RolloutOptions } from "./models/RolloutOptions";
 export { RolloutOptionsRequest } from "./models/RolloutOptionsRequest";
 export { RolloutStrategy } from "./models/RolloutStrategy";
+export { SavedFilterAttributes } from "./models/SavedFilterAttributes";
+export { SavedFilterCondition } from "./models/SavedFilterCondition";
+export { SavedFilterConditionOperator } from "./models/SavedFilterConditionOperator";
+export { SavedFilterCreationType } from "./models/SavedFilterCreationType";
+export { SavedFilterData } from "./models/SavedFilterData";
+export { SavedFilterDataType } from "./models/SavedFilterDataType";
+export { SavedFilterResponse } from "./models/SavedFilterResponse";
+export { SavedFilterTargetingRule } from "./models/SavedFilterTargetingRule";
 export { TargetingRule } from "./models/TargetingRule";
 export { TargetingRuleRequest } from "./models/TargetingRuleRequest";
 export { UpdateEnvironmentAttributes } from "./models/UpdateEnvironmentAttributes";
