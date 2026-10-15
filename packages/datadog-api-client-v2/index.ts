@@ -785,6 +785,7 @@ export {
   FeatureFlagsApiEnableFeatureFlagEnvironmentRequest,
   FeatureFlagsApiGetFeatureFlagRequest,
   FeatureFlagsApiGetFeatureFlagsEnvironmentRequest,
+  FeatureFlagsApiGetSavedFilterRequest,
   FeatureFlagsApiListFeatureFlagsRequest,
   FeatureFlagsApiListFeatureFlagsEnvironmentsRequest,
   FeatureFlagsApiPauseExposureScheduleRequest,
@@ -8498,6 +8499,14 @@ export { SastRulesetData } from "./models/SastRulesetData";
 export { SastRulesetDataAttributes } from "./models/SastRulesetDataAttributes";
 export { SastRulesetResponse } from "./models/SastRulesetResponse";
 export { SastRulesetsResponse } from "./models/SastRulesetsResponse";
+export { SavedFilterAttributes } from "./models/SavedFilterAttributes";
+export { SavedFilterCondition } from "./models/SavedFilterCondition";
+export { SavedFilterConditionOperator } from "./models/SavedFilterConditionOperator";
+export { SavedFilterCreationType } from "./models/SavedFilterCreationType";
+export { SavedFilterData } from "./models/SavedFilterData";
+export { SavedFilterDataType } from "./models/SavedFilterDataType";
+export { SavedFilterResponse } from "./models/SavedFilterResponse";
+export { SavedFilterTargetingRule } from "./models/SavedFilterTargetingRule";
 export { SBOM } from "./models/SBOM";
 export { SBOMAttributes } from "./models/SBOMAttributes";
 export { SBOMComponent } from "./models/SBOMComponent";
