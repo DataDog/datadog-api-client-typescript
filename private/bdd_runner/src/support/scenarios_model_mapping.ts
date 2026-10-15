@@ -15424,6 +15424,13 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
     },
     operationResponseType: "OrgGroupMembershipListResponse",
   },
+  "OrgGroupsApi.V2.CreateOrgGroupMemberships": {
+    body: {
+      type: "OrgGroupMembershipCreateRequest",
+      format: "",
+    },
+    operationResponseType: "{}",
+  },
   "OrgGroupsApi.V2.BulkUpdateOrgGroupMemberships": {
     body: {
       type: "OrgGroupMembershipBulkUpdateRequest",
@@ -15431,12 +15438,34 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
     },
     operationResponseType: "OrgGroupMembershipListResponse",
   },
+  "OrgGroupsApi.V2.DeleteOrgGroupMemberships": {
+    filterOrgGroupId: {
+      type: "string",
+      format: "uuid",
+    },
+    body: {
+      type: "OrgGroupMembershipBulkDeleteRequest",
+      format: "",
+    },
+    operationResponseType: "{}",
+  },
   "OrgGroupsApi.V2.GetOrgGroupMembership": {
     orgGroupMembershipId: {
       type: "string",
       format: "uuid",
     },
     operationResponseType: "OrgGroupMembershipResponse",
+  },
+  "OrgGroupsApi.V2.DeleteOrgGroupMembership": {
+    orgGroupMembershipId: {
+      type: "string",
+      format: "uuid",
+    },
+    filterOrgGroupId: {
+      type: "string",
+      format: "uuid",
+    },
+    operationResponseType: "{}",
   },
   "OrgGroupsApi.V2.UpdateOrgGroupMembership": {
     orgGroupMembershipId: {
