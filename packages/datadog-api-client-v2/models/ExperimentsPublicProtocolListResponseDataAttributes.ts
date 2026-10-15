@@ -17,6 +17,10 @@ export class ExperimentsPublicProtocolListResponseDataAttributes {
    */
   "description"?: string;
   /**
+   * Number of experiments in the organization that use this protocol, excluding deleted experiments.
+   */
+  "experimentCount": number;
+  /**
    * Display name of the protocol.
    */
   "name": string;
@@ -41,7 +45,8 @@ export class ExperimentsPublicProtocolListResponseDataAttributes {
    */
   "subjectTypeId"?: string;
   /**
-   * RFC3339 update time. Preserve all fractional seconds when passing this value as expected_updated_at.
+   * RFC3339 update time. Preserve all fractional seconds when passing this value as
+   * `expected_updated_at`.
    */
   "updatedAt": string;
 
@@ -64,6 +69,12 @@ export class ExperimentsPublicProtocolListResponseDataAttributes {
     description: {
       baseName: "description",
       type: "string",
+    },
+    experimentCount: {
+      baseName: "experiment_count",
+      type: "number",
+      required: true,
+      format: "int64",
     },
     name: {
       baseName: "name",
