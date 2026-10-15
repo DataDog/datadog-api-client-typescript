@@ -12,7 +12,7 @@ import { AttributeTypeMap } from "../../datadog-api-client-common/util";
  */
 export class OrgGroupMembershipBulkUpdateAttributes {
   /**
-   * List of organizations to move. Maximum 100 per request.
+   * List of organizations to move. Each request must include between 1 and 100 organizations. Each `org_uuid` and `org_site` pair must be unique.
    */
   "orgs": Array<GlobalOrgIdentifier>;
 
