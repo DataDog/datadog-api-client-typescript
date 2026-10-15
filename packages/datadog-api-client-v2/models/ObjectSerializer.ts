@@ -4944,6 +4944,11 @@ import { SastRulesetData } from "./SastRulesetData";
 import { SastRulesetDataAttributes } from "./SastRulesetDataAttributes";
 import { SastRulesetResponse } from "./SastRulesetResponse";
 import { SastRulesetsResponse } from "./SastRulesetsResponse";
+import { SavedFilterAttributes } from "./SavedFilterAttributes";
+import { SavedFilterCondition } from "./SavedFilterCondition";
+import { SavedFilterData } from "./SavedFilterData";
+import { SavedFilterResponse } from "./SavedFilterResponse";
+import { SavedFilterTargetingRule } from "./SavedFilterTargetingRule";
 import { ScaRequest } from "./ScaRequest";
 import { ScaRequestData } from "./ScaRequestData";
 import { ScaRequestDataAttributes } from "./ScaRequestDataAttributes";
@@ -9234,6 +9239,26 @@ const enumsMap: { [key: string]: any[] } = {
     "expired",
   ],
   SampleLogGenerationSubscriptionsStatusFilter: ["active", "all"],
+  SavedFilterConditionOperator: [
+    "LT",
+    "LTE",
+    "GT",
+    "GTE",
+    "MATCHES",
+    "NOT_MATCHES",
+    "ONE_OF",
+    "NOT_ONE_OF",
+    "IS_NULL",
+    "EQUALS",
+    "SEMVER_EQ",
+    "SEMVER_NEQ",
+    "SEMVER_LT",
+    "SEMVER_LTE",
+    "SEMVER_GT",
+    "SEMVER_GTE",
+  ],
+  SavedFilterCreationType: ["RULES", "LIST"],
+  SavedFilterDataType: ["saved-filters"],
   ScaRequestDataType: ["scarequests"],
   ScalarColumnTypeGroup: ["group"],
   ScalarColumnTypeNumber: ["number"],
@@ -16238,6 +16263,11 @@ const typeMap: { [index: string]: any } = {
   SastRulesetDataAttributes: SastRulesetDataAttributes,
   SastRulesetResponse: SastRulesetResponse,
   SastRulesetsResponse: SastRulesetsResponse,
+  SavedFilterAttributes: SavedFilterAttributes,
+  SavedFilterCondition: SavedFilterCondition,
+  SavedFilterData: SavedFilterData,
+  SavedFilterResponse: SavedFilterResponse,
+  SavedFilterTargetingRule: SavedFilterTargetingRule,
   ScaRequest: ScaRequest,
   ScaRequestData: ScaRequestData,
   ScaRequestDataAttributes: ScaRequestDataAttributes,
