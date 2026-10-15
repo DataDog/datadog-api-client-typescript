@@ -6,6 +6,9 @@ import { ConnectedTeamRef } from "./ConnectedTeamRef";
 import { ConnectedTeamRefData } from "./ConnectedTeamRefData";
 import { ConnectionsPagePagination } from "./ConnectionsPagePagination";
 import { ConnectionsResponseMeta } from "./ConnectionsResponseMeta";
+import { JSONAPIErrorItem } from "./JSONAPIErrorItem";
+import { JSONAPIErrorItemSource } from "./JSONAPIErrorItemSource";
+import { JSONAPIErrorResponse } from "./JSONAPIErrorResponse";
 import { MemberTeam } from "./MemberTeam";
 import { RelationshipToOrganization } from "./RelationshipToOrganization";
 import { RelationshipToOrganizationData } from "./RelationshipToOrganizationData";
@@ -49,6 +52,21 @@ import { TeamHierarchyLinkTeam } from "./TeamHierarchyLinkTeam";
 import { TeamHierarchyLinkTeamAttributes } from "./TeamHierarchyLinkTeamAttributes";
 import { TeamHierarchyLinkTeamRelationship } from "./TeamHierarchyLinkTeamRelationship";
 import { TeamHierarchyLinksResponse } from "./TeamHierarchyLinksResponse";
+import { TeamHierarchyMember } from "./TeamHierarchyMember";
+import { TeamHierarchyMemberAttributes } from "./TeamHierarchyMemberAttributes";
+import { TeamHierarchyMemberRelationships } from "./TeamHierarchyMemberRelationships";
+import { TeamHierarchyMemberTeam } from "./TeamHierarchyMemberTeam";
+import { TeamHierarchyMemberTeamAttributes } from "./TeamHierarchyMemberTeamAttributes";
+import { TeamHierarchyMemberTeamData } from "./TeamHierarchyMemberTeamData";
+import { TeamHierarchyMemberTeamRelationship } from "./TeamHierarchyMemberTeamRelationship";
+import { TeamHierarchyMemberUser } from "./TeamHierarchyMemberUser";
+import { TeamHierarchyMemberUserData } from "./TeamHierarchyMemberUserData";
+import { TeamHierarchyMemberUserRelationship } from "./TeamHierarchyMemberUserRelationship";
+import { TeamHierarchyMembersNumberPage } from "./TeamHierarchyMembersNumberPage";
+import { TeamHierarchyMembersOffsetPage } from "./TeamHierarchyMembersOffsetPage";
+import { TeamHierarchyMembersResponse } from "./TeamHierarchyMembersResponse";
+import { TeamHierarchyMembersResponseLinks } from "./TeamHierarchyMembersResponseLinks";
+import { TeamHierarchyMembersResponseMeta } from "./TeamHierarchyMembersResponseMeta";
 import { TeamLink } from "./TeamLink";
 import { TeamLinkAttributes } from "./TeamLinkAttributes";
 import { TeamLinkCreate } from "./TeamLinkCreate";
@@ -131,6 +149,10 @@ export const TypingInfo: ModelTypingInfo = {
     RolesType: ["roles"],
     TeamConnectionType: ["team_connection"],
     TeamHierarchyLinkType: ["team_hierarchy_links"],
+    TeamHierarchyMemberTeamType: ["teams"],
+    TeamHierarchyMemberType: ["user_team_relationship"],
+    TeamHierarchyMembersNumberPageType: ["number_size"],
+    TeamHierarchyMembersOffsetPageType: ["offset_limit"],
     TeamLinkType: ["team_links"],
     TeamNotificationRuleType: ["team_notification_rules"],
     TeamPermissionSettingSerializerAction: ["manage_membership", "edit"],
@@ -176,6 +198,14 @@ export const TypingInfo: ModelTypingInfo = {
     UsersType: ["users"],
   },
   oneOfMap: {
+    TeamHierarchyMemberIncluded: [
+      "TeamHierarchyMemberUser",
+      "TeamHierarchyMemberTeam",
+    ],
+    TeamHierarchyMembersPage: [
+      "TeamHierarchyMembersOffsetPage",
+      "TeamHierarchyMembersNumberPage",
+    ],
     TeamIncluded: ["User", "TeamLink", "UserTeamPermission"],
     UserTeamIncluded: ["User", "Team"],
   },
@@ -186,6 +216,9 @@ export const TypingInfo: ModelTypingInfo = {
     ConnectedTeamRefData: ConnectedTeamRefData,
     ConnectionsPagePagination: ConnectionsPagePagination,
     ConnectionsResponseMeta: ConnectionsResponseMeta,
+    JSONAPIErrorItem: JSONAPIErrorItem,
+    JSONAPIErrorItemSource: JSONAPIErrorItemSource,
+    JSONAPIErrorResponse: JSONAPIErrorResponse,
     MemberTeam: MemberTeam,
     RelationshipToOrganization: RelationshipToOrganization,
     RelationshipToOrganizationData: RelationshipToOrganizationData,
@@ -230,6 +263,21 @@ export const TypingInfo: ModelTypingInfo = {
     TeamHierarchyLinkTeamAttributes: TeamHierarchyLinkTeamAttributes,
     TeamHierarchyLinkTeamRelationship: TeamHierarchyLinkTeamRelationship,
     TeamHierarchyLinksResponse: TeamHierarchyLinksResponse,
+    TeamHierarchyMember: TeamHierarchyMember,
+    TeamHierarchyMemberAttributes: TeamHierarchyMemberAttributes,
+    TeamHierarchyMemberRelationships: TeamHierarchyMemberRelationships,
+    TeamHierarchyMemberTeam: TeamHierarchyMemberTeam,
+    TeamHierarchyMemberTeamAttributes: TeamHierarchyMemberTeamAttributes,
+    TeamHierarchyMemberTeamData: TeamHierarchyMemberTeamData,
+    TeamHierarchyMemberTeamRelationship: TeamHierarchyMemberTeamRelationship,
+    TeamHierarchyMemberUser: TeamHierarchyMemberUser,
+    TeamHierarchyMemberUserData: TeamHierarchyMemberUserData,
+    TeamHierarchyMemberUserRelationship: TeamHierarchyMemberUserRelationship,
+    TeamHierarchyMembersNumberPage: TeamHierarchyMembersNumberPage,
+    TeamHierarchyMembersOffsetPage: TeamHierarchyMembersOffsetPage,
+    TeamHierarchyMembersResponse: TeamHierarchyMembersResponse,
+    TeamHierarchyMembersResponseLinks: TeamHierarchyMembersResponseLinks,
+    TeamHierarchyMembersResponseMeta: TeamHierarchyMembersResponseMeta,
     TeamLink: TeamLink,
     TeamLinkAttributes: TeamLinkAttributes,
     TeamLinkCreate: TeamLinkCreate,
