@@ -3,32 +3,27 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
-import { TeamHierarchyMemberAttributes } from "./TeamHierarchyMemberAttributes";
-import { TeamHierarchyMemberRelationships } from "./TeamHierarchyMemberRelationships";
-import { TeamHierarchyMemberType } from "./TeamHierarchyMemberType";
+import { LLMObsPatternsTemplatesListType } from "./LLMObsPatternsTemplatesListType";
+import { LLMObsPatternsTemplatesResponseAttributes } from "./LLMObsPatternsTemplatesResponseAttributes";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * A user relationship to the requested team.
+ * Data object of a list of Agent Observability patterns templates.
  */
-export class TeamHierarchyMember {
+export class LLMObsPatternsTemplatesResponseData {
   /**
-   * Membership attributes relative to the requested team.
+   * Attributes of a list of Agent Observability patterns templates.
    */
-  "attributes": TeamHierarchyMemberAttributes;
+  "attributes": LLMObsPatternsTemplatesResponseAttributes;
   /**
-   * Relationship identifier containing the team UUID and user UUID.
+   * Identifier of the list response.
    */
   "id": string;
   /**
-   * User and requested team linkage.
+   * Resource type of a list of Agent Observability patterns templates.
    */
-  "relationships": TeamHierarchyMemberRelationships;
-  /**
-   * Team hierarchy membership resource type.
-   */
-  "type": TeamHierarchyMemberType;
+  "type": LLMObsPatternsTemplatesListType;
 
   /**
    * A container for additional, undeclared properties.
@@ -48,7 +43,7 @@ export class TeamHierarchyMember {
   static readonly attributeTypeMap: AttributeTypeMap = {
     attributes: {
       baseName: "attributes",
-      type: "TeamHierarchyMemberAttributes",
+      type: "LLMObsPatternsTemplatesResponseAttributes",
       required: true,
     },
     id: {
@@ -56,14 +51,9 @@ export class TeamHierarchyMember {
       type: "string",
       required: true,
     },
-    relationships: {
-      baseName: "relationships",
-      type: "TeamHierarchyMemberRelationships",
-      required: true,
-    },
     type: {
       baseName: "type",
-      type: "TeamHierarchyMemberType",
+      type: "LLMObsPatternsTemplatesListType",
       required: true,
     },
     additionalProperties: {
@@ -76,7 +66,7 @@ export class TeamHierarchyMember {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-    return TeamHierarchyMember.attributeTypeMap;
+    return LLMObsPatternsTemplatesResponseData.attributeTypeMap;
   }
 
   public constructor() {}
