@@ -847,7 +847,6 @@ export function createConfiguration(
       "v2.updateAiCustomRuleset": false,
       "v2.updateCustomRuleset": false,
       "v2.addMemberTeam": false,
-      "v2.getTeamHierarchyMembers": false,
       "v2.listMemberTeams": false,
       "v2.removeMemberTeam": false,
       "v2.createTimeseriesAnomalyInvestigation": false,
