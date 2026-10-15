@@ -3776,9 +3776,9 @@ import { ObservabilityPipelineAzureDataExplorerDestinationAuthAzureCli } from ".
 import { ObservabilityPipelineAzureDataExplorerDestinationAuthClientCertificate } from "./ObservabilityPipelineAzureDataExplorerDestinationAuthClientCertificate";
 import { ObservabilityPipelineAzureDataExplorerDestinationAuthClientSecret } from "./ObservabilityPipelineAzureDataExplorerDestinationAuthClientSecret";
 import { ObservabilityPipelineAzureDataExplorerDestinationAuthManagedIdentity } from "./ObservabilityPipelineAzureDataExplorerDestinationAuthManagedIdentity";
-import { ObservabilityPipelineAzureDataExplorerDestinationAuthManagedIdentityClientAssertion } from "./ObservabilityPipelineAzureDataExplorerDestinationAuthManagedIdentityClientAssertion";
 import { ObservabilityPipelineAzureDataExplorerDestinationAuthWorkloadIdentity } from "./ObservabilityPipelineAzureDataExplorerDestinationAuthWorkloadIdentity";
 import { ObservabilityPipelineAzureDataExplorerDestinationBatch } from "./ObservabilityPipelineAzureDataExplorerDestinationBatch";
+import { ObservabilityPipelineAzureDataExplorerManagedIdentityClientAssertion } from "./ObservabilityPipelineAzureDataExplorerManagedIdentityClientAssertion";
 import { ObservabilityPipelineAzureStorageDestinationCompressionGzip } from "./ObservabilityPipelineAzureStorageDestinationCompressionGzip";
 import { ObservabilityPipelineAzureStorageDestinationCompressionZstd } from "./ObservabilityPipelineAzureStorageDestinationCompressionZstd";
 import { ObservabilityPipelineClickhouseDestination } from "./ObservabilityPipelineClickhouseDestination";
@@ -8373,8 +8373,6 @@ const enumsMap: { [key: string]: any[] } = {
   ObservabilityPipelineAzureDataExplorerDestinationAuthClientSecretKind: [
     "client_secret_credential",
   ],
-  ObservabilityPipelineAzureDataExplorerDestinationAuthManagedIdentityClientAssertionKind:
-    ["managed_identity_client_assertion"],
   ObservabilityPipelineAzureDataExplorerDestinationAuthManagedIdentityKind: [
     "managed_identity",
   ],
@@ -8388,6 +8386,9 @@ const enumsMap: { [key: string]: any[] } = {
   ],
   ObservabilityPipelineAzureDataExplorerDestinationType: [
     "azure_data_explorer",
+  ],
+  ObservabilityPipelineAzureDataExplorerManagedIdentityClientAssertionKind: [
+    "managed_identity_client_assertion",
   ],
   ObservabilityPipelineAzureStorageDestinationCompressionGzipType: ["gzip"],
   ObservabilityPipelineAzureStorageDestinationCompressionZstdType: ["zstd"],
@@ -14761,12 +14762,12 @@ const typeMap: { [index: string]: any } = {
     ObservabilityPipelineAzureDataExplorerDestinationAuthClientSecret,
   ObservabilityPipelineAzureDataExplorerDestinationAuthManagedIdentity:
     ObservabilityPipelineAzureDataExplorerDestinationAuthManagedIdentity,
-  ObservabilityPipelineAzureDataExplorerDestinationAuthManagedIdentityClientAssertion:
-    ObservabilityPipelineAzureDataExplorerDestinationAuthManagedIdentityClientAssertion,
   ObservabilityPipelineAzureDataExplorerDestinationAuthWorkloadIdentity:
     ObservabilityPipelineAzureDataExplorerDestinationAuthWorkloadIdentity,
   ObservabilityPipelineAzureDataExplorerDestinationBatch:
     ObservabilityPipelineAzureDataExplorerDestinationBatch,
+  ObservabilityPipelineAzureDataExplorerManagedIdentityClientAssertion:
+    ObservabilityPipelineAzureDataExplorerManagedIdentityClientAssertion,
   ObservabilityPipelineAzureStorageDestinationCompressionGzip:
     ObservabilityPipelineAzureStorageDestinationCompressionGzip,
   ObservabilityPipelineAzureStorageDestinationCompressionZstd:
@@ -18715,7 +18716,7 @@ const oneOfMap: { [index: string]: string[] } = {
     "ObservabilityPipelineAzureDataExplorerDestinationAuthClientSecret",
     "ObservabilityPipelineAzureDataExplorerDestinationAuthClientCertificate",
     "ObservabilityPipelineAzureDataExplorerDestinationAuthManagedIdentity",
-    "ObservabilityPipelineAzureDataExplorerDestinationAuthManagedIdentityClientAssertion",
+    "ObservabilityPipelineAzureDataExplorerManagedIdentityClientAssertion",
     "ObservabilityPipelineAzureDataExplorerDestinationAuthWorkloadIdentity",
   ],
   ObservabilityPipelineAzureStorageDestinationCompression: [
