@@ -7,13 +7,29 @@
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * Links attributes.
+ * Pagination links for rule outcomes.
  */
 export class OutcomesResponseLinks {
+  /**
+   * Link for the first set of results.
+   */
+  "first"?: string;
+  /**
+   * Link for the last set of results.
+   */
+  "last"?: string;
   /**
    * Link for the next set of results.
    */
   "next"?: string;
+  /**
+   * Link for the previous set of results.
+   */
+  "previous"?: string;
+  /**
+   * Link for the current set of results.
+   */
+  "self"?: string;
 
   /**
    * A container for additional, undeclared properties.
@@ -31,8 +47,24 @@ export class OutcomesResponseLinks {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
+    first: {
+      baseName: "first",
+      type: "string",
+    },
+    last: {
+      baseName: "last",
+      type: "string",
+    },
     next: {
       baseName: "next",
+      type: "string",
+    },
+    previous: {
+      baseName: "previous",
+      type: "string",
+    },
+    self: {
+      baseName: "self",
       type: "string",
     },
     additionalProperties: {
