@@ -218,6 +218,7 @@ export const TypingInfo: ModelTypingInfo = {
       "logs",
       "spans",
       "network",
+      "network_device_flows",
       "rum",
       "security_signals",
       "profiles",
