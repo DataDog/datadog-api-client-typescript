@@ -93,6 +93,7 @@ import { LLMObsPatternsConfigsResponse } from "./models/LLMObsPatternsConfigsRes
 import { LLMObsPatternsConfigUpsertRequest } from "./models/LLMObsPatternsConfigUpsertRequest";
 import { LLMObsPatternsRunsResponse } from "./models/LLMObsPatternsRunsResponse";
 import { LLMObsPatternsRunStatusResponse } from "./models/LLMObsPatternsRunStatusResponse";
+import { LLMObsPatternsTemplatesResponse } from "./models/LLMObsPatternsTemplatesResponse";
 import { LLMObsPatternsTopicsResponse } from "./models/LLMObsPatternsTopicsResponse";
 import { LLMObsPatternsTopicsWithClusteredPointsResponse } from "./models/LLMObsPatternsTopicsWithClusteredPointsResponse";
 import { LLMObsPatternsTriggerRequest } from "./models/LLMObsPatternsTriggerRequest";
@@ -3568,6 +3569,57 @@ export class AgentObservabilityApiRequestFactory extends BaseAPIRequestFactory {
         serialize(configId, TypingInfo, "string", ""),
         "",
       );
+    }
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+      "AuthZ",
+    ]);
+
+    return requestContext;
+  }
+
+  public async listLLMObsPatternsTemplates(
+    _options?: Configuration,
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    if (
+      !_config.unstableOperations[
+        "AgentObservabilityApi.v2.listLLMObsPatternsTemplates"
+      ]
+    ) {
+      throw new Error(
+        "Unstable operation 'listLLMObsPatternsTemplates' is disabled. Enable it by setting `configuration.unstableOperations['AgentObservabilityApi.v2.listLLMObsPatternsTemplates'] = true`",
+      );
+    }
+
+    // Path Params
+    const localVarPath = "/api/v2/llm-obs/v1/topic-discovery-templates";
+
+    // Make Request Context
+    const { server, overrides } = _config.getServerAndOverrides(
+      "AgentObservabilityApi.v2.listLLMObsPatternsTemplates",
+      AgentObservabilityApi.operationServers,
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.GET,
+      overrides,
+    );
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Set User-Agent
+    if (this.userAgent) {
+      requestContext.setHeaderParam("User-Agent", this.userAgent);
+    }
+
+    // Set IaC header
+    if (_config.isIaC) {
+      requestContext.setHeaderParam("X-Datadog-Managed-By", "iac");
     }
 
     // Apply auth methods
@@ -9357,6 +9409,62 @@ export class AgentObservabilityApiResponseProcessor {
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
    *
+   * @params response Response returned by the server for a request to listLLMObsPatternsTemplates
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async listLLMObsPatternsTemplates(
+    response: ResponseContext,
+  ): Promise<LLMObsPatternsTemplatesResponse> {
+    const contentType = normalizeMediaType(response.headers["content-type"]);
+    if (response.httpStatusCode === 200) {
+      const body: LLMObsPatternsTemplatesResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "LLMObsPatternsTemplatesResponse",
+      ) as LLMObsPatternsTemplatesResponse;
+      return body;
+    }
+    if (response.httpStatusCode === 429) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: APIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "APIErrorResponse",
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: LLMObsPatternsTemplatesResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "LLMObsPatternsTemplatesResponse",
+        "",
+      ) as LLMObsPatternsTemplatesResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"',
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
    * @params response Response returned by the server for a request to listLLMObsPatternsTopics
    * @throws ApiException if the response code was not in [200, 299]
    */
@@ -13622,6 +13730,26 @@ export class AgentObservabilityApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.listLLMObsPatternsRuns(responseContext);
+        });
+    });
+  }
+
+  /**
+   * List all enabled patterns templates.
+   * @param param The request object
+   */
+  public listLLMObsPatternsTemplates(
+    options?: Configuration,
+  ): Promise<LLMObsPatternsTemplatesResponse> {
+    const requestContextPromise =
+      this.requestFactory.listLLMObsPatternsTemplates(options);
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.listLLMObsPatternsTemplates(
+            responseContext,
+          );
         });
     });
   }

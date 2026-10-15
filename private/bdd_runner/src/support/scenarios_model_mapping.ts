@@ -3098,6 +3098,9 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
     },
     operationResponseType: "LLMObsPatternsRunStatusResponse",
   },
+  "AgentObservabilityApi.V2.ListLLMObsPatternsTemplates": {
+    operationResponseType: "LLMObsPatternsTemplatesResponse",
+  },
   "AgentObservabilityApi.V2.ListLLMObsPatternsTopics": {
     configId: {
       type: "string",
@@ -19932,41 +19935,6 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
       format: "",
     },
     operationResponseType: "TeamLinkResponse",
-  },
-  "TeamsApi.V2.GetTeamHierarchyMembers": {
-    teamId: {
-      type: "string",
-      format: "",
-    },
-    filterIsDirectOnly: {
-      type: "boolean",
-      format: "",
-    },
-    filterIncludeServiceAccounts: {
-      type: "boolean",
-      format: "",
-    },
-    filterKeyword: {
-      type: "string",
-      format: "",
-    },
-    include: {
-      type: "string",
-      format: "",
-    },
-    sort: {
-      type: "string",
-      format: "",
-    },
-    pageNumber: {
-      type: "number",
-      format: "int64",
-    },
-    pageSize: {
-      type: "number",
-      format: "int64",
-    },
-    operationResponseType: "TeamHierarchyMembersResponse",
   },
   "TeamsApi.V2.GetTeamMemberships": {
     teamId: {

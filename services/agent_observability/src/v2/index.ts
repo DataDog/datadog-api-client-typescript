@@ -378,6 +378,11 @@ export { LLMObsPatternsRunStatusResponseAttributes } from "./models/LLMObsPatter
 export { LLMObsPatternsRunStatusResponseData } from "./models/LLMObsPatternsRunStatusResponseData";
 export { LLMObsPatternsRunStatusType } from "./models/LLMObsPatternsRunStatusType";
 export { LLMObsPatternsRunSummary } from "./models/LLMObsPatternsRunSummary";
+export { LLMObsPatternsTemplateItem } from "./models/LLMObsPatternsTemplateItem";
+export { LLMObsPatternsTemplatesListType } from "./models/LLMObsPatternsTemplatesListType";
+export { LLMObsPatternsTemplatesResponse } from "./models/LLMObsPatternsTemplatesResponse";
+export { LLMObsPatternsTemplatesResponseAttributes } from "./models/LLMObsPatternsTemplatesResponseAttributes";
+export { LLMObsPatternsTemplatesResponseData } from "./models/LLMObsPatternsTemplatesResponseData";
 export { LLMObsPatternsTopic } from "./models/LLMObsPatternsTopic";
 export { LLMObsPatternsTopicsResponse } from "./models/LLMObsPatternsTopicsResponse";
 export { LLMObsPatternsTopicsResponseAttributes } from "./models/LLMObsPatternsTopicsResponseAttributes";

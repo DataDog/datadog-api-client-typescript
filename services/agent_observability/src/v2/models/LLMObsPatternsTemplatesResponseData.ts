@@ -1,19 +1,24 @@
 import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
-import { UsersType } from "./UsersType";
+import { LLMObsPatternsTemplatesListType } from "./LLMObsPatternsTemplatesListType";
+import { LLMObsPatternsTemplatesResponseAttributes } from "./LLMObsPatternsTemplatesResponseAttributes";
 
 /**
- * User resource identifier.
+ * Data object of a list of Agent Observability patterns templates.
  */
-export class TeamHierarchyMemberUserData {
+export class LLMObsPatternsTemplatesResponseData {
   /**
-   * UUID of the user.
+   * Attributes of a list of Agent Observability patterns templates.
+   */
+  "attributes": LLMObsPatternsTemplatesResponseAttributes;
+  /**
+   * Identifier of the list response.
    */
   "id": string;
   /**
-   * Users resource type.
+   * Resource type of a list of Agent Observability patterns templates.
    */
-  "type": UsersType;
+  "type": LLMObsPatternsTemplatesListType;
   /**
    * A container for additional, undeclared properties.
    * This is a holder for any undeclared properties as specified with
@@ -29,15 +34,19 @@ export class TeamHierarchyMemberUserData {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
+    attributes: {
+      baseName: "attributes",
+      type: "LLMObsPatternsTemplatesResponseAttributes",
+      required: true,
+    },
     id: {
       baseName: "id",
       type: "string",
       required: true,
-      format: "uuid",
     },
     type: {
       baseName: "type",
-      type: "UsersType",
+      type: "LLMObsPatternsTemplatesListType",
       required: true,
     },
     additionalProperties: {
@@ -50,7 +59,7 @@ export class TeamHierarchyMemberUserData {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-    return TeamHierarchyMemberUserData.attributeTypeMap;
+    return LLMObsPatternsTemplatesResponseData.attributeTypeMap;
   }
 
   public constructor() {}

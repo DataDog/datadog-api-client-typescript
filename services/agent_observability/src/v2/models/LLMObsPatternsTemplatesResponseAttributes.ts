@@ -1,17 +1,15 @@
 import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
+import { LLMObsPatternsTemplateItem } from "./LLMObsPatternsTemplateItem";
+
 /**
- * Available attributes of the requested team.
+ * Attributes of a list of Agent Observability patterns templates.
  */
-export class TeamHierarchyMemberTeamAttributes {
+export class LLMObsPatternsTemplatesResponseAttributes {
   /**
-   * Handle of the team.
+   * List of patterns templates.
    */
-  "handle"?: string;
-  /**
-   * Name of the team.
-   */
-  "name"?: string;
+  "templates": Array<LLMObsPatternsTemplateItem>;
   /**
    * A container for additional, undeclared properties.
    * This is a holder for any undeclared properties as specified with
@@ -27,13 +25,10 @@ export class TeamHierarchyMemberTeamAttributes {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    handle: {
-      baseName: "handle",
-      type: "string",
-    },
-    name: {
-      baseName: "name",
-      type: "string",
+    templates: {
+      baseName: "templates",
+      type: "Array<LLMObsPatternsTemplateItem>",
+      required: true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -45,7 +40,7 @@ export class TeamHierarchyMemberTeamAttributes {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-    return TeamHierarchyMemberTeamAttributes.attributeTypeMap;
+    return LLMObsPatternsTemplatesResponseAttributes.attributeTypeMap;
   }
 
   public constructor() {}
