@@ -2006,6 +2006,7 @@ export {
   TeamsApiDeleteTeamNotificationRuleRequest,
   TeamsApiGetTeamRequest,
   TeamsApiGetTeamHierarchyLinkRequest,
+  TeamsApiGetTeamHierarchyMembersRequest,
   TeamsApiGetTeamLinkRequest,
   TeamsApiGetTeamLinksRequest,
   TeamsApiGetTeamMembershipsRequest,
@@ -9839,6 +9840,27 @@ export { TeamHierarchyLinkTeam } from "./models/TeamHierarchyLinkTeam";
 export { TeamHierarchyLinkTeamAttributes } from "./models/TeamHierarchyLinkTeamAttributes";
 export { TeamHierarchyLinkTeamRelationship } from "./models/TeamHierarchyLinkTeamRelationship";
 export { TeamHierarchyLinkType } from "./models/TeamHierarchyLinkType";
+export { TeamHierarchyMember } from "./models/TeamHierarchyMember";
+export { TeamHierarchyMemberAttributes } from "./models/TeamHierarchyMemberAttributes";
+export { TeamHierarchyMemberIncluded } from "./models/TeamHierarchyMemberIncluded";
+export { TeamHierarchyMemberRelationships } from "./models/TeamHierarchyMemberRelationships";
+export { TeamHierarchyMembersNumberPage } from "./models/TeamHierarchyMembersNumberPage";
+export { TeamHierarchyMembersNumberPageType } from "./models/TeamHierarchyMembersNumberPageType";
+export { TeamHierarchyMembersOffsetPage } from "./models/TeamHierarchyMembersOffsetPage";
+export { TeamHierarchyMembersOffsetPageType } from "./models/TeamHierarchyMembersOffsetPageType";
+export { TeamHierarchyMembersPage } from "./models/TeamHierarchyMembersPage";
+export { TeamHierarchyMembersResponse } from "./models/TeamHierarchyMembersResponse";
+export { TeamHierarchyMembersResponseLinks } from "./models/TeamHierarchyMembersResponseLinks";
+export { TeamHierarchyMembersResponseMeta } from "./models/TeamHierarchyMembersResponseMeta";
+export { TeamHierarchyMemberTeam } from "./models/TeamHierarchyMemberTeam";
+export { TeamHierarchyMemberTeamAttributes } from "./models/TeamHierarchyMemberTeamAttributes";
+export { TeamHierarchyMemberTeamData } from "./models/TeamHierarchyMemberTeamData";
+export { TeamHierarchyMemberTeamRelationship } from "./models/TeamHierarchyMemberTeamRelationship";
+export { TeamHierarchyMemberTeamType } from "./models/TeamHierarchyMemberTeamType";
+export { TeamHierarchyMemberType } from "./models/TeamHierarchyMemberType";
+export { TeamHierarchyMemberUser } from "./models/TeamHierarchyMemberUser";
+export { TeamHierarchyMemberUserData } from "./models/TeamHierarchyMemberUserData";
+export { TeamHierarchyMemberUserRelationship } from "./models/TeamHierarchyMemberUserRelationship";
 export { TeamIncluded } from "./models/TeamIncluded";
 export { TeamLink } from "./models/TeamLink";
 export { TeamLinkAttributes } from "./models/TeamLinkAttributes";
