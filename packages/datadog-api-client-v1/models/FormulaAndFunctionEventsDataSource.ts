@@ -14,6 +14,7 @@ export type FormulaAndFunctionEventsDataSource =
   | typeof LOGS
   | typeof SPANS
   | typeof NETWORK
+  | typeof NETWORK_DEVICE_FLOWS
   | typeof RUM
   | typeof SECURITY_SIGNALS
   | typeof PROFILES
@@ -30,6 +31,7 @@ export type FormulaAndFunctionEventsDataSource =
 export const LOGS = "logs";
 export const SPANS = "spans";
 export const NETWORK = "network";
+export const NETWORK_DEVICE_FLOWS = "network_device_flows";
 export const RUM = "rum";
 export const SECURITY_SIGNALS = "security_signals";
 export const PROFILES = "profiles";

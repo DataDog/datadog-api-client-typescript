@@ -976,6 +976,7 @@ const enumsMap: { [key: string]: any[] } = {
     "logs",
     "spans",
     "network",
+    "network_device_flows",
     "rum",
     "security_signals",
     "profiles",
