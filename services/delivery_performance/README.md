@@ -2,7 +2,7 @@
 
 ## Description
 
-Search, send, or delete events for Delivery Performance (formerly DORA Metrics) to measure and improve your software delivery performance. See the [Delivery Performance page](https://docs.datadoghq.com/dora_metrics/) for more information.
+Search, send, or delete events for Delivery Performance (formerly DORA Metrics) to measure and improve your software delivery performance. See the [Delivery Performance page](https://docs.datadoghq.com/delivery_performance/) for more information.
 
 **Note**: Delivery Performance is not available in the US1-FED site.
 
