@@ -1,0 +1,29 @@
+/**
+ * Delete an org group membership returns "No Content" response
+ */
+
+import { client, v2 } from "@datadog/datadog-api-client";
+
+const configuration = client.createConfiguration({
+  authMethods: {
+    AuthZ: {
+      accessToken: process.env.DD_BEARER_TOKEN as string,
+    },
+  },
+});
+configuration.unstableOperations["v2.deleteOrgGroupMembership"] = true;
+const apiInstance = new v2.OrgGroupsApi(configuration);
+
+const params: v2.OrgGroupsApiDeleteOrgGroupMembershipRequest = {
+  orgGroupMembershipId: "f1e2d3c4-b5a6-7890-1234-567890abcdef",
+  filterOrgGroupId: "a1b2c3d4-e5f6-7890-abcd-ef0123456789",
+};
+
+apiInstance
+  .deleteOrgGroupMembership(params)
+  .then((data: any) => {
+    console.log(
+      "API called successfully. Returned data: " + JSON.stringify(data)
+    );
+  })
+  .catch((error: any) => console.error(error));
