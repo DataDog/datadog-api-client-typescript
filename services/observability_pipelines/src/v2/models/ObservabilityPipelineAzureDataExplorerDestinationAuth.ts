@@ -4,8 +4,8 @@ import { ObservabilityPipelineAzureDataExplorerDestinationAuthAzureCli } from ".
 import { ObservabilityPipelineAzureDataExplorerDestinationAuthClientCertificate } from "./ObservabilityPipelineAzureDataExplorerDestinationAuthClientCertificate";
 import { ObservabilityPipelineAzureDataExplorerDestinationAuthClientSecret } from "./ObservabilityPipelineAzureDataExplorerDestinationAuthClientSecret";
 import { ObservabilityPipelineAzureDataExplorerDestinationAuthManagedIdentity } from "./ObservabilityPipelineAzureDataExplorerDestinationAuthManagedIdentity";
-import { ObservabilityPipelineAzureDataExplorerDestinationAuthManagedIdentityClientAssertion } from "./ObservabilityPipelineAzureDataExplorerDestinationAuthManagedIdentityClientAssertion";
 import { ObservabilityPipelineAzureDataExplorerDestinationAuthWorkloadIdentity } from "./ObservabilityPipelineAzureDataExplorerDestinationAuthWorkloadIdentity";
+import { ObservabilityPipelineAzureDataExplorerManagedIdentityClientAssertion } from "./ObservabilityPipelineAzureDataExplorerManagedIdentityClientAssertion";
 
 /**
  * Authentication configuration for Azure Data Explorer. The `azure_credential_kind` field selects the credential type.
@@ -15,6 +15,6 @@ export type ObservabilityPipelineAzureDataExplorerDestinationAuth =
   | ObservabilityPipelineAzureDataExplorerDestinationAuthClientSecret
   | ObservabilityPipelineAzureDataExplorerDestinationAuthClientCertificate
   | ObservabilityPipelineAzureDataExplorerDestinationAuthManagedIdentity
-  | ObservabilityPipelineAzureDataExplorerDestinationAuthManagedIdentityClientAssertion
+  | ObservabilityPipelineAzureDataExplorerManagedIdentityClientAssertion
   | ObservabilityPipelineAzureDataExplorerDestinationAuthWorkloadIdentity
   | UnparsedObject;

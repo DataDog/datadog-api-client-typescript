@@ -34,9 +34,9 @@ import { ObservabilityPipelineAzureDataExplorerDestinationAuthAzureCli } from ".
 import { ObservabilityPipelineAzureDataExplorerDestinationAuthClientCertificate } from "./ObservabilityPipelineAzureDataExplorerDestinationAuthClientCertificate";
 import { ObservabilityPipelineAzureDataExplorerDestinationAuthClientSecret } from "./ObservabilityPipelineAzureDataExplorerDestinationAuthClientSecret";
 import { ObservabilityPipelineAzureDataExplorerDestinationAuthManagedIdentity } from "./ObservabilityPipelineAzureDataExplorerDestinationAuthManagedIdentity";
-import { ObservabilityPipelineAzureDataExplorerDestinationAuthManagedIdentityClientAssertion } from "./ObservabilityPipelineAzureDataExplorerDestinationAuthManagedIdentityClientAssertion";
 import { ObservabilityPipelineAzureDataExplorerDestinationAuthWorkloadIdentity } from "./ObservabilityPipelineAzureDataExplorerDestinationAuthWorkloadIdentity";
 import { ObservabilityPipelineAzureDataExplorerDestinationBatch } from "./ObservabilityPipelineAzureDataExplorerDestinationBatch";
+import { ObservabilityPipelineAzureDataExplorerManagedIdentityClientAssertion } from "./ObservabilityPipelineAzureDataExplorerManagedIdentityClientAssertion";
 import { ObservabilityPipelineAzureStorageDestinationCompressionGzip } from "./ObservabilityPipelineAzureStorageDestinationCompressionGzip";
 import { ObservabilityPipelineAzureStorageDestinationCompressionZstd } from "./ObservabilityPipelineAzureStorageDestinationCompressionZstd";
 import { ObservabilityPipelineClickhouseDestination } from "./ObservabilityPipelineClickhouseDestination";
@@ -279,8 +279,6 @@ export const TypingInfo: ModelTypingInfo = {
     ObservabilityPipelineAzureDataExplorerDestinationAuthClientSecretKind: [
       "client_secret_credential",
     ],
-    ObservabilityPipelineAzureDataExplorerDestinationAuthManagedIdentityClientAssertionKind:
-      ["managed_identity_client_assertion"],
     ObservabilityPipelineAzureDataExplorerDestinationAuthManagedIdentityKind: [
       "managed_identity",
     ],
@@ -294,6 +292,9 @@ export const TypingInfo: ModelTypingInfo = {
     ],
     ObservabilityPipelineAzureDataExplorerDestinationType: [
       "azure_data_explorer",
+    ],
+    ObservabilityPipelineAzureDataExplorerManagedIdentityClientAssertionKind: [
+      "managed_identity_client_assertion",
     ],
     ObservabilityPipelineAzureStorageDestinationCompressionGzipType: ["gzip"],
     ObservabilityPipelineAzureStorageDestinationCompressionZstdType: ["zstd"],
@@ -656,7 +657,7 @@ export const TypingInfo: ModelTypingInfo = {
       "ObservabilityPipelineAzureDataExplorerDestinationAuthClientSecret",
       "ObservabilityPipelineAzureDataExplorerDestinationAuthClientCertificate",
       "ObservabilityPipelineAzureDataExplorerDestinationAuthManagedIdentity",
-      "ObservabilityPipelineAzureDataExplorerDestinationAuthManagedIdentityClientAssertion",
+      "ObservabilityPipelineAzureDataExplorerManagedIdentityClientAssertion",
       "ObservabilityPipelineAzureDataExplorerDestinationAuthWorkloadIdentity",
     ],
     ObservabilityPipelineAzureStorageDestinationCompression: [
@@ -881,12 +882,12 @@ export const TypingInfo: ModelTypingInfo = {
       ObservabilityPipelineAzureDataExplorerDestinationAuthClientSecret,
     ObservabilityPipelineAzureDataExplorerDestinationAuthManagedIdentity:
       ObservabilityPipelineAzureDataExplorerDestinationAuthManagedIdentity,
-    ObservabilityPipelineAzureDataExplorerDestinationAuthManagedIdentityClientAssertion:
-      ObservabilityPipelineAzureDataExplorerDestinationAuthManagedIdentityClientAssertion,
     ObservabilityPipelineAzureDataExplorerDestinationAuthWorkloadIdentity:
       ObservabilityPipelineAzureDataExplorerDestinationAuthWorkloadIdentity,
     ObservabilityPipelineAzureDataExplorerDestinationBatch:
       ObservabilityPipelineAzureDataExplorerDestinationBatch,
+    ObservabilityPipelineAzureDataExplorerManagedIdentityClientAssertion:
+      ObservabilityPipelineAzureDataExplorerManagedIdentityClientAssertion,
     ObservabilityPipelineAzureStorageDestinationCompressionGzip:
       ObservabilityPipelineAzureStorageDestinationCompressionGzip,
     ObservabilityPipelineAzureStorageDestinationCompressionZstd:
