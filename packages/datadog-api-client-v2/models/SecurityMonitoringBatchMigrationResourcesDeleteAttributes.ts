@@ -1,0 +1,53 @@
+/**
+ * Unless explicitly stated otherwise all files in this repository are licensed under the Apache-2.0 License.
+ * This product includes software developed at Datadog (https://www.datadoghq.com/).
+ * Copyright 2020-Present Datadog, Inc.
+ */
+
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+/**
+ * Attributes of the resources to delete from a batch migration.
+ */
+export class SecurityMonitoringBatchMigrationResourcesDeleteAttributes {
+  /**
+   * Unique UUIDs of batch migration resources. From 1 to 1000 IDs.
+   */
+  "resourceIds": Array<string>;
+
+  /**
+   * A container for additional, undeclared properties.
+   * This is a holder for any undeclared properties as specified with
+   * the 'additionalProperties' keyword in the OAS document.
+   */
+  "additionalProperties"?: { [key: string]: any };
+
+  /**
+   * @ignore
+   */
+  "_unparsed"?: boolean;
+
+  /**
+   * @ignore
+   */
+  static readonly attributeTypeMap: AttributeTypeMap = {
+    resourceIds: {
+      baseName: "resourceIds",
+      type: "Array<string>",
+      required: true,
+    },
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "{ [key: string]: any; }",
+    },
+  };
+
+  /**
+   * @ignore
+   */
+  static getAttributeTypeMap(): AttributeTypeMap {
+    return SecurityMonitoringBatchMigrationResourcesDeleteAttributes.attributeTypeMap;
+  }
+
+  public constructor() {}
+}
