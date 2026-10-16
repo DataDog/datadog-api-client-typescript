@@ -19,14 +19,15 @@ const params: v2.UsageMeteringApiUpdateQuotaRequest = {
     data: {
       attributes: {
         enforced: false,
+        pendingUsageLimit: 50000,
         usageLimit: 120000,
       },
-      id: "MjAfYWlfY3JlZGl0c1911c2VyX2hhbmRsZTpfX0FMTF9f",
+      id: "MTIzNB9haV9jcmVkaXRzH3VzZXJfaGFuZGxlOl9fQUxMX18",
       type: "quotas",
     },
   },
   quotaNamespace: "ai_credits",
-  id: "MjAfYWlfY3JlZGl0c1911c2VyX2hhbmRsZTpfX0FMTF9f",
+  id: "MTIzNB9haV9jcmVkaXRzH3VzZXJfaGFuZGxlOl9fQUxMX18",
 };
 
 apiInstance
