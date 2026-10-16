@@ -55,7 +55,12 @@ export const TypingInfo: ModelTypingInfo = {
     DemRumStepType: ["start", "stop", "step"],
     DemVariantType: ["variants"],
   },
-  oneOfMap: {},
+  oneOfMap: {
+    DemInferredJourneyItem: [
+      "DemInferredJourneyCandidateData",
+      "DemInferredJourneyIgnoredData",
+    ],
+  },
   typeMap: {
     APIErrorResponse: APIErrorResponse,
     DemBatchGetJourneysAttributes: DemBatchGetJourneysAttributes,

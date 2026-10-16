@@ -1,5 +1,7 @@
 import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
+import { DemInferredJourneyItem } from "./DemInferredJourneyItem";
+
 /**
  * Response body for searching inferred journeys. Contains either candidate or ignored items depending on the `status` query parameter.
  */
@@ -7,7 +9,7 @@ export class DemSearchInferredJourneysResponse {
   /**
    * List of inferred journey items matching the search criteria.
    */
-  "data": Array<any>;
+  "data": Array<DemInferredJourneyItem>;
   /**
    * A container for additional, undeclared properties.
    * This is a holder for any undeclared properties as specified with
@@ -25,7 +27,7 @@ export class DemSearchInferredJourneysResponse {
   static readonly attributeTypeMap: AttributeTypeMap = {
     data: {
       baseName: "data",
-      type: "Array<any>",
+      type: "Array<DemInferredJourneyItem>",
       required: true,
     },
     additionalProperties: {
