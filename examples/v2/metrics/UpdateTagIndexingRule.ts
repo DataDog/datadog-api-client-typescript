@@ -36,7 +36,6 @@ const params: v2.MetricsApiUpdateTagIndexingRuleRequest = {
           },
           version: 1,
         },
-        ruleOrder: 2,
         tags: ["env", "service"],
       },
       type: "tag_indexing_rules",
