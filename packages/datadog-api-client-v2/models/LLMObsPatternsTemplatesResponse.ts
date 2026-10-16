@@ -3,18 +3,18 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
-import { TeamHierarchyMemberUserData } from "./TeamHierarchyMemberUserData";
+import { LLMObsPatternsTemplatesResponseData } from "./LLMObsPatternsTemplatesResponseData";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * Linkage to the user.
+ * Response containing a list of Agent Observability patterns templates.
  */
-export class TeamHierarchyMemberUserRelationship {
+export class LLMObsPatternsTemplatesResponse {
   /**
-   * User resource identifier.
+   * Data object of a list of Agent Observability patterns templates.
    */
-  "data": TeamHierarchyMemberUserData;
+  "data": LLMObsPatternsTemplatesResponseData;
 
   /**
    * A container for additional, undeclared properties.
@@ -34,7 +34,7 @@ export class TeamHierarchyMemberUserRelationship {
   static readonly attributeTypeMap: AttributeTypeMap = {
     data: {
       baseName: "data",
-      type: "TeamHierarchyMemberUserData",
+      type: "LLMObsPatternsTemplatesResponseData",
       required: true,
     },
     additionalProperties: {
@@ -47,7 +47,7 @@ export class TeamHierarchyMemberUserRelationship {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-    return TeamHierarchyMemberUserRelationship.attributeTypeMap;
+    return LLMObsPatternsTemplatesResponse.attributeTypeMap;
   }
 
   public constructor() {}

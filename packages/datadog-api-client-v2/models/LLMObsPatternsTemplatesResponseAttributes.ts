@@ -3,22 +3,18 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
-import { TeamHierarchyMemberTeamType } from "./TeamHierarchyMemberTeamType";
+import { LLMObsPatternsTemplateItem } from "./LLMObsPatternsTemplateItem";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * Team resource identifier.
+ * Attributes of a list of Agent Observability patterns templates.
  */
-export class TeamHierarchyMemberTeamData {
+export class LLMObsPatternsTemplatesResponseAttributes {
   /**
-   * UUID of the team.
+   * List of patterns templates.
    */
-  "id": string;
-  /**
-   * Requested team resource type.
-   */
-  "type": TeamHierarchyMemberTeamType;
+  "templates": Array<LLMObsPatternsTemplateItem>;
 
   /**
    * A container for additional, undeclared properties.
@@ -36,15 +32,9 @@ export class TeamHierarchyMemberTeamData {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    id: {
-      baseName: "id",
-      type: "string",
-      required: true,
-      format: "uuid",
-    },
-    type: {
-      baseName: "type",
-      type: "TeamHierarchyMemberTeamType",
+    templates: {
+      baseName: "templates",
+      type: "Array<LLMObsPatternsTemplateItem>",
       required: true,
     },
     additionalProperties: {
@@ -57,7 +47,7 @@ export class TeamHierarchyMemberTeamData {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-    return TeamHierarchyMemberTeamData.attributeTypeMap;
+    return LLMObsPatternsTemplatesResponseAttributes.attributeTypeMap;
   }
 
   public constructor() {}

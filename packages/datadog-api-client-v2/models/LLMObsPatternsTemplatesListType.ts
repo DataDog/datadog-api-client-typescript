@@ -7,10 +7,11 @@
 import { UnparsedObject } from "../../datadog-api-client-common/util";
 
 /**
- * Pagination mode.
+ * Resource type of a list of Agent Observability patterns templates.
  */
 
-export type TeamHierarchyMembersNumberPageType =
-  | typeof NUMBER_SIZE
+export type LLMObsPatternsTemplatesListType =
+  | typeof LIST_TOPIC_DISCOVERY_TEMPLATES_RESPONSE
   | UnparsedObject;
-export const NUMBER_SIZE = "number_size";
+export const LIST_TOPIC_DISCOVERY_TEMPLATES_RESPONSE =
+  "list_topic_discovery_templates_response";
