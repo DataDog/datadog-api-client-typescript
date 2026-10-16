@@ -16,7 +16,7 @@ const apiInstance = new v2.UsageMeteringApi(configuration);
 
 const params: v2.UsageMeteringApiDeleteQuotaRequest = {
   quotaNamespace: "ai_credits",
-  id: "MjAfYWlfY3JlZGl0c1911c2VyX2hhbmRsZTpfX0FMTF9f",
+  id: "MTIzNB9haV9jcmVkaXRzH3VzZXJfaGFuZGxlOl9fQUxMX18",
 };
 
 apiInstance
