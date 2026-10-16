@@ -364,6 +364,39 @@ import { SecurityFindingsSearchRequestData } from "./SecurityFindingsSearchReque
 import { SecurityFindingsSearchRequestDataAttributes } from "./SecurityFindingsSearchRequestDataAttributes";
 import { SecurityFindingsSearchRequestPage } from "./SecurityFindingsSearchRequestPage";
 import { SecurityMonitoringAzureAppRegistration } from "./SecurityMonitoringAzureAppRegistration";
+import { SecurityMonitoringBatchMigrationAttributes } from "./SecurityMonitoringBatchMigrationAttributes";
+import { SecurityMonitoringBatchMigrationCreateAttributes } from "./SecurityMonitoringBatchMigrationCreateAttributes";
+import { SecurityMonitoringBatchMigrationCreateData } from "./SecurityMonitoringBatchMigrationCreateData";
+import { SecurityMonitoringBatchMigrationCreateRequest } from "./SecurityMonitoringBatchMigrationCreateRequest";
+import { SecurityMonitoringBatchMigrationData } from "./SecurityMonitoringBatchMigrationData";
+import { SecurityMonitoringBatchMigrationListMeta } from "./SecurityMonitoringBatchMigrationListMeta";
+import { SecurityMonitoringBatchMigrationPublishAttributes } from "./SecurityMonitoringBatchMigrationPublishAttributes";
+import { SecurityMonitoringBatchMigrationPublishData } from "./SecurityMonitoringBatchMigrationPublishData";
+import { SecurityMonitoringBatchMigrationPublishRequest } from "./SecurityMonitoringBatchMigrationPublishRequest";
+import { SecurityMonitoringBatchMigrationPublishResponse } from "./SecurityMonitoringBatchMigrationPublishResponse";
+import { SecurityMonitoringBatchMigrationPublishedResourceAttributes } from "./SecurityMonitoringBatchMigrationPublishedResourceAttributes";
+import { SecurityMonitoringBatchMigrationPublishedResourceData } from "./SecurityMonitoringBatchMigrationPublishedResourceData";
+import { SecurityMonitoringBatchMigrationResourceAttributes } from "./SecurityMonitoringBatchMigrationResourceAttributes";
+import { SecurityMonitoringBatchMigrationResourceCreateItem } from "./SecurityMonitoringBatchMigrationResourceCreateItem";
+import { SecurityMonitoringBatchMigrationResourceData } from "./SecurityMonitoringBatchMigrationResourceData";
+import { SecurityMonitoringBatchMigrationResourceResponse } from "./SecurityMonitoringBatchMigrationResourceResponse";
+import { SecurityMonitoringBatchMigrationResourceStatusCounts } from "./SecurityMonitoringBatchMigrationResourceStatusCounts";
+import { SecurityMonitoringBatchMigrationResourceUpdateAttributes } from "./SecurityMonitoringBatchMigrationResourceUpdateAttributes";
+import { SecurityMonitoringBatchMigrationResourceUpdateData } from "./SecurityMonitoringBatchMigrationResourceUpdateData";
+import { SecurityMonitoringBatchMigrationResourceUpdateRequest } from "./SecurityMonitoringBatchMigrationResourceUpdateRequest";
+import { SecurityMonitoringBatchMigrationResourcesCreateAttributes } from "./SecurityMonitoringBatchMigrationResourcesCreateAttributes";
+import { SecurityMonitoringBatchMigrationResourcesCreateData } from "./SecurityMonitoringBatchMigrationResourcesCreateData";
+import { SecurityMonitoringBatchMigrationResourcesCreateRequest } from "./SecurityMonitoringBatchMigrationResourcesCreateRequest";
+import { SecurityMonitoringBatchMigrationResourcesCreateResponse } from "./SecurityMonitoringBatchMigrationResourcesCreateResponse";
+import { SecurityMonitoringBatchMigrationResourcesDeleteAttributes } from "./SecurityMonitoringBatchMigrationResourcesDeleteAttributes";
+import { SecurityMonitoringBatchMigrationResourcesDeleteData } from "./SecurityMonitoringBatchMigrationResourcesDeleteData";
+import { SecurityMonitoringBatchMigrationResourcesDeleteRequest } from "./SecurityMonitoringBatchMigrationResourcesDeleteRequest";
+import { SecurityMonitoringBatchMigrationResourcesListResponse } from "./SecurityMonitoringBatchMigrationResourcesListResponse";
+import { SecurityMonitoringBatchMigrationResponse } from "./SecurityMonitoringBatchMigrationResponse";
+import { SecurityMonitoringBatchMigrationUpdateAttributes } from "./SecurityMonitoringBatchMigrationUpdateAttributes";
+import { SecurityMonitoringBatchMigrationUpdateData } from "./SecurityMonitoringBatchMigrationUpdateData";
+import { SecurityMonitoringBatchMigrationUpdateRequest } from "./SecurityMonitoringBatchMigrationUpdateRequest";
+import { SecurityMonitoringBatchMigrationsListResponse } from "./SecurityMonitoringBatchMigrationsListResponse";
 import { SecurityMonitoringContentPackAppSecDetails } from "./SecurityMonitoringContentPackAppSecDetails";
 import { SecurityMonitoringContentPackAuditDetails } from "./SecurityMonitoringContentPackAuditDetails";
 import { SecurityMonitoringContentPackEntityDetails } from "./SecurityMonitoringContentPackEntityDetails";
@@ -811,6 +844,43 @@ export const TypingInfo: ModelTypingInfo = {
     SecurityFindingsDataType: ["finding"],
     SecurityFindingsSort: ["@detection_changed_at", "-@detection_changed_at"],
     SecurityFindingsStatus: ["done", "timeout"],
+    SecurityMonitoringBatchMigrationInputSource: [
+      "batch_migration",
+      "threat_hunting",
+      "user",
+    ],
+    SecurityMonitoringBatchMigrationPublishType: ["batchMigrationPublish"],
+    SecurityMonitoringBatchMigrationPublishedResourceStatus: [
+      "published",
+      "failed",
+    ],
+    SecurityMonitoringBatchMigrationPublishedResourceType: [
+      "batchMigrationPublishedResource",
+    ],
+    SecurityMonitoringBatchMigrationResourceInputType: [
+      "natural_language",
+      "spl",
+      "kql",
+    ],
+    SecurityMonitoringBatchMigrationResourceStatus: [
+      "pending",
+      "in_progress",
+      "completed",
+      "canceled",
+      "failed",
+      "publishing",
+      "published",
+      "duplicate",
+    ],
+    SecurityMonitoringBatchMigrationResourceType: ["batchMigrationResource"],
+    SecurityMonitoringBatchMigrationResourcesType: ["batchMigrationResources"],
+    SecurityMonitoringBatchMigrationStatus: [
+      "draft",
+      "in_progress",
+      "canceled",
+      "completed",
+    ],
+    SecurityMonitoringBatchMigrationType: ["batchMigration"],
     SecurityMonitoringContentPackActivation: [
       "never_activated",
       "activated",
@@ -1624,6 +1694,71 @@ export const TypingInfo: ModelTypingInfo = {
     SecurityFindingsSearchRequestPage: SecurityFindingsSearchRequestPage,
     SecurityMonitoringAzureAppRegistration:
       SecurityMonitoringAzureAppRegistration,
+    SecurityMonitoringBatchMigrationAttributes:
+      SecurityMonitoringBatchMigrationAttributes,
+    SecurityMonitoringBatchMigrationCreateAttributes:
+      SecurityMonitoringBatchMigrationCreateAttributes,
+    SecurityMonitoringBatchMigrationCreateData:
+      SecurityMonitoringBatchMigrationCreateData,
+    SecurityMonitoringBatchMigrationCreateRequest:
+      SecurityMonitoringBatchMigrationCreateRequest,
+    SecurityMonitoringBatchMigrationData: SecurityMonitoringBatchMigrationData,
+    SecurityMonitoringBatchMigrationListMeta:
+      SecurityMonitoringBatchMigrationListMeta,
+    SecurityMonitoringBatchMigrationPublishAttributes:
+      SecurityMonitoringBatchMigrationPublishAttributes,
+    SecurityMonitoringBatchMigrationPublishData:
+      SecurityMonitoringBatchMigrationPublishData,
+    SecurityMonitoringBatchMigrationPublishRequest:
+      SecurityMonitoringBatchMigrationPublishRequest,
+    SecurityMonitoringBatchMigrationPublishResponse:
+      SecurityMonitoringBatchMigrationPublishResponse,
+    SecurityMonitoringBatchMigrationPublishedResourceAttributes:
+      SecurityMonitoringBatchMigrationPublishedResourceAttributes,
+    SecurityMonitoringBatchMigrationPublishedResourceData:
+      SecurityMonitoringBatchMigrationPublishedResourceData,
+    SecurityMonitoringBatchMigrationResourceAttributes:
+      SecurityMonitoringBatchMigrationResourceAttributes,
+    SecurityMonitoringBatchMigrationResourceCreateItem:
+      SecurityMonitoringBatchMigrationResourceCreateItem,
+    SecurityMonitoringBatchMigrationResourceData:
+      SecurityMonitoringBatchMigrationResourceData,
+    SecurityMonitoringBatchMigrationResourceResponse:
+      SecurityMonitoringBatchMigrationResourceResponse,
+    SecurityMonitoringBatchMigrationResourceStatusCounts:
+      SecurityMonitoringBatchMigrationResourceStatusCounts,
+    SecurityMonitoringBatchMigrationResourceUpdateAttributes:
+      SecurityMonitoringBatchMigrationResourceUpdateAttributes,
+    SecurityMonitoringBatchMigrationResourceUpdateData:
+      SecurityMonitoringBatchMigrationResourceUpdateData,
+    SecurityMonitoringBatchMigrationResourceUpdateRequest:
+      SecurityMonitoringBatchMigrationResourceUpdateRequest,
+    SecurityMonitoringBatchMigrationResourcesCreateAttributes:
+      SecurityMonitoringBatchMigrationResourcesCreateAttributes,
+    SecurityMonitoringBatchMigrationResourcesCreateData:
+      SecurityMonitoringBatchMigrationResourcesCreateData,
+    SecurityMonitoringBatchMigrationResourcesCreateRequest:
+      SecurityMonitoringBatchMigrationResourcesCreateRequest,
+    SecurityMonitoringBatchMigrationResourcesCreateResponse:
+      SecurityMonitoringBatchMigrationResourcesCreateResponse,
+    SecurityMonitoringBatchMigrationResourcesDeleteAttributes:
+      SecurityMonitoringBatchMigrationResourcesDeleteAttributes,
+    SecurityMonitoringBatchMigrationResourcesDeleteData:
+      SecurityMonitoringBatchMigrationResourcesDeleteData,
+    SecurityMonitoringBatchMigrationResourcesDeleteRequest:
+      SecurityMonitoringBatchMigrationResourcesDeleteRequest,
+    SecurityMonitoringBatchMigrationResourcesListResponse:
+      SecurityMonitoringBatchMigrationResourcesListResponse,
+    SecurityMonitoringBatchMigrationResponse:
+      SecurityMonitoringBatchMigrationResponse,
+    SecurityMonitoringBatchMigrationUpdateAttributes:
+      SecurityMonitoringBatchMigrationUpdateAttributes,
+    SecurityMonitoringBatchMigrationUpdateData:
+      SecurityMonitoringBatchMigrationUpdateData,
+    SecurityMonitoringBatchMigrationUpdateRequest:
+      SecurityMonitoringBatchMigrationUpdateRequest,
+    SecurityMonitoringBatchMigrationsListResponse:
+      SecurityMonitoringBatchMigrationsListResponse,
     SecurityMonitoringContentPackAppSecDetails:
       SecurityMonitoringContentPackAppSecDetails,
     SecurityMonitoringContentPackAuditDetails:

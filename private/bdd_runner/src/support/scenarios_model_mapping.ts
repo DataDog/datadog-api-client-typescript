@@ -6987,6 +6987,129 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
     },
     operationResponseType: "ListVulnerableAssetsResponse",
   },
+  "SecurityMonitoringApi.V2.ListSecurityMonitoringBatchMigrations": {
+    pageSize: {
+      type: "number",
+      format: "int64",
+    },
+    pageNumber: {
+      type: "number",
+      format: "int64",
+    },
+    filterQuery: {
+      type: "string",
+      format: "",
+    },
+    operationResponseType: "SecurityMonitoringBatchMigrationsListResponse",
+  },
+  "SecurityMonitoringApi.V2.CreateSecurityMonitoringBatchMigration": {
+    body: {
+      type: "SecurityMonitoringBatchMigrationCreateRequest",
+      format: "",
+    },
+    operationResponseType: "SecurityMonitoringBatchMigrationResponse",
+  },
+  "SecurityMonitoringApi.V2.DeleteSecurityMonitoringBatchMigration": {
+    batchId: {
+      type: "string",
+      format: "uuid",
+    },
+    operationResponseType: "{}",
+  },
+  "SecurityMonitoringApi.V2.UpdateSecurityMonitoringBatchMigration": {
+    batchId: {
+      type: "string",
+      format: "uuid",
+    },
+    body: {
+      type: "SecurityMonitoringBatchMigrationUpdateRequest",
+      format: "",
+    },
+    operationResponseType: "SecurityMonitoringBatchMigrationResponse",
+  },
+  "SecurityMonitoringApi.V2.CancelSecurityMonitoringBatchMigration": {
+    batchId: {
+      type: "string",
+      format: "uuid",
+    },
+    operationResponseType: "{}",
+  },
+  "SecurityMonitoringApi.V2.PublishSecurityMonitoringBatchMigration": {
+    batchId: {
+      type: "string",
+      format: "uuid",
+    },
+    body: {
+      type: "SecurityMonitoringBatchMigrationPublishRequest",
+      format: "",
+    },
+    operationResponseType: "SecurityMonitoringBatchMigrationPublishResponse",
+  },
+  "SecurityMonitoringApi.V2.ListSecurityMonitoringBatchMigrationResources": {
+    batchId: {
+      type: "string",
+      format: "uuid",
+    },
+    pageSize: {
+      type: "number",
+      format: "int64",
+    },
+    pageNumber: {
+      type: "number",
+      format: "int64",
+    },
+    filterQuery: {
+      type: "string",
+      format: "",
+    },
+    operationResponseType:
+      "SecurityMonitoringBatchMigrationResourcesListResponse",
+  },
+  "SecurityMonitoringApi.V2.CreateSecurityMonitoringBatchMigrationResources": {
+    batchId: {
+      type: "string",
+      format: "uuid",
+    },
+    body: {
+      type: "SecurityMonitoringBatchMigrationResourcesCreateRequest",
+      format: "",
+    },
+    operationResponseType:
+      "SecurityMonitoringBatchMigrationResourcesCreateResponse",
+  },
+  "SecurityMonitoringApi.V2.DeleteSecurityMonitoringBatchMigrationResources": {
+    batchId: {
+      type: "string",
+      format: "uuid",
+    },
+    body: {
+      type: "SecurityMonitoringBatchMigrationResourcesDeleteRequest",
+      format: "",
+    },
+    operationResponseType: "{}",
+  },
+  "SecurityMonitoringApi.V2.UpdateSecurityMonitoringBatchMigrationResource": {
+    batchId: {
+      type: "string",
+      format: "uuid",
+    },
+    resourceId: {
+      type: "string",
+      format: "uuid",
+    },
+    body: {
+      type: "SecurityMonitoringBatchMigrationResourceUpdateRequest",
+      format: "",
+    },
+    operationResponseType: "SecurityMonitoringBatchMigrationResourceResponse",
+  },
+  "SecurityMonitoringApi.V2.StartSecurityMonitoringBatchMigration": {
+    batchId: {
+      type: "string",
+      format: "uuid",
+    },
+    operationResponseType: "{}",
+  },
   "SecurityMonitoringApi.V2.ListSecurityMonitoringCriticalAssets": {
     operationResponseType: "SecurityMonitoringCriticalAssetsResponse",
   },

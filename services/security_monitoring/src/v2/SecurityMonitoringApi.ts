@@ -132,6 +132,18 @@ import { SecurityFindingsSearchRequestData } from "./models/SecurityFindingsSear
 import { SecurityFindingsSearchRequestDataAttributes } from "./models/SecurityFindingsSearchRequestDataAttributes";
 import { SecurityFindingsSearchRequestPage } from "./models/SecurityFindingsSearchRequestPage";
 import { SecurityFindingsSort } from "./models/SecurityFindingsSort";
+import { SecurityMonitoringBatchMigrationCreateRequest } from "./models/SecurityMonitoringBatchMigrationCreateRequest";
+import { SecurityMonitoringBatchMigrationPublishRequest } from "./models/SecurityMonitoringBatchMigrationPublishRequest";
+import { SecurityMonitoringBatchMigrationPublishResponse } from "./models/SecurityMonitoringBatchMigrationPublishResponse";
+import { SecurityMonitoringBatchMigrationResourceResponse } from "./models/SecurityMonitoringBatchMigrationResourceResponse";
+import { SecurityMonitoringBatchMigrationResourcesCreateRequest } from "./models/SecurityMonitoringBatchMigrationResourcesCreateRequest";
+import { SecurityMonitoringBatchMigrationResourcesCreateResponse } from "./models/SecurityMonitoringBatchMigrationResourcesCreateResponse";
+import { SecurityMonitoringBatchMigrationResourcesDeleteRequest } from "./models/SecurityMonitoringBatchMigrationResourcesDeleteRequest";
+import { SecurityMonitoringBatchMigrationResourcesListResponse } from "./models/SecurityMonitoringBatchMigrationResourcesListResponse";
+import { SecurityMonitoringBatchMigrationResourceUpdateRequest } from "./models/SecurityMonitoringBatchMigrationResourceUpdateRequest";
+import { SecurityMonitoringBatchMigrationResponse } from "./models/SecurityMonitoringBatchMigrationResponse";
+import { SecurityMonitoringBatchMigrationsListResponse } from "./models/SecurityMonitoringBatchMigrationsListResponse";
+import { SecurityMonitoringBatchMigrationUpdateRequest } from "./models/SecurityMonitoringBatchMigrationUpdateRequest";
 import { SecurityMonitoringContentPackStatesResponse } from "./models/SecurityMonitoringContentPackStatesResponse";
 import { SecurityMonitoringCriticalAssetCreateRequest } from "./models/SecurityMonitoringCriticalAssetCreateRequest";
 import { SecurityMonitoringCriticalAssetResponse } from "./models/SecurityMonitoringCriticalAssetResponse";
@@ -1277,6 +1289,70 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
+  public async cancelSecurityMonitoringBatchMigration(
+    batchId: string,
+    _options?: Configuration,
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    if (
+      !_config.unstableOperations[
+        "SecurityMonitoringApi.v2.cancelSecurityMonitoringBatchMigration"
+      ]
+    ) {
+      throw new Error(
+        "Unstable operation 'cancelSecurityMonitoringBatchMigration' is disabled. Enable it by setting `configuration.unstableOperations['SecurityMonitoringApi.v2.cancelSecurityMonitoringBatchMigration'] = true`",
+      );
+    }
+
+    // verify required parameter 'batchId' is not null or undefined
+    if (batchId === null || batchId === undefined) {
+      throw new RequiredError(
+        "batchId",
+        "cancelSecurityMonitoringBatchMigration",
+      );
+    }
+
+    // Path Params
+    const localVarPath =
+      "/api/v2/security_monitoring/batch-migrations/{batch_id}/cancel".replace(
+        "{batch_id}",
+        encodeURIComponent(String(batchId)),
+      );
+
+    // Make Request Context
+    const { server, overrides } = _config.getServerAndOverrides(
+      "SecurityMonitoringApi.v2.cancelSecurityMonitoringBatchMigration",
+      SecurityMonitoringApi.operationServers,
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.POST,
+      overrides,
+    );
+    requestContext.setHeaderParam("Accept", "*/*");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Set User-Agent
+    if (this.userAgent) {
+      requestContext.setHeaderParam("User-Agent", this.userAgent);
+    }
+
+    // Set IaC header
+    if (_config.isIaC) {
+      requestContext.setHeaderParam("X-Datadog-Managed-By", "iac");
+    }
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+      "AuthZ",
+    ]);
+
+    return requestContext;
+  }
+
   public async convertExistingSecurityMonitoringRule(
     ruleId: string,
     _options?: Configuration,
@@ -2296,6 +2372,164 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = stringify(
       serialize(body, TypingInfo, "TicketCreationRuleCreateRequest", ""),
+      contentType,
+    );
+    requestContext.setBody(serializedBody);
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+      "AuthZ",
+    ]);
+
+    return requestContext;
+  }
+
+  public async createSecurityMonitoringBatchMigration(
+    body: SecurityMonitoringBatchMigrationCreateRequest,
+    _options?: Configuration,
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    if (
+      !_config.unstableOperations[
+        "SecurityMonitoringApi.v2.createSecurityMonitoringBatchMigration"
+      ]
+    ) {
+      throw new Error(
+        "Unstable operation 'createSecurityMonitoringBatchMigration' is disabled. Enable it by setting `configuration.unstableOperations['SecurityMonitoringApi.v2.createSecurityMonitoringBatchMigration'] = true`",
+      );
+    }
+
+    // verify required parameter 'body' is not null or undefined
+    if (body === null || body === undefined) {
+      throw new RequiredError("body", "createSecurityMonitoringBatchMigration");
+    }
+
+    // Path Params
+    const localVarPath = "/api/v2/security_monitoring/batch-migrations";
+
+    // Make Request Context
+    const { server, overrides } = _config.getServerAndOverrides(
+      "SecurityMonitoringApi.v2.createSecurityMonitoringBatchMigration",
+      SecurityMonitoringApi.operationServers,
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.POST,
+      overrides,
+    );
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Set User-Agent
+    if (this.userAgent) {
+      requestContext.setHeaderParam("User-Agent", this.userAgent);
+    }
+
+    // Set IaC header
+    if (_config.isIaC) {
+      requestContext.setHeaderParam("X-Datadog-Managed-By", "iac");
+    }
+
+    // Body Params
+    const contentType = getPreferredMediaType(["application/json"]);
+    requestContext.setHeaderParam("Content-Type", contentType);
+    const serializedBody = stringify(
+      serialize(
+        body,
+        TypingInfo,
+        "SecurityMonitoringBatchMigrationCreateRequest",
+        "",
+      ),
+      contentType,
+    );
+    requestContext.setBody(serializedBody);
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+      "AuthZ",
+    ]);
+
+    return requestContext;
+  }
+
+  public async createSecurityMonitoringBatchMigrationResources(
+    batchId: string,
+    body: SecurityMonitoringBatchMigrationResourcesCreateRequest,
+    _options?: Configuration,
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    if (
+      !_config.unstableOperations[
+        "SecurityMonitoringApi.v2.createSecurityMonitoringBatchMigrationResources"
+      ]
+    ) {
+      throw new Error(
+        "Unstable operation 'createSecurityMonitoringBatchMigrationResources' is disabled. Enable it by setting `configuration.unstableOperations['SecurityMonitoringApi.v2.createSecurityMonitoringBatchMigrationResources'] = true`",
+      );
+    }
+
+    // verify required parameter 'batchId' is not null or undefined
+    if (batchId === null || batchId === undefined) {
+      throw new RequiredError(
+        "batchId",
+        "createSecurityMonitoringBatchMigrationResources",
+      );
+    }
+
+    // verify required parameter 'body' is not null or undefined
+    if (body === null || body === undefined) {
+      throw new RequiredError(
+        "body",
+        "createSecurityMonitoringBatchMigrationResources",
+      );
+    }
+
+    // Path Params
+    const localVarPath =
+      "/api/v2/security_monitoring/batch-migrations/{batch_id}/resources".replace(
+        "{batch_id}",
+        encodeURIComponent(String(batchId)),
+      );
+
+    // Make Request Context
+    const { server, overrides } = _config.getServerAndOverrides(
+      "SecurityMonitoringApi.v2.createSecurityMonitoringBatchMigrationResources",
+      SecurityMonitoringApi.operationServers,
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.POST,
+      overrides,
+    );
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Set User-Agent
+    if (this.userAgent) {
+      requestContext.setHeaderParam("User-Agent", this.userAgent);
+    }
+
+    // Set IaC header
+    if (_config.isIaC) {
+      requestContext.setHeaderParam("X-Datadog-Managed-By", "iac");
+    }
+
+    // Body Params
+    const contentType = getPreferredMediaType(["application/json"]);
+    requestContext.setHeaderParam("Content-Type", contentType);
+    const serializedBody = stringify(
+      serialize(
+        body,
+        TypingInfo,
+        "SecurityMonitoringBatchMigrationResourcesCreateRequest",
+        "",
+      ),
       contentType,
     );
     requestContext.setBody(serializedBody);
@@ -3596,6 +3830,157 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
     if (_config.isIaC) {
       requestContext.setHeaderParam("X-Datadog-Managed-By", "iac");
     }
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+      "AuthZ",
+    ]);
+
+    return requestContext;
+  }
+
+  public async deleteSecurityMonitoringBatchMigration(
+    batchId: string,
+    _options?: Configuration,
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    if (
+      !_config.unstableOperations[
+        "SecurityMonitoringApi.v2.deleteSecurityMonitoringBatchMigration"
+      ]
+    ) {
+      throw new Error(
+        "Unstable operation 'deleteSecurityMonitoringBatchMigration' is disabled. Enable it by setting `configuration.unstableOperations['SecurityMonitoringApi.v2.deleteSecurityMonitoringBatchMigration'] = true`",
+      );
+    }
+
+    // verify required parameter 'batchId' is not null or undefined
+    if (batchId === null || batchId === undefined) {
+      throw new RequiredError(
+        "batchId",
+        "deleteSecurityMonitoringBatchMigration",
+      );
+    }
+
+    // Path Params
+    const localVarPath =
+      "/api/v2/security_monitoring/batch-migrations/{batch_id}".replace(
+        "{batch_id}",
+        encodeURIComponent(String(batchId)),
+      );
+
+    // Make Request Context
+    const { server, overrides } = _config.getServerAndOverrides(
+      "SecurityMonitoringApi.v2.deleteSecurityMonitoringBatchMigration",
+      SecurityMonitoringApi.operationServers,
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.DELETE,
+      overrides,
+    );
+    requestContext.setHeaderParam("Accept", "*/*");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Set User-Agent
+    if (this.userAgent) {
+      requestContext.setHeaderParam("User-Agent", this.userAgent);
+    }
+
+    // Set IaC header
+    if (_config.isIaC) {
+      requestContext.setHeaderParam("X-Datadog-Managed-By", "iac");
+    }
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+      "AuthZ",
+    ]);
+
+    return requestContext;
+  }
+
+  public async deleteSecurityMonitoringBatchMigrationResources(
+    batchId: string,
+    body: SecurityMonitoringBatchMigrationResourcesDeleteRequest,
+    _options?: Configuration,
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    if (
+      !_config.unstableOperations[
+        "SecurityMonitoringApi.v2.deleteSecurityMonitoringBatchMigrationResources"
+      ]
+    ) {
+      throw new Error(
+        "Unstable operation 'deleteSecurityMonitoringBatchMigrationResources' is disabled. Enable it by setting `configuration.unstableOperations['SecurityMonitoringApi.v2.deleteSecurityMonitoringBatchMigrationResources'] = true`",
+      );
+    }
+
+    // verify required parameter 'batchId' is not null or undefined
+    if (batchId === null || batchId === undefined) {
+      throw new RequiredError(
+        "batchId",
+        "deleteSecurityMonitoringBatchMigrationResources",
+      );
+    }
+
+    // verify required parameter 'body' is not null or undefined
+    if (body === null || body === undefined) {
+      throw new RequiredError(
+        "body",
+        "deleteSecurityMonitoringBatchMigrationResources",
+      );
+    }
+
+    // Path Params
+    const localVarPath =
+      "/api/v2/security_monitoring/batch-migrations/{batch_id}/resources".replace(
+        "{batch_id}",
+        encodeURIComponent(String(batchId)),
+      );
+
+    // Make Request Context
+    const { server, overrides } = _config.getServerAndOverrides(
+      "SecurityMonitoringApi.v2.deleteSecurityMonitoringBatchMigrationResources",
+      SecurityMonitoringApi.operationServers,
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.DELETE,
+      overrides,
+    );
+    requestContext.setHeaderParam("Accept", "*/*");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Set User-Agent
+    if (this.userAgent) {
+      requestContext.setHeaderParam("User-Agent", this.userAgent);
+    }
+
+    // Set IaC header
+    if (_config.isIaC) {
+      requestContext.setHeaderParam("X-Datadog-Managed-By", "iac");
+    }
+
+    // Body Params
+    const contentType = getPreferredMediaType(["application/json"]);
+    requestContext.setHeaderParam("Content-Type", contentType);
+    const serializedBody = stringify(
+      serialize(
+        body,
+        TypingInfo,
+        "SecurityMonitoringBatchMigrationResourcesDeleteRequest",
+        "",
+      ),
+      contentType,
+    );
+    requestContext.setBody(serializedBody);
 
     // Apply auth methods
     applySecurityAuthentication(_config, requestContext, [
@@ -8882,6 +9267,173 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
+  public async listSecurityMonitoringBatchMigrationResources(
+    batchId: string,
+    pageSize?: number,
+    pageNumber?: number,
+    filterQuery?: string,
+    _options?: Configuration,
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    if (
+      !_config.unstableOperations[
+        "SecurityMonitoringApi.v2.listSecurityMonitoringBatchMigrationResources"
+      ]
+    ) {
+      throw new Error(
+        "Unstable operation 'listSecurityMonitoringBatchMigrationResources' is disabled. Enable it by setting `configuration.unstableOperations['SecurityMonitoringApi.v2.listSecurityMonitoringBatchMigrationResources'] = true`",
+      );
+    }
+
+    // verify required parameter 'batchId' is not null or undefined
+    if (batchId === null || batchId === undefined) {
+      throw new RequiredError(
+        "batchId",
+        "listSecurityMonitoringBatchMigrationResources",
+      );
+    }
+
+    // Path Params
+    const localVarPath =
+      "/api/v2/security_monitoring/batch-migrations/{batch_id}/resources".replace(
+        "{batch_id}",
+        encodeURIComponent(String(batchId)),
+      );
+
+    // Make Request Context
+    const { server, overrides } = _config.getServerAndOverrides(
+      "SecurityMonitoringApi.v2.listSecurityMonitoringBatchMigrationResources",
+      SecurityMonitoringApi.operationServers,
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.GET,
+      overrides,
+    );
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Set User-Agent
+    if (this.userAgent) {
+      requestContext.setHeaderParam("User-Agent", this.userAgent);
+    }
+
+    // Set IaC header
+    if (_config.isIaC) {
+      requestContext.setHeaderParam("X-Datadog-Managed-By", "iac");
+    }
+
+    // Query Params
+    if (pageSize !== undefined) {
+      requestContext.setQueryParam(
+        "page[size]",
+        serialize(pageSize, TypingInfo, "number", "int64"),
+        "",
+      );
+    }
+    if (pageNumber !== undefined) {
+      requestContext.setQueryParam(
+        "page[number]",
+        serialize(pageNumber, TypingInfo, "number", "int64"),
+        "",
+      );
+    }
+    if (filterQuery !== undefined) {
+      requestContext.setQueryParam(
+        "filter[query]",
+        serialize(filterQuery, TypingInfo, "string", ""),
+        "",
+      );
+    }
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+      "AuthZ",
+    ]);
+
+    return requestContext;
+  }
+
+  public async listSecurityMonitoringBatchMigrations(
+    pageSize?: number,
+    pageNumber?: number,
+    filterQuery?: string,
+    _options?: Configuration,
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    if (
+      !_config.unstableOperations[
+        "SecurityMonitoringApi.v2.listSecurityMonitoringBatchMigrations"
+      ]
+    ) {
+      throw new Error(
+        "Unstable operation 'listSecurityMonitoringBatchMigrations' is disabled. Enable it by setting `configuration.unstableOperations['SecurityMonitoringApi.v2.listSecurityMonitoringBatchMigrations'] = true`",
+      );
+    }
+
+    // Path Params
+    const localVarPath = "/api/v2/security_monitoring/batch-migrations";
+
+    // Make Request Context
+    const { server, overrides } = _config.getServerAndOverrides(
+      "SecurityMonitoringApi.v2.listSecurityMonitoringBatchMigrations",
+      SecurityMonitoringApi.operationServers,
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.GET,
+      overrides,
+    );
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Set User-Agent
+    if (this.userAgent) {
+      requestContext.setHeaderParam("User-Agent", this.userAgent);
+    }
+
+    // Set IaC header
+    if (_config.isIaC) {
+      requestContext.setHeaderParam("X-Datadog-Managed-By", "iac");
+    }
+
+    // Query Params
+    if (pageSize !== undefined) {
+      requestContext.setQueryParam(
+        "page[size]",
+        serialize(pageSize, TypingInfo, "number", "int64"),
+        "",
+      );
+    }
+    if (pageNumber !== undefined) {
+      requestContext.setQueryParam(
+        "page[number]",
+        serialize(pageNumber, TypingInfo, "number", "int64"),
+        "",
+      );
+    }
+    if (filterQuery !== undefined) {
+      requestContext.setQueryParam(
+        "filter[query]",
+        serialize(filterQuery, TypingInfo, "string", ""),
+        "",
+      );
+    }
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+      "AuthZ",
+    ]);
+
+    return requestContext;
+  }
+
   public async listSecurityMonitoringCriticalAssets(
     _options?: Configuration,
   ): Promise<RequestContext> {
@@ -10284,6 +10836,93 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
+  public async publishSecurityMonitoringBatchMigration(
+    batchId: string,
+    body: SecurityMonitoringBatchMigrationPublishRequest,
+    _options?: Configuration,
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    if (
+      !_config.unstableOperations[
+        "SecurityMonitoringApi.v2.publishSecurityMonitoringBatchMigration"
+      ]
+    ) {
+      throw new Error(
+        "Unstable operation 'publishSecurityMonitoringBatchMigration' is disabled. Enable it by setting `configuration.unstableOperations['SecurityMonitoringApi.v2.publishSecurityMonitoringBatchMigration'] = true`",
+      );
+    }
+
+    // verify required parameter 'batchId' is not null or undefined
+    if (batchId === null || batchId === undefined) {
+      throw new RequiredError(
+        "batchId",
+        "publishSecurityMonitoringBatchMigration",
+      );
+    }
+
+    // verify required parameter 'body' is not null or undefined
+    if (body === null || body === undefined) {
+      throw new RequiredError(
+        "body",
+        "publishSecurityMonitoringBatchMigration",
+      );
+    }
+
+    // Path Params
+    const localVarPath =
+      "/api/v2/security_monitoring/batch-migrations/{batch_id}/publish".replace(
+        "{batch_id}",
+        encodeURIComponent(String(batchId)),
+      );
+
+    // Make Request Context
+    const { server, overrides } = _config.getServerAndOverrides(
+      "SecurityMonitoringApi.v2.publishSecurityMonitoringBatchMigration",
+      SecurityMonitoringApi.operationServers,
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.POST,
+      overrides,
+    );
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Set User-Agent
+    if (this.userAgent) {
+      requestContext.setHeaderParam("User-Agent", this.userAgent);
+    }
+
+    // Set IaC header
+    if (_config.isIaC) {
+      requestContext.setHeaderParam("X-Datadog-Managed-By", "iac");
+    }
+
+    // Body Params
+    const contentType = getPreferredMediaType(["application/json"]);
+    requestContext.setHeaderParam("Content-Type", contentType);
+    const serializedBody = stringify(
+      serialize(
+        body,
+        TypingInfo,
+        "SecurityMonitoringBatchMigrationPublishRequest",
+        "",
+      ),
+      contentType,
+    );
+    requestContext.setBody(serializedBody);
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+      "AuthZ",
+    ]);
+
+    return requestContext;
+  }
+
   public async reorderSecurityFindingsAutomationDueDateRules(
     body: DueDateRuleReorderRequest,
     _options?: Configuration,
@@ -10982,6 +11621,70 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
       contentType,
     );
     requestContext.setBody(serializedBody);
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+      "AuthZ",
+    ]);
+
+    return requestContext;
+  }
+
+  public async startSecurityMonitoringBatchMigration(
+    batchId: string,
+    _options?: Configuration,
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    if (
+      !_config.unstableOperations[
+        "SecurityMonitoringApi.v2.startSecurityMonitoringBatchMigration"
+      ]
+    ) {
+      throw new Error(
+        "Unstable operation 'startSecurityMonitoringBatchMigration' is disabled. Enable it by setting `configuration.unstableOperations['SecurityMonitoringApi.v2.startSecurityMonitoringBatchMigration'] = true`",
+      );
+    }
+
+    // verify required parameter 'batchId' is not null or undefined
+    if (batchId === null || batchId === undefined) {
+      throw new RequiredError(
+        "batchId",
+        "startSecurityMonitoringBatchMigration",
+      );
+    }
+
+    // Path Params
+    const localVarPath =
+      "/api/v2/security_monitoring/batch-migrations/{batch_id}/start".replace(
+        "{batch_id}",
+        encodeURIComponent(String(batchId)),
+      );
+
+    // Make Request Context
+    const { server, overrides } = _config.getServerAndOverrides(
+      "SecurityMonitoringApi.v2.startSecurityMonitoringBatchMigration",
+      SecurityMonitoringApi.operationServers,
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.POST,
+      overrides,
+    );
+    requestContext.setHeaderParam("Accept", "*/*");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Set User-Agent
+    if (this.userAgent) {
+      requestContext.setHeaderParam("User-Agent", this.userAgent);
+    }
+
+    // Set IaC header
+    if (_config.isIaC) {
+      requestContext.setHeaderParam("X-Datadog-Managed-By", "iac");
+    }
 
     // Apply auth methods
     applySecurityAuthentication(_config, requestContext, [
@@ -11836,6 +12539,185 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = stringify(
       serialize(body, TypingInfo, "TicketCreationRuleUpdateRequest", ""),
+      contentType,
+    );
+    requestContext.setBody(serializedBody);
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+      "AuthZ",
+    ]);
+
+    return requestContext;
+  }
+
+  public async updateSecurityMonitoringBatchMigration(
+    batchId: string,
+    body: SecurityMonitoringBatchMigrationUpdateRequest,
+    _options?: Configuration,
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    if (
+      !_config.unstableOperations[
+        "SecurityMonitoringApi.v2.updateSecurityMonitoringBatchMigration"
+      ]
+    ) {
+      throw new Error(
+        "Unstable operation 'updateSecurityMonitoringBatchMigration' is disabled. Enable it by setting `configuration.unstableOperations['SecurityMonitoringApi.v2.updateSecurityMonitoringBatchMigration'] = true`",
+      );
+    }
+
+    // verify required parameter 'batchId' is not null or undefined
+    if (batchId === null || batchId === undefined) {
+      throw new RequiredError(
+        "batchId",
+        "updateSecurityMonitoringBatchMigration",
+      );
+    }
+
+    // verify required parameter 'body' is not null or undefined
+    if (body === null || body === undefined) {
+      throw new RequiredError("body", "updateSecurityMonitoringBatchMigration");
+    }
+
+    // Path Params
+    const localVarPath =
+      "/api/v2/security_monitoring/batch-migrations/{batch_id}".replace(
+        "{batch_id}",
+        encodeURIComponent(String(batchId)),
+      );
+
+    // Make Request Context
+    const { server, overrides } = _config.getServerAndOverrides(
+      "SecurityMonitoringApi.v2.updateSecurityMonitoringBatchMigration",
+      SecurityMonitoringApi.operationServers,
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.PATCH,
+      overrides,
+    );
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Set User-Agent
+    if (this.userAgent) {
+      requestContext.setHeaderParam("User-Agent", this.userAgent);
+    }
+
+    // Set IaC header
+    if (_config.isIaC) {
+      requestContext.setHeaderParam("X-Datadog-Managed-By", "iac");
+    }
+
+    // Body Params
+    const contentType = getPreferredMediaType(["application/json"]);
+    requestContext.setHeaderParam("Content-Type", contentType);
+    const serializedBody = stringify(
+      serialize(
+        body,
+        TypingInfo,
+        "SecurityMonitoringBatchMigrationUpdateRequest",
+        "",
+      ),
+      contentType,
+    );
+    requestContext.setBody(serializedBody);
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+      "AuthZ",
+    ]);
+
+    return requestContext;
+  }
+
+  public async updateSecurityMonitoringBatchMigrationResource(
+    batchId: string,
+    resourceId: string,
+    body: SecurityMonitoringBatchMigrationResourceUpdateRequest,
+    _options?: Configuration,
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    if (
+      !_config.unstableOperations[
+        "SecurityMonitoringApi.v2.updateSecurityMonitoringBatchMigrationResource"
+      ]
+    ) {
+      throw new Error(
+        "Unstable operation 'updateSecurityMonitoringBatchMigrationResource' is disabled. Enable it by setting `configuration.unstableOperations['SecurityMonitoringApi.v2.updateSecurityMonitoringBatchMigrationResource'] = true`",
+      );
+    }
+
+    // verify required parameter 'batchId' is not null or undefined
+    if (batchId === null || batchId === undefined) {
+      throw new RequiredError(
+        "batchId",
+        "updateSecurityMonitoringBatchMigrationResource",
+      );
+    }
+
+    // verify required parameter 'resourceId' is not null or undefined
+    if (resourceId === null || resourceId === undefined) {
+      throw new RequiredError(
+        "resourceId",
+        "updateSecurityMonitoringBatchMigrationResource",
+      );
+    }
+
+    // verify required parameter 'body' is not null or undefined
+    if (body === null || body === undefined) {
+      throw new RequiredError(
+        "body",
+        "updateSecurityMonitoringBatchMigrationResource",
+      );
+    }
+
+    // Path Params
+    const localVarPath =
+      "/api/v2/security_monitoring/batch-migrations/{batch_id}/resources/{resource_id}"
+        .replace("{batch_id}", encodeURIComponent(String(batchId)))
+        .replace("{resource_id}", encodeURIComponent(String(resourceId)));
+
+    // Make Request Context
+    const { server, overrides } = _config.getServerAndOverrides(
+      "SecurityMonitoringApi.v2.updateSecurityMonitoringBatchMigrationResource",
+      SecurityMonitoringApi.operationServers,
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.PATCH,
+      overrides,
+    );
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Set User-Agent
+    if (this.userAgent) {
+      requestContext.setHeaderParam("User-Agent", this.userAgent);
+    }
+
+    // Set IaC header
+    if (_config.isIaC) {
+      requestContext.setHeaderParam("X-Datadog-Managed-By", "iac");
+    }
+
+    // Body Params
+    const contentType = getPreferredMediaType(["application/json"]);
+    requestContext.setHeaderParam("Content-Type", contentType);
+    const serializedBody = stringify(
+      serialize(
+        body,
+        TypingInfo,
+        "SecurityMonitoringBatchMigrationResourceUpdateRequest",
+        "",
+      ),
       contentType,
     );
     requestContext.setBody(serializedBody);
@@ -13498,6 +14380,78 @@ export class SecurityMonitoringApiResponseProcessor {
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
    *
+   * @params response Response returned by the server for a request to cancelSecurityMonitoringBatchMigration
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async cancelSecurityMonitoringBatchMigration(
+    response: ResponseContext,
+  ): Promise<void> {
+    const contentType = normalizeMediaType(response.headers["content-type"]);
+    if (response.httpStatusCode === 202) {
+      return;
+    }
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 401 ||
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 404 ||
+      response.httpStatusCode === 409
+    ) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: JSONAPIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "JSONAPIErrorResponse",
+        ) as JSONAPIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<JSONAPIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<JSONAPIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
+    }
+    if (response.httpStatusCode === 429) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: APIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "APIErrorResponse",
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      return;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"',
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
    * @params response Response returned by the server for a request to convertExistingSecurityMonitoringRule
    * @throws ApiException if the response code was not in [200, 299]
    */
@@ -14525,6 +15479,172 @@ export class SecurityMonitoringApiResponseProcessor {
         "TicketCreationRuleResponse",
         "",
       ) as TicketCreationRuleResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"',
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
+   * @params response Response returned by the server for a request to createSecurityMonitoringBatchMigration
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async createSecurityMonitoringBatchMigration(
+    response: ResponseContext,
+  ): Promise<SecurityMonitoringBatchMigrationResponse> {
+    const contentType = normalizeMediaType(response.headers["content-type"]);
+    if (response.httpStatusCode === 201) {
+      const body: SecurityMonitoringBatchMigrationResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "SecurityMonitoringBatchMigrationResponse",
+      ) as SecurityMonitoringBatchMigrationResponse;
+      return body;
+    }
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 401 ||
+      response.httpStatusCode === 403
+    ) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: JSONAPIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "JSONAPIErrorResponse",
+        ) as JSONAPIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<JSONAPIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<JSONAPIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
+    }
+    if (response.httpStatusCode === 429) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: APIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "APIErrorResponse",
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: SecurityMonitoringBatchMigrationResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "SecurityMonitoringBatchMigrationResponse",
+        "",
+      ) as SecurityMonitoringBatchMigrationResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"',
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
+   * @params response Response returned by the server for a request to createSecurityMonitoringBatchMigrationResources
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async createSecurityMonitoringBatchMigrationResources(
+    response: ResponseContext,
+  ): Promise<SecurityMonitoringBatchMigrationResourcesCreateResponse> {
+    const contentType = normalizeMediaType(response.headers["content-type"]);
+    if (response.httpStatusCode === 201) {
+      const body: SecurityMonitoringBatchMigrationResourcesCreateResponse =
+        deserialize(
+          parse(await response.body.text(), contentType),
+          TypingInfo,
+          "SecurityMonitoringBatchMigrationResourcesCreateResponse",
+        ) as SecurityMonitoringBatchMigrationResourcesCreateResponse;
+      return body;
+    }
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 401 ||
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 404 ||
+      response.httpStatusCode === 409
+    ) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: JSONAPIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "JSONAPIErrorResponse",
+        ) as JSONAPIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<JSONAPIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<JSONAPIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
+    }
+    if (response.httpStatusCode === 429) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: APIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "APIErrorResponse",
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: SecurityMonitoringBatchMigrationResourcesCreateResponse =
+        deserialize(
+          parse(await response.body.text(), contentType),
+          TypingInfo,
+          "SecurityMonitoringBatchMigrationResourcesCreateResponse",
+          "",
+        ) as SecurityMonitoringBatchMigrationResourcesCreateResponse;
       return body;
     }
 
@@ -15769,6 +16889,150 @@ export class SecurityMonitoringApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 429
     ) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: APIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "APIErrorResponse",
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      return;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"',
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
+   * @params response Response returned by the server for a request to deleteSecurityMonitoringBatchMigration
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async deleteSecurityMonitoringBatchMigration(
+    response: ResponseContext,
+  ): Promise<void> {
+    const contentType = normalizeMediaType(response.headers["content-type"]);
+    if (response.httpStatusCode === 204) {
+      return;
+    }
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 401 ||
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 404 ||
+      response.httpStatusCode === 409
+    ) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: JSONAPIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "JSONAPIErrorResponse",
+        ) as JSONAPIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<JSONAPIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<JSONAPIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
+    }
+    if (response.httpStatusCode === 429) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: APIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "APIErrorResponse",
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      return;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"',
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
+   * @params response Response returned by the server for a request to deleteSecurityMonitoringBatchMigrationResources
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async deleteSecurityMonitoringBatchMigrationResources(
+    response: ResponseContext,
+  ): Promise<void> {
+    const contentType = normalizeMediaType(response.headers["content-type"]);
+    if (response.httpStatusCode === 204) {
+      return;
+    }
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 401 ||
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 404 ||
+      response.httpStatusCode === 409
+    ) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: JSONAPIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "JSONAPIErrorResponse",
+        ) as JSONAPIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<JSONAPIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<JSONAPIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
+    }
+    if (response.httpStatusCode === 429) {
       const bodyText = parse(await response.body.text(), contentType);
       let body: APIErrorResponse;
       try {
@@ -20622,6 +21886,171 @@ export class SecurityMonitoringApiResponseProcessor {
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
    *
+   * @params response Response returned by the server for a request to listSecurityMonitoringBatchMigrationResources
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async listSecurityMonitoringBatchMigrationResources(
+    response: ResponseContext,
+  ): Promise<SecurityMonitoringBatchMigrationResourcesListResponse> {
+    const contentType = normalizeMediaType(response.headers["content-type"]);
+    if (response.httpStatusCode === 200) {
+      const body: SecurityMonitoringBatchMigrationResourcesListResponse =
+        deserialize(
+          parse(await response.body.text(), contentType),
+          TypingInfo,
+          "SecurityMonitoringBatchMigrationResourcesListResponse",
+        ) as SecurityMonitoringBatchMigrationResourcesListResponse;
+      return body;
+    }
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 401 ||
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 404
+    ) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: JSONAPIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "JSONAPIErrorResponse",
+        ) as JSONAPIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<JSONAPIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<JSONAPIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
+    }
+    if (response.httpStatusCode === 429) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: APIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "APIErrorResponse",
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: SecurityMonitoringBatchMigrationResourcesListResponse =
+        deserialize(
+          parse(await response.body.text(), contentType),
+          TypingInfo,
+          "SecurityMonitoringBatchMigrationResourcesListResponse",
+          "",
+        ) as SecurityMonitoringBatchMigrationResourcesListResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"',
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
+   * @params response Response returned by the server for a request to listSecurityMonitoringBatchMigrations
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async listSecurityMonitoringBatchMigrations(
+    response: ResponseContext,
+  ): Promise<SecurityMonitoringBatchMigrationsListResponse> {
+    const contentType = normalizeMediaType(response.headers["content-type"]);
+    if (response.httpStatusCode === 200) {
+      const body: SecurityMonitoringBatchMigrationsListResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "SecurityMonitoringBatchMigrationsListResponse",
+      ) as SecurityMonitoringBatchMigrationsListResponse;
+      return body;
+    }
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 401 ||
+      response.httpStatusCode === 403
+    ) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: JSONAPIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "JSONAPIErrorResponse",
+        ) as JSONAPIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<JSONAPIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<JSONAPIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
+    }
+    if (response.httpStatusCode === 429) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: APIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "APIErrorResponse",
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: SecurityMonitoringBatchMigrationsListResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "SecurityMonitoringBatchMigrationsListResponse",
+        "",
+      ) as SecurityMonitoringBatchMigrationsListResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"',
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
    * @params response Response returned by the server for a request to listSecurityMonitoringCriticalAssets
    * @throws ApiException if the response code was not in [200, 299]
    */
@@ -21529,6 +22958,89 @@ export class SecurityMonitoringApiResponseProcessor {
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
    *
+   * @params response Response returned by the server for a request to publishSecurityMonitoringBatchMigration
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async publishSecurityMonitoringBatchMigration(
+    response: ResponseContext,
+  ): Promise<SecurityMonitoringBatchMigrationPublishResponse> {
+    const contentType = normalizeMediaType(response.headers["content-type"]);
+    if (response.httpStatusCode === 200) {
+      const body: SecurityMonitoringBatchMigrationPublishResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "SecurityMonitoringBatchMigrationPublishResponse",
+      ) as SecurityMonitoringBatchMigrationPublishResponse;
+      return body;
+    }
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 401 ||
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 404 ||
+      response.httpStatusCode === 409
+    ) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: JSONAPIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "JSONAPIErrorResponse",
+        ) as JSONAPIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<JSONAPIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<JSONAPIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
+    }
+    if (response.httpStatusCode === 429) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: APIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "APIErrorResponse",
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: SecurityMonitoringBatchMigrationPublishResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "SecurityMonitoringBatchMigrationPublishResponse",
+        "",
+      ) as SecurityMonitoringBatchMigrationPublishResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"',
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
    * @params response Response returned by the server for a request to reorderSecurityFindingsAutomationDueDateRules
    * @throws ApiException if the response code was not in [200, 299]
    */
@@ -22283,6 +23795,79 @@ export class SecurityMonitoringApiResponseProcessor {
         "",
       ) as NotificationRulePreviewResponse;
       return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"',
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
+   * @params response Response returned by the server for a request to startSecurityMonitoringBatchMigration
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async startSecurityMonitoringBatchMigration(
+    response: ResponseContext,
+  ): Promise<void> {
+    const contentType = normalizeMediaType(response.headers["content-type"]);
+    if (response.httpStatusCode === 202) {
+      return;
+    }
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 401 ||
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 404 ||
+      response.httpStatusCode === 409 ||
+      response.httpStatusCode === 500
+    ) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: JSONAPIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "JSONAPIErrorResponse",
+        ) as JSONAPIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<JSONAPIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<JSONAPIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
+    }
+    if (response.httpStatusCode === 429) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: APIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "APIErrorResponse",
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      return;
     }
 
     const body = (await response.body.text()) || "";
@@ -23152,6 +24737,173 @@ export class SecurityMonitoringApiResponseProcessor {
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
    *
+   * @params response Response returned by the server for a request to updateSecurityMonitoringBatchMigration
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async updateSecurityMonitoringBatchMigration(
+    response: ResponseContext,
+  ): Promise<SecurityMonitoringBatchMigrationResponse> {
+    const contentType = normalizeMediaType(response.headers["content-type"]);
+    if (response.httpStatusCode === 200) {
+      const body: SecurityMonitoringBatchMigrationResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "SecurityMonitoringBatchMigrationResponse",
+      ) as SecurityMonitoringBatchMigrationResponse;
+      return body;
+    }
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 401 ||
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 404
+    ) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: JSONAPIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "JSONAPIErrorResponse",
+        ) as JSONAPIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<JSONAPIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<JSONAPIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
+    }
+    if (response.httpStatusCode === 429) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: APIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "APIErrorResponse",
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: SecurityMonitoringBatchMigrationResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "SecurityMonitoringBatchMigrationResponse",
+        "",
+      ) as SecurityMonitoringBatchMigrationResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"',
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
+   * @params response Response returned by the server for a request to updateSecurityMonitoringBatchMigrationResource
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async updateSecurityMonitoringBatchMigrationResource(
+    response: ResponseContext,
+  ): Promise<SecurityMonitoringBatchMigrationResourceResponse> {
+    const contentType = normalizeMediaType(response.headers["content-type"]);
+    if (response.httpStatusCode === 200) {
+      const body: SecurityMonitoringBatchMigrationResourceResponse =
+        deserialize(
+          parse(await response.body.text(), contentType),
+          TypingInfo,
+          "SecurityMonitoringBatchMigrationResourceResponse",
+        ) as SecurityMonitoringBatchMigrationResourceResponse;
+      return body;
+    }
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 401 ||
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 404 ||
+      response.httpStatusCode === 409
+    ) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: JSONAPIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "JSONAPIErrorResponse",
+        ) as JSONAPIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<JSONAPIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<JSONAPIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
+    }
+    if (response.httpStatusCode === 429) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: APIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "APIErrorResponse",
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: SecurityMonitoringBatchMigrationResourceResponse =
+        deserialize(
+          parse(await response.body.text(), contentType),
+          TypingInfo,
+          "SecurityMonitoringBatchMigrationResourceResponse",
+          "",
+        ) as SecurityMonitoringBatchMigrationResourceResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"',
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
    * @params response Response returned by the server for a request to updateSecurityMonitoringCriticalAsset
    * @throws ApiException if the response code was not in [200, 299]
    */
@@ -23799,6 +25551,14 @@ export interface SecurityMonitoringApiCancelHistoricalJobRequest {
   jobId: string;
 }
 
+export interface SecurityMonitoringApiCancelSecurityMonitoringBatchMigrationRequest {
+  /**
+   * The UUID of the batch migration.
+   * @type string
+   */
+  batchId: string;
+}
+
 export interface SecurityMonitoringApiConvertExistingSecurityMonitoringRuleRequest {
   /**
    * The ID of the rule.
@@ -23919,6 +25679,25 @@ export interface SecurityMonitoringApiCreateSecurityFindingsAutomationTicketCrea
    * @type TicketCreationRuleCreateRequest
    */
   body: TicketCreationRuleCreateRequest;
+}
+
+export interface SecurityMonitoringApiCreateSecurityMonitoringBatchMigrationRequest {
+  /**
+   * @type SecurityMonitoringBatchMigrationCreateRequest
+   */
+  body: SecurityMonitoringBatchMigrationCreateRequest;
+}
+
+export interface SecurityMonitoringApiCreateSecurityMonitoringBatchMigrationResourcesRequest {
+  /**
+   * The UUID of the batch migration.
+   * @type string
+   */
+  batchId: string;
+  /**
+   * @type SecurityMonitoringBatchMigrationResourcesCreateRequest
+   */
+  body: SecurityMonitoringBatchMigrationResourcesCreateRequest;
 }
 
 export interface SecurityMonitoringApiCreateSecurityMonitoringCriticalAssetRequest {
@@ -24089,6 +25868,26 @@ export interface SecurityMonitoringApiDeleteSecurityFindingsAutomationTicketCrea
    * @type string
    */
   ruleId: string;
+}
+
+export interface SecurityMonitoringApiDeleteSecurityMonitoringBatchMigrationRequest {
+  /**
+   * The UUID of the batch migration.
+   * @type string
+   */
+  batchId: string;
+}
+
+export interface SecurityMonitoringApiDeleteSecurityMonitoringBatchMigrationResourcesRequest {
+  /**
+   * The UUID of the batch migration.
+   * @type string
+   */
+  batchId: string;
+  /**
+   * @type SecurityMonitoringBatchMigrationResourcesDeleteRequest
+   */
+  body: SecurityMonitoringBatchMigrationResourcesDeleteRequest;
 }
 
 export interface SecurityMonitoringApiDeleteSecurityMonitoringCriticalAssetRequest {
@@ -25154,6 +26953,51 @@ export interface SecurityMonitoringApiListSecurityFindingsAutomationTicketCreati
   pageNumber?: number;
 }
 
+export interface SecurityMonitoringApiListSecurityMonitoringBatchMigrationResourcesRequest {
+  /**
+   * The UUID of the batch migration.
+   * @type string
+   */
+  batchId: string;
+  /**
+   * Size for a given page. The maximum allowed value is 500.
+   * @type number
+   */
+  pageSize?: number;
+  /**
+   * Specific page number to return, starting at 1.
+   * @type number
+   */
+  pageNumber?: number;
+  /**
+   * A search query in Datadog search syntax to filter resources, such as
+   * `status:completed`. Filterable attributes are `id`, `name`, `description`, `inputType`,
+   * `status`, `input`, `createdBy`, and `lastUpdatedBy`. Free text matches the resource name.
+   * @type string
+   */
+  filterQuery?: string;
+}
+
+export interface SecurityMonitoringApiListSecurityMonitoringBatchMigrationsRequest {
+  /**
+   * Size for a given page. The maximum allowed value is 500.
+   * @type number
+   */
+  pageSize?: number;
+  /**
+   * Specific page number to return, starting at 1.
+   * @type number
+   */
+  pageNumber?: number;
+  /**
+   * A search query in Datadog search syntax to filter batch migrations, such as
+   * `status:completed`. Filterable attributes are `id`, `name`, `description`, `status`,
+   * `createdBy`, and `lastUpdatedBy`. Free text matches the batch migration name.
+   * @type string
+   */
+  filterQuery?: string;
+}
+
 export interface SecurityMonitoringApiListSecurityMonitoringDatasetsRequest {
   /**
    * Size for a given page. The maximum allowed value is 100.
@@ -25634,6 +27478,18 @@ export interface SecurityMonitoringApiPatchVulnerabilityNotificationRuleRequest 
   body: PatchNotificationRuleParameters;
 }
 
+export interface SecurityMonitoringApiPublishSecurityMonitoringBatchMigrationRequest {
+  /**
+   * The UUID of the batch migration.
+   * @type string
+   */
+  batchId: string;
+  /**
+   * @type SecurityMonitoringBatchMigrationPublishRequest
+   */
+  body: SecurityMonitoringBatchMigrationPublishRequest;
+}
+
 export interface SecurityMonitoringApiReorderSecurityFindingsAutomationDueDateRulesRequest {
   /**
    * @type DueDateRuleReorderRequest
@@ -25715,6 +27571,14 @@ export interface SecurityMonitoringApiSendSecurityMonitoringNotificationPreviewR
    * @type CreateNotificationRuleParameters
    */
   body: CreateNotificationRuleParameters;
+}
+
+export interface SecurityMonitoringApiStartSecurityMonitoringBatchMigrationRequest {
+  /**
+   * The UUID of the batch migration.
+   * @type string
+   */
+  batchId: string;
 }
 
 export interface SecurityMonitoringApiTestExistingSecurityMonitoringRuleRequest {
@@ -25845,6 +27709,35 @@ export interface SecurityMonitoringApiUpdateSecurityFindingsAutomationTicketCrea
    * @type TicketCreationRuleUpdateRequest
    */
   body: TicketCreationRuleUpdateRequest;
+}
+
+export interface SecurityMonitoringApiUpdateSecurityMonitoringBatchMigrationRequest {
+  /**
+   * The UUID of the batch migration.
+   * @type string
+   */
+  batchId: string;
+  /**
+   * @type SecurityMonitoringBatchMigrationUpdateRequest
+   */
+  body: SecurityMonitoringBatchMigrationUpdateRequest;
+}
+
+export interface SecurityMonitoringApiUpdateSecurityMonitoringBatchMigrationResourceRequest {
+  /**
+   * The UUID of the batch migration.
+   * @type string
+   */
+  batchId: string;
+  /**
+   * The UUID of the batch migration resource.
+   * @type string
+   */
+  resourceId: string;
+  /**
+   * @type SecurityMonitoringBatchMigrationResourceUpdateRequest
+   */
+  body: SecurityMonitoringBatchMigrationResourceUpdateRequest;
 }
 
 export interface SecurityMonitoringApiUpdateSecurityMonitoringCriticalAssetRequest {
@@ -26356,6 +28249,34 @@ export class SecurityMonitoringApi {
   }
 
   /**
+   * Cancel an `in_progress` batch migration. Resources that are `pending` or `in_progress`
+   * become `canceled`. Resources that are already `completed` or `failed` keep their status
+   * and output, so completed resources can still be published. Canceling a `canceled` batch
+   * migration succeeds, so the request can be safely retried. Returns `409 Conflict` if the
+   * batch migration is `draft` or `completed`.
+   * @param param The request object
+   */
+  public cancelSecurityMonitoringBatchMigration(
+    param: SecurityMonitoringApiCancelSecurityMonitoringBatchMigrationRequest,
+    options?: Configuration,
+  ): Promise<void> {
+    const requestContextPromise =
+      this.requestFactory.cancelSecurityMonitoringBatchMigration(
+        param.batchId,
+        options,
+      );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.cancelSecurityMonitoringBatchMigration(
+            responseContext,
+          );
+        });
+    });
+  }
+
+  /**
    * Convert an existing rule from JSON to Terraform for Datadog provider
    * resource `datadog_security_monitoring_rule`. You can do so for the following rule types:
    * - App and API Protection
@@ -26742,6 +28663,61 @@ export class SecurityMonitoringApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.createSecurityFindingsAutomationTicketCreationRule(
+            responseContext,
+          );
+        });
+    });
+  }
+
+  /**
+   * Create a batch migration in the `draft` status, together with 1 to 100 initial
+   * resources. Each resource holds one source rule to translate into a Cloud SIEM detection
+   * rule. To load more rules, add them with the add resources endpoint before starting the
+   * batch migration. A batch migration can hold up to 1000 resources. The response does not
+   * include the created resources: list the resources of the batch migration to retrieve them.
+   * @param param The request object
+   */
+  public createSecurityMonitoringBatchMigration(
+    param: SecurityMonitoringApiCreateSecurityMonitoringBatchMigrationRequest,
+    options?: Configuration,
+  ): Promise<SecurityMonitoringBatchMigrationResponse> {
+    const requestContextPromise =
+      this.requestFactory.createSecurityMonitoringBatchMigration(
+        param.body,
+        options,
+      );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.createSecurityMonitoringBatchMigration(
+            responseContext,
+          );
+        });
+    });
+  }
+
+  /**
+   * Add 1 to 1000 resources to a `draft` batch migration. Returns `409 Conflict` if the
+   * batch migration is not `draft`, and `400 Bad Request` if the batch migration would
+   * contain more than 1000 resources.
+   * @param param The request object
+   */
+  public createSecurityMonitoringBatchMigrationResources(
+    param: SecurityMonitoringApiCreateSecurityMonitoringBatchMigrationResourcesRequest,
+    options?: Configuration,
+  ): Promise<SecurityMonitoringBatchMigrationResourcesCreateResponse> {
+    const requestContextPromise =
+      this.requestFactory.createSecurityMonitoringBatchMigrationResources(
+        param.batchId,
+        param.body,
+        options,
+      );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.createSecurityMonitoringBatchMigrationResources(
             responseContext,
           );
         });
@@ -27231,6 +29207,61 @@ export class SecurityMonitoringApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.deleteSecurityFindingsAutomationTicketCreationRule(
+            responseContext,
+          );
+        });
+    });
+  }
+
+  /**
+   * Delete a batch migration and its resources. Detection rules that were already
+   * published are not deleted. Returns `409 Conflict` while any resource is `in_progress`
+   * or `publishing`: cancel the batch migration, or wait for publishing to finish, and
+   * then try again.
+   * @param param The request object
+   */
+  public deleteSecurityMonitoringBatchMigration(
+    param: SecurityMonitoringApiDeleteSecurityMonitoringBatchMigrationRequest,
+    options?: Configuration,
+  ): Promise<void> {
+    const requestContextPromise =
+      this.requestFactory.deleteSecurityMonitoringBatchMigration(
+        param.batchId,
+        options,
+      );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.deleteSecurityMonitoringBatchMigration(
+            responseContext,
+          );
+        });
+    });
+  }
+
+  /**
+   * Delete resources from a batch migration. The request is all-or-nothing: it returns
+   * `404 Not Found` if any resource does not exist, and `409 Conflict` if any resource is
+   * `in_progress` or `publishing`. In both cases nothing is deleted. Duplicate resource IDs
+   * are ignored. Detection rules already published from the deleted resources are not deleted.
+   * @param param The request object
+   */
+  public deleteSecurityMonitoringBatchMigrationResources(
+    param: SecurityMonitoringApiDeleteSecurityMonitoringBatchMigrationResourcesRequest,
+    options?: Configuration,
+  ): Promise<void> {
+    const requestContextPromise =
+      this.requestFactory.deleteSecurityMonitoringBatchMigrationResources(
+        param.batchId,
+        param.body,
+        options,
+      );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.deleteSecurityMonitoringBatchMigrationResources(
             responseContext,
           );
         });
@@ -29357,6 +31388,64 @@ export class SecurityMonitoringApi {
   }
 
   /**
+   * List the resources of a batch migration, including the input of each source rule and,
+   * once translated, the proposed Cloud SIEM detection rule in `output`.
+   * @param param The request object
+   */
+  public listSecurityMonitoringBatchMigrationResources(
+    param: SecurityMonitoringApiListSecurityMonitoringBatchMigrationResourcesRequest,
+    options?: Configuration,
+  ): Promise<SecurityMonitoringBatchMigrationResourcesListResponse> {
+    const requestContextPromise =
+      this.requestFactory.listSecurityMonitoringBatchMigrationResources(
+        param.batchId,
+        param.pageSize,
+        param.pageNumber,
+        param.filterQuery,
+        options,
+      );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.listSecurityMonitoringBatchMigrationResources(
+            responseContext,
+          );
+        });
+    });
+  }
+
+  /**
+   * List the batch migrations of your organization. A batch migration groups detection
+   * rules from another SIEM that the Datadog Detection Agent translates into Cloud SIEM
+   * detection rules. To retrieve a single batch migration, filter by its ID with
+   * `filter[query]=id:<batch_id>`. Poll this endpoint to follow the progress of a batch
+   * migration through its `status` and `resourceStatusCounts`.
+   * @param param The request object
+   */
+  public listSecurityMonitoringBatchMigrations(
+    param: SecurityMonitoringApiListSecurityMonitoringBatchMigrationsRequest = {},
+    options?: Configuration,
+  ): Promise<SecurityMonitoringBatchMigrationsListResponse> {
+    const requestContextPromise =
+      this.requestFactory.listSecurityMonitoringBatchMigrations(
+        param.pageSize,
+        param.pageNumber,
+        param.filterQuery,
+        options,
+      );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.listSecurityMonitoringBatchMigrations(
+            responseContext,
+          );
+        });
+    });
+  }
+
+  /**
    * Get the list of all critical assets.
    * @param param The request object
    */
@@ -29897,6 +31986,43 @@ export class SecurityMonitoringApi {
   }
 
   /**
+   * Create a Cloud SIEM detection rule from the `output` of each selected `completed`
+   * resource of a batch migration. Completed resources can be published while the rest of
+   * the batch migration is still being translated. When `resourceIds` is omitted or empty,
+   * every `completed` resource is published. Published rules are created disabled.
+   *
+   * Every requested resource must be publishable: `completed`, or left in `publishing` for
+   * more than one minute after an uncertain result. Otherwise, the request returns
+   * `409 Conflict` and nothing is published. Already published resources are not publishable.
+   *
+   * The response reports the outcome of each resource, and some resources can be published
+   * while others fail. A `failed` result that contains a `ruleId` means the rule was created:
+   * do not retry that resource. Publishing a rule with a `block_ip` or `block_user` action
+   * requires the `appsec_protect_write` permission.
+   * @param param The request object
+   */
+  public publishSecurityMonitoringBatchMigration(
+    param: SecurityMonitoringApiPublishSecurityMonitoringBatchMigrationRequest,
+    options?: Configuration,
+  ): Promise<SecurityMonitoringBatchMigrationPublishResponse> {
+    const requestContextPromise =
+      this.requestFactory.publishSecurityMonitoringBatchMigration(
+        param.batchId,
+        param.body,
+        options,
+      );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.publishSecurityMonitoringBatchMigration(
+            responseContext,
+          );
+        });
+    });
+  }
+
+  /**
    * Reorder the list of due date rules for the current organization.
    * @param param The request object
    */
@@ -30283,6 +32409,42 @@ export class SecurityMonitoringApi {
   }
 
   /**
+   * Start translating the `pending` resources of a `draft` batch migration into Cloud SIEM
+   * detection rules. The batch migration moves to `in_progress`, and its resources are
+   * translated asynchronously. Once no resource is `pending` or `in_progress`, the batch
+   * migration moves to `completed`. Starting an `in_progress` batch migration again does not
+   * queue duplicate work, so the request can be safely retried, including after a timeout or
+   * a `5xx` error. Returns `409 Conflict` if the batch migration is `completed` or `canceled`.
+   *
+   * An organization can translate up to 2000 resources in total across all of its batch
+   * migrations. Resources that were already processed count toward this limit even after
+   * they are deleted, and `pending` resources of `in_progress` batch migrations reserve
+   * capacity. Returns `409 Conflict` if starting the batch migration would exceed this limit.
+   * To request a higher limit for your organization, contact
+   * [Datadog support](https://docs.datadoghq.com/help/).
+   * @param param The request object
+   */
+  public startSecurityMonitoringBatchMigration(
+    param: SecurityMonitoringApiStartSecurityMonitoringBatchMigrationRequest,
+    options?: Configuration,
+  ): Promise<void> {
+    const requestContextPromise =
+      this.requestFactory.startSecurityMonitoringBatchMigration(
+        param.batchId,
+        options,
+      );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.startSecurityMonitoringBatchMigration(
+            responseContext,
+          );
+        });
+    });
+  }
+
+  /**
    * Test an existing rule.
    * @param param The request object
    */
@@ -30571,6 +32733,62 @@ export class SecurityMonitoringApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.updateSecurityFindingsAutomationTicketCreationRule(
+            responseContext,
+          );
+        });
+    });
+  }
+
+  /**
+   * Update the name, description, or tags of a batch migration, in any status. At least
+   * one of these attributes must be provided. Omitted attributes are left unchanged, and
+   * `tags` replaces the full list of tags.
+   * @param param The request object
+   */
+  public updateSecurityMonitoringBatchMigration(
+    param: SecurityMonitoringApiUpdateSecurityMonitoringBatchMigrationRequest,
+    options?: Configuration,
+  ): Promise<SecurityMonitoringBatchMigrationResponse> {
+    const requestContextPromise =
+      this.requestFactory.updateSecurityMonitoringBatchMigration(
+        param.batchId,
+        param.body,
+        options,
+      );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.updateSecurityMonitoringBatchMigration(
+            responseContext,
+          );
+        });
+    });
+  }
+
+  /**
+   * Update a resource of a batch migration. At least one of `name`, `description`,
+   * `inputType`, or `input` must be provided. `name` and `description` can be updated at
+   * any time. `inputType` and `input` can only be updated while the resource is `pending`;
+   * otherwise, the request returns `409 Conflict`. The translated `output` cannot be edited.
+   * @param param The request object
+   */
+  public updateSecurityMonitoringBatchMigrationResource(
+    param: SecurityMonitoringApiUpdateSecurityMonitoringBatchMigrationResourceRequest,
+    options?: Configuration,
+  ): Promise<SecurityMonitoringBatchMigrationResourceResponse> {
+    const requestContextPromise =
+      this.requestFactory.updateSecurityMonitoringBatchMigrationResource(
+        param.batchId,
+        param.resourceId,
+        param.body,
+        options,
+      );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.updateSecurityMonitoringBatchMigrationResource(
             responseContext,
           );
         });
