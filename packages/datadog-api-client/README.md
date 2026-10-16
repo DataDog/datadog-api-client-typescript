@@ -489,7 +489,6 @@ apiInstance
 | Snapshots | @datadog/datadog-api-client-snapshots | [README.md](../../services/snapshots/README.md) |
 | Snowflake Integration | @datadog/datadog-api-client-snowflake-integration | [README.md](../../services/snowflake-integration/README.md) |
 | Software Catalog | @datadog/datadog-api-client-software-catalog | [README.md](../../services/software-catalog/README.md) |
-| Spa | @datadog/datadog-api-client-spa | [README.md](../../services/spa/README.md) |
 | Spans | @datadog/datadog-api-client-spans | [README.md](../../services/spans/README.md) |
 | Spans Metrics | @datadog/datadog-api-client-spans-metrics | [README.md](../../services/spans-metrics/README.md) |
 | Static Analysis | @datadog/datadog-api-client-static-analysis | [README.md](../../services/static-analysis/README.md) |
