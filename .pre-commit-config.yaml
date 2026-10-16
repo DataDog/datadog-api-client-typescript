@@ -6,7 +6,7 @@ repos:
         language: node
         entry: yarn run lint:fix
         pass_filenames: false
-        language_version: "21.7.3"
+        language_version: "22.23.3"
         # pre-commit 4.6.1+ requires a `language: node` local hook to install
         # something; pin yarn to match `packageManager` so node is still provisioned.
         additional_dependencies:
@@ -16,7 +16,7 @@ repos:
         language: node
         entry: yarn run lint:fix-examples
         pass_filenames: false
-        language_version: "21.7.3"
+        language_version: "22.23.3"
         additional_dependencies:
           - "yarn@1.22.22"
   - repo: https://github.com/pre-commit/pre-commit-hooks
