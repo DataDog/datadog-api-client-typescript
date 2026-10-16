@@ -256,6 +256,10 @@ import { LLMObsPatternsRunSummary } from "./LLMObsPatternsRunSummary";
 import { LLMObsPatternsRunsResponse } from "./LLMObsPatternsRunsResponse";
 import { LLMObsPatternsRunsResponseAttributes } from "./LLMObsPatternsRunsResponseAttributes";
 import { LLMObsPatternsRunsResponseData } from "./LLMObsPatternsRunsResponseData";
+import { LLMObsPatternsTemplateItem } from "./LLMObsPatternsTemplateItem";
+import { LLMObsPatternsTemplatesResponse } from "./LLMObsPatternsTemplatesResponse";
+import { LLMObsPatternsTemplatesResponseAttributes } from "./LLMObsPatternsTemplatesResponseAttributes";
+import { LLMObsPatternsTemplatesResponseData } from "./LLMObsPatternsTemplatesResponseData";
 import { LLMObsPatternsTopic } from "./LLMObsPatternsTopic";
 import { LLMObsPatternsTopicWithClusteredPoints } from "./LLMObsPatternsTopicWithClusteredPoints";
 import { LLMObsPatternsTopicsResponse } from "./LLMObsPatternsTopicsResponse";
@@ -415,6 +419,9 @@ export const TypingInfo: ModelTypingInfo = {
     LLMObsPatternsRequestType: ["topic_discovery"],
     LLMObsPatternsRunStatusType: ["topic_discovery_run_status"],
     LLMObsPatternsRunsListType: ["list_topic_discovery_runs_response"],
+    LLMObsPatternsTemplatesListType: [
+      "list_topic_discovery_templates_response",
+    ],
     LLMObsPatternsTopicsType: ["get_topics_response"],
     LLMObsPatternsTopicsWithClusteredPointsType: [
       "get_topics_with_cluster_points_response",
@@ -815,6 +822,11 @@ export const TypingInfo: ModelTypingInfo = {
     LLMObsPatternsRunsResponse: LLMObsPatternsRunsResponse,
     LLMObsPatternsRunsResponseAttributes: LLMObsPatternsRunsResponseAttributes,
     LLMObsPatternsRunsResponseData: LLMObsPatternsRunsResponseData,
+    LLMObsPatternsTemplateItem: LLMObsPatternsTemplateItem,
+    LLMObsPatternsTemplatesResponse: LLMObsPatternsTemplatesResponse,
+    LLMObsPatternsTemplatesResponseAttributes:
+      LLMObsPatternsTemplatesResponseAttributes,
+    LLMObsPatternsTemplatesResponseData: LLMObsPatternsTemplatesResponseData,
     LLMObsPatternsTopic: LLMObsPatternsTopic,
     LLMObsPatternsTopicWithClusteredPoints:
       LLMObsPatternsTopicWithClusteredPoints,
