@@ -74,6 +74,8 @@ export { ListWorkflowsResponseMetaPage } from "./models/ListWorkflowsResponseMet
 export { MonitorTrigger } from "./models/MonitorTrigger";
 export { MonitorTriggerWrapper } from "./models/MonitorTriggerWrapper";
 export { NotebookTriggerWrapper } from "./models/NotebookTriggerWrapper";
+export { OnCallShiftChangeTrigger } from "./models/OnCallShiftChangeTrigger";
+export { OnCallShiftChangeTriggerWrapper } from "./models/OnCallShiftChangeTriggerWrapper";
 export { OnCallTrigger } from "./models/OnCallTrigger";
 export { OnCallTriggerWrapper } from "./models/OnCallTriggerWrapper";
 export { OutboundEdge } from "./models/OutboundEdge";
