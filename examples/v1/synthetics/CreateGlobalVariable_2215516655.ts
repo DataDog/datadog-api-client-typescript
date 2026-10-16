@@ -1,0 +1,32 @@
+/**
+ * Create a persistent email global variable returns a generated address
+ */
+
+import { client, v1 } from "@datadog/datadog-api-client";
+
+const configuration = client.createConfiguration({
+  authMethods: {
+    AuthZ: {
+      accessToken: process.env.DD_BEARER_TOKEN as string,
+    },
+  },
+});
+const apiInstance = new v1.SyntheticsApi(configuration);
+
+const params: v1.SyntheticsApiCreateGlobalVariableRequest = {
+  body: {
+    name: "PERSISTENT_EMAIL_EXAMPLESYNTHETIC",
+    description: "Persistent email variable",
+    tags: [],
+    isEmail: true,
+  },
+};
+
+apiInstance
+  .createGlobalVariable(params)
+  .then((data: v1.SyntheticsGlobalVariable) => {
+    console.log(
+      "API called successfully. Returned data: " + JSON.stringify(data)
+    );
+  })
+  .catch((error: any) => console.error(error));
