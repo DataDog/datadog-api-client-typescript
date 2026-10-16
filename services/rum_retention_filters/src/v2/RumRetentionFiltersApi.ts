@@ -55,16 +55,6 @@ export class RumRetentionFiltersApiRequestFactory extends BaseAPIRequestFactory 
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
-    if (
-      !_config.unstableOperations[
-        "RumRetentionFiltersApi.v2.createExclusionFilter"
-      ]
-    ) {
-      throw new Error(
-        "Unstable operation 'createExclusionFilter' is disabled. Enable it by setting `configuration.unstableOperations['RumRetentionFiltersApi.v2.createExclusionFilter'] = true`",
-      );
-    }
-
     // verify required parameter 'appId' is not null or undefined
     if (appId === null || appId === undefined) {
       throw new RequiredError("appId", "createExclusionFilter");
@@ -197,16 +187,6 @@ export class RumRetentionFiltersApiRequestFactory extends BaseAPIRequestFactory 
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
-    if (
-      !_config.unstableOperations[
-        "RumRetentionFiltersApi.v2.deleteExclusionFilter"
-      ]
-    ) {
-      throw new Error(
-        "Unstable operation 'deleteExclusionFilter' is disabled. Enable it by setting `configuration.unstableOperations['RumRetentionFiltersApi.v2.deleteExclusionFilter'] = true`",
-      );
-    }
-
     // verify required parameter 'appId' is not null or undefined
     if (appId === null || appId === undefined) {
       throw new RequiredError("appId", "deleteExclusionFilter");
@@ -318,16 +298,6 @@ export class RumRetentionFiltersApiRequestFactory extends BaseAPIRequestFactory 
     _options?: Configuration,
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
-
-    if (
-      !_config.unstableOperations[
-        "RumRetentionFiltersApi.v2.getExclusionFilter"
-      ]
-    ) {
-      throw new Error(
-        "Unstable operation 'getExclusionFilter' is disabled. Enable it by setting `configuration.unstableOperations['RumRetentionFiltersApi.v2.getExclusionFilter'] = true`",
-      );
-    }
 
     // verify required parameter 'appId' is not null or undefined
     if (appId === null || appId === undefined) {
@@ -498,16 +468,6 @@ export class RumRetentionFiltersApiRequestFactory extends BaseAPIRequestFactory 
     _options?: Configuration,
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
-
-    if (
-      !_config.unstableOperations[
-        "RumRetentionFiltersApi.v2.listExclusionFilters"
-      ]
-    ) {
-      throw new Error(
-        "Unstable operation 'listExclusionFilters' is disabled. Enable it by setting `configuration.unstableOperations['RumRetentionFiltersApi.v2.listExclusionFilters'] = true`",
-      );
-    }
 
     // verify required parameter 'appId' is not null or undefined
     if (appId === null || appId === undefined) {
@@ -729,16 +689,6 @@ export class RumRetentionFiltersApiRequestFactory extends BaseAPIRequestFactory 
     _options?: Configuration,
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
-
-    if (
-      !_config.unstableOperations[
-        "RumRetentionFiltersApi.v2.updateExclusionFilter"
-      ]
-    ) {
-      throw new Error(
-        "Unstable operation 'updateExclusionFilter' is disabled. Enable it by setting `configuration.unstableOperations['RumRetentionFiltersApi.v2.updateExclusionFilter'] = true`",
-      );
-    }
 
     // verify required parameter 'appId' is not null or undefined
     if (appId === null || appId === undefined) {
