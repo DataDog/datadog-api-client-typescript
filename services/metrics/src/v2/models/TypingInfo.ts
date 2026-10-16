@@ -7,6 +7,13 @@ import { ApmResourceStatsQuery } from "./ApmResourceStatsQuery";
 import { ContainerScalarQuery } from "./ContainerScalarQuery";
 import { ContainerTimeseriesQuery } from "./ContainerTimeseriesQuery";
 import { DataScalarColumn } from "./DataScalarColumn";
+import { DerivedMetricAttributes } from "./DerivedMetricAttributes";
+import { DerivedMetricCreateData } from "./DerivedMetricCreateData";
+import { DerivedMetricCreateRequest } from "./DerivedMetricCreateRequest";
+import { DerivedMetricData } from "./DerivedMetricData";
+import { DerivedMetricDefinition } from "./DerivedMetricDefinition";
+import { DerivedMetricQuery } from "./DerivedMetricQuery";
+import { DerivedMetricResponse } from "./DerivedMetricResponse";
 import { EventsCompute } from "./EventsCompute";
 import { EventsGroupBy } from "./EventsGroupBy";
 import { EventsGroupBySort } from "./EventsGroupBySort";
@@ -192,6 +199,7 @@ export const TypingInfo: ModelTypingInfo = {
     ],
     ApmResourceStatsDataSource: ["apm_resource_stats"],
     ContainerDataSource: ["container"],
+    DerivedMetricsType: ["derived_metrics"],
     EventsAggregation: [
       "count",
       "cardinality",
@@ -327,6 +335,13 @@ export const TypingInfo: ModelTypingInfo = {
     ContainerScalarQuery: ContainerScalarQuery,
     ContainerTimeseriesQuery: ContainerTimeseriesQuery,
     DataScalarColumn: DataScalarColumn,
+    DerivedMetricAttributes: DerivedMetricAttributes,
+    DerivedMetricCreateData: DerivedMetricCreateData,
+    DerivedMetricCreateRequest: DerivedMetricCreateRequest,
+    DerivedMetricData: DerivedMetricData,
+    DerivedMetricDefinition: DerivedMetricDefinition,
+    DerivedMetricQuery: DerivedMetricQuery,
+    DerivedMetricResponse: DerivedMetricResponse,
     EventsCompute: EventsCompute,
     EventsGroupBy: EventsGroupBy,
     EventsGroupBySort: EventsGroupBySort,
