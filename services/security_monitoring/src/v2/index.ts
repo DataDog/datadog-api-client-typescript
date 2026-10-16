@@ -15,6 +15,7 @@ export {
   SecurityMonitoringApiBulkExportSecurityMonitoringRulesRequest,
   SecurityMonitoringApiBulkExportSecurityMonitoringTerraformResourcesRequest,
   SecurityMonitoringApiCancelHistoricalJobRequest,
+  SecurityMonitoringApiCancelSecurityMonitoringBatchMigrationRequest,
   SecurityMonitoringApiConvertExistingSecurityMonitoringRuleRequest,
   SecurityMonitoringApiConvertJobResultToSignalRequest,
   SecurityMonitoringApiConvertSecurityMonitoringRuleFromJSONToTerraformRequest,
@@ -31,6 +32,8 @@ export {
   SecurityMonitoringApiCreateSecurityFindingsAutomationMuteRuleRequest,
   SecurityMonitoringApiCreateSecurityFindingsAutomationSeverityModifierRuleRequest,
   SecurityMonitoringApiCreateSecurityFindingsAutomationTicketCreationRuleRequest,
+  SecurityMonitoringApiCreateSecurityMonitoringBatchMigrationRequest,
+  SecurityMonitoringApiCreateSecurityMonitoringBatchMigrationResourcesRequest,
   SecurityMonitoringApiCreateSecurityMonitoringCriticalAssetRequest,
   SecurityMonitoringApiCreateSecurityMonitoringDatasetRequest,
   SecurityMonitoringApiCreateSecurityMonitoringIntegrationConfigRequest,
@@ -52,6 +55,8 @@ export {
   SecurityMonitoringApiDeleteSecurityFindingsAutomationMuteRuleRequest,
   SecurityMonitoringApiDeleteSecurityFindingsAutomationSeverityModifierRuleRequest,
   SecurityMonitoringApiDeleteSecurityFindingsAutomationTicketCreationRuleRequest,
+  SecurityMonitoringApiDeleteSecurityMonitoringBatchMigrationRequest,
+  SecurityMonitoringApiDeleteSecurityMonitoringBatchMigrationResourcesRequest,
   SecurityMonitoringApiDeleteSecurityMonitoringCriticalAssetRequest,
   SecurityMonitoringApiDeleteSecurityMonitoringDatasetRequest,
   SecurityMonitoringApiDeleteSecurityMonitoringIntegrationConfigRequest,
@@ -122,6 +127,8 @@ export {
   SecurityMonitoringApiListSecurityFindingsAutomationMuteRulesRequest,
   SecurityMonitoringApiListSecurityFindingsAutomationSeverityModifierRulesRequest,
   SecurityMonitoringApiListSecurityFindingsAutomationTicketCreationRulesRequest,
+  SecurityMonitoringApiListSecurityMonitoringBatchMigrationResourcesRequest,
+  SecurityMonitoringApiListSecurityMonitoringBatchMigrationsRequest,
   SecurityMonitoringApiListSecurityMonitoringDatasetsRequest,
   SecurityMonitoringApiListSecurityMonitoringHistsignalsRequest,
   SecurityMonitoringApiListSecurityMonitoringIntegrationConfigsRequest,
@@ -133,6 +140,7 @@ export {
   SecurityMonitoringApiMuteSecurityFindingsRequest,
   SecurityMonitoringApiPatchSignalNotificationRuleRequest,
   SecurityMonitoringApiPatchVulnerabilityNotificationRuleRequest,
+  SecurityMonitoringApiPublishSecurityMonitoringBatchMigrationRequest,
   SecurityMonitoringApiReorderSecurityFindingsAutomationDueDateRulesRequest,
   SecurityMonitoringApiReorderSecurityFindingsAutomationInboxRulesRequest,
   SecurityMonitoringApiReorderSecurityFindingsAutomationMuteRulesRequest,
@@ -144,6 +152,7 @@ export {
   SecurityMonitoringApiSearchSecurityMonitoringHistsignalsRequest,
   SecurityMonitoringApiSearchSecurityMonitoringSignalsRequest,
   SecurityMonitoringApiSendSecurityMonitoringNotificationPreviewRequest,
+  SecurityMonitoringApiStartSecurityMonitoringBatchMigrationRequest,
   SecurityMonitoringApiTestExistingSecurityMonitoringRuleRequest,
   SecurityMonitoringApiTestSecurityMonitoringRuleRequest,
   SecurityMonitoringApiUpdateCustomFrameworkRequest,
@@ -156,6 +165,8 @@ export {
   SecurityMonitoringApiUpdateSecurityFindingsAutomationMuteRuleRequest,
   SecurityMonitoringApiUpdateSecurityFindingsAutomationSeverityModifierRuleRequest,
   SecurityMonitoringApiUpdateSecurityFindingsAutomationTicketCreationRuleRequest,
+  SecurityMonitoringApiUpdateSecurityMonitoringBatchMigrationRequest,
+  SecurityMonitoringApiUpdateSecurityMonitoringBatchMigrationResourceRequest,
   SecurityMonitoringApiUpdateSecurityMonitoringCriticalAssetRequest,
   SecurityMonitoringApiUpdateSecurityMonitoringDatasetRequest,
   SecurityMonitoringApiUpdateSecurityMonitoringIntegrationConfigRequest,
@@ -607,6 +618,49 @@ export { SecurityFindingsSort } from "./models/SecurityFindingsSort";
 export { SecurityFindingsStatus } from "./models/SecurityFindingsStatus";
 export { SecurityFindingType } from "./models/SecurityFindingType";
 export { SecurityMonitoringAzureAppRegistration } from "./models/SecurityMonitoringAzureAppRegistration";
+export { SecurityMonitoringBatchMigrationAttributes } from "./models/SecurityMonitoringBatchMigrationAttributes";
+export { SecurityMonitoringBatchMigrationCreateAttributes } from "./models/SecurityMonitoringBatchMigrationCreateAttributes";
+export { SecurityMonitoringBatchMigrationCreateData } from "./models/SecurityMonitoringBatchMigrationCreateData";
+export { SecurityMonitoringBatchMigrationCreateRequest } from "./models/SecurityMonitoringBatchMigrationCreateRequest";
+export { SecurityMonitoringBatchMigrationData } from "./models/SecurityMonitoringBatchMigrationData";
+export { SecurityMonitoringBatchMigrationInputSource } from "./models/SecurityMonitoringBatchMigrationInputSource";
+export { SecurityMonitoringBatchMigrationListMeta } from "./models/SecurityMonitoringBatchMigrationListMeta";
+export { SecurityMonitoringBatchMigrationPublishAttributes } from "./models/SecurityMonitoringBatchMigrationPublishAttributes";
+export { SecurityMonitoringBatchMigrationPublishData } from "./models/SecurityMonitoringBatchMigrationPublishData";
+export { SecurityMonitoringBatchMigrationPublishedResourceAttributes } from "./models/SecurityMonitoringBatchMigrationPublishedResourceAttributes";
+export { SecurityMonitoringBatchMigrationPublishedResourceData } from "./models/SecurityMonitoringBatchMigrationPublishedResourceData";
+export { SecurityMonitoringBatchMigrationPublishedResourceStatus } from "./models/SecurityMonitoringBatchMigrationPublishedResourceStatus";
+export { SecurityMonitoringBatchMigrationPublishedResourceType } from "./models/SecurityMonitoringBatchMigrationPublishedResourceType";
+export { SecurityMonitoringBatchMigrationPublishRequest } from "./models/SecurityMonitoringBatchMigrationPublishRequest";
+export { SecurityMonitoringBatchMigrationPublishResponse } from "./models/SecurityMonitoringBatchMigrationPublishResponse";
+export { SecurityMonitoringBatchMigrationPublishType } from "./models/SecurityMonitoringBatchMigrationPublishType";
+export { SecurityMonitoringBatchMigrationResourceAttributes } from "./models/SecurityMonitoringBatchMigrationResourceAttributes";
+export { SecurityMonitoringBatchMigrationResourceCreateItem } from "./models/SecurityMonitoringBatchMigrationResourceCreateItem";
+export { SecurityMonitoringBatchMigrationResourceData } from "./models/SecurityMonitoringBatchMigrationResourceData";
+export { SecurityMonitoringBatchMigrationResourceInputType } from "./models/SecurityMonitoringBatchMigrationResourceInputType";
+export { SecurityMonitoringBatchMigrationResourceResponse } from "./models/SecurityMonitoringBatchMigrationResourceResponse";
+export { SecurityMonitoringBatchMigrationResourcesCreateAttributes } from "./models/SecurityMonitoringBatchMigrationResourcesCreateAttributes";
+export { SecurityMonitoringBatchMigrationResourcesCreateData } from "./models/SecurityMonitoringBatchMigrationResourcesCreateData";
+export { SecurityMonitoringBatchMigrationResourcesCreateRequest } from "./models/SecurityMonitoringBatchMigrationResourcesCreateRequest";
+export { SecurityMonitoringBatchMigrationResourcesCreateResponse } from "./models/SecurityMonitoringBatchMigrationResourcesCreateResponse";
+export { SecurityMonitoringBatchMigrationResourcesDeleteAttributes } from "./models/SecurityMonitoringBatchMigrationResourcesDeleteAttributes";
+export { SecurityMonitoringBatchMigrationResourcesDeleteData } from "./models/SecurityMonitoringBatchMigrationResourcesDeleteData";
+export { SecurityMonitoringBatchMigrationResourcesDeleteRequest } from "./models/SecurityMonitoringBatchMigrationResourcesDeleteRequest";
+export { SecurityMonitoringBatchMigrationResourcesListResponse } from "./models/SecurityMonitoringBatchMigrationResourcesListResponse";
+export { SecurityMonitoringBatchMigrationResourceStatus } from "./models/SecurityMonitoringBatchMigrationResourceStatus";
+export { SecurityMonitoringBatchMigrationResourceStatusCounts } from "./models/SecurityMonitoringBatchMigrationResourceStatusCounts";
+export { SecurityMonitoringBatchMigrationResourcesType } from "./models/SecurityMonitoringBatchMigrationResourcesType";
+export { SecurityMonitoringBatchMigrationResourceType } from "./models/SecurityMonitoringBatchMigrationResourceType";
+export { SecurityMonitoringBatchMigrationResourceUpdateAttributes } from "./models/SecurityMonitoringBatchMigrationResourceUpdateAttributes";
+export { SecurityMonitoringBatchMigrationResourceUpdateData } from "./models/SecurityMonitoringBatchMigrationResourceUpdateData";
+export { SecurityMonitoringBatchMigrationResourceUpdateRequest } from "./models/SecurityMonitoringBatchMigrationResourceUpdateRequest";
+export { SecurityMonitoringBatchMigrationResponse } from "./models/SecurityMonitoringBatchMigrationResponse";
+export { SecurityMonitoringBatchMigrationsListResponse } from "./models/SecurityMonitoringBatchMigrationsListResponse";
+export { SecurityMonitoringBatchMigrationStatus } from "./models/SecurityMonitoringBatchMigrationStatus";
+export { SecurityMonitoringBatchMigrationType } from "./models/SecurityMonitoringBatchMigrationType";
+export { SecurityMonitoringBatchMigrationUpdateAttributes } from "./models/SecurityMonitoringBatchMigrationUpdateAttributes";
+export { SecurityMonitoringBatchMigrationUpdateData } from "./models/SecurityMonitoringBatchMigrationUpdateData";
+export { SecurityMonitoringBatchMigrationUpdateRequest } from "./models/SecurityMonitoringBatchMigrationUpdateRequest";
 export { SecurityMonitoringContentPackActivation } from "./models/SecurityMonitoringContentPackActivation";
 export { SecurityMonitoringContentPackAppSecDetails } from "./models/SecurityMonitoringContentPackAppSecDetails";
 export { SecurityMonitoringContentPackAppSecDetailsType } from "./models/SecurityMonitoringContentPackAppSecDetailsType";
