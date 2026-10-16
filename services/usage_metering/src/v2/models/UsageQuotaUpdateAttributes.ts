@@ -1,13 +1,17 @@
 import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
 /**
- * Attributes to update on a usage quota. Omitting a property leaves its current value unchanged.
+ * Attributes to update on a usage quota. At least one of `usage_limit`, `enforced`, or `pending_usage_limit` must be provided. Omitting a property leaves its current value unchanged.
  */
 export class UsageQuotaUpdateAttributes {
   /**
    * Whether to actively block usage above the limit. Omit this field to leave the current enforcement setting unchanged.
    */
   "enforced"?: boolean;
+  /**
+   * The non-negative, whole-number limit to schedule for the organization-wide quota in the usage units defined by the quota namespace. It is not checked against current usage. Each write schedules the value for 00:00 UTC on the first day of the next calendar month and replaces any previously scheduled change; the server computes `pending_effective_from`. Omit this field to leave any scheduled change unchanged, including when raising `usage_limit`; use `DELETE /api/v2/usage/quotas/{quota_namespace}/{id}/pending` to cancel one.
+   */
+  "pendingUsageLimit"?: number;
   /**
    * The new quota limit in the usage units defined by the quota namespace. For an organization-wide quota (empty scope), the limit must be greater than the usage already recorded in the current period. Omit this field to leave the current limit unchanged.
    */
@@ -30,6 +34,11 @@ export class UsageQuotaUpdateAttributes {
     enforced: {
       baseName: "enforced",
       type: "boolean",
+    },
+    pendingUsageLimit: {
+      baseName: "pending_usage_limit",
+      type: "number",
+      format: "int64",
     },
     usageLimit: {
       baseName: "usage_limit",
