@@ -60,6 +60,8 @@ import { ListWorkflowsResponseMetaPage } from "./ListWorkflowsResponseMetaPage";
 import { MonitorTrigger } from "./MonitorTrigger";
 import { MonitorTriggerWrapper } from "./MonitorTriggerWrapper";
 import { NotebookTriggerWrapper } from "./NotebookTriggerWrapper";
+import { OnCallShiftChangeTrigger } from "./OnCallShiftChangeTrigger";
+import { OnCallShiftChangeTriggerWrapper } from "./OnCallShiftChangeTriggerWrapper";
 import { OnCallTrigger } from "./OnCallTrigger";
 import { OnCallTriggerWrapper } from "./OnCallTriggerWrapper";
 import { OutboundEdge } from "./OutboundEdge";
@@ -182,6 +184,7 @@ export const TypingInfo: ModelTypingInfo = {
       "IncidentTriggerWrapper",
       "MonitorTriggerWrapper",
       "NotebookTriggerWrapper",
+      "OnCallShiftChangeTriggerWrapper",
       "OnCallTriggerWrapper",
       "ScheduleTriggerWrapper",
       "SecurityTriggerWrapper",
@@ -259,6 +262,8 @@ export const TypingInfo: ModelTypingInfo = {
     MonitorTrigger: MonitorTrigger,
     MonitorTriggerWrapper: MonitorTriggerWrapper,
     NotebookTriggerWrapper: NotebookTriggerWrapper,
+    OnCallShiftChangeTrigger: OnCallShiftChangeTrigger,
+    OnCallShiftChangeTriggerWrapper: OnCallShiftChangeTriggerWrapper,
     OnCallTrigger: OnCallTrigger,
     OnCallTriggerWrapper: OnCallTriggerWrapper,
     OutboundEdge: OutboundEdge,
