@@ -1074,16 +1074,19 @@ export {
 
 export {
   MetricsApiCreateBulkTagsMetricsConfigurationRequest,
+  MetricsApiCreateDerivedMetricRequest,
   MetricsApiCreateHistoricalMetricsConfigurationRequest,
   MetricsApiCreateTagConfigurationRequest,
   MetricsApiCreateTagIndexingRuleRequest,
   MetricsApiCreateTagIndexingRuleExemptionRequest,
   MetricsApiDeleteBulkTagsMetricsConfigurationRequest,
+  MetricsApiDeleteDerivedMetricRequest,
   MetricsApiDeleteHistoricalMetricsConfigurationRequest,
   MetricsApiDeleteTagConfigurationRequest,
   MetricsApiDeleteTagIndexingRuleRequest,
   MetricsApiDeleteTagIndexingRuleExemptionRequest,
   MetricsApiEstimateMetricsOutputSeriesRequest,
+  MetricsApiGetDerivedMetricRequest,
   MetricsApiGetHistoricalMetricsConfigurationRequest,
   MetricsApiGetMetricTagCardinalityDetailsRequest,
   MetricsApiGetTagIndexingRuleRequest,
@@ -1100,6 +1103,7 @@ export {
   MetricsApiQueryTimeseriesDataRequest,
   MetricsApiReorderTagIndexingRulesRequest,
   MetricsApiSubmitMetricsRequest,
+  MetricsApiUpdateDerivedMetricRequest,
   MetricsApiUpdateTagConfigurationRequest,
   MetricsApiUpdateTagIndexingRuleRequest,
   MetricsApi,
@@ -4135,6 +4139,14 @@ export { DeploymentRuleResponseDataAttributesCreatedBy } from "./models/Deployme
 export { DeploymentRuleResponseDataAttributesType } from "./models/DeploymentRuleResponseDataAttributesType";
 export { DeploymentRuleResponseDataAttributesUpdatedBy } from "./models/DeploymentRuleResponseDataAttributesUpdatedBy";
 export { DeploymentRulesOptions } from "./models/DeploymentRulesOptions";
+export { DerivedMetricAttributes } from "./models/DerivedMetricAttributes";
+export { DerivedMetricCreateData } from "./models/DerivedMetricCreateData";
+export { DerivedMetricCreateRequest } from "./models/DerivedMetricCreateRequest";
+export { DerivedMetricData } from "./models/DerivedMetricData";
+export { DerivedMetricDefinition } from "./models/DerivedMetricDefinition";
+export { DerivedMetricQuery } from "./models/DerivedMetricQuery";
+export { DerivedMetricResponse } from "./models/DerivedMetricResponse";
+export { DerivedMetricsType } from "./models/DerivedMetricsType";
 export { DetachCaseRequest } from "./models/DetachCaseRequest";
 export { DetachCaseRequestData } from "./models/DetachCaseRequestData";
 export { DetachCaseRequestDataRelationships } from "./models/DetachCaseRequestDataRelationships";

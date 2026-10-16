@@ -17,6 +17,8 @@ import { ObjectSerializer } from "../models/ObjectSerializer";
 import { ApiException } from "../../datadog-api-client-common/exception";
 
 import { APIErrorResponse } from "../models/APIErrorResponse";
+import { DerivedMetricCreateRequest } from "../models/DerivedMetricCreateRequest";
+import { DerivedMetricResponse } from "../models/DerivedMetricResponse";
 import { HistoricalMetricsConfigurationCreateRequest } from "../models/HistoricalMetricsConfigurationCreateRequest";
 import { HistoricalMetricsConfigurationResponse } from "../models/HistoricalMetricsConfigurationResponse";
 import { IntakePayloadAccepted } from "../models/IntakePayloadAccepted";
@@ -84,6 +86,53 @@ export class MetricsApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
       ObjectSerializer.serialize(body, "MetricBulkTagConfigCreateRequest", ""),
+      contentType
+    );
+    requestContext.setBody(serializedBody);
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+      "AuthZ",
+    ]);
+
+    return requestContext;
+  }
+
+  public async createDerivedMetric(
+    body: DerivedMetricCreateRequest,
+    _options?: Configuration
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    // verify required parameter 'body' is not null or undefined
+    if (body === null || body === undefined) {
+      throw new RequiredError("body", "createDerivedMetric");
+    }
+
+    // Path Params
+    const localVarPath = "/api/v2/metrics/derived-metrics";
+
+    // Make Request Context
+    const requestContext = _config
+      .getServer("v2.MetricsApi.createDerivedMetric")
+      .makeRequestContext(localVarPath, HttpMethod.POST);
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Set IaC header
+    if (_config.isIaC) {
+      requestContext.setHeaderParam("X-Datadog-Managed-By", "iac");
+    }
+
+    // Body Params
+    const contentType = ObjectSerializer.getPreferredMediaType([
+      "application/json",
+    ]);
+    requestContext.setHeaderParam("Content-Type", contentType);
+    const serializedBody = ObjectSerializer.stringify(
+      ObjectSerializer.serialize(body, "DerivedMetricCreateRequest", ""),
       contentType
     );
     requestContext.setBody(serializedBody);
@@ -387,6 +436,46 @@ export class MetricsApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
+  public async deleteDerivedMetric(
+    metricName: string,
+    _options?: Configuration
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    // verify required parameter 'metricName' is not null or undefined
+    if (metricName === null || metricName === undefined) {
+      throw new RequiredError("metricName", "deleteDerivedMetric");
+    }
+
+    // Path Params
+    const localVarPath =
+      "/api/v2/metrics/derived-metrics/{metric_name}".replace(
+        "{metric_name}",
+        encodeURIComponent(String(metricName))
+      );
+
+    // Make Request Context
+    const requestContext = _config
+      .getServer("v2.MetricsApi.deleteDerivedMetric")
+      .makeRequestContext(localVarPath, HttpMethod.DELETE);
+    requestContext.setHeaderParam("Accept", "*/*");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Set IaC header
+    if (_config.isIaC) {
+      requestContext.setHeaderParam("X-Datadog-Managed-By", "iac");
+    }
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+      "AuthZ",
+    ]);
+
+    return requestContext;
+  }
+
   public async deleteHistoricalMetricsConfiguration(
     metricName: string,
     _options?: Configuration
@@ -648,6 +737,46 @@ export class MetricsApiRequestFactory extends BaseAPIRequestFactory {
         ObjectSerializer.serialize(filterTimespanH, "number", "int32"),
         ""
       );
+    }
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+      "AuthZ",
+    ]);
+
+    return requestContext;
+  }
+
+  public async getDerivedMetric(
+    metricName: string,
+    _options?: Configuration
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    // verify required parameter 'metricName' is not null or undefined
+    if (metricName === null || metricName === undefined) {
+      throw new RequiredError("metricName", "getDerivedMetric");
+    }
+
+    // Path Params
+    const localVarPath =
+      "/api/v2/metrics/derived-metrics/{metric_name}".replace(
+        "{metric_name}",
+        encodeURIComponent(String(metricName))
+      );
+
+    // Make Request Context
+    const requestContext = _config
+      .getServer("v2.MetricsApi.getDerivedMetric")
+      .makeRequestContext(localVarPath, HttpMethod.GET);
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Set IaC header
+    if (_config.isIaC) {
+      requestContext.setHeaderParam("X-Datadog-Managed-By", "iac");
     }
 
     // Apply auth methods
@@ -1567,6 +1696,63 @@ export class MetricsApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
+  public async updateDerivedMetric(
+    metricName: string,
+    body: DerivedMetricCreateRequest,
+    _options?: Configuration
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    // verify required parameter 'metricName' is not null or undefined
+    if (metricName === null || metricName === undefined) {
+      throw new RequiredError("metricName", "updateDerivedMetric");
+    }
+
+    // verify required parameter 'body' is not null or undefined
+    if (body === null || body === undefined) {
+      throw new RequiredError("body", "updateDerivedMetric");
+    }
+
+    // Path Params
+    const localVarPath =
+      "/api/v2/metrics/derived-metrics/{metric_name}".replace(
+        "{metric_name}",
+        encodeURIComponent(String(metricName))
+      );
+
+    // Make Request Context
+    const requestContext = _config
+      .getServer("v2.MetricsApi.updateDerivedMetric")
+      .makeRequestContext(localVarPath, HttpMethod.PUT);
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Set IaC header
+    if (_config.isIaC) {
+      requestContext.setHeaderParam("X-Datadog-Managed-By", "iac");
+    }
+
+    // Body Params
+    const contentType = ObjectSerializer.getPreferredMediaType([
+      "application/json",
+    ]);
+    requestContext.setHeaderParam("Content-Type", contentType);
+    const serializedBody = ObjectSerializer.stringify(
+      ObjectSerializer.serialize(body, "DerivedMetricCreateRequest", ""),
+      contentType
+    );
+    requestContext.setBody(serializedBody);
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+      "AuthZ",
+    ]);
+
+    return requestContext;
+  }
+
   public async updateTagConfiguration(
     metricName: string,
     body: MetricTagConfigurationUpdateRequest,
@@ -1743,6 +1929,69 @@ export class MetricsApiResponseProcessor {
         "MetricBulkTagConfigResponse",
         ""
       ) as MetricBulkTagConfigResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"'
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
+   * @params response Response returned by the server for a request to createDerivedMetric
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async createDerivedMetric(
+    response: ResponseContext
+  ): Promise<DerivedMetricResponse> {
+    const contentType = ObjectSerializer.normalizeMediaType(
+      response.headers["content-type"]
+    );
+    if (response.httpStatusCode === 201) {
+      const body: DerivedMetricResponse = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "DerivedMetricResponse"
+      ) as DerivedMetricResponse;
+      return body;
+    }
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 409 ||
+      response.httpStatusCode === 429
+    ) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: APIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "APIErrorResponse"
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: DerivedMetricResponse = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "DerivedMetricResponse",
+        ""
+      ) as DerivedMetricResponse;
       return body;
     }
 
@@ -2102,6 +2351,53 @@ export class MetricsApiResponseProcessor {
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
    *
+   * @params response Response returned by the server for a request to deleteDerivedMetric
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async deleteDerivedMetric(response: ResponseContext): Promise<void> {
+    const contentType = ObjectSerializer.normalizeMediaType(
+      response.headers["content-type"]
+    );
+    if (response.httpStatusCode === 204) {
+      return;
+    }
+    if (response.httpStatusCode === 400 || response.httpStatusCode === 429) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: APIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "APIErrorResponse"
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      return;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"'
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
    * @params response Response returned by the server for a request to deleteHistoricalMetricsConfiguration
    * @throws ApiException if the response code was not in [200, 299]
    */
@@ -2386,6 +2682,68 @@ export class MetricsApiResponseProcessor {
         "MetricEstimateResponse",
         ""
       ) as MetricEstimateResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"'
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
+   * @params response Response returned by the server for a request to getDerivedMetric
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async getDerivedMetric(
+    response: ResponseContext
+  ): Promise<DerivedMetricResponse> {
+    const contentType = ObjectSerializer.normalizeMediaType(
+      response.headers["content-type"]
+    );
+    if (response.httpStatusCode === 200) {
+      const body: DerivedMetricResponse = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "DerivedMetricResponse"
+      ) as DerivedMetricResponse;
+      return body;
+    }
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 404 ||
+      response.httpStatusCode === 429
+    ) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: APIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "APIErrorResponse"
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: DerivedMetricResponse = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "DerivedMetricResponse",
+        ""
+      ) as DerivedMetricResponse;
       return body;
     }
 
@@ -3440,6 +3798,68 @@ export class MetricsApiResponseProcessor {
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
    *
+   * @params response Response returned by the server for a request to updateDerivedMetric
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async updateDerivedMetric(
+    response: ResponseContext
+  ): Promise<DerivedMetricResponse> {
+    const contentType = ObjectSerializer.normalizeMediaType(
+      response.headers["content-type"]
+    );
+    if (response.httpStatusCode === 200) {
+      const body: DerivedMetricResponse = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "DerivedMetricResponse"
+      ) as DerivedMetricResponse;
+      return body;
+    }
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 404 ||
+      response.httpStatusCode === 429
+    ) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: APIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "APIErrorResponse"
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: DerivedMetricResponse = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "DerivedMetricResponse",
+        ""
+      ) as DerivedMetricResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"'
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
    * @params response Response returned by the server for a request to updateTagConfiguration
    * @throws ApiException if the response code was not in [200, 299]
    */
@@ -3574,6 +3994,13 @@ export interface MetricsApiCreateBulkTagsMetricsConfigurationRequest {
   body: MetricBulkTagConfigCreateRequest;
 }
 
+export interface MetricsApiCreateDerivedMetricRequest {
+  /**
+   * @type DerivedMetricCreateRequest
+   */
+  body: DerivedMetricCreateRequest;
+}
+
 export interface MetricsApiCreateHistoricalMetricsConfigurationRequest {
   /**
    * @type HistoricalMetricsConfigurationCreateRequest
@@ -3617,6 +4044,14 @@ export interface MetricsApiDeleteBulkTagsMetricsConfigurationRequest {
    * @type MetricBulkTagConfigDeleteRequest
    */
   body: MetricBulkTagConfigDeleteRequest;
+}
+
+export interface MetricsApiDeleteDerivedMetricRequest {
+  /**
+   * The name of the metric.
+   * @type string
+   */
+  metricName: string;
 }
 
 export interface MetricsApiDeleteHistoricalMetricsConfigurationRequest {
@@ -3687,6 +4122,14 @@ export interface MetricsApiEstimateMetricsOutputSeriesRequest {
    * @type number
    */
   filterTimespanH?: number;
+}
+
+export interface MetricsApiGetDerivedMetricRequest {
+  /**
+   * The name of the metric.
+   * @type string
+   */
+  metricName: string;
 }
 
 export interface MetricsApiGetHistoricalMetricsConfigurationRequest {
@@ -3940,6 +4383,18 @@ export interface MetricsApiSubmitMetricsRequest {
   contentEncoding?: MetricContentEncoding;
 }
 
+export interface MetricsApiUpdateDerivedMetricRequest {
+  /**
+   * The name of the metric.
+   * @type string
+   */
+  metricName: string;
+  /**
+   * @type DerivedMetricCreateRequest
+   */
+  body: DerivedMetricCreateRequest;
+}
+
 export interface MetricsApiUpdateTagConfigurationRequest {
   /**
    * The name of the metric.
@@ -4009,6 +4464,29 @@ export class MetricsApi {
           return this.responseProcessor.createBulkTagsMetricsConfiguration(
             responseContext
           );
+        });
+    });
+  }
+
+  /**
+   * Create a derived metric for the org. The metric name is supplied as the resource `id`,
+   * and the `definition` sets the formula and the queries the formula is computed from.
+   * Requires the `Manage Tags for Metrics` permission.
+   * @param param The request object
+   */
+  public createDerivedMetric(
+    param: MetricsApiCreateDerivedMetricRequest,
+    options?: Configuration
+  ): Promise<DerivedMetricResponse> {
+    const requestContextPromise = this.requestFactory.createDerivedMetric(
+      param.body,
+      options
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.createDerivedMetric(responseContext);
         });
     });
   }
@@ -4145,6 +4623,28 @@ export class MetricsApi {
   }
 
   /**
+   * Delete a derived metric by name. Idempotent: returns 204 regardless of whether the derived
+   * metric existed. Requires the `Manage Tags for Metrics` permission.
+   * @param param The request object
+   */
+  public deleteDerivedMetric(
+    param: MetricsApiDeleteDerivedMetricRequest,
+    options?: Configuration
+  ): Promise<void> {
+    const requestContextPromise = this.requestFactory.deleteDerivedMetric(
+      param.metricName,
+      options
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.deleteDerivedMetric(responseContext);
+        });
+    });
+  }
+
+  /**
    * Disable historical metrics ingestion for a metric. Idempotent: always returns 204,
    * whether or not the configuration existed or the metric itself still exists, so that
    * Terraform destroy succeeds for a metric removed out-of-band.
@@ -4268,6 +4768,27 @@ export class MetricsApi {
           return this.responseProcessor.estimateMetricsOutputSeries(
             responseContext
           );
+        });
+    });
+  }
+
+  /**
+   * Get the definition of a derived metric by name.
+   * @param param The request object
+   */
+  public getDerivedMetric(
+    param: MetricsApiGetDerivedMetricRequest,
+    options?: Configuration
+  ): Promise<DerivedMetricResponse> {
+    const requestContextPromise = this.requestFactory.getDerivedMetric(
+      param.metricName,
+      options
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.getDerivedMetric(responseContext);
         });
     });
   }
@@ -4746,6 +5267,29 @@ export class MetricsApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.submitMetrics(responseContext);
+        });
+    });
+  }
+
+  /**
+   * Update the definition of an existing derived metric. The `id` in the request body
+   * must match the `metric_name` path parameter. Requires the `Manage Tags for Metrics` permission.
+   * @param param The request object
+   */
+  public updateDerivedMetric(
+    param: MetricsApiUpdateDerivedMetricRequest,
+    options?: Configuration
+  ): Promise<DerivedMetricResponse> {
+    const requestContextPromise = this.requestFactory.updateDerivedMetric(
+      param.metricName,
+      param.body,
+      options
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.updateDerivedMetric(responseContext);
         });
     });
   }
