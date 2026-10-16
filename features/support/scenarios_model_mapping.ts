@@ -14001,6 +14001,38 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             },
         "operationResponseType": "MetricBulkTagConfigResponse",
     },
+    "v2.CreateDerivedMetric": {
+        "body": {
+            "type": "DerivedMetricCreateRequest",
+            "format": "",
+            },
+        "operationResponseType": "DerivedMetricResponse",
+    },
+    "v2.GetDerivedMetric": {
+        "metricName": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "DerivedMetricResponse",
+    },
+    "v2.UpdateDerivedMetric": {
+        "metricName": {
+            "type": "string",
+            "format": "",
+            },
+        "body": {
+            "type": "DerivedMetricCreateRequest",
+            "format": "",
+            },
+        "operationResponseType": "DerivedMetricResponse",
+    },
+    "v2.DeleteDerivedMetric": {
+        "metricName": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "{}",
+    },
     "v2.CreateHistoricalMetricsConfiguration": {
         "body": {
             "type": "HistoricalMetricsConfigurationCreateRequest",
