@@ -11,7 +11,6 @@ const configuration = client.createConfiguration({
     },
   },
 });
-configuration.unstableOperations["v2.createExclusionFilter"] = true;
 const apiInstance = new v2.RumRetentionFiltersApi(configuration);
 
 const params: v2.RumRetentionFiltersApiCreateExclusionFilterRequest = {
