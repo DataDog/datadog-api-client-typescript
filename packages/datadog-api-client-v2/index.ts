@@ -7290,6 +7290,8 @@ export { OnCallNotificationRuleType } from "./models/OnCallNotificationRuleType"
 export { OnCallPageTargetType } from "./models/OnCallPageTargetType";
 export { OnCallPhoneNotificationRuleMethod } from "./models/OnCallPhoneNotificationRuleMethod";
 export { OnCallPhoneNotificationRuleSettings } from "./models/OnCallPhoneNotificationRuleSettings";
+export { OnCallShiftChangeTrigger } from "./models/OnCallShiftChangeTrigger";
+export { OnCallShiftChangeTriggerWrapper } from "./models/OnCallShiftChangeTriggerWrapper";
 export { OnCallTrigger } from "./models/OnCallTrigger";
 export { OnCallTriggerWrapper } from "./models/OnCallTriggerWrapper";
 export { OnDemandConcurrencyCap } from "./models/OnDemandConcurrencyCap";
