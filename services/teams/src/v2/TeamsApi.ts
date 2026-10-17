@@ -5314,6 +5314,7 @@ export class TeamsApi {
   /**
    * Get all teams.
    * Can be used to search for teams using the `filter[keyword]` and `filter[me]` query parameters.
+   * This temporary change validates the spec merge gate approval flow.
    * @param param The request object
    */
   public listTeams(
