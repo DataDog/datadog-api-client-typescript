@@ -6963,6 +6963,127 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             },
         "operationResponseType": "ListVulnerableAssetsResponse",
     },
+    "v2.ListSecurityMonitoringBatchMigrations": {
+        "pageSize": {
+            "type": "number",
+            "format": "int64",
+            },
+        "pageNumber": {
+            "type": "number",
+            "format": "int64",
+            },
+        "filterQuery": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "SecurityMonitoringBatchMigrationsListResponse",
+    },
+    "v2.CreateSecurityMonitoringBatchMigration": {
+        "body": {
+            "type": "SecurityMonitoringBatchMigrationCreateRequest",
+            "format": "",
+            },
+        "operationResponseType": "SecurityMonitoringBatchMigrationResponse",
+    },
+    "v2.DeleteSecurityMonitoringBatchMigration": {
+        "batchId": {
+            "type": "string",
+            "format": "uuid",
+            },
+        "operationResponseType": "{}",
+    },
+    "v2.UpdateSecurityMonitoringBatchMigration": {
+        "batchId": {
+            "type": "string",
+            "format": "uuid",
+            },
+        "body": {
+            "type": "SecurityMonitoringBatchMigrationUpdateRequest",
+            "format": "",
+            },
+        "operationResponseType": "SecurityMonitoringBatchMigrationResponse",
+    },
+    "v2.CancelSecurityMonitoringBatchMigration": {
+        "batchId": {
+            "type": "string",
+            "format": "uuid",
+            },
+        "operationResponseType": "{}",
+    },
+    "v2.PublishSecurityMonitoringBatchMigration": {
+        "batchId": {
+            "type": "string",
+            "format": "uuid",
+            },
+        "body": {
+            "type": "SecurityMonitoringBatchMigrationPublishRequest",
+            "format": "",
+            },
+        "operationResponseType": "SecurityMonitoringBatchMigrationPublishResponse",
+    },
+    "v2.ListSecurityMonitoringBatchMigrationResources": {
+        "batchId": {
+            "type": "string",
+            "format": "uuid",
+            },
+        "pageSize": {
+            "type": "number",
+            "format": "int64",
+            },
+        "pageNumber": {
+            "type": "number",
+            "format": "int64",
+            },
+        "filterQuery": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "SecurityMonitoringBatchMigrationResourcesListResponse",
+    },
+    "v2.CreateSecurityMonitoringBatchMigrationResources": {
+        "batchId": {
+            "type": "string",
+            "format": "uuid",
+            },
+        "body": {
+            "type": "SecurityMonitoringBatchMigrationResourcesCreateRequest",
+            "format": "",
+            },
+        "operationResponseType": "SecurityMonitoringBatchMigrationResourcesCreateResponse",
+    },
+    "v2.DeleteSecurityMonitoringBatchMigrationResources": {
+        "batchId": {
+            "type": "string",
+            "format": "uuid",
+            },
+        "body": {
+            "type": "SecurityMonitoringBatchMigrationResourcesDeleteRequest",
+            "format": "",
+            },
+        "operationResponseType": "{}",
+    },
+    "v2.UpdateSecurityMonitoringBatchMigrationResource": {
+        "batchId": {
+            "type": "string",
+            "format": "uuid",
+            },
+        "resourceId": {
+            "type": "string",
+            "format": "uuid",
+            },
+        "body": {
+            "type": "SecurityMonitoringBatchMigrationResourceUpdateRequest",
+            "format": "",
+            },
+        "operationResponseType": "SecurityMonitoringBatchMigrationResourceResponse",
+    },
+    "v2.StartSecurityMonitoringBatchMigration": {
+        "batchId": {
+            "type": "string",
+            "format": "uuid",
+            },
+        "operationResponseType": "{}",
+    },
     "v2.ListSecurityMonitoringCriticalAssets": {
         "operationResponseType": "SecurityMonitoringCriticalAssetsResponse",
     },
