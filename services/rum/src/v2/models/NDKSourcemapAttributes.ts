@@ -1,5 +1,7 @@
 import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
+import { NDKSourcemapMapKind } from "./NDKSourcemapMapKind";
+
 /**
  * Attributes of an Android NDK symbol file.
  */
@@ -21,9 +23,9 @@ export class NDKSourcemapAttributes {
    */
   "fileName"?: string;
   /**
-   * The type of source map.
+   * The type of source map. Always `ndk` for Android NDK source maps.
    */
-  "mapkind": string;
+  "mapkind": NDKSourcemapMapKind;
   /**
    * The size of the symbol file in bytes.
    */
@@ -63,7 +65,7 @@ export class NDKSourcemapAttributes {
     },
     mapkind: {
       baseName: "mapkind",
-      type: "string",
+      type: "NDKSourcemapMapKind",
       required: true,
     },
     size: {

@@ -19,6 +19,8 @@ import { JVMSourcemapData } from "./JVMSourcemapData";
 import { ListSourcemapsResponse } from "./ListSourcemapsResponse";
 import { NDKSourcemapAttributes } from "./NDKSourcemapAttributes";
 import { NDKSourcemapData } from "./NDKSourcemapData";
+import { PortablePdbSourcemapAttributes } from "./PortablePdbSourcemapAttributes";
+import { PortablePdbSourcemapData } from "./PortablePdbSourcemapData";
 import { RUMAggregateBucketValueTimeseriesPoint } from "./RUMAggregateBucketValueTimeseriesPoint";
 import { RUMAggregateRequest } from "./RUMAggregateRequest";
 import { RUMAggregateSort } from "./RUMAggregateSort";
@@ -68,9 +70,19 @@ import { SourcemapFileResponse } from "./SourcemapFileResponse";
 import { SourcemapsListMeta } from "./SourcemapsListMeta";
 import { SourcemapsListMetaPage } from "./SourcemapsListMetaPage";
 import { SourcemapsResponse } from "./SourcemapsResponse";
+import { WASMSourcemapAttributes } from "./WASMSourcemapAttributes";
+import { WASMSourcemapData } from "./WASMSourcemapData";
 
 export const TypingInfo: ModelTypingInfo = {
   enumsMap: {
+    ELFSourcemapMapKind: ["elf"],
+    FlutterSourcemapMapKind: ["flutter"],
+    IL2CPPSourcemapMapKind: ["il2cpp"],
+    IOSSourcemapMapKind: ["ios"],
+    JSSourcemapMapKind: ["js"],
+    JVMSourcemapMapKind: ["jvm"],
+    NDKSourcemapMapKind: ["ndk"],
+    PortablePdbSourcemapMapKind: ["portable_pdb"],
     RUMAggregateSortType: ["alphabetical", "measure"],
     RUMAggregationFunction: [
       "count",
@@ -97,6 +109,7 @@ export const TypingInfo: ModelTypingInfo = {
     RUMResponseStatus: ["done", "timeout"],
     RUMSort: ["timestamp", "-timestamp"],
     RUMSortOrder: ["asc", "desc"],
+    ReactNativeSourcemapMapKind: ["react"],
     ServiceRepositoryInfoDataType: ["service_repository_info"],
     ServiceRepositoryInfoStatus: [
       "success",
@@ -118,6 +131,7 @@ export const TypingInfo: ModelTypingInfo = {
       "il2cpp",
     ],
     SourcemapSearchBy: ["debug_id"],
+    WASMSourcemapMapKind: ["wasm"],
   },
   oneOfMap: {
     RUMAggregateBucketValue: [
@@ -136,6 +150,8 @@ export const TypingInfo: ModelTypingInfo = {
       "ELFSourcemapData",
       "NDKSourcemapData",
       "IL2CPPSourcemapData",
+      "WASMSourcemapData",
+      "PortablePdbSourcemapData",
     ],
   },
   typeMap: {
@@ -158,6 +174,8 @@ export const TypingInfo: ModelTypingInfo = {
     ListSourcemapsResponse: ListSourcemapsResponse,
     NDKSourcemapAttributes: NDKSourcemapAttributes,
     NDKSourcemapData: NDKSourcemapData,
+    PortablePdbSourcemapAttributes: PortablePdbSourcemapAttributes,
+    PortablePdbSourcemapData: PortablePdbSourcemapData,
     RUMAggregateBucketValueTimeseriesPoint:
       RUMAggregateBucketValueTimeseriesPoint,
     RUMAggregateRequest: RUMAggregateRequest,
@@ -210,5 +228,7 @@ export const TypingInfo: ModelTypingInfo = {
     SourcemapsListMeta: SourcemapsListMeta,
     SourcemapsListMetaPage: SourcemapsListMetaPage,
     SourcemapsResponse: SourcemapsResponse,
+    WASMSourcemapAttributes: WASMSourcemapAttributes,
+    WASMSourcemapData: WASMSourcemapData,
   },
 };

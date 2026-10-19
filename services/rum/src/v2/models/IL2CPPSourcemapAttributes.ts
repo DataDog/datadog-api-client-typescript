@@ -1,5 +1,7 @@
 import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
+import { IL2CPPSourcemapMapKind } from "./IL2CPPSourcemapMapKind";
+
 /**
  * Attributes of an IL2CPP mapping file.
  */
@@ -13,9 +15,9 @@ export class IL2CPPSourcemapAttributes {
    */
   "createdAt": Date;
   /**
-   * The type of source map.
+   * The type of source map. Always `il2cpp` for IL2CPP source maps.
    */
-  "mapkind": string;
+  "mapkind": IL2CPPSourcemapMapKind;
   /**
    * The size of the mapping file in bytes.
    */
@@ -47,7 +49,7 @@ export class IL2CPPSourcemapAttributes {
     },
     mapkind: {
       baseName: "mapkind",
-      type: "string",
+      type: "IL2CPPSourcemapMapKind",
       required: true,
     },
     size: {

@@ -1,5 +1,7 @@
 import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
+import { FlutterSourcemapMapKind } from "./FlutterSourcemapMapKind";
+
 /**
  * Attributes of a Flutter symbol file.
  */
@@ -13,9 +15,9 @@ export class FlutterSourcemapAttributes {
    */
   "createdAt": Date;
   /**
-   * The type of source map.
+   * The type of source map. Always `flutter` for Flutter source maps.
    */
-  "mapkind": string;
+  "mapkind": FlutterSourcemapMapKind;
   /**
    * The service name associated with the symbol file.
    */
@@ -59,7 +61,7 @@ export class FlutterSourcemapAttributes {
     },
     mapkind: {
       baseName: "mapkind",
-      type: "string",
+      type: "FlutterSourcemapMapKind",
       required: true,
     },
     service: {

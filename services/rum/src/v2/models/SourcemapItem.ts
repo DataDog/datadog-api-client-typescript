@@ -7,7 +7,9 @@ import { IOSSourcemapData } from "./IOSSourcemapData";
 import { JSSourcemapData } from "./JSSourcemapData";
 import { JVMSourcemapData } from "./JVMSourcemapData";
 import { NDKSourcemapData } from "./NDKSourcemapData";
+import { PortablePdbSourcemapData } from "./PortablePdbSourcemapData";
 import { ReactNativeSourcemapData } from "./ReactNativeSourcemapData";
+import { WASMSourcemapData } from "./WASMSourcemapData";
 
 /**
  * A source map data object representing one of the supported map kinds.
@@ -21,4 +23,6 @@ export type SourcemapItem =
   | ELFSourcemapData
   | NDKSourcemapData
   | IL2CPPSourcemapData
+  | WASMSourcemapData
+  | PortablePdbSourcemapData
   | UnparsedObject;

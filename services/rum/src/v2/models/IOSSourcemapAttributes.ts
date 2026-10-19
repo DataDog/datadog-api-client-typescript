@@ -1,5 +1,7 @@
 import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
+import { IOSSourcemapMapKind } from "./IOSSourcemapMapKind";
+
 /**
  * Attributes of an iOS dSYM source map.
  */
@@ -9,9 +11,9 @@ export class IOSSourcemapAttributes {
    */
   "createdAt": Date;
   /**
-   * The type of source map.
+   * The type of source map. Always `ios` for iOS dSYM source maps.
    */
-  "mapkind": string;
+  "mapkind": IOSSourcemapMapKind;
   /**
    * The size of the dSYM file in bytes.
    */
@@ -43,7 +45,7 @@ export class IOSSourcemapAttributes {
     },
     mapkind: {
       baseName: "mapkind",
-      type: "string",
+      type: "IOSSourcemapMapKind",
       required: true,
     },
     size: {
