@@ -3,6 +3,7 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
+import { IOSSourcemapMapKind } from "./IOSSourcemapMapKind";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
@@ -15,9 +16,9 @@ export class IOSSourcemapAttributes {
    */
   "createdAt": Date;
   /**
-   * The type of source map.
+   * The type of source map. Always `ios` for iOS dSYM source maps.
    */
-  "mapkind": string;
+  "mapkind": IOSSourcemapMapKind;
   /**
    * The size of the dSYM file in bytes.
    */
@@ -51,7 +52,7 @@ export class IOSSourcemapAttributes {
     },
     mapkind: {
       baseName: "mapkind",
-      type: "string",
+      type: "IOSSourcemapMapKind",
       required: true,
     },
     size: {

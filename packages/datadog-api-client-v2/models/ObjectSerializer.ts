@@ -4270,6 +4270,8 @@ import { PlaylistsSession } from "./PlaylistsSession";
 import { PlaylistsSessionArray } from "./PlaylistsSessionArray";
 import { PlaylistsSessionData } from "./PlaylistsSessionData";
 import { PlaylistsSessionDataAttributes } from "./PlaylistsSessionDataAttributes";
+import { PortablePdbSourcemapAttributes } from "./PortablePdbSourcemapAttributes";
+import { PortablePdbSourcemapData } from "./PortablePdbSourcemapData";
 import { PostmortemAttachmentRequest } from "./PostmortemAttachmentRequest";
 import { PostmortemAttachmentRequestAttributes } from "./PostmortemAttachmentRequestAttributes";
 import { PostmortemAttachmentRequestData } from "./PostmortemAttachmentRequestData";
@@ -6470,6 +6472,8 @@ import { VulnerabilityRelationships } from "./VulnerabilityRelationships";
 import { VulnerabilityRelationshipsAffects } from "./VulnerabilityRelationshipsAffects";
 import { VulnerabilityRelationshipsAffectsData } from "./VulnerabilityRelationshipsAffectsData";
 import { VulnerabilityRisks } from "./VulnerabilityRisks";
+import { WASMSourcemapAttributes } from "./WASMSourcemapAttributes";
+import { WASMSourcemapData } from "./WASMSourcemapData";
 import { Watch } from "./Watch";
 import { WatchData } from "./WatchData";
 import { WatchDataAttributes } from "./WatchDataAttributes";
@@ -7352,6 +7356,7 @@ const enumsMap: { [key: string]: any[] } = {
     "none",
     "unknown",
   ],
+  ELFSourcemapMapKind: ["elf"],
   ElasticCloudIntegrationAccountBasicAuthType: ["basic"],
   EntityContextEntityType: ["siem_entity_identity"],
   EntityContextRevisionsMode: ["latest", "all"],
@@ -7737,6 +7742,7 @@ const enumsMap: { [key: string]: any[] } = {
   FleetDeploymentResourceType: ["deployment"],
   FleetScheduleResourceType: ["schedule"],
   FleetScheduleStatus: ["active", "inactive"],
+  FlutterSourcemapMapKind: ["flutter"],
   FormDataDefinitionType: ["object"],
   FormPublicationType: ["form_publications"],
   FormType: ["forms"],
@@ -7849,6 +7855,8 @@ const enumsMap: { [key: string]: any[] } = {
     "observability_pipelines_bytes_processed",
     "lambda_traced_invocations_count",
   ],
+  IL2CPPSourcemapMapKind: ["il2cpp"],
+  IOSSourcemapMapKind: ["ios"],
   IPAllowlistEntryType: ["ip_allowlist_entry"],
   IPAllowlistType: ["ip_allowlist"],
   IdentityProviderType: ["identity_providers"],
@@ -8053,6 +8061,8 @@ const enumsMap: { [key: string]: any[] } = {
   IssuesSearchRequestDataAttributesTrack: ["trace", "logs", "rum"],
   IssuesSearchRequestDataType: ["search_request"],
   IssuesSearchResultType: ["error_tracking_search_result"],
+  JSSourcemapMapKind: ["js"],
+  JVMSourcemapMapKind: ["jvm"],
   JiraAccountType: ["jira-account"],
   JiraIssueResourceType: ["issues"],
   JiraIssueTemplateType: ["jira-issue-template"],
@@ -8333,6 +8343,7 @@ const enumsMap: { [key: string]: any[] } = {
     "risk_accepted",
   ],
   MuteRuleType: ["mute_rules"],
+  NDKSourcemapMapKind: ["ndk"],
   NetworkHealthInsightCategory: ["dns", "tcp", "tls-cert", "security-group"],
   NetworkHealthInsightFailureType: [
     "timeout",
@@ -8911,6 +8922,7 @@ const enumsMap: { [key: string]: any[] } = {
   ],
   PersonalAccessTokensType: ["personal_access_tokens"],
   PlaylistDataType: ["rum_replay_playlist"],
+  PortablePdbSourcemapMapKind: ["portable_pdb"],
   PostmortemCellType: ["markdown"],
   PostmortemTemplateLocation: [
     "datadog_notebooks",
@@ -9056,6 +9068,7 @@ const enumsMap: { [key: string]: any[] } = {
   RUMResponseStatus: ["done", "timeout"],
   RUMSort: ["timestamp", "-timestamp"],
   RUMSortOrder: ["asc", "desc"],
+  ReactNativeSourcemapMapKind: ["react"],
   ReadinessGateThresholdType: ["ANY", "ALL"],
   RecommendationType: ["recommendation"],
   RecommendationV2RequestType: ["recommendation_v2_request"],
@@ -10187,6 +10200,7 @@ const enumsMap: { [key: string]: any[] } = {
     "XPathInjection",
     "Xss",
   ],
+  WASMSourcemapMapKind: ["wasm"],
   WatchDataType: ["rum_replay_watch"],
   WatcherDataType: ["rum_replay_watcher"],
   WebIntegrationAccountType: ["Account"],
@@ -15548,6 +15562,8 @@ const typeMap: { [index: string]: any } = {
   PlaylistsSessionArray: PlaylistsSessionArray,
   PlaylistsSessionData: PlaylistsSessionData,
   PlaylistsSessionDataAttributes: PlaylistsSessionDataAttributes,
+  PortablePdbSourcemapAttributes: PortablePdbSourcemapAttributes,
+  PortablePdbSourcemapData: PortablePdbSourcemapData,
   PostmortemAttachmentRequest: PostmortemAttachmentRequest,
   PostmortemAttachmentRequestAttributes: PostmortemAttachmentRequestAttributes,
   PostmortemAttachmentRequestData: PostmortemAttachmentRequestData,
@@ -18360,6 +18376,8 @@ const typeMap: { [index: string]: any } = {
   VulnerabilityRelationshipsAffects: VulnerabilityRelationshipsAffects,
   VulnerabilityRelationshipsAffectsData: VulnerabilityRelationshipsAffectsData,
   VulnerabilityRisks: VulnerabilityRisks,
+  WASMSourcemapAttributes: WASMSourcemapAttributes,
+  WASMSourcemapData: WASMSourcemapData,
   Watch: Watch,
   WatchData: WatchData,
   WatchDataAttributes: WatchDataAttributes,
@@ -19271,6 +19289,8 @@ const oneOfMap: { [index: string]: string[] } = {
     "ELFSourcemapData",
     "NDKSourcemapData",
     "IL2CPPSourcemapData",
+    "WASMSourcemapData",
+    "PortablePdbSourcemapData",
   ],
   SpansAggregateBucketValue: [
     "string",

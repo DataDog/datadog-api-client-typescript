@@ -3,6 +3,7 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
+import { ReactNativeSourcemapMapKind } from "./ReactNativeSourcemapMapKind";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
@@ -31,9 +32,9 @@ export class ReactNativeSourcemapAttributes {
    */
   "debugId"?: string;
   /**
-   * The type of source map.
+   * The type of source map. Always `react` for React Native source maps.
    */
-  "mapkind": string;
+  "mapkind": ReactNativeSourcemapMapKind;
   /**
    * The platform the source map was built for (e.g., `ios`, `android`).
    */
@@ -91,7 +92,7 @@ export class ReactNativeSourcemapAttributes {
     },
     mapkind: {
       baseName: "mapkind",
-      type: "string",
+      type: "ReactNativeSourcemapMapKind",
       required: true,
     },
     platform: {

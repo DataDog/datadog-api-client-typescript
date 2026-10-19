@@ -3,6 +3,7 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
+import { NDKSourcemapMapKind } from "./NDKSourcemapMapKind";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
@@ -27,9 +28,9 @@ export class NDKSourcemapAttributes {
    */
   "fileName"?: string;
   /**
-   * The type of source map.
+   * The type of source map. Always `ndk` for Android NDK source maps.
    */
-  "mapkind": string;
+  "mapkind": NDKSourcemapMapKind;
   /**
    * The size of the symbol file in bytes.
    */
@@ -71,7 +72,7 @@ export class NDKSourcemapAttributes {
     },
     mapkind: {
       baseName: "mapkind",
-      type: "string",
+      type: "NDKSourcemapMapKind",
       required: true,
     },
     size: {

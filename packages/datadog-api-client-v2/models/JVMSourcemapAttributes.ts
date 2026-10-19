@@ -3,6 +3,7 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
+import { JVMSourcemapMapKind } from "./JVMSourcemapMapKind";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
@@ -19,9 +20,9 @@ export class JVMSourcemapAttributes {
    */
   "createdAt": Date;
   /**
-   * The type of source map.
+   * The type of source map. Always `jvm` for JVM source maps.
    */
-  "mapkind": string;
+  "mapkind": JVMSourcemapMapKind;
   /**
    * The service name associated with the mapping file.
    */
@@ -71,7 +72,7 @@ export class JVMSourcemapAttributes {
     },
     mapkind: {
       baseName: "mapkind",
-      type: "string",
+      type: "JVMSourcemapMapKind",
       required: true,
     },
     service: {
