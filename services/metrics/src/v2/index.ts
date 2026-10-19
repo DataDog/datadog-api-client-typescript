@@ -1,15 +1,18 @@
 export {
   MetricsApiCreateBulkTagsMetricsConfigurationRequest,
+  MetricsApiCreateDerivedMetricRequest,
   MetricsApiCreateHistoricalMetricsConfigurationRequest,
   MetricsApiCreateTagConfigurationRequest,
   MetricsApiCreateTagIndexingRuleRequest,
   MetricsApiCreateTagIndexingRuleExemptionRequest,
   MetricsApiDeleteBulkTagsMetricsConfigurationRequest,
+  MetricsApiDeleteDerivedMetricRequest,
   MetricsApiDeleteHistoricalMetricsConfigurationRequest,
   MetricsApiDeleteTagConfigurationRequest,
   MetricsApiDeleteTagIndexingRuleRequest,
   MetricsApiDeleteTagIndexingRuleExemptionRequest,
   MetricsApiEstimateMetricsOutputSeriesRequest,
+  MetricsApiGetDerivedMetricRequest,
   MetricsApiGetHistoricalMetricsConfigurationRequest,
   MetricsApiGetMetricTagCardinalityDetailsRequest,
   MetricsApiGetTagIndexingRuleRequest,
@@ -26,6 +29,7 @@ export {
   MetricsApiQueryTimeseriesDataRequest,
   MetricsApiReorderTagIndexingRulesRequest,
   MetricsApiSubmitMetricsRequest,
+  MetricsApiUpdateDerivedMetricRequest,
   MetricsApiUpdateTagConfigurationRequest,
   MetricsApiUpdateTagIndexingRuleRequest,
   MetricsApi,
@@ -46,6 +50,14 @@ export { ContainerDataSource } from "./models/ContainerDataSource";
 export { ContainerScalarQuery } from "./models/ContainerScalarQuery";
 export { ContainerTimeseriesQuery } from "./models/ContainerTimeseriesQuery";
 export { DataScalarColumn } from "./models/DataScalarColumn";
+export { DerivedMetricAttributes } from "./models/DerivedMetricAttributes";
+export { DerivedMetricCreateData } from "./models/DerivedMetricCreateData";
+export { DerivedMetricCreateRequest } from "./models/DerivedMetricCreateRequest";
+export { DerivedMetricData } from "./models/DerivedMetricData";
+export { DerivedMetricDefinition } from "./models/DerivedMetricDefinition";
+export { DerivedMetricQuery } from "./models/DerivedMetricQuery";
+export { DerivedMetricResponse } from "./models/DerivedMetricResponse";
+export { DerivedMetricsType } from "./models/DerivedMetricsType";
 export { EventsAggregation } from "./models/EventsAggregation";
 export { EventsCompute } from "./models/EventsCompute";
 export { EventsDataSource } from "./models/EventsDataSource";

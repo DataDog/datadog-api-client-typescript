@@ -14160,6 +14160,38 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
     },
     operationResponseType: "MetricBulkTagConfigResponse",
   },
+  "MetricsApi.V2.CreateDerivedMetric": {
+    body: {
+      type: "DerivedMetricCreateRequest",
+      format: "",
+    },
+    operationResponseType: "DerivedMetricResponse",
+  },
+  "MetricsApi.V2.GetDerivedMetric": {
+    metricName: {
+      type: "string",
+      format: "",
+    },
+    operationResponseType: "DerivedMetricResponse",
+  },
+  "MetricsApi.V2.UpdateDerivedMetric": {
+    metricName: {
+      type: "string",
+      format: "",
+    },
+    body: {
+      type: "DerivedMetricCreateRequest",
+      format: "",
+    },
+    operationResponseType: "DerivedMetricResponse",
+  },
+  "MetricsApi.V2.DeleteDerivedMetric": {
+    metricName: {
+      type: "string",
+      format: "",
+    },
+    operationResponseType: "{}",
+  },
   "MetricsApi.V2.CreateHistoricalMetricsConfiguration": {
     body: {
       type: "HistoricalMetricsConfigurationCreateRequest",
