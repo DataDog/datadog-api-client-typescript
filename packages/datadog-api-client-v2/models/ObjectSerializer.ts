@@ -1599,6 +1599,13 @@ import { DeploymentRuleResponseData } from "./DeploymentRuleResponseData";
 import { DeploymentRuleResponseDataAttributes } from "./DeploymentRuleResponseDataAttributes";
 import { DeploymentRuleResponseDataAttributesCreatedBy } from "./DeploymentRuleResponseDataAttributesCreatedBy";
 import { DeploymentRuleResponseDataAttributesUpdatedBy } from "./DeploymentRuleResponseDataAttributesUpdatedBy";
+import { DerivedMetricAttributes } from "./DerivedMetricAttributes";
+import { DerivedMetricCreateData } from "./DerivedMetricCreateData";
+import { DerivedMetricCreateRequest } from "./DerivedMetricCreateRequest";
+import { DerivedMetricData } from "./DerivedMetricData";
+import { DerivedMetricDefinition } from "./DerivedMetricDefinition";
+import { DerivedMetricQuery } from "./DerivedMetricQuery";
+import { DerivedMetricResponse } from "./DerivedMetricResponse";
 import { DetachCaseRequest } from "./DetachCaseRequest";
 import { DetachCaseRequestData } from "./DetachCaseRequestData";
 import { DetachCaseRequestDataRelationships } from "./DetachCaseRequestDataRelationships";
@@ -7313,6 +7320,7 @@ const enumsMap: { [key: string]: any[] } = {
     "faulty_deployment_detection",
     "monitor",
   ],
+  DerivedMetricsType: ["derived_metrics"],
   DetailedFindingType: ["detailed_finding"],
   DnsMetricKey: [
     "dns_total_requests",
@@ -12166,6 +12174,13 @@ const typeMap: { [index: string]: any } = {
     DeploymentRuleResponseDataAttributesCreatedBy,
   DeploymentRuleResponseDataAttributesUpdatedBy:
     DeploymentRuleResponseDataAttributesUpdatedBy,
+  DerivedMetricAttributes: DerivedMetricAttributes,
+  DerivedMetricCreateData: DerivedMetricCreateData,
+  DerivedMetricCreateRequest: DerivedMetricCreateRequest,
+  DerivedMetricData: DerivedMetricData,
+  DerivedMetricDefinition: DerivedMetricDefinition,
+  DerivedMetricQuery: DerivedMetricQuery,
+  DerivedMetricResponse: DerivedMetricResponse,
   DetachCaseRequest: DetachCaseRequest,
   DetachCaseRequestData: DetachCaseRequestData,
   DetachCaseRequestDataRelationships: DetachCaseRequestDataRelationships,
