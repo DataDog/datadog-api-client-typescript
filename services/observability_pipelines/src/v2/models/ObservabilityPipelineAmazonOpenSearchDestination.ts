@@ -3,6 +3,7 @@ import { AttributeTypeMap } from "@datadog/datadog-api-client";
 import { ObservabilityPipelineAmazonOpenSearchDestinationAuth } from "./ObservabilityPipelineAmazonOpenSearchDestinationAuth";
 import { ObservabilityPipelineAmazonOpenSearchDestinationType } from "./ObservabilityPipelineAmazonOpenSearchDestinationType";
 import { ObservabilityPipelineBufferOptions } from "./ObservabilityPipelineBufferOptions";
+import { ObservabilityPipelineOpenSearchDestinationDataStream } from "./ObservabilityPipelineOpenSearchDestinationDataStream";
 
 /**
  * The `amazon_opensearch` destination writes logs to Amazon OpenSearch.
@@ -13,8 +14,9 @@ export class ObservabilityPipelineAmazonOpenSearchDestination {
   /**
    * Authentication settings for the Amazon OpenSearch destination.
    * The `strategy` field determines whether basic or AWS-based authentication is used.
+   * When `strategy` is `basic`, use `username_key` and `password_key` to reference credentials stored in environment variables or secrets.
    */
-  "auth": ObservabilityPipelineAmazonOpenSearchDestinationAuth;
+  "auth"?: ObservabilityPipelineAmazonOpenSearchDestinationAuth;
   /**
    * Configuration for buffer settings on destination components.
    */
@@ -23,6 +25,14 @@ export class ObservabilityPipelineAmazonOpenSearchDestination {
    * The index to write logs to.
    */
   "bulkIndex"?: string;
+  /**
+   * Configuration options for writing to OpenSearch Data Streams instead of a fixed index.
+   */
+  "dataStream"?: ObservabilityPipelineOpenSearchDestinationDataStream;
+  /**
+   * Name of the environment variable or secret that holds the Amazon OpenSearch endpoint URL.
+   */
+  "endpointUrlKey"?: string;
   /**
    * The unique identifier for this component.
    */
@@ -53,7 +63,6 @@ export class ObservabilityPipelineAmazonOpenSearchDestination {
     auth: {
       baseName: "auth",
       type: "ObservabilityPipelineAmazonOpenSearchDestinationAuth",
-      required: true,
     },
     buffer: {
       baseName: "buffer",
@@ -61,6 +70,14 @@ export class ObservabilityPipelineAmazonOpenSearchDestination {
     },
     bulkIndex: {
       baseName: "bulk_index",
+      type: "string",
+    },
+    dataStream: {
+      baseName: "data_stream",
+      type: "ObservabilityPipelineOpenSearchDestinationDataStream",
+    },
+    endpointUrlKey: {
+      baseName: "endpoint_url_key",
       type: "string",
     },
     id: {
