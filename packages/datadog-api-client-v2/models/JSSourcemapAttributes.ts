@@ -3,6 +3,7 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
+import { JSSourcemapMapKind } from "./JSSourcemapMapKind";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
@@ -40,9 +41,9 @@ export class JSSourcemapAttributes {
    */
   "fileName"?: string;
   /**
-   * The type of source map.
+   * The type of source map. Always `js` for JavaScript source maps.
    */
-  "mapkind": string;
+  "mapkind": JSSourcemapMapKind;
   /**
    * The service name associated with the source map.
    */
@@ -112,7 +113,7 @@ export class JSSourcemapAttributes {
     },
     mapkind: {
       baseName: "mapkind",
-      type: "string",
+      type: "JSSourcemapMapKind",
       required: true,
     },
     service: {

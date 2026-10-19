@@ -3,6 +3,7 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
+import { ELFSourcemapMapKind } from "./ELFSourcemapMapKind";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
@@ -35,9 +36,9 @@ export class ELFSourcemapAttributes {
    */
   "goBuildId"?: string;
   /**
-   * The type of source map.
+   * The type of source map. Always `elf` for ELF source maps.
    */
-  "mapkind": string;
+  "mapkind": ELFSourcemapMapKind;
   /**
    * The origin of the ELF file.
    */
@@ -99,7 +100,7 @@ export class ELFSourcemapAttributes {
     },
     mapkind: {
       baseName: "mapkind",
-      type: "string",
+      type: "ELFSourcemapMapKind",
       required: true,
     },
     origin: {

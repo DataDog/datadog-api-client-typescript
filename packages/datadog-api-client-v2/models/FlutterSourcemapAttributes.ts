@@ -3,6 +3,7 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
+import { FlutterSourcemapMapKind } from "./FlutterSourcemapMapKind";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
@@ -19,9 +20,9 @@ export class FlutterSourcemapAttributes {
    */
   "createdAt": Date;
   /**
-   * The type of source map.
+   * The type of source map. Always `flutter` for Flutter source maps.
    */
-  "mapkind": string;
+  "mapkind": FlutterSourcemapMapKind;
   /**
    * The service name associated with the symbol file.
    */
@@ -67,7 +68,7 @@ export class FlutterSourcemapAttributes {
     },
     mapkind: {
       baseName: "mapkind",
-      type: "string",
+      type: "FlutterSourcemapMapKind",
       required: true,
     },
     service: {
