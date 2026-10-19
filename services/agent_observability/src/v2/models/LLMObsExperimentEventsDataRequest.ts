@@ -1,7 +1,7 @@
 import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
-import { LLMObsEventType } from "./LLMObsEventType";
 import { LLMObsExperimentEventsDataAttributesRequest } from "./LLMObsExperimentEventsDataAttributesRequest";
+import { LLMObsExperimentType } from "./LLMObsExperimentType";
 
 /**
  * Data object for pushing experiment events.
@@ -12,9 +12,9 @@ export class LLMObsExperimentEventsDataRequest {
    */
   "attributes": LLMObsExperimentEventsDataAttributesRequest;
   /**
-   * Resource type for Agent Observability experiment events.
+   * Resource type of an Agent Observability experiment.
    */
-  "type": LLMObsEventType;
+  "type": LLMObsExperimentType;
   /**
    * A container for additional, undeclared properties.
    * This is a holder for any undeclared properties as specified with
@@ -37,7 +37,7 @@ export class LLMObsExperimentEventsDataRequest {
     },
     type: {
       baseName: "type",
-      type: "LLMObsEventType",
+      type: "LLMObsExperimentType",
       required: true,
     },
     additionalProperties: {
