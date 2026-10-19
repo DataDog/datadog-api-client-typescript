@@ -1,7 +1,7 @@
 import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
+import { LLMObsDatasetType } from "./LLMObsDatasetType";
 import { LLMObsDeleteDatasetRecordsDataAttributesRequest } from "./LLMObsDeleteDatasetRecordsDataAttributesRequest";
-import { LLMObsRecordType } from "./LLMObsRecordType";
 
 /**
  * Data object for deleting records from an Agent Observability dataset.
@@ -12,9 +12,9 @@ export class LLMObsDeleteDatasetRecordsDataRequest {
    */
   "attributes": LLMObsDeleteDatasetRecordsDataAttributesRequest;
   /**
-   * Resource type of Agent Observability dataset records.
+   * Resource type of an Agent Observability dataset.
    */
-  "type": LLMObsRecordType;
+  "type": LLMObsDatasetType;
   /**
    * A container for additional, undeclared properties.
    * This is a holder for any undeclared properties as specified with
@@ -37,7 +37,7 @@ export class LLMObsDeleteDatasetRecordsDataRequest {
     },
     type: {
       baseName: "type",
-      type: "LLMObsRecordType",
+      type: "LLMObsDatasetType",
       required: true,
     },
     additionalProperties: {
