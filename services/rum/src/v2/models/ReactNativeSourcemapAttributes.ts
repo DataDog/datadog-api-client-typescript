@@ -1,5 +1,7 @@
 import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
+import { ReactNativeSourcemapMapKind } from "./ReactNativeSourcemapMapKind";
+
 /**
  * Attributes of a React Native source map.
  */
@@ -25,9 +27,9 @@ export class ReactNativeSourcemapAttributes {
    */
   "debugId"?: string;
   /**
-   * The type of source map.
+   * The type of source map. Always `react` for React Native source maps.
    */
-  "mapkind": string;
+  "mapkind": ReactNativeSourcemapMapKind;
   /**
    * The platform the source map was built for (e.g., `ios`, `android`).
    */
@@ -83,7 +85,7 @@ export class ReactNativeSourcemapAttributes {
     },
     mapkind: {
       baseName: "mapkind",
-      type: "string",
+      type: "ReactNativeSourcemapMapKind",
       required: true,
     },
     platform: {

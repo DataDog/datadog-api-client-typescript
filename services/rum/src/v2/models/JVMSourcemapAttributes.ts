@@ -1,5 +1,7 @@
 import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
+import { JVMSourcemapMapKind } from "./JVMSourcemapMapKind";
+
 /**
  * Attributes of a JVM mapping file.
  */
@@ -13,9 +15,9 @@ export class JVMSourcemapAttributes {
    */
   "createdAt": Date;
   /**
-   * The type of source map.
+   * The type of source map. Always `jvm` for JVM source maps.
    */
-  "mapkind": string;
+  "mapkind": JVMSourcemapMapKind;
   /**
    * The service name associated with the mapping file.
    */
@@ -63,7 +65,7 @@ export class JVMSourcemapAttributes {
     },
     mapkind: {
       baseName: "mapkind",
-      type: "string",
+      type: "JVMSourcemapMapKind",
       required: true,
     },
     service: {

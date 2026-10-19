@@ -1,5 +1,7 @@
 import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
+import { JSSourcemapMapKind } from "./JSSourcemapMapKind";
+
 /**
  * Attributes of a JavaScript source map.
  */
@@ -34,9 +36,9 @@ export class JSSourcemapAttributes {
    */
   "fileName"?: string;
   /**
-   * The type of source map.
+   * The type of source map. Always `js` for JavaScript source maps.
    */
-  "mapkind": string;
+  "mapkind": JSSourcemapMapKind;
   /**
    * The service name associated with the source map.
    */
@@ -104,7 +106,7 @@ export class JSSourcemapAttributes {
     },
     mapkind: {
       baseName: "mapkind",
-      type: "string",
+      type: "JSSourcemapMapKind",
       required: true,
     },
     service: {

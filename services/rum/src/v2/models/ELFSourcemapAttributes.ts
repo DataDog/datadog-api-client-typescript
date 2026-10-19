@@ -1,5 +1,7 @@
 import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
+import { ELFSourcemapMapKind } from "./ELFSourcemapMapKind";
+
 /**
  * Attributes of an ELF symbol file.
  */
@@ -29,9 +31,9 @@ export class ELFSourcemapAttributes {
    */
   "goBuildId"?: string;
   /**
-   * The type of source map.
+   * The type of source map. Always `elf` for ELF source maps.
    */
-  "mapkind": string;
+  "mapkind": ELFSourcemapMapKind;
   /**
    * The origin of the ELF file.
    */
@@ -91,7 +93,7 @@ export class ELFSourcemapAttributes {
     },
     mapkind: {
       baseName: "mapkind",
-      type: "string",
+      type: "ELFSourcemapMapKind",
       required: true,
     },
     origin: {
