@@ -9,9 +9,18 @@ export class ProcessSummaryAttributes {
    */
   "cmdline"?: string;
   /**
+   * Path to the process executable.
+   */
+  "executable"?: string;
+  /**
    * Host running the process.
    */
   "host"?: string;
+  /**
+   * Tags that uniquely identify the process: a host identity tag (`host`, `task_arn`,
+   * or `eks_fargate_node`) and a `pid` tag. Omitted if either tag is unavailable.
+   */
+  "identifyingTags"?: Array<string>;
   /**
    * Process ID.
    */
@@ -55,9 +64,17 @@ export class ProcessSummaryAttributes {
       baseName: "cmdline",
       type: "string",
     },
+    executable: {
+      baseName: "executable",
+      type: "string",
+    },
     host: {
       baseName: "host",
       type: "string",
+    },
+    identifyingTags: {
+      baseName: "identifying_tags",
+      type: "Array<string>",
     },
     pid: {
       baseName: "pid",
