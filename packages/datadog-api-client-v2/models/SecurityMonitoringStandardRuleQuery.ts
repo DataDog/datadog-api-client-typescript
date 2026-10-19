@@ -25,6 +25,14 @@ export class SecurityMonitoringStandardRuleQuery {
    */
   "dataSource"?: SecurityMonitoringStandardDataSource;
   /**
+   * IDs of the datasets queried by the rule. Only used when `queryLanguage` is `sql`.
+   */
+  "datasetIds"?: Array<string>;
+  /**
+   * Version of each dataset used by the rule, keyed by dataset ID. Only used when `queryLanguage` is `sql`.
+   */
+  "datasetVersions"?: { [key: string]: number };
+  /**
    * Field for which the cardinality is measured. Sent as an array.
    */
   "distinctFields"?: Array<string>;
@@ -62,6 +70,10 @@ export class SecurityMonitoringStandardRuleQuery {
    * Query to run on logs.
    */
   "query"?: string;
+  /**
+   * Language of the query. Use `sql` for SQL-based rules over datasets. Defaults to `event_query`.
+   */
+  "queryLanguage"?: string;
 
   /**
    * A container for additional, undeclared properties.
@@ -90,6 +102,14 @@ export class SecurityMonitoringStandardRuleQuery {
     dataSource: {
       baseName: "dataSource",
       type: "SecurityMonitoringStandardDataSource",
+    },
+    datasetIds: {
+      baseName: "datasetIds",
+      type: "Array<string>",
+    },
+    datasetVersions: {
+      baseName: "datasetVersions",
+      type: "{ [key: string]: number; }",
     },
     distinctFields: {
       baseName: "distinctFields",
@@ -125,6 +145,10 @@ export class SecurityMonitoringStandardRuleQuery {
     },
     query: {
       baseName: "query",
+      type: "string",
+    },
+    queryLanguage: {
+      baseName: "queryLanguage",
       type: "string",
     },
     additionalProperties: {
