@@ -10,6 +10,7 @@ import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 /**
  * Authentication settings for the Amazon OpenSearch destination.
  * The `strategy` field determines whether basic or AWS-based authentication is used.
+ * When `strategy` is `basic`, use `username_key` and `password_key` to reference credentials stored in environment variables or secrets.
  */
 export class ObservabilityPipelineAmazonOpenSearchDestinationAuth {
   /**
@@ -25,6 +26,10 @@ export class ObservabilityPipelineAmazonOpenSearchDestinationAuth {
    */
   "externalId"?: string;
   /**
+   * Name of the environment variable or secret that holds the Amazon OpenSearch password (used when `strategy` is `basic`).
+   */
+  "passwordKey"?: string;
+  /**
    * Session name for the assumed role (used with `aws` strategy).
    */
   "sessionName"?: string;
@@ -32,6 +37,10 @@ export class ObservabilityPipelineAmazonOpenSearchDestinationAuth {
    * The authentication strategy to use.
    */
   "strategy": ObservabilityPipelineAmazonOpenSearchDestinationAuthStrategy;
+  /**
+   * Name of the environment variable or secret that holds the Amazon OpenSearch username (used when `strategy` is `basic`).
+   */
+  "usernameKey"?: string;
 
   /**
    * A container for additional, undeclared properties.
@@ -61,6 +70,10 @@ export class ObservabilityPipelineAmazonOpenSearchDestinationAuth {
       baseName: "external_id",
       type: "string",
     },
+    passwordKey: {
+      baseName: "password_key",
+      type: "string",
+    },
     sessionName: {
       baseName: "session_name",
       type: "string",
@@ -69,6 +82,10 @@ export class ObservabilityPipelineAmazonOpenSearchDestinationAuth {
       baseName: "strategy",
       type: "ObservabilityPipelineAmazonOpenSearchDestinationAuthStrategy",
       required: true,
+    },
+    usernameKey: {
+      baseName: "username_key",
+      type: "string",
     },
     additionalProperties: {
       baseName: "additionalProperties",
