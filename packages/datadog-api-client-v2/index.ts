@@ -6180,7 +6180,6 @@ export { LLMObsDisplayBlockAnnotatedInteractionItem } from "./models/LLMObsDispl
 export { LLMObsDisplayBlockInteractionItem } from "./models/LLMObsDisplayBlockInteractionItem";
 export { LLMObsDisplayBlockInteractionResponseItem } from "./models/LLMObsDisplayBlockInteractionResponseItem";
 export { LLMObsDisplayBlockInteractionType } from "./models/LLMObsDisplayBlockInteractionType";
-export { LLMObsEventType } from "./models/LLMObsEventType";
 export { LLMObsExperimentationAnalyticsAggregate } from "./models/LLMObsExperimentationAnalyticsAggregate";
 export { LLMObsExperimentationAnalyticsCompute } from "./models/LLMObsExperimentationAnalyticsCompute";
 export { LLMObsExperimentationAnalyticsDataAttributesRequest } from "./models/LLMObsExperimentationAnalyticsDataAttributesRequest";
@@ -6364,7 +6363,6 @@ export { LLMObsPromptVersionListDataAttributes } from "./models/LLMObsPromptVers
 export { LLMObsPromptVersionResponse } from "./models/LLMObsPromptVersionResponse";
 export { LLMObsPromptVersionsResponse } from "./models/LLMObsPromptVersionsResponse";
 export { LLMObsPromptVersionType } from "./models/LLMObsPromptVersionType";
-export { LLMObsRecordType } from "./models/LLMObsRecordType";
 export { LLMObsSearchSpansRequest } from "./models/LLMObsSearchSpansRequest";
 export { LLMObsSearchSpansRequestAttributes } from "./models/LLMObsSearchSpansRequestAttributes";
 export { LLMObsSearchSpansRequestData } from "./models/LLMObsSearchSpansRequestData";

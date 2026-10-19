@@ -4,7 +4,7 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 import { LLMObsDatasetRecordsDataAttributesRequest } from "./LLMObsDatasetRecordsDataAttributesRequest";
-import { LLMObsRecordType } from "./LLMObsRecordType";
+import { LLMObsDatasetType } from "./LLMObsDatasetType";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
@@ -17,9 +17,9 @@ export class LLMObsDatasetRecordsDataRequest {
    */
   "attributes": LLMObsDatasetRecordsDataAttributesRequest;
   /**
-   * Resource type of Agent Observability dataset records.
+   * Resource type of an Agent Observability dataset.
    */
-  "type": LLMObsRecordType;
+  "type": LLMObsDatasetType;
 
   /**
    * A container for additional, undeclared properties.
@@ -44,7 +44,7 @@ export class LLMObsDatasetRecordsDataRequest {
     },
     type: {
       baseName: "type",
-      type: "LLMObsRecordType",
+      type: "LLMObsDatasetType",
       required: true,
     },
     additionalProperties: {

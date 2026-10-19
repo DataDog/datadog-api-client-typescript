@@ -3,8 +3,8 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
-import { LLMObsEventType } from "./LLMObsEventType";
 import { LLMObsExperimentEventsDataAttributesRequest } from "./LLMObsExperimentEventsDataAttributesRequest";
+import { LLMObsExperimentType } from "./LLMObsExperimentType";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
@@ -17,9 +17,9 @@ export class LLMObsExperimentEventsDataRequest {
    */
   "attributes": LLMObsExperimentEventsDataAttributesRequest;
   /**
-   * Resource type for Agent Observability experiment events.
+   * Resource type of an Agent Observability experiment.
    */
-  "type": LLMObsEventType;
+  "type": LLMObsExperimentType;
 
   /**
    * A container for additional, undeclared properties.
@@ -44,7 +44,7 @@ export class LLMObsExperimentEventsDataRequest {
     },
     type: {
       baseName: "type",
-      type: "LLMObsEventType",
+      type: "LLMObsExperimentType",
       required: true,
     },
     additionalProperties: {

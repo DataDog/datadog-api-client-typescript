@@ -25,7 +25,7 @@ const params: v2.AgentObservabilityApiCreateLLMObsDatasetRecordsRequest = {
           },
         ],
       },
-      type: "records",
+      type: "datasets",
     },
   },
   projectId: "project_id",
