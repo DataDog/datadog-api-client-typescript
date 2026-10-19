@@ -20,7 +20,7 @@ const params: v2.AgentObservabilityApiDeleteLLMObsDatasetRecordsRequest = {
       attributes: {
         recordIds: ["rec-7c3f5a1b-9e2d-4f8a-b1c6-3d7e9f0a2b4c"],
       },
-      type: "records",
+      type: "datasets",
     },
   },
   projectId: "project_id",

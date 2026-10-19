@@ -3,8 +3,8 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
+import { LLMObsDatasetType } from "./LLMObsDatasetType";
 import { LLMObsDeleteDatasetRecordsDataAttributesRequest } from "./LLMObsDeleteDatasetRecordsDataAttributesRequest";
-import { LLMObsRecordType } from "./LLMObsRecordType";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
@@ -17,9 +17,9 @@ export class LLMObsDeleteDatasetRecordsDataRequest {
    */
   "attributes": LLMObsDeleteDatasetRecordsDataAttributesRequest;
   /**
-   * Resource type of Agent Observability dataset records.
+   * Resource type of an Agent Observability dataset.
    */
-  "type": LLMObsRecordType;
+  "type": LLMObsDatasetType;
 
   /**
    * A container for additional, undeclared properties.
@@ -44,7 +44,7 @@ export class LLMObsDeleteDatasetRecordsDataRequest {
     },
     type: {
       baseName: "type",
-      type: "LLMObsRecordType",
+      type: "LLMObsDatasetType",
       required: true,
     },
     additionalProperties: {
