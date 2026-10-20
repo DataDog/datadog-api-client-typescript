@@ -9069,6 +9069,50 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
     },
     operationResponseType: "MonthlyCostAttributionResponse",
   },
+  "UsageMeteringApi.V2.PublicListTemporaryGrantRequests": {
+    filterStatus: {
+      type: "TemporaryGrantRequestStatus",
+      format: "",
+    },
+    pageLimit: {
+      type: "number",
+      format: "int64",
+    },
+    pageCursor: {
+      type: "string",
+      format: "uuid",
+    },
+    filterRequestedByUserId: {
+      type: "string",
+      format: "uuid",
+    },
+    operationResponseType: "TemporaryGrantRequestListResponse",
+  },
+  "UsageMeteringApi.V2.PublicGetTemporaryGrantRequest": {
+    requestId: {
+      type: "string",
+      format: "uuid",
+    },
+    operationResponseType: "TemporaryGrantRequestResponse",
+  },
+  "UsageMeteringApi.V2.PublicDecideTemporaryGrantRequest": {
+    requestId: {
+      type: "string",
+      format: "uuid",
+    },
+    body: {
+      type: "TemporaryGrantRequestDecisionRequest",
+      format: "",
+    },
+    operationResponseType: "TemporaryGrantRequestResponse",
+  },
+  "UsageMeteringApi.V2.PublicRevokeRequestedTemporaryGrant": {
+    requestId: {
+      type: "string",
+      format: "uuid",
+    },
+    operationResponseType: "{}",
+  },
   "UsageMeteringApi.V2.GetUsageApplicationSecurityMonitoring": {
     startHr: {
       type: "Date",
@@ -9297,6 +9341,42 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
   },
   "UsageMeteringApi.V2.GetUsageSummaryAvailableFields": {
     operationResponseType: "UsageSummaryAvailableFieldsResponse",
+  },
+  "UsageMeteringApi.V2.PublicListMyTemporaryGrantRequests": {
+    filterStatus: {
+      type: "TemporaryGrantRequestStatus",
+      format: "",
+    },
+    pageLimit: {
+      type: "number",
+      format: "int64",
+    },
+    pageCursor: {
+      type: "string",
+      format: "uuid",
+    },
+    operationResponseType: "TemporaryGrantRequestListResponse",
+  },
+  "UsageMeteringApi.V2.PublicCreateTemporaryGrantRequest": {
+    body: {
+      type: "TemporaryGrantRequestCreateRequest",
+      format: "",
+    },
+    operationResponseType: "TemporaryGrantRequestResponse",
+  },
+  "UsageMeteringApi.V2.PublicGetMyTemporaryGrantRequest": {
+    requestId: {
+      type: "string",
+      format: "uuid",
+    },
+    operationResponseType: "TemporaryGrantRequestResponse",
+  },
+  "UsageMeteringApi.V2.PublicCancelTemporaryGrantRequest": {
+    requestId: {
+      type: "string",
+      format: "uuid",
+    },
+    operationResponseType: "{}",
   },
   "UsageMeteringApi.V2.GetUsageAttributionTypes": {
     operationResponseType: "UsageAttributionTypesResponse",
