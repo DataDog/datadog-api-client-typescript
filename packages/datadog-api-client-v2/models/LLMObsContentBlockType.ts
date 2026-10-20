@@ -17,7 +17,7 @@ export type LLMObsContentBlockType =
   | typeof TEXT
   | typeof JSON
   | typeof IMAGE
-  | typeof WIDGET
+  | typeof UNIVIZ
   | typeof LLMOBS_TRACE
   | typeof FRONTEND
   | UnparsedObject;
@@ -26,6 +26,6 @@ export const HEADER = "header";
 export const TEXT = "text";
 export const JSON = "json";
 export const IMAGE = "image";
-export const WIDGET = "widget";
+export const UNIVIZ = "univiz";
 export const LLMOBS_TRACE = "llmobs_trace";
 export const FRONTEND = "frontend";

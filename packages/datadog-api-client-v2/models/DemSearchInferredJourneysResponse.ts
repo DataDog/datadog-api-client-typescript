@@ -3,6 +3,7 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
+import { DemInferredJourneyItem } from "./DemInferredJourneyItem";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
@@ -13,7 +14,7 @@ export class DemSearchInferredJourneysResponse {
   /**
    * List of inferred journey items matching the search criteria.
    */
-  "data": Array<any>;
+  "data": Array<DemInferredJourneyItem>;
 
   /**
    * A container for additional, undeclared properties.
@@ -33,7 +34,7 @@ export class DemSearchInferredJourneysResponse {
   static readonly attributeTypeMap: AttributeTypeMap = {
     data: {
       baseName: "data",
-      type: "Array<any>",
+      type: "Array<DemInferredJourneyItem>",
       required: true,
     },
     additionalProperties: {
