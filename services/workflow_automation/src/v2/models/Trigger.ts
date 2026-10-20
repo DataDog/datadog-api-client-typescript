@@ -20,6 +20,7 @@ import { IncidentScheduleTriggerWrapper } from "./IncidentScheduleTriggerWrapper
 import { IncidentTriggerWrapper } from "./IncidentTriggerWrapper";
 import { MonitorTriggerWrapper } from "./MonitorTriggerWrapper";
 import { NotebookTriggerWrapper } from "./NotebookTriggerWrapper";
+import { OnCallShiftChangeTriggerWrapper } from "./OnCallShiftChangeTriggerWrapper";
 import { OnCallTriggerWrapper } from "./OnCallTriggerWrapper";
 import { ScheduleTriggerWrapper } from "./ScheduleTriggerWrapper";
 import { SecurityTriggerWrapper } from "./SecurityTriggerWrapper";
@@ -52,6 +53,7 @@ export type Trigger =
   | IncidentTriggerWrapper
   | MonitorTriggerWrapper
   | NotebookTriggerWrapper
+  | OnCallShiftChangeTriggerWrapper
   | OnCallTriggerWrapper
   | ScheduleTriggerWrapper
   | SecurityTriggerWrapper
