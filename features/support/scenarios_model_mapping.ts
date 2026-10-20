@@ -11018,6 +11018,17 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             },
         "operationResponseType": "SavedFilterResponse",
     },
+    "v2.UpdateSavedFilterAttributes": {
+        "savedFilterId": {
+            "type": "string",
+            "format": "uuid",
+            },
+        "body": {
+            "type": "PatchSavedFilterRequest",
+            "format": "",
+            },
+        "operationResponseType": "SavedFilterResponse",
+    },
     "v2.GetFeatureFlag": {
         "featureFlagId": {
             "type": "string",
