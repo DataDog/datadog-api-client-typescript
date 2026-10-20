@@ -16,7 +16,7 @@ export class UserTeamAttributes {
    */
   "provisionedById"?: string;
   /**
-   * The user's role within the team
+   * The user's role within the team. A value of `null` represents a regular member.
    */
   "role"?: UserTeamRole;
   /**
