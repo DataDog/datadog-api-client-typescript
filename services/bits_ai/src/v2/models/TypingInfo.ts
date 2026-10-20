@@ -20,7 +20,6 @@ import { ListInvestigationsResponseMeta } from "./ListInvestigationsResponseMeta
 import { ListInvestigationsResponseMetaPage } from "./ListInvestigationsResponseMetaPage";
 import { MonitorAlertTrigger } from "./MonitorAlertTrigger";
 import { MonitorAlertTriggerAttributes } from "./MonitorAlertTriggerAttributes";
-import { TriggerAttributes } from "./TriggerAttributes";
 import { TriggerInvestigationRequest } from "./TriggerInvestigationRequest";
 import { TriggerInvestigationRequestData } from "./TriggerInvestigationRequestData";
 import { TriggerInvestigationRequestDataAttributes } from "./TriggerInvestigationRequestDataAttributes";
@@ -35,13 +34,13 @@ export const TypingInfo: ModelTypingInfo = {
     MonitorAlertTriggerType: ["monitor_alert_trigger"],
     TriggerInvestigationRequestType: ["trigger_investigation_request"],
     TriggerInvestigationResponseType: ["trigger_investigation_response"],
-    TriggerType: ["monitor_alert_trigger", "general_investigation"],
   },
   oneOfMap: {
     GeneralInvestigationAttributes: [
       "GeneralInvestigationAttributesWithoutTimeBounds",
       "GeneralInvestigationAttributesWithTimeBounds",
     ],
+    TriggerAttributes: ["MonitorAlertTrigger", "GeneralInvestigationTrigger"],
   },
   typeMap: {
     APIErrorResponse: APIErrorResponse,
@@ -68,7 +67,6 @@ export const TypingInfo: ModelTypingInfo = {
     ListInvestigationsResponseMetaPage: ListInvestigationsResponseMetaPage,
     MonitorAlertTrigger: MonitorAlertTrigger,
     MonitorAlertTriggerAttributes: MonitorAlertTriggerAttributes,
-    TriggerAttributes: TriggerAttributes,
     TriggerInvestigationRequest: TriggerInvestigationRequest,
     TriggerInvestigationRequestData: TriggerInvestigationRequestData,
     TriggerInvestigationRequestDataAttributes:
