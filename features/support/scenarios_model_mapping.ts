@@ -3643,6 +3643,17 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             },
         "operationResponseType": "{}",
     },
+    "v2.ListAgentHealthHostIssues": {
+        "resourceId": {
+            "type": "string",
+            "format": "",
+            },
+        "agentType": {
+            "type": "AgentHealthAgentType",
+            "format": "",
+            },
+        "operationResponseType": "AgentHealthHostIssuesResponse",
+    },
     "v2.ListAwsScanOptions": {
         "operationResponseType": "AwsScanOptionsListResponse",
     },

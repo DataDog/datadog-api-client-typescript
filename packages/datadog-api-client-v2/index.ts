@@ -70,6 +70,11 @@ export {
 } from "./apis/ActionsDatastoresApi";
 
 export {
+  AgentHealthApiListAgentHealthHostIssuesRequest,
+  AgentHealthApi,
+} from "./apis/AgentHealthApi";
+
+export {
   AgentObservabilityApiAggregateLLMObsExperimentationRequest,
   AgentObservabilityApiBatchUpdateLLMObsDatasetRequest,
   AgentObservabilityApiCloneLLMObsDatasetRequest,
@@ -2202,6 +2207,12 @@ export { ActiveBillingDimensionsResponse } from "./models/ActiveBillingDimension
 export { ActiveBillingDimensionsType } from "./models/ActiveBillingDimensionsType";
 export { AddMemberTeamRequest } from "./models/AddMemberTeamRequest";
 export { Advisory } from "./models/Advisory";
+export { AgentHealthAgentType } from "./models/AgentHealthAgentType";
+export { AgentHealthHostIssue } from "./models/AgentHealthHostIssue";
+export { AgentHealthHostIssuesAttributes } from "./models/AgentHealthHostIssuesAttributes";
+export { AgentHealthHostIssuesData } from "./models/AgentHealthHostIssuesData";
+export { AgentHealthHostIssuesResponse } from "./models/AgentHealthHostIssuesResponse";
+export { AgentHealthHostIssuesType } from "./models/AgentHealthHostIssuesType";
 export { AgentTrigger } from "./models/AgentTrigger";
 export { AgentTriggerWrapper } from "./models/AgentTriggerWrapper";
 export { AggregatedLongTasksByInvokerType } from "./models/AggregatedLongTasksByInvokerType";

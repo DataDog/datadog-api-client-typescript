@@ -129,6 +129,10 @@ import { ActiveBillingDimensionsBody } from "./ActiveBillingDimensionsBody";
 import { ActiveBillingDimensionsResponse } from "./ActiveBillingDimensionsResponse";
 import { AddMemberTeamRequest } from "./AddMemberTeamRequest";
 import { Advisory } from "./Advisory";
+import { AgentHealthHostIssue } from "./AgentHealthHostIssue";
+import { AgentHealthHostIssuesAttributes } from "./AgentHealthHostIssuesAttributes";
+import { AgentHealthHostIssuesData } from "./AgentHealthHostIssuesData";
+import { AgentHealthHostIssuesResponse } from "./AgentHealthHostIssuesResponse";
 import { AgentTrigger } from "./AgentTrigger";
 import { AgentTriggerWrapper } from "./AgentTriggerWrapper";
 import { AggregatedLongTasksByInvokerType } from "./AggregatedLongTasksByInvokerType";
@@ -6628,6 +6632,8 @@ const enumsMap: { [key: string]: any[] } = {
   ActionConnectionDataType: ["action_connection"],
   ActionQueryType: ["action"],
   ActiveBillingDimensionsType: ["billing_dimensions"],
+  AgentHealthAgentType: ["node", "cluster"],
+  AgentHealthHostIssuesType: ["agent_health_issues"],
   AggregatedLongTasksRequestType: ["aggregated_long_tasks"],
   AggregatedWaterfallPerformanceCriteriaMetric: [
     "loading_time",
@@ -10410,6 +10416,10 @@ const typeMap: { [index: string]: any } = {
   ActiveBillingDimensionsResponse: ActiveBillingDimensionsResponse,
   AddMemberTeamRequest: AddMemberTeamRequest,
   Advisory: Advisory,
+  AgentHealthHostIssue: AgentHealthHostIssue,
+  AgentHealthHostIssuesAttributes: AgentHealthHostIssuesAttributes,
+  AgentHealthHostIssuesData: AgentHealthHostIssuesData,
+  AgentHealthHostIssuesResponse: AgentHealthHostIssuesResponse,
   AgentTrigger: AgentTrigger,
   AgentTriggerWrapper: AgentTriggerWrapper,
   AggregatedLongTasksByInvokerType: AggregatedLongTasksByInvokerType,
