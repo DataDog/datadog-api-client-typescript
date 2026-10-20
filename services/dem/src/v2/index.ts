@@ -29,6 +29,7 @@ export { DemInferredJourneyCandidateAttributes } from "./models/DemInferredJourn
 export { DemInferredJourneyCandidateData } from "./models/DemInferredJourneyCandidateData";
 export { DemInferredJourneyIgnoredAttributes } from "./models/DemInferredJourneyIgnoredAttributes";
 export { DemInferredJourneyIgnoredData } from "./models/DemInferredJourneyIgnoredData";
+export { DemInferredJourneyItem } from "./models/DemInferredJourneyItem";
 export { DemInferredJourneyStatus } from "./models/DemInferredJourneyStatus";
 export { DemJourneyCreateAttributes } from "./models/DemJourneyCreateAttributes";
 export { DemJourneyCreateData } from "./models/DemJourneyCreateData";

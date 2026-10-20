@@ -38,4 +38,3 @@ export { TriggerInvestigationResponse } from "./models/TriggerInvestigationRespo
 export { TriggerInvestigationResponseData } from "./models/TriggerInvestigationResponseData";
 export { TriggerInvestigationResponseDataAttributes } from "./models/TriggerInvestigationResponseDataAttributes";
 export { TriggerInvestigationResponseType } from "./models/TriggerInvestigationResponseType";
-export { TriggerType } from "./models/TriggerType";
