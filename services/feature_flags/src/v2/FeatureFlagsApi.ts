@@ -39,6 +39,9 @@ import { ListAllocationsResponse } from "./models/ListAllocationsResponse";
 import { ListEnvironmentsResponse } from "./models/ListEnvironmentsResponse";
 import { ListFeatureFlagsResponse } from "./models/ListFeatureFlagsResponse";
 import { OverwriteAllocationsRequest } from "./models/OverwriteAllocationsRequest";
+import { PatchSavedFilterConflictResponse } from "./models/PatchSavedFilterConflictResponse";
+import { PatchSavedFilterForbiddenResponse } from "./models/PatchSavedFilterForbiddenResponse";
+import { PatchSavedFilterRequest } from "./models/PatchSavedFilterRequest";
 import { SavedFilterResponse } from "./models/SavedFilterResponse";
 import { UpdateEnvironmentRequest } from "./models/UpdateEnvironmentRequest";
 import { UpdateFeatureFlagRequest } from "./models/UpdateFeatureFlagRequest";
@@ -1479,6 +1482,72 @@ export class FeatureFlagsApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
+  public async updateSavedFilterAttributes(
+    savedFilterId: string,
+    body: PatchSavedFilterRequest,
+    _options?: Configuration,
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    // verify required parameter 'savedFilterId' is not null or undefined
+    if (savedFilterId === null || savedFilterId === undefined) {
+      throw new RequiredError("savedFilterId", "updateSavedFilterAttributes");
+    }
+
+    // verify required parameter 'body' is not null or undefined
+    if (body === null || body === undefined) {
+      throw new RequiredError("body", "updateSavedFilterAttributes");
+    }
+
+    // Path Params
+    const localVarPath =
+      "/api/v2/feature-flags/saved-filters/{saved_filter_id}".replace(
+        "{saved_filter_id}",
+        encodeURIComponent(String(savedFilterId)),
+      );
+
+    // Make Request Context
+    const { server, overrides } = _config.getServerAndOverrides(
+      "FeatureFlagsApi.v2.updateSavedFilterAttributes",
+      FeatureFlagsApi.operationServers,
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.PATCH,
+      overrides,
+    );
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Set User-Agent
+    if (this.userAgent) {
+      requestContext.setHeaderParam("User-Agent", this.userAgent);
+    }
+
+    // Set IaC header
+    if (_config.isIaC) {
+      requestContext.setHeaderParam("X-Datadog-Managed-By", "iac");
+    }
+
+    // Body Params
+    const contentType = getPreferredMediaType(["application/json"]);
+    requestContext.setHeaderParam("Content-Type", contentType);
+    const serializedBody = stringify(
+      serialize(body, TypingInfo, "PatchSavedFilterRequest", ""),
+      contentType,
+    );
+    requestContext.setBody(serializedBody);
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+      "AuthZ",
+    ]);
+
+    return requestContext;
+  }
+
   public async updateVariantForFeatureFlag(
     featureFlagId: string,
     variantId: string,
@@ -2884,6 +2953,125 @@ export class FeatureFlagsApiResponseProcessor {
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
    *
+   * @params response Response returned by the server for a request to updateSavedFilterAttributes
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async updateSavedFilterAttributes(
+    response: ResponseContext,
+  ): Promise<SavedFilterResponse> {
+    const contentType = normalizeMediaType(response.headers["content-type"]);
+    if (response.httpStatusCode === 200) {
+      const body: SavedFilterResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "SavedFilterResponse",
+      ) as SavedFilterResponse;
+      return body;
+    }
+    if (response.httpStatusCode === 400 || response.httpStatusCode === 404) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: JSONAPIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "JSONAPIErrorResponse",
+        ) as JSONAPIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<JSONAPIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<JSONAPIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
+    }
+    if (response.httpStatusCode === 403) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: PatchSavedFilterForbiddenResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "PatchSavedFilterForbiddenResponse",
+        ) as PatchSavedFilterForbiddenResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<PatchSavedFilterForbiddenResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<PatchSavedFilterForbiddenResponse>(
+        response.httpStatusCode,
+        body,
+      );
+    }
+    if (response.httpStatusCode === 409) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: PatchSavedFilterConflictResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "PatchSavedFilterConflictResponse",
+        ) as PatchSavedFilterConflictResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<PatchSavedFilterConflictResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<PatchSavedFilterConflictResponse>(
+        response.httpStatusCode,
+        body,
+      );
+    }
+    if (response.httpStatusCode === 429) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: APIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "APIErrorResponse",
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: SavedFilterResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "SavedFilterResponse",
+        "",
+      ) as SavedFilterResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"',
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
    * @params response Response returned by the server for a request to updateVariantForFeatureFlag
    * @throws ApiException if the response code was not in [200, 299]
    */
@@ -3260,6 +3448,18 @@ export interface FeatureFlagsApiUpdateFeatureFlagsEnvironmentRequest {
    * @type UpdateEnvironmentRequest
    */
   body: UpdateEnvironmentRequest;
+}
+
+export interface FeatureFlagsApiUpdateSavedFilterAttributesRequest {
+  /**
+   * The ID of the saved filter.
+   * @type string
+   */
+  savedFilterId: string;
+  /**
+   * @type PatchSavedFilterRequest
+   */
+  body: PatchSavedFilterRequest;
 }
 
 export interface FeatureFlagsApiUpdateVariantForFeatureFlagRequest {
@@ -3835,6 +4035,38 @@ export class FeatureFlagsApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.updateFeatureFlagsEnvironment(
+            responseContext,
+          );
+        });
+    });
+  }
+
+  /**
+   * Partially updates a saved filter. Supports both `LIST` and `RULES` filters.
+   * Supply at least one of `name`, `description`, or `targeting_rules`. Omitted or null fields
+   * are preserved. Supplying `targeting_rules` replaces the entire collection and propagates
+   * changes to every feature flag that references the saved filter.
+   * Metadata-only updates do not require edit permission or approval on those feature flags.
+   * Rule updates require edit permission on all consumer flags and are rejected when approval
+   * is required, unless the caller has the `feature_flag_approvals_override` permission.
+   * The optional `last_updated_at` field detects stale updates. It does not set the update time.
+   * @param param The request object
+   */
+  public updateSavedFilterAttributes(
+    param: FeatureFlagsApiUpdateSavedFilterAttributesRequest,
+    options?: Configuration,
+  ): Promise<SavedFilterResponse> {
+    const requestContextPromise =
+      this.requestFactory.updateSavedFilterAttributes(
+        param.savedFilterId,
+        param.body,
+        options,
+      );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.updateSavedFilterAttributes(
             responseContext,
           );
         });
