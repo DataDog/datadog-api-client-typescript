@@ -3983,6 +3983,8 @@ import { OnCallNotificationRuleData } from "./OnCallNotificationRuleData";
 import { OnCallNotificationRuleRelationships } from "./OnCallNotificationRuleRelationships";
 import { OnCallNotificationRuleRequestAttributes } from "./OnCallNotificationRuleRequestAttributes";
 import { OnCallPhoneNotificationRuleSettings } from "./OnCallPhoneNotificationRuleSettings";
+import { OnCallShiftChangeTrigger } from "./OnCallShiftChangeTrigger";
+import { OnCallShiftChangeTriggerWrapper } from "./OnCallShiftChangeTriggerWrapper";
 import { OnCallTrigger } from "./OnCallTrigger";
 import { OnCallTriggerWrapper } from "./OnCallTriggerWrapper";
 import { OnDemandConcurrencyCap } from "./OnDemandConcurrencyCap";
@@ -15243,6 +15245,8 @@ const typeMap: { [index: string]: any } = {
   OnCallNotificationRuleRequestAttributes:
     OnCallNotificationRuleRequestAttributes,
   OnCallPhoneNotificationRuleSettings: OnCallPhoneNotificationRuleSettings,
+  OnCallShiftChangeTrigger: OnCallShiftChangeTrigger,
+  OnCallShiftChangeTriggerWrapper: OnCallShiftChangeTriggerWrapper,
   OnCallTrigger: OnCallTrigger,
   OnCallTriggerWrapper: OnCallTriggerWrapper,
   OnDemandConcurrencyCap: OnDemandConcurrencyCap,
@@ -19363,6 +19367,7 @@ const oneOfMap: { [index: string]: string[] } = {
     "IncidentTriggerWrapper",
     "MonitorTriggerWrapper",
     "NotebookTriggerWrapper",
+    "OnCallShiftChangeTriggerWrapper",
     "OnCallTriggerWrapper",
     "ScheduleTriggerWrapper",
     "SecurityTriggerWrapper",
