@@ -21,6 +21,7 @@ export {
   FeatureFlagsApiUpdateAllocationsForFeatureFlagInEnvironmentRequest,
   FeatureFlagsApiUpdateFeatureFlagRequest,
   FeatureFlagsApiUpdateFeatureFlagsEnvironmentRequest,
+  FeatureFlagsApiUpdateSavedFilterAttributesRequest,
   FeatureFlagsApiUpdateVariantForFeatureFlagRequest,
   FeatureFlagsApi,
 } from "./FeatureFlagsApi";
@@ -87,17 +88,35 @@ export { ListAllocationsResponse } from "./models/ListAllocationsResponse";
 export { ListEnvironmentsResponse } from "./models/ListEnvironmentsResponse";
 export { ListFeatureFlagsResponse } from "./models/ListFeatureFlagsResponse";
 export { OverwriteAllocationsRequest } from "./models/OverwriteAllocationsRequest";
+export { PatchSavedFilterAttributes } from "./models/PatchSavedFilterAttributes";
+export { PatchSavedFilterConflictResponse } from "./models/PatchSavedFilterConflictResponse";
+export { PatchSavedFilterData } from "./models/PatchSavedFilterData";
+export { PatchSavedFilterForbiddenResponse } from "./models/PatchSavedFilterForbiddenResponse";
+export { PatchSavedFilterRequest } from "./models/PatchSavedFilterRequest";
 export { RolloutOptions } from "./models/RolloutOptions";
 export { RolloutOptionsRequest } from "./models/RolloutOptionsRequest";
 export { RolloutStrategy } from "./models/RolloutStrategy";
+export { SavedFilterAPIErrorResponse } from "./models/SavedFilterAPIErrorResponse";
+export { SavedFilterApprovalConflictAttributes } from "./models/SavedFilterApprovalConflictAttributes";
+export { SavedFilterApprovalConflictData } from "./models/SavedFilterApprovalConflictData";
+export { SavedFilterApprovalConflictResponse } from "./models/SavedFilterApprovalConflictResponse";
+export { SavedFilterApprovalConflictType } from "./models/SavedFilterApprovalConflictType";
 export { SavedFilterAttributes } from "./models/SavedFilterAttributes";
 export { SavedFilterCondition } from "./models/SavedFilterCondition";
 export { SavedFilterConditionOperator } from "./models/SavedFilterConditionOperator";
+export { SavedFilterConditionRequest } from "./models/SavedFilterConditionRequest";
 export { SavedFilterCreationType } from "./models/SavedFilterCreationType";
 export { SavedFilterData } from "./models/SavedFilterData";
 export { SavedFilterDataType } from "./models/SavedFilterDataType";
+export { SavedFilterFlagReference } from "./models/SavedFilterFlagReference";
+export { SavedFilterJSONAPIErrorResponse } from "./models/SavedFilterJSONAPIErrorResponse";
+export { SavedFilterPermissionDeniedAttributes } from "./models/SavedFilterPermissionDeniedAttributes";
+export { SavedFilterPermissionDeniedData } from "./models/SavedFilterPermissionDeniedData";
+export { SavedFilterPermissionDeniedResponse } from "./models/SavedFilterPermissionDeniedResponse";
+export { SavedFilterPermissionDeniedType } from "./models/SavedFilterPermissionDeniedType";
 export { SavedFilterResponse } from "./models/SavedFilterResponse";
 export { SavedFilterTargetingRule } from "./models/SavedFilterTargetingRule";
+export { SavedFilterTargetingRuleRequest } from "./models/SavedFilterTargetingRuleRequest";
 export { TargetingRule } from "./models/TargetingRule";
 export { TargetingRuleRequest } from "./models/TargetingRuleRequest";
 export { UpdateEnvironmentAttributes } from "./models/UpdateEnvironmentAttributes";

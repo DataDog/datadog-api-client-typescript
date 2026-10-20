@@ -49,13 +49,27 @@ import { ListAllocationsResponse } from "./ListAllocationsResponse";
 import { ListEnvironmentsResponse } from "./ListEnvironmentsResponse";
 import { ListFeatureFlagsResponse } from "./ListFeatureFlagsResponse";
 import { OverwriteAllocationsRequest } from "./OverwriteAllocationsRequest";
+import { PatchSavedFilterAttributes } from "./PatchSavedFilterAttributes";
+import { PatchSavedFilterData } from "./PatchSavedFilterData";
+import { PatchSavedFilterRequest } from "./PatchSavedFilterRequest";
 import { RolloutOptions } from "./RolloutOptions";
 import { RolloutOptionsRequest } from "./RolloutOptionsRequest";
+import { SavedFilterAPIErrorResponse } from "./SavedFilterAPIErrorResponse";
+import { SavedFilterApprovalConflictAttributes } from "./SavedFilterApprovalConflictAttributes";
+import { SavedFilterApprovalConflictData } from "./SavedFilterApprovalConflictData";
+import { SavedFilterApprovalConflictResponse } from "./SavedFilterApprovalConflictResponse";
 import { SavedFilterAttributes } from "./SavedFilterAttributes";
 import { SavedFilterCondition } from "./SavedFilterCondition";
+import { SavedFilterConditionRequest } from "./SavedFilterConditionRequest";
 import { SavedFilterData } from "./SavedFilterData";
+import { SavedFilterFlagReference } from "./SavedFilterFlagReference";
+import { SavedFilterJSONAPIErrorResponse } from "./SavedFilterJSONAPIErrorResponse";
+import { SavedFilterPermissionDeniedAttributes } from "./SavedFilterPermissionDeniedAttributes";
+import { SavedFilterPermissionDeniedData } from "./SavedFilterPermissionDeniedData";
+import { SavedFilterPermissionDeniedResponse } from "./SavedFilterPermissionDeniedResponse";
 import { SavedFilterResponse } from "./SavedFilterResponse";
 import { SavedFilterTargetingRule } from "./SavedFilterTargetingRule";
+import { SavedFilterTargetingRuleRequest } from "./SavedFilterTargetingRuleRequest";
 import { TargetingRule } from "./TargetingRule";
 import { TargetingRuleRequest } from "./TargetingRuleRequest";
 import { UpdateEnvironmentAttributes } from "./UpdateEnvironmentAttributes";
@@ -97,6 +111,7 @@ export const TypingInfo: ModelTypingInfo = {
     FeatureFlagStatus: ["ENABLED", "DISABLED"],
     GuardrailTriggerAction: ["PAUSE", "ABORT"],
     RolloutStrategy: ["UNIFORM_INTERVALS", "NO_ROLLOUT"],
+    SavedFilterApprovalConflictType: ["update-approval-conflict"],
     SavedFilterConditionOperator: [
       "LT",
       "LTE",
@@ -117,11 +132,22 @@ export const TypingInfo: ModelTypingInfo = {
     ],
     SavedFilterCreationType: ["RULES", "LIST"],
     SavedFilterDataType: ["saved-filters"],
+    SavedFilterPermissionDeniedType: ["update-grace-denied"],
     UpdateEnvironmentDataType: ["environments"],
     UpdateFeatureFlagDataType: ["feature-flags"],
     ValueType: ["BOOLEAN", "INTEGER", "NUMERIC", "STRING", "JSON"],
   },
-  oneOfMap: {},
+  oneOfMap: {
+    PatchSavedFilterConflictResponse: [
+      "SavedFilterJSONAPIErrorResponse",
+      "SavedFilterApprovalConflictResponse",
+    ],
+    PatchSavedFilterForbiddenResponse: [
+      "SavedFilterAPIErrorResponse",
+      "SavedFilterJSONAPIErrorResponse",
+      "SavedFilterPermissionDeniedResponse",
+    ],
+  },
   typeMap: {
     APIErrorResponse: APIErrorResponse,
     Allocation: Allocation,
@@ -173,13 +199,29 @@ export const TypingInfo: ModelTypingInfo = {
     ListEnvironmentsResponse: ListEnvironmentsResponse,
     ListFeatureFlagsResponse: ListFeatureFlagsResponse,
     OverwriteAllocationsRequest: OverwriteAllocationsRequest,
+    PatchSavedFilterAttributes: PatchSavedFilterAttributes,
+    PatchSavedFilterData: PatchSavedFilterData,
+    PatchSavedFilterRequest: PatchSavedFilterRequest,
     RolloutOptions: RolloutOptions,
     RolloutOptionsRequest: RolloutOptionsRequest,
+    SavedFilterAPIErrorResponse: SavedFilterAPIErrorResponse,
+    SavedFilterApprovalConflictAttributes:
+      SavedFilterApprovalConflictAttributes,
+    SavedFilterApprovalConflictData: SavedFilterApprovalConflictData,
+    SavedFilterApprovalConflictResponse: SavedFilterApprovalConflictResponse,
     SavedFilterAttributes: SavedFilterAttributes,
     SavedFilterCondition: SavedFilterCondition,
+    SavedFilterConditionRequest: SavedFilterConditionRequest,
     SavedFilterData: SavedFilterData,
+    SavedFilterFlagReference: SavedFilterFlagReference,
+    SavedFilterJSONAPIErrorResponse: SavedFilterJSONAPIErrorResponse,
+    SavedFilterPermissionDeniedAttributes:
+      SavedFilterPermissionDeniedAttributes,
+    SavedFilterPermissionDeniedData: SavedFilterPermissionDeniedData,
+    SavedFilterPermissionDeniedResponse: SavedFilterPermissionDeniedResponse,
     SavedFilterResponse: SavedFilterResponse,
     SavedFilterTargetingRule: SavedFilterTargetingRule,
+    SavedFilterTargetingRuleRequest: SavedFilterTargetingRuleRequest,
     TargetingRule: TargetingRule,
     TargetingRuleRequest: TargetingRuleRequest,
     UpdateEnvironmentAttributes: UpdateEnvironmentAttributes,
