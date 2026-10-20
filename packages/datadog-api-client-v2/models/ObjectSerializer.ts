@@ -4233,6 +4233,9 @@ import { PatchMaintenanceUpdateRequestDataAttributes } from "./PatchMaintenanceU
 import { PatchNotificationRuleParameters } from "./PatchNotificationRuleParameters";
 import { PatchNotificationRuleParametersData } from "./PatchNotificationRuleParametersData";
 import { PatchNotificationRuleParametersDataAttributes } from "./PatchNotificationRuleParametersDataAttributes";
+import { PatchSavedFilterAttributes } from "./PatchSavedFilterAttributes";
+import { PatchSavedFilterData } from "./PatchSavedFilterData";
+import { PatchSavedFilterRequest } from "./PatchSavedFilterRequest";
 import { PatchStatusPageRequest } from "./PatchStatusPageRequest";
 import { PatchStatusPageRequestData } from "./PatchStatusPageRequestData";
 import { PatchStatusPageRequestDataAttributes } from "./PatchStatusPageRequestDataAttributes";
@@ -4959,11 +4962,22 @@ import { SastRulesetData } from "./SastRulesetData";
 import { SastRulesetDataAttributes } from "./SastRulesetDataAttributes";
 import { SastRulesetResponse } from "./SastRulesetResponse";
 import { SastRulesetsResponse } from "./SastRulesetsResponse";
+import { SavedFilterAPIErrorResponse } from "./SavedFilterAPIErrorResponse";
+import { SavedFilterApprovalConflictAttributes } from "./SavedFilterApprovalConflictAttributes";
+import { SavedFilterApprovalConflictData } from "./SavedFilterApprovalConflictData";
+import { SavedFilterApprovalConflictResponse } from "./SavedFilterApprovalConflictResponse";
 import { SavedFilterAttributes } from "./SavedFilterAttributes";
 import { SavedFilterCondition } from "./SavedFilterCondition";
+import { SavedFilterConditionRequest } from "./SavedFilterConditionRequest";
 import { SavedFilterData } from "./SavedFilterData";
+import { SavedFilterFlagReference } from "./SavedFilterFlagReference";
+import { SavedFilterJSONAPIErrorResponse } from "./SavedFilterJSONAPIErrorResponse";
+import { SavedFilterPermissionDeniedAttributes } from "./SavedFilterPermissionDeniedAttributes";
+import { SavedFilterPermissionDeniedData } from "./SavedFilterPermissionDeniedData";
+import { SavedFilterPermissionDeniedResponse } from "./SavedFilterPermissionDeniedResponse";
 import { SavedFilterResponse } from "./SavedFilterResponse";
 import { SavedFilterTargetingRule } from "./SavedFilterTargetingRule";
+import { SavedFilterTargetingRuleRequest } from "./SavedFilterTargetingRuleRequest";
 import { ScaRequest } from "./ScaRequest";
 import { ScaRequestData } from "./ScaRequestData";
 import { ScaRequestDataAttributes } from "./ScaRequestDataAttributes";
@@ -9289,6 +9303,7 @@ const enumsMap: { [key: string]: any[] } = {
     "expired",
   ],
   SampleLogGenerationSubscriptionsStatusFilter: ["active", "all"],
+  SavedFilterApprovalConflictType: ["update-approval-conflict"],
   SavedFilterConditionOperator: [
     "LT",
     "LTE",
@@ -9309,6 +9324,7 @@ const enumsMap: { [key: string]: any[] } = {
   ],
   SavedFilterCreationType: ["RULES", "LIST"],
   SavedFilterDataType: ["saved-filters"],
+  SavedFilterPermissionDeniedType: ["update-grace-denied"],
   ScaRequestDataType: ["scarequests"],
   ScalarColumnTypeGroup: ["group"],
   ScalarColumnTypeNumber: ["number"],
@@ -15509,6 +15525,9 @@ const typeMap: { [index: string]: any } = {
   PatchNotificationRuleParametersData: PatchNotificationRuleParametersData,
   PatchNotificationRuleParametersDataAttributes:
     PatchNotificationRuleParametersDataAttributes,
+  PatchSavedFilterAttributes: PatchSavedFilterAttributes,
+  PatchSavedFilterData: PatchSavedFilterData,
+  PatchSavedFilterRequest: PatchSavedFilterRequest,
   PatchStatusPageRequest: PatchStatusPageRequest,
   PatchStatusPageRequestData: PatchStatusPageRequestData,
   PatchStatusPageRequestDataAttributes: PatchStatusPageRequestDataAttributes,
@@ -16367,11 +16386,22 @@ const typeMap: { [index: string]: any } = {
   SastRulesetDataAttributes: SastRulesetDataAttributes,
   SastRulesetResponse: SastRulesetResponse,
   SastRulesetsResponse: SastRulesetsResponse,
+  SavedFilterAPIErrorResponse: SavedFilterAPIErrorResponse,
+  SavedFilterApprovalConflictAttributes: SavedFilterApprovalConflictAttributes,
+  SavedFilterApprovalConflictData: SavedFilterApprovalConflictData,
+  SavedFilterApprovalConflictResponse: SavedFilterApprovalConflictResponse,
   SavedFilterAttributes: SavedFilterAttributes,
   SavedFilterCondition: SavedFilterCondition,
+  SavedFilterConditionRequest: SavedFilterConditionRequest,
   SavedFilterData: SavedFilterData,
+  SavedFilterFlagReference: SavedFilterFlagReference,
+  SavedFilterJSONAPIErrorResponse: SavedFilterJSONAPIErrorResponse,
+  SavedFilterPermissionDeniedAttributes: SavedFilterPermissionDeniedAttributes,
+  SavedFilterPermissionDeniedData: SavedFilterPermissionDeniedData,
+  SavedFilterPermissionDeniedResponse: SavedFilterPermissionDeniedResponse,
   SavedFilterResponse: SavedFilterResponse,
   SavedFilterTargetingRule: SavedFilterTargetingRule,
+  SavedFilterTargetingRuleRequest: SavedFilterTargetingRuleRequest,
   ScaRequest: ScaRequest,
   ScaRequestData: ScaRequestData,
   ScaRequestDataAttributes: ScaRequestDataAttributes,
@@ -19102,6 +19132,15 @@ const oneOfMap: { [index: string]: string[] } = {
   OpenAICredentials: ["OpenAIAPIKey"],
   OpenAICredentialsUpdate: ["OpenAIAPIKeyUpdate"],
   OverrideIncluded: ["ScheduleUser"],
+  PatchSavedFilterConflictResponse: [
+    "SavedFilterJSONAPIErrorResponse",
+    "SavedFilterApprovalConflictResponse",
+  ],
+  PatchSavedFilterForbiddenResponse: [
+    "SavedFilterAPIErrorResponse",
+    "SavedFilterJSONAPIErrorResponse",
+    "SavedFilterPermissionDeniedResponse",
+  ],
   PatchTableRequestDataAttributesFileMetadata: [
     "PatchTableRequestDataAttributesFileMetadataCloudStorage",
     "PatchTableRequestDataAttributesFileMetadataLocalFile",
