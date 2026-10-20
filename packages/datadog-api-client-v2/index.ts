@@ -4061,6 +4061,7 @@ export { DemInferredJourneyCandidateAttributes } from "./models/DemInferredJourn
 export { DemInferredJourneyCandidateData } from "./models/DemInferredJourneyCandidateData";
 export { DemInferredJourneyIgnoredAttributes } from "./models/DemInferredJourneyIgnoredAttributes";
 export { DemInferredJourneyIgnoredData } from "./models/DemInferredJourneyIgnoredData";
+export { DemInferredJourneyItem } from "./models/DemInferredJourneyItem";
 export { DemInferredJourneyStatus } from "./models/DemInferredJourneyStatus";
 export { DemJourneyCreateAttributes } from "./models/DemJourneyCreateAttributes";
 export { DemJourneyCreateData } from "./models/DemJourneyCreateData";
@@ -6252,8 +6253,6 @@ export { LLMObsExperimentUpdateDataAttributesRequest } from "./models/LLMObsExpe
 export { LLMObsExperimentUpdateDataRequest } from "./models/LLMObsExperimentUpdateDataRequest";
 export { LLMObsExperimentUpdateRequest } from "./models/LLMObsExperimentUpdateRequest";
 export { LLMObsExperimentUser } from "./models/LLMObsExperimentUser";
-export { LLMObsFrontendContentBlock } from "./models/LLMObsFrontendContentBlock";
-export { LLMObsFrontendContentBlockType } from "./models/LLMObsFrontendContentBlockType";
 export { LLMObsInferenceCode } from "./models/LLMObsInferenceCode";
 export { LLMObsInferenceContent } from "./models/LLMObsInferenceContent";
 export { LLMObsInferenceContentValue } from "./models/LLMObsInferenceContentValue";
@@ -6272,8 +6271,6 @@ export { LLMObsIntegrationName } from "./models/LLMObsIntegrationName";
 export { LLMObsInternalReasoning } from "./models/LLMObsInternalReasoning";
 export { LLMObsLabelSchema } from "./models/LLMObsLabelSchema";
 export { LLMObsLabelSchemaType } from "./models/LLMObsLabelSchemaType";
-export { LLMObsLegacyContentBlock } from "./models/LLMObsLegacyContentBlock";
-export { LLMObsLegacyContentBlockType } from "./models/LLMObsLegacyContentBlockType";
 export { LLMObsMetricAssessment } from "./models/LLMObsMetricAssessment";
 export { LLMObsMetricScoreType } from "./models/LLMObsMetricScoreType";
 export { LLMObsOpenAIMetadata } from "./models/LLMObsOpenAIMetadata";
@@ -10191,7 +10188,6 @@ export { TriggerInvestigationResponseDataAttributes } from "./models/TriggerInve
 export { TriggerInvestigationResponseType } from "./models/TriggerInvestigationResponseType";
 export { TriggerRateLimit } from "./models/TriggerRateLimit";
 export { TriggerSource } from "./models/TriggerSource";
-export { TriggerType } from "./models/TriggerType";
 export { TriggerWorkflowAutomationAction } from "./models/TriggerWorkflowAutomationAction";
 export { TriggerWorkflowAutomationActionType } from "./models/TriggerWorkflowAutomationActionType";
 export { TwilioAlertsLogsIntegrationDataflowRequest } from "./models/TwilioAlertsLogsIntegrationDataflowRequest";

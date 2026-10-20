@@ -3166,7 +3166,6 @@ import { LLMObsExperimentationSimpleSearchRequest } from "./LLMObsExperimentatio
 import { LLMObsExperimentationSimpleSearchResponse } from "./LLMObsExperimentationSimpleSearchResponse";
 import { LLMObsExperimentationSortField } from "./LLMObsExperimentationSortField";
 import { LLMObsExperimentsResponse } from "./LLMObsExperimentsResponse";
-import { LLMObsFrontendContentBlock } from "./LLMObsFrontendContentBlock";
 import { LLMObsInferenceCode } from "./LLMObsInferenceCode";
 import { LLMObsInferenceContent } from "./LLMObsInferenceContent";
 import { LLMObsInferenceContentValue } from "./LLMObsInferenceContentValue";
@@ -3183,7 +3182,6 @@ import { LLMObsIntegrationInferenceResponse } from "./LLMObsIntegrationInference
 import { LLMObsIntegrationModel } from "./LLMObsIntegrationModel";
 import { LLMObsInternalReasoning } from "./LLMObsInternalReasoning";
 import { LLMObsLabelSchema } from "./LLMObsLabelSchema";
-import { LLMObsLegacyContentBlock } from "./LLMObsLegacyContentBlock";
 import { LLMObsOpenAIMetadata } from "./LLMObsOpenAIMetadata";
 import { LLMObsPatternsActivityProgress } from "./LLMObsPatternsActivityProgress";
 import { LLMObsPatternsClusteredPoint } from "./LLMObsPatternsClusteredPoint";
@@ -6189,7 +6187,6 @@ import { TopLongTaskInvoker } from "./TopLongTaskInvoker";
 import { TraceAttributes } from "./TraceAttributes";
 import { TraceData } from "./TraceData";
 import { TraceResponse } from "./TraceResponse";
-import { TriggerAttributes } from "./TriggerAttributes";
 import { TriggerInvestigationRequest } from "./TriggerInvestigationRequest";
 import { TriggerInvestigationRequestData } from "./TriggerInvestigationRequestData";
 import { TriggerInvestigationRequestDataAttributes } from "./TriggerInvestigationRequestDataAttributes";
@@ -8095,7 +8092,7 @@ const enumsMap: { [key: string]: any[] } = {
     "text",
     "json",
     "image",
-    "widget",
+    "univiz",
     "llmobs_trace",
     "frontend",
   ],
@@ -8126,7 +8123,6 @@ const enumsMap: { [key: string]: any[] } = {
   LLMObsExperimentType: ["experiments"],
   LLMObsExperimentationSortFieldDirection: ["asc", "desc"],
   LLMObsExperimentationType: ["experimentation"],
-  LLMObsFrontendContentBlockType: ["frontend"],
   LLMObsIntegrationName: [
     "openai",
     "amazon_bedrock",
@@ -8136,15 +8132,6 @@ const enumsMap: { [key: string]: any[] } = {
     "llmproxy",
   ],
   LLMObsLabelSchemaType: ["score", "categorical", "boolean", "text"],
-  LLMObsLegacyContentBlockType: [
-    "markdown",
-    "header",
-    "text",
-    "json",
-    "image",
-    "widget",
-    "llmobs_trace",
-  ],
   LLMObsMetricAssessment: ["pass", "fail"],
   LLMObsMetricScoreType: ["score", "categorical", "boolean", "json"],
   LLMObsOpenAIReasoningEffort: ["none", "low", "medium", "high", "xhigh"],
@@ -10061,7 +10048,6 @@ const enumsMap: { [key: string]: any[] } = {
   TriggerInvestigationRequestType: ["trigger_investigation_request"],
   TriggerInvestigationResponseType: ["trigger_investigation_response"],
   TriggerSource: ["security_findings", "security_signals"],
-  TriggerType: ["monitor_alert_trigger", "general_investigation"],
   TriggerWorkflowAutomationActionType: ["workflow"],
   TwilioIntegrationAccountBasicAuthType: ["basic"],
   UCConfigPairDataType: ["azure_uc_configs"],
@@ -14161,7 +14147,6 @@ const typeMap: { [index: string]: any } = {
     LLMObsExperimentationSimpleSearchResponse,
   LLMObsExperimentationSortField: LLMObsExperimentationSortField,
   LLMObsExperimentsResponse: LLMObsExperimentsResponse,
-  LLMObsFrontendContentBlock: LLMObsFrontendContentBlock,
   LLMObsInferenceCode: LLMObsInferenceCode,
   LLMObsInferenceContent: LLMObsInferenceContent,
   LLMObsInferenceContentValue: LLMObsInferenceContentValue,
@@ -14178,7 +14163,6 @@ const typeMap: { [index: string]: any } = {
   LLMObsIntegrationModel: LLMObsIntegrationModel,
   LLMObsInternalReasoning: LLMObsInternalReasoning,
   LLMObsLabelSchema: LLMObsLabelSchema,
-  LLMObsLegacyContentBlock: LLMObsLegacyContentBlock,
   LLMObsOpenAIMetadata: LLMObsOpenAIMetadata,
   LLMObsPatternsActivityProgress: LLMObsPatternsActivityProgress,
   LLMObsPatternsClusteredPoint: LLMObsPatternsClusteredPoint,
@@ -18021,7 +18005,6 @@ const typeMap: { [index: string]: any } = {
   TraceAttributes: TraceAttributes,
   TraceData: TraceData,
   TraceResponse: TraceResponse,
-  TriggerAttributes: TriggerAttributes,
   TriggerInvestigationRequest: TriggerInvestigationRequest,
   TriggerInvestigationRequestData: TriggerInvestigationRequestData,
   TriggerInvestigationRequestDataAttributes:
@@ -18678,6 +18661,10 @@ const oneOfMap: { [index: string]: string[] } = {
     "StatusPagesUser",
     "Degradation",
     "StatusPageAsIncluded",
+  ],
+  DemInferredJourneyItem: [
+    "DemInferredJourneyCandidateData",
+    "DemInferredJourneyIgnoredData",
   ],
   DeploymentGatesEvaluationRule: [
     "DeploymentGatesMonitorRule",
@@ -19357,6 +19344,7 @@ const oneOfMap: { [index: string]: string[] } = {
     "SoftwareCatalogTriggerWrapper",
     "WorkflowTriggerWrapper",
   ],
+  TriggerAttributes: ["MonitorAlertTrigger", "GeneralInvestigationTrigger"],
   TwilioIntegrationAccountAuthenticationRequest: [
     "TwilioIntegrationAccountBasicAuthRequest",
   ],
