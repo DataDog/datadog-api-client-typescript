@@ -26,6 +26,10 @@ export class AWSMetricsConfig {
    */
   "collectCustomMetrics"?: boolean;
   /**
+   * Enable Service Quotas collection. Defaults to `false`.
+   */
+  "collectServiceQuotas"?: boolean;
+  /**
    * Enable AWS metrics collection. Defaults to `true`.
    */
   "enabled"?: boolean;
@@ -69,6 +73,10 @@ export class AWSMetricsConfig {
     },
     collectCustomMetrics: {
       baseName: "collect_custom_metrics",
+      type: "boolean",
+    },
+    collectServiceQuotas: {
+      baseName: "collect_service_quotas",
       type: "boolean",
     },
     enabled: {
