@@ -117,10 +117,22 @@ Given(
   },
 );
 
+Given(
+  "new {string} with version {string} request",
+  function (this: World, operationId: string, version: string) {
+    this.operationVersion = `${this.apiVersion}_${version.replace(/-/g, "")}`;
+    if (testRunnerEnabled()) return;
+    this.operationId = operationId;
+    this.opts = {};
+    this.pathParameters = {};
+  },
+);
+
 When("the request is sent", async function (this: World) {
   applyTestRunnerPlan(this, false);
+  const operationApiVersion = this.operationApiVersion;
   // build request from scenario
-  const apiNameWithVersion = `${this.apiName}${this.apiVersion.toUpperCase()}`;
+  const apiNameWithVersion = `${this.apiName}${operationApiVersion.toUpperCase()}`;
   const api = apiTypes[apiNameWithVersion];
 
   const configurationOpts = {
@@ -158,7 +170,7 @@ When("the request is sent", async function (this: World) {
   const configuration = datadogCommon.createConfiguration(configurationOpts);
   for (const operationId in this.unstableOperations) {
     configuration.unstableOperations[
-      `${this.apiName}.${this.apiVersion}.${operationId}`
+      `${this.apiName}.${operationApiVersion}.${operationId}`
     ] = this.unstableOperations[operationId];
   }
   const apiInstance = new api(configuration);
@@ -172,7 +184,7 @@ When("the request is sent", async function (this: World) {
   this.opts = deserializeOpts(
     this.opts,
     this.servicesDir,
-    this.apiVersion,
+    operationApiVersion,
     this.apiName,
     this.operationId,
   );
@@ -227,7 +239,8 @@ When("the request is sent", async function (this: World) {
 
 When("the request with pagination is sent", async function (this: World) {
   applyTestRunnerPlan(this, true);
-  const apiNameWithVersion = `${this.apiName}${this.apiVersion.toUpperCase()}`;
+  const operationApiVersion = this.operationApiVersion;
+  const apiNameWithVersion = `${this.apiName}${operationApiVersion.toUpperCase()}`;
   const api = apiTypes[apiNameWithVersion];
   const configurationOpts = {
     authMethods: this.authMethods,
@@ -260,7 +273,7 @@ When("the request with pagination is sent", async function (this: World) {
   const configuration = datadogCommon.createConfiguration(configurationOpts);
   for (const operationId in this.unstableOperations) {
     configuration.unstableOperations[
-      `${this.apiName}.${this.apiVersion}.${operationId}`
+      `${this.apiName}.${operationApiVersion}.${operationId}`
     ] = this.unstableOperations[operationId];
   }
   const apiInstance = new api(configuration);
@@ -268,7 +281,7 @@ When("the request with pagination is sent", async function (this: World) {
   this.opts = deserializeOpts(
     this.opts,
     this.servicesDir,
-    this.apiVersion,
+    operationApiVersion,
     this.apiName,
     this.operationId,
   );
@@ -340,7 +353,7 @@ Then(
     if (_type) {
       const typingInfo =
         apiNameToTypingInfoMapping[
-          this.apiName + this.apiVersion.toUpperCase()
+          this.apiName + this.operationApiVersion.toUpperCase()
         ];
       templatedFixtureValue = datadogCommon.deserialize(
         templatedFixtureValue,
