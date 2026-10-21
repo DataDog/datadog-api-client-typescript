@@ -17,6 +17,7 @@ import { CheckStatusWidgetDefinition } from "./CheckStatusWidgetDefinition";
 import { CohortWidgetDefinition } from "./CohortWidgetDefinition";
 import { ComparisonCustomTimeframe } from "./ComparisonCustomTimeframe";
 import { ComparisonDuration } from "./ComparisonDuration";
+import { Creator } from "./Creator";
 import { Dashboard } from "./Dashboard";
 import { DashboardBulkActionData } from "./DashboardBulkActionData";
 import { DashboardBulkDeleteRequest } from "./DashboardBulkDeleteRequest";
@@ -902,6 +903,7 @@ export const TypingInfo: ModelTypingInfo = {
     CohortWidgetDefinition: CohortWidgetDefinition,
     ComparisonCustomTimeframe: ComparisonCustomTimeframe,
     ComparisonDuration: ComparisonDuration,
+    Creator: Creator,
     Dashboard: Dashboard,
     DashboardBulkActionData: DashboardBulkActionData,
     DashboardBulkDeleteRequest: DashboardBulkDeleteRequest,

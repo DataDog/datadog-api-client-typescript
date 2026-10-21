@@ -46,12 +46,9 @@ function getApiType(
   if (serviceName === undefined) {
     throw new Error(`No service found for ${apiName}`);
   }
-  const versionedApi = require(path.join(
-    servicesDir,
-    serviceName,
-    "src",
-    apiVersion,
-  ))[apiName];
+  const versionedApi = require(
+    path.join(servicesDir, serviceName, "src", apiVersion),
+  )[apiName];
   if (versionedApi === undefined) {
     throw new Error(`No API found for ${apiName} ${apiVersion}`);
   }
