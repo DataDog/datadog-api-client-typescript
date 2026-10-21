@@ -113,7 +113,7 @@ import { UserTeamsResponse } from "./UserTeamsResponse";
 
 export const TypingInfo: ModelTypingInfo = {
   enumsMap: {
-    ConnectedTeamRefDataType: ["github_team"],
+    ConnectedTeamRefDataType: ["github_team", "servicenow_team"],
     GetTeamMembershipsSort: [
       "manager_name",
       "-manager_name",
@@ -144,7 +144,7 @@ export const TypingInfo: ModelTypingInfo = {
     ],
     TeamRefDataType: ["team"],
     TeamSyncAttributesFrequency: ["once", "continuously", "paused"],
-    TeamSyncAttributesSource: ["github"],
+    TeamSyncAttributesSource: ["github", "servicenow"],
     TeamSyncAttributesType: ["link", "provision"],
     TeamSyncBulkType: ["team_sync_bulk"],
     TeamSyncSelectionStateExternalIdType: ["team", "organization"],
