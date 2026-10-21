@@ -13,15 +13,19 @@ import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 export class TeamSyncSelectionStateExternalId {
   /**
    * The type of external identifier for the selection state item.
-   * For GitHub synchronization, the allowed values are `team` and
-   * `organization`.
+   * For GitHub synchronization, `team` refers to a GitHub team and
+   * `organization` refers to a GitHub organization. For ServiceNow
+   * synchronization, `team` refers to a ServiceNow group and
+   * `organization` refers to a ServiceNow instance.
    */
   "type": TeamSyncSelectionStateExternalIdType;
   /**
    * The external identifier value from the source
    * platform. For GitHub, this is the string
    * representation of a GitHub organization ID or team
-   * ID.
+   * ID. For ServiceNow, this is the instance name for
+   * `organization`, or `<instance_name>/<sys_id>` of the
+   * group for `team`.
    */
   "value": string;
 

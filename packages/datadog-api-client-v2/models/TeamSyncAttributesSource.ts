@@ -7,8 +7,12 @@
 import { UnparsedObject } from "../../datadog-api-client-common/util";
 
 /**
- * The external source platform for team synchronization. Only "github" is supported.
+ * The external source platform for team synchronization.
  */
 
-export type TeamSyncAttributesSource = typeof GITHUB | UnparsedObject;
+export type TeamSyncAttributesSource =
+  | typeof GITHUB
+  | typeof SERVICENOW
+  | UnparsedObject;
 export const GITHUB = "github";
+export const SERVICENOW = "servicenow";
