@@ -3935,6 +3935,10 @@ import { ObservabilityPipelineSocketSourceFramingOctetCounting } from "./Observa
 import { ObservabilityPipelineSourceValidTokenFieldToAdd } from "./ObservabilityPipelineSourceValidTokenFieldToAdd";
 import { ObservabilityPipelineSpec } from "./ObservabilityPipelineSpec";
 import { ObservabilityPipelineSpecData } from "./ObservabilityPipelineSpecData";
+import { ObservabilityPipelineSpikeProtectionProcessor } from "./ObservabilityPipelineSpikeProtectionProcessor";
+import { ObservabilityPipelineSpikeProtectionProcessorMinimalThresholdAlwaysKeep } from "./ObservabilityPipelineSpikeProtectionProcessorMinimalThresholdAlwaysKeep";
+import { ObservabilityPipelineSpikeProtectionProcessorMinimalThresholdBytes } from "./ObservabilityPipelineSpikeProtectionProcessorMinimalThresholdBytes";
+import { ObservabilityPipelineSpikeProtectionProcessorThresholdOverride } from "./ObservabilityPipelineSpikeProtectionProcessorThresholdOverride";
 import { ObservabilityPipelineSplitArrayProcessor } from "./ObservabilityPipelineSplitArrayProcessor";
 import { ObservabilityPipelineSplitArrayProcessorArrayConfig } from "./ObservabilityPipelineSplitArrayProcessorArrayConfig";
 import { ObservabilityPipelineSplunkHecDestination } from "./ObservabilityPipelineSplunkHecDestination";
@@ -8733,6 +8737,22 @@ const enumsMap: { [key: string]: any[] } = {
   ],
   ObservabilityPipelineSocketSourceMode: ["tcp", "udp"],
   ObservabilityPipelineSocketSourceType: ["socket"],
+  ObservabilityPipelineSpikeProtectionProcessorActionWhenMissingPartitions: [
+    "ignore",
+    "default_bucket",
+  ],
+  ObservabilityPipelineSpikeProtectionProcessorMinimalThresholdAlwaysKeepType: [
+    "always_keep",
+  ],
+  ObservabilityPipelineSpikeProtectionProcessorMinimalThresholdBytesType: [
+    "threshold",
+  ],
+  ObservabilityPipelineSpikeProtectionProcessorSpikeAction: [
+    "drop",
+    "no_action",
+    "overflow_routing",
+  ],
+  ObservabilityPipelineSpikeProtectionProcessorType: ["spike_protection"],
   ObservabilityPipelineSplitArrayProcessorType: ["split_array"],
   ObservabilityPipelineSplunkHecDestinationEncoding: ["json", "raw_message"],
   ObservabilityPipelineSplunkHecDestinationEndpointTarget: ["event", "raw"],
@@ -15166,6 +15186,14 @@ const typeMap: { [index: string]: any } = {
     ObservabilityPipelineSourceValidTokenFieldToAdd,
   ObservabilityPipelineSpec: ObservabilityPipelineSpec,
   ObservabilityPipelineSpecData: ObservabilityPipelineSpecData,
+  ObservabilityPipelineSpikeProtectionProcessor:
+    ObservabilityPipelineSpikeProtectionProcessor,
+  ObservabilityPipelineSpikeProtectionProcessorMinimalThresholdAlwaysKeep:
+    ObservabilityPipelineSpikeProtectionProcessorMinimalThresholdAlwaysKeep,
+  ObservabilityPipelineSpikeProtectionProcessorMinimalThresholdBytes:
+    ObservabilityPipelineSpikeProtectionProcessorMinimalThresholdBytes,
+  ObservabilityPipelineSpikeProtectionProcessorThresholdOverride:
+    ObservabilityPipelineSpikeProtectionProcessorThresholdOverride,
   ObservabilityPipelineSplitArrayProcessor:
     ObservabilityPipelineSplitArrayProcessor,
   ObservabilityPipelineSplitArrayProcessorArrayConfig:
@@ -19016,6 +19044,7 @@ const oneOfMap: { [index: string]: string[] } = {
     "ObservabilityPipelineRenameFieldsProcessor",
     "ObservabilityPipelineSampleProcessor",
     "ObservabilityPipelineSensitiveDataScannerProcessor",
+    "ObservabilityPipelineSpikeProtectionProcessor",
     "ObservabilityPipelineSplitArrayProcessor",
     "ObservabilityPipelineThrottleProcessor",
     "ObservabilityPipelineAddMetricTagsProcessor",
@@ -19105,6 +19134,10 @@ const oneOfMap: { [index: string]: string[] } = {
     "ObservabilityPipelineSocketSourceFramingCharacterDelimited",
     "ObservabilityPipelineSocketSourceFramingOctetCounting",
     "ObservabilityPipelineSocketSourceFramingChunkedGelf",
+  ],
+  ObservabilityPipelineSpikeProtectionProcessorMinimalThreshold: [
+    "ObservabilityPipelineSpikeProtectionProcessorMinimalThresholdBytes",
+    "ObservabilityPipelineSpikeProtectionProcessorMinimalThresholdAlwaysKeep",
   ],
   ObservabilityPipelineWebsocketSourceTls: [
     "ObservabilityPipelineWebsocketSourceTlsEnabled",
