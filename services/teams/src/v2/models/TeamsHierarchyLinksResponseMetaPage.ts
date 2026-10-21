@@ -9,21 +9,45 @@ export class TeamsHierarchyLinksResponseMetaPage {
    */
   "firstNumber"?: number;
   /**
+   * First offset.
+   */
+  "firstOffset"?: number;
+  /**
    * Last page number.
    */
   "lastNumber"?: number;
+  /**
+   * Last offset.
+   */
+  "lastOffset"?: number;
+  /**
+   * Page limit, when offset pagination is used.
+   */
+  "limit"?: number;
   /**
    * Next page number.
    */
   "nextNumber"?: number;
   /**
+   * Next offset.
+   */
+  "nextOffset"?: number;
+  /**
    * Page number.
    */
   "number"?: number;
   /**
+   * Current offset, when offset pagination is used.
+   */
+  "offset"?: number;
+  /**
    * Previous page number.
    */
   "prevNumber"?: number;
+  /**
+   * Previous offset.
+   */
+  "prevOffset"?: number;
   /**
    * Page size.
    */
@@ -56,8 +80,23 @@ export class TeamsHierarchyLinksResponseMetaPage {
       type: "number",
       format: "int64",
     },
+    firstOffset: {
+      baseName: "first_offset",
+      type: "number",
+      format: "int64",
+    },
     lastNumber: {
       baseName: "last_number",
+      type: "number",
+      format: "int64",
+    },
+    lastOffset: {
+      baseName: "last_offset",
+      type: "number",
+      format: "int64",
+    },
+    limit: {
+      baseName: "limit",
       type: "number",
       format: "int64",
     },
@@ -66,13 +105,28 @@ export class TeamsHierarchyLinksResponseMetaPage {
       type: "number",
       format: "int64",
     },
+    nextOffset: {
+      baseName: "next_offset",
+      type: "number",
+      format: "int64",
+    },
     number: {
       baseName: "number",
       type: "number",
       format: "int64",
     },
+    offset: {
+      baseName: "offset",
+      type: "number",
+      format: "int64",
+    },
     prevNumber: {
       baseName: "prev_number",
+      type: "number",
+      format: "int64",
+    },
+    prevOffset: {
+      baseName: "prev_offset",
       type: "number",
       format: "int64",
     },

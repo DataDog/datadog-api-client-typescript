@@ -1,6 +1,7 @@
 import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
 import { Team } from "./Team";
+import { TeamIncluded } from "./TeamIncluded";
 
 /**
  * Response with a team
@@ -10,6 +11,10 @@ export class TeamResponse {
    * A team
    */
   "data"?: Team;
+  /**
+   * Resources related to the team.
+   */
+  "included"?: Array<TeamIncluded>;
   /**
    * A container for additional, undeclared properties.
    * This is a holder for any undeclared properties as specified with
@@ -28,6 +33,10 @@ export class TeamResponse {
     data: {
       baseName: "data",
       type: "Team",
+    },
+    included: {
+      baseName: "included",
+      type: "Array<TeamIncluded>",
     },
     additionalProperties: {
       baseName: "additionalProperties",
