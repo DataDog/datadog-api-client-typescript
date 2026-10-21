@@ -11,6 +11,11 @@ export class ScheduleCreateRequestDataAttributes {
    */
   "layers": Array<ScheduleCreateRequestDataAttributesLayersItems>;
   /**
+   * Maximum number of users who can be on call at the same time.
+   * The value must be between 1 and the number of layers, and no greater than 10.
+   */
+  "maxResponders"?: number;
+  /**
    * A human-readable name for the new schedule.
    */
   "name": string;
@@ -37,6 +42,11 @@ export class ScheduleCreateRequestDataAttributes {
       baseName: "layers",
       type: "Array<ScheduleCreateRequestDataAttributesLayersItems>",
       required: true,
+    },
+    maxResponders: {
+      baseName: "max_responders",
+      type: "number",
+      format: "int64",
     },
     name: {
       baseName: "name",
