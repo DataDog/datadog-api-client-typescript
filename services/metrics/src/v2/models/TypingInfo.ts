@@ -249,6 +249,8 @@ export const TypingInfo: ModelTypingInfo = {
     MetricTagConfigurationMetricTypeCategory: [
       "non_distribution",
       "distribution",
+      "exponential_histogram",
+      "explicit_histogram",
     ],
     MetricTagConfigurationMetricTypes: [
       "gauge",
