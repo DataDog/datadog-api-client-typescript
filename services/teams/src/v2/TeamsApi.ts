@@ -4366,7 +4366,7 @@ export interface TeamsApiListTeamConnectionsRequest {
    */
   pageNumber?: number;
   /**
-   * Filter team connections by external source systems.
+   * Filter team connections by external source systems, such as `github` or `servicenow`.
    * @type Array<string>
    */
   filterSources?: Array<string>;
@@ -5068,7 +5068,7 @@ export class TeamsApi {
 
   /**
    * Get all team synchronization configurations.
-   * Returns a list of configurations used for linking or provisioning teams with external sources like GitHub.
+   * Returns a list of configurations used for linking or provisioning teams with external sources like GitHub or ServiceNow.
    * @param param The request object
    */
   public getTeamSync(
@@ -5430,21 +5430,26 @@ export class TeamsApi {
   }
 
   /**
-   * This endpoint configures synchronization between your existing Datadog teams and GitHub teams by matching their names.
-   * It evaluates all current Datadog teams and compares them against teams in the GitHub organization
-   * connected to your Datadog account, based on Datadog Team handle and GitHub Team slug
-   * (lowercased and kebab-cased).
+   * This endpoint configures synchronization between your existing Datadog teams and teams from
+   * GitHub or ServiceNow by matching team names.
+   * It evaluates all current Datadog teams and compares them against teams in the external source
+   * connected to your Datadog account.
    *
-   * This operation is read-only on the GitHub side, no teams will be modified or created.
+   * This operation is read-only on the external source side, no teams will be modified or created there.
+   * This only creates new teams in Datadog when type is set to `provision`.
    *
    * Optionally, provide `selection_state` to limit synchronization
    * to specific teams or organizations and their subtrees, instead
    * of syncing all teams.
    *
-   * [A GitHub organization must be connected to your Datadog account](https://docs.datadoghq.com/integrations/github/),
+   * **GitHub**: [A GitHub organization must be connected to your Datadog account](https://docs.datadoghq.com/integrations/github/),
    * and the GitHub App integrated with Datadog must have the `Members Read` permission. Matching is performed by comparing the Datadog team handle to the GitHub team slug
-   * using a normalized exact match; case is ignored and spaces are removed. No modifications are made
-   * to teams in GitHub. This only creates new teams in Datadog when type is set to `provision`.
+   * (lowercased and kebab-cased) using a normalized exact match; case is ignored and spaces are removed.
+   *
+   * **ServiceNow**: [The ServiceNow integration must be configured for your Datadog account](https://docs.datadoghq.com/integrations/servicenow/).
+   * Active assignment groups from every configured ServiceNow instance are synchronized, and the ServiceNow
+   * group hierarchy is preserved. When `sync_membership` is enabled, group members are matched to Datadog
+   * users by email address.
    * @param param The request object
    */
   public syncTeams(

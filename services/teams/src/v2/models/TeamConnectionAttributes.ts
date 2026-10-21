@@ -9,7 +9,7 @@ export class TeamConnectionAttributes {
    */
   "managedBy"?: string;
   /**
-   * The name of the external source.
+   * The name of the external source, such as `github` or `servicenow`.
    */
   "source"?: string;
   /**
