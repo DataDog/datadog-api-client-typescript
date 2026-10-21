@@ -26,6 +26,8 @@ export type TeamsField =
   | typeof LINK_COUNT
   | typeof TEAM_LINKS
   | typeof USER_TEAM_PERMISSIONS
+  | typeof IS_MANAGED
+  | typeof PROVISIONED_BY
   | UnparsedObject;
 export const ID = "id";
 export const NAME = "name";
@@ -42,3 +44,5 @@ export const USER_COUNT = "user_count";
 export const LINK_COUNT = "link_count";
 export const TEAM_LINKS = "team_links";
 export const USER_TEAM_PERMISSIONS = "user_team_permissions";
+export const IS_MANAGED = "is_managed";
+export const PROVISIONED_BY = "provisioned_by";

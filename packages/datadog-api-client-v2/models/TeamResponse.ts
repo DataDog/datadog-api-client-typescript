@@ -4,6 +4,7 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 import { Team } from "./Team";
+import { TeamIncluded } from "./TeamIncluded";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
@@ -15,6 +16,10 @@ export class TeamResponse {
    * A team
    */
   "data"?: Team;
+  /**
+   * Resources related to the team.
+   */
+  "included"?: Array<TeamIncluded>;
 
   /**
    * A container for additional, undeclared properties.
@@ -35,6 +40,10 @@ export class TeamResponse {
     data: {
       baseName: "data",
       type: "Team",
+    },
+    included: {
+      baseName: "included",
+      type: "Array<TeamIncluded>",
     },
     additionalProperties: {
       baseName: "additionalProperties",
