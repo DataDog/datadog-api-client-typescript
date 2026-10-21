@@ -5,6 +5,11 @@ import { AttributeTypeMap } from "@datadog/datadog-api-client";
  */
 export class ScheduleDataAttributes {
   /**
+   * Maximum number of users who can be on call at the same time.
+   * The value is between 1 and the number of layers, and no greater than 10.
+   */
+  "maxResponders"?: number;
+  /**
    * A short name for the schedule.
    */
   "name"?: string;
@@ -31,6 +36,11 @@ export class ScheduleDataAttributes {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
+    maxResponders: {
+      baseName: "max_responders",
+      type: "number",
+      format: "int64",
+    },
     name: {
       baseName: "name",
       type: "string",
