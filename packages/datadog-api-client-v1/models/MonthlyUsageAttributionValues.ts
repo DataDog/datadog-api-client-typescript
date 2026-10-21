@@ -243,19 +243,19 @@ export class MonthlyUsageAttributionValues {
    */
   "errorTrackingUsage"?: number;
   /**
-   * The percentage of estimated indexed spans usage by tag(s).
+   * The percentage of estimated indexed spans usage by tag(s) (To be deprecated on February 1st, 2027).
    */
   "estimatedIndexedSpansPercentage"?: number;
   /**
-   * The estimated indexed spans usage by tag(s).
+   * The estimated indexed spans usage by tag(s) (To be deprecated on February 1st, 2027).
    */
   "estimatedIndexedSpansUsage"?: number;
   /**
-   * The percentage of estimated ingested spans usage by tag(s).
+   * The percentage of estimated ingested spans usage by tag(s) (To be deprecated on February 1st, 2027).
    */
   "estimatedIngestedSpansPercentage"?: number;
   /**
-   * The estimated ingested spans usage by tag(s).
+   * The estimated ingested spans usage by tag(s) (To be deprecated on February 1st, 2027).
    */
   "estimatedIngestedSpansUsage"?: number;
   /**
