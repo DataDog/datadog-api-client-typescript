@@ -15,6 +15,10 @@ export class MetricsQueryUnit {
    */
   "family"?: string;
   /**
+   * Unit identifier.
+   */
+  "id"?: number;
+  /**
    * Unit name
    */
   "name"?: string;
@@ -50,6 +54,11 @@ export class MetricsQueryUnit {
     family: {
       baseName: "family",
       type: "string",
+    },
+    id: {
+      baseName: "id",
+      type: "number",
+      format: "int64",
     },
     name: {
       baseName: "name",

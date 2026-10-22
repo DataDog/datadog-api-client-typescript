@@ -36,6 +36,10 @@ export class MetricsQueryResponse {
    */
   "resType"?: string;
   /**
+   * Version of the response format.
+   */
+  "respVersion"?: number;
+  /**
    * List of timeseries queried.
    */
   "series"?: Array<MetricsQueryMetadata>;
@@ -44,9 +48,19 @@ export class MetricsQueryResponse {
    */
   "status"?: string;
   /**
+   * Legacy field, always returned as an empty list. Timestamps are returned
+   * in the `pointlist` of each entry of `series`.
+   */
+  "times"?: Array<any>;
+  /**
    * End of requested time window, milliseconds since Unix epoch.
    */
   "toDate"?: number;
+  /**
+   * Legacy field, always returned as an empty list. Timeseries values are
+   * returned in the `pointlist` of each entry of `series`.
+   */
+  "values"?: Array<any>;
 
   /**
    * A container for additional, undeclared properties.
@@ -89,6 +103,11 @@ export class MetricsQueryResponse {
       baseName: "res_type",
       type: "string",
     },
+    respVersion: {
+      baseName: "resp_version",
+      type: "number",
+      format: "int64",
+    },
     series: {
       baseName: "series",
       type: "Array<MetricsQueryMetadata>",
@@ -97,10 +116,18 @@ export class MetricsQueryResponse {
       baseName: "status",
       type: "string",
     },
+    times: {
+      baseName: "times",
+      type: "Array<any>",
+    },
     toDate: {
       baseName: "to_date",
       type: "number",
       format: "int64",
+    },
+    values: {
+      baseName: "values",
+      type: "Array<any>",
     },
     additionalProperties: {
       baseName: "additionalProperties",
