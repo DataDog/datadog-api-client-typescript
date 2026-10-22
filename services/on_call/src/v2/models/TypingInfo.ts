@@ -20,6 +20,9 @@ import { CreateUserNotificationChannelRequest } from "./CreateUserNotificationCh
 import { DataRelationshipsTeams } from "./DataRelationshipsTeams";
 import { DataRelationshipsTeamsDataItems } from "./DataRelationshipsTeamsDataItems";
 import { Escalation } from "./Escalation";
+import { EscalationPolicies } from "./EscalationPolicies";
+import { EscalationPoliciesResponseMeta } from "./EscalationPoliciesResponseMeta";
+import { EscalationPoliciesResponseMetaPage } from "./EscalationPoliciesResponseMetaPage";
 import { EscalationPolicy } from "./EscalationPolicy";
 import { EscalationPolicyCreateRequest } from "./EscalationPolicyCreateRequest";
 import { EscalationPolicyCreateRequestData } from "./EscalationPolicyCreateRequestData";
@@ -31,6 +34,7 @@ import { EscalationPolicyDataAttributes } from "./EscalationPolicyDataAttributes
 import { EscalationPolicyDataRelationships } from "./EscalationPolicyDataRelationships";
 import { EscalationPolicyDataRelationshipsSteps } from "./EscalationPolicyDataRelationshipsSteps";
 import { EscalationPolicyDataRelationshipsStepsDataItems } from "./EscalationPolicyDataRelationshipsStepsDataItems";
+import { EscalationPolicyListItem } from "./EscalationPolicyListItem";
 import { EscalationPolicyStep } from "./EscalationPolicyStep";
 import { EscalationPolicyStepAttributes } from "./EscalationPolicyStepAttributes";
 import { EscalationPolicyStepRelationships } from "./EscalationPolicyStepRelationships";
@@ -328,6 +332,9 @@ export const TypingInfo: ModelTypingInfo = {
     DataRelationshipsTeams: DataRelationshipsTeams,
     DataRelationshipsTeamsDataItems: DataRelationshipsTeamsDataItems,
     Escalation: Escalation,
+    EscalationPolicies: EscalationPolicies,
+    EscalationPoliciesResponseMeta: EscalationPoliciesResponseMeta,
+    EscalationPoliciesResponseMetaPage: EscalationPoliciesResponseMetaPage,
     EscalationPolicy: EscalationPolicy,
     EscalationPolicyCreateRequest: EscalationPolicyCreateRequest,
     EscalationPolicyCreateRequestData: EscalationPolicyCreateRequestData,
@@ -344,6 +351,7 @@ export const TypingInfo: ModelTypingInfo = {
       EscalationPolicyDataRelationshipsSteps,
     EscalationPolicyDataRelationshipsStepsDataItems:
       EscalationPolicyDataRelationshipsStepsDataItems,
+    EscalationPolicyListItem: EscalationPolicyListItem,
     EscalationPolicyStep: EscalationPolicyStep,
     EscalationPolicyStepAttributes: EscalationPolicyStepAttributes,
     EscalationPolicyStepRelationships: EscalationPolicyStepRelationships,
