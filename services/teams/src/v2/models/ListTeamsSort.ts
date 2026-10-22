@@ -8,8 +8,12 @@ export type ListTeamsSort =
   | typeof _NAME
   | typeof USER_COUNT
   | typeof _USER_COUNT
+  | typeof LINK_COUNT
+  | typeof _LINK_COUNT
   | UnparsedObject;
 export const NAME = "name";
 export const _NAME = "-name";
 export const USER_COUNT = "user_count";
 export const _USER_COUNT = "-user_count";
+export const LINK_COUNT = "link_count";
+export const _LINK_COUNT = "-link_count";

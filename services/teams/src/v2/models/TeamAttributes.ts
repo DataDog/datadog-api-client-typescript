@@ -25,6 +25,10 @@ export class TeamAttributes {
    */
   "handle": string;
   /**
+   * Collection of handles associated with the team.
+   */
+  "handles"?: Array<string>;
+  /**
    * Collection of hidden modules for the team
    */
   "hiddenModules"?: Array<string>;
@@ -32,6 +36,10 @@ export class TeamAttributes {
    * Whether the team is managed from an external source
    */
   "isManaged"?: boolean;
+  /**
+   * Whether any user can join the team without an invitation.
+   */
+  "isOpenMembership"?: boolean;
   /**
    * The number of links belonging to the team
    */
@@ -44,6 +52,11 @@ export class TeamAttributes {
    * The name of the team
    */
   "name": string;
+  /**
+   * The mechanism that created the team, such as `teams_api`, `teams_terraform`, or `teams_ui`.
+   * Omitted when unknown.
+   */
+  "provisionedBy"?: string;
   /**
    * A brief summary of the team, derived from the `description`
    */
@@ -94,12 +107,20 @@ export class TeamAttributes {
       type: "string",
       required: true,
     },
+    handles: {
+      baseName: "handles",
+      type: "Array<string>",
+    },
     hiddenModules: {
       baseName: "hidden_modules",
       type: "Array<string>",
     },
     isManaged: {
       baseName: "is_managed",
+      type: "boolean",
+    },
+    isOpenMembership: {
+      baseName: "is_open_membership",
       type: "boolean",
     },
     linkCount: {
@@ -116,6 +137,10 @@ export class TeamAttributes {
       baseName: "name",
       type: "string",
       required: true,
+    },
+    provisionedBy: {
+      baseName: "provisioned_by",
+      type: "string",
     },
     summary: {
       baseName: "summary",
