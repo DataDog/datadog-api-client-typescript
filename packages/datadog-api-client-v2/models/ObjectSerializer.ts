@@ -9797,6 +9797,8 @@ const enumsMap: { [key: string]: any[] } = {
     "elf",
     "ndk",
     "il2cpp",
+    "wasm",
+    "portable_pdb",
   ],
   SourcemapSearchBy: ["debug_id"],
   SpansAggregateBucketType: ["bucket"],

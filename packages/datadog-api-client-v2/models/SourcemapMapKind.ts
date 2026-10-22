@@ -19,6 +19,8 @@ export type SourcemapMapKind =
   | typeof ELF
   | typeof NDK
   | typeof IL2CPP
+  | typeof WASM
+  | typeof PORTABLE_PDB
   | UnparsedObject;
 export const JS = "js";
 export const JVM = "jvm";
@@ -28,3 +30,5 @@ export const FLUTTER = "flutter";
 export const ELF = "elf";
 export const NDK = "ndk";
 export const IL2CPP = "il2cpp";
+export const WASM = "wasm";
+export const PORTABLE_PDB = "portable_pdb";
