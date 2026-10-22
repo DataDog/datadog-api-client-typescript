@@ -9959,6 +9959,7 @@ const enumsMap: { [key: string]: any[] } = {
   TableRowResourceDataType: ["row"],
   TagDataType: ["tag"],
   TagIndexingRuleExemptionType: ["tag_indexing_rule_exemptions"],
+  TagIndexingRuleExemptionVolumeStatus: ["ok", "unindexed_tags", "unavailable"],
   TagIndexingRuleType: ["tag_indexing_rules"],
   TagRuleCreateType: ["surfacing"],
   TagRuleInclude: ["score"],

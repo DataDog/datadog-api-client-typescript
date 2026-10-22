@@ -9880,6 +9880,7 @@ export { TagIndexingRuleExemptionCreateRequest } from "./models/TagIndexingRuleE
 export { TagIndexingRuleExemptionData } from "./models/TagIndexingRuleExemptionData";
 export { TagIndexingRuleExemptionResponse } from "./models/TagIndexingRuleExemptionResponse";
 export { TagIndexingRuleExemptionType } from "./models/TagIndexingRuleExemptionType";
+export { TagIndexingRuleExemptionVolumeStatus } from "./models/TagIndexingRuleExemptionVolumeStatus";
 export { TagIndexingRuleMetricMatch } from "./models/TagIndexingRuleMetricMatch";
 export { TagIndexingRuleOptions } from "./models/TagIndexingRuleOptions";
 export { TagIndexingRuleOptionsData } from "./models/TagIndexingRuleOptionsData";
