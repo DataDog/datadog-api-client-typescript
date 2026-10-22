@@ -10207,6 +10207,10 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             "type": "Array<GetIssueIncludeQueryParameterItem>",
             "format": "",
             },
+        "filterSamplesBiases": {
+            "type": "Array<IssueSampleBias>",
+            "format": "",
+            },
         "operationResponseType": "IssueResponse",
     },
     "v2.UpdateIssueAssignee": {
