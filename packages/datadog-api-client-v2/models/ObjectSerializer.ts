@@ -1788,6 +1788,9 @@ import { EnvironmentsPaginationMeta } from "./EnvironmentsPaginationMeta";
 import { EnvironmentsPaginationMetaPage } from "./EnvironmentsPaginationMetaPage";
 import { ErrorHandler } from "./ErrorHandler";
 import { Escalation } from "./Escalation";
+import { EscalationPolicies } from "./EscalationPolicies";
+import { EscalationPoliciesResponseMeta } from "./EscalationPoliciesResponseMeta";
+import { EscalationPoliciesResponseMetaPage } from "./EscalationPoliciesResponseMetaPage";
 import { EscalationPolicy } from "./EscalationPolicy";
 import { EscalationPolicyCreateRequest } from "./EscalationPolicyCreateRequest";
 import { EscalationPolicyCreateRequestData } from "./EscalationPolicyCreateRequestData";
@@ -1799,6 +1802,7 @@ import { EscalationPolicyDataAttributes } from "./EscalationPolicyDataAttributes
 import { EscalationPolicyDataRelationships } from "./EscalationPolicyDataRelationships";
 import { EscalationPolicyDataRelationshipsSteps } from "./EscalationPolicyDataRelationshipsSteps";
 import { EscalationPolicyDataRelationshipsStepsDataItems } from "./EscalationPolicyDataRelationshipsStepsDataItems";
+import { EscalationPolicyListItem } from "./EscalationPolicyListItem";
 import { EscalationPolicyStep } from "./EscalationPolicyStep";
 import { EscalationPolicyStepAttributes } from "./EscalationPolicyStepAttributes";
 import { EscalationPolicyStepRelationships } from "./EscalationPolicyStepRelationships";
@@ -12429,6 +12433,9 @@ const typeMap: { [index: string]: any } = {
   EnvironmentsPaginationMetaPage: EnvironmentsPaginationMetaPage,
   ErrorHandler: ErrorHandler,
   Escalation: Escalation,
+  EscalationPolicies: EscalationPolicies,
+  EscalationPoliciesResponseMeta: EscalationPoliciesResponseMeta,
+  EscalationPoliciesResponseMetaPage: EscalationPoliciesResponseMetaPage,
   EscalationPolicy: EscalationPolicy,
   EscalationPolicyCreateRequest: EscalationPolicyCreateRequest,
   EscalationPolicyCreateRequestData: EscalationPolicyCreateRequestData,
@@ -12445,6 +12452,7 @@ const typeMap: { [index: string]: any } = {
     EscalationPolicyDataRelationshipsSteps,
   EscalationPolicyDataRelationshipsStepsDataItems:
     EscalationPolicyDataRelationshipsStepsDataItems,
+  EscalationPolicyListItem: EscalationPolicyListItem,
   EscalationPolicyStep: EscalationPolicyStep,
   EscalationPolicyStepAttributes: EscalationPolicyStepAttributes,
   EscalationPolicyStepRelationships: EscalationPolicyStepRelationships,

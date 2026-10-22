@@ -22,6 +22,10 @@ export class EscalationPolicyDataAttributes {
    * Specifies how many times the escalation sequence is retried if there is no response.
    */
   "retries"?: number;
+  /**
+   * A list of tags attached to the escalation policy, in `key:value` format.
+   */
+  "tags"?: Array<string>;
 
   /**
    * A container for additional, undeclared properties.
@@ -52,6 +56,10 @@ export class EscalationPolicyDataAttributes {
       baseName: "retries",
       type: "number",
       format: "int64",
+    },
+    tags: {
+      baseName: "tags",
+      type: "Array<string>",
     },
     additionalProperties: {
       baseName: "additionalProperties",
