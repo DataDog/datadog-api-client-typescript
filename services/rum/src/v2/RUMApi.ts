@@ -2213,7 +2213,7 @@ export interface RUMApiDeleteRUMApplicationRequest {
 export interface RUMApiDeleteSourcemapsRequest {
   /**
    * The type of source map. Valid values are `js`, `jvm`, `ios`,
-   * `react`, `flutter`, `elf`, `ndk`, `il2cpp`.
+   * `react`, `flutter`, `elf`, `ndk`, `il2cpp`, `wasm`, `portable_pdb`.
    * @type SourcemapMapKind
    */
   mapkind: SourcemapMapKind;
@@ -2247,7 +2247,7 @@ export interface RUMApiDeleteSourcemapsRequest {
    */
   filterId?: Array<string>;
   /**
-   * Filter by build ID values (multiple values allowed). Supported for `jvm`, `ndk`, and `il2cpp`.
+   * Filter by build ID values (multiple values allowed). Supported for `jvm`, `ndk`, `il2cpp`, `wasm`, and `portable_pdb`.
    * @type Array<string>
    */
   filterBuildId?: Array<string>;
@@ -2293,7 +2293,7 @@ export interface RUMApiDeleteSourcemapsRequest {
    */
   filterOriginVersion?: Array<string>;
   /**
-   * Filter by filename (single value). Supported for `js`, `elf`, and `ndk`.
+   * Filter by filename (single value). Supported for `js`, `elf`, `ndk`, `wasm`, and `portable_pdb`.
    * @type string
    */
   filterFilename?: string;
@@ -2450,7 +2450,7 @@ export interface RUMApiListSourcemapsRequest {
    */
   filterId?: Array<string>;
   /**
-   * Filter by build ID values (multiple values allowed). Supported for `jvm`, `ndk`, and `il2cpp`.
+   * Filter by build ID values (multiple values allowed). Supported for `jvm`, `ndk`, `il2cpp`, `wasm`, and `portable_pdb`.
    * @type Array<string>
    */
   filterBuildId?: Array<string>;
@@ -2496,7 +2496,7 @@ export interface RUMApiListSourcemapsRequest {
    */
   filterOriginVersion?: Array<string>;
   /**
-   * Filter by filename (single value). Supported for `js`, `elf`, and `ndk`.
+   * Filter by filename (single value). Supported for `js`, `elf`, `ndk`, `wasm`, and `portable_pdb`.
    * @type string
    */
   filterFilename?: string;
@@ -2527,7 +2527,7 @@ export interface RUMApiListSourcemapsRequest {
 export interface RUMApiRestoreSourcemapsRequest {
   /**
    * The type of source map. Valid values are `js`, `jvm`, `ios`,
-   * `react`, `flutter`, `elf`, `ndk`, `il2cpp`.
+   * `react`, `flutter`, `elf`, `ndk`, `il2cpp`, `wasm`, `portable_pdb`.
    * @type SourcemapMapKind
    */
   mapkind: SourcemapMapKind;
@@ -2561,7 +2561,7 @@ export interface RUMApiRestoreSourcemapsRequest {
    */
   filterId?: Array<string>;
   /**
-   * Filter by build ID values (multiple values allowed). Supported for `jvm`, `ndk`, and `il2cpp`.
+   * Filter by build ID values (multiple values allowed). Supported for `jvm`, `ndk`, `il2cpp`, `wasm`, and `portable_pdb`.
    * @type Array<string>
    */
   filterBuildId?: Array<string>;
@@ -2607,7 +2607,7 @@ export interface RUMApiRestoreSourcemapsRequest {
    */
   filterOriginVersion?: Array<string>;
   /**
-   * Filter by filename (single value). Supported for `js`, `elf`, and `ndk`.
+   * Filter by filename (single value). Supported for `js`, `elf`, `ndk`, `wasm`, and `portable_pdb`.
    * @type string
    */
   filterFilename?: string;

@@ -129,6 +129,8 @@ export const TypingInfo: ModelTypingInfo = {
       "elf",
       "ndk",
       "il2cpp",
+      "wasm",
+      "portable_pdb",
     ],
     SourcemapSearchBy: ["debug_id"],
     WASMSourcemapMapKind: ["wasm"],
