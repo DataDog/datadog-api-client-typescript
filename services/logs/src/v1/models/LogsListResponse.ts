@@ -16,6 +16,10 @@ export class LogsListResponse {
    */
   "nextLogId"?: string;
   /**
+   * Unique identifier of the request.
+   */
+  "requestId"?: string;
+  /**
    * Status of the response.
    */
   "status"?: string;
@@ -40,6 +44,10 @@ export class LogsListResponse {
     },
     nextLogId: {
       baseName: "nextLogId",
+      type: "string",
+    },
+    requestId: {
+      baseName: "requestId",
       type: "string",
     },
     status: {
