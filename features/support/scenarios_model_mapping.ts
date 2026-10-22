@@ -3979,6 +3979,10 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             "type": "string",
             "format": "",
             },
+        "filterHandle": {
+            "type": "string",
+            "format": "",
+            },
         "operationResponseType": "UsersResponse",
     },
     "v2.CreateUser": {
