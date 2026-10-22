@@ -780,7 +780,7 @@ export class AuthNMappingsApi {
   }
 
   /**
-   * List all AuthN Mappings in the org.
+   * List all AuthN Mappings in the organization.
    * @param param The request object
    */
   public listAuthNMappings(
