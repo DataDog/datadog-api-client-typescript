@@ -16,6 +16,10 @@ export class MetricsQueryMetadata {
    */
   "aggr"?: string;
   /**
+   * Additional read-only attributes returned for the series.
+   */
+  "attributes"?: { [key: string]: any };
+  /**
    * Display name of the metric.
    */
   "displayName"?: string;
@@ -86,6 +90,10 @@ export class MetricsQueryMetadata {
     aggr: {
       baseName: "aggr",
       type: "string",
+    },
+    attributes: {
+      baseName: "attributes",
+      type: "{ [key: string]: any; }",
     },
     displayName: {
       baseName: "display_name",
