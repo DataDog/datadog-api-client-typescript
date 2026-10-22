@@ -11,6 +11,9 @@ import { GetDeviceResponse } from "./GetDeviceResponse";
 import { GetInterfacesData } from "./GetInterfacesData";
 import { GetInterfacesResponse } from "./GetInterfacesResponse";
 import { InterfaceAttributes } from "./InterfaceAttributes";
+import { JSONAPIErrorItem } from "./JSONAPIErrorItem";
+import { JSONAPIErrorItemSource } from "./JSONAPIErrorItemSource";
+import { JSONAPIErrorResponse } from "./JSONAPIErrorResponse";
 import { ListDevicesResponse } from "./ListDevicesResponse";
 import { ListDevicesResponseMetadata } from "./ListDevicesResponseMetadata";
 import { ListDevicesResponseMetadataPage } from "./ListDevicesResponseMetadataPage";
@@ -37,6 +40,9 @@ export const TypingInfo: ModelTypingInfo = {
     GetInterfacesData: GetInterfacesData,
     GetInterfacesResponse: GetInterfacesResponse,
     InterfaceAttributes: InterfaceAttributes,
+    JSONAPIErrorItem: JSONAPIErrorItem,
+    JSONAPIErrorItemSource: JSONAPIErrorItemSource,
+    JSONAPIErrorResponse: JSONAPIErrorResponse,
     ListDevicesResponse: ListDevicesResponse,
     ListDevicesResponseMetadata: ListDevicesResponseMetadata,
     ListDevicesResponseMetadataPage: ListDevicesResponseMetadataPage,
