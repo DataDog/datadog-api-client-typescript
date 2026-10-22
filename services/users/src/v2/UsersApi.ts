@@ -565,6 +565,7 @@ export class UsersApiRequestFactory extends BaseAPIRequestFactory {
     sortDir?: QuerySortOrder,
     filter?: string,
     filterStatus?: string,
+    filterHandle?: string,
     _options?: Configuration,
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
@@ -635,6 +636,13 @@ export class UsersApiRequestFactory extends BaseAPIRequestFactory {
       requestContext.setQueryParam(
         "filter[status]",
         serialize(filterStatus, TypingInfo, "string", ""),
+        "",
+      );
+    }
+    if (filterHandle !== undefined) {
+      requestContext.setQueryParam(
+        "filter[handle]",
+        serialize(filterHandle, TypingInfo, "string", ""),
         "",
       );
     }
@@ -1857,6 +1865,12 @@ export interface UsersApiListUsersRequest {
    * @type string
    */
   filterStatus?: string;
+  /**
+   * Filter on the exact user handle. This filter also returns Datadog-managed users,
+   * which the list otherwise excludes. Defaults to no filtering.
+   * @type string
+   */
+  filterHandle?: string;
 }
 
 export interface UsersApiSendInvitationsRequest {
@@ -2148,6 +2162,7 @@ export class UsersApi {
       param.sortDir,
       param.filter,
       param.filterStatus,
+      param.filterHandle,
       options,
     );
     return requestContextPromise.then((requestContext) => {
@@ -2180,6 +2195,7 @@ export class UsersApi {
         param.sortDir,
         param.filter,
         param.filterStatus,
+        param.filterHandle,
         options,
       );
       const responseContext =
