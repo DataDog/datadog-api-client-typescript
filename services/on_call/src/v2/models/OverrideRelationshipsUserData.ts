@@ -11,7 +11,7 @@ export class OverrideRelationshipsUserData {
    */
   "id": string;
   /**
-   * Indicates that the related resource is of type 'users'.
+   * Indicates that the related resource is of type `users`.
    */
   "type": OverrideRelationshipsUserDataType;
   /**

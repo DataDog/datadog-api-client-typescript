@@ -11,7 +11,7 @@ export class OnCallNotificationRuleChannelRelationshipData {
    */
   "id"?: string;
   /**
-   * Indicates that the resource is of type 'notification_channels'.
+   * Indicates that the resource is of type `notification_channels`.
    */
   "type"?: NotificationChannelType;
   /**
