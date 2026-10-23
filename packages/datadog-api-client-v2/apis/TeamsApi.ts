@@ -19,6 +19,7 @@ import { ApiException } from "../../datadog-api-client-common/exception";
 import { AddMemberTeamRequest } from "../models/AddMemberTeamRequest";
 import { APIErrorResponse } from "../models/APIErrorResponse";
 import { GetTeamMembershipsSort } from "../models/GetTeamMembershipsSort";
+import { JSONAPIErrorResponse } from "../models/JSONAPIErrorResponse";
 import { ListTeamsInclude } from "../models/ListTeamsInclude";
 import { ListTeamsSort } from "../models/ListTeamsSort";
 import { Team } from "../models/Team";
@@ -31,6 +32,8 @@ import { TeamHierarchyLink } from "../models/TeamHierarchyLink";
 import { TeamHierarchyLinkCreateRequest } from "../models/TeamHierarchyLinkCreateRequest";
 import { TeamHierarchyLinkResponse } from "../models/TeamHierarchyLinkResponse";
 import { TeamHierarchyLinksResponse } from "../models/TeamHierarchyLinksResponse";
+import { TeamHierarchyMember } from "../models/TeamHierarchyMember";
+import { TeamHierarchyMembersResponse } from "../models/TeamHierarchyMembersResponse";
 import { TeamLinkCreateRequest } from "../models/TeamLinkCreateRequest";
 import { TeamLinkResponse } from "../models/TeamLinkResponse";
 import { TeamLinksResponse } from "../models/TeamLinksResponse";
@@ -1286,6 +1289,110 @@ export class TeamsApiRequestFactory extends BaseAPIRequestFactory {
       requestContext.setQueryParam(
         "filter[sub_team]",
         ObjectSerializer.serialize(filterSubTeam, "string", ""),
+        ""
+      );
+    }
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+      "AuthZ",
+    ]);
+
+    return requestContext;
+  }
+
+  public async listTeamHierarchyMembers(
+    teamId: string,
+    filterIsDirectOnly?: boolean,
+    filterIncludeServiceAccounts?: boolean,
+    filterKeyword?: string,
+    include?: string,
+    sort?: string,
+    pageNumber?: number,
+    pageSize?: number,
+    _options?: Configuration
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    logger.warn("Using unstable operation 'listTeamHierarchyMembers'");
+    if (!_config.unstableOperations["v2.listTeamHierarchyMembers"]) {
+      throw new Error(
+        "Unstable operation 'listTeamHierarchyMembers' is disabled"
+      );
+    }
+
+    // verify required parameter 'teamId' is not null or undefined
+    if (teamId === null || teamId === undefined) {
+      throw new RequiredError("teamId", "listTeamHierarchyMembers");
+    }
+
+    // Path Params
+    const localVarPath = "/api/v2/team/{team_id}/members".replace(
+      "{team_id}",
+      encodeURIComponent(String(teamId))
+    );
+
+    // Make Request Context
+    const requestContext = _config
+      .getServer("v2.TeamsApi.listTeamHierarchyMembers")
+      .makeRequestContext(localVarPath, HttpMethod.GET);
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Set IaC header
+    if (_config.isIaC) {
+      requestContext.setHeaderParam("X-Datadog-Managed-By", "iac");
+    }
+
+    // Query Params
+    if (filterIsDirectOnly !== undefined) {
+      requestContext.setQueryParam(
+        "filter[is_direct_only]",
+        ObjectSerializer.serialize(filterIsDirectOnly, "boolean", ""),
+        ""
+      );
+    }
+    if (filterIncludeServiceAccounts !== undefined) {
+      requestContext.setQueryParam(
+        "filter[include_service_accounts]",
+        ObjectSerializer.serialize(filterIncludeServiceAccounts, "boolean", ""),
+        ""
+      );
+    }
+    if (filterKeyword !== undefined) {
+      requestContext.setQueryParam(
+        "filter[keyword]",
+        ObjectSerializer.serialize(filterKeyword, "string", ""),
+        ""
+      );
+    }
+    if (include !== undefined) {
+      requestContext.setQueryParam(
+        "include",
+        ObjectSerializer.serialize(include, "string", ""),
+        ""
+      );
+    }
+    if (sort !== undefined) {
+      requestContext.setQueryParam(
+        "sort",
+        ObjectSerializer.serialize(sort, "string", ""),
+        ""
+      );
+    }
+    if (pageNumber !== undefined) {
+      requestContext.setQueryParam(
+        "page[number]",
+        ObjectSerializer.serialize(pageNumber, "number", "int64"),
+        ""
+      );
+    }
+    if (pageSize !== undefined) {
+      requestContext.setQueryParam(
+        "page[size]",
+        ObjectSerializer.serialize(pageSize, "number", "int64"),
         ""
       );
     }
@@ -3309,6 +3416,91 @@ export class TeamsApiResponseProcessor {
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
    *
+   * @params response Response returned by the server for a request to listTeamHierarchyMembers
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async listTeamHierarchyMembers(
+    response: ResponseContext
+  ): Promise<TeamHierarchyMembersResponse> {
+    const contentType = ObjectSerializer.normalizeMediaType(
+      response.headers["content-type"]
+    );
+    if (response.httpStatusCode === 200) {
+      const body: TeamHierarchyMembersResponse = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "TeamHierarchyMembersResponse"
+      ) as TeamHierarchyMembersResponse;
+      return body;
+    }
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 401 ||
+      response.httpStatusCode === 404
+    ) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: JSONAPIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "JSONAPIErrorResponse"
+        ) as JSONAPIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<JSONAPIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<JSONAPIErrorResponse>(
+        response.httpStatusCode,
+        body
+      );
+    }
+    if (response.httpStatusCode === 403 || response.httpStatusCode === 429) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: APIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "APIErrorResponse"
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: TeamHierarchyMembersResponse = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "TeamHierarchyMembersResponse",
+        ""
+      ) as TeamHierarchyMembersResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"'
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
    * @params response Response returned by the server for a request to listTeams
    * @throws ApiException if the response code was not in [200, 299]
    */
@@ -4138,6 +4330,49 @@ export interface TeamsApiListTeamHierarchyLinksRequest {
    * @type string
    */
   filterSubTeam?: string;
+}
+
+export interface TeamsApiListTeamHierarchyMembersRequest {
+  /**
+   * UUID of the requested root team.
+   * @type string
+   */
+  teamId: string;
+  /**
+   * Return only direct members. By default, members inherited from descendant teams are also returned.
+   * @type boolean
+   */
+  filterIsDirectOnly?: boolean;
+  /**
+   * Include service accounts. Datadog support users are always excluded.
+   * @type boolean
+   */
+  filterIncludeServiceAccounts?: boolean;
+  /**
+   * Filter by a case-insensitive substring of the user name, handle, or email.
+   * @type string
+   */
+  filterKeyword?: string;
+  /**
+   * Comma-separated resources to include: `user` and `team`. The included team is the requested team. Whitespace is trimmed, and duplicate or empty entries are ignored.
+   * @type string
+   */
+  include?: string;
+  /**
+   * Comma-separated sort fields: `name`, `handle`, `is_direct`, and `provisioned_by`. Fields are applied in order, each optionally prefixed with `-` for descending order. By default, team admins come first, followed by other direct members, then inherited members, sorted by name within each group.
+   * @type string
+   */
+  sort?: string;
+  /**
+   * Zero-based page number. Negative values become 0. Defaults to 0.
+   * @type number
+   */
+  pageNumber?: number;
+  /**
+   * Requested number of members per page. Defaults to and maxes out at 100.
+   * @type number
+   */
+  pageSize?: number;
 }
 
 export interface TeamsApiListTeamsRequest {
@@ -5030,6 +5265,89 @@ export class TeamsApi {
       );
 
       const response = await this.responseProcessor.listTeamHierarchyLinks(
+        responseContext
+      );
+      const responseData = response.data;
+      if (responseData === undefined) {
+        break;
+      }
+      const results = responseData;
+      for (const item of results) {
+        yield item;
+      }
+      if (results.length < pageSize) {
+        break;
+      }
+      param.pageNumber = param.pageNumber + 1;
+    }
+  }
+
+  /**
+   * List the direct and inherited members of a team, deduplicated by user.
+   * Members of descendant teams are included unless `filter[is_direct_only]` is true.
+   * Datadog support users are always excluded.
+   *
+   * Use `page[number]` and `page[size]` to paginate through the results.
+   * Invalid query parameters return a JSON:API error with status 400.
+   * Invalid or unknown team UUIDs return status 404.
+   * @param param The request object
+   */
+  public listTeamHierarchyMembers(
+    param: TeamsApiListTeamHierarchyMembersRequest,
+    options?: Configuration
+  ): Promise<TeamHierarchyMembersResponse> {
+    const requestContextPromise = this.requestFactory.listTeamHierarchyMembers(
+      param.teamId,
+      param.filterIsDirectOnly,
+      param.filterIncludeServiceAccounts,
+      param.filterKeyword,
+      param.include,
+      param.sort,
+      param.pageNumber,
+      param.pageSize,
+      options
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.listTeamHierarchyMembers(
+            responseContext
+          );
+        });
+    });
+  }
+
+  /**
+   * Provide a paginated version of listTeamHierarchyMembers returning a generator with all the items.
+   */
+  public async *listTeamHierarchyMembersWithPagination(
+    param: TeamsApiListTeamHierarchyMembersRequest,
+    options?: Configuration
+  ): AsyncGenerator<TeamHierarchyMember> {
+    let pageSize = 100;
+    if (param.pageSize !== undefined) {
+      pageSize = param.pageSize;
+    }
+    param.pageSize = pageSize;
+    param.pageNumber = 0;
+    while (true) {
+      const requestContext = await this.requestFactory.listTeamHierarchyMembers(
+        param.teamId,
+        param.filterIsDirectOnly,
+        param.filterIncludeServiceAccounts,
+        param.filterKeyword,
+        param.include,
+        param.sort,
+        param.pageNumber,
+        param.pageSize,
+        options
+      );
+      const responseContext = await this.configuration.httpApi.send(
+        requestContext
+      );
+
+      const response = await this.responseProcessor.listTeamHierarchyMembers(
         responseContext
       );
       const responseData = response.data;
