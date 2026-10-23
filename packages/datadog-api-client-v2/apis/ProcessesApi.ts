@@ -165,26 +165,29 @@ export class ProcessesApiResponseProcessor {
 
 export interface ProcessesApiListProcessesRequest {
   /**
-   * String to search processes by.
+   * Free-text search over process fields such as the executable and user. When it contains several
+   * words, a process must match all of them. Use `tags` for exact values such as host.
    * @type string
    */
   search?: string;
   /**
-   * Comma-separated list of tags to filter processes by.
+   * Comma-separated `key:value` tags. A process must match every tag. Wildcards, negation
+   * (`-key:value`), spaces, and `IN (...)` are not supported. To cover several hosts, make one
+   * request per host.
    * @type string
    */
   tags?: string;
   /**
-   * Unix timestamp (number of seconds since epoch) of the start of the query window.
-   * If not provided, the start of the query window will be 15 minutes before the `to` timestamp. If neither
-   * `from` nor `to` are provided, the query window will be `[now - 15m, now]`.
+   * Start of the query window, in Unix seconds. Must be within the past 36 hours and at most 1 hour
+   * before `to`. If not provided, the start of the query window is 15 minutes before the `to` timestamp.
+   * If neither `from` nor `to` is provided, the query window is `[now - 15m, now]`.
    * @type number
    */
   from?: number;
   /**
-   * Unix timestamp (number of seconds since epoch) of the end of the query window.
-   * If not provided, the end of the query window will be 15 minutes after the `from` timestamp. If neither
-   * `from` nor `to` are provided, the query window will be `[now - 15m, now]`.
+   * End of the query window, in Unix seconds. Must be at most 1 hour after `from`. If not provided, the
+   * end of the query window is 15 minutes after the `from` timestamp. If neither `from` nor `to` is
+   * provided, the query window is `[now - 15m, now]`.
    * @type number
    */
   to?: number;
@@ -219,7 +222,13 @@ export class ProcessesApi {
   }
 
   /**
-   * Get all processes for your organization.
+   * Get processes collected by Live Processes for your organization. One request covers a window of
+   * at most 1 hour that starts within the past 36 hours. To cover a longer period, make one request
+   * per hour. Older data is not available from this endpoint.
+   *
+   * When a process includes `identifying_tags`, pass them as `tag_filters` in a `process` data source
+   * query to `/api/v2/query/scalar` or `/api/v2/query/timeseries` to get CPU or memory metrics for that
+   * one process. If absent, don't substitute an empty filter, which would query all processes.
    * @param param The request object
    */
   public listProcesses(
