@@ -7,7 +7,9 @@ export type GetIssueIncludeQueryParameterItem =
   | typeof ASSIGNEE
   | typeof CASE
   | typeof TEAM_OWNERS
+  | typeof SAMPLES
   | UnparsedObject;
 export const ASSIGNEE = "assignee";
 export const CASE = "case";
 export const TEAM_OWNERS = "team_owners";
+export const SAMPLES = "samples";

@@ -18,6 +18,15 @@ import { IssueReference } from "./IssueReference";
 import { IssueRegression } from "./IssueRegression";
 import { IssueRelationships } from "./IssueRelationships";
 import { IssueResponse } from "./IssueResponse";
+import { IssueSample } from "./IssueSample";
+import { IssueSampleAttributes } from "./IssueSampleAttributes";
+import { IssueSampleCodeSnippet } from "./IssueSampleCodeSnippet";
+import { IssueSampleErrorStack } from "./IssueSampleErrorStack";
+import { IssueSampleFrameLink } from "./IssueSampleFrameLink";
+import { IssueSampleGitFileLocation } from "./IssueSampleGitFileLocation";
+import { IssueSampleReference } from "./IssueSampleReference";
+import { IssueSampleStackFrame } from "./IssueSampleStackFrame";
+import { IssueSamplesRelationship } from "./IssueSamplesRelationship";
 import { IssueTeam } from "./IssueTeam";
 import { IssueTeamAttributes } from "./IssueTeamAttributes";
 import { IssueTeamOwnersRelationship } from "./IssueTeamOwnersRelationship";
@@ -47,7 +56,12 @@ export const TypingInfo: ModelTypingInfo = {
   enumsMap: {
     CasePriority: ["NOT_DEFINED", "P1", "P2", "P3", "P4", "P5"],
     CaseStatus: ["OPEN", "IN_PROGRESS", "CLOSED"],
-    GetIssueIncludeQueryParameterItem: ["assignee", "case", "team_owners"],
+    GetIssueIncludeQueryParameterItem: [
+      "assignee",
+      "case",
+      "team_owners",
+      "samples",
+    ],
     IssueCaseResourceType: ["case"],
     IssueLanguage: [
       "BRIGHTSCRIPT",
@@ -88,6 +102,22 @@ export const TypingInfo: ModelTypingInfo = {
       "ROKU",
       "UNKNOWN",
     ],
+    IssueSampleBias: [
+      "latest",
+      "git_metadata",
+      "trace",
+      "session_replay",
+      "exception_replay",
+    ],
+    IssueSampleDataSource: [
+      "APM",
+      "LOGS",
+      "RUM",
+      "LLMOBS",
+      "SYNTHETICS",
+      "NONE",
+    ],
+    IssueSampleType: ["error_tracking_issue_sample"],
     IssueState: ["OPEN", "ACKNOWLEDGED", "RESOLVED", "IGNORED", "EXCLUDED"],
     IssueTeamType: ["team"],
     IssueType: ["issue"],
@@ -119,7 +149,7 @@ export const TypingInfo: ModelTypingInfo = {
     UserResourceType: ["user"],
   },
   oneOfMap: {
-    IssueIncluded: ["IssueCase", "IssueUser", "IssueTeam"],
+    IssueIncluded: ["IssueCase", "IssueUser", "IssueTeam", "IssueSample"],
     IssuesSearchResultIncluded: [
       "Issue",
       "IssueCase",
@@ -146,6 +176,15 @@ export const TypingInfo: ModelTypingInfo = {
     IssueRegression: IssueRegression,
     IssueRelationships: IssueRelationships,
     IssueResponse: IssueResponse,
+    IssueSample: IssueSample,
+    IssueSampleAttributes: IssueSampleAttributes,
+    IssueSampleCodeSnippet: IssueSampleCodeSnippet,
+    IssueSampleErrorStack: IssueSampleErrorStack,
+    IssueSampleFrameLink: IssueSampleFrameLink,
+    IssueSampleGitFileLocation: IssueSampleGitFileLocation,
+    IssueSampleReference: IssueSampleReference,
+    IssueSampleStackFrame: IssueSampleStackFrame,
+    IssueSamplesRelationship: IssueSamplesRelationship,
     IssueTeam: IssueTeam,
     IssueTeamAttributes: IssueTeamAttributes,
     IssueTeamOwnersRelationship: IssueTeamOwnersRelationship,
