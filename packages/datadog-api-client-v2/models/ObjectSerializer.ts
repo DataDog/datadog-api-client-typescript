@@ -8453,6 +8453,10 @@ const enumsMap: { [key: string]: any[] } = {
   ObservabilityPipelineAzureDataExplorerDestinationAuthWorkloadIdentityKind: [
     "workload_identity",
   ],
+  ObservabilityPipelineAzureDataExplorerDestinationIngestionMode: [
+    "streaming",
+    "queue",
+  ],
   ObservabilityPipelineAzureDataExplorerDestinationManagedIdentityIdType: [
     "client_id",
     "object_id",
