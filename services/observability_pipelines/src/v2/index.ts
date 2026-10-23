@@ -370,6 +370,16 @@ export { ObservabilityPipelineSocketSourceType } from "./models/ObservabilityPip
 export { ObservabilityPipelineSourceValidTokenFieldToAdd } from "./models/ObservabilityPipelineSourceValidTokenFieldToAdd";
 export { ObservabilityPipelineSpec } from "./models/ObservabilityPipelineSpec";
 export { ObservabilityPipelineSpecData } from "./models/ObservabilityPipelineSpecData";
+export { ObservabilityPipelineSpikeProtectionProcessor } from "./models/ObservabilityPipelineSpikeProtectionProcessor";
+export { ObservabilityPipelineSpikeProtectionProcessorActionWhenMissingPartitions } from "./models/ObservabilityPipelineSpikeProtectionProcessorActionWhenMissingPartitions";
+export { ObservabilityPipelineSpikeProtectionProcessorMinimalThreshold } from "./models/ObservabilityPipelineSpikeProtectionProcessorMinimalThreshold";
+export { ObservabilityPipelineSpikeProtectionProcessorMinimalThresholdAlwaysKeep } from "./models/ObservabilityPipelineSpikeProtectionProcessorMinimalThresholdAlwaysKeep";
+export { ObservabilityPipelineSpikeProtectionProcessorMinimalThresholdAlwaysKeepType } from "./models/ObservabilityPipelineSpikeProtectionProcessorMinimalThresholdAlwaysKeepType";
+export { ObservabilityPipelineSpikeProtectionProcessorMinimalThresholdBytes } from "./models/ObservabilityPipelineSpikeProtectionProcessorMinimalThresholdBytes";
+export { ObservabilityPipelineSpikeProtectionProcessorMinimalThresholdBytesType } from "./models/ObservabilityPipelineSpikeProtectionProcessorMinimalThresholdBytesType";
+export { ObservabilityPipelineSpikeProtectionProcessorSpikeAction } from "./models/ObservabilityPipelineSpikeProtectionProcessorSpikeAction";
+export { ObservabilityPipelineSpikeProtectionProcessorThresholdOverride } from "./models/ObservabilityPipelineSpikeProtectionProcessorThresholdOverride";
+export { ObservabilityPipelineSpikeProtectionProcessorType } from "./models/ObservabilityPipelineSpikeProtectionProcessorType";
 export { ObservabilityPipelineSplitArrayProcessor } from "./models/ObservabilityPipelineSplitArrayProcessor";
 export { ObservabilityPipelineSplitArrayProcessorArrayConfig } from "./models/ObservabilityPipelineSplitArrayProcessorArrayConfig";
 export { ObservabilityPipelineSplitArrayProcessorType } from "./models/ObservabilityPipelineSplitArrayProcessorType";
