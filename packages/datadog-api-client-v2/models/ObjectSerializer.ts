@@ -855,7 +855,6 @@ import { Component } from "./Component";
 import { ComponentGrid } from "./ComponentGrid";
 import { ComponentGridProperties } from "./ComponentGridProperties";
 import { ComponentProperties } from "./ComponentProperties";
-import { ComponentRecommendation } from "./ComponentRecommendation";
 import { Condition } from "./Condition";
 import { ConditionRequest } from "./ConditionRequest";
 import { ConfigCatIntegration } from "./ConfigCatIntegration";
@@ -979,7 +978,6 @@ import { CoverageSummaryCodeownerStats } from "./CoverageSummaryCodeownerStats";
 import { CoverageSummaryData } from "./CoverageSummaryData";
 import { CoverageSummaryResponse } from "./CoverageSummaryResponse";
 import { CoverageSummaryServiceStats } from "./CoverageSummaryServiceStats";
-import { Cpu } from "./Cpu";
 import { CreateActionConnectionRequest } from "./CreateActionConnectionRequest";
 import { CreateActionConnectionResponse } from "./CreateActionConnectionResponse";
 import { CreateAllocationsRequest } from "./CreateAllocationsRequest";
@@ -1820,7 +1818,6 @@ import { EscalationRelationships } from "./EscalationRelationships";
 import { EscalationRelationshipsResponders } from "./EscalationRelationshipsResponders";
 import { EscalationRelationshipsRespondersDataItems } from "./EscalationRelationshipsRespondersDataItems";
 import { EscalationTargets } from "./EscalationTargets";
-import { Estimation } from "./Estimation";
 import { Event } from "./Event";
 import { EventAttributes } from "./EventAttributes";
 import { EventCreateRequest } from "./EventCreateRequest";
@@ -4589,12 +4586,6 @@ import { ReactNativeSourcemapAttributes } from "./ReactNativeSourcemapAttributes
 import { ReactNativeSourcemapData } from "./ReactNativeSourcemapData";
 import { ReadinessGate } from "./ReadinessGate";
 import { RecentlyUpdatedEntitiesResponse } from "./RecentlyUpdatedEntitiesResponse";
-import { RecommendationAttributes } from "./RecommendationAttributes";
-import { RecommendationData } from "./RecommendationData";
-import { RecommendationDocument } from "./RecommendationDocument";
-import { RecommendationV2RequestAttributes } from "./RecommendationV2RequestAttributes";
-import { RecommendationV2RequestBody } from "./RecommendationV2RequestBody";
-import { RecommendationV2RequestData } from "./RecommendationV2RequestData";
 import { RecommendationsFilterRequest } from "./RecommendationsFilterRequest";
 import { RecommendationsFilterRequestData } from "./RecommendationsFilterRequestData";
 import { RecommendationsFilterRequestDataAttributes } from "./RecommendationsFilterRequestDataAttributes";
@@ -9077,8 +9068,6 @@ const enumsMap: { [key: string]: any[] } = {
   RUMSortOrder: ["asc", "desc"],
   ReactNativeSourcemapMapKind: ["react"],
   ReadinessGateThresholdType: ["ANY", "ALL"],
-  RecommendationType: ["recommendation"],
-  RecommendationV2RequestType: ["recommendation_v2_request"],
   RecommendationsFilterRequestDataType: ["recommendations_filter"],
   RecommendationsFilterRequestScope: ["ccm", "experiment", "*"],
   ReferenceTableCreateSourceType: ["LOCAL_FILE", "S3", "GCS", "AZURE"],
@@ -11279,7 +11268,6 @@ const typeMap: { [index: string]: any } = {
   ComponentGrid: ComponentGrid,
   ComponentGridProperties: ComponentGridProperties,
   ComponentProperties: ComponentProperties,
-  ComponentRecommendation: ComponentRecommendation,
   Condition: Condition,
   ConditionRequest: ConditionRequest,
   ConfigCatIntegration: ConfigCatIntegration,
@@ -11411,7 +11399,6 @@ const typeMap: { [index: string]: any } = {
   CoverageSummaryData: CoverageSummaryData,
   CoverageSummaryResponse: CoverageSummaryResponse,
   CoverageSummaryServiceStats: CoverageSummaryServiceStats,
-  Cpu: Cpu,
   CreateActionConnectionRequest: CreateActionConnectionRequest,
   CreateActionConnectionResponse: CreateActionConnectionResponse,
   CreateAllocationsRequest: CreateAllocationsRequest,
@@ -12487,7 +12474,6 @@ const typeMap: { [index: string]: any } = {
   EscalationRelationshipsRespondersDataItems:
     EscalationRelationshipsRespondersDataItems,
   EscalationTargets: EscalationTargets,
-  Estimation: Estimation,
   Event: Event,
   EventAttributes: EventAttributes,
   EventCreateRequest: EventCreateRequest,
@@ -15967,12 +15953,6 @@ const typeMap: { [index: string]: any } = {
   ReactNativeSourcemapData: ReactNativeSourcemapData,
   ReadinessGate: ReadinessGate,
   RecentlyUpdatedEntitiesResponse: RecentlyUpdatedEntitiesResponse,
-  RecommendationAttributes: RecommendationAttributes,
-  RecommendationData: RecommendationData,
-  RecommendationDocument: RecommendationDocument,
-  RecommendationV2RequestAttributes: RecommendationV2RequestAttributes,
-  RecommendationV2RequestBody: RecommendationV2RequestBody,
-  RecommendationV2RequestData: RecommendationV2RequestData,
   RecommendationsFilterRequest: RecommendationsFilterRequest,
   RecommendationsFilterRequestData: RecommendationsFilterRequestData,
   RecommendationsFilterRequestDataAttributes:
