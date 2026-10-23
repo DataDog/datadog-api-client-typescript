@@ -13,8 +13,12 @@ const configuration = client.createConfiguration({
 });
 const apiInstance = new v2.ExperimentsApi(configuration);
 
+// there is a valid "experiment_protocol" in the system
+const EXPERIMENT_PROTOCOL_DATA_ID = process.env
+  .EXPERIMENT_PROTOCOL_DATA_ID as string;
+
 const params: v2.ExperimentsApiGetExperimentProtocolRequest = {
-  protocolId: "550e8400-e29b-41d4-a716-446655440000",
+  protocolId: EXPERIMENT_PROTOCOL_DATA_ID,
 };
 
 apiInstance
