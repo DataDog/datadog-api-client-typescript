@@ -5,7 +5,7 @@ import { AttributeTypeMap } from "@datadog/datadog-api-client";
  */
 export class ExperimentsPublicProtocolResponseDataAttributesEnforcement {
   /**
-   * LOCKED prevents changes to confidence interval method. EDITABLE permits changes.
+   * Always LOCKED. The server keeps this setting locked regardless of the supplied value.
    */
   "confidenceIntervalMethod"?: string;
   /**
@@ -25,7 +25,7 @@ export class ExperimentsPublicProtocolResponseDataAttributesEnforcement {
    */
   "environment"?: string;
   /**
-   * LOCKED prevents changes to feature flag source. EDITABLE permits changes.
+   * Always LOCKED. The server keeps this setting locked regardless of the supplied value.
    */
   "flagSource"?: string;
   /**
@@ -49,7 +49,7 @@ export class ExperimentsPublicProtocolResponseDataAttributesEnforcement {
    */
   "splitByExplorationDimensions"?: string;
   /**
-   * LOCKED prevents changes to subject type. EDITABLE permits changes.
+   * Always LOCKED. The server keeps this setting locked regardless of the supplied value.
    */
   "subjectType"?: string;
   /**

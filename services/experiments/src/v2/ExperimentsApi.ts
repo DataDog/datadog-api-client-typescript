@@ -29,6 +29,7 @@ import { ExperimentsAnalysisPlanWriteV2Request } from "./models/ExperimentsAnaly
 import { ExperimentsCancelExperimentV2Request } from "./models/ExperimentsCancelExperimentV2Request";
 import { ExperimentsConcludeExperimentV2Request } from "./models/ExperimentsConcludeExperimentV2Request";
 import { ExperimentsCreateExperimentMetricGroupV2Request } from "./models/ExperimentsCreateExperimentMetricGroupV2Request";
+import { ExperimentsCreateExperimentProtocolRequest } from "./models/ExperimentsCreateExperimentProtocolRequest";
 import { ExperimentsCreateExperimentV2Request } from "./models/ExperimentsCreateExperimentV2Request";
 import { ExperimentsCreateExposureSQLModelV2Request } from "./models/ExperimentsCreateExposureSQLModelV2Request";
 import { ExperimentsCreateMetricCollectionV2Request } from "./models/ExperimentsCreateMetricCollectionV2Request";
@@ -49,6 +50,7 @@ import { ExperimentsMetricSQLModelV2DTOArray } from "./models/ExperimentsMetricS
 import { ExperimentsMetricV2DTO } from "./models/ExperimentsMetricV2DTO";
 import { ExperimentsMetricV2DTOArray } from "./models/ExperimentsMetricV2DTOArray";
 import { ExperimentsPatchExperimentMetricGroupV2Request } from "./models/ExperimentsPatchExperimentMetricGroupV2Request";
+import { ExperimentsPatchExperimentProtocolRequest } from "./models/ExperimentsPatchExperimentProtocolRequest";
 import { ExperimentsPatchExperimentV2Request } from "./models/ExperimentsPatchExperimentV2Request";
 import { ExperimentsPatchExperimentV2Response } from "./models/ExperimentsPatchExperimentV2Response";
 import { ExperimentsPatchMetricCollectionV2Request } from "./models/ExperimentsPatchMetricCollectionV2Request";
@@ -58,6 +60,7 @@ import { ExperimentsPublicProtocolResponse } from "./models/ExperimentsPublicPro
 import { ExperimentsPublicProtocolResponseDataAttributesStatus } from "./models/ExperimentsPublicProtocolResponseDataAttributesStatus";
 import { ExperimentsRefreshExperimentResultsV2DTO } from "./models/ExperimentsRefreshExperimentResultsV2DTO";
 import { ExperimentsRefreshExperimentResultsV2DTOArray } from "./models/ExperimentsRefreshExperimentResultsV2DTOArray";
+import { ExperimentsReplaceExperimentProtocolRequest } from "./models/ExperimentsReplaceExperimentProtocolRequest";
 import { ExperimentsStartExperimentV2Request } from "./models/ExperimentsStartExperimentV2Request";
 import { ExperimentsSubjectTypeV2DTO } from "./models/ExperimentsSubjectTypeV2DTO";
 import { ExperimentsSubjectTypeV2DTOArray } from "./models/ExperimentsSubjectTypeV2DTOArray";
@@ -78,6 +81,67 @@ export class ExperimentsApiRequestFactory extends BaseAPIRequestFactory {
       this.userAgent = buildUserAgent("experiments", version);
     }
   }
+  public async archiveExperimentProtocol(
+    protocolId: string,
+    expectedUpdatedAt?: string,
+    _options?: Configuration,
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    // verify required parameter 'protocolId' is not null or undefined
+    if (protocolId === null || protocolId === undefined) {
+      throw new RequiredError("protocolId", "archiveExperimentProtocol");
+    }
+
+    // Path Params
+    const localVarPath =
+      "/api/v2/experiments/protocols/{protocol_id}/archive".replace(
+        "{protocol_id}",
+        encodeURIComponent(String(protocolId)),
+      );
+
+    // Make Request Context
+    const { server, overrides } = _config.getServerAndOverrides(
+      "ExperimentsApi.v2.archiveExperimentProtocol",
+      ExperimentsApi.operationServers,
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.POST,
+      overrides,
+    );
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Set User-Agent
+    if (this.userAgent) {
+      requestContext.setHeaderParam("User-Agent", this.userAgent);
+    }
+
+    // Set IaC header
+    if (_config.isIaC) {
+      requestContext.setHeaderParam("X-Datadog-Managed-By", "iac");
+    }
+
+    // Query Params
+    if (expectedUpdatedAt !== undefined) {
+      requestContext.setQueryParam(
+        "expected_updated_at",
+        serialize(expectedUpdatedAt, TypingInfo, "string", ""),
+        "",
+      );
+    }
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+      "AuthZ",
+    ]);
+
+    return requestContext;
+  }
+
   public async archiveExposureSQLModel(
     exposureSqlModelId: string,
     _options?: Configuration,
@@ -440,6 +504,67 @@ export class ExperimentsApiRequestFactory extends BaseAPIRequestFactory {
     if (_config.isIaC) {
       requestContext.setHeaderParam("X-Datadog-Managed-By", "iac");
     }
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+      "AuthZ",
+    ]);
+
+    return requestContext;
+  }
+
+  public async createExperimentProtocol(
+    body: ExperimentsCreateExperimentProtocolRequest,
+    _options?: Configuration,
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    // verify required parameter 'body' is not null or undefined
+    if (body === null || body === undefined) {
+      throw new RequiredError("body", "createExperimentProtocol");
+    }
+
+    // Path Params
+    const localVarPath = "/api/v2/experiments/protocols";
+
+    // Make Request Context
+    const { server, overrides } = _config.getServerAndOverrides(
+      "ExperimentsApi.v2.createExperimentProtocol",
+      ExperimentsApi.operationServers,
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.POST,
+      overrides,
+    );
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Set User-Agent
+    if (this.userAgent) {
+      requestContext.setHeaderParam("User-Agent", this.userAgent);
+    }
+
+    // Set IaC header
+    if (_config.isIaC) {
+      requestContext.setHeaderParam("X-Datadog-Managed-By", "iac");
+    }
+
+    // Body Params
+    const contentType = getPreferredMediaType(["application/json"]);
+    requestContext.setHeaderParam("Content-Type", contentType);
+    const serializedBody = stringify(
+      serialize(
+        body,
+        TypingInfo,
+        "ExperimentsCreateExperimentProtocolRequest",
+        "",
+      ),
+      contentType,
+    );
+    requestContext.setBody(serializedBody);
 
     // Apply auth methods
     applySecurityAuthentication(_config, requestContext, [
@@ -843,6 +968,66 @@ export class ExperimentsApiRequestFactory extends BaseAPIRequestFactory {
     // Set IaC header
     if (_config.isIaC) {
       requestContext.setHeaderParam("X-Datadog-Managed-By", "iac");
+    }
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+      "AuthZ",
+    ]);
+
+    return requestContext;
+  }
+
+  public async deleteExperimentProtocol(
+    protocolId: string,
+    expectedUpdatedAt?: string,
+    _options?: Configuration,
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    // verify required parameter 'protocolId' is not null or undefined
+    if (protocolId === null || protocolId === undefined) {
+      throw new RequiredError("protocolId", "deleteExperimentProtocol");
+    }
+
+    // Path Params
+    const localVarPath = "/api/v2/experiments/protocols/{protocol_id}".replace(
+      "{protocol_id}",
+      encodeURIComponent(String(protocolId)),
+    );
+
+    // Make Request Context
+    const { server, overrides } = _config.getServerAndOverrides(
+      "ExperimentsApi.v2.deleteExperimentProtocol",
+      ExperimentsApi.operationServers,
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.DELETE,
+      overrides,
+    );
+    requestContext.setHeaderParam("Accept", "*/*");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Set User-Agent
+    if (this.userAgent) {
+      requestContext.setHeaderParam("User-Agent", this.userAgent);
+    }
+
+    // Set IaC header
+    if (_config.isIaC) {
+      requestContext.setHeaderParam("X-Datadog-Managed-By", "iac");
+    }
+
+    // Query Params
+    if (expectedUpdatedAt !== undefined) {
+      requestContext.setQueryParam(
+        "expected_updated_at",
+        serialize(expectedUpdatedAt, TypingInfo, "string", ""),
+        "",
+      );
     }
 
     // Apply auth methods
@@ -2370,6 +2555,76 @@ export class ExperimentsApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
+  public async patchExperimentProtocol(
+    protocolId: string,
+    body: ExperimentsPatchExperimentProtocolRequest,
+    _options?: Configuration,
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    // verify required parameter 'protocolId' is not null or undefined
+    if (protocolId === null || protocolId === undefined) {
+      throw new RequiredError("protocolId", "patchExperimentProtocol");
+    }
+
+    // verify required parameter 'body' is not null or undefined
+    if (body === null || body === undefined) {
+      throw new RequiredError("body", "patchExperimentProtocol");
+    }
+
+    // Path Params
+    const localVarPath = "/api/v2/experiments/protocols/{protocol_id}".replace(
+      "{protocol_id}",
+      encodeURIComponent(String(protocolId)),
+    );
+
+    // Make Request Context
+    const { server, overrides } = _config.getServerAndOverrides(
+      "ExperimentsApi.v2.patchExperimentProtocol",
+      ExperimentsApi.operationServers,
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.PATCH,
+      overrides,
+    );
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Set User-Agent
+    if (this.userAgent) {
+      requestContext.setHeaderParam("User-Agent", this.userAgent);
+    }
+
+    // Set IaC header
+    if (_config.isIaC) {
+      requestContext.setHeaderParam("X-Datadog-Managed-By", "iac");
+    }
+
+    // Body Params
+    const contentType = getPreferredMediaType(["application/json"]);
+    requestContext.setHeaderParam("Content-Type", contentType);
+    const serializedBody = stringify(
+      serialize(
+        body,
+        TypingInfo,
+        "ExperimentsPatchExperimentProtocolRequest",
+        "",
+      ),
+      contentType,
+    );
+    requestContext.setBody(serializedBody);
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+      "AuthZ",
+    ]);
+
+    return requestContext;
+  }
+
   public async patchSubjectType(
     subjectTypeId: string,
     body: ExperimentsPatchSubjectTypeV2Request,
@@ -2425,6 +2680,57 @@ export class ExperimentsApiRequestFactory extends BaseAPIRequestFactory {
       contentType,
     );
     requestContext.setBody(serializedBody);
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+      "AuthZ",
+    ]);
+
+    return requestContext;
+  }
+
+  public async publishExperimentProtocol(
+    protocolId: string,
+    _options?: Configuration,
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    // verify required parameter 'protocolId' is not null or undefined
+    if (protocolId === null || protocolId === undefined) {
+      throw new RequiredError("protocolId", "publishExperimentProtocol");
+    }
+
+    // Path Params
+    const localVarPath =
+      "/api/v2/experiments/protocols/{protocol_id}/publish".replace(
+        "{protocol_id}",
+        encodeURIComponent(String(protocolId)),
+      );
+
+    // Make Request Context
+    const { server, overrides } = _config.getServerAndOverrides(
+      "ExperimentsApi.v2.publishExperimentProtocol",
+      ExperimentsApi.operationServers,
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.POST,
+      overrides,
+    );
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Set User-Agent
+    if (this.userAgent) {
+      requestContext.setHeaderParam("User-Agent", this.userAgent);
+    }
+
+    // Set IaC header
+    if (_config.isIaC) {
+      requestContext.setHeaderParam("X-Datadog-Managed-By", "iac");
+    }
 
     // Apply auth methods
     applySecurityAuthentication(_config, requestContext, [
@@ -2537,6 +2843,86 @@ export class ExperimentsApiRequestFactory extends BaseAPIRequestFactory {
         "",
       );
     }
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+      "AuthZ",
+    ]);
+
+    return requestContext;
+  }
+
+  public async replaceExperimentProtocol(
+    protocolId: string,
+    body: ExperimentsReplaceExperimentProtocolRequest,
+    expectedUpdatedAt?: string,
+    _options?: Configuration,
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    // verify required parameter 'protocolId' is not null or undefined
+    if (protocolId === null || protocolId === undefined) {
+      throw new RequiredError("protocolId", "replaceExperimentProtocol");
+    }
+
+    // verify required parameter 'body' is not null or undefined
+    if (body === null || body === undefined) {
+      throw new RequiredError("body", "replaceExperimentProtocol");
+    }
+
+    // Path Params
+    const localVarPath = "/api/v2/experiments/protocols/{protocol_id}".replace(
+      "{protocol_id}",
+      encodeURIComponent(String(protocolId)),
+    );
+
+    // Make Request Context
+    const { server, overrides } = _config.getServerAndOverrides(
+      "ExperimentsApi.v2.replaceExperimentProtocol",
+      ExperimentsApi.operationServers,
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.PUT,
+      overrides,
+    );
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Set User-Agent
+    if (this.userAgent) {
+      requestContext.setHeaderParam("User-Agent", this.userAgent);
+    }
+
+    // Set IaC header
+    if (_config.isIaC) {
+      requestContext.setHeaderParam("X-Datadog-Managed-By", "iac");
+    }
+
+    // Query Params
+    if (expectedUpdatedAt !== undefined) {
+      requestContext.setQueryParam(
+        "expected_updated_at",
+        serialize(expectedUpdatedAt, TypingInfo, "string", ""),
+        "",
+      );
+    }
+
+    // Body Params
+    const contentType = getPreferredMediaType(["application/json"]);
+    requestContext.setHeaderParam("Content-Type", contentType);
+    const serializedBody = stringify(
+      serialize(
+        body,
+        TypingInfo,
+        "ExperimentsReplaceExperimentProtocolRequest",
+        "",
+      ),
+      contentType,
+    );
+    requestContext.setBody(serializedBody);
 
     // Apply auth methods
     applySecurityAuthentication(_config, requestContext, [
@@ -3155,6 +3541,90 @@ export class ExperimentsApiResponseProcessor {
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
    *
+   * @params response Response returned by the server for a request to archiveExperimentProtocol
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async archiveExperimentProtocol(
+    response: ResponseContext,
+  ): Promise<ExperimentsPublicProtocolResponse> {
+    const contentType = normalizeMediaType(response.headers["content-type"]);
+    if (response.httpStatusCode === 200) {
+      const body: ExperimentsPublicProtocolResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "ExperimentsPublicProtocolResponse",
+      ) as ExperimentsPublicProtocolResponse;
+      return body;
+    }
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 401 ||
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 404 ||
+      response.httpStatusCode === 409 ||
+      response.httpStatusCode === 500
+    ) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: JSONAPIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "JSONAPIErrorResponse",
+        ) as JSONAPIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<JSONAPIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<JSONAPIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
+    }
+    if (response.httpStatusCode === 429) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: APIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "APIErrorResponse",
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: ExperimentsPublicProtocolResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "ExperimentsPublicProtocolResponse",
+        "",
+      ) as ExperimentsPublicProtocolResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"',
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
    * @params response Response returned by the server for a request to archiveExposureSQLModel
    * @throws ApiException if the response code was not in [200, 299]
    */
@@ -3604,6 +4074,90 @@ export class ExperimentsApiResponseProcessor {
         "ExperimentsExperimentMetricGroupMutationV2",
         "",
       ) as ExperimentsExperimentMetricGroupMutationV2;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"',
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
+   * @params response Response returned by the server for a request to createExperimentProtocol
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async createExperimentProtocol(
+    response: ResponseContext,
+  ): Promise<ExperimentsPublicProtocolResponse> {
+    const contentType = normalizeMediaType(response.headers["content-type"]);
+    if (response.httpStatusCode === 201) {
+      const body: ExperimentsPublicProtocolResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "ExperimentsPublicProtocolResponse",
+      ) as ExperimentsPublicProtocolResponse;
+      return body;
+    }
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 401 ||
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 409 ||
+      response.httpStatusCode === 415 ||
+      response.httpStatusCode === 500
+    ) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: JSONAPIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "JSONAPIErrorResponse",
+        ) as JSONAPIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<JSONAPIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<JSONAPIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
+    }
+    if (response.httpStatusCode === 429) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: APIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "APIErrorResponse",
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: ExperimentsPublicProtocolResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "ExperimentsPublicProtocolResponse",
+        "",
+      ) as ExperimentsPublicProtocolResponse;
       return body;
     }
 
@@ -4116,6 +4670,79 @@ export class ExperimentsApiResponseProcessor {
       response.httpStatusCode === 403 ||
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 409
+    ) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: JSONAPIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "JSONAPIErrorResponse",
+        ) as JSONAPIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<JSONAPIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<JSONAPIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
+    }
+    if (response.httpStatusCode === 429) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: APIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "APIErrorResponse",
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      return;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"',
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
+   * @params response Response returned by the server for a request to deleteExperimentProtocol
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async deleteExperimentProtocol(
+    response: ResponseContext,
+  ): Promise<void> {
+    const contentType = normalizeMediaType(response.headers["content-type"]);
+    if (response.httpStatusCode === 204) {
+      return;
+    }
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 401 ||
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 404 ||
+      response.httpStatusCode === 409 ||
+      response.httpStatusCode === 500
     ) {
       const bodyText = parse(await response.body.text(), contentType);
       let body: JSONAPIErrorResponse;
@@ -6021,6 +6648,91 @@ export class ExperimentsApiResponseProcessor {
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
    *
+   * @params response Response returned by the server for a request to patchExperimentProtocol
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async patchExperimentProtocol(
+    response: ResponseContext,
+  ): Promise<ExperimentsPublicProtocolResponse> {
+    const contentType = normalizeMediaType(response.headers["content-type"]);
+    if (response.httpStatusCode === 200) {
+      const body: ExperimentsPublicProtocolResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "ExperimentsPublicProtocolResponse",
+      ) as ExperimentsPublicProtocolResponse;
+      return body;
+    }
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 401 ||
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 404 ||
+      response.httpStatusCode === 409 ||
+      response.httpStatusCode === 415 ||
+      response.httpStatusCode === 500
+    ) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: JSONAPIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "JSONAPIErrorResponse",
+        ) as JSONAPIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<JSONAPIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<JSONAPIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
+    }
+    if (response.httpStatusCode === 429) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: APIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "APIErrorResponse",
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: ExperimentsPublicProtocolResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "ExperimentsPublicProtocolResponse",
+        "",
+      ) as ExperimentsPublicProtocolResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"',
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
    * @params response Response returned by the server for a request to patchSubjectType
    * @throws ApiException if the response code was not in [200, 299]
    */
@@ -6089,6 +6801,90 @@ export class ExperimentsApiResponseProcessor {
         "ExperimentsSubjectTypeV2DTO",
         "",
       ) as ExperimentsSubjectTypeV2DTO;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"',
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
+   * @params response Response returned by the server for a request to publishExperimentProtocol
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async publishExperimentProtocol(
+    response: ResponseContext,
+  ): Promise<ExperimentsPublicProtocolResponse> {
+    const contentType = normalizeMediaType(response.headers["content-type"]);
+    if (response.httpStatusCode === 200) {
+      const body: ExperimentsPublicProtocolResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "ExperimentsPublicProtocolResponse",
+      ) as ExperimentsPublicProtocolResponse;
+      return body;
+    }
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 401 ||
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 404 ||
+      response.httpStatusCode === 409 ||
+      response.httpStatusCode === 500
+    ) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: JSONAPIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "JSONAPIErrorResponse",
+        ) as JSONAPIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<JSONAPIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<JSONAPIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
+    }
+    if (response.httpStatusCode === 429) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: APIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "APIErrorResponse",
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: ExperimentsPublicProtocolResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "ExperimentsPublicProtocolResponse",
+        "",
+      ) as ExperimentsPublicProtocolResponse;
       return body;
     }
 
@@ -6253,6 +7049,91 @@ export class ExperimentsApiResponseProcessor {
         "ExperimentsRefreshExperimentResultsV2DTOArray",
         "",
       ) as ExperimentsRefreshExperimentResultsV2DTOArray;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"',
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
+   * @params response Response returned by the server for a request to replaceExperimentProtocol
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async replaceExperimentProtocol(
+    response: ResponseContext,
+  ): Promise<ExperimentsPublicProtocolResponse> {
+    const contentType = normalizeMediaType(response.headers["content-type"]);
+    if (response.httpStatusCode === 200) {
+      const body: ExperimentsPublicProtocolResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "ExperimentsPublicProtocolResponse",
+      ) as ExperimentsPublicProtocolResponse;
+      return body;
+    }
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 401 ||
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 404 ||
+      response.httpStatusCode === 409 ||
+      response.httpStatusCode === 415 ||
+      response.httpStatusCode === 500
+    ) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: JSONAPIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "JSONAPIErrorResponse",
+        ) as JSONAPIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<JSONAPIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<JSONAPIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
+    }
+    if (response.httpStatusCode === 429) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: APIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "APIErrorResponse",
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: ExperimentsPublicProtocolResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "ExperimentsPublicProtocolResponse",
+        "",
+      ) as ExperimentsPublicProtocolResponse;
       return body;
     }
 
@@ -6977,6 +7858,19 @@ export class ExperimentsApiResponseProcessor {
   }
 }
 
+export interface ExperimentsApiArchiveExperimentProtocolRequest {
+  /**
+   * The UUID of the protocol.
+   * @type string
+   */
+  protocolId: string;
+  /**
+   * The updated_at value from the last read. Include the full timestamp, with fractional seconds. Returns 409 if another write changed the protocol. Omit to skip this check.
+   * @type string
+   */
+  expectedUpdatedAt?: string;
+}
+
 export interface ExperimentsApiArchiveExposureSQLModelRequest {
   /**
    * The UUID of the exposure SQL model.
@@ -7041,6 +7935,13 @@ export interface ExperimentsApiCreateExperimentMetricGroupFromCollectionRequest 
   metricCollectionId: string;
 }
 
+export interface ExperimentsApiCreateExperimentProtocolRequest {
+  /**
+   * @type ExperimentsCreateExperimentProtocolRequest
+   */
+  body: ExperimentsCreateExperimentProtocolRequest;
+}
+
 export interface ExperimentsApiCreateExposureSQLModelRequest {
   /**
    * @type ExperimentsCreateExposureSQLModelV2Request
@@ -7095,6 +7996,19 @@ export interface ExperimentsApiDeleteExperimentMetricGroupRequest {
    * @type string
    */
   metricGroupId: string;
+}
+
+export interface ExperimentsApiDeleteExperimentProtocolRequest {
+  /**
+   * The UUID of the protocol.
+   * @type string
+   */
+  protocolId: string;
+  /**
+   * The updated_at value from the last read. Include the full timestamp, with fractional seconds. Returns 409 if another write changed the protocol. Omit to skip this check.
+   * @type string
+   */
+  expectedUpdatedAt?: string;
 }
 
 export interface ExperimentsApiDeleteMetricRequest {
@@ -7503,6 +8417,18 @@ export interface ExperimentsApiPatchExperimentRequest {
   body: ExperimentsPatchExperimentV2Request;
 }
 
+export interface ExperimentsApiPatchExperimentProtocolRequest {
+  /**
+   * The UUID of the protocol.
+   * @type string
+   */
+  protocolId: string;
+  /**
+   * @type ExperimentsPatchExperimentProtocolRequest
+   */
+  body: ExperimentsPatchExperimentProtocolRequest;
+}
+
 export interface ExperimentsApiPatchSubjectTypeRequest {
   /**
    * The UUID of the subject type.
@@ -7513,6 +8439,14 @@ export interface ExperimentsApiPatchSubjectTypeRequest {
    * @type ExperimentsPatchSubjectTypeV2Request
    */
   body: ExperimentsPatchSubjectTypeV2Request;
+}
+
+export interface ExperimentsApiPublishExperimentProtocolRequest {
+  /**
+   * The UUID of the protocol.
+   * @type string
+   */
+  protocolId: string;
 }
 
 export interface ExperimentsApiRefreshExperimentResultsRequest {
@@ -7534,6 +8468,23 @@ export interface ExperimentsApiRefreshExperimentResultsForOrgRequest {
    * @type boolean
    */
   fullRefresh?: boolean;
+}
+
+export interface ExperimentsApiReplaceExperimentProtocolRequest {
+  /**
+   * The UUID of the protocol.
+   * @type string
+   */
+  protocolId: string;
+  /**
+   * @type ExperimentsReplaceExperimentProtocolRequest
+   */
+  body: ExperimentsReplaceExperimentProtocolRequest;
+  /**
+   * The updated_at value from the last read. Include the full timestamp, with fractional seconds. Returns 409 if another write changed the protocol. Omit to skip this check.
+   * @type string
+   */
+  expectedUpdatedAt?: string;
 }
 
 export interface ExperimentsApiSetDefaultSubjectTypeRequest {
@@ -7664,6 +8615,30 @@ export class ExperimentsApi {
       requestFactory || new ExperimentsApiRequestFactory(this.configuration);
     this.responseProcessor =
       responseProcessor || new ExperimentsApiResponseProcessor();
+  }
+
+  /**
+   * Archive a draft or published protocol. Archived protocols cannot be edited or used to create new experiments. Existing experiments keep their settings. Archiving an already archived protocol returns 409.
+   * @param param The request object
+   */
+  public archiveExperimentProtocol(
+    param: ExperimentsApiArchiveExperimentProtocolRequest,
+    options?: Configuration,
+  ): Promise<ExperimentsPublicProtocolResponse> {
+    const requestContextPromise = this.requestFactory.archiveExperimentProtocol(
+      param.protocolId,
+      param.expectedUpdatedAt,
+      options,
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.archiveExperimentProtocol(
+            responseContext,
+          );
+        });
+    });
   }
 
   /**
@@ -7804,6 +8779,29 @@ export class ExperimentsApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.createExperimentMetricGroupFromCollection(
+            responseContext,
+          );
+        });
+    });
+  }
+
+  /**
+   * Create a draft protocol with a name and optional description and migration metadata. The organization's default subject type is selected. Use PATCH to configure the draft, then publish it before creating experiments from it.
+   * @param param The request object
+   */
+  public createExperimentProtocol(
+    param: ExperimentsApiCreateExperimentProtocolRequest,
+    options?: Configuration,
+  ): Promise<ExperimentsPublicProtocolResponse> {
+    const requestContextPromise = this.requestFactory.createExperimentProtocol(
+      param.body,
+      options,
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.createExperimentProtocol(
             responseContext,
           );
         });
@@ -7955,6 +8953,30 @@ export class ExperimentsApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.deleteExperimentMetricGroup(
+            responseContext,
+          );
+        });
+    });
+  }
+
+  /**
+   * Delete a protocol with no linked experiments. Draft, published, and archived protocols can be deleted. Returns 204 with no response body.
+   * @param param The request object
+   */
+  public deleteExperimentProtocol(
+    param: ExperimentsApiDeleteExperimentProtocolRequest,
+    options?: Configuration,
+  ): Promise<void> {
+    const requestContextPromise = this.requestFactory.deleteExperimentProtocol(
+      param.protocolId,
+      param.expectedUpdatedAt,
+      options,
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.deleteExperimentProtocol(
             responseContext,
           );
         });
@@ -8554,6 +9576,32 @@ export class ExperimentsApi {
   }
 
   /**
+   * Update the supplied fields of a draft protocol. Published protocols accept only name, description, and migration_metadata changes through PATCH. Use PUT to replace their settings. Archived protocols cannot be edited.
+   *
+   * Omitted fields keep their current values, including fields inside analysis_plan, exposure_schedule, and enforcement. Arrays replace the stored arrays. Supported null values clear fields; see the request schema. Use primary_metric_id to select the primary metric and default_duration_days to set the experiment analysis duration. Nested metric is_primary and analysis_plan.target_duration_days fields are rejected.
+   * @param param The request object
+   */
+  public patchExperimentProtocol(
+    param: ExperimentsApiPatchExperimentProtocolRequest,
+    options?: Configuration,
+  ): Promise<ExperimentsPublicProtocolResponse> {
+    const requestContextPromise = this.requestFactory.patchExperimentProtocol(
+      param.protocolId,
+      param.body,
+      options,
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.patchExperimentProtocol(
+            responseContext,
+          );
+        });
+    });
+  }
+
+  /**
    * Update mutable fields on a subject type. Only the fields present in the body are changed. Any subject type can be updated, including the organization's default one, but the is_default flag itself is read-only here: which subject type is the default cannot be changed through this endpoint.
    * @param param The request object
    */
@@ -8571,6 +9619,31 @@ export class ExperimentsApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.patchSubjectType(responseContext);
+        });
+    });
+  }
+
+  /**
+   * Publish a valid draft protocol. The protocol must have a name and subject type. Supplied references and settings must be valid. An exposure schedule or targeting rules require an environment. Enabled limits require their values. Configurable template fields must have a value before they can be locked.
+   *
+   * Independent configuration errors are returned together in the JSON:API errors array with source.pointer values that identify the fields. Earlier request and reference checks can stop on the first error. A failed request leaves the protocol unchanged.
+   * @param param The request object
+   */
+  public publishExperimentProtocol(
+    param: ExperimentsApiPublishExperimentProtocolRequest,
+    options?: Configuration,
+  ): Promise<ExperimentsPublicProtocolResponse> {
+    const requestContextPromise = this.requestFactory.publishExperimentProtocol(
+      param.protocolId,
+      options,
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.publishExperimentProtocol(
+            responseContext,
+          );
         });
     });
   }
@@ -8617,6 +9690,35 @@ export class ExperimentsApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.refreshExperimentResultsForOrg(
+            responseContext,
+          );
+        });
+    });
+  }
+
+  /**
+   * Replace the template of a published protocol. Draft and archived protocols return 409. Send subject_type_id, all four required boolean settings, and metric_groups. Omitted optional template fields are cleared. Omitted enforcement keeps the existing locks.
+   *
+   * Use primary_metric_id to select the primary metric. Use default_duration_days to set target_duration_days on experiments created from the protocol. The nested metric is_primary and analysis_plan.target_duration_days fields are rejected. An unchanged GET response can be sent as the request body. Response-only fields are ignored.
+   *
+   * Independent configuration errors are returned together in the JSON:API errors array. Each error identifies the field in source.pointer. Earlier request and reference checks can stop on the first error. A failed request leaves the protocol unchanged. Changes apply to future experiments; existing experiments keep their settings.
+   * @param param The request object
+   */
+  public replaceExperimentProtocol(
+    param: ExperimentsApiReplaceExperimentProtocolRequest,
+    options?: Configuration,
+  ): Promise<ExperimentsPublicProtocolResponse> {
+    const requestContextPromise = this.requestFactory.replaceExperimentProtocol(
+      param.protocolId,
+      param.body,
+      param.expectedUpdatedAt,
+      options,
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.replaceExperimentProtocol(
             responseContext,
           );
         });
