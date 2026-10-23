@@ -17,6 +17,10 @@ export class EscalationPolicyDataAttributes {
    */
   "retries"?: number;
   /**
+   * A list of tags attached to the escalation policy, in `key:value` format.
+   */
+  "tags"?: Array<string>;
+  /**
    * A container for additional, undeclared properties.
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
@@ -44,6 +48,10 @@ export class EscalationPolicyDataAttributes {
       baseName: "retries",
       type: "number",
       format: "int64",
+    },
+    tags: {
+      baseName: "tags",
+      type: "Array<string>",
     },
     additionalProperties: {
       baseName: "additionalProperties",
