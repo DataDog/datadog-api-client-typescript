@@ -18,7 +18,7 @@ const params: v2.LogsApiListLogsRequest = {
     filter: {
       from: "now-15m",
       indexes: ["main", "web"],
-      query: "service:web* AND @http.status_code:[200 TO 299]",
+      query: "service:web-api AND @http.status_code:[200 TO 299]",
       storageTier: "indexes",
       to: "now",
     },

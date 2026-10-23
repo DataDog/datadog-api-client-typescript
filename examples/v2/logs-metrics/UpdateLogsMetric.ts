@@ -22,7 +22,7 @@ const params: v2.LogsMetricsApiUpdateLogsMetricRequest = {
       type: "logs_metrics",
       attributes: {
         filter: {
-          query: "service:web* AND @http.status_code:[200 TO 299]-updated",
+          query: "service:web-api AND @http.status_code:[200 TO 299]-updated",
         },
       },
     },
