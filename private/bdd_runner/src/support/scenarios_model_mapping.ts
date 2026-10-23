@@ -18540,43 +18540,6 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
     },
     operationResponseType: "CreateSnapshotResponse",
   },
-  "SpaApi.V2.GetSPARecommendationsV2": {
-    service: {
-      type: "string",
-      format: "",
-    },
-    body: {
-      type: "RecommendationV2RequestBody",
-      format: "",
-    },
-    operationResponseType: "RecommendationDocument",
-  },
-  "SpaApi.V2.GetSPARecommendations": {
-    bypassCache: {
-      type: "string",
-      format: "",
-    },
-    service: {
-      type: "string",
-      format: "",
-    },
-    operationResponseType: "RecommendationDocument",
-  },
-  "SpaApi.V2.GetSPARecommendationsWithShard": {
-    shard: {
-      type: "string",
-      format: "",
-    },
-    service: {
-      type: "string",
-      format: "",
-    },
-    bypassCache: {
-      type: "string",
-      format: "",
-    },
-    operationResponseType: "RecommendationDocument",
-  },
   "SpansApi.V2.AggregateSpans": {
     body: {
       type: "SpansAggregateRequest",
