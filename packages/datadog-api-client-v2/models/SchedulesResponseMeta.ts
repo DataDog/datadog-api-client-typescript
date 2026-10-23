@@ -8,11 +8,11 @@ import { SchedulesResponseMetaPage } from "./SchedulesResponseMetaPage";
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * Metadata that is included in the response when listing schedules.
+ * Metadata that is included in the response when listing On-Call resources.
  */
 export class SchedulesResponseMeta {
   /**
-   * Metadata related to paging information that is included in the response when listing schedules.
+   * Metadata related to pagination information that is included in the response when listing On-Call resources.
    */
   "page"?: SchedulesResponseMetaPage;
 

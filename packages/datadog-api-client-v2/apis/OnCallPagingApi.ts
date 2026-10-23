@@ -198,7 +198,7 @@ export class OnCallPagingApiResponseProcessor {
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
-    if (response.httpStatusCode === 202) {
+    if (response.httpStatusCode === 204) {
       return;
     }
     if (response.httpStatusCode === 429) {
@@ -247,7 +247,7 @@ export class OnCallPagingApiResponseProcessor {
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
-    if (response.httpStatusCode === 200) {
+    if (response.httpStatusCode === 201) {
       const body: CreatePageResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
         "CreatePageResponse"
@@ -303,7 +303,7 @@ export class OnCallPagingApiResponseProcessor {
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
-    if (response.httpStatusCode === 202) {
+    if (response.httpStatusCode === 204) {
       return;
     }
     if (response.httpStatusCode === 429) {
@@ -350,7 +350,7 @@ export class OnCallPagingApiResponseProcessor {
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
-    if (response.httpStatusCode === 202) {
+    if (response.httpStatusCode === 204) {
       return;
     }
     if (response.httpStatusCode === 429) {

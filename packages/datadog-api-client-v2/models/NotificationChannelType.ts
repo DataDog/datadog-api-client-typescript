@@ -7,7 +7,7 @@
 import { UnparsedObject } from "../../datadog-api-client-common/util";
 
 /**
- * Indicates that the resource is of type 'notification_channels'.
+ * Indicates that the resource is of type `notification_channels`.
  */
 
 export type NotificationChannelType =

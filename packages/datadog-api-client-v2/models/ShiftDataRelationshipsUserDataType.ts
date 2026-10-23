@@ -7,7 +7,7 @@
 import { UnparsedObject } from "../../datadog-api-client-common/util";
 
 /**
- * Indicates that the related resource is of type 'users'.
+ * Indicates that the related resource is of type `users`.
  */
 
 export type ShiftDataRelationshipsUserDataType = typeof USERS | UnparsedObject;

@@ -26,7 +26,7 @@ export class UpdateOnCallNotificationRuleRequestData {
    */
   "relationships"?: OnCallNotificationRuleRelationships;
   /**
-   * Indicates that the resource is of type 'notification_rules'.
+   * Indicates that the resource is of type `notification_rules`.
    */
   "type": OnCallNotificationRuleType;
 

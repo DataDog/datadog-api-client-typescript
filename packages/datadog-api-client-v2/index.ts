@@ -1227,6 +1227,7 @@ export {
   OnCallApiDeleteUserNotificationChannelRequest,
   OnCallApiDeleteUserNotificationRuleRequest,
   OnCallApiGetOnCallEscalationPolicyRequest,
+  OnCallApiGetOnCallPageRequest,
   OnCallApiGetOnCallScheduleRequest,
   OnCallApiGetOnCallTeamRoutingRulesRequest,
   OnCallApiGetScheduleOnCallRespondersRequest,
@@ -1235,6 +1236,7 @@ export {
   OnCallApiGetUserNotificationChannelRequest,
   OnCallApiGetUserNotificationRuleRequest,
   OnCallApiListOnCallEscalationPoliciesRequest,
+  OnCallApiListOnCallPagesRequest,
   OnCallApiListOnCallSchedulesRequest,
   OnCallApiListScheduleOverridesRequest,
   OnCallApiListUserNotificationChannelsRequest,
@@ -7320,7 +7322,52 @@ export { OnCallNotificationRuleRelationships } from "./models/OnCallNotification
 export { OnCallNotificationRuleRequestAttributes } from "./models/OnCallNotificationRuleRequestAttributes";
 export { OnCallNotificationRulesIncluded } from "./models/OnCallNotificationRulesIncluded";
 export { OnCallNotificationRuleType } from "./models/OnCallNotificationRuleType";
+export { OnCallPageAuthorRelationship } from "./models/OnCallPageAuthorRelationship";
+export { OnCallPageAuthorRelationshipData } from "./models/OnCallPageAuthorRelationshipData";
+export { OnCallPageData } from "./models/OnCallPageData";
+export { OnCallPageDataAttributes } from "./models/OnCallPageDataAttributes";
+export { OnCallPageDataRelationships } from "./models/OnCallPageDataRelationships";
+export { OnCallPageDataType } from "./models/OnCallPageDataType";
+export { OnCallPageJiraIssueRelationship } from "./models/OnCallPageJiraIssueRelationship";
+export { OnCallPageJiraIssueRelationshipData } from "./models/OnCallPageJiraIssueRelationshipData";
+export { OnCallPageJiraIssueType } from "./models/OnCallPageJiraIssueType";
+export { OnCallPageLink } from "./models/OnCallPageLink";
+export { OnCallPageLinkAttributes } from "./models/OnCallPageLinkAttributes";
+export { OnCallPageLinkEntityType } from "./models/OnCallPageLinkEntityType";
+export { OnCallPageLinkRelationshipData } from "./models/OnCallPageLinkRelationshipData";
+export { OnCallPageLinkRelationshipType } from "./models/OnCallPageLinkRelationshipType";
+export { OnCallPageLinksRelationship } from "./models/OnCallPageLinksRelationship";
+export { OnCallPageLinkType } from "./models/OnCallPageLinkType";
+export { OnCallPageLiveCall } from "./models/OnCallPageLiveCall";
+export { OnCallPageLiveCallOutcome } from "./models/OnCallPageLiveCallOutcome";
+export { OnCallPageLiveCallOver } from "./models/OnCallPageLiveCallOver";
+export { OnCallPageReleaseOrigin } from "./models/OnCallPageReleaseOrigin";
+export { OnCallPageRespondersRelationship } from "./models/OnCallPageRespondersRelationship";
+export { OnCallPageResponse } from "./models/OnCallPageResponse";
+export { OnCallPageScheduledAction } from "./models/OnCallPageScheduledAction";
+export { OnCallPageScheduledActionAttributes } from "./models/OnCallPageScheduledActionAttributes";
+export { OnCallPageScheduledActionAttributesType } from "./models/OnCallPageScheduledActionAttributesType";
+export { OnCallPageScheduledActionRelationship } from "./models/OnCallPageScheduledActionRelationship";
+export { OnCallPageScheduledActionRelationshipData } from "./models/OnCallPageScheduledActionRelationshipData";
+export { OnCallPageScheduledActionRelationships } from "./models/OnCallPageScheduledActionRelationships";
+export { OnCallPageScheduledActionRelationshipsSchedules } from "./models/OnCallPageScheduledActionRelationshipsSchedules";
+export { OnCallPageScheduledActionRelationshipsSchedulesData } from "./models/OnCallPageScheduledActionRelationshipsSchedulesData";
+export { OnCallPageScheduledActionRelationshipsUsers } from "./models/OnCallPageScheduledActionRelationshipsUsers";
+export { OnCallPageScheduledActionType } from "./models/OnCallPageScheduledActionType";
+export { OnCallPageServiceNowIncidentRelationship } from "./models/OnCallPageServiceNowIncidentRelationship";
+export { OnCallPageServiceNowIncidentRelationshipData } from "./models/OnCallPageServiceNowIncidentRelationshipData";
+export { OnCallPageServiceNowIncidentType } from "./models/OnCallPageServiceNowIncidentType";
+export { OnCallPagesIncluded } from "./models/OnCallPagesIncluded";
+export { OnCallPagesResponse } from "./models/OnCallPagesResponse";
+export { OnCallPagesSort } from "./models/OnCallPagesSort";
+export { OnCallPageStatus } from "./models/OnCallPageStatus";
+export { OnCallPageTargetRelationship } from "./models/OnCallPageTargetRelationship";
+export { OnCallPageTargetRelationshipData } from "./models/OnCallPageTargetRelationshipData";
+export { OnCallPageTargetRelationshipDataType } from "./models/OnCallPageTargetRelationshipDataType";
 export { OnCallPageTargetType } from "./models/OnCallPageTargetType";
+export { OnCallPageTeamRoutingRuleRelationship } from "./models/OnCallPageTeamRoutingRuleRelationship";
+export { OnCallPageTeamRoutingRuleRelationshipData } from "./models/OnCallPageTeamRoutingRuleRelationshipData";
+export { OnCallPageUserRelationshipData } from "./models/OnCallPageUserRelationshipData";
 export { OnCallPhoneNotificationRuleMethod } from "./models/OnCallPhoneNotificationRuleMethod";
 export { OnCallPhoneNotificationRuleSettings } from "./models/OnCallPhoneNotificationRuleSettings";
 export { OnCallShiftChangeTrigger } from "./models/OnCallShiftChangeTrigger";
