@@ -3,6 +3,7 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
+import { RoleResponseRelationships } from "./RoleResponseRelationships";
 import { RoleTemplateDataAttributes } from "./RoleTemplateDataAttributes";
 import { RoleTemplateDataType } from "./RoleTemplateDataType";
 
@@ -20,6 +21,10 @@ export class RoleTemplateData {
    * The `RoleTemplateData` `id`.
    */
   "id"?: string;
+  /**
+   * Relationships of the role object returned by the API.
+   */
+  "relationships"?: RoleResponseRelationships;
   /**
    * Roles resource type.
    */
@@ -48,6 +53,10 @@ export class RoleTemplateData {
     id: {
       baseName: "id",
       type: "string",
+    },
+    relationships: {
+      baseName: "relationships",
+      type: "RoleResponseRelationships",
     },
     type: {
       baseName: "type",
