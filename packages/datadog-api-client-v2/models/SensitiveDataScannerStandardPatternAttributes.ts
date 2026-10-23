@@ -3,6 +3,7 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
+import { SensitiveDataScannerSuppressions } from "./SensitiveDataScannerSuppressions";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
@@ -30,6 +31,13 @@ export class SensitiveDataScannerStandardPatternAttributes {
    * Integer from 1 (high) to 5 (low) indicating standard pattern issue severity.
    */
   "priority"?: number;
+  /**
+   * Object describing suppressions for a rule, or the recommended suppression lists published by a standard pattern.
+   * There are three types of suppressions, `starts_with`, `ends_with`, and `exact_match`.
+   * Rules based on the Datadog library can use recommended or custom suppressions. Custom rules can only use custom suppressions.
+   * Suppressed matches are not obfuscated, counted in metrics, or displayed in the Findings page.
+   */
+  "suppressions"?: SensitiveDataScannerSuppressions;
   /**
    * List of tags.
    */
@@ -71,6 +79,10 @@ export class SensitiveDataScannerStandardPatternAttributes {
       baseName: "priority",
       type: "number",
       format: "int64",
+    },
+    suppressions: {
+      baseName: "suppressions",
+      type: "SensitiveDataScannerSuppressions",
     },
     tags: {
       baseName: "tags",
