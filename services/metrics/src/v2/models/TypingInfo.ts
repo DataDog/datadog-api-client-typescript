@@ -294,6 +294,11 @@ export const TypingInfo: ModelTypingInfo = {
     ],
     SlosQueryType: ["metric", "time_slice", "monitor"],
     TagIndexingRuleExemptionType: ["tag_indexing_rule_exemptions"],
+    TagIndexingRuleExemptionVolumeStatus: [
+      "ok",
+      "unindexed_tags",
+      "unavailable",
+    ],
     TagIndexingRuleType: ["tag_indexing_rules"],
     TimeseriesFormulaRequestType: ["timeseries_request"],
     TimeseriesFormulaResponseType: ["timeseries_response"],
