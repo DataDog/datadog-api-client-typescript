@@ -6,7 +6,7 @@ import { ObservabilityPipelineOpentelemetrySourceType } from "./ObservabilityPip
 /**
  * The `opentelemetry` source receives telemetry data using the OpenTelemetry Protocol (OTLP) over gRPC and HTTP.
  *
- * **Supported pipeline types:** logs, metrics
+ * **Supported pipeline types:** logs, metrics, traces
  */
 export class ObservabilityPipelineOpentelemetrySource {
   /**

@@ -4,9 +4,9 @@ import { ObservabilityPipelineSensitiveDataScannerProcessorRule } from "./Observ
 import { ObservabilityPipelineSensitiveDataScannerProcessorType } from "./ObservabilityPipelineSensitiveDataScannerProcessorType";
 
 /**
- * The `sensitive_data_scanner` processor detects and optionally redacts sensitive data in log events.
+ * The `sensitive_data_scanner` processor detects and optionally redacts sensitive data in log or trace events.
  *
- * **Supported pipeline types:** logs
+ * **Supported pipeline types:** logs, traces
  */
 export class ObservabilityPipelineSensitiveDataScannerProcessor {
   /**
@@ -22,7 +22,7 @@ export class ObservabilityPipelineSensitiveDataScannerProcessor {
    */
   "id": string;
   /**
-   * A Datadog search query used to determine which logs this processor targets.
+   * A Datadog search query used to determine which events this processor targets.
    */
   "include": string;
   /**

@@ -3,11 +3,11 @@ import { AttributeTypeMap } from "@datadog/datadog-api-client";
 import { ObservabilityPipelineGeneratedMetricIncrementByFieldStrategy } from "./ObservabilityPipelineGeneratedMetricIncrementByFieldStrategy";
 
 /**
- * Strategy that increments a generated metric based on the value of a log field.
+ * Strategy that increments a generated metric based on the value of an event field.
  */
 export class ObservabilityPipelineGeneratedMetricIncrementByField {
   /**
-   * Name of the log field containing the numeric value to increment the metric by.
+   * Name of the field containing the numeric value to increment the metric by.
    */
   "field": string;
   /**

@@ -13,6 +13,7 @@ import { ObservabilityPipelineCrowdStrikeNextGenSiemDestination } from "./Observ
 import { ObservabilityPipelineDatabricksZerobusDestination } from "./ObservabilityPipelineDatabricksZerobusDestination";
 import { ObservabilityPipelineDatadogLogsDestination } from "./ObservabilityPipelineDatadogLogsDestination";
 import { ObservabilityPipelineDatadogMetricsDestination } from "./ObservabilityPipelineDatadogMetricsDestination";
+import { ObservabilityPipelineDatadogTracesDestination } from "./ObservabilityPipelineDatadogTracesDestination";
 import { ObservabilityPipelineElasticsearchDestination } from "./ObservabilityPipelineElasticsearchDestination";
 import { ObservabilityPipelineGoogleChronicleDestination } from "./ObservabilityPipelineGoogleChronicleDestination";
 import { ObservabilityPipelineGoogleCloudStorageDestination } from "./ObservabilityPipelineGoogleCloudStorageDestination";
@@ -21,7 +22,7 @@ import { ObservabilityPipelineHttpClientDestination } from "./ObservabilityPipel
 import { ObservabilityPipelineKafkaDestination } from "./ObservabilityPipelineKafkaDestination";
 import { ObservabilityPipelineNewRelicDestination } from "./ObservabilityPipelineNewRelicDestination";
 import { ObservabilityPipelineOpenSearchDestination } from "./ObservabilityPipelineOpenSearchDestination";
-import { ObservabilityPipelineOpentelemetryMetricsDestination } from "./ObservabilityPipelineOpentelemetryMetricsDestination";
+import { ObservabilityPipelineOpentelemetryDestination } from "./ObservabilityPipelineOpentelemetryDestination";
 import { ObservabilityPipelinePrometheusRemoteWriteDestination } from "./ObservabilityPipelinePrometheusRemoteWriteDestination";
 import { ObservabilityPipelineRsyslogDestination } from "./ObservabilityPipelineRsyslogDestination";
 import { ObservabilityPipelineSentinelOneDestination } from "./ObservabilityPipelineSentinelOneDestination";
@@ -62,7 +63,8 @@ export type ObservabilityPipelineConfigDestinationItem =
   | ObservabilityPipelineSyslogNgDestination
   | ObservabilityPipelineDatabricksZerobusDestination
   | ObservabilityPipelineDatadogMetricsDestination
-  | ObservabilityPipelineOpentelemetryMetricsDestination
   | ObservabilityPipelinePrometheusRemoteWriteDestination
   | ObservabilityPipelineSplunkHecMetricsDestination
+  | ObservabilityPipelineOpentelemetryDestination
+  | ObservabilityPipelineDatadogTracesDestination
   | UnparsedObject;

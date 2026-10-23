@@ -1,21 +1,21 @@
 import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
 import { ObservabilityPipelineBufferOptions } from "./ObservabilityPipelineBufferOptions";
-import { ObservabilityPipelineOpentelemetryMetricsDestinationType } from "./ObservabilityPipelineOpentelemetryMetricsDestinationType";
+import { ObservabilityPipelineOpentelemetryDestinationType } from "./ObservabilityPipelineOpentelemetryDestinationType";
 import { ObservabilityPipelineTls } from "./ObservabilityPipelineTls";
 
 /**
- * The `opentelemetry` destination forwards metrics using the OpenTelemetry Protocol (OTLP) over HTTP.
+ * The `opentelemetry` destination forwards metrics or traces using the OpenTelemetry Protocol (OTLP) over HTTP.
  *
- * **Supported pipeline types:** metrics
+ * **Supported pipeline types:** metrics, traces
  */
-export class ObservabilityPipelineOpentelemetryMetricsDestination {
+export class ObservabilityPipelineOpentelemetryDestination {
   /**
    * Configuration for buffer settings on destination components.
    */
   "buffer"?: ObservabilityPipelineBufferOptions;
   /**
-   * Environment variable name containing the URI of the OTLP HTTP endpoint to send metrics to.
+   * Environment variable name containing the URI of the OTLP HTTP endpoint to send metrics or traces to.
    */
   "httpClientUriKey"?: string;
   /**
@@ -33,7 +33,7 @@ export class ObservabilityPipelineOpentelemetryMetricsDestination {
   /**
    * The destination type. Always `opentelemetry`.
    */
-  "type": ObservabilityPipelineOpentelemetryMetricsDestinationType;
+  "type": ObservabilityPipelineOpentelemetryDestinationType;
   /**
    * A container for additional, undeclared properties.
    * This is a holder for any undeclared properties as specified with
@@ -73,7 +73,7 @@ export class ObservabilityPipelineOpentelemetryMetricsDestination {
     },
     type: {
       baseName: "type",
-      type: "ObservabilityPipelineOpentelemetryMetricsDestinationType",
+      type: "ObservabilityPipelineOpentelemetryDestinationType",
       required: true,
     },
     additionalProperties: {
@@ -86,7 +86,7 @@ export class ObservabilityPipelineOpentelemetryMetricsDestination {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-    return ObservabilityPipelineOpentelemetryMetricsDestination.attributeTypeMap;
+    return ObservabilityPipelineOpentelemetryDestination.attributeTypeMap;
   }
 
   public constructor() {}

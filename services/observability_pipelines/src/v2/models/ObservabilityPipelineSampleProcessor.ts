@@ -3,9 +3,9 @@ import { AttributeTypeMap } from "@datadog/datadog-api-client";
 import { ObservabilityPipelineSampleProcessorType } from "./ObservabilityPipelineSampleProcessorType";
 
 /**
- * The `sample` processor allows probabilistic sampling of logs at a fixed rate.
+ * The `sample` processor allows probabilistic sampling of logs or traces at a fixed rate.
  *
- * **Supported pipeline types:** logs
+ * **Supported pipeline types:** logs, traces
  */
 export class ObservabilityPipelineSampleProcessor {
   /**
@@ -25,11 +25,11 @@ export class ObservabilityPipelineSampleProcessor {
    */
   "id": string;
   /**
-   * A Datadog search query used to determine which logs this processor targets.
+   * A Datadog search query used to determine which events this processor targets.
    */
   "include": string;
   /**
-   * The percentage of logs to sample.
+   * The percentage of events to sample.
    */
   "percentage": number;
   /**
