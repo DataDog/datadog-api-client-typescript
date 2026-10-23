@@ -47,6 +47,7 @@ export { CohortWidgetDefinitionType } from "./models/CohortWidgetDefinitionType"
 export { ComparisonCustomTimeframe } from "./models/ComparisonCustomTimeframe";
 export { ComparisonDuration } from "./models/ComparisonDuration";
 export { ComparisonDurationType } from "./models/ComparisonDurationType";
+export { Creator } from "./models/Creator";
 export { Dashboard } from "./models/Dashboard";
 export { DashboardBulkActionData } from "./models/DashboardBulkActionData";
 export { DashboardBulkDeleteRequest } from "./models/DashboardBulkDeleteRequest";

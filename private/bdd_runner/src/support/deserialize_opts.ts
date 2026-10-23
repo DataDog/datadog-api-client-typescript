@@ -4,7 +4,10 @@ import path from "path";
 import { getProperty } from "./templating";
 import { ScenariosModelMappings } from "./scenarios_model_mapping";
 import * as datadogCommon from "@datadog/datadog-api-client";
-import { apiNameToTypingInfoMapping } from "./api_info";
+import {
+  apiNameToServiceNameMapping,
+  apiNameToTypingInfoMapping,
+} from "./api_info";
 
 function deserializeOpts(
   opts: Record<string, any>,
@@ -13,8 +16,24 @@ function deserializeOpts(
   apiName: string,
   operationId: string,
 ): Record<string, any> {
-  const typingInfo =
+  let typingInfo =
     apiNameToTypingInfoMapping[apiName + apiVersion.toUpperCase()];
+  if (typingInfo === undefined) {
+    const serviceName = apiNameToServiceNameMapping[apiName];
+    if (serviceName === undefined) {
+      throw new Error(`No service found for ${apiName}`);
+    }
+    typingInfo = require(
+      path.join(
+        servicesDir,
+        serviceName,
+        "src",
+        apiVersion,
+        "models",
+        "TypingInfo",
+      ),
+    ).TypingInfo;
+  }
   Object.keys(opts).forEach((key) => {
     const mapping = getProperty(
       ScenariosModelMappings[
