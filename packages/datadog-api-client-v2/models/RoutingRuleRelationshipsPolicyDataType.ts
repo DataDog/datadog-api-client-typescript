@@ -7,7 +7,7 @@
 import { UnparsedObject } from "../../datadog-api-client-common/util";
 
 /**
- * Indicates that the resource is of type 'policies'.
+ * Indicates that the resource is of type `policies`.
  */
 
 export type RoutingRuleRelationshipsPolicyDataType =

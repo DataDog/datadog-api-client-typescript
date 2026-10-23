@@ -7,7 +7,7 @@
 import { UnparsedObject } from "../../datadog-api-client-common/util";
 
 /**
- * Indicates that the resource is of type 'shifts'.
+ * Indicates that the resource is of type `shifts`.
  */
 
 export type ShiftDataType = typeof SHIFTS | UnparsedObject;

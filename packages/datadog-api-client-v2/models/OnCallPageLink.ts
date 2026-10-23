@@ -1,0 +1,74 @@
+/**
+ * Unless explicitly stated otherwise all files in this repository are licensed under the Apache-2.0 License.
+ * This product includes software developed at Datadog (https://www.datadoghq.com/).
+ * Copyright 2020-Present Datadog, Inc.
+ */
+import { OnCallPageLinkAttributes } from "./OnCallPageLinkAttributes";
+import { OnCallPageLinkType } from "./OnCallPageLinkType";
+
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+/**
+ * A link between a page and another Datadog resource, such as an incident.
+ */
+export class OnCallPageLink {
+  /**
+   * The attributes of a page link. A page can be the child of another Datadog resource
+   * (for example, when an incident triggers it), or the parent of one (for example, when the
+   * page is escalated to an incident).
+   */
+  "attributes"?: OnCallPageLinkAttributes;
+  /**
+   * The ID of the link.
+   */
+  "id": string;
+  /**
+   * Page link resource type.
+   */
+  "type": OnCallPageLinkType;
+
+  /**
+   * A container for additional, undeclared properties.
+   * This is a holder for any undeclared properties as specified with
+   * the 'additionalProperties' keyword in the OAS document.
+   */
+  "additionalProperties"?: { [key: string]: any };
+
+  /**
+   * @ignore
+   */
+  "_unparsed"?: boolean;
+
+  /**
+   * @ignore
+   */
+  static readonly attributeTypeMap: AttributeTypeMap = {
+    attributes: {
+      baseName: "attributes",
+      type: "OnCallPageLinkAttributes",
+    },
+    id: {
+      baseName: "id",
+      type: "string",
+      required: true,
+    },
+    type: {
+      baseName: "type",
+      type: "OnCallPageLinkType",
+      required: true,
+    },
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "{ [key: string]: any; }",
+    },
+  };
+
+  /**
+   * @ignore
+   */
+  static getAttributeTypeMap(): AttributeTypeMap {
+    return OnCallPageLink.attributeTypeMap;
+  }
+
+  public constructor() {}
+}

@@ -25,10 +25,15 @@ import { EscalationPolicy } from "../models/EscalationPolicy";
 import { EscalationPolicyCreateRequest } from "../models/EscalationPolicyCreateRequest";
 import { EscalationPolicyListItem } from "../models/EscalationPolicyListItem";
 import { EscalationPolicyUpdateRequest } from "../models/EscalationPolicyUpdateRequest";
+import { JSONAPIErrorResponse } from "../models/JSONAPIErrorResponse";
 import { ListNotificationChannelsResponse } from "../models/ListNotificationChannelsResponse";
 import { ListOnCallNotificationRulesResponse } from "../models/ListOnCallNotificationRulesResponse";
 import { NotificationChannel } from "../models/NotificationChannel";
 import { OnCallNotificationRule } from "../models/OnCallNotificationRule";
+import { OnCallPageData } from "../models/OnCallPageData";
+import { OnCallPageResponse } from "../models/OnCallPageResponse";
+import { OnCallPagesResponse } from "../models/OnCallPagesResponse";
+import { OnCallPagesSort } from "../models/OnCallPagesSort";
 import { OverrideCreateResponse } from "../models/OverrideCreateResponse";
 import { OverrideData } from "../models/OverrideData";
 import { Overrides } from "../models/Overrides";
@@ -612,6 +617,45 @@ export class OnCallApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
+  public async getOnCallPage(
+    pageId: string,
+    _options?: Configuration
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    // verify required parameter 'pageId' is not null or undefined
+    if (pageId === null || pageId === undefined) {
+      throw new RequiredError("pageId", "getOnCallPage");
+    }
+
+    // Path Params
+    const localVarPath = "/api/v2/on-call/pages/{page_id}".replace(
+      "{page_id}",
+      encodeURIComponent(String(pageId))
+    );
+
+    // Make Request Context
+    const requestContext = _config
+      .getServer("v2.OnCallApi.getOnCallPage")
+      .makeRequestContext(localVarPath, HttpMethod.GET);
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Set IaC header
+    if (_config.isIaC) {
+      requestContext.setHeaderParam("X-Datadog-Managed-By", "iac");
+    }
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+      "AuthZ",
+    ]);
+
+    return requestContext;
+  }
+
   public async getOnCallSchedule(
     scheduleId: string,
     include?: string,
@@ -1074,6 +1118,70 @@ export class OnCallApiRequestFactory extends BaseAPIRequestFactory {
       requestContext.setQueryParam(
         "include",
         ObjectSerializer.serialize(include, "string", ""),
+        ""
+      );
+    }
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+      "AuthZ",
+    ]);
+
+    return requestContext;
+  }
+
+  public async listOnCallPages(
+    pageSize?: number,
+    pageNumber?: number,
+    filterQuery?: string,
+    sort?: OnCallPagesSort,
+    _options?: Configuration
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    // Path Params
+    const localVarPath = "/api/v2/on-call/pages";
+
+    // Make Request Context
+    const requestContext = _config
+      .getServer("v2.OnCallApi.listOnCallPages")
+      .makeRequestContext(localVarPath, HttpMethod.GET);
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Set IaC header
+    if (_config.isIaC) {
+      requestContext.setHeaderParam("X-Datadog-Managed-By", "iac");
+    }
+
+    // Query Params
+    if (pageSize !== undefined) {
+      requestContext.setQueryParam(
+        "page[size]",
+        ObjectSerializer.serialize(pageSize, "number", "int64"),
+        ""
+      );
+    }
+    if (pageNumber !== undefined) {
+      requestContext.setQueryParam(
+        "page[number]",
+        ObjectSerializer.serialize(pageNumber, "number", "int64"),
+        ""
+      );
+    }
+    if (filterQuery !== undefined) {
+      requestContext.setQueryParam(
+        "filter[query]",
+        ObjectSerializer.serialize(filterQuery, "string", ""),
+        ""
+      );
+    }
+    if (sort !== undefined) {
+      requestContext.setQueryParam(
+        "sort",
+        ObjectSerializer.serialize(sort, "OnCallPagesSort", ""),
         ""
       );
     }
@@ -2269,6 +2377,91 @@ export class OnCallApiResponseProcessor {
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
    *
+   * @params response Response returned by the server for a request to getOnCallPage
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async getOnCallPage(
+    response: ResponseContext
+  ): Promise<OnCallPageResponse> {
+    const contentType = ObjectSerializer.normalizeMediaType(
+      response.headers["content-type"]
+    );
+    if (response.httpStatusCode === 200) {
+      const body: OnCallPageResponse = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "OnCallPageResponse"
+      ) as OnCallPageResponse;
+      return body;
+    }
+    if (
+      response.httpStatusCode === 401 ||
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 429
+    ) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: APIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "APIErrorResponse"
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+    if (response.httpStatusCode === 404) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: JSONAPIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "JSONAPIErrorResponse"
+        ) as JSONAPIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<JSONAPIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<JSONAPIErrorResponse>(
+        response.httpStatusCode,
+        body
+      );
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: OnCallPageResponse = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "OnCallPageResponse",
+        ""
+      ) as OnCallPageResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"'
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
    * @params response Response returned by the server for a request to getOnCallSchedule
    * @throws ApiException if the response code was not in [200, 299]
    */
@@ -2757,6 +2950,91 @@ export class OnCallApiResponseProcessor {
         "EscalationPolicies",
         ""
       ) as EscalationPolicies;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"'
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
+   * @params response Response returned by the server for a request to listOnCallPages
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async listOnCallPages(
+    response: ResponseContext
+  ): Promise<OnCallPagesResponse> {
+    const contentType = ObjectSerializer.normalizeMediaType(
+      response.headers["content-type"]
+    );
+    if (response.httpStatusCode === 200) {
+      const body: OnCallPagesResponse = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "OnCallPagesResponse"
+      ) as OnCallPagesResponse;
+      return body;
+    }
+    if (response.httpStatusCode === 400 || response.httpStatusCode === 404) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: JSONAPIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "JSONAPIErrorResponse"
+        ) as JSONAPIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<JSONAPIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<JSONAPIErrorResponse>(
+        response.httpStatusCode,
+        body
+      );
+    }
+    if (
+      response.httpStatusCode === 401 ||
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 429
+    ) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: APIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "APIErrorResponse"
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: OnCallPagesResponse = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "OnCallPagesResponse",
+        ""
+      ) as OnCallPagesResponse;
       return body;
     }
 
@@ -3410,6 +3688,14 @@ export interface OnCallApiGetOnCallEscalationPolicyRequest {
   include?: string;
 }
 
+export interface OnCallApiGetOnCallPageRequest {
+  /**
+   * The ID of the page, or its key.
+   * @type string
+   */
+  pageId: string;
+}
+
 export interface OnCallApiGetOnCallScheduleRequest {
   /**
    * The ID of the schedule
@@ -3567,6 +3853,29 @@ export interface OnCallApiListOnCallEscalationPoliciesRequest {
    * @type string
    */
   include?: string;
+}
+
+export interface OnCallApiListOnCallPagesRequest {
+  /**
+   * Number of On-Call Pages to return per page of results. The maximum allowed value is 1000.
+   * @type number
+   */
+  pageSize?: number;
+  /**
+   * Page of results to return, starting at 0. `page[number]` multiplied by `page[size]` must be less than 50000.
+   * @type number
+   */
+  pageNumber?: number;
+  /**
+   * Search query to filter pages. Supports filters such as `status`, `urgency`, `team`, `service`, and `tags`, for example `status:triggered`.
+   * @type string
+   */
+  filterQuery?: string;
+  /**
+   * Sort pages by the given field. Only one field is allowed.
+   * @type OnCallPagesSort
+   */
+  sort?: OnCallPagesSort;
 }
 
 export interface OnCallApiListOnCallSchedulesRequest {
@@ -3997,6 +4306,27 @@ export class OnCallApi {
   }
 
   /**
+   * Get the details of an On-Call page.
+   * @param param The request object
+   */
+  public getOnCallPage(
+    param: OnCallApiGetOnCallPageRequest,
+    options?: Configuration
+  ): Promise<OnCallPageResponse> {
+    const requestContextPromise = this.requestFactory.getOnCallPage(
+      param.pageId,
+      options
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.getOnCallPage(responseContext);
+        });
+    });
+  }
+
+  /**
    * Get an On-Call schedule
    * @param param The request object
    */
@@ -4231,6 +4561,73 @@ export class OnCallApi {
         await this.responseProcessor.listOnCallEscalationPolicies(
           responseContext
         );
+      const responseData = response.data;
+      if (responseData === undefined) {
+        break;
+      }
+      const results = responseData;
+      for (const item of results) {
+        yield item;
+      }
+      if (results.length < pageSize) {
+        break;
+      }
+      param.pageNumber = param.pageNumber + 1;
+    }
+  }
+
+  /**
+   * Retrieve a paginated list of On-Call pages, optionally filtered by a search query and sorted.
+   * @param param The request object
+   */
+  public listOnCallPages(
+    param: OnCallApiListOnCallPagesRequest = {},
+    options?: Configuration
+  ): Promise<OnCallPagesResponse> {
+    const requestContextPromise = this.requestFactory.listOnCallPages(
+      param.pageSize,
+      param.pageNumber,
+      param.filterQuery,
+      param.sort,
+      options
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.listOnCallPages(responseContext);
+        });
+    });
+  }
+
+  /**
+   * Provide a paginated version of listOnCallPages returning a generator with all the items.
+   */
+  public async *listOnCallPagesWithPagination(
+    param: OnCallApiListOnCallPagesRequest = {},
+    options?: Configuration
+  ): AsyncGenerator<OnCallPageData> {
+    let pageSize = 100;
+    if (param.pageSize !== undefined) {
+      pageSize = param.pageSize;
+    }
+    param.pageSize = pageSize;
+    param.pageNumber = 0;
+    while (true) {
+      const requestContext = await this.requestFactory.listOnCallPages(
+        param.pageSize,
+        param.pageNumber,
+        param.filterQuery,
+        param.sort,
+        options
+      );
+      const responseContext = await this.configuration.httpApi.send(
+        requestContext
+      );
+
+      const response = await this.responseProcessor.listOnCallPages(
+        responseContext
+      );
       const responseData = response.data;
       if (responseData === undefined) {
         break;
