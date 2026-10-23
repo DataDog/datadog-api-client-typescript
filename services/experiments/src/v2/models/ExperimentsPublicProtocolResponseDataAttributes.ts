@@ -18,6 +18,10 @@ export class ExperimentsPublicProtocolResponseDataAttributes {
    */
   "analysisPlan"?: ExperimentsPublicProtocolResponseDataAttributesAnalysisPlan;
   /**
+   * Time when the protocol was archived. Omitted if it has not been archived.
+   */
+  "archivedAt"?: Date;
+  /**
    * Default properties supplied by the protocol's assignment source.
    */
   "assignmentSourceDefaultProperties"?: Array<ExperimentsPublicProtocolResponseDataAttributesAssignmentSourceDefaultPropertiesItems>;
@@ -25,6 +29,10 @@ export class ExperimentsPublicProtocolResponseDataAttributes {
    * ID of the assignment source selected by the protocol.
    */
   "assignmentSourceId"?: string;
+  /**
+   * Time when the protocol was created.
+   */
+  "createdAt": Date;
   /**
    * Default experiment duration supplied by the protocol, in days.
    */
@@ -41,6 +49,10 @@ export class ExperimentsPublicProtocolResponseDataAttributes {
    * ID of the feature flag environment used by the experiment.
    */
   "environmentId"?: string;
+  /**
+   * Number of experiments in the organization that use this protocol, excluding deleted experiments. Omitted if the count cannot be retrieved. An omitted count does not mean zero.
+   */
+  "experimentCount"?: number;
   /**
    * Schedule that controls traffic exposure for experiments created from the protocol.
    */
@@ -114,7 +126,8 @@ export class ExperimentsPublicProtocolResponseDataAttributes {
    */
   "targetingRules"?: Array<ExperimentsPublicProtocolResponseDataAttributesTargetingRulesItems>;
   /**
-   * RFC3339 update time. Preserve all fractional seconds when passing this value as expected_updated_at.
+   * RFC3339 update time. Preserve all fractional seconds when passing this value as
+   * `expected_updated_at`.
    */
   "updatedAt": string;
   /**
@@ -136,6 +149,11 @@ export class ExperimentsPublicProtocolResponseDataAttributes {
       baseName: "analysis_plan",
       type: "ExperimentsPublicProtocolResponseDataAttributesAnalysisPlan",
     },
+    archivedAt: {
+      baseName: "archived_at",
+      type: "Date",
+      format: "date-time",
+    },
     assignmentSourceDefaultProperties: {
       baseName: "assignment_source_default_properties",
       type: "Array<ExperimentsPublicProtocolResponseDataAttributesAssignmentSourceDefaultPropertiesItems>",
@@ -143,6 +161,12 @@ export class ExperimentsPublicProtocolResponseDataAttributes {
     assignmentSourceId: {
       baseName: "assignment_source_id",
       type: "string",
+    },
+    createdAt: {
+      baseName: "created_at",
+      type: "Date",
+      required: true,
+      format: "date-time",
     },
     defaultDurationDays: {
       baseName: "default_duration_days",
@@ -160,6 +184,11 @@ export class ExperimentsPublicProtocolResponseDataAttributes {
     environmentId: {
       baseName: "environment_id",
       type: "string",
+    },
+    experimentCount: {
+      baseName: "experiment_count",
+      type: "number",
+      format: "int64",
     },
     exposureSchedule: {
       baseName: "exposure_schedule",
