@@ -5,7 +5,8 @@ import { ProcessDataSource } from "./ProcessDataSource";
 import { QuerySortOrder } from "./QuerySortOrder";
 
 /**
- * A query for host-level process metrics such as CPU and memory usage.
+ * Per-process metrics from Live Processes. Queries without `aggregator` fail. To scope to one process,
+ * set `tag_filters` to its `identifying_tags` from `GET /api/v2/processes`.
  */
 export class ProcessScalarQuery {
   /**
@@ -25,11 +26,13 @@ export class ProcessScalarQuery {
    */
   "isNormalizedCpu"?: boolean;
   /**
-   * Maximum number of results to return.
+   * Maximum number of processes or groups to return. Large values can fail with an `Unprocessable
+   * Content` error. If so, retry with a smaller limit.
    */
   "limit"?: number;
   /**
-   * The process metric to query.
+   * The process metric to query, such as `process.stat.cpu.total_pct`, `process.stat.memory.rss`, or
+   * `process.stat.memory.vms`.
    */
   "metric": string;
   /**
@@ -41,7 +44,8 @@ export class ProcessScalarQuery {
    */
   "sort"?: QuerySortOrder;
   /**
-   * Tag filters to narrow down processes.
+   * Tags to narrow down processes. To scope to one process, use its `identifying_tags` from
+   * `GET /api/v2/processes`, for example `host:web-01` and `pid:1234`.
    */
   "tagFilters"?: Array<string>;
   /**
