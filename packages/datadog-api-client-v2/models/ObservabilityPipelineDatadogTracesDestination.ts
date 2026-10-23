@@ -4,41 +4,32 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 import { ObservabilityPipelineBufferOptions } from "./ObservabilityPipelineBufferOptions";
-import { ObservabilityPipelineOpentelemetryMetricsDestinationType } from "./ObservabilityPipelineOpentelemetryMetricsDestinationType";
-import { ObservabilityPipelineTls } from "./ObservabilityPipelineTls";
+import { ObservabilityPipelineDatadogTracesDestinationType } from "./ObservabilityPipelineDatadogTracesDestinationType";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * The `opentelemetry` destination forwards metrics using the OpenTelemetry Protocol (OTLP) over HTTP.
+ * The `datadog_traces` destination forwards traces to Datadog.
  *
- * **Supported pipeline types:** metrics
+ * **Supported pipeline types:** traces
  */
-export class ObservabilityPipelineOpentelemetryMetricsDestination {
+export class ObservabilityPipelineDatadogTracesDestination {
   /**
    * Configuration for buffer settings on destination components.
    */
   "buffer"?: ObservabilityPipelineBufferOptions;
   /**
-   * Environment variable name containing the URI of the OTLP HTTP endpoint to send metrics to.
-   */
-  "httpClientUriKey"?: string;
-  /**
-   * The unique identifier for this component. Used in other parts of the pipeline to reference this component (for example, as the `input` to downstream components).
+   * The unique identifier for this component.
    */
   "id": string;
   /**
-   * A list of component IDs whose output is used as the `input` for this component.
+   * A list of component IDs whose output is used as the input for this component.
    */
   "inputs": Array<string>;
   /**
-   * Configuration for enabling TLS encryption between the pipeline component and external services.
+   * The destination type. The value should always be `datadog_traces`.
    */
-  "tls"?: ObservabilityPipelineTls;
-  /**
-   * The destination type. Always `opentelemetry`.
-   */
-  "type": ObservabilityPipelineOpentelemetryMetricsDestinationType;
+  "type": ObservabilityPipelineDatadogTracesDestinationType;
 
   /**
    * A container for additional, undeclared properties.
@@ -60,10 +51,6 @@ export class ObservabilityPipelineOpentelemetryMetricsDestination {
       baseName: "buffer",
       type: "ObservabilityPipelineBufferOptions",
     },
-    httpClientUriKey: {
-      baseName: "http_client_uri_key",
-      type: "string",
-    },
     id: {
       baseName: "id",
       type: "string",
@@ -74,13 +61,9 @@ export class ObservabilityPipelineOpentelemetryMetricsDestination {
       type: "Array<string>",
       required: true,
     },
-    tls: {
-      baseName: "tls",
-      type: "ObservabilityPipelineTls",
-    },
     type: {
       baseName: "type",
-      type: "ObservabilityPipelineOpentelemetryMetricsDestinationType",
+      type: "ObservabilityPipelineDatadogTracesDestinationType",
       required: true,
     },
     additionalProperties: {
@@ -93,7 +76,7 @@ export class ObservabilityPipelineOpentelemetryMetricsDestination {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-    return ObservabilityPipelineOpentelemetryMetricsDestination.attributeTypeMap;
+    return ObservabilityPipelineDatadogTracesDestination.attributeTypeMap;
   }
 
   public constructor() {}

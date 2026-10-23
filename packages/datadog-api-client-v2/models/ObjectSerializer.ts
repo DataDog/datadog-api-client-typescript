@@ -3816,6 +3816,7 @@ import { ObservabilityPipelineDatadogLogsDestination } from "./ObservabilityPipe
 import { ObservabilityPipelineDatadogLogsDestinationRoute } from "./ObservabilityPipelineDatadogLogsDestinationRoute";
 import { ObservabilityPipelineDatadogMetricsDestination } from "./ObservabilityPipelineDatadogMetricsDestination";
 import { ObservabilityPipelineDatadogTagsProcessor } from "./ObservabilityPipelineDatadogTagsProcessor";
+import { ObservabilityPipelineDatadogTracesDestination } from "./ObservabilityPipelineDatadogTracesDestination";
 import { ObservabilityPipelineDedupeProcessor } from "./ObservabilityPipelineDedupeProcessor";
 import { ObservabilityPipelineDedupeProcessorCache } from "./ObservabilityPipelineDedupeProcessorCache";
 import { ObservabilityPipelineDiskBufferOptions } from "./ObservabilityPipelineDiskBufferOptions";
@@ -3884,7 +3885,7 @@ import { ObservabilityPipelineOcsfMappingCustomLookupTableEntry } from "./Observ
 import { ObservabilityPipelineOcsfMappingCustomMetadata } from "./ObservabilityPipelineOcsfMappingCustomMetadata";
 import { ObservabilityPipelineOpenSearchDestination } from "./ObservabilityPipelineOpenSearchDestination";
 import { ObservabilityPipelineOpenSearchDestinationDataStream } from "./ObservabilityPipelineOpenSearchDestinationDataStream";
-import { ObservabilityPipelineOpentelemetryMetricsDestination } from "./ObservabilityPipelineOpentelemetryMetricsDestination";
+import { ObservabilityPipelineOpentelemetryDestination } from "./ObservabilityPipelineOpentelemetryDestination";
 import { ObservabilityPipelineOpentelemetrySource } from "./ObservabilityPipelineOpentelemetrySource";
 import { ObservabilityPipelineParseGrokProcessor } from "./ObservabilityPipelineParseGrokProcessor";
 import { ObservabilityPipelineParseGrokProcessorIncludeRule } from "./ObservabilityPipelineParseGrokProcessorIncludeRule";
@@ -8484,7 +8485,7 @@ const enumsMap: { [key: string]: any[] } = {
   ],
   ObservabilityPipelineClickhouseDestinationType: ["clickhouse"],
   ObservabilityPipelineCloudPremDestinationType: ["cloud_prem"],
-  ObservabilityPipelineConfigPipelineType: ["logs", "metrics"],
+  ObservabilityPipelineConfigPipelineType: ["logs", "metrics", "traces"],
   ObservabilityPipelineCrowdStrikeNextGenSiemDestinationCompressionAlgorithm: [
     "gzip",
     "zlib",
@@ -8504,6 +8505,7 @@ const enumsMap: { [key: string]: any[] } = {
   ObservabilityPipelineDatadogTagsProcessorAction: ["include", "exclude"],
   ObservabilityPipelineDatadogTagsProcessorMode: ["filter"],
   ObservabilityPipelineDatadogTagsProcessorType: ["datadog_tags"],
+  ObservabilityPipelineDatadogTracesDestinationType: ["datadog_traces"],
   ObservabilityPipelineDecoding: ["bytes", "gelf", "json", "syslog"],
   ObservabilityPipelineDedupeProcessorMode: ["match", "ignore"],
   ObservabilityPipelineDedupeProcessorType: ["dedupe"],
@@ -8643,7 +8645,7 @@ const enumsMap: { [key: string]: any[] } = {
     "Palo Alto Networks Firewall Traffic",
   ],
   ObservabilityPipelineOpenSearchDestinationType: ["opensearch"],
-  ObservabilityPipelineOpentelemetryMetricsDestinationType: ["opentelemetry"],
+  ObservabilityPipelineOpentelemetryDestinationType: ["opentelemetry"],
   ObservabilityPipelineOpentelemetrySourceType: ["opentelemetry"],
   ObservabilityPipelineParseGrokProcessorType: ["parse_grok"],
   ObservabilityPipelineParseJSONProcessorType: ["parse_json"],
@@ -14963,6 +14965,8 @@ const typeMap: { [index: string]: any } = {
     ObservabilityPipelineDatadogMetricsDestination,
   ObservabilityPipelineDatadogTagsProcessor:
     ObservabilityPipelineDatadogTagsProcessor,
+  ObservabilityPipelineDatadogTracesDestination:
+    ObservabilityPipelineDatadogTracesDestination,
   ObservabilityPipelineDedupeProcessor: ObservabilityPipelineDedupeProcessor,
   ObservabilityPipelineDedupeProcessorCache:
     ObservabilityPipelineDedupeProcessorCache,
@@ -15084,8 +15088,8 @@ const typeMap: { [index: string]: any } = {
     ObservabilityPipelineOpenSearchDestination,
   ObservabilityPipelineOpenSearchDestinationDataStream:
     ObservabilityPipelineOpenSearchDestinationDataStream,
-  ObservabilityPipelineOpentelemetryMetricsDestination:
-    ObservabilityPipelineOpentelemetryMetricsDestination,
+  ObservabilityPipelineOpentelemetryDestination:
+    ObservabilityPipelineOpentelemetryDestination,
   ObservabilityPipelineOpentelemetrySource:
     ObservabilityPipelineOpentelemetrySource,
   ObservabilityPipelineParseGrokProcessor:
@@ -19012,21 +19016,20 @@ const oneOfMap: { [index: string]: string[] } = {
     "ObservabilityPipelineSyslogNgDestination",
     "ObservabilityPipelineDatabricksZerobusDestination",
     "ObservabilityPipelineDatadogMetricsDestination",
-    "ObservabilityPipelineOpentelemetryMetricsDestination",
     "ObservabilityPipelinePrometheusRemoteWriteDestination",
     "ObservabilityPipelineSplunkHecMetricsDestination",
+    "ObservabilityPipelineOpentelemetryDestination",
+    "ObservabilityPipelineDatadogTracesDestination",
   ],
   ObservabilityPipelineConfigProcessorItem: [
     "ObservabilityPipelineFilterProcessor",
     "ObservabilityPipelineAddEnvVarsProcessor",
     "ObservabilityPipelineAddFieldsProcessor",
     "ObservabilityPipelineAddHostnameProcessor",
-    "ObservabilityPipelineCustomProcessor",
     "ObservabilityPipelineDatadogTagsProcessor",
     "ObservabilityPipelineDedupeProcessor",
     "ObservabilityPipelineEnrichmentTableProcessor",
     "ObservabilityPipelineGenerateMetricsProcessor",
-    "ObservabilityPipelineGenerateMetricsV2Processor",
     "ObservabilityPipelineOcsfMapperProcessor",
     "ObservabilityPipelineParseGrokProcessor",
     "ObservabilityPipelineParseJSONProcessor",
@@ -19035,10 +19038,12 @@ const oneOfMap: { [index: string]: string[] } = {
     "ObservabilityPipelineReduceProcessor",
     "ObservabilityPipelineRemoveFieldsProcessor",
     "ObservabilityPipelineRenameFieldsProcessor",
-    "ObservabilityPipelineSampleProcessor",
-    "ObservabilityPipelineSensitiveDataScannerProcessor",
     "ObservabilityPipelineSplitArrayProcessor",
     "ObservabilityPipelineThrottleProcessor",
+    "ObservabilityPipelineCustomProcessor",
+    "ObservabilityPipelineGenerateMetricsV2Processor",
+    "ObservabilityPipelineSampleProcessor",
+    "ObservabilityPipelineSensitiveDataScannerProcessor",
     "ObservabilityPipelineAddMetricTagsProcessor",
     "ObservabilityPipelineAggregateProcessor",
     "ObservabilityPipelineMetricEnrichmentTableProcessor",
@@ -19048,6 +19053,7 @@ const oneOfMap: { [index: string]: string[] } = {
   ],
   ObservabilityPipelineConfigSourceItem: [
     "ObservabilityPipelineDatadogAgentSource",
+    "ObservabilityPipelineOpentelemetrySource",
     "ObservabilityPipelineAmazonDataFirehoseSource",
     "ObservabilityPipelineAmazonS3Source",
     "ObservabilityPipelineFluentBitSource",
@@ -19064,7 +19070,6 @@ const oneOfMap: { [index: string]: string[] } = {
     "ObservabilityPipelineSumoLogicSource",
     "ObservabilityPipelineSyslogNgSource",
     "ObservabilityPipelineWebsocketSource",
-    "ObservabilityPipelineOpentelemetrySource",
     "ObservabilityPipelinePrometheusRemoteWriteSource",
   ],
   ObservabilityPipelineEnrichmentTableFileKeyItemField: [
