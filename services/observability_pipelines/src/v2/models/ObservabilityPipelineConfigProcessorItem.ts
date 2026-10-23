@@ -37,12 +37,10 @@ export type ObservabilityPipelineConfigProcessorItem =
   | ObservabilityPipelineAddEnvVarsProcessor
   | ObservabilityPipelineAddFieldsProcessor
   | ObservabilityPipelineAddHostnameProcessor
-  | ObservabilityPipelineCustomProcessor
   | ObservabilityPipelineDatadogTagsProcessor
   | ObservabilityPipelineDedupeProcessor
   | ObservabilityPipelineEnrichmentTableProcessor
   | ObservabilityPipelineGenerateMetricsProcessor
-  | ObservabilityPipelineGenerateMetricsV2Processor
   | ObservabilityPipelineOcsfMapperProcessor
   | ObservabilityPipelineParseGrokProcessor
   | ObservabilityPipelineParseJSONProcessor
@@ -51,10 +49,12 @@ export type ObservabilityPipelineConfigProcessorItem =
   | ObservabilityPipelineReduceProcessor
   | ObservabilityPipelineRemoveFieldsProcessor
   | ObservabilityPipelineRenameFieldsProcessor
-  | ObservabilityPipelineSampleProcessor
-  | ObservabilityPipelineSensitiveDataScannerProcessor
   | ObservabilityPipelineSplitArrayProcessor
   | ObservabilityPipelineThrottleProcessor
+  | ObservabilityPipelineCustomProcessor
+  | ObservabilityPipelineGenerateMetricsV2Processor
+  | ObservabilityPipelineSampleProcessor
+  | ObservabilityPipelineSensitiveDataScannerProcessor
   | ObservabilityPipelineAddMetricTagsProcessor
   | ObservabilityPipelineAggregateProcessor
   | ObservabilityPipelineMetricEnrichmentTableProcessor

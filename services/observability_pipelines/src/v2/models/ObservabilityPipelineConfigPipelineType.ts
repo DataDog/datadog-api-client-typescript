@@ -6,6 +6,8 @@ import { UnparsedObject } from "@datadog/datadog-api-client";
 export type ObservabilityPipelineConfigPipelineType =
   | typeof LOGS
   | typeof METRICS
+  | typeof TRACES
   | UnparsedObject;
 export const LOGS = "logs";
 export const METRICS = "metrics";
+export const TRACES = "traces";
