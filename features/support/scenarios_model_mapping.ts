@@ -15019,6 +15019,45 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             },
         "operationResponseType": "{}",
     },
+    "v2.ListOnCallEscalationPolicies": {
+        "pageSize": {
+            "type": "number",
+            "format": "int64",
+            },
+        "pageNumber": {
+            "type": "number",
+            "format": "int64",
+            },
+        "filterQuery": {
+            "type": "string",
+            "format": "",
+            },
+        "filterTeamId": {
+            "type": "string",
+            "format": "",
+            },
+        "filterUserId": {
+            "type": "string",
+            "format": "",
+            },
+        "filterScheduleId": {
+            "type": "string",
+            "format": "",
+            },
+        "filterTags": {
+            "type": "string",
+            "format": "",
+            },
+        "filterTagsAny": {
+            "type": "string",
+            "format": "",
+            },
+        "include": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "EscalationPolicies",
+    },
     "v2.CreateOnCallEscalationPolicy": {
         "include": {
             "type": "string",

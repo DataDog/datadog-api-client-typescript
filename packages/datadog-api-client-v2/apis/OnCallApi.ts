@@ -20,8 +20,10 @@ import { APIErrorResponse } from "../models/APIErrorResponse";
 import { CreateOnCallNotificationRuleRequest } from "../models/CreateOnCallNotificationRuleRequest";
 import { CreateOverridesRequest } from "../models/CreateOverridesRequest";
 import { CreateUserNotificationChannelRequest } from "../models/CreateUserNotificationChannelRequest";
+import { EscalationPolicies } from "../models/EscalationPolicies";
 import { EscalationPolicy } from "../models/EscalationPolicy";
 import { EscalationPolicyCreateRequest } from "../models/EscalationPolicyCreateRequest";
+import { EscalationPolicyListItem } from "../models/EscalationPolicyListItem";
 import { EscalationPolicyUpdateRequest } from "../models/EscalationPolicyUpdateRequest";
 import { ListNotificationChannelsResponse } from "../models/ListNotificationChannelsResponse";
 import { ListOnCallNotificationRulesResponse } from "../models/ListOnCallNotificationRulesResponse";
@@ -964,6 +966,110 @@ export class OnCallApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Query Params
+    if (include !== undefined) {
+      requestContext.setQueryParam(
+        "include",
+        ObjectSerializer.serialize(include, "string", ""),
+        ""
+      );
+    }
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+      "AuthZ",
+    ]);
+
+    return requestContext;
+  }
+
+  public async listOnCallEscalationPolicies(
+    pageSize?: number,
+    pageNumber?: number,
+    filterQuery?: string,
+    filterTeamId?: string,
+    filterUserId?: string,
+    filterScheduleId?: string,
+    filterTags?: string,
+    filterTagsAny?: string,
+    include?: string,
+    _options?: Configuration
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    // Path Params
+    const localVarPath = "/api/v2/on-call/escalation-policies";
+
+    // Make Request Context
+    const requestContext = _config
+      .getServer("v2.OnCallApi.listOnCallEscalationPolicies")
+      .makeRequestContext(localVarPath, HttpMethod.GET);
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Set IaC header
+    if (_config.isIaC) {
+      requestContext.setHeaderParam("X-Datadog-Managed-By", "iac");
+    }
+
+    // Query Params
+    if (pageSize !== undefined) {
+      requestContext.setQueryParam(
+        "page[size]",
+        ObjectSerializer.serialize(pageSize, "number", "int64"),
+        ""
+      );
+    }
+    if (pageNumber !== undefined) {
+      requestContext.setQueryParam(
+        "page[number]",
+        ObjectSerializer.serialize(pageNumber, "number", "int64"),
+        ""
+      );
+    }
+    if (filterQuery !== undefined) {
+      requestContext.setQueryParam(
+        "filter[query]",
+        ObjectSerializer.serialize(filterQuery, "string", ""),
+        ""
+      );
+    }
+    if (filterTeamId !== undefined) {
+      requestContext.setQueryParam(
+        "filter[team_id]",
+        ObjectSerializer.serialize(filterTeamId, "string", ""),
+        ""
+      );
+    }
+    if (filterUserId !== undefined) {
+      requestContext.setQueryParam(
+        "filter[user_id]",
+        ObjectSerializer.serialize(filterUserId, "string", ""),
+        ""
+      );
+    }
+    if (filterScheduleId !== undefined) {
+      requestContext.setQueryParam(
+        "filter[schedule_id]",
+        ObjectSerializer.serialize(filterScheduleId, "string", ""),
+        ""
+      );
+    }
+    if (filterTags !== undefined) {
+      requestContext.setQueryParam(
+        "filter[tags]",
+        ObjectSerializer.serialize(filterTags, "string", ""),
+        ""
+      );
+    }
+    if (filterTagsAny !== undefined) {
+      requestContext.setQueryParam(
+        "filter[tags_any]",
+        ObjectSerializer.serialize(filterTagsAny, "string", ""),
+        ""
+      );
+    }
     if (include !== undefined) {
       requestContext.setQueryParam(
         "include",
@@ -2602,6 +2708,69 @@ export class OnCallApiResponseProcessor {
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
    *
+   * @params response Response returned by the server for a request to listOnCallEscalationPolicies
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async listOnCallEscalationPolicies(
+    response: ResponseContext
+  ): Promise<EscalationPolicies> {
+    const contentType = ObjectSerializer.normalizeMediaType(
+      response.headers["content-type"]
+    );
+    if (response.httpStatusCode === 200) {
+      const body: EscalationPolicies = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "EscalationPolicies"
+      ) as EscalationPolicies;
+      return body;
+    }
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 401 ||
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 429
+    ) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: APIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "APIErrorResponse"
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: EscalationPolicies = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "EscalationPolicies",
+        ""
+      ) as EscalationPolicies;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"'
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
    * @params response Response returned by the server for a request to listOnCallSchedules
    * @throws ApiException if the response code was not in [200, 299]
    */
@@ -3352,6 +3521,54 @@ export interface OnCallApiGetUserNotificationRuleRequest {
   include?: string;
 }
 
+export interface OnCallApiListOnCallEscalationPoliciesRequest {
+  /**
+   * Number of escalation policies to return per page. The maximum allowed value is 50.
+   * @type number
+   */
+  pageSize?: number;
+  /**
+   * Specific page number to return.
+   * @type number
+   */
+  pageNumber?: number;
+  /**
+   * Search query to filter escalation policies. Supports free-text search on the policy name (case-insensitive) and structured filters on `team.id` and `tags`. When set, `filter[team_id]`, `filter[user_id]`, and `filter[schedule_id]` are ignored. Can't be combined with `filter[tags]` or `filter[tags_any]`.
+   * @type string
+   */
+  filterQuery?: string;
+  /**
+   * Comma-separated list of team IDs. Returns escalation policies that belong to any of these teams or have a step targeting any of them.
+   * @type string
+   */
+  filterTeamId?: string;
+  /**
+   * Comma-separated list of user IDs. Returns escalation policies with a step targeting any of these users.
+   * @type string
+   */
+  filterUserId?: string;
+  /**
+   * Comma-separated list of schedule IDs. Returns escalation policies with a step targeting any of these schedules.
+   * @type string
+   */
+  filterScheduleId?: string;
+  /**
+   * Comma-separated list of `key:value` tags. Returns escalation policies that have all of these tags.
+   * @type string
+   */
+  filterTags?: string;
+  /**
+   * Comma-separated list of `key:value` tags. Returns escalation policies that have at least one of these tags.
+   * @type string
+   */
+  filterTagsAny?: string;
+  /**
+   * Comma-separated list of included relationships to be returned. Allowed values: `teams`, `steps`, `steps.targets`, `steps.targets.schedule`, `user.color`. `user.color` populates the `color` attribute of users included through `steps.targets`.
+   * @type string
+   */
+  include?: string;
+}
+
 export interface OnCallApiListOnCallSchedulesRequest {
   /**
    * Number of items to return per page. The maximum allowed value is 100.
@@ -3945,6 +4162,88 @@ export class OnCallApi {
           );
         });
     });
+  }
+
+  /**
+   * Retrieve a paginated list of On-Call escalation policies, sorted by name.
+   * @param param The request object
+   */
+  public listOnCallEscalationPolicies(
+    param: OnCallApiListOnCallEscalationPoliciesRequest = {},
+    options?: Configuration
+  ): Promise<EscalationPolicies> {
+    const requestContextPromise =
+      this.requestFactory.listOnCallEscalationPolicies(
+        param.pageSize,
+        param.pageNumber,
+        param.filterQuery,
+        param.filterTeamId,
+        param.filterUserId,
+        param.filterScheduleId,
+        param.filterTags,
+        param.filterTagsAny,
+        param.include,
+        options
+      );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.listOnCallEscalationPolicies(
+            responseContext
+          );
+        });
+    });
+  }
+
+  /**
+   * Provide a paginated version of listOnCallEscalationPolicies returning a generator with all the items.
+   */
+  public async *listOnCallEscalationPoliciesWithPagination(
+    param: OnCallApiListOnCallEscalationPoliciesRequest = {},
+    options?: Configuration
+  ): AsyncGenerator<EscalationPolicyListItem> {
+    let pageSize = 20;
+    if (param.pageSize !== undefined) {
+      pageSize = param.pageSize;
+    }
+    param.pageSize = pageSize;
+    param.pageNumber = 0;
+    while (true) {
+      const requestContext =
+        await this.requestFactory.listOnCallEscalationPolicies(
+          param.pageSize,
+          param.pageNumber,
+          param.filterQuery,
+          param.filterTeamId,
+          param.filterUserId,
+          param.filterScheduleId,
+          param.filterTags,
+          param.filterTagsAny,
+          param.include,
+          options
+        );
+      const responseContext = await this.configuration.httpApi.send(
+        requestContext
+      );
+
+      const response =
+        await this.responseProcessor.listOnCallEscalationPolicies(
+          responseContext
+        );
+      const responseData = response.data;
+      if (responseData === undefined) {
+        break;
+      }
+      const results = responseData;
+      for (const item of results) {
+        yield item;
+      }
+      if (results.length < pageSize) {
+        break;
+      }
+      param.pageNumber = param.pageNumber + 1;
+    }
   }
 
   /**
