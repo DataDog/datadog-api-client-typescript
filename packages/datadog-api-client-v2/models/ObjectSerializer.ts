@@ -2889,6 +2889,15 @@ import { IssueReference } from "./IssueReference";
 import { IssueRegression } from "./IssueRegression";
 import { IssueRelationships } from "./IssueRelationships";
 import { IssueResponse } from "./IssueResponse";
+import { IssueSample } from "./IssueSample";
+import { IssueSampleAttributes } from "./IssueSampleAttributes";
+import { IssueSampleCodeSnippet } from "./IssueSampleCodeSnippet";
+import { IssueSampleErrorStack } from "./IssueSampleErrorStack";
+import { IssueSampleFrameLink } from "./IssueSampleFrameLink";
+import { IssueSampleGitFileLocation } from "./IssueSampleGitFileLocation";
+import { IssueSampleReference } from "./IssueSampleReference";
+import { IssueSampleStackFrame } from "./IssueSampleStackFrame";
+import { IssueSamplesRelationship } from "./IssueSamplesRelationship";
 import { IssueTeam } from "./IssueTeam";
 import { IssueTeamAttributes } from "./IssueTeamAttributes";
 import { IssueTeamOwnersRelationship } from "./IssueTeamOwnersRelationship";
@@ -7802,7 +7811,12 @@ const enumsMap: { [key: string]: any[] } = {
   GeneratedCostTagDescriptionType: ["cost_generated_tag_description"],
   GetAstRequestDataType: ["get_ast_request"],
   GetAstResponseDataType: ["get_ast_response"],
-  GetIssueIncludeQueryParameterItem: ["assignee", "case", "team_owners"],
+  GetIssueIncludeQueryParameterItem: [
+    "assignee",
+    "case",
+    "team_owners",
+    "samples",
+  ],
   GetMappingResponseDataType: ["get_mappings_response"],
   GetMultipleRulesetsRequestDataType: ["get_multiple_rulesets_request"],
   GetMultipleRulesetsResponseDataAttributesRulesetsItemsDataType: ["rulesets"],
@@ -8060,6 +8074,15 @@ const enumsMap: { [key: string]: any[] } = {
     "ROKU",
     "UNKNOWN",
   ],
+  IssueSampleBias: [
+    "latest",
+    "git_metadata",
+    "trace",
+    "session_replay",
+    "exception_replay",
+  ],
+  IssueSampleDataSource: ["APM", "LOGS", "RUM", "LLMOBS", "SYNTHETICS", "NONE"],
+  IssueSampleType: ["error_tracking_issue_sample"],
   IssueState: ["OPEN", "ACKNOWLEDGED", "RESOLVED", "IGNORED", "EXCLUDED"],
   IssueTeamType: ["team"],
   IssueType: ["issue"],
@@ -13835,6 +13858,15 @@ const typeMap: { [index: string]: any } = {
   IssueRegression: IssueRegression,
   IssueRelationships: IssueRelationships,
   IssueResponse: IssueResponse,
+  IssueSample: IssueSample,
+  IssueSampleAttributes: IssueSampleAttributes,
+  IssueSampleCodeSnippet: IssueSampleCodeSnippet,
+  IssueSampleErrorStack: IssueSampleErrorStack,
+  IssueSampleFrameLink: IssueSampleFrameLink,
+  IssueSampleGitFileLocation: IssueSampleGitFileLocation,
+  IssueSampleReference: IssueSampleReference,
+  IssueSampleStackFrame: IssueSampleStackFrame,
+  IssueSamplesRelationship: IssueSamplesRelationship,
   IssueTeam: IssueTeam,
   IssueTeamAttributes: IssueTeamAttributes,
   IssueTeamOwnersRelationship: IssueTeamOwnersRelationship,
@@ -18864,7 +18896,7 @@ const oneOfMap: { [index: string]: string[] } = {
     "IncidentUserData",
     "IncidentTypeObject",
   ],
-  IssueIncluded: ["IssueCase", "IssueUser", "IssueTeam"],
+  IssueIncluded: ["IssueCase", "IssueUser", "IssueTeam", "IssueSample"],
   IssuesSearchResultIncluded: ["Issue", "IssueCase", "IssueUser", "IssueTeam"],
   LLMObsAnnotatedInteractionItem: [
     "LLMObsTraceAnnotatedInteractionItem",
