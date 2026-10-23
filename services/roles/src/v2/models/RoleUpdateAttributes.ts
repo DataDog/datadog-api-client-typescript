@@ -29,6 +29,10 @@ export class RoleUpdateAttributes {
    */
   "receivesPermissionsFrom"?: Array<string>;
   /**
+   * Number of teams with that role.
+   */
+  "teamCount"?: number;
+  /**
    * The user count.
    */
   "userCount"?: number;
@@ -68,6 +72,11 @@ export class RoleUpdateAttributes {
     receivesPermissionsFrom: {
       baseName: "receives_permissions_from",
       type: "Array<string>",
+    },
+    teamCount: {
+      baseName: "team_count",
+      type: "number",
+      format: "int64",
     },
     userCount: {
       baseName: "user_count",
