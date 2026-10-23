@@ -7004,6 +7004,8 @@ export { ObservabilityPipelineDatadogTagsProcessor } from "./models/Observabilit
 export { ObservabilityPipelineDatadogTagsProcessorAction } from "./models/ObservabilityPipelineDatadogTagsProcessorAction";
 export { ObservabilityPipelineDatadogTagsProcessorMode } from "./models/ObservabilityPipelineDatadogTagsProcessorMode";
 export { ObservabilityPipelineDatadogTagsProcessorType } from "./models/ObservabilityPipelineDatadogTagsProcessorType";
+export { ObservabilityPipelineDatadogTracesDestination } from "./models/ObservabilityPipelineDatadogTracesDestination";
+export { ObservabilityPipelineDatadogTracesDestinationType } from "./models/ObservabilityPipelineDatadogTracesDestinationType";
 export { ObservabilityPipelineDecoding } from "./models/ObservabilityPipelineDecoding";
 export { ObservabilityPipelineDedupeProcessor } from "./models/ObservabilityPipelineDedupeProcessor";
 export { ObservabilityPipelineDedupeProcessorCache } from "./models/ObservabilityPipelineDedupeProcessorCache";
@@ -7132,8 +7134,8 @@ export { ObservabilityPipelineOcsfMappingLibrary } from "./models/ObservabilityP
 export { ObservabilityPipelineOpenSearchDestination } from "./models/ObservabilityPipelineOpenSearchDestination";
 export { ObservabilityPipelineOpenSearchDestinationDataStream } from "./models/ObservabilityPipelineOpenSearchDestinationDataStream";
 export { ObservabilityPipelineOpenSearchDestinationType } from "./models/ObservabilityPipelineOpenSearchDestinationType";
-export { ObservabilityPipelineOpentelemetryMetricsDestination } from "./models/ObservabilityPipelineOpentelemetryMetricsDestination";
-export { ObservabilityPipelineOpentelemetryMetricsDestinationType } from "./models/ObservabilityPipelineOpentelemetryMetricsDestinationType";
+export { ObservabilityPipelineOpentelemetryDestination } from "./models/ObservabilityPipelineOpentelemetryDestination";
+export { ObservabilityPipelineOpentelemetryDestinationType } from "./models/ObservabilityPipelineOpentelemetryDestinationType";
 export { ObservabilityPipelineOpentelemetrySource } from "./models/ObservabilityPipelineOpentelemetrySource";
 export { ObservabilityPipelineOpentelemetrySourceType } from "./models/ObservabilityPipelineOpentelemetrySourceType";
 export { ObservabilityPipelineParseGrokProcessor } from "./models/ObservabilityPipelineParseGrokProcessor";

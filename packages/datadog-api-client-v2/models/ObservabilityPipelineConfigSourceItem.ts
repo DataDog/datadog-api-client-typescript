@@ -31,6 +31,7 @@ import { UnparsedObject } from "../../datadog-api-client-common/util";
 
 export type ObservabilityPipelineConfigSourceItem =
   | ObservabilityPipelineDatadogAgentSource
+  | ObservabilityPipelineOpentelemetrySource
   | ObservabilityPipelineAmazonDataFirehoseSource
   | ObservabilityPipelineAmazonS3Source
   | ObservabilityPipelineFluentBitSource
@@ -47,6 +48,5 @@ export type ObservabilityPipelineConfigSourceItem =
   | ObservabilityPipelineSumoLogicSource
   | ObservabilityPipelineSyslogNgSource
   | ObservabilityPipelineWebsocketSource
-  | ObservabilityPipelineOpentelemetrySource
   | ObservabilityPipelinePrometheusRemoteWriteSource
   | UnparsedObject;

@@ -9,7 +9,7 @@ import { ObservabilityPipelineMetricValue } from "./ObservabilityPipelineMetricV
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * Defines a log-based custom metric, including its name, type, filter, value computation strategy,
+ * Defines a custom metric generated from logs or traces, including its name, type, filter, value computation strategy,
  * and optional grouping fields.
  */
 export class ObservabilityPipelineGeneratedMetric {
@@ -18,7 +18,7 @@ export class ObservabilityPipelineGeneratedMetric {
    */
   "groupBy"?: Array<string>;
   /**
-   * Datadog filter query to match logs for metric generation.
+   * Datadog filter query to match events for metric generation.
    */
   "include": string;
   /**

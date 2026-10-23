@@ -7,10 +7,10 @@
 import { UnparsedObject } from "../../datadog-api-client-common/util";
 
 /**
- * The destination type. Always `opentelemetry`.
+ * The destination type. The value should always be `datadog_traces`.
  */
 
-export type ObservabilityPipelineOpentelemetryMetricsDestinationType =
-  | typeof OPENTELEMETRY
+export type ObservabilityPipelineDatadogTracesDestinationType =
+  | typeof DATADOG_TRACES
   | UnparsedObject;
-export const OPENTELEMETRY = "opentelemetry";
+export const DATADOG_TRACES = "datadog_traces";

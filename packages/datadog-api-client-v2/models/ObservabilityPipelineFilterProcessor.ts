@@ -8,9 +8,9 @@ import { ObservabilityPipelineFilterProcessorType } from "./ObservabilityPipelin
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * The `filter` processor allows conditional processing of logs/metrics based on a Datadog search query. Logs/metrics that match the `include` query are passed through; others are discarded.
+ * The `filter` processor allows conditional processing of logs, metrics, or traces based on a Datadog search query. Events that match the `include` query are passed through; others are discarded.
  *
- * **Supported pipeline types:** logs, metrics
+ * **Supported pipeline types:** logs, metrics, traces
  */
 export class ObservabilityPipelineFilterProcessor {
   /**
@@ -26,7 +26,7 @@ export class ObservabilityPipelineFilterProcessor {
    */
   "id": string;
   /**
-   * A Datadog search query used to determine which logs/metrics should pass through the filter. Logs/metrics that match this query continue to downstream components; others are dropped.
+   * A Datadog search query used to determine which events should pass through the filter. Events that match this query continue to downstream components; others are dropped.
    */
   "include": string;
   /**
