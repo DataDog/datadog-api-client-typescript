@@ -9,7 +9,7 @@ export class LogsListRequestPage {
    */
   "cursor"?: string;
   /**
-   * Maximum number of logs in the response.
+   * Requested maximum number of logs in the response.
    */
   "limit"?: number;
   /**
