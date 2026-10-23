@@ -16,7 +16,7 @@ const apiInstance = new v1.LogsApi(configuration);
 const params: v1.LogsApiListLogsRequest = {
   body: {
     index: "retention-3,retention-15",
-    query: "service:web* AND @http.status_code:[200 TO 299]",
+    query: "service:web-api AND @http.status_code:[200 TO 299]",
     sort: "asc",
     time: {
       from: new Date(2020, 2, 2, 2, 2, 2, 202000),
