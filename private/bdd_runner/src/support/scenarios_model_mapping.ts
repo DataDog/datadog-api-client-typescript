@@ -15129,6 +15129,32 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
     },
     operationResponseType: "{}",
   },
+  "OnCallApi.V2.ListOnCallPages": {
+    pageSize: {
+      type: "number",
+      format: "int64",
+    },
+    pageNumber: {
+      type: "number",
+      format: "int64",
+    },
+    filterQuery: {
+      type: "string",
+      format: "",
+    },
+    sort: {
+      type: "OnCallPagesSort",
+      format: "",
+    },
+    operationResponseType: "OnCallPagesResponse",
+  },
+  "OnCallApi.V2.GetOnCallPage": {
+    pageId: {
+      type: "string",
+      format: "",
+    },
+    operationResponseType: "OnCallPageResponse",
+  },
   "OnCallApi.V2.ListOnCallSchedules": {
     pageSize: {
       type: "number",

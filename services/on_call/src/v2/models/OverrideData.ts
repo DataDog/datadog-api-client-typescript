@@ -21,7 +21,7 @@ export class OverrideData {
    */
   "relationships"?: OverrideRelationships;
   /**
-   * Indicates that the resource is of type 'overrides'.
+   * Indicates that the resource is of type `overrides`.
    */
   "type": OverrideDataType;
   /**

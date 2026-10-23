@@ -253,7 +253,7 @@ export class OnCallPagingApiResponseProcessor {
    */
   public async acknowledgeOnCallPage(response: ResponseContext): Promise<void> {
     const contentType = normalizeMediaType(response.headers["content-type"]);
-    if (response.httpStatusCode === 202) {
+    if (response.httpStatusCode === 204) {
       return;
     }
     if (response.httpStatusCode === 429) {
@@ -298,7 +298,7 @@ export class OnCallPagingApiResponseProcessor {
     response: ResponseContext,
   ): Promise<CreatePageResponse> {
     const contentType = normalizeMediaType(response.headers["content-type"]);
-    if (response.httpStatusCode === 200) {
+    if (response.httpStatusCode === 201) {
       const body: CreatePageResponse = deserialize(
         parse(await response.body.text(), contentType),
         TypingInfo,
@@ -352,7 +352,7 @@ export class OnCallPagingApiResponseProcessor {
    */
   public async escalateOnCallPage(response: ResponseContext): Promise<void> {
     const contentType = normalizeMediaType(response.headers["content-type"]);
-    if (response.httpStatusCode === 202) {
+    if (response.httpStatusCode === 204) {
       return;
     }
     if (response.httpStatusCode === 429) {
@@ -395,7 +395,7 @@ export class OnCallPagingApiResponseProcessor {
    */
   public async resolveOnCallPage(response: ResponseContext): Promise<void> {
     const contentType = normalizeMediaType(response.headers["content-type"]);
-    if (response.httpStatusCode === 202) {
+    if (response.httpStatusCode === 204) {
       return;
     }
     if (response.httpStatusCode === 429) {

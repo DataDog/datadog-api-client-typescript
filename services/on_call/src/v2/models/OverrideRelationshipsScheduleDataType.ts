@@ -1,7 +1,7 @@
 import { UnparsedObject } from "@datadog/datadog-api-client";
 
 /**
- * Indicates that the related resource is of type 'schedules'.
+ * Indicates that the related resource is of type `schedules`.
  */
 export type OverrideRelationshipsScheduleDataType =
   | typeof SCHEDULES

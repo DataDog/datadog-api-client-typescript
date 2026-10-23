@@ -11,7 +11,7 @@ export class TeamRoutingRulesDataRelationshipsRulesDataItems {
    */
   "id": string;
   /**
-   * Indicates that the resource is of type 'team_routing_rules'.
+   * Indicates that the resource is of type `team_routing_rules`.
    */
   "type": TeamRoutingRulesDataRelationshipsRulesDataItemsType;
   /**
