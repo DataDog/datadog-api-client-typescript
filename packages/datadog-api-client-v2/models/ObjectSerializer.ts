@@ -5985,6 +5985,7 @@ import { TagIndexingRuleExemptionCreateData } from "./TagIndexingRuleExemptionCr
 import { TagIndexingRuleExemptionCreateRequest } from "./TagIndexingRuleExemptionCreateRequest";
 import { TagIndexingRuleExemptionData } from "./TagIndexingRuleExemptionData";
 import { TagIndexingRuleExemptionResponse } from "./TagIndexingRuleExemptionResponse";
+import { TagIndexingRuleExemptionsResponse } from "./TagIndexingRuleExemptionsResponse";
 import { TagIndexingRuleMetricMatch } from "./TagIndexingRuleMetricMatch";
 import { TagIndexingRuleOptions } from "./TagIndexingRuleOptions";
 import { TagIndexingRuleOptionsData } from "./TagIndexingRuleOptionsData";
@@ -10005,6 +10006,12 @@ const enumsMap: { [key: string]: any[] } = {
   TableResultV2DataType: ["reference_table"],
   TableRowResourceDataType: ["row"],
   TagDataType: ["tag"],
+  TagIndexingRuleExemptionSort: [
+    "name",
+    "-name",
+    "estimated_change_in_volume",
+    "-estimated_change_in_volume",
+  ],
   TagIndexingRuleExemptionType: ["tag_indexing_rule_exemptions"],
   TagIndexingRuleExemptionVolumeStatus: ["ok", "unindexed_tags", "unavailable"],
   TagIndexingRuleType: ["tag_indexing_rules"],
@@ -17834,6 +17841,7 @@ const typeMap: { [index: string]: any } = {
   TagIndexingRuleExemptionCreateRequest: TagIndexingRuleExemptionCreateRequest,
   TagIndexingRuleExemptionData: TagIndexingRuleExemptionData,
   TagIndexingRuleExemptionResponse: TagIndexingRuleExemptionResponse,
+  TagIndexingRuleExemptionsResponse: TagIndexingRuleExemptionsResponse,
   TagIndexingRuleMetricMatch: TagIndexingRuleMetricMatch,
   TagIndexingRuleOptions: TagIndexingRuleOptions,
   TagIndexingRuleOptionsData: TagIndexingRuleOptionsData,
