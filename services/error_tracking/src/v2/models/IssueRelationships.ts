@@ -2,6 +2,7 @@ import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
 import { IssueAssigneeRelationship } from "./IssueAssigneeRelationship";
 import { IssueCaseRelationship } from "./IssueCaseRelationship";
+import { IssueSamplesRelationship } from "./IssueSamplesRelationship";
 import { IssueTeamOwnersRelationship } from "./IssueTeamOwnersRelationship";
 
 /**
@@ -16,6 +17,10 @@ export class IssueRelationships {
    * Relationship between the issue and case.
    */
   "_case"?: IssueCaseRelationship;
+  /**
+   * Relationship between the issue and its curated error samples.
+   */
+  "samples"?: IssueSamplesRelationship;
   /**
    * Relationship between the issue and teams.
    */
@@ -42,6 +47,10 @@ export class IssueRelationships {
     _case: {
       baseName: "case",
       type: "IssueCaseRelationship",
+    },
+    samples: {
+      baseName: "samples",
+      type: "IssueSamplesRelationship",
     },
     teamOwners: {
       baseName: "team_owners",
