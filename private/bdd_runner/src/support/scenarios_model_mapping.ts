@@ -10234,6 +10234,10 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
       type: "Array<GetIssueIncludeQueryParameterItem>",
       format: "",
     },
+    filterSamplesBiases: {
+      type: "Array<IssueSampleBias>",
+      format: "",
+    },
     operationResponseType: "IssueResponse",
   },
   "ErrorTrackingApi.V2.UpdateIssueAssignee": {
