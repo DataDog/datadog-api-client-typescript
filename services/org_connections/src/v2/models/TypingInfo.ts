@@ -24,7 +24,13 @@ export const TypingInfo: ModelTypingInfo = {
   enumsMap: {
     OrgConnectionOrgRelationshipDataType: ["orgs"],
     OrgConnectionType: ["org_connection"],
-    OrgConnectionTypeEnum: ["logs", "metrics", "audit"],
+    OrgConnectionTypeEnum: [
+      "logs",
+      "metrics",
+      "audit",
+      "ci_pipelines",
+      "ci_tests",
+    ],
     OrgConnectionUserRelationshipDataType: ["users"],
   },
   oneOfMap: {},
