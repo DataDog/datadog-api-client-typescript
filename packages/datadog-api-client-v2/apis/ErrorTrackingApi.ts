@@ -19,6 +19,7 @@ import { ApiException } from "../../datadog-api-client-common/exception";
 import { APIErrorResponse } from "../models/APIErrorResponse";
 import { GetIssueIncludeQueryParameterItem } from "../models/GetIssueIncludeQueryParameterItem";
 import { IssueResponse } from "../models/IssueResponse";
+import { IssueSampleBias } from "../models/IssueSampleBias";
 import { IssuesSearchRequest } from "../models/IssuesSearchRequest";
 import { IssuesSearchResponse } from "../models/IssuesSearchResponse";
 import { IssueUpdateAssigneeRequest } from "../models/IssueUpdateAssigneeRequest";
@@ -69,6 +70,7 @@ export class ErrorTrackingApiRequestFactory extends BaseAPIRequestFactory {
   public async getIssue(
     issueId: string,
     include?: Array<GetIssueIncludeQueryParameterItem>,
+    filterSamplesBiases?: Array<IssueSampleBias>,
     _options?: Configuration
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
@@ -103,6 +105,17 @@ export class ErrorTrackingApiRequestFactory extends BaseAPIRequestFactory {
         ObjectSerializer.serialize(
           include,
           "Array<GetIssueIncludeQueryParameterItem>",
+          ""
+        ),
+        "csv"
+      );
+    }
+    if (filterSamplesBiases !== undefined) {
+      requestContext.setQueryParam(
+        "filter[samples.biases]",
+        ObjectSerializer.serialize(
+          filterSamplesBiases,
+          "Array<IssueSampleBias>",
           ""
         ),
         "csv"
@@ -618,10 +631,17 @@ export interface ErrorTrackingApiGetIssueRequest {
    */
   issueId: string;
   /**
-   * Comma-separated list of relationship objects that should be included in the response. Possible values are `assignee`, `case`, and `team_owners`.
+   * Comma-separated list of relationship objects that should be included in the response.
+   * Possible values are `assignee`, `case`, `team_owners`, and `samples`.
    * @type Array<GetIssueIncludeQueryParameterItem>
    */
   include?: Array<GetIssueIncludeQueryParameterItem>;
+  /**
+   * Comma-separated list of biases used to pick the samples returned with `include=samples`.
+   * Requires `include=samples`. Defaults to all biases.
+   * @type Array<IssueSampleBias>
+   */
+  filterSamplesBiases?: Array<IssueSampleBias>;
 }
 
 export interface ErrorTrackingApiSearchIssuesRequest {
@@ -712,6 +732,7 @@ export class ErrorTrackingApi {
     const requestContextPromise = this.requestFactory.getIssue(
       param.issueId,
       param.include,
+      param.filterSamplesBiases,
       options
     );
     return requestContextPromise.then((requestContext) => {
