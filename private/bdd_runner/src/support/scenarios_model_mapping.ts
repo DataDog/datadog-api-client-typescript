@@ -10634,7 +10634,69 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
     },
     operationResponseType: "ExperimentsPublicProtocolListResponseArray",
   },
+  "ExperimentsApi.V2.CreateExperimentProtocol": {
+    body: {
+      type: "ExperimentsCreateExperimentProtocolRequest",
+      format: "",
+    },
+    operationResponseType: "ExperimentsPublicProtocolResponse",
+  },
   "ExperimentsApi.V2.GetExperimentProtocol": {
+    protocolId: {
+      type: "string",
+      format: "uuid",
+    },
+    operationResponseType: "ExperimentsPublicProtocolResponse",
+  },
+  "ExperimentsApi.V2.ReplaceExperimentProtocol": {
+    protocolId: {
+      type: "string",
+      format: "uuid",
+    },
+    expectedUpdatedAt: {
+      type: "string",
+      format: "",
+    },
+    body: {
+      type: "ExperimentsReplaceExperimentProtocolRequest",
+      format: "",
+    },
+    operationResponseType: "ExperimentsPublicProtocolResponse",
+  },
+  "ExperimentsApi.V2.DeleteExperimentProtocol": {
+    protocolId: {
+      type: "string",
+      format: "uuid",
+    },
+    expectedUpdatedAt: {
+      type: "string",
+      format: "",
+    },
+    operationResponseType: "{}",
+  },
+  "ExperimentsApi.V2.PatchExperimentProtocol": {
+    protocolId: {
+      type: "string",
+      format: "uuid",
+    },
+    body: {
+      type: "ExperimentsPatchExperimentProtocolRequest",
+      format: "",
+    },
+    operationResponseType: "ExperimentsPublicProtocolResponse",
+  },
+  "ExperimentsApi.V2.ArchiveExperimentProtocol": {
+    protocolId: {
+      type: "string",
+      format: "uuid",
+    },
+    expectedUpdatedAt: {
+      type: "string",
+      format: "",
+    },
+    operationResponseType: "ExperimentsPublicProtocolResponse",
+  },
+  "ExperimentsApi.V2.PublishExperimentProtocol": {
     protocolId: {
       type: "string",
       format: "uuid",
