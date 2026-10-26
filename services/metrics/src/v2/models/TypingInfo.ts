@@ -124,6 +124,7 @@ import { TagIndexingRuleExemptionCreateData } from "./TagIndexingRuleExemptionCr
 import { TagIndexingRuleExemptionCreateRequest } from "./TagIndexingRuleExemptionCreateRequest";
 import { TagIndexingRuleExemptionData } from "./TagIndexingRuleExemptionData";
 import { TagIndexingRuleExemptionResponse } from "./TagIndexingRuleExemptionResponse";
+import { TagIndexingRuleExemptionsResponse } from "./TagIndexingRuleExemptionsResponse";
 import { TagIndexingRuleMetricMatch } from "./TagIndexingRuleMetricMatch";
 import { TagIndexingRuleOptions } from "./TagIndexingRuleOptions";
 import { TagIndexingRuleOptionsData } from "./TagIndexingRuleOptionsData";
@@ -293,6 +294,12 @@ export const TypingInfo: ModelTypingInfo = {
       "bad_minutes",
     ],
     SlosQueryType: ["metric", "time_slice", "monitor"],
+    TagIndexingRuleExemptionSort: [
+      "name",
+      "-name",
+      "estimated_change_in_volume",
+      "-estimated_change_in_volume",
+    ],
     TagIndexingRuleExemptionType: ["tag_indexing_rule_exemptions"],
     TagIndexingRuleExemptionVolumeStatus: [
       "ok",
@@ -470,6 +477,7 @@ export const TypingInfo: ModelTypingInfo = {
       TagIndexingRuleExemptionCreateRequest,
     TagIndexingRuleExemptionData: TagIndexingRuleExemptionData,
     TagIndexingRuleExemptionResponse: TagIndexingRuleExemptionResponse,
+    TagIndexingRuleExemptionsResponse: TagIndexingRuleExemptionsResponse,
     TagIndexingRuleMetricMatch: TagIndexingRuleMetricMatch,
     TagIndexingRuleOptions: TagIndexingRuleOptions,
     TagIndexingRuleOptionsData: TagIndexingRuleOptionsData,
