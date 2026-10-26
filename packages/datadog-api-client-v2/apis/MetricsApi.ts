@@ -44,7 +44,10 @@ import { ScalarFormulaQueryRequest } from "../models/ScalarFormulaQueryRequest";
 import { ScalarFormulaQueryResponse } from "../models/ScalarFormulaQueryResponse";
 import { TagIndexingRuleCreateRequest } from "../models/TagIndexingRuleCreateRequest";
 import { TagIndexingRuleExemptionCreateRequest } from "../models/TagIndexingRuleExemptionCreateRequest";
+import { TagIndexingRuleExemptionData } from "../models/TagIndexingRuleExemptionData";
 import { TagIndexingRuleExemptionResponse } from "../models/TagIndexingRuleExemptionResponse";
+import { TagIndexingRuleExemptionSort } from "../models/TagIndexingRuleExemptionSort";
+import { TagIndexingRuleExemptionsResponse } from "../models/TagIndexingRuleExemptionsResponse";
 import { TagIndexingRuleOrderRequest } from "../models/TagIndexingRuleOrderRequest";
 import { TagIndexingRuleResponse } from "../models/TagIndexingRuleResponse";
 import { TagIndexingRulesResponse } from "../models/TagIndexingRulesResponse";
@@ -1222,6 +1225,93 @@ export class MetricsApiRequestFactory extends BaseAPIRequestFactory {
       requestContext.setQueryParam(
         "window[seconds]",
         ObjectSerializer.serialize(windowSeconds, "number", "int64"),
+        ""
+      );
+    }
+    if (pageSize !== undefined) {
+      requestContext.setQueryParam(
+        "page[size]",
+        ObjectSerializer.serialize(pageSize, "number", "int32"),
+        ""
+      );
+    }
+    if (pageCursor !== undefined) {
+      requestContext.setQueryParam(
+        "page[cursor]",
+        ObjectSerializer.serialize(pageCursor, "string", ""),
+        ""
+      );
+    }
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+      "AuthZ",
+    ]);
+
+    return requestContext;
+  }
+
+  public async listTagIndexingRuleExemptions(
+    filterMetricPrefix?: string,
+    filterSafe?: boolean,
+    filterTagIndexingRuleId?: string,
+    sort?: TagIndexingRuleExemptionSort,
+    pageSize?: number,
+    pageCursor?: string,
+    _options?: Configuration
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    logger.warn("Using unstable operation 'listTagIndexingRuleExemptions'");
+    if (!_config.unstableOperations["v2.listTagIndexingRuleExemptions"]) {
+      throw new Error(
+        "Unstable operation 'listTagIndexingRuleExemptions' is disabled"
+      );
+    }
+
+    // Path Params
+    const localVarPath = "/api/v2/metrics/list-tag-indexing-rule-exemptions";
+
+    // Make Request Context
+    const requestContext = _config
+      .getServer("v2.MetricsApi.listTagIndexingRuleExemptions")
+      .makeRequestContext(localVarPath, HttpMethod.GET);
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Set IaC header
+    if (_config.isIaC) {
+      requestContext.setHeaderParam("X-Datadog-Managed-By", "iac");
+    }
+
+    // Query Params
+    if (filterMetricPrefix !== undefined) {
+      requestContext.setQueryParam(
+        "filter[metric_prefix]",
+        ObjectSerializer.serialize(filterMetricPrefix, "string", ""),
+        ""
+      );
+    }
+    if (filterSafe !== undefined) {
+      requestContext.setQueryParam(
+        "filter[safe]",
+        ObjectSerializer.serialize(filterSafe, "boolean", ""),
+        ""
+      );
+    }
+    if (filterTagIndexingRuleId !== undefined) {
+      requestContext.setQueryParam(
+        "filter[tag_indexing_rule_id]",
+        ObjectSerializer.serialize(filterTagIndexingRuleId, "string", "uuid"),
+        ""
+      );
+    }
+    if (sort !== undefined) {
+      requestContext.setQueryParam(
+        "sort",
+        ObjectSerializer.serialize(sort, "TagIndexingRuleExemptionSort", ""),
         ""
       );
     }
@@ -3295,6 +3385,73 @@ export class MetricsApiResponseProcessor {
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
    *
+   * @params response Response returned by the server for a request to listTagIndexingRuleExemptions
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async listTagIndexingRuleExemptions(
+    response: ResponseContext
+  ): Promise<TagIndexingRuleExemptionsResponse> {
+    const contentType = ObjectSerializer.normalizeMediaType(
+      response.headers["content-type"]
+    );
+    if (response.httpStatusCode === 200) {
+      const body: TagIndexingRuleExemptionsResponse =
+        ObjectSerializer.deserialize(
+          ObjectSerializer.parse(await response.body.text(), contentType),
+          "TagIndexingRuleExemptionsResponse"
+        ) as TagIndexingRuleExemptionsResponse;
+      return body;
+    }
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 429
+    ) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: JSONAPIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "JSONAPIErrorResponse"
+        ) as JSONAPIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<JSONAPIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<JSONAPIErrorResponse>(
+        response.httpStatusCode,
+        body
+      );
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: TagIndexingRuleExemptionsResponse =
+        ObjectSerializer.deserialize(
+          ObjectSerializer.parse(await response.body.text(), contentType),
+          "TagIndexingRuleExemptionsResponse",
+          ""
+        ) as TagIndexingRuleExemptionsResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"'
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
    * @params response Response returned by the server for a request to listTagIndexingRules
    * @throws ApiException if the response code was not in [200, 299]
    */
@@ -4267,6 +4424,45 @@ export interface MetricsApiListTagConfigurationsRequest {
   pageCursor?: string;
 }
 
+export interface MetricsApiListTagIndexingRuleExemptionsRequest {
+  /**
+   * Filter exemptions to metrics whose names start with this literal prefix.
+   * Matching is case-sensitive. Wildcard characters are treated literally.
+   * @type string
+   */
+  filterMetricPrefix?: string;
+  /**
+   * Filter exemptions by whether they are safe to remove. An exemption is considered safe when a fresh, usable
+   * estimate indicates that removing it would not increase indexed volume and would not drop tags used to query
+   * the metric in monitors, dashboards, notebooks, or SLOs. Set to `true` to return safe-to-remove exemptions,
+   * or `false` to return all other exemptions, including those with unavailable or stale estimates.
+   * @type boolean
+   */
+  filterSafe?: boolean;
+  /**
+   * Filter exemptions to metrics matched by the tag indexing rule with this UUID.
+   * @type string
+   */
+  filterTagIndexingRuleId?: string;
+  /**
+   * Sort field. Prefix the field with `-` for descending order. The default is `estimated_change_in_volume` in ascending order, with the largest reductions (most negative values) first.
+   * @type TagIndexingRuleExemptionSort
+   */
+  sort?: TagIndexingRuleExemptionSort;
+  /**
+   * Maximum number of results per page. Defaults to 10000; accepts values from 1 to 10000. If
+   * `meta.pagination.next_cursor` is non-null, request the next page by passing that value as `page[cursor]`.
+   * Continue until `next_cursor` is null.
+   * @type number
+   */
+  pageSize?: number;
+  /**
+   * Cursor for pagination. Use `page[size]` to opt-in to pagination and get the first page; for subsequent pages, use the value from `meta.pagination.next_cursor` in the response. Pagination is complete when `next_cursor` is null.
+   * @type string
+   */
+  pageCursor?: string;
+}
+
 export interface MetricsApiListTagIndexingRulesRequest {
   /**
    * Page size (1–1000, default 100).
@@ -5035,6 +5231,96 @@ export class MetricsApi {
       const response = await this.responseProcessor.listTagConfigurations(
         responseContext
       );
+      const responseData = response.data;
+      if (responseData === undefined) {
+        break;
+      }
+      const results = responseData;
+      for (const item of results) {
+        yield item;
+      }
+      if (results.length === 0) {
+        break;
+      }
+      const cursorMeta = response.meta;
+      if (cursorMeta === undefined) {
+        break;
+      }
+      const cursorMetaPagination = cursorMeta.pagination;
+      if (cursorMetaPagination === undefined) {
+        break;
+      }
+      const cursorMetaPaginationNextCursor = cursorMetaPagination.nextCursor;
+      if (cursorMetaPaginationNextCursor === undefined) {
+        break;
+      }
+
+      param.pageCursor = cursorMetaPaginationNextCursor;
+    }
+  }
+
+  /**
+   * Returns explicit exemptions and legacy tag configurations that exclude metrics from tag indexing rules.
+   * You can filter results by metric name prefix, whether an exemption is safe to remove, or the UUID of a matching
+   * tag indexing rule. You can sort results by metric name or by estimated change in indexed volume.
+   * @param param The request object
+   */
+  public listTagIndexingRuleExemptions(
+    param: MetricsApiListTagIndexingRuleExemptionsRequest = {},
+    options?: Configuration
+  ): Promise<TagIndexingRuleExemptionsResponse> {
+    const requestContextPromise =
+      this.requestFactory.listTagIndexingRuleExemptions(
+        param.filterMetricPrefix,
+        param.filterSafe,
+        param.filterTagIndexingRuleId,
+        param.sort,
+        param.pageSize,
+        param.pageCursor,
+        options
+      );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.listTagIndexingRuleExemptions(
+            responseContext
+          );
+        });
+    });
+  }
+
+  /**
+   * Provide a paginated version of listTagIndexingRuleExemptions returning a generator with all the items.
+   */
+  public async *listTagIndexingRuleExemptionsWithPagination(
+    param: MetricsApiListTagIndexingRuleExemptionsRequest = {},
+    options?: Configuration
+  ): AsyncGenerator<TagIndexingRuleExemptionData> {
+    let pageSize = 10000;
+    if (param.pageSize !== undefined) {
+      pageSize = param.pageSize;
+    }
+    param.pageSize = pageSize;
+    while (true) {
+      const requestContext =
+        await this.requestFactory.listTagIndexingRuleExemptions(
+          param.filterMetricPrefix,
+          param.filterSafe,
+          param.filterTagIndexingRuleId,
+          param.sort,
+          param.pageSize,
+          param.pageCursor,
+          options
+        );
+      const responseContext = await this.configuration.httpApi.send(
+        requestContext
+      );
+
+      const response =
+        await this.responseProcessor.listTagIndexingRuleExemptions(
+          responseContext
+        );
       const responseData = response.data;
       if (responseData === undefined) {
         break;

@@ -14208,6 +14208,33 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             },
         "operationResponseType": "{}",
     },
+    "v2.ListTagIndexingRuleExemptions": {
+        "filterMetricPrefix": {
+            "type": "string",
+            "format": "",
+            },
+        "filterSafe": {
+            "type": "boolean",
+            "format": "",
+            },
+        "filterTagIndexingRuleId": {
+            "type": "string",
+            "format": "uuid",
+            },
+        "sort": {
+            "type": "TagIndexingRuleExemptionSort",
+            "format": "",
+            },
+        "pageSize": {
+            "type": "number",
+            "format": "int32",
+            },
+        "pageCursor": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "TagIndexingRuleExemptionsResponse",
+    },
     "v2.ListTagIndexingRules": {
         "pageLimit": {
             "type": "number",

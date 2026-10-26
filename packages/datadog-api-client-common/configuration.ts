@@ -706,6 +706,7 @@ export function createConfiguration(
       "v2.getHistoricalMetricsConfiguration": false,
       "v2.getTagIndexingRule": false,
       "v2.getTagIndexingRuleExemption": false,
+      "v2.listTagIndexingRuleExemptions": false,
       "v2.listTagIndexingRules": false,
       "v2.listTagIndexingRulesForMetric": false,
       "v2.reorderTagIndexingRules": false,
