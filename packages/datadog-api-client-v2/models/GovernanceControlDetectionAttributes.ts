@@ -21,9 +21,9 @@ export class GovernanceControlDetectionAttributes {
    */
   "assignedTo"?: string;
   /**
-   * How the detection's current assignment was determined. Possible values are `auto_resolved`, `manual`, `reassigned`, and `cleared`.
+   * How the detection's current assignment was determined. Possible values are `auto_resolved`, `manual`, `reassigned`, and `cleared`. `null` when not set.
    */
-  "assignmentSource": GovernanceControlDetectionAssignmentSource;
+  "assignmentSource": GovernanceControlDetectionAssignmentSource | null;
   /**
    * DEPRECATED: mirrors `detection_type` for backward compatibility; use `detection_type`
    * instead.
@@ -40,7 +40,7 @@ export class GovernanceControlDetectionAttributes {
   /**
    * The human-readable name of the detected resource.
    */
-  "displayName": string;
+  "displayName": string | null;
   /**
    * The date and time when the detection was marked as an exception, if applicable.
    */
@@ -64,7 +64,7 @@ export class GovernanceControlDetectionAttributes {
   /**
    * The priority of the detection, if set.
    */
-  "priority": number;
+  "priority": number | null;
   /**
    * The identifier of the resource the detection applies to.
    */
@@ -72,7 +72,7 @@ export class GovernanceControlDetectionAttributes {
   /**
    * The type of resource the detection applies to, for example `api_key` or `dashboard`.
    */
-  "resourceType": string;
+  "resourceType": string | null;
   /**
    * The current state of the detection. Possible values are `active`, `exception`, `mitigated`, `inactive`, `obsolete`, `resolved_externally`, and `mitigation_in_progress`.
    */
