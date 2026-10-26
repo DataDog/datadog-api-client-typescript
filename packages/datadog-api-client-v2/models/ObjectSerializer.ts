@@ -4934,19 +4934,6 @@ import { STIXIngestResponse } from "./STIXIngestResponse";
 import { STIXIngestResponseAttributes } from "./STIXIngestResponseAttributes";
 import { STIXIngestResponseData } from "./STIXIngestResponseData";
 import { STIXObject } from "./STIXObject";
-import { SalesforceIncidentsOrganizationResponseAttributes } from "./SalesforceIncidentsOrganizationResponseAttributes";
-import { SalesforceIncidentsOrganizationResponseData } from "./SalesforceIncidentsOrganizationResponseData";
-import { SalesforceIncidentsOrganizationsResponse } from "./SalesforceIncidentsOrganizationsResponse";
-import { SalesforceIncidentsTemplateCreateAttributes } from "./SalesforceIncidentsTemplateCreateAttributes";
-import { SalesforceIncidentsTemplateCreateData } from "./SalesforceIncidentsTemplateCreateData";
-import { SalesforceIncidentsTemplateCreateRequest } from "./SalesforceIncidentsTemplateCreateRequest";
-import { SalesforceIncidentsTemplateResponse } from "./SalesforceIncidentsTemplateResponse";
-import { SalesforceIncidentsTemplateResponseAttributes } from "./SalesforceIncidentsTemplateResponseAttributes";
-import { SalesforceIncidentsTemplateResponseData } from "./SalesforceIncidentsTemplateResponseData";
-import { SalesforceIncidentsTemplateUpdateAttributes } from "./SalesforceIncidentsTemplateUpdateAttributes";
-import { SalesforceIncidentsTemplateUpdateData } from "./SalesforceIncidentsTemplateUpdateData";
-import { SalesforceIncidentsTemplateUpdateRequest } from "./SalesforceIncidentsTemplateUpdateRequest";
-import { SalesforceIncidentsTemplatesResponse } from "./SalesforceIncidentsTemplatesResponse";
 import { SampleLogGenerationBulkSubscriptionAttributes } from "./SampleLogGenerationBulkSubscriptionAttributes";
 import { SampleLogGenerationBulkSubscriptionData } from "./SampleLogGenerationBulkSubscriptionData";
 import { SampleLogGenerationBulkSubscriptionItemMeta } from "./SampleLogGenerationBulkSubscriptionItemMeta";
@@ -9286,9 +9273,6 @@ const enumsMap: { [key: string]: any[] } = {
   STIXIngestResponseType: ["threat-intel-stix-ingest"],
   STIXPatternType: ["stix"],
   STIXSpecVersion: ["2.1"],
-  SalesforceIncidentsOrganizationType: ["salesforce-incidents-org"],
-  SalesforceIncidentsTemplatePriority: ["Critical", "High", "Moderate", "Low"],
-  SalesforceIncidentsTemplateType: ["salesforce-incidents-incident-template"],
   SampleLogGenerationBulkSubscriptionRequestType: [
     "bulk_subscription_requests",
   ],
@@ -16343,28 +16327,6 @@ const typeMap: { [index: string]: any } = {
   STIXIngestResponseAttributes: STIXIngestResponseAttributes,
   STIXIngestResponseData: STIXIngestResponseData,
   STIXObject: STIXObject,
-  SalesforceIncidentsOrganizationResponseAttributes:
-    SalesforceIncidentsOrganizationResponseAttributes,
-  SalesforceIncidentsOrganizationResponseData:
-    SalesforceIncidentsOrganizationResponseData,
-  SalesforceIncidentsOrganizationsResponse:
-    SalesforceIncidentsOrganizationsResponse,
-  SalesforceIncidentsTemplateCreateAttributes:
-    SalesforceIncidentsTemplateCreateAttributes,
-  SalesforceIncidentsTemplateCreateData: SalesforceIncidentsTemplateCreateData,
-  SalesforceIncidentsTemplateCreateRequest:
-    SalesforceIncidentsTemplateCreateRequest,
-  SalesforceIncidentsTemplateResponse: SalesforceIncidentsTemplateResponse,
-  SalesforceIncidentsTemplateResponseAttributes:
-    SalesforceIncidentsTemplateResponseAttributes,
-  SalesforceIncidentsTemplateResponseData:
-    SalesforceIncidentsTemplateResponseData,
-  SalesforceIncidentsTemplateUpdateAttributes:
-    SalesforceIncidentsTemplateUpdateAttributes,
-  SalesforceIncidentsTemplateUpdateData: SalesforceIncidentsTemplateUpdateData,
-  SalesforceIncidentsTemplateUpdateRequest:
-    SalesforceIncidentsTemplateUpdateRequest,
-  SalesforceIncidentsTemplatesResponse: SalesforceIncidentsTemplatesResponse,
   SampleLogGenerationBulkSubscriptionAttributes:
     SampleLogGenerationBulkSubscriptionAttributes,
   SampleLogGenerationBulkSubscriptionData:
