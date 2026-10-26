@@ -20,9 +20,9 @@ export class AggregatedWaterfallResponseAttributes {
    */
   "from": number;
   /**
-   * Network resources in chronological waterfall order.
+   * Network resources in chronological waterfall order, or null when the sampled views have no resources in their initial load window.
    */
-  "resources": Array<AggregatedResource>;
+  "resources": Array<AggregatedResource> | null;
   /**
    * List of RUM view IDs sampled for this aggregation, capped at 50.
    */
