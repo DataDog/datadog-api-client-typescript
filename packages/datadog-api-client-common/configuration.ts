@@ -855,6 +855,7 @@ export function createConfiguration(
       "v2.updateCustomRuleset": false,
       "v2.addMemberTeam": false,
       "v2.listMemberTeams": false,
+      "v2.listTeamHierarchyMembers": false,
       "v2.removeMemberTeam": false,
       "v2.createTimeseriesAnomalyInvestigation": false,
       "v2.createWebIntegrationAccount": false,
