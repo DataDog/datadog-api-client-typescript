@@ -188,6 +188,7 @@ export { AnalysisRequest } from "./models/AnalysisRequest";
 export { AnalysisRequestData } from "./models/AnalysisRequestData";
 export { AnalysisRequestDataAttributes } from "./models/AnalysisRequestDataAttributes";
 export { AnalysisRequestDataType } from "./models/AnalysisRequestDataType";
+export { AnalysisRequestOptions } from "./models/AnalysisRequestOptions";
 export { AnalysisRequestRule } from "./models/AnalysisRequestRule";
 export { AnalysisRequestRuleArgument } from "./models/AnalysisRequestRuleArgument";
 export { AnalysisRequestRuleTest } from "./models/AnalysisRequestRuleTest";

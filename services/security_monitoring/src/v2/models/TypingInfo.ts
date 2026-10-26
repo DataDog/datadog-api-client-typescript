@@ -8,6 +8,7 @@ import { AnalysisPosition } from "./AnalysisPosition";
 import { AnalysisRequest } from "./AnalysisRequest";
 import { AnalysisRequestData } from "./AnalysisRequestData";
 import { AnalysisRequestDataAttributes } from "./AnalysisRequestDataAttributes";
+import { AnalysisRequestOptions } from "./AnalysisRequestOptions";
 import { AnalysisRequestRule } from "./AnalysisRequestRule";
 import { AnalysisRequestRuleArgument } from "./AnalysisRequestRuleArgument";
 import { AnalysisRequestRuleTest } from "./AnalysisRequestRuleTest";
@@ -1294,6 +1295,7 @@ export const TypingInfo: ModelTypingInfo = {
     AnalysisRequest: AnalysisRequest,
     AnalysisRequestData: AnalysisRequestData,
     AnalysisRequestDataAttributes: AnalysisRequestDataAttributes,
+    AnalysisRequestOptions: AnalysisRequestOptions,
     AnalysisRequestRule: AnalysisRequestRule,
     AnalysisRequestRuleArgument: AnalysisRequestRuleArgument,
     AnalysisRequestRuleTest: AnalysisRequestRuleTest,

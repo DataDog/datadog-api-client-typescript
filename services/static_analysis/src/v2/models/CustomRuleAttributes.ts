@@ -1,5 +1,6 @@
 import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
+import { CustomRuleNullableRevisionEmbedded } from "./CustomRuleNullableRevisionEmbedded";
 import { CustomRuleRevisionEmbedded } from "./CustomRuleRevisionEmbedded";
 
 /**
@@ -15,9 +16,9 @@ export class CustomRuleAttributes {
    */
   "createdBy": string;
   /**
-   * A revision of a custom static analysis rule as embedded in a rule or ruleset response.
+   * The most recent revision of the rule, or null when the rule has no revisions.
    */
-  "lastRevision": CustomRuleRevisionEmbedded;
+  "lastRevision": CustomRuleNullableRevisionEmbedded | null;
   /**
    * Rule name
    */
@@ -54,7 +55,7 @@ export class CustomRuleAttributes {
     },
     lastRevision: {
       baseName: "last_revision",
-      type: "CustomRuleRevisionEmbedded",
+      type: "CustomRuleNullableRevisionEmbedded",
       required: true,
     },
     name: {

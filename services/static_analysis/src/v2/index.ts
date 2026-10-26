@@ -74,6 +74,7 @@ export { Argument } from "./models/Argument";
 export { CustomRule } from "./models/CustomRule";
 export { CustomRuleAttributes } from "./models/CustomRuleAttributes";
 export { CustomRuleDataType } from "./models/CustomRuleDataType";
+export { CustomRuleNullableRevisionEmbedded } from "./models/CustomRuleNullableRevisionEmbedded";
 export { CustomRuleRequest } from "./models/CustomRuleRequest";
 export { CustomRuleRequestData } from "./models/CustomRuleRequestData";
 export { CustomRuleRequestDataAttributes } from "./models/CustomRuleRequestDataAttributes";

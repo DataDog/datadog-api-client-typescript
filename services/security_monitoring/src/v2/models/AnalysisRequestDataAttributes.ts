@@ -1,5 +1,6 @@
 import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
+import { AnalysisRequestOptions } from "./AnalysisRequestOptions";
 import { AnalysisRequestRule } from "./AnalysisRequestRule";
 
 /**
@@ -22,6 +23,11 @@ export class AnalysisRequestDataAttributes {
    * The programming language of the source code.
    */
   "language": string;
+  /**
+   * Analyzer options sent by browser-based clients. Accepted but ignored: the API always runs
+   * the analysis with tree-sitter enabled and rule output logged.
+   */
+  "options"?: AnalysisRequestOptions;
   /**
    * The list of static analysis rules to apply during analysis.
    */
@@ -60,6 +66,10 @@ export class AnalysisRequestDataAttributes {
       baseName: "language",
       type: "string",
       required: true,
+    },
+    options: {
+      baseName: "options",
+      type: "AnalysisRequestOptions",
     },
     rules: {
       baseName: "rules",

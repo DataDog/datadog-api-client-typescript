@@ -36,6 +36,7 @@ import { AiPromptsResponse } from "./AiPromptsResponse";
 import { Argument } from "./Argument";
 import { CustomRule } from "./CustomRule";
 import { CustomRuleAttributes } from "./CustomRuleAttributes";
+import { CustomRuleNullableRevisionEmbedded } from "./CustomRuleNullableRevisionEmbedded";
 import { CustomRuleRequest } from "./CustomRuleRequest";
 import { CustomRuleRequestData } from "./CustomRuleRequestData";
 import { CustomRuleRequestDataAttributes } from "./CustomRuleRequestDataAttributes";
@@ -211,6 +212,7 @@ export const TypingInfo: ModelTypingInfo = {
     Argument: Argument,
     CustomRule: CustomRule,
     CustomRuleAttributes: CustomRuleAttributes,
+    CustomRuleNullableRevisionEmbedded: CustomRuleNullableRevisionEmbedded,
     CustomRuleRequest: CustomRuleRequest,
     CustomRuleRequestData: CustomRuleRequestData,
     CustomRuleRequestDataAttributes: CustomRuleRequestDataAttributes,
