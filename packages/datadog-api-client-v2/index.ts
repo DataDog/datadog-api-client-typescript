@@ -2314,6 +2314,7 @@ export { AnalysisRequest } from "./models/AnalysisRequest";
 export { AnalysisRequestData } from "./models/AnalysisRequestData";
 export { AnalysisRequestDataAttributes } from "./models/AnalysisRequestDataAttributes";
 export { AnalysisRequestDataType } from "./models/AnalysisRequestDataType";
+export { AnalysisRequestOptions } from "./models/AnalysisRequestOptions";
 export { AnalysisRequestRule } from "./models/AnalysisRequestRule";
 export { AnalysisRequestRuleArgument } from "./models/AnalysisRequestRuleArgument";
 export { AnalysisRequestRuleTest } from "./models/AnalysisRequestRuleTest";
@@ -3810,6 +3811,7 @@ export { CustomFrameworkWithoutRequirements } from "./models/CustomFrameworkWith
 export { CustomRule } from "./models/CustomRule";
 export { CustomRuleAttributes } from "./models/CustomRuleAttributes";
 export { CustomRuleDataType } from "./models/CustomRuleDataType";
+export { CustomRuleNullableRevisionEmbedded } from "./models/CustomRuleNullableRevisionEmbedded";
 export { CustomRuleRequest } from "./models/CustomRuleRequest";
 export { CustomRuleRequestData } from "./models/CustomRuleRequestData";
 export { CustomRuleRequestDataAttributes } from "./models/CustomRuleRequestDataAttributes";

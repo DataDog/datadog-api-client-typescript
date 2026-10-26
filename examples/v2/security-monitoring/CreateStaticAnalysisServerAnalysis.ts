@@ -24,6 +24,10 @@ const params: v2.SecurityMonitoringApiCreateStaticAnalysisServerAnalysisRequest 
           fileEncoding: "utf-8",
           filename: "test.py",
           language: "python",
+          options: {
+            logOutput: true,
+            useTreeSitter: true,
+          },
           rules: [
             {
               arguments: [{}],

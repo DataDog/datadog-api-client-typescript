@@ -3,6 +3,7 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
+import { AnalysisRequestOptions } from "./AnalysisRequestOptions";
 import { AnalysisRequestRule } from "./AnalysisRequestRule";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
@@ -27,6 +28,11 @@ export class AnalysisRequestDataAttributes {
    * The programming language of the source code.
    */
   "language": string;
+  /**
+   * Analyzer options sent by browser-based clients. Accepted but ignored: the API always runs
+   * the analysis with tree-sitter enabled and rule output logged.
+   */
+  "options"?: AnalysisRequestOptions;
   /**
    * The list of static analysis rules to apply during analysis.
    */
@@ -67,6 +73,10 @@ export class AnalysisRequestDataAttributes {
       baseName: "language",
       type: "string",
       required: true,
+    },
+    options: {
+      baseName: "options",
+      type: "AnalysisRequestOptions",
     },
     rules: {
       baseName: "rules",
