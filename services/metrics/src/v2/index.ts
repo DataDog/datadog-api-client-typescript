@@ -21,6 +21,7 @@ export {
   MetricsApiListMetricAssetsRequest,
   MetricsApiListTagConfigurationByNameRequest,
   MetricsApiListTagConfigurationsRequest,
+  MetricsApiListTagIndexingRuleExemptionsRequest,
   MetricsApiListTagIndexingRulesRequest,
   MetricsApiListTagIndexingRulesForMetricRequest,
   MetricsApiListTagsByMetricNameRequest,
@@ -208,6 +209,8 @@ export { TagIndexingRuleExemptionCreateData } from "./models/TagIndexingRuleExem
 export { TagIndexingRuleExemptionCreateRequest } from "./models/TagIndexingRuleExemptionCreateRequest";
 export { TagIndexingRuleExemptionData } from "./models/TagIndexingRuleExemptionData";
 export { TagIndexingRuleExemptionResponse } from "./models/TagIndexingRuleExemptionResponse";
+export { TagIndexingRuleExemptionSort } from "./models/TagIndexingRuleExemptionSort";
+export { TagIndexingRuleExemptionsResponse } from "./models/TagIndexingRuleExemptionsResponse";
 export { TagIndexingRuleExemptionType } from "./models/TagIndexingRuleExemptionType";
 export { TagIndexingRuleExemptionVolumeStatus } from "./models/TagIndexingRuleExemptionVolumeStatus";
 export { TagIndexingRuleMetricMatch } from "./models/TagIndexingRuleMetricMatch";
