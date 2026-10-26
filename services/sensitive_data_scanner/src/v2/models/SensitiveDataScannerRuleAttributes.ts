@@ -45,7 +45,9 @@ export class SensitiveDataScannerRuleAttributes {
    */
   "priority"?: number;
   /**
-   * Object describing the suppressions for a rule. There are three types of suppressions, `starts_with`, `ends_with`, and `exact_match`.
+   * Object describing suppressions for a rule, or the recommended suppression lists published by a standard pattern.
+   * There are three types of suppressions, `starts_with`, `ends_with`, and `exact_match`.
+   * Rules based on the Datadog library can use recommended or custom suppressions. Custom rules can only use custom suppressions.
    * Suppressed matches are not obfuscated, counted in metrics, or displayed in the Findings page.
    */
   "suppressions"?: SensitiveDataScannerSuppressions;
