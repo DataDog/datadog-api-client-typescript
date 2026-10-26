@@ -204,6 +204,7 @@ import { AnalysisPosition } from "./AnalysisPosition";
 import { AnalysisRequest } from "./AnalysisRequest";
 import { AnalysisRequestData } from "./AnalysisRequestData";
 import { AnalysisRequestDataAttributes } from "./AnalysisRequestDataAttributes";
+import { AnalysisRequestOptions } from "./AnalysisRequestOptions";
 import { AnalysisRequestRule } from "./AnalysisRequestRule";
 import { AnalysisRequestRuleArgument } from "./AnalysisRequestRuleArgument";
 import { AnalysisRequestRuleTest } from "./AnalysisRequestRuleTest";
@@ -1268,6 +1269,7 @@ import { CustomFrameworkRequirement } from "./CustomFrameworkRequirement";
 import { CustomFrameworkWithoutRequirements } from "./CustomFrameworkWithoutRequirements";
 import { CustomRule } from "./CustomRule";
 import { CustomRuleAttributes } from "./CustomRuleAttributes";
+import { CustomRuleNullableRevisionEmbedded } from "./CustomRuleNullableRevisionEmbedded";
 import { CustomRuleRequest } from "./CustomRuleRequest";
 import { CustomRuleRequestData } from "./CustomRuleRequestData";
 import { CustomRuleRequestDataAttributes } from "./CustomRuleRequestDataAttributes";
@@ -10558,6 +10560,7 @@ const typeMap: { [index: string]: any } = {
   AnalysisRequest: AnalysisRequest,
   AnalysisRequestData: AnalysisRequestData,
   AnalysisRequestDataAttributes: AnalysisRequestDataAttributes,
+  AnalysisRequestOptions: AnalysisRequestOptions,
   AnalysisRequestRule: AnalysisRequestRule,
   AnalysisRequestRuleArgument: AnalysisRequestRuleArgument,
   AnalysisRequestRuleTest: AnalysisRequestRuleTest,
@@ -11843,6 +11846,7 @@ const typeMap: { [index: string]: any } = {
   CustomFrameworkWithoutRequirements: CustomFrameworkWithoutRequirements,
   CustomRule: CustomRule,
   CustomRuleAttributes: CustomRuleAttributes,
+  CustomRuleNullableRevisionEmbedded: CustomRuleNullableRevisionEmbedded,
   CustomRuleRequest: CustomRuleRequest,
   CustomRuleRequestData: CustomRuleRequestData,
   CustomRuleRequestDataAttributes: CustomRuleRequestDataAttributes,

@@ -3,6 +3,7 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
+import { CustomRuleNullableRevisionEmbedded } from "./CustomRuleNullableRevisionEmbedded";
 import { CustomRuleRevisionEmbedded } from "./CustomRuleRevisionEmbedded";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
@@ -20,9 +21,9 @@ export class CustomRuleAttributes {
    */
   "createdBy": string;
   /**
-   * A revision of a custom static analysis rule as embedded in a rule or ruleset response.
+   * The most recent revision of the rule, or null when the rule has no revisions.
    */
-  "lastRevision": CustomRuleRevisionEmbedded;
+  "lastRevision": CustomRuleNullableRevisionEmbedded | null;
   /**
    * Rule name
    */
@@ -61,7 +62,7 @@ export class CustomRuleAttributes {
     },
     lastRevision: {
       baseName: "last_revision",
-      type: "CustomRuleRevisionEmbedded",
+      type: "CustomRuleNullableRevisionEmbedded",
       required: true,
     },
     name: {
