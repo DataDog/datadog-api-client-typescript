@@ -176,7 +176,7 @@ export interface ConfigurationParameters {
    */
   isIaC?: boolean;
   /**
-   * Parse integers above Number.MAX_SAFE_INTEGER as bigint instead of rounding them.
+   * Return int64 values as bigint so integers above Number.MAX_SAFE_INTEGER are not rounded.
    */
   preserveLargeIntegers?: boolean;
 }

@@ -92,6 +92,19 @@ describe("preserveLargeIntegers", () => {
     expect(unit?.scaleFactor).toBe(1);
   });
 
+  test("parses responses with duplicate keys like JSON.parse when enabled", async () => {
+    const httpApi = new FakeHttpLibrary(
+      '{"custom_ts_sum": 1, "custom_ts_sum": 2}'
+    );
+    const api = new UsageMeteringApi(
+      createConfiguration({ httpApi, preserveLargeIntegers: true })
+    );
+
+    const response = await api.getUsageSummary({ startMonth: new Date(0) });
+
+    expect(response.customTsSum).toBe(BigInt(2));
+  });
+
   test("can be enabled per request", async () => {
     const httpApi = new FakeHttpLibrary(usageSummary);
     const api = new UsageMeteringApi(createConfiguration({ httpApi }));

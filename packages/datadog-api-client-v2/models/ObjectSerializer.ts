@@ -20084,11 +20084,18 @@ export class ObjectSerializer {
   ): any {
     try {
       if (preserveLargeIntegers) {
-        return parseLossless(rawData, null, (value: string) =>
-          isInteger(value) && !Number.isSafeInteger(Number(value))
-            ? BigInt(value)
-            : Number(value)
-        );
+        try {
+          return parseLossless(rawData, null, (value: string) =>
+            isInteger(value) && !Number.isSafeInteger(Number(value))
+              ? BigInt(value)
+              : Number(value)
+          );
+        } catch (error) {
+          // lossless-json rejects some valid JSON (e.g. duplicate keys) that JSON.parse accepts
+          logger.debug(
+            `could not parse ${mediaType} without losing precision: ${error}`
+          );
+        }
       }
       return JSON.parse(rawData);
     } catch (error) {
