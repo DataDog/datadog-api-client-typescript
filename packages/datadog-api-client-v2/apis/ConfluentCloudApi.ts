@@ -59,7 +59,8 @@ export class ConfluentCloudApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
       ObjectSerializer.serialize(body, "ConfluentAccountCreateRequest", ""),
-      contentType
+      contentType,
+      _config.preserveLargeIntegers
     );
     requestContext.setBody(serializedBody);
 
@@ -116,7 +117,8 @@ export class ConfluentCloudApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
       ObjectSerializer.serialize(body, "ConfluentResourceRequest", ""),
-      contentType
+      contentType,
+      _config.preserveLargeIntegers
     );
     requestContext.setBody(serializedBody);
 
@@ -413,7 +415,8 @@ export class ConfluentCloudApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
       ObjectSerializer.serialize(body, "ConfluentAccountUpdateRequest", ""),
-      contentType
+      contentType,
+      _config.preserveLargeIntegers
     );
     requestContext.setBody(serializedBody);
 
@@ -475,7 +478,8 @@ export class ConfluentCloudApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
       ObjectSerializer.serialize(body, "ConfluentResourceRequest", ""),
-      contentType
+      contentType,
+      _config.preserveLargeIntegers
     );
     requestContext.setBody(serializedBody);
 
@@ -491,6 +495,12 @@ export class ConfluentCloudApiRequestFactory extends BaseAPIRequestFactory {
 }
 
 export class ConfluentCloudApiResponseProcessor {
+  private configuration?: Configuration;
+
+  public constructor(configuration?: Configuration) {
+    this.configuration = configuration;
+  }
+
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
@@ -499,15 +509,23 @@ export class ConfluentCloudApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async createConfluentAccount(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<ConfluentAccountResponse> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 201) {
       const body: ConfluentAccountResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "ConfluentAccountResponse"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
+        "ConfluentAccountResponse",
+        "",
+        _config?.preserveLargeIntegers
       ) as ConfluentAccountResponse;
       return body;
     }
@@ -519,13 +537,16 @@ export class ConfluentCloudApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -540,9 +561,14 @@ export class ConfluentCloudApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: ConfluentAccountResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
         "ConfluentAccountResponse",
-        ""
+        "",
+        _config?.preserveLargeIntegers
       ) as ConfluentAccountResponse;
       return body;
     }
@@ -562,15 +588,23 @@ export class ConfluentCloudApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async createConfluentResource(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<ConfluentResourceResponse> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 201) {
       const body: ConfluentResourceResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "ConfluentResourceResponse"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
+        "ConfluentResourceResponse",
+        "",
+        _config?.preserveLargeIntegers
       ) as ConfluentResourceResponse;
       return body;
     }
@@ -582,13 +616,16 @@ export class ConfluentCloudApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -603,9 +640,14 @@ export class ConfluentCloudApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: ConfluentResourceResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
         "ConfluentResourceResponse",
-        ""
+        "",
+        _config?.preserveLargeIntegers
       ) as ConfluentResourceResponse;
       return body;
     }
@@ -625,8 +667,10 @@ export class ConfluentCloudApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async deleteConfluentAccount(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<void> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
@@ -641,13 +685,16 @@ export class ConfluentCloudApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -679,8 +726,10 @@ export class ConfluentCloudApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async deleteConfluentResource(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<void> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
@@ -695,13 +744,16 @@ export class ConfluentCloudApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -733,15 +785,23 @@ export class ConfluentCloudApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async getConfluentAccount(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<ConfluentAccountResponse> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 200) {
       const body: ConfluentAccountResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "ConfluentAccountResponse"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
+        "ConfluentAccountResponse",
+        "",
+        _config?.preserveLargeIntegers
       ) as ConfluentAccountResponse;
       return body;
     }
@@ -753,13 +813,16 @@ export class ConfluentCloudApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -774,9 +837,14 @@ export class ConfluentCloudApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: ConfluentAccountResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
         "ConfluentAccountResponse",
-        ""
+        "",
+        _config?.preserveLargeIntegers
       ) as ConfluentAccountResponse;
       return body;
     }
@@ -796,15 +864,23 @@ export class ConfluentCloudApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async getConfluentResource(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<ConfluentResourceResponse> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 200) {
       const body: ConfluentResourceResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "ConfluentResourceResponse"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
+        "ConfluentResourceResponse",
+        "",
+        _config?.preserveLargeIntegers
       ) as ConfluentResourceResponse;
       return body;
     }
@@ -816,13 +892,16 @@ export class ConfluentCloudApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -837,9 +916,14 @@ export class ConfluentCloudApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: ConfluentResourceResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
         "ConfluentResourceResponse",
-        ""
+        "",
+        _config?.preserveLargeIntegers
       ) as ConfluentResourceResponse;
       return body;
     }
@@ -859,15 +943,23 @@ export class ConfluentCloudApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async listConfluentAccount(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<ConfluentAccountsResponse> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 200) {
       const body: ConfluentAccountsResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "ConfluentAccountsResponse"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
+        "ConfluentAccountsResponse",
+        "",
+        _config?.preserveLargeIntegers
       ) as ConfluentAccountsResponse;
       return body;
     }
@@ -879,13 +971,16 @@ export class ConfluentCloudApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -900,9 +995,14 @@ export class ConfluentCloudApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: ConfluentAccountsResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
         "ConfluentAccountsResponse",
-        ""
+        "",
+        _config?.preserveLargeIntegers
       ) as ConfluentAccountsResponse;
       return body;
     }
@@ -922,15 +1022,23 @@ export class ConfluentCloudApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async listConfluentResource(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<ConfluentResourcesResponse> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 200) {
       const body: ConfluentResourcesResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "ConfluentResourcesResponse"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
+        "ConfluentResourcesResponse",
+        "",
+        _config?.preserveLargeIntegers
       ) as ConfluentResourcesResponse;
       return body;
     }
@@ -942,13 +1050,16 @@ export class ConfluentCloudApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -963,9 +1074,14 @@ export class ConfluentCloudApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: ConfluentResourcesResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
         "ConfluentResourcesResponse",
-        ""
+        "",
+        _config?.preserveLargeIntegers
       ) as ConfluentResourcesResponse;
       return body;
     }
@@ -985,15 +1101,23 @@ export class ConfluentCloudApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async updateConfluentAccount(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<ConfluentAccountResponse> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 200) {
       const body: ConfluentAccountResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "ConfluentAccountResponse"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
+        "ConfluentAccountResponse",
+        "",
+        _config?.preserveLargeIntegers
       ) as ConfluentAccountResponse;
       return body;
     }
@@ -1005,13 +1129,16 @@ export class ConfluentCloudApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -1026,9 +1153,14 @@ export class ConfluentCloudApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: ConfluentAccountResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
         "ConfluentAccountResponse",
-        ""
+        "",
+        _config?.preserveLargeIntegers
       ) as ConfluentAccountResponse;
       return body;
     }
@@ -1048,15 +1180,23 @@ export class ConfluentCloudApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async updateConfluentResource(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<ConfluentResourceResponse> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 200) {
       const body: ConfluentResourceResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "ConfluentResourceResponse"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
+        "ConfluentResourceResponse",
+        "",
+        _config?.preserveLargeIntegers
       ) as ConfluentResourceResponse;
       return body;
     }
@@ -1068,13 +1208,16 @@ export class ConfluentCloudApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -1089,9 +1232,14 @@ export class ConfluentCloudApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: ConfluentResourceResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
         "ConfluentResourceResponse",
-        ""
+        "",
+        _config?.preserveLargeIntegers
       ) as ConfluentResourceResponse;
       return body;
     }
@@ -1220,7 +1368,8 @@ export class ConfluentCloudApi {
     this.requestFactory =
       requestFactory || new ConfluentCloudApiRequestFactory(configuration);
     this.responseProcessor =
-      responseProcessor || new ConfluentCloudApiResponseProcessor();
+      responseProcessor ||
+      new ConfluentCloudApiResponseProcessor(configuration);
   }
 
   /**
@@ -1239,7 +1388,10 @@ export class ConfluentCloudApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.createConfluentAccount(responseContext);
+          return this.responseProcessor.createConfluentAccount(
+            responseContext,
+            options
+          );
         });
     });
   }
@@ -1262,7 +1414,8 @@ export class ConfluentCloudApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.createConfluentResource(
-            responseContext
+            responseContext,
+            options
           );
         });
     });
@@ -1284,7 +1437,10 @@ export class ConfluentCloudApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.deleteConfluentAccount(responseContext);
+          return this.responseProcessor.deleteConfluentAccount(
+            responseContext,
+            options
+          );
         });
     });
   }
@@ -1307,7 +1463,8 @@ export class ConfluentCloudApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.deleteConfluentResource(
-            responseContext
+            responseContext,
+            options
           );
         });
     });
@@ -1329,7 +1486,10 @@ export class ConfluentCloudApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.getConfluentAccount(responseContext);
+          return this.responseProcessor.getConfluentAccount(
+            responseContext,
+            options
+          );
         });
     });
   }
@@ -1351,7 +1511,10 @@ export class ConfluentCloudApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.getConfluentResource(responseContext);
+          return this.responseProcessor.getConfluentResource(
+            responseContext,
+            options
+          );
         });
     });
   }
@@ -1369,7 +1532,10 @@ export class ConfluentCloudApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.listConfluentAccount(responseContext);
+          return this.responseProcessor.listConfluentAccount(
+            responseContext,
+            options
+          );
         });
     });
   }
@@ -1390,7 +1556,10 @@ export class ConfluentCloudApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.listConfluentResource(responseContext);
+          return this.responseProcessor.listConfluentResource(
+            responseContext,
+            options
+          );
         });
     });
   }
@@ -1412,7 +1581,10 @@ export class ConfluentCloudApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.updateConfluentAccount(responseContext);
+          return this.responseProcessor.updateConfluentAccount(
+            responseContext,
+            options
+          );
         });
     });
   }
@@ -1436,7 +1608,8 @@ export class ConfluentCloudApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.updateConfluentResource(
-            responseContext
+            responseContext,
+            options
           );
         });
     });

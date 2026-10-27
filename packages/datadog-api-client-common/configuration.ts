@@ -31,6 +31,7 @@ export class Configuration {
   readonly backoffBase: number | undefined;
   readonly backoffMultiplier: number | undefined;
   readonly isIaC: boolean | undefined;
+  readonly preserveLargeIntegers: boolean | undefined;
   unstableOperations: { [name: string]: boolean };
   servers: BaseServerConfiguration[];
   operationServers: { [endpoint: string]: BaseServerConfiguration[] };
@@ -48,7 +49,8 @@ export class Configuration {
     backoffBase: number | undefined,
     backoffMultiplier: number | undefined,
     unstableOperations: { [name: string]: boolean },
-    isIaC?: boolean
+    isIaC?: boolean,
+    preserveLargeIntegers?: boolean
   ) {
     this.baseServer = baseServer;
     this.serverIndex = serverIndex;
@@ -63,6 +65,7 @@ export class Configuration {
     this.backoffMultiplier = backoffMultiplier;
     this.unstableOperations = unstableOperations;
     this.isIaC = isIaC;
+    this.preserveLargeIntegers = preserveLargeIntegers;
     this.servers = [];
     for (const server of servers) {
       this.servers.push(server.clone());
@@ -172,6 +175,10 @@ export interface ConfigurationParameters {
    * When set, the client sends the `X-Datadog-Managed-By: iac` header on every request.
    */
   isIaC?: boolean;
+  /**
+   * Return int64 values as bigint so integers above Number.MAX_SAFE_INTEGER are not rounded.
+   */
+  preserveLargeIntegers?: boolean;
 }
 
 /**
@@ -865,7 +872,8 @@ export function createConfiguration(
       "v2.listWebIntegrationAccounts": false,
       "v2.updateWebIntegrationAccount": false,
     },
-    conf.isIaC || false
+    conf.isIaC || false,
+    conf.preserveLargeIntegers || false
   );
   configuration.httpApi.zstdCompressorCallback = conf.zstdCompressorCallback;
   configuration.httpApi.debug = configuration.debug;

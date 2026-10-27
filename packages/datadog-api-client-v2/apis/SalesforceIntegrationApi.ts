@@ -62,7 +62,8 @@ export class SalesforceIntegrationApiRequestFactory extends BaseAPIRequestFactor
         "SalesforceIncidentsTemplateCreateRequest",
         ""
       ),
-      contentType
+      contentType,
+      _config.preserveLargeIntegers
     );
     requestContext.setBody(serializedBody);
 
@@ -268,7 +269,8 @@ export class SalesforceIntegrationApiRequestFactory extends BaseAPIRequestFactor
         "SalesforceIncidentsTemplateUpdateRequest",
         ""
       ),
-      contentType
+      contentType,
+      _config.preserveLargeIntegers
     );
     requestContext.setBody(serializedBody);
 
@@ -284,6 +286,12 @@ export class SalesforceIntegrationApiRequestFactory extends BaseAPIRequestFactor
 }
 
 export class SalesforceIntegrationApiResponseProcessor {
+  private configuration?: Configuration;
+
+  public constructor(configuration?: Configuration) {
+    this.configuration = configuration;
+  }
+
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
@@ -292,16 +300,24 @@ export class SalesforceIntegrationApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async createIncidentTemplate(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<SalesforceIncidentsTemplateResponse> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 201) {
       const body: SalesforceIncidentsTemplateResponse =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
-          "SalesforceIncidentsTemplateResponse"
+          ObjectSerializer.parse(
+            await response.body.text(),
+            contentType,
+            _config?.preserveLargeIntegers
+          ),
+          "SalesforceIncidentsTemplateResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as SalesforceIncidentsTemplateResponse;
       return body;
     }
@@ -314,13 +330,16 @@ export class SalesforceIntegrationApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -336,9 +355,14 @@ export class SalesforceIntegrationApiResponseProcessor {
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: SalesforceIncidentsTemplateResponse =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
+          ObjectSerializer.parse(
+            await response.body.text(),
+            contentType,
+            _config?.preserveLargeIntegers
+          ),
           "SalesforceIncidentsTemplateResponse",
-          ""
+          "",
+          _config?.preserveLargeIntegers
         ) as SalesforceIncidentsTemplateResponse;
       return body;
     }
@@ -358,8 +382,10 @@ export class SalesforceIntegrationApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async deleteIncidentTemplate(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<void> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
@@ -373,13 +399,16 @@ export class SalesforceIntegrationApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -411,8 +440,10 @@ export class SalesforceIntegrationApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async deleteSalesforceOrganization(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<void> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
@@ -427,13 +458,16 @@ export class SalesforceIntegrationApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -465,29 +499,40 @@ export class SalesforceIntegrationApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async getIncidentTemplates(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<SalesforceIncidentsTemplatesResponse> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 200) {
       const body: SalesforceIncidentsTemplatesResponse =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
-          "SalesforceIncidentsTemplatesResponse"
+          ObjectSerializer.parse(
+            await response.body.text(),
+            contentType,
+            _config?.preserveLargeIntegers
+          ),
+          "SalesforceIncidentsTemplatesResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as SalesforceIncidentsTemplatesResponse;
       return body;
     }
     if (response.httpStatusCode === 403 || response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -503,9 +548,14 @@ export class SalesforceIntegrationApiResponseProcessor {
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: SalesforceIncidentsTemplatesResponse =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
+          ObjectSerializer.parse(
+            await response.body.text(),
+            contentType,
+            _config?.preserveLargeIntegers
+          ),
           "SalesforceIncidentsTemplatesResponse",
-          ""
+          "",
+          _config?.preserveLargeIntegers
         ) as SalesforceIncidentsTemplatesResponse;
       return body;
     }
@@ -525,16 +575,24 @@ export class SalesforceIntegrationApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async getSalesforceOrganizations(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<SalesforceIncidentsOrganizationsResponse> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 200) {
       const body: SalesforceIncidentsOrganizationsResponse =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
-          "SalesforceIncidentsOrganizationsResponse"
+          ObjectSerializer.parse(
+            await response.body.text(),
+            contentType,
+            _config?.preserveLargeIntegers
+          ),
+          "SalesforceIncidentsOrganizationsResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as SalesforceIncidentsOrganizationsResponse;
       return body;
     }
@@ -546,13 +604,16 @@ export class SalesforceIntegrationApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -568,9 +629,14 @@ export class SalesforceIntegrationApiResponseProcessor {
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: SalesforceIncidentsOrganizationsResponse =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
+          ObjectSerializer.parse(
+            await response.body.text(),
+            contentType,
+            _config?.preserveLargeIntegers
+          ),
           "SalesforceIncidentsOrganizationsResponse",
-          ""
+          "",
+          _config?.preserveLargeIntegers
         ) as SalesforceIncidentsOrganizationsResponse;
       return body;
     }
@@ -590,16 +656,24 @@ export class SalesforceIntegrationApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async updateIncidentTemplate(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<SalesforceIncidentsTemplateResponse> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 200) {
       const body: SalesforceIncidentsTemplateResponse =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
-          "SalesforceIncidentsTemplateResponse"
+          ObjectSerializer.parse(
+            await response.body.text(),
+            contentType,
+            _config?.preserveLargeIntegers
+          ),
+          "SalesforceIncidentsTemplateResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as SalesforceIncidentsTemplateResponse;
       return body;
     }
@@ -612,13 +686,16 @@ export class SalesforceIntegrationApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -634,9 +711,14 @@ export class SalesforceIntegrationApiResponseProcessor {
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: SalesforceIncidentsTemplateResponse =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
+          ObjectSerializer.parse(
+            await response.body.text(),
+            contentType,
+            _config?.preserveLargeIntegers
+          ),
           "SalesforceIncidentsTemplateResponse",
-          ""
+          "",
+          _config?.preserveLargeIntegers
         ) as SalesforceIncidentsTemplateResponse;
       return body;
     }
@@ -701,7 +783,8 @@ export class SalesforceIntegrationApi {
       requestFactory ||
       new SalesforceIntegrationApiRequestFactory(configuration);
     this.responseProcessor =
-      responseProcessor || new SalesforceIntegrationApiResponseProcessor();
+      responseProcessor ||
+      new SalesforceIntegrationApiResponseProcessor(configuration);
   }
 
   /**
@@ -721,7 +804,10 @@ export class SalesforceIntegrationApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.createIncidentTemplate(responseContext);
+          return this.responseProcessor.createIncidentTemplate(
+            responseContext,
+            options
+          );
         });
     });
   }
@@ -742,7 +828,10 @@ export class SalesforceIntegrationApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.deleteIncidentTemplate(responseContext);
+          return this.responseProcessor.deleteIncidentTemplate(
+            responseContext,
+            options
+          );
         });
     });
   }
@@ -766,7 +855,8 @@ export class SalesforceIntegrationApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.deleteSalesforceOrganization(
-            responseContext
+            responseContext,
+            options
           );
         });
     });
@@ -785,7 +875,10 @@ export class SalesforceIntegrationApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.getIncidentTemplates(responseContext);
+          return this.responseProcessor.getIncidentTemplates(
+            responseContext,
+            options
+          );
         });
     });
   }
@@ -806,7 +899,8 @@ export class SalesforceIntegrationApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.getSalesforceOrganizations(
-            responseContext
+            responseContext,
+            options
           );
         });
     });
@@ -829,7 +923,10 @@ export class SalesforceIntegrationApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.updateIncidentTemplate(responseContext);
+          return this.responseProcessor.updateIncidentTemplate(
+            responseContext,
+            options
+          );
         });
     });
   }

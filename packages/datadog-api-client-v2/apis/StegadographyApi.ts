@@ -70,6 +70,12 @@ export class StegadographyApiRequestFactory extends BaseAPIRequestFactory {
 }
 
 export class StegadographyApiResponseProcessor {
+  private configuration?: Configuration;
+
+  public constructor(configuration?: Configuration) {
+    this.configuration = configuration;
+  }
+
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
@@ -78,16 +84,24 @@ export class StegadographyApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async getStegadographyWidgets(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<StegadographyGetWidgetsResponse> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 200) {
       const body: StegadographyGetWidgetsResponse =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
-          "StegadographyGetWidgetsResponse"
+          ObjectSerializer.parse(
+            await response.body.text(),
+            contentType,
+            _config?.preserveLargeIntegers
+          ),
+          "StegadographyGetWidgetsResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as StegadographyGetWidgetsResponse;
       return body;
     }
@@ -99,13 +113,16 @@ export class StegadographyApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: JSONAPIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "JSONAPIErrorResponse"
+          "JSONAPIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as JSONAPIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -122,13 +139,16 @@ export class StegadographyApiResponseProcessor {
     if (response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -144,9 +164,14 @@ export class StegadographyApiResponseProcessor {
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: StegadographyGetWidgetsResponse =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
+          ObjectSerializer.parse(
+            await response.body.text(),
+            contentType,
+            _config?.preserveLargeIntegers
+          ),
           "StegadographyGetWidgetsResponse",
-          ""
+          "",
+          _config?.preserveLargeIntegers
         ) as StegadographyGetWidgetsResponse;
       return body;
     }
@@ -181,7 +206,7 @@ export class StegadographyApi {
     this.requestFactory =
       requestFactory || new StegadographyApiRequestFactory(configuration);
     this.responseProcessor =
-      responseProcessor || new StegadographyApiResponseProcessor();
+      responseProcessor || new StegadographyApiResponseProcessor(configuration);
   }
 
   /**
@@ -204,7 +229,8 @@ export class StegadographyApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.getStegadographyWidgets(
-            responseContext
+            responseContext,
+            options
           );
         });
     });

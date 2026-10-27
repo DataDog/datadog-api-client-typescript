@@ -85,7 +85,8 @@ export class CSMOwnershipApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
       ObjectSerializer.serialize(body, "OwnershipFeedbackRequest", ""),
-      contentType
+      contentType,
+      _config.preserveLargeIntegers
     );
     requestContext.setBody(serializedBody);
 
@@ -504,7 +505,8 @@ export class CSMOwnershipApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
       ObjectSerializer.serialize(body, "OwnershipSettingsRequest", ""),
-      contentType
+      contentType,
+      _config.preserveLargeIntegers
     );
     requestContext.setBody(serializedBody);
 
@@ -520,6 +522,12 @@ export class CSMOwnershipApiRequestFactory extends BaseAPIRequestFactory {
 }
 
 export class CSMOwnershipApiResponseProcessor {
+  private configuration?: Configuration;
+
+  public constructor(configuration?: Configuration) {
+    this.configuration = configuration;
+  }
+
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
@@ -528,15 +536,23 @@ export class CSMOwnershipApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async createOwnershipFeedback(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<OwnershipFeedbackResponse> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 201) {
       const body: OwnershipFeedbackResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "OwnershipFeedbackResponse"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
+        "OwnershipFeedbackResponse",
+        "",
+        _config?.preserveLargeIntegers
       ) as OwnershipFeedbackResponse;
       return body;
     }
@@ -547,13 +563,16 @@ export class CSMOwnershipApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: JSONAPIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "JSONAPIErrorResponse"
+          "JSONAPIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as JSONAPIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -570,13 +589,16 @@ export class CSMOwnershipApiResponseProcessor {
     if (response.httpStatusCode === 409) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: OwnershipInferenceResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "OwnershipInferenceResponse"
+          "OwnershipInferenceResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as OwnershipInferenceResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -593,13 +615,16 @@ export class CSMOwnershipApiResponseProcessor {
     if (response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -614,9 +639,14 @@ export class CSMOwnershipApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: OwnershipFeedbackResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
         "OwnershipFeedbackResponse",
-        ""
+        "",
+        _config?.preserveLargeIntegers
       ) as OwnershipFeedbackResponse;
       return body;
     }
@@ -636,15 +666,23 @@ export class CSMOwnershipApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async getOwnershipEvidence(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<OwnershipEvidenceResponse> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 200) {
       const body: OwnershipEvidenceResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "OwnershipEvidenceResponse"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
+        "OwnershipEvidenceResponse",
+        "",
+        _config?.preserveLargeIntegers
       ) as OwnershipEvidenceResponse;
       return body;
     }
@@ -655,13 +693,16 @@ export class CSMOwnershipApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: JSONAPIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "JSONAPIErrorResponse"
+          "JSONAPIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as JSONAPIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -678,13 +719,16 @@ export class CSMOwnershipApiResponseProcessor {
     if (response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -699,9 +743,14 @@ export class CSMOwnershipApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: OwnershipEvidenceResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
         "OwnershipEvidenceResponse",
-        ""
+        "",
+        _config?.preserveLargeIntegers
       ) as OwnershipEvidenceResponse;
       return body;
     }
@@ -721,15 +770,23 @@ export class CSMOwnershipApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async getOwnershipInference(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<OwnershipInferenceResponse> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 200) {
       const body: OwnershipInferenceResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "OwnershipInferenceResponse"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
+        "OwnershipInferenceResponse",
+        "",
+        _config?.preserveLargeIntegers
       ) as OwnershipInferenceResponse;
       return body;
     }
@@ -740,13 +797,16 @@ export class CSMOwnershipApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: JSONAPIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "JSONAPIErrorResponse"
+          "JSONAPIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as JSONAPIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -763,13 +823,16 @@ export class CSMOwnershipApiResponseProcessor {
     if (response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -784,9 +847,14 @@ export class CSMOwnershipApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: OwnershipInferenceResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
         "OwnershipInferenceResponse",
-        ""
+        "",
+        _config?.preserveLargeIntegers
       ) as OwnershipInferenceResponse;
       return body;
     }
@@ -806,28 +874,39 @@ export class CSMOwnershipApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async getOwnershipSettings(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<OwnershipSettingsResponse> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 200) {
       const body: OwnershipSettingsResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "OwnershipSettingsResponse"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
+        "OwnershipSettingsResponse",
+        "",
+        _config?.preserveLargeIntegers
       ) as OwnershipSettingsResponse;
       return body;
     }
     if (response.httpStatusCode === 401) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: JSONAPIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "JSONAPIErrorResponse"
+          "JSONAPIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as JSONAPIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -844,13 +923,16 @@ export class CSMOwnershipApiResponseProcessor {
     if (response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -865,9 +947,14 @@ export class CSMOwnershipApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: OwnershipSettingsResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
         "OwnershipSettingsResponse",
-        ""
+        "",
+        _config?.preserveLargeIntegers
       ) as OwnershipSettingsResponse;
       return body;
     }
@@ -887,29 +974,40 @@ export class CSMOwnershipApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async getOwnershipUntaggedFindings(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<OwnershipUntaggedFindingsResponse> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 200) {
       const body: OwnershipUntaggedFindingsResponse =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
-          "OwnershipUntaggedFindingsResponse"
+          ObjectSerializer.parse(
+            await response.body.text(),
+            contentType,
+            _config?.preserveLargeIntegers
+          ),
+          "OwnershipUntaggedFindingsResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as OwnershipUntaggedFindingsResponse;
       return body;
     }
     if (response.httpStatusCode === 401) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: JSONAPIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "JSONAPIErrorResponse"
+          "JSONAPIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as JSONAPIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -926,13 +1024,16 @@ export class CSMOwnershipApiResponseProcessor {
     if (response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -948,9 +1049,14 @@ export class CSMOwnershipApiResponseProcessor {
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: OwnershipUntaggedFindingsResponse =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
+          ObjectSerializer.parse(
+            await response.body.text(),
+            contentType,
+            _config?.preserveLargeIntegers
+          ),
           "OwnershipUntaggedFindingsResponse",
-          ""
+          "",
+          _config?.preserveLargeIntegers
         ) as OwnershipUntaggedFindingsResponse;
       return body;
     }
@@ -970,28 +1076,39 @@ export class CSMOwnershipApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async listOwnershipHistory(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<OwnershipHistoryResponse> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 200) {
       const body: OwnershipHistoryResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "OwnershipHistoryResponse"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
+        "OwnershipHistoryResponse",
+        "",
+        _config?.preserveLargeIntegers
       ) as OwnershipHistoryResponse;
       return body;
     }
     if (response.httpStatusCode === 400 || response.httpStatusCode === 401) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: JSONAPIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "JSONAPIErrorResponse"
+          "JSONAPIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as JSONAPIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -1008,13 +1125,16 @@ export class CSMOwnershipApiResponseProcessor {
     if (response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -1029,9 +1149,14 @@ export class CSMOwnershipApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: OwnershipHistoryResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
         "OwnershipHistoryResponse",
-        ""
+        "",
+        _config?.preserveLargeIntegers
       ) as OwnershipHistoryResponse;
       return body;
     }
@@ -1051,28 +1176,39 @@ export class CSMOwnershipApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async listOwnershipHistoryByOwnerType(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<OwnershipHistoryResponse> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 200) {
       const body: OwnershipHistoryResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "OwnershipHistoryResponse"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
+        "OwnershipHistoryResponse",
+        "",
+        _config?.preserveLargeIntegers
       ) as OwnershipHistoryResponse;
       return body;
     }
     if (response.httpStatusCode === 400 || response.httpStatusCode === 401) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: JSONAPIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "JSONAPIErrorResponse"
+          "JSONAPIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as JSONAPIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -1089,13 +1225,16 @@ export class CSMOwnershipApiResponseProcessor {
     if (response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -1110,9 +1249,14 @@ export class CSMOwnershipApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: OwnershipHistoryResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
         "OwnershipHistoryResponse",
-        ""
+        "",
+        _config?.preserveLargeIntegers
       ) as OwnershipHistoryResponse;
       return body;
     }
@@ -1132,15 +1276,23 @@ export class CSMOwnershipApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async listOwnershipInferences(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<OwnershipInferenceListResponse> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 200) {
       const body: OwnershipInferenceListResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "OwnershipInferenceListResponse"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
+        "OwnershipInferenceListResponse",
+        "",
+        _config?.preserveLargeIntegers
       ) as OwnershipInferenceListResponse;
       return body;
     }
@@ -1151,13 +1303,16 @@ export class CSMOwnershipApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: JSONAPIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "JSONAPIErrorResponse"
+          "JSONAPIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as JSONAPIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -1174,13 +1329,16 @@ export class CSMOwnershipApiResponseProcessor {
     if (response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -1195,9 +1353,14 @@ export class CSMOwnershipApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: OwnershipInferenceListResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
         "OwnershipInferenceListResponse",
-        ""
+        "",
+        _config?.preserveLargeIntegers
       ) as OwnershipInferenceListResponse;
       return body;
     }
@@ -1217,28 +1380,39 @@ export class CSMOwnershipApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async postOwnershipSettings(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<OwnershipSettingsResponse> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 200) {
       const body: OwnershipSettingsResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "OwnershipSettingsResponse"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
+        "OwnershipSettingsResponse",
+        "",
+        _config?.preserveLargeIntegers
       ) as OwnershipSettingsResponse;
       return body;
     }
     if (response.httpStatusCode === 400 || response.httpStatusCode === 401) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: JSONAPIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "JSONAPIErrorResponse"
+          "JSONAPIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as JSONAPIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -1255,13 +1429,16 @@ export class CSMOwnershipApiResponseProcessor {
     if (response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -1276,9 +1453,14 @@ export class CSMOwnershipApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: OwnershipSettingsResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
         "OwnershipSettingsResponse",
-        ""
+        "",
+        _config?.preserveLargeIntegers
       ) as OwnershipSettingsResponse;
       return body;
     }
@@ -1414,7 +1596,7 @@ export class CSMOwnershipApi {
     this.requestFactory =
       requestFactory || new CSMOwnershipApiRequestFactory(configuration);
     this.responseProcessor =
-      responseProcessor || new CSMOwnershipApiResponseProcessor();
+      responseProcessor || new CSMOwnershipApiResponseProcessor(configuration);
   }
 
   /**
@@ -1440,7 +1622,8 @@ export class CSMOwnershipApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.createOwnershipFeedback(
-            responseContext
+            responseContext,
+            options
           );
         });
     });
@@ -1466,7 +1649,10 @@ export class CSMOwnershipApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.getOwnershipEvidence(responseContext);
+          return this.responseProcessor.getOwnershipEvidence(
+            responseContext,
+            options
+          );
         });
     });
   }
@@ -1491,7 +1677,10 @@ export class CSMOwnershipApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.getOwnershipInference(responseContext);
+          return this.responseProcessor.getOwnershipInference(
+            responseContext,
+            options
+          );
         });
     });
   }
@@ -1509,7 +1698,10 @@ export class CSMOwnershipApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.getOwnershipSettings(responseContext);
+          return this.responseProcessor.getOwnershipSettings(
+            responseContext,
+            options
+          );
         });
     });
   }
@@ -1528,7 +1720,8 @@ export class CSMOwnershipApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.getOwnershipUntaggedFindings(
-            responseContext
+            responseContext,
+            options
           );
         });
     });
@@ -1552,7 +1745,10 @@ export class CSMOwnershipApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.listOwnershipHistory(responseContext);
+          return this.responseProcessor.listOwnershipHistory(
+            responseContext,
+            options
+          );
         });
     });
   }
@@ -1578,7 +1774,8 @@ export class CSMOwnershipApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.listOwnershipHistoryByOwnerType(
-            responseContext
+            responseContext,
+            options
           );
         });
     });
@@ -1601,7 +1798,8 @@ export class CSMOwnershipApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.listOwnershipInferences(
-            responseContext
+            responseContext,
+            options
           );
         });
     });
@@ -1623,7 +1821,10 @@ export class CSMOwnershipApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.postOwnershipSettings(responseContext);
+          return this.responseProcessor.postOwnershipSettings(
+            responseContext,
+            options
+          );
         });
     });
   }

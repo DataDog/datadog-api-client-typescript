@@ -61,7 +61,8 @@ export class RUMOperationsApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
       ObjectSerializer.serialize(body, "RUMOperationCreateRequest", ""),
-      contentType
+      contentType,
+      _config.preserveLargeIntegers
     );
     requestContext.setBody(serializedBody);
 
@@ -112,7 +113,8 @@ export class RUMOperationsApiRequestFactory extends BaseAPIRequestFactory {
         "RUMOperationStrongLinkCreateRequest",
         ""
       ),
-      contentType
+      contentType,
+      _config.preserveLargeIntegers
     );
     requestContext.setBody(serializedBody);
 
@@ -485,7 +487,8 @@ export class RUMOperationsApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
       ObjectSerializer.serialize(body, "RUMOperationUpdateRequest", ""),
-      contentType
+      contentType,
+      _config.preserveLargeIntegers
     );
     requestContext.setBody(serializedBody);
 
@@ -554,7 +557,8 @@ export class RUMOperationsApiRequestFactory extends BaseAPIRequestFactory {
         "RUMOperationStrongLinkUpdateRequest",
         ""
       ),
-      contentType
+      contentType,
+      _config.preserveLargeIntegers
     );
     requestContext.setBody(serializedBody);
 
@@ -570,6 +574,12 @@ export class RUMOperationsApiRequestFactory extends BaseAPIRequestFactory {
 }
 
 export class RUMOperationsApiResponseProcessor {
+  private configuration?: Configuration;
+
+  public constructor(configuration?: Configuration) {
+    this.configuration = configuration;
+  }
+
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
@@ -578,28 +588,39 @@ export class RUMOperationsApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async createRUMOperation(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<RUMOperationResponse> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 200) {
       const body: RUMOperationResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "RUMOperationResponse"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
+        "RUMOperationResponse",
+        "",
+        _config?.preserveLargeIntegers
       ) as RUMOperationResponse;
       return body;
     }
     if (response.httpStatusCode === 400 || response.httpStatusCode === 409) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: JSONAPIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "JSONAPIErrorResponse"
+          "JSONAPIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as JSONAPIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -616,13 +637,16 @@ export class RUMOperationsApiResponseProcessor {
     if (response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -637,9 +661,14 @@ export class RUMOperationsApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: RUMOperationResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
         "RUMOperationResponse",
-        ""
+        "",
+        _config?.preserveLargeIntegers
       ) as RUMOperationResponse;
       return body;
     }
@@ -659,15 +688,23 @@ export class RUMOperationsApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async createRUMOperationStrongLink(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<RUMOperationStrongLinkResponse> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 201) {
       const body: RUMOperationStrongLinkResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "RUMOperationStrongLinkResponse"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
+        "RUMOperationStrongLinkResponse",
+        "",
+        _config?.preserveLargeIntegers
       ) as RUMOperationStrongLinkResponse;
       return body;
     }
@@ -678,13 +715,16 @@ export class RUMOperationsApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: JSONAPIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "JSONAPIErrorResponse"
+          "JSONAPIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as JSONAPIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -701,13 +741,16 @@ export class RUMOperationsApiResponseProcessor {
     if (response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -722,9 +765,14 @@ export class RUMOperationsApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: RUMOperationStrongLinkResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
         "RUMOperationStrongLinkResponse",
-        ""
+        "",
+        _config?.preserveLargeIntegers
       ) as RUMOperationStrongLinkResponse;
       return body;
     }
@@ -743,7 +791,11 @@ export class RUMOperationsApiResponseProcessor {
    * @params response Response returned by the server for a request to deleteRUMOperation
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async deleteRUMOperation(response: ResponseContext): Promise<void> {
+  public async deleteRUMOperation(
+    response: ResponseContext,
+    _options?: Configuration
+  ): Promise<void> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
@@ -753,13 +805,16 @@ export class RUMOperationsApiResponseProcessor {
     if (response.httpStatusCode === 404) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: JSONAPIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "JSONAPIErrorResponse"
+          "JSONAPIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as JSONAPIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -776,13 +831,16 @@ export class RUMOperationsApiResponseProcessor {
     if (response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -814,8 +872,10 @@ export class RUMOperationsApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async deleteRUMOperationStrongLink(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<void> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
@@ -825,13 +885,16 @@ export class RUMOperationsApiResponseProcessor {
     if (response.httpStatusCode === 404) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: JSONAPIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "JSONAPIErrorResponse"
+          "JSONAPIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as JSONAPIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -848,13 +911,16 @@ export class RUMOperationsApiResponseProcessor {
     if (response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -886,28 +952,39 @@ export class RUMOperationsApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async getRUMOperation(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<RUMOperationResponse> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 200) {
       const body: RUMOperationResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "RUMOperationResponse"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
+        "RUMOperationResponse",
+        "",
+        _config?.preserveLargeIntegers
       ) as RUMOperationResponse;
       return body;
     }
     if (response.httpStatusCode === 404) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: JSONAPIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "JSONAPIErrorResponse"
+          "JSONAPIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as JSONAPIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -924,13 +1001,16 @@ export class RUMOperationsApiResponseProcessor {
     if (response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -945,9 +1025,14 @@ export class RUMOperationsApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: RUMOperationResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
         "RUMOperationResponse",
-        ""
+        "",
+        _config?.preserveLargeIntegers
       ) as RUMOperationResponse;
       return body;
     }
@@ -967,28 +1052,39 @@ export class RUMOperationsApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async getRUMOperationByName(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<RUMOperationResponse> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 200) {
       const body: RUMOperationResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "RUMOperationResponse"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
+        "RUMOperationResponse",
+        "",
+        _config?.preserveLargeIntegers
       ) as RUMOperationResponse;
       return body;
     }
     if (response.httpStatusCode === 400 || response.httpStatusCode === 404) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: JSONAPIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "JSONAPIErrorResponse"
+          "JSONAPIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as JSONAPIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -1005,13 +1101,16 @@ export class RUMOperationsApiResponseProcessor {
     if (response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -1026,9 +1125,14 @@ export class RUMOperationsApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: RUMOperationResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
         "RUMOperationResponse",
-        ""
+        "",
+        _config?.preserveLargeIntegers
       ) as RUMOperationResponse;
       return body;
     }
@@ -1048,28 +1152,39 @@ export class RUMOperationsApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async listRUMOperations(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<RUMOperationsListResponse> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 200) {
       const body: RUMOperationsListResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "RUMOperationsListResponse"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
+        "RUMOperationsListResponse",
+        "",
+        _config?.preserveLargeIntegers
       ) as RUMOperationsListResponse;
       return body;
     }
     if (response.httpStatusCode === 400) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: JSONAPIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "JSONAPIErrorResponse"
+          "JSONAPIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as JSONAPIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -1086,13 +1201,16 @@ export class RUMOperationsApiResponseProcessor {
     if (response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -1107,9 +1225,14 @@ export class RUMOperationsApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: RUMOperationsListResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
         "RUMOperationsListResponse",
-        ""
+        "",
+        _config?.preserveLargeIntegers
       ) as RUMOperationsListResponse;
       return body;
     }
@@ -1129,29 +1252,40 @@ export class RUMOperationsApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async listRUMOperationStrongLinks(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<RUMOperationStrongLinksListResponse> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 200) {
       const body: RUMOperationStrongLinksListResponse =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
-          "RUMOperationStrongLinksListResponse"
+          ObjectSerializer.parse(
+            await response.body.text(),
+            contentType,
+            _config?.preserveLargeIntegers
+          ),
+          "RUMOperationStrongLinksListResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as RUMOperationStrongLinksListResponse;
       return body;
     }
     if (response.httpStatusCode === 400) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: JSONAPIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "JSONAPIErrorResponse"
+          "JSONAPIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as JSONAPIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -1168,13 +1302,16 @@ export class RUMOperationsApiResponseProcessor {
     if (response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -1190,9 +1327,14 @@ export class RUMOperationsApiResponseProcessor {
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: RUMOperationStrongLinksListResponse =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
+          ObjectSerializer.parse(
+            await response.body.text(),
+            contentType,
+            _config?.preserveLargeIntegers
+          ),
           "RUMOperationStrongLinksListResponse",
-          ""
+          "",
+          _config?.preserveLargeIntegers
         ) as RUMOperationStrongLinksListResponse;
       return body;
     }
@@ -1212,15 +1354,23 @@ export class RUMOperationsApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async updateRUMOperation(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<RUMOperationResponse> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 200) {
       const body: RUMOperationResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "RUMOperationResponse"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
+        "RUMOperationResponse",
+        "",
+        _config?.preserveLargeIntegers
       ) as RUMOperationResponse;
       return body;
     }
@@ -1231,13 +1381,16 @@ export class RUMOperationsApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: JSONAPIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "JSONAPIErrorResponse"
+          "JSONAPIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as JSONAPIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -1254,13 +1407,16 @@ export class RUMOperationsApiResponseProcessor {
     if (response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -1275,9 +1431,14 @@ export class RUMOperationsApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: RUMOperationResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
         "RUMOperationResponse",
-        ""
+        "",
+        _config?.preserveLargeIntegers
       ) as RUMOperationResponse;
       return body;
     }
@@ -1297,28 +1458,39 @@ export class RUMOperationsApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async updateRUMOperationStrongLink(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<RUMOperationStrongLinkResponse> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 200) {
       const body: RUMOperationStrongLinkResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "RUMOperationStrongLinkResponse"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
+        "RUMOperationStrongLinkResponse",
+        "",
+        _config?.preserveLargeIntegers
       ) as RUMOperationStrongLinkResponse;
       return body;
     }
     if (response.httpStatusCode === 400 || response.httpStatusCode === 404) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: JSONAPIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "JSONAPIErrorResponse"
+          "JSONAPIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as JSONAPIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -1335,13 +1507,16 @@ export class RUMOperationsApiResponseProcessor {
     if (response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -1356,9 +1531,14 @@ export class RUMOperationsApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: RUMOperationStrongLinkResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
         "RUMOperationStrongLinkResponse",
-        ""
+        "",
+        _config?.preserveLargeIntegers
       ) as RUMOperationStrongLinkResponse;
       return body;
     }
@@ -1526,7 +1706,7 @@ export class RUMOperationsApi {
     this.requestFactory =
       requestFactory || new RUMOperationsApiRequestFactory(configuration);
     this.responseProcessor =
-      responseProcessor || new RUMOperationsApiResponseProcessor();
+      responseProcessor || new RUMOperationsApiResponseProcessor(configuration);
   }
 
   /**
@@ -1545,7 +1725,10 @@ export class RUMOperationsApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.createRUMOperation(responseContext);
+          return this.responseProcessor.createRUMOperation(
+            responseContext,
+            options
+          );
         });
     });
   }
@@ -1567,7 +1750,8 @@ export class RUMOperationsApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.createRUMOperationStrongLink(
-            responseContext
+            responseContext,
+            options
           );
         });
     });
@@ -1589,7 +1773,10 @@ export class RUMOperationsApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.deleteRUMOperation(responseContext);
+          return this.responseProcessor.deleteRUMOperation(
+            responseContext,
+            options
+          );
         });
     });
   }
@@ -1613,7 +1800,8 @@ export class RUMOperationsApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.deleteRUMOperationStrongLink(
-            responseContext
+            responseContext,
+            options
           );
         });
     });
@@ -1635,7 +1823,10 @@ export class RUMOperationsApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.getRUMOperation(responseContext);
+          return this.responseProcessor.getRUMOperation(
+            responseContext,
+            options
+          );
         });
     });
   }
@@ -1656,7 +1847,10 @@ export class RUMOperationsApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.getRUMOperationByName(responseContext);
+          return this.responseProcessor.getRUMOperationByName(
+            responseContext,
+            options
+          );
         });
     });
   }
@@ -1684,7 +1878,10 @@ export class RUMOperationsApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.listRUMOperations(responseContext);
+          return this.responseProcessor.listRUMOperations(
+            responseContext,
+            options
+          );
         });
     });
   }
@@ -1712,7 +1909,8 @@ export class RUMOperationsApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.listRUMOperationStrongLinks(
-            responseContext
+            responseContext,
+            options
           );
         });
     });
@@ -1736,7 +1934,10 @@ export class RUMOperationsApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.updateRUMOperation(responseContext);
+          return this.responseProcessor.updateRUMOperation(
+            responseContext,
+            options
+          );
         });
     });
   }
@@ -1761,7 +1962,8 @@ export class RUMOperationsApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.updateRUMOperationStrongLink(
-            responseContext
+            responseContext,
+            options
           );
         });
     });

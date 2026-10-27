@@ -285,6 +285,12 @@ export class APIManagementApiRequestFactory extends BaseAPIRequestFactory {
 }
 
 export class APIManagementApiResponseProcessor {
+  private configuration?: Configuration;
+
+  public constructor(configuration?: Configuration) {
+    this.configuration = configuration;
+  }
+
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
@@ -293,28 +299,39 @@ export class APIManagementApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async createOpenAPI(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<CreateOpenAPIResponse> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 201) {
       const body: CreateOpenAPIResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "CreateOpenAPIResponse"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
+        "CreateOpenAPIResponse",
+        "",
+        _config?.preserveLargeIntegers
       ) as CreateOpenAPIResponse;
       return body;
     }
     if (response.httpStatusCode === 400 || response.httpStatusCode === 403) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: JSONAPIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "JSONAPIErrorResponse"
+          "JSONAPIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as JSONAPIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -331,13 +348,16 @@ export class APIManagementApiResponseProcessor {
     if (response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -352,9 +372,14 @@ export class APIManagementApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: CreateOpenAPIResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
         "CreateOpenAPIResponse",
-        ""
+        "",
+        _config?.preserveLargeIntegers
       ) as CreateOpenAPIResponse;
       return body;
     }
@@ -373,7 +398,11 @@ export class APIManagementApiResponseProcessor {
    * @params response Response returned by the server for a request to deleteOpenAPI
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async deleteOpenAPI(response: ResponseContext): Promise<void> {
+  public async deleteOpenAPI(
+    response: ResponseContext,
+    _options?: Configuration
+  ): Promise<void> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
@@ -387,13 +416,16 @@ export class APIManagementApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: JSONAPIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "JSONAPIErrorResponse"
+          "JSONAPIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as JSONAPIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -410,13 +442,16 @@ export class APIManagementApiResponseProcessor {
     if (response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -447,7 +482,11 @@ export class APIManagementApiResponseProcessor {
    * @params response Response returned by the server for a request to getOpenAPI
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async getOpenAPI(response: ResponseContext): Promise<HttpFile> {
+  public async getOpenAPI(
+    response: ResponseContext,
+    _options?: Configuration
+  ): Promise<HttpFile> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
@@ -462,13 +501,16 @@ export class APIManagementApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: JSONAPIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "JSONAPIErrorResponse"
+          "JSONAPIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as JSONAPIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -485,13 +527,16 @@ export class APIManagementApiResponseProcessor {
     if (response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -524,27 +569,40 @@ export class APIManagementApiResponseProcessor {
    * @params response Response returned by the server for a request to listAPIs
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async listAPIs(response: ResponseContext): Promise<ListAPIsResponse> {
+  public async listAPIs(
+    response: ResponseContext,
+    _options?: Configuration
+  ): Promise<ListAPIsResponse> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 200) {
       const body: ListAPIsResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "ListAPIsResponse"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
+        "ListAPIsResponse",
+        "",
+        _config?.preserveLargeIntegers
       ) as ListAPIsResponse;
       return body;
     }
     if (response.httpStatusCode === 400 || response.httpStatusCode === 403) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: JSONAPIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "JSONAPIErrorResponse"
+          "JSONAPIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as JSONAPIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -561,13 +619,16 @@ export class APIManagementApiResponseProcessor {
     if (response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -582,9 +643,14 @@ export class APIManagementApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: ListAPIsResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
         "ListAPIsResponse",
-        ""
+        "",
+        _config?.preserveLargeIntegers
       ) as ListAPIsResponse;
       return body;
     }
@@ -604,15 +670,23 @@ export class APIManagementApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async updateOpenAPI(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<UpdateOpenAPIResponse> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 200) {
       const body: UpdateOpenAPIResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "UpdateOpenAPIResponse"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
+        "UpdateOpenAPIResponse",
+        "",
+        _config?.preserveLargeIntegers
       ) as UpdateOpenAPIResponse;
       return body;
     }
@@ -623,13 +697,16 @@ export class APIManagementApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: JSONAPIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "JSONAPIErrorResponse"
+          "JSONAPIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as JSONAPIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -646,13 +723,16 @@ export class APIManagementApiResponseProcessor {
     if (response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -667,9 +747,14 @@ export class APIManagementApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: UpdateOpenAPIResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
         "UpdateOpenAPIResponse",
-        ""
+        "",
+        _config?.preserveLargeIntegers
       ) as UpdateOpenAPIResponse;
       return body;
     }
@@ -751,7 +836,7 @@ export class APIManagementApi {
     this.requestFactory =
       requestFactory || new APIManagementApiRequestFactory(configuration);
     this.responseProcessor =
-      responseProcessor || new APIManagementApiResponseProcessor();
+      responseProcessor || new APIManagementApiResponseProcessor(configuration);
   }
 
   /**
@@ -773,7 +858,7 @@ export class APIManagementApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.createOpenAPI(responseContext);
+          return this.responseProcessor.createOpenAPI(responseContext, options);
         });
     });
   }
@@ -794,7 +879,7 @@ export class APIManagementApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.deleteOpenAPI(responseContext);
+          return this.responseProcessor.deleteOpenAPI(responseContext, options);
         });
     });
   }
@@ -815,7 +900,7 @@ export class APIManagementApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.getOpenAPI(responseContext);
+          return this.responseProcessor.getOpenAPI(responseContext, options);
         });
     });
   }
@@ -838,7 +923,7 @@ export class APIManagementApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.listAPIs(responseContext);
+          return this.responseProcessor.listAPIs(responseContext, options);
         });
     });
   }
@@ -861,7 +946,7 @@ export class APIManagementApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.updateOpenAPI(responseContext);
+          return this.responseProcessor.updateOpenAPI(responseContext, options);
         });
     });
   }

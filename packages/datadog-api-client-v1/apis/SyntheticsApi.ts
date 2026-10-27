@@ -78,7 +78,8 @@ export class SyntheticsApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
       ObjectSerializer.serialize(body, "SyntheticsGlobalVariableRequest", ""),
-      contentType
+      contentType,
+      _config.preserveLargeIntegers
     );
     requestContext.setBody(serializedBody);
 
@@ -125,7 +126,8 @@ export class SyntheticsApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
       ObjectSerializer.serialize(body, "SyntheticsPrivateLocation", ""),
-      contentType
+      contentType,
+      _config.preserveLargeIntegers
     );
     requestContext.setBody(serializedBody);
 
@@ -172,7 +174,8 @@ export class SyntheticsApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
       ObjectSerializer.serialize(body, "SyntheticsAPITest", ""),
-      contentType
+      contentType,
+      _config.preserveLargeIntegers
     );
     requestContext.setBody(serializedBody);
 
@@ -219,7 +222,8 @@ export class SyntheticsApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
       ObjectSerializer.serialize(body, "SyntheticsBrowserTest", ""),
-      contentType
+      contentType,
+      _config.preserveLargeIntegers
     );
     requestContext.setBody(serializedBody);
 
@@ -266,7 +270,8 @@ export class SyntheticsApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
       ObjectSerializer.serialize(body, "SyntheticsMobileTest", ""),
-      contentType
+      contentType,
+      _config.preserveLargeIntegers
     );
     requestContext.setBody(serializedBody);
 
@@ -392,7 +397,8 @@ export class SyntheticsApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
       ObjectSerializer.serialize(body, "SyntheticsDeleteTestsPayload", ""),
-      contentType
+      contentType,
+      _config.preserveLargeIntegers
     );
     requestContext.setBody(serializedBody);
 
@@ -448,7 +454,8 @@ export class SyntheticsApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
       ObjectSerializer.serialize(body, "SyntheticsGlobalVariableRequest", ""),
-      contentType
+      contentType,
+      _config.preserveLargeIntegers
     );
     requestContext.setBody(serializedBody);
 
@@ -495,7 +502,8 @@ export class SyntheticsApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
       ObjectSerializer.serialize(body, "SyntheticsFetchUptimesPayload", ""),
-      contentType
+      contentType,
+      _config.preserveLargeIntegers
     );
     requestContext.setBody(serializedBody);
 
@@ -1184,7 +1192,8 @@ export class SyntheticsApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
       ObjectSerializer.serialize(body, "SyntheticsPatchTestBody", ""),
-      contentType
+      contentType,
+      _config.preserveLargeIntegers
     );
     requestContext.setBody(serializedBody);
 
@@ -1311,7 +1320,8 @@ export class SyntheticsApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
       ObjectSerializer.serialize(body, "SyntheticsCITestBody", ""),
-      contentType
+      contentType,
+      _config.preserveLargeIntegers
     );
     requestContext.setBody(serializedBody);
 
@@ -1358,7 +1368,8 @@ export class SyntheticsApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
       ObjectSerializer.serialize(body, "SyntheticsTriggerBody", ""),
-      contentType
+      contentType,
+      _config.preserveLargeIntegers
     );
     requestContext.setBody(serializedBody);
 
@@ -1414,7 +1425,8 @@ export class SyntheticsApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
       ObjectSerializer.serialize(body, "SyntheticsAPITest", ""),
-      contentType
+      contentType,
+      _config.preserveLargeIntegers
     );
     requestContext.setBody(serializedBody);
 
@@ -1470,7 +1482,8 @@ export class SyntheticsApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
       ObjectSerializer.serialize(body, "SyntheticsBrowserTest", ""),
-      contentType
+      contentType,
+      _config.preserveLargeIntegers
     );
     requestContext.setBody(serializedBody);
 
@@ -1526,7 +1539,8 @@ export class SyntheticsApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
       ObjectSerializer.serialize(body, "SyntheticsMobileTest", ""),
-      contentType
+      contentType,
+      _config.preserveLargeIntegers
     );
     requestContext.setBody(serializedBody);
 
@@ -1583,7 +1597,8 @@ export class SyntheticsApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
       ObjectSerializer.serialize(body, "SyntheticsPrivateLocation", ""),
-      contentType
+      contentType,
+      _config.preserveLargeIntegers
     );
     requestContext.setBody(serializedBody);
 
@@ -1643,7 +1658,8 @@ export class SyntheticsApiRequestFactory extends BaseAPIRequestFactory {
         "SyntheticsUpdateTestPauseStatusPayload",
         ""
       ),
-      contentType
+      contentType,
+      _config.preserveLargeIntegers
     );
     requestContext.setBody(serializedBody);
 
@@ -1659,6 +1675,12 @@ export class SyntheticsApiRequestFactory extends BaseAPIRequestFactory {
 }
 
 export class SyntheticsApiResponseProcessor {
+  private configuration?: Configuration;
+
+  public constructor(configuration?: Configuration) {
+    this.configuration = configuration;
+  }
+
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
@@ -1667,15 +1689,23 @@ export class SyntheticsApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async createGlobalVariable(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<SyntheticsGlobalVariable> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 200) {
       const body: SyntheticsGlobalVariable = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "SyntheticsGlobalVariable"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
+        "SyntheticsGlobalVariable",
+        "",
+        _config?.preserveLargeIntegers
       ) as SyntheticsGlobalVariable;
       return body;
     }
@@ -1687,13 +1717,16 @@ export class SyntheticsApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -1708,9 +1741,14 @@ export class SyntheticsApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: SyntheticsGlobalVariable = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
         "SyntheticsGlobalVariable",
-        ""
+        "",
+        _config?.preserveLargeIntegers
       ) as SyntheticsGlobalVariable;
       return body;
     }
@@ -1730,16 +1768,24 @@ export class SyntheticsApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async createPrivateLocation(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<SyntheticsPrivateLocationCreationResponse> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 200) {
       const body: SyntheticsPrivateLocationCreationResponse =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
-          "SyntheticsPrivateLocationCreationResponse"
+          ObjectSerializer.parse(
+            await response.body.text(),
+            contentType,
+            _config?.preserveLargeIntegers
+          ),
+          "SyntheticsPrivateLocationCreationResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as SyntheticsPrivateLocationCreationResponse;
       return body;
     }
@@ -1750,13 +1796,16 @@ export class SyntheticsApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -1772,9 +1821,14 @@ export class SyntheticsApiResponseProcessor {
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: SyntheticsPrivateLocationCreationResponse =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
+          ObjectSerializer.parse(
+            await response.body.text(),
+            contentType,
+            _config?.preserveLargeIntegers
+          ),
           "SyntheticsPrivateLocationCreationResponse",
-          ""
+          "",
+          _config?.preserveLargeIntegers
         ) as SyntheticsPrivateLocationCreationResponse;
       return body;
     }
@@ -1794,15 +1848,23 @@ export class SyntheticsApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async createSyntheticsAPITest(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<SyntheticsAPITest> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 200) {
       const body: SyntheticsAPITest = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "SyntheticsAPITest"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
+        "SyntheticsAPITest",
+        "",
+        _config?.preserveLargeIntegers
       ) as SyntheticsAPITest;
       return body;
     }
@@ -1814,13 +1876,16 @@ export class SyntheticsApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -1835,9 +1900,14 @@ export class SyntheticsApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: SyntheticsAPITest = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
         "SyntheticsAPITest",
-        ""
+        "",
+        _config?.preserveLargeIntegers
       ) as SyntheticsAPITest;
       return body;
     }
@@ -1857,15 +1927,23 @@ export class SyntheticsApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async createSyntheticsBrowserTest(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<SyntheticsBrowserTest> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 200) {
       const body: SyntheticsBrowserTest = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "SyntheticsBrowserTest"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
+        "SyntheticsBrowserTest",
+        "",
+        _config?.preserveLargeIntegers
       ) as SyntheticsBrowserTest;
       return body;
     }
@@ -1877,13 +1955,16 @@ export class SyntheticsApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -1898,9 +1979,14 @@ export class SyntheticsApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: SyntheticsBrowserTest = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
         "SyntheticsBrowserTest",
-        ""
+        "",
+        _config?.preserveLargeIntegers
       ) as SyntheticsBrowserTest;
       return body;
     }
@@ -1920,15 +2006,23 @@ export class SyntheticsApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async createSyntheticsMobileTest(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<SyntheticsMobileTest> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 200) {
       const body: SyntheticsMobileTest = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "SyntheticsMobileTest"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
+        "SyntheticsMobileTest",
+        "",
+        _config?.preserveLargeIntegers
       ) as SyntheticsMobileTest;
       return body;
     }
@@ -1940,13 +2034,16 @@ export class SyntheticsApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -1961,9 +2058,14 @@ export class SyntheticsApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: SyntheticsMobileTest = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
         "SyntheticsMobileTest",
-        ""
+        "",
+        _config?.preserveLargeIntegers
       ) as SyntheticsMobileTest;
       return body;
     }
@@ -1982,7 +2084,11 @@ export class SyntheticsApiResponseProcessor {
    * @params response Response returned by the server for a request to deleteGlobalVariable
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async deleteGlobalVariable(response: ResponseContext): Promise<void> {
+  public async deleteGlobalVariable(
+    response: ResponseContext,
+    _options?: Configuration
+  ): Promise<void> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
@@ -1997,13 +2103,16 @@ export class SyntheticsApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -2034,7 +2143,11 @@ export class SyntheticsApiResponseProcessor {
    * @params response Response returned by the server for a request to deletePrivateLocation
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async deletePrivateLocation(response: ResponseContext): Promise<void> {
+  public async deletePrivateLocation(
+    response: ResponseContext,
+    _options?: Configuration
+  ): Promise<void> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
@@ -2044,13 +2157,16 @@ export class SyntheticsApiResponseProcessor {
     if (response.httpStatusCode === 404 || response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -2082,15 +2198,23 @@ export class SyntheticsApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async deleteTests(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<SyntheticsDeleteTestsResponse> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 200) {
       const body: SyntheticsDeleteTestsResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "SyntheticsDeleteTestsResponse"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
+        "SyntheticsDeleteTestsResponse",
+        "",
+        _config?.preserveLargeIntegers
       ) as SyntheticsDeleteTestsResponse;
       return body;
     }
@@ -2102,13 +2226,16 @@ export class SyntheticsApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -2123,9 +2250,14 @@ export class SyntheticsApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: SyntheticsDeleteTestsResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
         "SyntheticsDeleteTestsResponse",
-        ""
+        "",
+        _config?.preserveLargeIntegers
       ) as SyntheticsDeleteTestsResponse;
       return body;
     }
@@ -2145,15 +2277,23 @@ export class SyntheticsApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async editGlobalVariable(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<SyntheticsGlobalVariable> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 200) {
       const body: SyntheticsGlobalVariable = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "SyntheticsGlobalVariable"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
+        "SyntheticsGlobalVariable",
+        "",
+        _config?.preserveLargeIntegers
       ) as SyntheticsGlobalVariable;
       return body;
     }
@@ -2164,13 +2304,16 @@ export class SyntheticsApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -2185,9 +2328,14 @@ export class SyntheticsApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: SyntheticsGlobalVariable = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
         "SyntheticsGlobalVariable",
-        ""
+        "",
+        _config?.preserveLargeIntegers
       ) as SyntheticsGlobalVariable;
       return body;
     }
@@ -2207,15 +2355,23 @@ export class SyntheticsApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async fetchUptimes(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<Array<SyntheticsTestUptime>> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 200) {
       const body: Array<SyntheticsTestUptime> = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "Array<SyntheticsTestUptime>"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
+        "Array<SyntheticsTestUptime>",
+        "",
+        _config?.preserveLargeIntegers
       ) as Array<SyntheticsTestUptime>;
       return body;
     }
@@ -2226,13 +2382,16 @@ export class SyntheticsApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -2247,9 +2406,14 @@ export class SyntheticsApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: Array<SyntheticsTestUptime> = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
         "Array<SyntheticsTestUptime>",
-        ""
+        "",
+        _config?.preserveLargeIntegers
       ) as Array<SyntheticsTestUptime>;
       return body;
     }
@@ -2269,15 +2433,23 @@ export class SyntheticsApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async getAPITest(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<SyntheticsAPITest> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 200) {
       const body: SyntheticsAPITest = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "SyntheticsAPITest"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
+        "SyntheticsAPITest",
+        "",
+        _config?.preserveLargeIntegers
       ) as SyntheticsAPITest;
       return body;
     }
@@ -2288,13 +2460,16 @@ export class SyntheticsApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -2309,9 +2484,14 @@ export class SyntheticsApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: SyntheticsAPITest = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
         "SyntheticsAPITest",
-        ""
+        "",
+        _config?.preserveLargeIntegers
       ) as SyntheticsAPITest;
       return body;
     }
@@ -2331,16 +2511,24 @@ export class SyntheticsApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async getAPITestLatestResults(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<SyntheticsGetAPITestLatestResultsResponse> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 200) {
       const body: SyntheticsGetAPITestLatestResultsResponse =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
-          "SyntheticsGetAPITestLatestResultsResponse"
+          ObjectSerializer.parse(
+            await response.body.text(),
+            contentType,
+            _config?.preserveLargeIntegers
+          ),
+          "SyntheticsGetAPITestLatestResultsResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as SyntheticsGetAPITestLatestResultsResponse;
       return body;
     }
@@ -2351,13 +2539,16 @@ export class SyntheticsApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -2373,9 +2564,14 @@ export class SyntheticsApiResponseProcessor {
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: SyntheticsGetAPITestLatestResultsResponse =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
+          ObjectSerializer.parse(
+            await response.body.text(),
+            contentType,
+            _config?.preserveLargeIntegers
+          ),
           "SyntheticsGetAPITestLatestResultsResponse",
-          ""
+          "",
+          _config?.preserveLargeIntegers
         ) as SyntheticsGetAPITestLatestResultsResponse;
       return body;
     }
@@ -2395,15 +2591,23 @@ export class SyntheticsApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async getAPITestResult(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<SyntheticsAPITestResultFull> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 200) {
       const body: SyntheticsAPITestResultFull = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "SyntheticsAPITestResultFull"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
+        "SyntheticsAPITestResultFull",
+        "",
+        _config?.preserveLargeIntegers
       ) as SyntheticsAPITestResultFull;
       return body;
     }
@@ -2414,13 +2618,16 @@ export class SyntheticsApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -2435,9 +2642,14 @@ export class SyntheticsApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: SyntheticsAPITestResultFull = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
         "SyntheticsAPITestResultFull",
-        ""
+        "",
+        _config?.preserveLargeIntegers
       ) as SyntheticsAPITestResultFull;
       return body;
     }
@@ -2457,15 +2669,23 @@ export class SyntheticsApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async getBrowserTest(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<SyntheticsBrowserTest> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 200) {
       const body: SyntheticsBrowserTest = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "SyntheticsBrowserTest"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
+        "SyntheticsBrowserTest",
+        "",
+        _config?.preserveLargeIntegers
       ) as SyntheticsBrowserTest;
       return body;
     }
@@ -2476,13 +2696,16 @@ export class SyntheticsApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -2497,9 +2720,14 @@ export class SyntheticsApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: SyntheticsBrowserTest = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
         "SyntheticsBrowserTest",
-        ""
+        "",
+        _config?.preserveLargeIntegers
       ) as SyntheticsBrowserTest;
       return body;
     }
@@ -2519,16 +2747,24 @@ export class SyntheticsApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async getBrowserTestLatestResults(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<SyntheticsGetBrowserTestLatestResultsResponse> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 200) {
       const body: SyntheticsGetBrowserTestLatestResultsResponse =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
-          "SyntheticsGetBrowserTestLatestResultsResponse"
+          ObjectSerializer.parse(
+            await response.body.text(),
+            contentType,
+            _config?.preserveLargeIntegers
+          ),
+          "SyntheticsGetBrowserTestLatestResultsResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as SyntheticsGetBrowserTestLatestResultsResponse;
       return body;
     }
@@ -2539,13 +2775,16 @@ export class SyntheticsApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -2561,9 +2800,14 @@ export class SyntheticsApiResponseProcessor {
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: SyntheticsGetBrowserTestLatestResultsResponse =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
+          ObjectSerializer.parse(
+            await response.body.text(),
+            contentType,
+            _config?.preserveLargeIntegers
+          ),
           "SyntheticsGetBrowserTestLatestResultsResponse",
-          ""
+          "",
+          _config?.preserveLargeIntegers
         ) as SyntheticsGetBrowserTestLatestResultsResponse;
       return body;
     }
@@ -2583,16 +2827,24 @@ export class SyntheticsApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async getBrowserTestResult(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<SyntheticsBrowserTestResultFull> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 200) {
       const body: SyntheticsBrowserTestResultFull =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
-          "SyntheticsBrowserTestResultFull"
+          ObjectSerializer.parse(
+            await response.body.text(),
+            contentType,
+            _config?.preserveLargeIntegers
+          ),
+          "SyntheticsBrowserTestResultFull",
+          "",
+          _config?.preserveLargeIntegers
         ) as SyntheticsBrowserTestResultFull;
       return body;
     }
@@ -2603,13 +2855,16 @@ export class SyntheticsApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -2625,9 +2880,14 @@ export class SyntheticsApiResponseProcessor {
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: SyntheticsBrowserTestResultFull =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
+          ObjectSerializer.parse(
+            await response.body.text(),
+            contentType,
+            _config?.preserveLargeIntegers
+          ),
           "SyntheticsBrowserTestResultFull",
-          ""
+          "",
+          _config?.preserveLargeIntegers
         ) as SyntheticsBrowserTestResultFull;
       return body;
     }
@@ -2647,15 +2907,23 @@ export class SyntheticsApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async getGlobalVariable(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<SyntheticsGlobalVariable> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 200) {
       const body: SyntheticsGlobalVariable = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "SyntheticsGlobalVariable"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
+        "SyntheticsGlobalVariable",
+        "",
+        _config?.preserveLargeIntegers
       ) as SyntheticsGlobalVariable;
       return body;
     }
@@ -2666,13 +2934,16 @@ export class SyntheticsApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -2687,9 +2958,14 @@ export class SyntheticsApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: SyntheticsGlobalVariable = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
         "SyntheticsGlobalVariable",
-        ""
+        "",
+        _config?.preserveLargeIntegers
       ) as SyntheticsGlobalVariable;
       return body;
     }
@@ -2709,15 +2985,23 @@ export class SyntheticsApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async getMobileTest(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<SyntheticsMobileTest> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 200) {
       const body: SyntheticsMobileTest = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "SyntheticsMobileTest"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
+        "SyntheticsMobileTest",
+        "",
+        _config?.preserveLargeIntegers
       ) as SyntheticsMobileTest;
       return body;
     }
@@ -2728,13 +3012,16 @@ export class SyntheticsApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -2749,9 +3036,14 @@ export class SyntheticsApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: SyntheticsMobileTest = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
         "SyntheticsMobileTest",
-        ""
+        "",
+        _config?.preserveLargeIntegers
       ) as SyntheticsMobileTest;
       return body;
     }
@@ -2771,28 +3063,39 @@ export class SyntheticsApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async getPrivateLocation(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<SyntheticsPrivateLocation> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 200) {
       const body: SyntheticsPrivateLocation = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "SyntheticsPrivateLocation"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
+        "SyntheticsPrivateLocation",
+        "",
+        _config?.preserveLargeIntegers
       ) as SyntheticsPrivateLocation;
       return body;
     }
     if (response.httpStatusCode === 404 || response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -2807,9 +3110,14 @@ export class SyntheticsApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: SyntheticsPrivateLocation = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
         "SyntheticsPrivateLocation",
-        ""
+        "",
+        _config?.preserveLargeIntegers
       ) as SyntheticsPrivateLocation;
       return body;
     }
@@ -2829,28 +3137,39 @@ export class SyntheticsApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async getSyntheticsCIBatch(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<SyntheticsBatchDetails> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 200) {
       const body: SyntheticsBatchDetails = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "SyntheticsBatchDetails"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
+        "SyntheticsBatchDetails",
+        "",
+        _config?.preserveLargeIntegers
       ) as SyntheticsBatchDetails;
       return body;
     }
     if (response.httpStatusCode === 404 || response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -2865,9 +3184,14 @@ export class SyntheticsApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: SyntheticsBatchDetails = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
         "SyntheticsBatchDetails",
-        ""
+        "",
+        _config?.preserveLargeIntegers
       ) as SyntheticsBatchDetails;
       return body;
     }
@@ -2887,28 +3211,39 @@ export class SyntheticsApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async getSyntheticsDefaultLocations(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<Array<string>> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 200) {
       const body: Array<string> = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "Array<string>"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
+        "Array<string>",
+        "",
+        _config?.preserveLargeIntegers
       ) as Array<string>;
       return body;
     }
     if (response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -2923,9 +3258,14 @@ export class SyntheticsApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: Array<string> = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
         "Array<string>",
-        ""
+        "",
+        _config?.preserveLargeIntegers
       ) as Array<string>;
       return body;
     }
@@ -2945,16 +3285,24 @@ export class SyntheticsApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async getTest(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<SyntheticsTestDetailsWithoutSteps> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 200) {
       const body: SyntheticsTestDetailsWithoutSteps =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
-          "SyntheticsTestDetailsWithoutSteps"
+          ObjectSerializer.parse(
+            await response.body.text(),
+            contentType,
+            _config?.preserveLargeIntegers
+          ),
+          "SyntheticsTestDetailsWithoutSteps",
+          "",
+          _config?.preserveLargeIntegers
         ) as SyntheticsTestDetailsWithoutSteps;
       return body;
     }
@@ -2965,13 +3313,16 @@ export class SyntheticsApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -2987,9 +3338,14 @@ export class SyntheticsApiResponseProcessor {
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: SyntheticsTestDetailsWithoutSteps =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
+          ObjectSerializer.parse(
+            await response.body.text(),
+            contentType,
+            _config?.preserveLargeIntegers
+          ),
           "SyntheticsTestDetailsWithoutSteps",
-          ""
+          "",
+          _config?.preserveLargeIntegers
         ) as SyntheticsTestDetailsWithoutSteps;
       return body;
     }
@@ -3009,29 +3365,40 @@ export class SyntheticsApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async listGlobalVariables(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<SyntheticsListGlobalVariablesResponse> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 200) {
       const body: SyntheticsListGlobalVariablesResponse =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
-          "SyntheticsListGlobalVariablesResponse"
+          ObjectSerializer.parse(
+            await response.body.text(),
+            contentType,
+            _config?.preserveLargeIntegers
+          ),
+          "SyntheticsListGlobalVariablesResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as SyntheticsListGlobalVariablesResponse;
       return body;
     }
     if (response.httpStatusCode === 403 || response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -3047,9 +3414,14 @@ export class SyntheticsApiResponseProcessor {
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: SyntheticsListGlobalVariablesResponse =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
+          ObjectSerializer.parse(
+            await response.body.text(),
+            contentType,
+            _config?.preserveLargeIntegers
+          ),
           "SyntheticsListGlobalVariablesResponse",
-          ""
+          "",
+          _config?.preserveLargeIntegers
         ) as SyntheticsListGlobalVariablesResponse;
       return body;
     }
@@ -3069,28 +3441,39 @@ export class SyntheticsApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async listLocations(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<SyntheticsLocations> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 200) {
       const body: SyntheticsLocations = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "SyntheticsLocations"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
+        "SyntheticsLocations",
+        "",
+        _config?.preserveLargeIntegers
       ) as SyntheticsLocations;
       return body;
     }
     if (response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -3105,9 +3488,14 @@ export class SyntheticsApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: SyntheticsLocations = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
         "SyntheticsLocations",
-        ""
+        "",
+        _config?.preserveLargeIntegers
       ) as SyntheticsLocations;
       return body;
     }
@@ -3127,15 +3515,23 @@ export class SyntheticsApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async listTests(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<SyntheticsListTestsResponse> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 200) {
       const body: SyntheticsListTestsResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "SyntheticsListTestsResponse"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
+        "SyntheticsListTestsResponse",
+        "",
+        _config?.preserveLargeIntegers
       ) as SyntheticsListTestsResponse;
       return body;
     }
@@ -3146,13 +3542,16 @@ export class SyntheticsApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -3167,9 +3566,14 @@ export class SyntheticsApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: SyntheticsListTestsResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
         "SyntheticsListTestsResponse",
-        ""
+        "",
+        _config?.preserveLargeIntegers
       ) as SyntheticsListTestsResponse;
       return body;
     }
@@ -3189,15 +3593,23 @@ export class SyntheticsApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async patchTest(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<SyntheticsTestDetails> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 200) {
       const body: SyntheticsTestDetails = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "SyntheticsTestDetails"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
+        "SyntheticsTestDetails",
+        "",
+        _config?.preserveLargeIntegers
       ) as SyntheticsTestDetails;
       return body;
     }
@@ -3209,13 +3621,16 @@ export class SyntheticsApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -3230,9 +3645,14 @@ export class SyntheticsApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: SyntheticsTestDetails = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
         "SyntheticsTestDetails",
-        ""
+        "",
+        _config?.preserveLargeIntegers
       ) as SyntheticsTestDetails;
       return body;
     }
@@ -3252,15 +3672,23 @@ export class SyntheticsApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async searchTests(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<SyntheticsListTestsResponse> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 200) {
       const body: SyntheticsListTestsResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "SyntheticsListTestsResponse"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
+        "SyntheticsListTestsResponse",
+        "",
+        _config?.preserveLargeIntegers
       ) as SyntheticsListTestsResponse;
       return body;
     }
@@ -3271,13 +3699,16 @@ export class SyntheticsApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -3292,9 +3723,14 @@ export class SyntheticsApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: SyntheticsListTestsResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
         "SyntheticsListTestsResponse",
-        ""
+        "",
+        _config?.preserveLargeIntegers
       ) as SyntheticsListTestsResponse;
       return body;
     }
@@ -3314,29 +3750,40 @@ export class SyntheticsApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async triggerCITests(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<SyntheticsTriggerCITestsResponse> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 200) {
       const body: SyntheticsTriggerCITestsResponse =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
-          "SyntheticsTriggerCITestsResponse"
+          ObjectSerializer.parse(
+            await response.body.text(),
+            contentType,
+            _config?.preserveLargeIntegers
+          ),
+          "SyntheticsTriggerCITestsResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as SyntheticsTriggerCITestsResponse;
       return body;
     }
     if (response.httpStatusCode === 400 || response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -3352,9 +3799,14 @@ export class SyntheticsApiResponseProcessor {
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: SyntheticsTriggerCITestsResponse =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
+          ObjectSerializer.parse(
+            await response.body.text(),
+            contentType,
+            _config?.preserveLargeIntegers
+          ),
           "SyntheticsTriggerCITestsResponse",
-          ""
+          "",
+          _config?.preserveLargeIntegers
         ) as SyntheticsTriggerCITestsResponse;
       return body;
     }
@@ -3374,29 +3826,40 @@ export class SyntheticsApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async triggerTests(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<SyntheticsTriggerCITestsResponse> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 200) {
       const body: SyntheticsTriggerCITestsResponse =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
-          "SyntheticsTriggerCITestsResponse"
+          ObjectSerializer.parse(
+            await response.body.text(),
+            contentType,
+            _config?.preserveLargeIntegers
+          ),
+          "SyntheticsTriggerCITestsResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as SyntheticsTriggerCITestsResponse;
       return body;
     }
     if (response.httpStatusCode === 400 || response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -3412,9 +3875,14 @@ export class SyntheticsApiResponseProcessor {
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: SyntheticsTriggerCITestsResponse =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
+          ObjectSerializer.parse(
+            await response.body.text(),
+            contentType,
+            _config?.preserveLargeIntegers
+          ),
           "SyntheticsTriggerCITestsResponse",
-          ""
+          "",
+          _config?.preserveLargeIntegers
         ) as SyntheticsTriggerCITestsResponse;
       return body;
     }
@@ -3434,15 +3902,23 @@ export class SyntheticsApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async updateAPITest(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<SyntheticsAPITest> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 200) {
       const body: SyntheticsAPITest = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "SyntheticsAPITest"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
+        "SyntheticsAPITest",
+        "",
+        _config?.preserveLargeIntegers
       ) as SyntheticsAPITest;
       return body;
     }
@@ -3454,13 +3930,16 @@ export class SyntheticsApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -3475,9 +3954,14 @@ export class SyntheticsApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: SyntheticsAPITest = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
         "SyntheticsAPITest",
-        ""
+        "",
+        _config?.preserveLargeIntegers
       ) as SyntheticsAPITest;
       return body;
     }
@@ -3497,15 +3981,23 @@ export class SyntheticsApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async updateBrowserTest(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<SyntheticsBrowserTest> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 200) {
       const body: SyntheticsBrowserTest = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "SyntheticsBrowserTest"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
+        "SyntheticsBrowserTest",
+        "",
+        _config?.preserveLargeIntegers
       ) as SyntheticsBrowserTest;
       return body;
     }
@@ -3517,13 +4009,16 @@ export class SyntheticsApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -3538,9 +4033,14 @@ export class SyntheticsApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: SyntheticsBrowserTest = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
         "SyntheticsBrowserTest",
-        ""
+        "",
+        _config?.preserveLargeIntegers
       ) as SyntheticsBrowserTest;
       return body;
     }
@@ -3560,15 +4060,23 @@ export class SyntheticsApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async updateMobileTest(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<SyntheticsMobileTest> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 200) {
       const body: SyntheticsMobileTest = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "SyntheticsMobileTest"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
+        "SyntheticsMobileTest",
+        "",
+        _config?.preserveLargeIntegers
       ) as SyntheticsMobileTest;
       return body;
     }
@@ -3580,13 +4088,16 @@ export class SyntheticsApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -3601,9 +4112,14 @@ export class SyntheticsApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: SyntheticsMobileTest = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
         "SyntheticsMobileTest",
-        ""
+        "",
+        _config?.preserveLargeIntegers
       ) as SyntheticsMobileTest;
       return body;
     }
@@ -3623,28 +4139,39 @@ export class SyntheticsApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async updatePrivateLocation(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<SyntheticsPrivateLocation> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 200) {
       const body: SyntheticsPrivateLocation = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "SyntheticsPrivateLocation"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
+        "SyntheticsPrivateLocation",
+        "",
+        _config?.preserveLargeIntegers
       ) as SyntheticsPrivateLocation;
       return body;
     }
     if (response.httpStatusCode === 404 || response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -3659,9 +4186,14 @@ export class SyntheticsApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: SyntheticsPrivateLocation = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
         "SyntheticsPrivateLocation",
-        ""
+        "",
+        _config?.preserveLargeIntegers
       ) as SyntheticsPrivateLocation;
       return body;
     }
@@ -3681,15 +4213,23 @@ export class SyntheticsApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async updateTestPauseStatus(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<boolean> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 200) {
       const body: boolean = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "boolean"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
+        "boolean",
+        "",
+        _config?.preserveLargeIntegers
       ) as boolean;
       return body;
     }
@@ -3701,13 +4241,16 @@ export class SyntheticsApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -3722,9 +4265,14 @@ export class SyntheticsApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: boolean = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
         "boolean",
-        ""
+        "",
+        _config?.preserveLargeIntegers
       ) as boolean;
       return body;
     }
@@ -4106,7 +4654,7 @@ export class SyntheticsApi {
     this.requestFactory =
       requestFactory || new SyntheticsApiRequestFactory(configuration);
     this.responseProcessor =
-      responseProcessor || new SyntheticsApiResponseProcessor();
+      responseProcessor || new SyntheticsApiResponseProcessor(configuration);
   }
 
   /**
@@ -4125,7 +4673,10 @@ export class SyntheticsApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.createGlobalVariable(responseContext);
+          return this.responseProcessor.createGlobalVariable(
+            responseContext,
+            options
+          );
         });
     });
   }
@@ -4146,7 +4697,10 @@ export class SyntheticsApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.createPrivateLocation(responseContext);
+          return this.responseProcessor.createPrivateLocation(
+            responseContext,
+            options
+          );
         });
     });
   }
@@ -4168,7 +4722,8 @@ export class SyntheticsApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.createSyntheticsAPITest(
-            responseContext
+            responseContext,
+            options
           );
         });
     });
@@ -4189,7 +4744,8 @@ export class SyntheticsApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.createSyntheticsBrowserTest(
-            responseContext
+            responseContext,
+            options
           );
         });
     });
@@ -4210,7 +4766,8 @@ export class SyntheticsApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.createSyntheticsMobileTest(
-            responseContext
+            responseContext,
+            options
           );
         });
     });
@@ -4232,7 +4789,10 @@ export class SyntheticsApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.deleteGlobalVariable(responseContext);
+          return this.responseProcessor.deleteGlobalVariable(
+            responseContext,
+            options
+          );
         });
     });
   }
@@ -4253,7 +4813,10 @@ export class SyntheticsApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.deletePrivateLocation(responseContext);
+          return this.responseProcessor.deletePrivateLocation(
+            responseContext,
+            options
+          );
         });
     });
   }
@@ -4274,7 +4837,7 @@ export class SyntheticsApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.deleteTests(responseContext);
+          return this.responseProcessor.deleteTests(responseContext, options);
         });
     });
   }
@@ -4296,7 +4859,10 @@ export class SyntheticsApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.editGlobalVariable(responseContext);
+          return this.responseProcessor.editGlobalVariable(
+            responseContext,
+            options
+          );
         });
     });
   }
@@ -4317,7 +4883,7 @@ export class SyntheticsApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.fetchUptimes(responseContext);
+          return this.responseProcessor.fetchUptimes(responseContext, options);
         });
     });
   }
@@ -4339,7 +4905,7 @@ export class SyntheticsApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.getAPITest(responseContext);
+          return this.responseProcessor.getAPITest(responseContext, options);
         });
     });
   }
@@ -4364,7 +4930,8 @@ export class SyntheticsApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.getAPITestLatestResults(
-            responseContext
+            responseContext,
+            options
           );
         });
     });
@@ -4387,7 +4954,10 @@ export class SyntheticsApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.getAPITestResult(responseContext);
+          return this.responseProcessor.getAPITestResult(
+            responseContext,
+            options
+          );
         });
     });
   }
@@ -4409,7 +4979,10 @@ export class SyntheticsApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.getBrowserTest(responseContext);
+          return this.responseProcessor.getBrowserTest(
+            responseContext,
+            options
+          );
         });
     });
   }
@@ -4435,7 +5008,8 @@ export class SyntheticsApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.getBrowserTestLatestResults(
-            responseContext
+            responseContext,
+            options
           );
         });
     });
@@ -4458,7 +5032,10 @@ export class SyntheticsApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.getBrowserTestResult(responseContext);
+          return this.responseProcessor.getBrowserTestResult(
+            responseContext,
+            options
+          );
         });
     });
   }
@@ -4479,7 +5056,10 @@ export class SyntheticsApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.getGlobalVariable(responseContext);
+          return this.responseProcessor.getGlobalVariable(
+            responseContext,
+            options
+          );
         });
     });
   }
@@ -4501,7 +5081,7 @@ export class SyntheticsApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.getMobileTest(responseContext);
+          return this.responseProcessor.getMobileTest(responseContext, options);
         });
     });
   }
@@ -4522,7 +5102,10 @@ export class SyntheticsApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.getPrivateLocation(responseContext);
+          return this.responseProcessor.getPrivateLocation(
+            responseContext,
+            options
+          );
         });
     });
   }
@@ -4543,7 +5126,10 @@ export class SyntheticsApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.getSyntheticsCIBatch(responseContext);
+          return this.responseProcessor.getSyntheticsCIBatch(
+            responseContext,
+            options
+          );
         });
     });
   }
@@ -4562,7 +5148,8 @@ export class SyntheticsApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.getSyntheticsDefaultLocations(
-            responseContext
+            responseContext,
+            options
           );
         });
     });
@@ -4584,7 +5171,7 @@ export class SyntheticsApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.getTest(responseContext);
+          return this.responseProcessor.getTest(responseContext, options);
         });
     });
   }
@@ -4602,7 +5189,10 @@ export class SyntheticsApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.listGlobalVariables(responseContext);
+          return this.responseProcessor.listGlobalVariables(
+            responseContext,
+            options
+          );
         });
     });
   }
@@ -4618,7 +5208,7 @@ export class SyntheticsApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.listLocations(responseContext);
+          return this.responseProcessor.listLocations(responseContext, options);
         });
     });
   }
@@ -4640,7 +5230,7 @@ export class SyntheticsApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.listTests(responseContext);
+          return this.responseProcessor.listTests(responseContext, options);
         });
     });
   }
@@ -4668,7 +5258,10 @@ export class SyntheticsApi {
         requestContext
       );
 
-      const response = await this.responseProcessor.listTests(responseContext);
+      const response = await this.responseProcessor.listTests(
+        responseContext,
+        options
+      );
       const responseTests = response.tests;
       if (responseTests === undefined) {
         break;
@@ -4701,7 +5294,7 @@ export class SyntheticsApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.patchTest(responseContext);
+          return this.responseProcessor.patchTest(responseContext, options);
         });
     });
   }
@@ -4727,7 +5320,7 @@ export class SyntheticsApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.searchTests(responseContext);
+          return this.responseProcessor.searchTests(responseContext, options);
         });
     });
   }
@@ -4748,7 +5341,10 @@ export class SyntheticsApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.triggerCITests(responseContext);
+          return this.responseProcessor.triggerCITests(
+            responseContext,
+            options
+          );
         });
     });
   }
@@ -4769,7 +5365,7 @@ export class SyntheticsApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.triggerTests(responseContext);
+          return this.responseProcessor.triggerTests(responseContext, options);
         });
     });
   }
@@ -4791,7 +5387,7 @@ export class SyntheticsApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.updateAPITest(responseContext);
+          return this.responseProcessor.updateAPITest(responseContext, options);
         });
     });
   }
@@ -4813,7 +5409,10 @@ export class SyntheticsApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.updateBrowserTest(responseContext);
+          return this.responseProcessor.updateBrowserTest(
+            responseContext,
+            options
+          );
         });
     });
   }
@@ -4835,7 +5434,10 @@ export class SyntheticsApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.updateMobileTest(responseContext);
+          return this.responseProcessor.updateMobileTest(
+            responseContext,
+            options
+          );
         });
     });
   }
@@ -4857,7 +5459,10 @@ export class SyntheticsApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.updatePrivateLocation(responseContext);
+          return this.responseProcessor.updatePrivateLocation(
+            responseContext,
+            options
+          );
         });
     });
   }
@@ -4879,7 +5484,10 @@ export class SyntheticsApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.updateTestPauseStatus(responseContext);
+          return this.responseProcessor.updateTestPauseStatus(
+            responseContext,
+            options
+          );
         });
     });
   }

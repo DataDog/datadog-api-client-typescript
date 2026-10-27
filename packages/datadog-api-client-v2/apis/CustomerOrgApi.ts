@@ -60,7 +60,8 @@ export class CustomerOrgApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
       ObjectSerializer.serialize(body, "CustomerOrgDisableRequest", ""),
-      contentType
+      contentType,
+      _config.preserveLargeIntegers
     );
     requestContext.setBody(serializedBody);
 
@@ -76,6 +77,12 @@ export class CustomerOrgApiRequestFactory extends BaseAPIRequestFactory {
 }
 
 export class CustomerOrgApiResponseProcessor {
+  private configuration?: Configuration;
+
+  public constructor(configuration?: Configuration) {
+    this.configuration = configuration;
+  }
+
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
@@ -84,15 +91,23 @@ export class CustomerOrgApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async disableCustomerOrg(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<CustomerOrgDisableResponse> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 200) {
       const body: CustomerOrgDisableResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "CustomerOrgDisableResponse"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
+        "CustomerOrgDisableResponse",
+        "",
+        _config?.preserveLargeIntegers
       ) as CustomerOrgDisableResponse;
       return body;
     }
@@ -105,13 +120,16 @@ export class CustomerOrgApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: JSONAPIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "JSONAPIErrorResponse"
+          "JSONAPIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as JSONAPIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -128,13 +146,16 @@ export class CustomerOrgApiResponseProcessor {
     if (response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -149,9 +170,14 @@ export class CustomerOrgApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: CustomerOrgDisableResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
         "CustomerOrgDisableResponse",
-        ""
+        "",
+        _config?.preserveLargeIntegers
       ) as CustomerOrgDisableResponse;
       return body;
     }
@@ -185,7 +211,7 @@ export class CustomerOrgApi {
     this.requestFactory =
       requestFactory || new CustomerOrgApiRequestFactory(configuration);
     this.responseProcessor =
-      responseProcessor || new CustomerOrgApiResponseProcessor();
+      responseProcessor || new CustomerOrgApiResponseProcessor(configuration);
   }
 
   /**
@@ -220,7 +246,10 @@ export class CustomerOrgApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.disableCustomerOrg(responseContext);
+          return this.responseProcessor.disableCustomerOrg(
+            responseContext,
+            options
+          );
         });
     });
   }

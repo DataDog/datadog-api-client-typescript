@@ -73,7 +73,8 @@ export class CloudAuthenticationApiRequestFactory extends BaseAPIRequestFactory 
         "AWSCloudAuthPersonaMappingCreateRequest",
         ""
       ),
-      contentType
+      contentType,
+      _config.preserveLargeIntegers
     );
     requestContext.setBody(serializedBody);
 
@@ -133,7 +134,8 @@ export class CloudAuthenticationApiRequestFactory extends BaseAPIRequestFactory 
         "GitHubCloudAuthIntakeMappingCreateRequest",
         ""
       ),
-      contentType
+      contentType,
+      _config.preserveLargeIntegers
     );
     requestContext.setBody(serializedBody);
 
@@ -195,7 +197,8 @@ export class CloudAuthenticationApiRequestFactory extends BaseAPIRequestFactory 
         "GitHubCloudAuthPersonaMappingCreateRequest",
         ""
       ),
-      contentType
+      contentType,
+      _config.preserveLargeIntegers
     );
     requestContext.setBody(serializedBody);
 
@@ -630,6 +633,12 @@ export class CloudAuthenticationApiRequestFactory extends BaseAPIRequestFactory 
 }
 
 export class CloudAuthenticationApiResponseProcessor {
+  private configuration?: Configuration;
+
+  public constructor(configuration?: Configuration) {
+    this.configuration = configuration;
+  }
+
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
@@ -638,16 +647,24 @@ export class CloudAuthenticationApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async createAWSCloudAuthPersonaMapping(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<AWSCloudAuthPersonaMappingResponse> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 201) {
       const body: AWSCloudAuthPersonaMappingResponse =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
-          "AWSCloudAuthPersonaMappingResponse"
+          ObjectSerializer.parse(
+            await response.body.text(),
+            contentType,
+            _config?.preserveLargeIntegers
+          ),
+          "AWSCloudAuthPersonaMappingResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as AWSCloudAuthPersonaMappingResponse;
       return body;
     }
@@ -658,13 +675,16 @@ export class CloudAuthenticationApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: JSONAPIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "JSONAPIErrorResponse"
+          "JSONAPIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as JSONAPIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -681,13 +701,16 @@ export class CloudAuthenticationApiResponseProcessor {
     if (response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -703,9 +726,14 @@ export class CloudAuthenticationApiResponseProcessor {
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: AWSCloudAuthPersonaMappingResponse =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
+          ObjectSerializer.parse(
+            await response.body.text(),
+            contentType,
+            _config?.preserveLargeIntegers
+          ),
           "AWSCloudAuthPersonaMappingResponse",
-          ""
+          "",
+          _config?.preserveLargeIntegers
         ) as AWSCloudAuthPersonaMappingResponse;
       return body;
     }
@@ -725,16 +753,24 @@ export class CloudAuthenticationApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async createGitHubCloudAuthIntakeMapping(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<GitHubCloudAuthIntakeMappingResponse> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 201) {
       const body: GitHubCloudAuthIntakeMappingResponse =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
-          "GitHubCloudAuthIntakeMappingResponse"
+          ObjectSerializer.parse(
+            await response.body.text(),
+            contentType,
+            _config?.preserveLargeIntegers
+          ),
+          "GitHubCloudAuthIntakeMappingResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as GitHubCloudAuthIntakeMappingResponse;
       return body;
     }
@@ -745,13 +781,16 @@ export class CloudAuthenticationApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: JSONAPIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "JSONAPIErrorResponse"
+          "JSONAPIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as JSONAPIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -768,13 +807,16 @@ export class CloudAuthenticationApiResponseProcessor {
     if (response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -790,9 +832,14 @@ export class CloudAuthenticationApiResponseProcessor {
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: GitHubCloudAuthIntakeMappingResponse =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
+          ObjectSerializer.parse(
+            await response.body.text(),
+            contentType,
+            _config?.preserveLargeIntegers
+          ),
           "GitHubCloudAuthIntakeMappingResponse",
-          ""
+          "",
+          _config?.preserveLargeIntegers
         ) as GitHubCloudAuthIntakeMappingResponse;
       return body;
     }
@@ -812,16 +859,24 @@ export class CloudAuthenticationApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async createGitHubCloudAuthPersonaMapping(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<GitHubCloudAuthPersonaMappingResponse> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 201) {
       const body: GitHubCloudAuthPersonaMappingResponse =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
-          "GitHubCloudAuthPersonaMappingResponse"
+          ObjectSerializer.parse(
+            await response.body.text(),
+            contentType,
+            _config?.preserveLargeIntegers
+          ),
+          "GitHubCloudAuthPersonaMappingResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as GitHubCloudAuthPersonaMappingResponse;
       return body;
     }
@@ -832,13 +887,16 @@ export class CloudAuthenticationApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: JSONAPIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "JSONAPIErrorResponse"
+          "JSONAPIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as JSONAPIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -855,13 +913,16 @@ export class CloudAuthenticationApiResponseProcessor {
     if (response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -877,9 +938,14 @@ export class CloudAuthenticationApiResponseProcessor {
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: GitHubCloudAuthPersonaMappingResponse =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
+          ObjectSerializer.parse(
+            await response.body.text(),
+            contentType,
+            _config?.preserveLargeIntegers
+          ),
           "GitHubCloudAuthPersonaMappingResponse",
-          ""
+          "",
+          _config?.preserveLargeIntegers
         ) as GitHubCloudAuthPersonaMappingResponse;
       return body;
     }
@@ -899,8 +965,10 @@ export class CloudAuthenticationApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async deleteAWSCloudAuthPersonaMapping(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<void> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
@@ -910,13 +978,16 @@ export class CloudAuthenticationApiResponseProcessor {
     if (response.httpStatusCode === 403 || response.httpStatusCode === 404) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: JSONAPIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "JSONAPIErrorResponse"
+          "JSONAPIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as JSONAPIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -933,13 +1004,16 @@ export class CloudAuthenticationApiResponseProcessor {
     if (response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -971,8 +1045,10 @@ export class CloudAuthenticationApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async deleteGitHubCloudAuthIntakeMapping(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<void> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
@@ -982,13 +1058,16 @@ export class CloudAuthenticationApiResponseProcessor {
     if (response.httpStatusCode === 403 || response.httpStatusCode === 404) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: JSONAPIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "JSONAPIErrorResponse"
+          "JSONAPIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as JSONAPIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -1005,13 +1084,16 @@ export class CloudAuthenticationApiResponseProcessor {
     if (response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -1043,8 +1125,10 @@ export class CloudAuthenticationApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async deleteGitHubCloudAuthPersonaMapping(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<void> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
@@ -1054,13 +1138,16 @@ export class CloudAuthenticationApiResponseProcessor {
     if (response.httpStatusCode === 403 || response.httpStatusCode === 404) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: JSONAPIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "JSONAPIErrorResponse"
+          "JSONAPIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as JSONAPIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -1077,13 +1164,16 @@ export class CloudAuthenticationApiResponseProcessor {
     if (response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -1115,29 +1205,40 @@ export class CloudAuthenticationApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async getAWSCloudAuthPersonaMapping(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<AWSCloudAuthPersonaMappingResponse> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 200) {
       const body: AWSCloudAuthPersonaMappingResponse =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
-          "AWSCloudAuthPersonaMappingResponse"
+          ObjectSerializer.parse(
+            await response.body.text(),
+            contentType,
+            _config?.preserveLargeIntegers
+          ),
+          "AWSCloudAuthPersonaMappingResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as AWSCloudAuthPersonaMappingResponse;
       return body;
     }
     if (response.httpStatusCode === 403 || response.httpStatusCode === 404) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: JSONAPIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "JSONAPIErrorResponse"
+          "JSONAPIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as JSONAPIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -1154,13 +1255,16 @@ export class CloudAuthenticationApiResponseProcessor {
     if (response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -1176,9 +1280,14 @@ export class CloudAuthenticationApiResponseProcessor {
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: AWSCloudAuthPersonaMappingResponse =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
+          ObjectSerializer.parse(
+            await response.body.text(),
+            contentType,
+            _config?.preserveLargeIntegers
+          ),
           "AWSCloudAuthPersonaMappingResponse",
-          ""
+          "",
+          _config?.preserveLargeIntegers
         ) as AWSCloudAuthPersonaMappingResponse;
       return body;
     }
@@ -1198,29 +1307,40 @@ export class CloudAuthenticationApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async getGitHubCloudAuthIntakeMapping(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<GitHubCloudAuthIntakeMappingResponse> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 200) {
       const body: GitHubCloudAuthIntakeMappingResponse =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
-          "GitHubCloudAuthIntakeMappingResponse"
+          ObjectSerializer.parse(
+            await response.body.text(),
+            contentType,
+            _config?.preserveLargeIntegers
+          ),
+          "GitHubCloudAuthIntakeMappingResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as GitHubCloudAuthIntakeMappingResponse;
       return body;
     }
     if (response.httpStatusCode === 403 || response.httpStatusCode === 404) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: JSONAPIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "JSONAPIErrorResponse"
+          "JSONAPIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as JSONAPIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -1237,13 +1357,16 @@ export class CloudAuthenticationApiResponseProcessor {
     if (response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -1259,9 +1382,14 @@ export class CloudAuthenticationApiResponseProcessor {
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: GitHubCloudAuthIntakeMappingResponse =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
+          ObjectSerializer.parse(
+            await response.body.text(),
+            contentType,
+            _config?.preserveLargeIntegers
+          ),
           "GitHubCloudAuthIntakeMappingResponse",
-          ""
+          "",
+          _config?.preserveLargeIntegers
         ) as GitHubCloudAuthIntakeMappingResponse;
       return body;
     }
@@ -1281,29 +1409,40 @@ export class CloudAuthenticationApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async getGitHubCloudAuthPersonaMapping(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<GitHubCloudAuthPersonaMappingResponse> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 200) {
       const body: GitHubCloudAuthPersonaMappingResponse =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
-          "GitHubCloudAuthPersonaMappingResponse"
+          ObjectSerializer.parse(
+            await response.body.text(),
+            contentType,
+            _config?.preserveLargeIntegers
+          ),
+          "GitHubCloudAuthPersonaMappingResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as GitHubCloudAuthPersonaMappingResponse;
       return body;
     }
     if (response.httpStatusCode === 403 || response.httpStatusCode === 404) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: JSONAPIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "JSONAPIErrorResponse"
+          "JSONAPIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as JSONAPIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -1320,13 +1459,16 @@ export class CloudAuthenticationApiResponseProcessor {
     if (response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -1342,9 +1484,14 @@ export class CloudAuthenticationApiResponseProcessor {
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: GitHubCloudAuthPersonaMappingResponse =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
+          ObjectSerializer.parse(
+            await response.body.text(),
+            contentType,
+            _config?.preserveLargeIntegers
+          ),
           "GitHubCloudAuthPersonaMappingResponse",
-          ""
+          "",
+          _config?.preserveLargeIntegers
         ) as GitHubCloudAuthPersonaMappingResponse;
       return body;
     }
@@ -1364,29 +1511,40 @@ export class CloudAuthenticationApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async listAWSCloudAuthPersonaMappings(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<AWSCloudAuthPersonaMappingsResponse> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 200) {
       const body: AWSCloudAuthPersonaMappingsResponse =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
-          "AWSCloudAuthPersonaMappingsResponse"
+          ObjectSerializer.parse(
+            await response.body.text(),
+            contentType,
+            _config?.preserveLargeIntegers
+          ),
+          "AWSCloudAuthPersonaMappingsResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as AWSCloudAuthPersonaMappingsResponse;
       return body;
     }
     if (response.httpStatusCode === 400 || response.httpStatusCode === 403) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: JSONAPIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "JSONAPIErrorResponse"
+          "JSONAPIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as JSONAPIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -1403,13 +1561,16 @@ export class CloudAuthenticationApiResponseProcessor {
     if (response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -1425,9 +1586,14 @@ export class CloudAuthenticationApiResponseProcessor {
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: AWSCloudAuthPersonaMappingsResponse =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
+          ObjectSerializer.parse(
+            await response.body.text(),
+            contentType,
+            _config?.preserveLargeIntegers
+          ),
           "AWSCloudAuthPersonaMappingsResponse",
-          ""
+          "",
+          _config?.preserveLargeIntegers
         ) as AWSCloudAuthPersonaMappingsResponse;
       return body;
     }
@@ -1447,29 +1613,40 @@ export class CloudAuthenticationApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async listGitHubCloudAuthIntakeMappings(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<GitHubCloudAuthIntakeMappingsResponse> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 200) {
       const body: GitHubCloudAuthIntakeMappingsResponse =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
-          "GitHubCloudAuthIntakeMappingsResponse"
+          ObjectSerializer.parse(
+            await response.body.text(),
+            contentType,
+            _config?.preserveLargeIntegers
+          ),
+          "GitHubCloudAuthIntakeMappingsResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as GitHubCloudAuthIntakeMappingsResponse;
       return body;
     }
     if (response.httpStatusCode === 400 || response.httpStatusCode === 403) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: JSONAPIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "JSONAPIErrorResponse"
+          "JSONAPIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as JSONAPIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -1486,13 +1663,16 @@ export class CloudAuthenticationApiResponseProcessor {
     if (response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -1508,9 +1688,14 @@ export class CloudAuthenticationApiResponseProcessor {
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: GitHubCloudAuthIntakeMappingsResponse =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
+          ObjectSerializer.parse(
+            await response.body.text(),
+            contentType,
+            _config?.preserveLargeIntegers
+          ),
           "GitHubCloudAuthIntakeMappingsResponse",
-          ""
+          "",
+          _config?.preserveLargeIntegers
         ) as GitHubCloudAuthIntakeMappingsResponse;
       return body;
     }
@@ -1530,29 +1715,40 @@ export class CloudAuthenticationApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async listGitHubCloudAuthPersonaMappings(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<GitHubCloudAuthPersonaMappingsResponse> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 200) {
       const body: GitHubCloudAuthPersonaMappingsResponse =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
-          "GitHubCloudAuthPersonaMappingsResponse"
+          ObjectSerializer.parse(
+            await response.body.text(),
+            contentType,
+            _config?.preserveLargeIntegers
+          ),
+          "GitHubCloudAuthPersonaMappingsResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as GitHubCloudAuthPersonaMappingsResponse;
       return body;
     }
     if (response.httpStatusCode === 400 || response.httpStatusCode === 403) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: JSONAPIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "JSONAPIErrorResponse"
+          "JSONAPIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as JSONAPIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -1569,13 +1765,16 @@ export class CloudAuthenticationApiResponseProcessor {
     if (response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -1591,9 +1790,14 @@ export class CloudAuthenticationApiResponseProcessor {
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: GitHubCloudAuthPersonaMappingsResponse =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
+          ObjectSerializer.parse(
+            await response.body.text(),
+            contentType,
+            _config?.preserveLargeIntegers
+          ),
           "GitHubCloudAuthPersonaMappingsResponse",
-          ""
+          "",
+          _config?.preserveLargeIntegers
         ) as GitHubCloudAuthPersonaMappingsResponse;
       return body;
     }
@@ -1689,7 +1893,8 @@ export class CloudAuthenticationApi {
     this.requestFactory =
       requestFactory || new CloudAuthenticationApiRequestFactory(configuration);
     this.responseProcessor =
-      responseProcessor || new CloudAuthenticationApiResponseProcessor();
+      responseProcessor ||
+      new CloudAuthenticationApiResponseProcessor(configuration);
   }
 
   /**
@@ -1707,7 +1912,8 @@ export class CloudAuthenticationApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.createAWSCloudAuthPersonaMapping(
-            responseContext
+            responseContext,
+            options
           );
         });
     });
@@ -1731,7 +1937,8 @@ export class CloudAuthenticationApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.createGitHubCloudAuthIntakeMapping(
-            responseContext
+            responseContext,
+            options
           );
         });
     });
@@ -1755,7 +1962,8 @@ export class CloudAuthenticationApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.createGitHubCloudAuthPersonaMapping(
-            responseContext
+            responseContext,
+            options
           );
         });
     });
@@ -1779,7 +1987,8 @@ export class CloudAuthenticationApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.deleteAWSCloudAuthPersonaMapping(
-            responseContext
+            responseContext,
+            options
           );
         });
     });
@@ -1803,7 +2012,8 @@ export class CloudAuthenticationApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.deleteGitHubCloudAuthIntakeMapping(
-            responseContext
+            responseContext,
+            options
           );
         });
     });
@@ -1827,7 +2037,8 @@ export class CloudAuthenticationApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.deleteGitHubCloudAuthPersonaMapping(
-            responseContext
+            responseContext,
+            options
           );
         });
     });
@@ -1851,7 +2062,8 @@ export class CloudAuthenticationApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.getAWSCloudAuthPersonaMapping(
-            responseContext
+            responseContext,
+            options
           );
         });
     });
@@ -1875,7 +2087,8 @@ export class CloudAuthenticationApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.getGitHubCloudAuthIntakeMapping(
-            responseContext
+            responseContext,
+            options
           );
         });
     });
@@ -1899,7 +2112,8 @@ export class CloudAuthenticationApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.getGitHubCloudAuthPersonaMapping(
-            responseContext
+            responseContext,
+            options
           );
         });
     });
@@ -1919,7 +2133,8 @@ export class CloudAuthenticationApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.listAWSCloudAuthPersonaMappings(
-            responseContext
+            responseContext,
+            options
           );
         });
     });
@@ -1939,7 +2154,8 @@ export class CloudAuthenticationApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.listGitHubCloudAuthIntakeMappings(
-            responseContext
+            responseContext,
+            options
           );
         });
     });
@@ -1959,7 +2175,8 @@ export class CloudAuthenticationApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.listGitHubCloudAuthPersonaMappings(
-            responseContext
+            responseContext,
+            options
           );
         });
     });

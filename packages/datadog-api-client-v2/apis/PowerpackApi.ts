@@ -56,7 +56,8 @@ export class PowerpackApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
       ObjectSerializer.serialize(body, "Powerpack", ""),
-      contentType
+      contentType,
+      _config.preserveLargeIntegers
     );
     requestContext.setBody(serializedBody);
 
@@ -238,7 +239,8 @@ export class PowerpackApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
       ObjectSerializer.serialize(body, "Powerpack", ""),
-      contentType
+      contentType,
+      _config.preserveLargeIntegers
     );
     requestContext.setBody(serializedBody);
 
@@ -254,6 +256,12 @@ export class PowerpackApiRequestFactory extends BaseAPIRequestFactory {
 }
 
 export class PowerpackApiResponseProcessor {
+  private configuration?: Configuration;
+
+  public constructor(configuration?: Configuration) {
+    this.configuration = configuration;
+  }
+
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
@@ -262,28 +270,39 @@ export class PowerpackApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async createPowerpack(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<PowerpackResponse> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 200) {
       const body: PowerpackResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "PowerpackResponse"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
+        "PowerpackResponse",
+        "",
+        _config?.preserveLargeIntegers
       ) as PowerpackResponse;
       return body;
     }
     if (response.httpStatusCode === 400 || response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -298,9 +317,14 @@ export class PowerpackApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: PowerpackResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
         "PowerpackResponse",
-        ""
+        "",
+        _config?.preserveLargeIntegers
       ) as PowerpackResponse;
       return body;
     }
@@ -319,7 +343,11 @@ export class PowerpackApiResponseProcessor {
    * @params response Response returned by the server for a request to deletePowerpack
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async deletePowerpack(response: ResponseContext): Promise<void> {
+  public async deletePowerpack(
+    response: ResponseContext,
+    _options?: Configuration
+  ): Promise<void> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
@@ -329,13 +357,16 @@ export class PowerpackApiResponseProcessor {
     if (response.httpStatusCode === 404 || response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -367,28 +398,39 @@ export class PowerpackApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async getPowerpack(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<PowerpackResponse> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 200) {
       const body: PowerpackResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "PowerpackResponse"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
+        "PowerpackResponse",
+        "",
+        _config?.preserveLargeIntegers
       ) as PowerpackResponse;
       return body;
     }
     if (response.httpStatusCode === 404 || response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -403,9 +445,14 @@ export class PowerpackApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: PowerpackResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
         "PowerpackResponse",
-        ""
+        "",
+        _config?.preserveLargeIntegers
       ) as PowerpackResponse;
       return body;
     }
@@ -425,28 +472,39 @@ export class PowerpackApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async listPowerpacks(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<ListPowerpacksResponse> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 200) {
       const body: ListPowerpacksResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "ListPowerpacksResponse"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
+        "ListPowerpacksResponse",
+        "",
+        _config?.preserveLargeIntegers
       ) as ListPowerpacksResponse;
       return body;
     }
     if (response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -461,9 +519,14 @@ export class PowerpackApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: ListPowerpacksResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
         "ListPowerpacksResponse",
-        ""
+        "",
+        _config?.preserveLargeIntegers
       ) as ListPowerpacksResponse;
       return body;
     }
@@ -483,15 +546,23 @@ export class PowerpackApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async updatePowerpack(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<PowerpackResponse> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 200) {
       const body: PowerpackResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "PowerpackResponse"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
+        "PowerpackResponse",
+        "",
+        _config?.preserveLargeIntegers
       ) as PowerpackResponse;
       return body;
     }
@@ -502,13 +573,16 @@ export class PowerpackApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -523,9 +597,14 @@ export class PowerpackApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: PowerpackResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
         "PowerpackResponse",
-        ""
+        "",
+        _config?.preserveLargeIntegers
       ) as PowerpackResponse;
       return body;
     }
@@ -602,7 +681,7 @@ export class PowerpackApi {
     this.requestFactory =
       requestFactory || new PowerpackApiRequestFactory(configuration);
     this.responseProcessor =
-      responseProcessor || new PowerpackApiResponseProcessor();
+      responseProcessor || new PowerpackApiResponseProcessor(configuration);
   }
 
   /**
@@ -621,7 +700,10 @@ export class PowerpackApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.createPowerpack(responseContext);
+          return this.responseProcessor.createPowerpack(
+            responseContext,
+            options
+          );
         });
     });
   }
@@ -642,7 +724,10 @@ export class PowerpackApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.deletePowerpack(responseContext);
+          return this.responseProcessor.deletePowerpack(
+            responseContext,
+            options
+          );
         });
     });
   }
@@ -663,7 +748,7 @@ export class PowerpackApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.getPowerpack(responseContext);
+          return this.responseProcessor.getPowerpack(responseContext, options);
         });
     });
   }
@@ -685,7 +770,10 @@ export class PowerpackApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.listPowerpacks(responseContext);
+          return this.responseProcessor.listPowerpacks(
+            responseContext,
+            options
+          );
         });
     });
   }
@@ -713,7 +801,8 @@ export class PowerpackApi {
       );
 
       const response = await this.responseProcessor.listPowerpacks(
-        responseContext
+        responseContext,
+        options
       );
       const responseData = response.data;
       if (responseData === undefined) {
@@ -751,7 +840,10 @@ export class PowerpackApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.updatePowerpack(responseContext);
+          return this.responseProcessor.updatePowerpack(
+            responseContext,
+            options
+          );
         });
     });
   }

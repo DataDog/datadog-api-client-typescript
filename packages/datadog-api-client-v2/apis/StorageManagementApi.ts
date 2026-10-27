@@ -99,7 +99,8 @@ export class StorageManagementApiRequestFactory extends BaseAPIRequestFactory {
         "UpsertCloudInventorySyncConfigRequest",
         ""
       ),
-      contentType
+      contentType,
+      _config.preserveLargeIntegers
     );
     requestContext.setBody(serializedBody);
 
@@ -115,6 +116,12 @@ export class StorageManagementApiRequestFactory extends BaseAPIRequestFactory {
 }
 
 export class StorageManagementApiResponseProcessor {
+  private configuration?: Configuration;
+
+  public constructor(configuration?: Configuration) {
+    this.configuration = configuration;
+  }
+
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
@@ -122,7 +129,11 @@ export class StorageManagementApiResponseProcessor {
    * @params response Response returned by the server for a request to deleteSyncConfig
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async deleteSyncConfig(response: ResponseContext): Promise<void> {
+  public async deleteSyncConfig(
+    response: ResponseContext,
+    _options?: Configuration
+  ): Promise<void> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
@@ -132,13 +143,16 @@ export class StorageManagementApiResponseProcessor {
     if (response.httpStatusCode === 403 || response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -152,13 +166,16 @@ export class StorageManagementApiResponseProcessor {
     if (response.httpStatusCode === 404) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: JSONAPIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "JSONAPIErrorResponse"
+          "JSONAPIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as JSONAPIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -193,29 +210,40 @@ export class StorageManagementApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async upsertSyncConfig(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<CloudInventorySyncConfigResponse> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 200) {
       const body: CloudInventorySyncConfigResponse =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
-          "CloudInventorySyncConfigResponse"
+          ObjectSerializer.parse(
+            await response.body.text(),
+            contentType,
+            _config?.preserveLargeIntegers
+          ),
+          "CloudInventorySyncConfigResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as CloudInventorySyncConfigResponse;
       return body;
     }
     if (response.httpStatusCode === 400) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: JSONAPIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "JSONAPIErrorResponse"
+          "JSONAPIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as JSONAPIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -232,13 +260,16 @@ export class StorageManagementApiResponseProcessor {
     if (response.httpStatusCode === 403 || response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -254,9 +285,14 @@ export class StorageManagementApiResponseProcessor {
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: CloudInventorySyncConfigResponse =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
+          ObjectSerializer.parse(
+            await response.body.text(),
+            contentType,
+            _config?.preserveLargeIntegers
+          ),
           "CloudInventorySyncConfigResponse",
-          ""
+          "",
+          _config?.preserveLargeIntegers
         ) as CloudInventorySyncConfigResponse;
       return body;
     }
@@ -298,7 +334,8 @@ export class StorageManagementApi {
     this.requestFactory =
       requestFactory || new StorageManagementApiRequestFactory(configuration);
     this.responseProcessor =
-      responseProcessor || new StorageManagementApiResponseProcessor();
+      responseProcessor ||
+      new StorageManagementApiResponseProcessor(configuration);
   }
 
   /**
@@ -317,7 +354,10 @@ export class StorageManagementApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.deleteSyncConfig(responseContext);
+          return this.responseProcessor.deleteSyncConfig(
+            responseContext,
+            options
+          );
         });
     });
   }
@@ -338,7 +378,10 @@ export class StorageManagementApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.upsertSyncConfig(responseContext);
+          return this.responseProcessor.upsertSyncConfig(
+            responseContext,
+            options
+          );
         });
     });
   }

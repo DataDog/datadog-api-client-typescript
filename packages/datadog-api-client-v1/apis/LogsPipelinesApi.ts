@@ -55,7 +55,8 @@ export class LogsPipelinesApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
       ObjectSerializer.serialize(body, "LogsPipeline", ""),
-      contentType
+      contentType,
+      _config.preserveLargeIntegers
     );
     requestContext.setBody(serializedBody);
 
@@ -249,7 +250,8 @@ export class LogsPipelinesApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
       ObjectSerializer.serialize(body, "LogsPipeline", ""),
-      contentType
+      contentType,
+      _config.preserveLargeIntegers
     );
     requestContext.setBody(serializedBody);
 
@@ -296,7 +298,8 @@ export class LogsPipelinesApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
       ObjectSerializer.serialize(body, "LogsPipelinesOrder", ""),
-      contentType
+      contentType,
+      _config.preserveLargeIntegers
     );
     requestContext.setBody(serializedBody);
 
@@ -312,6 +315,12 @@ export class LogsPipelinesApiRequestFactory extends BaseAPIRequestFactory {
 }
 
 export class LogsPipelinesApiResponseProcessor {
+  private configuration?: Configuration;
+
+  public constructor(configuration?: Configuration) {
+    this.configuration = configuration;
+  }
+
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
@@ -320,28 +329,39 @@ export class LogsPipelinesApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async createLogsPipeline(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<LogsPipeline> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 200) {
       const body: LogsPipeline = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "LogsPipeline"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
+        "LogsPipeline",
+        "",
+        _config?.preserveLargeIntegers
       ) as LogsPipeline;
       return body;
     }
     if (response.httpStatusCode === 400) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: LogsAPIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "LogsAPIErrorResponse"
+          "LogsAPIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as LogsAPIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -358,13 +378,16 @@ export class LogsPipelinesApiResponseProcessor {
     if (response.httpStatusCode === 403 || response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -379,9 +402,14 @@ export class LogsPipelinesApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: LogsPipeline = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
         "LogsPipeline",
-        ""
+        "",
+        _config?.preserveLargeIntegers
       ) as LogsPipeline;
       return body;
     }
@@ -400,7 +428,11 @@ export class LogsPipelinesApiResponseProcessor {
    * @params response Response returned by the server for a request to deleteLogsPipeline
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async deleteLogsPipeline(response: ResponseContext): Promise<void> {
+  public async deleteLogsPipeline(
+    response: ResponseContext,
+    _options?: Configuration
+  ): Promise<void> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
@@ -410,13 +442,16 @@ export class LogsPipelinesApiResponseProcessor {
     if (response.httpStatusCode === 400) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: LogsAPIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "LogsAPIErrorResponse"
+          "LogsAPIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as LogsAPIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -433,13 +468,16 @@ export class LogsPipelinesApiResponseProcessor {
     if (response.httpStatusCode === 403 || response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -471,28 +509,39 @@ export class LogsPipelinesApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async getLogsPipeline(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<LogsPipeline> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 200) {
       const body: LogsPipeline = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "LogsPipeline"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
+        "LogsPipeline",
+        "",
+        _config?.preserveLargeIntegers
       ) as LogsPipeline;
       return body;
     }
     if (response.httpStatusCode === 400) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: LogsAPIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "LogsAPIErrorResponse"
+          "LogsAPIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as LogsAPIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -509,13 +558,16 @@ export class LogsPipelinesApiResponseProcessor {
     if (response.httpStatusCode === 403 || response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -530,9 +582,14 @@ export class LogsPipelinesApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: LogsPipeline = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
         "LogsPipeline",
-        ""
+        "",
+        _config?.preserveLargeIntegers
       ) as LogsPipeline;
       return body;
     }
@@ -552,28 +609,39 @@ export class LogsPipelinesApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async getLogsPipelineOrder(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<LogsPipelinesOrder> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 200) {
       const body: LogsPipelinesOrder = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "LogsPipelinesOrder"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
+        "LogsPipelinesOrder",
+        "",
+        _config?.preserveLargeIntegers
       ) as LogsPipelinesOrder;
       return body;
     }
     if (response.httpStatusCode === 403 || response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -588,9 +656,14 @@ export class LogsPipelinesApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: LogsPipelinesOrder = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
         "LogsPipelinesOrder",
-        ""
+        "",
+        _config?.preserveLargeIntegers
       ) as LogsPipelinesOrder;
       return body;
     }
@@ -610,28 +683,39 @@ export class LogsPipelinesApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async listLogsPipelines(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<Array<LogsPipeline>> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 200) {
       const body: Array<LogsPipeline> = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "Array<LogsPipeline>"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
+        "Array<LogsPipeline>",
+        "",
+        _config?.preserveLargeIntegers
       ) as Array<LogsPipeline>;
       return body;
     }
     if (response.httpStatusCode === 403 || response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -646,9 +730,14 @@ export class LogsPipelinesApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: Array<LogsPipeline> = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
         "Array<LogsPipeline>",
-        ""
+        "",
+        _config?.preserveLargeIntegers
       ) as Array<LogsPipeline>;
       return body;
     }
@@ -668,28 +757,39 @@ export class LogsPipelinesApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async updateLogsPipeline(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<LogsPipeline> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 200) {
       const body: LogsPipeline = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "LogsPipeline"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
+        "LogsPipeline",
+        "",
+        _config?.preserveLargeIntegers
       ) as LogsPipeline;
       return body;
     }
     if (response.httpStatusCode === 400) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: LogsAPIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "LogsAPIErrorResponse"
+          "LogsAPIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as LogsAPIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -706,13 +806,16 @@ export class LogsPipelinesApiResponseProcessor {
     if (response.httpStatusCode === 403 || response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -727,9 +830,14 @@ export class LogsPipelinesApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: LogsPipeline = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
         "LogsPipeline",
-        ""
+        "",
+        _config?.preserveLargeIntegers
       ) as LogsPipeline;
       return body;
     }
@@ -749,28 +857,39 @@ export class LogsPipelinesApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async updateLogsPipelineOrder(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<LogsPipelinesOrder> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 200) {
       const body: LogsPipelinesOrder = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "LogsPipelinesOrder"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
+        "LogsPipelinesOrder",
+        "",
+        _config?.preserveLargeIntegers
       ) as LogsPipelinesOrder;
       return body;
     }
     if (response.httpStatusCode === 400 || response.httpStatusCode === 422) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: LogsAPIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "LogsAPIErrorResponse"
+          "LogsAPIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as LogsAPIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -787,13 +906,16 @@ export class LogsPipelinesApiResponseProcessor {
     if (response.httpStatusCode === 403 || response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -808,9 +930,14 @@ export class LogsPipelinesApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: LogsPipelinesOrder = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
         "LogsPipelinesOrder",
-        ""
+        "",
+        _config?.preserveLargeIntegers
       ) as LogsPipelinesOrder;
       return body;
     }
@@ -882,7 +1009,7 @@ export class LogsPipelinesApi {
     this.requestFactory =
       requestFactory || new LogsPipelinesApiRequestFactory(configuration);
     this.responseProcessor =
-      responseProcessor || new LogsPipelinesApiResponseProcessor();
+      responseProcessor || new LogsPipelinesApiResponseProcessor(configuration);
   }
 
   /**
@@ -901,7 +1028,10 @@ export class LogsPipelinesApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.createLogsPipeline(responseContext);
+          return this.responseProcessor.createLogsPipeline(
+            responseContext,
+            options
+          );
         });
     });
   }
@@ -923,7 +1053,10 @@ export class LogsPipelinesApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.deleteLogsPipeline(responseContext);
+          return this.responseProcessor.deleteLogsPipeline(
+            responseContext,
+            options
+          );
         });
     });
   }
@@ -945,7 +1078,10 @@ export class LogsPipelinesApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.getLogsPipeline(responseContext);
+          return this.responseProcessor.getLogsPipeline(
+            responseContext,
+            options
+          );
         });
     });
   }
@@ -964,7 +1100,10 @@ export class LogsPipelinesApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.getLogsPipelineOrder(responseContext);
+          return this.responseProcessor.getLogsPipelineOrder(
+            responseContext,
+            options
+          );
         });
     });
   }
@@ -983,7 +1122,10 @@ export class LogsPipelinesApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.listLogsPipelines(responseContext);
+          return this.responseProcessor.listLogsPipelines(
+            responseContext,
+            options
+          );
         });
     });
   }
@@ -1008,7 +1150,10 @@ export class LogsPipelinesApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.updateLogsPipeline(responseContext);
+          return this.responseProcessor.updateLogsPipeline(
+            responseContext,
+            options
+          );
         });
     });
   }
@@ -1034,7 +1179,8 @@ export class LogsPipelinesApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.updateLogsPipelineOrder(
-            responseContext
+            responseContext,
+            options
           );
         });
     });

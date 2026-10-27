@@ -68,7 +68,8 @@ export class ServiceAccountsApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
       ObjectSerializer.serialize(body, "ServiceAccountCreateRequest", ""),
-      contentType
+      contentType,
+      _config.preserveLargeIntegers
     );
     requestContext.setBody(serializedBody);
 
@@ -132,7 +133,8 @@ export class ServiceAccountsApiRequestFactory extends BaseAPIRequestFactory {
         "ServiceAccountAccessTokenCreateRequest",
         ""
       ),
-      contentType
+      contentType,
+      _config.preserveLargeIntegers
     );
     requestContext.setBody(serializedBody);
 
@@ -192,7 +194,8 @@ export class ServiceAccountsApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
       ObjectSerializer.serialize(body, "ApplicationKeyCreateRequest", ""),
-      contentType
+      contentType,
+      _config.preserveLargeIntegers
     );
     requestContext.setBody(serializedBody);
 
@@ -672,7 +675,8 @@ export class ServiceAccountsApiRequestFactory extends BaseAPIRequestFactory {
         "ServiceAccountAccessTokenUpdateRequest",
         ""
       ),
-      contentType
+      contentType,
+      _config.preserveLargeIntegers
     );
     requestContext.setBody(serializedBody);
 
@@ -740,7 +744,8 @@ export class ServiceAccountsApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
       ObjectSerializer.serialize(body, "ApplicationKeyUpdateRequest", ""),
-      contentType
+      contentType,
+      _config.preserveLargeIntegers
     );
     requestContext.setBody(serializedBody);
 
@@ -756,6 +761,12 @@ export class ServiceAccountsApiRequestFactory extends BaseAPIRequestFactory {
 }
 
 export class ServiceAccountsApiResponseProcessor {
+  private configuration?: Configuration;
+
+  public constructor(configuration?: Configuration) {
+    this.configuration = configuration;
+  }
+
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
@@ -764,15 +775,23 @@ export class ServiceAccountsApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async createServiceAccount(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<UserResponse> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 201) {
       const body: UserResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "UserResponse"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
+        "UserResponse",
+        "",
+        _config?.preserveLargeIntegers
       ) as UserResponse;
       return body;
     }
@@ -783,13 +802,16 @@ export class ServiceAccountsApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -804,9 +826,14 @@ export class ServiceAccountsApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: UserResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
         "UserResponse",
-        ""
+        "",
+        _config?.preserveLargeIntegers
       ) as UserResponse;
       return body;
     }
@@ -826,16 +853,24 @@ export class ServiceAccountsApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async createServiceAccountAccessToken(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<ServiceAccessTokenCreateResponse> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 201) {
       const body: ServiceAccessTokenCreateResponse =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
-          "ServiceAccessTokenCreateResponse"
+          ObjectSerializer.parse(
+            await response.body.text(),
+            contentType,
+            _config?.preserveLargeIntegers
+          ),
+          "ServiceAccessTokenCreateResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as ServiceAccessTokenCreateResponse;
       return body;
     }
@@ -847,13 +882,16 @@ export class ServiceAccountsApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -869,9 +907,14 @@ export class ServiceAccountsApiResponseProcessor {
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: ServiceAccessTokenCreateResponse =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
+          ObjectSerializer.parse(
+            await response.body.text(),
+            contentType,
+            _config?.preserveLargeIntegers
+          ),
           "ServiceAccessTokenCreateResponse",
-          ""
+          "",
+          _config?.preserveLargeIntegers
         ) as ServiceAccessTokenCreateResponse;
       return body;
     }
@@ -891,15 +934,23 @@ export class ServiceAccountsApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async createServiceAccountApplicationKey(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<ApplicationKeyResponse> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 201) {
       const body: ApplicationKeyResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "ApplicationKeyResponse"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
+        "ApplicationKeyResponse",
+        "",
+        _config?.preserveLargeIntegers
       ) as ApplicationKeyResponse;
       return body;
     }
@@ -910,13 +961,16 @@ export class ServiceAccountsApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -931,9 +985,14 @@ export class ServiceAccountsApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: ApplicationKeyResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
         "ApplicationKeyResponse",
-        ""
+        "",
+        _config?.preserveLargeIntegers
       ) as ApplicationKeyResponse;
       return body;
     }
@@ -953,8 +1012,10 @@ export class ServiceAccountsApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async deleteServiceAccountApplicationKey(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<void> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
@@ -968,13 +1029,16 @@ export class ServiceAccountsApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -1006,15 +1070,23 @@ export class ServiceAccountsApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async getServiceAccountAccessToken(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<ServiceAccessTokenResponse> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 200) {
       const body: ServiceAccessTokenResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "ServiceAccessTokenResponse"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
+        "ServiceAccessTokenResponse",
+        "",
+        _config?.preserveLargeIntegers
       ) as ServiceAccessTokenResponse;
       return body;
     }
@@ -1025,13 +1097,16 @@ export class ServiceAccountsApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -1046,9 +1121,14 @@ export class ServiceAccountsApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: ServiceAccessTokenResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
         "ServiceAccessTokenResponse",
-        ""
+        "",
+        _config?.preserveLargeIntegers
       ) as ServiceAccessTokenResponse;
       return body;
     }
@@ -1068,15 +1148,23 @@ export class ServiceAccountsApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async getServiceAccountApplicationKey(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<PartialApplicationKeyResponse> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 200) {
       const body: PartialApplicationKeyResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "PartialApplicationKeyResponse"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
+        "PartialApplicationKeyResponse",
+        "",
+        _config?.preserveLargeIntegers
       ) as PartialApplicationKeyResponse;
       return body;
     }
@@ -1087,13 +1175,16 @@ export class ServiceAccountsApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -1108,9 +1199,14 @@ export class ServiceAccountsApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: PartialApplicationKeyResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
         "PartialApplicationKeyResponse",
-        ""
+        "",
+        _config?.preserveLargeIntegers
       ) as PartialApplicationKeyResponse;
       return body;
     }
@@ -1130,16 +1226,24 @@ export class ServiceAccountsApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async listServiceAccountAccessTokens(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<ListServiceAccessTokensResponse> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 200) {
       const body: ListServiceAccessTokensResponse =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
-          "ListServiceAccessTokensResponse"
+          ObjectSerializer.parse(
+            await response.body.text(),
+            contentType,
+            _config?.preserveLargeIntegers
+          ),
+          "ListServiceAccessTokensResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as ListServiceAccessTokensResponse;
       return body;
     }
@@ -1151,13 +1255,16 @@ export class ServiceAccountsApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -1173,9 +1280,14 @@ export class ServiceAccountsApiResponseProcessor {
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: ListServiceAccessTokensResponse =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
+          ObjectSerializer.parse(
+            await response.body.text(),
+            contentType,
+            _config?.preserveLargeIntegers
+          ),
           "ListServiceAccessTokensResponse",
-          ""
+          "",
+          _config?.preserveLargeIntegers
         ) as ListServiceAccessTokensResponse;
       return body;
     }
@@ -1195,15 +1307,23 @@ export class ServiceAccountsApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async listServiceAccountApplicationKeys(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<ListApplicationKeysResponse> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 200) {
       const body: ListApplicationKeysResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "ListApplicationKeysResponse"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
+        "ListApplicationKeysResponse",
+        "",
+        _config?.preserveLargeIntegers
       ) as ListApplicationKeysResponse;
       return body;
     }
@@ -1215,13 +1335,16 @@ export class ServiceAccountsApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -1236,9 +1359,14 @@ export class ServiceAccountsApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: ListApplicationKeysResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
         "ListApplicationKeysResponse",
-        ""
+        "",
+        _config?.preserveLargeIntegers
       ) as ListApplicationKeysResponse;
       return body;
     }
@@ -1258,8 +1386,10 @@ export class ServiceAccountsApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async revokeServiceAccountAccessToken(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<void> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
@@ -1273,13 +1403,16 @@ export class ServiceAccountsApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -1311,16 +1444,24 @@ export class ServiceAccountsApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async updateServiceAccountAccessToken(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<UpdatedServiceAccessTokenResponse> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 200) {
       const body: UpdatedServiceAccessTokenResponse =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
-          "UpdatedServiceAccessTokenResponse"
+          ObjectSerializer.parse(
+            await response.body.text(),
+            contentType,
+            _config?.preserveLargeIntegers
+          ),
+          "UpdatedServiceAccessTokenResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as UpdatedServiceAccessTokenResponse;
       return body;
     }
@@ -1332,13 +1473,16 @@ export class ServiceAccountsApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -1354,9 +1498,14 @@ export class ServiceAccountsApiResponseProcessor {
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: UpdatedServiceAccessTokenResponse =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
+          ObjectSerializer.parse(
+            await response.body.text(),
+            contentType,
+            _config?.preserveLargeIntegers
+          ),
           "UpdatedServiceAccessTokenResponse",
-          ""
+          "",
+          _config?.preserveLargeIntegers
         ) as UpdatedServiceAccessTokenResponse;
       return body;
     }
@@ -1376,15 +1525,23 @@ export class ServiceAccountsApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async updateServiceAccountApplicationKey(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<PartialApplicationKeyResponse> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 200) {
       const body: PartialApplicationKeyResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "PartialApplicationKeyResponse"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
+        "PartialApplicationKeyResponse",
+        "",
+        _config?.preserveLargeIntegers
       ) as PartialApplicationKeyResponse;
       return body;
     }
@@ -1396,13 +1553,16 @@ export class ServiceAccountsApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -1417,9 +1577,14 @@ export class ServiceAccountsApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: PartialApplicationKeyResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
         "PartialApplicationKeyResponse",
-        ""
+        "",
+        _config?.preserveLargeIntegers
       ) as PartialApplicationKeyResponse;
       return body;
     }
@@ -1648,7 +1813,8 @@ export class ServiceAccountsApi {
     this.requestFactory =
       requestFactory || new ServiceAccountsApiRequestFactory(configuration);
     this.responseProcessor =
-      responseProcessor || new ServiceAccountsApiResponseProcessor();
+      responseProcessor ||
+      new ServiceAccountsApiResponseProcessor(configuration);
   }
 
   /**
@@ -1667,7 +1833,10 @@ export class ServiceAccountsApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.createServiceAccount(responseContext);
+          return this.responseProcessor.createServiceAccount(
+            responseContext,
+            options
+          );
         });
     });
   }
@@ -1691,7 +1860,8 @@ export class ServiceAccountsApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.createServiceAccountAccessToken(
-            responseContext
+            responseContext,
+            options
           );
         });
     });
@@ -1716,7 +1886,8 @@ export class ServiceAccountsApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.createServiceAccountApplicationKey(
-            responseContext
+            responseContext,
+            options
           );
         });
     });
@@ -1741,7 +1912,8 @@ export class ServiceAccountsApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.deleteServiceAccountApplicationKey(
-            responseContext
+            responseContext,
+            options
           );
         });
     });
@@ -1767,7 +1939,8 @@ export class ServiceAccountsApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.getServiceAccountAccessToken(
-            responseContext
+            responseContext,
+            options
           );
         });
     });
@@ -1792,7 +1965,8 @@ export class ServiceAccountsApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.getServiceAccountApplicationKey(
-            responseContext
+            responseContext,
+            options
           );
         });
     });
@@ -1822,7 +1996,8 @@ export class ServiceAccountsApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.listServiceAccountAccessTokens(
-            responseContext
+            responseContext,
+            options
           );
         });
     });
@@ -1852,7 +2027,8 @@ export class ServiceAccountsApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.listServiceAccountApplicationKeys(
-            responseContext
+            responseContext,
+            options
           );
         });
     });
@@ -1877,7 +2053,8 @@ export class ServiceAccountsApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.revokeServiceAccountAccessToken(
-            responseContext
+            responseContext,
+            options
           );
         });
     });
@@ -1903,7 +2080,8 @@ export class ServiceAccountsApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.updateServiceAccountAccessToken(
-            responseContext
+            responseContext,
+            options
           );
         });
     });
@@ -1929,7 +2107,8 @@ export class ServiceAccountsApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.updateServiceAccountApplicationKey(
-            responseContext
+            responseContext,
+            options
           );
         });
     });

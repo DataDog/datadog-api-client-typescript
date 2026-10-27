@@ -72,7 +72,8 @@ export class SensitiveDataScannerApiRequestFactory extends BaseAPIRequestFactory
         "SensitiveDataScannerGroupCreateRequest",
         ""
       ),
-      contentType
+      contentType,
+      _config.preserveLargeIntegers
     );
     requestContext.setBody(serializedBody);
 
@@ -123,7 +124,8 @@ export class SensitiveDataScannerApiRequestFactory extends BaseAPIRequestFactory
         "SensitiveDataScannerRuleCreateRequest",
         ""
       ),
-      contentType
+      contentType,
+      _config.preserveLargeIntegers
     );
     requestContext.setBody(serializedBody);
 
@@ -184,7 +186,8 @@ export class SensitiveDataScannerApiRequestFactory extends BaseAPIRequestFactory
         "SensitiveDataScannerGroupDeleteRequest",
         ""
       ),
-      contentType
+      contentType,
+      _config.preserveLargeIntegers
     );
     requestContext.setBody(serializedBody);
 
@@ -245,7 +248,8 @@ export class SensitiveDataScannerApiRequestFactory extends BaseAPIRequestFactory
         "SensitiveDataScannerRuleDeleteRequest",
         ""
       ),
-      contentType
+      contentType,
+      _config.preserveLargeIntegers
     );
     requestContext.setBody(serializedBody);
 
@@ -353,7 +357,8 @@ export class SensitiveDataScannerApiRequestFactory extends BaseAPIRequestFactory
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
       ObjectSerializer.serialize(body, "SensitiveDataScannerConfigRequest", ""),
-      contentType
+      contentType,
+      _config.preserveLargeIntegers
     );
     requestContext.setBody(serializedBody);
 
@@ -414,7 +419,8 @@ export class SensitiveDataScannerApiRequestFactory extends BaseAPIRequestFactory
         "SensitiveDataScannerGroupUpdateRequest",
         ""
       ),
-      contentType
+      contentType,
+      _config.preserveLargeIntegers
     );
     requestContext.setBody(serializedBody);
 
@@ -475,7 +481,8 @@ export class SensitiveDataScannerApiRequestFactory extends BaseAPIRequestFactory
         "SensitiveDataScannerRuleUpdateRequest",
         ""
       ),
-      contentType
+      contentType,
+      _config.preserveLargeIntegers
     );
     requestContext.setBody(serializedBody);
 
@@ -491,6 +498,12 @@ export class SensitiveDataScannerApiRequestFactory extends BaseAPIRequestFactory
 }
 
 export class SensitiveDataScannerApiResponseProcessor {
+  private configuration?: Configuration;
+
+  public constructor(configuration?: Configuration) {
+    this.configuration = configuration;
+  }
+
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
@@ -499,16 +512,24 @@ export class SensitiveDataScannerApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async createScanningGroup(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<SensitiveDataScannerCreateGroupResponse> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 201) {
       const body: SensitiveDataScannerCreateGroupResponse =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
-          "SensitiveDataScannerCreateGroupResponse"
+          ObjectSerializer.parse(
+            await response.body.text(),
+            contentType,
+            _config?.preserveLargeIntegers
+          ),
+          "SensitiveDataScannerCreateGroupResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as SensitiveDataScannerCreateGroupResponse;
       return body;
     }
@@ -519,13 +540,16 @@ export class SensitiveDataScannerApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -541,9 +565,14 @@ export class SensitiveDataScannerApiResponseProcessor {
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: SensitiveDataScannerCreateGroupResponse =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
+          ObjectSerializer.parse(
+            await response.body.text(),
+            contentType,
+            _config?.preserveLargeIntegers
+          ),
           "SensitiveDataScannerCreateGroupResponse",
-          ""
+          "",
+          _config?.preserveLargeIntegers
         ) as SensitiveDataScannerCreateGroupResponse;
       return body;
     }
@@ -563,16 +592,24 @@ export class SensitiveDataScannerApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async createScanningRule(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<SensitiveDataScannerCreateRuleResponse> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 201) {
       const body: SensitiveDataScannerCreateRuleResponse =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
-          "SensitiveDataScannerCreateRuleResponse"
+          ObjectSerializer.parse(
+            await response.body.text(),
+            contentType,
+            _config?.preserveLargeIntegers
+          ),
+          "SensitiveDataScannerCreateRuleResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as SensitiveDataScannerCreateRuleResponse;
       return body;
     }
@@ -583,13 +620,16 @@ export class SensitiveDataScannerApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -605,9 +645,14 @@ export class SensitiveDataScannerApiResponseProcessor {
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: SensitiveDataScannerCreateRuleResponse =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
+          ObjectSerializer.parse(
+            await response.body.text(),
+            contentType,
+            _config?.preserveLargeIntegers
+          ),
           "SensitiveDataScannerCreateRuleResponse",
-          ""
+          "",
+          _config?.preserveLargeIntegers
         ) as SensitiveDataScannerCreateRuleResponse;
       return body;
     }
@@ -627,16 +672,24 @@ export class SensitiveDataScannerApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async deleteScanningGroup(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<SensitiveDataScannerGroupDeleteResponse> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 200) {
       const body: SensitiveDataScannerGroupDeleteResponse =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
-          "SensitiveDataScannerGroupDeleteResponse"
+          ObjectSerializer.parse(
+            await response.body.text(),
+            contentType,
+            _config?.preserveLargeIntegers
+          ),
+          "SensitiveDataScannerGroupDeleteResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as SensitiveDataScannerGroupDeleteResponse;
       return body;
     }
@@ -648,13 +701,16 @@ export class SensitiveDataScannerApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -670,9 +726,14 @@ export class SensitiveDataScannerApiResponseProcessor {
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: SensitiveDataScannerGroupDeleteResponse =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
+          ObjectSerializer.parse(
+            await response.body.text(),
+            contentType,
+            _config?.preserveLargeIntegers
+          ),
           "SensitiveDataScannerGroupDeleteResponse",
-          ""
+          "",
+          _config?.preserveLargeIntegers
         ) as SensitiveDataScannerGroupDeleteResponse;
       return body;
     }
@@ -692,16 +753,24 @@ export class SensitiveDataScannerApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async deleteScanningRule(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<SensitiveDataScannerRuleDeleteResponse> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 200) {
       const body: SensitiveDataScannerRuleDeleteResponse =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
-          "SensitiveDataScannerRuleDeleteResponse"
+          ObjectSerializer.parse(
+            await response.body.text(),
+            contentType,
+            _config?.preserveLargeIntegers
+          ),
+          "SensitiveDataScannerRuleDeleteResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as SensitiveDataScannerRuleDeleteResponse;
       return body;
     }
@@ -713,13 +782,16 @@ export class SensitiveDataScannerApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -735,9 +807,14 @@ export class SensitiveDataScannerApiResponseProcessor {
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: SensitiveDataScannerRuleDeleteResponse =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
+          ObjectSerializer.parse(
+            await response.body.text(),
+            contentType,
+            _config?.preserveLargeIntegers
+          ),
           "SensitiveDataScannerRuleDeleteResponse",
-          ""
+          "",
+          _config?.preserveLargeIntegers
         ) as SensitiveDataScannerRuleDeleteResponse;
       return body;
     }
@@ -757,16 +834,24 @@ export class SensitiveDataScannerApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async listScanningGroups(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<SensitiveDataScannerGetConfigResponse> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 200) {
       const body: SensitiveDataScannerGetConfigResponse =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
-          "SensitiveDataScannerGetConfigResponse"
+          ObjectSerializer.parse(
+            await response.body.text(),
+            contentType,
+            _config?.preserveLargeIntegers
+          ),
+          "SensitiveDataScannerGetConfigResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as SensitiveDataScannerGetConfigResponse;
       return body;
     }
@@ -777,13 +862,16 @@ export class SensitiveDataScannerApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -799,9 +887,14 @@ export class SensitiveDataScannerApiResponseProcessor {
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: SensitiveDataScannerGetConfigResponse =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
+          ObjectSerializer.parse(
+            await response.body.text(),
+            contentType,
+            _config?.preserveLargeIntegers
+          ),
           "SensitiveDataScannerGetConfigResponse",
-          ""
+          "",
+          _config?.preserveLargeIntegers
         ) as SensitiveDataScannerGetConfigResponse;
       return body;
     }
@@ -821,16 +914,24 @@ export class SensitiveDataScannerApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async listStandardPatterns(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<SensitiveDataScannerStandardPatternsResponseData> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 200) {
       const body: SensitiveDataScannerStandardPatternsResponseData =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
-          "SensitiveDataScannerStandardPatternsResponseData"
+          ObjectSerializer.parse(
+            await response.body.text(),
+            contentType,
+            _config?.preserveLargeIntegers
+          ),
+          "SensitiveDataScannerStandardPatternsResponseData",
+          "",
+          _config?.preserveLargeIntegers
         ) as SensitiveDataScannerStandardPatternsResponseData;
       return body;
     }
@@ -841,13 +942,16 @@ export class SensitiveDataScannerApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -863,9 +967,14 @@ export class SensitiveDataScannerApiResponseProcessor {
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: SensitiveDataScannerStandardPatternsResponseData =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
+          ObjectSerializer.parse(
+            await response.body.text(),
+            contentType,
+            _config?.preserveLargeIntegers
+          ),
           "SensitiveDataScannerStandardPatternsResponseData",
-          ""
+          "",
+          _config?.preserveLargeIntegers
         ) as SensitiveDataScannerStandardPatternsResponseData;
       return body;
     }
@@ -885,16 +994,24 @@ export class SensitiveDataScannerApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async reorderScanningGroups(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<SensitiveDataScannerReorderGroupsResponse> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 200) {
       const body: SensitiveDataScannerReorderGroupsResponse =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
-          "SensitiveDataScannerReorderGroupsResponse"
+          ObjectSerializer.parse(
+            await response.body.text(),
+            contentType,
+            _config?.preserveLargeIntegers
+          ),
+          "SensitiveDataScannerReorderGroupsResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as SensitiveDataScannerReorderGroupsResponse;
       return body;
     }
@@ -905,13 +1022,16 @@ export class SensitiveDataScannerApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -927,9 +1047,14 @@ export class SensitiveDataScannerApiResponseProcessor {
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: SensitiveDataScannerReorderGroupsResponse =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
+          ObjectSerializer.parse(
+            await response.body.text(),
+            contentType,
+            _config?.preserveLargeIntegers
+          ),
           "SensitiveDataScannerReorderGroupsResponse",
-          ""
+          "",
+          _config?.preserveLargeIntegers
         ) as SensitiveDataScannerReorderGroupsResponse;
       return body;
     }
@@ -949,16 +1074,24 @@ export class SensitiveDataScannerApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async updateScanningGroup(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<SensitiveDataScannerGroupUpdateResponse> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 200) {
       const body: SensitiveDataScannerGroupUpdateResponse =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
-          "SensitiveDataScannerGroupUpdateResponse"
+          ObjectSerializer.parse(
+            await response.body.text(),
+            contentType,
+            _config?.preserveLargeIntegers
+          ),
+          "SensitiveDataScannerGroupUpdateResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as SensitiveDataScannerGroupUpdateResponse;
       return body;
     }
@@ -970,13 +1103,16 @@ export class SensitiveDataScannerApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -992,9 +1128,14 @@ export class SensitiveDataScannerApiResponseProcessor {
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: SensitiveDataScannerGroupUpdateResponse =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
+          ObjectSerializer.parse(
+            await response.body.text(),
+            contentType,
+            _config?.preserveLargeIntegers
+          ),
           "SensitiveDataScannerGroupUpdateResponse",
-          ""
+          "",
+          _config?.preserveLargeIntegers
         ) as SensitiveDataScannerGroupUpdateResponse;
       return body;
     }
@@ -1014,16 +1155,24 @@ export class SensitiveDataScannerApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async updateScanningRule(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<SensitiveDataScannerRuleUpdateResponse> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 200) {
       const body: SensitiveDataScannerRuleUpdateResponse =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
-          "SensitiveDataScannerRuleUpdateResponse"
+          ObjectSerializer.parse(
+            await response.body.text(),
+            contentType,
+            _config?.preserveLargeIntegers
+          ),
+          "SensitiveDataScannerRuleUpdateResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as SensitiveDataScannerRuleUpdateResponse;
       return body;
     }
@@ -1035,13 +1184,16 @@ export class SensitiveDataScannerApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -1057,9 +1209,14 @@ export class SensitiveDataScannerApiResponseProcessor {
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: SensitiveDataScannerRuleUpdateResponse =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
+          ObjectSerializer.parse(
+            await response.body.text(),
+            contentType,
+            _config?.preserveLargeIntegers
+          ),
           "SensitiveDataScannerRuleUpdateResponse",
-          ""
+          "",
+          _config?.preserveLargeIntegers
         ) as SensitiveDataScannerRuleUpdateResponse;
       return body;
     }
@@ -1156,7 +1313,8 @@ export class SensitiveDataScannerApi {
       requestFactory ||
       new SensitiveDataScannerApiRequestFactory(configuration);
     this.responseProcessor =
-      responseProcessor || new SensitiveDataScannerApiResponseProcessor();
+      responseProcessor ||
+      new SensitiveDataScannerApiResponseProcessor(configuration);
   }
 
   /**
@@ -1179,7 +1337,10 @@ export class SensitiveDataScannerApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.createScanningGroup(responseContext);
+          return this.responseProcessor.createScanningGroup(
+            responseContext,
+            options
+          );
         });
     });
   }
@@ -1204,7 +1365,10 @@ export class SensitiveDataScannerApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.createScanningRule(responseContext);
+          return this.responseProcessor.createScanningRule(
+            responseContext,
+            options
+          );
         });
     });
   }
@@ -1226,7 +1390,10 @@ export class SensitiveDataScannerApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.deleteScanningGroup(responseContext);
+          return this.responseProcessor.deleteScanningGroup(
+            responseContext,
+            options
+          );
         });
     });
   }
@@ -1248,7 +1415,10 @@ export class SensitiveDataScannerApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.deleteScanningRule(responseContext);
+          return this.responseProcessor.deleteScanningRule(
+            responseContext,
+            options
+          );
         });
     });
   }
@@ -1266,7 +1436,10 @@ export class SensitiveDataScannerApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.listScanningGroups(responseContext);
+          return this.responseProcessor.listScanningGroups(
+            responseContext,
+            options
+          );
         });
     });
   }
@@ -1284,7 +1457,10 @@ export class SensitiveDataScannerApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.listStandardPatterns(responseContext);
+          return this.responseProcessor.listStandardPatterns(
+            responseContext,
+            options
+          );
         });
     });
   }
@@ -1305,7 +1481,10 @@ export class SensitiveDataScannerApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.reorderScanningGroups(responseContext);
+          return this.responseProcessor.reorderScanningGroups(
+            responseContext,
+            options
+          );
         });
     });
   }
@@ -1330,7 +1509,10 @@ export class SensitiveDataScannerApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.updateScanningGroup(responseContext);
+          return this.responseProcessor.updateScanningGroup(
+            responseContext,
+            options
+          );
         });
     });
   }
@@ -1355,7 +1537,10 @@ export class SensitiveDataScannerApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.updateScanningRule(responseContext);
+          return this.responseProcessor.updateScanningRule(
+            responseContext,
+            options
+          );
         });
     });
   }

@@ -138,7 +138,8 @@ export class RumReplayPlaylistsApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
       ObjectSerializer.serialize(body, "SessionIdArray", ""),
-      contentType
+      contentType,
+      _config.preserveLargeIntegers
     );
     requestContext.setBody(serializedBody);
 
@@ -185,7 +186,8 @@ export class RumReplayPlaylistsApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
       ObjectSerializer.serialize(body, "Playlist", ""),
-      contentType
+      contentType,
+      _config.preserveLargeIntegers
     );
     requestContext.setBody(serializedBody);
 
@@ -492,7 +494,8 @@ export class RumReplayPlaylistsApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
       ObjectSerializer.serialize(body, "Playlist", ""),
-      contentType
+      contentType,
+      _config.preserveLargeIntegers
     );
     requestContext.setBody(serializedBody);
 
@@ -508,6 +511,12 @@ export class RumReplayPlaylistsApiRequestFactory extends BaseAPIRequestFactory {
 }
 
 export class RumReplayPlaylistsApiResponseProcessor {
+  private configuration?: Configuration;
+
+  public constructor(configuration?: Configuration) {
+    this.configuration = configuration;
+  }
+
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
@@ -516,28 +525,39 @@ export class RumReplayPlaylistsApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async addRumReplaySessionToPlaylist(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<PlaylistsSession> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 200 || response.httpStatusCode === 201) {
       const body: PlaylistsSession = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "PlaylistsSession"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
+        "PlaylistsSession",
+        "",
+        _config?.preserveLargeIntegers
       ) as PlaylistsSession;
       return body;
     }
     if (response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -552,9 +572,14 @@ export class RumReplayPlaylistsApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: PlaylistsSession = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
         "PlaylistsSession",
-        ""
+        "",
+        _config?.preserveLargeIntegers
       ) as PlaylistsSession;
       return body;
     }
@@ -574,8 +599,10 @@ export class RumReplayPlaylistsApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async bulkRemoveRumReplayPlaylistSessions(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<void> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
@@ -585,13 +612,16 @@ export class RumReplayPlaylistsApiResponseProcessor {
     if (response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -623,28 +653,39 @@ export class RumReplayPlaylistsApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async createRumReplayPlaylist(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<Playlist> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 201) {
       const body: Playlist = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "Playlist"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
+        "Playlist",
+        "",
+        _config?.preserveLargeIntegers
       ) as Playlist;
       return body;
     }
     if (response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -659,9 +700,14 @@ export class RumReplayPlaylistsApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: Playlist = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
         "Playlist",
-        ""
+        "",
+        _config?.preserveLargeIntegers
       ) as Playlist;
       return body;
     }
@@ -681,8 +727,10 @@ export class RumReplayPlaylistsApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async deleteRumReplayPlaylist(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<void> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
@@ -692,13 +740,16 @@ export class RumReplayPlaylistsApiResponseProcessor {
     if (response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -730,28 +781,39 @@ export class RumReplayPlaylistsApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async getRumReplayPlaylist(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<Playlist> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 200) {
       const body: Playlist = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "Playlist"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
+        "Playlist",
+        "",
+        _config?.preserveLargeIntegers
       ) as Playlist;
       return body;
     }
     if (response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -766,9 +828,14 @@ export class RumReplayPlaylistsApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: Playlist = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
         "Playlist",
-        ""
+        "",
+        _config?.preserveLargeIntegers
       ) as Playlist;
       return body;
     }
@@ -788,28 +855,39 @@ export class RumReplayPlaylistsApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async listRumReplayPlaylists(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<PlaylistArray> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 200) {
       const body: PlaylistArray = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "PlaylistArray"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
+        "PlaylistArray",
+        "",
+        _config?.preserveLargeIntegers
       ) as PlaylistArray;
       return body;
     }
     if (response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -824,9 +902,14 @@ export class RumReplayPlaylistsApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: PlaylistArray = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
         "PlaylistArray",
-        ""
+        "",
+        _config?.preserveLargeIntegers
       ) as PlaylistArray;
       return body;
     }
@@ -846,28 +929,39 @@ export class RumReplayPlaylistsApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async listRumReplayPlaylistSessions(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<PlaylistsSessionArray> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 200) {
       const body: PlaylistsSessionArray = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "PlaylistsSessionArray"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
+        "PlaylistsSessionArray",
+        "",
+        _config?.preserveLargeIntegers
       ) as PlaylistsSessionArray;
       return body;
     }
     if (response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -882,9 +976,14 @@ export class RumReplayPlaylistsApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: PlaylistsSessionArray = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
         "PlaylistsSessionArray",
-        ""
+        "",
+        _config?.preserveLargeIntegers
       ) as PlaylistsSessionArray;
       return body;
     }
@@ -904,8 +1003,10 @@ export class RumReplayPlaylistsApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async removeRumReplaySessionFromPlaylist(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<void> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
@@ -915,13 +1016,16 @@ export class RumReplayPlaylistsApiResponseProcessor {
     if (response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -953,28 +1057,39 @@ export class RumReplayPlaylistsApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async updateRumReplayPlaylist(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<Playlist> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 200) {
       const body: Playlist = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "Playlist"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
+        "Playlist",
+        "",
+        _config?.preserveLargeIntegers
       ) as Playlist;
       return body;
     }
     if (response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -989,9 +1104,14 @@ export class RumReplayPlaylistsApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: Playlist = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
         "Playlist",
-        ""
+        "",
+        _config?.preserveLargeIntegers
       ) as Playlist;
       return body;
     }
@@ -1142,7 +1262,8 @@ export class RumReplayPlaylistsApi {
     this.requestFactory =
       requestFactory || new RumReplayPlaylistsApiRequestFactory(configuration);
     this.responseProcessor =
-      responseProcessor || new RumReplayPlaylistsApiResponseProcessor();
+      responseProcessor ||
+      new RumReplayPlaylistsApiResponseProcessor(configuration);
   }
 
   /**
@@ -1166,7 +1287,8 @@ export class RumReplayPlaylistsApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.addRumReplaySessionToPlaylist(
-            responseContext
+            responseContext,
+            options
           );
         });
     });
@@ -1191,7 +1313,8 @@ export class RumReplayPlaylistsApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.bulkRemoveRumReplayPlaylistSessions(
-            responseContext
+            responseContext,
+            options
           );
         });
     });
@@ -1214,7 +1337,8 @@ export class RumReplayPlaylistsApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.createRumReplayPlaylist(
-            responseContext
+            responseContext,
+            options
           );
         });
     });
@@ -1237,7 +1361,8 @@ export class RumReplayPlaylistsApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.deleteRumReplayPlaylist(
-            responseContext
+            responseContext,
+            options
           );
         });
     });
@@ -1259,7 +1384,10 @@ export class RumReplayPlaylistsApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.getRumReplayPlaylist(responseContext);
+          return this.responseProcessor.getRumReplayPlaylist(
+            responseContext,
+            options
+          );
         });
     });
   }
@@ -1283,7 +1411,10 @@ export class RumReplayPlaylistsApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.listRumReplayPlaylists(responseContext);
+          return this.responseProcessor.listRumReplayPlaylists(
+            responseContext,
+            options
+          );
         });
     });
   }
@@ -1308,7 +1439,8 @@ export class RumReplayPlaylistsApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.listRumReplayPlaylistSessions(
-            responseContext
+            responseContext,
+            options
           );
         });
     });
@@ -1333,7 +1465,8 @@ export class RumReplayPlaylistsApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.removeRumReplaySessionFromPlaylist(
-            responseContext
+            responseContext,
+            options
           );
         });
     });
@@ -1357,7 +1490,8 @@ export class RumReplayPlaylistsApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.updateRumReplayPlaylist(
-            responseContext
+            responseContext,
+            options
           );
         });
     });

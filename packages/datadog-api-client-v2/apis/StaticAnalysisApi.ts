@@ -98,7 +98,8 @@ export class StaticAnalysisApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
       ObjectSerializer.serialize(body, "AiCustomRuleRequest", ""),
-      contentType
+      contentType,
+      _config.preserveLargeIntegers
     );
     requestContext.setBody(serializedBody);
 
@@ -167,7 +168,8 @@ export class StaticAnalysisApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
       ObjectSerializer.serialize(body, "AiCustomRuleRevisionRequest", ""),
-      contentType
+      contentType,
+      _config.preserveLargeIntegers
     );
     requestContext.setBody(serializedBody);
 
@@ -219,7 +221,8 @@ export class StaticAnalysisApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
       ObjectSerializer.serialize(body, "AiCustomRulesetRequest", ""),
-      contentType
+      contentType,
+      _config.preserveLargeIntegers
     );
     requestContext.setBody(serializedBody);
 
@@ -273,7 +276,8 @@ export class StaticAnalysisApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
       ObjectSerializer.serialize(body, "AiMemoryViolationResultRequest", ""),
-      contentType
+      contentType,
+      _config.preserveLargeIntegers
     );
     requestContext.setBody(serializedBody);
 
@@ -335,7 +339,8 @@ export class StaticAnalysisApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
       ObjectSerializer.serialize(body, "CustomRuleRequest", ""),
-      contentType
+      contentType,
+      _config.preserveLargeIntegers
     );
     requestContext.setBody(serializedBody);
 
@@ -404,7 +409,8 @@ export class StaticAnalysisApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
       ObjectSerializer.serialize(body, "CustomRuleRevisionRequest", ""),
-      contentType
+      contentType,
+      _config.preserveLargeIntegers
     );
     requestContext.setBody(serializedBody);
 
@@ -456,7 +462,8 @@ export class StaticAnalysisApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
       ObjectSerializer.serialize(body, "CustomRulesetRequest", ""),
-      contentType
+      contentType,
+      _config.preserveLargeIntegers
     );
     requestContext.setBody(serializedBody);
 
@@ -511,7 +518,8 @@ export class StaticAnalysisApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
       ObjectSerializer.serialize(body, "ResolveVulnerableSymbolsRequest", ""),
-      contentType
+      contentType,
+      _config.preserveLargeIntegers
     );
     requestContext.setBody(serializedBody);
 
@@ -563,7 +571,8 @@ export class StaticAnalysisApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
       ObjectSerializer.serialize(body, "ScaRequest", ""),
-      contentType
+      contentType,
+      _config.preserveLargeIntegers
     );
     requestContext.setBody(serializedBody);
 
@@ -615,7 +624,8 @@ export class StaticAnalysisApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
       ObjectSerializer.serialize(body, "McpScanRequest", ""),
-      contentType
+      contentType,
+      _config.preserveLargeIntegers
     );
     requestContext.setBody(serializedBody);
 
@@ -1606,7 +1616,8 @@ export class StaticAnalysisApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
       ObjectSerializer.serialize(body, "RevertCustomRuleRevisionRequest", ""),
-      contentType
+      contentType,
+      _config.preserveLargeIntegers
     );
     requestContext.setBody(serializedBody);
 
@@ -1668,7 +1679,8 @@ export class StaticAnalysisApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
       ObjectSerializer.serialize(body, "AiCustomRulesetUpdateRequest", ""),
-      contentType
+      contentType,
+      _config.preserveLargeIntegers
     );
     requestContext.setBody(serializedBody);
 
@@ -1730,7 +1742,8 @@ export class StaticAnalysisApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
       ObjectSerializer.serialize(body, "CustomRulesetRequest", ""),
-      contentType
+      contentType,
+      _config.preserveLargeIntegers
     );
     requestContext.setBody(serializedBody);
 
@@ -1746,6 +1759,12 @@ export class StaticAnalysisApiRequestFactory extends BaseAPIRequestFactory {
 }
 
 export class StaticAnalysisApiResponseProcessor {
+  private configuration?: Configuration;
+
+  public constructor(configuration?: Configuration) {
+    this.configuration = configuration;
+  }
+
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
@@ -1754,15 +1773,23 @@ export class StaticAnalysisApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async createAiCustomRule(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<AiCustomRuleResponse> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 200) {
       const body: AiCustomRuleResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "AiCustomRuleResponse"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
+        "AiCustomRuleResponse",
+        "",
+        _config?.preserveLargeIntegers
       ) as AiCustomRuleResponse;
       return body;
     }
@@ -1775,13 +1802,16 @@ export class StaticAnalysisApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: JSONAPIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "JSONAPIErrorResponse"
+          "JSONAPIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as JSONAPIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -1798,13 +1828,16 @@ export class StaticAnalysisApiResponseProcessor {
     if (response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -1819,9 +1852,14 @@ export class StaticAnalysisApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: AiCustomRuleResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
         "AiCustomRuleResponse",
-        ""
+        "",
+        _config?.preserveLargeIntegers
       ) as AiCustomRuleResponse;
       return body;
     }
@@ -1841,8 +1879,10 @@ export class StaticAnalysisApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async createAiCustomRuleRevision(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<void> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
@@ -1857,13 +1897,16 @@ export class StaticAnalysisApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: JSONAPIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "JSONAPIErrorResponse"
+          "JSONAPIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as JSONAPIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -1880,13 +1923,16 @@ export class StaticAnalysisApiResponseProcessor {
     if (response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -1918,15 +1964,23 @@ export class StaticAnalysisApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async createAiCustomRuleset(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<AiCustomRulesetResponse> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 200) {
       const body: AiCustomRulesetResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "AiCustomRulesetResponse"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
+        "AiCustomRulesetResponse",
+        "",
+        _config?.preserveLargeIntegers
       ) as AiCustomRulesetResponse;
       return body;
     }
@@ -1939,13 +1993,16 @@ export class StaticAnalysisApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: JSONAPIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "JSONAPIErrorResponse"
+          "JSONAPIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as JSONAPIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -1962,13 +2019,16 @@ export class StaticAnalysisApiResponseProcessor {
     if (response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -1983,9 +2043,14 @@ export class StaticAnalysisApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: AiCustomRulesetResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
         "AiCustomRulesetResponse",
-        ""
+        "",
+        _config?.preserveLargeIntegers
       ) as AiCustomRulesetResponse;
       return body;
     }
@@ -2005,8 +2070,10 @@ export class StaticAnalysisApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async createAiMemoryViolationResult(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<void> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
@@ -2021,13 +2088,16 @@ export class StaticAnalysisApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: JSONAPIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "JSONAPIErrorResponse"
+          "JSONAPIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as JSONAPIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -2044,13 +2114,16 @@ export class StaticAnalysisApiResponseProcessor {
     if (response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -2082,15 +2155,23 @@ export class StaticAnalysisApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async createCustomRule(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<CustomRuleResponse> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 200) {
       const body: CustomRuleResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "CustomRuleResponse"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
+        "CustomRuleResponse",
+        "",
+        _config?.preserveLargeIntegers
       ) as CustomRuleResponse;
       return body;
     }
@@ -2102,13 +2183,16 @@ export class StaticAnalysisApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: JSONAPIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "JSONAPIErrorResponse"
+          "JSONAPIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as JSONAPIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -2125,13 +2209,16 @@ export class StaticAnalysisApiResponseProcessor {
     if (response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -2146,9 +2233,14 @@ export class StaticAnalysisApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: CustomRuleResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
         "CustomRuleResponse",
-        ""
+        "",
+        _config?.preserveLargeIntegers
       ) as CustomRuleResponse;
       return body;
     }
@@ -2168,8 +2260,10 @@ export class StaticAnalysisApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async createCustomRuleRevision(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<void> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
@@ -2183,13 +2277,16 @@ export class StaticAnalysisApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: JSONAPIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "JSONAPIErrorResponse"
+          "JSONAPIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as JSONAPIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -2206,13 +2303,16 @@ export class StaticAnalysisApiResponseProcessor {
     if (response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -2244,15 +2344,23 @@ export class StaticAnalysisApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async createCustomRuleset(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<CustomRulesetResponse> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 200) {
       const body: CustomRulesetResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "CustomRulesetResponse"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
+        "CustomRulesetResponse",
+        "",
+        _config?.preserveLargeIntegers
       ) as CustomRulesetResponse;
       return body;
     }
@@ -2264,13 +2372,16 @@ export class StaticAnalysisApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: JSONAPIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "JSONAPIErrorResponse"
+          "JSONAPIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as JSONAPIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -2287,13 +2398,16 @@ export class StaticAnalysisApiResponseProcessor {
     if (response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -2308,9 +2422,14 @@ export class StaticAnalysisApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: CustomRulesetResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
         "CustomRulesetResponse",
-        ""
+        "",
+        _config?.preserveLargeIntegers
       ) as CustomRulesetResponse;
       return body;
     }
@@ -2330,29 +2449,40 @@ export class StaticAnalysisApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async createSCAResolveVulnerableSymbols(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<ResolveVulnerableSymbolsResponse> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 200) {
       const body: ResolveVulnerableSymbolsResponse =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
-          "ResolveVulnerableSymbolsResponse"
+          ObjectSerializer.parse(
+            await response.body.text(),
+            contentType,
+            _config?.preserveLargeIntegers
+          ),
+          "ResolveVulnerableSymbolsResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as ResolveVulnerableSymbolsResponse;
       return body;
     }
     if (response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -2368,9 +2498,14 @@ export class StaticAnalysisApiResponseProcessor {
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: ResolveVulnerableSymbolsResponse =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
+          ObjectSerializer.parse(
+            await response.body.text(),
+            contentType,
+            _config?.preserveLargeIntegers
+          ),
           "ResolveVulnerableSymbolsResponse",
-          ""
+          "",
+          _config?.preserveLargeIntegers
         ) as ResolveVulnerableSymbolsResponse;
       return body;
     }
@@ -2389,7 +2524,11 @@ export class StaticAnalysisApiResponseProcessor {
    * @params response Response returned by the server for a request to createSCAResult
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async createSCAResult(response: ResponseContext): Promise<void> {
+  public async createSCAResult(
+    response: ResponseContext,
+    _options?: Configuration
+  ): Promise<void> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
@@ -2399,13 +2538,16 @@ export class StaticAnalysisApiResponseProcessor {
     if (response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -2437,28 +2579,39 @@ export class StaticAnalysisApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async createSCAScan(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<McpScanRequestResponse> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 202) {
       const body: McpScanRequestResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "McpScanRequestResponse"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
+        "McpScanRequestResponse",
+        "",
+        _config?.preserveLargeIntegers
       ) as McpScanRequestResponse;
       return body;
     }
     if (response.httpStatusCode === 400) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: JSONAPIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "JSONAPIErrorResponse"
+          "JSONAPIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as JSONAPIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -2475,13 +2628,16 @@ export class StaticAnalysisApiResponseProcessor {
     if (response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -2496,9 +2652,14 @@ export class StaticAnalysisApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: McpScanRequestResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
         "McpScanRequestResponse",
-        ""
+        "",
+        _config?.preserveLargeIntegers
       ) as McpScanRequestResponse;
       return body;
     }
@@ -2517,7 +2678,11 @@ export class StaticAnalysisApiResponseProcessor {
    * @params response Response returned by the server for a request to deleteAiCustomRule
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async deleteAiCustomRule(response: ResponseContext): Promise<void> {
+  public async deleteAiCustomRule(
+    response: ResponseContext,
+    _options?: Configuration
+  ): Promise<void> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
@@ -2532,13 +2697,16 @@ export class StaticAnalysisApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: JSONAPIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "JSONAPIErrorResponse"
+          "JSONAPIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as JSONAPIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -2555,13 +2723,16 @@ export class StaticAnalysisApiResponseProcessor {
     if (response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -2592,7 +2763,11 @@ export class StaticAnalysisApiResponseProcessor {
    * @params response Response returned by the server for a request to deleteAiCustomRuleset
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async deleteAiCustomRuleset(response: ResponseContext): Promise<void> {
+  public async deleteAiCustomRuleset(
+    response: ResponseContext,
+    _options?: Configuration
+  ): Promise<void> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
@@ -2607,13 +2782,16 @@ export class StaticAnalysisApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: JSONAPIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "JSONAPIErrorResponse"
+          "JSONAPIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as JSONAPIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -2630,13 +2808,16 @@ export class StaticAnalysisApiResponseProcessor {
     if (response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -2668,8 +2849,10 @@ export class StaticAnalysisApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async deleteAiMemoryViolationResult(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<void> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
@@ -2684,13 +2867,16 @@ export class StaticAnalysisApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: JSONAPIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "JSONAPIErrorResponse"
+          "JSONAPIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as JSONAPIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -2707,13 +2893,16 @@ export class StaticAnalysisApiResponseProcessor {
     if (response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -2744,7 +2933,11 @@ export class StaticAnalysisApiResponseProcessor {
    * @params response Response returned by the server for a request to deleteCustomRule
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async deleteCustomRule(response: ResponseContext): Promise<void> {
+  public async deleteCustomRule(
+    response: ResponseContext,
+    _options?: Configuration
+  ): Promise<void> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
@@ -2758,13 +2951,16 @@ export class StaticAnalysisApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: JSONAPIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "JSONAPIErrorResponse"
+          "JSONAPIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as JSONAPIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -2781,13 +2977,16 @@ export class StaticAnalysisApiResponseProcessor {
     if (response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -2818,7 +3017,11 @@ export class StaticAnalysisApiResponseProcessor {
    * @params response Response returned by the server for a request to deleteCustomRuleset
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async deleteCustomRuleset(response: ResponseContext): Promise<void> {
+  public async deleteCustomRuleset(
+    response: ResponseContext,
+    _options?: Configuration
+  ): Promise<void> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
@@ -2832,13 +3035,16 @@ export class StaticAnalysisApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: JSONAPIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "JSONAPIErrorResponse"
+          "JSONAPIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as JSONAPIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -2855,13 +3061,16 @@ export class StaticAnalysisApiResponseProcessor {
     if (response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -2893,15 +3102,23 @@ export class StaticAnalysisApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async getAiCustomRule(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<AiCustomRuleResponse> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 200) {
       const body: AiCustomRuleResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "AiCustomRuleResponse"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
+        "AiCustomRuleResponse",
+        "",
+        _config?.preserveLargeIntegers
       ) as AiCustomRuleResponse;
       return body;
     }
@@ -2913,13 +3130,16 @@ export class StaticAnalysisApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: JSONAPIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "JSONAPIErrorResponse"
+          "JSONAPIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as JSONAPIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -2936,13 +3156,16 @@ export class StaticAnalysisApiResponseProcessor {
     if (response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -2957,9 +3180,14 @@ export class StaticAnalysisApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: AiCustomRuleResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
         "AiCustomRuleResponse",
-        ""
+        "",
+        _config?.preserveLargeIntegers
       ) as AiCustomRuleResponse;
       return body;
     }
@@ -2979,15 +3207,23 @@ export class StaticAnalysisApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async getAiCustomRuleRevision(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<AiCustomRuleRevisionResponse> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 200) {
       const body: AiCustomRuleRevisionResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "AiCustomRuleRevisionResponse"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
+        "AiCustomRuleRevisionResponse",
+        "",
+        _config?.preserveLargeIntegers
       ) as AiCustomRuleRevisionResponse;
       return body;
     }
@@ -2999,13 +3235,16 @@ export class StaticAnalysisApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: JSONAPIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "JSONAPIErrorResponse"
+          "JSONAPIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as JSONAPIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -3022,13 +3261,16 @@ export class StaticAnalysisApiResponseProcessor {
     if (response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -3043,9 +3285,14 @@ export class StaticAnalysisApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: AiCustomRuleRevisionResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
         "AiCustomRuleRevisionResponse",
-        ""
+        "",
+        _config?.preserveLargeIntegers
       ) as AiCustomRuleRevisionResponse;
       return body;
     }
@@ -3065,15 +3312,23 @@ export class StaticAnalysisApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async getAiCustomRuleset(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<AiCustomRulesetResponse> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 200) {
       const body: AiCustomRulesetResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "AiCustomRulesetResponse"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
+        "AiCustomRulesetResponse",
+        "",
+        _config?.preserveLargeIntegers
       ) as AiCustomRulesetResponse;
       return body;
     }
@@ -3085,13 +3340,16 @@ export class StaticAnalysisApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: JSONAPIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "JSONAPIErrorResponse"
+          "JSONAPIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as JSONAPIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -3108,13 +3366,16 @@ export class StaticAnalysisApiResponseProcessor {
     if (response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -3129,9 +3390,14 @@ export class StaticAnalysisApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: AiCustomRulesetResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
         "AiCustomRulesetResponse",
-        ""
+        "",
+        _config?.preserveLargeIntegers
       ) as AiCustomRulesetResponse;
       return body;
     }
@@ -3151,15 +3417,23 @@ export class StaticAnalysisApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async getCustomRule(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<CustomRuleResponse> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 200) {
       const body: CustomRuleResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "CustomRuleResponse"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
+        "CustomRuleResponse",
+        "",
+        _config?.preserveLargeIntegers
       ) as CustomRuleResponse;
       return body;
     }
@@ -3170,13 +3444,16 @@ export class StaticAnalysisApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: JSONAPIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "JSONAPIErrorResponse"
+          "JSONAPIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as JSONAPIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -3193,13 +3470,16 @@ export class StaticAnalysisApiResponseProcessor {
     if (response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -3214,9 +3494,14 @@ export class StaticAnalysisApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: CustomRuleResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
         "CustomRuleResponse",
-        ""
+        "",
+        _config?.preserveLargeIntegers
       ) as CustomRuleResponse;
       return body;
     }
@@ -3236,15 +3521,23 @@ export class StaticAnalysisApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async getCustomRuleRevision(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<CustomRuleRevisionResponse> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 200) {
       const body: CustomRuleRevisionResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "CustomRuleRevisionResponse"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
+        "CustomRuleRevisionResponse",
+        "",
+        _config?.preserveLargeIntegers
       ) as CustomRuleRevisionResponse;
       return body;
     }
@@ -3255,13 +3548,16 @@ export class StaticAnalysisApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: JSONAPIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "JSONAPIErrorResponse"
+          "JSONAPIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as JSONAPIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -3278,13 +3574,16 @@ export class StaticAnalysisApiResponseProcessor {
     if (response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -3299,9 +3598,14 @@ export class StaticAnalysisApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: CustomRuleRevisionResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
         "CustomRuleRevisionResponse",
-        ""
+        "",
+        _config?.preserveLargeIntegers
       ) as CustomRuleRevisionResponse;
       return body;
     }
@@ -3321,15 +3625,23 @@ export class StaticAnalysisApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async getCustomRuleset(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<CustomRulesetResponse> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 200) {
       const body: CustomRulesetResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "CustomRulesetResponse"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
+        "CustomRulesetResponse",
+        "",
+        _config?.preserveLargeIntegers
       ) as CustomRulesetResponse;
       return body;
     }
@@ -3340,13 +3652,16 @@ export class StaticAnalysisApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: JSONAPIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "JSONAPIErrorResponse"
+          "JSONAPIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as JSONAPIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -3363,13 +3678,16 @@ export class StaticAnalysisApiResponseProcessor {
     if (response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -3384,9 +3702,14 @@ export class StaticAnalysisApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: CustomRulesetResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
         "CustomRulesetResponse",
-        ""
+        "",
+        _config?.preserveLargeIntegers
       ) as CustomRulesetResponse;
       return body;
     }
@@ -3406,28 +3729,39 @@ export class StaticAnalysisApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async getSCAScan(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<ScanResultResponse> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 200) {
       const body: ScanResultResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "ScanResultResponse"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
+        "ScanResultResponse",
+        "",
+        _config?.preserveLargeIntegers
       ) as ScanResultResponse;
       return body;
     }
     if (response.httpStatusCode === 404) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: JSONAPIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "JSONAPIErrorResponse"
+          "JSONAPIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as JSONAPIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -3444,13 +3778,16 @@ export class StaticAnalysisApiResponseProcessor {
     if (response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -3465,9 +3802,14 @@ export class StaticAnalysisApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: ScanResultResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
         "ScanResultResponse",
-        ""
+        "",
+        _config?.preserveLargeIntegers
       ) as ScanResultResponse;
       return body;
     }
@@ -3487,15 +3829,23 @@ export class StaticAnalysisApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async listAiCustomRuleRevisions(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<AiCustomRuleRevisionsResponse> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 200) {
       const body: AiCustomRuleRevisionsResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "AiCustomRuleRevisionsResponse"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
+        "AiCustomRuleRevisionsResponse",
+        "",
+        _config?.preserveLargeIntegers
       ) as AiCustomRuleRevisionsResponse;
       return body;
     }
@@ -3507,13 +3857,16 @@ export class StaticAnalysisApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: JSONAPIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "JSONAPIErrorResponse"
+          "JSONAPIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as JSONAPIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -3530,13 +3883,16 @@ export class StaticAnalysisApiResponseProcessor {
     if (response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -3551,9 +3907,14 @@ export class StaticAnalysisApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: AiCustomRuleRevisionsResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
         "AiCustomRuleRevisionsResponse",
-        ""
+        "",
+        _config?.preserveLargeIntegers
       ) as AiCustomRuleRevisionsResponse;
       return body;
     }
@@ -3573,28 +3934,39 @@ export class StaticAnalysisApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async listAiCustomRulesets(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<AiCustomRulesetsResponse> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 200) {
       const body: AiCustomRulesetsResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "AiCustomRulesetsResponse"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
+        "AiCustomRulesetsResponse",
+        "",
+        _config?.preserveLargeIntegers
       ) as AiCustomRulesetsResponse;
       return body;
     }
     if (response.httpStatusCode === 401 || response.httpStatusCode === 500) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: JSONAPIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "JSONAPIErrorResponse"
+          "JSONAPIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as JSONAPIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -3611,13 +3983,16 @@ export class StaticAnalysisApiResponseProcessor {
     if (response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -3632,9 +4007,14 @@ export class StaticAnalysisApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: AiCustomRulesetsResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
         "AiCustomRulesetsResponse",
-        ""
+        "",
+        _config?.preserveLargeIntegers
       ) as AiCustomRulesetsResponse;
       return body;
     }
@@ -3654,16 +4034,24 @@ export class StaticAnalysisApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async listAiMemoryViolationResults(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<AiMemoryViolationResultsResponse> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 200) {
       const body: AiMemoryViolationResultsResponse =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
-          "AiMemoryViolationResultsResponse"
+          ObjectSerializer.parse(
+            await response.body.text(),
+            contentType,
+            _config?.preserveLargeIntegers
+          ),
+          "AiMemoryViolationResultsResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as AiMemoryViolationResultsResponse;
       return body;
     }
@@ -3675,13 +4063,16 @@ export class StaticAnalysisApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: JSONAPIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "JSONAPIErrorResponse"
+          "JSONAPIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as JSONAPIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -3698,13 +4089,16 @@ export class StaticAnalysisApiResponseProcessor {
     if (response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -3720,9 +4114,14 @@ export class StaticAnalysisApiResponseProcessor {
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: AiMemoryViolationResultsResponse =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
+          ObjectSerializer.parse(
+            await response.body.text(),
+            contentType,
+            _config?.preserveLargeIntegers
+          ),
           "AiMemoryViolationResultsResponse",
-          ""
+          "",
+          _config?.preserveLargeIntegers
         ) as AiMemoryViolationResultsResponse;
       return body;
     }
@@ -3742,15 +4141,23 @@ export class StaticAnalysisApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async listAiPrompts(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<AiPromptsResponse> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 200) {
       const body: AiPromptsResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "AiPromptsResponse"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
+        "AiPromptsResponse",
+        "",
+        _config?.preserveLargeIntegers
       ) as AiPromptsResponse;
       return body;
     }
@@ -3762,13 +4169,16 @@ export class StaticAnalysisApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: JSONAPIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "JSONAPIErrorResponse"
+          "JSONAPIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as JSONAPIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -3785,13 +4195,16 @@ export class StaticAnalysisApiResponseProcessor {
     if (response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -3806,9 +4219,14 @@ export class StaticAnalysisApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: AiPromptsResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
         "AiPromptsResponse",
-        ""
+        "",
+        _config?.preserveLargeIntegers
       ) as AiPromptsResponse;
       return body;
     }
@@ -3828,15 +4246,23 @@ export class StaticAnalysisApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async listCustomRuleRevisions(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<CustomRuleRevisionsResponse> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 200) {
       const body: CustomRuleRevisionsResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "CustomRuleRevisionsResponse"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
+        "CustomRuleRevisionsResponse",
+        "",
+        _config?.preserveLargeIntegers
       ) as CustomRuleRevisionsResponse;
       return body;
     }
@@ -3848,13 +4274,16 @@ export class StaticAnalysisApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: JSONAPIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "JSONAPIErrorResponse"
+          "JSONAPIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as JSONAPIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -3872,9 +4301,14 @@ export class StaticAnalysisApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: CustomRuleRevisionsResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
         "CustomRuleRevisionsResponse",
-        ""
+        "",
+        _config?.preserveLargeIntegers
       ) as CustomRuleRevisionsResponse;
       return body;
     }
@@ -3894,28 +4328,39 @@ export class StaticAnalysisApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async listCustomRulesets(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<CustomRulesetListResponse> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 200) {
       const body: CustomRulesetListResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "CustomRulesetListResponse"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
+        "CustomRulesetListResponse",
+        "",
+        _config?.preserveLargeIntegers
       ) as CustomRulesetListResponse;
       return body;
     }
     if (response.httpStatusCode === 401) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: JSONAPIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "JSONAPIErrorResponse"
+          "JSONAPIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as JSONAPIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -3932,13 +4377,16 @@ export class StaticAnalysisApiResponseProcessor {
     if (response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -3953,9 +4401,14 @@ export class StaticAnalysisApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: CustomRulesetListResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
         "CustomRulesetListResponse",
-        ""
+        "",
+        _config?.preserveLargeIntegers
       ) as CustomRulesetListResponse;
       return body;
     }
@@ -3975,28 +4428,39 @@ export class StaticAnalysisApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async listSCALicenses(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<LicensesListResponse> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 200) {
       const body: LicensesListResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "LicensesListResponse"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
+        "LicensesListResponse",
+        "",
+        _config?.preserveLargeIntegers
       ) as LicensesListResponse;
       return body;
     }
     if (response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -4011,9 +4475,14 @@ export class StaticAnalysisApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: LicensesListResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
         "LicensesListResponse",
-        ""
+        "",
+        _config?.preserveLargeIntegers
       ) as LicensesListResponse;
       return body;
     }
@@ -4033,8 +4502,10 @@ export class StaticAnalysisApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async revertCustomRuleRevision(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<void> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
@@ -4044,13 +4515,16 @@ export class StaticAnalysisApiResponseProcessor {
     if (response.httpStatusCode === 400 || response.httpStatusCode === 401) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: JSONAPIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "JSONAPIErrorResponse"
+          "JSONAPIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as JSONAPIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -4067,13 +4541,16 @@ export class StaticAnalysisApiResponseProcessor {
     if (response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -4104,7 +4581,11 @@ export class StaticAnalysisApiResponseProcessor {
    * @params response Response returned by the server for a request to updateAiCustomRuleset
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async updateAiCustomRuleset(response: ResponseContext): Promise<void> {
+  public async updateAiCustomRuleset(
+    response: ResponseContext,
+    _options?: Configuration
+  ): Promise<void> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
@@ -4119,13 +4600,16 @@ export class StaticAnalysisApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: JSONAPIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "JSONAPIErrorResponse"
+          "JSONAPIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as JSONAPIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -4142,13 +4626,16 @@ export class StaticAnalysisApiResponseProcessor {
     if (response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -4180,15 +4667,23 @@ export class StaticAnalysisApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async updateCustomRuleset(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<CustomRulesetResponse> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 200) {
       const body: CustomRulesetResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "CustomRulesetResponse"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
+        "CustomRulesetResponse",
+        "",
+        _config?.preserveLargeIntegers
       ) as CustomRulesetResponse;
       return body;
     }
@@ -4199,13 +4694,16 @@ export class StaticAnalysisApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: JSONAPIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "JSONAPIErrorResponse"
+          "JSONAPIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as JSONAPIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -4222,13 +4720,16 @@ export class StaticAnalysisApiResponseProcessor {
     if (response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -4243,9 +4744,14 @@ export class StaticAnalysisApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: CustomRulesetResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
         "CustomRulesetResponse",
-        ""
+        "",
+        _config?.preserveLargeIntegers
       ) as CustomRulesetResponse;
       return body;
     }
@@ -4608,7 +5114,8 @@ export class StaticAnalysisApi {
     this.requestFactory =
       requestFactory || new StaticAnalysisApiRequestFactory(configuration);
     this.responseProcessor =
-      responseProcessor || new StaticAnalysisApiResponseProcessor();
+      responseProcessor ||
+      new StaticAnalysisApiResponseProcessor(configuration);
   }
 
   /**
@@ -4628,7 +5135,10 @@ export class StaticAnalysisApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.createAiCustomRule(responseContext);
+          return this.responseProcessor.createAiCustomRule(
+            responseContext,
+            options
+          );
         });
     });
   }
@@ -4653,7 +5163,8 @@ export class StaticAnalysisApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.createAiCustomRuleRevision(
-            responseContext
+            responseContext,
+            options
           );
         });
     });
@@ -4675,7 +5186,10 @@ export class StaticAnalysisApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.createAiCustomRuleset(responseContext);
+          return this.responseProcessor.createAiCustomRuleset(
+            responseContext,
+            options
+          );
         });
     });
   }
@@ -4695,7 +5209,8 @@ export class StaticAnalysisApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.createAiMemoryViolationResult(
-            responseContext
+            responseContext,
+            options
           );
         });
     });
@@ -4718,7 +5233,10 @@ export class StaticAnalysisApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.createCustomRule(responseContext);
+          return this.responseProcessor.createCustomRule(
+            responseContext,
+            options
+          );
         });
     });
   }
@@ -4742,7 +5260,8 @@ export class StaticAnalysisApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.createCustomRuleRevision(
-            responseContext
+            responseContext,
+            options
           );
         });
     });
@@ -4764,7 +5283,10 @@ export class StaticAnalysisApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.createCustomRuleset(responseContext);
+          return this.responseProcessor.createCustomRuleset(
+            responseContext,
+            options
+          );
         });
     });
   }
@@ -4786,7 +5308,8 @@ export class StaticAnalysisApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.createSCAResolveVulnerableSymbols(
-            responseContext
+            responseContext,
+            options
           );
         });
     });
@@ -4807,7 +5330,10 @@ export class StaticAnalysisApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.createSCAResult(responseContext);
+          return this.responseProcessor.createSCAResult(
+            responseContext,
+            options
+          );
         });
     });
   }
@@ -4827,7 +5353,7 @@ export class StaticAnalysisApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.createSCAScan(responseContext);
+          return this.responseProcessor.createSCAScan(responseContext, options);
         });
     });
   }
@@ -4849,7 +5375,10 @@ export class StaticAnalysisApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.deleteAiCustomRule(responseContext);
+          return this.responseProcessor.deleteAiCustomRule(
+            responseContext,
+            options
+          );
         });
     });
   }
@@ -4870,7 +5399,10 @@ export class StaticAnalysisApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.deleteAiCustomRuleset(responseContext);
+          return this.responseProcessor.deleteAiCustomRuleset(
+            responseContext,
+            options
+          );
         });
     });
   }
@@ -4890,7 +5422,8 @@ export class StaticAnalysisApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.deleteAiMemoryViolationResult(
-            responseContext
+            responseContext,
+            options
           );
         });
     });
@@ -4913,7 +5446,10 @@ export class StaticAnalysisApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.deleteCustomRule(responseContext);
+          return this.responseProcessor.deleteCustomRule(
+            responseContext,
+            options
+          );
         });
     });
   }
@@ -4934,7 +5470,10 @@ export class StaticAnalysisApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.deleteCustomRuleset(responseContext);
+          return this.responseProcessor.deleteCustomRuleset(
+            responseContext,
+            options
+          );
         });
     });
   }
@@ -4956,7 +5495,10 @@ export class StaticAnalysisApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.getAiCustomRule(responseContext);
+          return this.responseProcessor.getAiCustomRule(
+            responseContext,
+            options
+          );
         });
     });
   }
@@ -4980,7 +5522,8 @@ export class StaticAnalysisApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.getAiCustomRuleRevision(
-            responseContext
+            responseContext,
+            options
           );
         });
     });
@@ -5002,7 +5545,10 @@ export class StaticAnalysisApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.getAiCustomRuleset(responseContext);
+          return this.responseProcessor.getAiCustomRuleset(
+            responseContext,
+            options
+          );
         });
     });
   }
@@ -5024,7 +5570,7 @@ export class StaticAnalysisApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.getCustomRule(responseContext);
+          return this.responseProcessor.getCustomRule(responseContext, options);
         });
     });
   }
@@ -5047,7 +5593,10 @@ export class StaticAnalysisApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.getCustomRuleRevision(responseContext);
+          return this.responseProcessor.getCustomRuleRevision(
+            responseContext,
+            options
+          );
         });
     });
   }
@@ -5068,7 +5617,10 @@ export class StaticAnalysisApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.getCustomRuleset(responseContext);
+          return this.responseProcessor.getCustomRuleset(
+            responseContext,
+            options
+          );
         });
     });
   }
@@ -5088,7 +5640,7 @@ export class StaticAnalysisApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.getSCAScan(responseContext);
+          return this.responseProcessor.getSCAScan(responseContext, options);
         });
     });
   }
@@ -5113,7 +5665,8 @@ export class StaticAnalysisApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.listAiCustomRuleRevisions(
-            responseContext
+            responseContext,
+            options
           );
         });
     });
@@ -5145,7 +5698,8 @@ export class StaticAnalysisApi {
       );
 
       const response = await this.responseProcessor.listAiCustomRuleRevisions(
-        responseContext
+        responseContext,
+        options
       );
       const responseData = response.data;
       if (responseData === undefined) {
@@ -5183,7 +5737,10 @@ export class StaticAnalysisApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.listAiCustomRulesets(responseContext);
+          return this.responseProcessor.listAiCustomRulesets(
+            responseContext,
+            options
+          );
         });
     });
   }
@@ -5202,7 +5759,8 @@ export class StaticAnalysisApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.listAiMemoryViolationResults(
-            responseContext
+            responseContext,
+            options
           );
         });
     });
@@ -5218,7 +5776,7 @@ export class StaticAnalysisApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.listAiPrompts(responseContext);
+          return this.responseProcessor.listAiPrompts(responseContext, options);
         });
     });
   }
@@ -5243,7 +5801,8 @@ export class StaticAnalysisApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.listCustomRuleRevisions(
-            responseContext
+            responseContext,
+            options
           );
         });
     });
@@ -5274,7 +5833,8 @@ export class StaticAnalysisApi {
       );
 
       const response = await this.responseProcessor.listCustomRuleRevisions(
-        responseContext
+        responseContext,
+        options
       );
       const responseData = response.data;
       if (responseData === undefined) {
@@ -5308,7 +5868,10 @@ export class StaticAnalysisApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.listCustomRulesets(responseContext);
+          return this.responseProcessor.listCustomRulesets(
+            responseContext,
+            options
+          );
         });
     });
   }
@@ -5324,7 +5887,10 @@ export class StaticAnalysisApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.listSCALicenses(responseContext);
+          return this.responseProcessor.listSCALicenses(
+            responseContext,
+            options
+          );
         });
     });
   }
@@ -5348,7 +5914,8 @@ export class StaticAnalysisApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.revertCustomRuleRevision(
-            responseContext
+            responseContext,
+            options
           );
         });
     });
@@ -5371,7 +5938,10 @@ export class StaticAnalysisApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.updateAiCustomRuleset(responseContext);
+          return this.responseProcessor.updateAiCustomRuleset(
+            responseContext,
+            options
+          );
         });
     });
   }
@@ -5393,7 +5963,10 @@ export class StaticAnalysisApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.updateCustomRuleset(responseContext);
+          return this.responseProcessor.updateCustomRuleset(
+            responseContext,
+            options
+          );
         });
     });
   }

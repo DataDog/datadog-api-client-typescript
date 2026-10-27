@@ -60,7 +60,8 @@ export class ActionConnectionApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
       ObjectSerializer.serialize(body, "CreateActionConnectionRequest", ""),
-      contentType
+      contentType,
+      _config.preserveLargeIntegers
     );
     requestContext.setBody(serializedBody);
 
@@ -362,7 +363,8 @@ export class ActionConnectionApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
       ObjectSerializer.serialize(body, "UpdateActionConnectionRequest", ""),
-      contentType
+      contentType,
+      _config.preserveLargeIntegers
     );
     requestContext.setBody(serializedBody);
 
@@ -378,6 +380,12 @@ export class ActionConnectionApiRequestFactory extends BaseAPIRequestFactory {
 }
 
 export class ActionConnectionApiResponseProcessor {
+  private configuration?: Configuration;
+
+  public constructor(configuration?: Configuration) {
+    this.configuration = configuration;
+  }
+
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
@@ -386,15 +394,23 @@ export class ActionConnectionApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async createActionConnection(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<CreateActionConnectionResponse> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 201) {
       const body: CreateActionConnectionResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "CreateActionConnectionResponse"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
+        "CreateActionConnectionResponse",
+        "",
+        _config?.preserveLargeIntegers
       ) as CreateActionConnectionResponse;
       return body;
     }
@@ -405,13 +421,16 @@ export class ActionConnectionApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: JSONAPIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "JSONAPIErrorResponse"
+          "JSONAPIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as JSONAPIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -429,9 +448,14 @@ export class ActionConnectionApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: CreateActionConnectionResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
         "CreateActionConnectionResponse",
-        ""
+        "",
+        _config?.preserveLargeIntegers
       ) as CreateActionConnectionResponse;
       return body;
     }
@@ -451,8 +475,10 @@ export class ActionConnectionApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async deleteActionConnection(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<void> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
@@ -466,13 +492,16 @@ export class ActionConnectionApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: JSONAPIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "JSONAPIErrorResponse"
+          "JSONAPIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as JSONAPIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -507,15 +536,23 @@ export class ActionConnectionApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async getActionConnection(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<GetActionConnectionResponse> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 200) {
       const body: GetActionConnectionResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "GetActionConnectionResponse"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
+        "GetActionConnectionResponse",
+        "",
+        _config?.preserveLargeIntegers
       ) as GetActionConnectionResponse;
       return body;
     }
@@ -527,13 +564,16 @@ export class ActionConnectionApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: JSONAPIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "JSONAPIErrorResponse"
+          "JSONAPIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as JSONAPIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -551,9 +591,14 @@ export class ActionConnectionApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: GetActionConnectionResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
         "GetActionConnectionResponse",
-        ""
+        "",
+        _config?.preserveLargeIntegers
       ) as GetActionConnectionResponse;
       return body;
     }
@@ -573,15 +618,23 @@ export class ActionConnectionApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async getAppKeyRegistration(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<GetAppKeyRegistrationResponse> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 200) {
       const body: GetAppKeyRegistrationResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "GetAppKeyRegistrationResponse"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
+        "GetAppKeyRegistrationResponse",
+        "",
+        _config?.preserveLargeIntegers
       ) as GetAppKeyRegistrationResponse;
       return body;
     }
@@ -593,13 +646,16 @@ export class ActionConnectionApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: JSONAPIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "JSONAPIErrorResponse"
+          "JSONAPIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as JSONAPIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -617,9 +673,14 @@ export class ActionConnectionApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: GetAppKeyRegistrationResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
         "GetAppKeyRegistrationResponse",
-        ""
+        "",
+        _config?.preserveLargeIntegers
       ) as GetAppKeyRegistrationResponse;
       return body;
     }
@@ -639,16 +700,24 @@ export class ActionConnectionApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async listAppKeyRegistrations(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<ListAppKeyRegistrationsResponse> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 200) {
       const body: ListAppKeyRegistrationsResponse =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
-          "ListAppKeyRegistrationsResponse"
+          ObjectSerializer.parse(
+            await response.body.text(),
+            contentType,
+            _config?.preserveLargeIntegers
+          ),
+          "ListAppKeyRegistrationsResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as ListAppKeyRegistrationsResponse;
       return body;
     }
@@ -659,13 +728,16 @@ export class ActionConnectionApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: JSONAPIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "JSONAPIErrorResponse"
+          "JSONAPIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as JSONAPIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -684,9 +756,14 @@ export class ActionConnectionApiResponseProcessor {
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: ListAppKeyRegistrationsResponse =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
+          ObjectSerializer.parse(
+            await response.body.text(),
+            contentType,
+            _config?.preserveLargeIntegers
+          ),
           "ListAppKeyRegistrationsResponse",
-          ""
+          "",
+          _config?.preserveLargeIntegers
         ) as ListAppKeyRegistrationsResponse;
       return body;
     }
@@ -706,15 +783,23 @@ export class ActionConnectionApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async registerAppKey(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<RegisterAppKeyResponse> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 201) {
       const body: RegisterAppKeyResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "RegisterAppKeyResponse"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
+        "RegisterAppKeyResponse",
+        "",
+        _config?.preserveLargeIntegers
       ) as RegisterAppKeyResponse;
       return body;
     }
@@ -725,13 +810,16 @@ export class ActionConnectionApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: JSONAPIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "JSONAPIErrorResponse"
+          "JSONAPIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as JSONAPIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -749,9 +837,14 @@ export class ActionConnectionApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: RegisterAppKeyResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
         "RegisterAppKeyResponse",
-        ""
+        "",
+        _config?.preserveLargeIntegers
       ) as RegisterAppKeyResponse;
       return body;
     }
@@ -770,7 +863,11 @@ export class ActionConnectionApiResponseProcessor {
    * @params response Response returned by the server for a request to unregisterAppKey
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async unregisterAppKey(response: ResponseContext): Promise<void> {
+  public async unregisterAppKey(
+    response: ResponseContext,
+    _options?: Configuration
+  ): Promise<void> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
@@ -785,13 +882,16 @@ export class ActionConnectionApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: JSONAPIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "JSONAPIErrorResponse"
+          "JSONAPIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as JSONAPIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -826,15 +926,23 @@ export class ActionConnectionApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async updateActionConnection(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<UpdateActionConnectionResponse> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 200) {
       const body: UpdateActionConnectionResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "UpdateActionConnectionResponse"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
+        "UpdateActionConnectionResponse",
+        "",
+        _config?.preserveLargeIntegers
       ) as UpdateActionConnectionResponse;
       return body;
     }
@@ -846,13 +954,16 @@ export class ActionConnectionApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: JSONAPIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "JSONAPIErrorResponse"
+          "JSONAPIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as JSONAPIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -870,9 +981,14 @@ export class ActionConnectionApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: UpdateActionConnectionResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
         "UpdateActionConnectionResponse",
-        ""
+        "",
+        _config?.preserveLargeIntegers
       ) as UpdateActionConnectionResponse;
       return body;
     }
@@ -972,7 +1088,8 @@ export class ActionConnectionApi {
     this.requestFactory =
       requestFactory || new ActionConnectionApiRequestFactory(configuration);
     this.responseProcessor =
-      responseProcessor || new ActionConnectionApiResponseProcessor();
+      responseProcessor ||
+      new ActionConnectionApiResponseProcessor(configuration);
   }
 
   /**
@@ -991,7 +1108,10 @@ export class ActionConnectionApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.createActionConnection(responseContext);
+          return this.responseProcessor.createActionConnection(
+            responseContext,
+            options
+          );
         });
     });
   }
@@ -1012,7 +1132,10 @@ export class ActionConnectionApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.deleteActionConnection(responseContext);
+          return this.responseProcessor.deleteActionConnection(
+            responseContext,
+            options
+          );
         });
     });
   }
@@ -1033,7 +1156,10 @@ export class ActionConnectionApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.getActionConnection(responseContext);
+          return this.responseProcessor.getActionConnection(
+            responseContext,
+            options
+          );
         });
     });
   }
@@ -1054,7 +1180,10 @@ export class ActionConnectionApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.getAppKeyRegistration(responseContext);
+          return this.responseProcessor.getAppKeyRegistration(
+            responseContext,
+            options
+          );
         });
     });
   }
@@ -1077,7 +1206,8 @@ export class ActionConnectionApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.listAppKeyRegistrations(
-            responseContext
+            responseContext,
+            options
           );
         });
     });
@@ -1099,7 +1229,10 @@ export class ActionConnectionApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.registerAppKey(responseContext);
+          return this.responseProcessor.registerAppKey(
+            responseContext,
+            options
+          );
         });
     });
   }
@@ -1120,7 +1253,10 @@ export class ActionConnectionApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.unregisterAppKey(responseContext);
+          return this.responseProcessor.unregisterAppKey(
+            responseContext,
+            options
+          );
         });
     });
   }
@@ -1142,7 +1278,10 @@ export class ActionConnectionApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.updateActionConnection(responseContext);
+          return this.responseProcessor.updateActionConnection(
+            responseContext,
+            options
+          );
         });
     });
   }

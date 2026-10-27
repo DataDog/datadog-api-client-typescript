@@ -67,7 +67,8 @@ export class ReportSchedulesApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
       ObjectSerializer.serialize(body, "ReportScheduleCreateRequest", ""),
-      contentType
+      contentType,
+      _config.preserveLargeIntegers
     );
     requestContext.setBody(serializedBody);
 
@@ -363,7 +364,8 @@ export class ReportSchedulesApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
       ObjectSerializer.serialize(body, "ReportSchedulePatchRequest", ""),
-      contentType
+      contentType,
+      _config.preserveLargeIntegers
     );
     requestContext.setBody(serializedBody);
 
@@ -410,7 +412,8 @@ export class ReportSchedulesApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
       ObjectSerializer.serialize(body, "PrintReportRequest", ""),
-      contentType
+      contentType,
+      _config.preserveLargeIntegers
     );
     requestContext.setBody(serializedBody);
 
@@ -467,7 +470,8 @@ export class ReportSchedulesApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
       ObjectSerializer.serialize(body, "ReportScheduleToggleRequest", ""),
-      contentType
+      contentType,
+      _config.preserveLargeIntegers
     );
     requestContext.setBody(serializedBody);
 
@@ -483,6 +487,12 @@ export class ReportSchedulesApiRequestFactory extends BaseAPIRequestFactory {
 }
 
 export class ReportSchedulesApiResponseProcessor {
+  private configuration?: Configuration;
+
+  public constructor(configuration?: Configuration) {
+    this.configuration = configuration;
+  }
+
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
@@ -491,15 +501,23 @@ export class ReportSchedulesApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async createReportSchedule(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<ReportScheduleResponse> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 201) {
       const body: ReportScheduleResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "ReportScheduleResponse"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
+        "ReportScheduleResponse",
+        "",
+        _config?.preserveLargeIntegers
       ) as ReportScheduleResponse;
       return body;
     }
@@ -510,13 +528,16 @@ export class ReportSchedulesApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: JSONAPIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "JSONAPIErrorResponse"
+          "JSONAPIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as JSONAPIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -533,13 +554,16 @@ export class ReportSchedulesApiResponseProcessor {
     if (response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -554,9 +578,14 @@ export class ReportSchedulesApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: ReportScheduleResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
         "ReportScheduleResponse",
-        ""
+        "",
+        _config?.preserveLargeIntegers
       ) as ReportScheduleResponse;
       return body;
     }
@@ -576,15 +605,23 @@ export class ReportSchedulesApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async deleteReportSchedule(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<ReportScheduleResponse> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 200) {
       const body: ReportScheduleResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "ReportScheduleResponse"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
+        "ReportScheduleResponse",
+        "",
+        _config?.preserveLargeIntegers
       ) as ReportScheduleResponse;
       return body;
     }
@@ -595,13 +632,16 @@ export class ReportSchedulesApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: JSONAPIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "JSONAPIErrorResponse"
+          "JSONAPIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as JSONAPIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -618,13 +658,16 @@ export class ReportSchedulesApiResponseProcessor {
     if (response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -639,9 +682,14 @@ export class ReportSchedulesApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: ReportScheduleResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
         "ReportScheduleResponse",
-        ""
+        "",
+        _config?.preserveLargeIntegers
       ) as ReportScheduleResponse;
       return body;
     }
@@ -661,15 +709,23 @@ export class ReportSchedulesApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async getReportSchedule(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<ReportScheduleResponse> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 200) {
       const body: ReportScheduleResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "ReportScheduleResponse"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
+        "ReportScheduleResponse",
+        "",
+        _config?.preserveLargeIntegers
       ) as ReportScheduleResponse;
       return body;
     }
@@ -680,13 +736,16 @@ export class ReportSchedulesApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: JSONAPIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "JSONAPIErrorResponse"
+          "JSONAPIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as JSONAPIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -703,13 +762,16 @@ export class ReportSchedulesApiResponseProcessor {
     if (response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -724,9 +786,14 @@ export class ReportSchedulesApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: ReportScheduleResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
         "ReportScheduleResponse",
-        ""
+        "",
+        _config?.preserveLargeIntegers
       ) as ReportScheduleResponse;
       return body;
     }
@@ -746,15 +813,23 @@ export class ReportSchedulesApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async getReportSchedulesForResource(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<ReportScheduleListResponse> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 200) {
       const body: ReportScheduleListResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "ReportScheduleListResponse"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
+        "ReportScheduleListResponse",
+        "",
+        _config?.preserveLargeIntegers
       ) as ReportScheduleListResponse;
       return body;
     }
@@ -765,13 +840,16 @@ export class ReportSchedulesApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: JSONAPIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "JSONAPIErrorResponse"
+          "JSONAPIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as JSONAPIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -788,13 +866,16 @@ export class ReportSchedulesApiResponseProcessor {
     if (response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -809,9 +890,14 @@ export class ReportSchedulesApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: ReportScheduleListResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
         "ReportScheduleListResponse",
-        ""
+        "",
+        _config?.preserveLargeIntegers
       ) as ReportScheduleListResponse;
       return body;
     }
@@ -831,16 +917,24 @@ export class ReportSchedulesApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async listDatasetReportSchedules(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<DatasetReportScheduleListResponse> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 200) {
       const body: DatasetReportScheduleListResponse =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
-          "DatasetReportScheduleListResponse"
+          ObjectSerializer.parse(
+            await response.body.text(),
+            contentType,
+            _config?.preserveLargeIntegers
+          ),
+          "DatasetReportScheduleListResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as DatasetReportScheduleListResponse;
       return body;
     }
@@ -851,13 +945,16 @@ export class ReportSchedulesApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: JSONAPIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "JSONAPIErrorResponse"
+          "JSONAPIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as JSONAPIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -874,13 +971,16 @@ export class ReportSchedulesApiResponseProcessor {
     if (response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -896,9 +996,14 @@ export class ReportSchedulesApiResponseProcessor {
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: DatasetReportScheduleListResponse =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
+          ObjectSerializer.parse(
+            await response.body.text(),
+            contentType,
+            _config?.preserveLargeIntegers
+          ),
           "DatasetReportScheduleListResponse",
-          ""
+          "",
+          _config?.preserveLargeIntegers
         ) as DatasetReportScheduleListResponse;
       return body;
     }
@@ -918,15 +1023,23 @@ export class ReportSchedulesApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async listReportSchedules(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<ReportScheduleListResponse> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 200) {
       const body: ReportScheduleListResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "ReportScheduleListResponse"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
+        "ReportScheduleListResponse",
+        "",
+        _config?.preserveLargeIntegers
       ) as ReportScheduleListResponse;
       return body;
     }
@@ -937,13 +1050,16 @@ export class ReportSchedulesApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: JSONAPIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "JSONAPIErrorResponse"
+          "JSONAPIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as JSONAPIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -960,13 +1076,16 @@ export class ReportSchedulesApiResponseProcessor {
     if (response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -981,9 +1100,14 @@ export class ReportSchedulesApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: ReportScheduleListResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
         "ReportScheduleListResponse",
-        ""
+        "",
+        _config?.preserveLargeIntegers
       ) as ReportScheduleListResponse;
       return body;
     }
@@ -1003,15 +1127,23 @@ export class ReportSchedulesApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async patchReportSchedule(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<ReportScheduleResponse> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 200) {
       const body: ReportScheduleResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "ReportScheduleResponse"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
+        "ReportScheduleResponse",
+        "",
+        _config?.preserveLargeIntegers
       ) as ReportScheduleResponse;
       return body;
     }
@@ -1022,13 +1154,16 @@ export class ReportSchedulesApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: JSONAPIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "JSONAPIErrorResponse"
+          "JSONAPIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as JSONAPIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -1045,13 +1180,16 @@ export class ReportSchedulesApiResponseProcessor {
     if (response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -1066,9 +1204,14 @@ export class ReportSchedulesApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: ReportScheduleResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
         "ReportScheduleResponse",
-        ""
+        "",
+        _config?.preserveLargeIntegers
       ) as ReportScheduleResponse;
       return body;
     }
@@ -1088,15 +1231,23 @@ export class ReportSchedulesApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async printReport(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<PrintReportResponse> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 200) {
       const body: PrintReportResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "PrintReportResponse"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
+        "PrintReportResponse",
+        "",
+        _config?.preserveLargeIntegers
       ) as PrintReportResponse;
       return body;
     }
@@ -1108,13 +1259,16 @@ export class ReportSchedulesApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: JSONAPIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "JSONAPIErrorResponse"
+          "JSONAPIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as JSONAPIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -1131,13 +1285,16 @@ export class ReportSchedulesApiResponseProcessor {
     if (response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -1152,9 +1309,14 @@ export class ReportSchedulesApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: PrintReportResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
         "PrintReportResponse",
-        ""
+        "",
+        _config?.preserveLargeIntegers
       ) as PrintReportResponse;
       return body;
     }
@@ -1174,15 +1336,23 @@ export class ReportSchedulesApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async toggleReportSchedule(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<ReportScheduleResponse> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 200) {
       const body: ReportScheduleResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "ReportScheduleResponse"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
+        "ReportScheduleResponse",
+        "",
+        _config?.preserveLargeIntegers
       ) as ReportScheduleResponse;
       return body;
     }
@@ -1193,13 +1363,16 @@ export class ReportSchedulesApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: JSONAPIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "JSONAPIErrorResponse"
+          "JSONAPIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as JSONAPIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -1216,13 +1389,16 @@ export class ReportSchedulesApiResponseProcessor {
     if (response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -1237,9 +1413,14 @@ export class ReportSchedulesApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: ReportScheduleResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
         "ReportScheduleResponse",
-        ""
+        "",
+        _config?.preserveLargeIntegers
       ) as ReportScheduleResponse;
       return body;
     }
@@ -1369,7 +1550,8 @@ export class ReportSchedulesApi {
     this.requestFactory =
       requestFactory || new ReportSchedulesApiRequestFactory(configuration);
     this.responseProcessor =
-      responseProcessor || new ReportSchedulesApiResponseProcessor();
+      responseProcessor ||
+      new ReportSchedulesApiResponseProcessor(configuration);
   }
 
   /**
@@ -1391,7 +1573,10 @@ export class ReportSchedulesApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.createReportSchedule(responseContext);
+          return this.responseProcessor.createReportSchedule(
+            responseContext,
+            options
+          );
         });
     });
   }
@@ -1413,7 +1598,10 @@ export class ReportSchedulesApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.deleteReportSchedule(responseContext);
+          return this.responseProcessor.deleteReportSchedule(
+            responseContext,
+            options
+          );
         });
     });
   }
@@ -1435,7 +1623,10 @@ export class ReportSchedulesApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.getReportSchedule(responseContext);
+          return this.responseProcessor.getReportSchedule(
+            responseContext,
+            options
+          );
         });
     });
   }
@@ -1460,7 +1651,8 @@ export class ReportSchedulesApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.getReportSchedulesForResource(
-            responseContext
+            responseContext,
+            options
           );
         });
     });
@@ -1483,7 +1675,8 @@ export class ReportSchedulesApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.listDatasetReportSchedules(
-            responseContext
+            responseContext,
+            options
           );
         });
     });
@@ -1511,7 +1704,10 @@ export class ReportSchedulesApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.listReportSchedules(responseContext);
+          return this.responseProcessor.listReportSchedules(
+            responseContext,
+            options
+          );
         });
     });
   }
@@ -1536,7 +1732,10 @@ export class ReportSchedulesApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.patchReportSchedule(responseContext);
+          return this.responseProcessor.patchReportSchedule(
+            responseContext,
+            options
+          );
         });
     });
   }
@@ -1559,7 +1758,7 @@ export class ReportSchedulesApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.printReport(responseContext);
+          return this.responseProcessor.printReport(responseContext, options);
         });
     });
   }
@@ -1582,7 +1781,10 @@ export class ReportSchedulesApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.toggleReportSchedule(responseContext);
+          return this.responseProcessor.toggleReportSchedule(
+            responseContext,
+            options
+          );
         });
     });
   }

@@ -56,7 +56,8 @@ export class SeatsApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
       ObjectSerializer.serialize(body, "AssignSeatsUserRequest", ""),
-      contentType
+      contentType,
+      _config.preserveLargeIntegers
     );
     requestContext.setBody(serializedBody);
 
@@ -164,7 +165,8 @@ export class SeatsApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
       ObjectSerializer.serialize(body, "UnassignSeatsUserRequest", ""),
-      contentType
+      contentType,
+      _config.preserveLargeIntegers
     );
     requestContext.setBody(serializedBody);
 
@@ -180,6 +182,12 @@ export class SeatsApiRequestFactory extends BaseAPIRequestFactory {
 }
 
 export class SeatsApiResponseProcessor {
+  private configuration?: Configuration;
+
+  public constructor(configuration?: Configuration) {
+    this.configuration = configuration;
+  }
+
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
@@ -188,15 +196,23 @@ export class SeatsApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async assignSeatsUser(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<AssignSeatsUserResponse> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 201) {
       const body: AssignSeatsUserResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "AssignSeatsUserResponse"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
+        "AssignSeatsUserResponse",
+        "",
+        _config?.preserveLargeIntegers
       ) as AssignSeatsUserResponse;
       return body;
     }
@@ -207,13 +223,16 @@ export class SeatsApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -228,9 +247,14 @@ export class SeatsApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: AssignSeatsUserResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
         "AssignSeatsUserResponse",
-        ""
+        "",
+        _config?.preserveLargeIntegers
       ) as AssignSeatsUserResponse;
       return body;
     }
@@ -250,15 +274,23 @@ export class SeatsApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async getSeatsUsers(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<SeatUserDataArray> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 200) {
       const body: SeatUserDataArray = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "SeatUserDataArray"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
+        "SeatUserDataArray",
+        "",
+        _config?.preserveLargeIntegers
       ) as SeatUserDataArray;
       return body;
     }
@@ -269,13 +301,16 @@ export class SeatsApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -290,9 +325,14 @@ export class SeatsApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: SeatUserDataArray = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
         "SeatUserDataArray",
-        ""
+        "",
+        _config?.preserveLargeIntegers
       ) as SeatUserDataArray;
       return body;
     }
@@ -311,7 +351,11 @@ export class SeatsApiResponseProcessor {
    * @params response Response returned by the server for a request to unassignSeatsUser
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async unassignSeatsUser(response: ResponseContext): Promise<void> {
+  public async unassignSeatsUser(
+    response: ResponseContext,
+    _options?: Configuration
+  ): Promise<void> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
@@ -325,13 +369,16 @@ export class SeatsApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -402,7 +449,7 @@ export class SeatsApi {
     this.requestFactory =
       requestFactory || new SeatsApiRequestFactory(configuration);
     this.responseProcessor =
-      responseProcessor || new SeatsApiResponseProcessor();
+      responseProcessor || new SeatsApiResponseProcessor(configuration);
   }
 
   /**
@@ -421,7 +468,10 @@ export class SeatsApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.assignSeatsUser(responseContext);
+          return this.responseProcessor.assignSeatsUser(
+            responseContext,
+            options
+          );
         });
     });
   }
@@ -444,7 +494,7 @@ export class SeatsApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.getSeatsUsers(responseContext);
+          return this.responseProcessor.getSeatsUsers(responseContext, options);
         });
     });
   }
@@ -465,7 +515,10 @@ export class SeatsApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.unassignSeatsUser(responseContext);
+          return this.responseProcessor.unassignSeatsUser(
+            responseContext,
+            options
+          );
         });
     });
   }

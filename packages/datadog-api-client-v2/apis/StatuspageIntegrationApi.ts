@@ -59,7 +59,8 @@ export class StatuspageIntegrationApiRequestFactory extends BaseAPIRequestFactor
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
       ObjectSerializer.serialize(body, "StatuspageAccountCreateRequest", ""),
-      contentType
+      contentType,
+      _config.preserveLargeIntegers
     );
     requestContext.setBody(serializedBody);
 
@@ -106,7 +107,8 @@ export class StatuspageIntegrationApiRequestFactory extends BaseAPIRequestFactor
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
       ObjectSerializer.serialize(body, "StatuspageUrlSettingCreateRequest", ""),
-      contentType
+      contentType,
+      _config.preserveLargeIntegers
     );
     requestContext.setBody(serializedBody);
 
@@ -289,7 +291,8 @@ export class StatuspageIntegrationApiRequestFactory extends BaseAPIRequestFactor
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
       ObjectSerializer.serialize(body, "StatuspageAccountUpdateRequest", ""),
-      contentType
+      contentType,
+      _config.preserveLargeIntegers
     );
     requestContext.setBody(serializedBody);
 
@@ -352,7 +355,8 @@ export class StatuspageIntegrationApiRequestFactory extends BaseAPIRequestFactor
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
       ObjectSerializer.serialize(body, "StatuspageUrlSettingUpdateRequest", ""),
-      contentType
+      contentType,
+      _config.preserveLargeIntegers
     );
     requestContext.setBody(serializedBody);
 
@@ -368,6 +372,12 @@ export class StatuspageIntegrationApiRequestFactory extends BaseAPIRequestFactor
 }
 
 export class StatuspageIntegrationApiResponseProcessor {
+  private configuration?: Configuration;
+
+  public constructor(configuration?: Configuration) {
+    this.configuration = configuration;
+  }
+
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
@@ -376,15 +386,23 @@ export class StatuspageIntegrationApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async createStatuspageAccount(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<StatuspageAccountResponse> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 201) {
       const body: StatuspageAccountResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "StatuspageAccountResponse"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
+        "StatuspageAccountResponse",
+        "",
+        _config?.preserveLargeIntegers
       ) as StatuspageAccountResponse;
       return body;
     }
@@ -396,13 +414,16 @@ export class StatuspageIntegrationApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -417,9 +438,14 @@ export class StatuspageIntegrationApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: StatuspageAccountResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
         "StatuspageAccountResponse",
-        ""
+        "",
+        _config?.preserveLargeIntegers
       ) as StatuspageAccountResponse;
       return body;
     }
@@ -439,15 +465,23 @@ export class StatuspageIntegrationApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async createStatuspageUrlSetting(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<StatuspageUrlSettingResponse> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 201) {
       const body: StatuspageUrlSettingResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "StatuspageUrlSettingResponse"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
+        "StatuspageUrlSettingResponse",
+        "",
+        _config?.preserveLargeIntegers
       ) as StatuspageUrlSettingResponse;
       return body;
     }
@@ -459,13 +493,16 @@ export class StatuspageIntegrationApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -480,9 +517,14 @@ export class StatuspageIntegrationApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: StatuspageUrlSettingResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
         "StatuspageUrlSettingResponse",
-        ""
+        "",
+        _config?.preserveLargeIntegers
       ) as StatuspageUrlSettingResponse;
       return body;
     }
@@ -502,8 +544,10 @@ export class StatuspageIntegrationApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async deleteStatuspageAccount(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<void> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
@@ -518,13 +562,16 @@ export class StatuspageIntegrationApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -556,8 +603,10 @@ export class StatuspageIntegrationApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async deleteStatuspageUrlSetting(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<void> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
@@ -572,13 +621,16 @@ export class StatuspageIntegrationApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -610,15 +662,23 @@ export class StatuspageIntegrationApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async getStatuspageAccount(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<StatuspageAccountResponse> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 200) {
       const body: StatuspageAccountResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "StatuspageAccountResponse"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
+        "StatuspageAccountResponse",
+        "",
+        _config?.preserveLargeIntegers
       ) as StatuspageAccountResponse;
       return body;
     }
@@ -629,13 +689,16 @@ export class StatuspageIntegrationApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -650,9 +713,14 @@ export class StatuspageIntegrationApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: StatuspageAccountResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
         "StatuspageAccountResponse",
-        ""
+        "",
+        _config?.preserveLargeIntegers
       ) as StatuspageAccountResponse;
       return body;
     }
@@ -672,15 +740,23 @@ export class StatuspageIntegrationApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async listStatuspageUrlSettings(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<StatuspageUrlSettingsResponse> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 200) {
       const body: StatuspageUrlSettingsResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "StatuspageUrlSettingsResponse"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
+        "StatuspageUrlSettingsResponse",
+        "",
+        _config?.preserveLargeIntegers
       ) as StatuspageUrlSettingsResponse;
       return body;
     }
@@ -691,13 +767,16 @@ export class StatuspageIntegrationApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -712,9 +791,14 @@ export class StatuspageIntegrationApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: StatuspageUrlSettingsResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
         "StatuspageUrlSettingsResponse",
-        ""
+        "",
+        _config?.preserveLargeIntegers
       ) as StatuspageUrlSettingsResponse;
       return body;
     }
@@ -734,15 +818,23 @@ export class StatuspageIntegrationApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async updateStatuspageAccount(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<StatuspageAccountResponse> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 200) {
       const body: StatuspageAccountResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "StatuspageAccountResponse"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
+        "StatuspageAccountResponse",
+        "",
+        _config?.preserveLargeIntegers
       ) as StatuspageAccountResponse;
       return body;
     }
@@ -754,13 +846,16 @@ export class StatuspageIntegrationApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -775,9 +870,14 @@ export class StatuspageIntegrationApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: StatuspageAccountResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
         "StatuspageAccountResponse",
-        ""
+        "",
+        _config?.preserveLargeIntegers
       ) as StatuspageAccountResponse;
       return body;
     }
@@ -797,15 +897,23 @@ export class StatuspageIntegrationApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async updateStatuspageUrlSetting(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<StatuspageUrlSettingResponse> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 200) {
       const body: StatuspageUrlSettingResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "StatuspageUrlSettingResponse"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
+        "StatuspageUrlSettingResponse",
+        "",
+        _config?.preserveLargeIntegers
       ) as StatuspageUrlSettingResponse;
       return body;
     }
@@ -818,13 +926,16 @@ export class StatuspageIntegrationApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -839,9 +950,14 @@ export class StatuspageIntegrationApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: StatuspageUrlSettingResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
         "StatuspageUrlSettingResponse",
-        ""
+        "",
+        _config?.preserveLargeIntegers
       ) as StatuspageUrlSettingResponse;
       return body;
     }
@@ -914,7 +1030,8 @@ export class StatuspageIntegrationApi {
       requestFactory ||
       new StatuspageIntegrationApiRequestFactory(configuration);
     this.responseProcessor =
-      responseProcessor || new StatuspageIntegrationApiResponseProcessor();
+      responseProcessor ||
+      new StatuspageIntegrationApiResponseProcessor(configuration);
   }
 
   /**
@@ -935,7 +1052,8 @@ export class StatuspageIntegrationApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.createStatuspageAccount(
-            responseContext
+            responseContext,
+            options
           );
         });
     });
@@ -956,7 +1074,8 @@ export class StatuspageIntegrationApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.createStatuspageUrlSetting(
-            responseContext
+            responseContext,
+            options
           );
         });
     });
@@ -974,7 +1093,8 @@ export class StatuspageIntegrationApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.deleteStatuspageAccount(
-            responseContext
+            responseContext,
+            options
           );
         });
     });
@@ -998,7 +1118,8 @@ export class StatuspageIntegrationApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.deleteStatuspageUrlSetting(
-            responseContext
+            responseContext,
+            options
           );
         });
     });
@@ -1017,7 +1138,10 @@ export class StatuspageIntegrationApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.getStatuspageAccount(responseContext);
+          return this.responseProcessor.getStatuspageAccount(
+            responseContext,
+            options
+          );
         });
     });
   }
@@ -1036,7 +1160,8 @@ export class StatuspageIntegrationApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.listStatuspageUrlSettings(
-            responseContext
+            responseContext,
+            options
           );
         });
     });
@@ -1059,7 +1184,8 @@ export class StatuspageIntegrationApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.updateStatuspageAccount(
-            responseContext
+            responseContext,
+            options
           );
         });
     });
@@ -1084,7 +1210,8 @@ export class StatuspageIntegrationApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.updateStatuspageUrlSetting(
-            responseContext
+            responseContext,
+            options
           );
         });
     });

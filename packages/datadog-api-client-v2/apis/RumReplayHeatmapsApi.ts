@@ -56,7 +56,8 @@ export class RumReplayHeatmapsApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
       ObjectSerializer.serialize(body, "SnapshotCreateRequest", ""),
-      contentType
+      contentType,
+      _config.preserveLargeIntegers
     );
     requestContext.setBody(serializedBody);
 
@@ -222,7 +223,8 @@ export class RumReplayHeatmapsApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
       ObjectSerializer.serialize(body, "SnapshotUpdateRequest", ""),
-      contentType
+      contentType,
+      _config.preserveLargeIntegers
     );
     requestContext.setBody(serializedBody);
 
@@ -238,6 +240,12 @@ export class RumReplayHeatmapsApiRequestFactory extends BaseAPIRequestFactory {
 }
 
 export class RumReplayHeatmapsApiResponseProcessor {
+  private configuration?: Configuration;
+
+  public constructor(configuration?: Configuration) {
+    this.configuration = configuration;
+  }
+
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
@@ -246,28 +254,39 @@ export class RumReplayHeatmapsApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async createReplayHeatmapSnapshot(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<Snapshot> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 201) {
       const body: Snapshot = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "Snapshot"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
+        "Snapshot",
+        "",
+        _config?.preserveLargeIntegers
       ) as Snapshot;
       return body;
     }
     if (response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -282,9 +301,14 @@ export class RumReplayHeatmapsApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: Snapshot = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
         "Snapshot",
-        ""
+        "",
+        _config?.preserveLargeIntegers
       ) as Snapshot;
       return body;
     }
@@ -304,8 +328,10 @@ export class RumReplayHeatmapsApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async deleteReplayHeatmapSnapshot(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<void> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
@@ -315,13 +341,16 @@ export class RumReplayHeatmapsApiResponseProcessor {
     if (response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -353,28 +382,39 @@ export class RumReplayHeatmapsApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async listReplayHeatmapSnapshots(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<SnapshotArray> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 200) {
       const body: SnapshotArray = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "SnapshotArray"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
+        "SnapshotArray",
+        "",
+        _config?.preserveLargeIntegers
       ) as SnapshotArray;
       return body;
     }
     if (response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -389,9 +429,14 @@ export class RumReplayHeatmapsApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: SnapshotArray = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
         "SnapshotArray",
-        ""
+        "",
+        _config?.preserveLargeIntegers
       ) as SnapshotArray;
       return body;
     }
@@ -411,28 +456,39 @@ export class RumReplayHeatmapsApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async updateReplayHeatmapSnapshot(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<Snapshot> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 200) {
       const body: Snapshot = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "Snapshot"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
+        "Snapshot",
+        "",
+        _config?.preserveLargeIntegers
       ) as Snapshot;
       return body;
     }
     if (response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -447,9 +503,14 @@ export class RumReplayHeatmapsApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: Snapshot = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
         "Snapshot",
-        ""
+        "",
+        _config?.preserveLargeIntegers
       ) as Snapshot;
       return body;
     }
@@ -526,7 +587,8 @@ export class RumReplayHeatmapsApi {
     this.requestFactory =
       requestFactory || new RumReplayHeatmapsApiRequestFactory(configuration);
     this.responseProcessor =
-      responseProcessor || new RumReplayHeatmapsApiResponseProcessor();
+      responseProcessor ||
+      new RumReplayHeatmapsApiResponseProcessor(configuration);
   }
 
   /**
@@ -544,7 +606,8 @@ export class RumReplayHeatmapsApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.createReplayHeatmapSnapshot(
-            responseContext
+            responseContext,
+            options
           );
         });
     });
@@ -568,7 +631,8 @@ export class RumReplayHeatmapsApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.deleteReplayHeatmapSnapshot(
-            responseContext
+            responseContext,
+            options
           );
         });
     });
@@ -595,7 +659,8 @@ export class RumReplayHeatmapsApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.listReplayHeatmapSnapshots(
-            responseContext
+            responseContext,
+            options
           );
         });
     });
@@ -620,7 +685,8 @@ export class RumReplayHeatmapsApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.updateReplayHeatmapSnapshot(
-            responseContext
+            responseContext,
+            options
           );
         });
     });

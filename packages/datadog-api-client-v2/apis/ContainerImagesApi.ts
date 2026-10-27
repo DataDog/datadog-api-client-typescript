@@ -92,6 +92,12 @@ export class ContainerImagesApiRequestFactory extends BaseAPIRequestFactory {
 }
 
 export class ContainerImagesApiResponseProcessor {
+  private configuration?: Configuration;
+
+  public constructor(configuration?: Configuration) {
+    this.configuration = configuration;
+  }
+
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
@@ -100,15 +106,23 @@ export class ContainerImagesApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async listContainerImages(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<ContainerImagesResponse> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 200) {
       const body: ContainerImagesResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "ContainerImagesResponse"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
+        "ContainerImagesResponse",
+        "",
+        _config?.preserveLargeIntegers
       ) as ContainerImagesResponse;
       return body;
     }
@@ -119,13 +133,16 @@ export class ContainerImagesApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -140,9 +157,14 @@ export class ContainerImagesApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: ContainerImagesResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
         "ContainerImagesResponse",
-        ""
+        "",
+        _config?.preserveLargeIntegers
       ) as ContainerImagesResponse;
       return body;
     }
@@ -198,7 +220,8 @@ export class ContainerImagesApi {
     this.requestFactory =
       requestFactory || new ContainerImagesApiRequestFactory(configuration);
     this.responseProcessor =
-      responseProcessor || new ContainerImagesApiResponseProcessor();
+      responseProcessor ||
+      new ContainerImagesApiResponseProcessor(configuration);
   }
 
   /**
@@ -222,7 +245,10 @@ export class ContainerImagesApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.listContainerImages(responseContext);
+          return this.responseProcessor.listContainerImages(
+            responseContext,
+            options
+          );
         });
     });
   }
@@ -253,7 +279,8 @@ export class ContainerImagesApi {
       );
 
       const response = await this.responseProcessor.listContainerImages(
-        responseContext
+        responseContext,
+        options
       );
       const responseData = response.data;
       if (responseData === undefined) {

@@ -151,7 +151,8 @@ export class AgentObservabilityApiRequestFactory extends BaseAPIRequestFactory {
         "LLMObsExperimentationAnalyticsRequest",
         ""
       ),
-      contentType
+      contentType,
+      _config.preserveLargeIntegers
     );
     requestContext.setBody(serializedBody);
 
@@ -220,7 +221,8 @@ export class AgentObservabilityApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
       ObjectSerializer.serialize(body, "LLMObsDatasetBatchUpdateRequest", ""),
-      contentType
+      contentType,
+      _config.preserveLargeIntegers
     );
     requestContext.setBody(serializedBody);
 
@@ -287,7 +289,8 @@ export class AgentObservabilityApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
       ObjectSerializer.serialize(body, "LLMObsDatasetCloneRequest", ""),
-      contentType
+      contentType,
+      _config.preserveLargeIntegers
     );
     requestContext.setBody(serializedBody);
 
@@ -341,7 +344,8 @@ export class AgentObservabilityApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
       ObjectSerializer.serialize(body, "LLMObsAnnotationQueueRequest", ""),
-      contentType
+      contentType,
+      _config.preserveLargeIntegers
     );
     requestContext.setBody(serializedBody);
 
@@ -421,7 +425,8 @@ export class AgentObservabilityApiRequestFactory extends BaseAPIRequestFactory {
         "LLMObsAnnotationQueueInteractionsRequest",
         ""
       ),
-      contentType
+      contentType,
+      _config.preserveLargeIntegers
     );
     requestContext.setBody(serializedBody);
 
@@ -482,7 +487,8 @@ export class AgentObservabilityApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
       ObjectSerializer.serialize(body, "LLMObsDatasetRequest", ""),
-      contentType
+      contentType,
+      _config.preserveLargeIntegers
     );
     requestContext.setBody(serializedBody);
 
@@ -551,7 +557,8 @@ export class AgentObservabilityApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
       ObjectSerializer.serialize(body, "LLMObsDatasetRecordsRequest", ""),
-      contentType
+      contentType,
+      _config.preserveLargeIntegers
     );
     requestContext.setBody(serializedBody);
 
@@ -605,7 +612,8 @@ export class AgentObservabilityApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
       ObjectSerializer.serialize(body, "LLMObsExperimentRequest", ""),
-      contentType
+      contentType,
+      _config.preserveLargeIntegers
     );
     requestContext.setBody(serializedBody);
 
@@ -669,7 +677,8 @@ export class AgentObservabilityApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
       ObjectSerializer.serialize(body, "LLMObsExperimentEventsRequest", ""),
-      contentType
+      contentType,
+      _config.preserveLargeIntegers
     );
     requestContext.setBody(serializedBody);
 
@@ -741,7 +750,8 @@ export class AgentObservabilityApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
       ObjectSerializer.serialize(body, "LLMObsIntegrationInferenceRequest", ""),
-      contentType
+      contentType,
+      _config.preserveLargeIntegers
     );
     requestContext.setBody(serializedBody);
 
@@ -793,7 +803,8 @@ export class AgentObservabilityApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
       ObjectSerializer.serialize(body, "LLMObsProjectRequest", ""),
-      contentType
+      contentType,
+      _config.preserveLargeIntegers
     );
     requestContext.setBody(serializedBody);
 
@@ -845,7 +856,8 @@ export class AgentObservabilityApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
       ObjectSerializer.serialize(body, "LLMObsCreatePromptRequest", ""),
-      contentType
+      contentType,
+      _config.preserveLargeIntegers
     );
     requestContext.setBody(serializedBody);
 
@@ -909,7 +921,8 @@ export class AgentObservabilityApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
       ObjectSerializer.serialize(body, "LLMObsCreatePromptVersionRequest", ""),
-      contentType
+      contentType,
+      _config.preserveLargeIntegers
     );
     requestContext.setBody(serializedBody);
 
@@ -1036,7 +1049,8 @@ export class AgentObservabilityApiRequestFactory extends BaseAPIRequestFactory {
         "LLMObsDeleteAnnotationQueueInteractionsRequest",
         ""
       ),
-      contentType
+      contentType,
+      _config.preserveLargeIntegers
     );
     requestContext.setBody(serializedBody);
 
@@ -1100,7 +1114,8 @@ export class AgentObservabilityApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
       ObjectSerializer.serialize(body, "LLMObsDeleteAnnotationsRequest", ""),
-      contentType
+      contentType,
+      _config.preserveLargeIntegers
     );
     requestContext.setBody(serializedBody);
 
@@ -1216,7 +1231,8 @@ export class AgentObservabilityApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
       ObjectSerializer.serialize(body, "LLMObsDeleteDatasetRecordsRequest", ""),
-      contentType
+      contentType,
+      _config.preserveLargeIntegers
     );
     requestContext.setBody(serializedBody);
 
@@ -1278,7 +1294,8 @@ export class AgentObservabilityApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
       ObjectSerializer.serialize(body, "LLMObsDeleteDatasetsRequest", ""),
-      contentType
+      contentType,
+      _config.preserveLargeIntegers
     );
     requestContext.setBody(serializedBody);
 
@@ -1332,7 +1349,8 @@ export class AgentObservabilityApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
       ObjectSerializer.serialize(body, "LLMObsDeleteExperimentsRequest", ""),
-      contentType
+      contentType,
+      _config.preserveLargeIntegers
     );
     requestContext.setBody(serializedBody);
 
@@ -1431,7 +1449,8 @@ export class AgentObservabilityApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
       ObjectSerializer.serialize(body, "LLMObsDeleteProjectsRequest", ""),
-      contentType
+      contentType,
+      _config.preserveLargeIntegers
     );
     requestContext.setBody(serializedBody);
 
@@ -3524,7 +3543,8 @@ export class AgentObservabilityApiRequestFactory extends BaseAPIRequestFactory {
         "LLMObsDatasetRestoreVersionRequest",
         ""
       ),
-      contentType
+      contentType,
+      _config.preserveLargeIntegers
     );
     requestContext.setBody(serializedBody);
 
@@ -3582,7 +3602,8 @@ export class AgentObservabilityApiRequestFactory extends BaseAPIRequestFactory {
         "LLMObsExperimentationSearchRequest",
         ""
       ),
-      contentType
+      contentType,
+      _config.preserveLargeIntegers
     );
     requestContext.setBody(serializedBody);
 
@@ -3634,7 +3655,8 @@ export class AgentObservabilityApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
       ObjectSerializer.serialize(body, "LLMObsSearchSpansRequest", ""),
-      contentType
+      contentType,
+      _config.preserveLargeIntegers
     );
     requestContext.setBody(serializedBody);
 
@@ -3692,7 +3714,8 @@ export class AgentObservabilityApiRequestFactory extends BaseAPIRequestFactory {
         "LLMObsExperimentationSimpleSearchRequest",
         ""
       ),
-      contentType
+      contentType,
+      _config.preserveLargeIntegers
     );
     requestContext.setBody(serializedBody);
 
@@ -3744,7 +3767,8 @@ export class AgentObservabilityApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
       ObjectSerializer.serialize(body, "LLMObsPatternsTriggerRequest", ""),
-      contentType
+      contentType,
+      _config.preserveLargeIntegers
     );
     requestContext.setBody(serializedBody);
 
@@ -3864,7 +3888,8 @@ export class AgentObservabilityApiRequestFactory extends BaseAPIRequestFactory {
         "LLMObsAnnotationQueueUpdateRequest",
         ""
       ),
-      contentType
+      contentType,
+      _config.preserveLargeIntegers
     );
     requestContext.setBody(serializedBody);
 
@@ -3941,7 +3966,8 @@ export class AgentObservabilityApiRequestFactory extends BaseAPIRequestFactory {
         "LLMObsAnnotationQueueLabelSchemaUpdateRequest",
         ""
       ),
-      contentType
+      contentType,
+      _config.preserveLargeIntegers
     );
     requestContext.setBody(serializedBody);
 
@@ -4009,7 +4035,8 @@ export class AgentObservabilityApiRequestFactory extends BaseAPIRequestFactory {
         "LLMObsCustomEvalConfigUpdateRequest",
         ""
       ),
-      contentType
+      contentType,
+      _config.preserveLargeIntegers
     );
     requestContext.setBody(serializedBody);
 
@@ -4075,7 +4102,8 @@ export class AgentObservabilityApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
       ObjectSerializer.serialize(body, "LLMObsDatasetUpdateRequest", ""),
-      contentType
+      contentType,
+      _config.preserveLargeIntegers
     );
     requestContext.setBody(serializedBody);
 
@@ -4144,7 +4172,8 @@ export class AgentObservabilityApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
       ObjectSerializer.serialize(body, "LLMObsDatasetRecordsUpdateRequest", ""),
-      contentType
+      contentType,
+      _config.preserveLargeIntegers
     );
     requestContext.setBody(serializedBody);
 
@@ -4208,7 +4237,8 @@ export class AgentObservabilityApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
       ObjectSerializer.serialize(body, "LLMObsExperimentUpdateRequest", ""),
-      contentType
+      contentType,
+      _config.preserveLargeIntegers
     );
     requestContext.setBody(serializedBody);
 
@@ -4269,7 +4299,8 @@ export class AgentObservabilityApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
       ObjectSerializer.serialize(body, "LLMObsProjectUpdateRequest", ""),
-      contentType
+      contentType,
+      _config.preserveLargeIntegers
     );
     requestContext.setBody(serializedBody);
 
@@ -4330,7 +4361,8 @@ export class AgentObservabilityApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
       ObjectSerializer.serialize(body, "LLMObsUpdatePromptRequest", ""),
-      contentType
+      contentType,
+      _config.preserveLargeIntegers
     );
     requestContext.setBody(serializedBody);
 
@@ -4399,7 +4431,8 @@ export class AgentObservabilityApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
       ObjectSerializer.serialize(body, "LLMObsUpdatePromptVersionRequest", ""),
-      contentType
+      contentType,
+      _config.preserveLargeIntegers
     );
     requestContext.setBody(serializedBody);
 
@@ -4558,7 +4591,8 @@ export class AgentObservabilityApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
       ObjectSerializer.serialize(body, "LLMObsAnnotationsRequest", ""),
-      contentType
+      contentType,
+      _config.preserveLargeIntegers
     );
     requestContext.setBody(serializedBody);
 
@@ -4612,7 +4646,8 @@ export class AgentObservabilityApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
       ObjectSerializer.serialize(body, "LLMObsPatternsConfigUpsertRequest", ""),
-      contentType
+      contentType,
+      _config.preserveLargeIntegers
     );
     requestContext.setBody(serializedBody);
 
@@ -4628,6 +4663,12 @@ export class AgentObservabilityApiRequestFactory extends BaseAPIRequestFactory {
 }
 
 export class AgentObservabilityApiResponseProcessor {
+  private configuration?: Configuration;
+
+  public constructor(configuration?: Configuration) {
+    this.configuration = configuration;
+  }
+
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
@@ -4636,16 +4677,24 @@ export class AgentObservabilityApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async aggregateLLMObsExperimentation(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<LLMObsExperimentationAnalyticsResponse> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 200) {
       const body: LLMObsExperimentationAnalyticsResponse =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
-          "LLMObsExperimentationAnalyticsResponse"
+          ObjectSerializer.parse(
+            await response.body.text(),
+            contentType,
+            _config?.preserveLargeIntegers
+          ),
+          "LLMObsExperimentationAnalyticsResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as LLMObsExperimentationAnalyticsResponse;
       return body;
     }
@@ -4657,13 +4706,16 @@ export class AgentObservabilityApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: JSONAPIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "JSONAPIErrorResponse"
+          "JSONAPIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as JSONAPIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -4680,13 +4732,16 @@ export class AgentObservabilityApiResponseProcessor {
     if (response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -4702,9 +4757,14 @@ export class AgentObservabilityApiResponseProcessor {
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: LLMObsExperimentationAnalyticsResponse =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
+          ObjectSerializer.parse(
+            await response.body.text(),
+            contentType,
+            _config?.preserveLargeIntegers
+          ),
           "LLMObsExperimentationAnalyticsResponse",
-          ""
+          "",
+          _config?.preserveLargeIntegers
         ) as LLMObsExperimentationAnalyticsResponse;
       return body;
     }
@@ -4724,16 +4784,24 @@ export class AgentObservabilityApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async batchUpdateLLMObsDataset(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<LLMObsDatasetRecordsMutationResponse> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 200) {
       const body: LLMObsDatasetRecordsMutationResponse =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
-          "LLMObsDatasetRecordsMutationResponse"
+          ObjectSerializer.parse(
+            await response.body.text(),
+            contentType,
+            _config?.preserveLargeIntegers
+          ),
+          "LLMObsDatasetRecordsMutationResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as LLMObsDatasetRecordsMutationResponse;
       return body;
     }
@@ -4747,13 +4815,16 @@ export class AgentObservabilityApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: JSONAPIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "JSONAPIErrorResponse"
+          "JSONAPIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as JSONAPIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -4770,13 +4841,16 @@ export class AgentObservabilityApiResponseProcessor {
     if (response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -4792,9 +4866,14 @@ export class AgentObservabilityApiResponseProcessor {
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: LLMObsDatasetRecordsMutationResponse =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
+          ObjectSerializer.parse(
+            await response.body.text(),
+            contentType,
+            _config?.preserveLargeIntegers
+          ),
           "LLMObsDatasetRecordsMutationResponse",
-          ""
+          "",
+          _config?.preserveLargeIntegers
         ) as LLMObsDatasetRecordsMutationResponse;
       return body;
     }
@@ -4814,15 +4893,23 @@ export class AgentObservabilityApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async cloneLLMObsDataset(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<LLMObsDatasetResponse> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 200) {
       const body: LLMObsDatasetResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "LLMObsDatasetResponse"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
+        "LLMObsDatasetResponse",
+        "",
+        _config?.preserveLargeIntegers
       ) as LLMObsDatasetResponse;
       return body;
     }
@@ -4835,13 +4922,16 @@ export class AgentObservabilityApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: JSONAPIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "JSONAPIErrorResponse"
+          "JSONAPIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as JSONAPIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -4858,13 +4948,16 @@ export class AgentObservabilityApiResponseProcessor {
     if (response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -4879,9 +4972,14 @@ export class AgentObservabilityApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: LLMObsDatasetResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
         "LLMObsDatasetResponse",
-        ""
+        "",
+        _config?.preserveLargeIntegers
       ) as LLMObsDatasetResponse;
       return body;
     }
@@ -4901,15 +4999,23 @@ export class AgentObservabilityApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async createLLMObsAnnotationQueue(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<LLMObsAnnotationQueueResponse> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 201) {
       const body: LLMObsAnnotationQueueResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "LLMObsAnnotationQueueResponse"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
+        "LLMObsAnnotationQueueResponse",
+        "",
+        _config?.preserveLargeIntegers
       ) as LLMObsAnnotationQueueResponse;
       return body;
     }
@@ -4920,13 +5026,16 @@ export class AgentObservabilityApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: JSONAPIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "JSONAPIErrorResponse"
+          "JSONAPIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as JSONAPIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -4943,13 +5052,16 @@ export class AgentObservabilityApiResponseProcessor {
     if (response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -4964,9 +5076,14 @@ export class AgentObservabilityApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: LLMObsAnnotationQueueResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
         "LLMObsAnnotationQueueResponse",
-        ""
+        "",
+        _config?.preserveLargeIntegers
       ) as LLMObsAnnotationQueueResponse;
       return body;
     }
@@ -4986,16 +5103,24 @@ export class AgentObservabilityApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async createLLMObsAnnotationQueueInteractions(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<LLMObsAnnotationQueueInteractionsResponse> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 201) {
       const body: LLMObsAnnotationQueueInteractionsResponse =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
-          "LLMObsAnnotationQueueInteractionsResponse"
+          ObjectSerializer.parse(
+            await response.body.text(),
+            contentType,
+            _config?.preserveLargeIntegers
+          ),
+          "LLMObsAnnotationQueueInteractionsResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as LLMObsAnnotationQueueInteractionsResponse;
       return body;
     }
@@ -5007,13 +5132,16 @@ export class AgentObservabilityApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: JSONAPIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "JSONAPIErrorResponse"
+          "JSONAPIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as JSONAPIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -5030,13 +5158,16 @@ export class AgentObservabilityApiResponseProcessor {
     if (response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -5052,9 +5183,14 @@ export class AgentObservabilityApiResponseProcessor {
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: LLMObsAnnotationQueueInteractionsResponse =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
+          ObjectSerializer.parse(
+            await response.body.text(),
+            contentType,
+            _config?.preserveLargeIntegers
+          ),
           "LLMObsAnnotationQueueInteractionsResponse",
-          ""
+          "",
+          _config?.preserveLargeIntegers
         ) as LLMObsAnnotationQueueInteractionsResponse;
       return body;
     }
@@ -5074,15 +5210,23 @@ export class AgentObservabilityApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async createLLMObsDataset(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<LLMObsDatasetResponse> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 200 || response.httpStatusCode === 201) {
       const body: LLMObsDatasetResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "LLMObsDatasetResponse"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
+        "LLMObsDatasetResponse",
+        "",
+        _config?.preserveLargeIntegers
       ) as LLMObsDatasetResponse;
       return body;
     }
@@ -5094,13 +5238,16 @@ export class AgentObservabilityApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: JSONAPIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "JSONAPIErrorResponse"
+          "JSONAPIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as JSONAPIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -5117,13 +5264,16 @@ export class AgentObservabilityApiResponseProcessor {
     if (response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -5138,9 +5288,14 @@ export class AgentObservabilityApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: LLMObsDatasetResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
         "LLMObsDatasetResponse",
-        ""
+        "",
+        _config?.preserveLargeIntegers
       ) as LLMObsDatasetResponse;
       return body;
     }
@@ -5160,16 +5315,24 @@ export class AgentObservabilityApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async createLLMObsDatasetRecords(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<LLMObsDatasetRecordsMutationResponse> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 200 || response.httpStatusCode === 201) {
       const body: LLMObsDatasetRecordsMutationResponse =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
-          "LLMObsDatasetRecordsMutationResponse"
+          ObjectSerializer.parse(
+            await response.body.text(),
+            contentType,
+            _config?.preserveLargeIntegers
+          ),
+          "LLMObsDatasetRecordsMutationResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as LLMObsDatasetRecordsMutationResponse;
       return body;
     }
@@ -5181,13 +5344,16 @@ export class AgentObservabilityApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: JSONAPIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "JSONAPIErrorResponse"
+          "JSONAPIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as JSONAPIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -5204,13 +5370,16 @@ export class AgentObservabilityApiResponseProcessor {
     if (response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -5226,9 +5395,14 @@ export class AgentObservabilityApiResponseProcessor {
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: LLMObsDatasetRecordsMutationResponse =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
+          ObjectSerializer.parse(
+            await response.body.text(),
+            contentType,
+            _config?.preserveLargeIntegers
+          ),
           "LLMObsDatasetRecordsMutationResponse",
-          ""
+          "",
+          _config?.preserveLargeIntegers
         ) as LLMObsDatasetRecordsMutationResponse;
       return body;
     }
@@ -5248,15 +5422,23 @@ export class AgentObservabilityApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async createLLMObsExperiment(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<LLMObsExperimentResponse> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 200 || response.httpStatusCode === 201) {
       const body: LLMObsExperimentResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "LLMObsExperimentResponse"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
+        "LLMObsExperimentResponse",
+        "",
+        _config?.preserveLargeIntegers
       ) as LLMObsExperimentResponse;
       return body;
     }
@@ -5267,13 +5449,16 @@ export class AgentObservabilityApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: JSONAPIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "JSONAPIErrorResponse"
+          "JSONAPIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as JSONAPIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -5290,13 +5475,16 @@ export class AgentObservabilityApiResponseProcessor {
     if (response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -5311,9 +5499,14 @@ export class AgentObservabilityApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: LLMObsExperimentResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
         "LLMObsExperimentResponse",
-        ""
+        "",
+        _config?.preserveLargeIntegers
       ) as LLMObsExperimentResponse;
       return body;
     }
@@ -5333,8 +5526,10 @@ export class AgentObservabilityApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async createLLMObsExperimentEvents(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<void> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
@@ -5349,13 +5544,16 @@ export class AgentObservabilityApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: JSONAPIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "JSONAPIErrorResponse"
+          "JSONAPIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as JSONAPIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -5372,13 +5570,16 @@ export class AgentObservabilityApiResponseProcessor {
     if (response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -5410,16 +5611,24 @@ export class AgentObservabilityApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async createLLMObsIntegrationInference(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<LLMObsIntegrationInferenceResponse> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 200) {
       const body: LLMObsIntegrationInferenceResponse =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
-          "LLMObsIntegrationInferenceResponse"
+          ObjectSerializer.parse(
+            await response.body.text(),
+            contentType,
+            _config?.preserveLargeIntegers
+          ),
+          "LLMObsIntegrationInferenceResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as LLMObsIntegrationInferenceResponse;
       return body;
     }
@@ -5431,13 +5640,16 @@ export class AgentObservabilityApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: JSONAPIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "JSONAPIErrorResponse"
+          "JSONAPIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as JSONAPIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -5454,13 +5666,16 @@ export class AgentObservabilityApiResponseProcessor {
     if (response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -5476,9 +5691,14 @@ export class AgentObservabilityApiResponseProcessor {
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: LLMObsIntegrationInferenceResponse =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
+          ObjectSerializer.parse(
+            await response.body.text(),
+            contentType,
+            _config?.preserveLargeIntegers
+          ),
           "LLMObsIntegrationInferenceResponse",
-          ""
+          "",
+          _config?.preserveLargeIntegers
         ) as LLMObsIntegrationInferenceResponse;
       return body;
     }
@@ -5498,15 +5718,23 @@ export class AgentObservabilityApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async createLLMObsProject(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<LLMObsProjectResponse> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 200 || response.httpStatusCode === 201) {
       const body: LLMObsProjectResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "LLMObsProjectResponse"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
+        "LLMObsProjectResponse",
+        "",
+        _config?.preserveLargeIntegers
       ) as LLMObsProjectResponse;
       return body;
     }
@@ -5517,13 +5745,16 @@ export class AgentObservabilityApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: JSONAPIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "JSONAPIErrorResponse"
+          "JSONAPIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as JSONAPIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -5540,13 +5771,16 @@ export class AgentObservabilityApiResponseProcessor {
     if (response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -5561,9 +5795,14 @@ export class AgentObservabilityApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: LLMObsProjectResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
         "LLMObsProjectResponse",
-        ""
+        "",
+        _config?.preserveLargeIntegers
       ) as LLMObsProjectResponse;
       return body;
     }
@@ -5583,15 +5822,23 @@ export class AgentObservabilityApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async createLLMObsPrompt(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<LLMObsCreatePromptResponse> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 200) {
       const body: LLMObsCreatePromptResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "LLMObsCreatePromptResponse"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
+        "LLMObsCreatePromptResponse",
+        "",
+        _config?.preserveLargeIntegers
       ) as LLMObsCreatePromptResponse;
       return body;
     }
@@ -5603,13 +5850,16 @@ export class AgentObservabilityApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: JSONAPIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "JSONAPIErrorResponse"
+          "JSONAPIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as JSONAPIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -5626,13 +5876,16 @@ export class AgentObservabilityApiResponseProcessor {
     if (response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -5647,9 +5900,14 @@ export class AgentObservabilityApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: LLMObsCreatePromptResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
         "LLMObsCreatePromptResponse",
-        ""
+        "",
+        _config?.preserveLargeIntegers
       ) as LLMObsCreatePromptResponse;
       return body;
     }
@@ -5669,15 +5927,23 @@ export class AgentObservabilityApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async createLLMObsPromptVersion(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<LLMObsPromptVersionResponse> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 200) {
       const body: LLMObsPromptVersionResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "LLMObsPromptVersionResponse"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
+        "LLMObsPromptVersionResponse",
+        "",
+        _config?.preserveLargeIntegers
       ) as LLMObsPromptVersionResponse;
       return body;
     }
@@ -5689,13 +5955,16 @@ export class AgentObservabilityApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: JSONAPIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "JSONAPIErrorResponse"
+          "JSONAPIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as JSONAPIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -5712,13 +5981,16 @@ export class AgentObservabilityApiResponseProcessor {
     if (response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -5733,9 +6005,14 @@ export class AgentObservabilityApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: LLMObsPromptVersionResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
         "LLMObsPromptVersionResponse",
-        ""
+        "",
+        _config?.preserveLargeIntegers
       ) as LLMObsPromptVersionResponse;
       return body;
     }
@@ -5755,8 +6032,10 @@ export class AgentObservabilityApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async deleteLLMObsAnnotationQueue(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<void> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
@@ -5770,13 +6049,16 @@ export class AgentObservabilityApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: JSONAPIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "JSONAPIErrorResponse"
+          "JSONAPIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as JSONAPIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -5793,13 +6075,16 @@ export class AgentObservabilityApiResponseProcessor {
     if (response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -5831,8 +6116,10 @@ export class AgentObservabilityApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async deleteLLMObsAnnotationQueueInteractions(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<void> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
@@ -5847,13 +6134,16 @@ export class AgentObservabilityApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: JSONAPIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "JSONAPIErrorResponse"
+          "JSONAPIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as JSONAPIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -5870,13 +6160,16 @@ export class AgentObservabilityApiResponseProcessor {
     if (response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -5908,16 +6201,24 @@ export class AgentObservabilityApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async deleteLLMObsAnnotations(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<LLMObsDeleteAnnotationsResponse> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 200) {
       const body: LLMObsDeleteAnnotationsResponse =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
-          "LLMObsDeleteAnnotationsResponse"
+          ObjectSerializer.parse(
+            await response.body.text(),
+            contentType,
+            _config?.preserveLargeIntegers
+          ),
+          "LLMObsDeleteAnnotationsResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as LLMObsDeleteAnnotationsResponse;
       return body;
     }
@@ -5929,13 +6230,16 @@ export class AgentObservabilityApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: JSONAPIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "JSONAPIErrorResponse"
+          "JSONAPIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as JSONAPIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -5952,13 +6256,16 @@ export class AgentObservabilityApiResponseProcessor {
     if (response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -5974,9 +6281,14 @@ export class AgentObservabilityApiResponseProcessor {
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: LLMObsDeleteAnnotationsResponse =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
+          ObjectSerializer.parse(
+            await response.body.text(),
+            contentType,
+            _config?.preserveLargeIntegers
+          ),
           "LLMObsDeleteAnnotationsResponse",
-          ""
+          "",
+          _config?.preserveLargeIntegers
         ) as LLMObsDeleteAnnotationsResponse;
       return body;
     }
@@ -5996,8 +6308,10 @@ export class AgentObservabilityApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async deleteLLMObsCustomEvalConfig(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<void> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
@@ -6012,13 +6326,16 @@ export class AgentObservabilityApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: JSONAPIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "JSONAPIErrorResponse"
+          "JSONAPIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as JSONAPIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -6035,13 +6352,16 @@ export class AgentObservabilityApiResponseProcessor {
     if (response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -6073,8 +6393,10 @@ export class AgentObservabilityApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async deleteLLMObsDatasetRecords(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<void> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
@@ -6089,13 +6411,16 @@ export class AgentObservabilityApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: JSONAPIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "JSONAPIErrorResponse"
+          "JSONAPIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as JSONAPIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -6112,13 +6437,16 @@ export class AgentObservabilityApiResponseProcessor {
     if (response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -6149,7 +6477,11 @@ export class AgentObservabilityApiResponseProcessor {
    * @params response Response returned by the server for a request to deleteLLMObsDatasets
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async deleteLLMObsDatasets(response: ResponseContext): Promise<void> {
+  public async deleteLLMObsDatasets(
+    response: ResponseContext,
+    _options?: Configuration
+  ): Promise<void> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
@@ -6164,13 +6496,16 @@ export class AgentObservabilityApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: JSONAPIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "JSONAPIErrorResponse"
+          "JSONAPIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as JSONAPIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -6187,13 +6522,16 @@ export class AgentObservabilityApiResponseProcessor {
     if (response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -6225,8 +6563,10 @@ export class AgentObservabilityApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async deleteLLMObsExperiments(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<void> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
@@ -6240,13 +6580,16 @@ export class AgentObservabilityApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: JSONAPIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "JSONAPIErrorResponse"
+          "JSONAPIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as JSONAPIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -6263,13 +6606,16 @@ export class AgentObservabilityApiResponseProcessor {
     if (response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -6301,8 +6647,10 @@ export class AgentObservabilityApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async deleteLLMObsPatternsConfig(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<void> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
@@ -6318,13 +6666,16 @@ export class AgentObservabilityApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: JSONAPIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "JSONAPIErrorResponse"
+          "JSONAPIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as JSONAPIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -6341,13 +6692,16 @@ export class AgentObservabilityApiResponseProcessor {
     if (response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -6378,7 +6732,11 @@ export class AgentObservabilityApiResponseProcessor {
    * @params response Response returned by the server for a request to deleteLLMObsProjects
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async deleteLLMObsProjects(response: ResponseContext): Promise<void> {
+  public async deleteLLMObsProjects(
+    response: ResponseContext,
+    _options?: Configuration
+  ): Promise<void> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
@@ -6392,13 +6750,16 @@ export class AgentObservabilityApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: JSONAPIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "JSONAPIErrorResponse"
+          "JSONAPIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as JSONAPIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -6415,13 +6776,16 @@ export class AgentObservabilityApiResponseProcessor {
     if (response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -6453,15 +6817,23 @@ export class AgentObservabilityApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async deleteLLMObsPrompt(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<LLMObsDeletedPromptResponse> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 200) {
       const body: LLMObsDeletedPromptResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "LLMObsDeletedPromptResponse"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
+        "LLMObsDeletedPromptResponse",
+        "",
+        _config?.preserveLargeIntegers
       ) as LLMObsDeletedPromptResponse;
       return body;
     }
@@ -6472,13 +6844,16 @@ export class AgentObservabilityApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: JSONAPIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "JSONAPIErrorResponse"
+          "JSONAPIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as JSONAPIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -6495,13 +6870,16 @@ export class AgentObservabilityApiResponseProcessor {
     if (response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -6516,9 +6894,14 @@ export class AgentObservabilityApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: LLMObsDeletedPromptResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
         "LLMObsDeletedPromptResponse",
-        ""
+        "",
+        _config?.preserveLargeIntegers
       ) as LLMObsDeletedPromptResponse;
       return body;
     }
@@ -6537,14 +6920,24 @@ export class AgentObservabilityApiResponseProcessor {
    * @params response Response returned by the server for a request to exportLLMObsDataset
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async exportLLMObsDataset(response: ResponseContext): Promise<string> {
+  public async exportLLMObsDataset(
+    response: ResponseContext,
+    _options?: Configuration
+  ): Promise<string> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 200) {
       const body: string = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "string"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
+        "string",
+        "",
+        _config?.preserveLargeIntegers
       ) as string;
       return body;
     }
@@ -6557,13 +6950,16 @@ export class AgentObservabilityApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: JSONAPIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "JSONAPIErrorResponse"
+          "JSONAPIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as JSONAPIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -6580,13 +6976,16 @@ export class AgentObservabilityApiResponseProcessor {
     if (response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -6601,9 +7000,14 @@ export class AgentObservabilityApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: string = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
         "string",
-        ""
+        "",
+        _config?.preserveLargeIntegers
       ) as string;
       return body;
     }
@@ -6623,16 +7027,24 @@ export class AgentObservabilityApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async getLLMObsAnnotatedInteraction(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<LLMObsAnnotatedInteractionResponse> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 200) {
       const body: LLMObsAnnotatedInteractionResponse =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
-          "LLMObsAnnotatedInteractionResponse"
+          ObjectSerializer.parse(
+            await response.body.text(),
+            contentType,
+            _config?.preserveLargeIntegers
+          ),
+          "LLMObsAnnotatedInteractionResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as LLMObsAnnotatedInteractionResponse;
       return body;
     }
@@ -6644,13 +7056,16 @@ export class AgentObservabilityApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: JSONAPIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "JSONAPIErrorResponse"
+          "JSONAPIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as JSONAPIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -6667,13 +7082,16 @@ export class AgentObservabilityApiResponseProcessor {
     if (response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -6689,9 +7107,14 @@ export class AgentObservabilityApiResponseProcessor {
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: LLMObsAnnotatedInteractionResponse =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
+          ObjectSerializer.parse(
+            await response.body.text(),
+            contentType,
+            _config?.preserveLargeIntegers
+          ),
           "LLMObsAnnotatedInteractionResponse",
-          ""
+          "",
+          _config?.preserveLargeIntegers
         ) as LLMObsAnnotatedInteractionResponse;
       return body;
     }
@@ -6711,16 +7134,24 @@ export class AgentObservabilityApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async getLLMObsAnnotatedInteractions(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<LLMObsAnnotatedInteractionsResponse> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 200) {
       const body: LLMObsAnnotatedInteractionsResponse =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
-          "LLMObsAnnotatedInteractionsResponse"
+          ObjectSerializer.parse(
+            await response.body.text(),
+            contentType,
+            _config?.preserveLargeIntegers
+          ),
+          "LLMObsAnnotatedInteractionsResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as LLMObsAnnotatedInteractionsResponse;
       return body;
     }
@@ -6732,13 +7163,16 @@ export class AgentObservabilityApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: JSONAPIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "JSONAPIErrorResponse"
+          "JSONAPIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as JSONAPIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -6755,13 +7189,16 @@ export class AgentObservabilityApiResponseProcessor {
     if (response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -6777,9 +7214,14 @@ export class AgentObservabilityApiResponseProcessor {
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: LLMObsAnnotatedInteractionsResponse =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
+          ObjectSerializer.parse(
+            await response.body.text(),
+            contentType,
+            _config?.preserveLargeIntegers
+          ),
           "LLMObsAnnotatedInteractionsResponse",
-          ""
+          "",
+          _config?.preserveLargeIntegers
         ) as LLMObsAnnotatedInteractionsResponse;
       return body;
     }
@@ -6799,16 +7241,24 @@ export class AgentObservabilityApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async getLLMObsAnnotatedInteractionsByTraceIDs(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<LLMObsAnnotatedInteractionsByTraceResponse> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 200) {
       const body: LLMObsAnnotatedInteractionsByTraceResponse =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
-          "LLMObsAnnotatedInteractionsByTraceResponse"
+          ObjectSerializer.parse(
+            await response.body.text(),
+            contentType,
+            _config?.preserveLargeIntegers
+          ),
+          "LLMObsAnnotatedInteractionsByTraceResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as LLMObsAnnotatedInteractionsByTraceResponse;
       return body;
     }
@@ -6820,13 +7270,16 @@ export class AgentObservabilityApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: JSONAPIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "JSONAPIErrorResponse"
+          "JSONAPIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as JSONAPIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -6843,13 +7296,16 @@ export class AgentObservabilityApiResponseProcessor {
     if (response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -6865,9 +7321,14 @@ export class AgentObservabilityApiResponseProcessor {
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: LLMObsAnnotatedInteractionsByTraceResponse =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
+          ObjectSerializer.parse(
+            await response.body.text(),
+            contentType,
+            _config?.preserveLargeIntegers
+          ),
           "LLMObsAnnotatedInteractionsByTraceResponse",
-          ""
+          "",
+          _config?.preserveLargeIntegers
         ) as LLMObsAnnotatedInteractionsByTraceResponse;
       return body;
     }
@@ -6887,16 +7348,24 @@ export class AgentObservabilityApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async getLLMObsAnnotationQueueLabelSchema(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<LLMObsAnnotationQueueLabelSchemaResponse> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 200) {
       const body: LLMObsAnnotationQueueLabelSchemaResponse =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
-          "LLMObsAnnotationQueueLabelSchemaResponse"
+          ObjectSerializer.parse(
+            await response.body.text(),
+            contentType,
+            _config?.preserveLargeIntegers
+          ),
+          "LLMObsAnnotationQueueLabelSchemaResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as LLMObsAnnotationQueueLabelSchemaResponse;
       return body;
     }
@@ -6908,13 +7377,16 @@ export class AgentObservabilityApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: JSONAPIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "JSONAPIErrorResponse"
+          "JSONAPIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as JSONAPIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -6931,13 +7403,16 @@ export class AgentObservabilityApiResponseProcessor {
     if (response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -6953,9 +7428,14 @@ export class AgentObservabilityApiResponseProcessor {
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: LLMObsAnnotationQueueLabelSchemaResponse =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
+          ObjectSerializer.parse(
+            await response.body.text(),
+            contentType,
+            _config?.preserveLargeIntegers
+          ),
           "LLMObsAnnotationQueueLabelSchemaResponse",
-          ""
+          "",
+          _config?.preserveLargeIntegers
         ) as LLMObsAnnotationQueueLabelSchemaResponse;
       return body;
     }
@@ -6975,15 +7455,23 @@ export class AgentObservabilityApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async getLLMObsCustomEvalConfig(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<LLMObsCustomEvalConfigResponse> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 200) {
       const body: LLMObsCustomEvalConfigResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "LLMObsCustomEvalConfigResponse"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
+        "LLMObsCustomEvalConfigResponse",
+        "",
+        _config?.preserveLargeIntegers
       ) as LLMObsCustomEvalConfigResponse;
       return body;
     }
@@ -6995,13 +7483,16 @@ export class AgentObservabilityApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: JSONAPIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "JSONAPIErrorResponse"
+          "JSONAPIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as JSONAPIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -7018,13 +7509,16 @@ export class AgentObservabilityApiResponseProcessor {
     if (response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -7039,9 +7533,14 @@ export class AgentObservabilityApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: LLMObsCustomEvalConfigResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
         "LLMObsCustomEvalConfigResponse",
-        ""
+        "",
+        _config?.preserveLargeIntegers
       ) as LLMObsCustomEvalConfigResponse;
       return body;
     }
@@ -7061,16 +7560,24 @@ export class AgentObservabilityApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async getLLMObsDatasetDraftState(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<LLMObsDatasetDraftStateResponse> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 200) {
       const body: LLMObsDatasetDraftStateResponse =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
-          "LLMObsDatasetDraftStateResponse"
+          ObjectSerializer.parse(
+            await response.body.text(),
+            contentType,
+            _config?.preserveLargeIntegers
+          ),
+          "LLMObsDatasetDraftStateResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as LLMObsDatasetDraftStateResponse;
       return body;
     }
@@ -7083,13 +7590,16 @@ export class AgentObservabilityApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: JSONAPIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "JSONAPIErrorResponse"
+          "JSONAPIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as JSONAPIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -7106,13 +7616,16 @@ export class AgentObservabilityApiResponseProcessor {
     if (response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -7128,9 +7641,14 @@ export class AgentObservabilityApiResponseProcessor {
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: LLMObsDatasetDraftStateResponse =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
+          ObjectSerializer.parse(
+            await response.body.text(),
+            contentType,
+            _config?.preserveLargeIntegers
+          ),
           "LLMObsDatasetDraftStateResponse",
-          ""
+          "",
+          _config?.preserveLargeIntegers
         ) as LLMObsDatasetDraftStateResponse;
       return body;
     }
@@ -7150,15 +7668,23 @@ export class AgentObservabilityApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async getLLMObsPatternsConfig(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<LLMObsPatternsConfigResponse> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 200) {
       const body: LLMObsPatternsConfigResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "LLMObsPatternsConfigResponse"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
+        "LLMObsPatternsConfigResponse",
+        "",
+        _config?.preserveLargeIntegers
       ) as LLMObsPatternsConfigResponse;
       return body;
     }
@@ -7171,13 +7697,16 @@ export class AgentObservabilityApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: JSONAPIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "JSONAPIErrorResponse"
+          "JSONAPIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as JSONAPIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -7194,13 +7723,16 @@ export class AgentObservabilityApiResponseProcessor {
     if (response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -7215,9 +7747,14 @@ export class AgentObservabilityApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: LLMObsPatternsConfigResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
         "LLMObsPatternsConfigResponse",
-        ""
+        "",
+        _config?.preserveLargeIntegers
       ) as LLMObsPatternsConfigResponse;
       return body;
     }
@@ -7237,16 +7774,24 @@ export class AgentObservabilityApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async getLLMObsPatternsRunStatus(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<LLMObsPatternsRunStatusResponse> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 200) {
       const body: LLMObsPatternsRunStatusResponse =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
-          "LLMObsPatternsRunStatusResponse"
+          ObjectSerializer.parse(
+            await response.body.text(),
+            contentType,
+            _config?.preserveLargeIntegers
+          ),
+          "LLMObsPatternsRunStatusResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as LLMObsPatternsRunStatusResponse;
       return body;
     }
@@ -7259,13 +7804,16 @@ export class AgentObservabilityApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: JSONAPIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "JSONAPIErrorResponse"
+          "JSONAPIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as JSONAPIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -7282,13 +7830,16 @@ export class AgentObservabilityApiResponseProcessor {
     if (response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -7304,9 +7855,14 @@ export class AgentObservabilityApiResponseProcessor {
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: LLMObsPatternsRunStatusResponse =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
+          ObjectSerializer.parse(
+            await response.body.text(),
+            contentType,
+            _config?.preserveLargeIntegers
+          ),
           "LLMObsPatternsRunStatusResponse",
-          ""
+          "",
+          _config?.preserveLargeIntegers
         ) as LLMObsPatternsRunStatusResponse;
       return body;
     }
@@ -7326,15 +7882,23 @@ export class AgentObservabilityApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async getLLMObsPrompt(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<LLMObsPromptSDKResponse> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 200) {
       const body: LLMObsPromptSDKResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "LLMObsPromptSDKResponse"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
+        "LLMObsPromptSDKResponse",
+        "",
+        _config?.preserveLargeIntegers
       ) as LLMObsPromptSDKResponse;
       return body;
     }
@@ -7345,13 +7909,16 @@ export class AgentObservabilityApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: JSONAPIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "JSONAPIErrorResponse"
+          "JSONAPIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as JSONAPIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -7368,13 +7935,16 @@ export class AgentObservabilityApiResponseProcessor {
     if (response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -7389,9 +7959,14 @@ export class AgentObservabilityApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: LLMObsPromptSDKResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
         "LLMObsPromptSDKResponse",
-        ""
+        "",
+        _config?.preserveLargeIntegers
       ) as LLMObsPromptSDKResponse;
       return body;
     }
@@ -7411,15 +7986,23 @@ export class AgentObservabilityApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async getLLMObsPromptVersion(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<LLMObsPromptVersionResponse> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 200) {
       const body: LLMObsPromptVersionResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "LLMObsPromptVersionResponse"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
+        "LLMObsPromptVersionResponse",
+        "",
+        _config?.preserveLargeIntegers
       ) as LLMObsPromptVersionResponse;
       return body;
     }
@@ -7431,13 +8014,16 @@ export class AgentObservabilityApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: JSONAPIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "JSONAPIErrorResponse"
+          "JSONAPIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as JSONAPIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -7454,13 +8040,16 @@ export class AgentObservabilityApiResponseProcessor {
     if (response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -7475,9 +8064,14 @@ export class AgentObservabilityApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: LLMObsPromptVersionResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
         "LLMObsPromptVersionResponse",
-        ""
+        "",
+        _config?.preserveLargeIntegers
       ) as LLMObsPromptVersionResponse;
       return body;
     }
@@ -7497,15 +8091,23 @@ export class AgentObservabilityApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async listLLMObsAnnotationQueues(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<LLMObsAnnotationQueuesResponse> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 200) {
       const body: LLMObsAnnotationQueuesResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "LLMObsAnnotationQueuesResponse"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
+        "LLMObsAnnotationQueuesResponse",
+        "",
+        _config?.preserveLargeIntegers
       ) as LLMObsAnnotationQueuesResponse;
       return body;
     }
@@ -7516,13 +8118,16 @@ export class AgentObservabilityApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: JSONAPIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "JSONAPIErrorResponse"
+          "JSONAPIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as JSONAPIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -7539,13 +8144,16 @@ export class AgentObservabilityApiResponseProcessor {
     if (response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -7560,9 +8168,14 @@ export class AgentObservabilityApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: LLMObsAnnotationQueuesResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
         "LLMObsAnnotationQueuesResponse",
-        ""
+        "",
+        _config?.preserveLargeIntegers
       ) as LLMObsAnnotationQueuesResponse;
       return body;
     }
@@ -7582,29 +8195,40 @@ export class AgentObservabilityApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async listLLMObsCustomEvalConfigs(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<LLMObsCustomEvalConfigListResponse> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 200) {
       const body: LLMObsCustomEvalConfigListResponse =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
-          "LLMObsCustomEvalConfigListResponse"
+          ObjectSerializer.parse(
+            await response.body.text(),
+            contentType,
+            _config?.preserveLargeIntegers
+          ),
+          "LLMObsCustomEvalConfigListResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as LLMObsCustomEvalConfigListResponse;
       return body;
     }
     if (response.httpStatusCode === 401 || response.httpStatusCode === 403) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: JSONAPIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "JSONAPIErrorResponse"
+          "JSONAPIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as JSONAPIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -7621,13 +8245,16 @@ export class AgentObservabilityApiResponseProcessor {
     if (response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -7643,9 +8270,14 @@ export class AgentObservabilityApiResponseProcessor {
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: LLMObsCustomEvalConfigListResponse =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
+          ObjectSerializer.parse(
+            await response.body.text(),
+            contentType,
+            _config?.preserveLargeIntegers
+          ),
           "LLMObsCustomEvalConfigListResponse",
-          ""
+          "",
+          _config?.preserveLargeIntegers
         ) as LLMObsCustomEvalConfigListResponse;
       return body;
     }
@@ -7665,16 +8297,24 @@ export class AgentObservabilityApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async listLLMObsDatasetRecords(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<LLMObsDatasetRecordsListResponse> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 200) {
       const body: LLMObsDatasetRecordsListResponse =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
-          "LLMObsDatasetRecordsListResponse"
+          ObjectSerializer.parse(
+            await response.body.text(),
+            contentType,
+            _config?.preserveLargeIntegers
+          ),
+          "LLMObsDatasetRecordsListResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as LLMObsDatasetRecordsListResponse;
       return body;
     }
@@ -7686,13 +8326,16 @@ export class AgentObservabilityApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: JSONAPIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "JSONAPIErrorResponse"
+          "JSONAPIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as JSONAPIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -7709,13 +8352,16 @@ export class AgentObservabilityApiResponseProcessor {
     if (response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -7731,9 +8377,14 @@ export class AgentObservabilityApiResponseProcessor {
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: LLMObsDatasetRecordsListResponse =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
+          ObjectSerializer.parse(
+            await response.body.text(),
+            contentType,
+            _config?.preserveLargeIntegers
+          ),
           "LLMObsDatasetRecordsListResponse",
-          ""
+          "",
+          _config?.preserveLargeIntegers
         ) as LLMObsDatasetRecordsListResponse;
       return body;
     }
@@ -7753,15 +8404,23 @@ export class AgentObservabilityApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async listLLMObsDatasets(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<LLMObsDatasetsResponse> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 200) {
       const body: LLMObsDatasetsResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "LLMObsDatasetsResponse"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
+        "LLMObsDatasetsResponse",
+        "",
+        _config?.preserveLargeIntegers
       ) as LLMObsDatasetsResponse;
       return body;
     }
@@ -7773,13 +8432,16 @@ export class AgentObservabilityApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: JSONAPIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "JSONAPIErrorResponse"
+          "JSONAPIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as JSONAPIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -7796,13 +8458,16 @@ export class AgentObservabilityApiResponseProcessor {
     if (response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -7817,9 +8482,14 @@ export class AgentObservabilityApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: LLMObsDatasetsResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
         "LLMObsDatasetsResponse",
-        ""
+        "",
+        _config?.preserveLargeIntegers
       ) as LLMObsDatasetsResponse;
       return body;
     }
@@ -7839,15 +8509,23 @@ export class AgentObservabilityApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async listLLMObsDatasetVersions(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<LLMObsDatasetVersionsResponse> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 200) {
       const body: LLMObsDatasetVersionsResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "LLMObsDatasetVersionsResponse"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
+        "LLMObsDatasetVersionsResponse",
+        "",
+        _config?.preserveLargeIntegers
       ) as LLMObsDatasetVersionsResponse;
       return body;
     }
@@ -7860,13 +8538,16 @@ export class AgentObservabilityApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: JSONAPIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "JSONAPIErrorResponse"
+          "JSONAPIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as JSONAPIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -7883,13 +8564,16 @@ export class AgentObservabilityApiResponseProcessor {
     if (response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -7904,9 +8588,14 @@ export class AgentObservabilityApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: LLMObsDatasetVersionsResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
         "LLMObsDatasetVersionsResponse",
-        ""
+        "",
+        _config?.preserveLargeIntegers
       ) as LLMObsDatasetVersionsResponse;
       return body;
     }
@@ -7926,16 +8615,24 @@ export class AgentObservabilityApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async listLLMObsExperimentEvents(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<LLMObsExperimentEventsV2Response> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 200) {
       const body: LLMObsExperimentEventsV2Response =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
-          "LLMObsExperimentEventsV2Response"
+          ObjectSerializer.parse(
+            await response.body.text(),
+            contentType,
+            _config?.preserveLargeIntegers
+          ),
+          "LLMObsExperimentEventsV2Response",
+          "",
+          _config?.preserveLargeIntegers
         ) as LLMObsExperimentEventsV2Response;
       return body;
     }
@@ -7948,13 +8645,16 @@ export class AgentObservabilityApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: JSONAPIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "JSONAPIErrorResponse"
+          "JSONAPIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as JSONAPIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -7971,13 +8671,16 @@ export class AgentObservabilityApiResponseProcessor {
     if (response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -7993,9 +8696,14 @@ export class AgentObservabilityApiResponseProcessor {
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: LLMObsExperimentEventsV2Response =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
+          ObjectSerializer.parse(
+            await response.body.text(),
+            contentType,
+            _config?.preserveLargeIntegers
+          ),
           "LLMObsExperimentEventsV2Response",
-          ""
+          "",
+          _config?.preserveLargeIntegers
         ) as LLMObsExperimentEventsV2Response;
       return body;
     }
@@ -8015,15 +8723,23 @@ export class AgentObservabilityApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async listLLMObsExperimentEventsV1(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<LLMObsExperimentSpansResponse> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 200) {
       const body: LLMObsExperimentSpansResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "LLMObsExperimentSpansResponse"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
+        "LLMObsExperimentSpansResponse",
+        "",
+        _config?.preserveLargeIntegers
       ) as LLMObsExperimentSpansResponse;
       return body;
     }
@@ -8036,13 +8752,16 @@ export class AgentObservabilityApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: JSONAPIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "JSONAPIErrorResponse"
+          "JSONAPIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as JSONAPIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -8059,13 +8778,16 @@ export class AgentObservabilityApiResponseProcessor {
     if (response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -8080,9 +8802,14 @@ export class AgentObservabilityApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: LLMObsExperimentSpansResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
         "LLMObsExperimentSpansResponse",
-        ""
+        "",
+        _config?.preserveLargeIntegers
       ) as LLMObsExperimentSpansResponse;
       return body;
     }
@@ -8102,16 +8829,24 @@ export class AgentObservabilityApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async listLLMObsExperimentEventsV2(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<LLMObsExperimentEventsV2Response> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 200) {
       const body: LLMObsExperimentEventsV2Response =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
-          "LLMObsExperimentEventsV2Response"
+          ObjectSerializer.parse(
+            await response.body.text(),
+            contentType,
+            _config?.preserveLargeIntegers
+          ),
+          "LLMObsExperimentEventsV2Response",
+          "",
+          _config?.preserveLargeIntegers
         ) as LLMObsExperimentEventsV2Response;
       return body;
     }
@@ -8124,13 +8859,16 @@ export class AgentObservabilityApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: JSONAPIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "JSONAPIErrorResponse"
+          "JSONAPIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as JSONAPIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -8147,13 +8885,16 @@ export class AgentObservabilityApiResponseProcessor {
     if (response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -8169,9 +8910,14 @@ export class AgentObservabilityApiResponseProcessor {
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: LLMObsExperimentEventsV2Response =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
+          ObjectSerializer.parse(
+            await response.body.text(),
+            contentType,
+            _config?.preserveLargeIntegers
+          ),
           "LLMObsExperimentEventsV2Response",
-          ""
+          "",
+          _config?.preserveLargeIntegers
         ) as LLMObsExperimentEventsV2Response;
       return body;
     }
@@ -8191,15 +8937,23 @@ export class AgentObservabilityApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async listLLMObsExperiments(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<LLMObsExperimentsResponse> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 200) {
       const body: LLMObsExperimentsResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "LLMObsExperimentsResponse"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
+        "LLMObsExperimentsResponse",
+        "",
+        _config?.preserveLargeIntegers
       ) as LLMObsExperimentsResponse;
       return body;
     }
@@ -8210,13 +8964,16 @@ export class AgentObservabilityApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: JSONAPIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "JSONAPIErrorResponse"
+          "JSONAPIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as JSONAPIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -8233,13 +8990,16 @@ export class AgentObservabilityApiResponseProcessor {
     if (response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -8254,9 +9014,14 @@ export class AgentObservabilityApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: LLMObsExperimentsResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
         "LLMObsExperimentsResponse",
-        ""
+        "",
+        _config?.preserveLargeIntegers
       ) as LLMObsExperimentsResponse;
       return body;
     }
@@ -8276,16 +9041,24 @@ export class AgentObservabilityApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async listLLMObsIntegrationAccounts(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<Array<LLMObsIntegrationAccount>> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 200) {
       const body: Array<LLMObsIntegrationAccount> =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
-          "Array<LLMObsIntegrationAccount>"
+          ObjectSerializer.parse(
+            await response.body.text(),
+            contentType,
+            _config?.preserveLargeIntegers
+          ),
+          "Array<LLMObsIntegrationAccount>",
+          "",
+          _config?.preserveLargeIntegers
         ) as Array<LLMObsIntegrationAccount>;
       return body;
     }
@@ -8296,13 +9069,16 @@ export class AgentObservabilityApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: JSONAPIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "JSONAPIErrorResponse"
+          "JSONAPIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as JSONAPIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -8319,13 +9095,16 @@ export class AgentObservabilityApiResponseProcessor {
     if (response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -8341,9 +9120,14 @@ export class AgentObservabilityApiResponseProcessor {
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: Array<LLMObsIntegrationAccount> =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
+          ObjectSerializer.parse(
+            await response.body.text(),
+            contentType,
+            _config?.preserveLargeIntegers
+          ),
           "Array<LLMObsIntegrationAccount>",
-          ""
+          "",
+          _config?.preserveLargeIntegers
         ) as Array<LLMObsIntegrationAccount>;
       return body;
     }
@@ -8363,15 +9147,23 @@ export class AgentObservabilityApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async listLLMObsIntegrationModels(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<Array<LLMObsIntegrationModel>> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 200) {
       const body: Array<LLMObsIntegrationModel> = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "Array<LLMObsIntegrationModel>"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
+        "Array<LLMObsIntegrationModel>",
+        "",
+        _config?.preserveLargeIntegers
       ) as Array<LLMObsIntegrationModel>;
       return body;
     }
@@ -8382,13 +9174,16 @@ export class AgentObservabilityApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: JSONAPIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "JSONAPIErrorResponse"
+          "JSONAPIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as JSONAPIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -8405,13 +9200,16 @@ export class AgentObservabilityApiResponseProcessor {
     if (response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -8426,9 +9224,14 @@ export class AgentObservabilityApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: Array<LLMObsIntegrationModel> = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
         "Array<LLMObsIntegrationModel>",
-        ""
+        "",
+        _config?.preserveLargeIntegers
       ) as Array<LLMObsIntegrationModel>;
       return body;
     }
@@ -8448,16 +9251,24 @@ export class AgentObservabilityApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async listLLMObsPatternsClusteredPoints(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<LLMObsPatternsClusteredPointsResponse> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 200) {
       const body: LLMObsPatternsClusteredPointsResponse =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
-          "LLMObsPatternsClusteredPointsResponse"
+          ObjectSerializer.parse(
+            await response.body.text(),
+            contentType,
+            _config?.preserveLargeIntegers
+          ),
+          "LLMObsPatternsClusteredPointsResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as LLMObsPatternsClusteredPointsResponse;
       return body;
     }
@@ -8470,13 +9281,16 @@ export class AgentObservabilityApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: JSONAPIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "JSONAPIErrorResponse"
+          "JSONAPIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as JSONAPIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -8493,13 +9307,16 @@ export class AgentObservabilityApiResponseProcessor {
     if (response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -8515,9 +9332,14 @@ export class AgentObservabilityApiResponseProcessor {
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: LLMObsPatternsClusteredPointsResponse =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
+          ObjectSerializer.parse(
+            await response.body.text(),
+            contentType,
+            _config?.preserveLargeIntegers
+          ),
           "LLMObsPatternsClusteredPointsResponse",
-          ""
+          "",
+          _config?.preserveLargeIntegers
         ) as LLMObsPatternsClusteredPointsResponse;
       return body;
     }
@@ -8537,15 +9359,23 @@ export class AgentObservabilityApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async listLLMObsPatternsConfigs(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<LLMObsPatternsConfigsResponse> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 200) {
       const body: LLMObsPatternsConfigsResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "LLMObsPatternsConfigsResponse"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
+        "LLMObsPatternsConfigsResponse",
+        "",
+        _config?.preserveLargeIntegers
       ) as LLMObsPatternsConfigsResponse;
       return body;
     }
@@ -8557,13 +9387,16 @@ export class AgentObservabilityApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: JSONAPIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "JSONAPIErrorResponse"
+          "JSONAPIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as JSONAPIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -8580,13 +9413,16 @@ export class AgentObservabilityApiResponseProcessor {
     if (response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -8601,9 +9437,14 @@ export class AgentObservabilityApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: LLMObsPatternsConfigsResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
         "LLMObsPatternsConfigsResponse",
-        ""
+        "",
+        _config?.preserveLargeIntegers
       ) as LLMObsPatternsConfigsResponse;
       return body;
     }
@@ -8623,15 +9464,23 @@ export class AgentObservabilityApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async listLLMObsPatternsRuns(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<LLMObsPatternsRunsResponse> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 200) {
       const body: LLMObsPatternsRunsResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "LLMObsPatternsRunsResponse"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
+        "LLMObsPatternsRunsResponse",
+        "",
+        _config?.preserveLargeIntegers
       ) as LLMObsPatternsRunsResponse;
       return body;
     }
@@ -8644,13 +9493,16 @@ export class AgentObservabilityApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: JSONAPIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "JSONAPIErrorResponse"
+          "JSONAPIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as JSONAPIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -8667,13 +9519,16 @@ export class AgentObservabilityApiResponseProcessor {
     if (response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -8688,9 +9543,14 @@ export class AgentObservabilityApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: LLMObsPatternsRunsResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
         "LLMObsPatternsRunsResponse",
-        ""
+        "",
+        _config?.preserveLargeIntegers
       ) as LLMObsPatternsRunsResponse;
       return body;
     }
@@ -8710,29 +9570,40 @@ export class AgentObservabilityApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async listLLMObsPatternsTemplates(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<LLMObsPatternsTemplatesResponse> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 200) {
       const body: LLMObsPatternsTemplatesResponse =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
-          "LLMObsPatternsTemplatesResponse"
+          ObjectSerializer.parse(
+            await response.body.text(),
+            contentType,
+            _config?.preserveLargeIntegers
+          ),
+          "LLMObsPatternsTemplatesResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as LLMObsPatternsTemplatesResponse;
       return body;
     }
     if (response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -8748,9 +9619,14 @@ export class AgentObservabilityApiResponseProcessor {
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: LLMObsPatternsTemplatesResponse =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
+          ObjectSerializer.parse(
+            await response.body.text(),
+            contentType,
+            _config?.preserveLargeIntegers
+          ),
           "LLMObsPatternsTemplatesResponse",
-          ""
+          "",
+          _config?.preserveLargeIntegers
         ) as LLMObsPatternsTemplatesResponse;
       return body;
     }
@@ -8770,15 +9646,23 @@ export class AgentObservabilityApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async listLLMObsPatternsTopics(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<LLMObsPatternsTopicsResponse> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 200) {
       const body: LLMObsPatternsTopicsResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "LLMObsPatternsTopicsResponse"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
+        "LLMObsPatternsTopicsResponse",
+        "",
+        _config?.preserveLargeIntegers
       ) as LLMObsPatternsTopicsResponse;
       return body;
     }
@@ -8791,13 +9675,16 @@ export class AgentObservabilityApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: JSONAPIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "JSONAPIErrorResponse"
+          "JSONAPIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as JSONAPIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -8814,13 +9701,16 @@ export class AgentObservabilityApiResponseProcessor {
     if (response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -8835,9 +9725,14 @@ export class AgentObservabilityApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: LLMObsPatternsTopicsResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
         "LLMObsPatternsTopicsResponse",
-        ""
+        "",
+        _config?.preserveLargeIntegers
       ) as LLMObsPatternsTopicsResponse;
       return body;
     }
@@ -8857,16 +9752,24 @@ export class AgentObservabilityApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async listLLMObsPatternsTopicsWithClusteredPoints(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<LLMObsPatternsTopicsWithClusteredPointsResponse> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 200) {
       const body: LLMObsPatternsTopicsWithClusteredPointsResponse =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
-          "LLMObsPatternsTopicsWithClusteredPointsResponse"
+          ObjectSerializer.parse(
+            await response.body.text(),
+            contentType,
+            _config?.preserveLargeIntegers
+          ),
+          "LLMObsPatternsTopicsWithClusteredPointsResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as LLMObsPatternsTopicsWithClusteredPointsResponse;
       return body;
     }
@@ -8879,13 +9782,16 @@ export class AgentObservabilityApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: JSONAPIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "JSONAPIErrorResponse"
+          "JSONAPIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as JSONAPIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -8902,13 +9808,16 @@ export class AgentObservabilityApiResponseProcessor {
     if (response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -8924,9 +9833,14 @@ export class AgentObservabilityApiResponseProcessor {
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: LLMObsPatternsTopicsWithClusteredPointsResponse =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
+          ObjectSerializer.parse(
+            await response.body.text(),
+            contentType,
+            _config?.preserveLargeIntegers
+          ),
           "LLMObsPatternsTopicsWithClusteredPointsResponse",
-          ""
+          "",
+          _config?.preserveLargeIntegers
         ) as LLMObsPatternsTopicsWithClusteredPointsResponse;
       return body;
     }
@@ -8946,15 +9860,23 @@ export class AgentObservabilityApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async listLLMObsProjects(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<LLMObsProjectsResponse> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 200) {
       const body: LLMObsProjectsResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "LLMObsProjectsResponse"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
+        "LLMObsProjectsResponse",
+        "",
+        _config?.preserveLargeIntegers
       ) as LLMObsProjectsResponse;
       return body;
     }
@@ -8965,13 +9887,16 @@ export class AgentObservabilityApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: JSONAPIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "JSONAPIErrorResponse"
+          "JSONAPIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as JSONAPIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -8988,13 +9913,16 @@ export class AgentObservabilityApiResponseProcessor {
     if (response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -9009,9 +9937,14 @@ export class AgentObservabilityApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: LLMObsProjectsResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
         "LLMObsProjectsResponse",
-        ""
+        "",
+        _config?.preserveLargeIntegers
       ) as LLMObsProjectsResponse;
       return body;
     }
@@ -9031,28 +9964,39 @@ export class AgentObservabilityApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async listLLMObsPrompts(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<LLMObsPromptsResponse> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 200) {
       const body: LLMObsPromptsResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "LLMObsPromptsResponse"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
+        "LLMObsPromptsResponse",
+        "",
+        _config?.preserveLargeIntegers
       ) as LLMObsPromptsResponse;
       return body;
     }
     if (response.httpStatusCode === 401 || response.httpStatusCode === 403) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: JSONAPIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "JSONAPIErrorResponse"
+          "JSONAPIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as JSONAPIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -9069,13 +10013,16 @@ export class AgentObservabilityApiResponseProcessor {
     if (response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -9090,9 +10037,14 @@ export class AgentObservabilityApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: LLMObsPromptsResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
         "LLMObsPromptsResponse",
-        ""
+        "",
+        _config?.preserveLargeIntegers
       ) as LLMObsPromptsResponse;
       return body;
     }
@@ -9112,28 +10064,39 @@ export class AgentObservabilityApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async listLLMObsPromptVersions(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<LLMObsPromptVersionsResponse> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 200) {
       const body: LLMObsPromptVersionsResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "LLMObsPromptVersionsResponse"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
+        "LLMObsPromptVersionsResponse",
+        "",
+        _config?.preserveLargeIntegers
       ) as LLMObsPromptVersionsResponse;
       return body;
     }
     if (response.httpStatusCode === 401 || response.httpStatusCode === 403) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: JSONAPIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "JSONAPIErrorResponse"
+          "JSONAPIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as JSONAPIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -9150,13 +10113,16 @@ export class AgentObservabilityApiResponseProcessor {
     if (response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -9171,9 +10137,14 @@ export class AgentObservabilityApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: LLMObsPromptVersionsResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
         "LLMObsPromptVersionsResponse",
-        ""
+        "",
+        _config?.preserveLargeIntegers
       ) as LLMObsPromptVersionsResponse;
       return body;
     }
@@ -9193,15 +10164,23 @@ export class AgentObservabilityApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async listLLMObsSpans(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<LLMObsSpansResponse> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 200) {
       const body: LLMObsSpansResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "LLMObsSpansResponse"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
+        "LLMObsSpansResponse",
+        "",
+        _config?.preserveLargeIntegers
       ) as LLMObsSpansResponse;
       return body;
     }
@@ -9212,13 +10191,16 @@ export class AgentObservabilityApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: JSONAPIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "JSONAPIErrorResponse"
+          "JSONAPIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as JSONAPIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -9235,13 +10217,16 @@ export class AgentObservabilityApiResponseProcessor {
     if (response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -9256,9 +10241,14 @@ export class AgentObservabilityApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: LLMObsSpansResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
         "LLMObsSpansResponse",
-        ""
+        "",
+        _config?.preserveLargeIntegers
       ) as LLMObsSpansResponse;
       return body;
     }
@@ -9278,16 +10268,24 @@ export class AgentObservabilityApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async lockLLMObsDatasetDraftState(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<LLMObsDatasetDraftStateResponse> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 200) {
       const body: LLMObsDatasetDraftStateResponse =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
-          "LLMObsDatasetDraftStateResponse"
+          ObjectSerializer.parse(
+            await response.body.text(),
+            contentType,
+            _config?.preserveLargeIntegers
+          ),
+          "LLMObsDatasetDraftStateResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as LLMObsDatasetDraftStateResponse;
       return body;
     }
@@ -9300,13 +10298,16 @@ export class AgentObservabilityApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: JSONAPIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "JSONAPIErrorResponse"
+          "JSONAPIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as JSONAPIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -9323,13 +10324,16 @@ export class AgentObservabilityApiResponseProcessor {
     if (response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -9345,9 +10349,14 @@ export class AgentObservabilityApiResponseProcessor {
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: LLMObsDatasetDraftStateResponse =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
+          ObjectSerializer.parse(
+            await response.body.text(),
+            contentType,
+            _config?.preserveLargeIntegers
+          ),
           "LLMObsDatasetDraftStateResponse",
-          ""
+          "",
+          _config?.preserveLargeIntegers
         ) as LLMObsDatasetDraftStateResponse;
       return body;
     }
@@ -9367,8 +10376,10 @@ export class AgentObservabilityApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async restoreLLMObsDatasetVersion(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<void> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
@@ -9384,13 +10395,16 @@ export class AgentObservabilityApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: JSONAPIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "JSONAPIErrorResponse"
+          "JSONAPIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as JSONAPIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -9407,13 +10421,16 @@ export class AgentObservabilityApiResponseProcessor {
     if (response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -9445,16 +10462,24 @@ export class AgentObservabilityApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async searchLLMObsExperimentation(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<LLMObsExperimentationSearchResponse> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 200 || response.httpStatusCode === 206) {
       const body: LLMObsExperimentationSearchResponse =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
-          "LLMObsExperimentationSearchResponse"
+          ObjectSerializer.parse(
+            await response.body.text(),
+            contentType,
+            _config?.preserveLargeIntegers
+          ),
+          "LLMObsExperimentationSearchResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as LLMObsExperimentationSearchResponse;
       return body;
     }
@@ -9466,13 +10491,16 @@ export class AgentObservabilityApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: JSONAPIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "JSONAPIErrorResponse"
+          "JSONAPIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as JSONAPIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -9489,13 +10517,16 @@ export class AgentObservabilityApiResponseProcessor {
     if (response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -9511,9 +10542,14 @@ export class AgentObservabilityApiResponseProcessor {
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: LLMObsExperimentationSearchResponse =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
+          ObjectSerializer.parse(
+            await response.body.text(),
+            contentType,
+            _config?.preserveLargeIntegers
+          ),
           "LLMObsExperimentationSearchResponse",
-          ""
+          "",
+          _config?.preserveLargeIntegers
         ) as LLMObsExperimentationSearchResponse;
       return body;
     }
@@ -9533,15 +10569,23 @@ export class AgentObservabilityApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async searchLLMObsSpans(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<LLMObsSpansResponse> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 200) {
       const body: LLMObsSpansResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "LLMObsSpansResponse"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
+        "LLMObsSpansResponse",
+        "",
+        _config?.preserveLargeIntegers
       ) as LLMObsSpansResponse;
       return body;
     }
@@ -9552,13 +10596,16 @@ export class AgentObservabilityApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: JSONAPIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "JSONAPIErrorResponse"
+          "JSONAPIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as JSONAPIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -9575,13 +10622,16 @@ export class AgentObservabilityApiResponseProcessor {
     if (response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -9596,9 +10646,14 @@ export class AgentObservabilityApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: LLMObsSpansResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
         "LLMObsSpansResponse",
-        ""
+        "",
+        _config?.preserveLargeIntegers
       ) as LLMObsSpansResponse;
       return body;
     }
@@ -9618,16 +10673,24 @@ export class AgentObservabilityApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async simpleSearchLLMObsExperimentation(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<LLMObsExperimentationSimpleSearchResponse> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 200) {
       const body: LLMObsExperimentationSimpleSearchResponse =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
-          "LLMObsExperimentationSimpleSearchResponse"
+          ObjectSerializer.parse(
+            await response.body.text(),
+            contentType,
+            _config?.preserveLargeIntegers
+          ),
+          "LLMObsExperimentationSimpleSearchResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as LLMObsExperimentationSimpleSearchResponse;
       return body;
     }
@@ -9639,13 +10702,16 @@ export class AgentObservabilityApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: JSONAPIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "JSONAPIErrorResponse"
+          "JSONAPIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as JSONAPIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -9662,13 +10728,16 @@ export class AgentObservabilityApiResponseProcessor {
     if (response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -9684,9 +10753,14 @@ export class AgentObservabilityApiResponseProcessor {
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: LLMObsExperimentationSimpleSearchResponse =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
+          ObjectSerializer.parse(
+            await response.body.text(),
+            contentType,
+            _config?.preserveLargeIntegers
+          ),
           "LLMObsExperimentationSimpleSearchResponse",
-          ""
+          "",
+          _config?.preserveLargeIntegers
         ) as LLMObsExperimentationSimpleSearchResponse;
       return body;
     }
@@ -9706,15 +10780,23 @@ export class AgentObservabilityApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async triggerLLMObsPatterns(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<LLMObsPatternsTriggerResponse> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 202) {
       const body: LLMObsPatternsTriggerResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "LLMObsPatternsTriggerResponse"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
+        "LLMObsPatternsTriggerResponse",
+        "",
+        _config?.preserveLargeIntegers
       ) as LLMObsPatternsTriggerResponse;
       return body;
     }
@@ -9727,13 +10809,16 @@ export class AgentObservabilityApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: JSONAPIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "JSONAPIErrorResponse"
+          "JSONAPIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as JSONAPIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -9750,13 +10835,16 @@ export class AgentObservabilityApiResponseProcessor {
     if (response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -9771,9 +10859,14 @@ export class AgentObservabilityApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: LLMObsPatternsTriggerResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
         "LLMObsPatternsTriggerResponse",
-        ""
+        "",
+        _config?.preserveLargeIntegers
       ) as LLMObsPatternsTriggerResponse;
       return body;
     }
@@ -9793,8 +10886,10 @@ export class AgentObservabilityApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async unlockLLMObsDatasetDraftState(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<void> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
@@ -9810,13 +10905,16 @@ export class AgentObservabilityApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: JSONAPIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "JSONAPIErrorResponse"
+          "JSONAPIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as JSONAPIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -9833,13 +10931,16 @@ export class AgentObservabilityApiResponseProcessor {
     if (response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -9871,15 +10972,23 @@ export class AgentObservabilityApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async updateLLMObsAnnotationQueue(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<LLMObsAnnotationQueueResponse> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 200) {
       const body: LLMObsAnnotationQueueResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "LLMObsAnnotationQueueResponse"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
+        "LLMObsAnnotationQueueResponse",
+        "",
+        _config?.preserveLargeIntegers
       ) as LLMObsAnnotationQueueResponse;
       return body;
     }
@@ -9891,13 +11000,16 @@ export class AgentObservabilityApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: JSONAPIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "JSONAPIErrorResponse"
+          "JSONAPIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as JSONAPIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -9914,13 +11026,16 @@ export class AgentObservabilityApiResponseProcessor {
     if (response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -9935,9 +11050,14 @@ export class AgentObservabilityApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: LLMObsAnnotationQueueResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
         "LLMObsAnnotationQueueResponse",
-        ""
+        "",
+        _config?.preserveLargeIntegers
       ) as LLMObsAnnotationQueueResponse;
       return body;
     }
@@ -9957,16 +11077,24 @@ export class AgentObservabilityApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async updateLLMObsAnnotationQueueLabelSchema(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<LLMObsAnnotationQueueLabelSchemaResponse> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 200) {
       const body: LLMObsAnnotationQueueLabelSchemaResponse =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
-          "LLMObsAnnotationQueueLabelSchemaResponse"
+          ObjectSerializer.parse(
+            await response.body.text(),
+            contentType,
+            _config?.preserveLargeIntegers
+          ),
+          "LLMObsAnnotationQueueLabelSchemaResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as LLMObsAnnotationQueueLabelSchemaResponse;
       return body;
     }
@@ -9979,13 +11107,16 @@ export class AgentObservabilityApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: JSONAPIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "JSONAPIErrorResponse"
+          "JSONAPIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as JSONAPIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -10002,13 +11133,16 @@ export class AgentObservabilityApiResponseProcessor {
     if (response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -10024,9 +11158,14 @@ export class AgentObservabilityApiResponseProcessor {
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: LLMObsAnnotationQueueLabelSchemaResponse =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
+          ObjectSerializer.parse(
+            await response.body.text(),
+            contentType,
+            _config?.preserveLargeIntegers
+          ),
           "LLMObsAnnotationQueueLabelSchemaResponse",
-          ""
+          "",
+          _config?.preserveLargeIntegers
         ) as LLMObsAnnotationQueueLabelSchemaResponse;
       return body;
     }
@@ -10046,8 +11185,10 @@ export class AgentObservabilityApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async updateLLMObsCustomEvalConfig(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<void> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
@@ -10063,13 +11204,16 @@ export class AgentObservabilityApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: JSONAPIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "JSONAPIErrorResponse"
+          "JSONAPIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as JSONAPIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -10086,13 +11230,16 @@ export class AgentObservabilityApiResponseProcessor {
     if (response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -10124,15 +11271,23 @@ export class AgentObservabilityApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async updateLLMObsDataset(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<LLMObsDatasetResponse> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 200) {
       const body: LLMObsDatasetResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "LLMObsDatasetResponse"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
+        "LLMObsDatasetResponse",
+        "",
+        _config?.preserveLargeIntegers
       ) as LLMObsDatasetResponse;
       return body;
     }
@@ -10144,13 +11299,16 @@ export class AgentObservabilityApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: JSONAPIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "JSONAPIErrorResponse"
+          "JSONAPIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as JSONAPIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -10167,13 +11325,16 @@ export class AgentObservabilityApiResponseProcessor {
     if (response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -10188,9 +11349,14 @@ export class AgentObservabilityApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: LLMObsDatasetResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
         "LLMObsDatasetResponse",
-        ""
+        "",
+        _config?.preserveLargeIntegers
       ) as LLMObsDatasetResponse;
       return body;
     }
@@ -10210,16 +11376,24 @@ export class AgentObservabilityApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async updateLLMObsDatasetRecords(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<LLMObsDatasetRecordsMutationResponse> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 200) {
       const body: LLMObsDatasetRecordsMutationResponse =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
-          "LLMObsDatasetRecordsMutationResponse"
+          ObjectSerializer.parse(
+            await response.body.text(),
+            contentType,
+            _config?.preserveLargeIntegers
+          ),
+          "LLMObsDatasetRecordsMutationResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as LLMObsDatasetRecordsMutationResponse;
       return body;
     }
@@ -10231,13 +11405,16 @@ export class AgentObservabilityApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: JSONAPIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "JSONAPIErrorResponse"
+          "JSONAPIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as JSONAPIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -10254,13 +11431,16 @@ export class AgentObservabilityApiResponseProcessor {
     if (response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -10276,9 +11456,14 @@ export class AgentObservabilityApiResponseProcessor {
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: LLMObsDatasetRecordsMutationResponse =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
+          ObjectSerializer.parse(
+            await response.body.text(),
+            contentType,
+            _config?.preserveLargeIntegers
+          ),
           "LLMObsDatasetRecordsMutationResponse",
-          ""
+          "",
+          _config?.preserveLargeIntegers
         ) as LLMObsDatasetRecordsMutationResponse;
       return body;
     }
@@ -10298,15 +11483,23 @@ export class AgentObservabilityApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async updateLLMObsExperiment(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<LLMObsExperimentResponse> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 200) {
       const body: LLMObsExperimentResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "LLMObsExperimentResponse"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
+        "LLMObsExperimentResponse",
+        "",
+        _config?.preserveLargeIntegers
       ) as LLMObsExperimentResponse;
       return body;
     }
@@ -10318,13 +11511,16 @@ export class AgentObservabilityApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: JSONAPIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "JSONAPIErrorResponse"
+          "JSONAPIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as JSONAPIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -10341,13 +11537,16 @@ export class AgentObservabilityApiResponseProcessor {
     if (response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -10362,9 +11561,14 @@ export class AgentObservabilityApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: LLMObsExperimentResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
         "LLMObsExperimentResponse",
-        ""
+        "",
+        _config?.preserveLargeIntegers
       ) as LLMObsExperimentResponse;
       return body;
     }
@@ -10384,15 +11588,23 @@ export class AgentObservabilityApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async updateLLMObsProject(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<LLMObsProjectResponse> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 200) {
       const body: LLMObsProjectResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "LLMObsProjectResponse"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
+        "LLMObsProjectResponse",
+        "",
+        _config?.preserveLargeIntegers
       ) as LLMObsProjectResponse;
       return body;
     }
@@ -10404,13 +11616,16 @@ export class AgentObservabilityApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: JSONAPIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "JSONAPIErrorResponse"
+          "JSONAPIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as JSONAPIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -10427,13 +11642,16 @@ export class AgentObservabilityApiResponseProcessor {
     if (response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -10448,9 +11666,14 @@ export class AgentObservabilityApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: LLMObsProjectResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
         "LLMObsProjectResponse",
-        ""
+        "",
+        _config?.preserveLargeIntegers
       ) as LLMObsProjectResponse;
       return body;
     }
@@ -10470,15 +11693,23 @@ export class AgentObservabilityApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async updateLLMObsPrompt(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<LLMObsPromptResponse> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 200) {
       const body: LLMObsPromptResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "LLMObsPromptResponse"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
+        "LLMObsPromptResponse",
+        "",
+        _config?.preserveLargeIntegers
       ) as LLMObsPromptResponse;
       return body;
     }
@@ -10490,13 +11721,16 @@ export class AgentObservabilityApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: JSONAPIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "JSONAPIErrorResponse"
+          "JSONAPIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as JSONAPIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -10513,13 +11747,16 @@ export class AgentObservabilityApiResponseProcessor {
     if (response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -10534,9 +11771,14 @@ export class AgentObservabilityApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: LLMObsPromptResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
         "LLMObsPromptResponse",
-        ""
+        "",
+        _config?.preserveLargeIntegers
       ) as LLMObsPromptResponse;
       return body;
     }
@@ -10556,15 +11798,23 @@ export class AgentObservabilityApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async updateLLMObsPromptVersion(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<LLMObsPromptVersionResponse> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 200) {
       const body: LLMObsPromptVersionResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "LLMObsPromptVersionResponse"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
+        "LLMObsPromptVersionResponse",
+        "",
+        _config?.preserveLargeIntegers
       ) as LLMObsPromptVersionResponse;
       return body;
     }
@@ -10576,13 +11826,16 @@ export class AgentObservabilityApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: JSONAPIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "JSONAPIErrorResponse"
+          "JSONAPIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as JSONAPIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -10599,13 +11852,16 @@ export class AgentObservabilityApiResponseProcessor {
     if (response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -10620,9 +11876,14 @@ export class AgentObservabilityApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: LLMObsPromptVersionResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
         "LLMObsPromptVersionResponse",
-        ""
+        "",
+        _config?.preserveLargeIntegers
       ) as LLMObsPromptVersionResponse;
       return body;
     }
@@ -10642,8 +11903,10 @@ export class AgentObservabilityApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async uploadLLMObsDatasetRecordsFile(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<void> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
@@ -10659,13 +11922,16 @@ export class AgentObservabilityApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: JSONAPIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "JSONAPIErrorResponse"
+          "JSONAPIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as JSONAPIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -10682,13 +11948,16 @@ export class AgentObservabilityApiResponseProcessor {
     if (response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -10720,15 +11989,23 @@ export class AgentObservabilityApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async upsertLLMObsAnnotations(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<LLMObsAnnotationsResponse> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 200) {
       const body: LLMObsAnnotationsResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "LLMObsAnnotationsResponse"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
+        "LLMObsAnnotationsResponse",
+        "",
+        _config?.preserveLargeIntegers
       ) as LLMObsAnnotationsResponse;
       return body;
     }
@@ -10740,13 +12017,16 @@ export class AgentObservabilityApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: JSONAPIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "JSONAPIErrorResponse"
+          "JSONAPIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as JSONAPIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -10763,13 +12043,16 @@ export class AgentObservabilityApiResponseProcessor {
     if (response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -10784,9 +12067,14 @@ export class AgentObservabilityApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: LLMObsAnnotationsResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
         "LLMObsAnnotationsResponse",
-        ""
+        "",
+        _config?.preserveLargeIntegers
       ) as LLMObsAnnotationsResponse;
       return body;
     }
@@ -10806,15 +12094,23 @@ export class AgentObservabilityApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async upsertLLMObsPatternsConfig(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<LLMObsPatternsConfigResponse> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 200) {
       const body: LLMObsPatternsConfigResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "LLMObsPatternsConfigResponse"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
+        "LLMObsPatternsConfigResponse",
+        "",
+        _config?.preserveLargeIntegers
       ) as LLMObsPatternsConfigResponse;
       return body;
     }
@@ -10827,13 +12123,16 @@ export class AgentObservabilityApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: JSONAPIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "JSONAPIErrorResponse"
+          "JSONAPIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as JSONAPIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -10850,13 +12149,16 @@ export class AgentObservabilityApiResponseProcessor {
     if (response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -10871,9 +12173,14 @@ export class AgentObservabilityApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: LLMObsPatternsConfigResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
         "LLMObsPatternsConfigResponse",
-        ""
+        "",
+        _config?.preserveLargeIntegers
       ) as LLMObsPatternsConfigResponse;
       return body;
     }
@@ -11934,7 +13241,8 @@ export class AgentObservabilityApi {
     this.requestFactory =
       requestFactory || new AgentObservabilityApiRequestFactory(configuration);
     this.responseProcessor =
-      responseProcessor || new AgentObservabilityApiResponseProcessor();
+      responseProcessor ||
+      new AgentObservabilityApiResponseProcessor(configuration);
   }
 
   /**
@@ -11955,7 +13263,8 @@ export class AgentObservabilityApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.aggregateLLMObsExperimentation(
-            responseContext
+            responseContext,
+            options
           );
         });
     });
@@ -11980,7 +13289,8 @@ export class AgentObservabilityApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.batchUpdateLLMObsDataset(
-            responseContext
+            responseContext,
+            options
           );
         });
     });
@@ -12004,7 +13314,10 @@ export class AgentObservabilityApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.cloneLLMObsDataset(responseContext);
+          return this.responseProcessor.cloneLLMObsDataset(
+            responseContext,
+            options
+          );
         });
     });
   }
@@ -12028,7 +13341,8 @@ export class AgentObservabilityApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.createLLMObsAnnotationQueue(
-            responseContext
+            responseContext,
+            options
           );
         });
     });
@@ -12062,7 +13376,8 @@ export class AgentObservabilityApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.createLLMObsAnnotationQueueInteractions(
-            responseContext
+            responseContext,
+            options
           );
         });
     });
@@ -12085,7 +13400,10 @@ export class AgentObservabilityApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.createLLMObsDataset(responseContext);
+          return this.responseProcessor.createLLMObsDataset(
+            responseContext,
+            options
+          );
         });
     });
   }
@@ -12110,7 +13428,8 @@ export class AgentObservabilityApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.createLLMObsDatasetRecords(
-            responseContext
+            responseContext,
+            options
           );
         });
     });
@@ -12132,7 +13451,10 @@ export class AgentObservabilityApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.createLLMObsExperiment(responseContext);
+          return this.responseProcessor.createLLMObsExperiment(
+            responseContext,
+            options
+          );
         });
     });
   }
@@ -12156,7 +13478,8 @@ export class AgentObservabilityApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.createLLMObsExperimentEvents(
-            responseContext
+            responseContext,
+            options
           );
         });
     });
@@ -12182,7 +13505,8 @@ export class AgentObservabilityApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.createLLMObsIntegrationInference(
-            responseContext
+            responseContext,
+            options
           );
         });
     });
@@ -12204,7 +13528,10 @@ export class AgentObservabilityApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.createLLMObsProject(responseContext);
+          return this.responseProcessor.createLLMObsProject(
+            responseContext,
+            options
+          );
         });
     });
   }
@@ -12227,7 +13554,10 @@ export class AgentObservabilityApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.createLLMObsPrompt(responseContext);
+          return this.responseProcessor.createLLMObsPrompt(
+            responseContext,
+            options
+          );
         });
     });
   }
@@ -12252,7 +13582,8 @@ export class AgentObservabilityApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.createLLMObsPromptVersion(
-            responseContext
+            responseContext,
+            options
           );
         });
     });
@@ -12273,7 +13604,8 @@ export class AgentObservabilityApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.deleteLLMObsAnnotationQueue(
-            responseContext
+            responseContext,
+            options
           );
         });
     });
@@ -12298,7 +13630,8 @@ export class AgentObservabilityApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.deleteLLMObsAnnotationQueueInteractions(
-            responseContext
+            responseContext,
+            options
           );
         });
     });
@@ -12322,7 +13655,8 @@ export class AgentObservabilityApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.deleteLLMObsAnnotations(
-            responseContext
+            responseContext,
+            options
           );
         });
     });
@@ -12343,7 +13677,8 @@ export class AgentObservabilityApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.deleteLLMObsCustomEvalConfig(
-            responseContext
+            responseContext,
+            options
           );
         });
     });
@@ -12369,7 +13704,8 @@ export class AgentObservabilityApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.deleteLLMObsDatasetRecords(
-            responseContext
+            responseContext,
+            options
           );
         });
     });
@@ -12392,7 +13728,10 @@ export class AgentObservabilityApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.deleteLLMObsDatasets(responseContext);
+          return this.responseProcessor.deleteLLMObsDatasets(
+            responseContext,
+            options
+          );
         });
     });
   }
@@ -12414,7 +13753,8 @@ export class AgentObservabilityApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.deleteLLMObsExperiments(
-            responseContext
+            responseContext,
+            options
           );
         });
     });
@@ -12435,7 +13775,8 @@ export class AgentObservabilityApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.deleteLLMObsPatternsConfig(
-            responseContext
+            responseContext,
+            options
           );
         });
     });
@@ -12457,7 +13798,10 @@ export class AgentObservabilityApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.deleteLLMObsProjects(responseContext);
+          return this.responseProcessor.deleteLLMObsProjects(
+            responseContext,
+            options
+          );
         });
     });
   }
@@ -12478,7 +13822,10 @@ export class AgentObservabilityApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.deleteLLMObsPrompt(responseContext);
+          return this.responseProcessor.deleteLLMObsPrompt(
+            responseContext,
+            options
+          );
         });
     });
   }
@@ -12502,7 +13849,10 @@ export class AgentObservabilityApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.exportLLMObsDataset(responseContext);
+          return this.responseProcessor.exportLLMObsDataset(
+            responseContext,
+            options
+          );
         });
     });
   }
@@ -12528,7 +13878,8 @@ export class AgentObservabilityApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.getLLMObsAnnotatedInteraction(
-            responseContext
+            responseContext,
+            options
           );
         });
     });
@@ -12561,7 +13912,8 @@ export class AgentObservabilityApi {
 
       const response =
         await this.responseProcessor.getLLMObsAnnotatedInteraction(
-          responseContext
+          responseContext,
+          options
         );
       const responseData = response.data;
       if (responseData === undefined) {
@@ -12617,7 +13969,8 @@ export class AgentObservabilityApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.getLLMObsAnnotatedInteractions(
-            responseContext
+            responseContext,
+            options
           );
         });
     });
@@ -12644,7 +13997,8 @@ export class AgentObservabilityApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.getLLMObsAnnotatedInteractionsByTraceIDs(
-            responseContext
+            responseContext,
+            options
           );
         });
     });
@@ -12668,7 +14022,8 @@ export class AgentObservabilityApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.getLLMObsAnnotationQueueLabelSchema(
-            responseContext
+            responseContext,
+            options
           );
         });
     });
@@ -12691,7 +14046,8 @@ export class AgentObservabilityApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.getLLMObsCustomEvalConfig(
-            responseContext
+            responseContext,
+            options
           );
         });
     });
@@ -12716,7 +14072,8 @@ export class AgentObservabilityApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.getLLMObsDatasetDraftState(
-            responseContext
+            responseContext,
+            options
           );
         });
     });
@@ -12736,7 +14093,8 @@ export class AgentObservabilityApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.getLLMObsPatternsConfig(
-            responseContext
+            responseContext,
+            options
           );
         });
     });
@@ -12758,7 +14116,8 @@ export class AgentObservabilityApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.getLLMObsPatternsRunStatus(
-            responseContext
+            responseContext,
+            options
           );
         });
     });
@@ -12781,7 +14140,10 @@ export class AgentObservabilityApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.getLLMObsPrompt(responseContext);
+          return this.responseProcessor.getLLMObsPrompt(
+            responseContext,
+            options
+          );
         });
     });
   }
@@ -12803,7 +14165,10 @@ export class AgentObservabilityApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.getLLMObsPromptVersion(responseContext);
+          return this.responseProcessor.getLLMObsPromptVersion(
+            responseContext,
+            options
+          );
         });
     });
   }
@@ -12828,7 +14193,8 @@ export class AgentObservabilityApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.listLLMObsAnnotationQueues(
-            responseContext
+            responseContext,
+            options
           );
         });
     });
@@ -12848,7 +14214,8 @@ export class AgentObservabilityApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.listLLMObsCustomEvalConfigs(
-            responseContext
+            responseContext,
+            options
           );
         });
     });
@@ -12875,7 +14242,8 @@ export class AgentObservabilityApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.listLLMObsDatasetRecords(
-            responseContext
+            responseContext,
+            options
           );
         });
     });
@@ -12901,7 +14269,10 @@ export class AgentObservabilityApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.listLLMObsDatasets(responseContext);
+          return this.responseProcessor.listLLMObsDatasets(
+            responseContext,
+            options
+          );
         });
     });
   }
@@ -12924,7 +14295,8 @@ export class AgentObservabilityApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.listLLMObsDatasetVersions(
-            responseContext
+            responseContext,
+            options
           );
         });
     });
@@ -12950,7 +14322,8 @@ export class AgentObservabilityApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.listLLMObsExperimentEvents(
-            responseContext
+            responseContext,
+            options
           );
         });
     });
@@ -12974,7 +14347,8 @@ export class AgentObservabilityApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.listLLMObsExperimentEventsV1(
-            responseContext
+            responseContext,
+            options
           );
         });
     });
@@ -12998,7 +14372,8 @@ export class AgentObservabilityApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.listLLMObsExperimentEventsV2(
-            responseContext
+            responseContext,
+            options
           );
         });
     });
@@ -13031,7 +14406,10 @@ export class AgentObservabilityApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.listLLMObsExperiments(responseContext);
+          return this.responseProcessor.listLLMObsExperiments(
+            responseContext,
+            options
+          );
         });
     });
   }
@@ -13054,7 +14432,8 @@ export class AgentObservabilityApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.listLLMObsIntegrationAccounts(
-            responseContext
+            responseContext,
+            options
           );
         });
     });
@@ -13079,7 +14458,8 @@ export class AgentObservabilityApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.listLLMObsIntegrationModels(
-            responseContext
+            responseContext,
+            options
           );
         });
     });
@@ -13106,7 +14486,8 @@ export class AgentObservabilityApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.listLLMObsPatternsClusteredPoints(
-            responseContext
+            responseContext,
+            options
           );
         });
     });
@@ -13126,7 +14507,8 @@ export class AgentObservabilityApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.listLLMObsPatternsConfigs(
-            responseContext
+            responseContext,
+            options
           );
         });
     });
@@ -13148,7 +14530,10 @@ export class AgentObservabilityApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.listLLMObsPatternsRuns(responseContext);
+          return this.responseProcessor.listLLMObsPatternsRuns(
+            responseContext,
+            options
+          );
         });
     });
   }
@@ -13167,7 +14552,8 @@ export class AgentObservabilityApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.listLLMObsPatternsTemplates(
-            responseContext
+            responseContext,
+            options
           );
         });
     });
@@ -13192,7 +14578,8 @@ export class AgentObservabilityApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.listLLMObsPatternsTopics(
-            responseContext
+            responseContext,
+            options
           );
         });
     });
@@ -13220,7 +14607,8 @@ export class AgentObservabilityApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.listLLMObsPatternsTopicsWithClusteredPoints(
-            responseContext
+            responseContext,
+            options
           );
         });
     });
@@ -13245,7 +14633,10 @@ export class AgentObservabilityApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.listLLMObsProjects(responseContext);
+          return this.responseProcessor.listLLMObsProjects(
+            responseContext,
+            options
+          );
         });
     });
   }
@@ -13266,7 +14657,10 @@ export class AgentObservabilityApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.listLLMObsPrompts(responseContext);
+          return this.responseProcessor.listLLMObsPrompts(
+            responseContext,
+            options
+          );
         });
     });
   }
@@ -13288,7 +14682,8 @@ export class AgentObservabilityApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.listLLMObsPromptVersions(
-            responseContext
+            responseContext,
+            options
           );
         });
     });
@@ -13321,7 +14716,10 @@ export class AgentObservabilityApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.listLLMObsSpans(responseContext);
+          return this.responseProcessor.listLLMObsSpans(
+            responseContext,
+            options
+          );
         });
     });
   }
@@ -13345,7 +14743,8 @@ export class AgentObservabilityApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.lockLLMObsDatasetDraftState(
-            responseContext
+            responseContext,
+            options
           );
         });
     });
@@ -13371,7 +14770,8 @@ export class AgentObservabilityApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.restoreLLMObsDatasetVersion(
-            responseContext
+            responseContext,
+            options
           );
         });
     });
@@ -13396,7 +14796,8 @@ export class AgentObservabilityApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.searchLLMObsExperimentation(
-            responseContext
+            responseContext,
+            options
           );
         });
     });
@@ -13418,7 +14819,10 @@ export class AgentObservabilityApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.searchLLMObsSpans(responseContext);
+          return this.responseProcessor.searchLLMObsSpans(
+            responseContext,
+            options
+          );
         });
     });
   }
@@ -13444,7 +14848,8 @@ export class AgentObservabilityApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.simpleSearchLLMObsExperimentation(
-            responseContext
+            responseContext,
+            options
           );
         });
     });
@@ -13466,7 +14871,10 @@ export class AgentObservabilityApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.triggerLLMObsPatterns(responseContext);
+          return this.responseProcessor.triggerLLMObsPatterns(
+            responseContext,
+            options
+          );
         });
     });
   }
@@ -13490,7 +14898,8 @@ export class AgentObservabilityApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.unlockLLMObsDatasetDraftState(
-            responseContext
+            responseContext,
+            options
           );
         });
     });
@@ -13517,7 +14926,8 @@ export class AgentObservabilityApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.updateLLMObsAnnotationQueue(
-            responseContext
+            responseContext,
+            options
           );
         });
     });
@@ -13545,7 +14955,8 @@ export class AgentObservabilityApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.updateLLMObsAnnotationQueueLabelSchema(
-            responseContext
+            responseContext,
+            options
           );
         });
     });
@@ -13570,7 +14981,8 @@ export class AgentObservabilityApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.updateLLMObsCustomEvalConfig(
-            responseContext
+            responseContext,
+            options
           );
         });
     });
@@ -13594,7 +15006,10 @@ export class AgentObservabilityApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.updateLLMObsDataset(responseContext);
+          return this.responseProcessor.updateLLMObsDataset(
+            responseContext,
+            options
+          );
         });
     });
   }
@@ -13619,7 +15034,8 @@ export class AgentObservabilityApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.updateLLMObsDatasetRecords(
-            responseContext
+            responseContext,
+            options
           );
         });
     });
@@ -13642,7 +15058,10 @@ export class AgentObservabilityApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.updateLLMObsExperiment(responseContext);
+          return this.responseProcessor.updateLLMObsExperiment(
+            responseContext,
+            options
+          );
         });
     });
   }
@@ -13664,7 +15083,10 @@ export class AgentObservabilityApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.updateLLMObsProject(responseContext);
+          return this.responseProcessor.updateLLMObsProject(
+            responseContext,
+            options
+          );
         });
     });
   }
@@ -13686,7 +15108,10 @@ export class AgentObservabilityApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.updateLLMObsPrompt(responseContext);
+          return this.responseProcessor.updateLLMObsPrompt(
+            responseContext,
+            options
+          );
         });
     });
   }
@@ -13710,7 +15135,8 @@ export class AgentObservabilityApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.updateLLMObsPromptVersion(
-            responseContext
+            responseContext,
+            options
           );
         });
     });
@@ -13746,7 +15172,8 @@ export class AgentObservabilityApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.uploadLLMObsDatasetRecordsFile(
-            responseContext
+            responseContext,
+            options
           );
         });
     });
@@ -13774,7 +15201,8 @@ export class AgentObservabilityApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.upsertLLMObsAnnotations(
-            responseContext
+            responseContext,
+            options
           );
         });
     });
@@ -13795,7 +15223,8 @@ export class AgentObservabilityApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.upsertLLMObsPatternsConfig(
-            responseContext
+            responseContext,
+            options
           );
         });
     });

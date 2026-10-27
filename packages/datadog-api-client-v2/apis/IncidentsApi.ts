@@ -159,7 +159,8 @@ export class IncidentsApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
       ObjectSerializer.serialize(body, "IncidentHandleRequest", ""),
-      contentType
+      contentType,
+      _config.preserveLargeIntegers
     );
     requestContext.setBody(serializedBody);
 
@@ -211,7 +212,8 @@ export class IncidentsApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
       ObjectSerializer.serialize(body, "IncidentCreateRequest", ""),
-      contentType
+      contentType,
+      _config.preserveLargeIntegers
     );
     requestContext.setBody(serializedBody);
 
@@ -284,7 +286,8 @@ export class IncidentsApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
       ObjectSerializer.serialize(body, "CreateAttachmentRequest", ""),
-      contentType
+      contentType,
+      _config.preserveLargeIntegers
     );
     requestContext.setBody(serializedBody);
 
@@ -348,7 +351,8 @@ export class IncidentsApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
       ObjectSerializer.serialize(body, "IncidentConfigurationRequest", ""),
-      contentType
+      contentType,
+      _config.preserveLargeIntegers
     );
     requestContext.setBody(serializedBody);
 
@@ -410,7 +414,8 @@ export class IncidentsApiRequestFactory extends BaseAPIRequestFactory {
         "IncidentGoogleChatConfigurationRequest",
         ""
       ),
-      contentType
+      contentType,
+      _config.preserveLargeIntegers
     );
     requestContext.setBody(serializedBody);
 
@@ -472,7 +477,8 @@ export class IncidentsApiRequestFactory extends BaseAPIRequestFactory {
         "IncidentGoogleMeetConfigurationRequest",
         ""
       ),
-      contentType
+      contentType,
+      _config.preserveLargeIntegers
     );
     requestContext.setBody(serializedBody);
 
@@ -542,7 +548,8 @@ export class IncidentsApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
       ObjectSerializer.serialize(body, "IncidentImpactCreateRequest", ""),
-      contentType
+      contentType,
+      _config.preserveLargeIntegers
     );
     requestContext.setBody(serializedBody);
 
@@ -596,7 +603,8 @@ export class IncidentsApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
       ObjectSerializer.serialize(body, "IncidentImpactFieldRequest", ""),
-      contentType
+      contentType,
+      _config.preserveLargeIntegers
     );
     requestContext.setBody(serializedBody);
 
@@ -664,7 +672,8 @@ export class IncidentsApiRequestFactory extends BaseAPIRequestFactory {
         "IncidentIntegrationMetadataCreateRequest",
         ""
       ),
-      contentType
+      contentType,
+      _config.preserveLargeIntegers
     );
     requestContext.setBody(serializedBody);
 
@@ -722,7 +731,8 @@ export class IncidentsApiRequestFactory extends BaseAPIRequestFactory {
         "CreateIncidentNotificationRuleRequest",
         ""
       ),
-      contentType
+      contentType,
+      _config.preserveLargeIntegers
     );
     requestContext.setBody(serializedBody);
 
@@ -782,7 +792,8 @@ export class IncidentsApiRequestFactory extends BaseAPIRequestFactory {
         "CreateIncidentNotificationTemplateRequest",
         ""
       ),
-      contentType
+      contentType,
+      _config.preserveLargeIntegers
     );
     requestContext.setBody(serializedBody);
 
@@ -851,7 +862,8 @@ export class IncidentsApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
       ObjectSerializer.serialize(body, "PostmortemAttachmentRequest", ""),
-      contentType
+      contentType,
+      _config.preserveLargeIntegers
     );
     requestContext.setBody(serializedBody);
 
@@ -905,7 +917,8 @@ export class IncidentsApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
       ObjectSerializer.serialize(body, "PostmortemTemplateRequest", ""),
-      contentType
+      contentType,
+      _config.preserveLargeIntegers
     );
     requestContext.setBody(serializedBody);
 
@@ -968,7 +981,8 @@ export class IncidentsApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
       ObjectSerializer.serialize(body, "IncidentResponderRequest", ""),
-      contentType
+      contentType,
+      _config.preserveLargeIntegers
     );
     requestContext.setBody(serializedBody);
 
@@ -1020,7 +1034,8 @@ export class IncidentsApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
       ObjectSerializer.serialize(body, "IncidentRuleRequest", ""),
-      contentType
+      contentType,
+      _config.preserveLargeIntegers
     );
     requestContext.setBody(serializedBody);
 
@@ -1084,7 +1099,8 @@ export class IncidentsApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
       ObjectSerializer.serialize(body, "IncidentServiceNowRecordRequest", ""),
-      contentType
+      contentType,
+      _config.preserveLargeIntegers
     );
     requestContext.setBody(serializedBody);
 
@@ -1146,7 +1162,8 @@ export class IncidentsApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
       ObjectSerializer.serialize(body, "IncidentTodoCreateRequest", ""),
-      contentType
+      contentType,
+      _config.preserveLargeIntegers
     );
     requestContext.setBody(serializedBody);
 
@@ -1198,7 +1215,8 @@ export class IncidentsApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
       ObjectSerializer.serialize(body, "IncidentTypeCreateRequest", ""),
-      contentType
+      contentType,
+      _config.preserveLargeIntegers
     );
     requestContext.setBody(serializedBody);
 
@@ -1266,7 +1284,8 @@ export class IncidentsApiRequestFactory extends BaseAPIRequestFactory {
         "IncidentUserDefinedFieldCreateRequest",
         ""
       ),
-      contentType
+      contentType,
+      _config.preserveLargeIntegers
     );
     requestContext.setBody(serializedBody);
 
@@ -1330,7 +1349,8 @@ export class IncidentsApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
       ObjectSerializer.serialize(body, "IncidentUserDefinedRoleRequest", ""),
-      contentType
+      contentType,
+      _config.preserveLargeIntegers
     );
     requestContext.setBody(serializedBody);
 
@@ -1393,7 +1413,8 @@ export class IncidentsApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
       ObjectSerializer.serialize(body, "IncidentCreateOnCallPageRequest", ""),
-      contentType
+      contentType,
+      _config.preserveLargeIntegers
     );
     requestContext.setBody(serializedBody);
 
@@ -1460,7 +1481,8 @@ export class IncidentsApiRequestFactory extends BaseAPIRequestFactory {
         "IncidentCreatePageFromIncidentRequest",
         ""
       ),
-      contentType
+      contentType,
+      _config.preserveLargeIntegers
     );
     requestContext.setBody(serializedBody);
 
@@ -1524,7 +1546,8 @@ export class IncidentsApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
       ObjectSerializer.serialize(body, "IncidentTimestampOverrideRequest", ""),
-      contentType
+      contentType,
+      _config.preserveLargeIntegers
     );
     requestContext.setBody(serializedBody);
 
@@ -3089,7 +3112,8 @@ export class IncidentsApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
       ObjectSerializer.serialize(body, "IncidentImportRequest", ""),
-      contentType
+      contentType,
+      _config.preserveLargeIntegers
     );
     requestContext.setBody(serializedBody);
 
@@ -3150,7 +3174,8 @@ export class IncidentsApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
       ObjectSerializer.serialize(body, "IncidentOnCallPageLinkRequest", ""),
-      contentType
+      contentType,
+      _config.preserveLargeIntegers
     );
     requestContext.setBody(serializedBody);
 
@@ -4143,7 +4168,8 @@ export class IncidentsApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
       ObjectSerializer.serialize(body, "IncidentImpactPatchRequest", ""),
-      contentType
+      contentType,
+      _config.preserveLargeIntegers
     );
     requestContext.setBody(serializedBody);
 
@@ -4289,7 +4315,8 @@ export class IncidentsApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
       ObjectSerializer.serialize(body, "IncidentHandleRequest", ""),
-      contentType
+      contentType,
+      _config.preserveLargeIntegers
     );
     requestContext.setBody(serializedBody);
 
@@ -4343,7 +4370,8 @@ export class IncidentsApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
       ObjectSerializer.serialize(body, "GlobalIncidentSettingsRequest", ""),
-      contentType
+      contentType,
+      _config.preserveLargeIntegers
     );
     requestContext.setBody(serializedBody);
 
@@ -4414,7 +4442,8 @@ export class IncidentsApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
       ObjectSerializer.serialize(body, "IncidentUpdateRequest", ""),
-      contentType
+      contentType,
+      _config.preserveLargeIntegers
     );
     requestContext.setBody(serializedBody);
 
@@ -4493,7 +4522,8 @@ export class IncidentsApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
       ObjectSerializer.serialize(body, "PatchAttachmentRequest", ""),
-      contentType
+      contentType,
+      _config.preserveLargeIntegers
     );
     requestContext.setBody(serializedBody);
 
@@ -4557,7 +4587,8 @@ export class IncidentsApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
       ObjectSerializer.serialize(body, "IncidentConfigurationPatchRequest", ""),
-      contentType
+      contentType,
+      _config.preserveLargeIntegers
     );
     requestContext.setBody(serializedBody);
 
@@ -4629,7 +4660,8 @@ export class IncidentsApiRequestFactory extends BaseAPIRequestFactory {
         "IncidentGoogleChatConfigurationPatchRequest",
         ""
       ),
-      contentType
+      contentType,
+      _config.preserveLargeIntegers
     );
     requestContext.setBody(serializedBody);
 
@@ -4701,7 +4733,8 @@ export class IncidentsApiRequestFactory extends BaseAPIRequestFactory {
         "IncidentGoogleMeetConfigurationPatchRequest",
         ""
       ),
-      contentType
+      contentType,
+      _config.preserveLargeIntegers
     );
     requestContext.setBody(serializedBody);
 
@@ -4765,7 +4798,8 @@ export class IncidentsApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
       ObjectSerializer.serialize(body, "IncidentImpactFieldRequest", ""),
-      contentType
+      contentType,
+      _config.preserveLargeIntegers
     );
     requestContext.setBody(serializedBody);
 
@@ -4844,7 +4878,8 @@ export class IncidentsApiRequestFactory extends BaseAPIRequestFactory {
         "IncidentIntegrationMetadataPatchRequest",
         ""
       ),
-      contentType
+      contentType,
+      _config.preserveLargeIntegers
     );
     requestContext.setBody(serializedBody);
 
@@ -4922,7 +4957,8 @@ export class IncidentsApiRequestFactory extends BaseAPIRequestFactory {
         "PutIncidentNotificationRuleRequest",
         ""
       ),
-      contentType
+      contentType,
+      _config.preserveLargeIntegers
     );
     requestContext.setBody(serializedBody);
 
@@ -5002,7 +5038,8 @@ export class IncidentsApiRequestFactory extends BaseAPIRequestFactory {
         "PatchIncidentNotificationTemplateRequest",
         ""
       ),
-      contentType
+      contentType,
+      _config.preserveLargeIntegers
     );
     requestContext.setBody(serializedBody);
 
@@ -5066,7 +5103,8 @@ export class IncidentsApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
       ObjectSerializer.serialize(body, "PostmortemTemplateRequest", ""),
-      contentType
+      contentType,
+      _config.preserveLargeIntegers
     );
     requestContext.setBody(serializedBody);
 
@@ -5127,7 +5165,8 @@ export class IncidentsApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
       ObjectSerializer.serialize(body, "IncidentRulePatchRequest", ""),
-      contentType
+      contentType,
+      _config.preserveLargeIntegers
     );
     requestContext.setBody(serializedBody);
 
@@ -5194,7 +5233,8 @@ export class IncidentsApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
       ObjectSerializer.serialize(body, "IncidentTodoPatchRequest", ""),
-      contentType
+      contentType,
+      _config.preserveLargeIntegers
     );
     requestContext.setBody(serializedBody);
 
@@ -5256,7 +5296,8 @@ export class IncidentsApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
       ObjectSerializer.serialize(body, "IncidentTypePatchRequest", ""),
-      contentType
+      contentType,
+      _config.preserveLargeIntegers
     );
     requestContext.setBody(serializedBody);
 
@@ -5334,7 +5375,8 @@ export class IncidentsApiRequestFactory extends BaseAPIRequestFactory {
         "IncidentUserDefinedFieldUpdateRequest",
         ""
       ),
-      contentType
+      contentType,
+      _config.preserveLargeIntegers
     );
     requestContext.setBody(serializedBody);
 
@@ -5412,7 +5454,8 @@ export class IncidentsApiRequestFactory extends BaseAPIRequestFactory {
         "IncidentUserDefinedRolePatchRequest",
         ""
       ),
-      contentType
+      contentType,
+      _config.preserveLargeIntegers
     );
     requestContext.setBody(serializedBody);
 
@@ -5485,7 +5528,8 @@ export class IncidentsApiRequestFactory extends BaseAPIRequestFactory {
         "IncidentTimestampOverridePatchRequest",
         ""
       ),
-      contentType
+      contentType,
+      _config.preserveLargeIntegers
     );
     requestContext.setBody(serializedBody);
 
@@ -5501,6 +5545,12 @@ export class IncidentsApiRequestFactory extends BaseAPIRequestFactory {
 }
 
 export class IncidentsApiResponseProcessor {
+  private configuration?: Configuration;
+
+  public constructor(configuration?: Configuration) {
+    this.configuration = configuration;
+  }
+
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
@@ -5509,28 +5559,39 @@ export class IncidentsApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async createGlobalIncidentHandle(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<IncidentHandleResponse> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 201) {
       const body: IncidentHandleResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "IncidentHandleResponse"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
+        "IncidentHandleResponse",
+        "",
+        _config?.preserveLargeIntegers
       ) as IncidentHandleResponse;
       return body;
     }
     if (response.httpStatusCode === 400) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: JSONAPIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "JSONAPIErrorResponse"
+          "JSONAPIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as JSONAPIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -5547,13 +5608,16 @@ export class IncidentsApiResponseProcessor {
     if (response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -5568,9 +5632,14 @@ export class IncidentsApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: IncidentHandleResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
         "IncidentHandleResponse",
-        ""
+        "",
+        _config?.preserveLargeIntegers
       ) as IncidentHandleResponse;
       return body;
     }
@@ -5590,15 +5659,23 @@ export class IncidentsApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async createIncident(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<IncidentResponse> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 201) {
       const body: IncidentResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "IncidentResponse"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
+        "IncidentResponse",
+        "",
+        _config?.preserveLargeIntegers
       ) as IncidentResponse;
       return body;
     }
@@ -5611,13 +5688,16 @@ export class IncidentsApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -5632,9 +5712,14 @@ export class IncidentsApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: IncidentResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
         "IncidentResponse",
-        ""
+        "",
+        _config?.preserveLargeIntegers
       ) as IncidentResponse;
       return body;
     }
@@ -5654,15 +5739,23 @@ export class IncidentsApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async createIncidentAttachment(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<Attachment> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 201) {
       const body: Attachment = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "Attachment"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
+        "Attachment",
+        "",
+        _config?.preserveLargeIntegers
       ) as Attachment;
       return body;
     }
@@ -5673,13 +5766,16 @@ export class IncidentsApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -5694,9 +5790,14 @@ export class IncidentsApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: Attachment = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
         "Attachment",
-        ""
+        "",
+        _config?.preserveLargeIntegers
       ) as Attachment;
       return body;
     }
@@ -5716,15 +5817,23 @@ export class IncidentsApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async createIncidentConfiguration(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<IncidentConfigurationResponse> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 200) {
       const body: IncidentConfigurationResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "IncidentConfigurationResponse"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
+        "IncidentConfigurationResponse",
+        "",
+        _config?.preserveLargeIntegers
       ) as IncidentConfigurationResponse;
       return body;
     }
@@ -5737,13 +5846,16 @@ export class IncidentsApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -5758,9 +5870,14 @@ export class IncidentsApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: IncidentConfigurationResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
         "IncidentConfigurationResponse",
-        ""
+        "",
+        _config?.preserveLargeIntegers
       ) as IncidentConfigurationResponse;
       return body;
     }
@@ -5780,16 +5897,24 @@ export class IncidentsApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async createIncidentGoogleChatConfiguration(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<IncidentGoogleChatConfigurationResponse> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 201) {
       const body: IncidentGoogleChatConfigurationResponse =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
-          "IncidentGoogleChatConfigurationResponse"
+          ObjectSerializer.parse(
+            await response.body.text(),
+            contentType,
+            _config?.preserveLargeIntegers
+          ),
+          "IncidentGoogleChatConfigurationResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as IncidentGoogleChatConfigurationResponse;
       return body;
     }
@@ -5801,13 +5926,16 @@ export class IncidentsApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -5823,9 +5951,14 @@ export class IncidentsApiResponseProcessor {
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: IncidentGoogleChatConfigurationResponse =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
+          ObjectSerializer.parse(
+            await response.body.text(),
+            contentType,
+            _config?.preserveLargeIntegers
+          ),
           "IncidentGoogleChatConfigurationResponse",
-          ""
+          "",
+          _config?.preserveLargeIntegers
         ) as IncidentGoogleChatConfigurationResponse;
       return body;
     }
@@ -5845,16 +5978,24 @@ export class IncidentsApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async createIncidentGoogleMeetConfiguration(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<IncidentGoogleMeetConfigurationResponse> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 201) {
       const body: IncidentGoogleMeetConfigurationResponse =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
-          "IncidentGoogleMeetConfigurationResponse"
+          ObjectSerializer.parse(
+            await response.body.text(),
+            contentType,
+            _config?.preserveLargeIntegers
+          ),
+          "IncidentGoogleMeetConfigurationResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as IncidentGoogleMeetConfigurationResponse;
       return body;
     }
@@ -5866,13 +6007,16 @@ export class IncidentsApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -5888,9 +6032,14 @@ export class IncidentsApiResponseProcessor {
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: IncidentGoogleMeetConfigurationResponse =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
+          ObjectSerializer.parse(
+            await response.body.text(),
+            contentType,
+            _config?.preserveLargeIntegers
+          ),
           "IncidentGoogleMeetConfigurationResponse",
-          ""
+          "",
+          _config?.preserveLargeIntegers
         ) as IncidentGoogleMeetConfigurationResponse;
       return body;
     }
@@ -5910,15 +6059,23 @@ export class IncidentsApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async createIncidentImpact(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<IncidentImpactResponse> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 201) {
       const body: IncidentImpactResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "IncidentImpactResponse"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
+        "IncidentImpactResponse",
+        "",
+        _config?.preserveLargeIntegers
       ) as IncidentImpactResponse;
       return body;
     }
@@ -5931,13 +6088,16 @@ export class IncidentsApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -5952,9 +6112,14 @@ export class IncidentsApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: IncidentImpactResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
         "IncidentImpactResponse",
-        ""
+        "",
+        _config?.preserveLargeIntegers
       ) as IncidentImpactResponse;
       return body;
     }
@@ -5974,15 +6139,23 @@ export class IncidentsApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async createIncidentImpactField(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<IncidentImpactFieldResponse> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 201) {
       const body: IncidentImpactFieldResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "IncidentImpactFieldResponse"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
+        "IncidentImpactFieldResponse",
+        "",
+        _config?.preserveLargeIntegers
       ) as IncidentImpactFieldResponse;
       return body;
     }
@@ -5994,13 +6167,16 @@ export class IncidentsApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -6015,9 +6191,14 @@ export class IncidentsApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: IncidentImpactFieldResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
         "IncidentImpactFieldResponse",
-        ""
+        "",
+        _config?.preserveLargeIntegers
       ) as IncidentImpactFieldResponse;
       return body;
     }
@@ -6037,16 +6218,24 @@ export class IncidentsApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async createIncidentIntegration(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<IncidentIntegrationMetadataResponse> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 201) {
       const body: IncidentIntegrationMetadataResponse =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
-          "IncidentIntegrationMetadataResponse"
+          ObjectSerializer.parse(
+            await response.body.text(),
+            contentType,
+            _config?.preserveLargeIntegers
+          ),
+          "IncidentIntegrationMetadataResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as IncidentIntegrationMetadataResponse;
       return body;
     }
@@ -6059,13 +6248,16 @@ export class IncidentsApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -6081,9 +6273,14 @@ export class IncidentsApiResponseProcessor {
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: IncidentIntegrationMetadataResponse =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
+          ObjectSerializer.parse(
+            await response.body.text(),
+            contentType,
+            _config?.preserveLargeIntegers
+          ),
           "IncidentIntegrationMetadataResponse",
-          ""
+          "",
+          _config?.preserveLargeIntegers
         ) as IncidentIntegrationMetadataResponse;
       return body;
     }
@@ -6103,15 +6300,23 @@ export class IncidentsApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async createIncidentNotificationRule(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<IncidentNotificationRule> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 201) {
       const body: IncidentNotificationRule = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "IncidentNotificationRule"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
+        "IncidentNotificationRule",
+        "",
+        _config?.preserveLargeIntegers
       ) as IncidentNotificationRule;
       return body;
     }
@@ -6124,13 +6329,16 @@ export class IncidentsApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -6145,9 +6353,14 @@ export class IncidentsApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: IncidentNotificationRule = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
         "IncidentNotificationRule",
-        ""
+        "",
+        _config?.preserveLargeIntegers
       ) as IncidentNotificationRule;
       return body;
     }
@@ -6167,15 +6380,23 @@ export class IncidentsApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async createIncidentNotificationTemplate(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<IncidentNotificationTemplate> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 201) {
       const body: IncidentNotificationTemplate = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "IncidentNotificationTemplate"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
+        "IncidentNotificationTemplate",
+        "",
+        _config?.preserveLargeIntegers
       ) as IncidentNotificationTemplate;
       return body;
     }
@@ -6188,13 +6409,16 @@ export class IncidentsApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -6209,9 +6433,14 @@ export class IncidentsApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: IncidentNotificationTemplate = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
         "IncidentNotificationTemplate",
-        ""
+        "",
+        _config?.preserveLargeIntegers
       ) as IncidentNotificationTemplate;
       return body;
     }
@@ -6231,28 +6460,39 @@ export class IncidentsApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async createIncidentPostmortemAttachment(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<Attachment> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 201) {
       const body: Attachment = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "Attachment"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
+        "Attachment",
+        "",
+        _config?.preserveLargeIntegers
       ) as Attachment;
       return body;
     }
     if (response.httpStatusCode === 400) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: JSONAPIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "JSONAPIErrorResponse"
+          "JSONAPIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as JSONAPIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -6269,13 +6509,16 @@ export class IncidentsApiResponseProcessor {
     if (response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -6290,9 +6533,14 @@ export class IncidentsApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: Attachment = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
         "Attachment",
-        ""
+        "",
+        _config?.preserveLargeIntegers
       ) as Attachment;
       return body;
     }
@@ -6312,28 +6560,39 @@ export class IncidentsApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async createIncidentPostmortemTemplate(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<PostmortemTemplateResponse> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 201) {
       const body: PostmortemTemplateResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "PostmortemTemplateResponse"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
+        "PostmortemTemplateResponse",
+        "",
+        _config?.preserveLargeIntegers
       ) as PostmortemTemplateResponse;
       return body;
     }
     if (response.httpStatusCode === 400 || response.httpStatusCode === 403) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: JSONAPIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "JSONAPIErrorResponse"
+          "JSONAPIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as JSONAPIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -6350,13 +6609,16 @@ export class IncidentsApiResponseProcessor {
     if (response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -6371,9 +6633,14 @@ export class IncidentsApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: PostmortemTemplateResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
         "PostmortemTemplateResponse",
-        ""
+        "",
+        _config?.preserveLargeIntegers
       ) as PostmortemTemplateResponse;
       return body;
     }
@@ -6393,15 +6660,23 @@ export class IncidentsApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async createIncidentResponder(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<IncidentResponderResponse> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 201) {
       const body: IncidentResponderResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "IncidentResponderResponse"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
+        "IncidentResponderResponse",
+        "",
+        _config?.preserveLargeIntegers
       ) as IncidentResponderResponse;
       return body;
     }
@@ -6414,13 +6689,16 @@ export class IncidentsApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -6435,9 +6713,14 @@ export class IncidentsApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: IncidentResponderResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
         "IncidentResponderResponse",
-        ""
+        "",
+        _config?.preserveLargeIntegers
       ) as IncidentResponderResponse;
       return body;
     }
@@ -6457,15 +6740,23 @@ export class IncidentsApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async createIncidentRule(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<IncidentRuleResponse> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 201) {
       const body: IncidentRuleResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "IncidentRuleResponse"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
+        "IncidentRuleResponse",
+        "",
+        _config?.preserveLargeIntegers
       ) as IncidentRuleResponse;
       return body;
     }
@@ -6477,13 +6768,16 @@ export class IncidentsApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -6498,9 +6792,14 @@ export class IncidentsApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: IncidentRuleResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
         "IncidentRuleResponse",
-        ""
+        "",
+        _config?.preserveLargeIntegers
       ) as IncidentRuleResponse;
       return body;
     }
@@ -6520,16 +6819,24 @@ export class IncidentsApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async createIncidentServiceNowRecord(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<IncidentIntegrationMetadataResponse> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 201) {
       const body: IncidentIntegrationMetadataResponse =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
-          "IncidentIntegrationMetadataResponse"
+          ObjectSerializer.parse(
+            await response.body.text(),
+            contentType,
+            _config?.preserveLargeIntegers
+          ),
+          "IncidentIntegrationMetadataResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as IncidentIntegrationMetadataResponse;
       return body;
     }
@@ -6542,13 +6849,16 @@ export class IncidentsApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -6564,9 +6874,14 @@ export class IncidentsApiResponseProcessor {
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: IncidentIntegrationMetadataResponse =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
+          ObjectSerializer.parse(
+            await response.body.text(),
+            contentType,
+            _config?.preserveLargeIntegers
+          ),
           "IncidentIntegrationMetadataResponse",
-          ""
+          "",
+          _config?.preserveLargeIntegers
         ) as IncidentIntegrationMetadataResponse;
       return body;
     }
@@ -6586,15 +6901,23 @@ export class IncidentsApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async createIncidentTodo(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<IncidentTodoResponse> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 201) {
       const body: IncidentTodoResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "IncidentTodoResponse"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
+        "IncidentTodoResponse",
+        "",
+        _config?.preserveLargeIntegers
       ) as IncidentTodoResponse;
       return body;
     }
@@ -6607,13 +6930,16 @@ export class IncidentsApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -6628,9 +6954,14 @@ export class IncidentsApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: IncidentTodoResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
         "IncidentTodoResponse",
-        ""
+        "",
+        _config?.preserveLargeIntegers
       ) as IncidentTodoResponse;
       return body;
     }
@@ -6650,15 +6981,23 @@ export class IncidentsApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async createIncidentType(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<IncidentTypeResponse> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 201) {
       const body: IncidentTypeResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "IncidentTypeResponse"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
+        "IncidentTypeResponse",
+        "",
+        _config?.preserveLargeIntegers
       ) as IncidentTypeResponse;
       return body;
     }
@@ -6671,13 +7010,16 @@ export class IncidentsApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -6692,9 +7034,14 @@ export class IncidentsApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: IncidentTypeResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
         "IncidentTypeResponse",
-        ""
+        "",
+        _config?.preserveLargeIntegers
       ) as IncidentTypeResponse;
       return body;
     }
@@ -6714,29 +7061,40 @@ export class IncidentsApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async createIncidentUserDefinedField(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<IncidentUserDefinedFieldResponse> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 201) {
       const body: IncidentUserDefinedFieldResponse =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
-          "IncidentUserDefinedFieldResponse"
+          ObjectSerializer.parse(
+            await response.body.text(),
+            contentType,
+            _config?.preserveLargeIntegers
+          ),
+          "IncidentUserDefinedFieldResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as IncidentUserDefinedFieldResponse;
       return body;
     }
     if (response.httpStatusCode === 400 || response.httpStatusCode === 404) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: JSONAPIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "JSONAPIErrorResponse"
+          "JSONAPIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as JSONAPIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -6757,13 +7115,16 @@ export class IncidentsApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -6779,9 +7140,14 @@ export class IncidentsApiResponseProcessor {
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: IncidentUserDefinedFieldResponse =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
+          ObjectSerializer.parse(
+            await response.body.text(),
+            contentType,
+            _config?.preserveLargeIntegers
+          ),
           "IncidentUserDefinedFieldResponse",
-          ""
+          "",
+          _config?.preserveLargeIntegers
         ) as IncidentUserDefinedFieldResponse;
       return body;
     }
@@ -6801,29 +7167,40 @@ export class IncidentsApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async createIncidentUserDefinedRole(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<IncidentUserDefinedRoleResponse> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 201) {
       const body: IncidentUserDefinedRoleResponse =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
-          "IncidentUserDefinedRoleResponse"
+          ObjectSerializer.parse(
+            await response.body.text(),
+            contentType,
+            _config?.preserveLargeIntegers
+          ),
+          "IncidentUserDefinedRoleResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as IncidentUserDefinedRoleResponse;
       return body;
     }
     if (response.httpStatusCode === 400 || response.httpStatusCode === 403) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: JSONAPIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "JSONAPIErrorResponse"
+          "JSONAPIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as JSONAPIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -6840,13 +7217,16 @@ export class IncidentsApiResponseProcessor {
     if (response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -6862,9 +7242,14 @@ export class IncidentsApiResponseProcessor {
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: IncidentUserDefinedRoleResponse =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
+          ObjectSerializer.parse(
+            await response.body.text(),
+            contentType,
+            _config?.preserveLargeIntegers
+          ),
           "IncidentUserDefinedRoleResponse",
-          ""
+          "",
+          _config?.preserveLargeIntegers
         ) as IncidentUserDefinedRoleResponse;
       return body;
     }
@@ -6884,15 +7269,23 @@ export class IncidentsApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async createOnCallPageFromIncident(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<IncidentPageUUIDResponse> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 200) {
       const body: IncidentPageUUIDResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "IncidentPageUUIDResponse"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
+        "IncidentPageUUIDResponse",
+        "",
+        _config?.preserveLargeIntegers
       ) as IncidentPageUUIDResponse;
       return body;
     }
@@ -6905,13 +7298,16 @@ export class IncidentsApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -6926,9 +7322,14 @@ export class IncidentsApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: IncidentPageUUIDResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
         "IncidentPageUUIDResponse",
-        ""
+        "",
+        _config?.preserveLargeIntegers
       ) as IncidentPageUUIDResponse;
       return body;
     }
@@ -6948,15 +7349,23 @@ export class IncidentsApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async createPageFromIncident(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<IncidentPageUUIDResponse> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 200) {
       const body: IncidentPageUUIDResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "IncidentPageUUIDResponse"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
+        "IncidentPageUUIDResponse",
+        "",
+        _config?.preserveLargeIntegers
       ) as IncidentPageUUIDResponse;
       return body;
     }
@@ -6969,13 +7378,16 @@ export class IncidentsApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -6990,9 +7402,14 @@ export class IncidentsApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: IncidentPageUUIDResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
         "IncidentPageUUIDResponse",
-        ""
+        "",
+        _config?.preserveLargeIntegers
       ) as IncidentPageUUIDResponse;
       return body;
     }
@@ -7012,16 +7429,24 @@ export class IncidentsApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async createTimestampOverride(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<IncidentTimestampOverrideResponse> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 201) {
       const body: IncidentTimestampOverrideResponse =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
-          "IncidentTimestampOverrideResponse"
+          ObjectSerializer.parse(
+            await response.body.text(),
+            contentType,
+            _config?.preserveLargeIntegers
+          ),
+          "IncidentTimestampOverrideResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as IncidentTimestampOverrideResponse;
       return body;
     }
@@ -7034,13 +7459,16 @@ export class IncidentsApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -7056,9 +7484,14 @@ export class IncidentsApiResponseProcessor {
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: IncidentTimestampOverrideResponse =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
+          ObjectSerializer.parse(
+            await response.body.text(),
+            contentType,
+            _config?.preserveLargeIntegers
+          ),
           "IncidentTimestampOverrideResponse",
-          ""
+          "",
+          _config?.preserveLargeIntegers
         ) as IncidentTimestampOverrideResponse;
       return body;
     }
@@ -7078,8 +7511,10 @@ export class IncidentsApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async deleteGlobalIncidentHandle(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<void> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
@@ -7089,13 +7524,16 @@ export class IncidentsApiResponseProcessor {
     if (response.httpStatusCode === 400) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: JSONAPIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "JSONAPIErrorResponse"
+          "JSONAPIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as JSONAPIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -7112,13 +7550,16 @@ export class IncidentsApiResponseProcessor {
     if (response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -7149,7 +7590,11 @@ export class IncidentsApiResponseProcessor {
    * @params response Response returned by the server for a request to deleteIncident
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async deleteIncident(response: ResponseContext): Promise<void> {
+  public async deleteIncident(
+    response: ResponseContext,
+    _options?: Configuration
+  ): Promise<void> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
@@ -7165,13 +7610,16 @@ export class IncidentsApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -7203,8 +7651,10 @@ export class IncidentsApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async deleteIncidentAttachment(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<void> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
@@ -7219,13 +7669,16 @@ export class IncidentsApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -7256,7 +7709,11 @@ export class IncidentsApiResponseProcessor {
    * @params response Response returned by the server for a request to deleteIncidentImpact
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async deleteIncidentImpact(response: ResponseContext): Promise<void> {
+  public async deleteIncidentImpact(
+    response: ResponseContext,
+    _options?: Configuration
+  ): Promise<void> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
@@ -7271,13 +7728,16 @@ export class IncidentsApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -7309,8 +7769,10 @@ export class IncidentsApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async deleteIncidentImpactField(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<void> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
@@ -7326,13 +7788,16 @@ export class IncidentsApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -7364,8 +7829,10 @@ export class IncidentsApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async deleteIncidentIntegration(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<void> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
@@ -7381,13 +7848,16 @@ export class IncidentsApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -7419,8 +7889,10 @@ export class IncidentsApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async deleteIncidentNotificationRule(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<void> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
@@ -7436,13 +7908,16 @@ export class IncidentsApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -7474,8 +7949,10 @@ export class IncidentsApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async deleteIncidentNotificationTemplate(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<void> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
@@ -7491,13 +7968,16 @@ export class IncidentsApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -7529,8 +8009,10 @@ export class IncidentsApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async deleteIncidentPostmortemTemplate(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<void> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
@@ -7540,13 +8022,16 @@ export class IncidentsApiResponseProcessor {
     if (response.httpStatusCode === 400 || response.httpStatusCode === 404) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: JSONAPIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "JSONAPIErrorResponse"
+          "JSONAPIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as JSONAPIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -7563,13 +8048,16 @@ export class IncidentsApiResponseProcessor {
     if (response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -7601,8 +8089,10 @@ export class IncidentsApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async deleteIncidentResponder(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<void> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
@@ -7618,13 +8108,16 @@ export class IncidentsApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -7655,7 +8148,11 @@ export class IncidentsApiResponseProcessor {
    * @params response Response returned by the server for a request to deleteIncidentRule
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async deleteIncidentRule(response: ResponseContext): Promise<void> {
+  public async deleteIncidentRule(
+    response: ResponseContext,
+    _options?: Configuration
+  ): Promise<void> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
@@ -7671,13 +8168,16 @@ export class IncidentsApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -7708,7 +8208,11 @@ export class IncidentsApiResponseProcessor {
    * @params response Response returned by the server for a request to deleteIncidentTodo
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async deleteIncidentTodo(response: ResponseContext): Promise<void> {
+  public async deleteIncidentTodo(
+    response: ResponseContext,
+    _options?: Configuration
+  ): Promise<void> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
@@ -7724,13 +8228,16 @@ export class IncidentsApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -7761,7 +8268,11 @@ export class IncidentsApiResponseProcessor {
    * @params response Response returned by the server for a request to deleteIncidentType
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async deleteIncidentType(response: ResponseContext): Promise<void> {
+  public async deleteIncidentType(
+    response: ResponseContext,
+    _options?: Configuration
+  ): Promise<void> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
@@ -7777,13 +8288,16 @@ export class IncidentsApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -7815,8 +8329,10 @@ export class IncidentsApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async deleteIncidentUserDefinedField(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<void> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
@@ -7826,13 +8342,16 @@ export class IncidentsApiResponseProcessor {
     if (response.httpStatusCode === 400 || response.httpStatusCode === 404) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: JSONAPIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "JSONAPIErrorResponse"
+          "JSONAPIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as JSONAPIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -7853,13 +8372,16 @@ export class IncidentsApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -7891,8 +8413,10 @@ export class IncidentsApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async deleteIncidentUserDefinedRole(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<void> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
@@ -7902,13 +8426,16 @@ export class IncidentsApiResponseProcessor {
     if (response.httpStatusCode === 400 || response.httpStatusCode === 404) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: JSONAPIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "JSONAPIErrorResponse"
+          "JSONAPIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as JSONAPIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -7925,13 +8452,16 @@ export class IncidentsApiResponseProcessor {
     if (response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -7963,8 +8493,10 @@ export class IncidentsApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async deleteTimestampOverride(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<void> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
@@ -7980,13 +8512,16 @@ export class IncidentsApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -8018,28 +8553,39 @@ export class IncidentsApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async getGlobalIncidentSettings(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<GlobalIncidentSettingsResponse> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 200) {
       const body: GlobalIncidentSettingsResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "GlobalIncidentSettingsResponse"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
+        "GlobalIncidentSettingsResponse",
+        "",
+        _config?.preserveLargeIntegers
       ) as GlobalIncidentSettingsResponse;
       return body;
     }
     if (response.httpStatusCode === 400) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: JSONAPIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "JSONAPIErrorResponse"
+          "JSONAPIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as JSONAPIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -8056,13 +8602,16 @@ export class IncidentsApiResponseProcessor {
     if (response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -8077,9 +8626,14 @@ export class IncidentsApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: GlobalIncidentSettingsResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
         "GlobalIncidentSettingsResponse",
-        ""
+        "",
+        _config?.preserveLargeIntegers
       ) as GlobalIncidentSettingsResponse;
       return body;
     }
@@ -8099,15 +8653,23 @@ export class IncidentsApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async getIncident(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<IncidentResponse> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 200) {
       const body: IncidentResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "IncidentResponse"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
+        "IncidentResponse",
+        "",
+        _config?.preserveLargeIntegers
       ) as IncidentResponse;
       return body;
     }
@@ -8120,13 +8682,16 @@ export class IncidentsApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -8141,9 +8706,14 @@ export class IncidentsApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: IncidentResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
         "IncidentResponse",
-        ""
+        "",
+        _config?.preserveLargeIntegers
       ) as IncidentResponse;
       return body;
     }
@@ -8163,15 +8733,23 @@ export class IncidentsApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async getIncidentAIPostmortem(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<IncidentAIPostmortemResponse> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 200) {
       const body: IncidentAIPostmortemResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "IncidentAIPostmortemResponse"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
+        "IncidentAIPostmortemResponse",
+        "",
+        _config?.preserveLargeIntegers
       ) as IncidentAIPostmortemResponse;
       return body;
     }
@@ -8184,13 +8762,16 @@ export class IncidentsApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -8205,9 +8786,14 @@ export class IncidentsApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: IncidentAIPostmortemResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
         "IncidentAIPostmortemResponse",
-        ""
+        "",
+        _config?.preserveLargeIntegers
       ) as IncidentAIPostmortemResponse;
       return body;
     }
@@ -8227,16 +8813,24 @@ export class IncidentsApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async getIncidentIntegration(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<IncidentIntegrationMetadataResponse> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 200) {
       const body: IncidentIntegrationMetadataResponse =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
-          "IncidentIntegrationMetadataResponse"
+          ObjectSerializer.parse(
+            await response.body.text(),
+            contentType,
+            _config?.preserveLargeIntegers
+          ),
+          "IncidentIntegrationMetadataResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as IncidentIntegrationMetadataResponse;
       return body;
     }
@@ -8249,13 +8843,16 @@ export class IncidentsApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -8271,9 +8868,14 @@ export class IncidentsApiResponseProcessor {
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: IncidentIntegrationMetadataResponse =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
+          ObjectSerializer.parse(
+            await response.body.text(),
+            contentType,
+            _config?.preserveLargeIntegers
+          ),
           "IncidentIntegrationMetadataResponse",
-          ""
+          "",
+          _config?.preserveLargeIntegers
         ) as IncidentIntegrationMetadataResponse;
       return body;
     }
@@ -8293,15 +8895,23 @@ export class IncidentsApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async getIncidentNotificationRule(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<IncidentNotificationRule> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 200) {
       const body: IncidentNotificationRule = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "IncidentNotificationRule"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
+        "IncidentNotificationRule",
+        "",
+        _config?.preserveLargeIntegers
       ) as IncidentNotificationRule;
       return body;
     }
@@ -8314,13 +8924,16 @@ export class IncidentsApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -8335,9 +8948,14 @@ export class IncidentsApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: IncidentNotificationRule = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
         "IncidentNotificationRule",
-        ""
+        "",
+        _config?.preserveLargeIntegers
       ) as IncidentNotificationRule;
       return body;
     }
@@ -8357,15 +8975,23 @@ export class IncidentsApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async getIncidentNotificationTemplate(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<IncidentNotificationTemplate> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 200) {
       const body: IncidentNotificationTemplate = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "IncidentNotificationTemplate"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
+        "IncidentNotificationTemplate",
+        "",
+        _config?.preserveLargeIntegers
       ) as IncidentNotificationTemplate;
       return body;
     }
@@ -8378,13 +9004,16 @@ export class IncidentsApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -8399,9 +9028,14 @@ export class IncidentsApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: IncidentNotificationTemplate = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
         "IncidentNotificationTemplate",
-        ""
+        "",
+        _config?.preserveLargeIntegers
       ) as IncidentNotificationTemplate;
       return body;
     }
@@ -8421,28 +9055,39 @@ export class IncidentsApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async getIncidentPostmortemTemplate(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<PostmortemTemplateResponse> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 200) {
       const body: PostmortemTemplateResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "PostmortemTemplateResponse"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
+        "PostmortemTemplateResponse",
+        "",
+        _config?.preserveLargeIntegers
       ) as PostmortemTemplateResponse;
       return body;
     }
     if (response.httpStatusCode === 400 || response.httpStatusCode === 404) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: JSONAPIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "JSONAPIErrorResponse"
+          "JSONAPIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as JSONAPIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -8459,13 +9104,16 @@ export class IncidentsApiResponseProcessor {
     if (response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -8480,9 +9128,14 @@ export class IncidentsApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: PostmortemTemplateResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
         "PostmortemTemplateResponse",
-        ""
+        "",
+        _config?.preserveLargeIntegers
       ) as PostmortemTemplateResponse;
       return body;
     }
@@ -8502,15 +9155,23 @@ export class IncidentsApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async getIncidentResponder(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<IncidentResponderResponse> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 200) {
       const body: IncidentResponderResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "IncidentResponderResponse"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
+        "IncidentResponderResponse",
+        "",
+        _config?.preserveLargeIntegers
       ) as IncidentResponderResponse;
       return body;
     }
@@ -8523,13 +9184,16 @@ export class IncidentsApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -8544,9 +9208,14 @@ export class IncidentsApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: IncidentResponderResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
         "IncidentResponderResponse",
-        ""
+        "",
+        _config?.preserveLargeIntegers
       ) as IncidentResponderResponse;
       return body;
     }
@@ -8566,15 +9235,23 @@ export class IncidentsApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async getIncidentRule(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<IncidentRuleResponse> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 200) {
       const body: IncidentRuleResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "IncidentRuleResponse"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
+        "IncidentRuleResponse",
+        "",
+        _config?.preserveLargeIntegers
       ) as IncidentRuleResponse;
       return body;
     }
@@ -8587,13 +9264,16 @@ export class IncidentsApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -8608,9 +9288,14 @@ export class IncidentsApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: IncidentRuleResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
         "IncidentRuleResponse",
-        ""
+        "",
+        _config?.preserveLargeIntegers
       ) as IncidentRuleResponse;
       return body;
     }
@@ -8630,15 +9315,23 @@ export class IncidentsApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async getIncidentTodo(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<IncidentTodoResponse> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 200) {
       const body: IncidentTodoResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "IncidentTodoResponse"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
+        "IncidentTodoResponse",
+        "",
+        _config?.preserveLargeIntegers
       ) as IncidentTodoResponse;
       return body;
     }
@@ -8651,13 +9344,16 @@ export class IncidentsApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -8672,9 +9368,14 @@ export class IncidentsApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: IncidentTodoResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
         "IncidentTodoResponse",
-        ""
+        "",
+        _config?.preserveLargeIntegers
       ) as IncidentTodoResponse;
       return body;
     }
@@ -8694,15 +9395,23 @@ export class IncidentsApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async getIncidentType(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<IncidentTypeResponse> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 200) {
       const body: IncidentTypeResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "IncidentTypeResponse"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
+        "IncidentTypeResponse",
+        "",
+        _config?.preserveLargeIntegers
       ) as IncidentTypeResponse;
       return body;
     }
@@ -8715,13 +9424,16 @@ export class IncidentsApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -8736,9 +9448,14 @@ export class IncidentsApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: IncidentTypeResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
         "IncidentTypeResponse",
-        ""
+        "",
+        _config?.preserveLargeIntegers
       ) as IncidentTypeResponse;
       return body;
     }
@@ -8758,16 +9475,24 @@ export class IncidentsApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async getIncidentUserDefinedField(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<IncidentUserDefinedFieldResponse> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 200) {
       const body: IncidentUserDefinedFieldResponse =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
-          "IncidentUserDefinedFieldResponse"
+          ObjectSerializer.parse(
+            await response.body.text(),
+            contentType,
+            _config?.preserveLargeIntegers
+          ),
+          "IncidentUserDefinedFieldResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as IncidentUserDefinedFieldResponse;
       return body;
     }
@@ -8778,13 +9503,16 @@ export class IncidentsApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -8798,13 +9526,16 @@ export class IncidentsApiResponseProcessor {
     if (response.httpStatusCode === 404) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: JSONAPIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "JSONAPIErrorResponse"
+          "JSONAPIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as JSONAPIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -8823,9 +9554,14 @@ export class IncidentsApiResponseProcessor {
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: IncidentUserDefinedFieldResponse =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
+          ObjectSerializer.parse(
+            await response.body.text(),
+            contentType,
+            _config?.preserveLargeIntegers
+          ),
           "IncidentUserDefinedFieldResponse",
-          ""
+          "",
+          _config?.preserveLargeIntegers
         ) as IncidentUserDefinedFieldResponse;
       return body;
     }
@@ -8845,29 +9581,40 @@ export class IncidentsApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async getIncidentUserDefinedRole(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<IncidentUserDefinedRoleResponse> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 200) {
       const body: IncidentUserDefinedRoleResponse =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
-          "IncidentUserDefinedRoleResponse"
+          ObjectSerializer.parse(
+            await response.body.text(),
+            contentType,
+            _config?.preserveLargeIntegers
+          ),
+          "IncidentUserDefinedRoleResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as IncidentUserDefinedRoleResponse;
       return body;
     }
     if (response.httpStatusCode === 400 || response.httpStatusCode === 404) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: JSONAPIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "JSONAPIErrorResponse"
+          "JSONAPIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as JSONAPIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -8884,13 +9631,16 @@ export class IncidentsApiResponseProcessor {
     if (response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -8906,9 +9656,14 @@ export class IncidentsApiResponseProcessor {
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: IncidentUserDefinedRoleResponse =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
+          ObjectSerializer.parse(
+            await response.body.text(),
+            contentType,
+            _config?.preserveLargeIntegers
+          ),
           "IncidentUserDefinedRoleResponse",
-          ""
+          "",
+          _config?.preserveLargeIntegers
         ) as IncidentUserDefinedRoleResponse;
       return body;
     }
@@ -8928,15 +9683,23 @@ export class IncidentsApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async getOrgSettingsByIncidentType(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<IncidentOrgSettingsResponse> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 200) {
       const body: IncidentOrgSettingsResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "IncidentOrgSettingsResponse"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
+        "IncidentOrgSettingsResponse",
+        "",
+        _config?.preserveLargeIntegers
       ) as IncidentOrgSettingsResponse;
       return body;
     }
@@ -8949,13 +9712,16 @@ export class IncidentsApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -8970,9 +9736,14 @@ export class IncidentsApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: IncidentOrgSettingsResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
         "IncidentOrgSettingsResponse",
-        ""
+        "",
+        _config?.preserveLargeIntegers
       ) as IncidentOrgSettingsResponse;
       return body;
     }
@@ -8992,15 +9763,23 @@ export class IncidentsApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async importIncident(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<IncidentImportResponse> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 201) {
       const body: IncidentImportResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "IncidentImportResponse"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
+        "IncidentImportResponse",
+        "",
+        _config?.preserveLargeIntegers
       ) as IncidentImportResponse;
       return body;
     }
@@ -9013,13 +9792,16 @@ export class IncidentsApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -9034,9 +9816,14 @@ export class IncidentsApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: IncidentImportResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
         "IncidentImportResponse",
-        ""
+        "",
+        _config?.preserveLargeIntegers
       ) as IncidentImportResponse;
       return body;
     }
@@ -9056,16 +9843,24 @@ export class IncidentsApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async linkPageToIncident(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<IncidentIntegrationMetadataResponse> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 201) {
       const body: IncidentIntegrationMetadataResponse =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
-          "IncidentIntegrationMetadataResponse"
+          ObjectSerializer.parse(
+            await response.body.text(),
+            contentType,
+            _config?.preserveLargeIntegers
+          ),
+          "IncidentIntegrationMetadataResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as IncidentIntegrationMetadataResponse;
       return body;
     }
@@ -9078,13 +9873,16 @@ export class IncidentsApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -9098,13 +9896,16 @@ export class IncidentsApiResponseProcessor {
     if (response.httpStatusCode === 409) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: JSONAPIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "JSONAPIErrorResponse"
+          "JSONAPIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as JSONAPIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -9123,9 +9924,14 @@ export class IncidentsApiResponseProcessor {
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: IncidentIntegrationMetadataResponse =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
+          ObjectSerializer.parse(
+            await response.body.text(),
+            contentType,
+            _config?.preserveLargeIntegers
+          ),
           "IncidentIntegrationMetadataResponse",
-          ""
+          "",
+          _config?.preserveLargeIntegers
         ) as IncidentIntegrationMetadataResponse;
       return body;
     }
@@ -9145,28 +9951,39 @@ export class IncidentsApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async listGlobalIncidentHandles(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<IncidentHandlesResponse> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 200) {
       const body: IncidentHandlesResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "IncidentHandlesResponse"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
+        "IncidentHandlesResponse",
+        "",
+        _config?.preserveLargeIntegers
       ) as IncidentHandlesResponse;
       return body;
     }
     if (response.httpStatusCode === 400) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: JSONAPIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "JSONAPIErrorResponse"
+          "JSONAPIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as JSONAPIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -9183,13 +10000,16 @@ export class IncidentsApiResponseProcessor {
     if (response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -9204,9 +10024,14 @@ export class IncidentsApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: IncidentHandlesResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
         "IncidentHandlesResponse",
-        ""
+        "",
+        _config?.preserveLargeIntegers
       ) as IncidentHandlesResponse;
       return body;
     }
@@ -9226,28 +10051,39 @@ export class IncidentsApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async listIncidentAttachments(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<AttachmentArray> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 200) {
       const body: AttachmentArray = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "AttachmentArray"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
+        "AttachmentArray",
+        "",
+        _config?.preserveLargeIntegers
       ) as AttachmentArray;
       return body;
     }
     if (response.httpStatusCode === 400 || response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -9262,9 +10098,14 @@ export class IncidentsApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: AttachmentArray = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
         "AttachmentArray",
-        ""
+        "",
+        _config?.preserveLargeIntegers
       ) as AttachmentArray;
       return body;
     }
@@ -9284,15 +10125,23 @@ export class IncidentsApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async listIncidentImpactFields(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<IncidentImpactFieldsResponse> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 200) {
       const body: IncidentImpactFieldsResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "IncidentImpactFieldsResponse"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
+        "IncidentImpactFieldsResponse",
+        "",
+        _config?.preserveLargeIntegers
       ) as IncidentImpactFieldsResponse;
       return body;
     }
@@ -9304,13 +10153,16 @@ export class IncidentsApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -9325,9 +10177,14 @@ export class IncidentsApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: IncidentImpactFieldsResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
         "IncidentImpactFieldsResponse",
-        ""
+        "",
+        _config?.preserveLargeIntegers
       ) as IncidentImpactFieldsResponse;
       return body;
     }
@@ -9347,15 +10204,23 @@ export class IncidentsApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async listIncidentImpacts(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<IncidentImpactsResponse> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 200) {
       const body: IncidentImpactsResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "IncidentImpactsResponse"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
+        "IncidentImpactsResponse",
+        "",
+        _config?.preserveLargeIntegers
       ) as IncidentImpactsResponse;
       return body;
     }
@@ -9368,13 +10233,16 @@ export class IncidentsApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -9389,9 +10257,14 @@ export class IncidentsApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: IncidentImpactsResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
         "IncidentImpactsResponse",
-        ""
+        "",
+        _config?.preserveLargeIntegers
       ) as IncidentImpactsResponse;
       return body;
     }
@@ -9411,16 +10284,24 @@ export class IncidentsApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async listIncidentIntegrations(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<IncidentIntegrationMetadataListResponse> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 200) {
       const body: IncidentIntegrationMetadataListResponse =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
-          "IncidentIntegrationMetadataListResponse"
+          ObjectSerializer.parse(
+            await response.body.text(),
+            contentType,
+            _config?.preserveLargeIntegers
+          ),
+          "IncidentIntegrationMetadataListResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as IncidentIntegrationMetadataListResponse;
       return body;
     }
@@ -9433,13 +10314,16 @@ export class IncidentsApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -9455,9 +10339,14 @@ export class IncidentsApiResponseProcessor {
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: IncidentIntegrationMetadataListResponse =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
+          ObjectSerializer.parse(
+            await response.body.text(),
+            contentType,
+            _config?.preserveLargeIntegers
+          ),
           "IncidentIntegrationMetadataListResponse",
-          ""
+          "",
+          _config?.preserveLargeIntegers
         ) as IncidentIntegrationMetadataListResponse;
       return body;
     }
@@ -9477,15 +10366,23 @@ export class IncidentsApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async listIncidentNotificationRules(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<IncidentNotificationRuleArray> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 200) {
       const body: IncidentNotificationRuleArray = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "IncidentNotificationRuleArray"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
+        "IncidentNotificationRuleArray",
+        "",
+        _config?.preserveLargeIntegers
       ) as IncidentNotificationRuleArray;
       return body;
     }
@@ -9498,13 +10395,16 @@ export class IncidentsApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -9519,9 +10419,14 @@ export class IncidentsApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: IncidentNotificationRuleArray = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
         "IncidentNotificationRuleArray",
-        ""
+        "",
+        _config?.preserveLargeIntegers
       ) as IncidentNotificationRuleArray;
       return body;
     }
@@ -9541,16 +10446,24 @@ export class IncidentsApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async listIncidentNotificationTemplates(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<IncidentNotificationTemplateArray> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 200) {
       const body: IncidentNotificationTemplateArray =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
-          "IncidentNotificationTemplateArray"
+          ObjectSerializer.parse(
+            await response.body.text(),
+            contentType,
+            _config?.preserveLargeIntegers
+          ),
+          "IncidentNotificationTemplateArray",
+          "",
+          _config?.preserveLargeIntegers
         ) as IncidentNotificationTemplateArray;
       return body;
     }
@@ -9563,13 +10476,16 @@ export class IncidentsApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -9585,9 +10501,14 @@ export class IncidentsApiResponseProcessor {
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: IncidentNotificationTemplateArray =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
+          ObjectSerializer.parse(
+            await response.body.text(),
+            contentType,
+            _config?.preserveLargeIntegers
+          ),
           "IncidentNotificationTemplateArray",
-          ""
+          "",
+          _config?.preserveLargeIntegers
         ) as IncidentNotificationTemplateArray;
       return body;
     }
@@ -9607,28 +10528,39 @@ export class IncidentsApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async listIncidentPostmortemTemplates(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<PostmortemTemplatesResponse> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 200) {
       const body: PostmortemTemplatesResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "PostmortemTemplatesResponse"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
+        "PostmortemTemplatesResponse",
+        "",
+        _config?.preserveLargeIntegers
       ) as PostmortemTemplatesResponse;
       return body;
     }
     if (response.httpStatusCode === 400) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: JSONAPIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "JSONAPIErrorResponse"
+          "JSONAPIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as JSONAPIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -9645,13 +10577,16 @@ export class IncidentsApiResponseProcessor {
     if (response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -9666,9 +10601,14 @@ export class IncidentsApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: PostmortemTemplatesResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
         "PostmortemTemplatesResponse",
-        ""
+        "",
+        _config?.preserveLargeIntegers
       ) as PostmortemTemplatesResponse;
       return body;
     }
@@ -9688,15 +10628,23 @@ export class IncidentsApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async listIncidentResponders(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<IncidentRespondersResponse> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 200) {
       const body: IncidentRespondersResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "IncidentRespondersResponse"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
+        "IncidentRespondersResponse",
+        "",
+        _config?.preserveLargeIntegers
       ) as IncidentRespondersResponse;
       return body;
     }
@@ -9709,13 +10657,16 @@ export class IncidentsApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -9730,9 +10681,14 @@ export class IncidentsApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: IncidentRespondersResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
         "IncidentRespondersResponse",
-        ""
+        "",
+        _config?.preserveLargeIntegers
       ) as IncidentRespondersResponse;
       return body;
     }
@@ -9752,15 +10708,23 @@ export class IncidentsApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async listIncidentRules(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<IncidentRulesResponse> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 200) {
       const body: IncidentRulesResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "IncidentRulesResponse"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
+        "IncidentRulesResponse",
+        "",
+        _config?.preserveLargeIntegers
       ) as IncidentRulesResponse;
       return body;
     }
@@ -9772,13 +10736,16 @@ export class IncidentsApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -9793,9 +10760,14 @@ export class IncidentsApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: IncidentRulesResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
         "IncidentRulesResponse",
-        ""
+        "",
+        _config?.preserveLargeIntegers
       ) as IncidentRulesResponse;
       return body;
     }
@@ -9815,15 +10787,23 @@ export class IncidentsApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async listIncidents(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<IncidentsResponse> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 200) {
       const body: IncidentsResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "IncidentsResponse"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
+        "IncidentsResponse",
+        "",
+        _config?.preserveLargeIntegers
       ) as IncidentsResponse;
       return body;
     }
@@ -9836,13 +10816,16 @@ export class IncidentsApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -9857,9 +10840,14 @@ export class IncidentsApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: IncidentsResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
         "IncidentsResponse",
-        ""
+        "",
+        _config?.preserveLargeIntegers
       ) as IncidentsResponse;
       return body;
     }
@@ -9879,15 +10867,23 @@ export class IncidentsApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async listIncidentTodos(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<IncidentTodoListResponse> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 200) {
       const body: IncidentTodoListResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "IncidentTodoListResponse"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
+        "IncidentTodoListResponse",
+        "",
+        _config?.preserveLargeIntegers
       ) as IncidentTodoListResponse;
       return body;
     }
@@ -9900,13 +10896,16 @@ export class IncidentsApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -9921,9 +10920,14 @@ export class IncidentsApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: IncidentTodoListResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
         "IncidentTodoListResponse",
-        ""
+        "",
+        _config?.preserveLargeIntegers
       ) as IncidentTodoListResponse;
       return body;
     }
@@ -9943,15 +10947,23 @@ export class IncidentsApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async listIncidentTypes(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<IncidentTypeListResponse> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 200) {
       const body: IncidentTypeListResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "IncidentTypeListResponse"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
+        "IncidentTypeListResponse",
+        "",
+        _config?.preserveLargeIntegers
       ) as IncidentTypeListResponse;
       return body;
     }
@@ -9963,13 +10975,16 @@ export class IncidentsApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -9984,9 +10999,14 @@ export class IncidentsApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: IncidentTypeListResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
         "IncidentTypeListResponse",
-        ""
+        "",
+        _config?.preserveLargeIntegers
       ) as IncidentTypeListResponse;
       return body;
     }
@@ -10006,29 +11026,40 @@ export class IncidentsApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async listIncidentUserDefinedFields(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<IncidentUserDefinedFieldListResponse> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 200) {
       const body: IncidentUserDefinedFieldListResponse =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
-          "IncidentUserDefinedFieldListResponse"
+          ObjectSerializer.parse(
+            await response.body.text(),
+            contentType,
+            _config?.preserveLargeIntegers
+          ),
+          "IncidentUserDefinedFieldListResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as IncidentUserDefinedFieldListResponse;
       return body;
     }
     if (response.httpStatusCode === 400) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: JSONAPIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "JSONAPIErrorResponse"
+          "JSONAPIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as JSONAPIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -10049,13 +11080,16 @@ export class IncidentsApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -10071,9 +11105,14 @@ export class IncidentsApiResponseProcessor {
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: IncidentUserDefinedFieldListResponse =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
+          ObjectSerializer.parse(
+            await response.body.text(),
+            contentType,
+            _config?.preserveLargeIntegers
+          ),
           "IncidentUserDefinedFieldListResponse",
-          ""
+          "",
+          _config?.preserveLargeIntegers
         ) as IncidentUserDefinedFieldListResponse;
       return body;
     }
@@ -10093,29 +11132,40 @@ export class IncidentsApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async listIncidentUserDefinedRoles(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<IncidentUserDefinedRolesResponse> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 200) {
       const body: IncidentUserDefinedRolesResponse =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
-          "IncidentUserDefinedRolesResponse"
+          ObjectSerializer.parse(
+            await response.body.text(),
+            contentType,
+            _config?.preserveLargeIntegers
+          ),
+          "IncidentUserDefinedRolesResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as IncidentUserDefinedRolesResponse;
       return body;
     }
     if (response.httpStatusCode === 400) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: JSONAPIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "JSONAPIErrorResponse"
+          "JSONAPIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as JSONAPIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -10132,13 +11182,16 @@ export class IncidentsApiResponseProcessor {
     if (response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -10154,9 +11207,14 @@ export class IncidentsApiResponseProcessor {
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: IncidentUserDefinedRolesResponse =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
+          ObjectSerializer.parse(
+            await response.body.text(),
+            contentType,
+            _config?.preserveLargeIntegers
+          ),
           "IncidentUserDefinedRolesResponse",
-          ""
+          "",
+          _config?.preserveLargeIntegers
         ) as IncidentUserDefinedRolesResponse;
       return body;
     }
@@ -10176,16 +11234,24 @@ export class IncidentsApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async listOrgSettings(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<IncidentOrgSettingsListResponse> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 200) {
       const body: IncidentOrgSettingsListResponse =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
-          "IncidentOrgSettingsListResponse"
+          ObjectSerializer.parse(
+            await response.body.text(),
+            contentType,
+            _config?.preserveLargeIntegers
+          ),
+          "IncidentOrgSettingsListResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as IncidentOrgSettingsListResponse;
       return body;
     }
@@ -10197,13 +11263,16 @@ export class IncidentsApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -10219,9 +11288,14 @@ export class IncidentsApiResponseProcessor {
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: IncidentOrgSettingsListResponse =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
+          ObjectSerializer.parse(
+            await response.body.text(),
+            contentType,
+            _config?.preserveLargeIntegers
+          ),
           "IncidentOrgSettingsListResponse",
-          ""
+          "",
+          _config?.preserveLargeIntegers
         ) as IncidentOrgSettingsListResponse;
       return body;
     }
@@ -10241,16 +11315,24 @@ export class IncidentsApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async listTimestampOverrides(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<IncidentTimestampOverridesResponse> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 200) {
       const body: IncidentTimestampOverridesResponse =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
-          "IncidentTimestampOverridesResponse"
+          ObjectSerializer.parse(
+            await response.body.text(),
+            contentType,
+            _config?.preserveLargeIntegers
+          ),
+          "IncidentTimestampOverridesResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as IncidentTimestampOverridesResponse;
       return body;
     }
@@ -10263,13 +11345,16 @@ export class IncidentsApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -10285,9 +11370,14 @@ export class IncidentsApiResponseProcessor {
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: IncidentTimestampOverridesResponse =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
+          ObjectSerializer.parse(
+            await response.body.text(),
+            contentType,
+            _config?.preserveLargeIntegers
+          ),
           "IncidentTimestampOverridesResponse",
-          ""
+          "",
+          _config?.preserveLargeIntegers
         ) as IncidentTimestampOverridesResponse;
       return body;
     }
@@ -10307,15 +11397,23 @@ export class IncidentsApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async patchIncidentImpact(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<IncidentImpactResponse> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 200) {
       const body: IncidentImpactResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "IncidentImpactResponse"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
+        "IncidentImpactResponse",
+        "",
+        _config?.preserveLargeIntegers
       ) as IncidentImpactResponse;
       return body;
     }
@@ -10328,13 +11426,16 @@ export class IncidentsApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -10349,9 +11450,14 @@ export class IncidentsApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: IncidentImpactResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
         "IncidentImpactResponse",
-        ""
+        "",
+        _config?.preserveLargeIntegers
       ) as IncidentImpactResponse;
       return body;
     }
@@ -10371,15 +11477,23 @@ export class IncidentsApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async searchIncidents(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<IncidentSearchResponse> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 200) {
       const body: IncidentSearchResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "IncidentSearchResponse"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
+        "IncidentSearchResponse",
+        "",
+        _config?.preserveLargeIntegers
       ) as IncidentSearchResponse;
       return body;
     }
@@ -10392,13 +11506,16 @@ export class IncidentsApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -10413,9 +11530,14 @@ export class IncidentsApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: IncidentSearchResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
         "IncidentSearchResponse",
-        ""
+        "",
+        _config?.preserveLargeIntegers
       ) as IncidentSearchResponse;
       return body;
     }
@@ -10435,28 +11557,39 @@ export class IncidentsApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async updateGlobalIncidentHandle(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<IncidentHandleResponse> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 200) {
       const body: IncidentHandleResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "IncidentHandleResponse"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
+        "IncidentHandleResponse",
+        "",
+        _config?.preserveLargeIntegers
       ) as IncidentHandleResponse;
       return body;
     }
     if (response.httpStatusCode === 400) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: JSONAPIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "JSONAPIErrorResponse"
+          "JSONAPIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as JSONAPIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -10473,13 +11606,16 @@ export class IncidentsApiResponseProcessor {
     if (response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -10494,9 +11630,14 @@ export class IncidentsApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: IncidentHandleResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
         "IncidentHandleResponse",
-        ""
+        "",
+        _config?.preserveLargeIntegers
       ) as IncidentHandleResponse;
       return body;
     }
@@ -10516,28 +11657,39 @@ export class IncidentsApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async updateGlobalIncidentSettings(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<GlobalIncidentSettingsResponse> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 200) {
       const body: GlobalIncidentSettingsResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "GlobalIncidentSettingsResponse"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
+        "GlobalIncidentSettingsResponse",
+        "",
+        _config?.preserveLargeIntegers
       ) as GlobalIncidentSettingsResponse;
       return body;
     }
     if (response.httpStatusCode === 400) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: JSONAPIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "JSONAPIErrorResponse"
+          "JSONAPIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as JSONAPIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -10554,13 +11706,16 @@ export class IncidentsApiResponseProcessor {
     if (response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -10575,9 +11730,14 @@ export class IncidentsApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: GlobalIncidentSettingsResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
         "GlobalIncidentSettingsResponse",
-        ""
+        "",
+        _config?.preserveLargeIntegers
       ) as GlobalIncidentSettingsResponse;
       return body;
     }
@@ -10597,15 +11757,23 @@ export class IncidentsApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async updateIncident(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<IncidentResponse> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 200) {
       const body: IncidentResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "IncidentResponse"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
+        "IncidentResponse",
+        "",
+        _config?.preserveLargeIntegers
       ) as IncidentResponse;
       return body;
     }
@@ -10618,13 +11786,16 @@ export class IncidentsApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -10639,9 +11810,14 @@ export class IncidentsApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: IncidentResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
         "IncidentResponse",
-        ""
+        "",
+        _config?.preserveLargeIntegers
       ) as IncidentResponse;
       return body;
     }
@@ -10661,15 +11837,23 @@ export class IncidentsApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async updateIncidentAttachment(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<Attachment> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 200) {
       const body: Attachment = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "Attachment"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
+        "Attachment",
+        "",
+        _config?.preserveLargeIntegers
       ) as Attachment;
       return body;
     }
@@ -10681,13 +11865,16 @@ export class IncidentsApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -10702,9 +11889,14 @@ export class IncidentsApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: Attachment = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
         "Attachment",
-        ""
+        "",
+        _config?.preserveLargeIntegers
       ) as Attachment;
       return body;
     }
@@ -10724,15 +11916,23 @@ export class IncidentsApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async updateIncidentConfiguration(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<IncidentConfigurationResponse> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 200) {
       const body: IncidentConfigurationResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "IncidentConfigurationResponse"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
+        "IncidentConfigurationResponse",
+        "",
+        _config?.preserveLargeIntegers
       ) as IncidentConfigurationResponse;
       return body;
     }
@@ -10745,13 +11945,16 @@ export class IncidentsApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -10766,9 +11969,14 @@ export class IncidentsApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: IncidentConfigurationResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
         "IncidentConfigurationResponse",
-        ""
+        "",
+        _config?.preserveLargeIntegers
       ) as IncidentConfigurationResponse;
       return body;
     }
@@ -10788,16 +11996,24 @@ export class IncidentsApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async updateIncidentGoogleChatConfiguration(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<IncidentGoogleChatConfigurationResponse> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 200) {
       const body: IncidentGoogleChatConfigurationResponse =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
-          "IncidentGoogleChatConfigurationResponse"
+          ObjectSerializer.parse(
+            await response.body.text(),
+            contentType,
+            _config?.preserveLargeIntegers
+          ),
+          "IncidentGoogleChatConfigurationResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as IncidentGoogleChatConfigurationResponse;
       return body;
     }
@@ -10810,13 +12026,16 @@ export class IncidentsApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -10832,9 +12051,14 @@ export class IncidentsApiResponseProcessor {
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: IncidentGoogleChatConfigurationResponse =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
+          ObjectSerializer.parse(
+            await response.body.text(),
+            contentType,
+            _config?.preserveLargeIntegers
+          ),
           "IncidentGoogleChatConfigurationResponse",
-          ""
+          "",
+          _config?.preserveLargeIntegers
         ) as IncidentGoogleChatConfigurationResponse;
       return body;
     }
@@ -10854,16 +12078,24 @@ export class IncidentsApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async updateIncidentGoogleMeetConfiguration(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<IncidentGoogleMeetConfigurationResponse> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 200) {
       const body: IncidentGoogleMeetConfigurationResponse =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
-          "IncidentGoogleMeetConfigurationResponse"
+          ObjectSerializer.parse(
+            await response.body.text(),
+            contentType,
+            _config?.preserveLargeIntegers
+          ),
+          "IncidentGoogleMeetConfigurationResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as IncidentGoogleMeetConfigurationResponse;
       return body;
     }
@@ -10876,13 +12108,16 @@ export class IncidentsApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -10898,9 +12133,14 @@ export class IncidentsApiResponseProcessor {
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: IncidentGoogleMeetConfigurationResponse =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
+          ObjectSerializer.parse(
+            await response.body.text(),
+            contentType,
+            _config?.preserveLargeIntegers
+          ),
           "IncidentGoogleMeetConfigurationResponse",
-          ""
+          "",
+          _config?.preserveLargeIntegers
         ) as IncidentGoogleMeetConfigurationResponse;
       return body;
     }
@@ -10920,15 +12160,23 @@ export class IncidentsApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async updateIncidentImpactField(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<IncidentImpactFieldResponse> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 200) {
       const body: IncidentImpactFieldResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "IncidentImpactFieldResponse"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
+        "IncidentImpactFieldResponse",
+        "",
+        _config?.preserveLargeIntegers
       ) as IncidentImpactFieldResponse;
       return body;
     }
@@ -10941,13 +12189,16 @@ export class IncidentsApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -10962,9 +12213,14 @@ export class IncidentsApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: IncidentImpactFieldResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
         "IncidentImpactFieldResponse",
-        ""
+        "",
+        _config?.preserveLargeIntegers
       ) as IncidentImpactFieldResponse;
       return body;
     }
@@ -10984,16 +12240,24 @@ export class IncidentsApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async updateIncidentIntegration(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<IncidentIntegrationMetadataResponse> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 200) {
       const body: IncidentIntegrationMetadataResponse =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
-          "IncidentIntegrationMetadataResponse"
+          ObjectSerializer.parse(
+            await response.body.text(),
+            contentType,
+            _config?.preserveLargeIntegers
+          ),
+          "IncidentIntegrationMetadataResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as IncidentIntegrationMetadataResponse;
       return body;
     }
@@ -11006,13 +12270,16 @@ export class IncidentsApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -11028,9 +12295,14 @@ export class IncidentsApiResponseProcessor {
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: IncidentIntegrationMetadataResponse =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
+          ObjectSerializer.parse(
+            await response.body.text(),
+            contentType,
+            _config?.preserveLargeIntegers
+          ),
           "IncidentIntegrationMetadataResponse",
-          ""
+          "",
+          _config?.preserveLargeIntegers
         ) as IncidentIntegrationMetadataResponse;
       return body;
     }
@@ -11050,15 +12322,23 @@ export class IncidentsApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async updateIncidentNotificationRule(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<IncidentNotificationRule> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 200) {
       const body: IncidentNotificationRule = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "IncidentNotificationRule"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
+        "IncidentNotificationRule",
+        "",
+        _config?.preserveLargeIntegers
       ) as IncidentNotificationRule;
       return body;
     }
@@ -11071,13 +12351,16 @@ export class IncidentsApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -11092,9 +12375,14 @@ export class IncidentsApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: IncidentNotificationRule = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
         "IncidentNotificationRule",
-        ""
+        "",
+        _config?.preserveLargeIntegers
       ) as IncidentNotificationRule;
       return body;
     }
@@ -11114,15 +12402,23 @@ export class IncidentsApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async updateIncidentNotificationTemplate(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<IncidentNotificationTemplate> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 200) {
       const body: IncidentNotificationTemplate = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "IncidentNotificationTemplate"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
+        "IncidentNotificationTemplate",
+        "",
+        _config?.preserveLargeIntegers
       ) as IncidentNotificationTemplate;
       return body;
     }
@@ -11135,13 +12431,16 @@ export class IncidentsApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -11156,9 +12455,14 @@ export class IncidentsApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: IncidentNotificationTemplate = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
         "IncidentNotificationTemplate",
-        ""
+        "",
+        _config?.preserveLargeIntegers
       ) as IncidentNotificationTemplate;
       return body;
     }
@@ -11178,28 +12482,39 @@ export class IncidentsApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async updateIncidentPostmortemTemplate(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<PostmortemTemplateResponse> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 200) {
       const body: PostmortemTemplateResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "PostmortemTemplateResponse"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
+        "PostmortemTemplateResponse",
+        "",
+        _config?.preserveLargeIntegers
       ) as PostmortemTemplateResponse;
       return body;
     }
     if (response.httpStatusCode === 400 || response.httpStatusCode === 404) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: JSONAPIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "JSONAPIErrorResponse"
+          "JSONAPIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as JSONAPIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -11216,13 +12531,16 @@ export class IncidentsApiResponseProcessor {
     if (response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -11237,9 +12555,14 @@ export class IncidentsApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: PostmortemTemplateResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
         "PostmortemTemplateResponse",
-        ""
+        "",
+        _config?.preserveLargeIntegers
       ) as PostmortemTemplateResponse;
       return body;
     }
@@ -11259,15 +12582,23 @@ export class IncidentsApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async updateIncidentRule(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<IncidentRuleResponse> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 200) {
       const body: IncidentRuleResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "IncidentRuleResponse"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
+        "IncidentRuleResponse",
+        "",
+        _config?.preserveLargeIntegers
       ) as IncidentRuleResponse;
       return body;
     }
@@ -11280,13 +12611,16 @@ export class IncidentsApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -11301,9 +12635,14 @@ export class IncidentsApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: IncidentRuleResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
         "IncidentRuleResponse",
-        ""
+        "",
+        _config?.preserveLargeIntegers
       ) as IncidentRuleResponse;
       return body;
     }
@@ -11323,15 +12662,23 @@ export class IncidentsApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async updateIncidentTodo(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<IncidentTodoResponse> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 200) {
       const body: IncidentTodoResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "IncidentTodoResponse"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
+        "IncidentTodoResponse",
+        "",
+        _config?.preserveLargeIntegers
       ) as IncidentTodoResponse;
       return body;
     }
@@ -11344,13 +12691,16 @@ export class IncidentsApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -11365,9 +12715,14 @@ export class IncidentsApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: IncidentTodoResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
         "IncidentTodoResponse",
-        ""
+        "",
+        _config?.preserveLargeIntegers
       ) as IncidentTodoResponse;
       return body;
     }
@@ -11387,15 +12742,23 @@ export class IncidentsApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async updateIncidentType(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<IncidentTypeResponse> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 200) {
       const body: IncidentTypeResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "IncidentTypeResponse"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
+        "IncidentTypeResponse",
+        "",
+        _config?.preserveLargeIntegers
       ) as IncidentTypeResponse;
       return body;
     }
@@ -11408,13 +12771,16 @@ export class IncidentsApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -11429,9 +12795,14 @@ export class IncidentsApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: IncidentTypeResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
         "IncidentTypeResponse",
-        ""
+        "",
+        _config?.preserveLargeIntegers
       ) as IncidentTypeResponse;
       return body;
     }
@@ -11451,29 +12822,40 @@ export class IncidentsApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async updateIncidentUserDefinedField(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<IncidentUserDefinedFieldResponse> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 200) {
       const body: IncidentUserDefinedFieldResponse =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
-          "IncidentUserDefinedFieldResponse"
+          ObjectSerializer.parse(
+            await response.body.text(),
+            contentType,
+            _config?.preserveLargeIntegers
+          ),
+          "IncidentUserDefinedFieldResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as IncidentUserDefinedFieldResponse;
       return body;
     }
     if (response.httpStatusCode === 400 || response.httpStatusCode === 404) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: JSONAPIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "JSONAPIErrorResponse"
+          "JSONAPIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as JSONAPIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -11494,13 +12876,16 @@ export class IncidentsApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -11516,9 +12901,14 @@ export class IncidentsApiResponseProcessor {
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: IncidentUserDefinedFieldResponse =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
+          ObjectSerializer.parse(
+            await response.body.text(),
+            contentType,
+            _config?.preserveLargeIntegers
+          ),
           "IncidentUserDefinedFieldResponse",
-          ""
+          "",
+          _config?.preserveLargeIntegers
         ) as IncidentUserDefinedFieldResponse;
       return body;
     }
@@ -11538,29 +12928,40 @@ export class IncidentsApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async updateIncidentUserDefinedRole(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<IncidentUserDefinedRoleResponse> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 200) {
       const body: IncidentUserDefinedRoleResponse =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
-          "IncidentUserDefinedRoleResponse"
+          ObjectSerializer.parse(
+            await response.body.text(),
+            contentType,
+            _config?.preserveLargeIntegers
+          ),
+          "IncidentUserDefinedRoleResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as IncidentUserDefinedRoleResponse;
       return body;
     }
     if (response.httpStatusCode === 400 || response.httpStatusCode === 404) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: JSONAPIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "JSONAPIErrorResponse"
+          "JSONAPIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as JSONAPIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -11577,13 +12978,16 @@ export class IncidentsApiResponseProcessor {
     if (response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -11599,9 +13003,14 @@ export class IncidentsApiResponseProcessor {
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: IncidentUserDefinedRoleResponse =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
+          ObjectSerializer.parse(
+            await response.body.text(),
+            contentType,
+            _config?.preserveLargeIntegers
+          ),
           "IncidentUserDefinedRoleResponse",
-          ""
+          "",
+          _config?.preserveLargeIntegers
         ) as IncidentUserDefinedRoleResponse;
       return body;
     }
@@ -11621,16 +13030,24 @@ export class IncidentsApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async updateTimestampOverride(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<IncidentTimestampOverrideResponse> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 200) {
       const body: IncidentTimestampOverrideResponse =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
-          "IncidentTimestampOverrideResponse"
+          ObjectSerializer.parse(
+            await response.body.text(),
+            contentType,
+            _config?.preserveLargeIntegers
+          ),
+          "IncidentTimestampOverrideResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as IncidentTimestampOverrideResponse;
       return body;
     }
@@ -11643,13 +13060,16 @@ export class IncidentsApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -11665,9 +13085,14 @@ export class IncidentsApiResponseProcessor {
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: IncidentTimestampOverrideResponse =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
+          ObjectSerializer.parse(
+            await response.body.text(),
+            contentType,
+            _config?.preserveLargeIntegers
+          ),
           "IncidentTimestampOverrideResponse",
-          ""
+          "",
+          _config?.preserveLargeIntegers
         ) as IncidentTimestampOverrideResponse;
       return body;
     }
@@ -12824,7 +14249,7 @@ export class IncidentsApi {
     this.requestFactory =
       requestFactory || new IncidentsApiRequestFactory(configuration);
     this.responseProcessor =
-      responseProcessor || new IncidentsApiResponseProcessor();
+      responseProcessor || new IncidentsApiResponseProcessor(configuration);
   }
 
   /**
@@ -12846,7 +14271,8 @@ export class IncidentsApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.createGlobalIncidentHandle(
-            responseContext
+            responseContext,
+            options
           );
         });
     });
@@ -12868,7 +14294,10 @@ export class IncidentsApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.createIncident(responseContext);
+          return this.responseProcessor.createIncident(
+            responseContext,
+            options
+          );
         });
     });
   }
@@ -12892,7 +14321,8 @@ export class IncidentsApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.createIncidentAttachment(
-            responseContext
+            responseContext,
+            options
           );
         });
     });
@@ -12917,7 +14347,8 @@ export class IncidentsApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.createIncidentConfiguration(
-            responseContext
+            responseContext,
+            options
           );
         });
     });
@@ -12941,7 +14372,8 @@ export class IncidentsApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.createIncidentGoogleChatConfiguration(
-            responseContext
+            responseContext,
+            options
           );
         });
     });
@@ -12965,7 +14397,8 @@ export class IncidentsApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.createIncidentGoogleMeetConfiguration(
-            responseContext
+            responseContext,
+            options
           );
         });
     });
@@ -12989,7 +14422,10 @@ export class IncidentsApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.createIncidentImpact(responseContext);
+          return this.responseProcessor.createIncidentImpact(
+            responseContext,
+            options
+          );
         });
     });
   }
@@ -13011,7 +14447,8 @@ export class IncidentsApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.createIncidentImpactField(
-            responseContext
+            responseContext,
+            options
           );
         });
     });
@@ -13035,7 +14472,8 @@ export class IncidentsApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.createIncidentIntegration(
-            responseContext
+            responseContext,
+            options
           );
         });
     });
@@ -13056,7 +14494,8 @@ export class IncidentsApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.createIncidentNotificationRule(
-            responseContext
+            responseContext,
+            options
           );
         });
     });
@@ -13080,7 +14519,8 @@ export class IncidentsApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.createIncidentNotificationTemplate(
-            responseContext
+            responseContext,
+            options
           );
         });
     });
@@ -13109,7 +14549,8 @@ export class IncidentsApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.createIncidentPostmortemAttachment(
-            responseContext
+            responseContext,
+            options
           );
         });
     });
@@ -13130,7 +14571,8 @@ export class IncidentsApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.createIncidentPostmortemTemplate(
-            responseContext
+            responseContext,
+            options
           );
         });
     });
@@ -13154,7 +14596,8 @@ export class IncidentsApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.createIncidentResponder(
-            responseContext
+            responseContext,
+            options
           );
         });
     });
@@ -13176,7 +14619,10 @@ export class IncidentsApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.createIncidentRule(responseContext);
+          return this.responseProcessor.createIncidentRule(
+            responseContext,
+            options
+          );
         });
     });
   }
@@ -13200,7 +14646,8 @@ export class IncidentsApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.createIncidentServiceNowRecord(
-            responseContext
+            responseContext,
+            options
           );
         });
     });
@@ -13223,7 +14670,10 @@ export class IncidentsApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.createIncidentTodo(responseContext);
+          return this.responseProcessor.createIncidentTodo(
+            responseContext,
+            options
+          );
         });
     });
   }
@@ -13244,7 +14694,10 @@ export class IncidentsApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.createIncidentType(responseContext);
+          return this.responseProcessor.createIncidentType(
+            responseContext,
+            options
+          );
         });
     });
   }
@@ -13268,7 +14721,8 @@ export class IncidentsApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.createIncidentUserDefinedField(
-            responseContext
+            responseContext,
+            options
           );
         });
     });
@@ -13293,7 +14747,8 @@ export class IncidentsApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.createIncidentUserDefinedRole(
-            responseContext
+            responseContext,
+            options
           );
         });
     });
@@ -13318,7 +14773,8 @@ export class IncidentsApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.createOnCallPageFromIncident(
-            responseContext
+            responseContext,
+            options
           );
         });
     });
@@ -13344,7 +14800,10 @@ export class IncidentsApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.createPageFromIncident(responseContext);
+          return this.responseProcessor.createPageFromIncident(
+            responseContext,
+            options
+          );
         });
     });
   }
@@ -13367,7 +14826,8 @@ export class IncidentsApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.createTimestampOverride(
-            responseContext
+            responseContext,
+            options
           );
         });
     });
@@ -13385,7 +14845,8 @@ export class IncidentsApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.deleteGlobalIncidentHandle(
-            responseContext
+            responseContext,
+            options
           );
         });
     });
@@ -13407,7 +14868,10 @@ export class IncidentsApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.deleteIncident(responseContext);
+          return this.responseProcessor.deleteIncident(
+            responseContext,
+            options
+          );
         });
     });
   }
@@ -13429,7 +14893,8 @@ export class IncidentsApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.deleteIncidentAttachment(
-            responseContext
+            responseContext,
+            options
           );
         });
     });
@@ -13452,7 +14917,10 @@ export class IncidentsApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.deleteIncidentImpact(responseContext);
+          return this.responseProcessor.deleteIncidentImpact(
+            responseContext,
+            options
+          );
         });
     });
   }
@@ -13474,7 +14942,8 @@ export class IncidentsApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.deleteIncidentImpactField(
-            responseContext
+            responseContext,
+            options
           );
         });
     });
@@ -13498,7 +14967,8 @@ export class IncidentsApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.deleteIncidentIntegration(
-            responseContext
+            responseContext,
+            options
           );
         });
     });
@@ -13523,7 +14993,8 @@ export class IncidentsApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.deleteIncidentNotificationRule(
-            responseContext
+            responseContext,
+            options
           );
         });
     });
@@ -13548,7 +15019,8 @@ export class IncidentsApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.deleteIncidentNotificationTemplate(
-            responseContext
+            responseContext,
+            options
           );
         });
     });
@@ -13572,7 +15044,8 @@ export class IncidentsApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.deleteIncidentPostmortemTemplate(
-            responseContext
+            responseContext,
+            options
           );
         });
     });
@@ -13596,7 +15069,8 @@ export class IncidentsApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.deleteIncidentResponder(
-            responseContext
+            responseContext,
+            options
           );
         });
     });
@@ -13618,7 +15092,10 @@ export class IncidentsApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.deleteIncidentRule(responseContext);
+          return this.responseProcessor.deleteIncidentRule(
+            responseContext,
+            options
+          );
         });
     });
   }
@@ -13640,7 +15117,10 @@ export class IncidentsApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.deleteIncidentTodo(responseContext);
+          return this.responseProcessor.deleteIncidentTodo(
+            responseContext,
+            options
+          );
         });
     });
   }
@@ -13661,7 +15141,10 @@ export class IncidentsApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.deleteIncidentType(responseContext);
+          return this.responseProcessor.deleteIncidentType(
+            responseContext,
+            options
+          );
         });
     });
   }
@@ -13684,7 +15167,8 @@ export class IncidentsApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.deleteIncidentUserDefinedField(
-            responseContext
+            responseContext,
+            options
           );
         });
     });
@@ -13705,7 +15189,8 @@ export class IncidentsApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.deleteIncidentUserDefinedRole(
-            responseContext
+            responseContext,
+            options
           );
         });
     });
@@ -13729,7 +15214,8 @@ export class IncidentsApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.deleteTimestampOverride(
-            responseContext
+            responseContext,
+            options
           );
         });
     });
@@ -13749,7 +15235,8 @@ export class IncidentsApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.getGlobalIncidentSettings(
-            responseContext
+            responseContext,
+            options
           );
         });
     });
@@ -13772,7 +15259,7 @@ export class IncidentsApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.getIncident(responseContext);
+          return this.responseProcessor.getIncident(responseContext, options);
         });
     });
   }
@@ -13794,7 +15281,8 @@ export class IncidentsApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.getIncidentAIPostmortem(
-            responseContext
+            responseContext,
+            options
           );
         });
     });
@@ -13817,7 +15305,10 @@ export class IncidentsApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.getIncidentIntegration(responseContext);
+          return this.responseProcessor.getIncidentIntegration(
+            responseContext,
+            options
+          );
         });
     });
   }
@@ -13841,7 +15332,8 @@ export class IncidentsApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.getIncidentNotificationRule(
-            responseContext
+            responseContext,
+            options
           );
         });
     });
@@ -13866,7 +15358,8 @@ export class IncidentsApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.getIncidentNotificationTemplate(
-            responseContext
+            responseContext,
+            options
           );
         });
     });
@@ -13890,7 +15383,8 @@ export class IncidentsApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.getIncidentPostmortemTemplate(
-            responseContext
+            responseContext,
+            options
           );
         });
     });
@@ -13913,7 +15407,10 @@ export class IncidentsApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.getIncidentResponder(responseContext);
+          return this.responseProcessor.getIncidentResponder(
+            responseContext,
+            options
+          );
         });
     });
   }
@@ -13934,7 +15431,10 @@ export class IncidentsApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.getIncidentRule(responseContext);
+          return this.responseProcessor.getIncidentRule(
+            responseContext,
+            options
+          );
         });
     });
   }
@@ -13956,7 +15456,10 @@ export class IncidentsApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.getIncidentTodo(responseContext);
+          return this.responseProcessor.getIncidentTodo(
+            responseContext,
+            options
+          );
         });
     });
   }
@@ -13977,7 +15480,10 @@ export class IncidentsApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.getIncidentType(responseContext);
+          return this.responseProcessor.getIncidentType(
+            responseContext,
+            options
+          );
         });
     });
   }
@@ -14001,7 +15507,8 @@ export class IncidentsApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.getIncidentUserDefinedField(
-            responseContext
+            responseContext,
+            options
           );
         });
     });
@@ -14026,7 +15533,8 @@ export class IncidentsApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.getIncidentUserDefinedRole(
-            responseContext
+            responseContext,
+            options
           );
         });
     });
@@ -14051,7 +15559,8 @@ export class IncidentsApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.getOrgSettingsByIncidentType(
-            responseContext
+            responseContext,
+            options
           );
         });
     });
@@ -14076,7 +15585,10 @@ export class IncidentsApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.importIncident(responseContext);
+          return this.responseProcessor.importIncident(
+            responseContext,
+            options
+          );
         });
     });
   }
@@ -14098,7 +15610,10 @@ export class IncidentsApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.linkPageToIncident(responseContext);
+          return this.responseProcessor.linkPageToIncident(
+            responseContext,
+            options
+          );
         });
     });
   }
@@ -14120,7 +15635,8 @@ export class IncidentsApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.listGlobalIncidentHandles(
-            responseContext
+            responseContext,
+            options
           );
         });
     });
@@ -14145,7 +15661,8 @@ export class IncidentsApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.listIncidentAttachments(
-            responseContext
+            responseContext,
+            options
           );
         });
     });
@@ -14165,7 +15682,8 @@ export class IncidentsApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.listIncidentImpactFields(
-            responseContext
+            responseContext,
+            options
           );
         });
     });
@@ -14188,7 +15706,10 @@ export class IncidentsApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.listIncidentImpacts(responseContext);
+          return this.responseProcessor.listIncidentImpacts(
+            responseContext,
+            options
+          );
         });
     });
   }
@@ -14210,7 +15731,8 @@ export class IncidentsApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.listIncidentIntegrations(
-            responseContext
+            responseContext,
+            options
           );
         });
     });
@@ -14231,7 +15753,8 @@ export class IncidentsApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.listIncidentNotificationRules(
-            responseContext
+            responseContext,
+            options
           );
         });
     });
@@ -14256,7 +15779,8 @@ export class IncidentsApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.listIncidentNotificationTemplates(
-            responseContext
+            responseContext,
+            options
           );
         });
     });
@@ -14281,7 +15805,8 @@ export class IncidentsApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.listIncidentPostmortemTemplates(
-            responseContext
+            responseContext,
+            options
           );
         });
     });
@@ -14303,7 +15828,10 @@ export class IncidentsApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.listIncidentResponders(responseContext);
+          return this.responseProcessor.listIncidentResponders(
+            responseContext,
+            options
+          );
         });
     });
   }
@@ -14326,7 +15854,10 @@ export class IncidentsApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.listIncidentRules(responseContext);
+          return this.responseProcessor.listIncidentRules(
+            responseContext,
+            options
+          );
         });
     });
   }
@@ -14349,7 +15880,7 @@ export class IncidentsApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.listIncidents(responseContext);
+          return this.responseProcessor.listIncidents(responseContext, options);
         });
     });
   }
@@ -14378,7 +15909,8 @@ export class IncidentsApi {
       );
 
       const response = await this.responseProcessor.listIncidents(
-        responseContext
+        responseContext,
+        options
       );
       const responseData = response.data;
       if (responseData === undefined) {
@@ -14415,7 +15947,10 @@ export class IncidentsApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.listIncidentTodos(responseContext);
+          return this.responseProcessor.listIncidentTodos(
+            responseContext,
+            options
+          );
         });
     });
   }
@@ -14436,7 +15971,10 @@ export class IncidentsApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.listIncidentTypes(responseContext);
+          return this.responseProcessor.listIncidentTypes(
+            responseContext,
+            options
+          );
         });
     });
   }
@@ -14463,7 +16001,8 @@ export class IncidentsApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.listIncidentUserDefinedFields(
-            responseContext
+            responseContext,
+            options
           );
         });
     });
@@ -14488,7 +16027,8 @@ export class IncidentsApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.listIncidentUserDefinedRoles(
-            responseContext
+            responseContext,
+            options
           );
         });
     });
@@ -14513,7 +16053,10 @@ export class IncidentsApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.listOrgSettings(responseContext);
+          return this.responseProcessor.listOrgSettings(
+            responseContext,
+            options
+          );
         });
     });
   }
@@ -14534,7 +16077,10 @@ export class IncidentsApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.listTimestampOverrides(responseContext);
+          return this.responseProcessor.listTimestampOverrides(
+            responseContext,
+            options
+          );
         });
     });
   }
@@ -14558,7 +16104,10 @@ export class IncidentsApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.patchIncidentImpact(responseContext);
+          return this.responseProcessor.patchIncidentImpact(
+            responseContext,
+            options
+          );
         });
     });
   }
@@ -14583,7 +16132,10 @@ export class IncidentsApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.searchIncidents(responseContext);
+          return this.responseProcessor.searchIncidents(
+            responseContext,
+            options
+          );
         });
     });
   }
@@ -14614,7 +16166,8 @@ export class IncidentsApi {
       );
 
       const response = await this.responseProcessor.searchIncidents(
-        responseContext
+        responseContext,
+        options
       );
       const responseData = response.data;
       if (responseData === undefined) {
@@ -14662,7 +16215,8 @@ export class IncidentsApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.updateGlobalIncidentHandle(
-            responseContext
+            responseContext,
+            options
           );
         });
     });
@@ -14683,7 +16237,8 @@ export class IncidentsApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.updateGlobalIncidentSettings(
-            responseContext
+            responseContext,
+            options
           );
         });
     });
@@ -14707,7 +16262,10 @@ export class IncidentsApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.updateIncident(responseContext);
+          return this.responseProcessor.updateIncident(
+            responseContext,
+            options
+          );
         });
     });
   }
@@ -14731,7 +16289,8 @@ export class IncidentsApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.updateIncidentAttachment(
-            responseContext
+            responseContext,
+            options
           );
         });
     });
@@ -14756,7 +16315,8 @@ export class IncidentsApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.updateIncidentConfiguration(
-            responseContext
+            responseContext,
+            options
           );
         });
     });
@@ -14781,7 +16341,8 @@ export class IncidentsApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.updateIncidentGoogleChatConfiguration(
-            responseContext
+            responseContext,
+            options
           );
         });
     });
@@ -14806,7 +16367,8 @@ export class IncidentsApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.updateIncidentGoogleMeetConfiguration(
-            responseContext
+            responseContext,
+            options
           );
         });
     });
@@ -14830,7 +16392,8 @@ export class IncidentsApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.updateIncidentImpactField(
-            responseContext
+            responseContext,
+            options
           );
         });
     });
@@ -14855,7 +16418,8 @@ export class IncidentsApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.updateIncidentIntegration(
-            responseContext
+            responseContext,
+            options
           );
         });
     });
@@ -14881,7 +16445,8 @@ export class IncidentsApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.updateIncidentNotificationRule(
-            responseContext
+            responseContext,
+            options
           );
         });
     });
@@ -14907,7 +16472,8 @@ export class IncidentsApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.updateIncidentNotificationTemplate(
-            responseContext
+            responseContext,
+            options
           );
         });
     });
@@ -14932,7 +16498,8 @@ export class IncidentsApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.updateIncidentPostmortemTemplate(
-            responseContext
+            responseContext,
+            options
           );
         });
     });
@@ -14955,7 +16522,10 @@ export class IncidentsApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.updateIncidentRule(responseContext);
+          return this.responseProcessor.updateIncidentRule(
+            responseContext,
+            options
+          );
         });
     });
   }
@@ -14978,7 +16548,10 @@ export class IncidentsApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.updateIncidentTodo(responseContext);
+          return this.responseProcessor.updateIncidentTodo(
+            responseContext,
+            options
+          );
         });
     });
   }
@@ -15000,7 +16573,10 @@ export class IncidentsApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.updateIncidentType(responseContext);
+          return this.responseProcessor.updateIncidentType(
+            responseContext,
+            options
+          );
         });
     });
   }
@@ -15025,7 +16601,8 @@ export class IncidentsApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.updateIncidentUserDefinedField(
-            responseContext
+            responseContext,
+            options
           );
         });
     });
@@ -15051,7 +16628,8 @@ export class IncidentsApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.updateIncidentUserDefinedRole(
-            responseContext
+            responseContext,
+            options
           );
         });
     });
@@ -15076,7 +16654,8 @@ export class IncidentsApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.updateTimestampOverride(
-            responseContext
+            responseContext,
+            options
           );
         });
     });

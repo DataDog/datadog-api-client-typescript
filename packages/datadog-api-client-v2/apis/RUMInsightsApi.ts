@@ -64,7 +64,8 @@ export class RUMInsightsApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
       ObjectSerializer.serialize(body, "AggregatedLongTasksRequest", ""),
-      contentType
+      contentType,
+      _config.preserveLargeIntegers
     );
     requestContext.setBody(serializedBody);
 
@@ -118,7 +119,8 @@ export class RUMInsightsApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
       ObjectSerializer.serialize(body, "AggregatedWaterfallRequest", ""),
-      contentType
+      contentType,
+      _config.preserveLargeIntegers
     );
     requestContext.setBody(serializedBody);
 
@@ -134,6 +136,12 @@ export class RUMInsightsApiRequestFactory extends BaseAPIRequestFactory {
 }
 
 export class RUMInsightsApiResponseProcessor {
+  private configuration?: Configuration;
+
+  public constructor(configuration?: Configuration) {
+    this.configuration = configuration;
+  }
+
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
@@ -142,28 +150,39 @@ export class RUMInsightsApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async queryAggregatedLongTasks(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<AggregatedLongTasksResponse> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 201) {
       const body: AggregatedLongTasksResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "AggregatedLongTasksResponse"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
+        "AggregatedLongTasksResponse",
+        "",
+        _config?.preserveLargeIntegers
       ) as AggregatedLongTasksResponse;
       return body;
     }
     if (response.httpStatusCode === 400 || response.httpStatusCode === 401) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: JSONAPIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "JSONAPIErrorResponse"
+          "JSONAPIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as JSONAPIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -180,13 +199,16 @@ export class RUMInsightsApiResponseProcessor {
     if (response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -201,9 +223,14 @@ export class RUMInsightsApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: AggregatedLongTasksResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
         "AggregatedLongTasksResponse",
-        ""
+        "",
+        _config?.preserveLargeIntegers
       ) as AggregatedLongTasksResponse;
       return body;
     }
@@ -223,28 +250,39 @@ export class RUMInsightsApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async queryAggregatedWaterfall(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<AggregatedWaterfallResponse> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 201) {
       const body: AggregatedWaterfallResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "AggregatedWaterfallResponse"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
+        "AggregatedWaterfallResponse",
+        "",
+        _config?.preserveLargeIntegers
       ) as AggregatedWaterfallResponse;
       return body;
     }
     if (response.httpStatusCode === 400 || response.httpStatusCode === 401) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: JSONAPIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "JSONAPIErrorResponse"
+          "JSONAPIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as JSONAPIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -261,13 +299,16 @@ export class RUMInsightsApiResponseProcessor {
     if (response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -282,9 +323,14 @@ export class RUMInsightsApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: AggregatedWaterfallResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
         "AggregatedWaterfallResponse",
-        ""
+        "",
+        _config?.preserveLargeIntegers
       ) as AggregatedWaterfallResponse;
       return body;
     }
@@ -325,7 +371,7 @@ export class RUMInsightsApi {
     this.requestFactory =
       requestFactory || new RUMInsightsApiRequestFactory(configuration);
     this.responseProcessor =
-      responseProcessor || new RUMInsightsApiResponseProcessor();
+      responseProcessor || new RUMInsightsApiResponseProcessor(configuration);
   }
 
   /**
@@ -345,7 +391,8 @@ export class RUMInsightsApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.queryAggregatedLongTasks(
-            responseContext
+            responseContext,
+            options
           );
         });
     });
@@ -368,7 +415,8 @@ export class RUMInsightsApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.queryAggregatedWaterfall(
-            responseContext
+            responseContext,
+            options
           );
         });
     });

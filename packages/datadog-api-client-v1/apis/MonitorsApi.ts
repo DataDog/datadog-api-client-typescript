@@ -103,7 +103,8 @@ export class MonitorsApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
       ObjectSerializer.serialize(body, "Monitor", ""),
-      contentType
+      contentType,
+      _config.preserveLargeIntegers
     );
     requestContext.setBody(serializedBody);
 
@@ -497,7 +498,8 @@ export class MonitorsApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
       ObjectSerializer.serialize(body, "MonitorUpdateRequest", ""),
-      contentType
+      contentType,
+      _config.preserveLargeIntegers
     );
     requestContext.setBody(serializedBody);
 
@@ -553,7 +555,8 @@ export class MonitorsApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
       ObjectSerializer.serialize(body, "Monitor", ""),
-      contentType
+      contentType,
+      _config.preserveLargeIntegers
     );
     requestContext.setBody(serializedBody);
 
@@ -600,7 +603,8 @@ export class MonitorsApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
       ObjectSerializer.serialize(body, "Monitor", ""),
-      contentType
+      contentType,
+      _config.preserveLargeIntegers
     );
     requestContext.setBody(serializedBody);
 
@@ -616,6 +620,12 @@ export class MonitorsApiRequestFactory extends BaseAPIRequestFactory {
 }
 
 export class MonitorsApiResponseProcessor {
+  private configuration?: Configuration;
+
+  public constructor(configuration?: Configuration) {
+    this.configuration = configuration;
+  }
+
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
@@ -624,15 +634,23 @@ export class MonitorsApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async checkCanDeleteMonitor(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<CheckCanDeleteMonitorResponse> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 200 || response.httpStatusCode === 409) {
       const body: CheckCanDeleteMonitorResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "CheckCanDeleteMonitorResponse"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
+        "CheckCanDeleteMonitorResponse",
+        "",
+        _config?.preserveLargeIntegers
       ) as CheckCanDeleteMonitorResponse;
       return body;
     }
@@ -643,13 +661,16 @@ export class MonitorsApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -664,9 +685,14 @@ export class MonitorsApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: CheckCanDeleteMonitorResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
         "CheckCanDeleteMonitorResponse",
-        ""
+        "",
+        _config?.preserveLargeIntegers
       ) as CheckCanDeleteMonitorResponse;
       return body;
     }
@@ -685,14 +711,24 @@ export class MonitorsApiResponseProcessor {
    * @params response Response returned by the server for a request to createMonitor
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async createMonitor(response: ResponseContext): Promise<Monitor> {
+  public async createMonitor(
+    response: ResponseContext,
+    _options?: Configuration
+  ): Promise<Monitor> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 200) {
       const body: Monitor = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "Monitor"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
+        "Monitor",
+        "",
+        _config?.preserveLargeIntegers
       ) as Monitor;
       return body;
     }
@@ -703,13 +739,16 @@ export class MonitorsApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -724,9 +763,14 @@ export class MonitorsApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: Monitor = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
         "Monitor",
-        ""
+        "",
+        _config?.preserveLargeIntegers
       ) as Monitor;
       return body;
     }
@@ -746,15 +790,23 @@ export class MonitorsApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async deleteMonitor(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<DeletedMonitor> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 200) {
       const body: DeletedMonitor = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "DeletedMonitor"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
+        "DeletedMonitor",
+        "",
+        _config?.preserveLargeIntegers
       ) as DeletedMonitor;
       return body;
     }
@@ -767,13 +819,16 @@ export class MonitorsApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -788,9 +843,14 @@ export class MonitorsApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: DeletedMonitor = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
         "DeletedMonitor",
-        ""
+        "",
+        _config?.preserveLargeIntegers
       ) as DeletedMonitor;
       return body;
     }
@@ -809,14 +869,24 @@ export class MonitorsApiResponseProcessor {
    * @params response Response returned by the server for a request to getMonitor
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async getMonitor(response: ResponseContext): Promise<Monitor> {
+  public async getMonitor(
+    response: ResponseContext,
+    _options?: Configuration
+  ): Promise<Monitor> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 200) {
       const body: Monitor = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "Monitor"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
+        "Monitor",
+        "",
+        _config?.preserveLargeIntegers
       ) as Monitor;
       return body;
     }
@@ -828,13 +898,16 @@ export class MonitorsApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -849,9 +922,14 @@ export class MonitorsApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: Monitor = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
         "Monitor",
-        ""
+        "",
+        _config?.preserveLargeIntegers
       ) as Monitor;
       return body;
     }
@@ -871,15 +949,23 @@ export class MonitorsApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async listMonitors(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<Array<Monitor>> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 200) {
       const body: Array<Monitor> = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "Array<Monitor>"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
+        "Array<Monitor>",
+        "",
+        _config?.preserveLargeIntegers
       ) as Array<Monitor>;
       return body;
     }
@@ -890,13 +976,16 @@ export class MonitorsApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -911,9 +1000,14 @@ export class MonitorsApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: Array<Monitor> = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
         "Array<Monitor>",
-        ""
+        "",
+        _config?.preserveLargeIntegers
       ) as Array<Monitor>;
       return body;
     }
@@ -933,15 +1027,23 @@ export class MonitorsApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async searchMonitorGroups(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<MonitorGroupSearchResponse> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 200) {
       const body: MonitorGroupSearchResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "MonitorGroupSearchResponse"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
+        "MonitorGroupSearchResponse",
+        "",
+        _config?.preserveLargeIntegers
       ) as MonitorGroupSearchResponse;
       return body;
     }
@@ -952,13 +1054,16 @@ export class MonitorsApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -973,9 +1078,14 @@ export class MonitorsApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: MonitorGroupSearchResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
         "MonitorGroupSearchResponse",
-        ""
+        "",
+        _config?.preserveLargeIntegers
       ) as MonitorGroupSearchResponse;
       return body;
     }
@@ -995,15 +1105,23 @@ export class MonitorsApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async searchMonitors(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<MonitorSearchResponse> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 200) {
       const body: MonitorSearchResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "MonitorSearchResponse"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
+        "MonitorSearchResponse",
+        "",
+        _config?.preserveLargeIntegers
       ) as MonitorSearchResponse;
       return body;
     }
@@ -1014,13 +1132,16 @@ export class MonitorsApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -1035,9 +1156,14 @@ export class MonitorsApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: MonitorSearchResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
         "MonitorSearchResponse",
-        ""
+        "",
+        _config?.preserveLargeIntegers
       ) as MonitorSearchResponse;
       return body;
     }
@@ -1056,14 +1182,24 @@ export class MonitorsApiResponseProcessor {
    * @params response Response returned by the server for a request to updateMonitor
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async updateMonitor(response: ResponseContext): Promise<Monitor> {
+  public async updateMonitor(
+    response: ResponseContext,
+    _options?: Configuration
+  ): Promise<Monitor> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 200) {
       const body: Monitor = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "Monitor"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
+        "Monitor",
+        "",
+        _config?.preserveLargeIntegers
       ) as Monitor;
       return body;
     }
@@ -1076,13 +1212,16 @@ export class MonitorsApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -1097,9 +1236,14 @@ export class MonitorsApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: Monitor = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
         "Monitor",
-        ""
+        "",
+        _config?.preserveLargeIntegers
       ) as Monitor;
       return body;
     }
@@ -1119,15 +1263,23 @@ export class MonitorsApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async validateExistingMonitor(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<any> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 200) {
       const body: any = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "any"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
+        "any",
+        "",
+        _config?.preserveLargeIntegers
       ) as any;
       return body;
     }
@@ -1138,13 +1290,16 @@ export class MonitorsApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -1159,9 +1314,14 @@ export class MonitorsApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: any = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
         "any",
-        ""
+        "",
+        _config?.preserveLargeIntegers
       ) as any;
       return body;
     }
@@ -1180,14 +1340,24 @@ export class MonitorsApiResponseProcessor {
    * @params response Response returned by the server for a request to validateMonitor
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async validateMonitor(response: ResponseContext): Promise<any> {
+  public async validateMonitor(
+    response: ResponseContext,
+    _options?: Configuration
+  ): Promise<any> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 200) {
       const body: any = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "any"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
+        "any",
+        "",
+        _config?.preserveLargeIntegers
       ) as any;
       return body;
     }
@@ -1198,13 +1368,16 @@ export class MonitorsApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -1219,9 +1392,14 @@ export class MonitorsApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: any = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
         "any",
-        ""
+        "",
+        _config?.preserveLargeIntegers
       ) as any;
       return body;
     }
@@ -1447,7 +1625,7 @@ export class MonitorsApi {
     this.requestFactory =
       requestFactory || new MonitorsApiRequestFactory(configuration);
     this.responseProcessor =
-      responseProcessor || new MonitorsApiResponseProcessor();
+      responseProcessor || new MonitorsApiResponseProcessor(configuration);
   }
 
   /**
@@ -1466,7 +1644,10 @@ export class MonitorsApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.checkCanDeleteMonitor(responseContext);
+          return this.responseProcessor.checkCanDeleteMonitor(
+            responseContext,
+            options
+          );
         });
     });
   }
@@ -1721,7 +1902,7 @@ export class MonitorsApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.createMonitor(responseContext);
+          return this.responseProcessor.createMonitor(responseContext, options);
         });
     });
   }
@@ -1743,7 +1924,7 @@ export class MonitorsApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.deleteMonitor(responseContext);
+          return this.responseProcessor.deleteMonitor(responseContext, options);
         });
     });
   }
@@ -1767,7 +1948,7 @@ export class MonitorsApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.getMonitor(responseContext);
+          return this.responseProcessor.getMonitor(responseContext, options);
         });
     });
   }
@@ -1795,7 +1976,7 @@ export class MonitorsApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.listMonitors(responseContext);
+          return this.responseProcessor.listMonitors(responseContext, options);
         });
     });
   }
@@ -1830,7 +2011,8 @@ export class MonitorsApi {
       );
 
       const response = await this.responseProcessor.listMonitors(
-        responseContext
+        responseContext,
+        options
       );
       const results = response;
       for (const item of results) {
@@ -1862,7 +2044,10 @@ export class MonitorsApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.searchMonitorGroups(responseContext);
+          return this.responseProcessor.searchMonitorGroups(
+            responseContext,
+            options
+          );
         });
     });
   }
@@ -1886,7 +2071,10 @@ export class MonitorsApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.searchMonitors(responseContext);
+          return this.responseProcessor.searchMonitors(
+            responseContext,
+            options
+          );
         });
     });
   }
@@ -1908,7 +2096,7 @@ export class MonitorsApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.updateMonitor(responseContext);
+          return this.responseProcessor.updateMonitor(responseContext, options);
         });
     });
   }
@@ -1933,7 +2121,8 @@ export class MonitorsApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.validateExistingMonitor(
-            responseContext
+            responseContext,
+            options
           );
         });
     });
@@ -1957,7 +2146,10 @@ export class MonitorsApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.validateMonitor(responseContext);
+          return this.responseProcessor.validateMonitor(
+            responseContext,
+            options
+          );
         });
     });
   }

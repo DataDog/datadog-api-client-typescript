@@ -62,7 +62,8 @@ export class OrganizationsApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
       ObjectSerializer.serialize(body, "OrganizationCreateBody", ""),
-      contentType
+      contentType,
+      _config.preserveLargeIntegers
     );
     requestContext.setBody(serializedBody);
 
@@ -224,7 +225,8 @@ export class OrganizationsApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
       ObjectSerializer.serialize(body, "Organization", ""),
-      contentType
+      contentType,
+      _config.preserveLargeIntegers
     );
     requestContext.setBody(serializedBody);
 
@@ -293,6 +295,12 @@ export class OrganizationsApiRequestFactory extends BaseAPIRequestFactory {
 }
 
 export class OrganizationsApiResponseProcessor {
+  private configuration?: Configuration;
+
+  public constructor(configuration?: Configuration) {
+    this.configuration = configuration;
+  }
+
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
@@ -301,15 +309,23 @@ export class OrganizationsApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async createChildOrg(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<OrganizationCreateResponse> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 200) {
       const body: OrganizationCreateResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "OrganizationCreateResponse"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
+        "OrganizationCreateResponse",
+        "",
+        _config?.preserveLargeIntegers
       ) as OrganizationCreateResponse;
       return body;
     }
@@ -320,13 +336,16 @@ export class OrganizationsApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -341,9 +360,14 @@ export class OrganizationsApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: OrganizationCreateResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
         "OrganizationCreateResponse",
-        ""
+        "",
+        _config?.preserveLargeIntegers
       ) as OrganizationCreateResponse;
       return body;
     }
@@ -363,15 +387,23 @@ export class OrganizationsApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async downgradeOrg(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<OrgDowngradedResponse> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 200) {
       const body: OrgDowngradedResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "OrgDowngradedResponse"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
+        "OrgDowngradedResponse",
+        "",
+        _config?.preserveLargeIntegers
       ) as OrgDowngradedResponse;
       return body;
     }
@@ -382,13 +414,16 @@ export class OrganizationsApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -403,9 +438,14 @@ export class OrganizationsApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: OrgDowngradedResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
         "OrgDowngradedResponse",
-        ""
+        "",
+        _config?.preserveLargeIntegers
       ) as OrgDowngradedResponse;
       return body;
     }
@@ -425,15 +465,23 @@ export class OrganizationsApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async getOrg(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<OrganizationResponse> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 200) {
       const body: OrganizationResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "OrganizationResponse"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
+        "OrganizationResponse",
+        "",
+        _config?.preserveLargeIntegers
       ) as OrganizationResponse;
       return body;
     }
@@ -444,13 +492,16 @@ export class OrganizationsApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -465,9 +516,14 @@ export class OrganizationsApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: OrganizationResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
         "OrganizationResponse",
-        ""
+        "",
+        _config?.preserveLargeIntegers
       ) as OrganizationResponse;
       return body;
     }
@@ -487,28 +543,39 @@ export class OrganizationsApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async listOrgs(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<OrganizationListResponse> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 200) {
       const body: OrganizationListResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "OrganizationListResponse"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
+        "OrganizationListResponse",
+        "",
+        _config?.preserveLargeIntegers
       ) as OrganizationListResponse;
       return body;
     }
     if (response.httpStatusCode === 403 || response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -523,9 +590,14 @@ export class OrganizationsApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: OrganizationListResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
         "OrganizationListResponse",
-        ""
+        "",
+        _config?.preserveLargeIntegers
       ) as OrganizationListResponse;
       return body;
     }
@@ -545,15 +617,23 @@ export class OrganizationsApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async updateOrg(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<OrganizationResponse> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 200) {
       const body: OrganizationResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "OrganizationResponse"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
+        "OrganizationResponse",
+        "",
+        _config?.preserveLargeIntegers
       ) as OrganizationResponse;
       return body;
     }
@@ -564,13 +644,16 @@ export class OrganizationsApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -585,9 +668,14 @@ export class OrganizationsApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: OrganizationResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
         "OrganizationResponse",
-        ""
+        "",
+        _config?.preserveLargeIntegers
       ) as OrganizationResponse;
       return body;
     }
@@ -607,15 +695,23 @@ export class OrganizationsApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async uploadIdPForOrg(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<IdpResponse> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 200) {
       const body: IdpResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "IdpResponse"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
+        "IdpResponse",
+        "",
+        _config?.preserveLargeIntegers
       ) as IdpResponse;
       return body;
     }
@@ -627,13 +723,16 @@ export class OrganizationsApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -648,9 +747,14 @@ export class OrganizationsApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: IdpResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
         "IdpResponse",
-        ""
+        "",
+        _config?.preserveLargeIntegers
       ) as IdpResponse;
       return body;
     }
@@ -726,7 +830,7 @@ export class OrganizationsApi {
     this.requestFactory =
       requestFactory || new OrganizationsApiRequestFactory(configuration);
     this.responseProcessor =
-      responseProcessor || new OrganizationsApiResponseProcessor();
+      responseProcessor || new OrganizationsApiResponseProcessor(configuration);
   }
 
   /**
@@ -754,7 +858,10 @@ export class OrganizationsApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.createChildOrg(responseContext);
+          return this.responseProcessor.createChildOrg(
+            responseContext,
+            options
+          );
         });
     });
   }
@@ -775,7 +882,7 @@ export class OrganizationsApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.downgradeOrg(responseContext);
+          return this.responseProcessor.downgradeOrg(responseContext, options);
         });
     });
   }
@@ -796,7 +903,7 @@ export class OrganizationsApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.getOrg(responseContext);
+          return this.responseProcessor.getOrg(responseContext, options);
         });
     });
   }
@@ -811,7 +918,7 @@ export class OrganizationsApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.listOrgs(responseContext);
+          return this.responseProcessor.listOrgs(responseContext, options);
         });
     });
   }
@@ -833,7 +940,7 @@ export class OrganizationsApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.updateOrg(responseContext);
+          return this.responseProcessor.updateOrg(responseContext, options);
         });
     });
   }
@@ -860,7 +967,10 @@ export class OrganizationsApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.uploadIdPForOrg(responseContext);
+          return this.responseProcessor.uploadIdPForOrg(
+            responseContext,
+            options
+          );
         });
     });
   }

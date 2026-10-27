@@ -56,7 +56,8 @@ export class RumMetricsApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
       ObjectSerializer.serialize(body, "RumMetricCreateRequest", ""),
-      contentType
+      contentType,
+      _config.preserveLargeIntegers
     );
     requestContext.setBody(serializedBody);
 
@@ -220,7 +221,8 @@ export class RumMetricsApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
       ObjectSerializer.serialize(body, "RumMetricUpdateRequest", ""),
-      contentType
+      contentType,
+      _config.preserveLargeIntegers
     );
     requestContext.setBody(serializedBody);
 
@@ -236,6 +238,12 @@ export class RumMetricsApiRequestFactory extends BaseAPIRequestFactory {
 }
 
 export class RumMetricsApiResponseProcessor {
+  private configuration?: Configuration;
+
+  public constructor(configuration?: Configuration) {
+    this.configuration = configuration;
+  }
+
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
@@ -244,15 +252,23 @@ export class RumMetricsApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async createRumMetric(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<RumMetricResponse> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 201) {
       const body: RumMetricResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "RumMetricResponse"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
+        "RumMetricResponse",
+        "",
+        _config?.preserveLargeIntegers
       ) as RumMetricResponse;
       return body;
     }
@@ -264,13 +280,16 @@ export class RumMetricsApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -285,9 +304,14 @@ export class RumMetricsApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: RumMetricResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
         "RumMetricResponse",
-        ""
+        "",
+        _config?.preserveLargeIntegers
       ) as RumMetricResponse;
       return body;
     }
@@ -306,7 +330,11 @@ export class RumMetricsApiResponseProcessor {
    * @params response Response returned by the server for a request to deleteRumMetric
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async deleteRumMetric(response: ResponseContext): Promise<void> {
+  public async deleteRumMetric(
+    response: ResponseContext,
+    _options?: Configuration
+  ): Promise<void> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
@@ -320,13 +348,16 @@ export class RumMetricsApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -358,15 +389,23 @@ export class RumMetricsApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async getRumMetric(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<RumMetricResponse> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 200) {
       const body: RumMetricResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "RumMetricResponse"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
+        "RumMetricResponse",
+        "",
+        _config?.preserveLargeIntegers
       ) as RumMetricResponse;
       return body;
     }
@@ -377,13 +416,16 @@ export class RumMetricsApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -398,9 +440,14 @@ export class RumMetricsApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: RumMetricResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
         "RumMetricResponse",
-        ""
+        "",
+        _config?.preserveLargeIntegers
       ) as RumMetricResponse;
       return body;
     }
@@ -420,28 +467,39 @@ export class RumMetricsApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async listRumMetrics(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<RumMetricsResponse> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 200) {
       const body: RumMetricsResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "RumMetricsResponse"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
+        "RumMetricsResponse",
+        "",
+        _config?.preserveLargeIntegers
       ) as RumMetricsResponse;
       return body;
     }
     if (response.httpStatusCode === 403 || response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -456,9 +514,14 @@ export class RumMetricsApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: RumMetricsResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
         "RumMetricsResponse",
-        ""
+        "",
+        _config?.preserveLargeIntegers
       ) as RumMetricsResponse;
       return body;
     }
@@ -478,15 +541,23 @@ export class RumMetricsApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async updateRumMetric(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<RumMetricResponse> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 200) {
       const body: RumMetricResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "RumMetricResponse"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
+        "RumMetricResponse",
+        "",
+        _config?.preserveLargeIntegers
       ) as RumMetricResponse;
       return body;
     }
@@ -499,13 +570,16 @@ export class RumMetricsApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -520,9 +594,14 @@ export class RumMetricsApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: RumMetricResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
         "RumMetricResponse",
-        ""
+        "",
+        _config?.preserveLargeIntegers
       ) as RumMetricResponse;
       return body;
     }
@@ -586,7 +665,7 @@ export class RumMetricsApi {
     this.requestFactory =
       requestFactory || new RumMetricsApiRequestFactory(configuration);
     this.responseProcessor =
-      responseProcessor || new RumMetricsApiResponseProcessor();
+      responseProcessor || new RumMetricsApiResponseProcessor(configuration);
   }
 
   /**
@@ -606,7 +685,10 @@ export class RumMetricsApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.createRumMetric(responseContext);
+          return this.responseProcessor.createRumMetric(
+            responseContext,
+            options
+          );
         });
     });
   }
@@ -627,7 +709,10 @@ export class RumMetricsApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.deleteRumMetric(responseContext);
+          return this.responseProcessor.deleteRumMetric(
+            responseContext,
+            options
+          );
         });
     });
   }
@@ -648,7 +733,7 @@ export class RumMetricsApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.getRumMetric(responseContext);
+          return this.responseProcessor.getRumMetric(responseContext, options);
         });
     });
   }
@@ -663,7 +748,10 @@ export class RumMetricsApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.listRumMetrics(responseContext);
+          return this.responseProcessor.listRumMetrics(
+            responseContext,
+            options
+          );
         });
     });
   }
@@ -686,7 +774,10 @@ export class RumMetricsApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.updateRumMetric(responseContext);
+          return this.responseProcessor.updateRumMetric(
+            responseContext,
+            options
+          );
         });
     });
   }

@@ -166,7 +166,8 @@ export class EntityIntegrationConfigsApiRequestFactory extends BaseAPIRequestFac
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
       ObjectSerializer.serialize(body, "EntityIntegrationConfigRequest", ""),
-      contentType
+      contentType,
+      _config.preserveLargeIntegers
     );
     requestContext.setBody(serializedBody);
 
@@ -182,6 +183,12 @@ export class EntityIntegrationConfigsApiRequestFactory extends BaseAPIRequestFac
 }
 
 export class EntityIntegrationConfigsApiResponseProcessor {
+  private configuration?: Configuration;
+
+  public constructor(configuration?: Configuration) {
+    this.configuration = configuration;
+  }
+
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
@@ -190,8 +197,10 @@ export class EntityIntegrationConfigsApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async deleteEntityIntegrationConfig(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<void> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
@@ -201,13 +210,16 @@ export class EntityIntegrationConfigsApiResponseProcessor {
     if (response.httpStatusCode === 400 || response.httpStatusCode === 404) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: JSONAPIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "JSONAPIErrorResponse"
+          "JSONAPIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as JSONAPIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -224,13 +236,16 @@ export class EntityIntegrationConfigsApiResponseProcessor {
     if (response.httpStatusCode === 403 || response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -262,29 +277,40 @@ export class EntityIntegrationConfigsApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async getEntityIntegrationConfig(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<EntityIntegrationConfigResponse> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 200) {
       const body: EntityIntegrationConfigResponse =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
-          "EntityIntegrationConfigResponse"
+          ObjectSerializer.parse(
+            await response.body.text(),
+            contentType,
+            _config?.preserveLargeIntegers
+          ),
+          "EntityIntegrationConfigResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as EntityIntegrationConfigResponse;
       return body;
     }
     if (response.httpStatusCode === 400 || response.httpStatusCode === 404) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: JSONAPIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "JSONAPIErrorResponse"
+          "JSONAPIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as JSONAPIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -301,13 +327,16 @@ export class EntityIntegrationConfigsApiResponseProcessor {
     if (response.httpStatusCode === 403 || response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -323,9 +352,14 @@ export class EntityIntegrationConfigsApiResponseProcessor {
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: EntityIntegrationConfigResponse =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
+          ObjectSerializer.parse(
+            await response.body.text(),
+            contentType,
+            _config?.preserveLargeIntegers
+          ),
           "EntityIntegrationConfigResponse",
-          ""
+          "",
+          _config?.preserveLargeIntegers
         ) as EntityIntegrationConfigResponse;
       return body;
     }
@@ -345,29 +379,40 @@ export class EntityIntegrationConfigsApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async updateEntityIntegrationConfig(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<EntityIntegrationConfigResponse> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 200) {
       const body: EntityIntegrationConfigResponse =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
-          "EntityIntegrationConfigResponse"
+          ObjectSerializer.parse(
+            await response.body.text(),
+            contentType,
+            _config?.preserveLargeIntegers
+          ),
+          "EntityIntegrationConfigResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as EntityIntegrationConfigResponse;
       return body;
     }
     if (response.httpStatusCode === 400) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: JSONAPIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "JSONAPIErrorResponse"
+          "JSONAPIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as JSONAPIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -384,13 +429,16 @@ export class EntityIntegrationConfigsApiResponseProcessor {
     if (response.httpStatusCode === 403 || response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -406,9 +454,14 @@ export class EntityIntegrationConfigsApiResponseProcessor {
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: EntityIntegrationConfigResponse =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
+          ObjectSerializer.parse(
+            await response.body.text(),
+            contentType,
+            _config?.preserveLargeIntegers
+          ),
           "EntityIntegrationConfigResponse",
-          ""
+          "",
+          _config?.preserveLargeIntegers
         ) as EntityIntegrationConfigResponse;
       return body;
     }
@@ -464,7 +517,8 @@ export class EntityIntegrationConfigsApi {
       requestFactory ||
       new EntityIntegrationConfigsApiRequestFactory(configuration);
     this.responseProcessor =
-      responseProcessor || new EntityIntegrationConfigsApiResponseProcessor();
+      responseProcessor ||
+      new EntityIntegrationConfigsApiResponseProcessor(configuration);
   }
 
   /**
@@ -485,7 +539,8 @@ export class EntityIntegrationConfigsApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.deleteEntityIntegrationConfig(
-            responseContext
+            responseContext,
+            options
           );
         });
     });
@@ -509,7 +564,8 @@ export class EntityIntegrationConfigsApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.getEntityIntegrationConfig(
-            responseContext
+            responseContext,
+            options
           );
         });
     });
@@ -538,7 +594,8 @@ export class EntityIntegrationConfigsApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.updateEntityIntegrationConfig(
-            responseContext
+            responseContext,
+            options
           );
         });
     });

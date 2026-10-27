@@ -57,7 +57,8 @@ export class GCPIntegrationApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
       ObjectSerializer.serialize(body, "GCPSTSServiceAccountCreateRequest", ""),
-      contentType
+      contentType,
+      _config.preserveLargeIntegers
     );
     requestContext.setBody(serializedBody);
 
@@ -199,7 +200,8 @@ export class GCPIntegrationApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
       ObjectSerializer.serialize(body, "any", ""),
-      contentType
+      contentType,
+      _config.preserveLargeIntegers
     );
     requestContext.setBody(serializedBody);
 
@@ -256,7 +258,8 @@ export class GCPIntegrationApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
       ObjectSerializer.serialize(body, "GCPSTSServiceAccountUpdateRequest", ""),
-      contentType
+      contentType,
+      _config.preserveLargeIntegers
     );
     requestContext.setBody(serializedBody);
 
@@ -272,6 +275,12 @@ export class GCPIntegrationApiRequestFactory extends BaseAPIRequestFactory {
 }
 
 export class GCPIntegrationApiResponseProcessor {
+  private configuration?: Configuration;
+
+  public constructor(configuration?: Configuration) {
+    this.configuration = configuration;
+  }
+
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
@@ -280,15 +289,23 @@ export class GCPIntegrationApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async createGCPSTSAccount(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<GCPSTSServiceAccountResponse> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 201) {
       const body: GCPSTSServiceAccountResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "GCPSTSServiceAccountResponse"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
+        "GCPSTSServiceAccountResponse",
+        "",
+        _config?.preserveLargeIntegers
       ) as GCPSTSServiceAccountResponse;
       return body;
     }
@@ -301,13 +318,16 @@ export class GCPIntegrationApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -322,9 +342,14 @@ export class GCPIntegrationApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: GCPSTSServiceAccountResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
         "GCPSTSServiceAccountResponse",
-        ""
+        "",
+        _config?.preserveLargeIntegers
       ) as GCPSTSServiceAccountResponse;
       return body;
     }
@@ -343,7 +368,11 @@ export class GCPIntegrationApiResponseProcessor {
    * @params response Response returned by the server for a request to deleteGCPSTSAccount
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async deleteGCPSTSAccount(response: ResponseContext): Promise<void> {
+  public async deleteGCPSTSAccount(
+    response: ResponseContext,
+    _options?: Configuration
+  ): Promise<void> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
@@ -357,13 +386,16 @@ export class GCPIntegrationApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -395,28 +427,39 @@ export class GCPIntegrationApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async getGCPSTSDelegate(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<GCPSTSDelegateAccountResponse> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 200) {
       const body: GCPSTSDelegateAccountResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "GCPSTSDelegateAccountResponse"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
+        "GCPSTSDelegateAccountResponse",
+        "",
+        _config?.preserveLargeIntegers
       ) as GCPSTSDelegateAccountResponse;
       return body;
     }
     if (response.httpStatusCode === 403 || response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -431,9 +474,14 @@ export class GCPIntegrationApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: GCPSTSDelegateAccountResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
         "GCPSTSDelegateAccountResponse",
-        ""
+        "",
+        _config?.preserveLargeIntegers
       ) as GCPSTSDelegateAccountResponse;
       return body;
     }
@@ -453,15 +501,23 @@ export class GCPIntegrationApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async listGCPSTSAccounts(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<GCPSTSServiceAccountsResponse> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 200) {
       const body: GCPSTSServiceAccountsResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "GCPSTSServiceAccountsResponse"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
+        "GCPSTSServiceAccountsResponse",
+        "",
+        _config?.preserveLargeIntegers
       ) as GCPSTSServiceAccountsResponse;
       return body;
     }
@@ -472,13 +528,16 @@ export class GCPIntegrationApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -493,9 +552,14 @@ export class GCPIntegrationApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: GCPSTSServiceAccountsResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
         "GCPSTSServiceAccountsResponse",
-        ""
+        "",
+        _config?.preserveLargeIntegers
       ) as GCPSTSServiceAccountsResponse;
       return body;
     }
@@ -515,15 +579,23 @@ export class GCPIntegrationApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async makeGCPSTSDelegate(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<GCPSTSDelegateAccountResponse> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 200) {
       const body: GCPSTSDelegateAccountResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "GCPSTSDelegateAccountResponse"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
+        "GCPSTSDelegateAccountResponse",
+        "",
+        _config?.preserveLargeIntegers
       ) as GCPSTSDelegateAccountResponse;
       return body;
     }
@@ -534,13 +606,16 @@ export class GCPIntegrationApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -555,9 +630,14 @@ export class GCPIntegrationApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: GCPSTSDelegateAccountResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
         "GCPSTSDelegateAccountResponse",
-        ""
+        "",
+        _config?.preserveLargeIntegers
       ) as GCPSTSDelegateAccountResponse;
       return body;
     }
@@ -577,15 +657,23 @@ export class GCPIntegrationApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async updateGCPSTSAccount(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<GCPSTSServiceAccountResponse> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 201) {
       const body: GCPSTSServiceAccountResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "GCPSTSServiceAccountResponse"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
+        "GCPSTSServiceAccountResponse",
+        "",
+        _config?.preserveLargeIntegers
       ) as GCPSTSServiceAccountResponse;
       return body;
     }
@@ -597,13 +685,16 @@ export class GCPIntegrationApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -618,9 +709,14 @@ export class GCPIntegrationApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: GCPSTSServiceAccountResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
         "GCPSTSServiceAccountResponse",
-        ""
+        "",
+        _config?.preserveLargeIntegers
       ) as GCPSTSServiceAccountResponse;
       return body;
     }
@@ -682,7 +778,8 @@ export class GCPIntegrationApi {
     this.requestFactory =
       requestFactory || new GCPIntegrationApiRequestFactory(configuration);
     this.responseProcessor =
-      responseProcessor || new GCPIntegrationApiResponseProcessor();
+      responseProcessor ||
+      new GCPIntegrationApiResponseProcessor(configuration);
   }
 
   /**
@@ -701,7 +798,10 @@ export class GCPIntegrationApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.createGCPSTSAccount(responseContext);
+          return this.responseProcessor.createGCPSTSAccount(
+            responseContext,
+            options
+          );
         });
     });
   }
@@ -722,7 +822,10 @@ export class GCPIntegrationApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.deleteGCPSTSAccount(responseContext);
+          return this.responseProcessor.deleteGCPSTSAccount(
+            responseContext,
+            options
+          );
         });
     });
   }
@@ -740,7 +843,10 @@ export class GCPIntegrationApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.getGCPSTSDelegate(responseContext);
+          return this.responseProcessor.getGCPSTSDelegate(
+            responseContext,
+            options
+          );
         });
     });
   }
@@ -758,7 +864,10 @@ export class GCPIntegrationApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.listGCPSTSAccounts(responseContext);
+          return this.responseProcessor.listGCPSTSAccounts(
+            responseContext,
+            options
+          );
         });
     });
   }
@@ -779,7 +888,10 @@ export class GCPIntegrationApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.makeGCPSTSDelegate(responseContext);
+          return this.responseProcessor.makeGCPSTSDelegate(
+            responseContext,
+            options
+          );
         });
     });
   }
@@ -801,7 +913,10 @@ export class GCPIntegrationApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.updateGCPSTSAccount(responseContext);
+          return this.responseProcessor.updateGCPSTSAccount(
+            responseContext,
+            options
+          );
         });
     });
   }

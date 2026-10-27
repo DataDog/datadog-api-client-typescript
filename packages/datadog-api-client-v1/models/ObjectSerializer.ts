@@ -794,6 +794,11 @@ import {
   UnparsedObject,
 } from "../../datadog-api-client-common/util";
 import { logger } from "../../../logger";
+import {
+  isInteger,
+  parse as parseLossless,
+  stringify as stringifyLossless,
+} from "lossless-json";
 
 const primitives = [
   "string",
@@ -3263,6 +3268,8 @@ export class ObjectSerializer {
       typeof data == type.toLowerCase()
     ) {
       return data;
+    } else if (type == "number" && typeof data == "bigint") {
+      return data;
     } else if (type.startsWith(ARRAY_PREFIX)) {
       if (!Array.isArray(data)) {
         throw new TypeError(`mismatch types '${data}' and '${type}'`);
@@ -3408,13 +3415,27 @@ export class ObjectSerializer {
     }
   }
 
-  public static deserialize(data: any, type: string, format = ""): any {
+  public static deserialize(
+    data: any,
+    type: string,
+    format = "",
+    preserveLargeIntegers = false
+  ): any {
     if (data == undefined || type == "any") {
       return data;
+    } else if (
+      preserveLargeIntegers &&
+      type == "number" &&
+      format == "int64" &&
+      Number.isInteger(data)
+    ) {
+      return BigInt(data);
     } else if (
       primitives.includes(type.toLowerCase()) &&
       typeof data == type.toLowerCase()
     ) {
+      return data;
+    } else if (type == "number" && typeof data == "bigint") {
       return data;
     } else if (type.startsWith(ARRAY_PREFIX)) {
       // Assert the passed data is Array type
@@ -3429,7 +3450,12 @@ export class ObjectSerializer {
       const transformedData: any[] = [];
       for (const element of data) {
         transformedData.push(
-          ObjectSerializer.deserialize(element, subType, format)
+          ObjectSerializer.deserialize(
+            element,
+            subType,
+            format,
+            preserveLargeIntegers
+          )
         );
       }
       return transformedData;
@@ -3441,7 +3467,12 @@ export class ObjectSerializer {
       const transformedData: any[] = [];
       for (const element of data) {
         transformedData.push(
-          ObjectSerializer.deserialize(element, subType, format)
+          ObjectSerializer.deserialize(
+            element,
+            subType,
+            format,
+            preserveLargeIntegers
+          )
         );
       }
       return transformedData;
@@ -3456,7 +3487,8 @@ export class ObjectSerializer {
         transformedData[key] = ObjectSerializer.deserialize(
           data[key],
           subType,
-          format
+          format,
+          preserveLargeIntegers
         );
       }
       return transformedData;
@@ -3477,7 +3509,12 @@ export class ObjectSerializer {
         const oneOfs: any[] = [];
         for (const oneOf of oneOfMap[type]) {
           try {
-            const d = ObjectSerializer.deserialize(data, oneOf, format);
+            const d = ObjectSerializer.deserialize(
+              data,
+              oneOf,
+              format,
+              preserveLargeIntegers
+            );
             if (!(d instanceof UnparsedObject) && !d?._unparsed) {
               oneOfs.push(d);
             }
@@ -3528,7 +3565,8 @@ export class ObjectSerializer {
                 ? ObjectSerializer.deserialize(
                     data[key],
                     attrInfo.type,
-                    attrInfo.format
+                    attrInfo.format,
+                    preserveLargeIntegers
                   )
                 : data[key];
             }
@@ -3541,7 +3579,8 @@ export class ObjectSerializer {
             instance.additionalProperties = ObjectSerializer.deserialize(
               additionalProperties,
               attributeObj.type,
-              attributeObj.format
+              attributeObj.format,
+              preserveLargeIntegers
             );
           }
         } else {
@@ -3560,7 +3599,8 @@ export class ObjectSerializer {
         instance[attributeName] = ObjectSerializer.deserialize(
           data[attributeObj.baseName],
           attributeObj.type,
-          attributeObj.format
+          attributeObj.format,
+          preserveLargeIntegers
         );
 
         // check for required properties
@@ -3642,8 +3682,15 @@ export class ObjectSerializer {
   /**
    * Convert data to a string according the given media type
    */
-  public static stringify(data: any, mediaType: string): string {
+  public static stringify(
+    data: any,
+    mediaType: string,
+    preserveLargeIntegers?: boolean
+  ): string {
     if (mediaType === "application/json" || mediaType === "text/json") {
+      if (preserveLargeIntegers) {
+        return stringifyLossless(data) as string;
+      }
       return JSON.stringify(data);
     }
 
@@ -3657,8 +3704,26 @@ export class ObjectSerializer {
   /**
    * Parse data from a string according to the given media type
    */
-  public static parse(rawData: string, mediaType: string | undefined): any {
+  public static parse(
+    rawData: string,
+    mediaType: string | undefined,
+    preserveLargeIntegers?: boolean
+  ): any {
     try {
+      if (preserveLargeIntegers) {
+        try {
+          return parseLossless(rawData, null, (value: string) =>
+            isInteger(value) && !Number.isSafeInteger(Number(value))
+              ? BigInt(value)
+              : Number(value)
+          );
+        } catch (error) {
+          // lossless-json rejects some valid JSON (e.g. duplicate keys) that JSON.parse accepts
+          logger.debug(
+            `could not parse ${mediaType} without losing precision: ${error}`
+          );
+        }
+      }
       return JSON.parse(rawData);
     } catch (error) {
       logger.debug(`could not parse ${mediaType}: ${error}`);

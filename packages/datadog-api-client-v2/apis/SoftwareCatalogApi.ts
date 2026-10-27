@@ -446,7 +446,8 @@ export class SoftwareCatalogApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
       ObjectSerializer.serialize(body, "UpsertCatalogEntityRequest", ""),
-      contentType
+      contentType,
+      _config.preserveLargeIntegers
     );
     requestContext.setBody(serializedBody);
 
@@ -493,7 +494,8 @@ export class SoftwareCatalogApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
       ObjectSerializer.serialize(body, "UpsertCatalogKindRequest", ""),
-      contentType
+      contentType,
+      _config.preserveLargeIntegers
     );
     requestContext.setBody(serializedBody);
 
@@ -509,6 +511,12 @@ export class SoftwareCatalogApiRequestFactory extends BaseAPIRequestFactory {
 }
 
 export class SoftwareCatalogApiResponseProcessor {
+  private configuration?: Configuration;
+
+  public constructor(configuration?: Configuration) {
+    this.configuration = configuration;
+  }
+
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
@@ -516,7 +524,11 @@ export class SoftwareCatalogApiResponseProcessor {
    * @params response Response returned by the server for a request to deleteCatalogEntity
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async deleteCatalogEntity(response: ResponseContext): Promise<void> {
+  public async deleteCatalogEntity(
+    response: ResponseContext,
+    _options?: Configuration
+  ): Promise<void> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
@@ -531,13 +543,16 @@ export class SoftwareCatalogApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -568,7 +583,11 @@ export class SoftwareCatalogApiResponseProcessor {
    * @params response Response returned by the server for a request to deleteCatalogKind
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async deleteCatalogKind(response: ResponseContext): Promise<void> {
+  public async deleteCatalogKind(
+    response: ResponseContext,
+    _options?: Configuration
+  ): Promise<void> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
@@ -583,13 +602,16 @@ export class SoftwareCatalogApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -621,28 +643,39 @@ export class SoftwareCatalogApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async listCatalogEntity(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<ListEntityCatalogResponse> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 200) {
       const body: ListEntityCatalogResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "ListEntityCatalogResponse"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
+        "ListEntityCatalogResponse",
+        "",
+        _config?.preserveLargeIntegers
       ) as ListEntityCatalogResponse;
       return body;
     }
     if (response.httpStatusCode === 403 || response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -657,9 +690,14 @@ export class SoftwareCatalogApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: ListEntityCatalogResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
         "ListEntityCatalogResponse",
-        ""
+        "",
+        _config?.preserveLargeIntegers
       ) as ListEntityCatalogResponse;
       return body;
     }
@@ -679,15 +717,23 @@ export class SoftwareCatalogApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async listCatalogKind(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<ListKindCatalogResponse> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 200) {
       const body: ListKindCatalogResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "ListKindCatalogResponse"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
+        "ListKindCatalogResponse",
+        "",
+        _config?.preserveLargeIntegers
       ) as ListKindCatalogResponse;
       return body;
     }
@@ -698,13 +744,16 @@ export class SoftwareCatalogApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -719,9 +768,14 @@ export class SoftwareCatalogApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: ListKindCatalogResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
         "ListKindCatalogResponse",
-        ""
+        "",
+        _config?.preserveLargeIntegers
       ) as ListKindCatalogResponse;
       return body;
     }
@@ -741,28 +795,39 @@ export class SoftwareCatalogApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async listCatalogRelation(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<ListRelationCatalogResponse> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 200) {
       const body: ListRelationCatalogResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "ListRelationCatalogResponse"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
+        "ListRelationCatalogResponse",
+        "",
+        _config?.preserveLargeIntegers
       ) as ListRelationCatalogResponse;
       return body;
     }
     if (response.httpStatusCode === 403 || response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -777,9 +842,14 @@ export class SoftwareCatalogApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: ListRelationCatalogResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
         "ListRelationCatalogResponse",
-        ""
+        "",
+        _config?.preserveLargeIntegers
       ) as ListRelationCatalogResponse;
       return body;
     }
@@ -799,28 +869,39 @@ export class SoftwareCatalogApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async previewCatalogEntities(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<EntityResponseArray> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 202) {
       const body: EntityResponseArray = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "EntityResponseArray"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
+        "EntityResponseArray",
+        "",
+        _config?.preserveLargeIntegers
       ) as EntityResponseArray;
       return body;
     }
     if (response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -835,9 +916,14 @@ export class SoftwareCatalogApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: EntityResponseArray = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
         "EntityResponseArray",
-        ""
+        "",
+        _config?.preserveLargeIntegers
       ) as EntityResponseArray;
       return body;
     }
@@ -857,15 +943,23 @@ export class SoftwareCatalogApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async upsertCatalogEntity(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<UpsertCatalogEntityResponse> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 202) {
       const body: UpsertCatalogEntityResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "UpsertCatalogEntityResponse"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
+        "UpsertCatalogEntityResponse",
+        "",
+        _config?.preserveLargeIntegers
       ) as UpsertCatalogEntityResponse;
       return body;
     }
@@ -876,13 +970,16 @@ export class SoftwareCatalogApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -897,9 +994,14 @@ export class SoftwareCatalogApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: UpsertCatalogEntityResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
         "UpsertCatalogEntityResponse",
-        ""
+        "",
+        _config?.preserveLargeIntegers
       ) as UpsertCatalogEntityResponse;
       return body;
     }
@@ -919,15 +1021,23 @@ export class SoftwareCatalogApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async upsertCatalogKind(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<UpsertCatalogKindResponse> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 202) {
       const body: UpsertCatalogKindResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "UpsertCatalogKindResponse"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
+        "UpsertCatalogKindResponse",
+        "",
+        _config?.preserveLargeIntegers
       ) as UpsertCatalogKindResponse;
       return body;
     }
@@ -938,13 +1048,16 @@ export class SoftwareCatalogApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -959,9 +1072,14 @@ export class SoftwareCatalogApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: UpsertCatalogKindResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
         "UpsertCatalogKindResponse",
-        ""
+        "",
+        _config?.preserveLargeIntegers
       ) as UpsertCatalogKindResponse;
       return body;
     }
@@ -1139,7 +1257,8 @@ export class SoftwareCatalogApi {
     this.requestFactory =
       requestFactory || new SoftwareCatalogApiRequestFactory(configuration);
     this.responseProcessor =
-      responseProcessor || new SoftwareCatalogApiResponseProcessor();
+      responseProcessor ||
+      new SoftwareCatalogApiResponseProcessor(configuration);
   }
 
   /**
@@ -1158,7 +1277,10 @@ export class SoftwareCatalogApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.deleteCatalogEntity(responseContext);
+          return this.responseProcessor.deleteCatalogEntity(
+            responseContext,
+            options
+          );
         });
     });
   }
@@ -1179,7 +1301,10 @@ export class SoftwareCatalogApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.deleteCatalogKind(responseContext);
+          return this.responseProcessor.deleteCatalogKind(
+            responseContext,
+            options
+          );
         });
     });
   }
@@ -1210,7 +1335,10 @@ export class SoftwareCatalogApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.listCatalogEntity(responseContext);
+          return this.responseProcessor.listCatalogEntity(
+            responseContext,
+            options
+          );
         });
     });
   }
@@ -1247,7 +1375,8 @@ export class SoftwareCatalogApi {
       );
 
       const response = await this.responseProcessor.listCatalogEntity(
-        responseContext
+        responseContext,
+        options
       );
       const responseData = response.data;
       if (responseData === undefined) {
@@ -1287,7 +1416,10 @@ export class SoftwareCatalogApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.listCatalogKind(responseContext);
+          return this.responseProcessor.listCatalogKind(
+            responseContext,
+            options
+          );
         });
     });
   }
@@ -1317,7 +1449,8 @@ export class SoftwareCatalogApi {
       );
 
       const response = await this.responseProcessor.listCatalogKind(
-        responseContext
+        responseContext,
+        options
       );
       const responseData = response.data;
       if (responseData === undefined) {
@@ -1360,7 +1493,10 @@ export class SoftwareCatalogApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.listCatalogRelation(responseContext);
+          return this.responseProcessor.listCatalogRelation(
+            responseContext,
+            options
+          );
         });
     });
   }
@@ -1393,7 +1529,8 @@ export class SoftwareCatalogApi {
       );
 
       const response = await this.responseProcessor.listCatalogRelation(
-        responseContext
+        responseContext,
+        options
       );
       const responseData = response.data;
       if (responseData === undefined) {
@@ -1426,7 +1563,10 @@ export class SoftwareCatalogApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.previewCatalogEntities(responseContext);
+          return this.responseProcessor.previewCatalogEntities(
+            responseContext,
+            options
+          );
         });
     });
   }
@@ -1447,7 +1587,10 @@ export class SoftwareCatalogApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.upsertCatalogEntity(responseContext);
+          return this.responseProcessor.upsertCatalogEntity(
+            responseContext,
+            options
+          );
         });
     });
   }
@@ -1468,7 +1611,10 @@ export class SoftwareCatalogApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.upsertCatalogKind(responseContext);
+          return this.responseProcessor.upsertCatalogKind(
+            responseContext,
+            options
+          );
         });
     });
   }

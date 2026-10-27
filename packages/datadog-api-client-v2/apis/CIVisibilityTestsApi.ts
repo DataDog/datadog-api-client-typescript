@@ -59,7 +59,8 @@ export class CIVisibilityTestsApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
       ObjectSerializer.serialize(body, "CIAppTestsAggregateRequest", ""),
-      contentType
+      contentType,
+      _config.preserveLargeIntegers
     );
     requestContext.setBody(serializedBody);
 
@@ -181,7 +182,8 @@ export class CIVisibilityTestsApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
       ObjectSerializer.serialize(body, "CIAppTestEventsRequest", ""),
-      contentType
+      contentType,
+      _config.preserveLargeIntegers
     );
     requestContext.setBody(serializedBody);
 
@@ -197,6 +199,12 @@ export class CIVisibilityTestsApiRequestFactory extends BaseAPIRequestFactory {
 }
 
 export class CIVisibilityTestsApiResponseProcessor {
+  private configuration?: Configuration;
+
+  public constructor(configuration?: Configuration) {
+    this.configuration = configuration;
+  }
+
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
@@ -205,16 +213,24 @@ export class CIVisibilityTestsApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async aggregateCIAppTestEvents(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<CIAppTestsAnalyticsAggregateResponse> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 200) {
       const body: CIAppTestsAnalyticsAggregateResponse =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
-          "CIAppTestsAnalyticsAggregateResponse"
+          ObjectSerializer.parse(
+            await response.body.text(),
+            contentType,
+            _config?.preserveLargeIntegers
+          ),
+          "CIAppTestsAnalyticsAggregateResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as CIAppTestsAnalyticsAggregateResponse;
       return body;
     }
@@ -225,13 +241,16 @@ export class CIVisibilityTestsApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -247,9 +266,14 @@ export class CIVisibilityTestsApiResponseProcessor {
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: CIAppTestsAnalyticsAggregateResponse =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
+          ObjectSerializer.parse(
+            await response.body.text(),
+            contentType,
+            _config?.preserveLargeIntegers
+          ),
           "CIAppTestsAnalyticsAggregateResponse",
-          ""
+          "",
+          _config?.preserveLargeIntegers
         ) as CIAppTestsAnalyticsAggregateResponse;
       return body;
     }
@@ -269,15 +293,23 @@ export class CIVisibilityTestsApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async listCIAppTestEvents(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<CIAppTestEventsResponse> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 200) {
       const body: CIAppTestEventsResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "CIAppTestEventsResponse"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
+        "CIAppTestEventsResponse",
+        "",
+        _config?.preserveLargeIntegers
       ) as CIAppTestEventsResponse;
       return body;
     }
@@ -288,13 +320,16 @@ export class CIVisibilityTestsApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -309,9 +344,14 @@ export class CIVisibilityTestsApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: CIAppTestEventsResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
         "CIAppTestEventsResponse",
-        ""
+        "",
+        _config?.preserveLargeIntegers
       ) as CIAppTestEventsResponse;
       return body;
     }
@@ -331,15 +371,23 @@ export class CIVisibilityTestsApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async searchCIAppTestEvents(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<CIAppTestEventsResponse> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 200) {
       const body: CIAppTestEventsResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "CIAppTestEventsResponse"
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
+        "CIAppTestEventsResponse",
+        "",
+        _config?.preserveLargeIntegers
       ) as CIAppTestEventsResponse;
       return body;
     }
@@ -350,13 +398,16 @@ export class CIVisibilityTestsApiResponseProcessor {
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -371,9 +422,14 @@ export class CIVisibilityTestsApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: CIAppTestEventsResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+        ObjectSerializer.parse(
+          await response.body.text(),
+          contentType,
+          _config?.preserveLargeIntegers
+        ),
         "CIAppTestEventsResponse",
-        ""
+        "",
+        _config?.preserveLargeIntegers
       ) as CIAppTestEventsResponse;
       return body;
     }
@@ -447,7 +503,8 @@ export class CIVisibilityTestsApi {
     this.requestFactory =
       requestFactory || new CIVisibilityTestsApiRequestFactory(configuration);
     this.responseProcessor =
-      responseProcessor || new CIVisibilityTestsApiResponseProcessor();
+      responseProcessor ||
+      new CIVisibilityTestsApiResponseProcessor(configuration);
   }
 
   /**
@@ -467,7 +524,8 @@ export class CIVisibilityTestsApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.aggregateCIAppTestEvents(
-            responseContext
+            responseContext,
+            options
           );
         });
     });
@@ -497,7 +555,10 @@ export class CIVisibilityTestsApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.listCIAppTestEvents(responseContext);
+          return this.responseProcessor.listCIAppTestEvents(
+            responseContext,
+            options
+          );
         });
     });
   }
@@ -529,7 +590,8 @@ export class CIVisibilityTestsApi {
       );
 
       const response = await this.responseProcessor.listCIAppTestEvents(
-        responseContext
+        responseContext,
+        options
       );
       const responseData = response.data;
       if (responseData === undefined) {
@@ -578,7 +640,10 @@ export class CIVisibilityTestsApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.searchCIAppTestEvents(responseContext);
+          return this.responseProcessor.searchCIAppTestEvents(
+            responseContext,
+            options
+          );
         });
     });
   }
@@ -611,7 +676,8 @@ export class CIVisibilityTestsApi {
       );
 
       const response = await this.responseProcessor.searchCIAppTestEvents(
-        responseContext
+        responseContext,
+        options
       );
       const responseData = response.data;
       if (responseData === undefined) {

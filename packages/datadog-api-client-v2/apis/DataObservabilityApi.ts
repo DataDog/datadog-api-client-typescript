@@ -122,6 +122,12 @@ export class DataObservabilityApiRequestFactory extends BaseAPIRequestFactory {
 }
 
 export class DataObservabilityApiResponseProcessor {
+  private configuration?: Configuration;
+
+  public constructor(configuration?: Configuration) {
+    this.configuration = configuration;
+  }
+
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
@@ -130,29 +136,40 @@ export class DataObservabilityApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async getDataObservabilityMonitorRunStatus(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<GetDataObservabilityMonitorRunStatusResponse> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 200) {
       const body: GetDataObservabilityMonitorRunStatusResponse =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
-          "GetDataObservabilityMonitorRunStatusResponse"
+          ObjectSerializer.parse(
+            await response.body.text(),
+            contentType,
+            _config?.preserveLargeIntegers
+          ),
+          "GetDataObservabilityMonitorRunStatusResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as GetDataObservabilityMonitorRunStatusResponse;
       return body;
     }
     if (response.httpStatusCode === 404) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: JSONAPIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "JSONAPIErrorResponse"
+          "JSONAPIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as JSONAPIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -169,13 +186,16 @@ export class DataObservabilityApiResponseProcessor {
     if (response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -191,9 +211,14 @@ export class DataObservabilityApiResponseProcessor {
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: GetDataObservabilityMonitorRunStatusResponse =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
+          ObjectSerializer.parse(
+            await response.body.text(),
+            contentType,
+            _config?.preserveLargeIntegers
+          ),
           "GetDataObservabilityMonitorRunStatusResponse",
-          ""
+          "",
+          _config?.preserveLargeIntegers
         ) as GetDataObservabilityMonitorRunStatusResponse;
       return body;
     }
@@ -213,29 +238,40 @@ export class DataObservabilityApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async runDataObservabilityMonitor(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<RunDataObservabilityMonitorResponse> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 200) {
       const body: RunDataObservabilityMonitorResponse =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
-          "RunDataObservabilityMonitorResponse"
+          ObjectSerializer.parse(
+            await response.body.text(),
+            contentType,
+            _config?.preserveLargeIntegers
+          ),
+          "RunDataObservabilityMonitorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as RunDataObservabilityMonitorResponse;
       return body;
     }
     if (response.httpStatusCode === 400 || response.httpStatusCode === 404) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: JSONAPIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "JSONAPIErrorResponse"
+          "JSONAPIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as JSONAPIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -252,13 +288,16 @@ export class DataObservabilityApiResponseProcessor {
     if (response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -274,9 +313,14 @@ export class DataObservabilityApiResponseProcessor {
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: RunDataObservabilityMonitorResponse =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
+          ObjectSerializer.parse(
+            await response.body.text(),
+            contentType,
+            _config?.preserveLargeIntegers
+          ),
           "RunDataObservabilityMonitorResponse",
-          ""
+          "",
+          _config?.preserveLargeIntegers
         ) as RunDataObservabilityMonitorResponse;
       return body;
     }
@@ -319,7 +363,8 @@ export class DataObservabilityApi {
     this.requestFactory =
       requestFactory || new DataObservabilityApiRequestFactory(configuration);
     this.responseProcessor =
-      responseProcessor || new DataObservabilityApiResponseProcessor();
+      responseProcessor ||
+      new DataObservabilityApiResponseProcessor(configuration);
   }
 
   /**
@@ -340,7 +385,8 @@ export class DataObservabilityApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.getDataObservabilityMonitorRunStatus(
-            responseContext
+            responseContext,
+            options
           );
         });
     });
@@ -361,7 +407,8 @@ export class DataObservabilityApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.runDataObservabilityMonitor(
-            responseContext
+            responseContext,
+            options
           );
         });
     });

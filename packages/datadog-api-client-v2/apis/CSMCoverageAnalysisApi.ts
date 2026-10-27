@@ -117,6 +117,12 @@ export class CSMCoverageAnalysisApiRequestFactory extends BaseAPIRequestFactory 
 }
 
 export class CSMCoverageAnalysisApiResponseProcessor {
+  private configuration?: Configuration;
+
+  public constructor(configuration?: Configuration) {
+    this.configuration = configuration;
+  }
+
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
@@ -125,29 +131,40 @@ export class CSMCoverageAnalysisApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async getCSMCloudAccountsCoverageAnalysis(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<CsmCloudAccountsCoverageAnalysisResponse> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 200) {
       const body: CsmCloudAccountsCoverageAnalysisResponse =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
-          "CsmCloudAccountsCoverageAnalysisResponse"
+          ObjectSerializer.parse(
+            await response.body.text(),
+            contentType,
+            _config?.preserveLargeIntegers
+          ),
+          "CsmCloudAccountsCoverageAnalysisResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as CsmCloudAccountsCoverageAnalysisResponse;
       return body;
     }
     if (response.httpStatusCode === 403 || response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -163,9 +180,14 @@ export class CSMCoverageAnalysisApiResponseProcessor {
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: CsmCloudAccountsCoverageAnalysisResponse =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
+          ObjectSerializer.parse(
+            await response.body.text(),
+            contentType,
+            _config?.preserveLargeIntegers
+          ),
           "CsmCloudAccountsCoverageAnalysisResponse",
-          ""
+          "",
+          _config?.preserveLargeIntegers
         ) as CsmCloudAccountsCoverageAnalysisResponse;
       return body;
     }
@@ -185,29 +207,40 @@ export class CSMCoverageAnalysisApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async getCSMHostsAndContainersCoverageAnalysis(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<CsmHostsAndContainersCoverageAnalysisResponse> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 200) {
       const body: CsmHostsAndContainersCoverageAnalysisResponse =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
-          "CsmHostsAndContainersCoverageAnalysisResponse"
+          ObjectSerializer.parse(
+            await response.body.text(),
+            contentType,
+            _config?.preserveLargeIntegers
+          ),
+          "CsmHostsAndContainersCoverageAnalysisResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as CsmHostsAndContainersCoverageAnalysisResponse;
       return body;
     }
     if (response.httpStatusCode === 403 || response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -223,9 +256,14 @@ export class CSMCoverageAnalysisApiResponseProcessor {
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: CsmHostsAndContainersCoverageAnalysisResponse =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
+          ObjectSerializer.parse(
+            await response.body.text(),
+            contentType,
+            _config?.preserveLargeIntegers
+          ),
           "CsmHostsAndContainersCoverageAnalysisResponse",
-          ""
+          "",
+          _config?.preserveLargeIntegers
         ) as CsmHostsAndContainersCoverageAnalysisResponse;
       return body;
     }
@@ -245,29 +283,40 @@ export class CSMCoverageAnalysisApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async getCSMServerlessCoverageAnalysis(
-    response: ResponseContext
+    response: ResponseContext,
+    _options?: Configuration
   ): Promise<CsmServerlessCoverageAnalysisResponse> {
+    const _config = _options || this.configuration;
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 200) {
       const body: CsmServerlessCoverageAnalysisResponse =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
-          "CsmServerlessCoverageAnalysisResponse"
+          ObjectSerializer.parse(
+            await response.body.text(),
+            contentType,
+            _config?.preserveLargeIntegers
+          ),
+          "CsmServerlessCoverageAnalysisResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as CsmServerlessCoverageAnalysisResponse;
       return body;
     }
     if (response.httpStatusCode === 403 || response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
-        contentType
+        contentType,
+        _config?.preserveLargeIntegers
       );
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
+          "APIErrorResponse",
+          "",
+          _config?.preserveLargeIntegers
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
@@ -283,9 +332,14 @@ export class CSMCoverageAnalysisApiResponseProcessor {
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: CsmServerlessCoverageAnalysisResponse =
         ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
+          ObjectSerializer.parse(
+            await response.body.text(),
+            contentType,
+            _config?.preserveLargeIntegers
+          ),
           "CsmServerlessCoverageAnalysisResponse",
-          ""
+          "",
+          _config?.preserveLargeIntegers
         ) as CsmServerlessCoverageAnalysisResponse;
       return body;
     }
@@ -312,7 +366,8 @@ export class CSMCoverageAnalysisApi {
     this.requestFactory =
       requestFactory || new CSMCoverageAnalysisApiRequestFactory(configuration);
     this.responseProcessor =
-      responseProcessor || new CSMCoverageAnalysisApiResponseProcessor();
+      responseProcessor ||
+      new CSMCoverageAnalysisApiResponseProcessor(configuration);
   }
 
   /**
@@ -331,7 +386,8 @@ export class CSMCoverageAnalysisApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.getCSMCloudAccountsCoverageAnalysis(
-            responseContext
+            responseContext,
+            options
           );
         });
     });
@@ -353,7 +409,8 @@ export class CSMCoverageAnalysisApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.getCSMHostsAndContainersCoverageAnalysis(
-            responseContext
+            responseContext,
+            options
           );
         });
     });
@@ -375,7 +432,8 @@ export class CSMCoverageAnalysisApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.getCSMServerlessCoverageAnalysis(
-            responseContext
+            responseContext,
+            options
           );
         });
     });
