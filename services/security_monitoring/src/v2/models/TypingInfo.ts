@@ -190,6 +190,7 @@ import { GetRuleVersionHistoryResponse } from "./GetRuleVersionHistoryResponse";
 import { GetSBOMResponse } from "./GetSBOMResponse";
 import { GetSuppressionVersionHistoryData } from "./GetSuppressionVersionHistoryData";
 import { GetSuppressionVersionHistoryResponse } from "./GetSuppressionVersionHistoryResponse";
+import { HistoricalJobFailure } from "./HistoricalJobFailure";
 import { HistoricalJobListMeta } from "./HistoricalJobListMeta";
 import { HistoricalJobOptions } from "./HistoricalJobOptions";
 import { HistoricalJobQuery } from "./HistoricalJobQuery";
@@ -725,6 +726,11 @@ export const TypingInfo: ModelTypingInfo = {
     GetRuleVersionHistoryDataType: ["GetRuleVersionHistoryResponse"],
     GetSuppressionVersionHistoryDataType: ["suppression_version_history"],
     HistoricalJobDataType: ["historicalDetectionsJob"],
+    HistoricalJobFailureReason: [
+      "rule_configuration",
+      "query_too_expensive",
+      "internal_error",
+    ],
     InboxRuleType: ["inbox_rules"],
     IoCScoreEffect: ["RAISE_SCORE", "LOWER_SCORE", "NO_EFFECT"],
     IoCTriageState: ["not_reviewed", "reviewed"],
@@ -1500,6 +1506,7 @@ export const TypingInfo: ModelTypingInfo = {
     GetSBOMResponse: GetSBOMResponse,
     GetSuppressionVersionHistoryData: GetSuppressionVersionHistoryData,
     GetSuppressionVersionHistoryResponse: GetSuppressionVersionHistoryResponse,
+    HistoricalJobFailure: HistoricalJobFailure,
     HistoricalJobListMeta: HistoricalJobListMeta,
     HistoricalJobOptions: HistoricalJobOptions,
     HistoricalJobQuery: HistoricalJobQuery,

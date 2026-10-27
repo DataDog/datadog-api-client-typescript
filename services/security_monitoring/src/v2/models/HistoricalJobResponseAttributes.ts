@@ -1,5 +1,6 @@
 import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
+import { HistoricalJobFailure } from "./HistoricalJobFailure";
 import { JobDefinition } from "./JobDefinition";
 
 /**
@@ -22,6 +23,10 @@ export class HistoricalJobResponseAttributes {
    * ID of the rule used to create the job (if it is created from a rule).
    */
   "createdFromRuleId"?: string;
+  /**
+   * Details about why the job failed. Only present when the job has failed and won't be retried.
+   */
+  "failure"?: HistoricalJobFailure;
   /**
    * Definition of a historical job.
    */
@@ -76,6 +81,10 @@ export class HistoricalJobResponseAttributes {
     createdFromRuleId: {
       baseName: "createdFromRuleId",
       type: "string",
+    },
+    failure: {
+      baseName: "failure",
+      type: "HistoricalJobFailure",
     },
     jobDefinition: {
       baseName: "jobDefinition",
