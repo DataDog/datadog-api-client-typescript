@@ -25,6 +25,7 @@ import { ObservabilityPipelineRenameFieldsProcessor } from "./ObservabilityPipel
 import { ObservabilityPipelineRenameMetricTagsProcessor } from "./ObservabilityPipelineRenameMetricTagsProcessor";
 import { ObservabilityPipelineSampleProcessor } from "./ObservabilityPipelineSampleProcessor";
 import { ObservabilityPipelineSensitiveDataScannerProcessor } from "./ObservabilityPipelineSensitiveDataScannerProcessor";
+import { ObservabilityPipelineSpikeProtectionProcessor } from "./ObservabilityPipelineSpikeProtectionProcessor";
 import { ObservabilityPipelineSplitArrayProcessor } from "./ObservabilityPipelineSplitArrayProcessor";
 import { ObservabilityPipelineTagCardinalityLimitProcessor } from "./ObservabilityPipelineTagCardinalityLimitProcessor";
 import { ObservabilityPipelineThrottleProcessor } from "./ObservabilityPipelineThrottleProcessor";
@@ -49,6 +50,7 @@ export type ObservabilityPipelineConfigProcessorItem =
   | ObservabilityPipelineReduceProcessor
   | ObservabilityPipelineRemoveFieldsProcessor
   | ObservabilityPipelineRenameFieldsProcessor
+  | ObservabilityPipelineSpikeProtectionProcessor
   | ObservabilityPipelineSplitArrayProcessor
   | ObservabilityPipelineThrottleProcessor
   | ObservabilityPipelineCustomProcessor

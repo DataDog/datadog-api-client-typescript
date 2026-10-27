@@ -185,6 +185,10 @@ import { ObservabilityPipelineSocketSourceFramingOctetCounting } from "./Observa
 import { ObservabilityPipelineSourceValidTokenFieldToAdd } from "./ObservabilityPipelineSourceValidTokenFieldToAdd";
 import { ObservabilityPipelineSpec } from "./ObservabilityPipelineSpec";
 import { ObservabilityPipelineSpecData } from "./ObservabilityPipelineSpecData";
+import { ObservabilityPipelineSpikeProtectionProcessor } from "./ObservabilityPipelineSpikeProtectionProcessor";
+import { ObservabilityPipelineSpikeProtectionProcessorMinimalThresholdAlwaysKeep } from "./ObservabilityPipelineSpikeProtectionProcessorMinimalThresholdAlwaysKeep";
+import { ObservabilityPipelineSpikeProtectionProcessorMinimalThresholdBytes } from "./ObservabilityPipelineSpikeProtectionProcessorMinimalThresholdBytes";
+import { ObservabilityPipelineSpikeProtectionProcessorThresholdOverride } from "./ObservabilityPipelineSpikeProtectionProcessorThresholdOverride";
 import { ObservabilityPipelineSplitArrayProcessor } from "./ObservabilityPipelineSplitArrayProcessor";
 import { ObservabilityPipelineSplitArrayProcessorArrayConfig } from "./ObservabilityPipelineSplitArrayProcessorArrayConfig";
 import { ObservabilityPipelineSplunkHecDestination } from "./ObservabilityPipelineSplunkHecDestination";
@@ -585,6 +589,21 @@ export const TypingInfo: ModelTypingInfo = {
     ],
     ObservabilityPipelineSocketSourceMode: ["tcp", "udp"],
     ObservabilityPipelineSocketSourceType: ["socket"],
+    ObservabilityPipelineSpikeProtectionProcessorActionWhenMissingPartitions: [
+      "ignore",
+      "default_bucket",
+    ],
+    ObservabilityPipelineSpikeProtectionProcessorMinimalThresholdAlwaysKeepType:
+      ["always_keep"],
+    ObservabilityPipelineSpikeProtectionProcessorMinimalThresholdBytesType: [
+      "threshold",
+    ],
+    ObservabilityPipelineSpikeProtectionProcessorSpikeAction: [
+      "drop",
+      "no_action",
+      "overflow_routing",
+    ],
+    ObservabilityPipelineSpikeProtectionProcessorType: ["spike_protection"],
     ObservabilityPipelineSplitArrayProcessorType: ["split_array"],
     ObservabilityPipelineSplunkHecDestinationEncoding: ["json", "raw_message"],
     ObservabilityPipelineSplunkHecDestinationEndpointTarget: ["event", "raw"],
@@ -725,6 +744,7 @@ export const TypingInfo: ModelTypingInfo = {
       "ObservabilityPipelineReduceProcessor",
       "ObservabilityPipelineRemoveFieldsProcessor",
       "ObservabilityPipelineRenameFieldsProcessor",
+      "ObservabilityPipelineSpikeProtectionProcessor",
       "ObservabilityPipelineSplitArrayProcessor",
       "ObservabilityPipelineThrottleProcessor",
       "ObservabilityPipelineCustomProcessor",
@@ -818,6 +838,10 @@ export const TypingInfo: ModelTypingInfo = {
       "ObservabilityPipelineSocketSourceFramingCharacterDelimited",
       "ObservabilityPipelineSocketSourceFramingOctetCounting",
       "ObservabilityPipelineSocketSourceFramingChunkedGelf",
+    ],
+    ObservabilityPipelineSpikeProtectionProcessorMinimalThreshold: [
+      "ObservabilityPipelineSpikeProtectionProcessorMinimalThresholdBytes",
+      "ObservabilityPipelineSpikeProtectionProcessorMinimalThresholdAlwaysKeep",
     ],
     ObservabilityPipelineWebsocketSourceTls: [
       "ObservabilityPipelineWebsocketSourceTlsEnabled",
@@ -1163,6 +1187,14 @@ export const TypingInfo: ModelTypingInfo = {
       ObservabilityPipelineSourceValidTokenFieldToAdd,
     ObservabilityPipelineSpec: ObservabilityPipelineSpec,
     ObservabilityPipelineSpecData: ObservabilityPipelineSpecData,
+    ObservabilityPipelineSpikeProtectionProcessor:
+      ObservabilityPipelineSpikeProtectionProcessor,
+    ObservabilityPipelineSpikeProtectionProcessorMinimalThresholdAlwaysKeep:
+      ObservabilityPipelineSpikeProtectionProcessorMinimalThresholdAlwaysKeep,
+    ObservabilityPipelineSpikeProtectionProcessorMinimalThresholdBytes:
+      ObservabilityPipelineSpikeProtectionProcessorMinimalThresholdBytes,
+    ObservabilityPipelineSpikeProtectionProcessorThresholdOverride:
+      ObservabilityPipelineSpikeProtectionProcessorThresholdOverride,
     ObservabilityPipelineSplitArrayProcessor:
       ObservabilityPipelineSplitArrayProcessor,
     ObservabilityPipelineSplitArrayProcessorArrayConfig:
