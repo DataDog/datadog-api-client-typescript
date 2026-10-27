@@ -37,15 +37,14 @@ const configuration = createConfiguration();
 // Enable unstable operations
 const configurationOpts = {
     unstableOperations: {
-        "LogsArchiveSearchesApi.v2.createArchiveSearch": true
+        "LogsArchiveSearchesApi.v2.listArchiveSearches": true
     }
 }
 
 const configuration = createConfiguration(configurationOpts);
 const apiInstance = new LogsArchiveSearchesApiV2(configuration);
-const params = {/* parameters */};
 
-apiInstance.createArchiveSearch(params).then((data) => {
+apiInstance.listArchiveSearches().then((data) => {
     console.log("API called successfully. Returned data: " + JSON.stringify(data));
 }).catch((error) => {
     console.error("Error calling API: " + error);
