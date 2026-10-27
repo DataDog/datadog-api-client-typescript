@@ -57,6 +57,10 @@ export class StatusPageAsIncludedAttributes {
    */
   "pageUrl"?: string;
   /**
+   * Whether the RSS feed is enabled for the status page.
+   */
+  "rssFeedEnabled"?: boolean;
+  /**
    * The Slack app icon URL for the status page.
    */
   "slackAppIcon"?: string;
@@ -140,6 +144,10 @@ export class StatusPageAsIncludedAttributes {
     pageUrl: {
       baseName: "page_url",
       type: "string",
+    },
+    rssFeedEnabled: {
+      baseName: "rss_feed_enabled",
+      type: "boolean",
     },
     slackAppIcon: {
       baseName: "slack_app_icon",
