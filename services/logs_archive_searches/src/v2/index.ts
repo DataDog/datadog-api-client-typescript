@@ -1,6 +1,8 @@
 export {
+  LogsArchiveSearchesApiCancelArchiveSearchRequest,
   LogsArchiveSearchesApiCreateArchiveSearchRequest,
   LogsArchiveSearchesApiGetArchiveSearchRequest,
+  LogsArchiveSearchesApiRehydrateArchiveSearchRequest,
   LogsArchiveSearchesApi,
 } from "./LogsArchiveSearchesApi";
 
@@ -9,6 +11,12 @@ export { ArchiveSearchCreateRehydration } from "./models/ArchiveSearchCreateRehy
 export { ArchiveSearchCreateRequest } from "./models/ArchiveSearchCreateRequest";
 export { ArchiveSearchCreateRequestAttributes } from "./models/ArchiveSearchCreateRequestAttributes";
 export { ArchiveSearchCreateRequestData } from "./models/ArchiveSearchCreateRequestData";
+export { ArchiveSearchListResponse } from "./models/ArchiveSearchListResponse";
+export { ArchiveSearchListResponseMeta } from "./models/ArchiveSearchListResponseMeta";
+export { ArchiveSearchRehydrateRequest } from "./models/ArchiveSearchRehydrateRequest";
+export { ArchiveSearchRehydrateRequestAttributes } from "./models/ArchiveSearchRehydrateRequestAttributes";
+export { ArchiveSearchRehydrateRequestData } from "./models/ArchiveSearchRehydrateRequestData";
+export { ArchiveSearchRehydrateRequestRehydration } from "./models/ArchiveSearchRehydrateRequestRehydration";
 export { ArchiveSearchRehydration } from "./models/ArchiveSearchRehydration";
 export { ArchiveSearchRehydrationTier } from "./models/ArchiveSearchRehydrationTier";
 export { ArchiveSearchResponse } from "./models/ArchiveSearchResponse";

@@ -13912,6 +13912,9 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
     },
     operationResponseType: "LogsListResponse",
   },
+  "LogsArchiveSearchesApi.V2.ListArchiveSearches": {
+    operationResponseType: "ArchiveSearchListResponse",
+  },
   "LogsArchiveSearchesApi.V2.CreateArchiveSearch": {
     body: {
       type: "ArchiveSearchCreateRequest",
@@ -13920,6 +13923,24 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
     operationResponseType: "ArchiveSearchResponse",
   },
   "LogsArchiveSearchesApi.V2.GetArchiveSearch": {
+    archiveSearchId: {
+      type: "string",
+      format: "",
+    },
+    operationResponseType: "ArchiveSearchResponse",
+  },
+  "LogsArchiveSearchesApi.V2.RehydrateArchiveSearch": {
+    archiveSearchId: {
+      type: "string",
+      format: "",
+    },
+    body: {
+      type: "ArchiveSearchRehydrateRequest",
+      format: "",
+    },
+    operationResponseType: "ArchiveSearchResponse",
+  },
+  "LogsArchiveSearchesApi.V2.CancelArchiveSearch": {
     archiveSearchId: {
       type: "string",
       format: "",
