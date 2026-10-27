@@ -1405,7 +1405,7 @@ export class RUMApiResponseProcessor {
     response: ResponseContext,
   ): Promise<RUMApplicationResponse> {
     const contentType = normalizeMediaType(response.headers["content-type"]);
-    if (response.httpStatusCode === 200) {
+    if (response.httpStatusCode === 201) {
       const body: RUMApplicationResponse = deserialize(
         parse(await response.body.text(), contentType),
         TypingInfo,
