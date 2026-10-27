@@ -1855,13 +1855,6 @@ export {
 } from "./apis/SoftwareCatalogApi";
 
 export {
-  SpaApiGetSPARecommendationsRequest,
-  SpaApiGetSPARecommendationsV2Request,
-  SpaApiGetSPARecommendationsWithShardRequest,
-  SpaApi,
-} from "./apis/SpaApi";
-
-export {
   SpansApiAggregateSpansRequest,
   SpansApiListSpansRequest,
   SpansApiListSpansGetRequest,
@@ -3292,7 +3285,6 @@ export { ComponentGridPropertiesIsVisible } from "./models/ComponentGridProperti
 export { ComponentGridType } from "./models/ComponentGridType";
 export { ComponentProperties } from "./models/ComponentProperties";
 export { ComponentPropertiesIsVisible } from "./models/ComponentPropertiesIsVisible";
-export { ComponentRecommendation } from "./models/ComponentRecommendation";
 export { ComponentType } from "./models/ComponentType";
 export { Condition } from "./models/Condition";
 export { ConditionOperator } from "./models/ConditionOperator";
@@ -3457,7 +3449,6 @@ export { CoverageSummaryData } from "./models/CoverageSummaryData";
 export { CoverageSummaryResponse } from "./models/CoverageSummaryResponse";
 export { CoverageSummaryServiceStats } from "./models/CoverageSummaryServiceStats";
 export { CoverageSummaryType } from "./models/CoverageSummaryType";
-export { Cpu } from "./models/Cpu";
 export { CreateActionConnectionRequest } from "./models/CreateActionConnectionRequest";
 export { CreateActionConnectionResponse } from "./models/CreateActionConnectionResponse";
 export { CreateAllocationsRequest } from "./models/CreateAllocationsRequest";
@@ -4487,7 +4478,6 @@ export { EscalationRelationshipsRespondersDataItemsType } from "./models/Escalat
 export { EscalationTarget } from "./models/EscalationTarget";
 export { EscalationTargets } from "./models/EscalationTargets";
 export { EscalationType } from "./models/EscalationType";
-export { Estimation } from "./models/Estimation";
 export { Event } from "./models/Event";
 export { EventAttributes } from "./models/EventAttributes";
 export { EventCategory } from "./models/EventCategory";
@@ -8079,9 +8069,6 @@ export { ReactNativeSourcemapMapKind } from "./models/ReactNativeSourcemapMapKin
 export { ReadinessGate } from "./models/ReadinessGate";
 export { ReadinessGateThresholdType } from "./models/ReadinessGateThresholdType";
 export { RecentlyUpdatedEntitiesResponse } from "./models/RecentlyUpdatedEntitiesResponse";
-export { RecommendationAttributes } from "./models/RecommendationAttributes";
-export { RecommendationData } from "./models/RecommendationData";
-export { RecommendationDocument } from "./models/RecommendationDocument";
 export { RecommendationsFilterRequest } from "./models/RecommendationsFilterRequest";
 export { RecommendationsFilterRequestData } from "./models/RecommendationsFilterRequestData";
 export { RecommendationsFilterRequestDataAttributes } from "./models/RecommendationsFilterRequestDataAttributes";
@@ -8090,11 +8077,6 @@ export { RecommendationsFilterRequestScope } from "./models/RecommendationsFilte
 export { RecommendationsFilterRequestSortItems } from "./models/RecommendationsFilterRequestSortItems";
 export { RecommendationsPageMeta } from "./models/RecommendationsPageMeta";
 export { RecommendationsPageMetaPage } from "./models/RecommendationsPageMetaPage";
-export { RecommendationType } from "./models/RecommendationType";
-export { RecommendationV2RequestAttributes } from "./models/RecommendationV2RequestAttributes";
-export { RecommendationV2RequestBody } from "./models/RecommendationV2RequestBody";
-export { RecommendationV2RequestData } from "./models/RecommendationV2RequestData";
-export { RecommendationV2RequestType } from "./models/RecommendationV2RequestType";
 export { ReferenceTableCreateSourceType } from "./models/ReferenceTableCreateSourceType";
 export { ReferenceTableSchemaFieldType } from "./models/ReferenceTableSchemaFieldType";
 export { ReferenceTableSortType } from "./models/ReferenceTableSortType";
