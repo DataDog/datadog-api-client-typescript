@@ -23,14 +23,16 @@ function deserializeOpts(
     if (serviceName === undefined) {
       throw new Error(`No service found for ${apiName}`);
     }
-    typingInfo = require(path.join(
-      servicesDir,
-      serviceName,
-      "src",
-      apiVersion,
-      "models",
-      "TypingInfo",
-    )).TypingInfo;
+    typingInfo = require(
+      path.join(
+        servicesDir,
+        serviceName,
+        "src",
+        apiVersion,
+        "models",
+        "TypingInfo",
+      ),
+    ).TypingInfo;
   }
   Object.keys(opts).forEach((key) => {
     const mapping = getProperty(
