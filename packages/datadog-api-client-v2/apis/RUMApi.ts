@@ -1258,7 +1258,7 @@ export class RUMApiResponseProcessor {
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
-    if (response.httpStatusCode === 200) {
+    if (response.httpStatusCode === 201) {
       const body: RUMApplicationResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
         "RUMApplicationResponse"

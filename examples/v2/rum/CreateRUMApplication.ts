@@ -1,5 +1,5 @@
 /**
- * Create a new RUM application returns "OK" response
+ * Create a new RUM application returns "Created" response
  */
 
 import { client, v2 } from "@datadog/datadog-api-client";
