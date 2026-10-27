@@ -3,6 +3,7 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
+import { HistoricalJobFailure } from "./HistoricalJobFailure";
 import { JobDefinition } from "./JobDefinition";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
@@ -27,6 +28,10 @@ export class HistoricalJobResponseAttributes {
    * ID of the rule used to create the job (if it is created from a rule).
    */
   "createdFromRuleId"?: string;
+  /**
+   * Details about why the job failed. Only present when the job has failed and won't be retried.
+   */
+  "failure"?: HistoricalJobFailure;
   /**
    * Definition of a historical job.
    */
@@ -83,6 +88,10 @@ export class HistoricalJobResponseAttributes {
     createdFromRuleId: {
       baseName: "createdFromRuleId",
       type: "string",
+    },
+    failure: {
+      baseName: "failure",
+      type: "HistoricalJobFailure",
     },
     jobDefinition: {
       baseName: "jobDefinition",

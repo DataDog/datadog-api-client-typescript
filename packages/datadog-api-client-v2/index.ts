@@ -5350,6 +5350,8 @@ export { HamrOrgConnectionResponse } from "./models/HamrOrgConnectionResponse";
 export { HamrOrgConnectionStatus } from "./models/HamrOrgConnectionStatus";
 export { HamrOrgConnectionType } from "./models/HamrOrgConnectionType";
 export { HistoricalJobDataType } from "./models/HistoricalJobDataType";
+export { HistoricalJobFailure } from "./models/HistoricalJobFailure";
+export { HistoricalJobFailureReason } from "./models/HistoricalJobFailureReason";
 export { HistoricalJobListMeta } from "./models/HistoricalJobListMeta";
 export { HistoricalJobOptions } from "./models/HistoricalJobOptions";
 export { HistoricalJobQuery } from "./models/HistoricalJobQuery";
