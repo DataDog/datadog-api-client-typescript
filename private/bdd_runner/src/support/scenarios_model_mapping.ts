@@ -14476,6 +14476,17 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
     },
     operationResponseType: "TagIndexingRuleExemptionResponse",
   },
+  "MetricsApi.V2.UpdateTagIndexingRuleExemption": {
+    metricName: {
+      type: "string",
+      format: "",
+    },
+    body: {
+      type: "TagIndexingRuleExemptionUpdateRequest",
+      format: "",
+    },
+    operationResponseType: "TagIndexingRuleExemptionResponse",
+  },
   "MetricsApi.V2.CreateTagIndexingRuleExemption": {
     metricName: {
       type: "string",
