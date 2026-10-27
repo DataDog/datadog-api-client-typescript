@@ -406,6 +406,8 @@ export { GetSuppressionVersionHistoryData } from "./models/GetSuppressionVersion
 export { GetSuppressionVersionHistoryDataType } from "./models/GetSuppressionVersionHistoryDataType";
 export { GetSuppressionVersionHistoryResponse } from "./models/GetSuppressionVersionHistoryResponse";
 export { HistoricalJobDataType } from "./models/HistoricalJobDataType";
+export { HistoricalJobFailure } from "./models/HistoricalJobFailure";
+export { HistoricalJobFailureReason } from "./models/HistoricalJobFailureReason";
 export { HistoricalJobListMeta } from "./models/HistoricalJobListMeta";
 export { HistoricalJobOptions } from "./models/HistoricalJobOptions";
 export { HistoricalJobQuery } from "./models/HistoricalJobQuery";
