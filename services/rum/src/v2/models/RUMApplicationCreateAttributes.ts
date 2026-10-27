@@ -8,6 +8,12 @@ import { RUMProductAnalyticsRetentionState } from "./RUMProductAnalyticsRetentio
  */
 export class RUMApplicationCreateAttributes {
   /**
+   * Whether to create the default retention filters when the application is created: `Sessions with errors` and `Sessions`, each with a 100% retention rate.
+   * Set to `false` to create the application without them, for example when you add your own retention filters right after creating it. Until you add retention filters, the application only retains sessions matched by its [permanent retention filters](https://docs.datadoghq.com/real_user_monitoring/rum_without_limits/retention_filters/#permanent-retention-filters).
+   * This setting doesn't affect permanent retention filters (sessions with forced replays, Synthetics sessions and RUM-APM flat sampling).
+   */
+  "createDefaultRetentionFilters"?: boolean;
+  /**
    * Name of the RUM application.
    */
   "name": string;
@@ -38,6 +44,10 @@ export class RUMApplicationCreateAttributes {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
+    createDefaultRetentionFilters: {
+      baseName: "create_default_retention_filters",
+      type: "boolean",
+    },
     name: {
       baseName: "name",
       type: "string",
