@@ -338,6 +338,12 @@ import { ArchiveSearchCreateRehydration } from "./ArchiveSearchCreateRehydration
 import { ArchiveSearchCreateRequest } from "./ArchiveSearchCreateRequest";
 import { ArchiveSearchCreateRequestAttributes } from "./ArchiveSearchCreateRequestAttributes";
 import { ArchiveSearchCreateRequestData } from "./ArchiveSearchCreateRequestData";
+import { ArchiveSearchListResponse } from "./ArchiveSearchListResponse";
+import { ArchiveSearchListResponseMeta } from "./ArchiveSearchListResponseMeta";
+import { ArchiveSearchRehydrateRequest } from "./ArchiveSearchRehydrateRequest";
+import { ArchiveSearchRehydrateRequestAttributes } from "./ArchiveSearchRehydrateRequestAttributes";
+import { ArchiveSearchRehydrateRequestData } from "./ArchiveSearchRehydrateRequestData";
+import { ArchiveSearchRehydrateRequestRehydration } from "./ArchiveSearchRehydrateRequestRehydration";
 import { ArchiveSearchRehydration } from "./ArchiveSearchRehydration";
 import { ArchiveSearchResponse } from "./ArchiveSearchResponse";
 import { ArchiveSearchResponseAttributes } from "./ArchiveSearchResponseAttributes";
@@ -10783,6 +10789,14 @@ const typeMap: { [index: string]: any } = {
   ArchiveSearchCreateRequest: ArchiveSearchCreateRequest,
   ArchiveSearchCreateRequestAttributes: ArchiveSearchCreateRequestAttributes,
   ArchiveSearchCreateRequestData: ArchiveSearchCreateRequestData,
+  ArchiveSearchListResponse: ArchiveSearchListResponse,
+  ArchiveSearchListResponseMeta: ArchiveSearchListResponseMeta,
+  ArchiveSearchRehydrateRequest: ArchiveSearchRehydrateRequest,
+  ArchiveSearchRehydrateRequestAttributes:
+    ArchiveSearchRehydrateRequestAttributes,
+  ArchiveSearchRehydrateRequestData: ArchiveSearchRehydrateRequestData,
+  ArchiveSearchRehydrateRequestRehydration:
+    ArchiveSearchRehydrateRequestRehydration,
   ArchiveSearchRehydration: ArchiveSearchRehydration,
   ArchiveSearchResponse: ArchiveSearchResponse,
   ArchiveSearchResponseAttributes: ArchiveSearchResponseAttributes,
