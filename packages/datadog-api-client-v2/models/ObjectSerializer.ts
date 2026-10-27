@@ -2528,6 +2528,7 @@ import { HamrOrgConnectionDataRequest } from "./HamrOrgConnectionDataRequest";
 import { HamrOrgConnectionDataResponse } from "./HamrOrgConnectionDataResponse";
 import { HamrOrgConnectionRequest } from "./HamrOrgConnectionRequest";
 import { HamrOrgConnectionResponse } from "./HamrOrgConnectionResponse";
+import { HistoricalJobFailure } from "./HistoricalJobFailure";
 import { HistoricalJobListMeta } from "./HistoricalJobListMeta";
 import { HistoricalJobOptions } from "./HistoricalJobOptions";
 import { HistoricalJobQuery } from "./HistoricalJobQuery";
@@ -7925,6 +7926,11 @@ const enumsMap: { [key: string]: any[] } = {
   HamrOrgConnectionStatus: [0, 1, 2, 3, 4, 5],
   HamrOrgConnectionType: ["hamr_org_connections"],
   HistoricalJobDataType: ["historicalDetectionsJob"],
+  HistoricalJobFailureReason: [
+    "rule_configuration",
+    "query_too_expensive",
+    "internal_error",
+  ],
   HistoricalMetricsConfigurationType: ["historical_metrics_configurations"],
   HourlyUsageType: [
     "app_sec_host_count",
@@ -13495,6 +13501,7 @@ const typeMap: { [index: string]: any } = {
   HamrOrgConnectionDataResponse: HamrOrgConnectionDataResponse,
   HamrOrgConnectionRequest: HamrOrgConnectionRequest,
   HamrOrgConnectionResponse: HamrOrgConnectionResponse,
+  HistoricalJobFailure: HistoricalJobFailure,
   HistoricalJobListMeta: HistoricalJobListMeta,
   HistoricalJobOptions: HistoricalJobOptions,
   HistoricalJobQuery: HistoricalJobQuery,
